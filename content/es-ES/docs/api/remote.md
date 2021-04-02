@@ -4,20 +4,20 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-> ⚠️ ADVERTENCIA ⚠️ El módulo  `remote` es [obsoleto](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> ⚠️ ADVERTENCIA ⚠️ El módulo  `remote` es [obsoleto](https://github.com/electron/electron/issues/21408). En lugar de `remote`, usa [`ipcRenderer`](ipc-renderer.md) y [`ipcMain`](ipc-main.md).
 > 
 > Lea más sobre porque el módulo `remote` es obsoleto [aquí](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 > 
-> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
+> Si aún quieres usar `remote` a pesar del rendimiento y la seguridad inquietudes, consulta [@electron/Remote](https://github.com/electron/remote).
 
 El módulo `remote` proporciona una manera sencilla de hacer una comunicación (IPC) entre el proceso de renderizado (página web) y el proceso principal.
 
 En electron, los módulos relacionados con GUI (como `dialog`, `menu` etc.) están solamente disponibles en el proceso principal, no en el proceso de renderizado. Para usarlos en el proceso de renderizado, el módulo `ipc` es necesario para enviar mensajes entre procesos al proceso principal. Con el módulo `remote`, se puede invocar métodos del objeto del proceso principal sin enviar explícitamente mensajes entre procesos. Es parecido al [RMI][rmi] de Java. Ejemplo de creación de una ventana de navegador desde un proceso de renderizado:
 
 ```javascript
-const { BrowserWindow } = require('electron').remote
-const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('https://github.com')
+const { BrowserWindow } = require (' Electron ').
+remoto const Win = New BrowserWindow ({ width: 800, height: 600 })
+Win. loadURL (' https://github.com ')
 ```
 
 **Note:** Para lo contrario (acceder al renderer process desde el main process), puede usar [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
@@ -49,7 +49,7 @@ Los tipos de valor primario como cadenas y números, sin embargo, son enviados p
 
 El código en el proceso principal puede aceptar callbacks desde el renderizador, por ejemplo el módulo `remote`, pero hay que extremo cuidado cuando se usa esta característica.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+En primer lugar, para evitar los interbloqueos, las devoluciones de llamada pasadas al proceso principal se denominan asincrónicamente. No debes esperar que el proceso principal obtener el valor devuelto de las devoluciones de llamada que se pasaron.
 
 Por ejemplo, no se puede utilizar una función del proceso de renderizado en un `Array.map` llamado en el proceso principal:
 
@@ -78,11 +78,11 @@ Como puede observarse, el valor devuelto sincrónico del callback renderizador n
 
 Segundo, los callbacks pasados al proceso principal persistirán hasta que los desechos del proceso principal los recopile.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Por ejemplo, el siguiente código parece inocente a primera vista. Instala una devolución de llamada de para el evento `close` en un objeto remoto:
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+requerir (' electrón '). remoto. getCurrentWindow (). on (' Close ', () => {
+  ////Window fue cerrada...
 })
 ```
 
@@ -125,7 +125,7 @@ Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el
 
 ### `remoto.require`
 
-A `NodeJS.Require` function equivalent to `require(module)` in the main process. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
+Una función de `NodeJS.Require` equivalente a `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
 por ejemplo.
 
@@ -140,9 +140,9 @@ project/
 ```
 
 ```js
-// main process: main/index.js
-const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
+proceso principal: main/index. js
+const { app } = require (' Electron ')
+app. whenReady (). then (() => {/*... */})
 ```
 
 ```js
@@ -157,7 +157,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` _Readonly_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Un objeto `NodeJS.Process`.  El objeto `process` en el main process. Esto es el mismo que `remote.getGlobal('process')` pero está en cache.
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
