@@ -12,10 +12,10 @@ Ejemplos:
 Los atajos son registrados con el módulo e [`globalShortcut`](global-shortcut.md) usando el método [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ejemplo.
 
 ```javascript
-const { app, globalShortcut } = require('electron')
+const { app, globalShortcut } = require (' Electron ')
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+app. whenReady (). then (() => {
+  //registrar una escucha de acceso directo ' CommandOrControl + Y '.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Hacer algo cuando se presiona tanto Tecla Command o Control + Y.
   })
