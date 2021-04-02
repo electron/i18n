@@ -1,50 +1,50 @@
 ## Klasse: BrowserWindow
 
-> Manipulate the child browser window
+> Bearbeiten des untergeordneten Browserfensters
 
 Prozess: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+Das `BrowserWindowProxy` Objekt wird von `window.open` zurückgegeben und bietet eingeschränkte Funktionalität im untergeordneten Fenster.
 
 ### Instanz Methoden
 
-The `BrowserWindowProxy` object has the following instance methods:
+Das `BrowserWindowProxy` -Objekt verfügt über die folgenden Instanzmethoden:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Entfernt den Fokus aus dem untergeordneten Fenster.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Schließt das untergeordnete Fenster gewaltsam, ohne das Entladeereignis aufzurufen.
 
 #### `win.eval(code)`
 
 * `code` String
 
-Evaluates the code in the child window.
+Wertet den Code im untergeordneten Fenster aus.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Fokussiert das untergeordnete Fenster (bringt das Fenster nach vorne).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Ruft das Druckdialogfeld im untergeordneten Fenster auf.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` any
+* `message`
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Sendet eine Nachricht an das untergeordnete Fenster mit dem angegebenen Ursprung oder `*` ohne Ursprungspräferenz.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+Zusätzlich zu diesen Methoden implementiert das untergeordnete Fenster `window.opener` Objekt ohne Eigenschaften und eine einzelne Methode.
 
 ### Instanz Eigenschaften
 
-The `BrowserWindowProxy` object has the following instance properties:
+Das `BrowserWindowProxy` -Objekt verfügt über die folgenden Instanzeigenschaften:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+Eine `Boolean` , die auf true festgelegt ist, nachdem das untergeordnete Fenster geschlossen wurde.
