@@ -8,21 +8,21 @@ Ejemplo para obtener una ruta real desde un archivo arrastrado dentro de la apli
 
 ```html
 <div id="holder">
-  Drag your file here
+  arrastra tu archivo aquí
 </div>
 
 <script>
-  document.addEventListener('drop', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  documento. addEventListener (' Drop ', (e) => {
+    e. preventDefault ();
+    e. stopPropagation ();
 
-    for (const f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
+    for (const f of e. dataTransfer. files) {
+      Console. log (' archivo (s) que arrastraste aquí: ', f. Path)
     }
   });
-  document.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  Document. addEventListener (' DragOver ', (e) => {
+    e. preventDefault ();
+    e. stopPropagation ();
   });
 </script>
 ```
