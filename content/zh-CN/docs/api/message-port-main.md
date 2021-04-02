@@ -1,31 +1,31 @@
-# MessagePortMain
+# 消息端口
 
-`MessagePortMain` is the main-process-side equivalent of the DOM [`MessagePort`][] object. It behaves similarly to the DOM version, with the exception that it uses the Node.js `EventEmitter` event system, instead of the DOM `EventTarget` system. This means you should use `port.on('message', ...)` to listen for events, instead of `port.onmessage = ...` or `port.addEventListener('message', ...)`
+`MessagePortMain` 是 DOM [`MessagePort`][] 对象的主要过程侧等效物。 它的行为类似于 DOM 版本，但 例外，它使用节点.js `EventEmitter` 事件系统，而不是 DOM `EventTarget` 系统。 这意味着您应该使用 `port.on('message', ...)` 来收听事件，而不是 `port.onmessage = ...` 或 `port.addEventListener('message', ...)`
 
-See the [Channel Messaging API][] documentation for more information on using channel messaging.
+有关使用 频道消息的更多信息，请参阅 [通道消息 API][] 文档。
 
-`MessagePortMain` is an \[EventEmitter\]\[event-emitter\].
+`MessagePortMain` 是一个 \[EventEmitter\]\[event-emitter\]。
 
-## Class: MessagePortMain
+## 类： 消息端口
 
 进程：[主进程](../glossary.md#main-process)
 
 ### 实例方法
 
-#### `port.postMessage(message, [transfer])`
+#### `港口.邮资信息（消息， [transfer]）`
 
-* `message` any
-* `transfer` MessagePortMain[] (optional)
+* `message` 任何
+* `transfer` 消息端口[]（可选）
 
-Sends a message from the port, and optionally, transfers ownership of objects to other browsing contexts.
+从端口发送消息，并可选地将对象的所有权 转移到其他浏览上下文。
 
-#### `port.start()`
+#### `端口。`
 
-Starts the sending of messages queued on the port. Messages will be queued until this method is called.
+开始发送在端口上排队的消息。 消息将 排队，直到此方法被调用。
 
-#### `port.close()`
+#### `端口关闭（）`
 
-Disconnects the port, so it is no longer active.
+断开端口，使其不再处于活动状态。
 
 ### 实例事件
 
@@ -33,15 +33,15 @@ Disconnects the port, so it is no longer active.
 
 返回:
 
-* `messageEvent` Object
-  * `data` any
-  * `ports` MessagePortMain[]
+* `messageEvent` 对象
+  * `data` 任何
+  * `ports` 消息端口[]
 
-Emitted when a MessagePortMain object receives a message.
+当消息端口对象收到消息时发出。
 
 #### 事件： 'close'
 
-Emitted when the remote end of a MessagePortMain object becomes disconnected.
+当消息端对象断开连接时发出。
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
-[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[通道消息 API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
