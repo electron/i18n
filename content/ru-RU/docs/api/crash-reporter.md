@@ -4,12 +4,12 @@
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-The following is an example of setting up Electron to automatically submit crash reports to a remote server:
+Ниже приводится пример настройки Electron для автоматического отправки отчетов о сбоях на удаленный сервер:
 
 ```javascript
-const { crashReporter } = require('electron')
+const { crashReporter } и требуют ('электрон')
 
-crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
+crashReporter.start (я submitURL: 'https://your-domain.com/url-to-submit' )
 ```
 
 Чтобы настроить сервер для приёма и обработки отчётов об ошибках, вы можете использовать эти проекты:
@@ -23,31 +23,31 @@ crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
+Отчеты о сбоях хранятся временно перед загрузкой в каталог под каталогом пользовательских данных приложения (так называемый 'Crashpad' на Windows и Mac, или 'Crash Reports' на Linux). Вы можете переопределить этот каталог, позвонив `app.setPath('crashDumps', '/path/to/crashes')` перед началом аварии репортером.
 
-On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
+На Windows и macOS Electron использует [аварийной панели](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) для мониторинга и сообщения о сбоях. На Linux Electron использует [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). Это является деталью реализации, движимой Хромом, и она может измениться в будущем. В частности, crashpad новее и, скорее всего, в конечном итоге заменить всех платформах.
 
-### Note about Node child processes on Linux
+### Примечание о детских процессах узла на Linux
 
-If you are using the Node.js `child_process` module and want to report crashes from those processes on Linux, there is an extra step you will need to take to properly initialize the crash reporter in the child process. This is not necessary on Mac or Windows, as those platforms use Crashpad, which automatically monitors child processes.
+Если вы используете модуль Node.js `child_process` и хотите сообщить о сбоях от этих процессов на Linux, есть дополнительный шаг, который вам нужно будет сделать, чтобы должным образом инициализировать репортер аварии в процессе ребенка. Это не обязательно Mac или Windows, так как эти платформы используют Crashpad, который автоматически контролирует детские процессы.
 
-Since `require('electron')` is not available in Node child processes, the following APIs are available on the `process` object in Node child processes. Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
+Поскольку `require('electron')` не доступен в процессах детей узла, следующие API доступны на объекте `process` в процессах детей узла. Обратите внимание, что на Linux, каждый процесс ребенка узла имеет свой собственный отдельный репортер аварии лома. Это отличается от процессов детей-рендеров, имеют "заглушку" брейкпад репортер, который возвращает информацию в основной для отчетности.
 
 #### `process.crashReporter.start(options)`
 
-See [`crashReporter.start()`](#crashreporterstartoptions).
+Смотрите [`crashReporter.start()`](#crashreporterstartoptions).
 
 #### `process.crashReporter.getParameters()`
 
-See [`crashReporter.getParameters()`](#crashreportergetparameters).
+Смотрите [`crashReporter.getParameters()`](#crashreportergetparameters).
 
-#### `process.crashReporter.addExtraParameter(key, value)`
+#### `process.crashReporter.addExtraParameter (ключ, значение)`
 
-See [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
+Смотрите [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
 
-#### `process.crashReporter.removeExtraParameter(key)`
+#### `process.crashReporter.removeExtraParameter (ключ)`
 
-See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
+Смотрите [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
 
 ## Методы
 
@@ -58,76 +58,76 @@ See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparamet
 * `options` Object
   * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
   * `productName` String (опционально) - Значение по умолчанию - `app.name`.
-  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. По умолчанию - `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. По умолчанию - `false`.
-  * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. По умолчанию - `false`.
-  * `compress` Boolean (optional) - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. По умолчанию - `true`.
-  * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
-  * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
+  * `companyName` Строка (по желанию) _Deprecated_ - Deprecated псевдоним для `{ globalExtra: { _companyName: ... } }`.
+  * `uploadToServer` Boolean (по желанию) - Следует ли отправить отчеты о на сервер. Если ложные сообщения о сбоях будут собраны и сохранены в каталоге , но не загружены. По умолчанию - `true`.
+  * `ignoreSystemCrashHandler` Boolean (по желанию) - Если это правда, , генерируемые в основном процессе, не будут перенаправлены обработчику сбоя системы. По умолчанию - `false`.
+  * `rateLimit` Boolean ( _)_ _MacOS_ Windows - Если это правда, количество сномов, загруженных до 1/hour. По умолчанию - `false`.
+  * `compress` Boolean (по желанию) - Если это правда, отчеты о сбоях будут и загружены `Content-Encoding: gzip`. По умолчанию - `true`.
+  * `extra` Запись<String, String> (необязательно) - Дополнительные строки ключ / значение аннотации, которые будут отправлены вместе с отчетами о сбоях, которые генерируются в основном процессе. Поддерживаются только значения строк. Аварии, генерируемые в детских процессах, не будут содержать эти дополнительные параметры к отчетам о сбоях, генерируемым из детских процессов, [`addExtraParameter`](#crashreporteraddextraparameterkey-value) из процесса.
+  * `globalExtra` Запись<String, String> (необязательно) - Дополнительные строки ключ / значение аннотации, которые будут отправлены вместе с любыми отчетами о сбоях, генерируемых в любом процессе. Эти аннотации не могут быть изменены после того, как репортер был запущен. Если ключ присутствует как в глобальных дополнительных параметрах, так в процессах дополнительных параметров, то глобальный будет иметь приоритет. По умолчанию `productName` и версия приложения включены, как , так и версия Electron.
 
-This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
+Этот метод должен быть вызван перед использованием любых других `crashReporter` API. После инициализированных таким образом, обработчик краш-панели собирает сома из всех впоследствии созданных процессов. Репортер аварии не может быть отключен после работы.
 
-This method should be called as early as possible in app startup, preferably before `app.on('ready')`. If the crash reporter is not initialized at the time a renderer process is created, then that renderer process will not be monitored by the crash reporter.
+Этот метод следует назвать как можно раньше в запуске приложения, предпочтительно до `app.on('ready')`. Если репортер аварии не инициализирован в когда создается процесс рендерера, то этот процесс рендерера не контролироваться репортером аварии.
 
-**Note:** You can test out the crash reporter by generating a crash using `process.crash()`.
+**Примечание:** Вы можете проверить аварии репортер, создавая аварии с помощью `process.crash()`.
 
-**Note:** If you need to send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter`.
+**Примечание:** Если вам нужно отправить дополнительные/обновленные параметры `extra` после первого вызова `start` вы можете позвонить `addExtraParameter`.
 
-**Note:** Parameters passed in `extra`, `globalExtra` or set with `addExtraParameter` have limits on the length of the keys and values. Key names must be at most 39 bytes long, and values must be no longer than 127 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+**Примечание:** , пройденные `extra`, `globalExtra` или установленные `addExtraParameter` , имеют ограничения по длине ключей и значений. Ключевые имена должны быть не более 39 байтов в длину, а значения должны быть не более 127 байтов. Ключи с именами длиннее максимума будут молча проигнорированы. Ключевые значения , чем максимальная длина будет усечена.
 
-**Note:** This method is only available in the main process.
+**Примечание:** Этот метод доступен только в основном процессе.
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. Если нет загруженных отчетов, возвращается `null`.
+Возвращает [`CrashReport`](structures/crash-report.md) - Дата и удостоверение личности последнего аварии. Только сообщения о сбоях, которые были загружены, будут возвращены; даже если отчет о сном присутствует на диске, он не будет возвращен до тех пор, пока загружен. Если нет загруженных отчетов, возвращается `null`.
 
-**Note:** This method is only available in the main process.
+**Примечание:** Этот метод доступен только в основном процессе.
 
 ### `crashReporter.getUploadedReports()`
 
 Возвращает [`CrashReport[]`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+Возвращает все загруженные отчеты о сбоях. Каждый отчет содержит дату и загруженный идентификатор.
 
-**Note:** This method is only available in the main process.
+**Примечание:** Этот метод доступен только в основном процессе.
 
 ### `crashReporter.getUploadToServer()`
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Возвращает `Boolean` - Должны ли отчеты быть представлены на сервер. Установите метод `start` или `setUploadToServer`.
 
-**Note:** This method is only available in the main process.
+**Примечание:** Этот метод доступен только в основном процессе.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean - Следует ли отчеты быть представлены на сервер.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+Обычно это контролируется предпочтениями пользователей. Это не имеет никакого эффекта, если вызваны `start` , как это называется.
 
-**Note:** This method is only available in the main process.
+**Примечание:** Этот метод доступен только в основном процессе.
 
-### `crashReporter.addExtraParameter(key, value)`
+### `crashReporter.addExtraParameter (ключ, значение)`
 
-* `key` String - Parameter key, must be no longer than 39 bytes.
-* `value` String - Parameter value, must be no longer than 127 bytes.
+* `key` String - Параметр ключ, должен быть не более 39 байтов.
+* `value` String - Параметр значение, должно быть не более 127 байтов.
 
-Установите дополнительный параметр, который будет отправлен с отчетом о сбое. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called.
+Установите дополнительный параметр, который будет отправлен с отчетом о сбое. Значения, указанные здесь, будут отправлены в дополнение к любым значениям, заданным через `extra` , `start` был вызван.
 
-Parameters added in this fashion (or via the `extra` parameter to `crashReporter.start`) are specific to the calling process. Adding extra parameters in the main process will not cause those parameters to be sent along with crashes from renderer or other child processes. Similarly, adding extra parameters in a renderer process will not result in those parameters being sent with crashes that occur in other renderer processes or in the main process.
+Параметры, добавленные таким образом (или через `extra` параметр `crashReporter.start`) специфичны для процесса вызова. Добавление дополнительных параметров в основной процесс не приведет к отправке этих параметров вместе с с сбоями от рендерера или других процессов ребенка. Аналогичным образом, добавление параметров в процесс рендерера не приведет к отправке этих параметров с сбоями, которые происходят в других процессах рендерера или в основном процессе.
 
-**Note:** Parameters have limits on the length of the keys and values. Key names must be no longer than 39 bytes, and values must be no longer than 20320 bytes. Keys with names longer than the maximum will be silently ignored. Key values longer than the maximum length will be truncated.
+**Примечание:** Параметры имеют ограничения по длине ключей и значений. Ключевые должны быть не более 39 байтов, а значения должны быть не более 20320 байтами. Ключи с именами длиннее максимума будут молча проигнорированы. Ключевые значения длиннее максимальной длины будут усечены.
 
-**Note:** On linux values that are longer than 127 bytes will be chunked into multiple keys, each 127 bytes in length.  Например, `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  On your crash reporting backend you should stitch together keys in this format.
+**Примечание:** на значениях Linux, которые длиннее 127 байтов, будут накочаны на несколько , каждый из которых имеет длину 127 байтов.  Например, `addExtraParameter('foo', 'a'.repeat(130))` приведет к двум коренастый ключи `foo__1` и `foo__2`, первый будет содержать первые 127 байтов, а второй будет содержать оставшиеся 3 байтов.  На отчета о сбоях вы должны сшить вместе ключи в этом формате.
 
-### `crashReporter.removeExtraParameter(key)`
+### `crashReporter.removeЭкстраПараметр (ключ)`
 
-* `key` String - Parameter key, must be no longer than 39 bytes.
+* `key` String - Параметр ключ, должен быть не более 39 байтов.
 
-Remove an extra parameter from the current set of parameters. Future crashes will not include this parameter.
+Удалите дополнительный параметр из текущего набора параметров. Будущие аварии не будут включать этот параметр.
 
 ### `crashReporter.getParameters()`
 
-Returns `Record<String, String>` - The current 'extra' parameters of the crash reporter.
+Возвращает `Record<String, String>` - Текущие "лишние" параметры аварии репортера.
 
 ## Отчет о нагрузке
 
@@ -139,7 +139,7 @@ Returns `Record<String, String>` - The current 'extra' parameters of the crash r
 * `guid` String - например, '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
 * `_version` String - Версия в `package.json`.
 * `_productName` String - Имя продукта в `crashReporter` `options` объекте.
-* `prod` String - Name of the underlying product. In this case Electron.
+* `prod` String - Название основного продукта. В этом случае Электрон.
 * `_companyName` String - Имя компании в `crashReporter` `options` объекте.
 * `upload_file_minidump` File - Отчет о сбое в формате `minidump`.
 * Все свойства на уровне 1 объекта `extra` в объекте `crashReporter` `options`.
