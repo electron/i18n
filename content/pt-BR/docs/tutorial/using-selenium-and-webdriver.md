@@ -1,12 +1,12 @@
 # Usando Selenium e WebDriver
 
-From [ChromeDriver - WebDriver for Chrome][chrome-driver]:
+De [ChromeDriver - WebDriver para Chrome][chrome-driver]:
 
-> WebDriver é uma ferramenta de código aberto para testes automatizados de aplicativos web em muitos navegadores. Ele fornece recursos para navegar até páginas da web, entrada do usuário, execução de JavaScript e muito mais. ChromeDriver é um servidor autônomo que implementa o protocolo de arame do WebDriver para Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver é uma ferramenta de código aberto para testes automatizados de aplicativos web em muitos navegadores. Ele fornece recursos para navegar até páginas da web, entrada do usuário, execução de JavaScript e muito mais. ChromeDriver é um servidor autônomo que implementa o protocolo de arame do WebDriver para Chromium. Está sendo desenvolvido por membros das equipes chromium e WebDriver.
 
 ## Configurando Spectron
 
-[Spectron][spectron] is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](https://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron][spectron] é a estrutura de testes chromeDriver oficialmente suportada para Electron. Ele é construído em cima de [WebdriverIO](https://webdriver.io/) e tem auxiliares para acessar APIs eletrônicas em seus testes e pacotes ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## Configurando com WebDriverJs
 
-[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) fornece um pacote Node para testes com driver web, usaremos-no como exemplo.
 
 ### 1. Iniciar ChromeDriver
 
@@ -78,19 +78,19 @@ const driver = new webdriver.Builder()
   .usingServer('http://localhost:9515')
   .withCapabilities({
     'goog:chromeOptions': {
-      // Here is the path to your Electron binary.
-      binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
+      // Aqui está o caminho para o binário Electron.
+      binário: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
-  .forBrowser('chrome') // note: use .forBrowser('electron') for selenium-webdriver <= 3.6.0
+  .forBrowser ('cromado') // nota: use .forBrowser ('elétron') para selênio <= 3.6.0
   .build()
 
-driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
-driver.wait(() => {
-  return driver.getTitle().then((title) => {
-    return title === 'webdriver - Google Search'
+driver.get ('http://www.google.com')
+driver.findElement (webdriver. By.name('q')).sendKeys('webdriver')
+driver.findElement(webdriver. By.name('btnG')).click()
+driver.wait(((() => {
+  return driver.getTitle().então(título) => { título de retorno
+    === 'webdriver - Google Search'
   })
 }, 1000)
 
@@ -99,7 +99,7 @@ driver.quit()
 
 ## Configurando com WebdriverIO
 
-[WebdriverIO](https://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](https://webdriver.io/) fornece um pacote Node para testes com o driver web .
 
 ### 1. Iniciar ChromeDriver
 
