@@ -27,7 +27,7 @@ Grande parte da funcionalidade do Electron é fornecida pelos componentes princi
 
 Electron 5 também inclui melhorias de APIs específicas da Electron. Um resumo das principais mudanças é abaixo; para a lista completa de mudanças, confira as [notas de versão do Electron v5.0.0](https://github.com/electron/electron/releases/tag/v5.0.0).
 
-### Promisification
+### Promisificação
 
 Electron 5 continua [iniciativa Promisification](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) para converter API baseada em callback do Electron para usar Promisification Promises. Estas APIs foram convertidas para Electron 5:
 * `app.getFileIcon`
@@ -62,7 +62,7 @@ Para melhorar a segurança na API</code> remoto `, novos eventos remotos foram a
 
 Agora é possível gerenciar vários BrowserViews dentro do mesmo BrowserWindow.
 
-## Breaking Changes
+## Quebrando mudanças
 
 ### Padrão para aplicativos empacotados
 
@@ -99,7 +99,7 @@ A fim de melhorar a segurança, os seguintes módulos estão sendo descontinuado
 * `os`
 * `path`
 
-## webFrame Isolated World APIs
+## APIs do mundo isolado do webFrame
 `webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` foram descontinuadas em favor de `webFrame.setIsolatedWorldInfo`.
 
 ### Misto de areia
