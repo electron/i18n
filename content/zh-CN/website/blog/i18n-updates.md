@@ -54,4 +54,4 @@ date: '2018-06-20'
 
 ## 🔦 贡献指南
 
-If you're interested in joining our effort to make Electron more international friendly, we have a handy-dandy [contributing guide](https://github.com/electron/i18n/blob/master/contributing.md) to help you get started. 快乐国际化！ 📚
+如果您有兴趣加入我们的努力，使电子更国际友好，我们有一个方便的花花公子 [贡献指南](https://github.com/electron/i18n/blob/master/contributing.md) ，以帮助您开始。 快乐国际化！ 📚
