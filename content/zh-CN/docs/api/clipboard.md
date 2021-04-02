@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-在 Linux 上，还有一个 `selection`粘贴板 。 To manipulate it you need to pass `selection` to each method:
+在 Linux 上，还有一个 `selection`粘贴板 。 要操作它 您需要将 `selection` 传递到每个方法：
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,111 +17,111 @@ console.log(clipboard.readText('selection'))
 
 ` clipboard ` 对象具有以下方法:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**注：** 实验API被标记为这样，将来可能会被移除。
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 返回 ` String `- 剪贴板中的纯文本内容。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（'电子'）
 
-clipboard.writeText('hello i am a bit of text!')
+剪贴板。
 
-const text = clipboard.readText()
-console.log(text)
-// hello i am a bit of text!'
+康斯特文本 = 剪贴板. 阅读文本 （）
+控制台.log （文本）
+/ / 你好， 我有点文本！
 ```
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 将 ` text ` 作为纯文本写入剪贴板。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（'电子'）
 
-const text = 'hello i am a bit of text!'
-clipboard.writeText(text)
+条短信='你好，我有点文字
+！
 ```
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 返回 ` String `- 剪贴板中的HTML内容。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（'电子'）
 
-clipboard.writeHTML('<b>Hi</b>')
-const html = clipboard.readHTML()
+剪贴板。写HTML（'<b>嗨</b>'）
+康斯特html=剪贴板。读HTML（）
 
-console.log(html)
-// <meta charset='utf-8'><b>Hi</b>
+控制台.log（html）
+// <meta charset='utf-8'><b>嗨</b>
 ```
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 将 ` markup ` 写入剪贴板。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（'电子'）
 
-clipboard.writeHTML('<b>Hi</b')
+剪贴板。写HTML（'<b>嗨</b'）
 ```
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 返回 [` NativeImage `](native-image.md)- 剪贴板中的图像内容。
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 将 ` image ` 写入剪贴板。
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 返回 ` String `- 剪贴板中的RTF内容。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（'电子'）
 
-clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+剪贴板\r。\\f0\pard\n这是一些\\b粗体}文本\r
+.log
 
-const rtf = clipboard.readRTF()
-console.log(rtf)
-// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+
+\n。\\f0\pard\n这是一些[粗体]文本\n。
 ```
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 向剪贴板中写入 RTF 格式的 `text`.
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =要求（'电子'）
 
-const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
-clipboard.writeRTF(rtf)
+康斯特rtf=\\\rtf1\ansi\字体\f0=fswis天鹅绒：\\f0\pard\n这是一些[\b粗体]文本
+\n。
 ```
 
-### `clipboard.readBookmark()` _macOS_ _Windows_
+### `clipboard.readBookmark()` _马科斯_ _窗口_
 
 返回 ` Object `:
 
@@ -130,142 +130,142 @@ clipboard.writeRTF(rtf)
 
 返回一个对象, 其中包含表示剪贴板中书签 `title` 和 `url` 。 当书签不可用时, ` title ` 和 ` url ` 值将为空字符串。
 
-### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
+### `clipboard.writeBookmark(title, url[, type])` _马科斯_ _窗口_
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 将书签的 ` title ` 和 ` url ` 写入剪贴板。
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**注意：** Windows 上的大多数应用不支持将书签粘贴到它们中，因此 您可以使用 `clipboard.write` 将书签和回退文本同时写入 剪贴板。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（"电子"）
 
-clipboard.writeBookmark({
-  text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
-})
+剪贴板。写书签（+
+  文本："https://electronjs.org"，
+  书签："电子主页"
+}）
 ```
 
-### `clipboard.readFindText()` _macOS_
+### `clipboard.readFindText()` _马科斯_
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+返回 `String` - 查找粘贴板上的文本，这是保存有关活动应用程序查找面板当前状态的信息的粘贴板。
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+当从渲染器过程中调用时，此方法使用同步 IPC。 每当应用程序被激活时，缓存值都会从查找粘贴板中重读。
 
-### `clipboard.writeFindText(text)` _macOS_
+### `clipboard.writeFindText(text)` _马科斯_
 
 * `text` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+将 `text` 写入查找粘贴板（保存有关活动应用程序查找面板当前状态的信息的粘贴板）中，作为纯文本。 当从渲染器过程中调用时，此方法使用同步 IPC。
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 清除剪贴板内容。
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 返回 ` String [] `- 剪贴板 ` type ` 所支持的格式的数组。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（"电子"）
 
-const formats = clipboard.availableFormats()
-console.log(formats)
-// [ 'text/plain', 'text/html' ]
+的const格式=剪贴板。可用格式（）
+控制台.log（格式）
+// [文本/纯"，"文本/html" |
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _实验_
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 返回 ` Boolean `, 剪贴板是否支持指定的 ` format `。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =要求（'电子'）
 
-const hasFormat = clipboard.has('<p>selection</p>')
-console.log(hasFormat)
-// 'true' or 'false
+const有形式=剪贴板。has（'<p>选择</p>'）
+控制台.log（有形式）
+//'真实'或'假'
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _实验_
 
 * `format` String
 
 返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _实验_
 
 * `format` String
 
 返回 ` Buffer `- 从剪贴板中读取 ` format ` 类型的内容。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =需要（"电子"）
 
-const buffer = Buffer.from('this is binary', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+缓冲区=缓冲区。 "utf8"）
+剪贴板. 写布弗 （"公共. utf8 纯文本"， 缓冲区）
 
-const ret = clipboard.readBuffer('public.utf8-plain-text')
+续 ret = 剪贴板. 阅读缓冲器 （"公共. utf8 - 纯文本"）
 
-console.log(buffer.equals(out))
-// true
+控制台.log （缓冲区. 等于 （出）
+// 真实
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _实验_
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 将 `buffer ` 作为 ` format ` 类型写入剪贴板。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =要求（"电子"）
 
-const buffer = Buffer.from('writeBuffer', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+const缓冲区=缓冲区。从（'写缓冲区'，'utf8'）
+剪贴板。写缓冲区（'公共.utf8-纯文本'，缓冲区）
 ```
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object
+* `data` 对象
   * ` text ` String（可选）
   * ` html ` String（可选）
   * `image` [NativeImage](native-image.md) (可选)
   * `rtf` String (可选)
-  * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+  * `bookmark` 字符串（可选） - `text`的网址标题。
+* `type` 字符串（可选） - 可以 `selection` 或 `clipboard`：默认值为"剪贴板"。 `selection` 仅在Linux上提供。
 
 将 ` data ` 写入剪贴板。
 
 ```js
-const { clipboard } = require('electron')
+康斯特 { clipboard } =要求（"电子"）
 
-clipboard.write({
-  text: 'test',
-  html: '<b>Hi</b>',
-  rtf: '{\\rtf1\\utf8 text}',
-  bookmark: 'a title'
-})
+剪贴板。写（{
+  文本："测试"，
+  html："<b>嗨，</b>"，
+  rtf： '\\rtf1\utf8 文本]，
+  书签： '标题'
+[）
 
-console.log(clipboard.readText())
-// 'test'
+控制台.log （剪贴板. readText ）
+/ / '测试'
 
-console.log(clipboard.readHTML())
-// <meta charset='utf-8'><b>Hi</b>
+控制台.log（剪贴板.readHTML）
+// <meta charset='utf-8'><b>嗨</b>
 
-console.log(clipboard.readRTF())
-// '{\\rtf1\\utf8 text}'
+控制台.log（剪贴板.readRTF）
+/\\\rtf1\utf8文本}"
 
-console.log(clipboard.readBookmark())
+控制台.log（剪贴板。阅读书签）
 // { title: 'a title', url: 'test' }
 ```
