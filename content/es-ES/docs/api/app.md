@@ -28,9 +28,9 @@ En la mayoría de los casos usted debe hacer todo desde el controlador del event
 Devuelve:
 
 * `event` Event
-* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
+* `launchInfo`<string, any> de registro | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Se emite una vez, cuando Electron ha terminado de iniciarse. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
+Se emite una vez, cuando Electron ha terminado de iniciarse. En macOS, `launchInfo` retiene la `userInfo` del `NSUserNotification` o la información de [`UNNotificationResponse`](structures/notification-response.md) que se usó para abrir la aplicación de , si se lanzó desde el centro de notificaciones. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
 
 ### Evento: 'window-all-closed'
 
@@ -327,25 +327,25 @@ Devuelve:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `details` Object
-  * `reason` String - The reason the render process is gone.  Posibles valores:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+* Objeto `details`
+  * `reason` String-la razón por la que el proceso de renderizado se ha ido.  Posibles valores:
+    * `clean-exit` -proceso salido con un código de salida de cero
+    * `abnormal-exit` -proceso salido con un código de salida distinto a cero
+    * `killed` -proceso fue enviado un SIGTERM o asesinado externamente
+    * `crashed` -Process se estrelló
+    * `oom` -Process se quedó sin memoria
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` -las verificaciones de integridad de código de Windows fallaron
   * `exitCode` Integer - El código de salida del proceso, a menos que `reason` sea `launch-failed`, en cuyo caso `exitCode` será un código de error de ejecución especifico de la plataforma.
 
-Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
+Emitido cuando el renderer process desaparece inesperadamente.  Esto suele ser porque fue estrellado o asesinado.
 
 ### Evento: 'child-process-gone'
 
 Devuelve:
 
 * `event` Event
-* `details` Object
+* Objeto `details`
   * `type` String - Tipo de proceso. Uno de los siguiente valores:
     * `Utilidad`
     * `Zygote`
@@ -354,19 +354,19 @@ Devuelve:
     * `Plugin Pepper`
     * `Broker de Plugin de Pepper`
     * `Desconocido`
-  * `reason` String - The reason the child process is gone. Posibles valores:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+  * `reason` String-la razón por la que el proceso hijo se ha ido. Posibles valores:
+    * `clean-exit` -proceso salido con un código de salida de cero
+    * `abnormal-exit` -proceso salido con un código de salida distinto a cero
+    * `killed` -proceso fue enviado un SIGTERM o asesinado externamente
+    * `crashed` -Process se estrelló
+    * `oom` -Process se quedó sin memoria
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
-  * `serviceName` String (optional) - The non-localized name of the process.
-  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+    * `integrity-failure` -las verificaciones de integridad de código de Windows fallaron
+  * Número de `exitCode` -el código de salida para el de proceso (p. ej., estado de waitpid if on POSIX, de GetExitCodeProcess en Windows).
+  * `serviceName` String (opcional)-el nombre no localizado del proceso.
+  * `name` String (opcional)-el nombre del proceso. Ejemplos de utilidad: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
+Se emite cuando el proceso hijo desaparece inesperadamente. Esto suele ser porque fue estrellado o asesinado. No incluye procesos de representador.
 
 ### Evento: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -405,7 +405,7 @@ Este evento será emitido dentro de la primera instancia de tu aplicación cuand
 
 `argv` Es un Array los argumentos de la línea de comando de la segunda instancia y `workingDirectory` es su actual directorio de trabajo. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
-**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+**Nota:** si la segunda instancia es iniciada por un usuario diferente a la primera, la matriz de `argv` no incluirá los argumentos.
 
 Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
@@ -513,7 +513,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`. See also `app.whenReady()`.
+Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`. Ver también `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -522,11 +522,11 @@ Retorna `Promise<void>` - cumplido cuando Electron esta inicializado. También p
 ### `app.focus([options])`
 
 * `options` Object (opcional)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ -hacer que el receptor de la App activa, incluso si otra App está activa actualmente.
 
-En Linux, se centra en la primera ventana visible. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+En Linux, se centra en la primera ventana visible. En macOS, hace que la aplicación la App activa. En Windows, se centra en la primera ventana de la aplicación.
 
-You should seek to use the `steal` option as sparingly as possible.
+Deberías tratar de usar la opción de `steal` tan escasamente como sea posible.
 
 ### `app.hide()` _macOS_
 
@@ -550,7 +550,7 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name:
+* `name` String-puedes solicitar las siguientes rutas por el nombre:
   * `Inicio` Directorio de inicio del usuario.
   * `appData` Directorio de datos de la aplicación por usuario, el cual por defecto apunta a:
     * `%APPDATA%` en Windows
@@ -567,9 +567,9 @@ Devuelve `String` - al directorio de la aplicación actual.
   * `musica` Directorio para la música del usuario.
   * `imágenes` Directorio para las imágenes del usuario.
   * `videos` Directorio para las imágenes del usuario.
-  * `recent` Directory for the user's recent files (Windows only).
+  * `recent` directorio para los archivos recientes del usuario (solo Windows).
   * `logs` Directorio para los archivos de registro de la aplicación.
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` directorio donde se almacenan los volcados de memoria.
 
 Devuelve `String` - Una ruta a un directorio especial o un archivo asociado con `name`. En caso de falla, un `Error` es lanzado.
 
@@ -622,7 +622,7 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 
 Reescribe el nombre de la aplicación actual.
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**Nota:** esta función anula el nombre utilizado internamente por electrones; no afecta el nombre que usa el sistema operativo.
 
 ### `app.getLocale()`
 
@@ -655,14 +655,14 @@ Borra la lista de documentos recientes.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Por ejemplo si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
-* `path` String (optional) _Windows_ - The path to the Electron executable. Por defecto a `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Por defecto a un array vacío
+* `path` cadena (opcional) _Windows_ -la ruta al ejecutable electrónico. Por defecto a `process.execPath`
+* `args` String [] (opcional) __ de Windows-argumentos pasados al ejecutable. Por defecto a un array vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Establece el ejecutable actual as el manejador por defecto para un protocolo (alias esquema URI). Te permite integrar tu app aún más en el sistema operativo. Una vez registrado. todos los enlaces con `tu-protocolo://` serán abiertos con el ejecutable actual. Todo el enlace, incluyendo el protocolo, sera pasado a tu aplicación como un parámetro.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. Vea la [Apple's documentation][CFBundleURLTypes] para mas información.
+**Nota:** en macOS, solo puedes registrar protocolos que se hayan agregado para la `info.plist`de tu App, que no se puede modificar en tiempo de ejecución. Sin embargo, puedes cambiar el archivo durante el tiempo de construcción a través de [][electron-forge]de forja de electrones, [][electron-packager]de Empaquetador de electrones o editando `info.plist` con un editor de texto . Vea la [Apple's documentation][CFBundleURLTypes] para mas información.
 
 **Note:** En un entorno de Windows Store (cuando se empaqueta como `appx`) esta API devolverá `true` para todas las llamadas pero la clave de registro que establece no será accesible por otras aplicaciones.  Para registrar tu aplicación de Windows Store como gestor de protocolo determinado debe [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
@@ -676,7 +676,7 @@ La API usa el Registro de Windows y `LSSetDefaultHandlerForURLScheme` internamen
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Este método comprueba si el ejecutable actual como el controlador predeterminado para un protocolo de (también conocido como esquema de URI). Si es así, eliminará la App como el controlador predeterminado.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
@@ -704,9 +704,9 @@ Este método devuelve el nombre de la aplicación del controlador para el protoc
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
-* `icon` NativeImage - the display icon of the app handling the protocol.
-* `path` String  - installation path of the app handling the protocol.
-* `name` String - display name of the app handling the protocol.
+* `icon` NativeImage-el icono de visualización de la App que maneja el protocolo.
+* `path` cadena-ruta de instalación de la App que maneja el protocolo.
+* `name` cadena-nombre para mostrar de la App que maneja el protocolo.
 
 Este método devuelve una promesa que contiene el nombre, ícono y ruta de la aplicación del manejador predeterminado para el protocolo (esquema URI) de una URL.
 
@@ -737,7 +737,7 @@ Configura o remueve una Jump list personalizada para la aplicación, y devuelve 
 
 * `ok` - Nada salió mal.
 * `error` - Uno o más errores ocurrieron, habilite el registro del tiempo de corrida para averiguar la causa probable.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+* `invalidSeparatorError` -se intentó agregar un separador a una categoría de personalizada en la lista de saltos. Los separadores solo se permiten en la categoría de `Tasks` estándar.
 * `Error en el registro del archivo` - Fue realizado un intento de añadir el enlace del archivo a la Jump list para un tipo de archivo que la aplicación no está registrada para controlar.
 * `Error Acceso a categoría personalizada negado` - Cateogrías personalizadas no pueden ser añadidas a la Jump List debido a la privacidad del usuario o a la política del grupo.
 
@@ -750,57 +750,57 @@ Si la `categoría` es `nula` la configuración personalizada previa de la Jump L
 Aquí hay un ejemplo sencillo de cómo crear una Jump List personalizada:
 
 ```javascript
-const { app } = require('electron')
+const { app } = require (' Electron ')
 
-app.setJumpList([
+app. setJumpList ([
   {
-    type: 'custom',
-    name: 'Recent Projects',
+    Type: ' Custom ',
+    Name: ' Recent projects ',
     items: [
-      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-      { type: 'file', path: 'C:\\Projects\\project2.proj' }
+      {Type: ' file ', Path: ' C:\\Projects\\project1.proj '},
+      {Type: ' file ', Path: ' C:\\Projects\\project2.proj '}
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  {//tiene un nombre por lo que se asume que ' type ' es "Custom"
+    nombre: ' Tools ',
     items: [
       {
-        type: 'task',
-        title: 'Tool A',
-        program: process.execPath,
-        args: '--run-tool-a',
-        icon: process.execPath,
+        Type: ' Task ',
+        title: ' Tool A ',
+        Program: Process. execPath,
+        args: '--Run-Tool-a ',
+        Icon: Process. execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        Description: ' ejecuta la herramienta A '
       },
       {
-        type: 'task',
-        title: 'Tool B',
-        program: process.execPath,
-        args: '--run-tool-b',
-        icon: process.execPath,
+        tipo : ' Task ',
+        title: ' Tool B ',
+        Program: Process. execPath,
+        args: '--Run-Tool-B ',
+        Icon: Process. execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        Description: ' ejecuta la herramienta B '
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
-    items: [
+  {//no tiene ningún nombre y no se asume ningún tipo de "tipo" de "tareas"
+    elementos: [
       {
-        type: 'task',
-        title: 'New Project',
-        program: process.execPath,
-        args: '--new-project',
-        description: 'Create a new project.'
+        Type: ' Task ',
+        title: ' New Project ',
+        Program: Process. execPath,
+        args: '--New-Project ',
+        Description: ' crear un proyecto nuevo. '
       },
       { type: 'separator' },
       {
-        type: 'task',
-        title: 'Recover Project',
-        program: process.execPath,
-        args: '--recover-project',
-        description: 'Recover Project'
+        Type: ' Task ',
+        title: ' recover Project ',
+        Program: Process. execPath,
+        args: '--recover-Project ',
+        Description: ' recover Project '
       }
     ]
   }
@@ -852,15 +852,15 @@ Este método devuelve si esta instancia de tu aplicación es actualmente manteni
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Libera todos los bloqueos que fueron creados por `requestSingleInstanceLock`. Esto permitir que varias instancias de la aplicación vuelvan a ejecutarse una al lado de la otra.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any - Estado especifico de la aplicación para almacenar para su uso por otro dispositivo.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `webpageURL` String (opcional)-la página web que se cargará en un navegador si no hay instalada una App adecuada en el dispositivo de reanudación. El esquema debe ser `http` o `https`.
 
-Crea un `NSUserActivity` y se establece como la actividad actual. The activity is eligible for [Handoff][handoff] to another device afterward.
+Crea un `NSUserActivity` y se establece como la actividad actual. El de la actividad es elegible para [entrega][handoff] a otro dispositivo posteriormente.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -889,15 +889,15 @@ Cambia el [Id Modelo de Usuario de la Aplicación][app-user-model-id] a `id`.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+* `policy` cadena-puede ser ' normal ', ' accesorio ' o ' prohibido '.
 
-Sets the activation policy for a given app.
+Establece la política de activación para una App determinada.
 
-Activation policy types:
+Tipos de políticas de activación:
 
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+* ' regular '-la aplicación es una App ordinaria que aparece en el Dock y puede tener una interfaz de usuario.
+* ' accesorio '-la aplicación no aparece en el Dock y no tiene una barra de menú, pero puede activarse de forma programática o haciendo clic en una de sus ventanas.
+* ' prohibido '-la aplicación no aparece en el Dock y no puede crear ventanas o activarse.
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -917,7 +917,7 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
+Por defecto, Chromium inhabilita las API 3D (p. ej., WebGL) hasta que se reinicia por de dominio si la GPU procesa con demasiada frecuencia. Esta función inhabilita ese comportamiento.
 
 Este método solo puede ser llamado despues de iniciada la aplicación.
 
@@ -945,7 +945,7 @@ Para `infoType` igual a `complete`: La promesa es completada con `Object` conten
 {
   auxAttributes:
    {
-     amdSwitchable: true,
+     Amdconmutable: true,
      canSupportThreadedTextureMailbox: false,
      directComposition: false,
      directRendering: true,
@@ -953,9 +953,9 @@ Para `infoType` igual a `complete`: La promesa es completada con `Object` conten
      inProcessGpu: true,
      initializationTime: 0,
      jpegDecodeAcceleratorSupported: false,
-     optimus: false,
+     Optimus: false,
      passthroughCmdDecoder: false,
-     sandboxed: false,
+     espacio aislado: falso,
      softwareRendering: false,
      supportsOverlays: false,
      videoDecodeAcceleratorFlags: 0
@@ -963,8 +963,8 @@ Para `infoType` igual a `complete`: La promesa es completada con `Object` conten
   gpuDevice:
    [{ active: true, deviceId: 26657, vendorId: 4098 },
      { active: false, deviceId: 3366, vendorId: 32902 }],
-  machineModelName: 'MacBookPro',
-  machineModelVersion: '11.5'
+  machineModelName: ' MacBookPro ',
+  machineModelVersion: ' 11,5 '
 }
 ```
 
@@ -976,11 +976,11 @@ El uso de `basic` debería ser preferido si sólo se necesita información bási
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Sets the counter badge for current app. Setting the count to `0` will hide the badge.
+Establece la insignia de contador para la App actual. Si configuras la cuenta como `0` , se ocultará la insignia de .
 
-On macOS, it shows on the dock icon. En Linux, solo funciona para Unity launcher.
+En macOS, se muestra en el icono del Dock. En Linux, solo funciona para Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Nota:** unidad Launcher requiere la existencia de un archivo `.desktop` para trabajar, para obtener más información, consulta [integración del entorno del escritorio][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -993,37 +993,37 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
 * `options` Object (opcional)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Por defecto a `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Por defecto a un array vacío.
+  * `path` cadena (opcional) _Windows_ -la ruta ejecutable con la que compararla. Por defecto a `process.execPath`.
+  * `args` String [] (opcional) _Windows_ -los argumentos de la línea de comandos para comparar con. Por defecto a un array vacío.
 
 Su proporcionas las opciones `path` y `args` a `app.setLoginItemSettings`, entonces necesitas pasar los mismos argumentos aquí para `openAtLogin` para que sea correctamente configurado.
 
 Devuelve `Objecto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. This setting is not available on [MAS builds][mas-builds].
-* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
-* `launchItems` Object[] _Windows_
-  * `name` String _Windows_ - name value of a registry entry.
-  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
-  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
-  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
-  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
+* `openAsHidden` Boolean _macOS_ - `true` si la App está configurada para abrirse como oculta en el inicio de sesión. Esta configuración no está disponible en [][mas-builds]MAS construye.
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` si la APP se abrió en el inicio de sesión automáticamente. Esta configuración no está disponible en [][mas-builds]MAS construye.
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` si la APP se abrió como un elemento de inicio de sesión oculto . Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Esta configuración no está disponible en [][mas-builds]MAS construye.
+* `restoreState` Boolean _macOS_ - `true` si la APP se abrió como elemento de inicio de sesión que debería restaurar el estado desde la sesión anterior. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Esta configuración no está disponible en [][mas-builds]MAS construye.
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` si la App está configurada para abrir en el inicio de sesión y no se desactiva su llave de ejecución. Esto difiere de `openAtLogin` ya que ignora la opción de `args` , esta propiedad será verdadera si el ejecutable dado se iniciará en el inicio de sesión con **cualquier argumento de** .
+* `launchItems` Object [] _Windows_
+  * `name` cadena _valor de nombre de_ de Windows de una entrada de registro.
+  * `path` cadena _Windows_ -el ejecutable para una aplicación que corresponde a una entrada de registro.
+  * `args` String [] _Windows_ -los argumentos de la línea de comandos para pasar al ejecutable.
+  * `scope` cadena _Windows_ -una de `user` o `machine`. Indica si la entrada del registro está bajo `HKEY_CURRENT USER` o `HKEY_LOCAL_MACHINE`.
+  * `enabled` Boolean _Windows_ - `true` si la clave del registro de la App está en Inicio aprobada y, por lo tanto, se muestra como `enabled` en el administrador de tareas y en los parámetros de Windows.
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
-* `settings` Object
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Por defecto es `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. This setting is not available on [MAS builds][mas-builds].
-  * `path` String (optional) _Windows_ - The executable to launch at login. Por defecto a `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Por defecto a un array vacío. Take care to wrap paths in quotes.
-  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Por defecto es `true`.
-  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Establece los objetos de inicio de ajuste de la aplicación.
+* Objeto `settings`
+  * `openAtLogin` Boolean (opcional)- `true` para abrir la app en el inicio de sesión, `false` para eliminar la App como elemento de inicio de sesión. Por defecto es `false`.
+  * `openAsHidden` Boolean (opcional) _macOS_ - `true` para abrir la App como oculta. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. Esta configuración no está disponible en [][mas-builds]MAS construye.
+  * `path` cadena (opcional) _Windows_ -el ejecutable que se iniciará en el inicio de sesión. Por defecto a `process.execPath`.
+  * `args` String [] (opcional) _Windows_ -los argumentos de la línea de comando que se pasarán a el ejecutable. Por defecto a un array vacío. Cuida los trazados de envolver en comillas.
+  * `enabled` Boolean (opcional) _Windows_ - `true` cambiará la clave de registro aprobada de inicio y `enable / disable` la app en el administrador de tareas y los parámetros de Windows. Por defecto es `true`.
+  * `name` cadena (opcional) _nombre de_ -valor de Windows para escribir en el registro. El valor predeterminado es AppUserModelId () de la App. Establece los objetos de inicio de ajuste de la aplicación.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Por ejemplo:
+Para trabajar con `autoUpdater` de Electron en Windows, que usa [][Squirrel-Windows]de ardilla, desearás configurar la ruta de inicio para actualizar. exe y pasar argumentos que especifiquen tu nombre de aplicación de . Por ejemplo:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1052,11 +1052,11 @@ Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite expon
 
 Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** árbol de accesibilidad de representación puede afectar de manera significativa el rendimiento de tu app. No se debe habilitar por defecto.
 
 ### `app.showAboutPanel()`
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+Muestra las opciones del panel acerca de las aplicaciones. Estas opciones se pueden sobrescribir con `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)`
 
@@ -1064,13 +1064,13 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` Cadena (opcional) - El nombre de la aplicación.
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
-  * `version` String (optional) _macOS_ - The app's build version number.
-  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
-  * `authors` String[] (optional) _Linux_ - List of app authors.
-  * `website` String (optional) _Linux_ - The app's website.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `version` cadena (opcional) _macOS_ -el número de versión de construcción de la App.
+  * `credits` cadena (opcional) _macOS_ _Windows_ -información de crédito.
+  * `authors` String [] (opcional) _Linux_ -lista de autores de la App.
+  * `website` cadena (opcional) _Linux_ -el sitio web de la App.
+  * `iconPath` cadena (opcional) _Linux_ _Windows_ -path al icono de la app en un formato de archivo JPEG o PNG. En Linux, se mostrarán como 64x64 píxeles mientras se retiene la proporción de aspecto.
 
-Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. Ver el [Apple docs][about-panel-options] para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+Establece el panel de opciones. Esto reemplazará los valores definidos en el archivo de `.plist` de la app en macOS. Ver el [Apple docs][about-panel-options] para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 
 Si no estableces `credits` pero aún deseas sacarlos en tu aplicación, AppKit buscará por un archivo llamado "Credits.html", "Credits.rtf", y "Credits.rtfd", en ese orden, en el paquete devuelto por el método de clase principal NSBundle. El primer archivo encontrado es usado, y si no se encuentra ninguno, el área de información se deja en blanco. Vea la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) de Apple para más información.
 
@@ -1090,51 +1090,51 @@ Devuelve `Function` - Esta función **debe** ser llamado una vez que hayas termi
 
 ```js
 // Empezar a acceder el archivo.
-const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 🎉
+const stopAccessingSecurityScopedResource = app. startAccessingSecurityScopedResource (Data)
+//ahora puedes acceder al archivo fuera del entorno Sandbox 🎉
 
-// Remember to stop accessing the file once you've finished with it.
-stopAccessingSecurityScopedResource()
+//recuerda dejar de acceder al archivo una vez que hayas terminado con él.
+stopAccessingSecurityScopedResource ()
 ```
 
 Empezar a acceder un recurso de ámbito de seguridad. Con este método las aplicaciones Electron que están empaquetadas para la Mac App Store pueden llegar fuera de su caja de arena para acceder a los archivos elegidos por el usuario. Ver a [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) por una descripción de cómo funciona este sistema.
 
-### `app.enableSandbox()`
+### `App. enableSandbox ()`
 
-Habilita el modo sandbox completo en la aplicación. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Habilita el modo sandbox completo en la aplicación. Esto significa que todos los renderizadores se lanzarán en un espacio aislado, independientemente del valor de la marca de `sandbox` en WebPreferences.
 
 Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` _macOS_
 
-Devuelve `Boolean` - Si la aplicación esta actualmente ejecutándose desde la carpeta de Aplicación del sistema. Use in combination with `app.moveToApplicationsFolder()`
+Devuelve `Boolean` - Si la aplicación esta actualmente ejecutándose desde la carpeta de Aplicación del sistema. Usar en combinación con `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (opcional)
-  * `conflictHandler` Function\<Boolean> (opcional) - Un controlador para el potencial conflicto en el fallo de movimiento.
+  * `conflictHandler` function \<Boolean> (opcional) - Un controlador para el potencial conflicto en el fallo de movimiento.
     * `conflictType` String - El tipo de conflicto de movimiento encontrado por el controlador; puede ser `exists` o `existsAndRunning`, donde `exists` quiere decir que una aplicación con el mismo nombre está presente el directorio de las Aplicaciones y `existsAndRunning` quiere decir que que existe y que se está ejecutando actualmente.
 
-Devuelve `Boolean` - Si el movimiento fue realizado correctamente. Please note that if the move is successful, your application will quit and relaunch.
+Devuelve `Boolean` - Si el movimiento fue realizado correctamente. Ten en cuenta que si el movimiento es exitoso, tu aplicación se cerrará y se relanzará.
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+No se presentará un diálogo de confirmación por defecto. Si deseas permitir que el usuario confirme la operación, puedes hacerlo usando el [`dialog`](dialog.md) API.
 
 **Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por ejemplo si el usuario cancela el dialogo de autorización, este método va a devolver falso. Si nosotros no realizamos la copia, entonces este método va a lanzar un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Este comportamiento puede ser cambiado proporcionando un controlador de conflicto opcional, donde el booleano devuelto por el controlado determina si el conflicto de movimiento se resuelve o no con el controlador por defecto.  es decir, devolviendo `false` se asegura que no se tomaran más acciones, devolviendo `true` resultará en el comportamiento por defecto y el método continuando.
+Por defecto, si una app del mismo nombre que la que se está trasladando existe en el directorio de aplicaciones y no __ ejecutándose, la App existente se traspasará y la App activa se moverá a su lugar. Si __ se está ejecutando, la App que se ejecuta preexistente asumirá el foco y la App previamente activa se cerrará por sí misma. Este comportamiento puede ser cambiado proporcionando un controlador de conflicto opcional, donde el booleano devuelto por el controlado determina si el conflicto de movimiento se resuelve o no con el controlador por defecto.  es decir, devolviendo `false` se asegura que no se tomaran más acciones, devolviendo `true` resultará en el comportamiento por defecto y el método continuando.
 
 Por ejemplo:
 
 ```js
-app.moveToApplicationsFolder({
+App. moveToApplicationsFolder ({
   conflictHandler: (conflictType) => {
-    if (conflictType === 'exists') {
-      return dialog.showMessageBoxSync({
-        type: 'question',
-        buttons: ['Halt Move', 'Continue Move'],
+    if (conflictType = = = ' exists ') {
+      diálogo de retorno. showMessageBoxSync ({
+        Type: ' Question ',
+        botones: [' Halt Move ', ' Continue Move '],
         defaultId: 0,
-        message: 'An app of this name already exists'
-      }) === 1
+        Message: ' una app de este nombre ya existe '
+      }) = = = 1
     }
   }
 })
@@ -1144,21 +1144,21 @@ Significaría que si una aplicación ya existe en el directorio del usuario, si 
 
 ### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
-Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+Devuelve `Boolean` -si `Secure Keyboard Entry` está habilitado.
 
-By default this API will return `false`.
+Por defecto, esta API devolverá `false`.
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+* `enabled` Boolean-enable o Disable `Secure Keyboard Entry`
 
-Set the `Secure Keyboard Entry` is enabled in your application.
+Establecer el `Secure Keyboard Entry` está habilitado en tu aplicación.
 
-By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+Al usar esta API, se puede evitar que otros procesos intercepten información importante como contraseña y otra información confidencial.
 
-See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+Consulta [](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) de documentación de Apple para obtener más detalles.
 
-**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+**Nota:** habilitar `Secure Keyboard Entry` solo cuando sea necesario y desactívelo cuando ya no se necesite.
 
 ## Propiedades
 
@@ -1166,11 +1166,11 @@ See [Apple's documentation](https://developer.apple.com/library/archive/technote
 
 Un propiedad `Boolean` eso es `true` si el soporte de accesibilidad de Chrome esta activado, `false` de otra manera. Esta propiedad será `true` si se ha detectado el uso de tecnologías asistitivas, como lectores de pantalla. Estableciendo esta propiedad manualmente a `true` se activá el soporte de accesibilidad de Chrome, permitiendo a los desarrolladores exponer el cambio de accesibilidad a los usuarios en la configuración de la aplicación.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Desactivado por defecto.
+Consulta [](https://www.chromium.org/developers/design-documents/accessibility) de documentación de accesibilidad de Chromium para obtener más detalles. Desactivado por defecto.
 
 Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Nota:** árbol de accesibilidad de representación puede afectar de manera significativa el rendimiento de tu app. No se debe habilitar por defecto.
 
 ### `app.applicationMenu`
 
@@ -1178,21 +1178,21 @@ Una propiedad `Menu | null` que devuelve [`Menu`](menu.md) si uno ha sido establ
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-Una propiedad `Integer` que devuelve el recuento de insignias para la aplicación actual. Setting the count to `0` will hide the badge.
+Una propiedad `Integer` que devuelve el recuento de insignias para la aplicación actual. Si configuras la cuenta como `0` , se ocultará la insignia.
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+En macOS, configurar esto con cualquier número entero distinto de cero en el icono del Dock. En Linux, esta propiedad solo funciona para Unity Launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Nota:** unidad Launcher requiere la existencia de un archivo `.desktop` para trabajar, para obtener más información, consulta [integración del entorno del escritorio][unity-requirement].
 
-**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
+**Nota:** en macOS, debes asegurarte de que tu aplicación tiene el permiso para mostrar las notificaciones de esta propiedad para que surtan efecto.
 
 ### `app.commandLine` _Readonly_
 
 Un objeto [`CommandLine`](./command-line.md) que te permite leer y manipular los argumentos de linea de comando que usa Chromium.
 
-### `app.dock` _macOS_ _Readonly_
+### `app.dock` _macOS_ _ReadOnly_
 
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+Una [`Dock`](./dock.md) `| undefined` objeto que te permite realizar acciones en el icono de tu app en el Dock de del usuario en macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1212,26 +1212,39 @@ Este es el agente de usuario que se utilizará cuando ningún agente de usuario 
 
 ### `app.allowRendererProcessReuse`
 
-Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene en su lugar para asegurar que los renderer processes son reiniciados en cada navegación.  The current default value for this property is `true`.
+Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene en su lugar para asegurar que los renderer processes son reiniciados en cada navegación.  El valor predeterminado actual de para esta propiedad es `true`.
 
 La intención para estos anuladores es desactivan por defecto y luego en algún punto en el futuro esta propiedad sera eliminada.  Esta propiedad impacta en cuales modulos nativos puedes usar en el renderer process.  Para más información de la dirección en que Electron esta yendo con el renderer process, reinicio y uso de modulos nativos en el renderer process por favor revisa esto [Tracking Issue](https://github.com/electron/electron/issues/18397).
 
-### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+### `app.runningUnderRosettaTranslation` _macOS_ _ReadOnly_
 
-A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+Una `Boolean` que cuando `true` indica que la APP se está ejecutando actualmente dentro del [de Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
-You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+Puedes usar esta propiedad para pedir a los usuarios que descarguen la versión arm64 de tu aplicación cuando están ejecutando la versión x64 en Rosetta incorrectamente.
 
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/
+[electron-forge]: https://www.electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
 [electron-packager]: https://github.com/electron/electron-packager
 [CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
+[handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
+[Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
 [about-panel-options]: https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc
