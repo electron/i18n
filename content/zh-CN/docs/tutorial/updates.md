@@ -80,16 +80,16 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
-  }
+    detail: 'A new version has been downloaded. 重新启动应用程序以应用更新。
+  [
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
-  })
-})
+  对话。显示信息箱（对话点）然后（返回值）=> =
+    （返回价值。响应==0）自动启动。退出安装（）
+  }）
+}）
 ```
 
-还请确认错误是 [正在处理](../api/auto-updater.md#event-error)。 Here's an example for logging them to `stderr`:
+还请确认错误是 [正在处理](../api/auto-updater.md#event-error)。 下面是一个 记录它们以 `stderr`示例：
 
 ```javascript
 autoUpdater.on('error', message => {
