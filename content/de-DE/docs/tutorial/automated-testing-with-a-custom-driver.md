@@ -1,6 +1,6 @@
 # Automatisiertes Testen mit einem benutzerdefinierten Treiber
 
-Um automatisierte Tests für Ihre Electron-App zu schreiben, benötigen Sie eine Möglichkeit, Ihre Anwendung zu "steuern". [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](https://webdriver.io/). Es ist aber auch möglich, einen eigenen eigenen Treiber mit dem eingebauten IPC-over-STDIO zu schreiben. Der Vorteil eines benutzerdefinierten Treibers ist, dass er weniger Overhead benötigt als Spectron, und lässt Sie Ihre Testsuite mit benutzerdefinierten Methoden ausstatten.
+Um automatisierte Tests für Ihre Electron-App zu schreiben, benötigen Sie eine Möglichkeit, Ihre Anwendung zu "steuern". [Spectron](https://electronjs.org/spectron) ist eine häufig verwendete Lösung, mit der Sie Benutzeraktionen über [WebDriver](https://webdriver.io/)emulieren können. Es ist aber auch möglich, einen eigenen eigenen Treiber mit dem eingebauten IPC-over-STDIO zu schreiben. Der Vorteil eines benutzerdefinierten Treibers ist, dass er weniger Overhead benötigt als Spectron, und lässt Sie Ihre Testsuite mit benutzerdefinierten Methoden ausstatten.
 
 Um einen eigenen Treiber zu erstellen, verwenden wir die [child_process](https://nodejs.org/api/child_process.html) API. Die Testsuite wird den Electron-Prozess spawnen und dann ein einfaches Messaging-Protokoll erstellen:
 
@@ -84,33 +84,33 @@ Klasse TestDriver {
 In der App musst du einen einfachen Handler für die RPC-Aufrufe schreiben:
 
 ```js
-if (process.env.APP_TEST_DRIVER) {
+if (process.env.APP_TEST_DRIVER)
   process.on('message', onMessage)
-}
+'
 
-async function onMessage ({ msgId, cmd, args }) {
-  let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
-  try {
-    const resolve = await method(...args)
+async-Funktion onMessage ({ msgId, cmd, args }) -
+  lassen Sie Methode = METHODS[cmd]
+  wenn (!method) methode = () => neue Error('Invalid-Methode: ' + cmd) versuchen sie
+
+    const resolve = await method( args)
     process.send({ msgId, resolve })
-  } catch (err) {
+  - catch (err) -
     const reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
     process.send({ msgId, reject })
-  }
-}
+  -
+-
 
-const METHODS = {
-  isReady () {
-    // do any setup needed
-    return true
-  }
-  // define your RPC-able methods here
-}
+const METHODS = -
+  isReady () -
+    * alle erforderlichen Einstellungen
+    geben Sie true
+  zurück ,
+  / definieren Sie hier
+Ihre RPC-fähigen Methoden .
 ```
 
 Dann können Sie in Ihrer Testsuite Ihren Testtreiber wie folgt verwenden:
