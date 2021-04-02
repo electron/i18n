@@ -7,28 +7,28 @@ Processus : [Main](../glossary.md#main-process)
 Les outils de développement de chrome a une [liaison spéciale][rdp] disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 const win = new BrowserWindow()
 
 try {
-  win.webContents.debugger.attach('1.1')
+  win.webContents.debugger.attach ('1.1')
 } catch (err) {
-  console.log('Debugger attach failed : ', err)
+  console.log ('Debugger attach failed: ', err)
 }
 
-win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+win.webContents.debugger.on('detach', (événement, raison) => { console
+  .log ('Debugger détaché en raison de: ', raison)
 })
 
-win.webContents.debugger.on('message', (event, method, params) => {
-  if (method === 'Network.requestWillBeSent') {
-    if (params.request.url === 'https://www.github.com') {
+win.webContents.debugger.on('message', (événement, méthode, params) => {
+  si (méthode === 'Network.requestWillBeSent') {
+    si (params.request .url === 'https://www.github.com') {
       win.webContents.debugger.detach()
     }
   }
 })
 
-win.webContents.debugger.sendCommand('Network.enable')
+win.webContents.debugger.sendCommand ('Network.enable')
 ```
 
 ### Événements d’instance
@@ -40,7 +40,7 @@ Retourne :
 * `event` Événement
 * `reason` String - Motif du retrait du débogueur.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Émis lorsque la session de débogage est terminée. Cela se produit soit lorsque `webContents` est fermé ou des devtools est invoqué pour le système `webContents`.
 
 #### Événement : 'message'
 
@@ -48,8 +48,8 @@ Retourne :
 
 * `event` Événement
 * `method` String - Nom de la méthode.
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `params` tout - Paramètres d’événement définis par les « paramètres » dans le protocole de débogage à distance.
+* `sessionId` String - Identificateur unique de la session de débogage ci-joint, correspondra à la valeur envoyée par `debugger.sendCommand`.
 
 Émis chaque fois que la cible de débogage émet un événement d'instrumentation.
 
@@ -69,11 +69,11 @@ Retourne `Boolean` - Si un débogueur est attaché au `webContents`.
 
 Détache le débogueur depuis le `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams, sessionId])`
+#### `debugger.sendCommand (méthode[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `method` String - Nom de méthode, devrait être l’une des méthodes définies par le protocole de débogage [à distance][rdp].
 * `commandParams` n'importe quel objet (facultatif) - JSON avec les paramètres de la requête.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
+* `sessionId` String (facultatif) - envoyez la commande à la cible avec l’id de session de débogage associé. La valeur initiale peut être obtenue en envoyant [Target.attachToTarget][attachToTarget] message.
 
 Retourne `Promise<any>` - Une promesse qui se résout avec la réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant ou qui est rejetée indiquant l'échec de la commande.
 
