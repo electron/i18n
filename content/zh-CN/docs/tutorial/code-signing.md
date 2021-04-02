@@ -34,25 +34,25 @@ Electron 的生态系统有利于配置和自由，所以有多种方法让您�
 
 ```json
 {
-  "name": "my-app",
-  "version": "0.0.1",
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "osxSign": {
-          "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
-          "hardened-runtime": true,
-          "entitlements": "entitlements.plist",
-          "entitlements-inherit": "entitlements.plist",
-          "signature-flags": "library"
-        },
-        "osxNotarize": {
-          "appleId": "felix@felix.fun",
-          "appleIdPassword": "my-apple-id-password",
-        }
-      }
-    }
-  }
+  "名称"："我的应用程序"，
+  "版本"："0.0.1"，
+  "组合"：{
+    "锻造"：{
+      "包装商"：{
+        "osxSign"：{
+          "身份"："开发者ID应用程序：费利克斯·里斯伯格（LT94ZKYDCJ），
+          "硬化运行时间"：真实、
+          "权利"："权利"，
+          "应享权利继承"："权利.plist"，
+          "签名标志"："库"
+        }，
+        "osxNotarize"：{
+          "苹果" "felix@felix.fun"，
+          "苹果密码"： "我的苹果 id 密码"，
+        [
+      ]
+    [
+  ]
 }
 ```
 
@@ -142,7 +142,7 @@ packer(
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+请参阅 [Mac 应用商店指南][]。
 
 # 签署windows应用程序
 
@@ -154,7 +154,7 @@ See the [Mac App Store Guide][].
 您可以从许多转售商获得代码签名证书。 价格各异，所以值得你花点时间去货比三家。 热门转销商包括：
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
-* [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
+* [塞蒂戈](https://sectigo.com/ssl-certificates-tls/code-signing)
 * [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * 除其他外，请货比三家后选择适合你的那一款，Google 是您的朋友😄：
 
@@ -162,7 +162,7 @@ See the [Mac App Store Guide][].
 
 * [`electron-winstaller`][] 将为窗口生成一个安装程序并为您签名
 * [`electron-forge`][] 可以签署它通过 Squirel.Windows 或 MSI目标生成的安装程序。
-* [`electron-builder`][] can sign some of its windows targets
+* [`electron-builder`][] 可以签署一些窗口目标
 
 ## Windows Store
 
@@ -179,5 +179,5 @@ See the [Mac App Store Guide][].
 [`electron-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
 [签名证书（signing certificates）]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
-[Mac App Store Guide]: mac-app-store-submission-guide.md
+[Mac 应用商店指南]: mac-app-store-submission-guide.md
 [Windows Store Guide]: windows-store-guide.md
