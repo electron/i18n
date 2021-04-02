@@ -18,18 +18,18 @@ API コンポーネント (クラス、メソッド、プロパティ、イベ�
 使用例:
 
 ```javascript
-const { app } = require('electron')
-app.whenReady().then(() => {
-  const { net } = require('electron')
-  const request = net.request('https://github.com')
-  request.on('response', (response) => {
-    console.log(`STATUS: ${response.statusCode}`)
-    console.log(`HEADERS: ${JSON.stringify(response.headers)}`)
-    response.on('data', (chunk) => {
-      console.log(`BODY: ${chunk}`)
-    })
-    response.on('end', () => {
-      console.log('No more data in response.')
+const { app } =
+アプリを必要とする ('電子') .com) .com後に
+  => { { net }
+  コンスト要求 = net.request(''github.com')
+  要求を要求します。 (応答) => {
+    コンソール.log ('status: ${response.statusCode}')
+    コンソール.log(HEADERS: ${JSON.stringify(応答.ヘッダー)})
+    応答.on('data,(チャンク) => {
+      コンソール.log (' ${chunk}'
+    )
+    応答
+      > .log (.com )
     })
   })
   request.end()
@@ -50,7 +50,7 @@ app.whenReady().then(() => {
 
 `ClientRequest` コンストラクタに直接転送される `options` を使用して[`ClientRequest`](./client-request.md) インスタンスを作成します。 `net.request` メソッドは、`options` オブジェクト内の指定されたプロトコルにしたがって、セキュアとインセキュア両方の HTTP リクエストを発行するために使用されます。
 
-### `net.isOnline()`
+### `ネットです。`
 
 戻り値 `Boolean` - 現在インターネットに接続しているかどうか。
 
