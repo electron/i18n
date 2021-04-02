@@ -55,19 +55,19 @@ process.once('loaded', () => {
 
 ### `process.defaultApp` _Readonly_
 
-Un `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Un `Boolean`. Cuando se inicia la App al ser pasada como parámetro a la App por defecto, esta propiedad se `true` en el proceso principal, de lo contrario se `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+Un `Boolean`, `true` cuando el contexto actual del renderer es "main" renderer frame. Si quieres el ID del frame actual deberías usar `webFrame.routingId`.
 
 ### `process.mas` _Readonly_
 
-Un `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Un `Boolean`. Para compilaciones de Mac App Store, esta propiedad es `true`, para otras compilaciones es `undefined`.
 
 ### `proceso.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Un `Boolean` que controla el soporte ASAR dentro de tu aplicación. Establecer esto a `true` desactivará el soporte para archivos `asar` en los módulos integrados de Node.
 
 ### `process.noDeprecation`
 
@@ -79,7 +79,7 @@ Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.sandboxed` _Readonly_
 
-Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+Un `Boolean`. Cuando el proceso del representador está en un espacio aislado, esta propiedad se `true` , de lo contrario, se `undefined`.
 
 ### `proceso.desechoDegradación`
 
@@ -95,11 +95,11 @@ Un `Booleano` que controla si las advertencias de procesos son enviadas a `stder
 
 ### `process.type` _Readonly_
 
-A `String` representing the current process's type, can be:
+Un `String` que representa el tipo de proceso actual, puede ser:
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - El main process
+* `renderer` - Un renderer process
+* `worker` - En un web worker
 
 ### `process.versions.chrome` _Readonly_
 
@@ -111,7 +111,7 @@ Una `cadena` representando la versión de cadena de Electron.
 
 ### `process.windowsStore` _Readonly_
 
-Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Un `Boolean`. Si la APP se está ejecutando como una app de la tienda Windows (Appx), esta propiedad se `true`, para lo contrario, se `undefined`.
 
 ## Métodos
 
@@ -125,7 +125,7 @@ Hace que el hilo principal del proceso actual se detenga.
 
 Devuelve `Number | null` - El numero de mili-segundos desde la época o `null` si la información no esta disponible
 
-Indicates the creation time of the application. El tiempo es representado como número de milisegundos desde la época. Devuelve null si no es capaz de obtener el tiempo de creación del proceso.
+Indica el tiempo de creación de la aplicación. El tiempo es representado como número de milisegundos desde la época. Devuelve null si no es capaz de obtener el tiempo de creación del proceso.
 
 ### `process.getCPUUsage()`
 
@@ -151,7 +151,7 @@ Devuelve `Objecto`:
 
 Devuelve un objeto con estadísticas de la pila V8. Toma en cuenta que todas las estadísticas son reportadas en Kilobytes.
 
-### `process.getBlinkMemoryInfo()`
+### `Process. getBlinkMemoryInfo ()`
 
 Devuelve `Objecto`:
 
@@ -159,13 +159,13 @@ Devuelve `Objecto`:
 * `marked` Integer - Tamaño de todos los objetos marcados en Kilobytes.
 * `total` Integer - Espacio total asignado en Kilobytes.
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Devuelve un objeto con información de memoria parpadeó. Puede ser útil para depurar la renderización/problemas de memoria relacionados con DOM. Ten en cuenta que todos los valores se notifican en kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
 Devuelve `Promise<ProcessMemoryInfo>` - Resuelve con un [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+Devuelve un objeto que proporciona estadísticas de uso de memoria acerca del proceso actual. Nota que todas las estadísticas se notifican en kilobytes. Esta API debe llamarse una vez que la App esté lista.
 
 Chromium no provee el valor `residentSet` para macOS. Esto es porque macOS realiza compresión en memoria que no han sido utilizadas recientemente. Como resultado, el valor del tamaño del conjunto de residentes no es lo que uno esperaría. Memoria `private` es más representativo del uso real de la memoria de precompresión del proceso en macOS.
 
@@ -178,7 +178,7 @@ Devuelve `Objecto`:
 * `swapTotal` Integer _Windows_ _Linux_ - La cantidad total de memoria de swap en Kilobytes disponible para el sistema.
 * `swapFree` Integer _Windows_ _Linux_ - La cantidad libre de memoria de swap en Kilobytes disponible para el sistema.
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Devuelve un objeto que proporciona estadísticas de uso de memoria acerca del sistema completo. Nota que todas las estadísticas se notifican en kilobytes.
 
 ### `process.getSystemVersion()`
 
