@@ -141,7 +141,7 @@ window.readConfig = function () {
 
 Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)技术来开启这个行为。
 
-Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
+即使使用 `nodeIntegration: false` ，要真正实施强隔离 ，防止使用节点原始 `contextIsolation` **也必须** 使用。
 
 ### 为什么 & 如何?
 
@@ -234,16 +234,16 @@ Content-Security-Policy: script-src 'self' https://apis.example.com
 Electron 会处理 [`Content-Security-Policy` HTTP 标头](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)，它可以在 [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) 中进行设置：
 
 ```javascript
-const { session } = require('electron')
+康斯特 { session } =要求（"电子"）
 
-session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  callback({
-    responseHeaders: {
-      ...details.responseHeaders,
-      'Content-Security-Policy': ['default-src \'none\'']
+会话。默认Session.web要求。在标题上恢复（详细信息，回调）=> {
+  回调（{
+    响应标题：{
+      ...详细信息。响应标题，
+      "内容安全-政策"：[默认-src]]
     }
-  })
-})
+  }）
+}）
 ```
 
 ### CSP元标签
@@ -355,7 +355,7 @@ _Electron的默认值即是建议值。_
 
 通过渲染进程创建的WebView是不开启Node.js集成的，且也不能由自身开启。 但是，WebView可以通过其`webPreferences`属性创建一个独立的渲染进程。
 
-It is a good idea to control the creation of new [`<webview>`][webview-tag] tags from the main process and to verify that their webPreferences do not disable security features.
+最好从主流程 控制新 [`<webview>`][webview-tag] 标签的创建，并验证其 WebPrefers 不会禁用 安全功能。
 
 ### 为什么？
 
@@ -399,7 +399,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### 怎么做？
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
+如果您的应用不需要导航，您可以在 [`will-navigate`][will-navigate] 处理器中呼叫 `event.preventDefault()` 。 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
 
 我们建议您使用 Node的 URL 解析器。 简单的字符串比较有时会出错 - `startsWith('https://example.com')`测试会让`https://example.com.attacker.com`通过.
 
@@ -429,36 +429,36 @@ app.on('web-contents-created', (evidences, contents) => format@@
 
 ### 怎么做？
 
-[`webContents`][web-contents]将会在新窗口创建前传递给 [打开窗口的处理函数][window-open-handler]。 The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`][web-contents]将会在新窗口创建前传递给 [打开窗口的处理函数][window-open-handler]。 处理程序将 收到除其他参数外，窗口被要求打开 `url` 以及用于创建窗口的选项。 我们建议您注册一个处理程序，以 监控窗口的创建，并拒绝任何意外的窗口创建。
 
 ```js
-const { shell } = require('electron')
+const { shell } = 需要 （"电子"）
 
-app.on('web-contents-created', (event, contents) => {
-  contents.setWindowOpenHandler(({ url }) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
-    //
-    // See the following item for considerations regarding what
-    // URLs should be allowed through to shell.openExternal.
-    if (isSafeForExternalOpen(url)) {
-      setImmediate(() => {
-        shell.openExternal(url)
-      })
+应用程序。 on （"网络内容创建"， （事件， 内容） => {
+  内容. setWindowopen 汉德勒 （（{ url }） => {
+    // 在本示例中，我们将要求操作系统
+    // 在默认浏览器中打开此事件的网址。
+    
+    //请参阅以下项目，了解应允许哪些
+    //网址进入外壳。
+    如果（是安全的外部开放（url）{
+      设置即时（）=> {
+        壳。打开外部（url）
+      }）
     }
 
-    return { action: 'deny' }
-  })
-})
+    返回 { action: 'deny' }
+  }）
+}）
 ```
 
 ## 14) 不要使用含有不可信任内容的 `openExterne`
 
-Shell's [`openExternal`][open-external] allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+壳牌的 [`openExternal`][open-external] 允许在桌面的本地公用设施 打开给定协议 URI。 例如，在 macOS 上，此函数与 `open` 端命令效用类似 ，并将打开基于 URI 和文件类型关联的具体应用 。
 
 ### 为什么？
 
-Improper use of [`openExternal`][open-external] can be leveraged to compromise the user's host. 当OpenExtern使用内容不受信任时，它可以使用 来执行任意命令。
+可以利用不当使用 [`openExternal`][open-external] 来损害用户主机 。 当OpenExtern使用内容不受信任时，它可以使用 来执行任意命令。
 
 ### 怎么做？
 
@@ -482,7 +482,7 @@ shell.openExternal('https://example.com/index.html')
 
 使用旧版本Electron、Chromium和节点构建的应用程序。 s 比使用较新版本的 这些组件的应用程序更容易成为目标。 一般来说，较旧的 版本的 Chromium 和 Node.js 的安全问题和开发范围更广。
 
-Chromium和Node.js都是 数千名有才华的开发者建造的令人印象深刻的工程精英。 Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. 如果 运行最新版本的 Electron (因而，Chromium 和 Node)，您的应用程序将更加安全。 对于那些潜在的安全问题不那么广为人知的 来说也是如此。
+Chromium和Node.js都是 数千名有才华的开发者建造的令人印象深刻的工程精英。 鉴于其受欢迎程度，他们的安全性 由同样熟练的安全研究人员仔细测试和分析。 许多 这些研究人员 [负责任地][responsible-disclosure]披露漏洞， 这通常意味着研究人员将给铬和节点.js一些时间 在发布之前解决问题。 如果 运行最新版本的 Electron (因而，Chromium 和 Node)，您的应用程序将更加安全。 对于那些潜在的安全问题不那么广为人知的 来说也是如此。
 
 [browser-window]: ../api/browser-window.md
 
