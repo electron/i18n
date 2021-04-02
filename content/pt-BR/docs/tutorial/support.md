@@ -6,12 +6,12 @@ Se você tiver um problema de segurança, consulte o [documento de segurança](h
 
 Se estiver procurando a ajuda da programação, para respostas a perguntas, ou para participar de discussões com outros desenvolvedores que usam o Electron, você pode interagir com a comunidade nesses locais:
 
-* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  * Getting help
-  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  * Sharing ideas with other Electron app developers
-  * And more!
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* [`Electron's Discord`](https://discord.com/invite/electron) tem canais para:
+  * Obtendo ajuda
+  * Aplicativos ecossistêmicos como [Electron Forge](https://github.com/electron-userland/electron-forge) e [Electron Fiddle](https://github.com/electron/fiddle)
+  * Compartilhando ideias com outros desenvolvedores de aplicativos Electron
+  * E mais!
+* [`electron`](https://discuss.atom.io/c/electron) categoria nos fóruns do Átomo
 * `Canal #atom-shell` no Freenode
 * `canal #electron` no [Slack do Atom's](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(russo)*
@@ -50,7 +50,7 @@ Quando um branch de lançamento atinge o final do seu ciclo de suporte, a série
 
 Estas etapas são para ajudar os desenvolvedores de apps a aprenderem quando um branch que estão usando não se torna suportado, mas sem ser excessivamente intrusivo para os usuários finais.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. Por exemplo, desde que a série 1-6-x terminou com um fim de suporte 1.6. 8 lançamentos, desenvolvedores poderiam escolher para ficar nas séries 1-6-x sem avisos com `devDependência` de `"electron": 1. .0 - 1.6.17`.
+Se um aplicativo tiver circunstâncias excepcionais e precisar permanecer em uma série sem suporte de Electron, os desenvolvedores podem silenciar o aviso de fim de suporte , omitindo a versão final do `package.json` `devDependencies`do aplicativo . Por exemplo, desde que a série 1-6-x terminou com um fim de suporte 1.6. 8 lançamentos, desenvolvedores poderiam escolher para ficar nas séries 1-6-x sem avisos com `devDependência` de `"electron": 1. .0 - 1.6.17`.
 
 ## Plataformas Suportadas
 
@@ -60,20 +60,20 @@ Seguintes plataformas são suportadas pelo Electron:
 
 Apenas binários de 64bit são fornecidos para macOS, e a versão mínima do macOS é suportada é o macOS 10.10 (Yosemite).
 
-Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
+O suporte nativo para dispositivos Apple Silicon (`arm64`) foi adicionado no Electron 11.0.0.
 
 ### Windows
 
 Windows 7 e versões posteriores têm suporte, sistemas operacionais mais antigos não são suportados (e não funcionam).
 
-Ambos os binários `ia32` (`x86`) e `x64` (`amd64`) são fornecidos para o Windows. [Native support for Windows on Arm (`arm64`) devices was added in Electron 6.0.8.](windows-arm.md). Em execução de apps empacotados com versões anteriores é possível usando o executável do ia32.
+Ambos os binários `ia32` (`x86`) e `x64` (`amd64`) são fornecidos para o Windows. [suporte nativo para dispositivos Windows on Arm (`arm64`) foi adicionado no Electron 6.0.8.](windows-arm.md). Em execução de apps empacotados com versões anteriores é possível usando o executável do ia32.
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+Os binários p reconstruídos de Electron são construídos no Ubuntu 18.04.
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 18.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
+Se o binário prebuilt pode funcionar em uma distribuição depende se a distribuição inclui as bibliotecas às qual a Electron está vinculada na plataforma de construção , de modo que apenas o Ubuntu 18.04 é garantido para funcionar, mas seguindo plataformas também são verificados para poder executar os binários p reconstruídos da Electron:
 
-* Ubuntu 14.04 and newer
-* Fedora 24 and newer
-* Debian 8 and newer
+* Ubuntu 14.04 e mais novo
+* Fedora 24 e mais novo
+* Debian 8 e mais novo
