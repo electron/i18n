@@ -22,7 +22,7 @@ Viele beliebte Projekte wie [Winkel](https://angularjs.org/), [Vue. s](http://vu
 
 Ab Version 1.6.10 enthält jede Version von Electron eine eigene TypeScript Definitionsdatei. Wenn Sie das `electron` Paket von npm installieren, wird die `electron.d.ts` Datei automatisch mit dem installierten Paket gebündelt.
 
-The [safest way](https://electronjs.org/docs/tutorial/electron-versioning/) to install Electron is using an exact version number:
+Der [sicherste Weg,](https://electronjs.org/docs/tutorial/electron-versioning/) , Electron zu installieren, ist die Verwendung einer genauen Versionsnummer:
 
 ```sh
 npm install electron --save-dev --save-exact
@@ -34,7 +34,7 @@ Oder wenn Sie [Garn verwenden](https://yarnpkg.com/lang/en/docs/migrating-from-n
 yarn add electron --dev --exact
 ```
 
-If you were already using third-party definitions like `@types/electron` and `@types/node`, you should remove them from your Electron project to prevent any collisions.
+Wenn Sie bereits Definitionen von Drittanbietern wie `@types/electron` und `@types/node`verwendet haben, sollten Sie sie aus Ihrem Electron-Projekt entfernen, um Kollisionen zu verhindern.
 
 Die Definitionsdatei wird von unserer [strukturierten API-Dokumentation abgeleitet](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), damit es immer konsistent mit [Electronic API Dokumentation](https://electronjs.org/docs/api/) ist. Installieren Sie einfach `Elektron` und Sie erhalten immer eine TypeScript Definition, die auf dem neuesten Stand mit der von Ihnen verwendeten Version von Electron ist.
 
