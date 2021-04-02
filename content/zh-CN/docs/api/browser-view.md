@@ -10,14 +10,14 @@
 
 ```javascript
 // 在主进程中.
-const { BrowserView, BrowserWindow } = require('electron')
+康斯特 { BrowserView, BrowserWindow } =要求（'电子'）
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+const赢=新的浏览器窗口（{ width: 800, height: 600 }）
 
-const view = new BrowserView()
-win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+const视图=新的浏览器视图（）
+赢
+。 y： 0， 宽度： 300， 高度： 300 [）
+视图. web 康滕茨. loadurl （'https：/ / 电子. org'）
 ```
 
 ### `new BrowserView([可选])` _实验功能_
@@ -40,10 +40,10 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` _实验功能_
 
 * `选项` 对象
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. 默认值为 `false`
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. 默认值为 `false`
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. 默认值为 `false`
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. 默认值为 `false`
+  * `width` 布尔（可选） - 如果 `true`，视图的宽度将随着窗户 一起增长和缩小。 默认值为 `false`
+  * `height` 布尔（可选） - 如果 `true`，视图的高度将增长和缩小 与窗口。 默认值为 `false`
+  * `horizontal` 布尔（可选） - 如果 `true`，视图的x位置和宽度将增长 和收缩与窗口的比例。 默认值为 `false`
+  * `vertical` 布尔（可选） - 如果 `true`，视图的y位置和高度将增长 和收缩比例与窗口。 默认值为 `false`
 
 #### `view.setBounds(bounds)` _实验功能_
 
@@ -55,8 +55,8 @@ view.webContents.loadURL('https://electronjs.org')
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this BrowserView instance as `Object`.
+此浏览器视图实例的 `bounds` 为 `Object`。
 
 #### `view.setBackgroundColor(color)` _实验功能_
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` 字符串 - 颜色为 `#aarrggbb` 或 `#argb` 形式。 阿尔法通道 可选的。
