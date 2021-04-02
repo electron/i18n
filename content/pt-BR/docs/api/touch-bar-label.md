@@ -1,30 +1,30 @@
 ## Class: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Crie um rótulo na barra de toque para aplicações nativas do macOS
 
 Processo: [Main](../glossary.md#main-process)
 
-### `new TouchBarLabel(options)`
+### `novas opções TouchBarLabel (opções)`
 
-* `options` Object
-  * `label` String (optional) - Text to display.
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+* objeto `options`
+  * `label` String (opcional) - Texto a ser exibido.
+  * `accessibilityLabel` String (opcional) - Uma breve descrição do botão para uso por leitores de tela como VoiceOver.
+  * `textColor` String (opcional) - Cor hexa de texto, ou seja, `#ABCDEF`.
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+Ao definir `accessibilityLabel`, certifique-se de considerar o macOS [as melhores práticas](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Propriedades de Instância
 
-The following properties are available on instances of `TouchBarLabel`:
+As seguintes propriedades estão disponíveis em instâncias de `TouchBarLabel`:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Um `String` representando o texto atual da etiqueta. Alterar esse valor atualiza imediatamente o rótulo em a barra de toque.
 
 #### `touchBarLabel.accessibilityLabel`
 
-A `String` representing the description of the label to be read by a screen reader.
+Um `String` representando a descrição do rótulo a ser lido por um leitor de tela.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Um código hexax `String` representando a cor de texto atual da etiqueta. Alterar esse valor atualiza imediatamente o rótulo na barra de toque.
