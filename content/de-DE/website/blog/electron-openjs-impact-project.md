@@ -9,7 +9,7 @@ Um [OpenJS World](https://events.linuxfoundation.org/openjs-world/) heute Morgen
 
 OpenJS Foundation absolviert hat und nun ein OpenJS Foundation Impact Projekt ist. </p> 
 
-Electron [entered incubation in December of 2019](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/), at the last OpenJS Foundation global conference in Montreal. Wir freuen uns, eine größere Rolle in der JavaScript-Community als Impact Project zu übernehmen und unsere Partnerschaft mit der OpenJS Foundation fortzusetzen.
+Electron [trat im Dezember 2019](https://openjsf.org/blog/2019/12/11/electron-joins-the-openjs-foundation/)in die Inkubation ein, auf der letzten globalen OpenJS Foundation-Konferenz in Montreal. Wir freuen uns, eine größere Rolle in der JavaScript-Community als Impact Project zu übernehmen und unsere Partnerschaft mit der OpenJS Foundation fortzusetzen.
 
 
 
