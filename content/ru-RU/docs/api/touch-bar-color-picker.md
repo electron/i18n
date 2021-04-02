@@ -1,25 +1,25 @@
-## Class: TouchBarColorPicker
+## Класс: TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> Создание сборщика цветов в сенсорной панели для родных приложений macOS
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `new TouchBarColorPicker(options)`
+### `новый TouchBarColorPicker (варианты)`
 
 * `options` Object
-  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
-  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected.
-    * `color` String - The color that the user selected from the picker.
+  * `availableColors` String ( необязательно) - Массив строк цвета hex, чтобы , как возможные цвета, чтобы выбрать.
+  * `selectedColor` String (по желанию) - Выбранный цвет hex в сборщике, т.е. `#ABCDEF`.
+  * `change` функция (необязательно) - Функция вызова при выборе цвета.
+    * `color` String - цвет, выбранный пользователем из сборщика.
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarColorPicker`:
+Следующие свойства доступны на экземплярах `TouchBarColorPicker`:
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Набор `String[]` , представляющий доступные цвета сборщика цветов для выбора. Изменение этого значения сразу , которое обновляет сборщик цветов в сенсорной панели.
 
 #### `touchBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+В `String` шестиугольник, представляющий выбранный в настоящее время цвет сборщика цветов. Изменение этого значения сразу , которое обновляет сборщик цветов в сенсорной панели.
