@@ -48,7 +48,7 @@ session.defaultSession.cookies.set(cookie)
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - Cookie, который был изменен.
-* `cause` String - The cause of the change with one of the following values:
+* `cause` Строка - Причина изменения с одним из следующих значений:
   * `explic` - Cookie был изменен непосредственно действием потребителя.
   * `overwrite` - Cookie был автоматически удален из-за операции вставки, которая перезаписала его.
   * `expired` - Cookie был автоматически удален по истечении срока его действия.
@@ -64,8 +64,8 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.get(filter)`
 
-* `filter` Object
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
+* `filter` объект
+  * `url` String (по желанию) - Извлекает файлы cookie, связанные с `url`. Пустой подразумевает получение файлов cookie всех URL-адресов.
   * `name` String (опционально) - Фильтрует cookies по имени.
   * `domain` String (опционально) - Изменяет cookies, чьи домены совпадают или являются поддоменами `domains`.
   * `path` String (опционально) - Извлекает cookies чей путь совпадает с `path`.
@@ -78,16 +78,16 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.set(details)`
 
-* `details` Object
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (опционально) - домен cookie; это будет нормализовано с предыдущей точкой, чтобы он также был действителен для поддоменов. Empty by default if omitted.
-  * `path` String (опционально) - путь к cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Значение по умолчанию: false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. По умолчанию - false.
+* `details` объект
+  * `url` Строка - URL, чтобы связать печенье с. Обещание будет отклонено, если URL-адрес недействителен.
+  * `name` Строка (по желанию) - Название файла cookie. Пустой по умолчанию, если опущены.
+  * `value` Строка (по желанию) - Значение cookie. Пустой по умолчанию, если опущены.
+  * `domain` String (опционально) - домен cookie; это будет нормализовано с предыдущей точкой, чтобы он также был действителен для поддоменов. Пустой по умолчанию, если опущены.
+  * `path` String (опционально) - путь к cookie. Пустой по умолчанию, если опущены.
+  * `secure` Boolean (по желанию) - Следует ли маркировано печенье как безопасное. Значение по умолчанию: false.
+  * `httpOnly` Boolean (по желанию) - Следует ли маркировано печенье только как HTTP. По умолчанию - false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Может быть `unspecified`, `no_restriction`, `lax` или `strict`.  Default is `no_restriction`.
+  * `sameSite` String (по желанию) - [же](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) , чтобы применить к этому куки.  Может быть `unspecified`, `no_restriction`, `lax` или `strict`.  По умолчанию `no_restriction`.
 
 Возвращает `Promise<void>` - Promise, которое разрешается после установки файла cookie
 
