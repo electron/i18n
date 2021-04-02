@@ -237,29 +237,29 @@ Menu.setApplicationMenu(menu)
 以下は、ユーザーがページを右クリックしたときにメニューを表示する例です。
 
 ```js
-// renderer
-window.addEventListener('contextmenu', (e) => {
+レンダラー
+ウィンドウ.addEventListener('コンテキストメニュー'、(e)=> {
   e.preventDefault()
   ipcRenderer.send('show-context-menu')
 })
 
-ipcRenderer.on('context-menu-command', (e, command) => {
-  // ...
+ipcRenderer.on('コンテキストメニューコマンド'、(e, コマンド) => {
+  // .
 })
 
-// main
-ipcMain.on('show-context-menu', (event) => {
-  const template = [
+// メイン
+ipcMain.on('show-context-menu') (イベント) => {
+  定数テンプレート = [
     {
-      label: 'Menu Item 1',
-      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
-    },
-    { type: 'separator' },
+      ラベル: 'メニュー項目 1'
+      、 クリック> : = { event.sender.send('コンテキストメニューコマンド', 'メニュー- メニュー- 1') }
+
     { label: 'Menu Item 2', type: 'checkbox', checked: true }
-  ]
-  const menu = Menu.buildFromTemplate(template)
-  menu.popup(BrowserWindow.fromWebContents(event.sender))
-})
+  、
+    { type: 'separator' }]
+  ののコンスト メニュー = menu.buildFromTemplate(テンプレート)
+  メニュー.ポップアップ (BrowserWindow.fromWeb コンテンツ (イベント.送信者
+) }
 ```
 
 ## macOS アプリケーションメニューについて
