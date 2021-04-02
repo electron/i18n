@@ -30,7 +30,7 @@ date: '2016-08-16'
 
 Мы обязаны особой благодарность [@mafintosh](https://github.com/mafintosh), [@maxogden](https://github.com/maxogden), и многие другие [разработчики](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) для создания и поддержания `электронных предустановленных`, и за их неустанное обслуживание JavaScript, Node. и сообществ Electron.
 
-And thanks to [@logicalparadox](https://github.com/logicalparadox) for allowing us to take over the `electron` package on npm.
+И благодаря [@logicalparadox](https://github.com/logicalparadox) за нам взять на себя `electron` на npm.
 
 ## Обновление ваших проектов
 
