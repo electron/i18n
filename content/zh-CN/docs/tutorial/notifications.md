@@ -21,12 +21,12 @@
 并添加 `renderer.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const myNotification = new Notification('Title', {
+坚持我的通知=新通知（"标题"， {
   body: 'Notification from the Renderer process'
-})
+}）
 
-myNotification.onclick = () => {
-  console.log('Notification clicked')
+我的通知。点击=（）=> {
+  控制台.log（"点击通知"）
 }
 ```
 
@@ -66,7 +66,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
+* 在 Windows 10 上，必须将带有 [应用程序用户型号 ID][app-user-model-id] 的应用快捷方式安装到" 开始菜单"。 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
 * 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）][app-user-model-id] 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 
