@@ -10,7 +10,7 @@ Electron团队很高兴地宣布，Electron 3的第一次稳定版本现在是 �
 
 ## 发布进程
 
-当我们开始开发 `v3.0 时。`, 我们试图通过正式确定渐进测试版的反馈进度来更多地以经验为基础界定稳定发布的标准。 `v3.0 如果没有我们的 <a href="https://github.com/electron/electron/blob/3-0-x/docs/tutorial/app-feedback-program.md">App反馈方案</a> 合作伙伴，` 本来是不可能的。 在测试周期内提供早期测试和反馈。 感谢Atlassian, Atom, Microsoft Teams, Oculus, OpenFin, Slack, Symphony, VS Code和其他程序成员所做的工作。 If you'd like to participate in future betas, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
+当我们开始开发 `v3.0 时。`, 我们试图通过正式确定渐进测试版的反馈进度来更多地以经验为基础界定稳定发布的标准。 `v3.0 如果没有我们的 <a href="https://github.com/electron/electron/blob/3-0-x/docs/tutorial/app-feedback-program.md">App反馈方案</a> 合作伙伴，` 本来是不可能的。 在测试周期内提供早期测试和反馈。 感谢Atlassian, Atom, Microsoft Teams, Oculus, OpenFin, Slack, Symphony, VS Code和其他程序成员所做的工作。 如果您想参加未来的测试版，请在 [info@electronjs.org](mailto:info@electronjs.org)发送给我们。
 
 ## 更改/新功能
 
