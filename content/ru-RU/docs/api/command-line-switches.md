@@ -5,16 +5,16 @@
 Вы можете использовать [app.commandLine.appendSwitch][append-switch], для добавления параметров командной строки, в основном скрипте Вашего приложения, перед тем как произойдет событие [ready][ready] модуля [app][app]:
 
 ```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+const { app } требуют ('электрон')
+app.commandLine.appendSwitch ('дистанционно-отладка-порт', '8315')
+app.commandLine.appendSwitch ('host-rules', 'MAP No 127.0.0.1')
 
-app.whenReady().then(() => {
-  // Your code here
-})
+app.whenReady ().),
+
+  > затем ((()
 ```
 
-## Electron CLI Flags
+## Электронные флаги CLI
 
 ### --auth-server-whitelist=`ссылка`
 
@@ -30,11 +30,11 @@ app.whenReady().then(() => {
 
 ### --auth-negotiate-delegate-whitelist=`ссылка`
 
-A comma-separated list of servers for which delegation of user credentials is required. Без префикса `*`, ссылка будет полностью соответствовать.
+Запятый список серверов, для которых требуется делегирование учетных данных пользователей. Без префикса `*`, ссылка будет полностью соответствовать.
 
-### --disable-ntlm-v2
+### --отключить-ntlm-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+Отключает NTLM v2 для платформ posix, никакого эффекта в другом месте.
 
 ### --disable-http-cache
 
@@ -54,9 +54,9 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 Максимальный размер кэша на жёстком диске в байтах.
 
-### --enable-api-filtering-logging
+### --включить-api-фильтрации-регистрации
 
-Enables caller stack logging for the following APIs (filtering events):
+Позволяет журнал стека вызывающего абонента для следующих API (фильтрация событий):
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -79,7 +79,7 @@ Enables caller stack logging for the following APIs (filtering events):
 
 * `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
 * `MAP *.google.com proxy` Заставляет все поддомены google.com обращаться к "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Также принудительно выставит порт получаемого адреса сокета, равный 77.
+* `MAP test.com [::1]:77` силы "test.com", чтобы решить IPv6 loopback. Также принудительно выставит порт получаемого адреса сокета, равный 77.
 * `MAP * baz, EXCLUDE www.google.com` Перенаправляет всё на "baz", за исключением "www.google.com".
 
 Эти перенаправления применяются к хосту конечной точки в сетевом запросе (TCP соединения и резолвер хоста в прямых соединениях, `CONNECT` в HTTP прокси-соединениях и хост конечной точки в `SOCKS` прокси-соединений).
@@ -98,7 +98,7 @@ Enables caller stack logging for the following APIs (filtering events):
 
 ### --js-flags=`флаги`
 
-Specifies the flags passed to the Node.js engine. Если вы хотите включить `flags` в главном процессе, то он должен быть передан при запуске Electron.
+Определяет флаги, переданные .js узла. Если вы хотите включить `flags` в главном процессе, то он должен быть передан при запуске Electron.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
@@ -120,7 +120,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ### --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Отключает песочницу Хрома, которая теперь включена по умолчанию. Следует использовать только для тестирования.
 
 ### --proxy-bypass-list=`хосты`
 
@@ -149,59 +149,59 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ### --v=`уровень_логирования`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Дает по умолчанию максимальный активный уровень V-регистрации; 0 является по умолчанию. Обычно значения используются для уровней V-регистрации.
 
 Этот параметр работает только когда `--enable-logging` также указан.
 
 ### --vmodule=`шаблон`
 
-Дает на каждый модуль максимальный уровень V-логирования, чтобы переопределить значения, заданное `--v`. Например, `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Дает на каждый модуль максимальный уровень V-логирования, чтобы переопределить значения, заданное `--v`. Например, `my_module=2,foo*=3` изменит уровень регистрации для всего кода в файлах `my_module.*` и `foo*.*`.
 
-Любой шаблон, содержащий переднюю или обратную косую черту, будет протестирован против всего пути, а не только модуля. Например, `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Любой шаблон, содержащий переднюю или обратную косую черту, будет протестирован против всего пути, а не только модуля. Например, `*/foo/bar/*=2` изменит уровень журнала для всех кодов в исходных файлах в соответствии с `foo/bar` каталогом.
 
 Этот параметр работает только когда `--enable-logging` также указан.
 
 ### --force_high_performance_gpu
 
-Force using discrete GPU when there are multiple GPUs available.
+Сила с использованием дискретного графического процессора при наличии нескольких графических процессоров.
 
 ### --force_low_power_gpu
 
-Force using integrated GPU when there are multiple GPUs available.
+Сила использования интегрированного GPU при наличии нескольких графических процессоров.
 
-## Node.js Flags
+## Узел.js Флаги
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+Electron поддерживает некоторые из [флагов CLI][node-cli] поддерживаемых .js.
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+**Примечание:** Передача неподдерживаемой командной строки переключается на Electron, когда она не работает в `ELECTRON_RUN_AS_NODE` не будет иметь никакого эффекта.
 
-### --inspect-brk[=[host:]port]
+### --проверка-brk'host:«порт»
 
-Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+Активировать инспектор на host:port и перерыв в начале пользовательского скрипта. Хост по умолчанию:port 127.0.0.1:9229.
 
-Aliased to `--debug-brk=[host:]port`.
+Прозвище `--debug-brk=[host:]port`.
 
-### --inspect-port=[host:]port
+### --проверка-порт-хозяин:Порт
 
-Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+Установите `host:port` использоваться при активации инспектора. Полезно при активации инспектора, отправив сигнал SIGUSR1. Хост по умолчанию `127.0.0.1`.
 
-Aliased to `--debug-port=[host:]port`.
+Прозвище `--debug-port=[host:]port`.
 
-### --inspect[=[host:]port]
+### --проверка (хозяин:'порт)
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+Активировать инспектора на `host:port`. По умолчанию `127.0.0.1:9229`.
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+Интеграция инспекторов V8 позволяет таким инструментам, как Chrome DevTools и IDEs, отладить и профили экземпляров Electron. Инструменты прикрепляются к экземплярам Electron через порт TCP и общаются с помощью [Протокола Chrome DevTools](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process][debugging-main-process] guide for more details.
+Более подробную [смотрите в руководстве по][debugging-main-process] процесса.
 
-Aliased to `--debug[=[host:]port`.
+Прозвище `--debug[=[host:]port`.
 
-### --inspect-publish-uid=stderr,http
+### --проверить-опубликовать-uid'stderr,http
 
-Specify ways of the inspector web socket url exposure.
+Укажите способы воздействия URL-адреса веб-разъема инспектора.
 
-By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+По умолчанию инспектор websocket URL доступен в stderr и под /json/list конечной точки на http://host:port/json/list.
 
 [app]: app.md
 [append-switch]: command-line.md#commandlineappendswitchswitch-value
