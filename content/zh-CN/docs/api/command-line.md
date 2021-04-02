@@ -1,4 +1,4 @@
-## Class: CommandLine
+## 类：命令行
 
 > 操作Chromium读取的应用程序的命令行参数
 
@@ -11,11 +11,11 @@ const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
+有关您可以使用何种标志和开关的更多信息，请查看 [命令行开关](./command-line-switches.md) 文档。
 
 ### 实例方法
 
-#### `commandLine.appendSwitch(switch[, value])`
+#### `命令行。附录开关（开关[，值]）`
 
 * `switch` String - 命令行开关，不包含前边的-- `--`
 * `value` String (optional) - 给开关设置的值
@@ -24,23 +24,23 @@ For more information on what kinds of flags and switches you can use, check out 
 
 ** 注意: **该方法不会影响 ` process. argv ` 该功能是为控制Chromium行为设计的。
 
-#### `commandLine.appendArgument(value)`
+#### `命令行。附录（价值）`
 
 * ` value `String - 要追加到命令行的参数
 
-在Chromium的命令行中附加一个参数。 The argument will be quoted correctly. 无论附加顺序如何，切换将在参数之前进行。
+在Chromium的命令行中附加一个参数。 该论点将 正确引用。 无论附加顺序如何，切换将在参数之前进行。
 
 如果你正在追加一个参数，如`--switch=value`, 请考虑使用`appendSwitch('switch', 'value')`
 
 ** 注意: **该方法不会影响 ` process. argv ` 该功能是为控制Chromium行为设计的。
 
-#### `commandLine.hasSwitch(switch)`
+#### `命令行。哈西奇（开关）`
 
 * `switch` String - 命令行开关
 
 返回`Boolean` - 命令行开关是否打开。
 
-#### `commandLine.getSwitchValue(switch)`
+#### `命令行。获取开关值（开关）`
 
 * `switch` String - 命令行开关
 
