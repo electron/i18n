@@ -24,7 +24,7 @@ Para buscar a documentação, executamos um [script](https://github.com/electron
 
 - [`nugget`](http://npmjs.com/nugget) para [obter a tarball de lançamento](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) e salvá-la em um diretório temporário.
 - [`gunzip-talvez`](http://npmsjs.com/gunzip-maybe) para [descompactar o tarball](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
-- [`tar-fs`](http://npmjs.com/tar-fs) for [streaming just the `/docs` directory](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) from the tarball and [filtering and processing the files](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (with the help of [`through2`](http://npmjs.com/through2)) so that they work nicely with our Jekyll site (more on that below).
+- [`tar-fs`](http://npmjs.com/tar-fs) para [streaming apenas o diretório `/docs`](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) do tarball e [filtrando e processando os arquivos](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (com a ajuda de [`through2`](http://npmjs.com/through2)) para que eles trabalhem bem com o nosso site Jekyll (mais sobre isso abaixo).
 
 [Testes](https://github.com/electron/electronjs.org/tree/gh-pages/spec) nos ajudam a saber que todos os bits e partes pouparam conforme o esperado.
 
