@@ -2,7 +2,7 @@
 
 ## Vue d'ensemble
 
-Electron a des APIs pour configurer l'icône de l'application dans le macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron a des APIs pour configurer l'icône de l'application dans le macOS Dock. Une API macOS uniquement existe pour créer un menu de dock personnalisé, mais Electron utilise également l’icône de dock d’application comme point d’entrée pour les fonctionnalités multiplateformes comme [documents récents][recent-documents] et [progression de l’application][progress-bar].
 
 Le dock personnalisé est généralement utilisé pour ajouter des raccourcis aux tâches pour lesquelles l'utilisateur ne voudrait pas ouvrir toute la fenêtre de l'application.
 
@@ -17,24 +17,24 @@ Pour configurer votre menu de dock personnalisé, vous devez utiliser l'API [`ap
 Commencer avec une application fonctionnelle à partir du [Guide de démarrage rapide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
-const { app, Menu } = require('electron')
+const { app, Menu } = require ('electron')
 
 const dockMenu = Menu.buildFromTemplate([
   {
     label: 'New Window',
-    click () { console.log('New Window') }
-  }, {
-    label: 'New Window with Settings',
+    cliquez () { console.log ('Nouvelle fenêtre') }
+  }, { étiquette
+    : 'Nouvelle fenêtre avec paramètres',
     submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
     ]
   },
-  { label: 'New Command...' }
+  { étiquette: 'New Command...' }
 ])
 
-app.whenReady().then(() => {
-  app.dock.setMenu(dockMenu)
+app.whenReady().then()=> {
+  app.dock.setMenu (dockMenu)
 })
 ```
 
