@@ -26,7 +26,11 @@ Idioma da descrição da interface. Escreva assinaturas de função e tipos de d
 
 ### IPC
 
-IPC significa Comunicação Inter-Processe. Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
+IPC significa Comunicação Inter-Processe. A Electron usa o IPC para enviar mensagens JSON serializadas entre [os processos][] principais</a> e
+
+principais.</p> 
+
+
 
 ### libchromiumcontent
 
@@ -34,9 +38,11 @@ Uma biblioteca compartilhada que inclui o [Chromium Content module][] e todas as
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
+
+
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Isso também é gerencia elementos nativos, como o Menu, Barra de Menus, Dock, Bandeja e etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+O processo principal, comumente um arquivo chamado `main.js`, é o ponto de entrada para cada aplicativo Electron. Ele controla a vida útil do aplicativo, de aberto para fechar. Isso também é gerencia elementos nativos, como o Menu, Barra de Menus, Dock, Bandeja e etc. O processo principal é responsável pela criação de cada novo processo de renderização no aplicativo. A API completa do Nó está incorporada.
 
 O arquivo de processo principal de cada aplicativo é especificado na propriedade `principal` em `package.json`. É assim que o `electron .` sabe qual arquivo executar na inicialização.
 
@@ -44,15 +50,21 @@ No Chromium, este processo é referido como o "processo de navegador". É renome
 
 Consulte também: [processo](#process), [processo de processador](#renderer-process)
 
+
+
 ### MAS
 
-Sigla para Mac App Store da Apple. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
+Sigla para Mac App Store da Apple. Para obter detalhes sobre o envio do seu aplicativo ao MAS, consulte o guia de submissão da App Store [][].
+
+
 
 ### Mojo
 
 Um sistema IPC para a comunicação intra- ou inter-process (Entre Processos), e isso é importante porque o Chrome está interessado em ser capaz de dividir seu trabalho em processos separados ou de não dependência das pressões de memória, etc.
 
 Veja https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+
+
 
 ### native modules
 
@@ -62,13 +74,19 @@ Os módulos nativos do Node são suportados pelo Electron, mas considerando que 
 
 Consulte também [Usando Módulos Nativos de Node][].
 
+
+
 ### NSIS
 
 Nullsoft Scriptable Install System é um instalador de scripts, ferramenta de autoria para Microsoft Windows. Ele é lançado sob uma combinação de licenças de software livre e é uma alternativa amplamente utilizada para produtos proprietários comerciais como o InstallShield. [electron-builder][] suporta mg como destino de compilação.
 
+
+
 ### OSR
 
 OSR (renderização fora de tela) pode ser usado para carregar a página pesada em segundo plano e então exibi-lo depois (será muito mais rápido). Ele permite você renderizar páginas sem mostrá-las na tela.
+
+
 
 ### processado
 
@@ -78,23 +96,31 @@ Em Node.js e Electron, cada processo em execução tem um objeto de `process`. E
 
 Consulte também: [processo principal](#main-process), [processo de processador](#renderer-process)
 
+
+
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. Elas também podem ser escondidas.
+O processo de renderização é uma janela do navegador em seu aplicativo. Ao contrário do processo principal, pode haver vários desses e cada um é executado em um processo separado. Elas também podem ser escondidas.
 
 Em navegadores normais, as páginas web geralmente rodam em um ambiente de área restrita e não têm a permissão de acessar recursos nativos. Usuários do Electron, por outro lado, têm o poder de usar as APIs do Node.js em páginas web, permitindo interações de baixo nível com o sistema operacional.
 
 Consulte também: [process](#process), [main process](#main-process)
 
+
+
 ### Squirrel
 
 Squirrel é um framework de código aberto que permite que aplicativos de elétron atualizar automaticamente como novas versões são lançadas. Consulte o [autoUpdater][] API para obter informações sobre como começar com o Squirrel.
+
+
 
 ### userland
 
 Este termo originou-se da comunidade Unix, onde "userland" ou "userspace" refere-se a programas que são executados fora da kernel do sistema operacional. Mais recentemente, o termo foi popularizado na comunidade Node e npm para distinguir entre os recursos disponíveis em "Node core" de pacotes publicados no registro do npm pela maior comunidade "usuários".
 
 Como Node, o Electron é focado em ter um pequeno conjunto de APIs que fornecem todos os primitivos necessários para o desenvolvimento de aplicativos de multi-plataformas desktop. Esta filosofia do projeto permite que o Electron permaneça uma ferramenta flexível sem ser excessivamente prescritiva sobre como deve ser usado. Userland permite que os usuários criar e compartilhar ferramentas que fornecem funcionalidade adicional em cima do que é disponível no "Núcleo".
+
+
 
 ### V8
 
@@ -108,16 +134,20 @@ Os números da versão da V8 correspondem sempre aos do Google Chrome. Chrome 59
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
+
+
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. Ele não tem a mesma permissões como sua página web e todas as interações entre seu aplicativo e conteúdo incorporado será assíncrono. Isso mantém seu aplicativo seguro do conteúdo incorporado.
+`webview` tags são usadas para incorporar conteúdo 'convidado' (como páginas da Web externas) em seu aplicativo Electron. Eles são semelhantes a `iframe`, mas diferem na forma de cada webview é executada em um processo separado. Ele não tem a mesma permissões como sua página web e todas as interações entre seu aplicativo e conteúdo incorporado será assíncrono. Isso mantém seu aplicativo seguro do conteúdo incorporado.
 
 [addons]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
 [Chromium Content module]: https://www.chromium.org/developers/content-module
 [electron-builder]: https://github.com/electron-userland/electron-builder
-[Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
+[6]: tutorial/mac-app-store-submission-guide.md
+[7]: tutorial/mac-app-store-submission-guide.md
+[os processos]: #main-process
 [main]: #main-process
 [renderer]: #renderer-process
 [Usando Módulos Nativos de Node]: tutorial/using-native-node-modules.md
