@@ -26,13 +26,13 @@ console.log(clipboard.readText('selection'))
 Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } и требуют ('электрон')
 
-clipboard.writeText('hello i am a bit of text!')
+clipboard.writeText ('привет я бит текста!')
 
-const text = clipboard.readText()
-console.log(text)
-// hello i am a bit of text!'
+const текст - clipboard.readText ()
+консоли.log (текст)
+// Здравствуйте, я немного текста!
 ```
 
 ### `clipboard.writeText(text[, type])`
@@ -153,7 +153,7 @@ clipboard.writeBookmark({
 
 Возвращает `String` - текст в панели поиска, который представляет собой информацию о текущем состоянии панели поиска активного приложения.
 
-Этот метод использует синхронный IPC, когда вызывается в процессе рендеринга. The cached value is reread from the find pasteboard whenever the application is activated.
+Этот метод использует синхронный IPC, когда вызывается в процессе рендеринга. Кэшированная стоимость перечитывается из пастборда найти всякий раз, когда приложение активируется.
 
 ### `clipboard.writeFindText(text)` _macOS_
 
@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _экспериментальный_
 
 * `format` String
 * `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _экспериментальный_
 
 * `format` String
 
 Возвращает `String` - читает тип `format` из буфера обмена.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _экспериментальный_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _экспериментальный_
 
 * `format` String
 * `buffer` Buffer
@@ -237,7 +237,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object
+* `data` объект
   * `text` String (опционально)
   * `html` String (опционально)
   * `image` [NativeImage](native-image.md) (опционально)
