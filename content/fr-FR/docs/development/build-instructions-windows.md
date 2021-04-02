@@ -13,7 +13,7 @@ Suivez les indications ci-dessous pour compiler Electron sur Windows.
   * [Les extensions Python pour Windows (pywin32) ](https://pypi.org/project/pywin32/#files) sont également nécessaires pour exécuter le processus de compilation.
 * [Node.js](https://nodejs.org/download/)
 * [Git](https://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* Outils de débogage pour Windows de Windows SDK 10.0.15063.468 si vous prévoyez sur la création d’une distribution complète depuis `symstore.exe` est utilisé pour créer un symbole magasin à partir de fichiers `.pdb` .
   * Différentes versions du SDK peuvent être installées côte à côte. Pour installer le SDK, ouvrez Visual Studio Installer, sélectionnez `Change` → `Composants individuels`, faites défiler vers le bas et sélectionnez le SDK Windows approprié à installer. Une autre option serait de regarder la [Windows SDK et l'archive émulateur](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) et de télécharger la version autonome du SDK respectivement.
   * Les outils de débogage SDK doivent également être installés. Si le SDK Windows 10 a été installé via l'installateur Visual Studio, alors ils peuvent être installés en allant à: `Panneau de configuration` → `Programmes` → `Programmes et fonctionnalités` → Sélectionnez le "Kit de développement du logiciel Windows" → `Changement` → `Changement` → Vérifiez "Outils de débogage pour Windows" → `Changement`. Ou, vous pouvez télécharger l'installateur SDK autonome et l'utiliser pour installer les outils de débogage.
 
@@ -85,7 +85,7 @@ $ git config --system core.longpaths true
 
 ### erreur: utilisation de l'identifiant non déclaré 'DefaultDelegateCheckMode'
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+Cela peut se produire pendant la construction, lorsque les outils de débogage pour Windows a été installé avec Windows Driver Kit. Désinstallez windows driver kit et installez des outils de débogage avec les étapes décrites ci-dessus.
 
 ### Erreur d'importation : Aucun module nommé win32file
 
