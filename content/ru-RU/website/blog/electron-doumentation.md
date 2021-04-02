@@ -24,7 +24,7 @@ date: '2015-06-04'
 
 - [`nugget`](http://npmjs.com/nugget) за [получение архива релиза](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L40-L43) и сохранение его во временную директорию.
 - [`gunzip-возможно,`](http://npmsjs.com/gunzip-maybe) для [распаковать архив](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L95).
-- [`tar-fs`](http://npmjs.com/tar-fs) for [streaming just the `/docs` directory](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) from the tarball and [filtering and processing the files](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (with the help of [`through2`](http://npmjs.com/through2)) so that they work nicely with our Jekyll site (more on that below).
+- [`tar-fs`](http://npmjs.com/tar-fs) для потоковой передачи [только каталог `/docs`](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L63-L65) от tarball и [фильтрации и обработки файлов](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/lib/fetch-docs.js#L68-L78) (с помощью [`through2`](http://npmjs.com/through2)), так что они хорошо работают с нашим сайтом Джекилл (подробнее об этом ниже).
 
 [Тесты](https://github.com/electron/electronjs.org/tree/gh-pages/spec) помогают нам знать, что все биты и части попали, как ожидалось.
 
@@ -34,12 +34,12 @@ date: '2015-06-04'
 
 ```bash
 electron.atom.io
-└── _docs
-    ├── latest
-    ├── v0.27.0
-    ├── v0.26.0
-    ├── so on
-    └── so forth
+└ "_docs
+    ├" последний
+    ├ "v0.27.0
+    ├" v0.26.0
+    ├ " так далее
+    └" и так далее
 ```
 
 #### Передняя субстанция
