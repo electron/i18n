@@ -1,296 +1,290 @@
-# MessagePorts in Electron
+# 电子信息端口
 
-[`MessagePort`][]s are a web feature that allow passing messages between different contexts. It's like `window.postMessage`, but on different channels. The goal of this document is to describe how Electron extends the Channel Messaging model, and to give some examples of how you might use MessagePorts in your app.
+[`MessagePort`][]是一个网络功能，允许在 不同的上下文之间传递消息。 这就像 `window.postMessage`，但在不同的渠道。 本文档的目的是描述 Electron 如何扩展通道 消息传递模型，并举出一些示例，说明您如何在应用 使用消息端口。
 
-Here is a very brief example of what a MessagePort is and how it works:
+下面是一个非常简短的示例，说明什么是消息端口以及它的工作原理：
 
 ```js
-// renderer.js ///////////////////////////////////////////////////////////////
-// MessagePorts are created in pairs. A connected pair of message ports is
-// called a channel.
-const channel = new MessageChannel()
+渲染器.js/
+/ 连接的消息端口
+//称为通道。
+const通道=新的消息通道（）
 
-// The only difference between port1 and port2 is in how you use them. Messages
-// sent to port1 will be received by port2 and vice-versa.
-const port1 = channel.port1
-const port2 = channel.port2
+//端口1和端口2之间的唯一区别在于您如何使用它们。 
+//发送到端口1的消息将由端口2接收，反之亦然。
+const端口1=通道。port1
+端口2=通道。port2
 
-// It's OK to send a message on the channel before the other end has registered
-// a listener. Messages will be queued until a listener is registered.
-port2.postMessage({ answer: 42 })
+//在另一端注册
+//听众之前，可以在另一端在通道上发送消息。 消息将排队，直到听众注册。
+端口2.邮资（{ answer: 42 }）
 
-// Here we send the other end of the channel, port1, to the main process. It's
-// also possible to send MessagePorts to other frames, or to Web Workers, etc.
-ipcRenderer.postMessage('port', null, [port1])
+//在这里，我们发送通道的另一端，端口1，到主要过程。 也可以
+//向其他帧发送消息端口，或发送到 web 工作人员等，
+ipcRenderer.后信息（"端口"，空， [port1]）
 ```
 
 ```js
-// main.js ///////////////////////////////////////////////////////////////////
-// In the main process, we receive the port.
-ipcMain.on('port', (event) => {
-  // When we receive a MessagePort in the main process, it becomes a
-  // MessagePortMain.
-  const port = event.ports[0]
+主要.js/
+/在主要过程中，我们接收端口。
+ipcMain.on（"端口"，（事件）=> {
+  //当我们在主要过程中收到消息端口时，它就变成了
+  //消息端口。
+  端口=事件。端口[0]
 
-  // MessagePortMain uses the Node.js-style events API, rather than the
-  // web-style events API. So .on('message', ...) instead of .onmessage = ...
-  port.on('message', (event) => {
-    // data is { answer: 42 }
-    const data = event.data
-  })
+  //消息端口主要使用节点.js式事件API，而不是
+  //网络式事件API。 所以.on（"消息"，...）而不是。信息=...
+  端口。on（"消息"，（事件）=> {
+    //数据 { answer: 42 }
+    连续数据=事件。数据
+  }）
 
-  // MessagePortMain queues messages until the .start() method has been called.
-  port.start()
-})
+  //消息端口在呼叫。start（）方法之前一直在排队消息。
+  端口。开始（）
+}）
 ```
 
-The [Channel Messaging API][] documentation is a great way to learn more about how MessagePorts work.
+[渠道消息 API][] 文档是了解 消息端口工作方式的好方法。
 
-## MessagePorts in the main process
+## 主要过程中的信息端口
 
-In the renderer, the `MessagePort` class behaves exactly as it does on the web. The main process is not a web page, though—it has no Blink integration—and so it does not have the `MessagePort` or `MessageChannel` classes. In order to handle and interact with MessagePorts in the main process, Electron adds two new classes: [`MessagePortMain`][] and [`MessageChannelMain`][]. These behave similarly to the analogous classes in the renderer.
+在渲染器中， `MessagePort` 类的行为与网络上的行为完全一致。 主要的过程不是一个网页，虽然-它没有闪烁集成-所以 它没有 `MessagePort` 或 `MessageChannel` 类。 In order to handle and interact with MessagePorts in the main process, Electron adds two new classes: [`MessagePortMain`][] and [`MessageChannelMain`][]. 这些行为 类似于渲染器中的类似类。
 
-`MessagePort` objects can be created in either the renderer or the main process, and passed back and forth using the [`ipcRenderer.postMessage`][] and [`WebContents.postMessage`][] methods. Note that the usual IPC methods like `send` and `invoke` cannot be used to transfer `MessagePort`s, only the `postMessage` methods can transfer `MessagePort`s.
+`MessagePort` 对象可以在渲染器或主 过程中创建，并使用 [`ipcRenderer.postMessage`][] 和 [`WebContents.postMessage`][] 方法来回传递。 请注意，通常的 IPC 方法（如 `send` 和 `invoke` ）不能用于传输 `MessagePort`，只有 `postMessage` 方法可以转移 `MessagePort`。
 
-By passing `MessagePort`s via the main process, you can connect two pages that might not otherwise be able to communicate (e.g. due to same-origin restrictions).
+通过通过主过程传递 `MessagePort`，您可以连接两页，否则 可能无法进行通信（例如，由于同源 限制）。
 
-## Extension: `close` event
+## 扩展： `close` 活动
 
-Electron adds one feature to `MessagePort` that isn't present on the web, in order to make MessagePorts more useful. That is the `close` event, which is emitted when the other end of the channel is closed. Ports can also be implicitly closed by being garbage-collected.
+电子为网络上不存在的 `MessagePort` 添加了一个功能， 使消息端口更有用。 这是 `close` 事件，当通道的另一端关闭时，该事件 发出。 港口也可以 通过收集垃圾而隐性关闭。
 
-In the renderer, you can listen for the `close` event either by assigning to `port.onclose` or by calling `port.addEventListener('close', ...)`. In the main process, you can listen for the `close` event by calling `port.on('close',
-...)`.
+在渲染器中，您可以通过分配给 `port.onclose` 或致电 `port.addEventListener('close', ...)`来收听 `close` 事件。 在主要 过程中，您可以通过呼叫 `
+端口来收听``close` 事件。
 
-## Example use cases
+## 示例使用案例
 
-### Worker process
+### 工人流程
 
-In this example, your app has a worker process implemented as a hidden window. You want the app page to be able to communicate directly with the worker process, without the performance overhead of relaying via the main process.
+在此示例中，您的应用具有作为隐藏窗口实现的工人流程。 您希望应用页面能够 过程直接与工作人员通信，而无需通过主流程进行中继的性能开销。
 
 ```js
-// main.js ///////////////////////////////////////////////////////////////////
-const { BrowserWindow, app, ipcMain, MessageChannelMain } = require('electron')
+主要.js/
+/浏览器窗口， 应用程序，ipcMain，消息通道主要==需要（'电子'）
 
-app.whenReady().then(async () => {
-  // The worker process is a hidden BrowserWindow, so that it will have access
-  // to a full Blink context (including e.g. <canvas>, audio, fetch(), etc.)
-  const worker = new BrowserWindow({
-    show: false,
-    webPreferences: { nodeIntegration: true }
-  })
-  await worker.loadFile('worker.html')
+应用程序。当准备（然后（不对称）=> {
+  //工作人员过程是一个隐藏的浏览器窗口，以便它将能够访问
+  //到一个完整的闪烁上下文（例如 <canvas>、音频、取件等）
+  const 工作人员 = 新的浏览器窗口 （+
+    显示： 虚假的、
+    的 WebPrepres： { nodeIntegration: true }
+  [）
+  等待工人。loadfile （"工人.html"）
 
-  // The main window will send work to the worker process and receive results
-  // over a MessagePort.
-  const mainWindow = new BrowserWindow({
-    webPreferences: { nodeIntegration: true }
-  })
-  mainWindow.loadFile('app.html')
+  // 主窗口将向工作人员流程发送工作，并在消息端口
+  // 收到结果。
+  const主窗口=新浏览器窗口（+
+    网络预示： { nodeIntegration: true }
+  }）
+  主窗口。loadFile（"应用程序.html"）
 
-  // We can't use ipcMain.handle() here, because the reply needs to transfer a
-  // MessagePort.
-  ipcMain.on('request-worker-channel', (event) => {
-    // For security reasons, let's make sure only the frames we expect can
-    // access the worker.
-    if (event.senderFrame === mainWindow.webContents.mainFrame) {
-      // Create a new channel ...
-      const { port1, port2 } = new MessageChannelMain()
-      // ... send one end to the worker ...
-      worker.webContents.postMessage('new-client', null, [port1])
-      // ... and the other end to the main window.
-      event.senderFrame.postMessage('provide-worker-channel', null, [port2])
-      // Now the main window and the worker can communicate with each other
-      // without going through the main process!
-    }
-  })
-})
+  //我们不能在这里使用ipcMain.handle（），因为回复需要转移
+  //消息端口。
+  ipcMain.on（"请求-工作人员通道"，（事件）=> {
+    //出于安全原因，让我们确保只有我们期望的帧可以
+    //访问工人。
+    如果（事件.发送框==主窗口.网络主机）{
+      //创建一个新的通道...
+      康斯特 { port1, port2 } =新的消息通道（）
+      //将一端发送给工人...
+      工人.web康滕茨.邮资信息（"新客户端"，空， [port1]）
+      //。。。和主窗口的另一端。
+      事件。发送框.后信息（'提供-工人通道'，空， [port2]）
+      //现在的主要窗口和工人可以相互沟通
+      //没有经过主要过程！
+    [
+  }）
+}）
 ```
 
-```html
-<!-- worker.html ------------------------------------------------------------>
-<script>
-const { ipcRenderer } = require('electron')
+```html<!--工人.html ------------------------------------------------------------><script>
+康斯特 { ipcRenderer } =需要（'电子'）
 
-function doWork(input) {
-  // Something cpu-intensive.
-  return input * 2
+功能做工作（输入）{
+  //一些cpu密集型的东西。
+  返回输入*2
 }
 
-// We might get multiple clients, for instance if there are multiple windows,
-// or if the main window reloads.
-ipcRenderer.on('new-client', (event) => {
-  const [ port ] = event.ports
-  port.onmessage = (event) => {
-    // The event data can be any serializable object (and the event could even
-    // carry other MessagePorts with it!)
-    const result = doWork(event.data)
-    port.postMessage(result)
+//我们可能会得到多个客户端，例如，如果有多个窗口，
+//或如果主窗口重新加载。
+ipcRenderer.on（"新客户端"，（事件）=> {
+  端口[端口]=事件。端口
+  端口。信息=（事件）=> {
+    //事件数据可以是任何可串行的对象（事件甚至可以
+    //随身携带其他消息端口！
+    结果=端口
+    工作（事件.数据）。邮寄信息（结果）
   }
-})
+}）
 </script>
 ```
 
-```html
-<!-- app.html --------------------------------------------------------------->
-<script>
-const { ipcRenderer } = require('electron')
+```html<!--应用程序.html ---------------------------------------------------------------><script>
+const { ipcRenderer } =要求（'电子'）
 
-// We request that the main process sends us a channel we can use to
-// communicate with the worker.
-ipcRenderer.send('request-worker-channel')
+//我们要求主过程向我们发送一个通道，我们可以使用
+//与工作人员沟通。
+ipcRenderer.发送（"请求-工人通道"）
 
-ipcRenderer.once('provide-worker-channel', (event) => {
-  // Once we receive the reply, we can take the port...
-  const [ port ] = event.ports
-  // ... register a handler to receive results ...
-  port.onmessage = (event) => {
-    console.log('received result:', event.data)
+ipcRenderer.once（"提供工人通道"，（事件）=> {
+  //一旦我们收到回复，我们可以采取端口。。。
+  康斯特[端口]=事件。端口
+  //注册一个处理程序来接收结果...
+  端口.onmesage=（事件）=> {
+    控制台.log（收到的结果：'，事件.数据）
   }
-  // ... and start sending it work!
-  port.postMessage(21)
-})
+  //并开始发送它的工作！
+  港口.邮资信息（21）
+}）
 </script>
 ```
 
-### Reply streams
+### 回复流
 
-Electron's built-in IPC methods only support two modes: fire-and-forget (e.g. `send`), or request-response (e.g. `invoke`). Using MessageChannels, you can implement a "response stream", where a single request responds with a stream of data.
+电子的内置 IPC 方法仅支持两种模式：火与忘记 （例如 `send`），或请求响应（例如 `invoke`）。 使用消息通道，您 可以实现"响应流"，其中单个请求会以 数据流进行响应。
 
 ```js
-// renderer.js ///////////////////////////////////////////////////////////////
+渲染器.js/
 
-function makeStreamingRequest (element, callback) {
-  // MessageChannels are lightweight--it's cheap to create a new one for each
-  // request.
-  const { port1, port2 } = new MessageChannel()
+/ 回调）{
+  //消息通道是轻量级的-为每个
+  //请求创建一个新的通道很便宜。
+  康斯特 { port1, port2 } =新的消息通道（）
 
-  // We send one end of the port to the main process ...
-  ipcRenderer.postMessage(
-    'give-me-a-stream',
-    { element, count: 10 },
+  //我们发送端口的一端到主要过程。。。
+  ipcRenderer.邮递信息（
+    "给我一个流"，
+    { element, count: 10 }，
     [port2]
-  )
+  ）
 
-  // ... and we hang on to the other end. The main process will send messages
-  // to its end of the port, and close it when it's finished.
-  port1.onmessage = (event) => {
-    callback(event.data)
+  //我们坚持到另一端 主过程将
+  //发送消息到端口的末端，并在端口完成后将其关闭。
+  端口1.图像=（事件）=> {
+    回调（事件.数据）
   }
-  port1.onclose = () => {
-    console.log('stream ended')
-  }
-}
-
-makeStreamingRequest(42, (data) => {
-  console.log('got response data:', event.data)
-})
-// We will see "got response data: 42" 10 times.
-```
-
-```js
-// main.js ///////////////////////////////////////////////////////////////////
-
-ipcMain.on('give-me-a-stream', (event, msg) => {
-  // The renderer has sent us a MessagePort that it wants us to send our
-  // response over.
-  const [replyPort] = event.ports
-
-  // Here we send the messages synchronously, but we could just as easily store
-  // the port somewhere and send messages asynchronously.
-  for (let i = 0; i < msg.count; i++) {
-    replyPort.postMessage(msg.element)
-  }
-
-  // We close the port when we're done to indicate to the other end that we
-  // won't be sending any more messages. This isn't strictly necessary--if we
-  // didn't explicitly close the port, it would eventually be garbage
-  // collected, which would also trigger the 'close' event in the renderer.
-  replyPort.close()
-})
-```
-
-### Communicating directly between the main process and the main world of a context-isolated page
-
-When [context isolation][] is enabled, IPC messages from the main process to the renderer are delivered to the isolated world, rather than to the main world. Sometimes you want to deliver messages to the main world directly, without having to step through the isolated world.
-
-```js
-// main.js ///////////////////////////////////////////////////////////////////
-const { BrowserWindow, app, MessageChannelMain } = require('electron')
-const path = require('path')
-
-app.whenReady().then(async () => {
-  // Create a BrowserWindow with contextIsolation enabled.
-  const bw = new BrowserWindow({
-    webPreferences: {
-      contextIsolation: true,
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
-  bw.loadURL('index.html')
-
-  // We'll be sending one end of this channel to the main world of the
-  // context-isolated page.
-  const { port1, port2 } = new MessageChannelMain()
-
-  // It's OK to send a message on the channel before the other end has
-  // registered a listener. Messages will be queued until a listener is
-  // registered.
-  port2.postMessage({ test: 21 })
-
-  // We can also receive messages from the main world of the renderer.
-  port2.on('message', (event) => {
-    console.log('from renderer main world:', event.data)
-  })
-  port2.start()
-
-  // The preload script will receive this IPC message and transfer the port
-  // over to the main world.
-  bw.webContents.postMessage('main-world-port', null, [port1])
-})
-```
-
-```js
-// preload.js ////////////////////////////////////////////////////////////////
-const { ipcRenderer } = require('electron')
-
-// We need to wait until the main world is ready to receive the message before
-// sending the port. We create this promise in the preload so it's guaranteed
-// to register the onload listener before the load event is fired.
-const windowLoaded = new Promise(resolve => {
-  window.onload = resolve
-})
-
-ipcRenderer.on('main-world-port', async (event) => {
-  await windowLoaded
-  // We use regular window.postMessage to transfer the port from the isolated
-  // world to the main world.
-  window.postMessage('main-world-port', '*', event.ports)
-})
-```
-
-```html
-<!-- index.html ------------------------------------------------------------->
-<script>
-window.onmessage = (event) => {
-  // event.source === window means the message is coming from the preload
-  // script, as opposed to from an <iframe> or other source.
-  if (event.source === window && event.data === 'main-world-port') {
-    const [ port ] = event.ports
-    // Once we have the port, we can communicate directly with the main
-    // process.
-    port.onmessage = (event) => {
-      console.log('from main process:', event.data)
-      port.postMessage(event.data * 2)
-    }
+  端口1.关闭=（）=> {
+    控制台.log（"流结束"）
   }
 }
+
+进行流式传输要求（42， （数据）=> =
+  控制台.log（'得到响应数据：'，事件.数据）
+}）
+//我们将看到"获得响应数据：42"10次。
+```
+
+```js
+主要.js
+
+（事件，msg）=> {
+  //渲染器向我们发送了一个消息端口，它希望我们发送我们的
+  //响应结束。
+  const [replyPort] =事件。端口
+
+  //在这里，我们同步发送消息，但我们可以同样轻松地将
+  //端口存储在某处并异步发送消息。
+  （让我=0;我 < msg.count;i+）{
+    回复波特.邮资信息（msg.element）
+  }
+
+  //当我们完成指示到另一端，我们
+  //不会再发送任何消息时关闭端口。 这不是绝对必要的 - 如果我们
+  //没有明确关闭端口，它最终将是垃圾
+  //收集，这也将触发渲染器中的"关闭"事件。
+  回复港口关闭（）
+}）
+```
+
+### 直接在上下文隔离页面的主要过程和主世界之间进行通信
+
+启用 [上下文隔离][] 时，从主过程到渲染器 IPC 消息将传递到孤立的世界，而不是主要 世界。 有时，您希望直接向主要世界传递信息， 而不必跨过孤立的世界。
+
+```js
+主要.js/
+/ { BrowserWindow, app, MessageChannelMain }
+需要（"电子"）
+
+应用时，需要（"路径"）然后（对> ）=
+  //创建启用上下文隔离的浏览器窗口。
+  const bw=新的浏览器窗口（{
+    网络自尊：{
+      上下文自焚：真实，
+      预加载：path.__dirname，"预加载.js"）
+    =
+  }）
+  bw.loadURL（"索引.html"）
+
+  //我们将将此通道的一端发送到
+  //上下文隔离页面的主要世界。
+  康斯特 { port1, port2 } =新的消息通道main（）
+
+  //在另一端
+  //注册了听众之前在频道上发送消息是可以的。 消息将排队，直到
+  //注册。
+  port2.后信息（{ test: 21 }）
+
+  //我们也可以接收来自渲染器主要世界的消息。
+  端口2.on（"消息"，（事件）=> {
+    控制台.log（"从渲染器主世界：'，事件.数据）
+  }）
+  端口2.开始（）
+
+  //预加载脚本将接收此IPC消息，并将端口
+  //转移到主世界。
+  bw.web康滕茨.邮资信息（"主世界端口"，空， [port1]）
+}）
+```
+
+```js
+预装.js/
+ { ipcRenderer } =需要（"电子"）
+
+//我们需要等到主世界准备好接收消息后再
+//发送端口。 我们在预加载中创建此承诺，因此保证
+//在加载事件被激发之前注册加载侦听器。
+收缩窗口加载 = 新承诺 （解决 => {
+  窗口.加载 = 解决
+[）
+
+ipcRenderer. on （"主世界端口"， 不对称 （事件） => {
+  等待窗口加载
+  / / 我们使用常规窗口
+  。
+  窗口.邮资信息（"主世界端口"，"*"，"事件"）
+}）
+```
+
+```html<!--索引.html -------------------------------------------------------------><script>
+窗口。onmesage = （事件） => =
+  // 事件 <iframe> 
+  。
+  如果（事件.来源==窗口 && 事件.data=="主世界端口"）{
+    端口[端口]=事件。端口
+    //一旦我们有了端口，我们可以直接与主
+    //过程进行通信。
+    端口.onmesage=（事件）=> =
+      控制台.log（"从主要过程：'，事件.数据）
+      端口。邮寄信息（事件.数据*2）
+    }
+  }
+=
 </script>
 ```
 
-[context isolation]: context-isolation.md
+[上下文隔离]: context-isolation.md
 [`ipcRenderer.postMessage`]: ../api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer
 [`WebContents.postMessage`]: ../api/web-contents.md#contentspostmessagechannel-message-transfer
 [`MessagePortMain`]: ../api/message-port-main.md
 [`MessageChannelMain`]: ../api/message-channel-main.md
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
-[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[渠道消息 API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
