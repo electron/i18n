@@ -1,74 +1,74 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Registrieren Sie ein benutzerdefiniertes Protokoll, und fangen Sie vorhandene Protokollanforderungen ab.
 
 Prozess: [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Ein Beispiel für die Implementierung eines Protokolls, das die gleiche Wirkung wie das `file://` Protokoll hat:
 
 ```javascript
 const { app, protocol } = require('electron')
 const path = require('path')
 
-app.whenReady().then(() => {
-  protocol.registerFileProtocol('atom', (request, callback) => {
+app.whenReady().then()=> '
+  protocol.registerFileProtocol('atom', (request, callback) => '
     const url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
-  })
-})
+    callback(' path.normalize('${__dirname}/${url}
+
+  )
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Hinweis:** Alle Methoden, sofern nicht angegeben, können nur verwendet werden, nachdem das `ready` Ereignis des `app` Moduls ausgesendet wird.
 
-## Using `protocol` with a custom `partition` or `session`
+## Verwenden von `protocol` mit einem benutzerdefinierten `partition` oder `session`
 
-A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+Ein Protokoll wird für ein bestimmtes Electron [`session`](./session.md) -Objekt registriert. Wenn Sie keine Sitzung angeben, wird Ihr `protocol` auf die von Electron verwendete Standardsitzung angewendet. Wenn Sie jedoch eine `partition` oder `session` auf dem `webPreferences`ihres `browserWindow`definieren, wird dieses Fenster einer anderen Sitzung verwendet, und Ihr benutzerdefiniertes Protokoll funktioniert nicht, wenn Sie nur `electron.protocol.XXX`verwenden.
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+Damit Ihr benutzerdefiniertes Protokoll in Kombination mit einer benutzerdefinierten Sitzung funktioniert, müssen Sie es explizit für diese Sitzung registrieren.
 
 ```javascript
 const { session, app, protocol } = require('electron')
 const path = require('path')
 
-app.whenReady().then(() => {
+app.whenReady().then()=> '
   const partition = 'persist:example'
   const ses = session.fromPartition(partition)
 
-  ses.protocol.registerFileProtocol('atom', (request, callback) => {
+  ses.protocol.registerFileProtocol('atom', (request, callback) =>
     const url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
-  })
+    callback(' path: path.normalize('${__dirname}/${url}')
+  ' )
 
-  mainWindow = new BrowserWindow({ webPreferences: { partition } })
-})
+  mainWindow = new BrowserWindow(' webPreferences: { partition } ')
+)
 ```
 
 ## Methoden
 
-The `protocol` module has the following methods:
+Das `protocol` Modul verfügt über die folgenden Methoden:
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**Hinweis:** Diese Methode kann nur verwendet werden, bevor das `ready` Ereignis des `app` Moduls ausgesendet wird und nur einmal aufgerufen werden kann.
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. Specify a privilege with the value of `true` to enable the capability.
+Registriert die `scheme` als standardsicher, umgeht die Inhaltssicherheitsrichtlinie für Ressourcen, ermöglicht die Registrierung von ServiceWorker, unterstützt die Abruf-API und streaming Video/Audio. Geben Sie eine Berechtigung mit dem Wert `true` an, um die Funktion zu aktivieren.
 
-An example of registering a privileged scheme, that bypasses Content Security Policy:
+Ein Beispiel für die Registrierung eines privilegierten Schemas, das die Content Security -Richtlinie umgeht:
 
 ```javascript
 const { protocol } = require('electron')
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'foo', privileges: { bypassCSP: true } }
+  'scheme: 'foo', privileges: { bypassCSP: true } '
 ])
 ```
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Ein Standardschema entspricht dem, was RFC 3986 [generische URI- -Syntax](https://tools.ietf.org/html/rfc3986#section-3)bezeichnet. Beispielsweise sind `http` und `https` Standardschemata, `file` nicht.
 
-Registering a scheme as standard allows relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Wenn Sie ein Schema standardmäßig registrieren, können relative und absolute Ressourcen ordnungsgemäß aufgelöst werden, wenn sie bereitgestellt werden. Andernfalls verhält sich das Schema wie das `file` Protokolls, jedoch ohne die Möglichkeit, relative URLs aufzulösen.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Wenn Sie z. B. die folgende Seite mit einem benutzerdefinierten Protokoll laden, ohne , es als Standardschema zu registrieren, wird das Abbild nicht geladen, da nicht standardmäßige Schemas relative URLs nicht erkennen können:
 
 ```html
 <body>
@@ -76,91 +76,91 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API][file-system-api]. Otherwise the renderer will throw a security error for the scheme.
+Wenn Sie ein Schema standardmäßig registrieren, können Sie über die [FileSystem-API][file-system-api]auf Dateien zugreifen. Andernfalls löst der Renderer einen Sicherheitsfehler aus, für das Schema.
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+Standardmäßig sind Webspeicher-APis (localStorage, sessionStorage, webSQL, indexedDB, Cookies) für nicht standardmäßige Schemata deaktiviert. Wenn Sie also ein benutzerdefiniertes Protokoll registrieren möchten, um das `http` Protokoll zu ersetzen, müssen Sie sich es als Standardschema registrieren.
 
-Protocols that use streams (http and stream protocols) should set `stream: true`. The `<video>` and `<audio>` HTML elements expect protocols to buffer their responses by default. The `stream` flag configures those elements to correctly expect streaming responses.
+Protokolle, die Streams (http und Streamprotokolle) verwenden, sollten `stream: true`festlegen. Die `<video>` - und `<audio>` -HTML-Elemente erwarten, dass Protokolle standardmäßig ihre -Antworten puffern. Das `stream` -Flag konfiguriert diese Elemente so, dass sie korrekt Streaming-Antworten erwarten.
 
-### `protocol.registerFileProtocol(scheme, handler)`
+### `protocol.registerFileProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich registriert wurde
 
-Registers a protocol of `scheme` that will send a file as the response. The `handler` will be called with `request` and `callback` where `request` is an incoming request for the `scheme`.
+Registriert ein Protokoll mit `scheme` , das eine Datei als Antwort sendet. Die `handler` wird mit `request` und `callback` aufgerufen, bei dem `request` eine eingehende Anforderung für die `scheme` .
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The `filePath` must be an absolute path.
+Um die `request`zu behandeln, sollte die `callback` entweder mit dem Pfad der Datei oder einem Objekt aufgerufen werden, das über eine `path` -Eigenschaft verfügt, z. B. `callback(filePath)` oder `callback({ path: filePath })`. Die `filePath` muss ein absoluter Weg sein.
 
-By default the `scheme` is treated like `http:`, which is parsed differently from protocols that follow the "generic URI syntax" like `file:`.
+Standardmäßig wird die `scheme` wie `http:`behandelt, die anders von Protokollen analysiert wird, die der "generischen URI-Syntax" wie `file:`folgen.
 
-### `protocol.registerBufferProtocol(scheme, handler)`
+### `protocol.registerBufferProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
-    * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
+    * `response` (| [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich registriert wurde
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+Registriert ein Protokoll mit `scheme` , das eine `Buffer` als Antwort sendet.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
+Die Verwendung ist bei `registerFileProtocol`identisch, mit der Ausnahme, dass die `callback` entweder mit einem `Buffer` Objekt oder einem Objekt mit der `data` -Eigenschaft aufgerufen werden soll.
 
 Beispiel:
 
 ```javascript
-protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
-})
+protocol.registerBufferProtocol('atom', (request, callback) => '
+  callback(' mimeType: 'text/html', daten: Buffer.from('<h5>Response</h5>')
+
 ```
 
-### `protocol.registerStringProtocol(scheme, handler)`
+### `protocol.registerStringProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich registriert wurde
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+Registriert ein Protokoll mit `scheme` , das eine `String` als Antwort sendet.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data` property.
+Die Verwendung ist bei `registerFileProtocol`identisch, mit der Ausnahme, dass die `callback` entweder mit einem `String` oder einem Objekt aufgerufen werden sollten, das über die `data` -Eigenschaft verfügt.
 
-### `protocol.registerHttpProtocol(scheme, handler)`
+### `protocol.registerHttpProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` ProtocolResponse
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich registriert wurde
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Registriert ein Protokoll mit `scheme` , das eine HTTP-Anforderung als Antwort sendet.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
+Die Verwendung ist bei `registerFileProtocol`identisch, mit der Ausnahme, dass die `callback` mit einem Objekt aufgerufen werden soll, das über die `url` -Eigenschaft verfügt.
 
-### `protocol.registerStreamProtocol(scheme, handler)`
+### `protocol.registerStreamProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich registriert wurde
 
-Registers a protocol of `scheme` that will send a stream as a response.
+Registriert ein Protokoll mit `scheme` , das einen Stream als Antwort sendet.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) object or an object that has the `data` property.
+Die Verwendung ist bei `registerFileProtocol`identisch, mit der Ausnahme, dass die `callback` entweder mit einem [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) Objekt oder einem Objekt aufgerufen werden soll, das über die `data` -Eigenschaft verfügt.
 
 Beispiel:
 
@@ -168,118 +168,118 @@ Beispiel:
 const { protocol } = require('electron')
 const { PassThrough } = require('stream')
 
-function createStream (text) {
-  const rv = new PassThrough() // PassThrough is also a Readable stream
+-Funktion createStream (text) -
+  const rv = new PassThrough() / / PassThrough ist auch ein lesbarer Stream
   rv.push(text)
   rv.push(null)
   return rv
-}
+.
 
-protocol.registerStreamProtocol('atom', (request, callback) => {
-  callback({
+protocol.registerStreamProtocol('atom', (Request, callback) => -
+  -Callback(-
     statusCode: 200,
-    headers: {
+    -Header:
       'content-type': 'text/html'
-    },
-    data: createStream('<h5>Response</h5>')
-  })
-})
+    ,
+    Daten: createStream('<h5>Response</h5>')
+  ')
+')
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Es ist möglich, jedes Objekt zu übergeben, das die lesbare Stream-API implementiert (emittiert `data`/`end`/`error` Ereignisse). So konnte z. B. eine Datei zurückgegeben werden:
 
 ```javascript
-protocol.registerStreamProtocol('atom', (request, callback) => {
+protocol.registerStreamProtocol('atom', (request, callback) => '
   callback(fs.createReadStream('index.html'))
-})
+
 ```
 
 ### `protocol.unregisterProtocol(scheme)`
 
 * `scheme` String
 
-Returns `Boolean` - Whether the protocol was successfully unregistered
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgemeldet wurde
 
-Unregisters the custom protocol of `scheme`.
+Entregistriert das benutzerdefinierte Protokoll von `scheme`.
 
-### `protocol.isProtocolRegistered(scheme)`
-
-* `scheme` String
-
-Returns `Boolean` - Whether `scheme` is already registered.
-
-### `protocol.interceptFileProtocol(scheme, handler)`
+### `protocol.isProtocolRegistered(schema)`
 
 * `scheme` String
-* `handler` Function
+
+Gibt `Boolean` zurück - Gibt an, ob `scheme` bereits registriert ist.
+
+### `protocol.interceptFileProtocol(schema, Handler)`
+
+* `scheme` String
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Fängt `scheme` Protokoll ab und verwendet `handler` als neuen Handler des Protokolls der eine Datei als Antwort sendet.
 
-### `protocol.interceptStringProtocol(scheme, handler)`
+### `protocol.interceptStringProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Fängt `scheme` Protokoll ab und verwendet `handler` als neue des Protokolls, die eine `String` als Antwort sendet.
 
-### `protocol.interceptBufferProtocol(scheme, handler)`
+### `protocol.interceptBufferProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
-    * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
+    * `response` (| [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+Fängt `scheme` Protokoll ab und verwendet `handler` als neue des Protokolls, die eine `Buffer` als Antwort sendet.
 
-### `protocol.interceptHttpProtocol(scheme, handler)`
+### `protocol.interceptHttpProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Fängt `scheme` Protokoll ab und verwendet `handler` als neuen Handler des Protokolls der eine neue HTTP-Anforderung als Antwort sendet.
 
-### `protocol.interceptStreamProtocol(scheme, handler)`
+### `protocol.interceptStreamProtocol(schema, Handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` -Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+Genauso wie `protocol.registerStreamProtocol`, mit der Ausnahme, dass ein vorhandener Protokollhandler ersetzt wird.
 
 ### `protocol.uninterceptProtocol(scheme)`
 
 * `scheme` String
 
-Returns `Boolean` - Whether the protocol was successfully unintercepted
+Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Entfernen Sie den für `scheme` installierten Interceptor, und stellen Sie den ursprünglichen Handler wieder her.
 
-### `protocol.isProtocolIntercepted(scheme)`
+### `protocol.isProtocolIntercepted(schema)`
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already intercepted.
+Gibt `Boolean` zurück - Gibt an, ob `scheme` bereits abgefangen wurde.
 
 [file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
