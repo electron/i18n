@@ -1,6 +1,6 @@
 # JumpListItem Object
 
-* `type` String (optional) - One of the following:
+* `type` String (optional) - Einer der folgenden:
   * `task` - Task startet eine App mit speziellen Werten.
   * `separator` - kann verwendet werden, um Elemente in der Standardkategorie `Tasks` zu trennen.
   * `file` - Ein file-link wird eine datei öffnen mit der app welche die Jump List erstellt hat, damit dies funktioniert, muss die app als Handler dieses Dateityps registriert sein (muss aber nicht der Standard Handler sein).
