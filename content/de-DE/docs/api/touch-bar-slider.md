@@ -1,35 +1,35 @@
-## Class: TouchBarSlider
+## Klasse: TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> Erstellen eines Schiebereglers in der Touchleiste für native macOS-Anwendungen
 
 Prozess: [Main](../glossary.md#main-process)
 
-### `new TouchBarSlider(options)`
+### `neue TouchBarSlider(Optionen)`
 
-* `options` Object
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed.
-    * `newValue` Number - The value that the user selected on the Slider.
+* `options` -Objekt
+  * `label` String (optional) - Beschriften sie Text.
+  * `value` Ganzzahl (optional) - Ausgewählter Wert.
+  * `minValue` Ganzzahl (optional) - Minimalwert.
+  * `maxValue` Ganzzahl (optional) - Maximalwert.
+  * `change` Funktion (optional) - Funktion zum Aufrufen, wenn der Schieberegler geändert wird.
+    * `newValue` - Der Wert, den der Benutzer im Schieberegler ausgewählt hat.
 
 ### Instanz Eigenschaften
 
-The following properties are available on instances of `TouchBarSlider`:
+Die folgenden Eigenschaften sind für Instanzen von `TouchBarSlider`verfügbar:
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+Ein `String` , der den aktuellen Text des Schiebereglers darstellt. Wenn Sie diesen Wert ändern, wird der Schieberegler in der Touchleiste sofort aktualisiert.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+Ein `Number` , der den aktuellen Wert des Schiebereglers darstellt. Wenn Sie diesen Wert ändern, wird der Schieberegler in der Touchleiste sofort aktualisiert.
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+Ein `Number` , der den aktuellen Mindestwert des Schiebereglers darstellt. Wenn Sie diesen Wert ändern, wird der Schieberegler in der Touchleiste sofort aktualisiert.
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+Eine `Number` , die den aktuellen Maximalwert des Schiebereglers darstellt. Wenn Sie diesen Wert ändern, wird der Schieberegler in der Touchleiste sofort aktualisiert.
