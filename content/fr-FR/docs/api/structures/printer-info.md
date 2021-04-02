@@ -15,15 +15,15 @@ Ci-dessous, un exemple de certaines des options supplémentaires qui peuvent êt
 
 ```javascript
 {
-  name: 'Austin_4th_Floor_Printer___C02XK13BJHD4',
+  nom: 'Austin_4th_Floor_Printer___C02XK13BJHD4',
   displayName: 'Austin 4th Floor Printer @ C02XK13BJHD4',
-  description: 'TOSHIBA ColorMFP',
-  status: 3,
+  description: 'TOSHIBA ColorMFP', statut
+  : 3,
   isDefault: false,
   options: {
     copies: '1',
-    'device-uri': 'dnssd://Austin%204th%20Floor%20Printer%20%40%20C02XK13BJHD4._ipps._tcp.local./?uuid=71687f1e-1147-3274-6674-22de61b110bd',
-    finishings: '3',
+    'device-uri': 'dnssd://Austin%204ème%20Floor%20Printer%20%40%20C02XK13BJHD4._ipps._tcp.local./?uuid=71687f1e-1147-3274-6674-22de61b1110bd',
+    finitions: '3',
     'job-cancel-after': '10800',
     'job-hold-until': 'no-hold',
     'job-priority': '50',
@@ -31,7 +31,7 @@ Ci-dessous, un exemple de certaines des options supplémentaires qui peuvent êt
     'marker-change-time': '0',
     'number-up': '1',
     'printer-commands': 'ReportLevels,PrintSelfTestPage,com.toshiba.ColourProfiles.update,com.toshiba.EFiling.update,com.toshiba.EFiling.checkPassword',
-    'printer-info': 'Austin 4th Floor Printer @ C02XK13BJHD4',
+    'printer-info' : 'Austin 4th Floor Printer @ C02XK13BJHD4',
     'printer-is-accepting-jobs': 'true',
     'printer-is-shared': 'false',
     'printer-is-temporary': 'false',
@@ -39,7 +39,7 @@ Ci-dessous, un exemple de certaines des options supplémentaires qui peuvent êt
     'printer-make-and-model': 'TOSHIBA ColorMFP',
     'printer-state': '3',
     'printer-state-change-time': '1573472937',
-    'printer-state-reasons': 'offline-report,com.toshiba.snmp.failed',
+    'printer-state-reasons': 'offline-report,com.toshiba.snmp .failed',
     'printer-type': '10531038',
     'printer-uri-supported': 'ipp://localhost/printers/Austin_4th_Floor_Printer___C02XK13BJHD4',
     system_driverinfo: 'T'
