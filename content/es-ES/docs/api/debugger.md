@@ -7,28 +7,28 @@ Proceso: [Main](../glossary.md#main-process)
 Las herramientas para desarrolladores de Chrome tiene un [special binding][rdp] disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } = require (' Electron ')
+const Win = New BrowserWindow ()
 
 try {
-  win.webContents.debugger.attach('1.1')
-} catch (err) {
-  console.log('Debugger attach failed : ', err)
+  Win. webContents. Debugger. Attach (' 1.1 ')
+} catch (ERR) {
+  Console. log (' Debugger Attach Failed: ', err)
 }
 
-win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+Win. webContents. Debugger. on (' detach ', (Event, Reason) => {
+  Console. log (' desasociar depurador por: ', Reason)
 })
 
-win.webContents.debugger.on('message', (event, method, params) => {
-  if (method === 'Network.requestWillBeSent') {
-    if (params.request.url === 'https://www.github.com') {
-      win.webContents.debugger.detach()
+Win. webContents. Debugger. on (' Message ', (Event, Method, params) => {
+  if (Method = = = ' Network. requestWillBeSent ') {
+    if (params. request. URL = = = ' https://www.github.com ') {
+      Win. webContents. Debugger. Detach ()
     }
   }
 })
 
-win.webContents.debugger.sendCommand('Network.enable')
+Win. webContents. Debugger. sendCommand (' Network. Enable ')
 ```
 
 ### Eventos de Instancia
@@ -48,8 +48,8 @@ Devuelve:
 
 * `event` Event
 * `method` Cadena- Nombre del método.
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `params` parámetros de cualquier evento definidos por el atributo ' Parameters ' en el protocolo de depuración remota.
+* `sessionId` cadena-identificador único de sesión de depuración adjunta, coincidirá con el valor enviado desde `debugger.sendCommand`.
 
 Emitido cada vez que el objetivo de depuración emite un evento de instrumentación.
 
@@ -69,11 +69,11 @@ Devuelve `Boolean` - Si un depurador se adjunta o no a la `webContents`.
 
 Desasocia el depurador de la `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams, sessionId])`
+#### `Debugger. sendCommand (método [, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `method` nombre de método de cadena, debe ser uno de los métodos definidos por el [protocolo de depuración remota][rdp].
 * `commandParams` any (opcional) - Objeto JSON con parámetros de la solicitud.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
+* `sessionId` cadena (opcional)-enviar comando al destino con ID de sesión de depuración asociado. El valor inicial se puede obtener enviando [mensaje de][attachToTarget] Target. attachToTarget.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.
 
