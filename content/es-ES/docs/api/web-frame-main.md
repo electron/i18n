@@ -1,24 +1,24 @@
 # webFrameMain
 
-> Control web pages and iframes.
+> Controla las páginas web y los iframes.
 
 Proceso: [Main](../glossary.md#main-process)
 
-The `webFrameMain` module can be used to lookup frames across existing [`WebContents`](web-contents.md) instances. Navigation events are the common use case.
+El módulo `webFrameMain` se puede usar para buscar fotogramas en las existentes[`WebContents`](web-contents.md) instancias. Los eventos de navegación son el caso de uso común.
 
 ```javascript
-const { BrowserWindow, webFrameMain } = require('electron')
+const { BrowserWindow, webFrameMain } = require (' Electron ')
 
-const win = new BrowserWindow({ width: 800, height: 1500 })
-win.loadURL('https://twitter.com')
+const Win = New BrowserWindow ({ width: 800, height: 1500 })
+Win. loadURL (' https://Twitter.com ')
 
-win.webContents.on(
-  'did-frame-navigate',
-  (event, url, isMainFrame, frameProcessId, frameRoutingId) => {
-    const frame = webFrameMain.fromId(frameProcessId, frameRoutingId)
+Win. webContents. on (
+  ' did-Frame-Navigate ',
+  (Event, URL, isMainFrame, frameProcessId, frameRoutingId) => {
+    const Frame = webFrameMain. fromId (frameProcessId, frameRoutingId)
     if (frame) {
-      const code = 'document.body.innerHTML = document.body.innerHTML.replaceAll("heck", "h*ck")'
-      frame.executeJavaScript(code)
+      const Code = ' Document. Body. innerHTML = Document. Body. innerHTML. replaceAll ("Heck", "h * ck") '
+      frame. executeJavaScript (Code)
     }
   }
 )
@@ -27,37 +27,37 @@ win.webContents.on(
 También puedes acceder a los frames de una página existente usando la propiedad `mainFrame` de [`WebContents`](web-contents.md).
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require (' Electron ')
 
-async function main () {
-  const win = new BrowserWindow({ width: 800, height: 600 })
-  await win.loadURL('https://reddit.com')
+función Async Main () {
+  const Win = New BrowserWindow ({ width: 800, height: 600 })
+  Await Win. loadURL (' https://reddit.com ')
 
-  const youtubeEmbeds = win.webContents.mainFrame.frames.filter((frame) => {
+  const youtubeEmbeds = Win. webContents. mainFrame. frames. Filter ((frame) => {
     try {
-      const url = new URL(frame.url)
-      return url.host === 'www.youtube.com'
-    } catch {
+      const URL = New URL (frame. URL)
+      devuelve URL. host = = = ' www.youtube.com '
+    } Catch {
       return false
     }
   })
 
-  console.log(youtubeEmbeds)
+  Console. log (youtubeEmbeds)
 }
 
-main()
+principal ()
 ```
 
 ## Métodos
 
-These methods can be accessed from the `webFrameMain` module:
+Se puede acceder a estos métodos desde el módulo `webFrameMain` :
 
-### `webFrameMain.fromId(processId, routingId)`
+### `webFrameMain. fromId (processId, Rutingid)`
 
 * `processId` Integer - Un `Integer` representando el ID interno del proceso que posee el frame.
-* `routingId` Integer - Un `Integer` representando el ID único del frame en el renderer process actual. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
+* `routingId` Integer - Un `Integer` representando el ID único del frame en el renderer process actual. Los ID de enrutamiento se pueden recuperar desde `WebFrameMain`instancias de (`frame.routingId`) y también se pasan por fotogramas eventos de navegación `WebContents` específicos (p. ej. `did-frame-navigate`).
 
-Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
+Devuelve `WebFrameMain | undefined` -un marco con el proceso dado y identificadores de direccionamiento, o `undefined` si no hay un WebFrameMain asociado con los ID dados.
 
 ## Clase: WebFrameMain
 
@@ -65,12 +65,12 @@ Proceso: [Main](../glossary.md#main-process)
 
 ### Métodos de Instancia
 
-#### `frame.executeJavaScript(code[, userGesture])`
+#### `Frame. executeJavaScript (Code [, userGesture])`
 
 * `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
-Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+Devuelve `Promise<unknown>` -una promesa que se resuelve con el resultado del código de ejecutado o se rechaza si se produce una ejecución o se produce una promesa rechazada.
 
 Evalúa el `código` en la página.
 
@@ -93,7 +93,7 @@ El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el 
 
 * `channel` Cadena
 * `mensaje` cualquiera
-* `transfer` MessagePortMain[] (optional)
+* `transfer` MessagePortMain [] (opcional)
 
 Envía un mensaje al renderer process, transfiriendo opcionalmente la propiedad de cero o más objetos [`MessagePortMain`][].
 
@@ -153,4 +153,4 @@ Un `Integer` que representa el `pid` del proceso interno de Chromium al cual per
 
 #### `frame.routingId` _Readonly_
 
-An `Integer` representing the unique frame id in the current renderer process. Las instancias distintas de `WebFrameMain` que se refieren al mimo frame subyacente tendrán el mismo `routingId`.
+Una `Integer` que representa el ID de trama único en el proceso de representador actual. Las instancias distintas de `WebFrameMain` que se refieren al mimo frame subyacente tendrán el mismo `routingId`.
