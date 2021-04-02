@@ -10,7 +10,7 @@ date: '2018-03-21'
 
 ## 受影响的应用程序
 
-An application is affected if *all* of the following are true:
+如果 *以下所有* 都属实，则应用程序将受到影响：
 
  1. 在 Electron 1.7, 1.8, 或 2.0.0-beta 运行
  2. 允许执行任意远程代码
@@ -28,24 +28,24 @@ An application is affected if *all* of the following are true:
 无法升级其应用程序的 Electron 版本的开发者可以通过以下代码来降低脆弱性：
 
 ```js
-app.on('web-contents-created', (event, win) => {
-  win.on('new-window', (event, newURL, frameName, disposition,
-                        options, additionalFeatures) => {
-    if (!options.webPreferences) options.webPreferences = {};
-    options.webPreferences.nodeIntegration = false;
-    options.webPreferences.nodeIntegrationInWorker = false;
-    options.webPreferences.webviewTag = false;
-    delete options.webPreferences.preload;
-  })
-})
+应用程序。on（"网络内容创建"， （事件，胜利）=> {
+  赢。on（"新窗口"，（事件，新URL，帧名称，处置，
+                        选项，附加内容）=> {
+    如果（！选项.webPrepreences）选项。webPrepreence ={};
+    选项。webPrepreences.节点=错误：
+    选项.webPrefers.节点工作=错误;
+    选项.webPreference.webviewtag=错误;
+    删除选项.webPrepreence.预加载;
+  [）
+}）
 
-// and *IF* you don't use WebViews at all,
-// you might also want
-app.on('web-contents-created', (event, win) => {
-  win.on('will-attach-webview', (event, webPreferences, params) => {
-    event.preventDefault();
-  })
-})
+//和*如果*您根本不使用webView，
+/ /您可能还需要
+应用程序。on（"网络内容创建"，"事件，赢"=> {
+  赢。on（"将附加网络视图"，（事件，WebPrefers，参数）=> {
+    事件
+
+  。
 ```
 
 ## 更多信息
