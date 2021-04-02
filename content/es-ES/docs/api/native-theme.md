@@ -22,23 +22,23 @@ Un `Boolean` para si el OS / Chromium actualmente tiene un modo oscuro activado 
 
 ### `nativeTheme.themeSource`
 
-Una propiedad `String` que puede ser `system`, `light` o `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.
+Una propiedad `String` que puede ser `system`, `light` o `dark`.  Se usa para reemplazar y sustituir el valor que Chromium eligió usar internamente.
 
 Estableciendo esta propiedad a `system` eliminará la sobreescritura y todo será restablecido a los valores predeterminados del sistema operativo.  Por defecto `themeSource` es `system`.
 
 Estableciendo esta propiedad a `dark` tendrá los siguientes efectos:
 
 * `nativeTheme.shouldUseDarkColors` será `true` cuando se accede
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
+* Cualquier IU de electrones se renderiza en Linux y Windows, incluidos los menús contextuales, DevTools, etc., usarán la interfaz de usuario oscura.
+* Cualquier interfaz de usuario que el sistema operativo represente en macOS, incluidos los menús, los marcos de ventana, etc., usará la interfaz de usuario oscura.
 * La consulta CSS [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) coincidirá con el modo `dark`.
 * El evento `updated` será emitido
 
 Estableciendo esta propiedad a `light` tendrá los siguientes efectos:
 
 * `nativeTheme.shouldUseDarkColors` será `false` cuando se acceda
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
+* Cualquier IU de electrones se renderiza en Linux y Windows, incluidos los menús contextuales, DevTools, etc., usarán la interfaz de usuario de luz.
+* Cualquier interfaz de usuario que el sistema operativo represente en macOS, incluidos los menús, los marcos de ventana, etc., usará la interfaz de usuario de luz.
 * La consulta CSS [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) coincidirá con el modo `light`.
 * El evento `updated` será emitido
 
@@ -52,8 +52,8 @@ Su aplicación debe usar siempre `shouldUseDarkColors` para determinar que CSS a
 
 ### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _SoloLectura_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-contrast UI.
+Una `Boolean` para si el sistema operativo/cromo actualmente tiene habilitado el modo de alto contraste o se le indica que muestre una interfaz de usuario de alto contraste.
 
 ### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _SoloLectura_
 
-A `Boolean` for if the OS / Chromium currently has an inverted color scheme or is being instructed to use an inverted color scheme.
+Una `Boolean` para si el sistema operativo/cromo actualmente tiene un esquema de color invertido o se le indica que use un esquema de color invertido.
