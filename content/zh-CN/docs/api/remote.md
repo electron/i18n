@@ -4,20 +4,20 @@
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> ⚠️警告⚠️ `remote` 模块</a>弃用。 而不是 `remote`，使用 [`ipcRenderer`](ipc-renderer.md) 和 [`ipcMain`](ipc-main.md)。</p> 
 > 
-> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> 阅读更多关于为什么 `remote` 模块被弃用 [在这里](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
 > 
-> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
-
-` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
-
-在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ][rmi]。 <br>例如：从渲染进程创建浏览器窗口
-
-```javascript
-const { BrowserWindow } = require('electron').remote
-const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('https://github.com')
+> 如果您仍然想使用 `remote` 尽管性能和安全 的关注，请参阅 [@electron/远程](https://github.com/electron/remote)。</blockquote> 
+> 
+> ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
+> 
+> 在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ][rmi]。 <br>例如：从渲染进程创建浏览器窗口
+> 
+> ```javascript
+康斯特 { BrowserWindow } =需要（"电子"）。远程
+缺点赢=新的浏览器窗口（{ width: 800, height: 600 }）
+赢.com。
 ```
 
 ** 注意: **反过来（如果需要从主进程访问渲染进程），可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture)。
@@ -49,7 +49,7 @@ Electron 确保只要渲染进程中的远程对象一直存在（换句话说�
 
 主进程中的代码可以接受来自渲染进程的回调 - 例如`remote`模块 - 但使用此功能时应该非常小心。
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+首先，为了避免僵局，回调传递到主过程 称为异步。 您不应期望主要流程 获得已通过回调的回报值。
 
 例如，您不能在主进程中调用的` Array.map `中使用来自渲染器进程的函数：
 
@@ -78,11 +78,11 @@ console.log(withRendererCb, withLocalCb)
 
 其次，传递给主进程的回调将持续到主进程垃圾回收。
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+例如，以下代码乍一看似乎是无辜的。 它在远程对象上为 `close` 事件安装 回调：
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+需要（"电子"）远程。获取当前窗口打开（"关闭"，（）=> {
+  //窗口已关闭。。。
 })
 ```
 
@@ -125,7 +125,7 @@ console.log(app)
 
 ### `需要`
 
-A `NodeJS.Require` function equivalent to `require(module)` in the main process. 由其相对路径指定的模块将相对于主进程的入口点来解析。
+`NodeJS.Require` 函数相当于主过程中的 `require(module)` 。 由其相对路径指定的模块将相对于主进程的入口点来解析。
 
 例如:
 
@@ -140,9 +140,9 @@ project/
 ```
 
 ```js
-// main process: main/index.js
-const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
+主要过程：主/索引.js
+const { app } =需要（"电子"）
+应用程序> 。
 ```
 
 ```js
@@ -155,8 +155,8 @@ module.exports = 'bar'
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
-### `remote.process` _Readonly_
+### `remote.process` _·里德利·_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+`NodeJS.Process` 对象。  主过程中的 `process` 对象。 这与 `remote.getGlobal('process')` 相同，但已缓存。
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
