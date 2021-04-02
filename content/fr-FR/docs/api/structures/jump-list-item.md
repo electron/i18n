@@ -1,6 +1,6 @@
 # Objet JumpListItem
 
-* `type` String (optional) - One of the following:
+* `type` String (facultatif) - L’un des éléments suivants:
   * `task` - Une tâche va lancer une application avec des arguments spécifiques.
   * `separator` - Peut être utilisé pour séparer des éléments dans une catégorie `Tasks` standard.
   * `file` - Un lien de fichier ouvre un fichier en utilisant l'application qui a créé la liste de raccourcis, pour ce faire, l'application doit être enregistrée comme une application pouvant ouvrir ce type de fichier (bien qu'il n'a pas a être l'application par défaut pour ce type de fichier).
