@@ -8,7 +8,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ```javascript
 // Dans le processus main.
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 const win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Set the save path, making Electron not to prompt a save dialog.
@@ -58,7 +58,7 @@ Retourne :
 * `event` Événement
 * `state` Chaîne de caratères - Peut être `completed`, `cancelled` ou `interrupted`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Émis lorsque le téléchargement est dans un état terminal. Cela inclut un téléchargement , un téléchargement annulé (via `downloadItem.cancel()`) et un téléchargement interrompu qui ne peut pas être repris.
 
 Le `state` peut être un de ces cas :
 
@@ -74,17 +74,17 @@ L'objet `downloadItem` dispose des méthodes suivantes :
 
 * `path` String - Définit le chemin d'accès pour le téléchargement.
 
-Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. If `path` doesn't exist, Electron will try to make the directory recursively. Si l'utilisateur ne définit pas le chemin de sauvegarde via l'API, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.
+Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. Si `path` n’existe pas, Electron va essayer de rendre le répertoire récursif. Si l'utilisateur ne définit pas le chemin de sauvegarde via l'API, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Retourne `String` - Le chemin d’arrêt de l’élément de téléchargement. Il s’agit soit du chemin défini par `downloadItem.setSavePath(path)` ou du chemin choisi à partir de l' enregistrer le dialogue.
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
 * `options` SaveDialogOptions - Définit les options de la boîte de dialogue de sauvegarde des fichiers. Cet objet a la même comme le paramètre `options` de [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session.
+Cette API permet à l’utilisateur de définir des options personnalisées pour le dialogue d’sauvegarde qui pour l’élément de téléchargement par défaut. Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session.
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -102,7 +102,7 @@ Retourne `Boolean` - Si le téléchargement est en pause.
 
 Reprend le téléchargement qui a été mis en pause.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
+**Note :** activer les téléchargements réutilisables sur le serveur que vous téléchargez à partir des demandes de plage doit prendre en charge et fournir à la fois des valeurs `Last-Modified` et `ETag` 'en-tête. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
 
 #### `downloadItem.canResume()`
 
@@ -128,7 +128,7 @@ Retourne `Boolean` - Si le téléchargement à des gestures.
 
 Retourne `String` - le nom du fichier du téléchargement.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. Si l'utilisateur modifie le nom du fichier dans la boîte de dialogue de sauvegarde, alors le nom actuel et le nom du fichier sauvegardé seront différent.
+**Remarque :** nom du fichier n’est pas toujours le même que celui enregistré dans le disque local. Si l'utilisateur modifie le nom du fichier dans la boîte de dialogue de sauvegarde, alors le nom actuel et le nom du fichier sauvegardé seront différent.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -146,9 +146,9 @@ Retourne `String` - Le champ Content-Disposition venant de l'en-tête de la rép
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Retours `String` - L’état actuel. Peut être `progressing`, `completed`, `cancelled` ou `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**remarque :** méthodes suivantes sont utiles spécifiquement pour reprendre un élément `cancelled` lorsque la session est redémarrée.
 
 #### `downloadItem.getURLChain()`
 
