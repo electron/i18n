@@ -52,7 +52,7 @@ Electron 8.0.0 вышел! Он включает обновления Chromium `
     * Добавлена поддержка события `will-move` в macOS. [#19641](https://github.com/electron/electron/pull/19641)
 * Документированный ранее недокументированный `crashReporter.getCrashesDirectory()`. [#20417](https://github.com/electron/electron/pull/20417)
 * `диалог` изменения API API:
-    * Added `dontAddToRecent` property to `dialog.showOpenDialog` and `dialog.showOpenDialogSync` to prevent documents from being added to recent documents on Windows in open dialogs. [#19669](https://github.com/electron/electron/pull/19669)
+    * Добавлено `dontAddToRecent` в `dialog.showOpenDialog` и `dialog.showOpenDialogSync` , чтобы предотвратить добавление документов в последние документы на Windows в открытых диалогах. [#19669](https://github.com/electron/electron/pull/19669)
     * Добавлена настройка свойств `диалога.showSaveDialog` и `диалог.showSaveDialogSync`. [#19672](https://github.com/electron/electron/pull/19672)
 * `Уведомление` изменения API:
     * Добавлена опция `timeoutType` , позволяющая пользователям Linux/Windows устанавливать тип тайм-аута уведомлений. [#20153](https://github.com/electron/electron/pull/20153)
