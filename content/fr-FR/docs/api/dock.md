@@ -1,10 +1,10 @@
-## Class: Dock
+## Classe: Dock
 
-> Control your app in the macOS dock
+> Contrôlez votre application sur le dock macOS
 
 Processus : [Main](../glossary.md#main-process)
 
-The following example shows how to bounce your icon on the dock.
+L’exemple suivant montre comment faire rebondir votre icône sur le dock.
 
 ```javascript
 const { app } = require('electron')
@@ -15,15 +15,15 @@ app.dock.bounce()
 
 #### `dock.bounce([type])` _macOS_
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (facultatif) - Peut être `critical` ou `informational`. La valeur par défaut est `informational`
 
-Returns `Integer` - an ID representing the request.
+Retourne `Integer` - une pièce d’identité représentant la demande.
 
 Lorsque la `critical` est passé, l’icône du dock rebondira jusqu'à ce que l’application redevienne active ou que la requête est annulée.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Lorsque `informational` est passé, l’icône du dock rebondit pendant une seconde. Toutefois, la demande reste active jusqu’à ce que l’application active ou que la demande soit annulée.
 
-**Nota Bene:** This method can only be used while the app is not focused; when the app is focused it will return -1.
+**Nota Bene:** méthode ne peut être utilisée que lorsque l’application n’est pas ciblée; lorsque l’application est ciblée, elle reviendra -1.
 
 #### `dock.cancelBounce(id)` _macOS_
 
@@ -53,21 +53,21 @@ Masque l’icône du dock.
 
 #### `dock.show()` _macOS_
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+Retourne `Promise<void>` - Se résout lorsque l’icône du dock est affichée.
 
 #### `dock.isVisible()` _macOS_
 
-Returns `Boolean` - Whether the dock icon is visible.
+Retours `Boolean` - Si l’icône du dock est visible.
 
 #### `dock.setMenu(menu)` _macOS_
 
 * `menu` [Menu](menu.md)
 
-Sets the application's \[dock menu\]\[dock-menu\].
+Définit le [menu dock] de l’application[dock-menu].
 
 #### `dock.getMenu()` _macOS_
 
-Returns `Menu | null` - The application's \[dock menu\]\[dock-menu\].
+Retours `Menu | null` - Le [menu dock] de l’application[dock-menu].
 
 #### `dock.setIcon(image)` _macOS_
 
