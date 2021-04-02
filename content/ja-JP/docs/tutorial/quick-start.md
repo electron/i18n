@@ -287,12 +287,12 @@ const win = new BrowserWindow()
 レンダラープロセスからメインプロセスを呼び出すには、IPC モジュールを使用します。
 
 ```js
-// In the Main process
-const { ipcMain } = require('electron')
+メインプロセスでは、const { ipcMain } = ipcMain.handle('実行アクション'、イベント)を必要
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
-})
+とする('電子')を
+します。args) => {
+  // ..レンダラ
+}に代わってアクションを実行する
 ```
 
 ```js
