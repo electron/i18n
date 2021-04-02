@@ -50,7 +50,7 @@ Electron 有越来越多的教程来补充它的 API 文档。 现在你可以�
 
 ## npm 包
 
-There are now over 700,000 packages in the npm registry and it's not always easy to find the one you need. 为了更容易发现这些模块， 我们创建了 [`electron-npm-packages`][]， 专门用于电子的 3400 多个模块的集合。
+npm 注册表中现在有超过 700，000 个包，要找到您需要的包裹并不容易 。 为了更容易发现这些模块， 我们创建了 [`electron-npm-packages`][]， 专门用于电子的 3400 多个模块的集合。
 
 [个图书馆上的民俗。 o](https://libraries.io) 已创建 [源排名](https://docs.libraries.io/overview.html#sourcerank), 基于诸如 代码、社区、文档和使用等综合指标的软件项目评分系统。 我们创建了一个 [`sourceranks`] 模块，它包含了在 npm 注册表中每个模块的分数。 并且我们 使用这些分数来排序包结果。
 
@@ -64,7 +64,7 @@ There are now over 700,000 packages in the npm registry and it's not always easy
 
 ## 过滤结果
 
-如果您在此之前使用过GitHub的 [代码搜索](https://github.com/search) 你很可能知道它与colon分离的密钥值过滤器，比如 `extension:js` 或 `user:defunkt` We think this filtering technique is pretty powerful, so we've added an `is:` keyword to Electron's search that lets you filter results to only show a single type:
+如果您在此之前使用过GitHub的 [代码搜索](https://github.com/search) 你很可能知道它与colon分离的密钥值过滤器，比如 `extension:js` 或 `user:defunkt` 我们认为这种过滤技术非常 强大，因此我们在 Electron 的搜索中添加了一个 `is:` 关键字，允许您 筛选结果仅显示单个类型：
 
 - [`[<code>是:api 缩略图`]</code>][]
 - [`[<code>是:教程安全`]</code>][]
