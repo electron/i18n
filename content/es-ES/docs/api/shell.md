@@ -2,7 +2,7 @@
 
 > Administra los archivos y los URLs utilizando las aplicaciones por defecto.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
+Proceso: [](../glossary.md#main-process)principal, [](../glossary.md#renderer-process) del representador (no de espacio aislado)
 
 El módulo `shell` proporciona las funciones relacionadas con la integración de escritorio.
 
@@ -14,7 +14,7 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+**Nota:** mientras que el módulo de `shell` se puede usar en el proceso del representador, no funcionará en un representador de espacio aislado.
 
 ## Métodos
 
@@ -30,7 +30,7 @@ Muestra el archivo dado en un gestor de archivos. Si es posible, seleccione el a
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Devuelve `Promise<String>` -resuelve con una cadena que contiene el mensaje de error correspondiente a la falla si se produjo una falla, de lo contrario "".
 
 Abre el archivo determinado en el escritorio por defecto.
 
@@ -45,24 +45,24 @@ Devuelve `Promise<void>`
 
 Abre el protocolo URL externo dado de manera predeterminada en el escritorio. (Por ejemplo, mailto: URLs en el agente de correo predeterminado del usuario).
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _obsoleto_
 
 * `fullPath` Cadena
 * `deleteOnFail` Boolean (opcional) - Si eliminar o no eliminar unilateralmente el elemento si la papelera está desactivada o no es soportada en el volumen. _macOS_
 
 Devuelve `Boolean` - Si el elemento fue movido con éxito a la papelera o de lo contrario fue eliminado.
 
-> NOTE: This method is deprecated. Use `shell.trashItem` instead.
+> Nota: este método está obsoleto. Utiliza `shell.trashItem` en su lugar.
 
 Mueve el archivo determinado a la papelera y devuelve un valor boleano para la operación.
 
 ### `shell.trashItem(path)`
 
-* `path` String - path to the item to be moved to the trash.
+* `path` ruta de cadena al elemento que se moverá a la papelera.
 
-Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+Devuelve `Promise<void>` -resuelve cuando se ha completado la operación. Rechaza si se ha producido un error al eliminar el elemento solicitado.
 
-This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
+Esto mueve una ruta a la ubicación de la papelera específica del sistema operativo (papelera en macOS, recicla papelera en Windows y una ubicación específica del entorno del escritorio en Linux).
 
 ### `shell.beep()`
 
