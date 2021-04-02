@@ -1,30 +1,30 @@
-## Class: TouchBarLabel
+## Klasse: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Erstellen einer Beschriftung in der Touchleiste für native macOS-Anwendungen
 
 Prozess: [Main](../glossary.md#main-process)
 
-### `new TouchBarLabel(options)`
+### `neue TouchBarLabel(Optionen)`
 
-* `options` Object
-  * `label` String (optional) - Text to display.
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+* `options` -Objekt
+  * `label` String (optional) - Text, der angezeigt werden soll.
+  * `accessibilityLabel` String (optional) - Eine kurze Beschreibung der Schaltfläche für die Verwendung durch Screenreader wie VoiceOver.
+  * `textColor` String (optional) - Hex-Farbe des Textes, d.h. `#ABCDEF`.
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+Stellen Sie beim Definieren `accessibilityLabel`sicher, dass Sie macOS [Best Practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc)berücksichtigt haben.
 
 ### Instanz Eigenschaften
 
-The following properties are available on instances of `TouchBarLabel`:
+Die folgenden Eigenschaften sind für Instanzen von `TouchBarLabel`verfügbar:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Ein `String` , der den aktuellen Text der Beschriftung darstellt. Wenn Sie diesen Wert ändern, wird die Beschriftung sofort der Touchleiste aktualisiert.
 
 #### `touchBarLabel.accessibilityLabel`
 
-A `String` representing the description of the label to be read by a screen reader.
+Eine `String` , die die Beschreibung der Bezeichnung darstellt, die von einer Bildschirmsprachausgabe gelesen werden soll.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Ein `String` Hexcode, der die aktuelle Textfarbe der Beschriftung darstellt. Wenn Sie diesen Wert ändern, wird die Beschriftung in der Touchleiste sofort aktualisiert.
