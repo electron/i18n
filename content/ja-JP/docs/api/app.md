@@ -328,7 +328,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
+  * `reason` 文字列 - レンダリングプロセスがなくなった理由。  取りうる値:
     * `clean-exit` - ゼロの終了コードでプロセスが終了した
     * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
     * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
