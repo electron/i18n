@@ -26,13 +26,13 @@ El módulo `portapapeles` tiene los siguientes métodos:
 Devuelve `Cadena` - El contenido en el portapapeles como texto sin formato.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-clipboard.writeText('hello i am a bit of text!')
+Clipboard. writeText (' Hello i'm a bit to text! ')
 
-const text = clipboard.readText()
-console.log(text)
-// hello i am a bit of text!'
+texto const = Clipboard. readText ()
+Console. log (Text)
+//Hola soy un poco de texto. '
 ```
 
 ### `clipboard.writeText(text[, type])`
@@ -43,10 +43,10 @@ console.log(text)
 Escribe el `texto` en el portapapeles como texto sin formato.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-const text = 'hello i am a bit of text!'
-clipboard.writeText(text)
+const text = ' Hello i'm a bit to text! '
+Clipboard. writeText (Text)
 ```
 
 ### `clipboard.readHTML([type])`
@@ -56,13 +56,13 @@ clipboard.writeText(text)
 Devuelve `Cadena` - El contenido en el portapapeles como marca.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-clipboard.writeHTML('<b>Hi</b>')
-const html = clipboard.readHTML()
+Clipboard. writeHTML ('<b>HI</b>')
+const HTML = Clipboard. readHTML ()
 
-console.log(html)
-// <meta charset='utf-8'><b>Hi</b>
+Console. log (html)
+// <meta charset='utf-8'><b>HI</b>
 ```
 
 ### `clipboard.writeHTML(markupo[, type])`
@@ -73,9 +73,9 @@ console.log(html)
 Escribe `markup` en el portapapeles.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-clipboard.writeHTML('<b>Hi</b')
+Clipboard. writeHTML ('<b>HI</b ')
 ```
 
 ### `clipboard.readImage([type])`
@@ -98,13 +98,13 @@ Escribe `image` en el portapapeles.
 Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+Clipboard. writeRTF (' {\\rtf1\\ansi {\\fonttbl\\f0\\fswiss Helvetica;} \\f0\\pard\nse trata de un texto {\\b Bold}. \ \ par\n} ')
 
-const rtf = clipboard.readRTF()
-console.log(rtf)
-// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+const RTF = Clipboard. readRTF ()
+Console. log (RTF)
+//{\\rtf1\\ansi {\\fonttbl\\f0\\fswiss Helvetica;} \\f0\\pard\nse trata de un texto {\\b Bold}. \ \ par\n}
 ```
 
 ### `clipboard.writeRTF(texto[, type])`
@@ -115,10 +115,10 @@ console.log(rtf)
 Escribe el `text` en el portapapeles en RTF.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
-clipboard.writeRTF(rtf)
+const RTF = ' {\\rtf1\\ansi {\\fonttbl\\f0\\fswiss Helvetica;} \\f0\\pard\nse trata de un texto {\\b Bold}. \ \ par\n} '
+Clipboard. writeRTF (RTF)
 ```
 
 ### `clipboard.readBookmark()` _macOS_ _Windows_
@@ -141,11 +141,11 @@ Escribe el `título` y la `url` en el portapapeles como un marcador.
 **Nota:** La mayoría de las aplicaciones en Windows no soportan el pegado de marcadores dentro de ellas así que puedes usar `clipboard.write` para escribir tanto un marcador como un texto de respaldo en el portapapeles.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-clipboard.writeBookmark({
-  text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+Clipboard. writeBookmark ({
+  Text: ' https://electronjs.org ',
+  marcador: ' Electron homepage '
 })
 ```
 
@@ -174,11 +174,11 @@ Borra el contenido del portapapeles.
 Devuelve `Cadena[] ` - Una matriz de formatos admitidos para el portapapeles `type`.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-const formats = clipboard.availableFormats()
-console.log(formats)
-// [ 'text/plain', 'text/html' ]
+const Formats = Clipboard. availableFormats ()
+Console. log (formatos)
+//[' text/plain ', ' text/html ']
 ```
 
 ### `clipboard.has(format[, type])` _Experimental_
@@ -189,11 +189,11 @@ console.log(formats)
 Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-const hasFormat = clipboard.has('<p>selection</p>')
-console.log(hasFormat)
-// 'true' or 'false
+const hasFormat = Clipboard. has ('<p>Selection</p>')
+Console. log (hasFormat)
+//' true ' o ' false
 ```
 
 ### `clipboard.read(format)` _Experimental_
@@ -209,15 +209,15 @@ Devuelve `String` - Lee el tipo de `formato` del portapapeles.
 Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-const buffer = Buffer.from('this is binary', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+buffer const = buffer. from (' This is Binary ', ' UTF8 ')
+Clipboard. writeBuffer (' Public. UTF8-Plain-Text ', buffer)
 
-const ret = clipboard.readBuffer('public.utf8-plain-text')
+const RET = Clipboard. readBuffer (' Public. UTF8-Plain-Text ')
 
-console.log(buffer.equals(out))
-// true
+Console. log (buffer. Equals (out))
+//true
 ```
 
 ### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
@@ -229,15 +229,15 @@ console.log(buffer.equals(out))
 Escribe el `buffer` en el portapapeles como `formato`.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-const buffer = Buffer.from('writeBuffer', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+buffer const = buffer. from (' writeBuffer ', ' UTF8 ')
+Clipboard. writeBuffer (' Public. UTF8-Plain-Text ', buffer)
 ```
 
 ### `clipboard.write(datao[, type])`
 
-* `data` Object
+* Objeto `data`
   * `text` Cadena (opcional)
   * `html` Cadena (opcional)
   * `image` [NativeImage](native-image.md) (opcional)
@@ -248,24 +248,24 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 Escribe `datos` en el portapapeles.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-clipboard.write({
-  text: 'test',
-  html: '<b>Hi</b>',
-  rtf: '{\\rtf1\\utf8 text}',
-  bookmark: 'a title'
+Clipboard. Write ({
+  Text: ' test ',
+  HTML: '<b>HI</b>',
+  RTF: ' {\\rtf1\\utf8 text} ',
+  marcador: ' a title '
 })
 
-console.log(clipboard.readText())
-// 'test'
+consola. log (Clipboard. readText ())
+//' test '
 
-console.log(clipboard.readHTML())
-// <meta charset='utf-8'><b>Hi</b>
+Console. log (Clipboard. readHTML ())
+// <meta charset='utf-8'><b>HI</b>
 
-console.log(clipboard.readRTF())
-// '{\\rtf1\\utf8 text}'
+Console. log (Clipboard. readRTF ())
+//' {\\rtf1\\utf8 text} '
 
-console.log(clipboard.readBookmark())
+Console. log (Clipboard. readBookmark ())
 // { title: 'a title', url: 'test' }
 ```
