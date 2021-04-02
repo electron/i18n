@@ -18,7 +18,7 @@ L'événement `data` est la méthode habituelle de transfert des données de ré
 
 #### Événement : 'end'
 
-Indique que le corps de réponse est terminée. Must be placed before 'data' event.
+Indique que le corps de réponse est terminée. Doit être placé avant l’événement « données ».
 
 #### Événement : 'aborted'
 
@@ -46,13 +46,13 @@ Un `String` représentant le message d'état HTTP.
 
 #### `response.headers`
 
-A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
+Un `Record<string, string | string[]>` les en-têtes de réponse HTTP. L `headers` objet est formaté comme suit :
 
 * Tous les noms d’en-têtes sont en minuscules.
-* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
-* `set-cookie` is always an array. Duplicates are added to the array.
-* For duplicate `cookie` headers, the values are joined together with '; '.
-* For all other headers, the values are joined together with ', '.
+* Les doublons de `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, ou `user-agent` sont jetés.
+* `set-cookie` est toujours un tableau. Des doublons sont ajoutés au tableau.
+* Pour les doublons `cookie` 'en-têtes, les valeurs sont réunies avec '; '.
+* Pour tous les autres en-têtes, les valeurs sont réunies avec « .
 
 #### `response.httpVersion`
 
