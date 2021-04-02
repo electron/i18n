@@ -1,10 +1,10 @@
 ---
-title: 'Electron Internals: Weak References'
+title: 'Elektroneninternal: Schwache Referenzen'
 author: zcbenz
 date: '2016-09-20'
 ---
 
-Als Sprache mit Müllsammlung befreit JavaScript Benutzer von der manuellen Verwaltung von Ressourcen. But because Electron hosts this environment, it has to be very careful avoiding both memory and resources leaks.
+Als Sprache mit Müllsammlung befreit JavaScript Benutzer von der manuellen Verwaltung von Ressourcen. Aber da Electron diese Umgebung hostet, muss es sehr vorsichtig sein, sowohl Speicher- als auch Ressourcenlecks zu vermeiden.
 
 Dieser Beitrag führt das Konzept der schwachen Referenzen ein und wie sie verwendet werden, um Ressourcen in Electron zu verwalten.
 
