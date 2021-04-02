@@ -86,9 +86,9 @@ Y luego firme u aplicación con el siguiente script:
 ```sh
 #!/bin/bash
 
-# Name of your app.
-APP="YourApp"
-# The path of your app to sign.
+# nombre de tu app.
+APP = "YourApp"
+# la ruta de tu app para firmar.
 APP_PATH="/path/to/YourApp.app"
 # La ruta a la localización donde quiere poner el paquete firmado.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -116,27 +116,39 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox][enable-app-sandbox] to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+Si eres nuevo en el sandboxing de la app en macOS, también deberías leer [de Apple habilitar el entorno Sandbox de la App][enable-app-sandbox] tener una idea básica, luego agregar claves para los permisos que tu App necesita para los archivos de derechos.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
+Además de firmar de forma manual tu App, también puedes elegir usar el módulo de</a>
+Electron-OSX-Sign para hacer el trabajo.</p> 
+
+
 
 #### Firmar módulos nativos
 
 Los módulos nativos utilizados en tu aplicación también necesitan ser firmados. Si utiliza electron-osx-sign, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos :
 
+
+
 ```sh
 Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versiones 8.1.0 y posteriores ignoran esos archivos por defecto.
+
+Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). Si usas [Electron-Packager][electron-packager] antes de la versión 8.1.0, agrega `--ignore=.+\.o$` a tu paso de construcción para ignorar estos archivos. Versiones 8.1.0 y posteriores ignoran esos archivos por defecto.
+
+
 
 ### Actualice su aplicación
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
+Después de firmar tu App, puedes usar Application Loader para subirlo a iTunes conectar para el procesamiento, [asegurándose de que hayas creado un registro][create-record] antes de cargarlo.
+
+
 
 ### Presentar su aplicación para revisión
 
-After these steps, you can [submit your app for review][submit-for-review].
+Después de estos pasos, puedes [enviar tu app para revisión][submit-for-review].
+
+
 
 ## Limitaciones de la estructura del MAS
 
@@ -151,51 +163,73 @@ y los siguientes comportamientos han sido cambiados:
 * Algunas características de accesibilidad pudiesen no funcionar.
 * Las aplicaciones no tendrán la señal de los cambios DNS.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
+Además, debido al uso del espacio aislado de la App, los recursos a los que se puede acceder mediante la App están estrictamente limitados; Puedes leer [][app-sandboxing] de sandboxing de la app para obtener más información.
+
+
 
 ### Derechos adicionales
 
 Dependiendo de que APIs de Electron usos de su aplicación, puede que necesite agregar derechos adicionales para el archivo `parent.plist` para poder utilizar estas API de compilación de Mac App Store de su aplicación.
 
+
+
 #### Acceso a la red
 
 Habilitar conexiones de red salientes para permitir que su aplicación se conecte al servidor:
+
+
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
+
 Habilitar conexiones de red entrantes para permitir que su aplicación abra puertos de escucha:
+
+
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation][network-access] for more details.
+
+Consulta la [habilitar la documentación de acceso a la red][network-access] para obtener más detalles .
+
+
 
 #### dialog.showOpenDialog
+
+
 
 ```xml
 <key>com.apple.security.files.user-selected.read-only</key>
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation][user-selected] for more details.
+
+Consulta la [habilitar la documentación de acceso a archivos seleccionada por el usuario][user-selected] para obtener más detalles.
+
+
 
 #### dialog.showSaveDialog
+
+
 
 ```xml
 <key>com.apple.security.files.user-selected.read-write</key>
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation][user-selected] for more details.
+
+Consulta la [habilitar la documentación de acceso a archivos seleccionada por el usuario][user-selected] para obtener más detalles.
+
+
 
 ## Algoritmos criptográficos utilizados por Electron
 
-Dependiendo de los países en los que estás lanzando tu aplicación, puedes ser necesario proporcionar información sobre los algoritmos criptográficos utilizados en tu software. See the [encryption export compliance docs][export-compliance] for more information.
+Dependiendo de los países en los que estás lanzando tu aplicación, puedes ser necesario proporcionar información sobre los algoritmos criptográficos utilizados en tu software. Consulta la</a> de documentos de conformidad de exportación de cifrado de para obtener más información.</p> 
 
 Electron usa los siguientes algoritmos criptográficos:
 
@@ -228,10 +262,9 @@ Electron usa los siguientes algoritmos criptográficos:
 [nwjs-guide]: https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
 [enable-app-sandbox]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html
 [create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
-[electron-osx-sign]: https://github.com/electron-userland/electron-osx-sign
 [electron-packager]: https://github.com/electron/electron-packager
 [submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
 [app-sandboxing]: https://developer.apple.com/app-sandboxing/
-[export-compliance]: https://help.apple.com/app-store-connect/#/devc3f64248f
+[app-sandboxing]: https://developer.apple.com/app-sandboxing/
 [user-selected]: https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6
 [network-access]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9
