@@ -18,14 +18,14 @@
 从 [Quick Start Guide](quick-start.md) 中的应用开始，根据以下内容更新 `main.js`。
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
+康斯特 { app, BrowserWindow } =要求（'电子'）
 
-let onlineStatusWindow
+让在线统计窗口
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
+应用程序。当准备（然后）=> =
+  在线统计窗口=新的浏览器窗口（{ width: 0, height: 0, show: false }）
+  在线统计窗口。loadURL（"文件：//${__dirname}/索引.html"）
+}）
 ```
 
 在 `index.html` 文件中，闭合`</body>`标签前添加以下内容：
@@ -37,12 +37,12 @@ app.whenReady().then(() => {
 并添加 `renderer.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/online-detection/renderer'
-const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
+康斯特警报在线状态=（）=> {窗口。警报（navigator.onLine？ "在线"： "离线"） =
 
-window.addEventListener('online', alertOnlineStatus)
-window.addEventListener('offline', alertOnlineStatus)
+窗口. add 事件听者 （"在线"， 提醒在线状态）
+窗口
 
-alertOnlineStatus()
+。
 ```
 
 启动 Electron 应用程序后，您应该能看到通知：
@@ -56,17 +56,17 @@ alertOnlineStatus()
 从 [Quick Start Guide](quick-start.md) 中的应用开始，根据以下内容更新 `main.js`。
 
 ```javascript
-const { app, BrowserWindow, ipcMain } = require('electron')
-let onlineStatusWindow
+康斯特 { app, BrowserWindow, ipcMain } =要求（'电子'）
+让在线统计窗口
 
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
+应用程序。当准备好。然后）=> {
+  在线统计窗口=新的浏览器窗口（{宽度：0， 高度： 0， 显示： 假， webPrepres： { nodeIntegration: true } [）
+  在线统计窗口. loadurl （"文件//${__dirname}/索引.html"）
+[）
 
-ipcMain.on('online-status-changed', (event, status) => {
-  console.log(status)
-})
+ipcmain.on （"在线状态更改"， （事件， 状态） => =
+  控制台.log （状态）
+[）
 ```
 
 在 `index.html` 文件中，闭合`</body>`标签前添加以下内容：
@@ -78,22 +78,22 @@ ipcMain.on('online-status-changed', (event, status) => {
 并添加 `renderer.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/online-detection/main'
-const { ipcRenderer } = require('electron')
-const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+康斯特 { ipcRenderer } =需要（"电子"）
+续线状态=（）=> {ipcRenderer.发送（"在线状态更改"，navigator.onLine？ "在线"："离线"）}
 
-window.addEventListener('online', updateOnlineStatus)
-window.addEventListener('offline', updateOnlineStatus)
+窗口。add事件听者（"在线"，更新在线状态）
+窗口。add事件听者（"离线"，更新在线状态）
 
-updateOnlineStatus()
+更新在线状态（）
 ```
 
 启动 Electron 应用程序后，您应该在控制台看到以下通知：
 
 ```sh
-npm start
+npm 开始
 
-> electron@1.0.0 start /electron
-> electron .
+> electron@1.0.0 启动/电子
+> 电子。
 
-online
+在线
 ```
