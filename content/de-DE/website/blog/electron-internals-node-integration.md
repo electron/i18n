@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals: Message Loop Integration'
+title: 'Elektroneninternal: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---
@@ -8,9 +8,9 @@ Dies ist der erste Beitrag einer Serie, die die Internen von Electron erklärt. 
 
 ---
 
-Es gab viele Versuche, Knoten für GUI-Programmierung zu verwenden, wie [node-gui](https://github.com/zcbenz/node-gui) für GTK+ Bindungen und [node-qt](https://github.com/arturadib/node-qt) für QT Bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
+Es gab viele Versuche, Knoten für GUI-Programmierung zu verwenden, wie [node-gui](https://github.com/zcbenz/node-gui) für GTK+ Bindungen und [node-qt](https://github.com/arturadib/node-qt) für QT Bindings. Aber keiner von ihnen funktioniert in der Produktion, da GUI-Toolkits ihre eigene Nachricht haben, Schleifen, während Node libuv für seine eigene Ereignisschleife verwendet, und der Hauptthread kann nur eine Schleife gleichzeitig ausführen . Der übliche Trick, die GUI-Nachrichtenschleife in Node auszuführen, besteht darin, die Nachrichtenschleife in einem Timer mit sehr kleinem Intervall zu pumpen, was die Reaktion auf die GUI-Schnittstelle verlangsamt und viele CPU-Ressourcen belegt.
 
-During the development of Electron we met the same problem, though in a reversed way: we had to integrate Node's event loop into Chromium's message loop.
+Während der Entwicklung von Electron stießen wir auf das gleiche Problem, wenn auch in einer umgekehrten Weise: Wir mussten Die Ereignisschleife von Node in die Meldung von Chromium integrieren, Schleife.
 
 ## Der Hauptprozess und der Renderer-Prozess
 
@@ -38,7 +38,7 @@ Das Konzept von backend fd wurde in libuv eingeführt, welches ein Dateideskript
 
 Also habe ich in Electron einen separaten Thread erstellt, um das Backend fd zu befragen und da ich statt libuv APIs die Systemaufrufe für die Abfrage verwendet habe, war es Thread sicher. Und wann immer ein neues Ereignis in libuvs Ereignisschleife stattgefunden hat, würde eine Nachricht in der Chromium's Nachrichten-Schleife gepostet werden, und die Ereignisse von libuv würden dann im Hauptthread verarbeitet.
 
-In this way I avoided patching Chromium and Node, and the same code was used in both the main and renderer processes.
+Auf diese Weise habe ich das Patchen von Chromium und Node vermieden, und derselbe Code wurde in sowohl den Haupt- als auch den Rendererprozessen verwendet.
 
 ## Der Code
 
