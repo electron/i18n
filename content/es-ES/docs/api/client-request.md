@@ -12,16 +12,16 @@ Proceso: [Main](../glossary.md#main-process)
   * `method` String (opcional) - El método de la solicitud HTTP. Por defecto es el método GET.
   * `url` String (opcional) - La URL de la solicitud. Debe ser proporcionada de forma absoluta con el esquema del protocolo especificado como http o https.
   * `session` Session (opcional) - La instancia de [`Session`](session.md) con la cual la solicitud esta asociada.
-  * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. The `session` option supersedes `partition`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
-  * `useSessionCookies` Boolean (opcional) - Si enviar cookies con esta solicitud desde la sesión poporcionada. If `credentials` is specified, this option has no effect. Por defecto es `false`.
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Por defecto 'http:'.
+  * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `session` sustituye a `partition`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
+  * `credentials` cadena (opcional)-puede ser `include` o `omit`. Si enviar credenciales de [](https://fetch.spec.whatwg.org/#credentials) con esta solicitud . Si se establece en `include`, se utilizarán las credenciales de la sesión asociada con la solicitud. Si se establece en `omit`, las credenciales no se enviarán con la solicitud (y el evento `'login'` no se activará en el evento de un 401). Esto coincide con el comportamiento de la [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode)opción del mismo nombre. Si no se especifica esta opción, se enviarán los datos de autenticación de la sesión y no se enviarán las cookies (a menos que se establezca `useSessionCookies` ).
+  * `useSessionCookies` Boolean (opcional) - Si enviar cookies con esta solicitud desde la sesión poporcionada. Si se especifica `credentials` , esta opción de no tiene ningún efecto. Por defecto es `false`.
+  * `protocol` cadena (opcional)-puede ser `http:` o `https:`. El protocolo esquema en la forma ' esquema: '. Por defecto 'http:'.
   * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
   * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Por defecto es `seguir`.
-  * `origin` String (optional) - The origin URL of the request.
+  * `redirect` cadena (opcional)-puede ser `follow`, `error` o `manual`. El modo de redireccionamiento de para esta solicitud. Cuando el modo se `error`, se anulará cualquier redirección. Cuando se `manual` el modo, la redirección se cancelará a menos que [`request.followRedirect`](#requestfollowredirect) se invoque de forma sincrónica durante el evento [`redirect`](#event-redirect) .  Por defecto es `seguir`.
+  * `origin` String (opcional)-la URL de origen de la solicitud.
 
 `opcions` propiedades como `protocolo`, `central`, `nombre de anfitrión`, `puerto` y `ruta` siguen estrictamente al modo Node.js como es descrito en el módulo [URL](https://nodejs.org/api/url.html).
 
@@ -156,12 +156,12 @@ Devuelve `String` - El valor de un nombre de cabecera extra establecido anterior
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Elimina un nombre de cabecera establecido previamente. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Elimina un nombre de cabecera establecido previamente. Este método se puede llamar solo antes de la primera escritura. Si intentas llamarlo luego de la primera escritura, se producirá un error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
+* `chunk` (cadena | Buffer)-un fragmento de los datos del cuerpo de la solicitud. Si se trata de una cadena de , se convierte en un búfer utilizando la codificación especificada.
+* `encoding` cadena (opcional): se usa para convertir trozos de cadena en objetos de búfer . Por defecto es ' UTF-8 '.
 * `retrollamada` función (opcional) - Llamado cuando se haya realizado la operación de escritura.
 
 La `retrollamada` es esencialmente una función sencilla introducida con el propósito de mantener similitudes con el API Node.js. Es llamada asincrónicamente en el siguiente tick después de que el contenido del `paquete` haya sido entregado a la capa de red de Chromium. A diferencia de la implementación de Node.js, no está garantizado que el contenido del `paquete` haya sido entregado en el hilo antes de que sea llamada `retrollamada`.
@@ -174,7 +174,7 @@ Agrega un paquete de datos al cuerpo de la solicitud. La primera operación de e
 * `codificación` Cadena (opcional)
 * `retrocallback` Funcion (opcional)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Envía el último fragmento de los datos de la solicitud. No se permitirán de operaciones de escritura o final posteriores. El evento `finish` se emite justo después de la operación final.
 
 #### `request.abort()`
 
@@ -182,14 +182,14 @@ Cancela una transacción HTTP en proceso. Si la solicitud ya emitió el evento d
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+Continúa cualquier redirección pendiente. Solo se puede llamar durante un evento `'redirect'` .
 
 #### `request.getUploadProgress()`
 
 Devuelve `Objecto`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `active` Boolean-si la solicitud está actualmente activa. Si esto es falso no se establecerá ninguna otra propiedad
+* `started` Boolean-si la carga ha comenzado. Si esto es falso, tanto `current` como `total` se establecerá en 0.
 * `current` Integer - El número de bytes que se han subido hasta ahora
 * `total` Integer - El número de bytes que ha subido esta solicitud
 
