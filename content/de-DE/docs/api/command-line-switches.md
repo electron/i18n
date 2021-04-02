@@ -9,54 +9,54 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.whenReady().then(() => {
-  // Your code here
-})
+app.whenReady().then() =
+
+  >
 ```
 
-## Electron CLI Flags
+## Elektronen-CLI-Flags
 
 ### --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Eine durch Kommas getrennte Liste von Servern, für die die integrierte Authentifizierung aktiviert ist.
 
 Ein Beispiel:
 
 ```sh
---auth-server-whitelist='*example.com, *foobar.com, *baz'
+--auth-server-whitelist='*beispiel.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the URL has to match exactly.
+dann werden alle `url` , die mit `example.com`, `foobar.com`, `baz` enden, als für die integrierte Authentifizierung betrachtet. Ohne `*` Präfix muss die URL genau übereinstimmen.
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+Eine durch Kommas getrennte Liste von Servern, für die eine Delegierung von Benutzeranmeldeinformationen erforderlich ist. Ohne `*` Präfix muss die URL genau übereinstimmen.
 
 ### --disable-ntlm-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+Deaktiviert NTLM v2 für posix-Plattformen, an anderer Stelle kein Effekt.
 
 ### --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Deaktiviert den Datenträgercache für HTTP-Anforderungen.
 
-### --disable-http2
+### --deaktivieren-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Deaktivieren Sie die Protokolle HTTP/2 und SPDY/3.1.
 
 ### --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Verhindert, dass Chromium die Priorität des Renderers unsichtbarer Seiten -Prozessen verringert.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio][play-silent-audio].
+Dieses Flag ist global für alle Renderer-Prozesse, wenn Sie nur Drosselung in einem Fenster deaktivieren möchten, können Sie den Hack von [die Wiedergabe von stillen Audio-][play-silent-audio].
 
 ### --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Erzwingt den maximalen Speicherplatz, der vom Datenträgercache in Bytes verwendet werden soll.
 
 ### --enable-api-filtering-logging
 
-Enables caller stack logging for the following APIs (filtering events):
+Aktiviert die Aufruferlistenprotokollierung für die folgenden APIs (Filterereignisse):
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -67,64 +67,64 @@ Enables caller stack logging for the following APIs (filtering events):
 
 ### --enable-logging
 
-Prints Chromium's logging into console.
+Druckt die Anmeldung von Chromium bei der Konsole.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+Dieser Schalter kann nicht in `app.commandLine.appendSwitch` verwendet werden, da er früher analysiert wird, als die App des Benutzers geladen ist, Aber Sie können die `ELECTRON_ENABLE_LOGGING` Umgebungsvariable festlegen, um den gleichen Effekt zu erzielen.
 
 ### --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Eine durch Kommas getrennte Liste von `rules` , die steuern, wie Hostnamen zugeordnet werden.
 
 Ein Beispiel:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP * 127.0.0.1` Erzwingt die Zuordnung aller Hostnamen zu 127.0.0.1
+* `MAP *.google.com proxy` Erzwingt, dass alle google.com Subdomains aufgelöst werden, um "Proxy" zu .
+* `MAP test.com [::1]:77` Erzwingt "test.com", um in IPv6-Loopback zu lösen. Wird auch den Port der resultierenden Socketadresse auf 77 zwingen.
+* `MAP * baz, EXCLUDE www.google.com` ordnet alles "baz" neu zu, mit Ausnahme "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Diese Zuordnungen gelten für den Endpunkthost in einer Netzanforderung (der TCP-Verbindungs- und host-Resolver in einer direkten Verbindung und der `CONNECT` in einer HTTP-Proxy- -Verbindung und der Endpunkthost in einer `SOCKS` Proxyverbindung).
 
 ### --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Wie `--host-rules` , aber diese `rules` nur für den Host-Resolver gelten.
 
 ### --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ignoriert zertifikatsbezogene Fehler.
 
 ### --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ignorieren Sie das Verbindungslimit für `domains` Liste, die durch `,`getrennt ist.
 
 ### --js-flags=`flags`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Gibt die Angaben der Flags an das Modul Node.js an. Es muss beim Starten Electron übergeben werden, wenn Sie die `flags` im Hauptprozess aktivieren möchten.
 
 ```sh
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+$ Elektron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+Eine Liste der verfügbaren Flags finden Sie in der Dokumentation [Node.js][node-cli] oder `node --help` in Ihrem Terminal. Führen Sie außerdem `node --v8-options` aus, um eine Liste von Flags anzuzeigen, die sich speziell auf das V8-JavaScript-Modul von Node.js beziehen.
 
 ### --lang
 
-Set a custom locale.
+Legen Sie ein benutzerdefiniertes Gebietsschema fest.
 
 ### --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Ermöglicht das Speichern von Netzprotokollereignissen und schreibt sie in `path`.
 
 ### --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+Verwenden Sie keinen Proxyserver und stellen Sie immer direkte Verbindungen her. Überschreibt alle anderen Proxyserverflags, die übergeben werden.
 
 ### --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Deaktiviert die Chromium-Sandbox, die jetzt standardmäßig aktiviert ist. Sollte nur zum Testen verwendet werden.
 
 ### --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Weist Electron an, den Proxyserver für die angegebene semikolongetrennte Liste der Hosts zu umgehen. Dieses Flag hat nur dann einen Effekt, wenn es zusammen mit `--proxy-server`verwendet wird.
 
 Ein Beispiel:
 
@@ -133,75 +133,75 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+Verwendet den Proxyserver für alle Hosts mit Ausnahme lokaler Adressen (`localhost`, `127.0.0.1` usw.), `google.com` Subdomänen, Hosts, die das Suffix enthalten, `foo.com` und alles auf `1.2.3.4:5678`.
 
 ### --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Verwendet das PAC-Skript an der angegebenen `url`.
 
 ### --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+Verwenden Sie einen angegebenen Proxyserver, der die Systemeinstellung überschreibt. Dieser Switch wirkt sich nur auf Anforderungen mit HTTP-Protokoll aus, einschließlich HTTPS- und WebSocket- -Anforderungen. Bemerkenswert ist auch, dass nicht alle Proxyserver HTTPS- und WebSocket-Anforderungen unterstützen. Die Proxy-URL unterstützt keine Benutzername und Kennwort Authentifizierung [nach Chromium-Problem](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ### --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Ermöglicht Remote-Debugging über HTTP auf dem angegebenen `port`.
 
 ### --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Gibt die standardmäßige maximale aktive V-Protokollierungsebene an. 0 ist die Standardeinstellung. Normalerweise werden positive Werte für V-Logging-Ebenen verwendet.
 
-This switch only works when `--enable-logging` is also passed.
+Dieser Schalter funktioniert nur, wenn `--enable-logging` ebenfalls übergeben wird.
 
 ### --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. z.B. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Gibt den maximalen V-Protokollierungsebenen pro Modul an, um den von `--v`angegebenen Wert zu überschreiben. z.B. `my_module=2,foo*=3` würde die Protokollierungsebene für den gesamten Code in Quelldateien `my_module.*` und `foo*.*`ändern.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. z.B. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Jedes Muster, das einen Schrägstrich nach vorne oder rückwärts enthält, wird anhand des gesamten Pfadnamens und nicht nur des Moduls getestet. z.B. `*/foo/bar/*=2` würde die Protokollierungsebene für den gesamten Code in den Quelldateien unter einem `foo/bar` -Verzeichnis ändern.
 
-This switch only works when `--enable-logging` is also passed.
+Dieser Schalter funktioniert nur, wenn `--enable-logging` ebenfalls übergeben wird.
 
 ### --force_high_performance_gpu
 
-Force using discrete GPU when there are multiple GPUs available.
+Erzwingen Sie die Verwendung diskreter GPU, wenn mehrere GPUs verfügbar sind.
 
 ### --force_low_power_gpu
 
-Force using integrated GPU when there are multiple GPUs available.
+Erzwingen Sie die Verwendung integrierter GPU, wenn mehrere GPUs verfügbar sind.
 
-## Node.js Flags
+## Knoten.js Flags
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+Electron unterstützt einige der [CLI-Flags, die von Node.js unterstützt][node-cli] .
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+**Hinweis:** Das Übergeben nicht unterstützter Befehlszeilenwechsel an Electron, wenn es nicht in `ELECTRON_RUN_AS_NODE` läuft, hat keine Auswirkungen.
 
 ### --inspect-brk[=[host:]port]
 
-Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+Aktivieren Sie den Inspektor auf host:port und brechen Sie am Anfang des Benutzerskripts. Standardhost:port ist 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
 ### --inspect-port=[host:]port
 
-Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+Legen Sie die `host:port` fest, die verwendet werden soll, wenn der Inspektor aktiviert ist. Nützlich beim Aktivieren des Inspektors durch Senden des SIGUSR1-Signals. Der Standardhost ist `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
 ### --inspect[=[host:]port]
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+Aktivieren Sie den Inspektor auf `host:port`. Der Standardwert ist `127.0.0.1:9229`.
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+Die V8-Inspektorintegration ermöglicht Tools wie Chrome DevTools und IDEs das Debuggen und Profilieren von Electron-Instances. Die Tools werden über einen TCP-Port an Electron-Instanzen angefügt und kommunizieren über das [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process][debugging-main-process] guide for more details.
+Weitere Informationen finden Sie in der [Debugging the Main Process][debugging-main-process] -Anleitung.
 
 Aliased to `--debug[=[host:]port`.
 
 ### --inspect-publish-uid=stderr,http
 
-Specify ways of the inspector web socket url exposure.
+Geben Sie Möglichkeiten für die Url-Belichtung des Inspektor-Websockets an.
 
-By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+Standardmäßig ist die Websocket-URL des Inspektors in stderr und unter /json/list endpoint auf http://host:port/json/list verfügbar.
 
 [app]: app.md
 [append-switch]: command-line.md#commandlineappendswitchswitch-value
