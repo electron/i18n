@@ -5,13 +5,13 @@
 Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
-const { netLog } = require('electron')
+const { netLog } = require (' Electron ')
 
-app.whenReady().then(async () => {
-  await netLog.startLogging('/path/to/net-log')
-  // After some network events
-  const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
+app. whenReady (). then (Async () => {
+  Await a netLog. startLogging ('/Path/to/net-log ')
+  //después de algunos eventos de red
+  const path = Await netLog. stopLogging ()
+  Console. log (' net-logs escrito a ', Path)
 })
 ```
 
@@ -21,7 +21,7 @@ Vea [`--log-net-log`](command-line-switches.md#--log-net-logpath) para registrar
 
 ## Métodos
 
-### `netLog.startLogging(path[, options])`
+### `netLog. startLogging (path [, Options])`
 
 * `path` String - Ruta de archivo para guardar los registros de red.
 * `options` Object (opcional)
