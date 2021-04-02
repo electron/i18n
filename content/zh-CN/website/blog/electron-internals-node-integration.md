@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals: Message Loop Integration'
+title: '电子内部：消息循环集成'
 author: zcbenz
 date: '2016-07-28'
 ---
@@ -28,7 +28,7 @@ Electron 允许使用 JavaScript 控制主进程和渲染器 进程，这意味�
 
 然而，主要进程要困难得多。 每个平台 都有自己类型的 GUI 消息循环。 macOS Chromium 使用 `NSRunLoop`, ，而Linux 使用 glib。 我尝试了大量黑客，从本地GUI消息循环中提取 个底层文件描述符， 然后喂养 它们以进行迭代，但我仍然遇到了一些不起作用的边缘情况。
 
-因此，我最后添加了一个计时器来投票一个图形界面消息循环。 As a result the process took a constant CPU usage, and certain operations had long delays.
+因此，我最后添加了一个计时器来投票一个图形界面消息循环。 由于 结果，该过程持续使用 CPU，某些操作 长时间的延迟。
 
 ## 在一个单独的线程中投票节点的事件循环
 
@@ -36,12 +36,12 @@ Electron 允许使用 JavaScript 控制主进程和渲染器 进程，这意味�
 
 后端fd 的概念被引入到libuv中，它是一个文件描述符 (或handle)，是它的事件循环的 libuv 调查。 因此，通过轮询后端可以在 libuv 中出现新事件时获得通知 。
 
-所以我在 Electron 中创建了一个单独的线程来调查后端， 并且既然我 正在使用系统呼叫进行投票而不是libuv API，它是线程 安全的。 And whenever there was a new event in libuv's event loop, a message would be posted to Chromium's message loop, and the events of libuv would then be processed in the main thread.
+所以我在 Electron 中创建了一个单独的线程来调查后端， 并且既然我 正在使用系统呼叫进行投票而不是libuv API，它是线程 安全的。 每当 libuv 的事件循环中出现新事件时，消息 发布到 Chromium 的消息循环中，然后在主线程中 处理 libuv 事件。
 
 这样，我避免了对 Chromium 和 Node进行补丁，在 主进程和渲染进程中使用了相同的代码。
 
 ## 代码
 
-您可以在 `node_bindings` 文件中找到消息循环整合的实现方式。 [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common)。 It can be easily reused for projects that want to integrate Node.
+您可以在 `node_bindings` 文件中找到消息循环整合的实现方式。 [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common)。 它可以 容易地重复用于想要集成节点的项目。
 
 *Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
