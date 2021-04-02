@@ -4,25 +4,25 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `new TouchBarSegmentedControl(options)`
+### `nouveau TouchBarSegmentedControl (options)`
 
-* `options` Object
-  * `segmentStyle` String (optional) - Style of the segments:
-    * `automatique` - Par défaut. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
-    * `rounded` - Le contrôle est affiché en utilisant le style arrondi. Maps to `NSSegmentStyleRounded`.
-    * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé. Maps to `NSSegmentStyleTexturedRounded`.
-    * `round-rect` - Le contrôle est affiché en utilisant le style arrondi rect. Maps to `NSSegmentStyleRoundRect`.
-    * `textured-square` - Le contrôle est affiché en utilisant le style carré texturé. Maps to `NSSegmentStyleTexturedSquare`.
-    * `capsule` - Le contrôle s’affiche selon le style capsule. Maps to `NSSegmentStyleCapsule`.
-    * `small-square` - Le contrôle est affiché en utilisant le style petit carré. Maps to `NSSegmentStyleSmallSquare`.
-    * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas. Maps to `NSSegmentStyleSeparated`.
-  * `mode` String (optional) - The selection mode of the control:
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item. Maps to `NSSegmentSwitchTrackingSelectOne`.
-    * `multiple` - Plusieurs éléments peuvent être sélectionnés simultanément. Maps to `NSSegmentSwitchTrackingSelectAny`.
-    * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif. Maps to `NSSegmentSwitchTrackingMomentary`.
+* `options` objet
+  * `segmentStyle` String (facultatif) - Style des segments:
+    * `automatique` - Par défaut. L’apparence de la commande segmentée est automatiquement déterminée en fonction du type de fenêtre dans laquelle le de commande est affiché et de la position à l’intérieur de la fenêtre. Cartes à `NSSegmentStyleAutomatic`.
+    * `rounded` - Le contrôle est affiché en utilisant le style arrondi. Cartes à `NSSegmentStyleRounded`.
+    * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé. Cartes à `NSSegmentStyleTexturedRounded`.
+    * `round-rect` - Le contrôle est affiché en utilisant le style arrondi rect. Cartes à `NSSegmentStyleRoundRect`.
+    * `textured-square` - Le contrôle est affiché en utilisant le style carré texturé. Cartes à `NSSegmentStyleTexturedSquare`.
+    * `capsule` - Le contrôle s’affiche selon le style capsule. Cartes à `NSSegmentStyleCapsule`.
+    * `small-square` - Le contrôle est affiché en utilisant le style petit carré. Cartes à `NSSegmentStyleSmallSquare`.
+    * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas. Cartes à `NSSegmentStyleSeparated`.
+  * `mode` String (facultatif) - Le mode de sélection du contrôle:
+    * `single` - Par défaut. Un élément sélectionné à la fois, en sélectionnant l’un deselects l’élément précédemment sélectionné. Cartes à `NSSegmentSwitchTrackingSelectOne`.
+    * `multiple` - Plusieurs éléments peuvent être sélectionnés simultanément. Cartes à `NSSegmentSwitchTrackingSelectAny`.
+    * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif. Cartes à `NSSegmentSwitchTrackingMomentary`.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un tableau de segments à placer dans ce contrôle.
-  * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. When the mode is `multiple` it will be the last selected item.
-  * `change` Function (optional) - Called when the user selects a new segment.
+  * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. Lorsque le mode est `multiple` ce sera le dernier élément sélectionné.
+  * `change` (facultatif) - Appelé lorsque l’utilisateur sélectionne un nouveau segment.
     * `selectedIndex` Integer - L'index du segment que l'utilisateur a sélectionné.
     * `isSelected` Boolean - Si après la selection de l'utilisateur, le segment est selectionné ou non.
 
@@ -32,7 +32,7 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarSegme
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Un `String` représentant le style de segment actuel des contrôles. La mise à jour de cette valeur met immédiatement à jour contrôle dans la barre tactile.
 
 #### `touchBarSegmentedControl.segments`
 
@@ -44,4 +44,4 @@ Un `Integer` qui représente le segment sélectionné. Changer cette valeur imm�
 
 #### `touchBarSegmentedControl.mode`
 
-A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.
+Un `String` représentant le mode de sélection actuel du contrôle.  Peut être `single`, `multiple` ou `buttons`.
