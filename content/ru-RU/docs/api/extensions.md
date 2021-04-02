@@ -9,10 +9,10 @@ Electron частично поддерживает [Chrome Extensions API][chrom
 Electron поддерживает загрузку только распакованных расширение (т.е. файлы `.crx` не будут работать). Расширения устанавливаются с помощью объекта `session`. Для загрузки расширения вызовите [`ses.loadExtension`](session.md#sesloadextensionpath-options):
 
 ```js
-const { session } = require('electron')
+const { session } - требуют ('электрон')
 
-session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
-  // ...
+session.loadExtension ('path/to/unpacked/extension'
+  > { id }).
 })
 ```
 
@@ -89,7 +89,7 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 ### `chrome.management`
 
-The following methods of `chrome.management` are supported:
+Поддерживаются следующие методы `chrome.management` поддержки:
 
 - `chrome.management.getAll`
 - `chrome.management.get`
@@ -103,6 +103,6 @@ The following methods of `chrome.management` are supported:
 
 Все функции этого API поддерживаются.
 
-> **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
+> **ПРИМЕЧАНИЕ:** electron имеет [`webRequest`](web-request.md) над другими `chrome.webRequest` если есть противоречивые обработчики.
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index
