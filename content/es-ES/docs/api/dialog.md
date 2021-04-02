@@ -7,8 +7,8 @@ Proceso: [Main](../glossary.md#main-process)
 Un ejemplo de mostrar un dialogo para seleccionar múltiples archivos:
 
 ```javascript
-const { dialog } = require('electron')
-console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
+const { dialog } = require (' Electron ')
+Console. log (Dialog. showOpenDialog ({Properties: [' openFile ', ' multiSelections ']}).
 ```
 
 ## Métodos
@@ -40,7 +40,7 @@ Devuelve `String[] | undefined`, la ruta del archivo elegido por el usuario, si 
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Por ejemplo:
+El `filters` especifica una matriz de tipos de archivos que se pueden mostrar o seleccionar cuando se desea limitar el usuario a un tipo específico. Por ejemplo:
 
 ```javascript
 {
@@ -92,7 +92,7 @@ Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Por ejemplo:
+El `filters` especifica una matriz de tipos de archivos que se pueden mostrar o seleccionar cuando se desea limitar el usuario a un tipo específico. Por ejemplo:
 
 ```javascript
 {
@@ -197,7 +197,7 @@ Devuelve `Integer` - el índice del botón pulsado.
 
 Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado. Devuelve el indice del botón pulsado.
 
-El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. Si `browserWindow` no es mostrado no se le adjuntará el dialog. In such case it will be displayed as an independent window.
+El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad. Si `browserWindow` no es mostrado no se le adjuntará el dialog. En tal caso, será mostrada como una ventana independiente.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
@@ -221,7 +221,7 @@ Devuelve `Promise<Object>` - resuelve con una promesa conteniendo lo siguiente:
 * `response` Number - El índice del botón pulsado.
 * `checkboxChecked` Boolean - El estado checked state del checkbox si `checkboxLabel` fue establecido. De lo contrario `false`.
 
-Shows a message box.
+Muestra un cuadro de mensaje.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -256,7 +256,7 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 
 | Tipo de compilación | securityScopedBookmarks boolean | Tipo de Retorno | Valor de Retorno               |
 | ------------------- | ------------------------------- |:---------------:| ------------------------------ |
-| macOS mas           | True                            |      Éxito      | `['LONGBOOKMARKSTRING']`       |
+| macOS mas           | True                            |      Éxito      | `[' LONGBOOKMARKSTRING ']`     |
 | macOS mas           | True                            |      Error      | `['']` (array de cadena vacía) |
 | macOS mas           | False                           |       NA        | `[]` (array vacío)             |
 | no mas              | cualquiera                      |       NA        | `[]` (array vacío)             |
