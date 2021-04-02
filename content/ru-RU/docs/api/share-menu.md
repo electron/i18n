@@ -1,35 +1,35 @@
-## Class: ShareMenu
+## Класс: ShareMenu
 
-> Create share menu on macOS.
+> Создание меню общих возможностей на macOS.
 
 Процесс: [Основной](../glossary.md#main-process)
 
-The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
+Класс `ShareMenu` создает [Share Menu][share-menu] на macOS, которое может быть использовано для обмена информацией из текущего контекста в приложения, социальные сети учетные записи и другие службы.
 
-For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
+Для включения меню share в подменю других меню, пожалуйста, используйте `shareMenu` роль [`MenuItem`](menu-item.md).
 
-### `new ShareMenu(sharingItem)`
+### `новый ShareMenu (sharingItem)`
 
-* `sharingItem` SharingItem - The item to share.
+* `sharingItem` SharingItem - элемент для обмена.
 
-Creates a new share menu.
+Создает новое меню акций.
 
 ### Методы экземпляра
 
-The `shareMenu` object has the following instance methods:
+Объект `shareMenu` имеет следующие методы экземпляра:
 
-#### `shareMenu.popup([options])`
+#### `shareMenu.popup ([options])`
 
-* `options` PopupOptions (optional)
+* `options` PopupOptions (по желанию)
   * `browserWindow` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` (необязательно) - по умолчанию текущее положение курсора мыши. Должно быть объявлено, `y` объявлено.
+  * `y` (необязательно) - по умолчанию текущее положение курсора мыши. Должно быть объявлено, `x` объявлено.
+  * `positioningItem` (необязательно) _macOS_ - Индекс пункта меню для может быть расположен под курсором мыши в указанных координатах. Значение по умолчанию -1.
   * `callback` Функция (опционально) - вызывается, когда меню закрыто.
 
 Переключает это меню в контекстное меню в [`BrowserWindow`](browser-window.md).
 
-#### `shareMenu.closePopup([browserWindow])`
+#### `shareMenu.closePopup ([browserWindow])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
 
