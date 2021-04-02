@@ -14,7 +14,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification` 是一个 [事件][event-emitter]。
 
 通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
@@ -26,22 +26,22 @@
 
 Returns ` Boolean `-当前系统是否支持桌面通知
 
-### `new Notification([options])`
+### `新通知（[options]）`
 
 * `options` Object (可选)
-  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` 字符串（可选） - 通知的标题，当通知窗口显示时，该标题将显示在通知窗口的顶部。
   * ` subtitle `String (可选) 通知的副标题, 显示在标题下面。_ macOS _
-  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
+  * `body` 字符串（可选） - 通知的主体文本，将显示在标题或副标题下方。
   * ` silent `Boolean (可选) 在显示通知时是否发出系统提示音。
   * ` icon`(String | [ NativeImage ](native-image.md)) (可选) 用于在该通知上显示的图标。
   * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 _ macOS _
-  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `timeoutType` 字符串（可选） _Linux_ _窗口_ - 通知的超时持续时间。 可以是"默认"或"从不"。
   * ` replyPlaceholder `String (可选) 答复输入框中的占位符。_ macOS _
   * `sound `String (可选) 显示通知时播放的声音文件的名称。_ macOS _
-  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `urgency` 字符串（可选） _Linux_ - 通知的紧急级别。 可以是"正常"，"关键"或"低"。
   * `actions` [NotificationAction[]](structures/notification-action.md) (可选) _macOS_ - 要添加到通知中的操作 请阅读 `NotificationAction`文档来了解可用的操作和限制。
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
-  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
+  * `closeButtonText` 字符串（可选） _macOS_ - 警报关闭按钮的自定义标题。 空字符串将导致使用默认的本地化文本。
+  * `toastXml` 字符串（可选） _视窗_ - Windows 上的通知的自定义描述取代了上述所有属性。 全面定制通知的设计和行为。
 
 ### 实例事件
 
@@ -91,14 +91,14 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 * `event` Event
 * `index` Number - 已激活的操作的索引.
 
-#### Event: 'failed' _Windows_
+#### 事件：视窗</em>_"失败"</h4>
 
 返回:
 
 * `event` Event
-* `error` String - The error encountered during execution of the `show()` method.
+* `error` 字符串 - 执行 `show()` 方法时遇到的错误。
 
-Emitted when an error is encountered while creating and showing the native notification.
+在创建和显示原生通知时遇到错误时发出。
 
 ### 实例方法
 
@@ -116,61 +116,61 @@ Emitted when an error is encountered while creating and showing the native notif
 
 ### 实例属性
 
-#### `notification.title`
+#### `通知。标题`
 
-A `String` property representing the title of the notification.
+代表通知标题的 `String` 属性。
 
-#### `notification.subtitle`
+#### `通知。字幕`
 
-A `String` property representing the subtitle of the notification.
+代表通知副标题的 `String` 属性。
 
-#### `notification.body`
+#### `通知。身体`
 
-A `String` property representing the body of the notification.
+代表通知主体的 `String` 属性。
 
-#### `notification.replyPlaceholder`
+#### `通知。回复位持有人`
 
-A `String` property representing the reply placeholder of the notification.
+代表通知回复占位符的 `String` 属性。
 
-#### `notification.sound`
+#### `通知。声音`
 
-A `String` property representing the sound of the notification.
+代表通知声音的 `String` 属性。
 
-#### `notification.closeButtonText`
+#### `通知。关闭按钮`
 
-A `String` property representing the close button text of the notification.
+代表通知的关闭按钮文本的 `String` 属性。
 
-#### `notification.silent`
+#### `通知。无声`
 
-A `Boolean` property representing whether the notification is silent.
+`Boolean` 属性，表示通知是否为无声。
 
-#### `notification.hasReply`
+#### `通知。已恢复`
 
-A `Boolean` property representing whether the notification has a reply action.
+代表通知是否有回复操作的 `Boolean` 属性。
 
-#### `notification.urgency` _Linux_
+#### `notification.urgency` _·利努克斯·_
 
-A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+代表通知紧急级别的 `String` 属性。 可以是"正常"，"关键"或"低"。
 
-Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+默认值为"低" - 有关更多信息，请参阅 [通知](https://developer.gnome.org/notification-spec/#urgency-levels) 。
 
-#### `notification.timeoutType` _Linux_ _Windows_
+#### `notification.timeoutType` _Linux_ _视窗_
 
-A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+代表通知超时持续时间类型的 `String` 属性。 可以是"默认"或"从不"。
 
-If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
+如果 `timeoutType` 设置为"从不"，则通知永远不会过期。 它保持开放状态，直到呼叫 API 或用户关闭。
 
-#### `notification.actions`
+#### `通知。行动`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+代表通知操作的 [`NotificationAction[]`](structures/notification-action.md) 属性。
 
-#### `notification.toastXml` _Windows_
+#### `notification.toastXml` _视窗_
 
-A `String` property representing the custom Toast XML of the notification.
+代表通知的自定义烤面包 XML 的 `String` 属性。
 
 ### 播放声音
 
-在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
+在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除自定义声音文件外，还可以使用任何默认声音（根据系统首选项 > 声音）。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
