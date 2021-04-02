@@ -1,47 +1,47 @@
-## Class: TouchBarSegmentedControl
+## Klasse: TouchBarSegmentedControl
 
-> Create a segmented control (a button group) where one button has a selected state
+> Erstellen eines segmentierten Steuerelements (einer Schaltflächengruppe), bei dem eine Schaltfläche einen ausgewählten Status hat
 
 Prozess: [Main](../glossary.md#main-process)
 
-### `new TouchBarSegmentedControl(options)`
+### `neue TouchBarSegmentedControl(Optionen)`
 
-* `options` Object
-  * `segmentStyle` String (optional) - Style of the segments:
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
-    * `rounded` - The control is displayed using the rounded style. Maps to `NSSegmentStyleRounded`.
-    * `textured-rounded` - The control is displayed using the textured rounded style. Maps to `NSSegmentStyleTexturedRounded`.
-    * `round-rect` - The control is displayed using the round rect style. Maps to `NSSegmentStyleRoundRect`.
-    * `textured-square` - The control is displayed using the textured square style. Maps to `NSSegmentStyleTexturedSquare`.
-    * `capsule` - The control is displayed using the capsule style. Maps to `NSSegmentStyleCapsule`.
-    * `small-square` - The control is displayed using the small square style. Maps to `NSSegmentStyleSmallSquare`.
-    * `separated` - The segments in the control are displayed very close to each other but not touching. Maps to `NSSegmentStyleSeparated`.
-  * `mode` String (optional) - The selection mode of the control:
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item. Maps to `NSSegmentSwitchTrackingSelectOne`.
-    * `multiple` - Multiple items can be selected at a time. Maps to `NSSegmentSwitchTrackingSelectAny`.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active. Maps to `NSSegmentSwitchTrackingMomentary`.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is `multiple` it will be the last selected item.
-  * `change` Function (optional) - Called when the user selects a new segment.
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+* `options` -Objekt
+  * `segmentStyle` String (optional) - Stil der Segmente:
+    * `automatic` - Standard. Die Darstellung des segmentierten Steuerelements wird automatisch basierend auf dem Fenstertyp, in dem das Steuerelement angezeigt wird, und der Position innerhalb des Fensters bestimmt. Karten zu `NSSegmentStyleAutomatic`.
+    * `rounded` - Das Steuerelement wird mit dem abgerundeten Stil angezeigt. Karten zu `NSSegmentStyleRounded`.
+    * `textured-rounded` - Das Steuerelement wird mit dem strukturierten -Stil angezeigt. Karten zu `NSSegmentStyleTexturedRounded`.
+    * `round-rect` - Das Steuerelement wird mit dem Stil "Runde Korrektur" angezeigt. Karten zu `NSSegmentStyleRoundRect`.
+    * `textured-square` - Das Steuerelement wird mit dem strukturierten quadratischen -Stil angezeigt. Karten zu `NSSegmentStyleTexturedSquare`.
+    * `capsule` - Das Steuerelement wird im Kapselstil angezeigt. Karten zu `NSSegmentStyleCapsule`.
+    * `small-square` - Das Steuerelement wird mit dem kleinen quadratischen Stil angezeigt. Karten zu `NSSegmentStyleSmallSquare`.
+    * `separated` - Die Segmente im Steuerelement werden sehr nah aneinander angezeigt aber nicht berührend. Karten zu `NSSegmentStyleSeparated`.
+  * `mode` String (optional) - Der Auswahlmodus des Steuerelements:
+    * `single` - Standard. Ein Element, das nacheinander ausgewählt ist und ein Element ausgewählt, wird die Auswahl des zuvor ausgewählten Elements aufheben. Karten zu `NSSegmentSwitchTrackingSelectOne`.
+    * `multiple` - Es können mehrere Elemente gleichzeitig ausgewählt werden. Karten zu `NSSegmentSwitchTrackingSelectAny`.
+    * `buttons` - Lassen Sie die Segmente als Schaltflächen fungieren, jedes Segment kann gedrückt und freigegeben werden, aber nie als aktiv markiert werden. Karten zu `NSSegmentSwitchTrackingMomentary`.
+  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Ein Array von Segmenten, die in diesem Steuerelement platziert werden sollen.
+  * `selectedIndex` Ganzzahl (optional) - Der Index des aktuell ausgewählten Segments wird automatisch mit Benutzerinteraktion aktualisiert. Wenn der Modus `multiple` ist, ist es das zuletzt ausgewählte Element.
+  * `change` Funktion (optional) - Wird aufgerufen, wenn der Benutzer ein neues Segment auswählt.
+    * `selectedIndex` Ganzzahl - Der Index des Segments, das der Benutzer ausgewählt hat.
+    * `isSelected` Boolean - Ob das Segment aufgrund der Benutzerauswahl ausgewählt ist oder nicht.
 
 ### Instanz Eigenschaften
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Die folgenden Eigenschaften sind für Instanzen von `TouchBarSegmentedControl`verfügbar:
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Ein `String` , der den aktuellen Segmentstil der Steuerelemente darstellt. Wenn Sie diesen Wert aktualisieren, wird das Steuerelement in der Touchleiste sofort aktualisiert.
 
-#### `touchBarSegmentedControl.segments`
+#### `touchBarSegmentedControl.segment`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Ein `SegmentedControlSegment[]` Array, das die Segmente in diesem Steuerelement darstellt. Wenn Sie diesen Wert sofort aktualisieren, wird das Steuerelement in der Touchleiste sofort aktualisiert. Durch das Aktualisieren tiefer Eigenschaften in diesem Array **wird die Touchleiste**nicht aktualisiert.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+Ein `Integer` , der das aktuell ausgewählte Segment darstellt. Wenn Sie diesen Wert ändern, wird das Steuerelement in der Touchleiste sofort aktualisiert. Die Benutzerinteraktion mit der Touchleiste aktualisiert diesen Wert automatisch.
 
 #### `touchBarSegmentedControl.mode`
 
-A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.
+Ein `String` der den aktuellen Auswahlmodus des Steuerelements darstellt.  Kann `single`, `multiple` oder `buttons`sein.
