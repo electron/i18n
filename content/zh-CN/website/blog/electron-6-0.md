@@ -28,9 +28,9 @@ Electron的大部分功能由Chromium、Node.js和V8的核心组件提供。 Ele
 
 该版本还包括改进Electron的API。 [版本备注](https://github.com/electron/electron/releases/tag/v6.0.0) 有一个更完整的列表，但这里是高亮：
 
-### Promisification
+### 专业化
 
-Electron 6.0 continues the modernization [initiative](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) started in 5.0 to improve [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) support.
+Electron 6.0 延续了 5.0 年开始的现代化 [举措](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) 改进 [承诺](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) 支持。
 
 这些函数现在返回承诺并且仍然支持旧的回调：
  * `contentTracking.getcategories()` [#16583](https://github.com/electron/electron/pull/16583)
@@ -82,7 +82,7 @@ Electron 6.0 continues the modernization [initiative](https://github.com/electro
 
  * 这个版本开始为未来的要求奠定基础，即在渲染器进程中装入本地节点模块必须是 [N-API](https://nodejs.org/api/n-api.html) 或 [Context 意识](https://nodejs.org/api/addons.html#addons_context_aware_addons)。 造成这种变化的原因是业绩更快、安全性更强、维持工作负荷减少。 阅读详细信息，包括 [此问题](https://github.com/electron/electron/issues/18397) 中的拟议时间线 预计此更改将在 Electron v11 中完成。
 
- * `net.IncomingMessage` headers have [changed slightly](https://github.com/electron/electron/pull/17517#issue-263752903) to more closely match [Node.js behavior](https://nodejs.org/api/http.html#http_message_headers), particularly with the value of `set-cookie` and how duplicate headers are handled. [#1717](https://github.com/electron/electron/pull/17517).
+ * `net.IncomingMessage` 头 [](https://github.com/electron/electron/pull/17517#issue-263752903) 略有变化，以更紧密地匹配 [节点.js行为](https://nodejs.org/api/http.html#http_message_headers)，特别是 `set-cookie` 值和重复头的处理方式。 [#1717](https://github.com/electron/electron/pull/17517).
 
  * `shell.showItemInfolder()` 现在返回无效并且是异步通话。 [#17121](https://github.com/electron/electron/pull/17121)
 
