@@ -4,7 +4,7 @@ author: zeke
 date: '2018-05-01'
 ---
 
-Today we're releasing a free, open-source, hosted [updates webservice](https://github.com/electron/update.electronjs.org) and companion [npm package](https://github.com/electron/update-electron-app) to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users.
+Today we're releasing a free, open-source, hosted [updates webservice](https://github.com/electron/update.electronjs.org) and companion [npm package](https://github.com/electron/update-electron-app) to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users. 这是一个 一步，旨在增强应用开发人员对 部署的考虑，更多地考虑为用户开发高质量的体验。
 
 ---
 
