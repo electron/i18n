@@ -1,16 +1,16 @@
 # process
 
-> Extensions to process object.
+> Erweiterungen des Prozessobjekts.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Das `process` Objekt von Electron wird vom [Node.js `process` -Objekt](https://nodejs.org/api/process.html)erweitert. Es fügt die folgenden Ereignisse, Eigenschaften und Methoden hinzu:
 
 ## Sandbox
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+In Sandkasten-Renderern enthält das `process` -Objekt nur eine Teilmenge der APIs:
 
-- `crash()`
+- `absturz()`
 - `hang()`
 - `getCreationTime()`
 - `getHeapStatistics()`
@@ -20,196 +20,196 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 - `getSystemVersion()`
 - `getCPUUsage()`
 - `getIOCounters()`
-- `argv`
+- `Argv`
 - `execPath`
 - `env`
-- `pid`
-- `arch`
+- `Pid`
+- `Arch`
 - `plattform`
-- `sandboxed`
+- `Sandbox`
 - `type`
 - `version`
-- `versions`
-- `mas`
+- `Versionen`
+- `Mas`
 - `windowsStore`
 
 ## Ereignisse
 
-### Event: 'loaded'
+### Ereignis: 'geladen'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Emittiert, wenn Electron sein internes Initialisierungsskript geladen hat und beginnt, die Webseite oder das Hauptskript zu laden.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Es kann vom Preload-Skript verwendet werden, um entfernte globale Knotensymbole wieder zu globalen Bereichs hinzuzufügen, wenn die Knotenintegration deaktiviert ist:
 
 ```javascript
-// preload.js
+preload.js
 const _setImmediate = setImmediate
 const _clearImmediate = clearImmediate
-process.once('loaded', () => {
+process.once('loaded', () => '
   global.setImmediate = _setImmediate
   global.clearImmediate = _clearImmediate
-})
+')
 ```
 
 ## Eigenschaften
 
 ### `process.defaultApp` _Readonly_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Ein `Boolean`. Wenn die App gestartet wird, indem sie als Parameter an die Standard-App übergeben wird, wird diese -Eigenschaft im Hauptprozess `true` , andernfalls wird sie `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+Eine `Boolean` `true` , wenn der aktuelle Rendererkontext der "Haupt"-Renderer Frame ist. Wenn Sie die ID des aktuellen Frames verwenden möchten, sollten Sie `webFrame.routingId`verwenden.
 
 ### `process.mas` _Readonly_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Ein `Boolean`. Für Mac App Store-Build ist diese Eigenschaft `true`, für andere Builds ist es `undefined`.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Ein `Boolean` , der die ASAR-Unterstützung in Ihrer Anwendung steuert. Wenn Sie dies auf `true` wird die Unterstützung für `asar` Archive in den integrierten Modulen von Node deaktiviert.
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+Eine `Boolean` , die steuert, ob Veraltungswarnungen in `stderr`gedruckt werden. Wenn Sie dies auf `true` setzen, werden Verfehlungen zum Schweigen gebracht. Diese Eigenschaft wird anstelle des `--no-deprecation` Befehlszeilenflags verwendet.
 
 ### `process.resourcesPath` _Readonly_
 
-A `String` representing the path to the resources directory.
+Ein `String` , der den Pfad zum Ressourcenverzeichnis darstellt.
 
 ### `process.sandboxed` _Readonly_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+Ein `Boolean`. Wenn der Rendererprozess sandkastenweise ist, wird diese Eigenschaft `true`, andernfalls wird sie `undefined`.
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+Ein `Boolean` , der steuert, ob Veraltungswarnungen als Ausnahmen ausgelöst werden. Wenn Sie diese Einstellung auf `true` werden Fehler für Veraltete angezeigt. Diese Eigenschaft anstelle des `--throw-deprecation` Befehlszeilenflags verwendet.
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+Ein `Boolean` , der steuert, ob veraltete, auf `stderr` gedruckte veraltete veraltete, ihrer Stapelablaufverfolgung enthalten. Wenn Sie diese Einstellung auf `true` werden Stapelablaufverfolgungen für Veraltete gedruckt. Diese Eigenschaft ist anstelle des `--trace-deprecation` Befehlszeilenflags.
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+Eine `Boolean` , die steuert, ob Prozesswarnungen, die auf `stderr` gedruckt werden, ihrer Stapelablaufverfolgung enthalten. Wenn Sie diese Einstellung auf `true` werden Stapelablaufverfolgungen für Prozesswarnungen (einschließlich veralteter Anforderungen) gedruckt. Diese Eigenschaft ist anstelle des `--trace-warnings` Befehls Zeilenflag.
 
 ### `process.type` _Readonly_
 
-A `String` representing the current process's type, can be:
+Ein `String` , der den Typ des aktuellen Prozesses darstellt, kann sein:
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - Der Hauptprozess
+* `renderer` - Ein Rendererprozess
+* `worker` - In einem Web-Worker
 
 ### `process.versions.chrome` _Readonly_
 
-A `String` representing Chrome's version string.
+Ein `String` , der die Versionszeichenfolge von Chrome darstellt.
 
 ### `process.versions.electron` _Readonly_
 
-A `String` representing Electron's version string.
+Ein `String` , der Die Versionszeichenfolge von Electron darstellt.
 
 ### `process.windowsStore` _Readonly_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Ein `Boolean`. Wenn die App als Windows Store-App (appx) ausgeführt wird, ist diese Eigenschaft `true`, andernfalls ist sie `undefined`.
 
 ## Methoden
 
-The `process` object has the following methods:
+Das `process` -Objekt verfügt über die folgenden Methoden:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+Verursacht den Hauptthread des aktuellen Prozessabsturzes.
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+Gibt `Number | null` zurück - Die Anzahl der Millisekunden seit der Epoche oder `null` , wenn die Informationen nicht verfügbar sind
 
-Indicates the creation time of the application. Die Zeit wird seit der Epoche als Anzahl von Millisekunden dargestellt. It returns null if it is unable to get the process creation time.
+Gibt die Erstellungszeit der Anwendung an. Die Zeit wird seit der Epoche als Anzahl von Millisekunden dargestellt. Es gibt null zurück, wenn die Prozesserstellungszeit nicht abrufe.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Rücksendungen [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` _Windows_ _Linux_
+### `process.getIOCounters()` _Windows_ _Linux-_
 
-Returns [`IOCounters`](structures/io-counters.md)
+Rücksendungen [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
 Gibt das `Object` zurück:
 
-* `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
+* `totalHeapSize` Ganzzahl
+* `totalHeapSizeExecutable` Ganzzahl
+* `totalPhysicalSize` Ganzzahl
+* `totalAvailableSize` Ganzzahl
+* `usedHeapSize` Ganzzahl
+* `heapSizeLimit` Ganzzahl
+* `mallocedMemory` Ganzzahl
+* `peakMallocedMemory` Ganzzahl
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Beachten Sie, dass alle Statistiken in Kilobyte angegeben werden.
+Gibt ein Objekt mit V8-Heapstatistiken zurück. Beachten Sie, dass alle Statistiken in Kilobyte angegeben werden.
 
 ### `process.getBlinkMemoryInfo()`
 
 Gibt das `Object` zurück:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `allocated` Ganzzahl - Größe aller zugeordneten Objekte in Kilobytes.
+* `marked` Ganzzahl - Größe aller markierten Objekte in Kilobytes.
+* `total` Ganzzahl - Gesamt zugewiesener Speicherplatz in Kilobytes.
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Gibt ein Objekt mit Blink-Speicherinformationen zurück. Es kann nützlich sein, um Rendering / DOM-bezogene Speicherprobleme zu debuggen. Beachten Sie, dass alle Werte in Kilobytes gemeldet werden.
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+Gibt `Promise<ProcessMemoryInfo>` zurück - Löst mit einem [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+Gibt ein Objekt zurück, das Speichernutzungsstatistiken über den aktuellen Prozess enthält. Beachten Sie , dass alle Statistiken in Kilobytes gemeldet werden. Diese API sollte nach App bereit aufgerufen werden.
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chrom bietet keinen `residentSet` Wert für macOS. Dies liegt daran, dass macOS in-Memory-Komprimierung von Seiten, die vor kurzem nicht verwendet wurden. Als Ergebnis ist der Wert der festgelegten Größe nicht das, was man erwarten würde. `private` Speicher repräsentativer für die tatsächliche Vorkomprimierungsspeichernutzung des Prozesses unter macOS.
 
 ### `process.getSystemMemoryInfo()`
 
 Gibt das `Object` zurück:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
+* `total` Ganzzahl - Die Gesamtmenge des physischen Speichers in Kilobytes, die dem -System zur Verfügung steht.
+* `free` Ganzzahl - Die Gesamtmenge des Arbeitsspeichers, der nicht von Anwendungen oder Datenträgern Cache verwendet wird.
+* `swapTotal` Integer _Windows_ _Linux_ - Die Gesamtmenge an Swap-Speicher in Kilobytes, die dem -System zur Verfügung steht.
+* `swapFree` Integer _Windows_ _Linux_ - Die freie Menge an Swap-Speicher in Kilobytes, die dem -System zur Verfügung steht.
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Gibt ein Objekt zurück, das Speichernutzungsstatistiken über das gesamte System enthält. Beachten Sie , dass alle Statistiken in Kilobytes gemeldet werden.
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+Gibt `String` zurück - Die Version des Hostbetriebssystems.
 
 Beispiel:
 
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+/ / unter macOS -> '10.13.6'
+/ / Unter Windows -> '10.0.17763'
+/ Unter Linux -> '4.15.0-45-generic'
 ```
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**Hinweis:** Es gibt die tatsächliche Betriebssystemversion anstelle der Kernel-Version auf macOS im Gegensatz zu `os.release()`zurück.
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Pfad zur Ausgabedatei.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+Gibt `Boolean` zurück: Gibt an, ob der Snapshot erfolgreich erstellt wurde.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Erstellt einen V8-Heap-Snapshot und speichert ihn in `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Bewirkt, dass der Hauptthread des aktuellen Prozesses hängen bleibt.
 
 ### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
-* `maxDescriptors` Integer
+* `maxDescriptors` Ganzzahl
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Legt die Softlimit-Weiche für den Dateideskriptor auf `maxDescriptors` oder das Betriebssystem- -Limit fest, je nach dem aktuellen Prozess niedriger ist.
