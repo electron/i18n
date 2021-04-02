@@ -6,15 +6,15 @@ Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // No processo main.
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+const win = novo BrowserWindow({ width: 800, height: 600 })
 
-// Load a remote URL
+// Carregue uma URL remota
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+// Ou carregue um arquivo HTML local
+win.loadURL('arquivo://${__dirname}/app/index.html')
 ```
 
 ## Janela sem frame
@@ -23,23 +23,23 @@ Para criar uma janela sem frame ou uma janela transparente de formato arbitrári
 
 ## Exibindo janela de forma elegante
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Ao carregar uma página na janela diretamente, os usuários podem ver a carga da página incrementalmente, o que não é uma boa experiência para um aplicativo nativo. Para fazer a tela da janela sem flash visual, existem duas soluções para situações diferentes.
 
 ## Utilizando o evento `ready-to-show`
 
 Enquanto a página é carregada, o evento `ready-to-show` será disparado quando o processo de renderização estiver renderizado completamente a página pela primeira vez, caso a janela ainda não tenha sido exibida. Exibindo a janela após este evento não resultará em um flash visual:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ show: false })
-win.once('ready-to-show', () => {
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow({ show: false })
+win.once ('ready-to-show', () => {
   win.show()
 })
 ```
 
 Este evento geralmente é emitido depois do evento `did-finish-load`, porém para páginas com vários recursos remotos, tal evento pode ser emitido antes.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
+Observe que o uso deste evento implica que o renderizador será considerado "visível" e pintura, mesmo que `show` seja falsa.  Este evento nunca disparará se você usar `paintWhenInitiallyHidden: false`
 
 ## Configurando `backgroundColor`
 
@@ -48,8 +48,8 @@ Para um aplicativo complexo, o evento `ready-to-show` poderia ser emitido tarde 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
-win.loadURL('https://github.com')
+const win = novo BrowserWindow({ backgroundColor: '#2e2c29' })
+win.loadURL ('https://github.com')
 ```
 
 Note que mesmo para aplicativos que utilizam o evento `ready-to-show`, é recomendado informar a propriedade `backgroundColor` para fazer com que o aplicativo passe a sensação de um aplicativo nativo.
@@ -59,10 +59,10 @@ Note que mesmo para aplicativos que utilizam o evento `ready-to-show`, é recome
 Ao utilizar a opção `parent`, é possível criar janelas secundarias:
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 
-const top = new BrowserWindow()
-const child = new BrowserWindow({ parent: top })
+const top = novo BrowserWindow()
+criança const = novo BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -74,11 +74,11 @@ A janela secundaria (`child`) sempre será exibida em frente a janela principal 
 Uma janela modal é uma janela secundaria que desabilita a janela principal, para criar uma janela moda, você deve especificar ambas opções `parent` e `modal`:
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 
-const child = new BrowserWindow({ parent: top, modal: true, show: false })
+const child = novo BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
-child.once('ready-to-show', () => {
+child.once ('ready-to-show', () => {
   child.show()
 })
 ```
@@ -107,139 +107,194 @@ A [API de visibilidade de página][page-visibility-api] funciona da seguinte for
 
 Processo: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter][event-emitter].
+`BrowserWindow` é um [][event-emitter]eventEmitter.
 
 O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a opção `options`.
 
-### `new BrowserWindow([options])`
+### `novo BrowserWindow ([options])`
 
-* `options` Object (optional)
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Por padrão é `false`.
+* objeto `options` (opcional)
+  * `width` Inteiro (opcional) - Largura da janela em pixels. O padrão é `800`.
+  * `height` Inteiro (opcional) - Altura da janela em pixels. O padrão é `600`.
+  * `x` Integer (opcional) - (**necessário** se y for usado) A janela é deslocada da tela. Padrão é centralizar a janela.
+  * `y` Integer (opcional) - (**necessário** se x for usado) Deslocamento superior da janela da tela. Padrão é centralizar a janela.
+  * `useContentSize` Booleano (opcional) - O `width` e `height` seria usado como tamanho de página de web, o que significa que o tamanho da janela real incluirá o tamanho do quadro de e será ligeiramente maior. Por padrão é `false`.
   * `center` Boolean (opcional) - Mostra a janela no centro da tela.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Por padrão é `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Por padrão é `false`.
-  * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Por padrão é `false`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Por padrão é `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created.  In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`.  Setting this to `false` will cause the `ready-to-show` event to not fire.  Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Por padrão é `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Por padrão é `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Por padrão é `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Por padrão é `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Por padrão é `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Por padrão é `false`. On Windows, does not work unless the window is frameless.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
-    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
-    * `active` - The backdrop should always appear active.
-    * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are:
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Por padrão é `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
-  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Por padrão é `false`.
-  * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-  * `webPreferences` Object (optional) - Settings of web page's features.
-    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
-    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Por padrão é `false`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Por padrão é `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
-    * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
-    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md).
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Por padrão é `false`.
-    * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
-    * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
-    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
-    * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Default is `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Por padrão é `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Por padrão é `false`.
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Por padrão é `false`.
-    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Por padrão é `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family.
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
-    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
-    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. Defaults to `true`. _Deprecated_
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Por padrão é `false`.
-    * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Por padrão é `false`.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Por padrão é `false`.
-    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
-    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
-    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `true`.
-    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). Default is `true`.
-    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
-      * `none` - Disables code caching
-      * `code` - Heuristic based code caching
-      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
-      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
-    * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. Por padrão é `false`.
+  * `minWidth` Inteiro (opcional) - Largura mínima da janela. O padrão é `0`.
+  * `minHeight` Inteiro (opcional) - Altura mínima da janela. O padrão é `0`.
+  * `maxWidth` Inteiro (opcional) - Largura máxima da janela. Padrão não é limite.
+  * `maxHeight` Inteiro (opcional) - Altura máxima da janela. Padrão não é limite.
+  * `resizable` Booleano (opcional) - Se a janela é resizável. O padrão é `true`.
+  * `movable` Booleano (opcional) - Se a janela é móvel. Isso não é implementado no Linux. O padrão é `true`.
+  * `minimizable` Booleano (opcional) - Se a janela é minimizada. Isso não é implementado no Linux. O padrão é `true`.
+  * `maximizable` Booleano (opcional) - Se a janela é maximizável. Isso não é implementado no Linux. O padrão é `true`.
+  * `closable` Booleano (opcional) - Se a janela é closable. Isso não é implementado no Linux. O padrão é `true`.
+  * `focusable` Boolean (opcional) - Se a janela pode ser focada. O padrão é `true`. Na configuração do Windows `focusable: false` também implica a configuração `skipTaskbar: true`. Na configuração do Linux `focusable: false` faz com que a janela pare de interagir com wm, de modo que a janela sempre ficará no topo em todos os espaços de trabalho .
+  * `alwaysOnTop` Booleano (opcional) - Se a janela deve ficar sempre em cima de outras janelas. Por padrão é `false`.
+  * `fullscreen` Boolean (opcional) - Se a janela deve aparecer na tela cheia. Quando explicitamente definido para `false` o botão fullscreen será oculto ou desativado no macOS. Por padrão é `false`.
+  * `fullscreenable` Booleano (opcional) - Se a janela pode ser colocada no modo de tela cheia. No macOS, também se o botão maxim/zoom deve alternar o modo de tela completo ou maximizar a janela. O padrão é `true`.
+  * `simpleFullscreen` Boolean (opcional) - Use tela completa pré-Lion no macOS. Por padrão é `false`.
+  * `skipTaskbar` Boolean (opcional) - Quer mostrar a janela na barra de tarefas. O padrão é `false`.
+  * `kiosk` Boolean (opcional) - Se a janela está no modo quiosque. Por padrão é `false`.
+  * `title` String (opcional) - Título da janela padrão. O padrão é `"Electron"`. Se a tag HTML `<title>` for definida no arquivo HTML carregado por `loadURL()`, esta propriedade será ignorada.
+  * `icon` (</a> | NativeImage
 
-When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+String) (opcional) - O ícone da janela. No Windows é recomendado usar `ICO` ícones para obter melhores efeitos visuais, você também pode deixá-lo indefinido para que o ícone executável seja usado.</li> 
+    
+      * `show` Booleano (opcional) - Se a janela deve ser mostrada quando criada. O padrão é `true`.
+  * `paintWhenInitiallyHidden` Booleano (opcional) - Se o renderizador deve estar ativo quando `show` está `false` e acaba de ser criado.  Para que `document.visibilityState` funcione corretamente na primeira carga com `show: false` você deve definir isso para `false`.  Definir isso para `false` fará com que o evento `ready-to-show` não atire.  O padrão é `true`.
+  * `frame` Booleano (opcional) - Especifique `false` para criar um</a>de janela sem moldura . O padrão é `true`.</li> 
+    
+      * `parent` BrowserWindow (opcional) - Especifique a janela pai. O padrão é `null`.
+  * `modal` Booleano (opcional) - Se esta é uma janela modal. Isso só funciona quando a janela é uma janela infantil. Por padrão é `false`.
+  * `acceptFirstMouse` Boolean (opcional) - Se a exibição da Web aceita um único evento mouse-down que ativa simultaneamente a janela. O padrão é `false`.
+  * `disableAutoHideCursor` Booleano (opcional) - Se deve ocultar o cursor ao digitar. Por padrão é `false`.
+  * `autoHideMenuBar` Booleano (opcional) - Ocultar automaticamente a barra de menus, a menos que a tecla `Alt` seja pressionada. Por padrão é `false`.
+  * `enableLargerThanScreen` Booleano (opcional) - Habilite que a janela seja redimensionada maior que a tela. Apenas relevante para macOS, já que outros OSes permitem janelas maiores que a tela por padrão. Por padrão é `false`.
+  * `backgroundColor` String (opcional) - A cor de fundo da janela como valor hexadecimal, como `#66CD00` ou `#FFF` ou `#80FFFFFF` (alfa no formato #AARRGGBB é suportado se `transparent` for definida para `true`). Padrão é `#FFF` (branco).
+  * `hasShadow` Booleano (opcional) - Se a janela deve ter uma sombra. O padrão é `true`.
+  * `opacity` Número (opcional) - Defina a opacidade inicial da janela, entre 0,0 (totalmente transparente) e 1.0 (totalmente opaco). Isso só é implementado no Windows e macOS.
+  * `darkTheme` Boolean (opcional) - Forças usando o tema escuro para a janela, só funciona em alguns ambientes de desktop GTK+3. Por padrão é `false`.
+  * `transparent` Booleano (opcional) - Torna a janela [](frameless-window.md#transparent-window)transparente . Por padrão é `false`. No Windows, não funciona a menos que a janela esteja sem molduras.
+  * `type` String (opcional) - O tipo de janela, padrão é a janela normal. Veja mais sobre isso abaixo.
+  * `visualEffectState` String (opcional) - Especifique como a aparência do material deve refletir o estado de atividade da janela no macOS. Deve ser usado com a propriedade `vibrancy` . Os valores possíveis são: 
+        * `followWindow` - O pano de fundo deve aparecer automaticamente ativo quando a janela está ativa e inativa quando não está. Este é o padrão.
+    * `active` - O pano de fundo deve sempre parecer ativo.
+    * `inactive` - O pano de fundo deve sempre parecer inativo.
+  * `titleBarStyle` String (opcional) - O estilo da barra de título da janela. O padrão é `default`. Os valores possíveis são:
+    
+        * `default` - Resulta no título padrão de Mac opaco cinza bar.
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+    * `hidden` - Resulta em uma barra de título escondida e uma janela de conteúdo em tamanho real, mas a barra de título ainda tem os controles de janela padrão ("semáforos") em no canto superior esquerdo.
 
-* On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* On macOS, possible types are `desktop`, `textured`.
-  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+    * `hiddenInset` - Resulta em uma barra de título escondida com um visual alternativo onde os botões do semáforo estão ligeiramente mais inacurdos da borda da janela.
+
+    * `customButtonsOnHover` Boolean (opcional) - Desenhe botões personalizados perto, e minimize botões em janelas sem molduras macOS. Estes botões não exibirão a menos que pairem sobre o canto superior esquerdo da janela. Esses botões personalizados evitam problemas com eventos do mouse que ocorrem com os botões padrão da barra de ferramentas da janela. **Nota:** Esta opção é atualmente experimental.
+
+  * `trafficLightPosition` [Point](structures/point.md) (opcional) - Defina uma posição personalizada para os botões do semáforo. Só pode ser usado com `titleBarStyle` definido para `hidden`
+
+  * `fullscreenWindowTitle` Boolean (opcional) - Mostra o título na barra de títulos no modo de tela cheia no macOS para todas as opções `titleBarStyle` . Por padrão é `false`.
+  * `thickFrame` Booleano (opcional) - Use `WS_THICKFRAME` estilo para janelas sem moldura no Windows , que adiciona quadro de janela padrão. Defini-lo para `false` removerá sombras da janela e animações da janela. O padrão é `true`.
+  * `vibrancy` String (opcional) - Adicione um tipo de efeito de vibração à janela, apenas no macOS. Podem ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, ou `under-page`.  Observe que o uso `frame: false` em combinação com um valor de vibração requer que você use um `titleBarStyle` não padrão também. Observe também que `appearance-based`, `light`, `dark`, `medium-light`e `ultra-dark` foram preteridos e serão removidos em uma versão futura do macOS.
+  * `zoomToPageWidth` Boolean (opcional) - Controla o comportamento no macOS ao opção clicando no botão de semáforo verde na barra de ferramentas ou clicando no item do menu Janela > Zoom. Se `true`, a janela crescerá para a largura preferida da página da Web quando ampliada, `false` fará com que ela amplie a largura da tela. Isso também afetará o comportamento ao ligar diretamente para `maximize()` . Por padrão é `false`.
+  * `tabbingIdentifier` String (opcional) - Nome do grupo Tab, permite abrir a janela como uma guia nativa no macOS 10.12+. As janelas com o mesmo identificador de serão agrupadas. Isso também adiciona um novo botão de guia nativo à barra de guia da sua janela e permite que sua `app` e janela recebam o evento `new-window-for-tab` .
+  * `webPreferences` Object (opcional) - Configurações dos recursos da página web.
+    
+        * `devTools` Booleano (opcional) - Quer habilitar DevTools. Se estiver definido para `false`, não pode usar `BrowserWindow.webContents.openDevTools()` para abrir DevTools. O padrão é `true`.
+    * `nodeIntegration` Booleano (opcional) - Se a integração do nó estiver ativada. Por padrão é `false`.
+
+    * `nodeIntegrationInWorker` Boolean (opcional) - Se a integração de nó é habilitada em trabalhadores web. Por padrão é `false`. Mais sobre isso podem ser encontrados em [Multithreading](../tutorial/multithreading.md).
+
+    * `nodeIntegrationInSubFrames` Boolean (opcional) - Opção experimental para habilitando o suporte .js Node em subquadrados, como iframes e janelas infantis. Todas as suas pré-cargas serão carregadas para cada iframe, você pode usar `process.isMainFrame` para determinar se você está no quadro principal ou não.
+
+    * `preload` String (opcional) - Especifica um script que será carregado antes que outros scripts sejam executados na página. Este script sempre terá acesso a APIs de nó não importa se a integração de nó está ligada ou desligada. O valor deve ser o caminho absoluto do arquivo para o script. Quando a integração do nó é desligada, o script pré-carregamento pode reintroduzir símbolos globais do Node de volta ao escopo global. Veja exemplo [aqui](process.md#event-loaded).
+
+    * `sandbox` Booleano (opcional) - Se configurado, este sandbox o renderizador associado à janela, tornando-o compatível com o Chromium caixa de areia nível OS e desativando o motor .js Node. Isso não é o mesmo que a opção `nodeIntegration` e as APIs disponíveis para o script pré-carga são mais limitadas. Leia mais sobre a opção [aqui](sandbox-option.md).
+
+    * `enableRemoteModule` Booleano (opcional) - Quer habilitar o módulo [`remote`](remote.md) . Por padrão é `false`.
+
+    * `session` [Sessão](session.md#class-session) (opcional) - Define a sessão usada pela página . Em vez de passar o objeto Session diretamente, você também pode optar por usar a opção `partition` , que aceita uma sequência de partição. Quando `session` e `partition` forem fornecidas, `session` serão preferidas. Padrão é a sessão padrão.
+
+    * `partition` String (opcional) - Define a sessão usada pela página de acordo com a sequência de partição da sessão . Se `partition` começar com `persist:`, a página usará uma sessão persistente disponível para todas as páginas do aplicativo com o mesmo `partition`. Se não houver `persist:` prefixo, a página usará uma sessão na memória. Ao atribuir o mesmo `partition`, várias páginas podem compartilhar mesma sessão. Padrão é a sessão padrão.
+
+    * `affinity` String (opcional) - Quando especificadas, páginas da Web com o mesmo `affinity` serão executadas no mesmo processo de renderização. Observe que, devido à reutilização processo de renderização, certas opções de `webPreferences` também serão compartilhadas entre as páginas da Web, mesmo quando você especificou valores diferentes para eles, incluindo, mas não se limitando a `preload`, `sandbox` e `nodeIntegration`. Por isso, sugere-se usar exatamente o mesmo `webPreferences` para páginas da Web com a mesma `affinity`. __preterido
+
+    * `zoomFactor` Número (opcional) - O fator de zoom padrão da página, `3.0` representa `300%`. O padrão é `1.0`.
+
+    * `javascript` Boolean (opcional) - Permite o suporte ao JavaScript. O padrão é `true`.
+
+    * `webSecurity` Boolean (opcional) - Quando `false`, ela desativará a política de mesma origem (geralmente usando sites de teste por pessoas) e definirá `allowRunningInsecureContent` para `true` se essas opções não foram definidas pelo usuário. O padrão é `true`.
+
+    * `allowRunningInsecureContent` Boolean (opcional) - Permitir que uma página https execute JavaScript, CSS ou plugins de http URLs. Por padrão é `false`.
+
+    * `images` Booleano (opcional) - Permite suporte à imagem. O padrão é `true`.
+
+    * `textAreasAreResizable` Booleano (opcional) - Tornar os elementos textarea resizáveis. O padrão é `true`.
+
+    * `webgl` Boolean (opcional) - Permite o suporte ao WebGL. O padrão é `true`.
+
+    * `plugins` Booleano (opcional) - Se os plugins devem ser ativados. Por padrão é `false`.
+    * `experimentalFeatures` Booleano (opcional) - Permite as características experimentais do Cromo. Por padrão é `false`.
+
+    * `scrollBounce` Booleano (opcional) - Permite o efeito de salto de pergaminho (banda de borracha) no macOS. Por padrão é `false`.
+
+    * `enableBlinkFeatures` String (opcional) - Uma lista de strings de recursos separadas por `,`, como `CSSVariables,KeyboardEventKey` para habilitar. A lista completa de strings de recursos suportados pode ser encontrada no arquivo [RuntimeEnabledFeatures.json][runtime-enabled-features] 5.
+
+    * `disableBlinkFeatures` String (opcional) - Uma lista de strings de recurso separadas por `,`, como `CSSVariables,KeyboardEventKey` para desativar. A lista completa de strings de recursos suportados pode ser encontrada no arquivo</a> runtimeEnabledFeatures.json5 .</p></li> 
+      
+          * `defaultFontFamily` Objeto (opcional) - Define a fonte padrão para a família de fontes.
+      
+            * `standard` String (opcional) - Padrão para `Times New Roman`.
+      * `serif` String (opcional) - Padrão para `Times New Roman`.
+      * `sansSerif` String (opcional) - Padrão para `Arial`.
+      * `monospace` String (opcional) - Padrão para `Courier New`.
+      * `cursive` String (opcional) - Padrão para `Script`.
+      * `fantasy` String (opcional) - Padrão para `Impact`.
+    * `defaultFontSize` Inteiro (opcional) - Inadimplência para `16`.
+    * `defaultMonospaceFontSize` Inteiro (opcional) - Inadimplência para `13`.
+    * `minimumFontSize` Inteiro (opcional) - Inadimplência para `0`.
+    * `defaultEncoding` String (opcional) - Padrão para `ISO-8859-1`.
+    * `backgroundThrottling` Booleano (opcional) - Se reduzir as animações e os temporizadores quando a página se torna plano de fundo. Isso também afeta a</a>de visibilidade de page visibility . Inadimplência para `true`.</p></li> 
+      
+          * `offscreen` Boolean (opcional) - Se ativar a renderização offscreen para a janela do navegador. Inadimplência para `false`. Veja o tutorial de renderização offscreen [](../tutorial/offscreen-rendering.md) para mais detalhes.
+
+    * `contextIsolation` Boolean (opcional) - Se executar APIs eletrônicas e o `preload` script especificado em um contexto JavaScript separado. Os padrão para `true`. O contexto em que o script `preload` se passa só terá acesso a seus próprios `document` e `window` globais dedicados, bem como seu próprio conjunto de JavaScript builtins (`Array`, `Object`, `JSON`, etc.), que são todos invisíveis ao conteúdo carregado. A API Eletrônica só estará disponível no script `preload` e não na página carregada. Esta opção deve ser usada ao carregar conteúdo remoto potencialmente não confiável para garantir que o conteúdo carregado não possa adulterar o script `preload` e qualquer APIs electron que está sendo usada.  Esta opção usa a mesma técnica usada por [Chrome Content Scripts][chrome-content-scripts].  Você pode acessar este contexto nas ferramentas de desenvolvimento selecionando a entrada 'Contexto Isolado de Elétrons' na caixa de combinação na parte superior da guia Console.
+
+    * `worldSafeExecuteJavaScript` Booleano (opcional) - Se verdadeiro, os valores devolvidos de `webFrame.executeJavaScript` serão higienizados para garantir que os valores JS não possam se cruzar inseguramente entre mundos ao usar `contextIsolation`. Inadimplência para `true`. __preterido
+
+    * `nativeWindowOpen` Booleano (opcional) - Seja para usar `window.open()`nativa . Inadimplência para `false`. As janelas infantis sempre terão nó integração desativada, a menos que `nodeIntegrationInSubFrames` seja verdade. **Nota:** Esta opção está atualmente experimental.
+
+    * `webviewTag` Booleano (opcional) - Quer habilitar a</a>de tag `<webview>` . Inadimplência para `false`. **Nota:** O script `preload` configurado para o `<webview>` terá de integração de nó ativados quando for executado, para que você garanta que de conteúdo remoto/não confiável não seja capaz de criar uma tag `<webview>` com um script `preload` possivelmente malicioso. Você pode usar o evento `will-attach-webview` em [webContents](web-contents.md) para remover o script `preload` e validar ou alterar as configurações iniciais do `<webview>`.</p></li> 
+      
+          * `additionalArguments` String[] (opcional) - Uma lista de strings que serão anexadas para `process.argv` no processo de renderização deste aplicativo.  Útil para passar pequenos bits de dados para scripts de pré-carregamento do processo de renderização.
+
+    * `safeDialogs` Boolean (opcional) - Quer ativar o estilo do navegador proteção de diálogo consecutiva. Por padrão é `false`.
+
+    * `safeDialogsMessage` String (opcional) - A mensagem a ser exibida quando proteção de diálogo consecutiva é acionada. Se não for definido o padrão mensagem seria usada, observe que atualmente a mensagem padrão está em inglês e não localizada.
+
+    * `disableDialogs` Booleano (opcional) - Se desativar diálogos completamente. Substitui `safeDialogs`. Por padrão é `false`.
+
+    * `navigateOnDragDrop` Boolean (opcional) - Se arrastar e soltar um arquivo ou link na página causa uma navegação. Por padrão é `false`.
+
+    * `autoplayPolicy` String (opcional) - A política de reprodução automática para aplicar conteúdo na janela, pode ser `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Inadimplência para `no-user-gesture-required`.
+
+    * `disableHtmlFullscreenWindowResize` Booleano (opcional) - Se impedir que a janela seja redimensionado ao entrar na tela cheia HTML. O padrão é `false`.
+
+    * `accessibleTitle` String (opcional) - Uma sequência de títulos alternativa suprida apenas a ferramentas de acessibilidade, como leitores de tela. Esta sequência não é diretamente visível aos usuários.
+
+    * `spellcheck` Booleano (opcional) - Se habilitar o verificador ortográfico builtin. O padrão é `true`.
+
+    * `enableWebSQL` Booleano (opcional) - Quer habilitar a [api WebSQL](https://www.w3.org/TR/webdatabase/). O padrão é `true`.
+
+    * `v8CacheOptions` String (opcional) - Aplica a política de cache de código v8 usada por blink. Os valores aceitos são
+      
+            * `none` - Desativa o cache de código
+      * `code` - Cache de código heurístico
+      * `bypassHeatCheck` - Contornar a heurística de cache de código, mas com compilação preguiçosa
+      * `bypassHeatCheckAndEagerCompile` - O mesmo que acima, exceto compilação, é ansioso. A política padrão é `code`.
+    * `enablePreferredSizeMode` Booleano (opcional) - Se ativar modo de tamanho preferido. O tamanho preferido é o tamanho mínimo necessário para conter o layout do documento — sem exigir rolagem. Habilitar isso fará com que o evento `preferred-size-changed` seja emitido no `WebContents` quando o tamanho preferido mudar. Por padrão é `false`.</ul></li> </ul></li> </ul> 
+
+Ao definir o tamanho mínimo ou máximo da janela com `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, ele só restringe os usuários. Não vai impedir que você passar um tamanho que não siga restrições de tamanho para `setBounds`/`setSize` ou ao construtor de `BrowserWindow`.
+
+Os possíveis valores e comportamentos da opção `type` são dependentes da plataforma. Os valores possíveis são:
+
+* No Linux, os possíveis tipos são `desktop`, `dock`, `toolbar`, `splash`, `notification`.
+
+* No macOS, os possíveis tipos são `desktop`, `textured`.
+  
+    * O tipo `textured` adiciona aparência de gradiente metálico (`NSTexturedBackgroundWindowMask`).
+  * O tipo `desktop` coloca a janela no nível da janela de fundo da área de trabalho (`kCGDesktopWindowLevel - 1`). Observe que a janela da área de trabalho não receberá eventos de foco, teclado ou mouse, mas você pode usar `globalShortcut` para receber entrada com moderação.
+* No Windows, o tipo possível é `toolbar`.
+
+
 
 ### Eventos de instância
 
-Objects created with `new BrowserWindow` emit the following events:
+Objetos criados com `new BrowserWindow` emitem os seguintes eventos:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Nota:** Alguns eventos só estão disponíveis em sistemas operacionais específicos e são rotulados como tal.
+
+
 
 #### Evento: 'page-title-updated'
 
@@ -249,7 +304,9 @@ Retorna:
 * `title` String
 * `explicitSet` Boolean
 
-Emitido quando o documento mudou seu título, chamando `event.preventDefault()` impedirá que o título da janela nativa mude. `explicitSet` is false when title is synthesized from file URL.
+Emitido quando o documento mudou seu título, chamando `event.preventDefault()` impedirá que o título da janela nativa mude. `explicitSet` é falso quando o título é sintetizado a partir de URL de arquivo.
+
+
 
 #### Evento: 'close'
 
@@ -257,1270 +314,1706 @@ Retorna:
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Emitido quando a janela vai ser fechada. É emitido antes do `beforeunload` e `unload` evento do DOM. Ligando para `event.preventDefault()` cancelará o fechamento.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Como por exemplo:
+Normalmente, você gostaria de usar o manipulador de `beforeunload` para decidir se a janela deve ser fechada, que também será chamada quando a janela for recarregada. Em Electron, devolver qualquer valor que não `undefined` cancelaria o fechar. Como por exemplo:
+
+
 
 ```javascript
-window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+window.onforeunload = (e) => {
+  console.log('Eu não quero ser fechado')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  // Ao contrário dos navegadores usuais de que uma caixa de mensagem será solicitada aos usuários, o retorno
+  // um valor não-vazio cancelará silenciosamente o fechamento.
+  Recomenda-se usar a API de diálogo para permitir que o usuário confirme o fechamento do aplicativo
+  //
+  e.returnValue = falso // equivalente a 'devolver falso' mas não recomendado
 }
 ```
 
-_**Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron._
+
+_**Nota**: Há uma diferença sutil entre os comportamentos de `window.onbeforeunload = handler` e `window.addEventListener('beforeunload', handler)`. Recomenda-se sempre definir o `event.returnValue` explicitamente, em vez de apenas devolver um valor, já que o primeiro funciona de forma mais consistente dentro de Electron._
+
+
 
 #### Evento: 'closed'
 
-Emitido quando a janela é fechada. After you have received this event you should remove the reference to the window and avoid using it any more.
+Emitido quando a janela é fechada. Depois de receber este evento, você deve remover a referência à janela e evitar usá-la mais.
+
+
 
 #### Evento: 'session-end' _Windows_
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Emitido quando a sessão da janela vai terminar devido ao desligamento ou à reinicialização da máquina ou retirada da sessão.
+
+
 
 #### Evento: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Emitido quando a página web fica sem resposta.
+
+
 
 #### Evento: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Emitido quando a página web sem resposta se torna responsiva novamente.
+
+
 
 #### Evento: 'blur'
 
-Emitted when the window loses focus.
+Emitido quando a janela perde o foco.
+
+
 
 #### Evento: 'focus'
 
-Emitted when the window gains focus.
+Emitido quando a janela ganha foco.
+
+
 
 #### Evento: 'show'
 
-Emitted when the window is shown.
+Emitido quando a janela é mostrada.
+
+
 
 #### Evento: 'hide'
 
-Emitted when the window is hidden.
+Emitido quando a janela está escondida.
+
+
 
 #### Evento: 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Emitido quando a página da Web foi renderizada (enquanto não for exibida) e a janela pode ser exibida sem um flash visual.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
+Observe que o uso deste evento implica que o renderizador será considerado "visível" e pintura, mesmo que `show` seja falsa.  Este evento nunca disparará se você usar `paintWhenInitiallyHidden: false`
+
+
 
 #### Evento: 'maximize'
 
-Emitted when window is maximized.
+Emitido quando a janela é maximizada.
+
+
 
 #### Evento: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Emitido quando a janela sai de um estado maximizado.
+
+
 
 #### Evento: 'minimize'
 
-Emitted when the window is minimized.
+Emitido quando a janela é minimizada.
+
+
 
 #### Evento: 'restore'
 
-Emitted when the window is restored from a minimized state.
+Emitido quando a janela é restaurada de um estado minimizado.
 
-#### Event: 'will-resize' _macOS_ _Windows_
+
+
+#### Evento: 'vai redimensionar' __ _do iCarros_do Windows
 
 Retorna:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [Retângulo](structures/rectangle.md) - Tamanho para o tamanho da janela está sendo redimensionada.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+Emitido antes que a janela seja redimensionada. Ligar para `event.preventDefault()` impedirá que a janela seja redimensionada.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Observe que isso só é emitido quando a janela está sendo redimensionada manualmente. Redimensionar a janela com `setBounds`/`setSize` não emitirá este evento.
+
+
 
 #### Evento: 'resize'
 
-Emitted after the window has been resized.
+Emitido após a janela ser redimensionada.
 
-#### Event: 'resized' _macOS_ _Windows_
 
-Emitted once when the window has finished being resized.
 
-This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
+#### Evento: 'redimensionado' _macOS_ _Windows_
 
-#### Event: 'will-move' _macOS_ _Windows_
+Emitido uma vez quando a janela terminou de ser redimensionada.
+
+Isso geralmente é emitido quando a janela foi redimensionada manualmente. No macOS, redimensionar a janela com `setBounds`/`setSize` e definir o parâmetro `animate` para `true` também emitirá este evento assim que a redimensionamento terminar.
+
+
+
+#### Evento: 'vai se mover' __ _do_do Apple
 
 Retorna:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [Retângulo](structures/rectangle.md) - Localização para onde a janela está sendo movida.
 
-Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
+Emitido antes que a janela seja movida. No Windows, chamar `event.preventDefault()` impedirá que a janela seja movida.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Observe que isso só é emitido quando a janela está sendo redimensionada manualmente. Redimensionar a janela com `setBounds`/`setSize` não emitirá este evento.
+
+
 
 #### Evento: 'move'
 
-Emitted when the window is being moved to a new position.
+Emitido quando a janela está sendo movida para uma nova posição.
 
-#### Event: 'moved' _macOS_ _Windows_
 
-Emitted once when the window is moved to a new position.
 
-__Note__: On macOS this event is an alias of `move`.
+#### Evento: 'movido' __ __do Windows
+
+Emitido uma vez quando a janela é movida para uma nova posição.
+
+__Note__: No macOS este evento é um pseudônimo de `move`.
+
+
 
 #### Evento: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Emitido quando a janela entra em um estado de tela cheia.
+
+
 
 #### Evento: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Emitido quando a janela deixa um estado de tela cheia.
+
+
 
 #### Evento: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Emitido quando a janela entra em um estado de tela cheia acionado pela API HTML.
+
+
 
 #### Evento: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Emitido quando a janela deixa um estado de tela cheia acionado pela API HTML.
+
+
 
 #### Evento: 'always-on-top-changed'
 
 Retorna:
 
 * `event` Event
-* `isAlwaysOnTop` Boolean
+* `isAlwaysOnTop` Booleano
 
-Emitted when the window is set or unset to show always on top of other windows.
+Emitido quando a janela está configurada ou desaparada para mostrar sempre em cima de outras janelas.
 
-#### Event: 'app-command' _Windows_ _Linux_
+
+
+#### Evento: 'comando de aplicativo' __Do Windows</em> _Linux</h4> 
 
 Retorna:
 
 * `event` Event
-* `command` String
+* `command` Cordas
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Emitido quando um</a> de comando de aplicativo é invocado. Estes são tipicamente relacionados com teclas de mídia de teclado ou comandos de do navegador, bem como o botão "Back" incorporado em alguns mouses no Windows.</p> 
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Os comandos são minúsculos, os sublinhados são substituídos por hífens, e o prefixo `APPCOMMAND_` é despojado. E.g. `APPCOMMAND_BROWSER_BACKWARD` é emitido como `browser-backward`.
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
-  if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow()
+win.on ('app-command', (e, cmd) => {
+  // Navegue pela janela de volta quando o usuário aperta o botão de trás do mouse
+  se (cmd === 'navegador-para trás' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-The following app commands are explicitly supported on Linux:
 
-* `browser-backward`
-* `browser-forward`
+Os seguintes comandos do aplicativo são explicitamente suportados no Linux:
 
-#### Event: 'scroll-touch-begin' _macOS_
+* `navegador-para trás`
+* `navegador-forward`
 
-Emitted when scroll wheel event phase has begun.
 
-#### Event: 'scroll-touch-end' _macOS_
 
-Emitted when scroll wheel event phase has ended.
+#### Evento: 'scroll-touch-start' __do macOS
 
-#### Event: 'scroll-touch-edge' _macOS_
+Emitido quando a fase de evento da roda de rolagem começou.
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
-#### Event: 'swipe' _macOS_
+
+#### Evento: 'scroll-touch-end' __do macOS
+
+Emitido quando a fase de evento da roda de rolagem terminou.
+
+
+
+#### Evento: 'scroll-touch-edge' __do macOS
+
+Emitido quando a fase de evento da roda de rolagem foi arquivada ao atingir a borda do elemento.
+
+
+
+#### Evento: 'deslizar' __do macOS
 
 Retorna:
 
 * `event` Event
-* `direction` String
+* `direction` Cordas
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Emitido em golpe de 3 dedos. As possíveis direções são `up`, `right`, `down`, `left`.
 
-The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+O método subjacente a este evento é construído para lidar com o trackpad estilo macOS mais antigo deslizando, onde o conteúdo na tela não se move com o deslizamento. A maioria dos trackpads do macOS não está configurado para permitir esse tipo de deslizar mais, então, para que ele emita corretamente a preferência 'Deslize entre páginas' em `System Preferences > Trackpad > More Gestures` deve ser definido para 'Deslizar com dois ou três dedos'.
 
-#### Event: 'rotate-gesture' _macOS_
+
+
+#### Evento: 'gesto rotativo' __do macOS
 
 Retorna:
 
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Emitido no gesto de rotação do trackpad. Continuamente emitido até que o gesto de rotação seja terminado. O valor `rotation` de cada emissão é o ângulo em graus girados desde última emissão. O último evento emitido após um gesto de rotação será sempre de valor `0`. Os valores de rotação no sentido anti-horário são positivos, enquanto os no sentido horário são negativos.
 
-#### Event: 'sheet-begin' _macOS_
 
-Emitted when the window opens a sheet.
 
-#### Event: 'sheet-end' _macOS_
+#### Evento: 'folha de começo' __do macOS
 
-Emitted when the window has closed a sheet.
+Emitido quando a janela abre uma folha.
+
+
+
+#### Evento: 'folha-fim' __do macOS
+
+Emitido quando a janela fechou uma folha.
+
+
 
 #### Evento: 'new-window-for-tab' no _macOS_
 
-Emitted when the native new tab button is clicked.
+Emitido quando o novo botão de guia nativo é clicado.
 
-#### Event: 'system-context-menu' _Windows_
+
+
+#### Evento: 'system-context-menu' _Windows_
 
 Retorna:
 
 * `event` Event
-* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+* `point` [Point](structures/point.md) - A tela coordena o menu de contexto foi acionado em
 
-Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+Emitido quando o menu de contexto do sistema é acionado na janela, isso é normalmente apenas acionado quando o usuário clica com o botão direito do usuário na área não-cliente da sua janela.  Esta é a barra de título da janela ou qualquer área que você declarou como `-webkit-app-region: drag` em uma janela sem moldura.
 
-Calling `event.preventDefault()` will prevent the menu from being displayed.
+Ligar para `event.preventDefault()` impedirá que o menu seja exibido.
+
+
 
 ### Métodos estáticos
 
-The `BrowserWindow` class has the following static methods:
+A classe `BrowserWindow` tem os seguintes métodos estáticos:
+
+
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Devoluções `BrowserWindow[]` - Uma matriz de todas as janelas do navegador abertas.
+
+
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+Retornos `BrowserWindow | null` - A janela que está focada neste aplicativo, caso contrário retorna `null`.
 
-#### `BrowserWindow.fromWebContents(webContents)`
+
+
+#### `BrowserWindow.fromWebContents (webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+Devolução `BrowserWindow | null` - A janela que possui os `webContents` ou `null` se o conteúdo não for de propriedade de uma janela.
 
-#### `BrowserWindow.fromBrowserView(browserView)`
 
-* `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+#### `BrowserWindow.fromBrowserVer (browserView)`
+
+* `browserView` [browserView](browser-view.md)
+
+Retorna `BrowserWindow | null` - A janela que possui o `browserView`dado . Se a visualização dada não estiver anexada a nenhuma janela, retorne `null`.
+
+
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Inteiro
 
-Returns `BrowserWindow | null` - The window with the given `id`.
+Retorna `BrowserWindow | null` - A janela com o `id`dado .
 
-#### `BrowserWindow.addExtension(path)` _Deprecated_
 
-* `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
-
-The method will also not return if the extension's manifest is missing or incomplete.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
-
-#### `BrowserWindow.removeExtension(name)` _Deprecated_
-
-* `name` String
-
-Remove a Chrome extension by name.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
-
-#### `BrowserWindow.getExtensions()` _Deprecated_
-
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
-
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
-
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
-
-#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
+#### `BrowserWindow.addExtension(path)` __preterido
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Adiciona extensão do Chrome localizada em `path`e retorna o nome da extensão.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+O método também não retornará se o manifesto da extensão estiver faltando ou incompleto.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Este método é preterido. Em vez disso, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
-#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
+
+#### `BrowserWindow.removeExtension(name)` __preterido
 
 * `name` String
 
-Remove a DevTools extension by name.
+Remova uma extensão do Chrome pelo nome.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**Nota:** Este método é preterido. Em vez disso, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
-#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-To check if a DevTools extension is installed you can run the following:
+#### `BrowserWindow.getExtensions()` __preterido
+
+Devoluções `Record<String, ExtensionInfo>` - As teclas são os nomes de extensão e cada valor é um Objeto contendo propriedades `name` e `version` .
+
+**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+
+**Nota:** Este método é preterido. Em vez disso, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+
+
+
+#### `BrowserWindow.addDevToolsExtension(path)` __preterido
+
+* `path` String
+
+Adiciona extensão DevTools localizada em `path`e retorna o nome da extensão.
+
+A extensão será lembrada, então você só precisa chamar esta API uma vez, este API não é para uso de programação. Se você tentar adicionar uma extensão que já sido carregada, este método não retornará e, em vez disso, registrará um aviso ao console .
+
+O método também não retornará se o manifesto da extensão estiver faltando ou incompleto.
+
+**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+
+**Nota:** Este método é preterido. Em vez disso, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+
+
+
+#### `BrowserWindow.removeDevToolsExtension(name)` __preterido
+
+* `name` String
+
+Remova uma extensão DevTools pelo nome.
+
+**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+
+**Nota:** Este método é preterido. Em vez disso, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+
+
+
+#### `BrowserWindow.getDevToolsExtensions()` __preterido
+
+Devoluções `Record<string, ExtensionInfo>` - As teclas são os nomes de extensão e cada valor é um Objeto contendo propriedades `name` e `version` .
+
+Para verificar se uma extensão DovTools está instalada, você pode executar o seguinte:
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 
-const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
-console.log(installed)
+const instalado = 'devtron' em BrowserWindow.getDevToolsExtensions()
+console.log(instalado)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+
+**Nota:** Este método é preterido. Em vez disso, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+
+
 
 ### Propriedades de Instância
 
-Objects created with `new BrowserWindow` have the following properties:
+Objetos criados com `new BrowserWindow` têm as seguintes propriedades:
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
-// In this example `win` is our instance
-const win = new BrowserWindow({ width: 800, height: 600 })
+const { BrowserWindow } = require ('electron')
+// Neste exemplo 'win' é nossa instância
+vitória const = novo BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
+
+
+
 #### `win.webContents` _Readonly_
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Um objeto `WebContents` que esta janela possui. Todos os eventos relacionados à página da Web e operações de serão feitos através dele.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Veja a documentação [`webContents`](web-contents.md) para seus métodos e eventos .
+
+
 
 #### `win.id` _Readonly_
 
-A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+Uma propriedade `Integer` representando a ID única da janela. Cada ID é único entre todas as `BrowserWindow` instâncias de toda a aplicação electron.
+
+
 
 #### `win.autoHideMenuBar`
 
-A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+Uma propriedade `Boolean` que determina se a barra de menu da janela deve se esconder automaticamente. Uma vez definida, a barra de menu só mostrará quando os usuários pressionarem a única tecla `Alt` .
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+Se a barra de menu já estiver visível, definir esta propriedade para `true` não escondê-la imediatamente.
+
+
 
 #### `win.simpleFullScreen`
 
-A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+Uma propriedade `Boolean` que determina se a janela está no modo de tela completa simples (pré-Leão).
+
+
 
 #### `win.fullScreen`
 
-A `Boolean` property that determines whether the window is in fullscreen mode.
+Uma propriedade `Boolean` que determina se a janela está no modo fullscreen.
+
+
 
 #### `win.visibleOnAllWorkspaces`
 
-A `Boolean` property that determines whether the window is visible on all workspaces.
+Uma propriedade `Boolean` que determina se a janela é visível em todos os espaços de trabalho.
 
-**Note:** Always returns false on Windows.
+**Nota:** Sempre retorna falso no Windows.
+
+
 
 #### `win.shadow`
 
-A `Boolean` property that determines whether the window has a shadow.
+Uma propriedade `Boolean` que determina se a janela tem uma sombra.
 
-#### `win.menuBarVisible` _Windows_ _Linux_
 
-A `Boolean` property that determines whether the menu bar should be visible.
 
-**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+#### `win.menuBarVisible` __Linux do Windows</em> _</h4> 
+
+Uma propriedade `Boolean` que determina se a barra de menu deve ser visível.
+
+**Nota:** Se a barra de menu estiver ocultada automaticamente, os usuários ainda podem levantar a barra de menu pressionando a tecla de `Alt` única.
+
+
 
 #### `win.kiosk`
 
-A `Boolean` property that determines whether the window is in kiosk mode.
+Uma propriedade `Boolean` que determina se a janela está no modo quiosque.
 
-#### `win.documentEdited` _macOS_
 
-A `Boolean` property that specifies whether the window’s document has been edited.
 
-The icon in title bar will become gray when set to `true`.
+#### `win.documentEdited` __macOS
 
-#### `win.representedFilename` _macOS_
+Uma propriedade `Boolean` que especifica se o documento da janela foi editado.
 
-A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+O ícone na barra de título ficará cinza quando definido para `true`.
+
+
+
+#### `win.representedFilename` __macOS
+
+Uma propriedade `String` que determina o nome do caminho do arquivo que a janela representa, e o ícone do arquivo serão exibidos na barra de título da janela.
+
+
 
 #### `win.title`
 
-A `String` property that determines the title of the native window.
+Uma propriedade `String` que determina o título da janela nativa.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**Nota:** O título da página web pode ser diferente do título da janela nativa.
 
-#### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+#### `win.minimizável`
+
+Uma propriedade `Boolean` que determina se a janela pode ser minimizada manualmente pelo usuário.
+
+No Linux, o setter é um não-op, embora o getter retorne `true`.
+
+
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+Uma propriedade `Boolean` que determina se a janela pode ser maximizada manualmente pelo usuário.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+No Linux, o setter é um não-op, embora o getter retorne `true`.
+
+
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Uma propriedade `Boolean` que determina se o botão de janela maxima/zoom alterna o modo fullscreen ou maximiza a janela.
+
+
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+Uma propriedade `Boolean` que determina se a janela pode ser redimensionada manualmente pelo usuário.
+
+
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+Uma propriedade `Boolean` que determina se a janela pode ser fechada manualmente pelo usuário.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+No Linux, o setter é um não-op, embora o getter retorne `true`.
+
+
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+Uma propriedade `Boolean` que determina se a janela pode ser movida pelo usuário.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+No Linux, o setter é um não-op, embora o getter retorne `true`.
 
-#### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+#### `win.excludedFromShownWindowsMenu` __macOS
+
+Uma propriedade `Boolean` que determina se a janela está excluída do menu Windows do aplicativo. `false` por padrão.
+
+
 
 ```js
-const win = new BrowserWindow({ height: 600, width: 600 })
+const win = novo Menu Desarmes{ height: 600, width: 600 }
 
-const template = [
+de const = [
   {
     role: 'windowmenu'
   }
 ]
 
-win.excludedFromShownWindowsMenu = true
+win.excludedDeShownWindowsMenu = menu const verdadeiro
 
-const menu = Menu.buildFromTemplate(template)
+= Menu.buildFromTemplate(modelo)
 Menu.setApplicationMenu(menu)
 ```
 
+
+
+
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+Uma propriedade `String` que define um título alternativo fornecido apenas para ferramentas de acessibilidade, como leitores de tela. Esta sequência não é diretamente visível aos usuários.
+
+
 
 ### Métodos de Instância
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Objetos criados com `new BrowserWindow` têm os seguintes métodos de instância:
 
 **Nota:** Alguns métodos estão disponíveis somente em sistemas operacionais específicos e são rotulados como tal.
 
+
+
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Forçar o fechamento da janela, o evento `unload` e `beforeunload` não será emitido para a página web, e `close` evento também não será emitido para esta janela, mas garante que o evento `closed` será emitido.
+
+
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Tente fechar a janela. Isso tem o mesmo efeito que um usuário clicando manualmente o botão de fechamento da janela. A página web pode cancelar o fechamento, porém. Veja o</a>de de eventos próximos .</p> 
+
+
 
 #### `win.focus()`
 
-Focuses on the window.
+Foca na janela.
+
+
 
 #### `win.blur()`
 
-Removes focus from the window.
+Remove o foco da janela.
+
+
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Retorna `Boolean` - Se a janela está focada.
+
+
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Retorna `Boolean` - Se a janela é destruída.
+
+
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Mostra e dá foco à janela.
+
+
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Mostra a janela, mas não se concentra nela.
+
+
 
 #### `win.hide()`
 
-Hides the window.
+Esconde a janela.
+
+
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Devoluções `Boolean` - Se a janela é visível para o usuário.
+
+
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Retorna `Boolean` - Se a janela atual é uma janela modal.
+
+
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Maximiza a janela. Isso também mostrará (mas não se concentrará) na janela se ainda não estiver sendo exibida.
+
+
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Descompimiza a janela.
+
+
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Retorna `Boolean` - Se a janela é maximizada.
+
+
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Minimiza a janela. Em algumas plataformas, a janela minimizada será mostrada em Doca.
+
+
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Restaura a janela do estado minimizado ao seu estado anterior.
+
+
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Retornos `Boolean` - Se a janela é minimizada.
+
+
 
 #### `win.setFullScreen(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
-Sets whether the window should be in fullscreen mode.
+Define se a janela deve estar no modo fullscreen.
+
+
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Devoluções `Boolean` - Se a janela está no modo fullscreen.
 
-#### `win.setSimpleFullScreen(flag)` _macOS_
 
-* `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+#### `win.setSimpleFullScreen(flag)` __macOS
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
+* `flag` Booleano
+
+Entra ou sai do modo de tela cheia simples.
+
+O modo fullscreen simples emula o comportamento nativo de fullscreen encontrado nas versões do macOS antes do Lion (10.7).
+
+
 
 #### `win.isSimpleFullScreen()` no _macOS_
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Retorna `Boolean` - Se a janela está no modo de tela cheia simples (pré-Leão).
+
+
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+Devoluções `Boolean` - Se a janela está em estado normal (não maximizada, não minimizada, não no modo fullscreen).
+
+
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])`
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Float - A proporção a ser mantida para alguma parte da visualização de conteúdo .
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+* `extraSize` [Tamanho](structures/size.md) (opcional) __ macOS - O tamanho extra não deve ser incluído enquanto manter a proporção.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
-{ width: 40, height: 50 }. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
+Isso fará com que uma janela mantenha uma proporção. O tamanho extra permite que um desenvolvedor tenha espaço, especificado em pixels, não incluído no aspecto cálculos de proporção. Esta API já leva em conta a diferença entre o tamanho de uma janela e seu tamanho de conteúdo.
 
-The aspect ratio is not respected when window is resized programmingly with APIs like `win.setSize`.
+Considere uma janela normal com um reprodutor de vídeo HD e controles associados. Talvez haja 15 pixels de controles na borda esquerda, 25 pixels de controles na borda direita e 50 pixels de controles abaixo do player. Para manter uma proporção de 16:9 (proporção padrão para @1920x1080 HD) dentro de o próprio jogador chamaríamos essa função com argumentos de 16/9 e
+{ width: 40, height: 50 }. O segundo argumento não se importa onde a largura e a altura extras estão dentro da exibição de conteúdo - apenas que eles existem. Soma qualquer largura extra e áreas de altura que você tenha dentro da exibição geral do conteúdo.
 
-#### `win.setBackgroundColor(backgroundColor)`
+A proporção não é respeitada quando a janela é redimensionada programação com APIs como `win.setSize`.
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
-#### `win.previewFile(path[, displayName])` _macOS_
+#### `win.setBackgroundColor (backgroundColor)`
 
-* `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `backgroundColor` String - A cor de fundo da janela como valor hexadecimal, como `#66CD00` ou `#FFF` ou `#80FFFFFF` (o alfa é suportado se `transparent` for `true`). Padrão é `#FFF` (branco).
 
-Uses [Quick Look][quick-look] to preview a file at a given path.
+Define a cor de fundo da janela. Consulte [Configuração `backgroundColor`](#setting-backgroundcolor).
+
+
+
+#### `win.previewFile(path[, displayName])` __macOS
+
+* `path` String - O caminho absoluto para o arquivo para visualizar com QuickLook. Essa é importante, pois o Quick Look usa o nome do arquivo e a extensão do arquivo no caminho para determinar o tipo de conteúdo do arquivo a ser aberto.
+
+* `displayName` String (opcional) - O nome do arquivo a ser exibido na exibição modal Quick Look. Isso é puramente visual e não afeta o conteúdo tipo do arquivo. Inadimplência para `path`.
+
+Usa [][quick-look] de Olhar Rápido para visualizar um arquivo em um determinado caminho.
+
+
 
 #### `win.closeFilePreview()` no _macOS_
 
-Closes the currently open [Quick Look][quick-look] panel.
+Fecha o painel</a> Quick Look.</p> 
 
-#### `win.setBounds(bounds[, animate])`
 
-* `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (optional) _macOS_
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+#### `win.setBounds(limites[, animar])`
+
+* < Retângulo[Parcial `bounds`](structures/rectangle.md)>
+* `animate` Boolean (opcional) __do macOS
+
+Redimensiona e move a janela para os limites fornecidos. Quaisquer propriedades que não forem fornecidas serão padrão aos seus valores atuais.
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow()
 
-// set all bounds properties
-win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
+// definir todas as propriedades de limites
+win.setBounds({ x: 440, y: 225, largura: 800, altura: 600 })
 
-// set a single bounds property
-win.setBounds({ width: 100 })
+// definir uma propriedade de limites únicos
+win.setBounds ({ width: 100 })
 
-// { x: 440, y: 225, width: 100, height: 600 }
+// { x: 440, y: 225, largura: 100, altura: 600 }
 console.log(win.getBounds())
 ```
+
+
+
 
 #### `win.getBounds()`
 
 Retorna [`Rectangle`](structures/rectangle.md) - Os `limites` da janela como `Objeto`.
 
+
+
 #### `win.getBackgroundColor()`
 
-Returns `String` - Gets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+Retorna `String` - Obtém a cor de fundo da janela. Consulte [Configuração `backgroundColor`](#setting-backgroundcolor).
 
-#### `win.setContentBounds(bounds[, animate])`
+
+
+#### `win.setContentBounds(limites[, animar])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (opcional) __do macOS
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Redimensiona e move a área de cliente da janela (por exemplo, a página da Web) para os limites fornecidos.
+
+
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
+Retorno [`Rectangle`](structures/rectangle.md) - A `bounds` da área de clientes da janela como `Object`.
+
+
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+Devoluções [`Rectangle`](structures/rectangle.md) - Contém os limites da janela do estado normal
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+**Nota:** qualquer que seja o estado atual da janela : maximizada, minimizada ou em tela cheia, esta função sempre retorna a posição e o tamanho da janela em estado normal. Em estado normal, getBounds e getNormalBounds retorna o mesmo [`Rectangle`](structures/rectangle.md).
 
-#### `win.setEnabled(enable)`
 
-* `enable` Boolean
 
-Disable or enable the window.
+#### `win.setEnabled (habilitação)`
+
+* `enable` Booleano
+
+Desabilitar ou habilitar a janela.
+
+
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+Retorna `Boolean` - se a janela está ativada.
 
-#### `win.setSize(width, height[, animate])`
+
+
+#### `win.setSize (largura, altura[, animar])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (opcional) __do macOS
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Redimensiona a janela para `width` e `height`. Se `width` ou `height` estiverem abaixo de qualquer restrição de tamanho mínimo definida, a janela será encaixada ao seu tamanho mínimo.
+
+
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Devoluções `Integer[]` - Contém a largura e a altura da janela.
 
-#### `win.setContentSize(width, height[, animate])`
+
+
+#### `win.setContentSize (largura, altura[, animar])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (opcional) __do macOS
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Redimensiona a área de cliente da janela (por exemplo, a página web) para `width` e `height`.
+
+
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Devoluções `Integer[]` - Contém a largura e altura da área cliente da janela.
 
-#### `win.setMinimumSize(width, height)`
+
+
+#### `win.setMinimumSize (largura, altura)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Define o tamanho mínimo da janela para `width` e `height`.
+
+
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Devoluções `Integer[]` - Contém a largura e altura mínimas da janela.
 
-#### `win.setMaximumSize(width, height)`
+
+
+#### `win.setMaximumSize (largura, altura)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Define o tamanho máximo da janela para `width` e `height`.
+
+
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Devoluções `Integer[]` - Contém a largura e altura máximas da janela.
 
-#### `win.setResizable(resizable)`
 
-* `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+#### `win.setReizável (resizável)`
+
+* `resizable` Booleano
+
+Define se a janela pode ser redimensionada manualmente pelo usuário.
+
+
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+Devoluções `Boolean` - Se a janela pode ser redimensionada manualmente pelo usuário.
+
+
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
-* `movable` Boolean
+* `movable` Booleano
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Define se a janela pode ser movida pelo usuário. No Linux não faz nada.
+
+
 
 #### `win.isMovable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be moved by user.
+Devolução `Boolean` - Se a janela pode ser movida pelo usuário.
 
-On Linux always returns `true`.
+No Linux sempre retorna `true`.
+
+
 
 #### `win.setMinimizable(minimizable)` _macOS_ _Windows_
 
-* `minimizable` Boolean
+* `minimizable` Booleano
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Define se a janela pode ser minimizada manualmente pelo usuário. No Linux não faz nada.
+
+
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+Devoluções `Boolean` - Se a janela pode ser minimizada manualmente pelo usuário.
 
-On Linux always returns `true`.
+No Linux sempre retorna `true`.
+
+
 
 #### `win.setMaximizable(maximizable)` _macOS_ _Windows_
 
-* `maximizable` Boolean
+* `maximizable` Booleano
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Define se a janela pode ser maximizada manualmente pelo usuário. No Linux não faz nada.
+
+
 
 #### `win.isMaximizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Devoluções `Boolean` - Se a janela pode ser maximizada manualmente pelo usuário.
 
-On Linux always returns `true`.
+No Linux sempre retorna `true`.
 
-#### `win.setFullScreenable(fullscreenable)`
 
-* `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+#### `win.setFullScreenable (fullscreenable)`
+
+* `fullscreenable` Booleano
+
+Define se o botão de janela maximize/zoom alterna o modo fullscreen ou maximize a janela.
+
+
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Devoluções `Boolean` - Se o botão de janela de maximizar/zoom alterna o modo fullscreen ou maximizar a janela.
+
+
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
-* `closable` Boolean
+* `closable` Booleano
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Define se a janela pode ser fechada manualmente pelo usuário. No Linux não faz nada.
+
+
 
 #### `win.isClosable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Devoluções `Boolean` - Se a janela pode ser fechada manualmente pelo usuário.
 
-On Linux always returns `true`.
+No Linux sempre retorna `true`.
 
-#### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
-* `flag` Boolean
-* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs][window-levels] for more details.
-* `relativeLevel` Integer (optional) _macOS_ - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+#### `win.setAlwaysOnTop (flag[, level][, relativaLevel])`
+
+* `flag` Booleano
+* `level` String (opcional) _macOS_ _Windows_ - Os valores incluem `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`e ~~`dock`~~ (Preterido). O padrão é `floating` quando `flag` é verdade. O `level` é reiniciado para `normal` quando a bandeira é falsa. Observe que de `floating` a `status` incluído, a janela é colocada abaixo do Dock no macOS e abaixo da barra de tarefas no Windows. De `pop-up-menu` a um superior é mostrado acima do Dock no macOS e acima da barra de tarefas no Windows. Consulte os [][window-levels] de documentos do macOS para obter mais detalhes.
+
+* `relativeLevel` Integer (opcional) __ macOS - O número de camadas mais altas para definir esta janela em relação ao `level`dado . O padrão é `0`. Observe que a Apple desencoraja a definição de níveis superiores a 1 acima `screen-saver`.
+
+Define se a janela deve aparecer sempre em cima de outras janelas. Depois de configurando isso, a janela ainda é uma janela normal, não uma janela de caixa de ferramentas na qual não pode ser focada.
+
+
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Retorna `Boolean` - Se a janela está sempre em cima de outras janelas.
 
-#### `win.moveAbove(mediaSourceId)`
 
-* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
 
-Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+#### `win.moveAbove (mediaSourceId)`
+
+* `mediaSourceId` String - ID de janela no formato do id do DesktopCapturerSource. Por exemplo, "janela:1869:0".
+
+Move a janela acima da janela de origem no sentido de ordem z. Se o `mediaSourceId` não for de janela tipo ou se a janela não existir, então este método lança um erro.
+
+
 
 #### `win.moveTop()`
 
-Moves window to top(z-order) regardless of focus
+Move janela para topo (z-order) independentemente do foco
+
+
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Move a janela para o centro da tela.
 
-#### `win.setPosition(x, y[, animate])`
+
+
+#### `win.setPosition(x, y[, animar])`
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (opcional) __do macOS
 
-Moves window to `x` and `y`.
+Move janela para `x` e `y`.
+
+
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Retorna `Integer[]` - Contém a posição atual da janela.
 
-#### `win.setTitle(title)`
+
+
+#### `win.setTitle(título)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Muda o título da janela nativa para `title`.
+
+
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Retorna `String` - O título da janela nativa.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**Nota:** O título da página web pode ser diferente do título da janela nativa.
 
-#### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
+
+
+#### `win.setSheetOffset(offsetY[, offsetX])` __macOS
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (opcional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. Como por exemplo:
+Altera o ponto de fixação para folhas no macOS. Por padrão, as folhas são anexadas logo abaixo do quadro da janela, mas você pode querer exibi-las abaixo de uma barra de ferramentas renderizada por HTML. Como por exemplo:
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow()
 
-const toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+barra de ferramentas constRect = document.getElementById('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
 
+
+
+
 #### `win.flashFrame(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
-Starts or stops flashing the window to attract user's attention.
+Inicia ou pára de piscar a janela para atrair a atenção do usuário.
+
+
 
 #### `win.setSkipTaskbar(skip)`
 
-* `skip` Boolean
+* `skip` Booleano
 
-Makes the window not show in the taskbar.
+Faz com que a janela não apareça na barra de tarefas.
+
+
 
 #### `win.setKiosk(flag)`
 
-* `flag` Boolean
+* `flag` Booleano
 
-Enters or leaves kiosk mode.
+Entra ou sai do modo quiosque.
+
+
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Devoluções `Boolean` - Se a janela está no modo quiosque.
 
-#### `win.isTabletMode()` _Windows_
 
-Returns `Boolean` - Whether the window is in Windows 10 tablet mode.
 
-Since Windows 10 users can [use their PC as tablet](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet), under this mode apps can choose to optimize their UI for tablets, such as enlarging the titlebar and hiding titlebar buttons.
+#### `win.isTabletMode()` __do Windows
 
-This API returns whether the window is in tablet mode, and the `resize` event can be be used to listen to changes to tablet mode.
+Devoluções `Boolean` - Se a janela está no modo tablet Windows 10.
+
+Como os usuários do Windows 10 podem [usar seu PC como](https://support.microsoft.com/en-us/help/17210/windows-10-use-your-pc-like-a-tablet)de tablet, sob este modo os aplicativos podem optar por otimizar sua interface do usuário para tablets, como ampliando a barra de títulos e escondendo botões da barra de título.
+
+Esta API retorna se a janela está no modo tablet, e o `resize` evento pode ser usado para ouvir alterações no modo tablet.
+
+
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+Devoluções `String` - ID de janela no formato do id do DesktopCapturerSource. Por exemplo, "janela:1234:0".
 
-More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
+Mais precisamente o formato é `window:id:other_id` onde `id` é `HWND` no Windows, `CGWindowID` (`uint64_t`) no macOS e `Window` (`unsigned long`) no Linux. `other_id` é usado para identificar conteúdos da Web (guias) de modo que dentro da mesma janela de nível superior.
+
+
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Devoluções `Buffer` - A alça específica da plataforma da janela.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+O tipo nativo da alça é `HWND` no Windows, `NSView*` no macOS e `Window` (`unsigned long`) no Linux.
 
-#### `win.hookWindowMessage(message, callback)` _Windows_
+
+
+#### `win.hookWindowMessage(message, callback)` __do Windows
 
 * `message` Integer
-* `callback` Function
-  * `wParam` any - The `wParam` provided to the WndProc
-  * `lParam` any - The `lParam` provided to the WndProc
+* `callback` Function 
+    * `wParam` qualquer - O `wParam` fornecido ao WndProc
+  * `lParam` qualquer - O `lParam` fornecido ao WndProc
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Liga uma mensagem de janelas. O `callback` é chamado quando a mensagem é recebida no WndProc.
+
+
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Devolução `Boolean` - `true` ou `false` dependendo se a mensagem está ligada.
+
+
 
 #### `win.unhookWindowMessage(message)` _Windows_
 
 * `message` Integer
 
-Unhook the window message.
+Desembrulhe a mensagem da janela.
+
+
 
 #### `win.unhookAllWindowMessages()` _Windows_
 
-Unhooks all of the window messages.
+Desembrulhe todas as mensagens da janela.
 
-#### `win.setRepresentedFilename(filename)` _macOS_
+
+
+#### `win.setRepresentedFilename(filename)` __macOS
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Define o nome do caminho do arquivo que a janela representa e o ícone do arquivo aparecerá na barra de título da janela.
+
+
 
 #### `win.getRepresentedFilename()` no _macOS_
 
-Returns `String` - The pathname of the file the window represents.
+Devoluções `String` - O nome do caminho do arquivo que a janela representa.
 
-#### `win.setDocumentEdited(edited)` _macOS_
 
-* `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+#### `win.setDocumentEdited(edited)` __macOS
+
+* `edited` Booleano
+
+Especifica se o documento da janela foi editado e o ícone na barra de de título ficará cinza quando definido como `true`.
+
+
 
 #### `win.isDocumentEdited()` no _macOS_
 
-Returns `Boolean` - Whether the window's document has been edited.
+Devoluções `Boolean` - Se o documento da janela foi editado.
+
+
 
 #### `win.focusOnWebView()`
 
+
+
 #### `win.blurWebView()`
 
-#### `win.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+#### `win.capturePage ([rect])`
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page. If the page is not visible, `rect` may be empty.
+* `rect` [Retângulo](structures/rectangle.md) (opcional) - Os limites para capturar
 
-#### `win.loadURL(url[, options])`
+Retorna `Promise<NativeImage>` - Resolve com um</a>NativeImage </p> 
+
+Captura um instantâneo da página dentro de `rect`. Omitir `rect` capturará toda a página visível. Se a página não estiver visível, `rect` pode estar vazia.
+
+
+
+#### `win.loadURL(url[, opções])`
 
 * String `url`
-* `options` Object (optional)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
+* objeto `options` (opcional) 
+    * `httpReferrer` (| de cordas [Referidor](structures/referrer.md)) (opcional) - Uma URL http referrer.
+  * `userAgent` String (opcional) - Um agente do usuário originário da solicitação.
+  * `extraHeaders` String (opcional) - Cabeçalhos extras separados por "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (opcional)
+  * `baseURLForDataURL` String (opcional) - URL base (com separador de caminho de trailing) para que os arquivos sejam carregados pela URL de dados. Isso só é necessário se o `url` especificado for uma URL de dados e precisar carregar outros arquivos.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Retorna `Promise<void>` - a promessa será resolvida quando a página terminar de carregar (ver [`did-finish-load`](web-contents.md#event-did-finish-load)), e rejeita se a página não carregar (ver [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
+O mesmo que [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+O `url` pode ser um endereço remoto (por exemplo. `http://`) ou um caminho para um arquivo HTML local usando o protocolo `file://` .
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Para garantir que os URLs de arquivo sejam devidamente formatados, recomenda-se usar método [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) do Node:
+
+
 
 ```javascript
-const url = require('url').format({
-  protocol: 'file',
-  slashes: true,
+url const = require ('url').format({
+  protocolo: 'file',
+  barras: true,
   pathname: require('path').join(__dirname, 'index.html')
-})
+
 
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+
+Você pode carregar uma URL usando uma solicitação de `POST` com dados codificados por URL fazendo seguinte:
+
+
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
   postData: [{
-    type: 'rawData',
-    bytes: Buffer.from('hello=world')
+    tipo: 'rawData',
+    bytes: Buffer.from ('hello=world')
   }],
   extraHeaders: 'Content-Type: application/x-www-form-urlencoded'
 })
 ```
 
+
+
+
 #### `win.loadFile(filePath[, options])`
 
-* `filePath` String
-* `options` Object (optional)
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+* `filePath` Cordas
+* objeto `options` (opcional) 
+    * `query` Record<String, String> (opcional) - Passou para `url.format()`.
+  * `search` String (opcional) - Passou para `url.format()`.
+  * `hash` String (opcional) - Passou para `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Retorna `Promise<void>` - a promessa será resolvida quando a página terminar de carregar (ver [`did-finish-load`](web-contents.md#event-did-finish-load)), e rejeita se a página não carregar (ver [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
+O mesmo que `webContents.loadFile`, `filePath` deve ser um caminho para um arquivo de HTML em relação à raiz do seu aplicativo.  Consulte os `webContents` para obter mais informações.
+
+
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+O mesmo que `webContents.reload`.
 
-#### `win.setMenu(menu)` _Linux_ _Windows_
+
+
+#### `win.setMenu(menu)` __Do</em> _Linux</h4> 
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+Define o `menu` como a barra de menu da janela.
 
-#### `win.removeMenu()` _Linux_ _Windows_
 
-Remove the window's menu bar.
+
+#### `win.removeMenu()` __Do</em> _Linux</h4> 
+
+Remova a barra de menu da janela.
+
+
 
 #### `win.setProgressBar(progress[, options])`
 
-* `progress` Double
-* `options` Object (optional)
-  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+* `progress` Duplo
+* objeto `options` (opcional) 
+    * `mode` String _Windows_ - Modo para a barra de progresso. Pode ser `none`, `normal`, `indeterminate`, `error` ou `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Define valor de progresso na barra de progresso. O intervalo válido é [0, 1.0].
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Remova a barra de progresso quando o progresso < 0; Mude para o modo indeterminado quando o progresso > 1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `{app.name}.desktop`.
+Na plataforma Linux, só suporta o ambiente de desktop Unity, você precisa especificar o nome do arquivo `*.desktop` para `desktopName` campo em `package.json`. Por padrão, assumirá `{app.name}.desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+No Windows, um modo pode ser passado. Os valores aceitos são `none`, `normal`, `indeterminate`, `error`e `paused`. Se você chamar `setProgressBar` sem um conjunto de modo (mas com um valor dentro da faixa válida), `normal` será assumido.
 
-#### `win.setOverlayIcon(overlay, description)` _Windows_
 
-* `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+#### `win.setOverlayIcon(overlay, description)` __do Windows
+
+* `overlay` [NativeImage](native-image.md) | nulo - o ícone a ser exibido na parte inferior canto direito do ícone da barra de tarefas. Se este parâmetro for `null`, a sobreposição é limpa
+
+* `description` String - uma descrição que será fornecida aos leitores de tela acessibilidade
+
+Define uma sobreposição de 16 x 16 pixels no ícone atual da barra de tarefas, geralmente usado para transmitir algum tipo de status do aplicativo ou notificar passivamente o usuário.
+
+
 
 #### `win.setHasShadow(hasShadow)`
 
-* `hasShadow` Boolean
+* `hasShadow` Booleano
 
-Sets whether the window should have a shadow.
+Define se a janela deve ter uma sombra.
+
+
 
 #### `win.hasShadow()`
 
-Returns `Boolean` - Whether the window has a shadow.
+Retorna `Boolean` - Se a janela tem uma sombra.
 
-#### `win.setOpacity(opacity)` _Windows_ _macOS_
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+#### `win.setOpacity(opacity)` __do macOS do Windows</em> _</h4> 
+
+* número `opacity` - entre 0,0 (totalmente transparente) e 1.0 (totalmente opaco)
+
+Define a opacidade da janela. No Linux, não faz nada. Fora do número vinculado valores são fixados à faixa [0, 1].
+
+
 
 #### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
+Retorna `Number` - entre 0,0 (totalmente transparente) e 1.0 (totalmente opaco). No Linux, sempre retorna 1.
 
-#### `win.setShape(rects)` _Windows_ _Linux_ _Experimental_
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+#### `win.setShape(rects)` __</em> _Experimental_ _Do   Linux</h4> 
+
+* `rects` [Retângulo[]](structures/rectangle.md) - Define uma forma na janela. Passar uma lista vazia reverte a janela para ser retangular.
+
+A configuração de uma forma de janela determina a área dentro da janela onde o sistema permite o desenho e a interação do usuário. Fora da região dada, não serão sorteados pixels e nenhum evento do mouse. Eventos de rato fora de a região não serão recebidos por essa janela, mas cairão até o que estiver atrás da janela.
+
+
 
 #### `win.setThumbarButtons(buttons)` _Windows_
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Retornos `Boolean` - Se os botões foram adicionados com sucesso
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Adicione uma barra de ferramentas em miniatura com um conjunto especificado de botões à imagem em miniatura de uma janela em um layout de botão de barra de tarefas. Retorna um objeto `Boolean` indica se a miniatura foi adicionada com sucesso.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+O número de botões na barra de ferramentas em miniatura não deve ser superior a 7 devido a sala limitada. Uma vez que você configure a barra de ferramentas em miniatura, a barra de ferramentas não pode ser removida devido à limitação da plataforma. Mas você pode chamar a API com uma matriz de vazia para limpar os botões.
 
-The `buttons` is an array of `Button` objects:
+O `buttons` é uma matriz de objetos `Button` :
 
-* `Button` Object
-  * `icon` [NativeImage](native-image.md) - O icone exibido na barra de ferramentas de miniaturas.
+* objeto `Button` 
+    * `icon` [NativeImage](native-image.md) - O icone exibido na barra de ferramentas de miniaturas.
   * `click` Function
   * `tooltip` String (opcional) - O texto do tooltip do botão.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (opcional) - Controle estados e comportamentos específicos do botão . Por padrão, é `['enabled']`.
 
 As `flags` são um array que pode conter as seguintes `String`s:
 
 * `enabled` - O botão está ativo e disponível ao usuário.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - O botão está desativado. Está presente, mas tem um estado visual indicando que não responderá à ação do usuário.
+
 * `dismissonclick` - Quando o botão é clicado, o janela da miniatura é fechada imediatamente.
+
 * `nobackground` - Não desenha a borda do botão, utiliza apenas a imagem.
+
 * `hidden` - O botão não é exibido ao usuário.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - O botão está ativado, mas não interativo; nenhum estado de botão pressionado é desenhado. Esse valor destina-se a casos em que o botão é usado em uma notificação.
+
+
 
 #### `win.setThumbnailClip(region)` _Windows_
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Retângulo](structures/rectangle.md) - Região da janela
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Define a região da janela para mostrar como a imagem da miniatura exibida quando pairando sobre a janela na barra de tarefas. Você pode redefinir a miniatura para ser toda a janela especificando uma região vazia: `{ x: 0, y: 0, width: 0, height: 0 }`.
+
+
 
 #### `win.setThumbnailToolTip(toolTip)` _Windows_
 
-* `toolTip` String
+* `toolTip` Cordas
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Define a ferramentaFina que é exibida ao pairar sobre a miniatura da janela na barra de tarefas.
+
+
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` Object
-  * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
-  * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
-  * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
-  * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
-
-Sets the properties for the window's taskbar button.
-
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+* objeto `options` 
+    * `appId` String (opcional) -</a>de identificação do modelo de usuário do aplicativo da janela . Tem que ser definido, caso contrário as outras opções não terão efeito.</li> 
+    
+      * `appIconPath` String (opcional) -</a>ícone de relançamento da janela .</li> 
+    
+      * `appIconIndex` Inteiro (opcional) - Índice do ícone em `appIconPath`. Ignorado quando `appIconPath` não está definido. O padrão é `0`.
+  * `relaunchCommand` String (opcional) -</a>de comando de relançamento do da janela .</li> 
+    
+      * `relaunchDisplayName` String (opcional) -</a>de nome de exibição de relançamento da janela .</li> </ul></li> </ul> 
+    
+    Define as propriedades para o botão de barra de tarefas da janela.
+    
+    **Nota:** `relaunchCommand` e `relaunchDisplayName` devem ser sempre definidos juntos. Se uma dessas propriedades não for definida, então nenhuma delas será usada.
+    
+    
 
 #### `win.showDefinitionForSelection()` no _macOS_
 
-Same as `webContents.showDefinitionForSelection()`.
+O mesmo que `webContents.showDefinitionForSelection()`.
 
-#### `win.setIcon(icon)` _Windows_ _Linux_
+
+
+#### `win.setIcon(icon)` __Linux do Windows</em> _</h4> 
 
 * `icon` [NativeImage](native-image.md) | String
 
-Changes window icon.
+Altera o ícone da janela.
 
-#### `win.setWindowButtonVisibility(visible)` _macOS_
 
-* `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+#### `win.setWindowButtonVisibility(visible)` __macOS
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+* `visible` Booleano
+
+Define se os botões do semáforo da janela devem ser visíveis.
+
+Isso não pode ser chamado quando `titleBarStyle` está definido para `customButtonsOnHover`.
+
+
 
 #### `win.setAutoHideMenuBar(hide)`
 
-* `hide` Boolean
+* `hide` Booleano
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Define se a barra de menu da janela deve se esconder automaticamente. Uma vez definida a barra de menu só aparecerá quando os usuários pressionarem a tecla de `Alt` única.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Se a barra de menu já estiver visível, ligar para `setAutoHideMenuBar(true)` não o esconderá imediatamente.
+
+
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Devolva `Boolean` - Se a barra de menu se esconde automaticamente.
 
-#### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
-* `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+#### `win.setMenuBarVisibility(visible)` __Linux do Windows</em> _</h4> 
+
+* `visible` Booleano
+
+Define se a barra de menu deve ser visível. Se a barra de menu estiver ocultada automaticamente, os usuários ainda podem levantar a barra de menu pressionando a única `Alt` tecla.
+
+
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Devoluções `Boolean` - Se a barra de menu é visível.
+
+
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
-* `visible` Boolean
-* `options` Object (optional)
-  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
+* `visible` Booleano
+* objeto `options` (opcional) 
+    * `visibleOnFullScreen` Boolean (opcional) __ macOS - Define se a janela deve ser visível acima das janelas da tela cheia
 
-Sets whether the window should be visible on all workspaces.
+Define se a janela deve ser visível em todos os espaços de trabalho.
 
-**Note:** This API does nothing on Windows.
+**Nota:** Esta API não faz nada no Windows.
+
+
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Retorna `Boolean` - Se a janela é visível em todos os espaços de trabalho.
 
-**Note:** This API always returns false on Windows.
+**Nota:** Esta API sempre retorna falsa no Windows.
 
-#### `win.setIgnoreMouseEvents(ignore[, options])`
 
-* `ignore` Boolean
-* `options` Object (optional)
-  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
-Makes the window ignore all mouse events.
+#### `win.setIgnoreMouseEvents(ignore[, opções])`
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+* `ignore` Booleano
+* objeto `options` (opcional) 
+    * `forward` Boolean (opcional) __ _o_ do   Do iCarros - Se for verdade, o mouse se move mensagens para o Chromium, permitindo eventos relacionados ao mouse, como `mouseleave`. Só é usado quando `ignore` é verdade. Se `ignore` for falso, o encaminhamento é sempre desativado independentemente desse valor.
+
+Faz a janela ignorar todos os eventos do rato.
+
+Todos os eventos do mouse que aconteceram nesta janela serão passados para a janela abaixo esta janela, mas se essa janela tiver foco, ela ainda receberá eventos do teclado.
+
+
 
 #### `win.setContentProtection(enable)` _macOS_ _Windows_
 
-* `enable` Boolean
+* `enable` Booleano
 
-Prevents the window contents from being captured by other apps.
+Impede que o conteúdo da janela seja capturado por outros aplicativos.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_EXCLUDEFROMCAPTURE`. For Windows 10 version 2004 and up the window will be removed from capture entirely, older Windows versions behave as if `WDA_MONITOR` is applied capturing a black window.
+No macOS, ele define o compartilhamento do NSWindowType para NSWindowSharingNone. No Windows ele chama SetWindowDisplayAffinity com `WDA_EXCLUDEFROMCAPTURE`. Para a versão 2004 do Windows 10 e para cima a janela será removida da captura inteiramente, versões mais antigas do Windows se comportam como se `WDA_MONITOR` fosse aplicada capturando uma janela preta.
+
+
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
-* `focusable` Boolean
+* `focusable` Booleano
 
-Changes whether the window can be focused.
+Muda se a janela pode ser focada.
 
-On macOS it does not remove the focus from the window.
+No macOS ele não remove o foco da janela.
 
-#### `win.setParentWindow(parent)`
 
-* `parent` BrowserWindow | null
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+#### `win.setParentWindow (pai)`
+
+* `parent` browserwindow | Null
+
+Define `parent` como a janela pai da janela atual, passando `null` transformará janela atual em uma janela de nível superior.
+
+
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Retorna `BrowserWindow` - A janela dos pais.
+
+
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Retorna `BrowserWindow[]` - Todas as janelas infantis.
 
-#### `win.setAutoHideCursor(autoHide)` _macOS_
 
-* `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+#### `win.setAutoHideCursor(autoHide)` __macOS
+
+* `autoHide` Booleano
+
+Controla se deve ocultar o cursor ao digitar.
+
+
 
 #### `win.selectPreviousTab()` no _macOS_
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Seleciona a guia anterior quando as guias nativas estão habilitadas e há outras guias na janela.
+
+
 
 #### `win.selectNextTab()` no _macOS_
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Seleciona a próxima guia quando as guias nativas estiverem habilitadas e há outras guias na janela.
+
+
 
 #### `win.mergeAllWindows()` no _macOS_
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Mescla todas as janelas em uma janela com várias guias quando as guias nativas estão habilitadas e há mais de uma janela aberta.
+
+
 
 #### `win.moveTabToNewWindow()` no _macOS_
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Mova a guia atual para uma nova janela se as guias nativas estiverem ativadas e houver mais de uma guia na janela atual.
+
+
 
 #### `win.toggleTabBar()` no _macOS_
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Alterna a visibilidade da barra de guia se as guias nativas estiverem ativadas e houver apenas uma guia na janela atual.
 
-#### `win.addTabbedWindow(browserWindow)` _macOS_
+
+
+#### `win.addTabbedWindow(browserWindow)` __macOS
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Adiciona uma janela como guia nesta janela, após a guia para a instância da janela.
 
-#### `win.setVibrancy(type)` _macOS_
 
-* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. See the [macOS documentation][vibrancy-docs] for more details.
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+#### `win.setVibrancy(type)` __macOS
 
-Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+* | de cordas `type` nulo - Pode ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, ou `under-page`. Consulte a documentação [do macOS][vibrancy-docs] para mais detalhes.
 
-#### `win.setTrafficLightPosition(position)` _macOS_
+Adiciona um efeito de vibração à janela do navegador. Passar `null` ou uma de corda vazia removerá o efeito de vibração na janela.
 
-* `position` [Point](structures/point.md)
+Note que `appearance-based`, `light`, `dark`, `medium-light`e `ultra-dark` foram preteridos e serão removidos em uma versão próxima do macOS.
 
-Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+
+
+#### `win.setTrafficLightPosition(position)` __macOS
+
+* </a>de `position` Point</li> </ul> 
+  
+  Defina uma posição personalizada para os botões do semáforo. Só pode ser usado com `titleBarStyle` definido para `hidden`.
+  
+  
 
 #### `win.getTrafficLightPosition()` no _macOS_
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+Retornos `Point` - A posição atual para os botões do semáforo. Só pode ser usado com `titleBarStyle` definido para `hidden`.
 
-#### `win.setTouchBar(touchBar)` _macOS_
 
-* `touchBar` TouchBar | null
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+#### `win.setTouchBar(touchBar)` __macOS
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+* `touchBar` TouchBar | Null
 
-#### `win.setBrowserView(browserView)` _Experimental_
+Define o layout touchBar para a janela atual. Especificar `null` ou `undefined` limpa a barra de toque. Este método só tem um efeito se a máquina tiver uma barra de toque e estiver funcionando no macOS 10.12.1+.
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+**Nota:** A API touchbar é atualmente experimental e pode alterar ou ser removido em futuras versões eletrônicas.
 
-#### `win.getBrowserView()` _Experimental_
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
-#### `win.addBrowserView(browserView)` _Experimental_
+#### </em>Experimental `win.setBrowserView(browserView)` _</h4> 
 
-* `browserView` [BrowserView](browser-view.md)
+* `browserView` [browserView](browser-view.md) | nulo - Anexar `browserView` ao `win`. Se houver outros `BrowserView`anexados, eles serão removidos de esta janela.
 
-Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` _Experimental_
 
-* `browserView` [BrowserView](browser-view.md)
+#### </em>Experimental `win.getBrowserView()` _</h4> 
 
-#### `win.setTopBrowserView(browserView)` _Experimental_
+Retorno `BrowserView | null` - O `BrowserView` ligado ao `win`. Devolva `null` se não estiver anexado. Ele joga um erro se vários `BrowserView`s estiverem conectados.
 
-* `browserView` [BrowserView](browser-view.md)
 
-Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
 
-#### `win.getBrowserViews()` _Experimental_
+#### </em>Experimental `win.addBrowserView(browserView)` _</h4> 
 
-Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
+* `browserView` [browserView](browser-view.md)
+
+API de substituição para setBrowserView trabalho de suporte com várias visualizações do navegador.
+
+
+
+#### </em>Experimental `win.removeBrowserView(browserView)` _</h4> 
+
+* `browserView` [browserView](browser-view.md)
+
+
+
+#### </em>Experimental `win.setTopBrowserView(browserView)` _</h4> 
+
+* `browserView` [browserView](browser-view.md)
+
+Eleva `browserView` acima de outras `BrowserView`está ligada ao `win`. Lança um erro se `browserView` não estiver ligado ao `win`.
+
+
+
+#### </em>Experimental `win.getBrowserViews()` _</h4> 
+
+Devoluções `BrowserView[]` - um conjunto de todos os BrowserViews que foram anexados com `addBrowserView` ou `setBrowserView`.
 
 **Nota:** A API BrowserView atualmente é experimental e pode mudar ou ser removida em versões futuras do Electron.
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
 [page-visibility-api]: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 [quick-look]: https://en.wikipedia.org/wiki/Quick_Look
+[quick-look]: https://en.wikipedia.org/wiki/Quick_Look
 [vibrancy-docs]: https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc
 [window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
+[window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
 [chrome-content-scripts]: https://developer.chrome.com/extensions/content_scripts#execution-environment
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
