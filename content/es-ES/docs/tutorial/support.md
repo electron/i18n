@@ -70,7 +70,7 @@ Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. [S
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+Los binarios precompilados de Electron están construidos en Ubuntu 18,04.
 
 Si el compilado binario puede correr en una distribución depende de que la distribución incluye las librerías a las que está ligada Electron en la plataforma construida, así que solo hay garantía de que Ubuntu 18.04 trabaje, pero las siguientes plataformas también están verificadas para correr el precompilado binario de Electron:
 
