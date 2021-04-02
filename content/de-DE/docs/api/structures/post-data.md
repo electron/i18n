@@ -1,6 +1,6 @@
 # PostDaten Objekt
 
-* `type` String - One of the following:
+* `type` String - Einer der folgenden:
   * `rawData` - Die Daten stehen als `Puffer`im `rawData` Feld zur Verfügung.
   * `Datei`-Das Objekt entspricht einer Datei. Der`DateiPfad``Offset`,`Laenge` und`ModifikationZeit` Felder sind zur Beschreibung dieser Datei benutzt.
   * `Blob`-Das Objekt entspricht einem`Blob`. Das`blobUUID`Feld wird zur Beschreibung von `Blob` verwendet werden.
