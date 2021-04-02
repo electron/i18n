@@ -9,8 +9,8 @@ Prozess: [Main](../glossary.md#main-process)
 ```javascript
 const { app, Menu, Tray } = require('electron')
 
-let tray = null
-app.whenReady().then(() => {
+lassen tray = null
+app.whenReady().then() => '
   tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
@@ -20,46 +20,46 @@ app.whenReady().then(() => {
   ])
   tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
-})
+
 ```
 
 __Plattform-Einschränkungen:__
 
 * Unter Linux wird der App-Indikator verwendet, wenn er unterstützt wird, ansonsten wird `GtkStatusIcon` verwendet.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
+* Bei Linux-Distributionen, die nur App-Indikator-Unterstützung haben, müssen Sie `libappindicator1` installieren, damit das Tray-Symbol funktioniert.
 * App-Indikator wird nur angezeigt, wenn es ein Kontextmenü hat.
 * Wenn die App-Anzeige auf Linux verwendet wird, wird das `click` Ereignis ignoriert.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Ein Beispiel:
+* Unter Linux, damit Änderungen an einzelnen `MenuItem`wirksam werden, sie `setContextMenu` erneut aufrufen müssen. Ein Beispiel:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
 
-let appIcon = null
-app.whenReady().then(() => {
+appIcon = null
+app.whenReady().then()=> '
   appIcon = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+  const contextMenu = Menu.buildFrom Template([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
   ])
 
-  // Make a change to the context menu
+  / Ändern Sie das Kontextmenü
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  / Rufen Sie dies erneut für Linux auf, da wir das Kontextmenü
   appIcon.setContextMenu(contextMenu)
-})
+geändert haben.
 ```
 
 * Unter Windows wird empfohlen, `ICO` Icons zu verwenden, um beste visuelle Effekte zu erhalten.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Wenn Sie genau die gleichen Verhaltensweisen auf allen Plattformen beibehalten möchten, sollten Sie sich nicht auf das `click` -Ereignis verlassen und immer ein Kontextmenü an das Tray-Symbol anhängen.
 
-### `new Tray(image, [guid])`
+### `neues Fach(Bild, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
-* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
+* `guid` String (optional) _Windows_ - Weist dem Traysymbol eine GUID zu. Wenn die ausführbare Datei signiert ist und die Signatur eine Organisation in der Betreffzeile enthält, ist die GUID dieser Signatur dauerhaft zugeordnet. EINSTELLUNGEN auf Betriebssystemebene wie die Position des Traysymbols in der Taskleiste bleiben auch dann erhalten, wenn sich der Pfad zur ausführbaren Datei ändert. Wenn die ausführbare Datei nicht mit Code signiert ist, ist die GUID dauerhaft dem Pfad zur ausführbaren Datei zugeordnet. Wenn Sie den Pfad zur ausführbaren Datei ändern, wird die Erstellung des Traysymbols durchgehen, und es muss eine neue GUID verwendet werden. Es wird jedoch dringend empfohlen, den GUID-Parameter nur in Verbindung mit der codesignierten ausführbaren Datei zu verwenden. Wenn eine App mehrere Traysymbole definiert, muss jedes Symbol eine separate GUID verwenden.
 
-Creates a new tray icon associated with the `image`.
+Erstellt ein neues Traysymbol, das dem `image`zugeordnet ist.
 
 ### Instanz Events
 
@@ -91,120 +91,120 @@ Rückgabewert:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rechteck](structures/rectangle.md) - Die Grenzen des Tray-Symbols.
 
-Emitted when the tray icon is double clicked.
+Emittiert, wenn das Traysymbol doppelt angeklickt wird.
 
-#### Event: 'balloon-show' _Windows_
+#### Veranstaltung: 'Balloon-Show' _Windows_
 
-Emitted when the tray balloon shows.
+Emittiert, wenn der Trayballon angezeigt wird.
 
-#### Event: 'balloon-click' _Windows_
+#### Ereignis: 'Ballon-Klick' _Windows_
 
-Emitted when the tray balloon is clicked.
+Emittiert, wenn auf die Tray-Sprechblase geklickt wird.
 
-#### Event: 'balloon-closed' _Windows_
+#### Veranstaltung: 'ballongeschlossen' _Windows_
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Emittiert, wenn die Tray-Ballonwegen aufgrund eines Timeouts geschlossen wird oder der Benutzer sie manuell schließt.
 
-#### Event: 'drop' _macOS_
+#### Veranstaltung: 'drop' _macOS_
 
-Emitted when any dragged items are dropped on the tray icon.
+Ausgegeben, wenn gezogene Elemente auf dem Fachsymbol abgelegt werden.
 
-#### Event: 'drop-files' _macOS_
-
-Rückgabewert:
-
-* `event` Event
-* `files` String[] - The paths of the dropped files.
-
-Emitted when dragged files are dropped in the tray icon.
-
-#### Event: 'drop-text' _macOS_
+#### Ereignis: 'Drop-Files' _macOS_
 
 Rückgabewert:
 
 * `event` Event
-* `text` String - the dropped text string.
+* `files` String[] - Die Pfade der gelöschten Dateien.
 
-Emitted when dragged text is dropped in the tray icon.
+Emittiert, wenn gezogene Dateien im Tray-Symbol abgelegt werden.
 
-#### Event: 'drag-enter' _macOS_
+#### Veranstaltung: 'Drop-Text' _macOS_
 
-Emitted when a drag operation enters the tray icon.
+Rückgabewert:
 
-#### Event: 'drag-leave' _macOS_
+* `event` Event
+* `text` String - die gelöschte Textzeichenfolge.
 
-Emitted when a drag operation exits the tray icon.
+Emittiert, wenn gezogener Text im Tray-Symbol abgelegt wird.
 
-#### Event: 'drag-end' _macOS_
+#### Ereignis: 'drag-enter' _macOS_
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Emittiert, wenn ein Ziehvorgang in das Traysymbol eindringt.
 
-#### Event: 'mouse-up' _macOS_
+#### Ereignis: 'drag-leave' _macOS_
+
+Wird gesendet, wenn ein Ziehvorgang das Traysymbol verlässt.
+
+#### Ereignis: 'Drag-End' _macOS_
+
+Wird ausgegeben, wenn ein Ziehvorgang auf dem Fach oder an einer anderen Position endet.
+
+#### Veranstaltung: 'mouse-up' _macOS_
 
 Rückgabewert:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Punkt](structures/point.md) - Die Position des Events.
 
-Emitted when the mouse is released from clicking the tray icon.
+Emittiert, wenn die Maus durch Klicken auf das Tray-Symbol freigegeben wird.
 
-Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+Hinweis: Dies wird nicht angezeigt, wenn Sie ein Kontextmenü für Ihr Fach mit `tray.setContextMenu`festgelegt haben, da Einschränkungen auf macOS-Ebene vorgenommen wurden.
 
-#### Event: 'mouse-down' _macOS_
-
-Rückgabewert:
-
-* `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Punkt](structures/point.md) - Die Position des Events.
-
-Emitted when the mouse clicks the tray icon.
-
-#### Event: 'mouse-enter' _macOS_
+#### Veranstaltung: 'mouse-down' _macOS_
 
 Rückgabewert:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Punkt](structures/point.md) - Die Position des Events.
 
-Emitted when the mouse enters the tray icon.
+Emittiert, wenn die Maus auf das Tray-Symbol klickt.
 
-#### Event: 'mouse-leave' _macOS_
-
-Rückgabewert:
-
-* `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Punkt](structures/point.md) - Die Position des Events.
-
-Emitted when the mouse exits the tray icon.
-
-#### Event: 'mouse-move' _macOS_ _Windows_
+#### Ereignis: 'mouse-enter' _macOS_
 
 Rückgabewert:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Punkt](structures/point.md) - Die Position des Events.
 
-Emitted when the mouse moves in the tray icon.
+Emittiert, wenn die Maus das Tray-Symbol betritt.
+
+#### Veranstaltung: 'mouse-leave' _macOS_
+
+Rückgabewert:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Punkt](structures/point.md) - Die Position des Events.
+
+Emittiert, wenn die Maus das Tray-Symbol verlässt.
+
+#### Ereignis: 'mausbewegen' _macOS_ _Windows_
+
+Rückgabewert:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Punkt](structures/point.md) - Die Position des Events.
+
+Emittiert, wenn sich die Maus im Tray-Symbol bewegt.
 
 ### Instanz Methoden
 
-The `Tray` class has the following methods:
+Die `Tray` -Klasse verfügt über die folgenden Methoden:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Zerstört das Tray-Symbol sofort.
 
-#### `tray.setImage(image)`
+#### `tray.setImage(Bild)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Legt die `image` fest, die diesem Fachsymbol zugeordnet sind.
 
 #### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Legt die `image` , die diesem Traysymbol zugeordnet sind, wenn sie unter macOS gedrückt werden.
 
 #### `tray.setToolTip(toolTip)`
 
@@ -212,63 +212,63 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Legt den Hover-Text für dieses Tray-Symbol fest.
 
-#### `tray.setTitle(title[, options])` _macOS_
+#### `tray.setTitle(title[, options])` _macOS-_
 
 * `title` String
-* `options` Object (optional)
-  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
+* `options` Objekt (optional)
+  * `fontType` String (optional) - Die anzuzeigende Schriftfamilienvariante kann `monospaced` oder `monospacedDigit`sein. `monospaced` ist in macOS 10.15+ und `monospacedDigit` in macOS 10.11+ verfügbar.  Wenn der Titel leer bleibt, verwendet er die Standardsystemschriftart.
 
 Legt den Titel fest, der neben dem Tray Icon in der Statusleiste angezeigt wird (Unterstütz ANSI-Farben).
 
 #### `tray.getTitle()` _macOS_
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Gibt `String` zurück - der Titel, der neben dem Tray-Symbol in der Statusleiste angezeigt wird
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Legt die Option zum Ignorieren von Doppelklickereignissen fest. Wenn Sie diese Ereignisse ignorieren, können Sie jeden einzelnen Klick auf das Tray-Symbol erkennen.
 
-This value is set to false by default.
+Dieser Wert ist standardmäßig auf false festgelegt.
 
 #### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
-Returns `Boolean` - Whether double click events will be ignored.
+Gibt `Boolean` zurück – Gibt an, ob Doppelklickereignisse ignoriert werden.
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+* `options` -Objekt
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Symbol, das verwendet werden soll, wenn `iconType` `custom`ist.
+  * `iconType` String (optional) - Kann `none`, `info`, `warning`, `error` oder `custom`sein. Der Standardwert ist `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Standard ist `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
-  * `noSound` Boolean (optional) - Do not play the associated sound. Standard ist `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Standard ist `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
+  * `largeIcon` Boolean (optional) - Die große Version des Symbols sollte verwendet werden. Standard ist `true`. Karten zu [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (optional) - Spielen Sie nicht den zugehörigen Sound ab. Standard ist `false`. Karten zu [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (optional) - Zeigen Sie die Sprechblase nicht an, wenn sich der aktuelle Benutzer in "ruhiger Zeit" befindet. Standard ist `false`. Karten zu [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
-Displays a tray balloon.
+Zeigt eine Tray-Ballonanflugans an.
 
 #### `tray.removeBalloon()` _Windows_
 
-Removes a tray balloon.
+Entfernt einen Tray-Ballon.
 
 #### `tray.focus()` _Windows_
 
-Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
+Gibt den Fokus auf den Taskleistenbenachrichtigungsbereich zurück. Benachrichtigungsbereichssymbole sollten diese Meldung verwenden, wenn sie den UI-Vorgang abgeschlossen haben. Wenn das Symbol z. B. ein Kontextmenü anzeigt, der Benutzer esC jedoch drückt, um es abzubrechen, `tray.focus()` verwenden, um den Fokus auf den Infobereich zurückzugeben.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menü (optional)
 * `position` [Punkt](structures/point.md) (optional) - Die Pop-up-Position.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Öffnet das Kontextmenü des Tray-Symbols. Wenn `menu` übergeben wird, wird die `menu` anstelle des Kontextmenüs des Fachsymbols angezeigt.
 
 Die `position` ist nur unter Windows verfügbar und ist standardmäßig (0, 0).
 
 #### `tray.closeContextMenu()` _macOS_ _Windows_
 
-Closes an open context menu, as set by `tray.setContextMenu()`.
+Schließt ein geöffnetes Kontextmenü, das von `tray.setContextMenu()`festgelegt ist.
 
 #### `tray.setContextMenu(menu)`
 
@@ -280,11 +280,11 @@ Legt das Kontextmenü für dieses Symbol fest.
 
 Returns [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Die `bounds` dieses Fachsymbols als `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Gibt `Boolean` zurück - Gibt an, ob das Traysymbol zerstört ist.
 
 [NIIF_NOSOUND]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010
 [NIIF_LARGE_ICON]: https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020
