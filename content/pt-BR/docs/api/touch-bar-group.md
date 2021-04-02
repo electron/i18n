@@ -1,10 +1,10 @@
 ## Class: TouchBarGroup
 
-> Create a group in the touch bar for native macOS applications
+> Crie um grupo na barra de toque para aplicações nativas do macOS
 
 Processo: [Main](../glossary.md#main-process)
 
-### `new TouchBarGroup(options)`
+### `novas opções do TouchBarGroup (opções)`
 
-* `options` Object
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+* objeto `options`
+  * `items` [TouchBar](touch-bar.md) - Itens para exibir em grupo.
