@@ -9,9 +9,9 @@
 要创建无边框窗口，只需在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `：
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ width: 800, height: 600, frame: false })
-win.show()
+康斯特 { BrowserWindow } =要求（'电子'）
+缺点赢=新的浏览器窗口（{ width: 800, height: 600, frame: false }）
+赢。
 ```
 
 ### macOS 上的其他方案
@@ -23,9 +23,9 @@ win.show()
 返回一个隐藏标题栏的全尺寸内容窗口，在左上角仍然有标准的窗口控制按钮（俗称“红绿灯”）。
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hidden' })
-win.show()
+康斯特 { BrowserWindow } =要求（'电子'）
+缺点赢=新的浏览器窗口（{ titleBarStyle: 'hidden' }）
+赢。
 ```
 
 #### `hiddenInset`
@@ -33,19 +33,19 @@ win.show()
 返回一个另一种隐藏了标题栏的窗口，其中控制按钮到窗口边框的距离更大。
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
-win.show()
+康斯特 { BrowserWindow } =要求（'电子'）
+缺点赢=新的浏览器窗口（{ titleBarStyle: 'hiddenInset' }）
+赢。
 ```
 
 #### `customButtonsOnHover`
 
-使用自定义的关闭、缩小和全屏按钮，这些按钮会在划过窗口的左上角时显示。 The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. This option is only applicable for frameless windows.
+使用自定义的关闭、缩小和全屏按钮，这些按钮会在划过窗口的左上角时显示。 全屏按钮 由于无框窗口的限制而不可用，因为它们与苹果的 macOS 窗口口罩 界面。 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. 此选项仅适用于无框窗口。
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
-win.show()
+康斯特 { BrowserWindow } =要求（'电子'）
+缺点赢=新的浏览器窗口（{ titleBarStyle: 'customButtonsOnHover', frame: false }）
+赢。
 ```
 
 ## 透明窗口
@@ -53,9 +53,9 @@ win.show()
 通过将 ` transparent ` 选项设置为 ` true `, 还可以使无框窗口透明:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ transparent: true, frame: false })
-win.show()
+康斯特 { BrowserWindow } =要求（'电子'）
+缺点赢=新的浏览器窗口（{ transparent: true, frame: false }）
+赢。
 ```
 
 ### 局限性
@@ -82,20 +82,20 @@ win.setIgnoreMouseEvents(true)
 忽略鼠标消息会使网页无视鼠标移动，这意味着鼠标移动事件不会被发出。 在 Windows 操作系统上，可以使用可选参数将鼠标移动消息转发到网页，从而允许发出诸如 `mouseleave` 之类的事件：
 
 ```javascript
-const { ipcRenderer } = require('electron')
-const el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
-})
-el.addEventListener('mouseleave', () => {
-  ipcRenderer.send('set-ignore-mouse-events', false)
-})
+康斯特 { ipcRenderer } =要求（"电子"）
+立体=文档
+。 （）=> =
+  ipcRenderer.发送（"设置忽略鼠标事件"，真实， { forward: true }）
+}）
+（）=> =
+  ipcRenderer.发送（"设置忽略鼠标事件"，错误）
+}）
 
-// Main process
-const { ipcMain } = require('electron')
-ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
-  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
-})
+//主过程
+const { ipcMain } =要求（"电子"）
+ipcMain.on（"设置忽略鼠标事件"，（事件，args）=> =
+  浏览器窗口。来自网络控制（事件。发送者）。阿格斯）
+}）
 ```
 
 这将使网页在 `el` 上点击时穿透，在它外面时恢复正常。
@@ -121,7 +121,7 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+如果您仅将自定义标题栏设置为可拖动，则还需要使标题栏中的所有 按钮不可拖动。
 
 ## 文本选择
 
