@@ -2,7 +2,7 @@
 
 ## 概览
 
-在很多的 Linux 环境中，你可以通过修改 `.desktop` 文件来在它的启动器中添加自定义条目。 For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+在很多的 Linux 环境中，你可以通过修改 `.desktop` 文件来在它的启动器中添加自定义条目。 有关规范的统一文档，请参阅 [向启动器][unity-launcher]添加快捷方式。 有关更通用的 实施的详细信息，请参阅 [freedesktop.org 规范][spec]。
 
 ![audacious][3]
 
