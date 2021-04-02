@@ -7,9 +7,9 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 El siguiente es un ejemplo de como configurar Electron para que envié automáticamente reportes de error a un servidor remoto:
 
 ```javascript
-const { crashReporter } = require('electron')
+const { crashReporter } = require (' Electron ')
 
-crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
+crashReporter. Start ({submitURL: ' https://your-domain.com/url-to-submit '})
 ```
 
 Para configurar un servidor que acepte y procese los informes de fallos, se pueden utilizar los siguientes proyectos:
@@ -27,27 +27,27 @@ Los reportes de errores son almacenados temporalmente antes de ser alzados en un
 
 En Windows y macOS, Electron usa [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) para monitorear y reportar fallos. En Linux, Electron usa [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). Este es un detalle de implementación impulsado por Chromium y puede cambiar en el futuro. En particular, crashpad es más nuevo y es probable que eventualmente reemplace a breakpad en todas las plataformas.
 
-### Note about Node child processes on Linux
+### Nota acerca de los procesos hijo del nodo en Linux
 
-If you are using the Node.js `child_process` module and want to report crashes from those processes on Linux, there is an extra step you will need to take to properly initialize the crash reporter in the child process. This is not necessary on Mac or Windows, as those platforms use Crashpad, which automatically monitors child processes.
+Si estás usando el módulo de `child_process` node. js y quieres informar bloqueos desde esos procesos en Linux, hay un paso adicional que deberás realizar para inicializar correctamente el reportero de bloqueos en el proceso hijo. Esto no es necesario en Mac o Windows, ya que esas plataformas usan crashpad, que supervisa automáticamente los procesos hijo.
 
-Since `require('electron')` is not available in Node child processes, the following APIs are available on the `process` object in Node child processes. Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
+Dado que `require('electron')` no está disponible en los procesos hijo del nodo, las siguientes API están disponibles en el objeto `process` en los procesos hijo del nodo. Ten en cuenta que, en Linux, cada proceso hijo de nodo tiene su propia instancia separada de el breakpad Crash Reporter. Esto es diferente a los procesos hijo del renderizador, que tienen un "stub" breakpad Reporter que devuelve información al proceso principal de para informar.
 
 #### `process.crashReporter.start(options)`
 
-See [`crashReporter.start()`](#crashreporterstartoptions).
+Consulta [`crashReporter.start()`](#crashreporterstartoptions).
 
-#### `process.crashReporter.getParameters()`
+#### `Process. crashReporter. getParameters ()`
 
-See [`crashReporter.getParameters()`](#crashreportergetparameters).
+Consulta [`crashReporter.getParameters()`](#crashreportergetparameters).
 
-#### `process.crashReporter.addExtraParameter(key, value)`
+#### `Process. crashReporter. addExtraParameter (llave, valor)`
 
-See [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
+Consulta [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
 
 #### `process.crashReporter.removeExtraParameter(key)`
 
-See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
+Consulta [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
 
 ## Métodos
 
@@ -58,7 +58,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 * `options` Object
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` String (opcional) - Por defecto `app.name`.
-  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
+  * `companyName` cadena (opcional) _alias en desuso_ -obsoleto para `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (octional) - Si los reportes de fallos deberían ser enviados a un servidor. Si es false, los reportes de fallos serán recolectados y almacenados en un directorio de fallas, pero no serán subidos. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Boolean (opcional) - Si es true, los fallos generados en el main process no serán reenviados al gestor de gallos del sistema. Por defecto es `false`.
   * `rateLimit` Boolean (opcional) _macOS_ _Windows_ - Si es true, limita el numero de fallos subidos a 1/hora. Por defecto es `false`.
@@ -88,13 +88,13 @@ Devuelve [`CrashReport`](structures/crash-report.md) - La fecha y el ID del últ
 
 Devuelve [`CrashReport []`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+Devuelve todos los informes de bloqueos cargados. Cada informe contiene la fecha y la ID de cargada.
 
 **Nota:** Este método solo está disponible en el proceso principal.
 
 ### `crashReporter.getUploadToServer()`
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Devuelve `Boolean` -si los informes se deben enviar al servidor. Establecer mediante el método `start` o `setUploadToServer`.
 
 **Nota:** Este método solo está disponible en el proceso principal.
 
@@ -102,11 +102,11 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 * `uploadToServer` Boolean - Si los reportes deben enviarse o no al servidor.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+Esto normalmente sería controlado por las preferencias del usuario. Esto no tiene ningún efecto si llama antes de que se llame a `start` .
 
 **Nota:** Este método solo está disponible en el proceso principal.
 
-### `crashReporter.addExtraParameter(key, value)`
+### `crashReporter. addExtraParameter (llave, valor)`
 
 * `key` String - La clave del parámetro, debe tener menos de 39 bytes.
 * `key` String - La clave del parámetro, debe tener menos de 127 bytes.
@@ -117,13 +117,13 @@ Los parámetros agregados de esta manera (o a través del parámetro `extra` al 
 
 **Nota:** Los parámetros tienen límites de longitud de llaves y valores. Los nombre de la llaves deben ser como máximo de 39 bytes de largo, y los valores no deben ser mayor que 127 bytes. Las llaves con nombres más largo que el máximo serán ignoradas de forma silenciosa. Los valores de las llaves más largo que la longitud máxima serán truncados.
 
-**Nota:** En linux los valores que son más grandes que 127 bytes se dividirá en varias claves, cada una de 127 bytes de longitud.  Por ejemplo. `addExtraParameter('foo', 'a'.repeat(130))` will result in two chunked keys `foo__1` and `foo__2`, the first will contain the first 127 bytes and the second will contain the remaining 3 bytes.  En el backend de informes de fallos, debería unir las claves en este formato.
+**Nota:** En linux los valores que son más grandes que 127 bytes se dividirá en varias claves, cada una de 127 bytes de longitud.  Por ejemplo. `addExtraParameter('foo', 'a'.repeat(130))` resultará en dos claves fragmentadas `foo__1` y `foo__2`, la primera contendrá los primeros 127 bytes y la segunda contendrá los 3 bytes restantes.  En el backend de informes de fallos, debería unir las claves en este formato.
 
-### `crashReporter.removeExtraParameter(key)`
+### `crashReporter. removeExtraParameter (llave)`
 
 * `key` String - La clave del parámetro, debe tener menos de 39 bytes.
 
-Remove an extra parameter from the current set of parameters. Los fallos futuros no incluirán este parámetro.
+Eliminar un parámetro adicional del conjunto actual de parámetros. Los fallos futuros no incluirán este parámetro.
 
 ### `crashReporter.getParameters()`
 
