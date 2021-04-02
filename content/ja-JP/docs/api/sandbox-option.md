@@ -65,16 +65,16 @@ app.whenReady().then(() => {
 
 ```js
 // Javascript のコンテキストを作成するときにこのファイルが読み込まれます。 
-// Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 Without
-// contextIsolation enabled, it's possible to accidentally leak privileged
-// globals like ipcRenderer to web content.
-const { ipcRenderer } = require('electron')
+// Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 コンテキスト分離
+// 有効にしないと、ipcRenderer のような特権
+// グローバルを誤って Web コンテンツにリークしてしまう可能性があります。
+const { ipcRenderer } = 必須 ('電子)
 
-const defaultWindowOpen = window.open
+定数の既定値を必要とするウィンドウウィンドウを開く = window.open
 
-window.open = function customWindowOpen (url, ...args) {
-  ipcRenderer.send('report-window-open', location.origin, url, args)
-  return defaultWindowOpen(url + '?from_electron=1', ...args)
+ウィンドウ.open = 関数カスタムウィンドウを開く (url,..args) {
+  ipcRenderer.send('レポートウィンドウオープン',場所.origin,url,args)
+  返します from_electron。args)
 }
 ```
 
