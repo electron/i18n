@@ -708,15 +708,15 @@ console.log(requestId)
 以下のサンプルコードは、システムのデフォルトブラウザで新しい URL を開きます。
 
 ```javascript
-const { shell } = require('electron')
-const webview = document.querySelector('webview')
+const { shell } = 必須 ('電子')
 
-webview.addEventListener('new-window', async (e) => {
-  const protocol = (new URL(e.url)).protocol
-  if (protocol === 'http:' || protocol === 'https:') {
-    await shell.openExternal(e.url)
-  }
-})
+
+webview.querySelector('webview')  webview.addEventListener('新しいウィンドウ'、非同期 (e) => {
+  定数 = (新しい URL(e.url)))プロトコル
+  場合 (プロトコル == 'http:' || プロトコル =='https:')
+
+  
+{
 ```
 
 ### イベント: 'will-navigate'
