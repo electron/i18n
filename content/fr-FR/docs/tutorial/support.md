@@ -70,7 +70,7 @@ Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+Les binaires préconstruits d’Electron sont construits sur Ubuntu 18.04.
 
 Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 18.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
