@@ -8,127 +8,140 @@
 
 ### 本地快捷键
 
-应用键盘快捷键仅在应用程序被聚焦时触发。 To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
+应用键盘快捷键仅在应用程序被聚焦时触发。 要配置本地键盘快捷方式，在 [菜单][] 模块中创建 [菜单][] 时，需要指定 [`accelerator`][] 属性。
 
 从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/local'
-const { Menu, MenuItem } = require('electron')
+康斯特 { Menu, MenuItem } =需要（"电子"）
 
-const menu = new Menu()
-menu.append(new MenuItem({
-  label: 'Electron',
-  submenu: [{
-    role: 'help',
-    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
-    click: () => { console.log('Electron rocks!') }
-  }]
-}))
+const菜单=新菜单（）
+菜单。附录（新菜单（+
+  标签：'电子'，
+  子菜单：[{
+    角色：'帮助'，
+    加速器：过程。平台=='达尔文'？ "Alt+Cmd+I"："Alt+Shift+I"，
+    单击：（）=> {控制台.log（"电子岩石！"） [
+  ]]
+））
 
-Menu.setApplicationMenu(menu)
+菜单。
 ```
 
 > 注意：在上面的代码中，您可以看到基于用户的操作系统的 accelerator  差异。 对于MacOS，是 `Alt+Cmd+I`，而对于Linux 和 Windows，则是 `Alt+Shift+I`.
 
 启动 Electron 应用程序后，你应该看到应用程序菜单以及您刚刚定义的本地快捷方式：
 
-![Menu with a local shortcut](../images/local-shortcut.png)
+![带本地快捷方式的菜单](../images/local-shortcut.png)
 
-If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+如果您单击 `Help` 或按下定义的加速器，然后打开运行电子应用程序的终端 ，您将看到触发 `click` 事件后 生成的消息："电子岩石！
 
 ### 全局快捷键
 
-To configure a global keyboard shortcut, you need to use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
+要配置全球键盘快捷方式，您需要使用 [全球短切][] 模块来检测键盘事件，即使应用程序没有 键盘对焦。
 
 从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
-const { app, globalShortcut } = require('electron')
+康斯特 { app, globalShortcut } =需要（'电子'）
 
-app.whenReady().then(() => {
-  globalShortcut.register('Alt+CommandOrControl+I', () => {
-    console.log('Electron loves global shortcuts!')
-  })
-}).then(createWindow)
+应用程序。当准备好时。然后（）=> =
+  全球短切.注册（'Alt+指挥官控制]I'，（）=> {
+    控制台.log（'电子爱全球快捷方式！
+  [）
+}）然后（创建窗口）
 ```
 
-> NOTE: In the code above, the `CommandOrControl` combination uses `Command` on macOS and `Control` on Windows/Linux.
+> 注：在上面的代码中， `CommandOrControl` 组合在 macOS 上使用 `Command` ，在 Windows/Linux 上使用 `Control` 。
 
-After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+启动 Electron 应用程序后，如果您按下定义的键 组合，然后打开运行电子应用程序的终端， 您就会看到 Electron 喜欢全球快捷方式！
 
 ### 在浏览器窗口内的快捷方式
 
 #### 使用 web APIs
 
-If you want to handle keyboard shortcuts within a [BrowserWindow][], you can listen for the `keyup` and `keydown` [DOM events][dom-events] inside the renderer process using the [addEventListener() API][addEventListener-api].
+如果您想在 [浏览器窗口][]内处理键盘快捷方式，您可以 使用 [添加事件列表 （） API][addEventListener-api]来收听 渲染器过程中</a> `keyup` 和 `keydown`DOM 事件。</p> 
+
+
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+
+请注意，第三个参数 `true` 表示听者始终在其他听众之前接收 按键，因此他们无法 `stopPropagation()` 呼叫他们。
+
+
 
 #### 拦截主进程中的事件
 
 在调度页面中的`keydown`和`keyup`事件之前，会发出[`before-input-event`](../api/web-contents.md#event-before-input-event)事件。 它可以用于捕获和处理在菜单中不可见的自定义快捷方式。
 
+
+
 ##### 示例
 
 从 [Quick Start Guide](quick-start.md) 中的应用开始，将以下内容更新到 `main.js`。
 
+
+
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/interception-from-main'
-const { app, BrowserWindow } = require('electron')
+康斯特 { app, BrowserWindow } =需要（'电子'）
 
-app.whenReady().then(() => {
-  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+应用程序。当准备好时。。然后=> {
+  const赢=新的浏览器窗口（{宽度：800， 高度： 600， webPrecons： { nodeIntegration: true } [）
 
-  win.loadFile('index.html')
-  win.webContents.on('before-input-event', (event, input) => {
-    if (input.control && input.key.toLowerCase() === 'i') {
-      console.log('Pressed Control+I')
-      event.preventDefault()
-    }
-  })
-})
+  赢. loadfile （'索引.html'）
+  赢. web 会议。 （事件，输入）=> {
+    如果（输入控制 && 输入.key
+.到下一个"i"）{
+      控制台.log（"按下控制+I"）
+      事件
+  
+    。
 ```
 
-After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+
+启动 Electron 应用程序后，如果您打开 电子应用程序运行的终端，并按下 `Ctrl+I` 键组合，您将 看到此关键组合被成功截获。
+
+
 
 #### 使用第三方库
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. 以下是在渲染进程中 `mousetrap` 的使用示例：
+如果您不想进行手动快捷方式解析，有些库会 高级密钥检测，例如 [鼠标陷阱][]。 以下是在渲染进程中 `mousetrap` 的使用示例：
+
+
 
 ```js
-Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
-Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
+鼠标陷阱. bind （'4'， （） => { 控制台.log （'4'） [）
+捕鼠器. bind （'， （） => { 控制台.log （'显示快捷方式！ [）
+鼠标陷阱。绑定（"esc"，（）=> {控制台.log（'逃生'）}， "键盘"）
 
-// combinations
-Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
+//组合
+鼠标陷阱.bind（"命令+shift+k"，（）=> {控制台.log（"命令移位k"）}）
 
-// map multiple combinations to the same callback
-Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+//映射多个组合到相同的回调
+鼠标陷阱.bind（[命令+k'，"ctrl+k"， （） => {
+  控制台.log （'命令 k 或控制 k'）
 
-  // return false to prevent default behavior and stop event from bubbling
-  return false
-})
+  // 返回错误以防止默认行为和阻止事件冒泡
+  返回虚假
+}）
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// gmail 样式序列
+Mousetrap.bind （'g i'，（）=> {控制台.log（'转到收件箱'）}）
+鼠标陷阱。绑定（'a'，（）=> {控制台.log（'选择所有'）}）
 
-// konami code!
+//科纳米代码！
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
 ```
 
-[Menu]: ../api/menu.md
-[MenuItem]: ../api/menu-item.md
-[globalShortcut]: ../api/global-shortcut.md
+[菜单]: ../api/menu.md
+[菜单]: ../api/menu-item.md
+[全球短切]: ../api/global-shortcut.md
 [`accelerator`]: ../api/accelerator.md
-[BrowserWindow]: ../api/browser-window.md
-[mousetrap]: https://github.com/ccampbell/mousetrap
-[dom-events]: https://developer.mozilla.org/en-US/docs/Web/Events
+[浏览器窗口]: ../api/browser-window.md
+[鼠标陷阱]: https://github.com/ccampbell/mousetrap
 [addEventListener-api]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
