@@ -1,69 +1,95 @@
 ## Class: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> Manuseie as respostas às solicitações HTTP/HTTPS.
 
 Processo: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter][event-emitter].
+`IncomingMessage` implementa a interface</a> Readable Stream [e, portanto, é um](https://nodejs.org/api/stream.html#stream_readable_streams)eventEmitter
+
+.</p> 
+
+
 
 ### Eventos de instância
 
-#### Event: 'data'
+
+
+#### Evento: 'dados'
 
 Retorna:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Um pedaço dos dados do corpo de resposta.
 
-The `data` event is the usual method of transferring response data into applicative code.
+O `data` evento é o método usual de transferência de dados de resposta para código aplicável.
 
-#### Event: 'end'
 
-Indicates that response body has ended. Must be placed before 'data' event.
 
-#### Event: 'aborted'
+#### Evento: 'fim'
+
+Indica que o corpo de resposta terminou. Deve ser colocado antes do evento 'dados'.
+
+
+
+#### Evento: 'abortado'
 
 Emitido quando uma solicitação foi cancelada durante uma transação HTTP em curso.
+
+
 
 #### Evento: 'error'
 
 Retorna:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Erro - Normalmente, uma sequência de erros identifica a causa raiz da falha de identificação.
 
-Emitido quando ocorreu um erro ao transmitir eventos de dados de resposta. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Emitido quando ocorreu um erro ao transmitir eventos de dados de resposta. Para instância, se o servidor fechar o subjacente enquanto a resposta ainda estiver streaming, um evento `error` será emitido no objeto de resposta e um evento `close` seguirá posteriormente no objeto de solicitação.
+
+
 
 ### Propriedades de Instância
 
-An `IncomingMessage` instance has the following readable properties:
+Uma instância `IncomingMessage` tem as seguintes propriedades legíveis:
+
+
 
 #### `response.statusCode`
 
 Um `Integer` indica o estado do código de resposta HTTP.
 
+
+
 #### `response.statusMessage`
 
 Uma `String` representa a mensagem de estado HTTP.
 
+
+
 #### `response.headers`
 
-A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
+Um `Record<string, string | string[]>` representando os cabeçalhos de resposta HTTP. O objeto `headers` é formatado da seguinte forma:
 
 * Todos os nomes de cabeçalho são em minúsculas.
-* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
-* `set-cookie` is always an array. Duplicates are added to the array.
-* For duplicate `cookie` headers, the values are joined together with '; '.
-* For all other headers, the values are joined together with ', '.
+* Duplicatas de `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, ou `user-agent` são descartadas.
+
+* `set-cookie` é sempre uma matriz. Duplicatas são adicionadas à matriz.
+
+* Para cabeçalhos `cookie` duplicados, os valores são unidos com '; '.
+* Para todos os outros cabeçalhos, os valores são unidos com '.
+
+
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Um `String` indicando o número da versão do protocolo HTTP. Os valores típicos são '1.0' ou '1.1'. Além disso, `httpVersionMajor` e `httpVersionMinor` são duas propriedades legíveis avaliadas pela Integer que retornam, respectivamente, os números de versão principal e menores.
+
+
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+Um `Integer` indicando o número principal da versão do protocolo HTTP.
+
+
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
-
-[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+Um `Integer` indicando o número de versão menor do protocolo HTTP.
