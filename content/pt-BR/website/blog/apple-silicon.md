@@ -16,7 +16,7 @@ A partir do Electron 11, enviaremos versões separadas do Electron para Intel Ma
 
 ## O que eu preciso fazer?
 
-Você precisará enviar duas versões do seu aplicativo: uma para x64 (Intel Mac) e uma para arm64 ((Apple Silicon). The good news is that [`electron-packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) and [`electron-forge`](https://github.com/electron-userland/electron-forge/) already support targeting the `arm64` architecture. Desde que você esteja executando as versões mais recentes desses pacotes, seu aplicativo deve funcionar sem falhas uma vez que você atualize a arquitetura de alvos para `arm64`.
+Você precisará enviar duas versões do seu aplicativo: uma para x64 (Intel Mac) e uma para arm64 ((Apple Silicon). A boa notícia é que [`electron-packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) e [`electron-forge`](https://github.com/electron-userland/electron-forge/) já suportam a arquitetura `arm64` . Desde que você esteja executando as versões mais recentes desses pacotes, seu aplicativo deve funcionar sem falhas uma vez que você atualize a arquitetura de alvos para `arm64`.
 
 No futuro vamos lançar um pacote que permite que você "mesclar" seus aplicativos `arm64` e `x64` em um único binário universal, mas vale a pena notar que esse binário seria _enorme_ e provavelmente não é o ideal para envio para os usuários.
 
@@ -28,7 +28,7 @@ Como você está direcionando para uma nova arquitetura, você precisará atuali
 
 | Dependência         | Requisito da Versão |
 | ------------------- | ------------------- |
-| Xcode               | `>=12.2.0`       |
+| Xcode               | `>=12,2,0`       |
 | `node-gyp`          | `>=7.1.0`        |
 | `Reconstruir`       | `>=1.12.0`       |
 | `electron-packager` | `>=15.1.0`       |
