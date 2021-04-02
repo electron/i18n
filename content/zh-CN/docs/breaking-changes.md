@@ -14,41 +14,41 @@
 
 ## 计划重写的 API (14.0)
 
-### API Changed: `window.(open)`
+### API 更改： `window.(open)`
 
-The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+可选参数 `frameName` 将不再设置窗口的标题。 现在，这遵循了 [本地文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) 根据相应的参数 `windowName`所描述的规范。
 
-If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+如果您使用此参数来设置窗口的标题，则可以改为使用 [](https://www.electronjs.org/docs/api/browser-window#winsettitletitle)赢。
 
 ### 已移除： `worldSafeExecuteJavaScript`
 
-在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  没有其他选择，请 确保您的代码适用于启用此属性。  自电子以来，它已默认启用
 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+如果您使用 `webFrame.executeJavaScript` 或 `webFrame.executeJavaScriptInIsolatedWorld`，您将受到此更改的影响。 您需要确保这些方法返回的值由 [上下文桥 API](api/context-bridge.md#parameter--error--return-type-support) 支持，因为这些方法使用相同的值传递语义。
 
 ## 计划重写的 API (13.0)
 
 ### API 更改： `session.setPermissionCheckHandler(handler)`
 
-The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+`handler` 方法第一参数以前总是一个 `webContents`，现在有时可以 `null`。  您应该使用 `requestingOrigin`、 `embeddingOrigin` 和 `securityOrigin` 属性来正确响应权限检查。  由于 `webContents` 可以 `null` 它不能再依赖。
 
 ```js
-// Old code
-session.setPermissionCheckHandler((webContents, permission) => {
-  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+旧代码
+会话。 设置"检查汉德勒"（网络控制器， 权限） => =
+  如果 （webContents. geturl）. 开始使用 （"https：// google.com/"） && 权限 === "通知"） {
     return true
   }
-  return false
-})
+  返回虚假
+[）
 
-// Replace with
-session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
-  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+// 替换为
+会话。 权限，请求原始）=> {
+  如果（新URL（请求原始）。主机名称=="google.com" && 权限=="通知"） {
     return true
   }
-  return false
-})
+  返回虚假
+}）
 ```
 
 ### 已移除： `shell.moveItemToTrash()`
@@ -56,10 +56,10 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 废弃的同步 `shell.moveItemToTrash()` API 已被删除。 使用 异步 `shell.trashItem()` 代替。
 
 ```js
-// Removed in Electron 13
-shell.moveItemToTrash(path)
-// Replace with
-shell.trashItem(path).then(/* ... */)
+在电子13
+外壳中取出。移动电击（路径）
+//替换为
+壳。
 ```
 
 ### 已移除： `BrowserWindow` 扩展 API
@@ -73,65 +73,65 @@ shell.trashItem(path).then(/* ... */)
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+改为使用会话 ABI：
 
 * `ses.loadExtension(path)`
-* `ses.removeExtension(extension_id)`
-* `ses.getAllExtensions()`
+* `除去扩展（extension_id）`
+* `ses.获取所有扩展（）`
 
 ```js
-// Removed in Electron 13
-BrowserWindow.addExtension(path)
-BrowserWindow.addDevToolsExtension(path)
-// Replace with
-session.defaultSession.loadExtension(path)
+在电子13
+浏览器窗口.添加扩展（路径）
+浏览器窗口.添加DevTools扩展（路径）
+//替换为
+会话。
 ```
 
 ```js
-// Removed in Electron 13
-BrowserWindow.removeExtension(name)
-BrowserWindow.removeDevToolsExtension(name)
-// Replace with
-session.defaultSession.removeExtension(extension_id)
+删除电子13
+浏览器窗口。删除扩展（名称）
+浏览器窗口。删除DevTools扩展（名称）
+//替换为
+会话 extension_id。
 ```
 
 ```js
-// Removed in Electron 13
-BrowserWindow.getExtensions()
-BrowserWindow.getDevToolsExtensions()
-// Replace with
-session.defaultSession.getAllExtensions()
+在电子13
+浏览器窗口中删除。获取扩展（）
+浏览器窗口。getDevTools扩展（）
+//替换为
+会话。
 ```
 
 ### 已移除： `systemPreferences` 中的方法
 
-The following `systemPreferences` methods have been deprecated:
+以下 `systemPreferences` 方法已被弃用：
 
-* `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
-* `systemPreferences.isHighContrastColorScheme()`
+* `系统预演。是黑暗模具（）`
+* `系统预置。是倒色化学（）`
+* `系统预演。是高康斯特彩色化学（）`
 
-Use the following `nativeTheme` properties instead:
+改为使用以下 `nativeTheme` 属性：
 
-* `nativeTheme.shouldUseDarkColors`
-* `nativeTheme.shouldUseInvertedColorScheme`
-* `nativeTheme.shouldUseHighContrastColors`
+* `本地主题。应该使用黑暗颜色`
+* `原生主题。应该使用倒色化学`
+* `原生主题。应该使用高反色`
 
 ```js
-// Removed in Electron 13
-systemPreferences.isDarkMode()
-// Replace with
-nativeTheme.shouldUseDarkColors
+在电子13
+系统中删除预置。isDarkMode（）
+//替换为
+原生主题。应使用电子13
+系统
+中删除的暗色
 
-// Removed in Electron 13
-systemPreferences.isInvertedColorScheme()
-// Replace with
-nativeTheme.shouldUseInvertedColorScheme
+// /替换为
+原生主题。应使用电子13
+系统中删除的倒色
 
-// Removed in Electron 13
-systemPreferences.isHighContrastColorScheme()
-// Replace with
-nativeTheme.shouldUseHighContrastColors
+//删除。高反色化学（）
+//替换为
+原生主题。
 ```
 
 ## 计划重写的 API (12.0)
@@ -142,34 +142,34 @@ Chromium已经取消了对Flash的支持，因此我们必须效仿。 更多 �
 
 ### 默认更改： `worldSafeExecuteJavaScript` 默认为 `true`
 
-在 Electron 12, `worldSafeExecuteJavaScript` 将默认启用。  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. 请注意，设置此选项为 `false` 是**不安全**的。
+在 Electron 12, `worldSafeExecuteJavaScript` 将默认启用。  要恢复 以前的行为，必须在 WebPrefers 中指定 `worldSafeExecuteJavaScript: false` 。 请注意，设置此选项为 `false` 是**不安全**的。
 
-This option will be removed in Electron 14 so please migrate your code to support the default value.
+此选项将在 Electron 14 中删除，因此请迁移您的代码以支持默认 值。
 
 ### 默认更改： `上下文隔离` 默认为 `true`
 
 在 Electron 12, `上下文隔离` 默认情况下将被启用。  若要恢复 上一个行为， `上下文孤立：false` 必须在 Web 首选项中指定。
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+我们 [建议为您的应用程序的安全性启用上下文隔离](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) 。
 
-Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
+另一个含义是，除非 `true` `nodeIntegration` ， `false``contextIsolation` ，否则无法在渲染过程中使用 `require()` 。
 
 详情见：https://github.com/electron/electron/issues/23506
 
-### Removed: `crashReporter.getCrashesDirectory()`
+### 已删除： `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+`crashReporter.getCrashesDirectory` 方法已被删除。 使用 应改为 `app.getPath('crashDumps')`。
 
 ```js
-// Removed in Electron 12
-crashReporter.getCrashesDirectory()
-// Replace with
-app.getPath('crashDumps')
+在电子12
+崩溃报告器中删除。获取崩溃编导（）
+//替换为
+应用程序。
 ```
 
-### Removed: `crashReporter` methods in the renderer process
+### 已删除：渲染器过程中的 `crashReporter` 方法
 
-The following `crashReporter` methods are no longer available in the renderer process:
+渲染器 过程中不再提供以下 `crashReporter` 方法：
 
 * `开始`
 * `crashReporter.getLastCrashReport`
@@ -178,15 +178,15 @@ The following `crashReporter` methods are no longer available in the renderer pr
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-They should be called only from the main process.
+它们只能从主要过程调用。
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+有关详细信息，请参阅 [#23265](https://github.com/electron/electron/pull/23265) 。
 
 ### 默认更改： `crashReporter.start({ compress: true })`
 
 `压缩` 选项的默认值为 `crashReporter.start` 已将 从 `false` 更改为 `true` 这意味着崩溃转储将被上传到 崩溃摄取服务器与 `Content-Encoding: gzip` head, 和正文 将被压缩。
 
-If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+如果您的崩溃摄入服务器不支持压缩的有效载荷，您可以 通过在崩溃报告器中指定 `{ compress: false }` 选项来关闭压缩。
 
 ### 废弃： `远程` 模块
 
@@ -210,47 +210,47 @@ require('@electron/remote/main').initialize()
 同步 `shell.moveItemToTrash()` 已被新的 异步 `shell.trashItem()` 替换。
 
 ```js
-// Deprecated in Electron 12
-shell.moveItemToTrash(path)
-// Replace with
-shell.trashItem(path).then(/* ... */)
+在电子 12
+壳中弃用。 移动触手可走 （路径）
+/ / 替换为
+壳。
 ```
 
 ## 计划重写的 API (11.0)
 
-### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+### 已删除： `BrowserView`的 `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` 和 `id` 财产
 
-The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+实验性API `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` 现已被移除。 此外， `BrowserView` 的 `id` 财产也被移除。
 
-For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
+有关详细信息，请参阅 [#23578](https://github.com/electron/electron/pull/23578)。
 
 ## 计划破解API更改(10.0)
 
-### Deprecated: `companyName` argument to `crashReporter.start()`
+### 弃用： `companyName` `crashReporter.start()`的论点
 
-The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
-
-```js
-// Deprecated in Electron 10
-crashReporter.start({ companyName: 'Umbrella Corporation' })
-// Replace with
-crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
-```
-
-### Deprecated: `crashReporter.getCrashesDirectory()`
-
-The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+以前 要求 `crashReporter.start()`的 `companyName` 论点现在是可选的，而且进一步被弃用了。 要以非贬低的方式获得相同的 行为，您可以在 `globalExtra`中传递 `companyName` 值。
 
 ```js
-// Deprecated in Electron 10
-crashReporter.getCrashesDirectory()
-// Replace with
-app.getPath('crashDumps')
+在电子10
+崩溃报告器中弃用。开始（{ companyName: 'Umbrella Corporation' }）
+//替换为
+碰撞报告器。开始（{全球extra： { _companyName: 'Umbrella Corporation' } }）
 ```
 
-### Deprecated: `crashReporter` methods in the renderer process
+### 弃用： `crashReporter.getCrashesDirectory()`
 
-Calling the following `crashReporter` methods from the renderer process is deprecated:
+`crashReporter.getCrashesDirectory` 方法已被弃用。 使用 应改为 `app.getPath('crashDumps')`。
+
+```js
+在电子10中弃用
+崩溃报告器。获取崩溃编译器（）
+//替换为
+应用程序。getPath（"崩溃"）
+```
+
+### 弃用：渲染过程中 `crashReporter` 方法
+
+从渲染器过程中调用以下 `crashReporter` 方法 被弃用：
 
 * `开始`
 * `crashReporter.getLastCrashReport`
@@ -259,11 +259,11 @@ Calling the following `crashReporter` methods from the renderer process is depre
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+渲染器 `crashReporter` 模块中唯一未弃用的方法是 `addExtraParameter`、 `removeExtraParameter` 和 `getParameters`。
 
-All above methods remain non-deprecated when called from the main process.
+当从主过程调用时，上述所有方法均未被弃用。
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+有关详细信息，请参阅 [#23265](https://github.com/electron/electron/pull/23265) 。
 
 ### 已废弃： `crashReporter.start({ compress: false })`
 
@@ -289,60 +289,60 @@ const w = new BrowserWindow(format@@
 
 我们 [推荐离开远程 模块](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
 
-### `protocol.unregisterProtocol`
+### `协议。未注册普罗托科尔`
 
-### `protocol.uninterceptProtocol`
+### `协议。不间断普罗托科尔`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+ABI 现在是同步的，不再需要可选回调。
 
 ```javascript
-// Deprecated
-protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
-protocol.unregisterProtocol(scheme)
+弃用
+协议。未注册的Protocol（计划，（）=> {/******/}）
+//替换为
+协议。
 ```
 
-### `protocol.registerFileProtocol`
+### `协议.注册文件`
 
-### `protocol.registerBufferProtocol`
+### `协议。注册布弗普罗托科尔`
 
-### `protocol.registerStringProtocol`
+### `协议。注册斯特林普罗托科尔`
 
-### `protocol.registerHttpProtocol`
+### `协议。注册普罗托科尔`
 
-### `protocol.registerStreamProtocol`
+### `协议.注册流普罗托科尔`
 
-### `protocol.interceptFileProtocol`
+### `协议。拦截文件普罗托科尔`
 
-### `protocol.interceptStringProtocol`
+### `协议。拦截串普罗托科尔`
 
-### `protocol.interceptBufferProtocol`
+### `协议。拦截布弗普罗托科尔`
 
-### `protocol.interceptHttpProtocol`
+### `协议。拦截普罗托科尔`
 
-### `protocol.interceptStreamProtocol`
+### `协议。拦截流普罗托科尔`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+ABI 现在是同步的，不再需要可选回调。
 
 ```javascript
-// Deprecated
-protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
-protocol.registerFileProtocol(scheme, handler)
+弃用
+协议。注册文件（方案、处理程序、（）=> [/*][/]）
+//替换为
+协议。
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+在导航发生之前，已注册或截获的协议不会对当前页面 产生影响。
 
-### `protocol.isProtocolHandled`
+### `协议。是普罗托科尔处理`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+此 API 被弃用，用户应该使用 `protocol.isProtocolRegistered` ，改为 `protocol.isProtocolIntercepted` 。
 
 ```javascript
-// Deprecated
-protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
-const isRegistered = protocol.isProtocolRegistered(scheme)
-const isIntercepted = protocol.isProtocolIntercepted(scheme)
+已弃用
+协议。是Protocol处理（方案）。然后（）=> {/****/}）
+//替换为
+const已注册=协议
+。
 ```
 
 ## 计划破解API更改(9.0)
@@ -355,9 +355,9 @@ const isIntercepted = protocol.isProtocolIntercepted(scheme)
 
 详情见 [#18397](https://github.com/electron/electron/issues/18397)。
 
-### Deprecated: `BrowserWindow` extension APIs
+### 弃用： `BrowserWindow` 扩展API
 
-The following extension APIs have been deprecated:
+以下扩展 ABI 已被弃用：
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -366,34 +366,34 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+改为使用会话 ABI：
 
 * `ses.loadExtension(path)`
-* `ses.removeExtension(extension_id)`
-* `ses.getAllExtensions()`
+* `除去扩展（extension_id）`
+* `ses.获取所有扩展（）`
 
 ```js
-// Deprecated in Electron 9
-BrowserWindow.addExtension(path)
-BrowserWindow.addDevToolsExtension(path)
-// Replace with
-session.defaultSession.loadExtension(path)
+在电子9
+浏览器窗口中弃用。添加扩展（路径）
+浏览器窗口。添加DevTools扩展（路径）
+//替换为
+会话。
 ```
 
 ```js
-// Deprecated in Electron 9
-BrowserWindow.removeExtension(name)
-BrowserWindow.removeDevToolsExtension(name)
-// Replace with
-session.defaultSession.removeExtension(extension_id)
+在电子9
+浏览器窗口中弃用。删除扩展（名称）
+浏览器窗口。删除DevTools扩展（名称）
+//替换为
+会话 extension_id。
 ```
 
 ```js
-// Deprecated in Electron 9
-BrowserWindow.getExtensions()
-BrowserWindow.getDevToolsExtensions()
-// Replace with
-session.defaultSession.getAllExtensions()
+在电子9
+浏览器窗口中弃用。获取扩展（）
+浏览器窗口。getDevTools扩展（）
+//替换为
+会话。
 ```
 
 ### 已移除： `<webview>.getWebContents()`
@@ -410,166 +410,222 @@ remote.webContents.from(webview.getWebContentsId())
 
 ### 已删除： `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium 已取消对更改布局缩放级别限制的支持，并且它 超出了 Electron 维护它的能力。 该函数在 电子 8.x 中被弃用，并在电子 9.x 中删除。 布局缩放级别限制 现在固定在最低 0.25 和最大 5.0，</a>此处定义
+
+。</p> 
+
+
 
 ### 行为改变：现在在 IPC 上发送非JS 对象给异常。
 
-在 Electron 8.0 中，IPC 被更改为使用结构性克隆算法， 显著提高性能。 To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. 特别是DOM对象 (例如， `元素`, `位置` 和 `DOMMatrix`), 节点 s 由 C++ 类支持的对象(例如， `进程)。 nv`, 一些成员 `串流`, 和 Electron 对象由 C++ 类支持 (例如) `Webcontent`, `BrowserWindow` and `WebFrame`() 不是 序列化的结构克隆。 每当调用旧算法时，都会打印 弃置警告。
+在 Electron 8.0 中，IPC 被更改为使用结构性克隆算法， 显著提高性能。 为了帮助缓解过渡， 旧的 IPC 序列化算法被保留并用于一些无法与结构克隆 串行的对象。 特别是DOM对象 (例如， `元素`, `位置` 和 `DOMMatrix`), 节点 s 由 C++ 类支持的对象(例如， `进程)。 nv`, 一些成员 `串流`, 和 Electron 对象由 C++ 类支持 (例如) `Webcontent`, `BrowserWindow` and `WebFrame`() 不是 序列化的结构克隆。 每当调用旧算法时，都会打印 弃置警告。
 
 在 Electron 9中。 , 旧的序列化算法已被删除, 发送 这种不可序列化的对象现在会抛出一个“对象无法被克隆” 错误。
+
+
 
 ### API 更改： `shell.openitem` 现在是 `shell.openPath`
 
 `shell.openitem` API 已被异步 `shell.openPath` API替换。 您可以在这里查看 API 的原始建议和理由 [](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)。
 
+
+
 ## 计划重写的 API (8.0)
+
+
 
 ### 行为改变：通过 IPC 发送的值现在被结构化的克隆算法序列化
 
-The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+用于串行通过 IPC 发送的对象（通过 `ipcRenderer.send`、 `ipcRenderer.sendSync`、 `WebContents.send` 和相关 方法）的算法已从自定义算法切换到 V8 的内置 [结构化 克隆算法][SCA]，该算法用于为 `postMessage`序列化消息。 这带来了大型 消息的 2 倍性能改进，但也带来了一些行为的突破性变化。
 
-* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+* 通过 IPC 发送函数、承诺、弱图、弱集或包含任何 此类值的对象，现在将抛出一个例外，而不是默默地 将函数转换为 `undefined`。
 
-```js
-// Previously:
-ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
-// => results in { value: 3 } arriving in the main process
 
-// From Electron 8:
-ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
-// => throws Error("() => {} could not be cloned.")
-```
-
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
-* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
-* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
-* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
 
 ```js
-Buffer.from(value.buffer, value.byteOffset, value.byteLength)
+以前：
+ipcRenderer.发送（"通道"，{值：3，一些功能：（）=> {}）
+//=> 导致 { value: 3 } 到达主过程
+
+//从电子8：
+ipcRenderer.发送（"通道"， {值：3，一些功能：（）=> [}}）
+//=> 抛出错误（"）=> {}无法克隆。
 ```
 
-Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
+
+* `NaN`， `Infinity` 和 `-Infinity` 现在将正确序列化，而不是 转换为 `null`。
+
+* 包含循环引用的对象现在将被正确地序列化， 而不是转换为 `null`。
+
+* `Set`、 `Map`、 `Error` 和 `RegExp` 值将正确序列化， 而不是转换为 `{}`。
+
+* `BigInt` 值将正确序列化，而不是转换为 `null`。
+
+* 稀疏阵列将因此进行序列化，而不是转换为具有 `null`的密集 阵列。
+
+* `Date` 对象将作为 `Date` 对象传输，而不是 转换为其 ISO 字符串表示。
+
+* 打字阵列（如 `Uint8Array`、 `Uint16Array`、 `Uint32Array` 等） 将因此转移，而不是转换为节点.js `Buffer`。
+
+* 节点.js `Buffer` 对象将作为 `Uint8Array`转移。 您可以 通过包装底层 `ArrayBuffer`将 `Uint8Array` 转换回节点.js `Buffer` ：
+
+
+
+```js
+缓冲区。从（值.缓冲区，值。比特设置，值。按下长）
+```
+
+
+发送任何非本机 JS 类型的对象，如 DOM 对象（如 `Element`、 `Location`、 `DOMMatrix`）、节点.js对象（例如 `process.env`， `Stream`），或电子物体（例如 `WebContents`， `BrowserWindow`， `WebFrame`）被弃用。 在 Electron 8 中，这些对象将序列化为 之前与弃用警告消息，但从电子 9 开始，发送 这些类型的对象将抛出一个"无法克隆"的错误。
+
+
 
 ### 已废弃： `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+此 API 使用 `remote` 模块实现，该模块具有性能 和安全性。 因此，它的使用应该是明确的。
+
+
 
 ```js
-// Deprecated
-webview.getWebContents()
-// Replace with
-const { remote } = require('electron')
-remote.webContents.fromId(webview.getWebContentsId())
+弃用
+网络视图。getWeb康滕茨（）
+//替换为
+续 { remote } =需要（"电子"）
+远程。webContents.从ID（webview.获取Web康滕茨id（））
 ```
 
-However, it is recommended to avoid using the `remote` module altogether.
+
+但是，建议完全避免使用 `remote` 模块。
+
+
 
 ```js
-// main
-const { ipcMain, webContents } = require('electron')
+主
+康斯特 { ipcMain, webContents } =要求（"电子"）
 
-const getGuestForWebContents = (webContentsId, contents) => {
-  const guest = webContents.fromId(webContentsId)
-  if (!guest) {
-    throw new Error(`Invalid webContentsId: ${webContentsId}`)
+续取"为网站提供信息"=（WebContentsId，内容）=> •
+  续客=webContents.来自ID（webContentsId）
+  （！客人）{
+    抛出新的错误（"无效" webContentsid： ${webContentsId}'）
+  =
+  如果（guest.host.主机网站内容）{
+    抛出新的错误（"访问拒绝网络内容"）
   }
-  if (guest.hostWebContents !== contents) {
-    throw new Error('Access denied to webContents')
-  }
-  return guest
-}
+  返回访客
+]
 
-ipcMain.handle('openDevTools', (event, webContentsId) => {
-  const guest = getGuestForWebContents(webContentsId, event.sender)
-  guest.openDevTools()
-})
+ipcMain.handle（"打开的DevTools"， （事件， webContentsId）=> {
+  站客人=获取"网络客人"（WebContentsId，活动。发送者）
+  客人
+。
 
-// renderer
-const { ipcRenderer } = require('electron')
+//渲染器
+锥 { ipcRenderer } =需要（"电子"）
 
-ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
+ipcRenderer.调用（"打开的DevTools"，网络视图。获取网络控制器）
 ```
+
+
+
 
 ### 已废弃： `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium 已取消对更改布局缩放级别限制的支持，并且它 超出了 Electron 维护它的能力。 该函数将在电子 8.x 中发出警告 ，并且不再存在于电子 9.x 中。 布局缩放级别 限制现在固定在最低 0.25 和最大 5.0， [此处定义](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11)。
 
-### Deprecated events in `systemPreferences`
 
-The following `systemPreferences` events have been deprecated:
 
-* `inverted-color-scheme-changed`
-* `high-contrast-color-scheme-changed`
+### `systemPreferences`中废弃的事件
 
-Use the new `updated` event on the `nativeTheme` module instead.
+以下 `systemPreferences` 事件已被弃用：
 
-```js
-// Deprecated
-systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
-systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
+* `倒色方案更改`
+* `高对比度配色方案更改`
 
-// Replace with
-nativeTheme.on('updated', () => { /* ... */ })
-```
+改为在 `nativeTheme` 模块上使用新的 `updated` 事件。
 
-### Deprecated: methods in `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
-
-* `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
-* `systemPreferences.isHighContrastColorScheme()`
-
-Use the following `nativeTheme` properties instead:
-
-* `nativeTheme.shouldUseDarkColors`
-* `nativeTheme.shouldUseInvertedColorScheme`
-* `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Deprecated
-systemPreferences.isDarkMode()
-// Replace with
-nativeTheme.shouldUseDarkColors
+弃用
+系统Prepreence.on（"倒色方案更改"， （）=> [/][/]）
+系统prefers.on（"高对比度配色方案更改"，（）=> {/*[/]）
 
-// Deprecated
-systemPreferences.isInvertedColorScheme()
-// Replace with
-nativeTheme.shouldUseInvertedColorScheme
-
-// Deprecated
-systemPreferences.isHighContrastColorScheme()
-// Replace with
-nativeTheme.shouldUseHighContrastColors
+//替换为
+本机主题。on（"更新"，（）=> [/]。。。[/]）
 ```
+
+
+
+
+### 弃用： `systemPreferences`的方法
+
+以下 `systemPreferences` 方法已被弃用：
+
+* `系统预演。是黑暗模具（）`
+* `系统预置。是倒色化学（）`
+* `系统预演。是高康斯特彩色化学（）`
+
+改为使用以下 `nativeTheme` 属性：
+
+* `本地主题。应该使用黑暗颜色`
+* `原生主题。应该使用倒色化学`
+* `原生主题。应该使用高反色`
+
+
+
+```js
+废弃的
+系统预置。isdarkMode（）
+//替换为
+原生主题。应使用Dark颜色
+
+//弃用
+系统预推。倒色化学（）
+// 替换为
+原生主题。应使用倒色化学
+
+//废弃
+系统预置。是高contrast彩色化学（）
+//替换为
+原生主题。
+```
+
+
+
 
 ## 计划重写的 API (7.0)
 
+
+
 ### 已弃用: Atom.io 节点头URL
 
-这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.  Both will be supported for the foreseeable future but it is recommended that you switch.
+这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.  在可预见的未来 两者都将得到支持，但建议您切换。
 
 过时的: https://atom.io/download/electron
 
 替换为: https://electronjs.org/headers
 
+
+
 ### API 更改： `session.clearAuthCache()` 不再接受选项
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+`session.clearAuthCache` API 不再接受清除哪些选项，而是无条件地清除整个缓存。
+
+
 
 ```js
-// Deprecated
-session.clearAuthCache({ type: 'password' })
-// Replace with
-session.clearAuthCache()
+弃
+会话。清除自动缓存（{ type: 'password' }）
+//替换为
+会话。
 ```
 
+
+
+
 ### API 更改： `powerMonitor.querySystemIdleState` 现在是 `powerMonitor.getSystemIdleState`
+
+
 
 ```js
 // 在 Electron 7.0
@@ -578,7 +634,12 @@ powerMonitor.querySystemIdleState(阈值，回调)
 contst idleState = powerMonitor.getSystemIdleState(阈值)
 ```
 
+
+
+
 ### API 更改： `powerMonitor.querySystemIdletime` 现在是 `powerMonitor.getSystemIdletime`
+
+
 
 ```js
 // 在 Electron 7.0
@@ -587,63 +648,84 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
+
+
+
 ### API 更改： `webFramework.setatedWorldInfo` 替换单独的方法
 
+
+
 ```js
-// Removed in Electron 7.0
-webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
-webFrame.setIsolatedWorldHumanReadableName(worldId, name)
-webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
-webFrame.setIsolatedWorldInfo(
-  worldId,
+在电子 7.0
+网络框架中删除。 csp）
+webFrame.set孤立的世界人类可读名称（世界ID，名称）
+webFrame.集孤立的世界安全原始（世界Id，安全原始）
+//替换为
+webFrame.set孤立的世界信息（
+  世界ID，
   {
     securityOrigin: 'some_origin',
     name: 'human_readable_name',
     csp: 'content_security_policy'
-  })
+  }）
 ```
+
+
+
 
 ### 已移除： `在 <code>getBlinkMemoryInfo 中标记` 属性</code>
 
-This property was removed in Chromium 77, and as such is no longer available.
+此属性在铬 77 中删除，因此不再可用。
+
+
 
 ### 行为改变： `webkitdirectory` 属性 `<input type="file"/>` 现在列出目录内容
 
-HTML 文件输入上的 `webkitdirectory` 属性允许他们选择文件夹。 Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
+HTML 文件输入上的 `webkitdirectory` 属性允许他们选择文件夹。 以前版本的 Electron 具有不正确的实现，其中输入的 `event.target.files` 返回了返回与所选文件夹对应的一个 `File` 的 `FileList` 。
 
 在 Electron 7 中， `FileList` 现在是包含在 文件夹中的所有文件的列表， 类似于Chrome、Firefox和边缘 ([链接到 MDN 文档](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory))。
 
 作为示例，在这个结构中占用一个文件夹：
 
+
+
 ```console
-folder
-├── file1
-├── file2
-└── file3
+文件夹
+├---文件1
+├--文件2
+└--文件3
 ```
+
 
 在 Electron <=6, 这将返回一个 `文件列表` 带有一个 `文件` 对象：
 
+
+
 ```console
-path/to/folder
+路径/到/文件夹
 ```
+
 
 在 Electron 7 中，现在返回一个 `FileList` 带有 `文件` 对象：
 
+
+
 ```console
-/path/to/folder/file3
-/path/to/folder/file2
-/path/to/folder/file1
+/路径/到/文件/文件3
+/路径/文件/文件2
+/路径/到/文件夹1
 ```
 
-请注意， `webkitdirectory` 不再显示选中文件夹的路径。 If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
-### API Changed: Callback-based versions of promisified APIs
+请注意， `webkitdirectory` 不再显示选中文件夹的路径。 如果您需要指向所选文件夹的路径，而不是文件夹内容， 查看 `dialog.showOpenDialog` API（[链接](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)）。
 
-Electron 5 and Electron 6 introduced Promise-based versions of existing asynchronous APIs and deprecated their older, callback-based counterparts. In Electron 7, all deprecated callback-based APIs are now removed.
 
-These functions now only return Promises:
+
+### API 已更改：基于回调的乱交 API 版本
+
+Electron 5 和 Electron 6 引入了基于承诺的现有 异步 ABI 版本，并弃用了旧的基于回调的对应器。 在 Electron 7 中，所有废弃的基于回调的 ABI 现已删除。
+
+这些功能现在只返回承诺：
 
 * `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
 * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
@@ -686,9 +768,15 @@ These functions now only return Promises:
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
+
+
 ## 计划重写的 API (6.0)
 
+
+
 ### API 更改： `win.setMenu(null)` 现在是 `win.remenu()`
+
+
 
 ```js
 // 不推荐
@@ -697,7 +785,12 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
+
+
+
 ### API 更改： `电子.screen` 渲染过程中应通过 `远程` 访问
+
+
 
 ```js
 // 不推荐
@@ -706,7 +799,12 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
+
+
+
 ### API 更改： `需要`在沙盒渲染器中生成节点。不再含蓄地加载 `远程` 版本
+
+
 
 ```js
 // 不推荐
@@ -730,7 +828,12 @@ require('path')
 require('electron').remote.require('path')
 ```
 
+
+
+
 ### 已废弃： `powerMonitor.querySystemIdleState` 已替换为 `powerMonitor.getSystemIdleState`
+
+
 
 ```js
 // 已弃用
@@ -739,7 +842,12 @@ powerMonitor.querySystemIdleState(阈值，回调)
 const idleState = powerMonitor.getSystemIdleState(阈值)
 ```
 
+
+
+
 ### 已废弃： `powerMonitor.querySystemIdleTime` 被替换为 `powerMonitor.getSystemIdleTime`
+
+
 
 ```js
 // 已弃用
@@ -748,26 +856,41 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
+
+
+
 ### 已废弃： `app.enableMixedSandbox()` 不再需要
 
+
+
 ```js
-// Deprecated
-app.enableMixedSandbox()
+弃用
+应用程序。启用混合和框（）
 ```
 
-Mixed-sandbox mode is now enabled by default.
+
+默认情况下，现在启用了混合砂盒模式。
+
+
 
 ### 已废弃： `Tray.setHighlightmode`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+根据马科斯卡塔利娜我们以前的托盘实施中断。 苹果的原生替代品不支持改变突出显示的行为。
+
+
 
 ```js
-// Deprecated
-tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+弃用
+托盘。设置高光模式（模式）
+//API将在v7.0中删除，无需更换。
 ```
 
+
+
+
 ## 计划重写的 API (5.0)
+
+
 
 ### 默认更改： `节点集成` and `webviewTag` 默认为 false， `上下文隔离` 默认为 true
 
@@ -779,7 +902,10 @@ tray.setHighlightMode(mode)
 | `nodeIntegration`  | `true`                          | `false` |
 | `webviewTag`       | `nodeIntegration` 未设置过则是 `true` | `false` |
 
-如下: Re-enabling the webviewTag
+
+如下: 重新启用网络视图标签
+
+
 
 ```js
 const w = new BrowserWindow({
@@ -789,15 +915,24 @@ const w = new BrowserWindow({
 })
 ```
 
+
+
+
 ### 行为改变： `节点集成` 在子窗口通过 `本地窗口打开`
 
 使用 `原生窗口打开` 选项打开的子窗口将总是禁用 Node.js 集成，除非 `nodeIntegrationInSubFrames` 是 `true`
+
+
 
 ### API 更改：在应用程序准备就绪之前必须完成注册特权计划
 
 渲染进程 API `webFramework.registerURLSchemeAss特权` and `webFrame.registerURLSchemeAsBypassingCSP` 以及浏览器进程 API `protocol.registerStandardSchemes` 已被删除。 新的 API `protocol.registerSchemeasviliged` 已被添加，并用于注册具有必要权限的自定义 scheme。 自定义 scheme 需要在 app 触发 ready 事件之前注册。
 
+
+
 ### 已废弃： `webFramework.setIsolatedWorld*` 替换为 `webFrame.setIsolatedWorldInfo`
+
+
 
 ```js
 // 弃用
@@ -814,68 +949,93 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
+
+
+
 ### API 更改： `webFrame.setSpellCheckProvider` 现在需要异步回调
 
-The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+`spellCheck` 回调现在是异步的， `autoCorrectWord` 参数已被删除。
+
+
 
 ```js
-// Deprecated
-webFrame.setSpellCheckProvider('en-US', true, {
-  spellCheck: (text) => {
-    return !spellchecker.isMisspelled(text)
+已弃用
+webFrame.setSpell检查提供器（"在美国"，真实，{
+  拼写检查：（文本）=> =
+    返回！拼写检查器.拼写检查器.拼写错误（文本）
+  [
+}）
+//替换为
+webFrame.set"拼写检查提供器"（"en-US"， {拼写检查
+  ：（单词，回调）=> {
+    回调（单词。过滤器（文本=拼写检查器> ）
   }
-})
-// Replace with
-webFrame.setSpellCheckProvider('en-US', {
-  spellCheck: (words, callback) => {
-    callback(words.filter(text => spellchecker.isMisspelled(text)))
-  }
-})
+}）
 ```
 
-### API Changed: `webContents.getZoomLevel` and `webContents.getZoomFactor` are now synchronous
 
-`webContents.getZoomLevel` and `webContents.getZoomFactor` no longer take callback parameters, instead directly returning their number values.
+
+
+### API 更改： `webContents.getZoomLevel` 和 `webContents.getZoomFactor` 现在同步
+
+`webContents.getZoomLevel` 和 `webContents.getZoomFactor` 不再采取回调参数，而是 直接返回其号码值。
+
+
 
 ```js
-// Deprecated
-webContents.getZoomLevel((level) => {
-  console.log(level)
-})
-// Replace with
-const level = webContents.getZoomLevel()
-console.log(level)
+弃用
+网络控制器。getZoom级别（级别）=> {
+  控制台.log（级别）
+}）
+//替换为
+续级=WebContents.getZoom级别（）
+控制台.log（级别）
 ```
 
+
+
+
 ```js
-// Deprecated
-webContents.getZoomFactor((factor) => {
-  console.log(factor)
-})
-// Replace with
-const factor = webContents.getZoomFactor()
-console.log(factor)
+废弃的
+网络控制器。getZoom因子（（因子）=> {
+  控制台.log（因子）
+}）
+//替换为
+连续因子=webContents.getZoom因子（）
+控制台.log（因子）
 ```
+
+
+
 
 ## 计划重写的 API (4.0)
 
 以下包含了Electron 4.0中重大的API更新
 
+
+
 ### `app.makeSingleInstance`
 
+
+
 ```js
-// Deprecated
-app.makeSingleInstance((argv, cwd) => {
-  /* ... */
-})
-// Replace with
-app.requestSingleInstanceLock()
-app.on('second-instance', (event, argv, cwd) => {
-  /* ... */
-})
+弃用
+应用程序。 cwd）=> {
+  /*[/
+]）
+//替换为
+应用程序。请求单项登录锁（）
+应用程序。on（"二审"，（事件，argv，cwd）=> {
+  /*。。。//
+
 ```
 
+
+
+
 ### `app.releaseSingleInstance`
+
+
 
 ```js
 // 废弃
@@ -884,7 +1044,12 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
+
+
+
 ### `app.getGPUInfo`
+
+
 
 ```js
 app.getGPUInfo('complete')
@@ -892,15 +1057,24 @@ app.getGPUInfo('complete')
 app.getGPUInfo('basic')
 ```
 
+
+
+
 ### `win_delay_load_hook`
 
 在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 如果这个钩子 不存在，那么本机模块将无法在 Windows 上加载，并出现错误 消息如 `无法找到模块`。 查看 [原生模块指南](/docs/tutorial/using-native-node-modules.md) 以获取更多信息.
+
+
 
 ## 重大的API更新 (3.0)
 
 以下包含了Electron 3.0中重大的API更新
 
+
+
 ### `app`
+
+
 
 ```js
 // 弃用
@@ -913,31 +1087,41 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // 弃用的属性
 ```
 
+
+
+
 ### `BrowserWindow`
 
-```js
-// Deprecated
-const optionsA = { webPreferences: { blinkFeatures: '' } }
-const windowA = new BrowserWindow(optionsA)
-// Replace with
-const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
-const windowB = new BrowserWindow(optionsB)
 
-// Deprecated
-window.on('app-command', (e, cmd) => {
-  if (cmd === 'media-play_pause') {
-    // do something
+
+```js
+弃用
+const选项A={WebPrefers： { blinkFeatures: '' } =
+窗口A=新的浏览器窗口（选项A）
+//替换为
+const选项 B={WebPrefers： { enableBlinkFeatures: '' } =
+窗口B=新的浏览器窗口（选项B）
+
+//弃用
+窗口。 cmd）=> {
+  如果（cmd==="媒体play_pause"）{
+    //做一些
   }
-})
-// Replace with
-window.on('app-command', (e, cmd) => {
-  if (cmd === 'media-play-pause') {
-    // do something
+}）
+//替换
+窗口。 （e，cmd） => {
+  如果 （cmd == "媒体播放暂停"） [
+    / / 做一些
   }
-})
+} ）
 ```
 
+
+
+
 ### `剪贴板`
+
+
 
 ```js
 // 弃用
@@ -961,7 +1145,12 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
+
+
+
 ### `crashReporter`
+
+
 
 ```js
 // 弃用
@@ -978,7 +1167,12 @@ crashReporter.start({
 })
 ```
 
+
+
+
 ### `nativeImage`
+
+
 
 ```js
 // 弃用
@@ -989,14 +1183,24 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
+
+
+
 ### `进程`
+
+
 
 ```js
 // 弃用
 const info = process.getProcessMemoryInfo()
 ```
 
+
+
+
 ### `screen`
+
+
 
 ```js
 // 弃用
@@ -1005,7 +1209,12 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
+
+
+
 ### `session`
+
+
 
 ```js
 // 弃用
@@ -1018,7 +1227,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
+
+
+
 ### `Tray`
+
+
 
 ```js
 // 弃用
@@ -1032,7 +1246,12 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
+
+
+
 ### `网络控制`
+
+
 
 ```js
 // 弃用
@@ -1045,7 +1264,12 @@ webContents.setSize(options)
 // 没有该API的替代
 ```
 
+
+
+
 ### `webFrame`
+
+
 
 ```js
 // 弃用
@@ -1059,7 +1283,12 @@ webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
+
+
+
 ### `<webview>`
+
+
 
 ```js
 // 移除
@@ -1075,6 +1304,9 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
+
+
+
 ### Node Headers URL
 
 这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
@@ -1083,11 +1315,17 @@ webview.onkeyup = () => { /* handler */ }
 
 替换为: https://atom.io/download/electron
 
+
+
 ## 重大的API更新 (2.0)
 
 以下包含了Electron 2.0中重大的API更新
 
+
+
 ### `BrowserWindow`
+
+
 
 ```js
 // 已废弃的
@@ -1098,7 +1336,12 @@ const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
 
+
+
+
 ### `menu`
+
+
 
 ```js
 // 移除
@@ -1107,7 +1350,12 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
+
+
+
 ### `nativeImage`
+
+
 
 ```js
 // 移除
@@ -1121,11 +1369,18 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
+
+
+
 ### `进程`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
+
+
 ### `网络控制`
+
+
 
 ```js
 // 移除
@@ -1134,7 +1389,12 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
+
+
+
 ### `webFrame`
+
+
 
 ```js
 // 移除
@@ -1143,7 +1403,12 @@ webFrame.setZoomLevelLimits(1, 2)
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
+
+
+
 ### `<webview>`
+
+
 
 ```js
 // 移除
@@ -1152,11 +1417,14 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
+
+
+
 ### 重复的 ARM 资源
 
 每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-为了防止可能导致安装器毁坏的中断，_不带前缀_的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
+为了防止可能导致安装器毁坏的中断，_不带前缀_的文件仍然将被发布。 从 2.0 开始，未预修复的文件将 不再发布。
 
 更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
 
