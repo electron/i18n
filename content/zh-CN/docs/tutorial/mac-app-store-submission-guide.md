@@ -84,11 +84,11 @@
 然后使用下面的脚本签名你的应用：
 
 ```sh
-#!/bin/bash
+#！/宾/巴什
 
-# Name of your app.
-APP="YourApp"
-# The path of your app to sign.
+您的应用程序的名称。
+APP="您的应用程序"
+#要签名的应用路径。
 APP_PATH="/path/to/YourApp.app"
 # 生成安装包路径
 RESULT_PATH="~/Desktop/$APP.pkg"
