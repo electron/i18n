@@ -1,20 +1,20 @@
 # Настройка сервера символов в отладчике
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
+Символы отладки позволяют лучше отладки сессий. Они содержат информацию функциях, содержащихся в выполнении и динамических библиотеках, и предоставляют информацию для получения чистых стеков вызова. Символ сервер позволяет загружать правильные символы, диз файлы и источники автоматически, не заставляя загружать большие файлы отладки. Сервер функционирует как [сервера символов Microsoft,](https://support.microsoft.com/kb/311503) поэтому документация может быть полезной.
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Обратите внимание, что, поскольку выпущенные сборки Electron сильно оптимизированы, отладка не всегда легка. Отггер не сможет показать вам содержание всех переменных и путь выполнения может показаться странным из-за вклинивания, вызовов и других оптимизаций компилятора. Единственным решением является создание локальной сборки.
 
-The official symbol server URL for Electron is https://symbols.electronjs.org. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+The official symbol server URL for Electron is https://symbols.electronjs.org. Вы не можете посетить этот URL напрямую, вы должны добавить его в путь символа вашего отладки. В примерах ниже используется локальный каталог кэша, чтобы избежать повторного извлечения PDB с сервера. Замените `c:\code\symbols` соответствующим кэша на вашей машине.
 
 ## Использование сервера символов в Windbg
 
-The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Путь символа Windbg настроен с значением строки, делимитированной звездочкой символами. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
 
 ```powershell
 SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Установите эту строку `_NT_SYMBOL_PATH` в окружающую среду, используя меню Windbg, или набрав `.sympath` команды. Если вы хотите получить символы от сервера символов Microsoft, вы должны перечислить, что в первую очередь:
 
 ```powershell
 SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://symbols.electronjs.org
@@ -22,13 +22,13 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 ## Использование сервера символов в Visual Studio
 
-![Tools -> Options](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Symbols Settings](https://mdn.mozillademos.org/files/2497/2005_options.gif)
+![Инструменты -> варианты](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Настройки символов](https://mdn.mozillademos.org/files/2497/2005_options.gif)
 
 ## Устранение неполадок: символы не загружаются
 
-Type the following commands in Windbg to print why symbols are not loading:
+Ввемите следующие команды в Windbg, чтобы распечатать, почему символы не загружаются:
 
 ```powershell
-> !sym noisy
-> .reload /f electron.exe
+> !sym шумная
+> .reload /f электрон.exe
 ```
