@@ -4,19 +4,19 @@
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+В Electron для API, которые принимают изображения, можно пройти либо пути файлов, либо `NativeImage` экземпляры. При `null` будет использоваться пустое изображение.
 
 Например, при создании вкладки в области уведомлений или установке иконки окна можно задать путь к файлу изображения в виде `String`:
 
 ```javascript
-const { BrowserWindow, Tray } = require('electron')
+const { BrowserWindow, Tray } - требуют ('электрон')
 
-const appIcon = new Tray('/Users/somebody/images/icon.png')
-const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
-console.log(appIcon, win)
+const appIcon - новый Tray ('/Пользователи/кто-то/изображения/икона.png')
+const win - новый BrowserWindow (я значок: '/Пользователи/кто-то/изображения/окно.png') консоль
+.log (appIcon, win)
 ```
 
-Or read the image from the clipboard, which returns a `NativeImage`:
+Или прочитайте изображение с буфера обмена, который возвращает `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## Поддерживаемые форматы
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+В `PNG` поддерживаются `JPEG` форматы изображений и изображения. `PNG` рекомендуется использовать -за его поддержки прозрачности и без потерь сжатия.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
+На Windows также можно загрузить `ICO` с файловых путей. Для лучшего качества рекомендуется включать по крайней мере следующие размеры в:
 
 * Мелкие значки
   * 16x16 (100% DPI scale)
@@ -49,9 +49,9 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 На платформах, имеющих поддержку высокого DPI, таких как дисплеи Apple Retina, вы можете добавить `@2x` после имени файла изображения, чтобы пометить его как изображение с высоким разрешением.
 
-For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Например, если `icon.png` является нормальным изображением со стандартным разрешением, то `icon@2x.png` будет рассматриваться как изображение с высоким разрешением, которое имеет двойную плотность данных.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Например:
+Если вы хотите поддерживать дисплеи с разной плотностью DPI одновременно, вы можете поместить изображения с разными размерами в ту же папку и использовать суффиксы файлоими. Например:
 
 ```plaintext
 images/
@@ -61,12 +61,12 @@ images/
 ```
 
 ```javascript
-const { Tray } = require('electron')
-const appIcon = new Tray('/Users/somebody/images/icon.png')
-console.log(appIcon)
+const { Tray } требуют ('электрон')
+const appIcon - новый Tray ('/Пользователи/кто-то/изображения/икона.png')
+консоль.log (appIcon)
 ```
 
-The following suffixes for DPI are also supported:
+Поддерживаются также следующие суффиксы для ДОИ:
 
 * `@1x`
 * `@1.25x`
@@ -82,13 +82,13 @@ The following suffixes for DPI are also supported:
 
 ## Шаблон изображения
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Шаблонные изображения состоят из черного и альфа-канала. Шаблонные изображения не предназначены для использования в качестве автономных изображений и, как правило смешиваются с другим контентом для создания желаемого окончательного внешнего вида.
 
-The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
+Наиболее распространенным случаем является использование изображений шаблонов для значка бара меню, поэтому он может как к светлым, так и к темным барам меню.
 
 **Внимание:** Шаблонные изображения поддерживаются только на macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. Например:
+Чтобы отметить изображение в качестве шаблона изображения, его имя файла должно закончиться словом `Template`. Например:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -105,10 +105,10 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 ### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
 
-* `path` String - path to a file that we intend to construct a thumbnail out of.
-* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+* `path` String - путь к файлу, из которого мы намерены построить миниатюру.
+* `maxSize` [размер](structures/size.md) - максимальная ширина и высота (положительные цифры) эскиз возвращается может быть. Реализация Windows будет игнорировать `maxSize.height` и масштабировать высоту в соответствии с `maxSize.width`.
 
-Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+Возвращает `Promise<NativeImage>` - выполнено с изображением предварительного просмотра эскиза файла, который является [NativeImage](native-image.md).
 
 ### `nativeImage.createFromPath(path)`
 
@@ -119,10 +119,10 @@ Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview ima
 Создает новый экземпляр `NativeImage` из файла, расположенного по адресу `path`. Этот метод возвращает пустое изображение, если путь `path` не существует, не может быть прочитан или является некорректным.
 
 ```javascript
-const nativeImage = require('electron').nativeImage
+const nativeImage - требуют ('electron').nativeImage
 
-const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
-console.log(image)
+const image - nativeImage.createFromPath ('/Users/somebody/images/icon.png')
+консоли.log (изображение)
 ```
 
 ### `nativeImage.createFromBitmap(buffer, options)`
@@ -135,19 +135,19 @@ console.log(image)
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+Создает новую модель `NativeImage` из `buffer` , которая содержит необработанные бит-карты пиксельные данные, возвращенные `toBitmap()`. Конкретный формат зависит от платформы.
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
 * `options` Object (опционально)
-  * `width` Integer (optional) - Required for bitmap buffers.
+  * `width` Integer (необязательно) - Требуется для буферов bitmap.
   * `height` Integer (опционально) - требуется для буферов растровых изображений.
   * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Создает новый `NativeImage` из `buffer`. Пытается расшифровать как PNG или JPEG в первую очередь.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -168,9 +168,9 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 `hslShift` применяется к изображению со следующими правилами:
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0,5 = оставить без изменений. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0,5 = оставить без изменений. 1 = полная яркость (сделать все точки белыми).
+* `hsl_shift[0]` (оттенок): Абсолютное значение оттенка для изображения - 0 и 1 карта 0 и 360 на колесе цвета оттенка (красный).
+* `hsl_shift[1]` (насыщенность): сдвиг насыщенности для изображения, с ключевыми значениями: 0 и удалить весь цвет. 0,5 = оставить без изменений. 1 - полностью насытить изображение.
+* `hsl_shift[2]` (легкость): Сдвиг легкости для изображения, с ключевыми значениями: 0 - удалить всю легкость (сделать все пиксели черными). 0,5 = оставить без изменений. 1 = полная яркость (сделать все точки белыми).
 
 Это означает, что `[-1, 0, 1]` сделает изображение полностью белым, а `[-1, 1, 0]` сделает изображение полностью чёрным.
 
@@ -224,7 +224,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 Возвращает `Buffer` - [Buffer][buffer], который содержит сырые данные растровых пикселей изображения.
 
-The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
+Разница между `getBitmap()` и `toBitmap()` заключается в том, что `getBitmap()` не данные биткарты, поэтому вам придется использовать возвращенный буфер немедленно в текущего цикла событий; в противном случае данные могут быть изменены или уничтожены.
 
 #### `image.getNativeHandle()` _macOS_
 
@@ -236,13 +236,13 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Возвращает `Boolean` - признак того что изображение пустое.
 
-#### `image.getSize([scaleFactor])`
+#### `image.getSize ([scaleFactor])`
 
 * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает [`Size`](structures/size.md).
 
-If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
+Если `scaleFactor` будет пройден, это вернет размер, соответствующий представлению изображения, наиболее близко соотвествуя пройденное значение.
 
 #### `image.setTemplateImage(option)`
 
@@ -263,36 +263,36 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 #### `image.resize(options)`
 
 * `options` Object
-  * `width` Integer (optional) - Defaults to the image's width.
+  * `width` Integer (по желанию) - по умолчанию по ширине изображения.
   * `height` Integer (опционально) - По умолчанию высота изображения.
-  * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Возможные значения являются `good`, `better`, или `best`. The default is `best`. These values express a desired quality/speed tradeoff. Они переведены в алгоритм-специфический метод, который зависит от (CPU, GPU) базовой платформы. Все три метода могут быть с тем же алгоритмом на данной платформе.
 
 Возвращает `NativeImage` - измененый размер изображения.
 
 Если указаны только `height` или `width`, то текущее соотношение сторон будет сохранено в изображении.
 
-#### `image.getAspectRatio([scaleFactor])`
+#### `image.getAspectRatio ([scaleFactor])`
 
 * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Float` - пропорции изображения.
 
-If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+Если `scaleFactor` будет пройден, это вернет соотношение аспектов, соответствующее представлению изображения, наиболее близко соотвествуя пройденное значение.
 
 #### `image.getScaleFactors()`
 
-Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+Возвращает `Float[]` - массив всех факторов масштаба, соответствующих представлениям для данного nativeImage.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object
-  * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `scaleFactor` Double - коэффициент масштаба, чтобы добавить представление изображения для.
+  * `width` Integer (optional) - Defaults to 0. Требуется, если буферная бит-карты указана как `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Требуется, если буферная бит-карты указана как `buffer`.
   * `buffer` Buffer (optional) - The buffer containing the raw image data.
-  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+  * `dataURL` String (необязательно) - URL-адрес данных, содержащий либо базовый 64 закодированное изображение PNG или JPEG.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Добавьте представление изображения для определенного фактора масштаба. Это может быть использовано для явного добавления различных представлений фактора масштаба к изображению. Этот можно назвать на пустых изображениях.
 
 ### Свойства экземпляра
 
