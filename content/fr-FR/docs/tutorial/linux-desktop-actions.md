@@ -2,13 +2,13 @@
 
 ## Vue d'ensemble
 
-On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+Sur de nombreux environnements Linux, vous pouvez ajouter des entrées personnalisées au lanceur en modifiant le `.desktop` fichier. Pour la documentation Unity de Canonical, voir ['ajout de raccourcis à un lanceur][unity-launcher]. Pour plus de détails sur une implémentation générique, consultez le [freedesktop.org spécification][spec].
 
 ![audacieux][3]
 
-> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+> REMARQUE: La capture d’écran ci-dessus est un exemple de raccourcis lanceur dans Audacious lecteur audio
 
-To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
+Pour créer un raccourci, vous devez fournir des propriétés `Name` et `Exec` pour l’entrée que vous souhaitez ajouter au menu raccourci. Unity exécutera la commande définie dans le champ `Exec` après que l’utilisateur a cliqué sur l’élément de menu raccourci. Un exemple du fichier `.desktop` peut sembler le suivant :
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -29,7 +29,7 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.
+La meilleure façon pour Unity d’instruire votre application sur ce qu’il faut faire est d' paramètres. Vous pouvez les trouver dans votre application dans la variable globale `process.argv`.
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 
