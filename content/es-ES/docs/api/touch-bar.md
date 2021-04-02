@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-### `new TouchBar(options)`
+### `nueva TouchBar (opciones)`
 
 * `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (opcional)
@@ -106,73 +106,73 @@ const spin = new TouchBarButton({
       updateReels()
 
       if ((Date.now() - startTime) >= spinLength) {
-        finishSpin()
+        finishSpin ()
       } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
-        setTimeout(spinReels, timeout)
+        ////ralentizar un poco en cada giro
+        tiempo de espera * = 1,1
+        setTimeout (spinReels, timeout)
       }
     }
 
-    spinReels()
+    spinReels ()
   }
 })
 
 const getRandomValue = () => {
-  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
+  const Values = [' 🍒 ', ' 💎 ', ' 7️ ⃣ ', ' 🍊 ', ' 🔔 ', ' ⭐ ', ' 🍇 ', ' 🍀 ']
+  valores devueltos [Math. Floor (Math. RANDOM () * Values. length)]
 }
 
 const updateReels = () => {
-  reel1.label = getRandomValue()
-  reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
+  reel1. Label = getRandomValue ()
+  reel2. Label = getRandomValue ()
+  reel3. Label = getRandomValue ()
 }
 
 const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
+  const uniqueValues = New set ([reel1. Label, reel2. Label, reel3. label]). Size
+  if (uniqueValues = = = 1) {
+    //los 3 valores son los mismos
+    resultado. Label = ' 💰 Jackpot! '
+    result. textColor = ' #FDFF00 '
+  } else if (uniqueValues = = = 2) {
+    //2 valores son el mismo
+    resultado. Label = ' 😍 Winner! '
+    result. textColor = ' #FDFF00 '
   } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
+    //no hay valores que sean el mismo
+    resultado. Label = ' 🙁 spin again '
+    result. textColor = null
   }
-  spinning = false
+  Spinning = false
 }
 
-const touchBar = new TouchBar({
+const touchBar = New TouchBar ({
   items: [
     spin,
-    new TouchBarSpacer({ size: 'large' }),
+    New TouchBarSpacer ({ size: 'large' }),
     reel1,
-    new TouchBarSpacer({ size: 'small' }),
+    nuevo TouchBarSpacer ({ size: 'small' }),
     reel2,
-    new TouchBarSpacer({ size: 'small' }),
+    nuevo TouchBarSpacer ({ size: 'small' }),
     reel3,
-    new TouchBarSpacer({ size: 'large' }),
+    nuevo TouchBarSpacer ({ size: 'large' }),
     result
   ]
 })
 
-let window
+permitir que Window
 
-app.whenReady().then(() => {
-  window = new BrowserWindow({
-    frame: false,
-    titleBarStyle: 'hiddenInset',
-    width: 200,
+app. whenReady (). then (() => {
+  Window = New BrowserWindow ({
+    Frame : false,
+    titleBarStyle: ' Hiddenrecuadro ',
+    ancho: 200,
     height: 200,
-    backgroundColor: '#000'
+    backgroundColor: ' #000 '
   })
-  window.loadURL('about:blank')
-  window.setTouchBar(touchBar)
+  Window. loadURL (' about: Blank ')
+  Window. setTouchBar (touchBar)
 })
 ```
 
