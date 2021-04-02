@@ -1,199 +1,199 @@
 # Пулл реквесты
 
-* [Setting up your local environment](#setting-up-your-local-environment)
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes)
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit)
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-9-opening-the-pull-request)
-  * [Step 10: Discuss and Update](#step-10-discuss-and-update)
-    * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-11-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+* [Настройка локальной среды](#setting-up-your-local-environment)
+  * [Шаг 1: Вилка](#step-1-fork)
+  * [Шаг 2: Сборка](#step-2-build)
+  * [Шаг 3: Ветвь](#step-3-branch)
+* [Внесение изменений](#making-changes)
+  * [Шаг 4: Код](#step-4-code)
+  * [Шаг 5: Обязательство](#step-5-commit)
+    * [Рекомендации по совершению сообщений](#commit-message-guidelines)
+  * [Шаг 6: Перебаза](#step-6-rebase)
+  * [Шаг 7: Тест](#step-7-test)
+  * [Шаг 8: Нажмите](#step-8-push)
+  * [Шаг 9: Открытие pull Запрос](#step-9-opening-the-pull-request)
+  * [Шаг 10: Обсудите и обновим](#step-10-discuss-and-update)
+    * [Утверждение и изменение рабочего процесса](#approval-and-request-changes-workflow)
+  * [Шаг 11: Посадка](#step-11-landing)
+  * [Непрерывное интеграционное тестирование](#continuous-integration-testing)
 
-## Setting up your local environment
+## Настройка локальной среды
 
-### Step 1: Fork
+### Шаг 1: Вилка
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
-
-```sh
-$ git clone git@github.com:username/electron.git
-$ cd electron
-$ git remote add upstream https://github.com/electron/electron.git
-$ git fetch upstream
-```
-
-### Step 2: Build
-
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
-
-* [Building on macOS](build-instructions-macos.md)
-* [Building on Linux](build-instructions-linux.md)
-* [Building on Windows](build-instructions-windows.md)
-
-Once you've built the project locally, you're ready to start making changes!
-
-### Step 3: Branch
-
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+Вилка проекта [GitHub](https://github.com/electron/electron) клонировать вилку локально.
 
 ```sh
-$ git checkout -b my-branch -t upstream/master
+$ git клон git@github.com:username/electron.git
+$ CD электрон
+$ Git удаленных добавить вверх по течению https://github.com/electron/electron.git
+$ git принести вверх по течению
 ```
 
-## Making Changes
+### Шаг 2: Сборка
 
-### Step 4: Code
+Шаги сборки и зависимости немного отличаются в зависимости от операционной системы. Смотрите эти подробные руководства по созданию Electron локально:
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+* [Опираться на macOS](build-instructions-macos.md)
+* [Опираясь на Linux](build-instructions-linux.md)
+* [Опираться на Windows](build-instructions-windows.md)
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+После того как вы создали проект локально, вы готовы начать вносить изменения!
 
-See [coding style](coding-style.md) for more information about best practice when modifying code in different parts of the project.
+### Шаг 3: Ветвь
 
-### Step 5: Commit
-
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+Чтобы организовать среду разработки, создайте локальные филиалы, чтобы вашу работу. Они должны быть разветвлены непосредственно от `master` филиала.
 
 ```sh
-$ git add my/changed/files
-$ git commit
+$ git выезд -b мой-филиал-т вверх по течению / мастер
 ```
 
-Note that multiple commits often get squashed when they are landed.
+## Внесение изменений
 
-#### Commit message guidelines
+### Шаг 4: Код
 
-A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+Большинство запросов на тянуть, открытых в отношении репозитория `electron/electron` , включают изменения в коде C/C в папке `shell/` , код JavaScript в папке `lib/` , документацию в `docs/api/` или тесты в папке `spec/` .
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+Пожалуйста, не забудьте `npm run lint` время от времени на любые изменения кода чтобы убедиться, что они следуют стилю кода проекта.
 
-Examples of commit messages with semantic prefixes:
+Подробнее [изменении кода в](coding-style.md) частях проекта подробнее о наилучшей практике.
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+### Шаг 5: Обязательство
 
-Common prefixes:
+Рекомендуется логически сохранять сгруппированные изменения в пределах отдельных коммитов. Многим участникам легче просмотреть изменения, разделенные на нескольких коммитов. Количество коммитов в запросе на не существует.
 
-* fix: A bug fix
-* feat: A new feature
-* docs: Documentation changes
-* test: Adding missing tests or correcting existing tests
-* build: Changes that affect the build system
-* ci: Changes to our CI configuration files and scripts
-* perf: A code change that improves performance
-* refactor: A code change that neither fixes a bug nor adds a feature
-* style: Changes that do not affect the meaning of the code (linting)
-* vendor: Bumping a dependency like libchromiumcontent or node
+```sh
+$ git добавить мои / измененные / файлы
+$ git коммит
+```
 
-Other things to keep in mind when writing a commit message:
+Обратите внимание, что несколько коммитов часто раздавливаются при посадке.
 
-1. The first line should:
-   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-   * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
-2. Keep the second line blank.
-3. Wrap all other lines at 72 columns.
+#### Рекомендации по совершению сообщений
+
+Хорошее сообщение коммита должно описать, что изменилось и почему. Проект Electron использует [сообщения коммитов](https://conventionalcommits.org/) для процесса выпуска.
+
+Прежде чем запрос на вытягивать можно объединить, **вы** иметь заголовок запроса вытягивать с семантической приставкой.
+
+Примеры сообщений коммитов с семантических префиксами:
+
+* `исправить: не переназвонить prevent_default если дефолт не был предотвращен`
+* `подвиг: добавить app.isPackaged () метод`
+* `документы: app.isDefaultProtocolClient теперь доступен на Linux`
+
+Общие префиксы:
+
+* исправление: Исправление ошибки
+* подвиг: новая функция
+* документы: Изменения в документации
+* тест: Добавление недостающих тестов или исправление существующих тестов
+* сборка: Изменения, влияющие на систему сборки
+* ci: Изменения в наших файлах конфигурации CI и скриптах
+* perf: Изменение кода, которое повышает производительность
+* рефактор: изменение кода, которое не исправляет ошибку и не добавляет функцию
+* стиль: Изменения, которые не влияют на значение кода (линтинг)
+* поставщик: Bumping зависимость, как libchromiumcontent или узел
+
+Другие вещи, которые нужно иметь в виду при написании сообщения коммита:
+
+1. Первая строка должна:
+   * содержат краткое описание изменения (желательно 50 символов или менее, и не более 72 символов)
+   * быть полностью в нижнем регистре, за исключением надлежащих существительные, аббревиатуры и , которые относятся к коду, как функция / переменные имена
+2. Держите вторую линию пустой.
+3. Оберните все остальные строки на 72 столбцах.
 
 #### Критические изменения
 
-A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+Коммит, в `BREAKING CHANGE:` текста в начале факультативного раздела body or footer, вводит нарушение изменения API (коррелирует с основными в семантической версии). Нарушение изменения может быть частью коммитов любого типа. например, в дополнение `fix:` `feat:` & `chore:` типах, в дополнение к любому другому типу.
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+Подробности [conventionalcommits.org](https://conventionalcommits.org) подробнее.
 
-### Step 6: Rebase
+### Шаг 6: Перебаза
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
-
-```sh
-$ git fetch upstream
-$ git rebase upstream/master
-```
-
-This ensures that your working branch has the latest changes from `electron/electron` master.
-
-### Step 7: Test
-
-Bug fixes and features should always come with tests. A [testing guide](testing.md) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
-
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+После того как вы совершили свои изменения, это хорошая идея, чтобы использовать `git rebase` ( `git merge`) для синхронизации вашей работы с основным репозиторием.
 
 ```sh
-$ npm run test
+$ git принести вверх по течению
+$ git rebase вверх по течению / мастер
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Это гарантирует, что ваша рабочая отрасль имеет последние изменения от `electron/electron` мастера.
 
-If you are updating tests and want to run a single spec to check it:
+### Шаг 7: Тест
+
+Исправления ошибок и функции всегда должны поступают с тестами. Было [руководство по](testing.md) тестированию , чтобы облегчить этот процесс. Глядя на другие тесты, чтобы увидеть, как они должны быть структурированы также может помочь.
+
+Перед отправкой изменений в запросе pull всегда запустите полный набор тестирования. Для 4 испытаний:
 
 ```sh
-$ npm run test -match=menu
+$ npm запустить тест
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+Убедитесь, что линцер не сообщает о каких-либо проблемах и что все тесты проходят. Пожалуйста, не при отправке патчей, которые не либо проверить.
 
-### Step 8: Push
-
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Если вы обновляете тесты и хотите запустить один спецификации, чтобы проверить его:
 
 ```sh
-$ git push origin my-branch
+$ npm запустить тест-матч-меню
 ```
 
-### Step 9: Opening the Pull Request
+Выше будет работать только спецификации модулей, соответствующих `menu`, который полезен для тех, кто работает над тестами, которые в противном случае были бы в самом цикла тестирования.
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+### Шаг 8: Нажмите
+
+Как только ваши коммиты будут готовы к работе - с прохождением тестов и линтингом - начнет процесс открытия запроса на тянуть, нажав рабочую ветвь на вилку на GitHub.
+
+```sh
+$ git толчок происхождения моей ветви
+```
+
+### Шаг 9: Открытие pull Запрос
+
+Из GitHub, открытие нового запроса тянуть представит вам шаблон с которые должны быть заполнены:
 
 ```markdown
 <!--
-Thank you for your pull request. Please provide a description above and review
-the requirements below.
+Спасибо за вашу просьбу тянуть. Пожалуйста, предоставьте описание выше и
+с требованиями ниже.
 
-Bug fixes and new features should include tests and possibly benchmarks.
+Исправления ошибок и новые функции должны включать тесты и, возможно, тесты.
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Руководство для участников: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 
-### Step 10: Discuss and update
+### Шаг 10: Обсудить и обновить
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+Вы, вероятно, получите обратную связь или запросы на внесение изменений в ваш запрос на тянуть. Это большая часть процесса представления, так что не отчаивайтесь! Некоторые вкладчики могут подписать на запрос вытягивать сразу. Другие могут иметь комментарии или отзывы. Это необходимая часть процесса, чтобы , являются ли изменения правильными и необходимыми.
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+Чтобы внести изменения в существующий запрос на тянуть, внести изменения в локаленую ветку , добавить новый коммит с этими изменениями и подтолкнуть их к вилке. GitHub автоматически обновит запрос на тянуть.
 
 ```sh
-$ git add my/changed/files
-$ git commit
-$ git push origin my-branch
+$ git добавить мои / изменены / файлы
+$ git совершить
+$ Git нажмите происхождения моей ветви
 ```
 
-There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
+Существует ряд более продвинутых механизмов управления коммитами с использованием `git rebase` которые могут быть использованы, но выходят за рамки настоящего руководства.
 
-Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
+Не стесняйтесь размещать комментарии в тянуть запрос на пинг рецензентов, если вы ответа на что-то. Если вы столкнулись со словами или аббревиатурами, кажется незнакомыми, обратитесь к этому [глоссарий](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Approval and Request Changes Workflow
+#### Утверждение и изменение рабочего процесса
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Все запросы на тянуть требуют одобрения [владельца кода](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) области, которую вы изменили для того, чтобы приземлиться. Всякий раз, когда сопровождаемый рассматривает запрос запрос, он может запросить изменения. Они могут быть небольшими, например, фиксация опечатки, или могут включать существенные изменения. Такие просьбы предназначены для того, чтобы быть полезными, но порой могут встретить как резкие или бесполезные, особенно если они не включают конкретных предложений по *,* изменить их.
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feedback.
+Старайтесь не уныть. Если вы считаете, что отзыв несправедлив, скажите об этом или с помощью другого участника проекта. Зачастую такие замечания являются результатом рецензента, который не занял достаточно времени для рассмотрения и не является злонамереным. Такие трудности часто могут быть решены с немного терпения. Тем не менее, , что рецензенты должны предоставить полезную обратную связь.
 
-### Step 11: Landing
+### Шаг 11: Посадка
 
-In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
+Для того, чтобы приземлиться, запрос на тянуть должен быть рассмотрен и одобрен по крайней мере один Electron Code Владелец и пройти CI. После этого, если нет никаких со стороны других участников, запрос на тянуть может быть объединен.
 
-Congratulations and thanks for your contribution!
+Поздравляем и благодарим за ваш вклад!
 
-### Continuous Integration Testing
+### Непрерывное интеграционное тестирование
 
-Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
+Каждый запрос на тянуть тестируется на системе непрерывной интеграции (CI), подтвердить, что он работает на поддерживаемых electron платформах.
 
-Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
+В идеале запрос на тянуть будет проходить ("быть зеленым") на всех платформах CI. Это означает, что все тесты проходят и нет ошибок в линтинге. Тем не , что нередки случаи, когда сама инфраструктура CI не удается выйти из строя на конкретных платформах или для так называемых "слоеных" тестов на провал ("быть красным"). Каждый сбой CI должен быть вручную проверен для определения причины.
 
-CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+CI запускается автоматически при открытии запроса на тянуть, но только сопровождаемые ядра могут перезапустить запуск CI. Если вы считаете, что CI ложный негатив, попросите сопровождая перезапустить тесты.
