@@ -25,11 +25,11 @@ async function parseDocs(): Promise<IDocFile[]> {
   ids = await getIds('electron')
 
   console.time('parsed docs in')
-  const markdownFiles = walk
-    .entries(contentDir)
-    .filter((file) => {
-      return file.relativePath.includes('/docs') && file.relativePath.endsWith('.md')
-    })
+  const markdownFiles = walk.entries(contentDir).filter((file) => {
+    return (
+      file.relativePath.includes('/docs') && file.relativePath.endsWith('.md')
+    )
+  })
 
   console.log(
     `processing ${markdownFiles.length} docs files in ${
@@ -49,11 +49,12 @@ async function parseDocs(): Promise<IDocFile[]> {
 
 async function parseBlogs() {
   console.time('parsed blogs in')
-  const markdownFiles = walk
-    .entries(contentDir)
-    .filter((file) => {
-      return file.relativePath.includes('website/blog') && file.fullPath.endsWith('.md')
-    })
+  const markdownFiles = walk.entries(contentDir).filter((file) => {
+    return (
+      file.relativePath.includes('website/blog') &&
+      file.fullPath.endsWith('.md')
+    )
+  })
   console.log(
     `processing ${markdownFiles.length} blog files in ${
       Object.keys(locales).length
