@@ -26,22 +26,22 @@ La classe `Notification` dispose des méthodes statiques suivantes :
 
 Retourne `Boolean` - Si le système actuel prend en charge les notification bureau ou non
 
-### `new Notification([options])`
+### `nouvelle notification ([options])`
 
-* `options` Object (optional)
-  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
+* `options` objet (facultatif)
+  * `title` string (facultatif) - Titre de la notification, qui sera affiché en haut de la fenêtre de notification lorsqu’elle est affichée.
   * `subtitle` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
-  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
+  * `body` String (facultatif) - Le texte du corps de la notification, qui sera affiché sous le titre ou le sous-titre.
   * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
   * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
   * `hasReply` Boolean (facultatif) _macOS_ - Ajout ou non d'une option de réponse en ligne à la notification.
-  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `timeoutType` String (facultatif) _Linux_ _Windows_ - La durée de délai d’attente de la notification. Peut être « par défaut » ou « jamais ».
   * `replyPlaceholder` String (facultatif) _macOS_ - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
   * `sound` String (facultatif) _macOS_ - Le nom du fichier audio à jouer lorsque la notification est affichée.
-  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
-  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
+  * `urgency` String (facultatif) _Linux_ - Le niveau d’urgence de la notification. Peut être « normal », « critique » ou « faible ».
+  * `actions` [NotificationAction[]](structures/notification-action.md) (facultatif) _macOS_ - Actions à ajouter à la notification. Veuillez lire les actions et limitations disponibles dans la documentation `NotificationAction` documents.
+  * `closeButtonText` String (facultatif) _macOS_ - Un titre personnalisé pour le bouton de fermeture d’une alerte. Une chaîne vide provoquera l’utilisé du texte localisé par défaut.
+  * `toastXml` String (facultatif) _Windows_ - Une description personnalisée de la notification sur Windows remplace toutes les propriétés ci-dessus. Fournit une personnalisation complète de la conception et du comportement de la notification.
 
 ### Événements d’instance
 
@@ -91,14 +91,14 @@ Retourne :
 * `event` Événement
 * `index` Number - L'indice de l'action qui a été activée.
 
-#### Event: 'failed' _Windows_
+#### Evénement: 'failed' _Windows_
 
 Retourne :
 
 * `event` Événement
-* `error` String - The error encountered during execution of the `show()` method.
+* `error` String - L’erreur rencontrée lors de l’exécution de la `show()` méthode.
 
-Emitted when an error is encountered while creating and showing the native notification.
+Émis lorsqu’une erreur est rencontrée lors de la création et de l’affichage de la notification native.
 
 ### Méthodes d’instance
 
@@ -150,15 +150,15 @@ Une propriété `Booléenne` qui indique si la notification a une action de rép
 
 #### `notification.urgency` _Linux_
 
-A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+Un `String` représentant le niveau d’urgence de la notification. Peut être « normal », « critique » ou « faible ».
 
-Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+Par défaut est « faible » - voir [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) plus d’informations.
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+Un `String` propriété représentant le type de durée de délai d’attente pour la notification. Peut être « par défaut » ou « jamais ».
 
-If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
+Si `timeoutType` est défini comme « jamais », la notification n’expire jamais. Il reste ouvert jusqu’à ce qu’il soit fermé par l’API appelante ou l’utilisateur.
 
 #### `notification.actions`
 
@@ -166,11 +166,11 @@ Une propriété [`NotificationAction[]`](structures/notification-action.md) repr
 
 #### `notification.toastXml` _Windows_
 
-A `String` property representing the custom Toast XML of the notification.
+Une `String` propriété représentant le Toast XML personnalisé de la notification.
 
 ### Lire un son
 
-Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Assurez-vous que le fichier audio soit copié dans l'"app bundle" (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
+Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. N’importe quel son par défaut (sous préférences système > Sound) peut être utilisé, en plus des fichiers sonores personnalisés. Assurez-vous que le fichier audio soit copié dans l'"app bundle" (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
