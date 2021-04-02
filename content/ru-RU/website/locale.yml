@@ -26,7 +26,6 @@ keyboard_modal:
   open_new_tab: Открыть выбранные результат поиска в новой вкладке
 docs:
   title: Документация Electron
-  description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">FAQ</a>.
   guides: "Руководства: Начало работы с Electron"
   api_reference: Справка по API
   api_structures: Структуры API
@@ -39,7 +38,6 @@ docs:
   propose_change: Улучшить этот документ
   version_history: История версий
   translate: Перевести этот документ
-  view_all_docs: Вся документация на одной странице
 languages:
   choose_language: Выберите язык сайта
   view_more_details: Узнать больше о языке
@@ -164,7 +162,6 @@ clipboard:
 fiddle_launch_button:
   launch: Запустить
   launch_in_fiddle: Запустить в Fiddle
-or: или
 pages:
   '/':
     title: Electron | Создавайте свои компьютерные кросс-платформенные приложения при помощи JavaScript, HTML и CSS.
@@ -175,9 +172,6 @@ pages:
   '/docs':
     title: Документация
     description: Руководства и API справочной документации для последнего релиза Electron
-  '/docs/all':
-    title: Вся документация Electron!
-    description: Все руководства Electron и API документация на единой, поисковой странице.
   '/docs/api':
     title: API
     description: Руководства и API справочной документации для последнего релиза Electron
