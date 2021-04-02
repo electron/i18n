@@ -15,9 +15,9 @@ Le module `remote` fournit un moyen simple de faire une communication entre les 
 Dans Electron, les modules liés à l'interface graphique (comme `dialog`, `menu` etc.) ne sont disponibles que dans le processus principal et pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI][rmi]de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
 
 ```javascript
-const { BrowserWindow } = require('electron').remote
+const { BrowserWindow } = require ('electron').remote
 const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('https://github.com')
+win.loadURL ('https://github.com')
 ```
 
 **Remarque :** Pour l'inverse (accédez au processus de rendu depuis le processus principal), vous pouvez utiliser [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
@@ -83,7 +83,7 @@ Par exemple, le code suivant semble innocent à première vue. Il installe un ca
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // fenêtre a été fermée...
 })
 ```
 
@@ -126,7 +126,7 @@ Retourne `any` - La variable globale de `name` (par exemple `global[name]`) dans
 
 ### `Exiger`
 
-A `NodeJS.Require` function equivalent to `require(module)` in the main process. Les modules spécifiés par leur chemin relatif résoudront par rapport au point d'entrée du processus principal.
+Une `NodeJS.Require` de travail équivalente `require(module)` dans le processus principal. Les modules spécifiés par leur chemin relatif résoudront par rapport au point d'entrée du processus principal.
 
 exemple :
 
@@ -141,9 +141,9 @@ project/
 ```
 
 ```js
-// main process: main/index.js
-const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
+processus principal : principal/index.js
+const { app } = require ('electron')
+app.whenReady().then()=> { /* ... */ })
 ```
 
 ```js
