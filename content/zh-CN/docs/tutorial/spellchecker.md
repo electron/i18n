@@ -35,31 +35,31 @@ const possibleLangues(myWindow.session.available SpellCheckerLanges)
 生成上下文菜单所需的所有信息都在 [`上下文菜单`](../api/web-contents.md#event-context-menu) 每个事件 `webContent` 实例中提供。  下面提供了一个小的示例，如何用此信息制作上下文菜单。
 
 ```js
-const { Menu, MenuItem } = require('electron')
+康斯特 { Menu, MenuItem } =要求（"电子"）
 
-myWindow.webContents.on('context-menu', (event, params) => {
-  const menu = new Menu()
+我的窗口。 （事件，参数）=> {
+  const菜单=新菜单（）
 
-  // Add each spelling suggestion
-  for (const suggestion of params.dictionarySuggestions) {
-    menu.append(new MenuItem({
-      label: suggestion,
-      click: () => mainWindow.webContents.replaceMisspelling(suggestion)
-    }))
+  //添加
+  的每个拼写建议（参数的const建议。字典）{
+    菜单
+      。
+      点击：（）=> 主窗口。webContents.替换拼写（建议）
+    }）
+  =
+
+  //允许用户将拼写错误的单词添加到字典
+  如果（参数.拼写错误的Word）{
+    菜单
+      。 {
+        标签：'添加到字典'，
+        点击：（）=> 主窗口.webContents.会话。添加WordToSpell检查词典（参数.拼写错误的字）
+      [）
+    ）
   }
 
-  // Allow users to add the misspelled word to the dictionary
-  if (params.misspelledWord) {
-    menu.append(
-      new MenuItem({
-        label: 'Add to dictionary',
-        click: () => mainWindow.webContents.session.addWordToSpellCheckerDictionary(params.misspelledWord)
-      })
-    )
-  }
-
-  menu.popup()
-})
+  菜单。弹出（）
+}）
 ```
 
 ## 拼写检查器是否使用任何谷歌服务？
@@ -70,4 +70,4 @@ myWindow.webContents.on('context-menu', (event, params) => {
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+查看文档以获取 [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) ，了解有关从哪里获取字典文件以及如何托管它们的更多信息。
