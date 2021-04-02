@@ -7,18 +7,18 @@
 `Tray` は [EventEmitter][event-emitter] です。
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } =
 
-let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+('electron') トレイ = null
+アプリを必要とします。..)、( => {
+  トレイ = 新しいトレイ ('/パス/パス/先/マイ/アイコン')
+  の新しいトレイ ('/パス/先/マイ/アイコン')
+    { label: 'Item3', type: 'radio', checked: true }コンテキストメニュー = Menu.buildFromTemplate([ [
     { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' },
-    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item2', type: 'radio' },   ,
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
+  トレイ.setToolTip('これは私のアプリケーションです。
   tray.setContextMenu(contextMenu)
 })
 ```
