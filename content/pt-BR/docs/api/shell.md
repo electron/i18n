@@ -2,11 +2,15 @@
 
 > Gerencia arquivos e URLs usando seus aplicativos padrão.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
+Processo: [principal](../glossary.md#main-process),</a> renderer
+
+(somente sem caixa de areia)</p> 
 
 O módulo `shell` fornece funções relacionadas à integração com a área de trabalho.
 
 Um exemplo de como abrir uma URL no navegador padrão do usuário:
+
+
 
 ```javascript
 const { shell } = require('electron')
@@ -14,79 +18,100 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+
+**Nota:** Embora o módulo `shell` possa ser usado no processo de renderização, ele não funcionará em uma renderização de caixa de areia.
+
+
 
 ## Métodos
 
 O módulo `shell` tem os seguintes métodos:
 
+
+
 ### `shell.showItemInFolder(fullPath)`
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+Mostre o arquivo dado em um gerenciador de arquivos. Se possível, selecione o arquivo.
 
-### `shell.openPath(path)`
+
+
+### `shell.openPath (caminho)`
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Devoluções `Promise<String>` - Resolve com uma sequência contendo a mensagem de erro correspondente à falha se ocorreu uma falha, caso contrário "".
 
 Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
-### `shell.openExternal(url[, options])`
 
-* `url` String - Max 2081 characters on windows.
-* `options` Object (optional)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. O padrão é `verdadeiro`.
-  * `workingDirectory` String (optional) _Windows_ - The working directory.
 
-Returns `Promise<void>`
+### `shell.openExternal(url[, opções])`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+* `url` String - Max 2081 caracteres nas janelas.
+* objeto `options` (opcional) 
+    * `activate` Boolean (opcional) __ macOS - `true` para trazer o aplicativo aberto para o primeiro plano. O padrão é `verdadeiro`.
+  * `workingDirectory` String (opcional) __ do Windows - O diretório de trabalho.
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
+Retornos `Promise<void>`
+
+Abra a URL de protocolo externo dada da maneira padrão da área de trabalho. (Por exemplo, mailto: URLs no agente de e-mail padrão do usuário).
+
+
+
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])` __preterido
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `deleteOnFail` Booleano (opcional) - Remover ou não unilateralmente o item se o Lixo estiver desativado ou não no volume. __macOS
 
-Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
+Devoluções `Boolean` - Se o item foi movido com sucesso para o lixo ou excluído de outra forma.
 
-> NOTE: This method is deprecated. Use `shell.trashItem` instead.
+
+
+> NOTA: Este método é preterido. Use `shell.trashItem` em vez disso.
 
 Move o arquivo fornecido para o lixo e retorna um boolean para o operação.
 
-### `shell.trashItem(path)`
 
-* `path` String - path to the item to be moved to the trash.
 
-Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+### `shell.trashItem(caminho)`
 
-This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
+* `path` String - caminho para o item a ser movido para o lixo.
+
+Devolução `Promise<void>` - Resolve quando a operação estiver concluída. Rejeita se houve um erro ao excluir o item solicitado.
+
+Isso move um caminho para o local de lixo específico do SISTEMA (Lixo no macOS, Reciclar Bin no Windows e um local específico para o ambiente de desktop no Linux).
+
+
 
 ### `shell.beep()`
 
 Toca o sinal sonoro.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
-* `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following:
-  * `create` - Cria um novo atalho, sobrescrevendo se necessário.
+
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` __do Windows
+
+* `shortcutPath` Cordas
+* `operation` String (opcional) - O padrão é `create`, pode ser um dos seguintes: 
+    * `create` - Cria um novo atalho, sobrescrevendo se necessário.
   * `update` - Atualiza propriedades especificadas apenas em um atalho existente.
   * `replace` - Sobrescreve um atalho existente, falha se o atalho não existir.
-* `options` [ShortcutDetails](structures/shortcut-details.md)
+* `options` [Atalho](structures/shortcut-details.md)sde detalhes
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Devoluções `Boolean` - Se o atalho foi criado com sucesso.
 
-Creates or updates a shortcut link at `shortcutPath`.
+Cria ou atualiza um link de atalho em `shortcutPath`.
+
+
 
 ### `shell.readShortcutLink(shortcutPath)` _Windows_
 
-* `shortcutPath` String
+* `shortcutPath` Cordas
 
 Retorna [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Resolve o link de atalho em `shortcutPath`.
 
 Uma exceção será lançada quando qualquer erro acontecer.
