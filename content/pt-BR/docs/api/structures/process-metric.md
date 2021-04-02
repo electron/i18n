@@ -1,25 +1,25 @@
 # Processamento de Objeto
 
 * `pid` Inteiro - id de processo do processo.
-* `type` String - Process type. One of the following values:
+* `type` String - Tipo de processo. Um dos seguintes valores:
   * `Browser`
   * `Tab`
   * `Utilidade`
-  * `Zygote`
+  * `Zigoto`
   * `Ajuda ao Sandbox`
   * `GPU`
-  * `Pepper Plugin`
-  * `Pepper Plugin Broker`
+  * `Plugin de pimenta`
+  * `Corretor de plugins de pimenta`
   * `Desconhecido`
-* `serviceName` String (optional) - The non-localized name of the process.
-* `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+* `serviceName` String (opcional) - O nome não localizado do processo.
+* `name` String (opcional) - O nome do processo. Exemplos de utilidade: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 * `CPU` [CPUUsage](cpu-usage.md) - uso da CPU.
-* `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
+* `creationTime` Número - Tempo de criação para este processo. O tempo é representado como número de milissegundos desde a época. Uma vez que o `pid` pode ser reutilizado após a morte de um processo, é útil usar tanto o `pid` quanto o `creationTime` para identificar um processo exclusivamente.
 * `memória` [MemoryInfo](memory-info.md) - informações de memória para o processo.
-* `sandboxed` Boolean (optional) _macOS_ _Windows_ - Whether the process is sandboxed on OS level.
-* `integrityLevel` String (optional) _Windows_ - One of the following values:
-  * `untrusted`
+* `sandboxed` Boolean (opcional) __ _o_ do iCarros - Se o processo é sandboxed no nível do SISTEMA OPERACIONAL.
+* `integrityLevel` String (opcional) __ do Windows - Um dos seguintes valores:
+  * `Untrusted`
   * `baixo`
-  * `medium`
+  * `Média`
   * `alto`
   * `desconhecido`
