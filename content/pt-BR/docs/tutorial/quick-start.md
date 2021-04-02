@@ -8,7 +8,7 @@ Normalmente, você cria um aplicativo desktop para um sistema operacional (OS) u
 
 ### Pré-requisitos
 
-Before proceeding with Electron you need to install [Node.js][node-download]. Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
+Antes de prosseguir com a Electron, você precisa instalar [Nó.js][node-download]. Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
 
 > Por favor, instale o Node.js usando instaladores específicos para sua plataforma. Caso contrário, você pode encontrar problemas de incompatibilidade com ferramentas de desenvolvimento diferentes.
 
@@ -26,11 +26,11 @@ Os comandos devem imprimir as versões do Node.js e npm, respectivamente. Se amb
 De uma perspectiva de desenvolvimento, um aplicativo Electron é essencialmente um aplicativo Node.js. Isso significa que o ponto de partida de sua aplicação Electron será um arquivo `package.json` como em qualquer outro aplicativo Node.js. A estrutura mínima de uma aplicação Electron é a seguinte:
 
 ```plaintext
-my-electron-app/
-├── package.json
-├── main.js
-├── preload.js
-└── index.html
+meu-elétron-app/
+().➤ pacote.json
+principal.js
+pré-carga.js
+└%.➤ .html
 ```
 
 Vamos criar um aplicativo básico baseado na estrutura acima.
@@ -52,26 +52,26 @@ O script principal especifica o ponto de entrada da sua aplicação Electron (no
 O script principal pode ser como a seguir:
 
 ```javascript fiddle='docs/fiddles/quick-start'
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, BrowserWindow } = require ('electron')
+caminho const = require('path')
 
 function createWindow () {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+  const win = novo BrowserWindow({
+    largura: 800,
+    altura: 600,
+    webPreferências: {
+      preload: path.join(__dirname, 'préload.js')
     }
   })
 
   win.loadFile('index.html')
 }
 
-app.whenReady().then(() => {
+app.whenReady().() => {
   createWindow()
 
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
+  app.on('ativar', () => {
+    se (BrowserWindow.). getAllWindows().length === 0) {
       createWindow()
     }
   })
@@ -80,8 +80,8 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
-  }
-})
+
+}
 ```
 
 ##### O que está acontecendo acima?
@@ -100,7 +100,7 @@ Esta é a página da web que você deseja exibir uma vez que o aplicativo é ini
 A página `index.html` parece com a seguinte:
 
 ```html fiddle='docs/fiddles/quick-start'
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -110,9 +110,9 @@ A página `index.html` parece com a seguinte:
 <body style="background: white;">
     <h1>Hello World!</h1>
     <p>
-        We are using Node.js <span id="node-version"></span>,
-        Chromium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
+        Estamos usando <span id="chrome-version"></span>de.js <span id="node-version"></span>
+        Desípio ,
+        e <span id="electron-version"></span>de Elétrons .
     </p>
 </body>
 </html>
@@ -123,16 +123,16 @@ A página `index.html` parece com a seguinte:
 Seu script de pré-carregamento atua como uma ponte entre Node.js e sua página web. Isso lhe permite expor APIs e comportamentos específicos para a sua página web, em vez de expor de forma insegura toda a API do Node.js. Neste exemplo, usaremos o script de pré-carregamento para ler informações da versão do objeto `process` e atualizar a página web com essa informação.
 
 ```javascript fiddle='docs/fiddles/quick-start'
-window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
+window.addEventListener ('DOMContentLoaded', () => {
+  const substituirText = (seletor, texto) => {
+    elemento const = document.getElementById(seletor)
+    se (elemento) elemento.innerText = texto
   }
 
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
-})
+  para (tipo const de ['cromado', 'nó', 'elétron']) {
+    substituirText('${type}-versão', process.versions[type])
+
+}
 ```
 
 ##### O que está acontecendo acima?
@@ -148,11 +148,11 @@ Sua aplicação Electron usa o arquivo `package.json` como ponto de entrada prin
 
 ```json
 {
-    "name": "my-electron-app",
-    "version": "0.1.0",
-    "author": "your name",
-    "description": "My Electron app",
-    "main": "main.js"
+    "nome": "meu-elétron-app",
+    "versão": "0.1.0",
+    "autor": "seu nome",
+    "descrição": "Meu aplicativo Electron",
+    "principal": "principal.js"
 }
 ```
 
@@ -164,13 +164,13 @@ Por padrão, o comando `npm start` executará o script principal com Node.js. Pa
 
 ```json
 {
-    "name": "my-electron-app",
-    "version": "0.1.0",
-    "author": "your name",
-    "description": "My Electron app",
-    "main": "main.js",
+    "nome": "meu-elétron-app",
+    "versão": "0.1.0",
+    "autor": "seu nome",
+    "descrição": "Meu aplicativo Electron",
+    "principal": "principal.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron ".
     }
 }
 ```
@@ -192,17 +192,17 @@ A maneira mais simples e mais rápida de distribuir seu recém-criado aplicativo
 1. Importar Electron Forge para a pasta do aplicativo:
 
     ```sh
-    npm install --save-dev @electron-forge/cli
+    npm instalar --save-dev @electron-forge/cli
     npx electron-forge import
 
-    ✔ Checking your system
-    ✔ Initializing Git Repository
-    ✔ Writing modified package.json file
-    ✔ Installing dependencies
-    ✔ Writing modified package.json file
-    ✔ Fixing .gitignore
+    ✔ Verificando seu sistema
+    ✔ Inicialização do Repositório git
+    ✔ Escrever pacote modificado.json arquivo
+    ✔ Instalando dependências
+    ✔ Escrever arquivo modificado.json
+    ✔ Fixação .gitignore
 
-    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
+    Tentamos converter seu aplicativo para estar em um formato que ele-forja
 
     Obrigado por usar "electron-forge"!!!
     ```
@@ -287,11 +287,11 @@ const win = new BrowserWindow()
 Para chamar o processo principal do Renderizador, use o módulo IPC:
 
 ```js
-// In the Main process
-const { ipcMain } = require('electron')
+No processo principal
+const { ipcMain } = require ('elétron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+ipcMain.handle ('perform-action', (evento, ... args) => {
+  // ... fazer ações em nome do Renderer
 })
 ```
 
