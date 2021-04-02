@@ -2,49 +2,49 @@
 
 ## 概览
 
-Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+屏幕外渲染允许您在 位图中获取 `BrowserWindow` 的内容，因此可以在任何地方呈现，例如，在 3D 场景中的纹理上。 Electron 中的屏幕外渲染采用与 [铬嵌入式框架](https://bitbucket.org/chromiumembedded/cef) 项目类似的方法。
 
 *注意*：
 
-* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* 有两种渲染模式可以使用（见下面的部分），并且只有在脏区域传递给 `paint` 事件以更高效 。
 * 您可以停止/继续渲染并设置帧速率。
-* The maximum frame rate is 240 because greater values bring only performance losses with no benefits.
-* When nothing is happening on a webpage, no frames are generated.
-* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+* 最大帧速率为 240，因为更高的值只带来性能 损失，没有好处。
+* 当网页上发生任何情况时，不会生成帧。
+* 屏幕外窗口始终被创建为 [无框窗口](../api/frameless-window.md)。
 
 ### 渲染模式
 
 #### GPU加速
 
-GPU加速渲染意味着使用GPU用于合成。 Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. 这种模式的优点是支持WebGL和3D CSS动画.
+GPU加速渲染意味着使用GPU用于合成。 由于 ，框架必须从需要更多资源的 GPU 复制， 因此此模式比软件输出设备慢。 这种模式的优点是支持WebGL和3D CSS动画.
 
 #### 软件输出设备
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
+此模式使用软件输出设备在 CPU 中渲染，因此帧 生成要快得多。 因此，此模式优于GPU 加速模式。
 
-To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
+要启用此模式，必须通过调用 [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API 来禁用 GPU 加速度。
 
 ## 示例
 
 从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
-const { app, BrowserWindow } = require('electron')
-const fs = require('fs')
+康斯特 { app, BrowserWindow } =要求（'电子'）
+const fs=需要（'fs'）
 
-app.disableHardwareAcceleration()
+应用程序。禁用硬软件的认证（）
 
-let win
+让赢得
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({ webPreferences: { offscreen: true } })
+应用程序> 。
+  赢=新浏览器窗口（\网络预示物： { offscreen: true } ）
+  
 
-  win.loadURL('https://github.com')
-  win.webContents.on('paint', (event, dirty, image) => {
-    fs.writeFileSync('ex.png', image.toPNG())
-  })
-  win.webContents.setFrameRate(60)
-})
+  赢.com。 脏的， 图像）=> =
+    fs.写文件同步（"ex.png"，图像
+  ）
+  赢
+。
 ```
 
 启动 Electron 应用程序后，导航到应用程序文件夹。
