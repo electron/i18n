@@ -7,8 +7,8 @@ Processo: [Main](../glossary.md#main-process)
 As ferramentas de desenvolvedor do Chrome possuem [special binding][rdp] disponível no runtime do JavaScript que permite interagir com páginas e instrumentá-las.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')
@@ -16,42 +16,42 @@ try {
   console.log('Debugger attach failed : ', err)
 }
 
-win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+win.webContents.debugger.on('desapegar', (evento, razão) => { console
+  .log('Depurador destacado devido a : ', razão)
 })
 
-win.webContents.debugger.on('message', (event, method, params) => {
-  if (method === 'Network.requestWillBeSent') {
-    if (params.request.url === 'https://www.github.com') {
+win.webContents.debugger.on('message', (evento, método, params) => {
+  se (método === 'Network.requestWillBeSent') {
+    se (params.request.url === 'https://www.github.com') {
       win.webContents.debugger.detach()
     }
   }
 })
 
-win.webContents.debugger.sendCommand('Network.enable')
+win.webContents.debugger.debugger.sendCommand('Network.enable')
 ```
 
 ### Eventos de instância
 
-#### Event: 'detach'
+#### Evento: 'desapegar'
 
 Retorna:
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - Razão para desprender depurador.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Emitido quando a sessão de depuração é encerrada. Isso acontece quando `webContents` é fechada ou as ferramentas são invocadas para o `webContents`anexado .
 
-#### Event: 'message'
+#### Evento: 'mensagem'
 
 Retorna:
 
 * `event` Event
-* `method` String - Method name.
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `method` String - Nome do método.
+* `params` qualquer - Parâmetros de evento definidos pelos 'parâmetros' atributo no protocolo de depuração remota.
+* `sessionId` String - Identificador exclusivo da sessão de depuração anexada, corresponderá ao valor enviado de `debugger.sendCommand`.
 
-Emitted whenever the debugging target issues an instrumentation event.
+Emitido sempre que o alvo de depuração emite um evento de instrumentação.
 
 ### Métodos de Instância
 
@@ -69,15 +69,17 @@ Retorna um `Boolean` - que mostra se o debugger está anexado à `webContents`.
 
 Retira o debugger de `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams, sessionId])`
+#### `debugger.sendCommand(método[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
-* `commandParams` any (optional) - JSON object with request parameters.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
+* `method` String - Nome do método, deve ser um dos métodos definidos pelo protocolo de depuração remota [][rdp].
+* `commandParams` qualquer objeto (opcional) - JSON com parâmetros de solicitação.
+* `sessionId` String (opcional) - enviar comando para o alvo com id de depuração de depuração associada. O valor inicial pode ser obtido enviando [Target.attachToTarget][attachToTarget] mensagem.
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+Devoluções `Promise<any>` - Uma promessa que resolve com a resposta definida por o atributo 'returns' da descrição do comando no protocolo de depuração remota ou é rejeitada indicando a falha do comando.
 
-Send given command to the debugging target.
+Envie o comando dado para o alvo de depuração.
+
+[rdp]: https://chromedevtools.github.io/devtools-protocol/
 
 [rdp]: https://chromedevtools.github.io/devtools-protocol/
 
