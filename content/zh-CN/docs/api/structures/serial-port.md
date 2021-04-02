@@ -1,10 +1,10 @@
-# SerialPort Object
+# 串行端口对象
 
-* `portId` String - Unique identifier for the port.
-* `portName` String - Name of the port.
-* `displayName` String - A string suitable for display to the user for describing this device.
-* `vendorId` String - Optional USB vendor ID.
-* `productId` String - Optional USB product ID.
-* `serialNumber` String - The USB device serial number.
-* `usbDriverName` String (optional) - Represents a single serial port on macOS can be enumerated by multiple drivers.
-* `deviceInstanceId` String (optional) - A stable identifier on Windows that can be used for device permissions.
+* `portId` 字符串 - 端口的独特标识符。
+* `portName` 字符串 - 端口的名称。
+* `displayName` 字符串 - 适合显示给用户描述此设备的字符串。
+* `vendorId` 字符串-可选USB供应商ID。
+* `productId` 字符串 -可选 USB 产品 ID。
+* `serialNumber` 字符串 - USB 设备序列号。
+* `usbDriverName` 字符串（可选） - 多个驱动程序可以列举 macOS 上的单个串行端口。
+* `deviceInstanceId` 字符串（可选） - Windows 上的稳定标识符，可用于设备权限。
