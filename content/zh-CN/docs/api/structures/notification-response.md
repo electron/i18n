@@ -1,7 +1,7 @@
-# NotificationResponse Object
+# 通知响应对象
 
-* `actionIdentifier` String - The identifier string of the action that the user selected.
-* `date` Number - The delivery date of the notification.
-* `identifier` String - The unique identifier for this notification request.
-* `userInfo` Record<String, any> - A dictionary of custom information associated with the notification.
-* `userText` String (optional) - The text entered or chosen by the user.
+* `actionIdentifier` 字符串 - 用户选择的操作的标识符字符串。
+* `date` 号 - 通知的递送日期。
+* `identifier` 字符串 - 此通知请求的唯一标识符。
+* `userInfo` 记录<String, any> - 与通知相关的自定义信息词典。
+* `userText` 字符串（可选） - 用户输入或选择的文本。
