@@ -127,10 +127,10 @@ const webdriverio = require('webdriverio')
 const options = format@@
   host: 'localhost', // 使用本地主机作为chrome驱动程序
   端口：9515, // "9515" 是由chrome驱动程序打开的端口。
-  desiredCapabilities: {
-    browserName: 'chrome',
-    'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+  所需的功能：+
+    浏览器名："铬"，
+    "goog：色度选项"：{
+      二进制："/路径到您的应用/电子"，//路径到您的电子二进制。
       args: [/* cli 参数 */] // 可选， 也许'app=' + /path/to/your/app/
     }
   }
