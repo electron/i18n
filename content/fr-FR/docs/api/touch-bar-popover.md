@@ -4,13 +4,13 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `new TouchBarPopover(options)`
+### `nouveau TouchBarPopover (options)`
 
-* `options` Object
+* `options` objet
   * `label` String (facultatif) - Texte du bouton popover.
   * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton popover.
-  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. La valeur par défaut est `true`.
+  * `items` [TouchBar](touch-bar.md) - Éléments à afficher dans le popover.
+  * `showCloseButton` Boolean (facultatif) - `true` pour afficher un bouton proche à gauche du popover, `false` de ne pas le montrer. La valeur par défaut est `true`.
 
 ### Propriétés d'instance
 
@@ -18,8 +18,8 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarPopov
 
 #### `touchBarPopover.label`
 
-A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
+Un `String` représentant le texte actuel du bouton du popover. Changer cette valeur met immédiatement à jour popover dans la barre tactile.
 
 #### `touchBarPopover.icon`
 
-A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
+Un `NativeImage` représentant l’icône de bouton actuelle du popover. Changer cette valeur met immédiatement à jour popover dans la barre tactile.
