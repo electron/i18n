@@ -34,7 +34,7 @@ const binding = process.electronBinding('app')
 
 ## `родный_родной`
 
-At present, answers to this question can be found in `native_mate`:  a fork of Chromium's [`gin` library](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) that makes it easier to marshal types between C++ and JavaScript.
+В настоящее время ответы на этот вопрос можно найти в `native_mate`: вилка библиотеки [`gin` Chromium](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) , что упрощает маршал типов между C и JavaScript.
 
 Внутри `native_mate/native_mate` есть заголовок и файл реализации для `object_template_builder`. Это позволяет нам формировать модули в родном коде, форма которых соответствует тому, что ожидают разработчики JavaScript.
 
