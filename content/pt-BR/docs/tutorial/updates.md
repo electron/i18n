@@ -98,11 +98,11 @@ Autoatualizador. n('update-downloaded', (event, releaseNotes, releaseName) => {
     botões: ['Reiniciar', 'Mais tarde'],
     título: 'Atualização de Aplicativo',
     mensagem: processo. latform === 'ganha32' ? releaseNotes : releaseName,
-    detail: 'Uma nova versão foi baixada. Restart the application to apply the updates.'
+    detail: 'Uma nova versão foi baixada. Reinicie o aplicativo para aplicar as atualizações.'
   }
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
+  dialog.showMessageBox (dialogOpts).então((returnValue) => {
+    se (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
 })
 ```
