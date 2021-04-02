@@ -11,13 +11,13 @@
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
   * `Unknown`
-* `serviceName` String (optional) - The non-localized name of the process.
+* `serviceName` String (по желанию) - не локализованное название процесса.
 * `name` String (опционально) - Название процесса. Например: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture` и т.д.
 * `cpu` [CPUUsage](cpu-usage.md) - использование CPU процессом.
 * `creationTime` Number - Время создания этого процесса. Время представлено как количество миллисекунд с начала эпохи. Поскольку `pid` можно повторно использовать после смерти процесса, полезно использовать `pid` и `creationTime` для уникальной идентификации процесса.
 * `memory` [MemoryInfo](memory-info.md) - информация о памяти для процесса.
 * `sandboxed` Boolean (опционально) _macOS_ _Windows_ - Является ли процесс песочницей на уровне ОС.
-* `integrityLevel` String (optional) _Windows_ - One of the following values:
+* `integrityLevel` Строка (по желанию) _Windows_ - Одно из следующих значений:
   * `ненадёжный`
   * `низкий`
   * `средний`
