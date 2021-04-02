@@ -1,5 +1,5 @@
 ---
-title: 'August 2016: New Apps'
+title: '2016 年 8 月：新应用'
 author: 吉尔福德
 date: '2016-09-06'
 ---
@@ -8,7 +8,7 @@ date: '2016-09-06'
 
 ---
 
-网站更新有新的 [应用程序](https://electronjs.org/apps) 和 [会面](https://electronjs.org/community) 通过 [从社区拉取请求](https://github.com/electron/electronjs.org/pulls)。 You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
+网站更新有新的 [应用程序](https://electronjs.org/apps) 和 [会面](https://electronjs.org/community) 通过 [从社区拉取请求](https://github.com/electron/electronjs.org/pulls)。 您可以 [观看存储库](https://github.com/electron/electronjs.org) 以获取新添加的通知，或者如果您对 _网站的所有更改_ 不感兴趣，请订阅 [博客 RSS 源](https://electronjs.org/feed.xml)。
 
 如果您已经制作了 Electron 应用程序或主办了一次会议 作出一个 [拉取请求](https://github.com/electron/electronjs.org) 以将其添加到站点，它将进行下一次整合。
 
