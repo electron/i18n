@@ -6,13 +6,13 @@ Proceso: [Main](../glossary.md#main-process)
 
 El módulo `globalShortcut` puede registrar o quitar un atajo del teclado global con el sistema operativo para que se puedan personalizar las operaciones para varios atajos.
 
-**Nota:** El atajo es global; funcionará incluso si la aplicación no tiene enfocado el teclado. This module cannot be used before the `ready` event of the app module is emitted.
+**Nota:** El atajo es global; funcionará incluso si la aplicación no tiene enfocado el teclado. Este módulo no se puede usar antes de que se emita el evento `ready` del módulo de la App.
 
 ```javascript
-const { app, globalShortcut } = require('electron')
+const { app, globalShortcut } = require (' Electron ')
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+app. whenReady (). then (() => {
+  //registrar una escucha de acceso directo ' CommandOrControl + X '.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
