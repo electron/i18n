@@ -8,20 +8,20 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
+* `options` (Objet | Chaîne) - Si `options` est une chaîne, elle est interprétée comme une URL de demande. S’il s’agit d’un objet, on s’attend à ce qu’il spécifie entièrement une demande HTTP via propriétés suivantes :
+  * `method` String (facultatif) - La méthode de demande HTTP. Par défaut à la méthode GET 'eau.
+  * `url` String (facultatif) - L’URL de demande. Doit être fourni dans la forme avec le schéma de protocole spécifié comme http ou https.
   * `session` Session (facultatif) - l'instance [`Session`](session.md) avec à laquelle la requête est associée.
-  * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. The `session` option supersedes `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Par défaut la valeur est `false`.
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
+  * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. L `session` option remplace `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
+  * `credentials` String (facultatif) - Peut être `include` ou `omit`. S’il ' [envoyer des informations d'](https://fetch.spec.whatwg.org/#credentials) avec cette demande. S’il est `include`, les informations d’identification de la session associée la demande seront utilisées. S’ils sont définis `omit`, les informations d’identification ne seront pas envoyées avec la demande (et l’événement `'login'` ne sera pas déclenché dans le cas d’un 401). Cela correspond au comportement du [chercher](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option du même nom. Si cette option n’est pas spécifiée, l’authentification données de la session seront envoyées, et les cookies ne seront pas envoyés (sauf si `useSessionCookies` est défini).
+  * `useSessionCookies` Boolean (facultatif) - S’il vous plaît envoyer des cookies avec demande de la session fournie. Si `credentials` spécifié, cette option 'a aucun effet. Par défaut la valeur est `false`.
+  * `protocol` String (facultatif) - Peut être `http:` ou `https:`. Le protocole régime dans la forme « régime: ». Par défaut à 'http:'.
   * `host` String (facultatif) - L'hôte du serveur fourni en concaténation de le nom d'hôte et le numéro de port 'hostname:port'.
   * `hostname` String (facultatif) - Le nom d'hôte du serveur.
   * `port` Integer (facultatif) - Le numéro de port d'écoute du serveur.
   * `path` String (facultatif) - La partie chemin de l'URL de la requête.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Par défaut, `follow`.
-  * `origin` String (optional) - The origin URL of the request.
+  * `redirect` String (facultatif) - Peut être `follow`, `error` ou `manual`. Le mode de redirection pour cette demande. Lorsque le mode est `error`, toute redirection être interrompue. Lorsque le mode est `manual` la redirection sera annulée à moins que [`request.followRedirect`](#requestfollowredirect) soit invoquée de façon synchrone pendant l' [`redirect`](#event-redirect) événement.  Par défaut, `follow`.
+  * `origin` String (facultatif) - L’URL d’origine de la demande.
 
 `options` propriétés telles que `protocole`, `host`, `hostname`, `port` et `path` suivent strictement le modèle Node.js comme décrit dans le module [URL](https://nodejs.org/api/url.html).
 
@@ -49,7 +49,7 @@ Retourne :
 
 Retourne :
 
-* `authInfo` Object
+* `authInfo` objet
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -92,7 +92,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Événement : 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Émis lorsque le `request` est avorté. Le `abort` événement ne sera pas déclenché si le `request` est déjà fermé.
 
 #### Événement : 'error'
 
@@ -134,17 +134,17 @@ L'utilisation de l'encodage chunked est fortement recommandée si vous avez beso
 
 Ajoute un en-tête HTTP supplémentaire. Le nom de l'en-tête sera publié tel quel sans minuscules. Il peut être appelé seulement avant d'écrire en premier. Appeler cette méthode après la première écriture lancera une erreur. Si la valeur passée n'est pas une `String`, sa méthode `toString()` sera appelée pour obtenir la valeur finale.
 
-Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+Certains en-têtes sont empêchés d’être définis par des applications. Ces en-têtes sont ci-dessous. Plus d’informations sur les en-têtes restreints peuvent être trouvés dans ['en-tête de Chromium](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
 
-* `Content-Length`
-* `Host`
-* `Trailer` or `Te`
-* `Upgrade`
-* `Cookie2`
-* `Keep-Alive`
-* `Transfer-Encoding`
+* `Longueur du contenu`
+* `Hôte`
+* `Trailer` ou `Te`
+* `Améliorer`
+* `Cookie2 (cookie2)`
+* `Garder en vie`
+* `Transfert-Encodage`
 
-Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
+En outre, le réglage `Connection` 'en-tête de la valeur `upgrade` est également refusé.
 
 #### `request.getHeader(name)`
 
@@ -156,12 +156,12 @@ Retourne `String` - La valeur d'un nom d'en-tête supplémentaire précédemment
 
 * `name` Chaîne - Spécifie un nom d'en-tête supplémentaire.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Supprime un nom d’en-tête supplémentaire précédemment défini. Cette méthode ne peut être appelée que avant la première écriture. Essayer de l’appeler après la première écriture va jeter une erreur.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
+* `chunk` (String | Tampon) - Une partie des données de l’organisme de demande. S’il s’agit chaîne, elle est convertie en tampon à l’aide de l’encodage spécifié.
+* `encoding` String (facultatif) - Utilisé pour convertir des morceaux de chaîne en tampon objets. Par défaut à 'utf-8'.
 * `callback` Fonction (facultatif) - Appelée après la fin de l'opération d'écriture.
 
 `callback` est essentiellement une fonction factice introduite dans le but de conserver la similarité avec l'API Node.js. Il est appelé de manière asynchrone dans le prochain tick après que le contenu `chunk` ait été livré à la couche de réseau Chromium. Contrairement à l'implémentation de Node.js, il n'est pas garanti que le contenu `chunk` ait été vidé sur le fil avant que `callback` ne soit appelé.
@@ -174,7 +174,7 @@ Ajoute un morceau de données au corps de la requête. La première opération d
 * `encoding` String (facultatif)
 * `callback` Function (facultatif)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Envoie le dernier morceau des données de demande. Les opérations ultérieures d’écriture ou de ne seront pas autorisées. L `finish` 'événement est émis juste après l’opération de fin.
 
 #### `request.abort()`
 
@@ -182,14 +182,14 @@ Annule une transaction HTTP en cours. Si la requête a déjà émis l'événemen
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+Continue toute redirection en attente. Ne peut être appelé que lors d' `'redirect'` événement.
 
 #### `request.getUploadProgress()`
 
 Retourne `Object`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `active` Boolean - Si la demande est actuellement active. Si c’est faux aucune autre propriété ne sera définie
+* `started` Boolean - Si le téléchargement a commencé. Si c’est faux à la fois `current` et `total` 'il sera réglé à 0.
 * `current` Integer - Le nombre d'octets qui ont été téléchargés jusqu'à présent
 * `total` Integer - Le nombre d'octets qui seront chargés dans cette requête
 
