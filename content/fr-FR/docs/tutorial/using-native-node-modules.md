@@ -1,6 +1,6 @@
 # Utiliser Modules Natifs de Node
 
-Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)][abi] from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Sinon, vous obtiendrez l'erreur de classe suivante lorsque vous essaierez d'exécuter votre application :
+Les modules Native Node.js sont pris en charge par Electron, mais comme Electron dispose d’une interface binaire d’application [différente (ABI)][abi] d’un nœud donné.js binaire (en raison de différences de telles que l’utilisation de BoringSSL chrome au lieu d’OpenSSL), les modules de natifs que vous utilisez devront être recompilés pour Electron. Sinon, vous obtiendrez l'erreur de classe suivante lorsque vous essaierez d'exécuter votre application :
 
 ```sh
 Erreur : Le module '/path/to/native/module.node'
@@ -16,21 +16,21 @@ Il y a plusieurs façons d'installer des modules natifs :
 
 ### Installation et compilation de modules pour Electron
 
-Vous pouvez choisir d'installer les modules comme les autres projets Node, puis recompiler les modules pour Electron avec le paquet [`electron-rebuild`][electron-rebuild]. Ce module peut automatiquement obtenir la version d'Electron et gérer les étapes manuelles de téléchargement des en-têtes, compiler les modules natifs pour votre application. If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
+Vous pouvez choisir d'installer les modules comme les autres projets Node, puis recompiler les modules pour Electron avec le paquet [`electron-rebuild`][electron-rebuild]. Ce module peut automatiquement obtenir la version d'Electron et gérer les étapes manuelles de téléchargement des en-têtes, compiler les modules natifs pour votre application. Si vous utilisez le [Electron Forge][electron-forge], cet outil est utilisé automatiquement pour mode de développement et lors de la fabrication de distributeurs.
 
-For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
+Par exemple, pour installer l’outil `electron-rebuild` autonome, puis reconstruire modules avec lui via la ligne de commande :
 
 ```sh
-npm install --save-dev electron-rebuild
+npm installer - enregistrer-dev électron-reconstruire
 
-# Every time you run "npm install", run this:
+# Chaque fois que vous exécutez « npm installer », exécuter ce:
 ./node_modules/.bin/electron-rebuild
 
-# If you have trouble on Windows, try:
+# Si vous avez des problèmes sur Windows, essayez:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools such as [Electron Packager][electron-packager], consult the project's README.
+Pour plus d’informations sur l’utilisation et l’intégration avec d’autres outils tels que [Electron Packager][electron-packager], consultez readme du projet.
 
 ### À l'aide de `npm`
 
@@ -111,15 +111,15 @@ Voir [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec
 
 [`prebuild`](https://github.com/prebuild/prebuild) permet de publier facilement des modules natifs Node avec des binaires précompilés pour plusieurs version de Node et d'Electron.
 
-If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Si le module alimenté par `prebuild`fournit des binaires pour l’utilisation d’Electron, assurez-vous d’omettre la `--build-from-source` et la variable de l’environnement `npm_config_build_from_source` afin de profiter pleinement des binaires préconstruits.
 
 ## Les modules s'appuyant sur `node-pre-gyp`
 
 [`node-pre-gyp` tool][node-pre-gyp] fournit un moyen de déployer des modules natifs Node avec des binaires précompilés, beaucoup de modules populaires l'utilisent.
 
-Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
+Parfois, ces modules fonctionnent très bien sous Electron, mais quand il n’y de binaires spécifiques aux électrons disponibles, vous devrez construire à partir de la source. Pour cette raison, il est recommandé d’utiliser `electron-rebuild` pour ces modules.
 
-If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Si vous suivez la `npm` d’installation de modules, vous devrez passer `--build-from-source` à `npm`, ou définir la variable `npm_config_build_from_source` 'environnement.
 
 [abi]: https://en.wikipedia.org/wiki/Application_binary_interface
 [electron-rebuild]: https://github.com/electron/electron-rebuild
