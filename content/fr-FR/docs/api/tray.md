@@ -7,19 +7,19 @@ Processus : [Main](../glossary.md#main-process)
 `Tray` est un [EventEmitter][event-emitter].
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } = require ('electron')
 
 let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+app.whenReady().then()=> { plateau
+  = nouveau plateau ('/path/to/my/icon')
+  const contextMenu = Menu.buildDeTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
-  tray.setContextMenu(contextMenu)
+  tray.setToolTip ('This is my application.')
+  tray.setContextMenu (contextMenu)
 })
 ```
 
@@ -29,24 +29,24 @@ __Limitations selon les plateformes :__
 * Sur les distributions Linux qui ont seulement le support de l'indicateur d'application, vous devrez installer `libappindicator1` pour faire fonctionner l'icône.
 * L'indicateur d'application sera affiché seulement lorsqu'il a un menu contextuel.
 * Lorsque l'indicateur d'application est utilisé sur Linux, l'événement `click` est ignoré.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Par exemple :
+* Sur Linux afin que les modifications apportées aux `MenuItem`individuels prennent effet, vous devez appeler `setContextMenu` nouveau. Par exemple :
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } = require ('electron')
 
 let appIcon = null
-app.whenReady().then(() => {
-  appIcon = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+app.whenReady().then()) => {
+  appIcon = new Tray ('/path/to/my/icon')
+  const contextMenu = Menu.buildFromTemplate(en anglais seulement) [
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
   ])
 
-  // Make a change to the context menu
+  // Apporter une modification au menu contexte
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
+  // Appelez-le à nouveau pour Linux parce que nous avons modifié le menu context
+  appIcon.setContextMenu (contextMenu)
 })
 ```
 
@@ -54,10 +54,10 @@ app.whenReady().then(() => {
 
 Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes, vous ne devriez pas vous appuyez sur l'événement `click` et toujours fixer un menu contextuel sur l'icône.
 
-### `new Tray(image, [guid])`
+### `nouveau Plateau (image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
-* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
+* `guid` String (facultatif) _Windows_ - Attribue un GUID à l’icône plateau. Si l’exécutable est signé et que la signature contient une organisation dans la ligne d’objet, le GUID est associé de façon permanente à cette signature. Les paramètres de niveau OS comme la position de l’icône de plateau dans le plateau système persisteront même si le chemin vers les modifications exécutables. Si l’exécuteur testamentaire n’est pas signé de code, le GUID est associé de façon permanente au chemin vers l’exécuteur testamentaire. Changer le chemin vers l’exécuteur testamentaire brisera la création de l’icône du plateau et un nouveau GUID doit être utilisé. Toutefois, il est fortement recommandé d’utiliser le paramètre GUID uniquement en conjonction avec le code signé exécutable. Si une application définit plusieurs icônes de plateau, chaque icône doit utiliser un GUID distinct.
 
 Créer une nouvelle icône dans la barre de notification avec l'`image`.
 
@@ -139,25 +139,25 @@ Retourne :
 
 Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
 
-#### Event: 'mouse-up' _macOS_
+#### Evénement: 'mouse-up' _macOS_
 
 Retourne :
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
-Emitted when the mouse is released from clicking the tray icon.
+Émis lorsque la souris est libérée en cliquant sur l’icône du plateau.
 
-Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+Remarque : Cela ne sera pas émis si vous avez défini un menu context pour votre plateau à l’aide de `tray.setContextMenu`, en raison de contraintes au niveau macOS.
 
-#### Event: 'mouse-down' _macOS_
+#### Evénement: 'mouse-down' _macOS_
 
 Retourne :
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
-Emitted when the mouse clicks the tray icon.
+Émis lorsque la souris clique sur l’icône du plateau.
 
 #### Événement : 'mouse-enter' _macOS_
 
@@ -215,8 +215,8 @@ Définit le texte au survol pour l'icône.
 #### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
-* `options` Object (optional)
-  * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
+* `options` objet (facultatif)
+  * `fontType` String (facultatif) - La variante de la famille de polices à afficher, peut être `monospaced` ou `monospacedDigit`. `monospaced` est disponible en macOS 10.15+ et `monospacedDigit` est disponible en macOS 10.11+.  Lorsqu’il est laissé vide, le titre utilise la police système par défaut.
 
 Définit le titre affiché à côté de l'icône de la barre d'état dans la barre d'état (couleurs support ANSI).
 
@@ -228,7 +228,7 @@ Retourne `String` - le titre affiché à côté de l'icône de la barre d'état
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Définit la possibilité d’ignorer les événements à double clic. Ignorer ces événements vous permet de détecter chaque clic individuel de l’icône du plateau.
 
 Cette valeur est définie à <0>false</0> par défaut.
 
@@ -238,37 +238,37 @@ Retourne un `Boolean` - Si oui ou non les événènements de double clic seront 
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+* `options` objet
+  * `icon` ([NativeImage](native-image.md) | Chaîne) (facultatif) - Icône à utiliser lorsque `iconType` est `custom`.
+  * `iconType` String (facultatif) - Peut être `none`, `info`, `warning`, `error` ou `custom`. Par défaut est `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. La valeur par défaut est `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
-  * `noSound` Boolean (optional) - Do not play the associated sound. Par défaut la valeur est `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Par défaut la valeur est `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
+  * `largeIcon` Boolean (facultatif) - La grande version de l’icône doit être utilisée. La valeur par défaut est `true`. Cartes à [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (facultatif) - Ne jouez pas le son associé. Par défaut la valeur est `false`. Cartes à [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (facultatif) - N’affichez pas la notification ballon si l’utilisateur actuel est en « temps calme ». Par défaut la valeur est `false`. Cartes à [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Affiche une bulle dans la barre d'État.
 
 #### `tray.removeBalloon()` _Windows_
 
-Removes a tray balloon.
+Enlève un ballon de plateau.
 
 #### `tray.focus()` _Windows_
 
-Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
+Les retours se concentrent sur la zone de notification de la barre des tâches. Les icônes de zone de notification doivent utiliser ce message lorsqu’elles ont terminé leur opération d’interface utilisateur. Par exemple, si l’icône affiche un menu raccourci, mais que l’utilisateur appuie sur ESC pour l’annuler, utilisez `tray.focus()` pour retourner la mise au point vers la zone de notification.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (facultatif)
 * `position` [Point](structures/point.md) (facultatif) - Position du menu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Apparaît le menu contexturé de l’icône plateau. Lorsque `menu` est passé, le `menu` sera au lieu du menu contextur de l’icône du plateau.
 
 La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
 
 #### `tray.closeContextMenu()` _macOS_ _Windows_
 
-Closes an open context menu, as set by `tray.setContextMenu()`.
+Ferme un menu context ouvert, tel qu’il est défini par `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 
