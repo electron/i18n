@@ -92,19 +92,19 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 })
 
 // 检查用户是否允许当前app启用应用内购买功能.
-if (!inAppPurchase.canMakePayments()) {
-  console.log('The user is not allowed to make in-app purchase.')
-}
+如果（！在App购买中。可以进行付款）{
+  控制台.log（"用户不允许进行应用内购买。
+•
 
-// Retrieve and display the product descriptions.
+//检索并显示产品说明。
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // 检查参数.
-  if (!Array.isArray(products) || products.length <= 0) {
-    console.log('Unable to retrieve the product informations.')
-    return
-  }
+  如果（！阵列.isarray（产品）||产品。长度 <=0）^
+    控制台.log（"无法检索产品信息"。
+    返回
+  =
 
-  // Display the name and price of each product.
+  //显示每个产品的名称和价格。
   products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
@@ -114,13 +114,13 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   选定数量= 1
 
   // 购买选定的产品
-  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
-    if (!isProductValid) {
-      console.log('The product is not valid.')
-      return
-    }
+  在AppPurchase.购买产品（选定的产品.产品标识符，选择数量）。然后（是产品验证=> {
+    如果（！是产品无效）{
+      控制台.log（"产品无效。
+      退货
+    =
 
-    console.log('The payment has been added to the payment queue.')
+    控制台.log（"付款已添加到付款队列中。
   })
 })
 ```
