@@ -61,8 +61,8 @@ Electron
 |   |   ├── api/ - L'implementation des principales API de processus.
 |   |   ├── net/ - Code lié au réseau.
 |   |   ├── mac/ - Code Source Objective-C spécifique à MacOS.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
+|   |   ン-― ressources/ - Icônes, fichiers dépendant de la plate-forme, etc.
+|   ン-― renderer/ - Code qui s’exécute dans le processus de rendu.
 |   |   └── api/ - L'implementation des API de processus de rendu.
 | <unk> ─ common/ - Code qui est utilisé à la fois par les processus principaux et les processus de rendu,
 | | y compris quelques fonctions utilitaires et du code pour intégrer les nœuds
@@ -94,7 +94,7 @@ script/ - L'ensemble de tous les scripts que Electron exécute pour une variét�
     <unk> ─ ─ uploaders/ - Envoie divers fichiers liés à la version pendant la sortie.
 ```
 
-* **tools** - Helper scripts used by GN files.
+* **outils** - Scripts d’aide utilisés par les fichiers GN.
   * Les scripts mis ici ne devraient jamais être invoqués par les utilisateurs directement, contrairement à ceux de `script`.
 * **typings** - Types TypeScript pour le code interne d'Electron.
-* **vendor** - Source code for some third party dependencies.
+* **fournisseur** - Code source pour certaines dépendances de tiers.
