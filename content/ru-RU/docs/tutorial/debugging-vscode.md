@@ -40,11 +40,11 @@ $ code electron-quick-start
 
 Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## Отладка кодовой базы Electron
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+Если вы хотите построить Electron из источника и изменить родную кодовую базу Electron, этот раздел поможет вам в тестировании ваших модификаций.
 
-For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
+Для тех, кто не знает, где приобрести этот код или как его построить, [Electron's Build Tools](https://github.com/electron/build-tools) автоматизирует и объясняет большую часть этого процесса. Если вы хотите настроить среду вручную, вместо этого можно использовать эти [инструкции](https://www.electronjs.org/docs/development/build-instructions-gn).
 
 ### Windows (C++)
 
@@ -86,12 +86,12 @@ $ code electron-quick-start
 **Примечание о настройке**
 
 * `cppvsdbg` требует включённого [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
-* `${workspaceFolder}` is the full path to Chromium's `src` directory.
+* `${workspaceFolder}` – это полный путь к каталогу `src` Хрома.
 * `ваше исполняемое местоположение` будет одним из следующих в зависимости от нескольких элементов:
-  * `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
-  * `Release`: If you built a Release build rather than a Testing build.
-  * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
-* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. В этом примере должен быть ваш путь к `electron-quick-start`.
+  * `Testing`: Если вы используете настройки по умолчанию [Electron's Build-Tools](https://github.com/electron/build-tools) или инструкции по умолчанию при [из исходных](https://www.electronjs.org/docs/development/build-instructions-gn#building).
+  * `Release`: Если вы построили сборку выпуска, а не сборку тестирования.
+  * `your-directory-name`: Если вы изменили это во время процесса сборки по умолчанию, это будет все, что вы указали.
+* Строка `args` массива `"your-electron-project-path"` должна быть абсолютным путем к каталогу или `main.js` файла проекта Electron, который вы используете для тестирования. В этом примере должен быть ваш путь к `electron-quick-start`.
 
 #### 3. Отладка
 
