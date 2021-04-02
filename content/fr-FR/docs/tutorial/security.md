@@ -142,7 +142,7 @@ L'isolement du contexte est une fonctionnalité d'Electron qui permet aux dével
 
 L'électron utilise la même technologie que le chrome [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) pour permettre ce comportement.
 
-Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
+Même lorsque `nodeIntegration: false` est utilisé, pour vraiment faire respecter les d’isolement forte et empêcher l’utilisation de primitives nœuds `contextIsolation` **doivent** également être utilisés.
 
 ### Pourquoi & Comment ?
 
@@ -432,20 +432,20 @@ Si vous n'avez pas besoin de créer des fenêtres en plus de celles que vous sav
 
 ### Comment ?
 
-[`webContents`][web-contents] will delegate to its [window open handler][window-open-handler] before creating new windows. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`][web-contents] déléguera à [fenêtre ouverte gestionnaire][window-open-handler] créer de nouvelles fenêtres. Le gestionnaire recevra , entre autres paramètres, le `url` la fenêtre a été demandé d’ouvrir et les options utilisées pour le créer. Nous vous recommandons d’enregistrer un gestionnaire pour surveiller la création de fenêtres, et de refuser toute création de fenêtre inattendue.
 
 ```js
-const { shell } = require('electron')
+const { shell } = require ('electron')
 
-app.on('web-contents-created', (event, contents) => {
-  contents.setWindowOpenHandler(({ url }) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
-    //
-    // See the following item for considerations regarding what
-    // URLs should be allowed through to shell.openExternal.
+app.on ('web-content-created', (event, content) => {
+  contents.setWindowOpenHandler (({ url }) => {
+    // Dans cet exemple, nous demanderons au système d’exploitation
+    // d’ouvrir l’url de cet événement dans le navigateur par défaut.
+    
+    // Voir l’élément suivant pour des considérations concernant ce
+    // URL devraient être autorisés à travers shell.openExternal.
     if (isSafeForExternalOpen(url)) {
-      setImmediate(() => {
+      setImmediate (() => {
         shell.openExternal(url)
       })
     }
@@ -485,7 +485,7 @@ Vous devriez toujours vous efforcer d'utiliser la dernière version disponible d
 
 Une application construite avec une ancienne version d'Electron, de Chromium ou de Node.js est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composants. De manière générale, les problèmes de sécurité et les exploitation de failles pour les anciennes versions de Chromium et de Node.js sont plus fréquentes.
 
-Chromium et Node.js représentent des prouesses impressionnantes d'ingénierie produites par des milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node.js) dont les problèmes de sécurité potentiels ne sont pas aussi connus.
+Chromium et Node.js représentent des prouesses impressionnantes d'ingénierie produites par des milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Bon nombre de ces chercheurs [révèlent des vulnérabilités de façon responsable][responsible-disclosure], ce qui signifie généralement que les chercheurs donneront chrome et nœud.js un certain temps pour résoudre les problèmes avant de les publier. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node.js) dont les problèmes de sécurité potentiels ne sont pas aussi connus.
 
 [browser-window]: ../api/browser-window.md
 
