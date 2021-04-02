@@ -4,12 +4,12 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-### `new TouchBarColorPicker(options)`
+### `nuevo TouchBarColorPicker (opciones)`
 
 * `options` Object
   * `Colores disponibles` Cadena[] (opcional) - arreglo de códigos hexadecimales de los colores a aparecer como colores posibles a seleccionar.
   * `Color seleccionado` Cadena (opcional) - El código de color hexadecimal en el seleccionador, ejemplo `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected.
+  * Función de `change` (opcional)-función a la que se llama cuando se selecciona un color.
     * `color` Cadena - El color que el usuario seleccionó de entre las opciones.
 
 ### Propiedades de Instancia
@@ -18,8 +18,8 @@ Las siguientes propiedades están disponibles en instancias de `Seleccionador de
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Un `String[]` array que representa los colores disponibles del selector de color para seleccionar. Si cambias este valor de inmediato actualiza el selector de color en la Touch bar.
 
 #### `touchBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+Un `String` código hexadecimal que representa el color seleccionado actualmente en el selector de color. Si cambias este valor de inmediato actualiza el selector de color en la Touch bar.
