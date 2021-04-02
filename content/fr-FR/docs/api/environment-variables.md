@@ -51,45 +51,60 @@ Les `NODE_OPTIONS` sont strictement interdites dans les applications compilées 
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+La prise en charge de la géolocalisation dans Electron nécessite l’utilisation du service Web de géolocalisation de Google Cloud Platform. Pour activer cette fonctionnalité, acquérez une</a> de clé
+
+Google API et placez le code suivant dans votre fichier de processus principal, avant d’ouvrir toutes les fenêtres du navigateur qui feront des demandes de géolocalisation :</p> 
+
+
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'VOTRE_CLE_ICI'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
 
-N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
+Par défaut, une clé API Google nouvellement générée peut ne pas être autorisée à faire des demandes de géolocalisation. Pour activer le service Web de géolocalisation de votre projet, activez-le à travers la bibliothèque ['API](https://console.cloud.google.com/apis/library).
+
+N.b. Vous devrez ajouter une [de facturation](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) au projet associé à la clé API pour que le service Web de géolocalisation fonctionne.
+
+
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Désactive le support ASAR. Cette variable n’est prise en charge que dans les processus des enfants fourchus processus d’enfant et engendrés qui `ELECTRON_RUN_AS_NODE`.
+
+
 
 ### `ELECTRON_RUN_AS_NODE`
 
 Démarre le processus comme un processus normal de Node.js.
 
-In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+Dans ce mode, vous serez en mesure de passer [options cli](https://nodejs.org/api/cli.html) à nœud.js comme vous le feriez lors de l’exécution du nœud normal.js exécutable, à l’exception des drapeaux suivants:
 
-* "--openssl-config"
-* "--use-bundled-ca"
-* "--use-openssl-ca",
-* "--force-fips"
-* "--enable-fips"
+* « --openssl-config »
+* « --utilisation-bundled-ca »
+* « --use-openssl-ca »,
+* « -force-fips »
+* « --enable-fips »
 
-These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+Ces drapeaux sont désactivés en raison du fait qu’Electron utilise BoringSSL au lieu d.js’OpenSSL lors de la construction du module `crypto` de nœud, et ne fonctionnera donc pas comme prévu.
+
+
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
 Ne s'attache pas la session courante de la console.
 
+
+
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
 N'utilise pas la bar de menu global sur Linux.
 
+
+
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. Default is `gio`.
+Réglez la mise en œuvre des déchets sur Linux. Par défaut est `gio`.
 
 Options :
 
@@ -98,17 +113,25 @@ Options :
 * `kioclient5`
 * `kioclient`
 
+
+
 ## Variables de développement
 
 Les variables d'environnement suivantes sont destinés principalement pour le développement et le débogage.
+
+
 
 ### `ELECTRON_ENABLE_LOGGING`
 
 Affiche les logs interne de Chrome sur la console.
 
+
+
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Lorsque Electron lit à partir d’un fichier ASAR, enregistrez le décalage lu et le chemin de fichier pour le système `tmpdir`. Le fichier qui en résulte peut être fourni au module ASAR optimiser la commande de fichiers.
+
+
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -116,24 +139,35 @@ Affiche la stack trace sur la console lorsqu'Electron plante.
 
 Cette variable d'environnement ne fonctionnera pas si vous avez démarré `crashReporter`.
 
+
+
 ### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
 Affiche la boite de dialogue de plantage lorsqu'Electron plante.
 
 Cette variable d'environnement ne fonctionnera pas si vous avez démarré `crashReporter`.
 
+
+
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
 Quand lancée depuis le paquet `electron` , cette variable dit à la commande d'`electron` d'utiliser la version spécifiée au lieu de celle intallée avec `npm install`. Utilisation:
 
+
+
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
+exportation ELECTRON_OVERRIDE_DIST_PATH=/Utilisateurs/nom d’utilisateur/projets/électron/out/Testing
 ```
 
-## Set By Electron
 
-Electron sets some variables in your environment at runtime.
+
+
+## Défini par Electron
+
+Electron définit certaines variables dans votre environnement au moment de l’exécution.
+
+
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
-This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.
+Cette variable est définie en fonction de la valeur des `XDG_CURRENT_DESKTOP` votre application a été à l’origine.  Electron modifie parfois la valeur de `XDG_CURRENT_DESKTOP` pour affecter d’autres logiques dans chrome donc si vous voulez accéder à la valeur</em> d’origine _ vous devriez rechercher cette variable de l’environnement à la place.</p>
