@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+No Linux, há também uma `selection` área de transferência. Para manipulá-lo você precisa passar `selection` para cada método:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,111 +17,111 @@ console.log(clipboard.readText('selection'))
 
 O módulo `clipboard` possui os seguintes métodos:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** APIs experimentais são marcadas como tal e podem ser removidas no futuro.
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Retorna `String` - o conteúdo da área de transferência como texto sem formatação.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
-clipboard.writeText('hello i am a bit of text!')
+prancheta.writeText('Olá eu sou um pouco de texto!')
 
-const text = clipboard.readText()
-console.log(text)
-// hello i am a bit of text!'
+texto const = clipboard.readText() console
+.log(texto)
+// Olá eu sou um pouco de texto!'
 ```
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Escreve o `text` na área de transferência como texto sem formatação.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
-const text = 'hello i am a bit of text!'
-clipboard.writeText(text)
+texto const = 'Olá eu sou um pouco de texto!'
+prancheta.writeText(texto)
 ```
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Retorna `String` - o conteúdo da área de transferência como marcação.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
-clipboard.writeHTML('<b>Hi</b>')
-const html = clipboard.readHTML()
+prancheta.writeHTML('<b>Hi</b>')
+const html = clipboard.readHTML() console
 
-console.log(html)
+.log(html)
 // <meta charset='utf-8'><b>Hi</b>
 ```
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Escreve `markup` na área de transferência.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = requer ('elétron')
 
-clipboard.writeHTML('<b>Hi</b')
+prancheta.writeHTML('<b>Hi</b')
 ```
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Retorna [`Nativeimage`](native-image.md) - o conteúdo da imagem na área de transferência.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Escreve `image` na área de transferência.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Retorna `String` - o conteúdo da área de transferência como RTF.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
-clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+prancheta.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;} \\f0\\pard\nEste é algum texto {\\\b negrito}\n}')
 
-const rtf = clipboard.readRTF()
+const rtf = área de transferência.readRTF()
 console.log(rtf)
-// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+// {\\rtf1\\ansi{\\fonttbl\\f0\\fswis Helvetica;} \\f0\\pard\nEste é algum texto {\\b negrito}.\\par\n}
 ```
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Escreve o `text` na área de transferência em RTF.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
-const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
-clipboard.writeRTF(rtf)
+const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;} \\f0\\pard\nEste é algum texto {\\b negrito}.\\par\n}'
+área de transferência.writeRTF(rtf)
 ```
 
-### `clipboard.readBookmark()` _macOS_ _Windows_
+### `clipboard.readBookmark()` __ __do MacOS
 
 Retorna `Object`:
 
@@ -130,142 +130,142 @@ Retorna `Object`:
 
 Retorna um Objeto que contém as chaves `title` e `url` representando o bookmark na área de transferência. Os valores de `title` e `url` serão strings vazias quando o bookmark estiver indisponível.
 
-### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
+### `clipboard.writeBookmark(title, url[, type])` __ __do MacOS
 
 * `title` String
 * String `url`
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
 Escreve o `title` e o `url` na área de transferência como um bookmark.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Nota:** A maioria dos aplicativos no Windows não suportam marcar marcadores colados neles para você pode usar `clipboard.write` para escrever um marcador e um texto de recuo na área de transferência .
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
 clipboard.writeBookmark({
-  text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+  texto: 'https://electronjs.org',
+  marcador: 'Página inicial de elétrons'
 })
 ```
 
-### `clipboard.readFindText()` _macOS_
+### `clipboard.readFindText()` __macOS
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+Devoluções `String` - O texto no quadro de dados find, que é o quadro de dados que contém informações sobre o estado atual do painel de achados do aplicativo ativo.
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Este método usa IPC síncrocro quando chamado do processo renderizador. O valor armazenado em cache é relido a partir do quadro de dados de achados sempre que o aplicativo é ativado.
 
-### `clipboard.writeFindText(text)` _macOS_
+### `clipboard.writeFindText(text)` __macOS
 
 * `text` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+A `text` no quadro de dados de achados (o quadro de dados que contém informações sobre o estado atual do painel de achados do aplicativo ativo) como texto simples. Este método usa IPC síncrocro quando chamado do processo renderizador.
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
-Clears the clipboard content.
+Limpa o conteúdo da prancheta.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Retornos `String[]` - Uma série de formatos suportados para a `type`da área de transferência .
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = exigir ('elétron')
 
-const formats = clipboard.availableFormats()
-console.log(formats)
+formatos de const = área de transferência.availableFormats()
+console.log(formatos)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### </em>Experimental `clipboard.has(format[, type])` _</h3>
 
-* `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `format` Cordas
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Devolução `Boolean` - Se a área de transferência suporta o `format`especificado .
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
-const hasFormat = clipboard.has('<p>selection</p>')
+const hasFormat = prancheta.has('<p>seleção</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' ou 'falso'
 ```
 
-### `clipboard.read(format)` _Experimental_
+### </em>Experimental `clipboard.read(format)` _</h3>
 
-* `format` String
+* `format` Cordas
 
-Returns `String` - Reads `format` type from the clipboard.
+Devoluções `String` - Lê `format` tipo da prancheta.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### </em>Experimental `clipboard.readBuffer(format)` _</h3>
 
-* `format` String
+* `format` Cordas
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Devoluções `Buffer` - Lê `format` tipo da prancheta.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = requer ('elétron')
 
-const buffer = Buffer.from('this is binary', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+tampão de const = Buffer.from ('isso é binário', 'utf8')
+prancheta.writeBuffer ('public.utf8-plain-text', buffer)
 
-const ret = clipboard.readBuffer('public.utf8-plain-text')
+const ret = clipboard.readBuffer ('public.utf8-plain-text')
 
 console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### </em>Experimental `clipboard.writeBuffer(format, buffer[, type])` _</h3>
 
-* `format` String
+* `format` Cordas
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
-Writes the `buffer` into the clipboard as `format`.
+Escreve o `buffer` na prancheta como `format`.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
-const buffer = Buffer.from('writeBuffer', 'utf8')
+tampão de const = Buffer.from ('writeBuffer', 'utf8')
 clipboard.writeBuffer('public.utf8-plain-text', buffer)
 ```
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* objeto `data`
+  * `text` String (opcional)
+  * `html` String (opcional)
+  * `image` [NativeImage](native-image.md) (opcional)
+  * `rtf` String (opcional)
+  * `bookmark` String (opcional) - O título da URL em `text`.
+* `type` String (opcional) - Pode ser `selection` ou `clipboard`; padrão é 'prancheta'. `selection` só está disponível no Linux.
 
-Writes `data` to the clipboard.
+Escreve `data` para a prancheta.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require ('electron')
 
 clipboard.write({
-  text: 'test',
+  texto: 'teste',
   html: '<b>Hi</b>',
   rtf: '{\\rtf1\\utf8 text}',
-  bookmark: 'a title'
+  marcador: 'um título'
 })
 
-console.log(clipboard.readText())
-// 'test'
+console.log(prancheta.readText())
+// 'teste'
 
-console.log(clipboard.readHTML())
-// <meta charset='utf-8'><b>Hi</b>
+\rconsole .log(clipboard.readHTML())
+// <meta charset='utf-8'><b>Console Hi</b>
 
-console.log(clipboard.readRTF())
-// '{\\rtf1\\utf8 text}'
+.log(clipboard.readRTF())
+// '{\  tf1\\utf8 text}' console
 
-console.log(clipboard.readBookmark())
+.log(clipboard.readBookmark())
 // { title: 'a title', url: 'test' }
 ```
