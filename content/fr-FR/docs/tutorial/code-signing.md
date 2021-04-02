@@ -60,8 +60,8 @@ Regardons un exemple de configuration comportant tous les champs obligatoires. T
 Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivantes pour certifier aux mécanismes de sécurité d'Apple que votre application agit sans risque :
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<version ?xml="1.0 » encodage="UTF-8 »?>
+<! DOCTYPE plist PUBLIC « -//Apple//DTD PLIST 1.0//FR » « http://www.apple.com/DTDs/PropertyList-1.0.dtd »>
 <plist version="1.0">
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
@@ -127,8 +127,8 @@ packager({
 Le fichier `plist` référencé ici a besoin des habilitations spécifiques à macOS suivantes pour certifier aux mécanismes de sécurité d'Apple que votre application agit sans risque :
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<version ?xml="1.0 » encodage="UTF-8 »?>
+<! DOCTYPE plist PUBLIC « -//Apple//DTD PLIST 1.0//FR » « http://www.apple.com/DTDs/PropertyList-1.0.dtd »>
 <plist version="1.0">
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
@@ -143,7 +143,7 @@ Le fichier `plist` référencé ici a besoin des habilitations spécifiques à m
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+Consultez le guide [Mac App Store][].
 
 # Signature des versions Windows
 
@@ -163,11 +163,11 @@ Il existe un certain nombre d’outils pour la signature de votre application em
 
 * [`electron-winstaller`][] va générer un installateur pour les fenêtres et le signer pour vous
 * [`electron-forge`][] peut signer les installateurs qu'il génère à travers les cibles Squirrel.Windows ou MSI.
-* [`electron-builder`][] can sign some of its windows targets
+* [`electron-builder`][] pouvez signer certaines de ses cibles windows
 
 ## Windows Store
 
-See the [Windows Store Guide][].
+Voir le guide [Windows Store][].
 
 [Programme de Développeurs Apple]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
@@ -178,5 +178,5 @@ See the [Windows Store Guide][].
 [`electron-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
 [des certificats de signature]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
-[Mac App Store Guide]: mac-app-store-submission-guide.md
-[Windows Store Guide]: windows-store-guide.md
+[Mac App Store]: mac-app-store-submission-guide.md
+[Windows Store]: windows-store-guide.md
