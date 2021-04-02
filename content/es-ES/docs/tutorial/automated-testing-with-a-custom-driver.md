@@ -85,31 +85,31 @@ En la aplicación, necesitará escribir un manejador sencillo para las llamadas 
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
-  process.on('message', onMessage)
+  Process. on (' Message ', onMessage)
 }
 
-async function onMessage ({ msgId, cmd, args }) {
-  let method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
+función asincrónica onMessage ({ msgId, cmd, args }) {
+  Let Method = METHODS[cmd]
+  if (! Method) Method = () => nuevo error (' método inválido: ' + cmd)
   try {
-    const resolve = await method(...args)
-    process.send({ msgId, resolve })
-  } catch (err) {
-    const reject = {
+    const Resolve = Await (método) (... args)
+    Process. Send ({ msgId, resolve })
+  } catch (ERR) {
+    const Reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
     }
-    process.send({ msgId, reject })
+    Process. Send ({ msgId, reject })
   }
 }
 
-const METHODS = {
+métodos const = {
   isReady () {
-    // do any setup needed
-    return true
+    //hacer cualquier configuración necesaria
+    devuelve true
   }
-  // define your RPC-able methods here
+  //definir tus métodos RPC-able aquí
 }
 ```
 
