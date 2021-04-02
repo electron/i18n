@@ -2,13 +2,13 @@
 
 ## Übersicht
 
-On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+In vielen Linux-Umgebungen können Sie dem Systemstarter benutzerdefinierte Einträge hinzufügen, indem Sie die `.desktop` -Datei ändern. Informationen zur Unity-Dokumentation von Canonical finden Sie unter [Hinzufügen von Verknüpfungen zu einem Launcher-][unity-launcher]. Weitere Informationen zu einer allgemeineren -Implementierung finden Sie in der [freedesktop.org Spezifikation][spec].
 
 ![audacious][3]
 
-> NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
+> HINWEIS: Der Screenshot oben ist ein Beispiel für Launcher-Shortcuts in Audacious Audio-Player
 
-To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
+Zum Erstellen einer Verknüpfung müssen Sie `Name` und `Exec` Eigenschaften für den Eintrag bereitstellen, den Sie dem Kontextmenü hinzufügen möchten. Unity führt den Befehl aus, der im Feld `Exec` definiert ist, nachdem der Benutzer auf das Kontextmenüelement geklickt hat. Ein Beispiel für die `.desktop` Datei kann wie folgt aussehen:
 
 ```plaintext
 Aktionen=PlayPause;Weiter;Vorheriges
@@ -29,7 +29,7 @@ Exec=audacious -r
 OnlyShowIn=Einheit,
 ```
 
-The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.
+Die bevorzugte Methode für Unity, Ihre Anwendung darüber anzuweisen, was zu tun ist, ist die Verwendung Parameter. Sie finden sie in Ihrer Anwendung in der globalen Variable `process.argv`.
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 
