@@ -1,62 +1,81 @@
 # Testando
 
-We aim to keep the code coverage of Electron high. We ask that all pull request not only pass all existing tests, but ideally also add new tests to cover changed code and new scenarios. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
+Nosso objetivo é manter a cobertura de código de Elétrons alta. Pedimos que todos os puxem solicitação não só passar em todos os testes existentes, mas também adicionar novos testes para cobrir código alterado e novos cenários. Garantir que capturamos muitos caminhos de código e usarmos casos de Electron o mais possível garante que todos os aplicativos de envio com menos bugs.
 
-This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
+Este repositório vem com regras de lint de linting tanto para JavaScript quanto C++ – bem como testes de unidade e integração. Para saber mais sobre o estilo de codificação da Electron, consulte o documento</a> estilo
+de codificação.</p> 
+
+
 
 ## Linting
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons][standard-addons] to be informed of coding style violations before you ever commit them.
+Para garantir que seu JavaScript esteja em conformidade com o estilo de de codificação Eletrônica, execute `npm run lint-js`, que será executado `standard` contra o próprio Electron, bem como os testes da unidade. Se você estiver usando um editor com um sistema plugin/addon, você pode querer usar um dos muitos addons [StandardJS][standard-addons] ser informado sobre violações de estilo de codificação antes de cometê-los.
 
-To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
+Para executar `standard` com parâmetros, execute `npm run lint-js --` seguido de argumentos que você quer passado para `standard`.
 
-To ensure that your C++ is in compliance with the Electron coding style, run `npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+Para garantir que seu C++ esteja em conformidade com o estilo de codificação Electron, executar `npm run lint-cpp`, que executa um script `cpplint` . Recomendamos que você use `clang-format` e prepare [um pequeno tutorial](clang-format.md).
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+Não há muito Python neste repositório, mas ele também é governado por regras de estilo de codificação. `npm run lint-py` verificará todas as Python, usando `pylint` para fazê-lo.
+
+
 
 ## Testes Unitários
 
-If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+Se você não estiver usando [](https://github.com/electron/build-tools)de ferramentas de compilação, garantir que esse nome configurado para sua construção local de Electron seja um dos `Testing`, `Release`, `Default`, `Debug`ou que você tenha definido `process.env.ELECTRON_OUT_DIR`. Sem este conjunto, a Electron falhará para realizar algumas etapas de pré-teste.
 
-Para executar todos os testes unitários, execute: `npm run test`. Em uma aplicação Electron os testes podem ser encontrados na pasta `spec`. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+Para executar todos os testes unitários, execute: `npm run test`. Em uma aplicação Electron os testes podem ser encontrados na pasta `spec`. Note-se que sua própria `package.json` e que suas dependências não são, portanto, definidas no `package.json`de alto nível .
 
-To run only specific tests matching a pattern, run `npm run test --
--g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
+Para executar apenas testes específicos que correspondam a um padrão, execute `teste de execução npm -
+-g=PADRÃO`, substituindo o `PATTERN` por um regex que corresponda aos testes que você gostaria de executar. Como exemplo: Se você quiser executar apenas testes de IPC, você seria executado `npm run test -- -g ipc`.
 
-### Testing on Windows 10 devices
 
-#### Extra steps to run the unit test:
 
-1. Visual Studio 2019 must be installed.
-2. Node headers have to be compiled for your configuration.
+### Testes em dispositivos Windows 10
+
+
+
+#### Etapas extras para executar o teste da unidade:
+
+1. O Visual Studio 2019 deve ser instalado.
+2. Os cabeçalhos de nó devem ser compilados para sua configuração. 
+   
+   
 
    ```powershell
    ninja -C out\Testing third_party\electron_node:headers
    ```
 
-3. The electron.lib has to be copied as node.lib.
+
+3. O elétron.lib tem que ser copiado como nó.lib. 
+   
+   
 
    ```powershell
    cd out\Testing
    mkdir gen\node_headers\Release
-   copy electron.lib gen\node_headers\Release\node.lib
+   copiar electron.lib gen\node_headers\Release\node.lib
    ```
 
-#### Missing fonts
 
-[Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
 
-1. Push the Windows key and search for _Manage optional features_.
-2. Click _Add a feature_.
-3. Select _Japanese Supplemental Fonts_ and click _Install_.
 
-#### Pixel measurements
+#### Fontes faltantes
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+[Alguns dispositivos do Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) não são enviados com a fonte Meiryo instalada, o que pode causar uma falha no teste de recuo da fonte. Para instalar o Meiryo:
 
-To configure display scaling:
+1. Empurre a tecla Windows e procure _Gerenciar recursos opcionais_.
+2. Clique em _Adicione um recurso_.
+3. Selecione __ de fontes suplementares japonesas e clique em _Instalar_.
 
-1. Push the Windows key and search for _Display settings_.
-2. Under _Scale and layout_, make sure that the device is set to 100%.
+
+
+#### Medições de pixels
+
+Alguns testes que dependem de medições precisas de pixels podem não funcionar corretamente em dispositivos com configurações de tela Hi-DPI devido a erros de precisão de ponto flutuante. Para executar esses testes corretamente, certifique-se de que o dispositivo está definido como 100% de escala.
+
+Para configurar o dimensionamento do display:
+
+1. Empurre a tecla Do Windows e procure _configurações de exibição_.
+2. Sob _Escala e_de layout, certifique-se de que o dispositivo está definido para 100%.
 
 [standard-addons]: https://standardjs.com/#are-there-text-editor-plugins
