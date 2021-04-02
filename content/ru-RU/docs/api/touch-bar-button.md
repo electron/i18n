@@ -1,29 +1,29 @@
-## Class: TouchBarButton
+## Класс: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Создайте кнопку в сенсорной панели для родных приложений macOS
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `new TouchBarButton(options)`
+### `новый TouchBarButton (варианты)`
 
 * `options` Object
-  * `label` String (optional) - Button text.
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (необязательный) - Позиция иконки, может иметь значения `left`, `right` или `overlay`. Defaults to `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
-  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  По умолчанию - `true`.
+  * `label` Строка (по желанию) - Текст кнопки.
+  * `accessibilityLabel` String (по желанию) - Краткое описание кнопки для использования на screenreaders как VoiceOver.
+  * `backgroundColor` String (по желанию) - Цвет фона кнопки в шестиугольном формате, т.е. `#ABCDEF`.
+  * `icon` [NativeImage](native-image.md) | Строка (необязательно) - значок кнопки.
+  * `iconPosition` String (необязательный) - Позиция иконки, может иметь значения `left`, `right` или `overlay`. По умолчанию `overlay`.
+  * `click` функция (необязательно) - Функция вызова при нажатии кнопки.
+  * `enabled` Boolean (по желанию) - находится ли кнопка в включенном состоянии.  По умолчанию - `true`.
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+При определении `accessibilityLabel`убедитесь, что вы рассмотрели macOS [передовой практики](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarButton`:
+Следующие свойства доступны на экземплярах `TouchBarButton`:
 
 #### `touchBarButton.accessibilityLabel`
 
-A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
+`String` , представляющий описание кнопки для чтения с помощью чтения на экране. Будет читаться только с помощью чтения с экрана, если этикетка не установлена.
 
 #### `touchBarButton.label`
 
@@ -39,8 +39,8 @@ A `String` representing the description of the button to be read by a screen rea
 
 #### `touchBarButton.iconPosition`
 
-A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
+A `String` - может быть `left`, `right` или `overlay`.  По умолчанию `overlay`.
 
 #### `touchBarButton.enabled`
 
-A `Boolean` representing whether the button is in an enabled state.
+На `Boolean` , представляющая, находится ли кнопка в включенной состоянии.
