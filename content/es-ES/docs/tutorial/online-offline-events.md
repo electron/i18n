@@ -9,7 +9,7 @@ El atributo `navigator.onLine` devuelve:
 * `false` si todas la solicitudes de red están garantizada para fallar (p.ej. cuando se desconecta de la red).
 * `true` en todo los otros casos.
 
-Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. Por ejemplo, en casos cuando la computadora esta corriendo un programa de virtualización que tiene un adaptador Ethernet virtual en estado "siempre conectado". Por lo tanto, si quieres determinar el estado de la conexión a Internet de Electron, deberías desarrollar una manera adicional para comprobar esto.
+Dado que muchos casos devuelven `true`, deberías tratar con situaciones de cuidado de obtener falsos positivos, ya que no siempre podemos suponer que `true` valor signifique que Electron pueda acceder a Internet. Por ejemplo, en casos cuando la computadora esta corriendo un programa de virtualización que tiene un adaptador Ethernet virtual en estado "siempre conectado". Por lo tanto, si quieres determinar el estado de la conexión a Internet de Electron, deberías desarrollar una manera adicional para comprobar esto.
 
 ## Ejemplo
 
@@ -37,12 +37,12 @@ en el archivo `index.html`, agregar la siguiente linea antes de la etiqueta de c
 y añadir el archivo `rendererer.js`:
 
 ```javascript fiddle='docs/fiddles/features/online-detection/renderer'
-const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
+const alertOnlineStatus = () => {Window. Alert (Navigator. onLine? ' online ': ' offline ')}
 
-window.addEventListener('online', alertOnlineStatus)
-window.addEventListener('offline', alertOnlineStatus)
+Window. addEventListener (' online ', alertOnlineStatus)
+Window. addEventListener (' offline ', alertOnlineStatus)
 
-alertOnlineStatus()
+alertOnlineStatus ()
 ```
 
 Después de lanzar la aplicación Electron deberías ver la notificación:
@@ -78,22 +78,22 @@ en el archivo `index.html`, agregar la siguiente linea antes de la etiqueta de c
 y añadir el archivo `rendererer.js`:
 
 ```javascript fiddle='docs/fiddles/features/online-detection/main'
-const { ipcRenderer } = require('electron')
-const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+const { ipcRenderer } = require (' Electron ')
+const updateOnlineStatus = () => {ipcRenderer. Send (' online-status-Changed ', navigator.onLine? ' online ': ' offline ')}
 
-window.addEventListener('online', updateOnlineStatus)
-window.addEventListener('offline', updateOnlineStatus)
+Window. addEventListener (' online ', updateOnlineStatus)
+Window. addEventListener (' offline ', updateOnlineStatus)
 
-updateOnlineStatus()
+updateOnlineStatus ()
 ```
 
 Después de lanzar la aplicación Electron, deberías ver la notificación en la Consola:
 
 ```sh
-npm start
+NPM Start
 
-> electron@1.0.0 start /electron
-> electron .
+> electron@1.0.0 Start/Electron
+> Electron.
 
-online
+en línea
 ```
