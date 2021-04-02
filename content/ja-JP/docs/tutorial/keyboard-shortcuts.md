@@ -20,12 +20,12 @@ menu.append(new MenuItem({
   label: 'Electron',
   submenu: [{
     role: 'help',
-    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
-    click: () => { console.log('Electron rocks!') }
-  }]
-}))
+    accelerator: process.platform === 'darwin' ? 'Alt +Cmd+I' : 'Alt +Shift+I'、
+    クリック: () => { コンソール.log('エレクトロンロック! }
+  }
+})
 
-Menu.setApplicationMenu(menu)
+メニュー.setアプリケーションメニュー(メニュー)
 ```
 
 > 注意: 上記のコードでは、ユーザーのオペレーティングシステムによってアクセラレーターを変えていることがわかります。 macOS では `Alt+Cmd+I` で、Linux と Windows では`Alt+Shift+I` です。
@@ -43,13 +43,13 @@ Electron アプリケーションを起動すると、アプリケーション�
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
-const { app, globalShortcut } = require('electron')
+const { app, globalShortcut } = 必要な ('電子')
 
-app.whenReady().then(() => {
-  globalShortcut.register('Alt+CommandOrControl+I', () => {
-    console.log('Electron loves global shortcuts!')
+アプリ.whenReady())、その後() => {
+  グローバルショートカット.register('alt +コマンドOrControl+I', () => {
+    コンソール.log('電子はグローバルショートカットが大好き!)
   })
-}).then(createWindow)
+})その後(ウィンドウを作成)
 ```
 
 > 注意: 上記コードの `CommandOrControl` の組み合わせは、macOS では `Command` を、Windows/Linux では `Control` を使用します。
