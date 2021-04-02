@@ -5,11 +5,11 @@ author:
 date: '2020-11-17'
 ---
 
-Electron 11.0.0 вышел! Он включает обновления Chromium `87`, V8 `8.7` и Node.js `12.18.3`. We've added support for Apple silicon, and general improvements. Читайте ниже для более подробной информации!
+Electron 11.0.0 вышел! Он включает обновления Chromium `87`, V8 `8.7` и Node.js `12.18.3`. Мы добавили поддержку кремния Apple, и общие улучшения. Читайте ниже для более подробной информации!
 
 ---
 
-Команда Electron рада объявить о выпуске Electron 11.0.0! Вы можете установить его с помощью npm `npm install electron@latest` или загрузить его с нашего сайта [релизов](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new support for Apple's M1 hardware.
+Команда Electron рада объявить о выпуске Electron 11.0.0! Вы можете установить его с помощью npm `npm install electron@latest` или загрузить его с нашего сайта [релизов](https://electronjs.org/releases/stable). Релиз упакован с обновлениями, исправлениями и новой поддержкой оборудования Apple M1.
 
 Мы не можем ждать, чтобы увидеть, что вы строили с ними! Продолжайте читать подробности об этом релизе, пожалуйста, поделитесь любым отзывом!
 
@@ -21,48 +21,48 @@ Electron 11.0.0 вышел! Он включает обновления Chromium 
     * [Новое в Chrome 86](https://developers.google.com/web/updates/2020/10/nic86)
     * [Новое в Chrome 87](https://developers.google.com/web/updates/2020/11/nic87)
 * Node.js `12.18.3`
-    * [Node 12.18.3 blog post](https://nodejs.org/en/blog/release/v12.18.3/)
-    * [Node 12.7.0 blog post](https://nodejs.org/en/blog/release/v12.17.0/)
+    * [Узел 12.18.3 блога](https://nodejs.org/en/blog/release/v12.18.3/)
+    * [Узел 12.7.0 блога](https://nodejs.org/en/blog/release/v12.17.0/)
 * V8 `8.7`
-    * [V8 8.6 blog post](https://v8.dev/blog/v8-release-86)
-    * [V8 8.7 blog post](https://v8.dev/blog/v8-release-87)
+    * [V8 8.6 блога](https://v8.dev/blog/v8-release-86)
+    * [V8 8.7 блога](https://v8.dev/blog/v8-release-87)
 
 ### Выделить возможности
 
-* Support for Apple M1: On November 10, Apple announced their [new M1 chips, which will be included in their upcoming hardware](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/). Beginning in Electron 11, Electron will be shipping separate versions of Electron for Intel Macs (x64) and Apple's upcoming M1 hardware (arm64). You can learn more about how to get your Electron app [running on Apple's M1 hardware here.](https://www.electronjs.org/blog/apple-silicon) [#24545](https://github.com/electron/electron/pull/24545)
-* Added V8 crash message and location information to crashReport parameters. [#24771](https://github.com/electron/electron/pull/24771)
-* Improved the performance of sending wide objects over the context bridge. [#24671](https://github.com/electron/electron/pull/24671)
+* Поддержка Apple M1: 10 ноября Apple объявила о [чипов M1, которые будут включены в их предстоящих аппаратных](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/). Начиная с Electron 11, Electron будет поставлять отдельные версии Electron для Intel Macs (x64) и предстоящего оборудования M1 от Apple (arm64). Вы можете узнать больше о том, как получить ваше приложение Electron [работает на оборудовании M1 от Apple здесь.](https://www.electronjs.org/blog/apple-silicon) [#24545](https://github.com/electron/electron/pull/24545)
+* Добавлено сообщение о крушении V8 и информация о местоположении к параметрам crashReport. [#24771](https://github.com/electron/electron/pull/24771)
+* Улучшена производительность отправки широких объектов по контексту моста. [#24671](https://github.com/electron/electron/pull/24671)
 
-See the [11.0.0 release notes](https://github.com/electron/electron/releases/tag/v11.0.0) for a full list of new features and changes.
+Для получения полного [новых функций и изменений можно](https://github.com/electron/electron/releases/tag/v11.0.0) примечания к выпуску 11.0.0.
 
 ## Критические изменения
 
-* Removed experimental APIs: `BrowserView.{fromId, fromWebContents, getAllViews}` and the `id` property of `BrowserView`. [#23578](https://github.com/electron/electron/pull/23578)
+* Удалены экспериментальные API: `BrowserView.{fromId, fromWebContents, getAllViews}` и `id` имущество `BrowserView`. [#23578](https://github.com/electron/electron/pull/23578)
 
 Более подробную информацию об этих и будущих изменениях можно найти на странице [Планируемые нарушительные изменения](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
 ## Изменения API
 
-* Added `app.getApplicationInfoForProtocol()` API that returns detailed information about the app that handles a certain protocol. [#24112](https://github.com/electron/electron/pull/24112)
-* Added `app.createThumbnailFromPath()` API that returns a preview image of a file given its file path and a maximum thumbnail size. [#24802](https://github.com/electron/electron/pull/24802)
-* Added `webContents.forcefullyCrashRenderer()` to forcefully terminate a renderer process to assist with recovering a hung renderer. [#25756](https://github.com/electron/electron/pull/25756)
+* Добавлен `app.getApplicationInfoForProtocol()` API, который возвращает подробную информацию о приложении, которое обрабатывает определенный протокол. [#24112](https://github.com/electron/electron/pull/24112)
+* Добавлен `app.createThumbnailFromPath()` API, который возвращает предварительное изображение файла, учитывая его путь файла и максимальный размер эскиза. [#24802](https://github.com/electron/electron/pull/24802)
+* Добавлено `webContents.forcefullyCrashRenderer()` , чтобы принудительно прекратить процесс рендеринга, чтобы помочь с восстановлением зависший рендер. [#25756](https://github.com/electron/electron/pull/25756)
 
-## End of Support for 8.x.y
+## Конец поддержки для 8.x.y
 
-Electron 8.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Разработчикам и приложениям рекомендуется обновиться до новой версии Electron.
+Electron 8.x.y достиг конца поддержки в соответствии с политикой поддержки [в](https://electronjs.org/docs/tutorial/support#supported-versions). Разработчикам и приложениям рекомендуется обновиться до новой версии Electron.
 
 ## Что дальше
 
-В краткосрочном плане вы можете ожидать, что команда продолжит фокусироваться на поддержании разработки основных компонентов, составляющих Electron, включая Chromium, Node и V8. Although we are careful not to make promises about release dates, our plan is to release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 12.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 12.0 development life cycle. Также, [смотрите наш документ по версии](https://electronjs.org/docs/tutorial/electron-versioning) для получения более подробной информации о версиях в Electron.
+В краткосрочном плане вы можете ожидать, что команда продолжит фокусироваться на поддержании разработки основных компонентов, составляющих Electron, включая Chromium, Node и V8. Хотя мы осторожны, чтобы не давать обещания о датах релиза, наш план состоит в том, чтобы выпустить новые основные версии Electron с новыми версиями этих компонентов примерно ежеквартально. В [графике 12.0.0](https://electronjs.org/docs/tutorial/electron-timelines) карты ключевых дат жизненного цикла разработки Electron 12.0. Также, [смотрите наш документ по версии](https://electronjs.org/docs/tutorial/electron-versioning) для получения более подробной информации о версиях в Electron.
 
 Информацию о запланированных изменениях в предстоящих версиях Electron, [см. в разделе «Планируемые изменения »](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### Continued Work for Deprecation of `remote` Module
-We started work to remove the `remote` module in [Electron 9](https://www.electronjs.org/blog/electron-9-0). We plan to remove the `remote` module itself in Electron 14.
+### Продолжение работы по амортизации `remote` модуля
+Мы начали работу по удалению `remote` модуля [Electron 9](https://www.electronjs.org/blog/electron-9-0). Мы планируем удалить сам `remote` в Electron 14.
 
-Read and follow [this issue](https://github.com/electron/electron/issues/21408) for full plans and details for deprecation.
+Читайте и следуйте [этому вопросу](https://github.com/electron/electron/issues/21408) полные планы и подробную информацию для амортизации.
 
-### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
-From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12.
+### Заключительный шаг для требования модулей коренных узлах, чтобы быть контекст осведомлены или N-API (в Electron 12)
+С Electron 6 и далее, мы закладываем основу, чтобы требовать [родных модулей узла](https://nodejs.org/api/addons.html) загруженных в процессе рендерера, чтобы быть либо [N-API](https://nodejs.org/api/n-api.html) или [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Обеспечение этого изменения обеспечивает более сильную безопасность, более быструю производительность и снижение рабочей нагрузки на техническое обслуживание. Заключительным шагом этого плана является удаление возможности отключения повторного использования процесса рендеров в Electron 12.
 
-Read and follow [this issue](https://github.com/electron/electron/issues/18397) for full details, including the proposed timeline.
+Прочитайте и следуйте [этому вопросу](https://github.com/electron/electron/issues/18397) для получения подробной информации, включая предлагаемые сроки.
