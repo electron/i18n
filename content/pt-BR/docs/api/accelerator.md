@@ -12,10 +12,10 @@ Exemplos:
 Os atalhos são registrados com o módulo [`globalShortcut`](global-shortcut.md) usando o método [`registrar`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ou seja:
 
 ```javascript
-const { app, globalShortcut } = require('electron')
+const { app, globalShortcut } = require ('electron')
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+app.whenReady().then(((() => {
+  // Registre um ouvinte de atalho 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
   // Fazer algo quando Y e Command ou Control forem pressionados.
   }) 
@@ -26,7 +26,7 @@ app.whenReady().then(() => {
 
 No Linux e no Windows, a tecla `Command` não tem nenhum efeito, então, para definir alguns aceleradores é recomendado utilizar `CommandOrControl` que representa `Command` no macOS e `Control` no Linux e no Windows.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Use `Alt` em vez de `Option`. A chave `Option` só existe no macOS, enquanto a chave `Alt` está disponível em todas as plataformas.
 
 A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a tecla `Cmd` no macOS.
 
@@ -46,7 +46,7 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `0` a `9`
 * `A` a `Z`
 * `F1` a `F24`
-* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
+* Pontuação como `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus (+)`
 * `Space (Espaço)`
 * `Tab`
