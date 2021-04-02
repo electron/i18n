@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-### `new TouchBarLabel(options)`
+### `nuevo TouchBarLabel (opciones)`
 
 * `options` Object
   * `etiqueta` Cadena (opcional) - texto a mostrar.
@@ -19,12 +19,12 @@ Las siguientes propiedades están disponibles en instancias de `etiqueta de barr
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Un `String` que representa el texto actual de la etiqueta. Al cambiar este valor de inmediato, se actualiza la etiqueta en la Touch bar.
 
-#### `touchBarLabel.accessibilityLabel`
+#### `touchBarLabel. accessibilityLabel`
 
 Un `String` que representa la descripción de la etiqueta a ser leído por un lector de pantalla.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Un `String` código hexadecimal que representa el color del texto actual de la etiqueta. Si cambias este valor de inmediato, se actualiza la etiqueta en Touch bar.
