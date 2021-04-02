@@ -7,21 +7,21 @@ Proceso: [Renderer](../glossary.md#renderer-process)
 A continuación se muestra un ejemplo de exponer una API a un renderer desde un script de precarga aislado:
 
 ```javascript
-// Preload (Isolated World)
-const { contextBridge, ipcRenderer } = require('electron')
+Precarga (mundo aislado)
+const { contextBridge, ipcRenderer } = require (' Electron ')
 
-contextBridge.exposeInMainWorld(
-  'electron',
+contextBridge. exposeInMainWorld (
+  ' Electron ',
   {
-    doThing: () => ipcRenderer.send('do-a-thing')
+    doThing: () => ipcRenderer. Send (' do-a-Thing ')
   }
 )
 ```
 
 ```javascript
-// Renderer (Main World)
+Renderer (Main World)
 
-window.electron.doThing()
+Window. Electron. doThing ()
 ```
 
 ## Glosario
@@ -54,22 +54,22 @@ Los valores `Function` se transfieren a otro contexto y todos los demás valores
 A continuación se muestra un ejemplo de una API compleja:
 
 ```javascript
-const { contextBridge } = require('electron')
+const { contextBridge } = require (' Electron ')
 
-contextBridge.exposeInMainWorld(
-  'electron',
+contextBridge. exposeInMainWorld (
+  ' Electron ',
   {
-    doThing: () => ipcRenderer.send('do-a-thing'),
-    myPromises: [Promise.resolve(), Promise.reject(new Error('whoops'))],
-    anAsyncFunction: async () => 123,
-    data: {
-      myFlags: ['a', 'b', 'c'],
+    doThing: () => ipcRenderer. Send (' do-a-Thing '),
+    myPromises: [Promise. Resolve (), Promise. Reject (New error (' Whoops '))],
+    anAsyncFunction: Async () => 123,
+    datos: {
+      myFlags: [' a ', ' b ', ' c '],
       bootTime: 1234
     },
     nestedAPI: {
       evenDeeper: {
-        youCanDoThisAsMuchAsYouWant: {
-          fn: () => ({
+        Youcandothisasmuchasyouquier: {
+          FN: () => ({
             returnData: 123
           })
         }
@@ -95,7 +95,7 @@ Dado que los parámetros, errores y valores de retorno son **copiados** cuando s
 | `Objeto`                                                                                                       | Complejo    | ✅                     | ✅                          | Las llaves deben ser soportadas usando solo los tipos "Simple" en esta tabla.  Los valores deben ser soportadas en esta tabla.  Las modificaciones del prototipo se eliminan.  Enviar clases personalizadas copiará valores pero no el prototipo. |
 | `Array`                                                                                                        | Complejo    | ✅                     | ✅                          | Mismas limitaciones para el tipo `Object`                                                                                                                                                                                                         |
 | `Error`                                                                                                        | Complejo    | ✅                     | ✅                          | Los errores que se lanzan también se copian, esto puede resultar en que el mensaje y el seguimiento de la pila del error cambien ligeramente debido a que se lanzan en un contexto diferente                                                      |
-| `Promise`                                                                                                      | Complejo    | ✅                     | ✅                          | Las promesas solo se transfieren si son el valor de retorno o el parámetro exacto.  Las promesas anidadas en arrays o objetos serán eliminadas.                                                                                                   |
+| `Promesa`                                                                                                      | Complejo    | ✅                     | ✅                          | Las promesas solo se transfieren si son el valor de retorno o el parámetro exacto.  Las promesas anidadas en arrays o objetos serán eliminadas.                                                                                                   |
 | `Function`                                                                                                     | Complejo    | ✅                     | ✅                          | Las modificaciones del prototipo se eliminan.  Enviar clases o constructores no funcionará.                                                                                                                                                       |
 | [Tipos Clonables](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple      | ✅                     | ✅                          | Veer el documento vinculado en tipos clonables                                                                                                                                                                                                    |
 | `Símbolo`                                                                                                      | N/A         | ❌                     | ❌                          | Los Symbols no pueden ser copiados a través de contextos así que son eliminados                                                                                                                                                                   |
