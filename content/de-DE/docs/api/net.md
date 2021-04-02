@@ -1,42 +1,42 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Stellen Sie HTTP/HTTPS-Anforderungen mithilfe der nativen Netzwerkbibliothek von Chromium aus
 
 Prozess: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies. It also supports checking network status.
+Das `net` -Modul ist eine clientseitige API zum Ausgeben von HTTP(S)-Anforderungen. Es ist ähnlich wie die [HTTP-](https://nodejs.org/api/http.html) und [HTTPS-](https://nodejs.org/api/https.html) -Module von Node.js verwendet jedoch native Netzwerkbibliothek von Chromium anstelle der Node.js-Implementierung, eine bessere Unterstützung für Webproxys bietet. Es unterstützt auch die Überprüfung des Netzwerkstatus.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+Im Folgenden finden Sie eine nicht erschöpfende Liste, warum Sie die Verwendung des `net` -Moduls anstelle der systemeigenen Node.js-Module in Betracht ziehen können:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Automatische Verwaltung der Systemproxykonfiguration, Unterstützung der wpad- Protokoll- und Proxy-Pac-Konfigurationsdateien.
+* Automatisches Tunneln von HTTPS-Anforderungen.
+* Unterstützung für die Authentifizierung von Proxys mithilfe von Basis-, Digest-, NTLM-, Kerberos- oder aushandelnvon Authentifizierungsschemata.
+* Unterstützung für Datenverkehrsüberwachungsproxys: Fiddler-ähnliche Proxys, die für den Zugriff Steuerung und Überwachung verwendet werden.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+Die API-Komponenten (einschließlich Klassen, Methoden, Eigenschaften und Ereignisnamen) ähneln denen, die in Node.js verwendet werden.
 
-Example usage:
+Beispielverwendung:
 
 ```javascript
 const { app } = require('electron')
-app.whenReady().then(() => {
+app.whenReady().then()=>
   const { net } = require('electron')
   const request = net.request('https://github.com')
-  request.on('response', (response) => {
-    console.log(`STATUS: ${response.statusCode}`)
-    console.log(`HEADERS: ${JSON.stringify(response.headers)}`)
-    response.on('data', (chunk) => {
-      console.log(`BODY: ${chunk}`)
-    })
-    response.on('end', () => {
-      console.log('No more data in response.')
-    })
-  })
+  request.on('response', (response) =>
+    console.log('STATUS: ${response.statusCode}')
+    console.log('HEADERS: 'JSON.stringify(response.headers)')
+    response.on('data', (chunk) => '
+      console.log('BODY: ${chunk}')
+    ').log
+      > 
+')
+    
+  )
   request.end()
-})
+)
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+Die `net` -API kann nur verwendet werden, nachdem die Anwendung das `ready` -Ereignis ausgibt. Der Versuch, das Modul vor dem `ready` -Ereignis zu verwenden, löst einen Fehler aus.
 
 ## Methoden
 
@@ -44,22 +44,22 @@ Das Modul `net` besitzt folgende Methoden:
 
 ### `net.request(options)`
 
-* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
+* `options` (ClientRequestConstructorOptions | String) - Die `ClientRequest` Konstruktoroptionen.
 
-Returns [`ClientRequest`](./client-request.md)
+Rücksendungen [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Erstellt eine [`ClientRequest`](./client-request.md) Instanz mit den bereitgestellten `options` die direkt an den `ClientRequest` -Konstruktor weitergeleitet werden. Die `net.request` Methode wird verwendet, um sowohl sichere als auch unsichere HTTP- Anforderungen gemäß dem angegebenen Protokollschema im `options` -Objekt zu geben.
 
 ### `net.isOnline()`
 
-Returns `Boolean` - Whether there is currently internet connection.
+Gibt `Boolean` zurück - Gibt an, ob derzeit eine Internetverbindung besteht.
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+Ein Rückgabewert von `false` ist ein ziemlich starker Indikator dafür, dass der Benutzer keine Verbindung zu Remote-Standorten herstellen kann. Ein Rückgabewert von `true` ist jedoch nicht eindeutig; Selbst wenn eine Verbindung hergestellt wird, ist es ungewiss, ob ein bestimmter Verbindungsversuch zu einem bestimmten Remote-Standort erfolgreich sein wird.
 
 ## Eigenschaften
 
 ### `net.online` _Readonly_
 
-A `Boolean` property. Whether there is currently internet connection.
+Eine `Boolean` Eigenschaft. Ob es derzeit eine Internetverbindung gibt.
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+Ein Rückgabewert von `false` ist ein ziemlich starker Indikator dafür, dass der Benutzer keine Verbindung zu Remote-Standorten herstellen kann. Ein Rückgabewert von `true` ist jedoch nicht eindeutig; Selbst wenn eine Verbindung hergestellt wird, ist es ungewiss, ob ein bestimmter Verbindungsversuch zu einem bestimmten Remote-Standort erfolgreich sein wird.
