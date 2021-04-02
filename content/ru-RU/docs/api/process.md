@@ -55,19 +55,19 @@ process.once('loaded', () => {
 
 ### `process.defaultApp` _Только чтение_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+А `Boolean`. Когда приложение запущено, передаваемое в качестве параметра приложению по умолчанию, свойство `true` в основном процессе, в противном случае оно `undefined`.
 
 ### `process.isMainFrame` _Только чтение_
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+В `Boolean` `true` , когда текущий контекст рендерера является "основным" кадра. Если вы хотите идентификатор текущего кадра, вы должны использовать `webFrame.routingId`.
 
 ### `process.mas` _Только чтение_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+А `Boolean`. Для сборки Mac App Store это свойство `true`, для других построений `undefined`.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Приложение `Boolean` которое контролирует поддержку ASAR внутри приложения. Установка этого `true` отключит поддержку `asar` архивов в встроенных модулях узла.
 
 ### `process.noDeprecation`
 
@@ -79,7 +79,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.sandboxed` _Только чтение_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+А `Boolean`. Когда процесс рендеринга находится в песочнице, это свойство является `true`, противном случае это `undefined`.
 
 ### `process.throwDeprecation`
 
@@ -95,11 +95,11 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 ### `process.type` _Только чтение_
 
-A `String` representing the current process's type, can be:
+Одним `String` , представляющим тип текущего процесса, может быть:
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - Основной процесс
+* `renderer` - Процесс рендерера
+* `worker` - В веб-работник
 
 ### `process.versions.chrome` _Только чтение_
 
@@ -111,7 +111,7 @@ A `String` representing the current process's type, can be:
 
 ### `process.windowsStore` _Только чтение_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+А `Boolean`. Если приложение работает как приложение Магазина Windows (appx), это свойство `true`, в противном случае оно `undefined`.
 
 ## Методы
 
@@ -125,7 +125,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 Возвращает `Number | null` - Количество миллисекунд с начала эпохи, или `null`, если информация недоступна
 
-Indicates the creation time of the application. Время представлено как количество миллисекунд с начала эпохи. It returns null if it is unable to get the process creation time.
+Указывает время создания приложения. Время представлено как количество миллисекунд с начала эпохи. Он возвращается нулевой, если он не в состоянии получить время создания процесса.
 
 ### `process.getCPUUsage()`
 
@@ -149,7 +149,7 @@ Indicates the creation time of the application. Время представле�
 * `peakMallocedMemory` Integer - Пиковый объем памяти, полученный через malloc
 * `doesZapGarbage` Boolean - Включена ли опция --zap_code_space
 
-Returns an object with V8 heap statistics. Обратите внимание, что вся статистика предоставляется ​​в Килобайтах.
+Возвращает объект со статистикой кучи V8. Обратите внимание, что вся статистика предоставляется ​​в Килобайтах.
 
 ### `process.getBlinkMemoryInfo()`
 
@@ -159,13 +159,13 @@ Returns an object with V8 heap statistics. Обратите внимание, ч
 * `marked` Integer - Размер всех отмеченных объектов в Килобайтах.
 * `total` Integer - Всего выделено места в Килобайтах.
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Возвращает объект с информацией о памяти Blink. Это может быть полезно для отладки рендеринга / DOM связанных с вопросами памяти. Обратите внимание, что все значения сообщаются в Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
 Возвращает `Promise<ProcessMemoryInfo>` - Разрешается с [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+Возвращает объект, дать статистику использования памяти о текущем процессе. Отметим что все статистические данные сообщаются в Kilobytes. Этот api следует вызть после того как app готов.
 
 Chromium не предоставляет значение `residentSet` для macOS. Это связано с тем, что MacOS сжимает в памяти страницы, которые в последнее время не использовались. В результате значение размера резидентного набора не соответствует ожидаемому. `private` память является более репрезентативной для фактического использования перед сжатием памяти процесса в MacOS.
 
@@ -178,7 +178,7 @@ Chromium не предоставляет значение `residentSet` для m
 * `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Возвращает объект, дать статистику использования памяти обо всей системе. Отметим что все статистические данные сообщаются в Kilobytes.
 
 ### `process.getSystemVersion()`
 
