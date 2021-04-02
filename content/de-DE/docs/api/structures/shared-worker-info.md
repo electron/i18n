@@ -1,4 +1,4 @@
-# SharedWorkerInfo Object
+# SharedWorkerInfo-Objekt
 
-* `id` String - The unique id of the shared worker.
-* `url` String - The url of the shared worker.
+* `id` String - Die eindeutige ID des freigegebenen Arbeitsausdrucks.
+* `url` String - Die URL der freigegebenen Workerin.
