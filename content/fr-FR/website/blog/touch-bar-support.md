@@ -85,8 +85,8 @@ const finishSpin = () => {
     // Toutes les 3 valeurs sont le même
     résultat. abel = '💰 Jackpot!'
     result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
+  } autre si (valeurs uniques === 2) {
+    // 2 valeurs sont les mêmes
     result.label = '😍 Winner!'
     extColor = null
   }
