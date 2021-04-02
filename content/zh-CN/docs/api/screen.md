@@ -8,42 +8,42 @@
 
 `screen` 是一个 [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**注意：** 在渲染器/DevTools中， `window.screen` 是保留的DM 属性，因此编写 `let { screen } = require('electron')` 不起作用。
 
 创建填充整个屏幕的窗口的示例:
 
 ```javascript fiddle='docs/fiddles/screen/fit-screen'
-const { app, BrowserWindow, screen } = require('electron')
+康斯特 { app, BrowserWindow, screen } =要求（'电子'）
 
-let win
-app.whenReady().then(() => {
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
-})
+让赢得
+应用程序。当准备好。然后）=> {
+  康斯特 { width, height } =屏幕。 工作规模
+  赢=新浏览器窗口（{ width, height }）
+  赢
+.com。
 ```
 
 另一个在外部显示器中创建窗口的例子
 
 ```javascript
-const { app, BrowserWindow, screen } = require('electron')
+康斯特 { app, BrowserWindow, screen } =要求（'电子'）
 
-let win
+让赢
 
-app.whenReady().then(() => {
-  const displays = screen.getAllDisplays()
-  const externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
+应用程序。当准备好时。然后）=> {
+  const显示器=屏幕。getAllDisplay（）
+  康斯特外部显示=显示器> 。
+    返回显示器.bunds.x！=0 ||显示。bounds.y！=0
+  [）
 
-  if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
-    })
-    win.loadURL('https://github.com')
-  }
-})
+  如果（外部显示）{
+    赢 = 新的浏览器窗口（+
+      x： 外部显示。边界.x，
+      y： 外部显示. bounds. y = 50
+    [）
+    获胜
+
+  .com。
 ```
 
 ## 事件
@@ -114,7 +114,7 @@ app.whenReady().then(() => {
 
 返回 [`Point`](structures/point.md)
 
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+将屏幕物理点转换为屏幕 DIP 点。 相对于包含物理点的显示器执行 DPI 刻度。
 
 ### `screen.dipToScreenPoint(point)` _Windows_
 
@@ -122,24 +122,24 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 返回 [`Point`](structures/point.md)
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+将屏幕 DIP 点转换为屏幕物理点。 相对于包含 DIP 点的显示器执行 DPI 刻度。
 
-### `screen.screenToDipRect(window, rect)` _Windows_
+### `screen.screenToDipRect(window, rect)` _视窗_
 
-* `window` [BrowserWindow](browser-window.md) | null
+* `window` [浏览器窗口](browser-window.md) |空
 * `rect` [Rectangle](structures/rectangle.md)
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+将屏幕物理直流转换为屏幕 DIP 直流。 DPI比例是相对于最接近 `window`的显示器执行的。 如果 `window` 为空，将执行缩放到离 `rect`最近的显示屏。
 
-### `screen.dipToScreenRect(window, rect)` _Windows_
+### `screen.dipToScreenRect(window, rect)` _视窗_
 
-* `window` [BrowserWindow](browser-window.md) | null
+* `window` [浏览器窗口](browser-window.md) |空
 * `rect` [Rectangle](structures/rectangle.md)
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+将屏幕 DIP 直流转换为屏幕物理直流。 DPI比例是相对于最接近 `window`的显示器执行的。 如果 `window` 为空，将执行缩放到离 `rect`最近的显示屏。
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
