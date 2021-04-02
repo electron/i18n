@@ -17,7 +17,7 @@
 * Избегайте платформенно-зависимого кода:
   * Используйте `path.join()` для конкатенации имен файлов.
   * Используйте `os.tmpdir()` вместо `/tmp` когда нужно сослаться на каталог для временных файлов.
-* Using a plain `return` when returning explicitly at the end of a function.
+* Использование простого `return` при явном возвращении в конце функции.
   * Не `return null`, не `return undefined`, не `null` или `undefined`
 
 ## C++ и Python
