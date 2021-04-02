@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-### `new TouchBarGroup(options)`
+### `新的触摸栏组（选项）`
 
 * `选项` 对象
   * `items` [TouchBar](touch-bar.md) - 以分组的方式显示元素.
