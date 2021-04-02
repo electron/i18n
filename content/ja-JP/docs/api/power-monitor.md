@@ -62,7 +62,7 @@
 
 システムのアイドル時間を計算します。
 
-### `powerMonitor.isOnBatteryPower()`
+### `パワーモニター.isOnバッテリーパワー()`
 
 戻り値 `Boolean` - システムがバッテリー電源状態かどうか。
 
@@ -70,7 +70,7 @@
 
 ## プロパティ
 
-### `powerMonitor.onBatteryPower`
+### `パワーモニター.オンバッテリーパワー`
 
 `Boolean` 型のプロパティです。 システムがバッテリー電源状態ならば true です。
 
