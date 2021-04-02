@@ -60,4 +60,4 @@ app.whenReady().then(() => {
 Um zu überprüfen, ob widevine funktioniert, kannst du folgende Wege verwenden:
 
 * Öffne https://shaka-player-demo.appspot.com/ und lade ein Manifest, das `Widevine` verwendet.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Öffnen Sie http://www.dash-player.com/demo/drm-test-area/, überprüfen Sie, ob die Seite `bitdash uses Widevine in your browser`angibt, und spielen Sie dann das Video ab.
