@@ -7,42 +7,42 @@
 * `istDefault`Boolean-entweder oder kein bestimmter Drucker als Default Drucker an OS eingestellt ist.
 * `Optionen`Objekt-ein Objekt das eine variable Nummer von Information von Drucker nach dieser Plattforme enthaelt.
 
-The number represented by `status` means different things on different platforms: on Windows its potential values can be found [here](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2), and on Linux and macOS they can be found [here](https://www.cups.org/doc/cupspm.html).
+Die Zahl, die von `status` dargestellt wird, bedeutet verschiedene Dinge auf verschiedenen Plattformen: unter Windows finden sich ihre potenziellen Werte [hier](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2)und unter Linux und macOS finden Sie [hier](https://www.cups.org/doc/cupspm.html).
 
 ## Beispiel
 
 Unten ist ein Beispiel von einigen der zusätzlichen Optionen, welche eventuell gesetzt werden können, sich aber zwischen den Plattformen unterscheiden können.
 
 ```javascript
-{
-  name: 'Austin_4th_Floor_Printer___C02XK13BJHD4',
-  displayName: 'Austin 4th Floor Printer @ C02XK13BJHD4',
-  description: 'TOSHIBA ColorMFP',
-  status: 3,
+•
+  Name: 'Austin_4th_Floor_Printer___C02XK13BJHD4',
+  Displayname: 'Austin 4th Floor Printer ' C02XK13BJHD4',
+  Beschreibung: 'TOSHIBA ColorMFP',
+  Status: 3,
   isDefault: false,
-  options: {
-    copies: '1',
-    'device-uri': 'dnssd://Austin%204th%20Floor%20Printer%20%40%20C02XK13BJHD4._ipps._tcp.local./?uuid=71687f1e-1147-3274-6674-22de61b110bd',
-    finishings: '3',
-    'job-cancel-after': '10800',
+  Optionen: '
+    Kopien: '1',
+    'device-uri': 'dnssd://Austin%204th%20Floor%20Printer%20%40%20C02XK13BJHD4._ipps._tcp.local./?uuid=71687f1e-1147-3274-6674-22de61b10bd',
+    Finishings: '3',
+    'Job-Cancel-after': '10800',
     'job-hold-until': 'no-hold',
     'job-priority': '50',
     'job-sheets': 'none,none',
     'marker-change-time': '0',
-    'number-up': '1',
-    'printer-commands': 'ReportLevels,PrintSelfTestPage,com.toshiba.ColourProfiles.update,com.toshiba.EFiling.update,com.toshiba.EFiling.checkPassword',
-    'printer-info': 'Austin 4th Floor Printer @ C02XK13BJHD4',
+    'Number-up': '1',
+    'Druckerbefehle': 'ReportLevels,PrintSelfTestPage,com.toshiba.ColourProfiles.update,com.toshiba.EFiling.update,com.toshiba.EFiling.checkPassword',
+    'druckerinfo' : 'Austin 4th Floor Printer 'C02XK13BJHD4',
     'printer-is-accepting-jobs': 'true',
     'printer-is-shared': 'false',
     'printer-is-temporary': 'false',
-    'printer-location': '',
+    'drucker-location': '',
     'printer-make-and-model': 'TOSHIBA ColorMFP',
-    'printer-state': '3',
-    'printer-state-change-time': '1573472937',
-    'printer-state-reasons': 'offline-report,com.toshiba.snmp.failed',
-    'printer-type': '10531038',
-    'printer-uri-supported': 'ipp://localhost/printers/Austin_4th_Floor_Printer___C02XK13BJHD4',
+    'Druckerzustand': '3',
+    'Drucker-State-Change-Time': '1573472937',
+    'Drucker-State-Gründe': 'offline-report,com.toshiba.snmp.failed',
+    'Drucker-Typ': '10531038',
+    'drucker-uri-unterstützt': 'ipp://localhost/printers/Austin_4th_Floor_Printer___C02XK13BJHD4',
     system_driverinfo: 'T'
-  }
-}
+
+
 ```
