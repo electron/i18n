@@ -1,6 +1,6 @@
 # 对 Electron 进行开发
 
-这些指南是为希望修改 Electron 自身的人准备的。 For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+这些指南是为希望修改 Electron 自身的人准备的。 有关电子应用开发的指南，请参阅 [/文档/阅读](../README.md#guides-and-tutorials)。
 
 * [行为准则](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
 * [贡献到 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
@@ -21,4 +21,4 @@
 * [在 Windows 中调试](debug-instructions-windows.md)
 * [在 macOS 中调试](debugging-instructions-macos.md)
 * [在调试器中设置 Symbol 服务器](setting-up-symbol-server.md)
-* [Patches](patches.md)
+* [补丁](patches.md)
