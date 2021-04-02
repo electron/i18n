@@ -10,14 +10,14 @@ Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro
 
 ```javascript
 // En el proceso principal.
-const { BrowserView, BrowserWindow } = require('electron')
+const { BrowserView, BrowserWindow } = require (' Electron ')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+const Win = New BrowserWindow ({ width: 800, height: 600 })
 
-const view = new BrowserView()
-win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electronjs.org')
+const View = New BrowserView ()
+Win. setBrowserView (vista)
+View. setBounds ({x: 0, y: 0, width: 300, height: 300})
+View. webContents. loadURL (' https://electronjs.org ')
 ```
 
 ### `new BrowserView([options])` _Experimental_
@@ -40,10 +40,10 @@ Los objetos creados con `new BrowserView` tiene los siguientes métodos de insta
 #### `view.setAutoResize(options)` _Experimental_
 
 * `options` Object
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` por defecto.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` por defecto.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` por defecto.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` por defecto.
+  * `width` Boolean (opcional)-si `true`, el ancho de la vista crecerá y se encogerá con la ventana. `false` por defecto.
+  * `height` Boolean (opcional)-si `true`, la altura de la vista crecerá y se encogerá junto con la ventana. `false` por defecto.
+  * `horizontal` Boolean (opcional)-si `true`, la posición x y la anchura de la vista crecerán y se encogerán proporcionalmente con la ventana. `false` por defecto.
+  * `vertical` Boolean (opcional): si `true`, la posición y y la altura de la vista crecerán y se encogerán proporcionalmente con la ventana. `false` por defecto.
 
 #### `view.setBounds(bounds)` _Experimental_
 
@@ -59,4 +59,4 @@ Los límites `bounds` de esta instancia de BrowserView como un `Object`.
 
 #### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String-color en `#aarrggbb` o `#argb` Form. El canal alfa es opcional.
