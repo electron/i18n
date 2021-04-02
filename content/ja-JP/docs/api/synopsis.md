@@ -27,8 +27,8 @@ app.whenReady().then(() => {
 <html>
 <body>
 <script>
-  const fs = require('fs')
-  console.log(fs.readFileSync(__filename, 'utf8'))
+  コンスト fs = 必要
+  コンソール.log(__filename、'utf8'))
 </script>
 </body>
 </html>
