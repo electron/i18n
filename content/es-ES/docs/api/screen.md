@@ -13,35 +13,35 @@ Este módulo no puede ser usado hasta que el evento `ready` del módulo `app` es
 Un ejemplo de crear una ventana que llene toda la pantalla:
 
 ```javascript fiddle='docs/fiddles/screen/fit-screen'
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } = require (' Electron ')
 
-let win
-app.whenReady().then(() => {
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
+dejar que Win
+app. whenReady (). then (() => {
+  const { width, height } = Screen. getPrimaryDisplay (). workAreaSize
+  Win = New BrowserWindow ({ width, height })
+  Win. loadURL (' https://github.com ')
 })
 ```
 
 Otro ejemplo de crear una ventana el display externo es:
 
 ```javascript
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } = require (' Electron ')
 
-let win
+dejar que Win
 
-app.whenReady().then(() => {
-  const displays = screen.getAllDisplays()
-  const externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
+app. whenReady (). then (() => {
+  const displays = Screen. getAllDisplays ()
+  const externalDisplay = Displays. Find ((Display) => {
+    Return display. Bounds. x! = = 0 | | display. Bounds. y! = = 0
   })
 
   if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
+    Win = New BrowserWindow ({
+      x: externalDisplay. Bounds. x + 50,
+      y: externalDisplay. Bounds. y + 50
     })
-    win.loadURL('https://github.com')
+    Win. loadURL (' https://github.com ')
   }
 })
 ```
