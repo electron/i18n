@@ -11,14 +11,14 @@ console.log(systemPreferences.isDarkMode())
 
 ## Ereignisse
 
-The `systemPreferences` object emits the following events:
+Das `systemPreferences` -Objekt gibt die folgenden Ereignisse aus:
 
 ### Event: 'accent-color-changed' _Windows_
 
 Rückgabewert:
 
 * `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* `newColor` String - Die neue RGBA-Farbe, die der Benutzer als System Akzentfarbe zugewiesen hat.
 
 ### Event: 'color-changed' _Windows_
 
@@ -26,73 +26,73 @@ Rückgabewert:
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
+### Ereignis: 'inverted-color-scheme-changed' _Windows_ _veraltete_
 
 Rückgabewert:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+* `invertedColorScheme` boolesch - `true` , wenn ein invertiertes Farbschema (ein kontrastreiches Farbschema mit hellem Text und dunklen Hintergründen) verwendet wird, `false` andernfalls.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**veraltet:** sollte das neue [`updated`](native-theme.md#event-updated) -Ereignis auf dem `nativeTheme` -Modul verwenden.
 
-### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
+### Ereignis: 'High-Contrast-Color-Schema-changed' _Windows_ _veraltete_
 
 Rückgabewert:
 
 * `event` Event
-* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
+* `highContrastColorScheme` boolesch - `true` wenn ein Kontrastthema verwendet wird, `false` sonst.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**veraltet:** sollte das neue [`updated`](native-theme.md#event-updated) -Ereignis auf dem `nativeTheme` -Modul verwenden.
 
 ## Methoden
 
-### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
+### macOS</em> _windows_ _veraltete_`systemPreferences.isDarkMode()` _</h3>
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Gibt `Boolean` zurück - Gibt an, ob sich das System im dunklen Modus befindet.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
+**veraltet:** sollten die neue [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) -API verwenden.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Gibt `Boolean` zurück - Gibt an, ob die Einstellung Wischen zwischen Seiten eingeschaltet ist.
 
-### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS-_
 
 * `event` String
-* `userInfo` Record<String, any>
-* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
+* `userInfo` -Rekord<String, any>
+* `deliverImmediately` boolesch (optional) - `true` , Benachrichtigungen sofort zu posten, auch wenn die abonnierende App inaktiv ist.
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Beiträge `event` als native Benachrichtigungen von macOS. Bei `userInfo` handelt es sich um ein Objekt das das zusammen mit der Benachrichtigung gesendete Benutzerinformationswörterbuch enthält.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` Record<String, any>
+* `userInfo` -Rekord<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Beiträge `event` als native Benachrichtigungen von macOS. Bei `userInfo` handelt es sich um ein Objekt das das zusammen mit der Benachrichtigung gesendete Benutzerinformationswörterbuch enthält.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` Record<String, any>
+* `userInfo` -Rekord<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Beiträge `event` als native Benachrichtigungen von macOS. Bei `userInfo` handelt es sich um ein Objekt das das zusammen mit der Benachrichtigung gesendete Benutzerinformationswörterbuch enthält.
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` Record<String, unknown>
+  * `userInfo` -Rekord<String, unknown>
   * `object` String
 
-Returns `Number` - The ID of this subscription
+Gibt `Number` zurück - Die ID dieses Abonnements
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
+Abonniert native Benachrichtigungen von macOS, `callback` werden mit `callback(event, userInfo)` aufgerufen, wenn die entsprechende `event` passiert. Bei `userInfo` handelt es sich um ein Objekt, das das zusammen mit der Benachrichtigung gesendete Benutzerinformationswörterbuch enthält. Die `object` ist der Absender der Benachrichtigung, und unterstützt vorerst nur `NSString` Werte.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+Die `id` des Abonnenten wird zurückgegeben, die zum Abbestellen der `event`verwendet werden können.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Unter der Haube abonniert diese API `NSDistributedNotificationCenter`, Beispielwerte von `event` sind:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -104,55 +104,55 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` Record<String, unknown>
+  * `userInfo` -Rekord<String, unknown>
   * `object` String
 
-Returns `Number` - The ID of this subscription
+Gibt `Number` zurück - Die ID dieses Abonnements
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+Wie `subscribeNotification`verwendet  jedoch `NSNotificationCenter` für lokale Standardwerte. Dies ist für Ereignisse wie `NSUserDefaultsDidChangeNotification`erforderlich.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` Record<String, unknown>
+  * `userInfo` -Rekord<String, unknown>
   * `object` String
 
-Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+Wie `subscribeNotification`verwendet  jedoch `NSWorkspace.sharedWorkspace.notificationCenter`. Dies ist für Ereignisse wie `NSWorkspaceDidActivateApplicationNotification`erforderlich.
 
 ### `systemPreferences.unsubscribeNotification(id)` _macOS_
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+Entfernt den Abonnenten mit `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+Wie `unsubscribeNotification`, entfernt aber den Abonnenten aus `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` _macOS_
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
+Wie `unsubscribeNotification`, entfernt aber den Abonnenten aus `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` _macOS_
 
-* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
+* `defaults` Record<String, String | Boolean | Number> - ein Wörterbuch von (`key: value`) Benutzerstandards
 
-Add the specified defaults to your application's `NSUserDefaults`.
+Fügen Sie die angegebenen Standardwerte zum `NSUserDefaults`Ihrer Anwendung hinzu.
 
 ### `systemPreferences.getUserDefault(key, type)` _macOS_
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - Kann `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` oder `dictionary`sein.
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Gibt `any` zurück - Der Wert von `key` in `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Einige beliebte `key` und `type`sind:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -165,14 +165,14 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - Kann `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` oder `dictionary`sein.
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+Legen Sie den Wert von `key` in `NSUserDefaults`fest.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+Beachten Sie, dass `type` dem tatsächlichen Typ der `value`entsprechen sollte. Eine Ausnahme wird ausgelöst wenn sie dies nicht tun.
 
-Some popular `key` and `type`s are:
+Einige beliebte `key` und `type`sind:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -180,28 +180,28 @@ Some popular `key` and `type`s are:
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Entfernt die `key` in `NSUserDefaults`. Dies kann verwendet werden, um den Standardwert oder globalen Wert eines `key` wiederherzustellen, der zuvor mit `setUserDefault`festgelegt wurde.
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-Returns `Boolean` - `true` if [DWM composition][dwm-composition] (Aero Glass) is enabled, and `false` otherwise.
+Gibt `Boolean` zurück - `true` , wenn [DWM-Zusammensetzung][dwm-composition] (Aero Glass) aktiviert ist und andernfalls `false` .
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Ein Beispiel für die Verwendung, um zu bestimmen, ob Sie ein transparentes Fenster erstellen sollen oder nicht (transparente Fenster funktionieren nicht ordnungsgemäß, wenn die DWM-Komposition deaktiviert ist):
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
 const browserOptions = { width: 1000, height: 800 }
 
-// Make the window transparent only if the platform supports it.
-if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
+/ / Machen Sie das Fenster nur dann transparent, wenn die Plattform es unterstützt.
+if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) '
   browserOptions.transparent = true
   browserOptions.frame = false
-}
+'
 
-// Create the window.
-const win = new BrowserWindow(browserOptions)
+/ Create the window.
+const win = neue BrowserWindow(browserOptions)
 
-// Navigate.
+/ Navigieren.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
@@ -210,9 +210,9 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` _Windows_ _macOS_
+### `systemPreferences.getAccentColor()` _windows_ _macOS-_
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+Gibt `String` zurück - Die aktuelle Farbeinstellung des Systems mit breitem Akzent in RGBA- hexadezimaler Form.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -222,207 +222,241 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-This API is only available on macOS 10.14 Mojave or newer.
+Diese API ist nur unter macOS 10.14 Mojave oder neuer verfügbar.
 
-### `systemPreferences.getColor(color)` _Windows_ _macOS_
+### `systemPreferences.getColor(color)` _windows_ _macOS-_
 
-* `color` String - One of the following values:
-  * On **Windows**:
-    * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-    * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-    * `3d-highlight` - Highlight color for three-dimensional display elements.
-    * `3d-light` - Light color for three-dimensional display elements.
-    * `3d-shadow` - Shadow color for three-dimensional display elements.
-    * `active-border` - Active window border.
-    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-    * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-    * `app-workspace` - Background color of multiple document interface (MDI) applications.
-    * `button-text` - Text on push buttons.
-    * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-    * `desktop` - Desktop background color.
-    * `disabled-text` - Grayed (disabled) text.
-    * `highlight` - Item(s) selected in a control.
-    * `highlight-text` - Text of item(s) selected in a control.
-    * `hotlight` - Color for a hyperlink or hot-tracked item.
-    * `inactive-border` - Inactive window border.
-    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-    * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-    * `inactive-caption-text` - Color of text in an inactive caption.
-    * `info-background` - Background color for tooltip controls.
-    * `info-text` - Text color for tooltip controls.
-    * `menu` - Menu background.
-    * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-    * `menubar` - The background color for the menu bar when menus appear as flat menus.
-    * `menu-text` - Text in menus.
-    * `scrollbar` - Scroll bar gray area.
-    * `window` - Window background.
-    * `window-frame` - Window frame.
-    * `window-text` - Text in windows.
-  * On **macOS**
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
-    * `control-background` - The background of a large interface element, such as a browser or table.
-    * `control` - The surface of a control.
-    * `control-text` -The text of a control that isn’t disabled.
-    * `disabled-control-text` - The text of a control that’s disabled.
-    * `find-highlight` - The color of a find indicator.
-    * `grid` - The gridlines of an interface element such as a table.
-    * `header-text` - The text of a header cell in a table.
-    * `highlight` - The virtual light source onscreen.
-    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
-    * `label` - The text of a label containing primary content.
-    * `link` - A link to other content.
-    * `placeholder-text` -  A placeholder string in a control or text view.
-    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
-    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
-    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
-    * `selected-content-background` - The background for selected content in a key window or view.
-    * `selected-control` - The surface of a selected control.
-    * `selected-control-text` - The text of a selected control.
-    * `selected-menu-item-text` - The text of a selected menu.
-    * `selected-text-background` - The background of selected text.
-    * `selected-text` - Selected text.
-    * `separator` - A separator between different sections of content.
-    * `shadow` - The virtual shadow cast by a raised object onscreen.
-    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
-    * `text-background` - Text background.
-    * `text` -  The text in a document.
-    * `under-page-background` -  The background behind a document's content.
-    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
-    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
-    * `unemphasized-selected-text` - Selected text in a non-key window or view.
-    * `window-background` - The background of a window.
-    * `window-frame-text` - The text in the window's titlebar area.
+* `color` String - Einer der folgenden Werte:
+  * Unter **Windows-**:
+    * `3d-dark-shadow` - Dunkler Schatten für dreidimensionale Anzeigeelemente.
+    * `3d-face` - Flächenfarbe für dreidimensionale Anzeigeelemente und für Dialog -Feldhintergründe.
+    * `3d-highlight` - Hervorhebungsfarbe für dreidimensionale Anzeigeelemente.
+    * `3d-light` - Lichtfarbe für dreidimensionale Anzeigeelemente.
+    * `3d-shadow` - Schattenfarbe für dreidimensionale Anzeigeelemente.
+    * `active-border` - Aktiver Fensterrahmen.
+    * `active-caption` - Aktive Fenstertitelleiste. Gibt die linke Seitenfarbe in farblichen Farbverlauf sdera eines aktiven Fensters an, wenn der Farbverlaufseffekt aktiviert ist .
+    * `active-caption-gradient` - Rechte Seitenfarbe im Farbverlauf einer der Titelleiste eines aktiven Fensters.
+    * `app-workspace` - Hintergrundfarbe von MDI -Anwendungen (Multiple Document Interface) Anwendungen.
+    * `button-text` - Text auf Drucktasten.
+    * `caption-text` - Text in Beschriftung, Größenfeld und Bildlaufleistenpfeilfeld.
+    * `desktop` - Desktop-Hintergrundfarbe.
+    * `disabled-text` - Grauer (deaktivierter) Text.
+    * `highlight` - Artikel, die in einem Steuerelement ausgewählt sind.
+    * `highlight-text` - Text von In einem Steuerelement ausgewählten Element(en).
+    * `hotlight` - Farbe für einen Hyperlink oder ein Hot-Track-Element.
+    * `inactive-border` - Inaktiver Fensterrahmen.
+    * `inactive-caption` - Inaktive Fensterbeschriftung. Gibt die linke Seitenfarbe im Farbverlauf der Titelleiste eines inaktiven Fensters an, wenn der Farbverlauf Effekt aktiviert ist.
+    * `inactive-caption-gradient` - Rechte Seitenfarbe im Farbverlauf einer inaktiven Fensters Titelleiste.
+    * `inactive-caption-text` - Farbe des Textes in einer inaktiven Beschriftung.
+    * `info-background` - Hintergrundfarbe für QuickInfo-Steuerelemente.
+    * `info-text` - Textfarbe für QuickInfo-Steuerelemente.
+    * `menu` - Menühintergrund.
+    * `menu-highlight` - Die Farbe, die zum Hervorheben von Menüelementen verwendet wird, wenn das Menü als flaches Menü angezeigt wird.
+    * `menubar` - Die Hintergrundfarbe für die Menüleiste, wenn Menüs als flache Menüs angezeigt werden.
+    * `menu-text` - Text in Menüs.
+    * `scrollbar` - Grauer Bereich der Bildlaufleiste.
+    * `window` - Fensterhintergrund.
+    * `window-frame` - Fensterrahmen.
+    * `window-text` - Text in Fenstern.
+  * Auf **macOS-**
+    * `alternate-selected-control-text` - Der Text auf einer ausgewählten Fläche in einer Liste oder Tabelle. _veraltete_
+    * `control-background` - Der Hintergrund eines großen Schnittstellenelements, z. B. eines Browsers oder einer Tabelle.
+    * `control` - Die Oberfläche eines Steuerelements.
+    * `control-text` -Der Text eines Steuerelements, das nicht deaktiviert ist.
+    * `disabled-control-text` - Der Text eines deaktivierten Steuerelements.
+    * `find-highlight` - Die Farbe eines Fundindikators.
+    * `grid` - Die Gitternetzlinien eines Schnittstellenelements wie einer Tabelle.
+    * `header-text` - Der Text einer Kopfzeile in einer Tabelle.
+    * `highlight` - Die virtuelle Lichtquelle auf dem Bildschirm.
+    * `keyboard-focus-indicator` - Der Ring, der um das aktuell fokussierte Steuerelement angezeigt wird, wenn die Tastatur für die Schnittstellennavigation verwendet wird.
+    * `label` - Der Text einer Beschriftung, die den primären Inhalt enthält.
+    * `link` - Ein Link zu anderen Inhalten.
+    * `placeholder-text` - Eine Platzhalterzeichenfolge in einer Steuerelement- oder Textansicht.
+    * `quaternary-label` - Der Text eines Etiketts von geringerer Bedeutung als ein tertiäres Etikett wie Wasserzeichentext.
+    * `scrubber-textured-background` - Der Hintergrund eines Wäschers in der Touch Bar.
+    * `secondary-label` - Der Text eines Etiketts von geringerer Bedeutung als ein normales Etikett, z. B. ein Etikett, das zur Darstellung einer Unterposition verwendet wird, oder zusätzliche Informationen.
+    * `selected-content-background` - Der Hintergrund für ausgewählte Inhalte in einem Schlüsselfenster oder einer Ansicht.
+    * `selected-control` - Die Oberfläche eines ausgewählten Steuerelements.
+    * `selected-control-text` - Der Text eines ausgewählten Steuerelements.
+    * `selected-menu-item-text` - Der Text eines ausgewählten Menüs.
+    * `selected-text-background` - Der Hintergrund des markierten Textes.
+    * `selected-text` - Ausgewählter Text.
+    * `separator` - Ein Trennzeichen zwischen verschiedenen Inhaltsabschnitten.
+    * `shadow` - Der virtuelle Schatten, der von einem erhöhten Objekt auf dem Bildschirm geworfen wird.
+    * `tertiary-label` - Der Text einer Beschriftung von geringerer Bedeutung als eine sekundäre Bezeichnung, z. B. eine Bezeichnung, die zur Darstellung deaktivierten Textes verwendet wird.
+    * `text-background` - Texthintergrund.
+    * `text` - Der Text in einem Dokument.
+    * `under-page-background` - Der Hintergrund hinter dem Inhalt eines Dokuments.
+    * `unemphasized-selected-content-background` - Der ausgewählte Inhalt in einem Nicht-Schlüsselfenster oder in einer Ansicht.
+    * `unemphasized-selected-text-background` - Ein Hintergrund für markierten Text in einem Nicht-Schlüsselfenster oder einer Ansicht.
+    * `unemphasized-selected-text` - Ausgewählter Text in einem Nicht-Schlüsselfenster oder in einer Ansicht.
+    * `window-background` - Der Hintergrund eines Fensters.
+    * `window-frame-text` - Der Text im Titelleistenbereich des Fensters.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
+Gibt `String` zurück - Die Systemfarbeinstellung in RGB-Hexadezimalform (`#ABCDEF`). Weitere Informationen finden Sie in den [Windows-Dokumenten][windows-colors] und den</a>
 
-The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
+macOS-Dokumenten.</p> 
 
-### `systemPreferences.getSystemColor(color)` _macOS_
+Die folgenden Farben sind nur unter macOS 10.14 verfügbar: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`und `unemphasized-selected-text`.
 
-* `color` String - One of the following values:
-  * `blue`
-  * `brown`
-  * `gray`
-  * `green`
-  * `orange`
-  * `pink`
-  * `purple`
-  * `red`
-  * `yellow`
 
-Returns `String` - The standard system color formatted as `#RRGGBBAA`.
 
-Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for  more details.
+### `systemPreferences.getSystemColor(color)` _macOS-_
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
+* `color` String - Einer der folgenden Werte: 
+    * `Blau`
+  * `Braun`
+  * `Grau`
+  * `Grün`
+  * `Orange`
+  * `Rosa`
+  * `Lila`
+  * `Rot`
+  * `Gelb`
 
-Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+Gibt `String` zurück - Die Standardsystemfarbe, die als `#RRGGBBAA`formatiert ist.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+Gibt eine von mehreren Standard-Systemfarben zurück, die sich automatisch an die Lebendigkeit anpassen und Änderungen in den Eingabehilfeneinstellungen wie "Kontrast erhöhen" und "Transparenz reduzieren" ändern. Weitere Informationen finden Sie unter [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) .
 
-### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
-Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _veraltete_
+
+Gibt `Boolean` zurück - `true` wenn ein invertiertes Farbschema (ein Farbschema mit hohem Kontrast mit hellem Text und dunklem Hintergrund) aktiv ist, `false` andernfalls.
+
+**veraltet:** sollten die neue [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) -API verwenden.
+
+
+
+### macOS</em> _windows_ _veraltete_`systemPreferences.isHighContrastColorScheme()` _</h3> 
+
+Gibt `Boolean` zurück - `true` , wenn ein Design mit hohem Kontrast aktiv ist, `false` andernfalls.
+
+**veraltet:** sollten die neue [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) -API verwenden.
+
+
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
-Returns `String` - Can be `dark`, `light` or `unknown`.
+Gibt `String` zurück - Kann `dark`, `light` oder `unknown`sein.
 
-Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+Ruft die macOS-Darstellungseinstellung ab, die derzeit auf Ihre Anwendung angewendet wird, [NSApplication zuordnet](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc).
 
-### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
-Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _veraltete_
 
-### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
+Rücksendungen `String` | `null` - Kann `dark`, `light` oder `unknown`sein.
 
-* `appearance` String | null - Can be `dark` or `light`
+Ruft die macOS-Darstellungseinstellung ab, die Sie für Ihrer Anwendung deklariert haben, und [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc)zugeordnet. Sie können die `setAppLevelAppearance` -API verwenden, um diesen Wert festzulegen.
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
-### `systemPreferences.canPromptTouchID()` _macOS_
 
-Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _veraltete_
 
-**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+* `appearance` String | null - Kann `dark` oder `light`werden
 
-### `systemPreferences.promptTouchID(reason)` _macOS_
+Legt die Darstellungseinstellung für Ihre Anwendung fest, sollte dies den Systemstandard überschreiben und den Wert von `getEffectiveAppearance`überschreiben.
 
-* `reason` String - The reason you are asking for Touch ID authentication
 
-Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
+
+### `systemPreferences.canPromptTouchID()` _macOS-_
+
+Gibt `Boolean` zurück - unabhängig davon, ob dieses Gerät Touch ID verwenden kann oder nicht.
+
+**HINWEIS:** Diese API gibt `false` auf macOS-Systemen zurück, die älter als Sierra 10.12.2 sind.
+
+
+
+### `systemPreferences.promptTouchID(reason)` _macOS-_
+
+* `reason` String - Der Grund, warum Sie die Touch ID-Authentifizierung anfordern
+
+Gibt `Promise<void>` zurück - löst auf, wenn der Benutzer sich erfolgreich mit Touch ID authentifiziert hat.
+
+
 
 ```javascript
 const { systemPreferences } = require('electron')
 
-systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
-  console.log('You have successfully authenticated with Touch ID!')
-}).catch(err => {
-  console.log(err)
-})
+systemPreferences.promptTouchID('Um die Zustimmung für ein Security-Gated Thing') zu erhalten.dann(erfolg =>
+  Konsole.log('Sie haben sich erfolgreich mit Touch ID authentifiziert!')
+.catch(err =>
+  Konsole.log(err)
+)
 ```
 
-This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
 
-**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+Diese API selbst schützt Ihre Benutzerdaten nicht. vielmehr ist es ein Mechanismus, um Ihnen dies zu ermöglichen. Native Apps müssen [Zugriffssteuerungskonstanten festlegen, die](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) wie [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) für ihren Schlüsselbundeintrag verwenden, sodass das Lesen automatisch zur biometrischen Zustimmung von Touch ID aufgefordert würde. Dies könnte mit [`node-keytar`](https://github.com/atom/node-keytar)erfolgen, so dass man einen Verschlüsselungsschlüssel mit `node-keytar` speichern und nur abrufen würde, wenn `promptTouchID()` auflöst.
+
+**HINWEIS:** Diese API gibt ein abgelehntes Versprechen auf macOS-Systemen zurück, die älter als Sierra 10.12.2 sind.
+
+
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
-* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
+* `prompt` boolesch - ob der Benutzer per Eingabeaufforderung informiert wird, wenn der aktuelle Prozess nicht vertrauenswürdig ist.
 
-Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
+Gibt `Boolean` zurück : `true` , wenn es sich bei dem aktuellen Prozess um einen vertrauenswürdigen Zugriffsclient handelt und `false` , wenn dies nicht der Fall ist.
 
-### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
-Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+### `systemPreferences.getMediaAccessStatus(mediaType)` _windows_ _macOS-_
 
-This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
+* `mediaType` String - Kann `microphone`, `camera` oder `screen`sein.
 
-Windows 10 has a global setting controlling `microphone` and `camera` access for all win32 applications. It will always return `granted` for `screen` and for all media types on older versions of Windows.
+Gibt `String` zurück : `not-determined`, `granted`, `denied`, `restricted` oder `unknown`.
+
+Diese Benutzerzustimmung war unter macOS 10.13 High Sierra oder niedriger nicht erforderlich, sodass diese Methode immer `granted`zurückgibt. macOS 10.14 Mojave oder höher erfordert die Zustimmung für `microphone` und `camera` Zugriff. macOS 10.15 Catalina oder höher erfordert die Zustimmung für `screen` Zugriff.
+
+Windows 10 verfügt über eine globale Einstellung, die `microphone` und `camera` Zugriff für alle win32-Anwendungen steuert. Es wird immer `granted` für `screen` und für alle Medientypen auf älteren Versionen von Windows zurückgegeben.
+
+
 
 ### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 
-* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
+* `mediaType` String - der Typ des angeforderten Mediums; kann `microphone`sein , `camera`.
 
-Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it _must_ be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+Gibt `Promise<Boolean>` zurück - Ein Versprechen, das mit `true` löst, wenn die Zustimmung erteilt wurde, und `false` , wenn es verweigert wurde. Wenn ein ungültiges `mediaType` bestanden wird, wird das Versprechen abgelehnt. Wenn eine Zugriffsanforderung abgelehnt wurde und später über den Bereich Systemeinstellungen geändert wird, ist ein Neustart der App erforderlich, damit die neuen Berechtigungen wirksam werden. Wenn der Zugriff bereits angefordert und verweigert wurde, muss _über den Voreinstellungsbereich_ geändert werden. Eine Warnung wird nicht angezeigt, und das Versprechen wird mit dem vorhandenen Zugriffsstatus aufgelöst.
 
-**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
+**Wichtig:** Um diese API richtig nutzen zu können, müssen Sie [](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) die `NSMicrophoneUsageDescription` - und `NSCameraUsageDescription` Zeichenfolgen in der `Info.plist` -Datei Ihrer App festlegen. Die Werte für diese Schlüssel werden verwendet, um die Berechtigungsdialogfelder aufzufüllen, sodass der Benutzer ordnungsgemäß über den Zweck der Berechtigungsanforderung informiert wird. Weitere Informationen zum Festlegen dieser Anwendungen im Kontext von Electron finden Sie in [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) .
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
+Diese Benutzerzustimmung war bis macOS 10.14 Mojave nicht erforderlich, daher gibt diese Methode immer `true` zurück, wenn Ihr System 10.13 High Sierra oder niedriger läuft.
+
+
 
 ### `systemPreferences.getAnimationSettings()`
 
 Gibt das `Object` zurück:
 
-* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
-* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
-* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
+* `shouldRenderRichAnimation` Boolean - Gibt true zurück, wenn rich animationen gerendert werden sollen. Betrachtet sitzungstyp (z. B. Remotedesktop) und Eingabehilfen, um Anleitungen für schwere Animationen zu geben.
+* `scrollAnimationsEnabledBySystem` Boolean - Legt plattformspezifisch fest, ob Bildlaufanimationen (z. B. durch Home/End-Taste) aktiviert werden sollen.
+* `prefersReducedMotion` Boolean - Bestimmt, ob der Benutzer basierend auf Plattform-APIs eine reduzierte Bewegung wünscht.
 
-Returns an object with system animation settings.
+Gibt ein Objekt mit Systemanimationseinstellungen zurück.
+
+
 
 ## Eigenschaften
 
-### `systemPreferences.appLevelAppearance` _macOS_
 
-A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
-Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
+### `systemPreferences.appLevelAppearance` _macOS-_
 
-This property is only available on macOS 10.14 Mojave or newer.
+Eine `String` Eigenschaft, die `dark`, `light` oder `unknown`sein kann. Es bestimmt die macOS-Darstellungseinstellung für Ihrer Anwendung. Dies wird Werten in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc)zugeordnet. Wenn Sie dies festlegen, werden die Systemstandard sowie der Wert von `getEffectiveAppearance`überschrieben.
+
+Mögliche Werte, die festgelegt werden können, sind `dark` und `light`, und mögliche Rückgabewerte sind `dark`, `light`und `unknown`.
+
+Diese Eigenschaft ist nur für macOS 10.14 Mojave oder neuer verfügbar.
+
+
 
 ### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
 
-A `String` property that can be `dark`, `light` or `unknown`.
+Eine `String` Eigenschaft, die `dark`, `light` oder `unknown`sein kann.
 
-Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+Gibt die macOS-Darstellungseinstellung zurück, die derzeit auf Ihre Anwendung angewendet wird, [NSApplication zuordnet](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc).
 
 [dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
 
 [windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
-[macos-colors]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors
