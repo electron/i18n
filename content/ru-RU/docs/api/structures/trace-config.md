@@ -13,22 +13,22 @@
 Пример TraceConfig который примерно соответствует записям Chrome DevTools:
 
 ```js
-{
-  recording_mode: 'record-until-full',
-  included_categories: [
+
+  recording_mode: "запись до полного",
+  included_categories:
     'devtools.timeline',
-    'disabled-by-default-devtools.timeline',
-    'disabled-by-default-devtools.timeline.frame',
-    'disabled-by-default-devtools.timeline.stack',
+    'отключен по умолчанию-devtools.timeline',
+    'отключен по умолчанию-devtools.timeline',
+    'отключен по умолчанию-devtools.timeline.stack',
     'v8.execute',
     'blink.console',
     'blink.user_timing',
     'latencyInfo',
-    'disabled-by-default-v8.cpu_profiler',
-    'disabled-by-default-v8.cpu_profiler.hires'
-  ],
-  excluded_categories: ['*']
-}
+    'отключен по умолчанию-v8.cpu_profiler',
+    'отключен по умолчанию-v8.cpu_profiler.hires'
+  ,
+  excluded_categories:
+
 ```
 
 [категории]: https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h
