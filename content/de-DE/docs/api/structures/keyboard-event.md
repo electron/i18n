@@ -1,4 +1,4 @@
-# KeyboardEvent Object
+# KeyboardEvent-Objekt
 
 * `ctrlKey` Boolean (optional) - Wahr wenn die Ctrl-Taste gehalten wurde, wärend des Events
 * `metaKey` Boolean (optional) - Wahr wenn die Meta-Taste gehalten wurde wärend des Events
