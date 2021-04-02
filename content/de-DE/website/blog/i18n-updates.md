@@ -58,4 +58,4 @@ Aufgrund des Erfolgs der i18n-Initiative von Electronic entschied sich Node.js f
 
 ## 🔦 Mitwirkende Anleitung
 
-If you're interested in joining our effort to make Electron more international friendly, we have a handy-dandy [contributing guide](https://github.com/electron/i18n/blob/master/contributing.md) to help you get started. Frohes Internationalisieren! 📚
+Wenn Sie daran interessiert sind, sich unseren Bemühungen anzuschließen, Electron internationaler zu machen, haben wir eine praktische dandy [, die einen Leitfaden](https://github.com/electron/i18n/blob/master/contributing.md) beitragen, um Ihnen den Einstieg zu erleichtern. Frohes Internationalisieren! 📚
