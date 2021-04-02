@@ -26,13 +26,19 @@ Sur Windows, vous devrez installer votre application sur la machine d'un utilisa
 
 Lorsque vous utilisez [electron-winstaller][installer-lib] ou [electron-forge][electron-forge-lib], assurez-vous de ne pas essayer de mettre à jour votre application [à sa première exécution](https://github.com/electron/windows-installer#handling-squirrel-events) (voir aussi [ce problème pour plus d'information](https://github.com/electron/electron/issues/7155)). Il est également recommandé d'utiliser [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) pour avoir les raccourcis bureau pour votre application.
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. Vous devez utiliser le même ID pour votre application qu'avec l'API `app.setAppUserModelId`, sinon Windows ne sera pas en mesure d'épingler correctement votre application dans la barre des tâches.
+L’installateur généré avec Squirrel créera une icône raccourcie avec un</a> d’identification de modèle utilisateur d’application
 
-Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 ou tout autre hôte de fichiers statiques. You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
+dans le format de `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, des exemples sont `com.squirrel.slack.Slack` et `com.squirrel.code.Code`. Vous devez utiliser le même ID pour votre application qu'avec l'API `app.setAppUserModelId`, sinon Windows ne sera pas en mesure d'épingler correctement votre application dans la barre des tâches.</p> 
+
+Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 ou tout autre hôte de fichiers statiques. Vous pouvez lire les documents de [Squirrel.Windows][squirrel-windows] plus de détails sur fonctionnement de Squirrel.Windows.
+
+
 
 ## Événements
 
 L'objet `autoUpdater` émet les événements suivants :
+
+
 
 ### Événement : 'error'
 
@@ -42,17 +48,25 @@ Retourne :
 
 Émis lorsqu’il y a une erreur pendant la mise à jour.
 
+
+
 ### Événement : 'checking-for-update'
 
 Émis lors de la vérification du commencement d'une mise à jour.
+
+
 
 ### Événement : 'update-available'
 
 Émis lorsqu'une mise à jour est disponible. La mise à jour est téléchargée automatiquement.
 
+
+
 ### Événement : 'update-not-available'
 
 Émis quand il n’y a aucune mise à jour disponible.
+
+
 
 ### Événement : 'update-downloaded'
 
@@ -68,7 +82,9 @@ Retourne :
 
 Sur Windows, seulement `releaseName` est disponible.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Note:** Il n’est pas strictement nécessaire de gérer cet événement. Une mise à téléchargée avec succès sera toujours appliquée la prochaine fois que l’application démarre.
+
+
 
 ### Événement : 'before-quit-for-update'
 
@@ -76,30 +92,40 @@ Cet événement est émis après qu'un utilisateur appelle `quitAndInstall()`.
 
 Quand cette API est appelée, l'événement `before-quit` n'est pas émis avant que toutes les fenêtres soient fermées. Ainsi vous devriez écouter cet évènement si vous voulez effectuer des actions avant que les fenêtres soient fermées et qu'un processus est entrain d'être arrêté, est écouter aussi `before-quit`.
 
+
+
 ## Méthodes
 
 L'objet `autoUpdater` dispose des méthodes suivantes :
 
+
+
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object
-  * `url` String
+* `options` objet 
+    * `url` String
   * `en-têtes` Enregistrement<String, String> (facultatif) _macOS_ - En-têtes de requête HTTP.
-  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
+  * `serverType` String (facultatif) _macOS_ - Peut être `json` ou `default`, voir le [Squirrel.Mac][squirrel-mac] README pour plus d’informations.
 
 Définit l'`url` et initialise l'auto updater.
+
+
 
 ### `autoUpdater.getFeedURL()`
 
 Retourne `String` - L'URL de flux des mises à jour.
 
+
+
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` avant d utiliser cette API.
+
+
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Redémarre l’application et installe la mise à jour après son téléchargement. Il ne doit être appelé qu’après `update-downloaded` a été émis.
 
 Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
@@ -111,5 +137,4 @@ Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applicati
 [installer]: https://github.com/electron/grunt-electron-installer
 [installer-lib]: https://github.com/electron/windows-installer
 [electron-forge-lib]: https://github.com/electron-userland/electron-forge
-[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
