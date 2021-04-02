@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
+> Accédez aux informations sur les sources multimédias qui peuvent être utilisées pour capturer des vidéos audio et à partir du bureau à l’aide de l' [`navigator.mediaDevices.getUserMedia`][] 'API.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+Pour capturer des vidéos à partir d’une source fournie par `desktopCapturer` les contraintes transmises à [`navigator.mediaDevices.getUserMedia`][] doivent inclure `chromeMediaSource: 'desktop'`, et `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Pour capturer à la fois audio et vidéo de l’ensemble du bureau les contraintes passées à [`navigator.mediaDevices.getUserMedia`][] doit inclure `chromeMediaSource: 'desktop'`, pour les `audio` et les `video`, mais ne doit pas inclure une contrainte `chromeMediaSourceId` .
 
 ```javascript
 const constraints = {
@@ -72,14 +72,14 @@ Le module `desktopCapturer` dispose des méthodes suivantes :
 
 ### `desktopCapturer.getSources(options)`
 
-* `options` Object
+* `options` objet
   * `types` String[] - un tableau de Chaîne de caractères qui répertorie les types de sources bureau à être capturé, les types disponibles sont `screen` et `window`.
   * `thumbnailSize` [Size](structures/size.md) (facultatif) - La taille de la miniature de la source de média doit être redimensionnée. La valeur par défaut est `150` x `150`. Définissez la largeur ou la hauteur à 0 lorsque vous n'avez pas besoin de les vignettes. Cela permettra de gagner le temps de traitement nécessaire pour capturer le contenu de chaque fenêtre et écran.
   * `fetchWindowIcons` Boolean (facultatif) - Définir à true pour activer la récupération des icônes de fenêtre. La valeur par défaut est faux. Lorsque false la propriété appIcon des sources retourne null. Même si une source a l'écran de type.
 
 Retourne `Promise<DesktopCapturerSource[]>` - Résout avec un tableau de [`DesktopCapturerSource`](structures/desktop-capturer-source.md), chaque `DesktopCapturerSource` représente un écran ou une fenêtre individuelle qui peut être capturée.
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
+**Note** Capture du contenu de l’écran nécessite le consentement de l’utilisateur sur macOS 10.15 Catalina ou plus, qui peut détecter par [`systemPreferences.getMediaAccessStatus`][].
 
 ## Avertissements
 
