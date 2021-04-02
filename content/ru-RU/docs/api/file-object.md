@@ -8,21 +8,21 @@
 
 ```html
 <div id="holder">
-  Drag your file here
+  Перетащите файл здесь
 </div>
 
 <script>
-  document.addEventListener('drop', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  document.addEventListener ('drop', e)>
+    e.preventDefault ();
+    e.stopPropagation ();
 
-    for (const f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
-    }
-  });
-  document.addEventListener('dragover', (e) => {
+    for (const f e.dataTransfer.files) - консоль
+      .log ('File (s) вы тащили сюда: ', f.path)
+    -
+  );
+  document.addEventListener ('dragover', (e) ->
     e.preventDefault();
-    e.stopPropagation();
-  });
+    e.stopPropagation ();
+  );
 </script>
 ```
