@@ -37,11 +37,11 @@ Node.js の `child_process` モジュールを使用していて、Linux 上で�
 
 [`crashReporter.start()`](#crashreporterstartoptions) をご参照ください。
 
-#### `process.crashReporter.getParameters()`
+#### `をクリックします。`
 
 [`crashReporter.getParameters()`](#crashreportergetparameters) をご参照ください。
 
-#### `process.crashReporter.addExtraParameter(key, value)`
+#### `をクリックします。`
 
 [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value) をご参照ください。
 
