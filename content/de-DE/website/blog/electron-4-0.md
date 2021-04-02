@@ -30,7 +30,7 @@ new BrowserWindow({
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-See the [BrowserWindow](https://electronjs.org/docs/api/browser-window) and [`<webview>` Tag](https://electronjs.org/docs/api/webview-tag) documentation for more information.
+Weitere Informationen finden Sie in der Dokumentation [BrowserWindow](https://electronjs.org/docs/api/browser-window) und [`<webview>` Tag](https://electronjs.org/docs/api/webview-tag) .
 
 ### Filtern von `remote.require()` / `remote.getGlobal()` Anfragen
 
@@ -137,7 +137,7 @@ Die `medialCapitalAsWordStart` und `wordStart` Optionen wurden veraltet, da sie 
 
 ## App Feedback Programm
 
-Das [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) das wir während der Entwicklung von Electron 3 eingerichtet haben. war erfolgreich, deshalb haben wir es auch während der Entwicklung von 4.0 fortgesetzt. Wir möchten uns herzlich bei Atlassian, Discord, MS Teams, OpenFin, Slack, bedanken Symphonie, WhatsApp und die anderen Programm-Mitglieder für ihre Beteiligung während der 4. beta Zyklus. To learn more about the App Feedback Program and to participate in future betas, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Das [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) das wir während der Entwicklung von Electron 3 eingerichtet haben. war erfolgreich, deshalb haben wir es auch während der Entwicklung von 4.0 fortgesetzt. Wir möchten uns herzlich bei Atlassian, Discord, MS Teams, OpenFin, Slack, bedanken Symphonie, WhatsApp und die anderen Programm-Mitglieder für ihre Beteiligung während der 4. beta Zyklus. Um mehr über das App-Feedback-Programm zu erfahren und an zukünftigen Beta-Versionen teilzunehmen, [sich unseren Blogbeitrag über das Programm](https://electronjs.org/blog/app-feedback-program).
 
 ## Was ist als Nächstes
 
