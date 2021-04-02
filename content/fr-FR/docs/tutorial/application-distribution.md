@@ -20,9 +20,9 @@ Vous pouvez consulter un exemple d'empaquetage d'une application à l'aide de `e
 
 ### Avec des binaires précompilés
 
-To distribute your app manually, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Ensuite, le dossier qui contient votre application devrait être nommé `app` et placé dans le répertoire de ressources d'Electron, comme illustré dans les exemples suivants.
+Pour distribuer votre application manuellement, vous devez télécharger les binaires préconstruits ['Électronique binaires](https://github.com/electron/electron/releases). Ensuite, le dossier qui contient votre application devrait être nommé `app` et placé dans le répertoire de ressources d'Electron, comme illustré dans les exemples suivants.
 
-> *NOTE:* the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+> *NOTE :* 'emplacement des binaires préconstruits d’Electron est indiqué avec `electron/` dans les exemples ci-dessous.
 
 *Sur macOS :*
 
@@ -42,11 +42,11 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` on macOS, `electron` on Linux, or `electron.exe` on Windows, and Electron will start as your app. The `electron` directory will then be your distribution to deliver to users.
+Ensuite, exécutez `Electron.app` sur macOS, `electron` sur Linux, ou `electron.exe` sur Windows, et Electron va commencer comme votre application. Le `electron` répertoire sera alors votre distribution à livrer aux utilisateurs.
 
-### With an app source code archive
+### Avec une archive de code source d’application
 
-Instead of from shipping your app by copying all of its source files, you can package your app into an [asar][] archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
+Au lieu d’expédier votre application en copiant tous ses fichiers source, vous pouvez emballer votre application dans une archive [asar][] pour améliorer les performances de lecture de fichiers sur des plateformes comme Windows, si vous n’utilisez pas déjà un bundler comme comme Parcel ou Webpack.
 
 Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l'archive en `app.asar` et la placer dans le dossier ressources d'Electron comme ci-dessous. Ainsi, Electron va essayer de lire l'archive et de se lancer à partir de celle-ci.
 
@@ -64,9 +64,9 @@ electron/resources/
 └── app.asar
 ```
 
-You can find more details on how to use `asar` in the [`electron/asar` repository][asar].
+Vous pouvez trouver plus de détails sur la façon d’utiliser `asar` dans le [`electron/asar` référentiel][asar].
 
-### Rebranding with downloaded binaries
+### Rebranding avec binaires téléchargés
 
 Après avoir empaqueté votre application dans Electron, vous voudrez renommer votre application avant de la distribuer aux utilisateurs.
 
@@ -101,7 +101,7 @@ Vous pouvez renommer `electron.exe` en n'importe quel nom qui vous plaît, et mo
 
 Vous pouvez renommer l'exécutable `electron` par ce que vous voulez.
 
-### Rebranding by rebuilding Electron from source
+### Rebranding en reconstruisant Electron à partir de la source
 
 Il est aussi possible de renommer Electron par le nom du produit et le compiler depuis le code source. Pour faire cela, vous devez définir les arguments de compilation correspondant au nom du produit (`electron_product_name = "LeNomDeVotreProduit"`) dans le fichier `args.gn` et recompiler.
 
