@@ -14,35 +14,35 @@
 Ниже приведен пример некоторых дополнительных параметров, которые могут быть установлены, могут быть разными на каждой платформе.
 
 ```javascript
-{
-  name: 'Austin_4th_Floor_Printer___C02XK13BJHD4',
-  displayName: 'Austin 4th Floor Printer @ C02XK13BJHD4',
-  description: 'TOSHIBA ColorMFP',
-  status: 3,
-  isDefault: false,
-  options: {
-    copies: '1',
-    'device-uri': 'dnssd://Austin%204th%20Floor%20Printer%20%40%20C02XK13BJHD4._ipps._tcp.local./?uuid=71687f1e-1147-3274-6674-22de61b110bd',
-    finishings: '3',
+
+  имя: 'Austin_4th_Floor_Printer___C02XK13BJHD4',
+  displayName: 'Остин 4-й этаж принтера , C02XK13BJHD4', описание
+  : 'TOSHIBA ColorMFP',
+  статус: 3,
+  isDefault: ложные,
+  варианты:
+    экземпляры: '1',
+    'устройство-ури': 'dnssd://Austin%204th%20Floor%20Printer%20%40%20C02XK13BJHD4._ipps.'tcp.local./?uuid-71687f1e-1147-3274-6674-22de61b110bd',
+    отделки: '3',
     'job-cancel-after': '10800',
     'job-hold-until': 'no-hold',
     'job-priority': '50',
     'job-sheets': 'none,none',
     'marker-change-time': '0',
-    'number-up': '1',
-    'printer-commands': 'ReportLevels,PrintSelfTestPage,com.toshiba.ColourProfiles.update,com.toshiba.EFiling.update,com.toshiba.EFiling.checkPassword',
-    'printer-info': 'Austin 4th Floor Printer @ C02XK13BJHD4',
-    'printer-is-accepting-jobs': 'true',
-    'printer-is-shared': 'false',
-    'printer-is-temporary': 'false',
-    'printer-location': '',
-    'printer-make-and-model': 'TOSHIBA ColorMFP',
-    'printer-state': '3',
-    'printer-state-change-time': '1573472937',
-    'printer-state-reasons': 'offline-report,com.toshiba.snmp.failed',
-    'printer-type': '10531038',
-    'printer-uri-supported': 'ipp://localhost/printers/Austin_4th_Floor_Printer___C02XK13BJHD4',
+    'номер-вверх': '1',
+    'принтер-команды': 'ReportLevels,PrintSelfTestPage,com.toshiba.ColourProfiles.update,com.toshiba.EFiling.update,com.toshiba.EFiling.checkPassword',
+    'принтер-инфо' : 'Остин 4-й этаж принтера c02XK13BJHD4',
+    'принтер-это-прием-рабочих мест': "истинный",
+    'принтер-является общим':
+    'принтер-это-временный': 'ложный',
+    'принтер-местоположение': '',
+    'принтер-сделать-и-модель': 'TOSHIBA ColorM', '
+    'принтер-государство': '3',
+    'принтер-государство-изменение-время': '1573472937',
+    'принтер-государство-причины': 'offline-report,com.toshiba.snmp' .failed',
+    'принтер типа': '10531038',
+    'принтер-uri-supported': 'ipp://localhost/printers/Austin_4th_Floor_Printer___C02XK13BJHD4',
     system_driverinfo: 'T'
-  }
-}
+  -
+
 ```
