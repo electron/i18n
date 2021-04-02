@@ -82,20 +82,20 @@ win.setIgnoreMouseEvents(true)
 マウスのメッセージを無視すると、Webページでマウスの移動が検出されなくなり、マウスの移動イベントが発生しません。 Windowsオペレーティングシステムでは、`mouseleave` のようなイベントを発生させられるよう、マウスの移動メッセージをWebページに転送するのに、オプションパラメーターが使用されます。
 
 ```javascript
-const { ipcRenderer } = require('electron')
-const el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
-})
-el.addEventListener('mouseleave', () => {
-  ipcRenderer.send('set-ignore-mouse-events', false)
-})
+コンスタント { ipcRenderer } = 必須 ('電子)
+は、を必要とします ('電子'
+) 必須です。 () => {
+  ipcRenderer.send ('set-ignore-mouse-events', true, { forward: true })
+)
+el.addEventListener('mouseleave', () ) =>
 
-// Main process
-const { ipcMain } = require('electron')
-ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
-  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
-})
+  {
+
+// メイン プロセス
+のは、必須 { ipcMain } ('''電子)
+イベント=> {
+  ブラウザウィンドウ.から Web コンテンツ (イベント.送信者). 設定無視マウスイベント(..args)
+} )
 ```
 
 これにより、`el` の上のとき、Webページはクリックスルーになり、その外側では、通常に戻ります。
