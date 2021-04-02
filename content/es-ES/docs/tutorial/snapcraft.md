@@ -67,26 +67,26 @@ snap(options)
 Crea el directorio de tu proyecto y agrega lo siguiente al `snap/snapcraft.yaml`:
 
 ```yaml
-name: electron-packager-hello-world
-version: '0.1'
-summary: Hello World Electron app
-description: |
-  Simple Hello World Electron app as an example
+Nombre: Electron-Packager-Hello-World
+version: ' 0,1 '
+Resumen: Hello World Electron App
+Descripción: |
+  simple Hello World Electron App como un ejemplo
 base: core18
-confinement: strict
-grade: stable
+confinamiento: estricto
+Grade: stable
 
 apps:
-  electron-packager-hello-world:
-    command: electron-quick-start/electron-quick-start --no-sandbox
-    extensions: [gnome-3-34]
-    plugs:
-    - browser-support
-    - network
-    - network-bind
-    environment:
-      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-      # libappindicator has readable resources.
+  Electron-Packager-Hello-World:
+    Command: Electron-Quick-Start/Electron-Quick-Start--no-Sandbox
+    Extensions: [gnome-3-34]
+    tapones:
+    -Browser-support
+    -Network
+    -Network-BIND
+    Environment:
+      # corrige la ruta de TMPDIR para Chromium Framework/Electron para asegurar que
+      # libappindicator tenga recursos legibles.
       TMPDIR: $XDG_RUNTIME_DIR
 
 parts:
@@ -142,7 +142,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
+Para obtener más información sobre las opciones de configuración disponibles, consulta la [documentación sobre la sintaxis de snapcraft][snapcraft-syntax]. Echemos un vistazo a un ejemplo:
 
 ```yaml
 name: myApp
@@ -187,7 +187,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+Como puedes ver, el `snapcraft.yaml` instruye al sistema para que lance un archivo llamado `electron-launch`. En este ejemplo, pasa información al binario de la App:
 
 ```sh
 #!/bin/sh
