@@ -4,7 +4,7 @@ author: zeke
 date: '2016-09-27'
 ---
 
-Heute kündigen wir einige Verbesserungen der Dokumentation von Electronic an. Jede neue Version enthält jetzt eine [JSON-Datei](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) , die alle öffentlichen APIs von Electronic detailliert beschreibt. We created this file to enable developers to use Electron's API documentation in interesting new ways.
+Heute kündigen wir einige Verbesserungen der Dokumentation von Electronic an. Jede neue Version enthält jetzt eine [JSON-Datei](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) , die alle öffentlichen APIs von Electronic detailliert beschreibt. Wir haben diese Datei erstellt, um Entwicklern die Verwendung der Electron-API-Dokumentation auf interessante neue Weise ermöglichen.
 
 ---
 
@@ -78,7 +78,7 @@ Anfang dieses Jahres wurde Electron's Codebase aktualisiert, um den [`Standard`]
 
 > Standard-Stil zu übernehmen bedeutet, die Bedeutung von Code-Klarheit und Community-Konventionen höher als der persönliche Stil zu ordnen. Dies mag für 100 % der Projekte und Entwicklungskulturen keinen Sinn machen, allerdings kann Open Source ein feindlicher Ort für Neulinge sein. Die Erstellung klarer, automatisierter Projekterwartungen macht ein Projekt gesünder.
 
-We also recently created [standard-markdown](https://github.com/zeke/standard-markdown) to verify that all the JavaScript code snippets in our documentation are valid and consistent with the style in the codebase itself.
+Kürzlich haben wir auch [Standardmarkdown-](https://github.com/zeke/standard-markdown) erstellt, um zu überprüfen, ob alle JavaScript-Codeausschnitte in unserer Dokumentation gültig sind und mit dem Stil in der Codebasis selbst konsistent sind.
 
 Zusammen helfen uns diese Tools die kontinuierliche Integration (CI) zu nutzen, um automatisch Fehler in Pull-Requests zu finden. Dies reduziert die Belastung für Menschen, die Code Überprüfung durchführen, und gibt uns mehr Vertrauen in die Genauigkeit unserer Dokumentation.
 
