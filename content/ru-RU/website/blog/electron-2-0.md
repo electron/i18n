@@ -35,7 +35,7 @@ Electron 2.0.0 также представляет собой усовершен
  * Добавлена возможность задавать произвольные аргументы в процессе рендерера. [#11850](https://github.com/electron/electron/pull/11850)
  * Добавить представление аксессуаров для выбора формата. [#11873](https://github.com/electron/electron/pull/11873)
  * Фиксированное состояние делегата сети для гонки. [#12053](https://github.com/electron/electron/pull/12053)
- * Поддержка `mips64el` арки в Linux. Electron requires the C++14 toolchain, which was not available for that arch at the time of the release. Мы надеемся на новую поддержку в будущем.
+ * Поддержка `mips64el` арки в Linux. Электрон требует инструментария C-14, который недоступен для этой арки на момент выпуска. Мы надеемся на новую поддержку в будущем.
 
 ## Делать изменения API
 
