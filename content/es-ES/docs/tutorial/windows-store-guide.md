@@ -29,19 +29,19 @@ Empaque la aplicación usando [electron-packager][electron-packager] (o una herr
 La salida debería verse más o menos de esta forma:
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+├ ─ ─ Ghost. exe
+├ ─ ─ licencia
+├ ─ ─ content_resources_200_percent. Pak
+├ ─ ─ content_shell. Pak
+├ ─ ─ d3dcompiler_47. dll
+├ ─ ─ ffmpeg. dll
+├ ─ ─ icudtl. dat
+├ ─ ─ libEGL. dll
+├ ─ ─ libGLESv2. dll
+├ ─ ─ configuraciones regionales
+│ ├ ─ ─ AM. Pak
+│ ├ ─ ─ ar. Pak
+│ ├ ─ ─ [...]
 ├── node.dll
 ├── resources
 │   └── app.asar
