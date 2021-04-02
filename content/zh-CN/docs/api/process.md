@@ -6,18 +6,18 @@
 
 Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
-## Sandbox
+## 沙 箱
 
 在沙盒化的渲染进程中， `process` 对象只包含了API的一个子集:
 
-- `crash()`
-- `hang()`
-- `getCreationTime()`
-- `getHeapStatistics()`
-- `getBlinkMemoryInfo()`
+- `崩溃（）`
+- `挂（）`
+- `获取创建时间（）`
+- `获取海普统计学（）`
+- `获取链接记忆信息（）`
 - `getProcessMemoryInfo()`
 - `getSystemMemoryInfo()`
-- `getSystemVersion()`
+- `获取系统转换（）`
 - `getCPUUsage()`
 - `getIOCounters()`
 - `argv`
@@ -53,33 +53,33 @@ process.once('loaded', () => {
 
 ## Properties
 
-### `process.defaultApp` _Readonly_
+### `process.defaultApp` _·里德利·_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+一 `Boolean`。 当应用开始作为参数传递到默认应用时，此 属性在主要过程中 `true` ，否则 `undefined`。
 
-### `process.isMainFrame` _Readonly_
+### `process.isMainFrame` _·里德利·_
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+当当前渲染器上下文是框架 "主"渲染器时， `true` `Boolean`。 如果你想要当前帧的ID，你应该使用 `webFrame.routingId`。
 
-### `process.mas` _Readonly_
+### `process.mas` _·里德利·_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+一 `Boolean`。 对于 Mac 应用商店构建，此属性 `true`，对于其他版本，它是 `undefined`。
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+控制应用程序内部的 ASAR 支持的 `Boolean` 。 将此设置为 `true` 将禁用 Node 内置模块中对 `asar` 存档的支持。
 
 ### `process.noDeprecation`
 
 `Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
-### `process.resourcesPath` _Readonly_
+### `process.resourcesPath` _·里德利·_
 
 ` String ` 类型， 表示资源目录的路径。
 
-### `process.sandboxed` _Readonly_
+### `process.sandboxed` _·里德利·_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+一 `Boolean`。 当渲染器过程被沙盒，这个属性是 `true`， 否则它是 `undefined`。
 
 ### `process.throwDeprecation`
 
@@ -93,25 +93,25 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
-### `process.type` _Readonly_
+### `process.type` _·里德利·_
 
-A `String` representing the current process's type, can be:
+代表当前流程类型的 `String` 可以是：
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - 主要过程
+* `renderer` - 渲染器过程
+* `worker` - 在网络工作者中
 
-### `process.versions.chrome` _Readonly_
+### `process.versions.chrome` _·里德利·_
 
 ` string `，一个表示 Chrome 版本的字符串。
 
-### `process.versions.electron` _Readonly_
+### `process.versions.electron` _·里德利·_
 
 ` string `，一个表示 Electron 版本的字符串。
 
-### `process.windowsStore` _Readonly_
+### `process.windowsStore` _·里德利·_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+一 `Boolean`。 如果应用程序是作为一个Windows商店应用程序（应用程序）运行，这个属性是 `true`， 否则它是 `undefined`。
 
 ## 方法
 
@@ -121,11 +121,11 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 导致当前进程崩溃的主线程。
 
-### `process.getCreationTime()`
+### `过程。获取创建时间（）`
 
 返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+指示应用程序的创建时间。 时间表示为自时代以来的毫秒数。 如果无法获得过程创建时间，则返回为空。
 
 ### `process.getCPUUsage()`
 
@@ -135,39 +135,39 @@ Indicates the creation time of the application. The time is represented as numbe
 
 返回 [`IOCounters`](structures/io-counters.md)
 
-### `process.getHeapStatistics()`
+### `过程。获取集权统计学（）`
 
 返回 ` Object `:
 
-* `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
+* `totalHeapSize` 整数
+* `totalHeapSizeExecutable` 整数
+* `totalPhysicalSize` 整数
+* `totalAvailableSize` 整数
+* `usedHeapSize` 整数
+* `heapSizeLimit` 整数
+* `mallocedMemory` 整数
+* `peakMallocedMemory` 整数
+* `doesZapGarbage` ·布尔
 
-Returns an object with V8 heap statistics. 备注：所有数据值以KB为单位
+返回带有 V8 堆统计的对象。 备注：所有数据值以KB为单位
 
-### `process.getBlinkMemoryInfo()`
+### `过程。获取链接记忆信息（）`
 
 返回 ` Object `:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `allocated` 整数 - 千字节中所有分配对象的大小。
+* `marked` 整数 - 千字节中所有标记对象的大小。
+* `total` 整数 - 千字节分配的空间总数。
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+返回带有闪烁内存信息的对象。 它可以用于调试渲染/DOM相关内存问题。 请注意，所有值均以千字节报告。
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+返回 `Promise<ProcessMemoryInfo>` - 解决与 [过程记忆信息](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+返回一个对象，提供有关当前过程的内存使用统计数据。 请注意 ，所有统计数据均以千字节报告。 此api应在应用程序准备好后调用。
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+铬不提供 `residentSet` 价值的macOS。 这是因为 macOS 执行最近未使用的页面的内存压缩。 作为一个 结果，居民设定的大小值不是人们所期望的。 `private` 内存 更能代表 macOS 上 过程的实际预压缩内存使用情况。
 
 ### `process.getSystemMemoryInfo()`
 
@@ -178,31 +178,31 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 * `swapTotal` Integer _Windows_ _Linux_ - 系统交换内存容量（单位：千字节）。
 * `swapFree` Integer _Windows_ _Linux_ - 系统可用交换内存大小（单位：千字节）。
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+返回一个对象，提供有关整个系统内存使用情况的统计数据。 请注意 ，所有统计数据均以千字节报告。
 
-### `process.getSystemVersion()`
+### `过程。获取系统转换（）`
 
-Returns `String` - The version of the host operating system.
+返回 `String` - 主机操作系统的版本。
 
 示例:
 
 ```js
-const version = process.getSystemVersion()
-console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+康斯特版本=过程。get系统转换（）
+控制台.log（版本）
+//在macOS-> '10.13.6'
+//在Windows上-> '10.0.17763'
+//在Linux-> '4.15.0-45-通用'
 ```
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**注意：** 它返回实际操作系统版本，而不是内核版本的macOS不像 `os.release()`。
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` 字符串 - 输出文件的路径。
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+返回 `Boolean` - 指示快照是否已成功创建。
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+采取V8堆快照，并保存到 `filePath`。
 
 ### `process.hang()`
 
