@@ -74,37 +74,37 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         // Transaktion abschließen.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
-        break
-      case 'restored':
 
-        console.log(`The purchase of ${payment.productIdentifier} has been restored.`)
+      Fall 'wiederhergestellt':
 
-        break
-      case 'deferred':
+        console.log('Der Kauf von ${payment.productIdentifier} wurde wiederhergestellt.')
 
-        console.log(`The purchase of ${payment.productIdentifier} has been deferred.`)
 
-        break
-      default:
-        break
-    }
-  })
-})
+      Fall 'aufgeschoben':
 
-// Check if the user is allowed to make in-app purchase.
-if (!inAppPurchase.canMakePayments()) {
-  console.log('The user is not allowed to make in-app purchase.')
-}
+        Console.log('Der Kauf von ${payment.productIdentifier} wurde zurückgestellt.')
 
-// Retrieve and display the product descriptions.
+        Pause
+      Standard:
+        pause
+
+
+
+
+.
+wenn (!inAppPurchase.canMakePayments()) -
+  Konsole.log('Der Benutzer darf keinen In-App-Kauf tätigen.')
+•
+
+/ / Abrufen und Anzeigen der Produktbeschreibungen.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Prüfen Sie die Parameter.
-  if (!Array.isArray(products) || products.length <= 0) {
-    console.log('Unable to retrieve the product informations.')
-    return
-  }
+  wenn (! Array.isArray(Produkte) || products.length <= 0) -
+    Konsole.log('Die Produktinformationen können nicht abgerufen werden.')
+    rückgabe
 
-  // Display the name and price of each product.
+
+  / Anzeigen des Namens und des Preises jedes Produkts.
   products.forEach(product => {
     console.log(`Der Preis von ${product.localizedTitle} ist ${product.formattedPrice}.`)
   })
@@ -114,13 +114,13 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   const selectedQuantity = 1
 
   // Das ausgewählte Produkt kaufen.
-  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
-    if (!isProductValid) {
-      console.log('The product is not valid.')
-      return
-    }
+  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => -
+    wenn (!isProductValid)
+      Konsole.log('Das Produkt ist ungültig.')
+      rückgabe
 
-    console.log('The payment has been added to the payment queue.')
+
+    Konsole.log('Die Zahlung wurde der Zahlungswarteschlange hinzugefügt.')
   })
 })
 ```
