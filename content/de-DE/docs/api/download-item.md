@@ -1,177 +1,177 @@
-## Class: DownloadItem
+## Klasse: DownloadItem
 
-> Control file downloads from remote sources.
+> Steuern Sie Dateidownloads aus Entferntquellen.
 
 Prozess: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter][event-emitter] that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` ist ein [EventEmitter-][event-emitter] , der ein Downloadelement in Electron darstellt. Es wird in `will-download` Fall von `Session` Klasse verwendet und ermöglicht es Benutzern, das Downloadelement steuern.
 
 ```javascript
 // Im Hauptprozess.
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
-win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+win.webContents.session.on('will-download', (event, item, webContents) => '
+  * Set the save path, so dass Electron kein Save-Dialog einfordert.
   item.setSavePath('/tmp/save.pdf')
 
-  item.on('updated', (event, state) => {
-    if (state === 'interrupted') {
-      console.log('Download is interrupted but can be resumed')
-    } else if (state === 'progressing') {
-      if (item.isPaused()) {
-        console.log('Download is paused')
-      } else {
-        console.log(`Received bytes: ${item.getReceivedBytes()}`)
-      }
-    }
-  })
-  item.once('done', (event, state) => {
-    if (state === 'completed') {
-      console.log('Download successfully')
-    } else {
-      console.log(`Download failed: ${state}`)
-    }
-  })
-})
+  item.on('updated', (ereignis, state) =>
+    wenn (Status === 'unterbrochen') -
+      Konsole.log('Download wird unterbrochen')
+    , wenn (Status === 'Fortschritt') -
+      wenn (item.isPaused()) -
+        Konsole.log('Download wird angehalten')
+      ,
+        ,,-Konsole
+  
+  
+    
+      .log (ereignis, zustand) =>
+    wenn (Status === 'abgeschlossen') ,
+      Konsole.log('Download erfolgreich')
+    ,
+      Konsole.log('Download fehlgeschlagen: ${state}')
+    '
+  '
+)
 ```
 
 ### Instanz Events
 
-#### Event: 'updated'
+#### Veranstaltung: 'aktualisiert'
 
 Rückgabewert:
 
 * `event` Event
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - Kann `progressing` oder `interrupted`werden.
 
-Emitted when the download has been updated and is not done.
+Emitt, wenn der Download aktualisiert wurde und nicht durchgeführt wird.
 
-The `state` can be one of following:
+Die `state` kann einer der folgenden sein:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - Der Download wird ausgeführt.
+* `interrupted` - Der Download wurde unterbrochen und kann fortgesetzt werden.
 
-#### Event: 'done'
+#### Veranstaltung: 'done'
 
 Rückgabewert:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String - Kann `completed`, `cancelled` oder `interrupted`sein.
 
-Ausgelöst, wenn der Download beendet wurde. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Ausgelöst, wenn der Download beendet wurde. Dazu gehören ein abgeschlossener Download, ein abgebrochener Download (über `downloadItem.cancel()`) und ein unterbrochener Download, der nicht fortgesetzt werden kann.
 
-The `state` can be one of following:
+Die `state` kann einer der folgenden sein:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - Der Download wurde erfolgreich abgeschlossen.
+* `cancelled` - Der Download wurde abgebrochen.
+* `interrupted` - Der Download wurde unterbrochen und kann nicht fortgesetzt werden.
 
 ### Instanz Methoden
 
-The `downloadItem` object has the following methods:
+Das `downloadItem` -Objekt verfügt über die folgenden Methoden:
 
-#### `downloadItem.setSavePath(path)`
+#### `downloadItem.setSavePath(Pfad)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - Legen Sie den Dateipfad des Downloadelements fest.
 
-The API is only available in session's `will-download` callback function. If `path` doesn't exist, Electron will try to make the directory recursively. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+Die API ist nur in der `will-download` -Rückruffunktion der Sitzung verfügbar. Wenn `path` nicht vorhanden ist, versucht Electron, das Verzeichnis rekursiv zu erstellen. Wenn der Benutzer den Speicherpfad nicht über die API festlegt, verwendet Electron die ursprüngliche -Routine, um den Speicherpfad zu bestimmen. Dies fordert in der Regel ein Speicherdialogfeld auf.
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Gibt `String` zurück - Der Speicherpfad des Downloadelements. Dies ist entweder der Pfad, der über `downloadItem.setSavePath(path)` festgelegt , oder der Pfad, der aus dem angezeigten -Speicherdialog ausgewählt wurde.
 
-#### `downloadItem.setSaveDialogOptions(options)`
+#### `downloadItem.setSaveDialogOptions(Optionen)`
 
-* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+* `options` SaveDialogOptions - Legen Sie die Dialogoptionen für die Speicherndatei fest. Dieses Objekt verfügt über dieselben Eigenschaften wie der `options` Parameter [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+Mit dieser API kann der Benutzer benutzerdefinierte Optionen für das Speicherdialogfeld festlegen, das standardmäßig für das Downloadelement öffnet. Die API ist nur in der `will-download` -Rückruffunktion der Sitzung verfügbar.
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+Gibt `SaveDialogOptions` zurück : Gibt das zuvor von `downloadItem.setSaveDialogOptions(options)`festgelegte Objekt zurück.
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Hält den Download an.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Gibt `Boolean` zurück - Gibt an, ob der Download angehalten wurde.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Setzt den angehaltenen Download fort.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Hinweis:** Um wiederverwendbare Downloads zu aktivieren, muss der Server, von dem Sie herunterladen, Bereichsanforderungen unterstützen und sowohl `Last-Modified` als auch `ETag` Headerwerte bereitstellen. Andernfalls werden `resume()` zuvor empfangene Bytes ablehnen und den Download von Anfang an neu starten.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Gibt `Boolean` zurück - Gibt an, ob der Download fortgesetzt werden kann.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Bricht den Downloadvorgang ab.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+Gibt `String` zurück : Die Ursprungs-URL, von der das Element heruntergeladen wird.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Gibt `String` zurück - Der Dateimime-Typ.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Gibt `Boolean` zurück - Gibt an, ob der Download eine Benutzergeste hat.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Gibt `String` zurück - Der Dateiname des Downloadelements.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Hinweis:** Der Dateiname ist nicht immer derselbe wie der tatsächliche, der auf dem lokalen -Datenträger gespeichert ist. Wenn der Benutzer den Dateinamen in einem Eingabedialogfeld zum Speichern des Downloads ändert, wird der tatsächlicher Name der gespeicherten Datei anders angegeben.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Gibt `Integer` zurück - Die Gesamtgröße in Bytes des Downloadelements.
 
-If the size is unknown, it returns 0.
+Wenn die Größe unbekannt ist, gibt sie 0 zurück.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Gibt `Integer` zurück - Die empfangenen Bytes des Downloadelements.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Gibt `String` zurück - Das Feld Content-Disposition aus der Antwort Header.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Gibt `String` zurück - Der aktuelle Status. Kann `progressing`, `completed`, `cancelled` oder `interrupted`sein.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Hinweis:** Die folgenden Methoden sind besonders nützlich, um ein `cancelled` Element beim Neustart der Sitzung fortzusetzen.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+Gibt `String[]` zurück - Die gesamte URL-Kette des Elements einschließlich aller Umleitungen.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Gibt `String` zurück - Der Headerwert "Letzte Änderung".
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Gibt `String` - ETag-Headerwert zurück.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Gibt `Double` zurück - Anzahl der Sekunden seit der UNIX-Epoche, in der der Download gestartet wurde.
 
 ### Instanz Eigenschaften
 
 #### `downloadItem.savePath`
 
-A `String` property that determines the save file path of the download item.
+Eine `String` Eigenschaft, die den Speicherdateipfad des Downloadelements bestimmt.
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+Die Eigenschaft ist nur in der `will-download` -Rückruffunktion der Sitzung verfügbar. Wenn der Benutzer den Speicherpfad nicht über die Eigenschaft festlegt, verwendet Electron die ursprüngliche -Routine, um den Speicherpfad zu bestimmen. Dies fordert in der Regel ein Speicherdialogfeld auf.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
