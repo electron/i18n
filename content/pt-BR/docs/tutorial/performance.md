@@ -49,8 +49,8 @@ Em suma, um módulo aparentemente ótimo escrito primordialmente para servidores
 
 Quando considerar um módulo, nos recomendados que você verifique:
 
-1. the size of dependencies included
-2. the resources required to load (`require()`) it
+1. o tamanho das dependências incluídas
+2. os recursos necessários para carregá-lo (`require()`)
 3. os recursos requeridos para realizar a ação que você está interessado
 
 Gerar um perfil de consumo de CPU e de memória para carregar um módulo pode ser feito com um simples comando no terminal. No exemplo abaixo, nós estamos observando o popular módulo `request`.
@@ -86,22 +86,22 @@ Vamos tomar o Visual Studio Code como exemplo. Quando você abre um arquivo, ele
 Vamos considerar um exemplo e assumir que sua aplicação está interpretando arquivos em um formato fictício `.foo`. Para fazer isso, ele depende do módulo igualmente fictício `foo-parser`. Em um desenvolvimento tradicional em Node.js, você provavelmente vai escrever um código que vai avidamente carregar dependências:
 
 ```js
-const fs = require('fs')
-const fooParser = require('foo-parser')
+const fs = require ('fs')
+const fooParser = require ('foo-parser')
 
-class Parser {
+classe Parser {
   constructor () {
-    this.files = fs.readdirSync('.')
+    este.files = fs.readdirSync('.')
   }
 
   getParsedFiles () {
-    return fooParser.parse(this.files)
+    retorno fooParser.parse(this.files)
   }
 }
 
-const parser = new Parser()
+const parser = novo módulo parser()
 
-module.exports = { parser }
+.exports = { parser }
 ```
 
 No exemplo acima, nós estamos fazendo muita coisa assim que o arquivo é carregado. Nós precisamos interpretar os arquivos imediatamente ? Nós podemos fazer isso um pouco mais tarde, quando o `getParsedFiles()` é realmente utilizado ?
@@ -115,14 +115,14 @@ class Parser {
     // Acesse o disco logo que o `getFiles` é chamado, não antes.
     // Além disso, assegure-se que nós não estamos bloqueando outras operações usando
 // a versão assíncrona.
-    this.files = this.files || await fs.readdir('.')
+    this.files = this.files || aguardam fs.readdir('.')
 
-    return this.files
+    retornar este.files
   }
 
   async getParsedFiles () {
-    // Our fictitious foo-parser is a big and expensive module to load, so
-    // defer that work until we actually need to parse files.
+    // Nosso foo-parser fictício é um módulo grande e caro para carregar, então
+    // adiar esse trabalho até que realmente precisemos analisar arquivos.
     // Já que `require()` vem com um módulo em cache, o `require()` 
     // vai sair caro apenas uma vez - as chamadas seguintes de `getParsedFiles()`
     // vão ser mais rápidas.
@@ -143,13 +143,13 @@ Em suma, aloque recursos quando precisar em vez de alocar todos eles quando sua 
 
 ## 3) Bloqueando o processo principal
 
-O processo principal do Electron (algumas vezes chamado de "browser process") é especial: é o processo pai de todos os outros na sua aplicação e o primeiro processo com quem o sistema operacional interage. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+O processo principal do Electron (algumas vezes chamado de "browser process") é especial: é o processo pai de todos os outros na sua aplicação e o primeiro processo com quem o sistema operacional interage. Ele lida com janelas, interações e a comunicação entre vários componentes dentro do seu aplicativo. Ele também abriga o fio de interface do usuário .
 
 Sob nenhuma circunstância você deve bloquear este processo e a thread da UI com operações longas. Bloquear a thread da UI significa que todo o seu programa vai travar até o processo principal estar pronto para continuar.
 
 ### Por que?
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. Se sua janela está renderizando uma animação suave, ela vai precisar conversar com o processo da GPU sobre isso - mais uma vez passando pelo processo principal.
+O processo principal e seu thread de interface do usuário são essencialmente a torre de controle para as principais operações de dentro do seu aplicativo. Quando o sistema operacional informa ao seu aplicativo sobre um clique mouse, ele passará pelo processo principal antes de chegar à sua janela. Se sua janela está renderizando uma animação suave, ela vai precisar conversar com o processo da GPU sobre isso - mais uma vez passando pelo processo principal.
 
 Electron e Chromium são cuidadosos ao colocar tarefas pesadas de I/P e operações pesadas em CPU dentro de novas threads para evitar o bloqueio da thread da UI. Você deve fazer o mesmo.
 
