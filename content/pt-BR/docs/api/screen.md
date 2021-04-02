@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+Este módulo não pode ser usado até que o `ready` evento do módulo `app` seja emitido.
 
 `screen` é um [EventEmitter][event-emitter].
 
@@ -13,35 +13,35 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 Um exemplo de criação de uma janela que preenche a tela inteira:
 
 ```javascript fiddle='docs/fiddles/screen/fit-screen'
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } = require ('electron')
 
-let win
-app.whenReady().then(() => {
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
+deixar ganhar
+app.whenReady().then((() => {
+  const { width, height } = screen.getPrim
+  do site{ width, height }do Site
+  ('https://github.com')
 })
 ```
 
-Another example of creating a window in the external display:
+Outro exemplo de criação de uma janela no display externo:
 
 ```javascript
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } = require ('electron')
 
-let win
+deixar ganhar
 
 app.whenReady().then(() => {
-  const displays = screen.getAllDisplays()
-  const externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
+  displays const = screen.getAllDisplays()
+  const externalDisplay = displays.find((display) => {  {  {  {  {  {  {  {  {  {  {  {  {  {  {  {  {  {  {  {
+    exibição de retorno.bounds.x !== 0 || display.bounds.y !== 0
   })
 
-  if (externalDisplay) {
-    win = new BrowserWindow({
+  se (externoDisplay) {
+    ganhar = novo BrowserWindow({
       x: externalDisplay.bounds.x + 50,
       y: externalDisplay.bounds.y + 50
     })
-    win.loadURL('https://github.com')
+    win.loadURL ('https://github.com')
   }
 })
 ```
@@ -57,89 +57,116 @@ Retorna:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Emitido quando `newDisplay` foi adicionado.
 
-### Event: 'display-removed'
-
-Retorna:
-
-* `event` Event
-* `oldDisplay` [Display](structures/display.md)
-
-Emitted when `oldDisplay` has been removed.
-
-### Event: 'display-metrics-changed'
+### Evento: 'display-removido'
 
 Retorna:
 
 * `event` Event
-* `display` [Display](structures/display.md)
-* `changedMetrics` String[]
+* </a>de exibição de `oldDisplay`
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+</li> </ul> 
+  
+  Emitido quando `oldDisplay` foi removido.
+  
+  
+
+### Evento: 'display-metrics-changed'
+
+Retorna:
+
+* `event` Event
+* </a>de exibição de `display` </li> 
+  
+  * `changedMetrics` String[]</ul> 
+
+Emitido quando uma ou mais métricas mudam em um `display`. O `changedMetrics` é uma matriz de strings que descrevem as mudanças. Possíveis mudanças são `bounds`, `workArea`, `scaleFactor` e `rotation`.
+
+
 
 ## Métodos
 
-The `screen` module has the following methods:
+O módulo `screen` tem os seguintes métodos:
+
+
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Retornos [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+A posição absoluta atual do ponteiro do mouse.
+
+
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Retorna [`Display`](structures/display.md) - A exibição primária.
+
+
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Devoluções [`Display[]`](structures/display.md) - Uma série de displays que estão disponíveis no momento.
 
-### `screen.getDisplayNearestPoint(point)`
 
-* `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+### `screen.getDisplayNearestPoint(ponto)`
+
+* </a>de `point` Point</li> </ul> 
+  
+  Devoluções [`Display`](structures/display.md) - O visor mais próximo do ponto especificado.
+  
+  
 
 ### `screen.getDisplayMatching(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md)
-
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+* </a>de Retângulo `rect` </li> </ul> 
+  
+  Devoluções [`Display`](structures/display.md) - O display que mais cruza os limites fornecidos.
+  
+  
 
 ### `screen.screenToDipPoint(point)` _Windows_
 
-* `point` [Point](structures/point.md)
-
-Returns [`Point`](structures/point.md)
-
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+* </a>de `point` Point</li> </ul> 
+  
+  Retornos [`Point`](structures/point.md)
+  
+  Converte um ponto físico de tela em um ponto DIP de tela. A escala DPI é realizada em relação ao display que contém o ponto físico.
+  
+  
 
 ### `screen.dipToScreenPoint(point)` _Windows_
 
-* `point` [Point](structures/point.md)
+* </a>de `point` Point</li> </ul> 
+  
+  Retornos [`Point`](structures/point.md)
+  
+  Converte um ponto DIP de tela em um ponto físico da tela. A escala DPI é realizada em relação ao display que contém o ponto DIP.
+  
+  
 
-Returns [`Point`](structures/point.md)
+### `screen.screenToDipRect(window, rect)` __do Windows
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+* </a> | do Navegador `window` Null</li> 
+  
+  * </a>de Retângulo `rect` </li> </ul> 
+  
+  Retornos [`Rectangle`](structures/rectangle.md)
+  
+  Converte uma retificada física de tela em uma retificada DIP de tela. A escala DPI é realizada em relação ao display mais próximo de `window`. Se `window` for nulo, o dimensionamento será realizado no visor mais próximo de `rect`.
+  
+  
 
-### `screen.screenToDipRect(window, rect)` _Windows_
+### `screen.dipToScreenRect(window, rect)` __do Windows
 
-* `window` [BrowserWindow](browser-window.md) | null
-* `rect` [Rectangle](structures/rectangle.md)
-
-Returns [`Rectangle`](structures/rectangle.md)
-
-Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
-
-### `screen.dipToScreenRect(window, rect)` _Windows_
-
-* `window` [BrowserWindow](browser-window.md) | null
-* `rect` [Rectangle](structures/rectangle.md)
-
-Returns [`Rectangle`](structures/rectangle.md)
-
-Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+* </a> | do Navegador `window` Null</li> 
+  
+  * </a>de Retângulo `rect` </li> </ul> 
+  
+  Retornos [`Rectangle`](structures/rectangle.md)
+  
+  Converte uma retificada dip de tela em uma retificada física da tela. A escala DPI é realizada em relação ao display mais próximo de `window`. Se `window` for nulo, o dimensionamento será realizado no visor mais próximo de `rect`.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
