@@ -6,12 +6,12 @@ Wenn Sie Sicherheitsbedenken haben, lesen Sie bitte das [Sicherheitsdokument](ht
 
 Wenn du nach Programmierhilfe suchst, für Antworten auf Fragen oder um mit anderen Entwicklern zu diskutieren, die Electron verwenden, können Sie an diesen Orten mit der Community interagieren:
 
-* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  * Getting help
-  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  * Sharing ideas with other Electron app developers
-  * And more!
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* [`Electron's Discord`](https://discord.com/invite/electron) verfügt über Kanäle für:
+  * Hilfe erhalten
+  * Ökosystem-Apps wie [Electron Forge](https://github.com/electron-userland/electron-forge) und [Electron Fiddle](https://github.com/electron/fiddle)
+  * Ideen mit anderen Electron App-Entwicklern teilen
+  * Und mehr!
+* [`electron`](https://discuss.atom.io/c/electron) Kategorie in den Atom-Foren
 * `#atom-Shell` Kanal auf Freenode
 * `#electron` Kanal auf [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`Elektron-ru`](https://telegram.me/electron_ru) *(Russisch)*
@@ -30,7 +30,7 @@ Wenn Sie einen Fehler in einer [unterstützten Version](#supported-versions) von
 
 ## Unterstützte Versionen
 
-The latest three *stable* major versions are supported by the Electron team. Wenn zum Beispiel die neueste Version 6.1.x ist, werden sowohl die 5.0.x als auch als auch die 4.2.x Serie unterstützt.  Wir unterstützen nur die neueste kleinere Version für jede stabile Release-Serie.  Dies bedeutet, dass im Falle einer Sicherheitsbehebung 6.1. wird die Korrektur erhalten, aber wir werden keine neue Version von 6.0.x veröffentlichen.
+Die neuesten drei *stabilen* Hauptversionen werden vom Electron-Team unterstützt. Wenn zum Beispiel die neueste Version 6.1.x ist, werden sowohl die 5.0.x als auch als auch die 4.2.x Serie unterstützt.  Wir unterstützen nur die neueste kleinere Version für jede stabile Release-Serie.  Dies bedeutet, dass im Falle einer Sicherheitsbehebung 6.1. wird die Korrektur erhalten, aber wir werden keine neue Version von 6.0.x veröffentlichen.
 
 Die neueste stabile Version erhält einseitig alle Korrekturen von `Master`, und die vorhergehende Version erhält die überwiegende Mehrheit dieser Korrekturen als Zeit- und Bandbreitenanforderungen. Die älteste unterstützte Release-Zeile erhält nur Sicherheits-Korrekturen direkt.
 
@@ -60,20 +60,20 @@ Die folgenden Plattformen werden durch Electron unterstützt:
 
 Nur 64Bit-Binärdateien werden für macOS bereitgestellt, und die minimale Unterstützung für macOS ist macOS 10.10 (Yosemite).
 
-Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
+Native Unterstützung für Apple Silicon (`arm64`) Geräte wurde in Electron 11.0.0 hinzugefügt.
 
 ### Windows
 
 Windows 7 und neuere Versionen werden unterstützt. Ältere Betriebssysteme werden nicht unterstützt (und funktionieren nicht zusammen mit Electron).
 
-Sowohl `ia32` (`x86`) als auch `x64` (`amd64`) Binärdateien werden für Windows bereitgestellt. [Native support for Windows on Arm (`arm64`) devices was added in Electron 6.0.8.](windows-arm.md). Das Ausführen von Apps, die mit früheren Versionen gepackt wurden, ist mit dem ia32-Programm möglich.
+Sowohl `ia32` (`x86`) als auch `x64` (`amd64`) Binärdateien werden für Windows bereitgestellt. [Native Unterstützung für Windows on Arm (`arm64`) Geräte wurde in Electron 6.0.8 hinzugefügt.](windows-arm.md). Das Ausführen von Apps, die mit früheren Versionen gepackt wurden, ist mit dem ia32-Programm möglich.
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+Die vorgefertigten Binärdateien von Electron werden auf Ubuntu 18.04 gebaut.
 
 Ob die vorkompilierten Dateien auf einer Distribution laufen, hängt davon ab, ob die Distribution die Bibliotheken enthält, die auf der Build-Plattform verwendet wurden. Deshalb ist nur für Ubuntu 18.04 garantiert, dass es funktioniert, aber die folgenden Plattformen wurden ebenfalls bestätigt, kompatibel mit den vorkompilierten Dateien zu sein:
 
 * Ubuntu 14.04 und neuer
-* Fedora 24 and newer
-* Debian 8 and newer
+* Fedora 24 und neuer
+* Debian 8 und neuer
