@@ -6,15 +6,15 @@
 
 ```javascript
 // メインプロセス
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = 必須 ('電子)
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+const勝利 = 新しいブラウザウィンドウ({ width: 800, height: 600 })
 
-// Load a remote URL
+// リモート URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+をロードするか、ローカル HTML ファイル
+win.loadURL('${__dirname}/app/index.html')
 ```
 
 ## フレームレスウィンドウ
