@@ -11,19 +11,19 @@
 サンプル:
 
 ```js
-// Main process
-const { port1, port2 } = new MessageChannelMain()
-w.webContents.postMessage('port', null, [port2])
+メインプロセス
+const { port1, port2 } = 新しいメッセージチャネルメイン()
+w.webContents.postMessage('port', null、 [port2])
 port1.postMessage({ some: 'message' })
 
-// Renderer process
-const { ipcRenderer } = require('electron')
-ipcRenderer.on('port', (e) => {
-  // e.ports is a list of ports sent along with this message
-  e.ports[0].on('message', (messageEvent) => {
-    console.log(messageEvent.data)
-  })
-})
+// レンダラープロセス
+const { ipcRenderer } = 必須 ('electron')
+ipcRenderer.on('電子', (e) => {
+  // e.port は、このメッセージと一緒
+  に送信されるポートのリストです[0]
+
+  .log
+    > このメッセージと一緒に送信されます。
 ```
 
 ### インスタンスプロパティ
