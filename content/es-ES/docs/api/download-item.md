@@ -8,10 +8,10 @@ Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
 // En el proceso principal.
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+const { BrowserWindow } = require (' Electron ')
+const Win = New BrowserWindow ()
+Win. webContents. session. on (' se-download ', (Event, Item, webContents) => {
+  //establecer la ruta de guardado, haciendo que Electron no solicite un diálogo de guardado.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
@@ -74,17 +74,17 @@ El objeto `downloadItem` tiene los siguientes métodos:
 
 * `path` Cadena - Configura la ruta del archivo de guardado del elemento descargado.
 
-La API solo está disponible en la función callback `will-download` de la sesión. If `path` doesn't exist, Electron will try to make the directory recursively. Si el usuario no establece una ruta para guardar a través de la API, Electron usará la rutina original para determinar la ruta para guardar; esto usualmente genera un cuadro de dialogo para guardar.
+La API solo está disponible en la función callback `will-download` de la sesión. Si no existe `path` , Electron intentará hacer que el directorio se recurva de forma recursiva. Si el usuario no establece una ruta para guardar a través de la API, Electron usará la rutina original para determinar la ruta para guardar; esto usualmente genera un cuadro de dialogo para guardar.
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Devuelve `String` -la ruta de guardado del elemento de descarga. Esta será la ruta establecida mediante `downloadItem.setSavePath(path)` o la ruta seleccionada desde el diálogo guardar que se muestra.
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
 * `options` SaveDialogOptions - Establece las opciones del diálogo de guardar archivos. Este objeto tiene la misma propiedad como el parámetro `options` de [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. La API solo está disponible en la función callback `will-download` de la sesión.
+Esta API permite al usuario establecer opciones personalizadas para el cuadro de diálogo guardar que abre para el elemento de descarga por defecto. La API solo está disponible en la función callback `will-download` de la sesión.
 
 #### `downloadItem.getSaveDialogOptions()`
 
@@ -102,7 +102,7 @@ Devuelve `Boolean` - Si la ventana esta pausada o no.
 
 Reanuda la descarga que ha sido pausada.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. De lo contrario, `resume()` descartará los bytes recibidos anteriormente y reiniciará la descarga desde el principio.
+**Nota:** para habilitar descargas reanudables el servidor que estás descargando desde debe admitir las solicitudes de rango y proporcionar tanto `Last-Modified` como `ETag` valores de encabezado. De lo contrario, `resume()` descartará los bytes recibidos anteriormente y reiniciará la descarga desde el principio.
 
 #### `downloadItem.canResume()`
 
@@ -128,7 +128,7 @@ Devuelve `Boolean` - Si la descarga tiene o no gestos de usuario.
 
 Devuelve `String` - El nombre de archivo del elemento descargado.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. Si el usuario cambia el nombre del archivo en el cuadro de diálogo de guardado de la descarga, el nombre actual del archivo guardado será diferente.
+**Nota:** el nombre del archivo no siempre es el mismo que el que se guardó en el disco de local. Si el usuario cambia el nombre del archivo en el cuadro de diálogo de guardado de la descarga, el nombre actual del archivo guardado será diferente.
 
 #### `downloadItem.getTotalBytes()`
 
@@ -146,9 +146,9 @@ Devuelve `String` - El campo Content-Disposition desde la cabecera de respuesta.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Devuelve `String` -el estado actual. Puede ser `progressing`, `completed`, `cancelled` o `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Nota:** los siguientes métodos son útiles específicamente para reanudar un elemento `cancelled` cuando se reinicia la sesión.
 
 #### `downloadItem.getURLChain()`
 
@@ -168,7 +168,7 @@ Devuelve `Double` - Número de segundos desde el UNIX epoch cuando se inició la
 
 ### Propiedades de Instancia
 
-#### `downloadItem.savePath`
+#### `downloadItem. savePath`
 
 Una propiedad `String` que determina la ruta del archivo de guardado del elemento de descarga.
 
