@@ -9,9 +9,9 @@ Una ventana sin bordes es una ventana que no tiene [chrome](https://developer.mo
 Para crear una ventana sin marco, necesitas establecer `frame` a `false` en las `options` de [BrowserWindow](browser-window.md):
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ width: 800, height: 600, frame: false })
-win.show()
+const { BrowserWindow } = require (' Electron ')
+const Win = New BrowserWindow ({ width: 800, height: 600, frame: false })
+Win. Show ()
 ```
 
 ### Alternativas en macOS
@@ -23,9 +23,9 @@ Hay una forma alternativa par especificar un ventana sin bordes (chromeless). En
 Es una barra de título oculta y una ventana de contenido de tamaño completo. Sin embargo, la barra de título mantiene los controles estándares de la ventana (“traffic lights”) en la parte superior izquierda.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hidden' })
-win.show()
+const { BrowserWindow } = require (' Electron ')
+const Win = New BrowserWindow ({ titleBarStyle: 'hidden' })
+Win. Show ()
 ```
 
 #### `hiddenInset`
@@ -33,19 +33,19 @@ win.show()
 Es una barra de título oculta con un aspecto alternativo donde los botones de traffic light están ligeramente mas insertados desde el borde de la ventana.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
-win.show()
+const { BrowserWindow } = require (' Electron ')
+const Win = New BrowserWindow ({ titleBarStyle: 'hiddenInset' })
+Win. Show ()
 ```
 
 #### `customButtonsOnHover`
 
-Usa botones personalizados de cierre y miniaturiza que se muestran cuando se activa en la parte superior izquierda de la ventana. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
+Usa botones personalizados de cierre y miniaturiza que se muestran cuando se activa en la parte superior izquierda de la ventana. El botón de pantalla completa no está disponible debido a las restricciones de las ventanas sin marco, ya que interfaz con las máscaras de ventana macOS de Apple. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
-win.show()
+const { BrowserWindow } = require (' Electron ')
+const Win = New BrowserWindow ({ titleBarStyle: 'customButtonsOnHover', frame: false })
+Win. Show ()
 ```
 
 ## Ventana transparente
@@ -53,9 +53,9 @@ win.show()
 Al configurar la opción `transparent` a `true`, se puede hacer transparente la ventana sin bordes:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ transparent: true, frame: false })
-win.show()
+const { BrowserWindow } = require (' Electron ')
+const Win = New BrowserWindow ({ transparent: true, frame: false })
+Win. Show ()
 ```
 
 ### Limitaciones
@@ -82,19 +82,19 @@ win.setIgnoreMouseEvents(true)
 Ignorar los mensajes de movimiento del ratón hace la página agena al movimiento del ratón, lo que significa que los eventos no se emitirán. En los sistemas operativos Windows se puede usar un parámetro opcional para reenviar los mensajes de movimiento del ratón a la página web, permitiendo que eventos como `mouseleave` se emitan:
 
 ```javascript
-const { ipcRenderer } = require('electron')
-const el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
+const { ipcRenderer } = require (' Electron ')
+const el = document. getElementById (' clickThroughElement ')
+el. addEventListener (' MouseEnter ', () => {
+  ipcRenderer. Send (' Set-ignore-Mouse-Events ', true, { forward: true })
 })
-el.addEventListener('mouseleave', () => {
-  ipcRenderer.send('set-ignore-mouse-events', false)
+el. addEventListener (' MouseLeave ', () => {
+  ipcRenderer. Send (' Set-ignore-Mouse-Events ', false)
 })
 
-// Main process
-const { ipcMain } = require('electron')
-ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
-  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
+//proceso principal
+const { ipcMain } = require (' Electron ')
+ipcMain. on (' Set-ignore-Mouse-Events ', (Event,... args) => {
+  BrowserWindow. fromWebContents (Event. Sender). setIgnoreMouseEvents (... args)
 })
 ```
 
