@@ -13,7 +13,7 @@ Electron ist stolz darauf, an der zweiten Auflage der Initiative "Season of Docs
 
 ![Staffel des Docs-Logos](https://user-images.githubusercontent.com/16010076/82606204-8c8bce80-9b6b-11ea-9847-6a4b28a0761d.png)
 
-Season of Docs ist ein Programm, das die Zusammenarbeit zwischen technischen Autoren und Open Source Gemeinschaften zum Nutzen beider Parteien fördert. Open-Source-Betreuer nutzen die technische Schreibkompetenz des Autors um die Struktur und den Inhalt ihrer Dokumentation zu verbessern, während der technische Schriftsteller in eine Open-Source-Gemeinschaft unter der Leitung ihrer Mentoren eingeführt wird. Learn more about it on the Google's [Season of Docs website](https://developers.google.com/season-of-docs).
+Season of Docs ist ein Programm, das die Zusammenarbeit zwischen technischen Autoren und Open Source Gemeinschaften zum Nutzen beider Parteien fördert. Open-Source-Betreuer nutzen die technische Schreibkompetenz des Autors um die Struktur und den Inhalt ihrer Dokumentation zu verbessern, während der technische Schriftsteller in eine Open-Source-Gemeinschaft unter der Leitung ihrer Mentoren eingeführt wird. Erfahren Sie mehr darüber auf der Google-Website [Season of Docs](https://developers.google.com/season-of-docs).
 
 Zum ersten Mal am Programm teilnehmen wir betreuen einen einzigen technischen Autor, der zusammen mit Electron's [Ecosystem Working Group](https://github.com/electron/governance/tree/master/wg-ecosystem) arbeiten wird, um große Teile unserer Dokumentation neu zu gestalten. Mehr über die Zeitleiste des Projekts [erfahren Sie hier](https://developers.google.com/season-of-docs/docs/timeline).
 
