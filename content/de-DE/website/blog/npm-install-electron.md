@@ -22,7 +22,7 @@ Dies geschah, weil es ein existierendes `Elektron` Projekt auf npm gab, erstellt
 
 ## Vorgebautes Leben an
 
-Seit Version 1.3.1 haben wir mit der Veröffentlichung von [`Elektron`](https://www.npmjs.com/package/electron) und `Elektron-Vorkompiliert` Paketen an npm parallel begonnen. Die beiden Pakete sind identisch. Wir haben uns entschieden, das Paket für eine Weile unter beiden Namen weiter zu veröffentlichen, um Tausenden von Entwicklern, die derzeit `electron-prebuilt` in ihren Projekten verwenden, nicht zu stören. We recommend updating your `package.json` files to use the  new `electron` dependency, but we will continue releasing new versions of `electron-prebuilt` until the end of 2016.
+Seit Version 1.3.1 haben wir mit der Veröffentlichung von [`Elektron`](https://www.npmjs.com/package/electron) und `Elektron-Vorkompiliert` Paketen an npm parallel begonnen. Die beiden Pakete sind identisch. Wir haben uns entschieden, das Paket für eine Weile unter beiden Namen weiter zu veröffentlichen, um Tausenden von Entwicklern, die derzeit `electron-prebuilt` in ihren Projekten verwenden, nicht zu stören. Wir empfehlen, Ihre `package.json` -Dateien zu aktualisieren, um die neue `electron` Abhängigkeit zu verwenden, aber wir werden die Veröffentlichung neuer Versionen von `electron-prebuilt` bis zum Ende 2016 fortsetzen.
 
 Das [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) Repository bleibt die kanonische Heimat des `Elektron` npm Pakets.
 
