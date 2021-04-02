@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Ein `BrowserView` kann verwendet werden, um zusätzliche Webinhalte in eine [`BrowserWindow`](browser-window.md)einzubetten. Es ist wie ein untergeordnetes Fenster, mit der Ausnahme, dass es relativ zu seinem eigenen Fenster positioniert ist. Es soll eine Alternative zum `webview` -Tag sein.
 
 ### Beispiel
 
@@ -16,13 +16,13 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 
 const view = new BrowserView()
 win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
+view.setBounds(' x: 0, y: 0, width: 300, height: 300 ')
 view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` _Experimental_
 
-* `options` Object (optional)
+* `options` Objekt (optional)
   * `webPreferences` Object (optional) - Siehe [BrowserWindow](browser-window.md).
 
 ### Instanz Eigenschaften
@@ -39,24 +39,24 @@ Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Instanzmethod
 
 #### `view.setAutoResize(options)` _Experimentell_
 
-* `options` Object
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
+* `options` -Objekt
+  * `width` Boolean (optional) - Wenn `true`, wächst und schrumpft die Breite der Ansicht zusammen mit dem Fenster zusammen. `false` standardmäßig.
+  * `height` Boolean (optional) - Wenn `true`, wird die Höhe der Ansicht zusammen mit dem Fenster wachsen und verkleinern. `false` standardmäßig.
+  * `horizontal` Boolean (optional) - Wenn `true`, wird die x-Position und -Breite der Ansicht und proportional mit dem Fenster verkleinert. `false` standardmäßig.
+  * `vertical` boolesch (optional) - Wenn `true`, wird die y-Position und -Höhe der Ansicht und proportional mit dem Fenster verkleinert. `false` standardmäßig.
 
 #### `view.setBounds(bounds)` _Experimentell_
 
 * `bounds` [Rectangle](structures/rectangle.md) Boundings des Displays
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Ändert die Größe und verschiebt die Ansicht auf die angegebenen Grenzen relativ zum Fenster.
 
 #### `view.getBounds()` _Experimental_
 
 Returns [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this BrowserView instance as `Object`.
+Die `bounds` dieser BrowserView-Instanz als `Object`.
 
 #### `view.setBackgroundColor(color)` _Experimentell_
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Farbe in `#aarrggbb` oder `#argb` Form. Der Alphakanal ist optional.
