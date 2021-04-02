@@ -2,7 +2,7 @@
 
 > Управление файлами и URL-ами, используя стандартные приложения для их открытия.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
+Процесс: [главный](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (только без песочницы)
 
 Модуль `shell` предоставляет функции, относящиеся к десктопной интеграции.
 
@@ -14,79 +14,79 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+**Примечание:** Хотя модуль `shell` может быть использован в процессе рендеринга, он не будет функционировать в песочнице рендерера.
 
 ## Методы
 
 Модуль `shell` имеет следующие методы:
 
-### `shell.showItemInFolder(fullPath)`
+### `shell.showItemInFolder (fullPath)`
 
-* `fullPath` String
+* `fullPath` Струна
 
-Show the given file in a file manager. If possible, select the file.
+Показать данный файл в файловом менеджере. Если возможно, выберите файл.
 
 ### `shell.openPath(path)`
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Возвращает `Promise<String>` - Разрешается строкой, содержащей сообщение об ошибке, соответствующее сбою, если произошел сбой, в противном случае "".
 
-Open the given file in the desktop's default manner.
+Откройте данный файл по умолчанию.
 
 ### `shell.openExternal(url[, options])`
 
-* `url` String - Max 2081 characters on windows.
+* `url` String - Max 2081 символов на окнах.
 * `options` Object (опционально)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
-  * `workingDirectory` String (optional) _Windows_ - The working directory.
+  * `activate` Boolean (по желанию) _macOS_ - `true` вывести открытое приложение на передний план. По умолчанию `true`.
+  * `workingDirectory` Строка (по желанию) _Windows_ - Рабочий каталог.
 
 Возвращает `Promise<void>`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Откройте данный внешний URL-адрес протокола по умолчанию. (Например, mailto: URL-адреса в почтовом агенте пользователя по умолчанию).
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Депрекированная_
 
-* `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `fullPath` Струна
+* `deleteOnFail` Boolean (по желанию) - Следует ли в одностороннем порядке удалить элемент, если корзина отключена или не поддерживается на томе. _macOS_
 
-Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
+Возвращает `Boolean` - был ли товар успешно перемещен в мусорное ведро или иным образом удален.
 
-> NOTE: This method is deprecated. Use `shell.trashItem` instead.
+> ПРИМЕЧАНИЕ: Этот метод является deprecated. Используйте `shell.trashItem` вместо этого.
 
-Move the given file to trash and returns a boolean status for the operation.
+Перемести данный файл в корзину и если он вернет для операции статус boolean.
 
 ### `shell.trashItem(path)`
 
-* `path` String - path to the item to be moved to the trash.
+* `path` String - путь к предмету, который будет перемещен в мусорное ведро.
 
-Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+Возвращает `Promise<void>` - Разрешается, когда операция была завершена. Отклоняет при удалении запрошенного элемента ошибку.
 
-This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
+Это перемещает путь к os-специфическому расположению мусора (Корзина на macOS, Recycle Bin на Windows, и рабочее стол-среда-специфическое местоположение на Linux).
 
 ### `shell.beep()`
 
-Play the beep sound.
+Воспроизведение звукового сигнала.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
-* `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following:
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `shortcutPath` Струна
+* `operation` строка (необязательно) - по умолчанию `create`, может быть одним из следующих:
+  * `create` - Создает новый ярлык, переписывая при необходимости.
+  * `update` - Обновления указаны свойства только на существующем ярлыке.
+  * `replace` - Overwrites существующий ярлык, не удается, если ярлык не существует.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Возвращает `Boolean` - был ли ярлык создан успешно.
 
-Creates or updates a shortcut link at `shortcutPath`.
+Создает или обновляет ссылку ярлыка в `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` _Windows_
 
-* `shortcutPath` String
+* `shortcutPath` Струна
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Возвращает [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Разрешает ярлык ссылку на `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Исключение будет брошено при любой ошибке.
