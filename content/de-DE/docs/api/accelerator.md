@@ -14,8 +14,8 @@ Tastenkürzel werden registriert mit dem  [`globalShortcut`](global-shortcut.md)
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+app.whenReady().then()=> '
+  * Registrieren Sie einen 'CommandOrControl+Y'-Shortcut-Listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
   })
