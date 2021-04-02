@@ -1,10 +1,10 @@
 ---
-title: 'Electron Internals: Weak References'
+title: '电子内部：弱参考'
 author: zcbenz
 date: '2016-09-20'
 ---
 
-作为垃圾收集的语言，JavaScript可以让用户手动管理 资源。 But because Electron hosts this environment, it has to be very careful avoiding both memory and resources leaks.
+作为垃圾收集的语言，JavaScript可以让用户手动管理 资源。 但由于电子承载着这种环境，因此必须 非常小心地避免内存和资源泄漏。
 
 这个帖子引入了虚弱的引用概念以及如何在 Electron 中使用 来管理资源。
 
@@ -12,7 +12,7 @@ date: '2016-09-20'
 
 ## 参考资料不足
 
-在 JavaScript 中，每当您将一个对象分配给一个变量时，您都会添加一个 引用到对象中。 As long as there is a reference to the object, it will always be kept in memory. 一旦不存在对对象的所有引用，即： 那里 不再是存储该对象的变量。JavaScript 引擎将在下次垃圾收集中恢复 的内存。
+在 JavaScript 中，每当您将一个对象分配给一个变量时，您都会添加一个 引用到对象中。 只要有对象的参考，它就会 永远保存在记忆中。 一旦不存在对对象的所有引用，即： 那里 不再是存储该对象的变量。JavaScript 引擎将在下次垃圾收集中恢复 的内存。
 
 一个虚弱的引用是一个可以让你获得对象 而不影响是否收集到垃圾的对象。 当物品被收集时，你也会收到 个通知。 然后， 就可以用 JavaScript 管理资源。
 
@@ -49,7 +49,7 @@ API 已被删除，因为V8实际上不允许在销毁器中运行 JavaScript �
 
 除了使用 C++ 管理本机资源外，Electron 也需要 微弱引用来管理JavaScript 资源。 Electron的 `远程` 模块就是一个例子。 这是一个 [远程程序调用](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC) 模块 允许在主进程中使用渲染器进程中的物体。
 
-`远程` 模块的一个关键挑战是避免内存泄漏。 When users acquire a remote object in the renderer process, the `remote` module must guarantee the object continues to live in the main process until the references in the renderer process are gone. 此外， 它还必须确保在 渲染过程中不再有任何引用时， 对象可能会被收集到垃圾。
+`远程` 模块的一个关键挑战是避免内存泄漏。 当用户 在渲染器过程中获取远程对象时， `remote` 模块必须 保证对象继续生活在主过程中，直到渲染器过程中 引用消失。 此外， 它还必须确保在 渲染过程中不再有任何引用时， 对象可能会被收集到垃圾。
 
 例如，如果没有正确的实现程序，下列代码会导致内存 迅速泄漏：
 
@@ -63,7 +63,7 @@ for (flet i = 0; i < 10000; ++i) 2002,
 
 `远程` 模块中的资源管理很简单。 每当一个对象被请求 消息已发送到主流程，Electron将把对象 存储在地图上，并为其分配ID。 然后将 ID 发送回 渲染过程。 在渲染过程中， `远程` 模块将收到 ID并将其与代理对象包装起来，当代理对象是垃圾时 收集， 一个消息将被发送到主进程以释放对象。
 
-Using `remote.require` API as an example, a simplified implementation looks like this:
+以 `remote.require` API 为例，简化的实现看起来 如下：
 
 ```javascript
 remote.request = function (name) }
