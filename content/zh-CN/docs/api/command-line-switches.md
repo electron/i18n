@@ -5,13 +5,13 @@
 您可以在[app][app] 模块的[ready][ready]事件生效之前，使用[app.commandLine.appendSwitch][append-switch]将它们附加到您的应用程序的主要脚本中：
 
 ```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+康斯特 { app } =需要（"电子"）
+应用程序。命令行。附录开关（"远程调试端口"， "8315"）
+应用程序.命令行。附录开关（"主机规则"，"MAP* 127.0.0.1"）
 
-app.whenReady().then(() => {
-  // Your code here
-})
+
+
+  > 应用程序。
 ```
 
 ## Electron CLI Flags
@@ -26,15 +26,15 @@ app.whenReady().then(() => {
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. Without `*` prefix the URL has to match exactly.
+则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. 如果没有 `*` 前缀，URL必须完全匹配。
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+需要授权用户凭据的服务器逗号分离列表。 如果没有 `*` 前缀，URL必须完全匹配。
 
-### --disable-ntlm-v2
+### --禁用-无国他明-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+禁用NTLM v2的posix平台，没有其他地方的影响。
 
 ### --disable-http-cache
 
@@ -54,9 +54,9 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 强制磁盘缓存使用的最大磁盘空间（以字节为单位）。
 
-### --enable-api-filtering-logging
+### --启用-阿皮过滤-记录
 
-Enables caller stack logging for the following APIs (filtering events):
+启用呼叫者堆栈记录以下 ABI（过滤事件）：
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -79,7 +79,7 @@ Enables caller stack logging for the following APIs (filtering events):
 
 * `MAP * 127.0.0.1` 强制将所有主机名映射到127.0.0.1
 * `MAP *.google.com proxy` 强制所有google.com子域名解析到"proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP test.com [::1]:77` 力"test.com"解决IPv6回路。 将 也迫使由此产生的插座地址的端口为 77。
 * `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
 
 这些映射适用于网络请求中的端点主机. 网络请求包括TCP连接和直连的主机解析器, 以及HTTP代理连接中的`CONNECT`方式, 以及在`SOCKS`代理连接中的端点主机.
@@ -98,13 +98,13 @@ Enables caller stack logging for the following APIs (filtering events):
 
 ### --js-flags=`flags`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+指定传递到节点.js发动机的旗帜。 如果你想在主过程中启用 `flags` ，它必须经过 电子。
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+请参阅 [节点.js文档][node-cli] 或在终端中运行 `node --help` 以查看可用标志列表。 此外， `node --v8-options` 运行，查看专门指节点.js的 V8 JavaScript 发动机的旗帜列表。
 
 ### --lang
 
@@ -116,15 +116,15 @@ See the [Node.js documentation][node-cli] or run `node --help` in your terminal 
 
 ### --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+不要使用代理服务器，并且始终进行直接连接。 覆盖已通过的任何其他 代理服务器标志。
 
-### --no-sandbox
+### --无沙盒
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+禁用铬沙盒，现在默认启用。 应该只用于测试。
 
 ### --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+指示 Electron 绕过代理服务器，以获得给定的分号分离 主机列表。 只有与 `--proxy-server`同时使用，此标志才会有效果。
 
 例如：
 
@@ -149,64 +149,73 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ### --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+给出默认的最大活动 V 记录级别：0为默认值。 通常 正值用于 V 记录级别。
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
 ### --vmodule=`pattern`
 
-给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 如下: `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 如下: `my_module=2,foo*=3` 将更改 源文件中的所有代码的登录级别 `my_module.*` 和 `foo*.*`。
 
-任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 如下: `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 如下: `*/foo/bar/*=2` 将在 `foo/bar` 目录下更改源文件中所有代码的 记录级别。
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
 ### --force_high_performance_gpu
 
-Force using discrete GPU when there are multiple GPUs available.
+当有多个GPU可用时，强制使用离散GPU。
 
 ### --force_low_power_gpu
 
-Force using integrated GPU when there are multiple GPUs available.
+当有多个GPU可用时，强制使用集成GPU。
 
 ## Node.js Flags
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+电子支持节点.js支持的一些</a>
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+CLI 标志。</p> 
 
-### --inspect-brk[=[host:]port]
+**注意：** 通过不受支持的命令行切换到电子时，它不运行在 `ELECTRON_RUN_AS_NODE` 将没有效果。
 
-Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
 
-Aliased to `--debug-brk=[host:]port`.
 
-### --inspect-port=[host:]port
+### --检查-伯克[主机：]端口]
 
-Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+激活主机上的检查员：端口并在用户脚本开始时中断。 默认主机：端口为 127.0.0.1：9229。
 
-Aliased to `--debug-port=[host:]port`.
+别名 `--debug-brk=[host:]port`。
 
-### --inspect[=[host:]port]
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+### --检查端口][主机：]端口
 
-See the [Debugging the Main Process][debugging-main-process] guide for more details.
+设置 `host:port` 在激活检查员时使用。 通过发送SIGUSR1信号激活检查员时很有用。 默认主机 `127.0.0.1`。
 
-Aliased to `--debug[=[host:]port`.
+别名 `--debug-port=[host:]port`。
 
-### --inspect-publish-uid=stderr,http
 
-Specify ways of the inspector web socket url exposure.
 
-By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+### --检查[主机：]端口]
+
+`host:port`激活检查员。 默认值 `127.0.0.1:9229`。
+
+V8 检查器集成允许诸如 Chrome DevTools 和 IDE 等工具进行诊断和配置文件电子实例。 这些工具通过 TCP 端口连接到电子实例，并使用 [铬开发工具协议进行通信，](https://chromedevtools.github.io/devtools-protocol/)。
+
+有关详细信息，请参阅 [调试主流程][debugging-main-process] 指南。
+
+别名 `--debug[=[host:]port`。
+
+
+
+### --检查-发布-乌伊德-斯特德，赫特普
+
+指定检查员网络插座网址暴露的方法。
+
+默认情况下，检查员网套网址可在斯特德尔和/json/列表端点下http：//主机：端口/json/列表中提供。
 
 [app]: app.md
 [append-switch]: command-line.md#commandlineappendswitchswitch-value
 [ready]: app.md#event-ready
 [play-silent-audio]: https://github.com/atom/atom/pull/9485/files
 [debugging-main-process]: ../tutorial/debugging-main-process.md
-[node-cli]: https://nodejs.org/api/cli.html
 [node-cli]: https://nodejs.org/api/cli.html
