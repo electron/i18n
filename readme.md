@@ -17,12 +17,12 @@ and log in with your GitHub account.
 The following languages are currently being translated:
 
 <!-- start language-table -->
+- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
-- [Deutsch (German)](https://crowdin.com/project/electron/de)
-- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
+- [Deutsch (German)](https://crowdin.com/project/electron/de)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
 <!-- end language-table -->
 
