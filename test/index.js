@@ -34,9 +34,7 @@ describe('i18n.docs', () => {
   })
 
   it('does not contain <html>, <head>, or <body> tag in compiled html', () => {
-    const html = i18n.docs['en-US']['/docs/api/accelerator'].sections
-      .map((section) => section.html)
-      .join('')
+    const html = i18n.docs['en-US']['/docs/api/accelerator'].html
     html.should.be.a('string')
     html.should.contain('<p>')
     html.should.not.contain('<html>')
@@ -45,54 +43,6 @@ describe('i18n.docs', () => {
     html.should.not.contain('</head>')
     html.should.not.contain('<body>')
     html.should.not.contain('</body>')
-  })
-
-  describe('sections', () => {
-    it('breaks up HTML into sections, for language-toggling on the website', () => {
-      const { sections } = i18n.docs['en-US']['/docs/api/accelerator']
-      sections.should.be.an('array')
-      sections.length.should.be.above(0)
-      sections.every((section) => section.name && section.html).should.eq(true)
-    })
-
-    it('does not contain empty sections', function () {
-      this.timeout(15 * 1000)
-      const locales = Object.keys(i18n.docs)
-      locales.length.should.be.above(0)
-      locales.forEach((locale) => {
-        const docHrefs = Object.keys(i18n.docs[locale])
-        docHrefs.length.should.be.above(0)
-        docHrefs.forEach((href) => {
-          const doc = i18n.docs[locale][href]
-          doc.sections.length.should.be.above(0)
-          doc.sections.forEach((section) => {
-            expect(
-              section.name,
-              `${locale} ${href} has a section without a name`
-            ).to.be.a('string')
-            section.name.length.should.be.above(0)
-
-            expect(
-              section.slug,
-              `${locale} ${href} has a section without a slug`
-            ).to.be.a('string')
-            section.slug.length.should.be.above(0)
-
-            expect(
-              section.level,
-              `${locale} ${href} has a section without a level`
-            ).to.be.a('number')
-            section.level.should.be.within(1, 6)
-
-            expect(
-              section.html,
-              `${locale} ${href} has a section without html`
-            ).to.be.a('string')
-            section.html.length.should.be.above(0)
-          })
-        })
-      })
-    }).timeout(5000)
   })
 })
 
@@ -182,8 +132,7 @@ describe('API Docs', () => {
     app.locale.should.equal('en-US')
     app.slug.should.equal('app')
     app.category.should.equal('api')
-    app.sections.should.be.an('array')
-    app.sections.length.should.be.above(0)
+    app.html.should.be.a('string')
   })
 
   it('trims API descriptions', () => {
@@ -216,14 +165,14 @@ describe('API Docs', () => {
 
   it('fixes relative links in docs', () => {
     const api = i18n.docs['en-US']['/docs/api/app']
-    const $ = cheerio.load(api.sections.map((section) => section.html).join(''))
+    const $ = cheerio.load(api.html)
     const link = $('a[href*="glossary"]').first()
     link.attr('href').should.equal('/docs/glossary#main-process')
   })
 
   it('fixes relative images in docs', () => {
     const doc = i18n.docs['en-US']['/docs/tutorial/electron-versioning']
-    const $ = cheerio.load(doc.sections.map((section) => section.html).join(''))
+    const $ = cheerio.load(doc.html)
     const sources = $('img')
       .map((i, el) => $(el).attr('src'))
       .get()
@@ -239,10 +188,8 @@ describe('API Docs', () => {
   it('contains no empty links', () => {
     Object.keys(i18n.docs['en-US']).forEach((href) => {
       const doc = i18n.docs['en-US'][href]
-      doc.sections.forEach((section) => {
-        const $ = cheerio.load(section.html)
-        $('a[href=""]').length.should.equal(0, `${doc.href} has an empty link`)
-      })
+      const $ = cheerio.load(doc.html)
+      $('a[href=""]').length.should.equal(0, `${doc.href} has an empty link`)
     })
   })
 })
@@ -350,35 +297,6 @@ describe('i18n.locales', () => {
     )
     progress[0].should.be.above(progress[4])
     progress[3].should.be.above(progress[7])
-  })
-})
-
-describe('i18n.navs', () => {
-  it('is an object with locales as keys', () => {
-    i18n.navs.should.be.an('object')
-    const keys = Object.keys(i18n.navs)
-    keys.should.include('en-US')
-    keys.should.include('fr-FR')
-    keys.length.should.be.above(7)
-  })
-
-  it('has a value and has valid html content as values', () => {
-    const values = Object.values(i18n.navs)
-    values.every((value) => value.should.be.a('string'))
-    values.every((value) => value.should.contain('<ul>'))
-    values.every((value) => value.should.contain('<li>'))
-    values.should.not.contain('<html>')
-    values.should.not.contain('</html>')
-    values.should.not.contain('<head>')
-    values.should.not.contain('</head>')
-    values.should.not.contain('<body>')
-    values.should.not.contain('</body>')
-  })
-
-  it('has the required sidebar nav content for tutorials', () => {
-    const value = i18n.navs['en-US']
-    value.should.contain('<a href="/docs/tutorial/quick-start"')
-    value.should.contain('Quick Start Guide')
   })
 })
 
