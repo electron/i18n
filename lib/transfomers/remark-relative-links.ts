@@ -1,9 +1,7 @@
 import { Node } from 'unist'
 import * as path from 'path'
 import * as visit from 'unist-util-visit'
-import {
-  electronLatestStableTag,
-} from '../../package.json'
+import { electronLatestStableTag } from '../../package.json'
 import { IDocFile } from '../interfaces'
 
 const hrefType = require('href-type')
