@@ -48,7 +48,7 @@ Retourne :
 
 * `event` Événement
 * `cookie` [Cookie](structures/cookie.md) - Le cookie qui a été changé.
-* `cause` String - The cause of the change with one of the following values:
+* `cause` String - La cause du changement avec l’une des valeurs suivantes:
   * `explicit` - Le cookie a été modifié directement par l'action du consommateur.
   * `overwrite` - Le cookie a été supprimé automatiquement a cause d'une insertion écrasante.
   * `expired` - Le cookie a été supprimé automatiquement par expiration.
@@ -64,8 +64,8 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
 
 #### `cookies.get(filter)`
 
-* `filter` Object
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
+* `filter` objet
+  * `url` String (facultatif) - Récupère les cookies qui sont associés à `url`. Vide implique la récupération des cookies de toutes les URL.
   * `name` String (facultatif) - Filtre les cookies par nom.
   * `domain` String (facultatif) - Récupère les cookies dont les domaines correspondent ou sont des sous-domaines de `domains`.
   * `path` String (facultatif) - Récupère les cookies dont le chemin correspond à `path`.
@@ -78,16 +78,16 @@ Envoie une demande pour obtenir tous les cookies correspondant à `filter`, et r
 
 #### `cookies.set(détails)`
 
-* `details` Object
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (facultatif) - Le nom de domaine du cookie; ce dernier sera normalisé par un point le précédent pour qu'il soit valide pour les sous-domaines. Empty by default if omitted.
-  * `path` String (facultatif) - Le chemin du cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. false par défaut.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Par défaut, faux.
+* `details` objet
+  * `url` String - L’URL pour associer le cookie à. La promesse sera rejetée si l’URL n’est pas valide.
+  * `name` String (facultatif) - Le nom du cookie. Vide par défaut s’il est omis.
+  * `value` String (facultatif) - La valeur du cookie. Vide par défaut s’il est omis.
+  * `domain` String (facultatif) - Le nom de domaine du cookie; ce dernier sera normalisé par un point le précédent pour qu'il soit valide pour les sous-domaines. Vide par défaut s’il est omis.
+  * `path` String (facultatif) - Le chemin du cookie. Vide par défaut s’il est omis.
+  * `secure` Boolean (facultatif) - Si le cookie doit être marqué comme sécurisé. false par défaut.
+  * `httpOnly` Boolean (facultatif) - Si le cookie doit être marqué comme HTTP seulement. Par défaut, faux.
   * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Peut être `unspecified`, `no_restriction`, `lax` ou `strict`.  Default is `no_restriction`.
+  * `sameSite` String (facultatif) - Le même site [la](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) 'appliquer à ce cookie.  Peut être `unspecified`, `no_restriction`, `lax` ou `strict`.  Par défaut est `no_restriction`.
 
 Retourne `Promise<void>` - Une promesse qui résout lorsque le cookie a été défini
 
