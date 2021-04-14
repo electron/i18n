@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals: Weak References'
+title: 'Internals eletrônicos: Referências fracas'
 author: zcbenz
 date: '2016-09-20'
 ---
@@ -12,7 +12,7 @@ Esta postagem introduz o conceito de referências fracas e como elas são usadas
 
 ## Referências fracas
 
-Em JavaScript, sempre que você atribuir um objeto para uma variável, você está adicionando uma referência ao objeto. Enquanto houver uma referência ao objeto, ele será sempre mantido na memória. Once all references to the object are gone, i.e. there are no longer variables storing the object, the JavaScript engine will recoup the memory on next garbage collection.
+Em JavaScript, sempre que você atribuir um objeto para uma variável, você está adicionando uma referência ao objeto. Enquanto houver uma referência ao objeto, ele será sempre mantido na memória. Uma vez que todas as referências ao objeto se foram, ou seja, não há mais não são mais variáveis armazenando o objeto, o motor JavaScript recuperará a memória na próxima coleta de lixo.
 
 Uma referência fraca é uma referência a um objeto que permite que você obtenha o objeto sem afetar se ele será coletado ou não. Você também será notificado quando o objeto estiver coletado. Torna-se então possível gerenciar recursos com JavaScript.
 
