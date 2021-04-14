@@ -1,10 +1,10 @@
 # webContents
 
-> Render and control web pages.
+> Рендер и управление веб-страницами.
 
 Процесс: [Основной](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
+`webContents` является [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -33,11 +33,11 @@ console.log(webContents)
 
 Возвращает `WebContents` - веб-контент, который сейчас активен в этом приложении, в ином случае возвращает `null`.
 
-### `webContents.fromId(id)`
+### `webContents.fromId (id)`
 
 * `id` Integer
 
-Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
+Возвращает `WebContents` | неопределенный - Экземпляр WebContents с данным идентификатором, или `undefined` если нет WebContents, связанных с данный идентификатор.
 
 ## Класс: WebContents
 
@@ -47,56 +47,56 @@ Returns `WebContents` | undefined - A WebContents instance with the given ID, or
 
 ### События экземпляра
 
-#### Event: 'did-finish-load'
+#### Событие: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Излучаемый при навигации, т.е. спиннер вкладки перестал вращаться , и `onload` событие было отправлено.
 
-#### Event: 'did-fail-load'
-
-Возвращает:
-
-* `event` Event
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-This event is like `did-finish-load` but emitted when the load failed. The full list of error codes and their meaning is available [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
-
-#### Event: 'did-fail-provisional-load'
+#### Событие: 'не-не-нагрузка'
 
 Возвращает:
 
 * `event` Event
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* `errorDescription` Струна
+* `validatedURL` Струна
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+Это событие, как `did-finish-load` , но излучается, когда нагрузка не удалось. Полный список кодов ошибок и их значение можно найти [здесь](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Событие: 'did-fail-provisional-load'
+
+Возвращает:
+
+* `event` Event
+* `errorCode` Integer
+* `errorDescription` Струна
+* `validatedURL` Струна
+* `isMainFrame` Boolean
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
+
+Это событие, как `did-fail-load` , но излучается, когда нагрузка была (например. `window.stop()` была вызвана).
+
+#### Событие: 'did-frame-finish-load'
 
 Возвращает:
 
 * `event` Event
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
 
-Emitted when a frame has done navigation.
+Испускаемый, когда рама сделала навигацию.
 
 #### Событие: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Соответствует точкам времени, когда спиннер вкладки начал вращаться.
 
 #### Событие: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Соответствует точкам времени, когда спиннер вкладки перестал вращаться.
 
 #### Событие: 'dom-ready'
 
@@ -104,7 +104,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 * `event` Event
 
-Emitted when the document in the given frame is loaded.
+Испускаемый при загрузке документа в данном кадре.
 
 #### Событие: 'page-title-updated'
 
@@ -114,78 +114,78 @@ Emitted when the document in the given frame is loaded.
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Высовыток, когда заголовок страницы устанавливается во время навигации. `explicitSet` является ложным, название синтезируется из URL-адреса файла.
 
 #### Событие: 'page-favicon-updated'
 
 Возвращает:
 
 * `event` Event
-* `favicons` String[] - Array of URLs.
+* `favicons` String - Массив URL-адресов.
 
-Emitted when page receives favicon urls.
+Излучаемый при просмотре страницы favicon URL-адреса.
 
-#### Event: 'new-window' _Deprecated_
+#### Событие: "новое окно" _Deprecated_
 
 Возвращает:
 
 * `event` NewWindowWebContentsEvent
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
-* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+* `disposition` - может быть `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` и `other`.
+* `options` BrowserWindowConstructorOptions - Варианты, которые будут использоваться для создания новых [`BrowserWindow`](browser-window.md).
+* `additionalFeatures` String - Нестандартные функции (функции, не обрабатываемые хромом или электроном), данные `window.open()`.
+* `referrer` [реферер](structures/referrer.md) - реферер, который будет передан в новое окно. Может или не может привести к отправке `Referer` заголовка , в зависимости от политики реферера.
+* `postBody` [PostBody](structures/post-body.md) (по желанию) - почтовые данные, которые будут отправлены в новое окно, вместе с соответствующими головами, которые будут установлены. Если данные о должности не будут отправлены, значение будет `null`. Определяется только , когда окно создается формой, которая устанавливает `target=_blank`.
 
-Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Deprecated в пользу [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Излучается, когда страница просит открыть новое окно для `url`. Это может быть , запрошенный `window.open` или внешней ссылке, как `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+По умолчанию для `BrowserWindow` будет создан новый `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Например:
+Вызов `event.preventDefault()` предотвратит автоматическое создание Electron новой [`BrowserWindow`](browser-window.md). Если вы звоните `event.preventDefault()` и вручную создаете новый [`BrowserWindow`](browser-window.md) то вы должны установить `event.newGuest` для ссылки на новый [`BrowserWindow`](browser-window.md) например, невыполнение этого может привести к неожиданному поведению. Например:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
+myBrowserWindow.webContents.on ('новое окно', (событие, URL, frameName, расположение, варианты, additionalFeatures, реферер, postBody) -> -
   event.preventDefault()
-  const win = new BrowserWindow({
-    webContents: options.webContents, // use existing webContents if provided
-    show: false
-  })
-  win.once('ready-to-show', () => win.show())
-  if (!options.webContents) {
-    const loadOptions = {
+  const win - новый BrowserWindow (no
+    webContents: options.webContents, // использовать существующие webContents при условии
+    показать: ложные
+  q)
+  win.once ('ready--ready--to-show', () -> win.show ())
+  если (!options.webContents) -
+    const loadOptions - {
       httpReferrer: referrer
     }
-    if (postBody != null) {
-      const { data, contentType, boundary } = postBody
-      loadOptions.postData = postBody.data
-      loadOptions.extraHeaders = `content-type: ${contentType}; boundary=${boundary}`
-    }
+    если (postBody ! ) -
+      const { data, contentType, boundary } - postBody
+      loadOptions.postData - postBody.data
+      loadOptions.extraHeaders - "тип контента: ${contentType}; граница"${boundary}'
+    -
 
-    win.loadURL(url, loadOptions) // existing webContents will be navigated automatically
-  }
-  event.newGuest = win
-})
+    win.loadURL (url, loadOptions) // Существующие webContents будут перемещаться автоматически
+  -
+  event.newGuest - win
+)
 ```
 
-#### Event: 'did-create-window'
+#### Событие: 'сделал-создать-окно'
 
 Возвращает:
 * `window` BrowserWindow
-* `details` Object
-    * `url` String - URL for the created window.
-    * `frameName` String - Name given to the created window in the `window.open()` call.
-    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
-    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
-    * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
-    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
-    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `details` объект
+    * `url` String - URL для созданного окна.
+    * `frameName` String - Имя, данное созданному окну в `window.open()` вызова.
+    * `options` BrowserWindowConstructorOptions - варианты, используемые для создания BrowserWindow. Они объединены в увеличиваемый приоритет: варианты, от родителя, разобранной опции из строки `features` от `window.open()`, и варианты, данные [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Непризнанные параметры не отфильтрованы.
+    * `additionalFeatures` String - Нестандартные функции (функции, не обработаны хромом или электроном) _deprecated_
+    * `referrer` [реферер](structures/referrer.md) - реферер, который будет передан в новое окно. Может или не может привести к отправке `Referer` заголовка , в зависимости от политики реферера.
+    * `postBody` [PostBody](structures/post-body.md) (по желанию) - почтовые данные которые будут отправлены в новое окно, наряду с соответствующими которые будут установлены. Если данные о должности не будут отправлены, значение будет `null`. Определяется только тогда, когда окно создается формой, которая устанавливает `target=_blank`.
+    * `disposition` - может быть `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` и `other`.
 
-Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Излучаемые _после_ успешного создания окна через `window.open` в рендере. Не излучается, если создание окна отменяется из [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
+Более подробную [`window.open()`](window-open.md) и как использовать это в сочетании с `webContents.setWindowOpenHandler`.
 
 #### Событие: 'will-navigate'
 
@@ -194,56 +194,56 @@ See [`window.open()`](window-open.md) for more details and how to use this in co
 * `event` Event
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Излучается, когда пользователь или страница хочет начать навигацию. Это может произойти `window.location` объекте или пользователь нажимает на ссылку на странице.
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+Это событие не будет излучать, когда навигация запущена программно с API, `webContents.loadURL` и `webContents.back`.
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Он также не излучается для навигации на страницах, таких как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
 
-Calling `event.preventDefault()` will prevent the navigation.
+Вызов `event.preventDefault()` предотвратит навигацию.
 
-#### Event: 'did-start-navigation'
-
-Возвращает:
-
-* `event` Event
-* `url` String
-* `isInPlace` Boolean
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
-
-#### Event: 'will-redirect'
+#### Событие: 'did-start-navigation'
 
 Возвращает:
 
 * `event` Event
 * `url` String
-* `isInPlace` Boolean
+* `isInPlace` Булан
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
 
-Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
+Излучается, когда любой кадр (включая основной) начинает навигацию. `isInPlace` будет `true` для навигации на страницах.
 
-This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
-
-Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
-
-#### Event: 'did-redirect-navigation'
+#### Событие: 'будет перенаправление'
 
 Возвращает:
 
 * `event` Event
 * `url` String
-* `isInPlace` Boolean
+* `isInPlace` Булан
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
 
-Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
+Излучаемый в качестве сервера сторона перенаправления происходит во время навигации.  Например, 302 перенаправления.
+
+Это событие будет излучаться после `did-start-navigation` и всегда до `did-redirect-navigation` события для той же навигации.
+
+Вызов `event.preventDefault()` предотвратит навигацию (а не только перенаправление).
+
+#### Событие: 'did-перенаправление-навигация'
+
+Возвращает:
+
+* `event` Event
+* `url` String
+* `isInPlace` Булан
+* `isMainFrame` Boolean
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
+
+Излучаемый после перенаправления стороны сервера происходит во время навигации.  Например, 302 перенаправления.
 
 Это событие не может быть предотвращено, если вы хотите предотвратить перенаправления, то должны проверить событие`will-redirect` выше.
 
@@ -253,42 +253,42 @@ Emitted after a server side redirect occurs during navigation.  For example a 30
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
+* `httpResponseCode` Integer - -1 для не http навигации
+* `httpStatusText` Строка - пустой для не HTTP навигации
 
-Emitted when a main frame navigation is done.
+Излучается при навигации основного кадра.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Это событие не излучается для навигации на страницах, таких как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
 
-#### Event: 'did-frame-navigate'
-
-Возвращает:
-
-* `event` Event
-* `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-Emitted when any frame navigation is done.
-
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-#### Event: 'did-navigate-in-page'
+#### Событие: 'did-frame-navigate'
 
 Возвращает:
 
 * `event` Event
 * `url` String
+* `httpResponseCode` Integer - -1 для не http навигации
+* `httpStatusText` String - пустой для не http навигации,
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
 
-Emitted when an in-page navigation happened in any frame.
+Излучается при навигации по кадрам.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Это событие не излучается для навигации на страницах, таких как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
+
+#### Событие: 'сделал-навигация в странице'
+
+Возвращает:
+
+* `event` Event
+* `url` String
+* `isMainFrame` Boolean
+* `frameProcessId` Интегрер
+* `frameRoutingId` Интегрер
+
+Излучается при навигации на странице в любом кадре.
+
+При навигации на странице URL-адрес страницы изменяется, но не навигации за пределами страницы. Примерами этого являются случаи, когда якорные ссылки на кнопку или когда `hashchange` событие DOM.
 
 #### Событие: 'will-prevent-unload'
 
@@ -296,9 +296,9 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 * `event` Event
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+Испускаемый `beforeunload` обработчик событий пытается отменить выгрузку страницы.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+Вызов `event.preventDefault()` будет игнорировать `beforeunload` событий и позволит выгрузить страницу.
 
 ```javascript
 const { BrowserWindow, dialog } = require('electron')
@@ -319,38 +319,38 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed' _Deprecated_
+#### Событие: "разбитый" _Deprecated_
 
 Возвращает:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the renderer process crashes or is killed.
+Испускаемый при с крахе процесса рендерера или его погиб.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**:** Это событие затухает событие `render-process-gone` , содержит больше информации о том, почему процесс визуализации исчез. Это не всегда, потому что он разбился.  На `killed` boolean можно заменить проверки `reason === 'killed'` при переходе на это событие.
 
-#### Event: 'render-process-gone'
+#### Событие: 'рендер-процесс-ушел'
 
 Возвращает:
 
 * `event` Event
-* `details` Object
-  * `reason` String - The reason the render process is gone.  Возможные значения:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+* `details` объект
+  * `reason` Строка - Причина, по которой процесс рендеров исчез.  Возможные значения:
+    * `clean-exit` - Процесс вышел с кодом выхода нуля
+    * `abnormal-exit` - Процесс вышел с ненулевой код выхода
+    * `killed` - Процесс был отправлен SIGTERM или иным образом убит извне
+    * `crashed` - Процесс разбился
+    * `oom` - Процесс закончился в памяти
+    * `launch-failed` - Процесс так и не был успешно запущен
+    * `integrity-failure` - Проверки целостности кода Windows не удалось
+  * `exitCode` Integer - Код выхода процесса, если `reason` не `launch-failed`, и в этом случае `exitCode` будет платформы конкретных код ошибки запуска.
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+Испускаемый при процессе рендерера неожиданно исчезает.  Это, как правило потому что он разбился или погиб.
 
 #### Событие: 'unresponsive'
 
-Происходит, когда страница "не отвечает".
+Вызывается, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
@@ -364,31 +364,31 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 * `name` String
 * `version` String
 
-Emitted when a plugin process has crashed.
+Излучается при сноме плагина.
 
 #### Событие: 'destroyed'
 
-Emitted when `webContents` is destroyed.
+Излучается при `webContents` разрушается.
 
 #### Событие: 'before-input-event'
 
 Возвращает:
 
 * `event` Event
-* `input` Object - Input properties.
-  * `type` String - Either `keyUp` or `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
-  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
+* `input` объект - Входные свойства.
+  * `type` строка - либо `keyUp` или `keyDown`.
+  * `key` строка - эквивалент [KeyboardEvent.key][keyboardevent].
+  * `code` строка - эквивалент [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Boolean - Эквивалент [KeyboardEvent.повторить][keyboardevent].
+  * `isComposing` Boolean - эквивалент [KeyboardEvent.isComposing][keyboardevent].
+  * `shift` Boolean - эквивалент [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Boolean - эквивалент [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Boolean - эквивалент [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Boolean - эквивалент [KeyboardEvent.metaKey][keyboardevent].
 
-Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+Излучается перед отправкой `keydown` и `keyup` событий на странице. Вызов `event.preventDefault` предотвратит страницу `keydown`/`keyup` события и ярлыки меню.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+Чтобы предотвратить только ярлыки меню, используйте [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -398,8 +398,8 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('before-input-event', (event, input) => {
   // Например, включать сочетания клавиш меню приложения
   // Только когда Ctrl/Cmd нажаты.
-  win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
-})
+  win.webContents.setIgnoreMenuShortcuts (!input.control && !input.meta)
+))
 ```
 
 #### Событие: 'enter-html-full-screen'
@@ -410,26 +410,26 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Происходит, когда окно выходит из полноэкранного режима с помощью HTML API.
 
-#### Event: 'zoom-changed'
+#### Событие: 'зум-изменен'
 
 Возвращает:
 
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` строка - может быть `in` или `out`.
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+Излучается, когда пользователь просит изменить уровень масштабирования с помощью колеса мыши.
 
 #### Событие: 'devtools-opened'
 
-Emitted when DevTools is opened.
+Излучается при открытии DevTools.
 
 #### Событие: 'devtools-closed'
 
-Emitted when DevTools is closed.
+Излучается, когда DevTools закрыт.
 
-#### Event: 'devtools-focused'
+#### Событие: 'devtools-ориентированных'
 
-Emitted when DevTools is focused / opened.
+Излучаемый, когда DevTools сосредоточен / открыт.
 
 #### Событие: 'certificate-error'
 
@@ -440,11 +440,11 @@ Emitted when DevTools is focused / opened.
 * `error` String - код ошибки.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+  * `isTrusted` Boolean - Указывает, можно ли считать сертификат доверенным.
 
-Emitted when failed to verify the `certificate` for `url`.
+Излучается, когда не удалось проверить `certificate` для `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+Использование то же самое с [ `certificate-error` событие `app`](app.md#event-certificate-error).
 
 #### Событие: 'select-client-certificate'
 
@@ -454,11 +454,11 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
+  * `certificate` [Сертификат](structures/certificate.md) - Должен быть сертификат из данного списка.
 
 Происходит, когда запрошен сертификат клиента.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+Использование то же самое с [ `select-client-certificate` событие `app`](app.md#event-select-client-certificate).
 
 #### Событие: 'login'
 
@@ -479,38 +479,38 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Происходит, когда `webContents` выполняет базовую аутентификацию.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+Использование то же самое с [ `login` событие `app`](app.md#event-login).
 
 #### Событие: 'certificate-error'
 
 Возвращает:
 
 * `event` Event
-* `result` Object
-  * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Rectangle - Coordinates of first match region.
-  * `finalUpdate` Boolean
+* `result` объект
+  * `requestId` Интегрер
+  * `activeMatchOrdinal` Integer - Позиция активного матча.
+  * `matches` Integer - Количество матчей.
+  * `selectionArea` Rectangle - Координаты первого региона матча.
+  * `finalUpdate` Булан
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Излучается, когда результат доступен для `webContents.findInPage`и запроса.
 
 #### Событие: 'media-started-playing'
 
-Emitted when media starts playing.
+Излучается, когда средства массовой информации начинают играть.
 
 #### Событие: 'media-paused'
 
-Emitted when media is paused or done playing.
+Излучается, когда мультимедиа приостанавливается или делается воспроизведение.
 
 #### Событие: 'did-change-theme-color'
 
 Возвращает:
 
 * `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `color` (String | null) - Тематический цвет в формате "#rrggbb". Это не `null` когда нет цвета темы устанавливается.
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Излучается при изменении цвета темы страницы. Это, как правило, из- с мета-тег:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -523,7 +523,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 * `event` Event
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Излучается, когда мышь перемещается по ссылке или клавиатура перемещает фокус на ссылку.
 
 #### Событие: 'cursor-changed'
 
@@ -532,56 +532,56 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 * `event` Event
 * `type` String
 * `image` [NativeImage](native-image.md) (опционально)
-* `scale` Float (optional) - scaling factor for the custom cursor.
-* `size` [Size](structures/size.md) (optional) - the size of the `image`.
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
+* `scale` Float (необязательно) - фактор масштабирования для пользовательского курсора.
+* `size` [размер](structures/size.md) (необязательно) - размер `image`.
+* `hotspot` [Point](structures/point.md) (по желанию) - координаты точки доступа пользовательского курсора.
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+Излучается при изменении типа курсора. Параметр `type` может быть `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` или `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Если `type` параметр `custom`, параметр `image` будет держать пользовательский курсор изображения в [`NativeImage`](native-image.md), и `scale`, `size` и `hotspot` будет дополнительную информацию о пользовательском курсоре.
 
 #### Событие: 'context-menu'
 
 Возвращает:
 
 * `event` Event
-* `params` Object
-  * `x` Integer - x coordinate.
-  * `y` Integer - y coordinate.
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+* `params` объект
+  * `x` - x координаты.
+  * `y` Интегр - у координат.
+  * `linkURL` String - URL ссылки, которая содержит узел контекстного меню, было вызвано.
+  * `linkText` Строка - Текст, связанный со ссылкой. Может быть пустой строки, если содержимое ссылки является изображением.
+  * `pageURL` String - URL страницы верхнего уровня, на которую было контекстное меню.
+  * `frameURL` String - URL подрамник, на который было вызвано контекстное меню.
+  * `srcURL` Строка - URL-адрес источника для элемента, на который было контекстное меню. Элементы с исходными URL-адресами являются изображениями, аудио и видео.
+  * `mediaType` Строка - Тип узла, на который было вызвано контекстное меню. Не быть `none`, `image`, `audio`, `video`, `canvas`, `file` или `plugin`.
+  * `hasImageContents` Boolean - Было ли вызвано контекстное меню на изображении которое имеет непустое содержимое.
+  * `isEditable` Boolean - Является ли контекст редактируемым.
+  * `selectionText` String - Текст выделения, на который было вызвано контекстное меню.
+  * `titleText` String - Название или альт текст выбора, что контекст был вызван на.
+  * `misspelledWord` Строка - Неправильное слово под курсором, если таковые имеются.
+  * `dictionarySuggestions` String - Массив предлагаемых слов, чтобы показать , чтобы заменить `misspelledWord`.  Доступен только в том случае, если имеется слово и орфография включены.
+  * `frameCharset` String - Кодирование символа кадра, на который было вызвано меню.
+  * `inputFieldType` String - Если контекстное меню было вызвано на в поле, тип этого поля. Возможные значения являются `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` Строка - Входной источник, который ссылался на контекстное меню. Может быть `none`, `mouse`, `keyboard`, `touch` или `touchMenu`.
+  * `mediaFlags` объект - Флаги для элемента мультимедиа, на которые было контекстное меню.
+    * `inError` Boolean - Ли элемент средств разбился.
+    * `isPaused` Boolean - приостанавливается ли элемент мультимедиа.
+    * `isMuted` Boolean - Является ли элемент средств массовой информации приглушен.
+    * `hasAudio` Boolean - Имеет ли элемент мультимедиа звук.
+    * `isLooping` Boolean - Является ли элемент мультимедиа циклом.
+    * `isControlsVisible` Boolean - Являются ли элементы управления медиа- видны.
+    * `canToggleControls` Boolean - Являются ли элементы управления медиа- переключаемыми.
+    * `canRotate` Boolean - Можно ли повернуть элемент мультимедиа.
+  * `editFlags` - Эти флаги указывают на то, считает ли , что он способен выполнить соответствующее действие.
+    * `canUndo` - Считает ли рендерер, что это может отменить.
+    * `canRedo` Boolean - Считает ли рендерер, что он может перекрасить.
+    * `canCut` Boolean - считает ли рендерер, что он может сократить.
+    * `canCopy` Boolean - Считает ли рендерер, что он может скопировать
+    * `canPaste` Boolean - считает ли рендерер, что он может вставить.
+    * `canDelete` Boolean - Считает ли рендерер, что он может удалить.
+    * `canSelectAll` Boolean - Считает ли рендерер, что он может выбрать все.
 
-Emitted when there is a new context menu that needs to be handled.
+Излучается при новом контексте меню, которое должно быть обработано.
 
 #### Событие: 'select-bluetooth-device'
 
@@ -592,28 +592,28 @@ Emitted when there is a new context menu that needs to be handled.
 * `callback` Function
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Излучается, когда Bluetooth устройство должно быть выбрано по вызову, чтобы `navigator.bluetooth.requestDevice`. Для использования `navigator.bluetooth` api `webBluetooth` должна быть включена. Если `event.preventDefault` не называется, будет выбрано первое доступное устройство. `callback` должны быть вызваны с `deviceId` , которые будут выбраны, передавая пустую строку `callback` , отмените запрос.
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } - требуют ('электрон')
 
-let win = null
-app.commandLine.appendSwitch('enable-experimental-web-platform-features')
+пусть выигрывают - null
+app.commandLine.appendSwitch ('enable-experimental-web-platform-features')
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({ width: 800, height: 600 })
-  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+app.whenReady.)., затем ((() -> -
+  win - новый BrowserWindow ({ width: 800, height: 600 })
+  win.webContents.on('select-bluetooth-device', (событие,  win.webContents.on.) deviceList, обратный вызов) -> -
     event.preventDefault()
-    const result = deviceList.find((device) => {
-      return device.deviceName === 'test'
-    })
-    if (!result) {
-      callback('')
-    } else {
-      callback(result.deviceId)
-    }
-  })
-})
+    const result - deviceList.find (((устройство) -> -
+      return device.deviceName - "тест"
+    q)
+    если (!result) -
+      обратный вызов ('
+    )
+
+      (
+  )
+)
 ```
 
 #### Событие: 'paint'
@@ -622,80 +622,70 @@ app.whenReady().then(() => {
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* `image` [NativeImage](native-image.md) - Данные изображения всего кадра.
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+Излучается при сгенерировании нового кадра. Только грязная область передается в буфере.
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } и требуют ('электрон')
 
-const win = new BrowserWindow({ webPreferences: { offscreen: true } })
-win.webContents.on('paint', (event, dirty, image) => {
-  // updateBitmap(dirty, image.getBitmap())
-})
-win.loadURL('http://github.com')
+const выигрыша - новый BrowserWindow (веб-предрекания: { offscreen: true } )
+win.webContents.on ('paint', (событие, грязное, изображение) -> -
+  // updateBitmap (грязный, image.getBitmap())
+q)
+win.loadURL ('http://github.com')
 ```
 
 #### Событие: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+Излучаемый, когда окно devtools инструктирует webContents перезагрузить
 
 #### Событие: 'will-attach-webview'
 
 Возвращает:
 
 * `event` Event
-* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferences` WebPreferences - веб-предпочтения, которые будут использоваться гостем странице. Этот объект может быть изменен, чтобы настроить предпочтения для гостевой странице.
+* `params` запись<string, string> - Другие параметры `<webview>` , такие как url `src` . Этот объект может быть изменен для настройки параметров гостевой страницы.
 
-Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
+Испускаемый, `<webview>`веб-содержимое компании прилагается к этому веб- содержимому. Вызов `event.preventDefault()` уничтожит гостевую страницу.
 
-This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
+Это событие может быть использовано для настройки `webPreferences` для `webContents` `<webview>` до его загрузки и обеспечивает возможность установки настроек которые не могут быть установлены с помощью `<webview>` атрибутов.
 
-**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+**Примечание:** Указанный вариант `preload` скрипта будет отображаться как `preloadURL` (не `preload`) в `webPreferences` , испускаемом этим событием.
 
-#### Event: 'did-attach-webview'
-
-Возвращает:
-
-* `event` Event
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
-
-Emitted when a `<webview>` has been attached to this web contents.
-
-#### Event: 'console-message'
+#### Событие: 'did-attach-webview'
 
 Возвращает:
 
 * `event` Event
-* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
-* `message` String - The actual console message
-* `line` Integer - The line number of the source that triggered this console message
-* `sourceId` String
+* `webContents` WebContents - Гостевой веб-контент, который используется `<webview>`.
 
-Emitted when the associated window logs a console message.
+Излучается, когда `<webview>` был прикреплен к этому веб-содержимому.
 
-#### Event: 'preload-error'
+#### Событие: 'консоль-сообщение'
 
 Возвращает:
 
 * `event` Event
-* `preloadPath` String
+* `level` Integer - уровень журнала, от 0 до 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
+* `message` строка - фактическое сообщение консоли
+* `line` Integer - Номер строки источника, который вызвал это сообщение консоли
+* `sourceId` Струна
+
+Испускаемое, когда связанное окно регистрирует сообщение консоли.
+
+#### Событие: «предустановка-ошибка»
+
+Возвращает:
+
+* `event` Event
+* `preloadPath` Струна
 * `error` Error
 
-Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+Испускаемый при предварительной загрузке `preloadPath` бросает неохвоженные `error`.
 
-#### Event: 'ipc-message'
-
-Возвращает:
-
-* `event` Event
-* `channel` String (Строка)
-* `...args` any[]
-
-Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
-
-#### Event: 'ipc-message-sync'
+#### Событие: 'ipc-сообщение'
 
 Возвращает:
 
@@ -703,7 +693,17 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 * `channel` String (Строка)
 * `...args` any[]
 
-Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+Излучается, когда процесс рендерера отправляет асинхронное сообщение через `ipcRenderer.send()`.
+
+#### Событие: 'ipc-сообщение-синхронизация'
+
+Возвращает:
+
+* `event` Event
+* `channel` String (Строка)
+* `...args` any[]
+
+Излучается, когда процесс рендерера отправляет синхронное сообщение через `ipcRenderer.sendSync()`.
 
 #### Событие: 'desktop-capturer-get-sources'
 
@@ -711,61 +711,61 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Вызов `event.preventDefault()` вернет пустые источники.
+Излучается при `desktopCapturer.getSources()` вызывается в процессе рендерера. Вызов `event.preventDefault()` вернет пустые источники.
 
-#### Event: 'remote-require' _Deprecated_
+#### Событие: «дистанционное требует» _Deprecated_
 
 Возвращает:
 
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Излучается при `remote.require()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-global' _Deprecated_
+#### Событие: «дистанционно-получить-глобальный» _Deprecated_
 
 Возвращает:
 
 * `event` IpcMainEvent
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Излучается при `remote.getGlobal()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-builtin' _Deprecated_
+#### Событие: 'удаленный-получить-builtin' _Deprecated_
 
 Возвращает:
 
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Излучается при `remote.getBuiltin()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-current-window' _Deprecated_
-
-Возвращает:
-
-* `event` IpcMainEvent
-
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
-
-#### Event: 'remote-get-current-web-contents' _Deprecated_
+#### Событие: 'дистанционное начало-текущее окно' _Deprecated_
 
 Возвращает:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Излучается при `remote.getCurrentWindow()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'preferred-size-changed'
+#### Событие: "дистанционное получить-текущий-веб-содержимое" _Deprecated_
+
+Возвращает:
+
+* `event` IpcMainEvent
+
+Излучается при `remote.getCurrentWebContents()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+
+#### Событие: 'preferred-size-changed'
 
 Возвращает:
 
 * `event` Event
-* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
+* `preferredSize` [размер](structures/size.md) - минимальный размер, должен содержать макет документа, не требуя прокрутки.
 
-Emitted when the `WebContents` preferred size has changed.
+Испускаемый при `WebContents` предпочтительный размер изменился.
 
-This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+Это событие будет излучаться только тогда `enablePreferredSizeMode` когда он будет `true` в `webPreferences`.
 
 ### Методы экземпляра
 
@@ -776,17 +776,17 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData)](structures/upload-raw-data.md) | [UploadFile)](structures/upload-file.md)) (по желанию)
   * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
+Возвращает `Promise<void>` - обещание разрешится, когда страница закончит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет , если страница не загружается (см. [`did-fail-load`](web-contents.md#event-did-fail-load)). Обработчик отклонения нооп уже прикреплен, что позволяет избежать неопроверженных ошибок отказа.
 
-Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
+Загружает `url` в окно. В `url` должен содержаться приставка протокола, например, `http://` или `file://`. Если нагрузка должна обойти кэш http, использовать `pragma` заголовок для ее достижения.
 
 ```javascript
-const { webContents } = require('electron')
-const options = { extraHeaders: 'pragma: no-cache\n' }
-webContents.loadURL('https://github.com', options)
+const { webContents } - требуют ('электрон')
+вариантов const - экстраголов: 'pragma: нет кэша\n' s
+webContents.loadURL('https://github.com', варианты)
 ```
 
 #### `contents.loadFile(filePath[, options])`
@@ -799,197 +799,197 @@ webContents.loadURL('https://github.com', options)
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
+Загружает данный файл в окно, `filePath` должен быть путь к HTML файл по отношению к корню вашего приложения.  Например, структуру приложения, как это:
 
 ```sh
-| root
+| корневые
 | - package.json
 | - src
-|   - main.js
-|   - index.html
+|   - главное.js
+|   - индекс.html
 ```
 
-Would require code like this
+Потребуется код, как это
 
 ```js
-win.loadFile('src/index.html')
+win.loadFile (src/index.html')
 ```
 
 #### `contents.downloadURL(url)`
 
 * `url` String
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+Инициирует загрузку ресурса на `url` навигации. Начнется `will-download` событие `session` года.
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Возвращает `String` - URL текущей веб-страницы.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('http://github.com').then(() => {
-  const currentURL = win.webContents.getURL()
-  console.log(currentURL)
-})
+const { BrowserWindow } - требуют ('электрон')
+const win - новый BrowserWindow ({ width: 800, height: 600 })
+win.loadURL ('http://github.com')., то ((() -> -
+  const currentURL - win.webContents.getURL()
+  консоль.log (currentURL)
+
 ```
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Возвращает `String` - Название текущей веб-страницы.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Возвращает `Boolean` - Будет ли веб-страница уничтожена.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Фокусирует веб-страницу.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Возвращает `Boolean` - Ориентирована ли веб-страница.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Возвращает `Boolean` - Является ли веб-страница по-прежнему загрузки ресурсов.
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Возвращает `Boolean` - является ли основной кадр (а не только iframes или кадры в нем) -прежнему загрузки.
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Возвращает `Boolean` - ждет ли веб-страница первого ответа от основного ресурса страницы.
 
 #### `contents.stop()`
 
-Stops any pending navigation.
+Остановка любой ожидаемой навигации.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Перезагрузка текущей веб-страницы.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Перезагружает текущую страницу и игнорирует кэш.
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+Возвращает `Boolean` - Может ли браузер вернуться на предыдущую веб-страницу.
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+Возвращает `Boolean` - Может ли браузер перейти на следующую веб-страницу.
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the web page can go to `offset`.
+Возвращает `Boolean` - Может ли веб-страница перейти к `offset`.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+Очищает историю навигации.
 
 #### `contents.goBack()`
 
-Makes the browser go back a web page.
+Делает браузер вернуться веб-страницы.
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+Делает браузер идти вперед веб-страницы.
 
 #### `contents.goToIndex(index)`
 
 * `index` Integer
 
-Navigates browser to the specified absolute web page index.
+Переходит браузер к указанному абсолютному индексу веб-страниц.
 
 #### `contents.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Переходит к указанному смещению из "текущей записи".
 
 #### `contents.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Возвращает `Boolean` - разбился ли процесс рендерера.
 
 #### `contents.forcefullyCrashRenderer()`
 
-Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
+Принудительно завершает процесс визуализации, который в настоящее время хостинг этой `webContents`. Это приведет к `render-process-gone` , которое будет излучаться с `reason=killed || reason=crashed`. Пожалуйста, обратите внимание, что некоторые webContents доля процессов и, следовательно, называя этот метод может также сбой для других webContents, а также.
 
-Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+Вызов `reload()` сразу после вызова этого метода заставит перезагрузку произойти в новом процессе. Это следует использовать когда этот процесс нестабилен или непригоден для использования, например, для из `unresponsive` события.
 
 ```js
-contents.on('unresponsive', async () => {
-  const { response } = await dialog.showMessageBox({
-    message: 'App X has become unresponsive',
-    title: 'Do you want to try forcefully reloading the app?',
-    buttons: ['OK', 'Cancel'],
+contents.on ('unresponsive', async () -> -
+  const { response } - ждут dialog.showMessageBox (сообщение
+    : 'App X стал безответным',
+    название: "Вы хотите попробовать принудительно перезагрузить приложение?", кнопки
+    : "OK", "Отмена",
     cancelId: 1
-  })
-  if (response === 0) {
+  )
+  если (ответ No 0) -
     contents.forcefullyCrashRenderer()
     contents.reload()
-  }
-})
+
+
 ```
 
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Overrides the user agent for this web page.
+Переопределяет агента пользователя для этой веб-страницы.
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+Возвращает `String` - пользовательский агент для этой веб-страницы.
 
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
 * `options` Object (опционально)
-  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
+  * `cssOrigin` String (по желанию) - может быть либо "пользователем", либо "автором"; Указание "пользователя" позволяет предотвратить переопределение веб-сайтов CSS, которые вы вставляете. По умолчанию является "автором".
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+Возвращает `Promise<String>` - Обещание, которое разрешает с ключом для вставленных CSS, которые впоследствии могут быть использованы для удаления CSS через `contents.removeInsertedCSS(key)`.
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+Вводит CSS на текущую веб-страницу и возвращает уникальный ключ для вставленного таблицы.
 
 ```js
-contents.on('did-finish-load', () => {
-  contents.insertCSS('html, body { background-color: #f00; }')
-})
+contents.on ('did-finish-load', () -> -
+  contents.insertCSS ('html, кузов - фоновый цвет: #f00; q')
+)
 ```
 
-#### `contents.removeInsertedCSS(key)`
+#### `contents.removeInsertedCSS (ключ)`
 
 * `key` String
 
-Returns `Promise<void>` - Resolves if the removal was successful.
+Возвращает `Promise<void>` - Разрешает, если удаление было успешным.
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+Удаляет вставленный CSS с текущей веб-страницы. Таблица стилей идентифицируется ключом, который возвращается из `contents.insertCSS(css)`.
 
 ```js
-contents.on('did-finish-load', async () => {
-  const key = await contents.insertCSS('html, body { background-color: #f00; }')
-  contents.removeInsertedCSS(key)
-})
+contents.on ('did-finish-load', async () -> -
+  const key - ждут contents.insertCSS ('html, тело - фоновый цвет: #f00; q')
+  contents.removeInsertedCSS (ключ)
+)
 ```
 
-#### `contents.executeJavaScript(code[, userGesture])`
+#### `contents.executeJavaScript (код, userGesture)`
 
 * `code` String
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если результатом кода является отклоненное обещание.
 
 Вычисляет `code` на странице.
 
 В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Указание `userGesture` как `true` снимает это ограничение.
 
-Code execution will be suspended until web page stop loading.
+Выполнение кода будет приостановлено до тех пор, пока веб-страница не прекратит загрузку.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -998,69 +998,71 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+#### `contents.executeJavaScriptInIsolatedWorld (worldId, скрипты, userGesture)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
-* `scripts` [WebSource[]](structures/web-source.md)
+* `worldId` Integer - Идентификатор мира для запуска javascript в, `0` является мир по умолчанию, `999` это мир, используемый в `contextIsolation` Electron.  Вы можете предоставить любой integer здесь.
+* `scripts` [WebSource](structures/web-source.md)
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если результатом кода является отклоненное обещание.
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Работает как `executeJavaScript` но оценивает `scripts` в изолированном контексте.
 
-#### `contents.setIgnoreMenuShortcuts(ignore)`
+#### `contents.setIgnoreMenuShortcuts (игнорировать)`
 
 * `ignore` Boolean
 
-Ignore application menu shortcuts while this web contents is focused.
+Игнорируйте ярлыки меню приложений, в то время как это веб-содержимое сфокусировано.
 
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` Object
+  * `details` объект
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
-    * `features` String - Comma separated list of window features provided to `window.open()`. Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+    * `features` String - Comma separated list of window features provided to `window.open()`.
 
-Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
+  Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+
+Вызывается перед созданием окна, `window.open()` вызывается из рендерера. Более подробную [`window.open()`](window-open.md) и как использовать это в сочетании с `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Отключить звук на текущей веб-странице.
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+Возвращает `Boolean` - Была ли эта страница отключена.
 
-#### `contents.isCurrentlyAudible()`
+#### `contents.isCurrentlyAudible ()`
 
-Returns `Boolean` - Whether audio is currently playing.
+Возвращает `Boolean` - Ли аудио в настоящее время играет.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Double - Zoom factor; default is 1.0.
+* `factor` Двойной - Увеличить фактор; по умолчанию составляет 1,0.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Изменяет коэффициент масштабирования на указанный фактор. Коэффициент увеличения на 100, так что 300% и 3,0.
 
-The factor must be greater than 0.0.
+Коэффициент должен быть больше 0,0.
 
 #### `contents.getZoomFactor()`
 
-Returns `Number` - the current zoom factor.
+Возвращает `Number` - текущий коэффициент масштабирования.
 
 #### `contents.setZoomLevel(level)`
 
 * `level` Number - уровень увеличения.
 
-Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно. The formula for this is `scale := 1.2 ^ level`.
+Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно. Формула для этого `scale := 1.2 ^ level`.
 
-> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+> **ПРИМЕЧАНИЕ**: Политика масштабирования на уровне Chromium имеет одно и то же происхождение, что означает, что уровень масштабирования для определенного домена распространяется во всех экземплярах окон с одним и тем же доменом. Дифференциация URL-адресов окон позволит увеличить работу на окно.
 
 #### `contents.getZoomLevel()`
 
-Returns `Number` - the current zoom level.
+Возвращает `Number` - текущий уровень масштабирования.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -1071,68 +1073,68 @@ Returns `Number` - the current zoom level.
 
 Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **ПРИМЕЧАНИЕ**: Визуальный зум отключен по умолчанию в Electron. Чтобы включить его, позвоните:
 > 
 > ```js
-contents.setVisualZoomLevelLimits(1, 3)
+contents.setVisual'oomLevelLimits (1, 3)
 ```
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+Выполняет команду редактирования `undo` веб-странице.
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+Выполняет команду редактирования `redo` веб-странице.
 
-#### `contents.cut()`
+#### `contents.cut ()`
 
-Executes the editing command `cut` in web page.
+Выполняет команду редактирования `cut` веб-странице.
 
-#### `contents.copy()`
+#### `contents.copy ()`
 
-Executes the editing command `copy` in web page.
+Выполняет команду редактирования `copy` веб-странице.
 
-#### `contents.copyImageAt(x, y)`
+#### `contents.copyImageAt (x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Copy the image at the given position to the clipboard.
+Копировать изображение в данном положении буфер обмена.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+Выполняет команду редактирования `paste` веб-странице.
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+Выполняет команду редактирования `pasteAndMatchStyle` веб-странице.
 
-#### `contents.delete()`
+#### `contents.delete ()`
 
-Executes the editing command `delete` in web page.
+Выполняет команду редактирования `delete` веб-странице.
 
-#### `contents.selectAll()`
+#### `contents.selectAll ()`
 
-Executes the editing command `selectAll` in web page.
+Выполняет команду редактирования `selectAll` веб-странице.
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+Выполняет команду редактирования `unselect` веб-странице.
 
-#### `contents.replace(text)`
-
-* `text` String
-
-Executes the editing command `replace` in web page.
-
-#### `contents.replaceMisspelling(text)`
+#### `contents.replace (текст)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+Выполняет команду редактирования `replace` веб-странице.
 
-#### `contents.insertText(text)`
+#### `contents.replaceMisspelling (текст)`
+
+* `text` String
+
+Выполняет команду редактирования `replaceMisspelling` веб-странице.
+
+#### `contents.insertText (текст)`
 
 * `text` String
 
@@ -1142,38 +1144,38 @@ Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` Строка - Содержимое для поиска, не должно быть пустым.
 * `options` Object (опционально)
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+  * `forward` Boolean (по желанию) - Следует ли искать вперед или назад, по умолчанию `true`.
+  * `findNext` Boolean (по желанию) - Является ли операция первым запросом или последующей деятельности, по умолчанию `false`.
+  * `matchCase` Boolean (по желанию) - Должен ли поиск быть деликатным, по умолчанию `false`.
 
-Returns `Integer` - The request id used for the request.
+Возвращает `Integer` - идентификатор запроса, используемый для запроса.
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Начинается запрос на поиск всех совпадений для `text` на веб-странице. Результат запроса можно получить , подписавшись на [`found-in-page`](web-contents.md#event-found-in-page) событие.
 
-#### `contents.stopFindInPage(action)`
+#### `contents.stopFindInPage (действие)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+* `action` String - Определяет действие, которое состоится при и`webContents.findInPage`запроса.
+  * `clearSelection` - Очистить выбор.
+  * `keepSelection` - Перевести выбор в нормальный выбор.
+  * `activateSelection` - Сосредоточьтесь и нажмите на узел выбора.
 
-Stops any `findInPage` request for the `webContents` with the provided `action`.
+Прекращает `findInPage` запрос на `webContents` с предоставленным `action`.
 
 ```javascript
-const { webContents } = require('electron')
-webContents.on('found-in-page', (event, result) => {
-  if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
-})
+const { webContents } требуют ('электрон')
+webContents.on ('найдено-в-странице', (событие, результат) -> -
+  если (result.finalUpdate) webContents.stopFindInPage ('clearSelection')
+q)
 
-const requestId = webContents.findInPage('api')
-console.log(requestId)
+const requestId - webContents.findInPage ('api')
+console.log (requestId)
 ```
 
 #### `contents.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
+* `rect` [Rectangle](structures/rectangle.md) (по желанию) - область страницы, которая должна быть захвачена.
 
 Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
 
@@ -1181,404 +1183,402 @@ console.log(requestId)
 
 #### `contents.isBeingCaptured()`
 
-Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+Возвращает `Boolean` - Является ли эта страница в настоящее время захвачены. Он возвращается верно, когда захват большой, то 0.
 
-#### `contents.incrementCapturerCount([size, stayHidden])`
+#### `contents.incrementCapturerCount (размер, stayHidden)`
 
-* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
-* `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
+* `size` [размер](structures/size.md) (по желанию) - предпочтительный размер для захвата.
+* `stayHidden` Boolean (по желанию) - Держите страницу скрытой, а не видимой.
 
-Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+Увеличьте количество захвата на один. Страница считается видимой, когда окно браузера скрыто, а количество захватилов не является нулевым. Если вы хотите, чтобы страница была скрыта, вы должны убедиться, что `stayHidden` установлен на реальность.
 
-This also affects the Page Visibility API.
+Это также влияет на API видимости Страницы.
 
-#### `contents.decrementCapturerCount([stayHidden])`
+#### `contents.decrementCapturerCount ([stayHidden])`
 
-* `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
+* `stayHidden` Boolean (по желанию) - Держите страницу в скрытом состоянии, а не видимым.
 
-Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+Уменьшите количество захвата на один. Страница будет настроена в скрытое или закрытый состояние, когда окна браузера скрыты или закрыты, а количество захватилов достигнет нуля. Если вы хотите количество скрытых захватов, вместо этого вы должны установить `stayHidden` с реальностью.
 
-#### `contents.getPrinters()`
+#### `contents.getPrinters ()`
 
-Get the system printer list.
+Получить список системных принтеров.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+Возвращает [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
 * `options` Object (опционально)
-  * `silent` Boolean (optional) - Don't ask user for print settings. По умолчанию - `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. По умолчанию - `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. По умолчанию - `true`.
-  * `margins` Object (optional)
-    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
-    * `top` Number (optional) - The top margin of the printed web page, in pixels.
-    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
-    * `left` Number (optional) - The left margin of the printed web page, in pixels.
-    * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. По умолчанию - `false`.
-  * `scaleFactor` Number (optional) - The scale factor of the web page.
-  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
-  * `collate` Boolean (optional) - Whether the web page should be collated.
-  * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
-    * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` Record<string, number> (optional)
-    * `horizontal` Number (optional) - The horizontal dpi.
-    * `vertical` Number (optional) - The vertical dpi.
-  * `header` String (optional) - String to be printed as page header.
-  * `footer` String (optional) - String to be printed as page footer.
-  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
+  * `silent` Boolean (по желанию) - Не спрашивайте у пользователя настройки печати. По умолчанию - `false`.
+  * `printBackground` Boolean (по желанию) - Печать фонового цвета и веб-страницы. По умолчанию - `false`.
+  * `deviceName` String (по желанию) - Установите имя устройства принтера для использования. Должно быть системно-определяемое имя, а не «дружественное» имя, например «Brother_QL_820NWB», а не «Брат ЗЛ-820НВБ».
+  * `color` Boolean (по желанию) - Установите, будет ли печатная веб-страница в цвете или серой шкале. По умолчанию - `true`.
+  * `margins` (по желанию)
+    * `marginType` String (по желанию) - может быть `default`, `none`, `printableArea`, или `custom`. Если `custom` выбран, вам также нужно будет указать `top`, `bottom`, `left`и `right`.
+    * `top` (по желанию) - верхняя маржа печатной веб-страницы, в пикселях.
+    * `bottom` (по желанию) - нижняя маржа печатной веб-страницы, в пикселях.
+    * `left` (по желанию) - левая маржа печатной веб-страницы, в пикселях.
+    * `right` (по желанию) - правая маржа печатной веб-страницы, в пикселях.
+  * `landscape` Boolean (по желанию) - Следует ли печатать веб-страницу в ландшафтном режиме. По умолчанию - `false`.
+  * `scaleFactor` номер (необязательно) - коэффициент масштаба веб-страницы.
+  * `pagesPerSheet` (необязательно) - количество страниц для печати на листе страницы.
+  * `collate` Boolean (по желанию) - Следует ли собирать веб-страницу.
+  * `copies` номер (необязательно) - количество копий веб-страницы для печати.
+  * `pageRanges` Объект» (необязательно) - диапазон страниц для печати. На macOS, только один диапазон почитается.
+    * `from` - Индекс первой страницы для печати (0 на основе).
+    * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
+  * `duplexMode` String (по желанию) - Установите дуплексный режим печатной веб-страницы. Может быть `simplex`, `shortEdge`, или `longEdge`.
+  * `dpi` запись<string, number> (по желанию)
+    * `horizontal` (по желанию) - Горизонтальный dpi.
+    * `vertical` (необязательно) - Вертикальный dpi.
+  * `header` String (по желанию) - Строка для печати в качестве заголовка страницы.
+  * `footer` String (по желанию) - Строка, которая будет напечатана в качестве страницы footer.
+  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы печатного документа. Может быть `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` или объект, содержащий `height`.
 * `callback` Function (опционально)
-  * `success` Boolean - Indicates success of the print call.
-  * `failureReason` String - Error description called back if the print fails.
+  * `success` Boolean - указывает на успех печатного звонка.
+  * `failureReason` Строка - Описание ошибки перезвехивает, если печать не удается.
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
+Когда пользовательский `pageSize` пройден, Chromium пытается проверить конкретные минимальные значения платформы для `width_microns` и `height_microns`. Ширина и высота должны быть не менее 353 микрон, но могут быть выше на некоторых операционных системах.
 
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+Печать веб-страницы окна. Когда `silent` установлен на `true`, Electron будет выбирать системы по умолчанию принтер, если `deviceName` пуст и настройки по умолчанию для печати.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Используйте `page-break-before: always;` CSS, чтобы заставить печатать на новой странице.
 
 Пример использования:
 
 ```js
-const options = {
+варианты const :
   silent: true,
   deviceName: 'My-Printer',
-  pageRanges: [{
+  pageRanges:{
     from: 0,
     to: 1
-  }]
-}
-win.webContents.print(options, (success, errorType) => {
-  if (!success) console.log(errorType)
-})
+  }
+
+- win.webContents.print (опции, (успех, errorType) -> -
+  если (!успех) консоль.log (errorType)
+)
 ```
 
 #### `contents.printToPDF(options)`
 
 * `options` Object
-  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
-    * `title` String - The title for the PDF header.
-    * `url` String - the url for the PDF footer.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `headerFooter` запись<string, string> (по желанию) - заголовок и лакея для PDF.
+    * `title` String - Название заголовка PDF.
+    * `url` String - URL для pdf footer.
+  * `landscape` Boolean (по желанию) - `true` для пейзажа, `false` для портрета.
+  * `marginsType` Integer (необязательно) - определяет тип маржи для использования. Использует 0 для по умолчанию, 1 без маржи и 2 для минимальной маржи.
+  * `scaleFactor` номер (необязательно) - коэффициент масштаба веб-страницы. Может варьироваться от 0 до 100.
+  * `pageRanges` запись<string, number> (по желанию) - диапазон страниц для печати.
+    * `from` - Индекс первой страницы для печати (0 на основе).
+    * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
+  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы сгенерированного PDF. Может быть `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` или объект, содержащий `height` и `width` в микронах.
+  * `printBackground` Boolean (необязательно) - Следует ли печатать CSS фоны.
+  * `printSelectionOnly` Boolean (необязательно) - Следует ли печатать только выбор.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Возвращает `Promise<Buffer>` - Разрешает с генерируемыми данными PDF.
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Печатает веб-страницу окна как PDF с пользовательскими настройками печати предварительного просмотра Chromium настройками.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Данные `landscape` проигнорированы, если `@page` csS at-rule используется на веб-странице.
 
-By default, an empty `options` will be regarded as:
+По умолчанию пустая `options` будет рассматриваться как:
 
 ```javascript
-{
+
   marginsType: 0,
-  printBackground: false,
-  printSelectionOnly: false,
-  landscape: false,
+  printBackground: ложный,
+  printSelectionСвыборно: ложный,
+  пейзаж: ложный,
   pageSize: 'A4',
   scaleFactor: 100
-}
+.
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Используйте `page-break-before: always;` CSS, чтобы заставить печатать на новой странице.
 
-An example of `webContents.printToPDF`:
+Пример `webContents.printToPDF`:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
+const { BrowserWindow } - требуют ('электрон')
+const fs и требуют ('fs')
+const путь - требуют ('путь')
+const os - требуют ('os')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('http://github.com')
+const win - новый BrowserWindow ({ width: 800, height: 600 })
+win.loadURL ('http://github.com> ')
 
-win.webContents.on('did-finish-load', () => {
-  // Use default printing options
-  win.webContents.printToPDF({}).then(data => {
-    const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
-    fs.writeFile(pdfPath, data, (error) => {
-      if (error) throw error
-      console.log(`Wrote PDF successfully to ${pdfPath}`)
-    })
-  }).catch(error => {
-    console.log(`Failed to write PDF to ${pdfPath}: `, error)
-  })
-})
+win.webContents.on ('did-finish-load', () -> -
+  // Используйте параметры печати по умолчанию
+  win.webContents.printToPDF (яп.), затем (данные -> -
+    const pdfPath - path.join(os.homedir),) 'temp.pdf')
+    fs.writeFile (pdfPath, данные, (ошибка) -  -
+      если (ошибка) ошибка броска
+      консоли.log ('Написал PDF успешно ${pdfPath}')
+    q)
+  q).catch (ошибка No> и
+    консоли.log ('Не удалось написать PDF на ${pdfPath}: ', ошибка)
+  )
+)
 ```
 
 #### `contents.addWorkSpace(path)`
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Добавляет указанный путь в рабочее пространство DevTools. Должно быть использовано после создания devTools :
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.webContents.on('devtools-opened', () => {
-  win.webContents.addWorkSpace(__dirname)
-})
+const { BrowserWindow } - требуют ('электрон')
+const win - новый BrowserWindow ()
+win.webContents.on ('devtools-opened', () -> -
+  win.webContents.addWorkSpace (__dirname)
+)
 ```
 
 #### `contents.removeWorkSpace(path)`
 
 * `path` String
 
-Removes the specified path from DevTools workspace.
+Удаляет указанный путь из рабочего пространства DevTools.
 
-#### `contents.setDevToolsWebContents(devToolsWebContents)`
+#### `contents.setDevToolsWebContents (devToolsWebContents)`
 
 * `devToolsWebContents` WebContents
 
-Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
+Использует `devToolsWebContents` в качестве целевого `WebContents` , чтобы показать devtools.
 
-The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
+Меню `devToolsWebContents` не должно было делать никакой навигации, и оно не использоваться для других целей после звонка.
 
-By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
+По умолчанию Electron управляет devtools, создавая внутренний `WebContents` с родным видом, который разработчики имеют очень ограниченный контроль. С помощью `setDevToolsWebContents` , разработчики могут использовать любые `WebContents` , чтобы показать в нем, в том числе `BrowserWindow`, `BrowserView` и `<webview>` тег.
 
-Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
+Обратите внимание, что закрытие devtools не разрушает `devToolsWebContents`, это ответственность абонента, чтобы уничтожить `devToolsWebContents`.
 
-An example of showing devtools in a `<webview>` tag:
+Пример отображения devtools в теге `<webview>` :
 
 ```html
 <html>
 <head>
   <style type="text/css">
-    * { margin: 0; }
-    #browser { height: 70%; }
-    #devtools { height: 30%; }
+    - маржа: 0;
+    #browser - высота: 70%;
+    #devtools - высота: 30%;
   </style>
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { ipcRenderer } = require('electron')
-    const emittedOnce = (element, eventName) => new Promise(resolve => {
-      element.addEventListener(eventName, event => resolve(event), { once: true })
-    })
-    const browserView = document.getElementById('browser')
-    const devtoolsView = document.getElementById('devtools')
-    const browserReady = emittedOnce(browserView, 'dom-ready')
-    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
-    Promise.all([browserReady, devtoolsReady]).then(() => {
-      const targetId = browserView.getWebContentsId()
-      const devtoolsId = devtoolsView.getWebContentsId()
-      ipcRenderer.send('open-devtools', targetId, devtoolsId)
-    })
+    const { ipcRenderer } - требуют ('электрон')
+    const emittedOnce (элемент, eventName) -> новое обещание (разрешение -> -
+      element.addEventListener(eventName, событие> разрешение (событие), { once: true })
+    q)
+    const browserView - document.getElementById ('browser')
+    const devtoolsView - document.getElementById ('devtools')
+    const browserReady - emittedOnce (browserView , 'дом-готов')
+    const devtoolsReady - излучаемыйOnce (devtoolsView, 'дом-готов')
+    Promise.all ('browserReady, devtoolsReady).,тогда (() -> -
+      конст targetId - browserView.getWebContentsId ()
+      const devtoolsId - devtoolsView.getWebContentsId()
+      ipcRenderer.send ('open-devtools', targetId, devtoolsId)
+    )
   </script>
 </body>
 </html>
 ```
 
 ```js
-// Main process
-const { ipcMain, webContents } = require('electron')
-ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
-  const target = webContents.fromId(targetContentsId)
-  const devtools = webContents.fromId(devtoolsContentsId)
-  target.setDevToolsWebContents(devtools)
-  target.openDevTools()
-})
+Основной процесс
+const { ipcMain, webContents } требуют ('электрон')
+ipcMain.on ('open-devtools', (событие, targetContentsId, devtoolsContentsId) -> -
+  констовая цель - webContents.fromId (targetContentsId)
+  const devtools - webContents.fromId (devtoolsContentsId)
+  target.setDevToolsWebContents (devtools)
+  target.openDevTools(
+)
 ```
 
-An example of showing devtools in a `BrowserWindow`:
+Пример отображения devtools в `BrowserWindow`:
 
 ```js
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } - требуют ('электрон')
 
-let win = null
-let devtools = null
+пусть выигрывают - null
+пусть devtools - null
 
-app.whenReady().then(() => {
-  win = new BrowserWindow()
-  devtools = new BrowserWindow()
-  win.loadURL('https://github.com')
-  win.webContents.setDevToolsWebContents(devtools.webContents)
-  win.webContents.openDevTools({ mode: 'detach' })
-})
+app.whenReady ().., затем () -> -
+  win - новый BrowserWindow ()
+  devtools - новый BrowserWindow()
+  win.loadURL ('https://github.com')
+  win.webContents.setDevToolsWebContents (devtools.webContents)
+  win.webContents.openDevTools ({ mode: 'detach' })
+)
 ```
 
 #### `contents.openDevTools([options])`
 
 * `options` Object (опционально)
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+  * `mode` String - Открывает devtools с указанным состоянием дока, может быть `right`, `bottom`, `undocked`, `detach`. По умолчанию для последнего используемого состояния дока. В `undocked` режиме можно пристыковаться назад. В `detach` режиме это не так.
+  * `activate` Boolean (необязательно) - Следует ли вывести открытое окно devtools на первый план. По умолчанию `true`.
 
-Opens the devtools.
+Открывает devtools.
 
-When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
+Когда `contents` является тегом `<webview>` , `mode` будет `detach` по умолчанию, явно проходя пустой `mode` может заставить использовать последнее используемое состояние дока.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Закрывает devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Возвращает `Boolean` - Открыты ли devtools.
 
-#### `contents.isDevToolsFocused()`
+#### `contents.isDevToolsФокусировано()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Возвращает `Boolean` - Ориентировано ли представление devtools.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Переключает инструменты разработчика.
 
-#### `contents.inspectElement(x, y)`
+#### `contents.inspectЭлement (x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+Начинается проверка элемента на позиции (`x`, `y`).
 
 #### `contents.inspectSharedWorker()`
 
-Opens the developer tools for the shared worker context.
+Открывает инструменты разработчика для общего контекста работника.
 
-#### `contents.inspectSharedWorkerById(workerId)`
+#### `contents.inspectSharedWorkerById (рабочийid)`
 
-* `workerId` String
+* `workerId` Струна
 
-Inspects the shared worker based on its ID.
+Проверяет общего работника на основе его идентификатора.
 
 #### `contents.getAllSharedWorkers()`
 
-Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+Возвращает [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Информация обо всех общих работников.
 
 #### `contents.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+Открывает инструменты разработчика для контекста работника службы.
 
-#### `contents.send(channel, ...args)`
+#### `contents.send (канал, ... аргс)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Отправить асинхронное сообщение процессу рендерера через `channel`, наряду с аргументами. Аргументы будут сериализованы с [клонов алгоритм][SCA], как [`postMessage`][], так что прототип цепи не будут включены. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **ПРИМЕЧАНИЕ**: Отправка нестандартных типов JavaScript, таких как объекты DOM или специальные объекты Electron, станет исключением.
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+Процесс рендерера может обрабатывать сообщение, слушая `channel` с [`ipcRenderer`](ipc-renderer.md) модулем.
 
-An example of sending messages from the main process to the renderer process:
+Пример отправки сообщений из основного процесса в процесс рендерера:
 
 ```javascript
 // В основном процессе.
-const { app, BrowserWindow } = require('electron')
-let win = null
+const { app, BrowserWindow } - требуют ('электрон')
+пусть выигрывают - null
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadURL(`file://${__dirname}/index.html`)
-  win.webContents.on('did-finish-load', () => {
-    win.webContents.send('ping', 'whoooooooh!')
+app.whenReady ()..., то ((()) -> -
+  win - новый BrowserWindow ({ width: 800, height: 600 })
+  win.loadURL ('файл://${__dirname}/index.html')
+  win.webContents.on ('did-finish-load', () -> -
+    win.webContents.send ("пинг", "whoooooooh!")
   })
 })
 ```
 
-```html
-<!-- index.html -->
-<html>
+```html<!-- индекс.html --><html>
 <body>
   <script>
-    require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
-    })
+    требуют ('электрон').ipcRenderer.on('ping', (событие, сообщение) -> -
+      консоли.log (сообщение) // Печатает 'whoooooooh!'
+    В)
   </script>
 </body>
 </html>
 ```
 
-#### `contents.sendToFrame(frameId, channel, ...args)`
+#### `contents.sendToFrame (frameId, канал, ... аргс)`
 
-* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
+* `frameId` Интегр | «Число, число» - идентификатор кадра для отправки или пара `[processId, frameId]` если кадр находится в другом процессе с кадра.
 * `channel` String (Строка)
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Отправить асинхронное сообщение в определенный кадр в процессе рендерера через `channel`, наряду с аргументами. Аргументы будут сериализованы с [алгоритмом клонов][SCA], как и [`postMessage`][], поэтому прототип цепи не будут включены. Отправка Функции, Обещания, Символы, WeakMaps, , что WeakSets будет бросать исключение.
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **ПРИМЕЧАНИЕ:** отправка нестандартных типов JavaScript, таких как объекты DOM или специальные объекты Electron, станет исключением.
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+Процесс рендерера может обрабатывать сообщение, слушая `channel` с [`ipcRenderer`](ipc-renderer.md) модулем.
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Например,
-
-```js
-// In a renderer process
-console.log('My frameId is:', require('electron').webFrame.routingId)
-```
-
-You can also read `frameId` from all incoming IPC messages in the main process.
+Если вы хотите получить `frameId` данного контекста рендерера, вы должны использовать `webFrame.routingId` значение.  Например,
 
 ```js
-// In the main process
-ipcMain.on('ping', (event) => {
-  console.info('Message came from frameId:', event.frameId)
-})
+В процессе рендеринга
+консоли.log ('My frameId is:', require ('electron').webFrame.routingId)
 ```
 
-#### `contents.postMessage(channel, message, [transfer])`
+Вы также можете прочитать `frameId` всех входящих сообщений IPC в основном процессе.
+
+```js
+В основном процессе
+ipcMain.on ('ping', (событие) -> -
+  console.info ("Сообщение пришло из frameId:', event.frameId)
+)
+```
+
+#### `contents.postMessage (канал, сообщение, [transfer])`
 
 * `channel` String (Строка)
 * `message` any
-* `transfer` MessagePortMain[] (optional)
+* `transfer` MessagePortMain (по желанию)
 
-Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
+Отправить сообщение процессу рендерера, по желанию передав право собственности на ноль или более -`MessagePortMain`объектов.
 
-The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+Переданные `MessagePortMain` объекты будут доступны в процессе , получить доступ `ports` к свойству испускаемого события. Когда они в рендер, они будут родными DOM `MessagePort` объектов.
 
 Например:
 
 ```js
-// Main process
-const { port1, port2 } = new MessageChannelMain()
-webContents.postMessage('port', { message: 'hello' }, [port1])
+Основной процесс
+const { port1, port2 } - новый MessageChannelMain ()
+webContents.postMessage ('port', { message: 'hello' }, [port1])
 
-// Renderer process
-ipcRenderer.on('port', (e, msg) => {
-  const [port] = e.ports
+// Процесс рендерера
+ipcRenderer.on ('port', (e, msg) ->
+  const [port] и e.ports
   // ...
 })
 ```
 
-#### `contents.enableDeviceEmulation(parameters)`
+#### `contents.enableDeviceEmulation (параметры)`
 
-* `parameters` Object
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
-    * `desktop` - Desktop screen type.
-    * `mobile` - Mobile screen type.
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
-  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
+* `parameters` объект
+  * `screenPosition` Строка - Укажите тип экрана для эмулировать (по умолчанию: `desktop`):
+    * `desktop` - Тип экрана рабочего стола.
+    * `mobile` - Мобильный тип экрана.
+  * `screenSize` [размер](structures/size.md) - Установите эмулированный размер экрана (screenPosition - мобильный).
+  * `viewPosition` [Point](structures/point.md) - Распоитите вид на экране (screenPosition - мобильный) (по умолчанию: `{ x: 0, y: 0 }`).
+  * `deviceScaleFactor` Integer - Установите коэффициент масштаба устройства (если ноль по умолчанию исходный коэффициент масштаба устройства) (по умолчанию: `0`).
+  * `viewSize` [размер](structures/size.md) - Установите эмулировать размер представления (пустой означает отсутствие переопределения)
+  * `scale` Float - Шкала эмулировать вид внутри доступного пространства (не в просмотра) (по умолчанию: `1`).
 
-Enable device emulation with the given parameters.
+Включить эмуляцию устройства с учетом данных параметров.
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+Отключить эмуляцию устройства, включенную `webContents.enableDeviceEmulation`.
 
-#### `contents.sendInputEvent(inputEvent)`
+#### `contents.sendInputEvent (входEvent)`
 
-* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [клавиатураInputEvent](structures/keyboard-input-event.md)
 
-Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
+Отправляет входную `event` на страницу. **Примечание:** [`BrowserWindow`](browser-window.md) , содержащий содержимое, должен быть сфокусирован для `sendInputEvent()` работы.
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
@@ -1587,186 +1587,186 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+Начните подписку на презентационые мероприятия и снятые кадры, `callback` будут называться с `callback(image, dirtyRect)` , когда будет события.
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+The `image` является примером [NativeImage](native-image.md) , который хранит захваченный кадр.
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+The `dirtyRect` является объектом с `x, y, width, height` свойствами, описывает, какая часть страницы была перекрашена. Если `onlyDirty` установлен на `true`, `image` будет содержать только перекрашенной области. `onlyDirty` по умолчанию `false`.
 
 #### `contents.endFrameSubscription()`
 
-End subscribing for frame presentation events.
+Окончание подписки на события презентации кадров.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
+* `item` объект
+  * `file` Струна | Строка - Путь (ы) к файлу (ы) перетаскиваются.
+  * `icon` [NativeImage](native-image.md) | Строка - Изображение должно быть непустое на macOS.
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+Устанавливает `item` как перетаскивание элемента для текущей операции перетаскивания, `file` — это абсолютный путь , который нужно перетаскивать, и `icon` — это изображение, показывающее под курсор при перетаскивании.
 
-#### `contents.savePage(fullPath, saveType)`
+#### `contents.savePage (fullPath, saveType)`
 
-* `fullPath` String - The full file path.
-* `saveType` String - Specify the save type.
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
+* `fullPath` Строка - Полный путь файла.
+* `saveType` строка - Укажите тип сохранения.
+  * `HTMLOnly` - Сохранить только HTML страницы.
+  * `HTMLComplete` - Сохранить полный HTML страницу.
+  * `MHTML` - Сохранить полный html страницу, как MHTML.
 
-Returns `Promise<void>` - resolves if the page is saved.
+Возвращает `Promise<void>` - решает, если страница сохранена.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } - требуют ('электрон')
+const win - новый BrowserWindow ()
 
-win.loadURL('https://github.com')
+win.loadURL ('https://github.com')
 
-win.webContents.on('did-finish-load', async () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
-    console.log('Page was saved successfully.')
-  }).catch(err => {
-    console.log(err)
-  })
-})
+win.webContents.on ('did-finish-load', async () ->
+  win.webContents.savePage ('/tmp/test.html', 'HTMLComplete'.log
+    > ).
+  В).поймать (ошибка>
+    консоли.log (ошибка)
+  )
+)
 ```
 
 #### `contents.showDefinitionForSelection()` _macOS_
 
-Shows pop-up dictionary that searches the selected word on the page.
+Показывает всплывающий словарь, который ищет выбранное слово на странице.
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+Возвращает `Boolean` - Указывает, *ли включена* рендеринг.
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+Если *экран рендеринга* включен, а не живопись, начните рисовать.
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+Если *экран рендеринга* включен и живопись, прекратите рисовать.
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+Возвращает `Boolean` - Если *экран рендеринга* возвращается ли он в настоящее время живопись.
 
-#### `contents.setFrameRate(fps)`
+#### `contents.setFrameRate (fps)`
 
-* `fps` Integer
+* `fps` Интегрер
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
+Если *экранная рендеринг* включена, устанавливает частоту кадров к указанному номеру. Принимаются только значения от 1 до 240.
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+Возвращает `Integer` - Если *экран рендеринга* включен возвращает текущую частоту кадров.
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+Расписание полной перекраски окна этого веб-содержимого дюйма
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+Если *экранная рендеринг* включена, аннулирует кадр и генерирует один через `'paint'` событие.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Returns `String` - Returns the WebRTC IP Handling Policy.
+Возвращает `String` - Возвращает WebRTC IP Обработка политики.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy.
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+* `policy` строка - Укажите политику обработки IP-адресов WebRTC.
+  * `default` - Выставляет публичные и локальные ИП пользователя. Это поведение по умолчанию. При использовании этой политики WebRTC имеет право перечислять все интерфейсы и связывать их для обнаружения общедоступных интерфейсов.
+  * `default_public_interface_only` - Предоставляет общедоступный IP пользователя, но не разоблачает локальный IP пользователя. При использовании этой политики WebRTC должен использовать только маршрут, используемый http. Это не предоставляет никаких локальных адресов.
+  * `default_public_and_private_interfaces` - Выставляет публичные и локальные пользователей. При использовании этой политики WebRTC следует использовать только маршрут по умолчанию, используемый по http. Это также предоставляет связанный с этим частный адрес по умолчанию. Маршрут по умолчанию — это маршрут, выбранный ОС на многохомной конечной точке.
+  * `disable_non_proxied_udp` - Не разоблачает публичные или местные ИП. При использовании webRTC следует использовать TCP только для связи с коллегами или серверами, если прокси-сервер поддерживает UDP.
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+Установка политики обработки IP-адресов WebRTC позволяет контролировать, какие IP-адреса через WebRTC. Более подробную [смотрите](https://browserleaks.com/webrtc) BrowserLeaks веб-сайтах.
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
+Возвращает `Integer` - Операционная система `pid` связанного процесса рендерера.
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Возвращает `Integer` - Хром внутреннего `pid` связанного рендерера. Можно с тем, `frameProcessId` пройденный кадром конкретных событий навигации (например. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Путь к выходному файлу.
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+Возвращает `Promise<void>` - указывает, был ли моментальный снимок создан успешно.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Возвращает `Boolean` - будет ли этот WebContents дроссельной анимации и таймеры когда страница становится фоном. Это также влияет на API видимости Страницы.
 
-#### `contents.setBackgroundThrottling(allowed)`
+#### `contents.setBackgroundThrottling (разрешено)`
 
-* `allowed` Boolean
+* `allowed` Булан
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Контролирует, будет ли этот WebContents дроссельной анимации и таймеры когда страница становится фоновой. Это также влияет на API видимости Страницы.
 
 #### `contents.getType()`
 
-Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+Возвращает `String` - тип webContent. Может быть `backgroundPage`, `window`, `browserView`, `remote`, `webview` или `offscreen`.
 
 ### Свойства экземпляра
 
 #### `contents.audioMuted`
 
-A `Boolean` property that determines whether this page is muted.
+Свойство `Boolean` , которое определяет, отключена ли эта страница.
 
 #### `contents.userAgent`
 
-A `String` property that determines the user agent for this web page.
+Учетная `String` , которое определяет агента пользователя для этой веб-страницы.
 
 #### `contents.zoomLevel`
 
-A `Number` property that determines the zoom level for this web contents.
+Свойство `Number` которое определяет уровень масштабирования для этого веб-содержимого.
 
-The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+Первоначальный размер 0, и каждый прирост выше или ниже представляет собой масштабирование 20% больше или меньше по умолчанию пределы 300% и 50% от первоначального размера, соответственно. Формула для этого `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-A `Number` property that determines the zoom factor for this web contents.
+Свойство `Number` которое определяет коэффициент масштабирования для этого веб-содержимого.
 
-The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
+Коэффициентом масштабирования является процент масштабирования, разделенный на 100, так что 300% и 3,0.
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
+`Integer` , которое устанавливает частоту кадров веб-содержимого на указанный номер. Принимаются только значения от 1 до 240.
 
-Only applicable if *offscreen rendering* is enabled.
+Применяется только в том случае *когда* за кадром  включен.
 
 #### `contents.id` _Readonly_
 
-A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
+Веб `Integer` представляющий уникальный идентификатор этого WebContents. Каждый идентификатор уникален среди `WebContents` экземпляров всего приложения Electron.
 
 #### `contents.session` _Readonly_
 
-A [`Session`](session.md) used by this webContents.
+Новый [`Session`](session.md) используется этим webContents.
 
 #### `contents.hostWebContents` _Readonly_
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+Пример [`WebContents`](web-contents.md) , который может владеть этой `WebContents`.
 
 #### `contents.devToolsWebContents` _Readonly_
 
-A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
+Новое `WebContents | null` , представляющее devTools `WebContents` связано с данной `WebContents`.
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**Примечание:** пользователи никогда не должны хранить этот объект, потому что он может `null` , когда DevTools был закрыт.
 
 #### `contents.debugger` _Readonly_
 
-A [`Debugger`](debugger.md) instance for this webContents.
+Пример [`Debugger`](debugger.md) для этого webContents.
 
 #### `contents.backgroundThrottling`
 
-A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Свойство `Boolean` , которое определяет, будет ли этот WebContents задушить анимацию и таймеры когда страница станет фоновой. Это также влияет на API видимости Страницы.
 
 #### `contents.mainFrame` _Только чтение_
 
-A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+[`WebFrameMain`](web-frame-main.md) , представляющее верхнюю рамку иерархии кадров страницы.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
@@ -1784,5 +1784,6 @@ A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of 
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
