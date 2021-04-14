@@ -1,37 +1,37 @@
-# Dark Mode
+# Modo Escuro
 
 ## Visão Geral
 
-### Automatically update the native interfaces
+### Atualize automaticamente as interfaces nativas
 
-"Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. The default behavior is to opt into this automatic theming from the OS.
+"Interfaces nativas" incluem o catador de arquivos, borda da janela, diálogos, menus de de contexto e muito mais - qualquer coisa em que a interface do usuário venha do seu sistema operacional e não do seu aplicativo. O comportamento padrão é optar por esse de temática automática do SO.
 
-### Automatically update your own interfaces
+### Atualize automaticamente suas próprias interfaces
 
-If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by using the [prefer-color-scheme][] CSS media query.
+Se o seu aplicativo tiver seu próprio modo escuro, você deve alternar e desligar em sincronia com configuração do modo escuro do sistema. Você pode fazer isso usando o [esquema de cores][] consulta de mídia CSS.
 
-### Manually update your own interfaces
+### Atualize manualmente suas próprias interfaces
 
-If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](../api/native-theme.md#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
+Se você quiser alternar manualmente entre os modos claro/escuro, você pode fazer isso definindo o modo desejado no tema [Fonte](../api/native-theme.md#nativethemethemesource) propriedade do módulo `nativeTheme` . O valor desta propriedade será propagado ao seu processo de Renderer. Quaisquer regras de CSS relacionadas ao `prefers-color-scheme` serão atualizadas em conformidade.
 
-## macOS settings
+## configurações do macOS
 
-No macOS 10.14 Mojave, a Apple introduziu um novo [system-wide dark mode][system-wide-dark-mode] para todos computadores macOS. If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
+No macOS 10.14 Mojave, a Apple introduziu um novo [system-wide dark mode][system-wide-dark-mode] para todos computadores macOS. Se o aplicativo Electron tiver um modo escuro, você pode fazê-lo seguir a configuração do modo escuro em todo o sistema usando [ `nativeTheme` api](../api/native-theme.md).
 
-In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to use Electron `>=7.0.0`, or set `NSRequiresAquaSystemAppearance` to `false` in your `Info.plist` file for older versions. Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
+No macOS 10.15 Catalina, a Apple introduziu uma nova opção de modo escuro "automático" para todos os computadores macOS. Para que as APIs `nativeTheme.shouldUseDarkColors` e `Tray` funcionem corretamente neste modo no Catalina, você precisa usar o Electron `>=7.0.0`, ou definir `NSRequiresAquaSystemAppearance` para `false` em seu arquivo `Info.plist` para versões mais antigas. Tanto [][electron-packager] Do Pacote Eletrônico quanto [][electron-forge] De Forja eletrônica têm uma opção [`darwinDarkModeSupport`][packager-darwindarkmode-api] para automatizar as mudanças `Info.plist` durante o tempo de construção do aplicativo.
 
-If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
+Se você deseja optar por desativar enquanto usa o Electron &gt; 8.0.0, você deve definir a tecla `NSRequiresAquaSystemAppearance` no arquivo `Info.plist` para `true`. Observe que o Electron 8.0.0 ou acima não permitirá que você opte por deste tema, devido ao uso do macOS 10.14 SDK.
 
 ## Exemplo
 
-We'll start with a working application from the [Quick Start Guide](quick-start.md) and add functionality gradually.
+Começaremos com um aplicativo de trabalho do [Quick Start Guide](quick-start.md) e adicionaremos funcionalidade gradualmente.
 
-First, let's edit our interface so users can toggle between light and dark modes.  This basic UI contains buttons to change the `nativeTheme.themeSource` setting and a text element indicating which `themeSource` value is selected. By default, Electron follows the system's dark mode preference, so we will hardcode the theme source as "System".
+Primeiro, vamos editar nossa interface para que os usuários possam alternar entre os modos de claro e escuro.  Esta interface do usuário básica contém botões para alterar a configuração `nativeTheme.themeSource` e um elemento de texto indicando qual `themeSource` valor está selecionado. Por padrão, a Electron segue a preferência do modo escuro do sistema, por isso codificaremos a fonte do tema como "Sistema".
 
-Add the following lines to the `index.html` file:
+Adicione as seguintes linhas ao arquivo `index.html` :
 
 ```html
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -40,11 +40,11 @@ Add the following lines to the `index.html` file:
     <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>Current theme source: <strong id="theme-source">System</strong></p>
+    <h1>Hello World! fonte do tema atual</h1>
+    <p> <strong id="theme-source">:  System</strong></p>
 
-    <button id="toggle-dark-mode">Toggle Dark Mode</button>
-    <button id="reset-to-system">Reset to System Theme</button>
+    <button id="toggle-dark-mode">Alternar o modo escuro</button>
+    <button id="reset-to-system">redefinir para o tema do sistema</button>
 
     <script src="renderer.js"></script>
   </body>
@@ -52,35 +52,35 @@ Add the following lines to the `index.html` file:
 </html>
 ```
 
-Next, add [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) that listen for `click` events on the toggle buttons. Because the `nativeTheme` module only exposed in the Main process, you need to set up each listener's callback to use IPC to send messages to and handle responses from the Main process:
+Em seguida, adicione [ouvintes de eventos](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) que ouvem `click` eventos nos botões de alternância. Como o módulo `nativeTheme` só exposto no processo Principal, você precisa configurar o retorno de chamada de cada ouvinte para usar o IPC para enviar mensagens e lidar com respostas do processo principal :
 
-* when the "Toggle Dark Mode" button is clicked, we send the `dark-mode:toggle` message (event) to tell the Main process to trigger a theme change, and update the "Current Theme Source" label in the UI based on the response from the Main process.
-* when the "Reset to System Theme" button is clicked, we send the `dark-mode:system` message (event) to tell the Main process to use the system color scheme, and update the "Current Theme Source" label to `System`.
+* quando o botão "Alternar Modo Escuro" é clicado, enviamos a mensagem `dark-mode:toggle` (evento) para dizer ao processo Principal para acionar um tema alterar e atualizar o rótulo "Fonte do Tema Atual" na interface do usuário com base na resposta do processo Principal.
+* quando o botão "Reset to System Theme" é clicado, enviamos a mensagem `dark-mode:system` (evento) para dizer ao processo Principal para usar o sistema esquema de cores e atualizar o rótulo "Fonte temática atual" para `System`.
 
-To add listeners and handlers, add the following lines to the `renderer.js` file:
+Para adicionar ouvintes e manipuladores, adicione as seguintes linhas ao arquivo `renderer.js` :
 
 ```javascript
 const { ipcRenderer } = require('electron')
 
-document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
-  const isDarkMode = await ipcRenderer.invoke('dark-mode:toggle')
-  document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
+documento.getElementById('modo escuro de alternância').addEventListener('clique', async () => {
+  const isDarkMode = await ipcRenderer.invoke ('dark-mode:toggle')
+  documento.getElementById ('theme-source').innerHTML = isDarkMode ? 'Escuro' : 'Luz'
 })
 
-document.getElementById('reset-to-system').addEventListener('click', async () => {
-  await ipcRenderer.invoke('dark-mode:system')
-  document.getElementById('theme-source').innerHTML = 'System'
+documento.getElementById('reset-to-system').addEventListener('click', async () => {
+  aguardam ipcRenderer.invoke ('dark-mode:system')
+  documento.getElementById('theme-source').innerHTML = 'System'
 })
 ```
 
-If you run your code at this point, you'll see that your buttons don't do anything just yet, and your Main process will output an error like this when you click on your buttons: `Error occurred in handler for 'dark-mode:toggle': No handler registered for 'dark-mode:toggle'` This is expected — we haven't actually touched any `nativeTheme` code yet.
+Se você executar seu código neste momento, verá que seus botões não fazem nada ainda, e seu processo Principal irá produzir um erro como este quando você clicar em seus botões: `Error occurred in handler for 'dark-mode:toggle': No handler registered for 'dark-mode:toggle'` Isso é esperado — nós realmente não tocamos em nenhum código `nativeTheme` ainda.
 
-Now that we're done wiring the IPC from the Renderer's side, the next step is to update the `main.js` file to handle events from the Renderer process.
+Agora que terminamos de ligar o IPC do lado do Renderer, o próximo passo é atualizar o arquivo `main.js` para lidar com eventos do processo Renderer.
 
-Depending on the received event, we update the [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) property to apply the desired theme on the system's native UI elements (e.g. context menus) and propagate the preferred color scheme to the Renderer process:
+Dependendo do evento recebido, atualizamos a propriedade [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) para aplicar o tema desejado nos elementos de interface do usuário nativos do sistema (por exemplo, menus de contexto) e propagar o esquema de cores preferido para o processo renderer :
 
-* Upon receiving `dark-mode:toggle`, we check if the dark theme is currently active using the `nativeTheme.shouldUseDarkColors` property, and set the `themeSource` to the opposite theme.
-* Upon receiving `dark-mode:system`, we reset the `themeSource` to `system`.
+* Ao receber `dark-mode:toggle`, verificamos se o tema escuro está atualmente ativo usando a propriedade `nativeTheme.shouldUseDarkColors` , e definimos a `themeSource` para o tema oposto.
+* Ao receber `dark-mode:system`, redefinimos o `themeSource` para `system`.
 
 ```javascript
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
@@ -118,34 +118,36 @@ app.on('window-all-closed', () => {
   }
 })
 
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
+app.on('activate' , () => {
+  se (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 ```
 
-The final step is to add a bit of styling to enable dark mode for the web parts of the UI by leveraging the [`prefers-color-scheme`][prefer-color-scheme] CSS attribute. The value of `prefers-color-scheme` will follow your `nativeTheme.themeSource` setting.
+O passo final é adicionar um pouco de estilo para ativar o modo escuro para as partes da Web da interface do usuário, aproveitando o atributo CSS [`prefers-color-scheme`][prefer-color-scheme] . O valor da `prefers-color-scheme` seguirá a configuração do seu `nativeTheme.themeSource` .
 
-Create a `styles.css` file and add the following lines:
+Crie um arquivo `styles.css` e adicione as seguintes linhas:
 
 ```css fiddle='docs/fiddles/features/macos-dark-mode'
-@media (prefers-color-scheme: dark) {
-  body { background:  #333; color: white; }
+@media (prefere esquema de cores: escuro) {
+  corpo { fundo: #333; cor: branco; }
 }
 
-@media (prefers-color-scheme: light) {
-  body { background:  #ddd; color: black; }
+@media (prefere-cor-esquema: luz) {
+  corpo { fundo: #ddd; cor: preto; }
 }
 ```
 
-After launching the Electron application, you can change modes or reset the theme to system default by clicking corresponding buttons:
+Depois de iniciar o aplicativo Electron, você pode alterar os modos ou redefinir o tema para o padrão do sistema clicando nos botões correspondentes:
 
-![Dark Mode](../images/dark_mode.gif)
+![Modo Escuro](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/
+[electron-forge]: https://www.electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
 [electron-packager]: https://github.com/electron/electron-packager
 [packager-darwindarkmode-api]: https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html#darwindarkmodesupport
-[prefer-color-scheme]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+[esquema de cores]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 [prefer-color-scheme]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
