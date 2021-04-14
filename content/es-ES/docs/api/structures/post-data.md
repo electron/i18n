@@ -1,6 +1,6 @@
 # Objeto PostData
 
-* `type` String - One of the following:
+* `type` String-uno de los siguientes:
   * `rawData` - Los Datos están disponibles como un `Buffer`, en el campo `rawData`.
   * `file` - El objeto representa un archivo. Los campos `filePath`, `offset`, `length` y `modificationTime` se utilizarán para describir el archivo.
   * `blob` - El objeto representa un `Blob`. El campo `blobUUID` se utilizará para describir el `Blob`.
