@@ -92,19 +92,19 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 })
 
 // Проверьте, разрешено ли пользователю совершать покупку внутри приложения.
-if (!inAppPurchase.canMakePayments()) {
-  console.log('The user is not allowed to make in-app purchase.')
-}
+если (!inAppPurchase.canMakePayments())
+  консоль.log ("Пользователь не имеет права делать покупки в приложении.')
+-
 
-// Retrieve and display the product descriptions.
+// Извлекаем и отображаем описания продуктов.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Проверьте параметры.
-  if (!Array.isArray(products) || products.length <= 0) {
-    console.log('Unable to retrieve the product informations.')
-    return
-  }
+  если (! Array.isArray (продукты) || products.length <No 0) -
+    консоли.log ('Не удается получить информацию о продукте.')
+    возврат
+  и
 
-  // Display the name and price of each product.
+  // Отображение имени и цены каждого продукта.
   products.forEach(product => {
     console.log(`Цена ${product.localizedTitle} составляет ${product.formattedPrice}.`)
   })
@@ -114,13 +114,13 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   const selectedQuantity = 1
 
   // Купить выбранный продукт.
-  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
-    if (!isProductValid) {
-      console.log('The product is not valid.')
-      return
-    }
+  inAppPurchase.purchaseProduct (выбранныйProduct.productIdentifier, выбранный Квантити).Тогда (isProductValid -> -
+    если (!isProductValid) - консоль
+      .log ("Продукт не действителен.')
+      возврат
+    и
 
-    console.log('The payment has been added to the payment queue.')
+    консоли.log ("Оплата была добавлена в очередь платежей.')
   })
 })
 ```
