@@ -30,14 +30,14 @@ A equipe do Electron está animada para anunciar a versão do Electron 8.0.0! Vo
 
 Veja as [notas de lançamento 8.0.0](https://github.com/electron/electron/releases/tag/v8.0.0) para uma lista completa de novos recursos e alterações.
 
-## Breaking Changes
+## Quebrando mudanças
 
 * Mostrar nome do módulo no aviso de depreciação para módulos de contexto. [#21952](https://github.com/electron/electron/pull/21952)
     * Este é o trabalho continuado para futuros requisitos de que módulos nativos de nó carregados no processo de renderização sejam [N-API](https://nodejs.org/api/n-api.html) ou [Contexto Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Informações completas e linha do tempo proposta é detalhado em [esse problema](https://github.com/electron/electron/issues/18397).
 * Os valores enviados sobre o IPC agora são serializados com o Algoritmo de Clone estruturado.  [#20214](https://github.com/electron/electron/pull/20214)
 * A renderização fora da tela está desabilitada devido à falta de um mantenedor para trabalhar neste recurso.  Irrompeu durante a actualização do Chromium e foi desativada posteriormente. [#20772](https://github.com/electron/electron/issues/20772)
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) .
 
 ## Alterações de API
 * `aplicação` Alterações na API:
@@ -65,10 +65,10 @@ More information about these and future changes can be found on the [Planned Bre
 * Adicionada opção para `shell.moveItemToTrash(fullPath[, deleteOnFail])` no macOS para especificar o que acontece quando moveItemToTrash falha. [#19700](https://github.com/electron/electron/pull/19700)
 * `systemPreferences` Alterações na API:
     * Documentação</code> atualizada de `systemPreferences.getColor(color) para macOS. <a href="https://github.com/electron/electron/pull/20611">#20611</a></li>
-<li>Added <code>screen` media type to `systemPreferences.getMediaAccessStatus()`. [#20764](https://github.com/electron/electron/pull/20764)
+<li>Adicionado <code>screen` tipo de mídia ao `systemPreferences.getMediaAccessStatus()`. [#20764](https://github.com/electron/electron/pull/20764)
 * Adicionado `nativeTheme.themeSource` para permitir que aplicativos substituam o Chromium e a escolha do tema do SO. [#19960](https://github.com/electron/electron/pull/19960)
 * Mudanças na API do Touchbar:
-    * Added `accessibilityLabel` property to `TouchBarButton` and `TouchBarLabel` to improve TouchBarButton/TouchBarLabel accessibility. [#20454](https://github.com/electron/electron/pull/20454)
+    * Adicionado `accessibilityLabel` propriedade ao `TouchBarButton` e `TouchBarLabel` para melhorar a acessibilidade touchbarbutton/TouchBarLabel. [#20454](https://github.com/electron/electron/pull/20454)
     * Documentação relacionada ao TouchBar atualizada [#19444](https://github.com/electron/electron/pull/19444)
 * `bandeja` Alterações na API:
     * Adicionadas novas opções para `tray.displayBalloon()`: `iconType`, `largeIcon`, `noSound` e `respeitoTime`. [#19544](https://github.com/electron/electron/pull/19544)
@@ -100,9 +100,9 @@ Continuamos usando nosso [Programa de Feedback de Aplicativos](https://electronj
 
 ## Próximos passos
 
-No curto prazo você pode esperar que a equipe continue focando em acompanhar o desenvolvimento dos principais componentes que compõem o Electron, incluindo Chromium, Node e V8. Embora tenhamos o cuidado de não fazer promessas sobre datas de lançamento, nosso plano é lançar novas versões principais do Electron com novas versões desses componentes aproximadamente trimestralmente. The [tentative 9.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 9 development life cycle. Além disso, [veja o nosso documento de versão](https://electronjs.org/docs/tutorial/electron-versioning) para informações mais detalhadas sobre versão no Electron.
+No curto prazo você pode esperar que a equipe continue focando em acompanhar o desenvolvimento dos principais componentes que compõem o Electron, incluindo Chromium, Node e V8. Embora tenhamos o cuidado de não fazer promessas sobre datas de lançamento, nosso plano é lançar novas versões principais do Electron com novas versões desses componentes aproximadamente trimestralmente. O cronograma [provisório 9.0.0](https://electronjs.org/docs/tutorial/electron-timelines) mapeia datas-chave no ciclo de vida de desenvolvimento do Electron 9. Além disso, [veja o nosso documento de versão](https://electronjs.org/docs/tutorial/electron-versioning) para informações mais detalhadas sobre versão no Electron.
 
 Para informações sobre mudanças planejadas em futuras versões do Electron, [veja nosso Documento de Interrupção Planejada (Alterações de Abertura)](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### Deprecation of `remote` Module (Starting in Electron 9)
+### Depreciação do Módulo `remote` (Começando no Elétron 9)
 Devido a sérios passivos de segurança, estamos iniciando planos para depreciar o módulo [`remoto`](https://www.electronjs.org/docs/api/remote) que começa com Electron 9. Você pode ler e acompanhar [esta issue](https://github.com/electron/electron/issues/21408) que detalha nossos motivos para isso e inclui uma linha temporal proposta para depreciação.
