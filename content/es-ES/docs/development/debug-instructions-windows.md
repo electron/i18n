@@ -17,7 +17,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versión de depuración de Electron, usando la aplicación para abrir como parámetro.
 
 ```powershell
-$ ./out/Debug/electron.exe ~/my-electron-app/
+$ ./out/Testing/electron.exe ~/my-electron-app/
 ```
 
 ### Establecer puntos de interrupción
