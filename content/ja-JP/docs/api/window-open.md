@@ -28,7 +28,7 @@ BrowserWindow コンストラクタのオプションは、親から継承した
 例:
 
 ```js
-window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIntegration=no')
+ウィンドウ.open('https://github.com','_blank', 'トップ=500,左=200,フレーム=偽,ノード統合=いいえ')
 ```
 
 **注釈:**
@@ -56,47 +56,47 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
   // 例えば...
-  childWindow.webContents('will-navigate', (e) => {
+  子ウィンドウ.webコンテンツ('ナビゲート'、(e) => {
     e.preventDefault()
   })
-})
+} )
 ```
 
 ```javascript
-// renderer.js
-const windowProxy = window.open('https://github.com/', null, 'minimizable=false')
-windowProxy.postMessage('hi', '*')
+レンダラー.js
+コンストウィンドウプロキシ = ウィンドウ.open('https://github.com/'、null、'最小化可能=false')
+ウィンドウプロキシ.postMessage('こんにちは、'*')
 ```
 
 ### ネイティブの `Window` のサンプル
 
 ```javascript
-// main.js
-const mainWindow = new BrowserWindow({
-  webPreferences: {
+main.js
+const mainWindow = 新しいブラウザウィンドウ ({
+  WebPreferences: {
     nativeWindowOpen: true
   }
 })
 
-// In this example, only windows with the `about:blank` url will be created.
-// All other urls will be blocked.
-mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-  if (url === 'about:blank') {
-    return {
-      frame: false,
-      fullscreenable: false,
-      backgroundColor: 'black',
-      webPreferences: {
+// この例では、'about:blank' URL を持つウィンドウのみが作成されます。
+その他の URL はすべてブロックされます。
+{ url }> {  {
+  場合 ( url === 'about:blank') {
+      フレームを返
+    す {      : false,
+      フルスクリーン可能: false、
+      背景: '黒',
+      webpreferences {
         preload: 'my-child-window-preload-script.js'
       }
-    }
-  }
-  return false
-})
+    :
+
+  偽
+を返す } }
 ```
 
 ```javascript
-// renderer process (mainWindow)
-const childWindow = window.open('', 'modal')
-childWindow.document.write('<h1>Hello</h1>')
+レンダラー プロセス (mainWindow)
+コンスト 子ウィンドウ = ウィンドウ.open(','モーダル')
+childWindow.document.write('<h1>こんにちは</h1>')
 ```
