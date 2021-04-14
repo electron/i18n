@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
+> Доступ к информации об источниках мультимедиа, которые могут быть использованы для аудио и видео с рабочего стола с помощью [`navigator.mediaDevices.getUserMedia`][] API.
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+Для захвата видео из источника, предоставленного `desktopCapturer` ограничения, переданы [`navigator.mediaDevices.getUserMedia`][] должны включать `chromeMediaSource: 'desktop'`, и `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Для захвата аудио и видео со всего рабочего стола ограничения, пройденные с по [`navigator.mediaDevices.getUserMedia`][] , должны включать `chromeMediaSource: 'desktop'`, как для `audio` , так и для `video`, но не должны включать `chromeMediaSourceId` ограничение.
 
 ```javascript
 const constraints = {
@@ -79,7 +79,7 @@ const constraints = {
 
 Возвращает `Promise<DesktopCapturerSource[]>` - разрешается с массивом объектов [`DesktopCapturerSource`](structures/desktop-capturer-source.md), каждый `DesktopCapturerSource ` представляет экран или отдельное окно, которое может быть захвачено.
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
+**Примечание** Захват содержимого экрана требует согласия пользователя на macOS 10.15 Каталина или выше, которые могут быть обнаружены [`systemPreferences.getMediaAccessStatus`][].
 
 ## Предупреждения
 
