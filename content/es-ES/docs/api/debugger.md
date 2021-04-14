@@ -48,8 +48,8 @@ Devuelve:
 
 * `event` Event
 * `method` Cadena- Nombre del método.
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `params` parámetros de cualquier evento definidos por el atributo ' Parameters ' en el protocolo de depuración remota.
+* `sessionId` cadena-identificador único de sesión de depuración adjunta, coincidirá con el valor enviado desde `debugger.sendCommand`.
 
 Emitido cada vez que el objetivo de depuración emite un evento de instrumentación.
 
@@ -69,11 +69,11 @@ Devuelve `Boolean` - Si un depurador se adjunta o no a la `webContents`.
 
 Desasocia el depurador de la `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams, sessionId])`
+#### `Debugger. sendCommand (método [, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `method` nombre de método de cadena, debe ser uno de los métodos definidos por el [protocolo de depuración remota][rdp].
 * `commandParams` any (opcional) - Objeto JSON con parámetros de la solicitud.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
+* `sessionId` cadena (opcional)-enviar comando al destino con ID de sesión de depuración asociado. El valor inicial se puede obtener enviando [mensaje de][attachToTarget] Target. attachToTarget.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.
 
