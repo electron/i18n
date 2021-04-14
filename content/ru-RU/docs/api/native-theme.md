@@ -22,23 +22,23 @@
 
 ### `nativeTheme.themeSource`
 
-Свойство `String` может быть `system`, `light` или `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.
+Свойство `String` может быть `system`, `light` или `dark`.  Он используется для переопределения и значение, которое Хром выбрал для использования внутри страны.
 
 Установка этого свойства на `system` удалит переопределение и все будет сброшено на установленное ОС по умолчанию.  По умолчанию `themeSource` является `system`.
 
 Параметры свойства `dark` имеют следующие эффекты:
 
 * `nativeTheme.shouldUseDarkColors` при обращении будет `true`
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
+* Любой пользовательский интерфейс Electron оказывает на Linux и Windows, включая контекстные меню, devtools и т.д. будет использовать темный пользовательский интерфейс.
+* Любой пользовательский интерфейс, который ОС отображает на macOS, включая меню, оконные рамки и т.д., будет использовать темный пользовательский интерфейс.
 * Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `dark`.
 * Возникнет событие `updated`
 
 Параметры свойства `light` имеют следующие эффекты:
 
 * `nativeTheme.shouldUseDarkColors` при обращении будет `false`
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
+* Любой пользовательский интерфейс Electron оказывает на Linux и Windows, включая контекстные меню, devtools и т.д. будет использовать световой пользовательский интерфейс.
+* Любой пользовательский интерфейс, который ОС отображает на macOS, включая меню, оконные рамы и т.д., будет использовать световой пользовательский интерфейс.
 * Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `light`.
 * Возникнет событие `updated`
 
@@ -52,7 +52,7 @@
 
 ### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Только чтение_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-contrast UI.
+Возможность `Boolean` , если OS / Chromium в настоящее время имеет высоко контрастный режим включен или в настоящее время поручено, чтобы показать высоко контрастность пользовательского интерфейса.
 
 ### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Только чтение_
 
