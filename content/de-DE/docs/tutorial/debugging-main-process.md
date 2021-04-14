@@ -23,4 +23,4 @@ electron --inspect=5858 your/app
 Sie müssen einen Debugger verwenden, der das V8-Inspektor-Protokoll unterstützt.
 
 - Verbinden Sie Chrome durch das Öffnen von `chrome://inspect` und wählen Sie 'Untersuchen' mit einem Rechtsklick auf die gestartete Electron-App aus.
-- [Debugging in VSCode](debugging-vscode.md)
+- [Debuggen in VSCode](debugging-vscode.md)
