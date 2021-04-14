@@ -1,24 +1,24 @@
 # webContents
 
-> Render and control web pages.
+> Renderizar e controlar páginas da Web.
 
 Processo: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` é um [][event-emitter]eventEmitter. É responsável por renderizar e controlar uma página web e é propriedade de o objeto [`BrowserWindow`](browser-window.md) . Um exemplo de acessar o objeto `webContents` :
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 
-const win = new BrowserWindow({ width: 800, height: 1500 })
+const win = novo BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
-const contents = win.webContents
-console.log(contents)
+conteúdo de const = win.webContents
+console.log(conteúdo)
 ```
 
 ## Métodos
 
-These methods can be accessed from the `webContents` module:
+Esses métodos podem ser acessados a partir do módulo `webContents` :
 
 ```javascript
 const { webContents } = require('electron')
@@ -27,84 +27,84 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Devoluções `WebContents[]` - Uma série de todas as `WebContents` instâncias. Isso conterá conteúdo da Web para todas as janelas, webviews, devtools abertos e páginas de fundo de extensão de devtools.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Retornos `WebContents` - O conteúdo da Web focado neste aplicativo, caso contrário, retorna `null`.
 
 ### `webContents.fromId(id)`
 
 * `id` Inteiro
 
-Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
+Retorno `WebContents` | indefinido - Uma instância do WebContents com o ID dado, ou `undefined` se não houver WebContents associados ao ID dado.
 
 ## Class: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Renderizar e controlar o conteúdo de uma instância do BrowserWindow.
 
 Processo: [Main](../glossary.md#main-process)
 
 ### Eventos de instância
 
-#### Event: 'did-finish-load'
+#### Evento: 'fez-acabamento-carga'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Emitido quando a navegação é feita, ou seja, o rotador da guia parou girar, e o `onload` evento foi despachado.
 
-#### Event: 'did-fail-load'
-
-Retorna:
-
-* `event` Event
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-This event is like `did-finish-load` but emitted when the load failed. The full list of error codes and their meaning is available [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
-
-#### Event: 'did-fail-provisional-load'
+#### Evento: 'did-fail-load'
 
 Retorna:
 
 * `event` Event
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
+* `errorDescription` Cordas
+* `validatedURL` Cordas
+* `isMainFrame` Booleano
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+Este evento é como `did-finish-load` mas emitido quando a carga falhou. A lista completa de códigos de erro e seu significado está disponível [aqui](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Evento: 'fez-fail-provisório-load'
 
 Retorna:
 
 * `event` Event
-* `isMainFrame` Boolean
+* `errorCode` Integer
+* `errorDescription` Cordas
+* `validatedURL` Cordas
+* `isMainFrame` Booleano
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when a frame has done navigation.
+Este evento é como `did-fail-load` mas emitido quando a carga foi cancelada (por exemplo. `window.stop()` foi invocado).
 
-#### Event: 'did-start-loading'
+#### Evento: 'did-frame-finish-load'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Retorna:
 
-#### Event: 'did-stop-loading'
+* `event` Event
+* `isMainFrame` Booleano
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Emitido quando um quadro fez navegação.
 
-#### Event: 'dom-ready'
+#### Evento: 'fez-start-loading'
+
+Corresponde aos pontos no tempo em que o rotador da guia começou a girar.
+
+#### Evento: 'fez stop-loading'
+
+Corresponde aos pontos no tempo em que o rotador da guia parou de girar.
+
+#### Evento: 'dom-ready'
 
 Retorna:
 
 * `event` Event
 
-Emitted when the document in the given frame is loaded.
+Emitido quando o documento no quadro dado é carregado.
 
 #### Evento: 'page-title-updated'
 
@@ -114,7 +114,7 @@ Retorna:
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Acionado quando o título da página é definido durante a navegação. `explicitSet` é falso quando título é sintetizado a partir de url de arquivo.
 
 #### Evento: 'page-title-updated'
 
@@ -125,67 +125,67 @@ Retorna:
 
 Emitido quando a página recebe urls de favicon.
 
-#### Event: 'new-window' _Deprecated_
+#### Evento: 'nova janela' __preterido
 
 Retorna:
 
 * `event` NewWindowWebContentsEvent
 * String `url`
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
-* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+* `disposition` String - Pode ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` e `other`.
+* `options` BrowserWindowConstructorOptions - As opções que serão usadas para criar o novo [`BrowserWindow`](browser-window.md).
+* `additionalFeatures` String[] - Os recursos não padronizados (características não manuseadas por Cromo ou Elétron) dadas a `window.open()`.
+* `referrer` [Referidor](structures/referrer.md) - O remetente que será passado para a nova janela. Pode ou não resultar na `Referer` cabeçalho sendo enviado, dependendo da política de encaminhamento.
+* `postBody` [PostBody](structures/post-body.md) (opcional) - Os dados postais que serão enviados para a nova janela, juntamente com os cabeçalhos apropriados que serão definidos. Se nenhum dado de postagem for enviado, o valor será `null`. Só definiu quando a janela está sendo criada por uma forma que define `target=_blank`.
 
-Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Preterido em favor de [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Emitido quando a página solicita a abertura de uma nova janela para um `url`. Pode ser solicitado por `window.open` ou um link externo como `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Por padrão, uma nova `BrowserWindow` será criada para o `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Como por exemplo:
+Chamar `event.preventDefault()` impedirá a Electron de criar automaticamente um [`BrowserWindow`](browser-window.md) novo . Se você chamar `event.preventDefault()` e criar manualmente um novo [`BrowserWindow`](browser-window.md) , então você deve definir `event.newGuest` para referenciar a nova instância [`BrowserWindow`](browser-window.md) , não fazê-lo pode resultar em comportamento inesperado. Como por exemplo:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
+myBrowserWindow.webContents.on ('new-window', (evento, url, frameName, disposição, opções, adicionalFeatures, referrer, postBody) => {
   event.preventDefault()
-  const win = new BrowserWindow({
-    webContents: options.webContents, // use existing webContents if provided
-    show: false
+  const win = novo BrowserWindow({
+    webContents: options.webContents, // use webContents existentes se fornecido
+    show: falso
   })
-  win.once('ready-to-show', () => win.show())
-  if (!options.webContents) {
+  ganhar.uma vez('pronto'.-para-mostrar', () => win.show())
+  se (!opções.webContents) {
     const loadOptions = {
       httpReferrer: referrer
     }
     if (postBody != null) {
       const { data, contentType, boundary } = postBody
       loadOptions.postData = postBody.data
-      loadOptions.extraHeaders = `content-type: ${contentType}; boundary=${boundary}`
+      loadOptions.extraHeaders = 'tipo de conteúdo: ${contentType}; boundary=${boundary}'
     }
 
-    win.loadURL(url, loadOptions) // existing webContents will be navigated automatically
+    win.loadURL(url, loadOptions) // os webContents existentes serão navegados automaticamente
   }
-  event.newGuest = win
+  evento.newGuest = win
 })
 ```
 
-#### Event: 'did-create-window'
+#### Evento: 'did-create-window'
 
 Retorna:
 * `window` BrowserWindow
-* `details` Object
-    * `url` String - URL for the created window.
-    * `frameName` String - Name given to the created window in the `window.open()` call.
-    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
-    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
-    * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
-    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
-    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* objeto `details`
+    * `url` String - URL para a janela criada.
+    * `frameName` String - Nome dado à janela criada na chamada `window.open()` .
+    * `options` BrowserWindowConstructorOptions - As opções usadas para criar o BrowserWindow. Eles são mesclados em crescente precedência: opções herdadas do pai, opções analisadas da `features` de `window.open()`, e opções dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). As opções não reconhecidas não são filtradas.
+    * `additionalFeatures` String[] - Os recursos não padronizados (características não manipuladas Chromium ou Electron) __preteridos
+    * `referrer` [Referidor](structures/referrer.md) - O remetente que será passado para a nova janela. Pode ou não resultar no `Referer` cabeçalho ser enviado, dependendo da política de encaminhamento.
+    * `postBody` [PostBody](structures/post-body.md) (opcional) - Os dados postais que serão enviados para a nova janela, juntamente com os cabeçalhos apropriados que serão definidos. Se nenhum dado de postagem for enviado, o valor será `null`. Só definido quando a janela está sendo criada por uma forma que define `target=_blank`.
+    * `disposition` String - Pode ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` e `other`.
 
-Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Emitido _após_ criação bem sucedida de uma janela via `window.open` na renderização. Não emitido se a criação da janela for cancelada de [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
+Veja [`window.open()`](window-open.md) para mais detalhes e como usá-lo em conjunto com `webContents.setWindowOpenHandler`.
 
 #### Evento: 'will-navigate'
 
@@ -194,242 +194,242 @@ Retorna:
 * `event` Event
 * String `url`
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido quando um usuário ou a página quiser iniciar a navegação. Isso pode acontecer quando o objeto `window.location` é alterado ou um usuário clica em um link na página.
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+Este evento não emitirá quando a navegação for iniciada programáticamente com APIs como `webContents.loadURL` e `webContents.back`.
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Também não é emitido para navegaçãos na página, como clicar em links de âncora ou atualizar o `window.location.hash`. Use `did-navigate-in-page` evento para este propósito.
 
-Calling `event.preventDefault()` will prevent the navigation.
+Ligar `event.preventDefault()` impedirá a navegação.
 
-#### Event: 'did-start-navigation'
+#### Evento: 'fez-start-navigation'
 
 Retorna:
 
 * `event` Event
 * String `url`
-* `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `isInPlace` Booleano
+* `isMainFrame` Booleano
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
+Emitido quando qualquer quadro (incluindo principal) começa a navegar. `isInPlace` será `true` para navegaçãos na página.
 
-#### Event: 'will-redirect'
+#### Evento: 'vai redirecionar'
 
 Retorna:
 
 * `event` Event
 * String `url`
-* `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `isInPlace` Booleano
+* `isMainFrame` Booleano
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
+Emitido como um redirecionamento lateral do servidor ocorre durante a navegação.  Por exemplo, um redirecionamento de 302 .
 
-This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+Este evento será emitido após `did-start-navigation` e sempre antes do evento `did-redirect-navigation` para a mesma navegação.
 
-Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+Chamar `event.preventDefault()` impedirá a navegação (não apenas o redirecionar).
 
-#### Event: 'did-redirect-navigation'
+#### Evento: 'fez-redirecionamento-navegação'
 
 Retorna:
 
 * `event` Event
 * String `url`
-* `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `isInPlace` Booleano
+* `isMainFrame` Booleano
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
+Emitido após um redirecionamento lateral do servidor ocorre durante a navegação.  Por exemplo, um redirecionamento de 302 .
 
-This event cannot be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+Este evento não pode ser evitado, se você quiser evitar redirecionamentos, você deve o check-out do `will-redirect` evento acima.
 
-#### Event: 'did-navigate'
-
-Retorna:
-
-* `event` Event
-* String `url`
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
-
-Emitted when a main frame navigation is done.
-
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-#### Event: 'did-frame-navigate'
+#### Evento: 'did-navigate'
 
 Retorna:
 
 * `event` Event
 * String `url`
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
-* `isMainFrame` Boolean
+* `httpResponseCode` Inteiro - -1 para navegaçãos não HTTP
+* `httpStatusText` String - vazio para navegaçãos não HTTP
+
+Emitido quando uma navegação de quadro principal é feita.
+
+Este evento não é emitido para navegaçãos na página, como clicar em links de âncora ou atualizar o `window.location.hash`. Use `did-navigate-in-page` evento para este propósito.
+
+#### Evento: 'did-frame-navigate'
+
+Retorna:
+
+* `event` Event
+* String `url`
+* `httpResponseCode` Inteiro - -1 para navegaçãos não HTTP
+* `httpStatusText` String - vazio para navegação não HTTP,
+* `isMainFrame` Booleano
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame navigation is done.
+Emitido quando qualquer navegação de quadro é feita.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Este evento não é emitido para navegaçãos na página, como clicar em links de âncora ou atualizar o `window.location.hash`. Use `did-navigate-in-page` evento para este propósito.
 
-#### Event: 'did-navigate-in-page'
+#### Evento: 'fez navegação na página'
 
 Retorna:
 
 * `event` Event
 * String `url`
-* `isMainFrame` Boolean
+* `isMainFrame` Booleano
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when an in-page navigation happened in any frame.
+Emitido quando uma navegação na página aconteceu em qualquer quadro.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Quando a navegação na página acontece, a URL da página muda, mas não causa navegação fora da página. Exemplos disso ocorrendo são quando links de âncora são clicados ou quando o evento `hashchange` DOM é acionado.
 
-#### Event: 'will-prevent-unload'
+#### Evento: 'vai-prevenir-descarregar'
 
 Retorna:
 
 * `event` Event
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+Emitido quando um manipulador de eventos `beforeunload` está tentando cancelar um descarregamento de página.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+Ligar para `event.preventDefault()` ignorará o do manipulador de eventos `beforeunload` e permitirá que a página seja descarregada.
 
 ```javascript
 const { BrowserWindow, dialog } = require('electron')
-const win = new BrowserWindow({ width: 800, height: 600 })
+const win = novo BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
-  const choice = dialog.showMessageBoxSync(win, {
-    type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+  escolha const = dialog.showMessageBoxSync(win, {
+    tipo: 'pergunta',
+    botões: ['Leave', 'Stay', 'Stay', 'Stay', '']
+    título: 'Você quer sair deste site?',
+    mensagem: 'As alterações feitas não podem ser salvas.',
     defaultId: 0,
     cancelId: 1
   })
-  const leave = (choice === 0)
-  if (leave) {
-    event.preventDefault()
-  }
-})
+  licença const = (escolha === 0)
+  se (sair) {
+    evento.preventDefault()
+
+}
 ```
 
-#### Event: 'crashed' _Deprecated_
+#### Evento: 'caiu' __preterido
 
 Retorna:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the renderer process crashes or is killed.
+Emitido quando o processo de renderização falha ou é morto.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Preterido:** Este evento é superado pelo evento `render-process-gone` que contém mais informações sobre por que o processo de renderização desapareceu. Não é sempre porque caiu.  O `killed` booleano pode ser substituído por verificando `reason === 'killed'` quando você mudar para esse evento.
 
-#### Event: 'render-process-gone'
+#### Evento: 'render-processo-gone'
 
 Retorna:
 
 * `event` Event
-* `details` Object
-  * `reason` String - The reason the render process is gone.  Valores possíveis:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+* objeto `details`
+  * `reason` String - A razão pela qual o processo de renderização se foi.  Valores possíveis:
+    * `clean-exit` - Processo saiu com um código de saída de zero
+    * `abnormal-exit` - Processo saiu com um código de saída não-zero
+    * `killed` - Processo foi enviado um SIGTERM ou de outra forma morto externamente
+    * `crashed` - Processo caiu
+    * `oom` - Processo ficou sem memória
+    * `launch-failed` - Processo nunca lançado com sucesso
+    * `integrity-failure` - Verificações de integridade de código do Windows falharam
+  * `exitCode` Integer - O código de saída do processo, a menos que `reason` seja `launch-failed`, nesse caso `exitCode` será um código de erro de falha de lançamento específico plataforma.
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+Emitido quando o processo de renderização desaparece inesperadamente.  Isso normalmente é porque foi acidentado ou morto.
 
 #### Evento: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Emitido quando a página web fica sem resposta.
 
 #### Evento: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Emitido quando a página web sem resposta se torna responsiva novamente.
 
-#### Event: 'plugin-crashed'
+#### Evento: 'plugin-crash'
 
 Retorna:
 
 * `event` Event
 * `name` String
-* `version` String
+* `version` Cordas
 
-Emitted when a plugin process has crashed.
+Emitido quando um processo de plugin caiu.
 
-#### Event: 'destroyed'
+#### Evento: 'destruído'
 
-Emitted when `webContents` is destroyed.
+Emitido quando `webContents` é destruído.
 
-#### Event: 'before-input-event'
+#### Evento: 'antes do evento de entrada'
 
 Retorna:
 
 * `event` Event
-* `input` Object - Input properties.
-  * `type` String - Either `keyUp` or `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
-  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
-  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
+* `input` Objeto - Propriedades de entrada.
+  * `type` String - `keyUp` ou `keyDown`.
+  * `key` String - Equivalente a [KeyboardEvent.key][keyboardevent].
+  * `code` String - Equivalente a [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Booleano - Equivalente a [KeyboardEvent.repeat][keyboardevent].
+  * `isComposing` Booleano - Equivalente a [KeyboardEvent.isComposing][keyboardevent].
+  * `shift` Booleano - Equivalente a [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Booleano - Equivalente a [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Booleano - Equivalente a [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Booleano - Equivalente a [KeyboardEvent.metaKey][keyboardevent].
 
-Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+Emitido antes de despachar os eventos `keydown` e `keyup` na página. Ligar para `event.preventDefault` impedirá que os eventos de `keydown`/`keyup` da página e os atalhos do menu.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+Para evitar apenas os atalhos do menu, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+const win = novo BrowserWindow({ width: 800, height: 600 })
 
-win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+win.webContents.on('antes-entrada-evento', (evento, entrada) => {
+  // Por exemplo, só habilita os atalhos do teclado do menu do aplicativo quando
+  // Ctrl/Cmd estão para baixo.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
 #### Evento: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Emitido quando a janela entra em um estado de tela cheia acionado pela API HTML.
 
 #### Evento: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Emitido quando a janela deixa um estado de tela cheia acionado pela API HTML.
 
-#### Event: 'zoom-changed'
+#### Evento: 'zoom-changed'
 
 Retorna:
 
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - Pode ser `in` ou `out`.
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+Emitido quando o usuário está solicitando para alterar o nível de zoom usando a roda do mouse.
 
-#### Event: 'devtools-opened'
+#### Evento: 'devtools-abertos'
 
-Emitted when DevTools is opened.
+Emitido quando o DevTools é aberto.
 
-#### Event: 'devtools-closed'
+#### Evento: 'devtools-fechados'
 
-Emitted when DevTools is closed.
+Emitido quando DevTools é fechado.
 
-#### Event: 'devtools-focused'
+#### Evento: 'focado em devtools'
 
-Emitted when DevTools is focused / opened.
+Emitido quando o DevTools está focado /aberto.
 
 #### Evento: 'certificate-error'
 
@@ -440,11 +440,11 @@ Retorna:
 * `error` String - O código do erro.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+  * `isTrusted` Boolean - Indica se o certificado pode ser considerado confiável.
 
-Emitted when failed to verify the `certificate` for `url`.
+Emitido quando não foi verificado o `certificate` para `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+O uso é o mesmo com [o `certificate-error` evento de `app`](app.md#event-certificate-error).
 
 #### Evento: 'select-client-certificate'
 
@@ -454,136 +454,136 @@ Retorna:
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
+  * `certificate` [Certificado](structures/certificate.md) - Deve ser um certificado da lista dada.
 
 Emitido quando um certificado de cliente é solicitado.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+O uso é o mesmo com [o `select-client-certificate` evento de `app`](app.md#event-select-client-certificate).
 
 #### Evento: 'login'
 
 Retorna:
 
 * `event` Event
-* `authenticationResponseDetails` Object
+* objeto `authenticationResponseDetails`
   * `url` URL
-* `authInfo` Object
+* objeto `authInfo`
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcional)
+  * `password` String (opcional)
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+O uso é o mesmo com [o `login` evento de `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Evento: 'encontrado na página'
 
 Retorna:
 
 * `event` Event
-* `result` Object
+* objeto `result`
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Rectangle - Coordinates of first match region.
-  * `finalUpdate` Boolean
+  * `activeMatchOrdinal` Integer - Posição do jogo ativo.
+  * `matches` Inteiro - Número de Partidas.
+  * `selectionArea` Retângulo - Coordenadas da primeira região do jogo.
+  * `finalUpdate` Booleano
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Emitido quando um resultado está disponível para [`webContents.findInPage`] solicitação.
 
-#### Event: 'media-started-playing'
+#### Evento: 'media-started-playing'
 
-Emitted when media starts playing.
+Emitido quando a mídia começa a jogar.
 
-#### Event: 'media-paused'
+#### Evento: 'media-paused'
 
-Emitted when media is paused or done playing.
+Emitido quando a mídia é pausada ou feita de reprodução.
 
-#### Event: 'did-change-theme-color'
+#### Evento: 'did-change-tema-color'
 
 Retorna:
 
 * `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `color` (String | null) - A cor tema está no formato de '#rrggbb'. É `null` quando nenhuma cor temática é definida.
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitido quando a cor do tema de uma página muda. Isso geralmente é devido ao encontro uma meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
+#### Evento: 'update-target-url'
 
 Retorna:
 
 * `event` Event
 * String `url`
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Emitido quando o mouse se move sobre um link ou o teclado move o foco para um link.
 
-#### Event: 'cursor-changed'
-
-Retorna:
-
-* `event` Event
-* `type` String
-* `image` [NativeImage](native-image.md) (optional)
-* `scale` Float (optional) - scaling factor for the custom cursor.
-* `size` [Size](structures/size.md) (optional) - the size of the `image`.
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
-
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
-
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
-
-#### Event: 'context-menu'
+#### Evento: 'cursor-changed'
 
 Retorna:
 
 * `event` Event
-* `params` Object
-  * `x` Integer - x coordinate.
-  * `y` Integer - y coordinate.
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+* `type` Cordas
+* `image` [NativeImage](native-image.md) (opcional)
+* `scale` Float (opcional) - fator de escala para o cursor personalizado.
+* `size` [Tamanho](structures/size.md) (opcional) - do tamanho do `image`.
+* `hotspot` [Point](structures/point.md) (opcional) - coordenadas do hotspot do cursor personalizado.
 
-Emitted when there is a new context menu that needs to be handled.
+Emitido quando o tipo do cursor muda. O parâmetro `type` pode ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell` `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` ou `custom`.
 
-#### Event: 'select-bluetooth-device'
+Se o parâmetro `type` for `custom`, o parâmetro `image` manterá a imagem do cursor personalizada em uma [`NativeImage`](native-image.md)e `scale`, `size` e `hotspot` conterá informações adicionais sobre o cursor personalizado.
+
+#### Evento: 'menu de contexto'
+
+Retorna:
+
+* `event` Event
+* objeto `params`
+  * `x` Integer - x coordenada.
+  * `y` Integer - y coordenada.
+  * `linkURL` String - URL do link que inclui o nó no menu de contexto foi invocado.
+  * `linkText` String - Texto associado ao link. Pode ser uma sequência de vazia se o conteúdo do link for uma imagem.
+  * `pageURL` String - URL da página de nível superior que o menu de contexto foi invocado.
+  * `frameURL` String - URL do subframe no do menu de contexto.
+  * `srcURL` String - URL de origem para o elemento no do menu de contexto foi invocado. Elementos com URLs de origem são imagens, áudio e vídeo.
+  * `mediaType` String - Tipo do nó no que o menu de contexto foi invocado. Pode ser `none`, `image`, `audio`, `video`, `canvas`, `file` ou `plugin`.
+  * `hasImageContents` Booleano - Se o menu de contexto foi invocado em uma imagem que tem conteúdo não vazio.
+  * `isEditable` Booleano - Se o contexto é editável.
+  * `selectionText` String - Texto da seleção em que o menu de contexto foi invocado .
+  * `titleText` String - Título ou texto alt da seleção em que o contexto foi invocado.
+  * `misspelledWord` String - A palavra mal escrito sob o cursor, se houver.
+  * `dictionarySuggestions` String[] - Uma série de palavras sugeridas para mostrar ao usuário para substituir o `misspelledWord`.  Só disponível se houver uma palavra e um verificador ortográfico mal escrito.
+  * `frameCharset` String - A codificação do caractere do quadro no qual o menu foi invocado.
+  * `inputFieldType` String - Se o menu de contexto foi invocado em um campo de entrada , o tipo desse campo. Os valores possíveis são `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` String - Fonte de entrada que invocou o menu de contexto. Pode ser `none`, `mouse`, `keyboard`, `touch` ou `touchMenu`.
+  * `mediaFlags` Objeto - As bandeiras para o elemento de mídia no menu de contexto foram invocadas.
+    * `inError` Boolean - Se o elemento da mídia caiu.
+    * `isPaused` Booleano - Se o elemento de mídia é pausado.
+    * `isMuted` Booleano - Se o elemento da mídia é silenciado.
+    * `hasAudio` Booleano - Se o elemento de mídia tem áudio.
+    * `isLooping` Booleano - Se o elemento de mídia está looping.
+    * `isControlsVisible` Booleano - Se os controles do elemento de mídia são visíveis.
+    * `canToggleControls` Boolean - Se os controles do elemento de mídia são alternado.
+    * `canRotate` Booleano - Se o elemento de mídia pode ser girado.
+  * `editFlags` Objeto - Essas bandeiras indicam se o renderizador acredita que é capaz de executar a ação correspondente.
+    * `canUndo` Booleano - Se o renderizador acredita que pode desfazer.
+    * `canRedo` Booleano - Se o renderizador acredita que pode refazer.
+    * `canCut` Boolean - Se o renderizador acredita que pode cortar.
+    * `canCopy` Booleano - Se o renderizador acredita que pode copiar
+    * `canPaste` Booleano - Se o renderizador acredita que pode colar.
+    * `canDelete` Booleano - Se o renderizador acredita que pode apagar.
+    * `canSelectAll` Booleano - Se o renderizador acredita que pode selecionar tudo.
+
+Emitido quando há um novo menu de contexto que precisa ser manipulado.
+
+#### Evento: 'select-bluetooth-device'
 
 Retorna:
 
@@ -592,790 +592,1010 @@ Retorna:
 * `callback` Function
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Emitido quando o dispositivo bluetooth precisa ser selecionado de plantão para `navigator.bluetooth.requestDevice`. Para usar `navigator.bluetooth` api `webBluetooth` deve ser habilitado. Se `event.preventDefault` não for chamado, primeiro dispositivo disponível será selecionado. `callback` deve ser chamado com `deviceId` a serem selecionados, passando a corda vazia para `callback` cancelará a solicitação.
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require ('electron')
 
-let win = null
-app.commandLine.appendSwitch('enable-experimental-web-platform-features')
+let win = nulo
+app.commandLine.appendSwitch ('enable-experimental-web-platform-features')
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({ width: 800, height: 600 })
-  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+app.whenReady().then(()=>
+  = novo BrowserWindow({ width: 800, height: 600 })
+  win.webContents.on('select-bluetooth-device', (evento, deviceList, callback) => {
     event.preventDefault()
-    const result = deviceList.find((device) => {
-      return device.deviceName === 'test'
+    resultado const = deviceList.find((dispositivo) => {
+      dispositivo de retorno.deviceName =deviceName === 'teste'
     })
-    if (!result) {
+    se (!resultado) {
       callback('')
     } else {
-      callback(result.deviceId)
+      callback (result.deviceId)
     }
   })
 })
 ```
 
-#### Event: 'paint'
+#### Evento: 'pintura'
 
 Retorna:
 
 * `event` Event
-* `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* </a>de Retângulo `dirtyRect`
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+</li> 
+  
+  * `image` [NativeImage](native-image.md) - Os dados de imagem de todo o quadro.</ul> 
+
+Emitido quando um novo quadro é gerado. Apenas a área suja é passada no buffer.
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 
-const win = new BrowserWindow({ webPreferences: { offscreen: true } })
-win.webContents.on('paint', (event, dirty, image) => {
-  // updateBitmap(dirty, image.getBitmap())
+const win = novo BrowserWindow({ webPreferências: { offscreen: true } })
+win.webContents.on ('paint', (evento, sujo, imagem) => {
+  // updateBitmap (sujo, image.getBitmap())
 })
-win.loadURL('http://github.com')
+win.loadURL ('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
 
-Retorna:
+#### Evento: 'devtools-reload-page'
 
-* `event` Event
-* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+Emitido quando a janela de devtools instrui os webContents a recarregar
 
-Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
-This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
-**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
-
-#### Event: 'did-attach-webview'
+#### Evento: 'vai anexar-webview'
 
 Retorna:
 
 * `event` Event
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `webPreferences` WebPreferências - As preferências da Web que serão usadas pela página convidado. Este objeto pode ser modificado para ajustar as preferências da página convidado.
 
-Emitted when a `<webview>` has been attached to this web contents.
+* `params`<string, string> Record - Os outros parâmetros `<webview>` , como a URL `src` . Este objeto pode ser modificado para ajustar os parâmetros da página do convidado.
 
-#### Event: 'console-message'
+Emitido quando um conteúdo da web de um `<webview>`está sendo anexado a este conteúdo de web. Ligar para `event.preventDefault()` destruirá a página dos convidados.
 
-Retorna:
+Este evento pode ser usado para configurar `webPreferences` para o `webContents` de um `<webview>` antes de ser carregado, e fornece a capacidade de definir configurações que não podem ser definidas através de atributos `<webview>` .
 
-* `event` Event
-* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
-* `message` String - The actual console message
-* `line` Integer - The line number of the source that triggered this console message
-* `sourceId` String
+**Nota:** A opção de script `preload` especificada aparecerá como `preloadURL` (não `preload`) no objeto `webPreferences` emitido com este evento.
 
-Emitted when the associated window logs a console message.
 
-#### Event: 'preload-error'
+
+#### Evento: 'did-attach-webview'
 
 Retorna:
 
 * `event` Event
-* `preloadPath` String
+* `webContents` WebContents - O conteúdo da web de hóspedes que é usado pelo `<webview>`.
+
+Emitido quando um `<webview>` foi anexado a este conteúdo da Web.
+
+
+
+#### Evento: 'console-message'
+
+Retorna:
+
+* `event` Event
+* `level` Inteiro - O nível de registro, de 0 a 3. Para que corresponda a `verbose`, `info`, `warning` e `error`.
+* `message` String - A mensagem real do console
+* `line` Integer - O número de linha da fonte que acionou esta mensagem de console
+* `sourceId` Cordas
+
+Emitido quando a janela associada registra uma mensagem de console.
+
+
+
+#### Evento: 'erro de pré-carga'
+
+Retorna:
+
+* `event` Event
+* `preloadPath` Cordas
 * `error` Error
 
-Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+Emitido quando o script de pré-carga `preloadPath` lança uma exceção não manuseada `error`.
 
-#### Event: 'ipc-message'
 
-Retorna:
 
-* `event` Event
-* `channel` String
-* `...args` any[]
-
-Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
-
-#### Event: 'ipc-message-sync'
+#### Evento: 'ipc-message'
 
 Retorna:
 
 * `event` Event
-* `channel` String
-* `...args` any[]
+* `channel` Cordas
+* `...args` qualquer[]
 
-Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+Emitido quando o processo de renderização envia uma mensagem assíncronós por `ipcRenderer.send()`.
 
-#### Event: 'desktop-capturer-get-sources'
+
+
+#### Evento: 'ipc-message-sync'
+
+Retorna:
+
+* `event` Event
+* `channel` Cordas
+* `...args` qualquer[]
+
+Emitido quando o processo de renderização envia uma mensagem síncronente via `ipcRenderer.sendSync()`.
+
+
+
+#### Evento: 'desktop-capturer-get-sources'
 
 Retorna:
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+Emitido quando `desktopCapturer.getSources()` é chamado no processo renderizador. Ligar para `event.preventDefault()` fará com que devolva fontes vazias.
 
-#### Event: 'remote-require' _Deprecated_
+
+
+#### Evento: 'remota-require' __preterido
 
 Retorna:
 
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Emitido quando `remote.require()` é chamado no processo renderizador. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Event: 'remote-get-global' _Deprecated_
+
+
+#### Evento: 'remoto-get-global' __preterido
 
 Retorna:
 
 * `event` IpcMainEvent
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Evocando `event.preventDefault()` irá previnir o global ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Emitido quando `remote.getGlobal()` é chamado no processo renderizador. Evocando `event.preventDefault()` irá previnir o global ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Event: 'remote-get-builtin' _Deprecated_
+
+
+#### Evento: ' _de  preterido_s
 
 Retorna:
 
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Emitido quando `remote.getBuiltin()` é chamado no processo renderizador. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Event: 'remote-get-current-window' _Deprecated_
 
-Retorna:
 
-* `event` IpcMainEvent
-
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
-
-#### Event: 'remote-get-current-web-contents' _Deprecated_
+#### Evento: 'janela remota-get-current-window' __preterido
 
 Retorna:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Emitido quando `remote.getCurrentWindow()` é chamado no processo renderizador. Ligar para `event.preventDefault()` impedirá que o objeto seja devolvido. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Event: 'preferred-size-changed'
+
+
+#### Evento: 'remote-get-current-content' _Preterido_
+
+Retorna:
+
+* `event` IpcMainEvent
+
+Emitido quando `remote.getCurrentWebContents()` é chamado no processo renderizador. Ligar para `event.preventDefault()` impedirá que o objeto seja devolvido. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+
+
+
+#### Evento: 'preferencialmente-size-changed'
 
 Retorna:
 
 * `event` Event
-* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
+* `preferredSize` [Tamanho](structures/size.md) - O tamanho mínimo necessário para conter o layout do documento — sem exigir rolagem.
 
-Emitted when the `WebContents` preferred size has changed.
+Emitido quando o tamanho preferido `WebContents` mudou.
 
-This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+Este evento só será emitido quando `enablePreferredSizeMode` for definido para `true` em `webPreferences`.
+
+
 
 ### Métodos de Instância
 
-#### `contents.loadURL(url[, options])`
+
+
+#### `contents.loadURL(url[, opções])`
 
 * String `url`
-* `options` Object (optional)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+* objeto `options` (opcional) 
+    * `httpReferrer` (| de cordas [Referidor](structures/referrer.md)) (opcional) - Uma url http referrer.
+  * `userAgent` String (opcional) - Um agente do usuário originário da solicitação.
+  * `extraHeaders` String (opcional) - Cabeçalhos extras separados por "\n".
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (opcional)
+  * `baseURLForDataURL` String (opcional) - Url base (com separador de caminho de trailing) para que os arquivos sejam carregados pela url de dados. Isso só é necessário se o `url` especificado for uma url de dados e precisar carregar outros arquivos.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
+Retorna `Promise<void>` - a promessa será resolvida quando a página terminar de carregar (ver [`did-finish-load`](web-contents.md#event-did-finish-load)), e rejeita se a página não carregar (ver [`did-fail-load`](web-contents.md#event-did-fail-load)). Um manipulador de rejeição noop já está conectado, o que evita erros de rejeição não manuseados.
 
-Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
+Carrega o `url` na janela. O `url` deve conter o prefixo do protocolo, por exemplo, o `http://` ou `file://`. Se a carga deve contornar o cache http, então usar o cabeçalho `pragma` para alcançá-lo.
+
+
 
 ```javascript
-const { webContents } = require('electron')
-const options = { extraHeaders: 'pragma: no-cache\n' }
-webContents.loadURL('https://github.com', options)
+const { webContents } = require ('electron')
+opções de const = { extraHeaders: 'pragma: no-cache\n' }
+webContents.loadURL ('https://github.com', opções)
 ```
+
+
+
 
 #### `contents.loadFile(filePath[, options])`
 
-* `filePath` String
-* `options` Object (optional)
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+* `filePath` Cordas
+* objeto `options` (opcional) 
+    * `query` Record<String, String> (opcional) - Passou para `url.format()`.
+  * `search` String (opcional) - Passou para `url.format()`.
+  * `hash` String (opcional) - Passou para `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Retorna `Promise<void>` - a promessa será resolvida quando a página terminar de carregar (ver [`did-finish-load`](web-contents.md#event-did-finish-load)), e rejeita se a página não carregar (ver [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
+Carrega o arquivo dado na janela, `filePath` deve ser um caminho para um arquivo HTML em relação à raiz do seu aplicativo.  Por exemplo, uma estrutura de aplicativo como esta:
+
+
 
 ```sh
-| root
-| - package.json
-| - src
-|   - main.js
-|   - index.html
+|
+| raiz - pacote.json
+| - SRC
+|   - principal.js
+|   - índice.html
 ```
 
-Would require code like this
+
+Exigiria código como este
+
+
 
 ```js
 win.loadFile('src/index.html')
 ```
 
+
+
+
 #### `contents.downloadURL(url)`
 
 * String `url`
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+Inicia um download do recurso em `url` sem navegar. O `will-download` evento de `session` será acionado.
+
+
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Devoluções `String` - A URL da página web atual.
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('http://github.com').then(() => {
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com').então((() => {
   const currentURL = win.webContents.getURL()
   console.log(currentURL)
 })
 ```
 
+
+
+
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Retorna `String` - O título da página web atual.
+
+
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Devoluções `Boolean` - Se a página da Web está destruída.
+
+
 
 #### `contents.focus()`
 
-Focuses the web page.
+Foca a página da web.
+
+
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Retornos `Boolean` - Se a página da Web está focada.
+
+
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Devoluções `Boolean` - Se a página da Web ainda está carregando recursos.
+
+
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Devoluções `Boolean` - Se o quadro principal (e não apenas serames ou quadros dentro dele) está ainda carregando.
+
+
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Retornos `Boolean` - Se a página da Web está esperando uma primeira resposta do principal recurso da página.
+
+
 
 #### `contents.stop()`
 
-Stops any pending navigation.
+Interrompe qualquer navegação pendente.
+
+
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Recarrega a página web atual.
+
+
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Recarrega a página atual e ignora o cache.
+
+
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+Devoluções `Boolean` - Se o navegador pode voltar à página web anterior.
+
+
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+Devoluções `Boolean` - Se o navegador pode avançar para a próxima página da Web.
+
+
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the web page can go to `offset`.
+Devoluções `Boolean` - Se a página da Web pode ir para `offset`.
+
+
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+Limpa o histórico de navegação.
+
+
 
 #### `contents.goBack()`
 
-Makes the browser go back a web page.
+Faz com que o navegador volte a ser uma página web.
+
+
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+Faz com que o navegador avance uma página da Web.
 
-#### `contents.goToIndex(index)`
+
+
+#### `contents.goToIndex(índice)`
 
 * `index` Integer
 
-Navigates browser to the specified absolute web page index.
+Navega pelo navegador até o índice de página web absoluto especificado.
+
+
 
 #### `contents.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Navega até o deslocamento especificado da "entrada atual".
+
+
 
 #### `contents.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Devoluções `Boolean` - Se o processo de renderização caiu.
 
-#### `contents.forcefullyCrashRenderer()`
 
-Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
 
-Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
+#### `conteúdo.vigorosamenteCrashRenderer()`
+
+Termina com força o processo de renderização que está hospedando este `webContents`. Isso fará com que o evento `render-process-gone` seja emitido com o `reason=killed || reason=crashed`. Observe que alguns webContents compartilham processos de renderização e, portanto, chamar esse método também pode travar o processo de host para outros webContents também.
+
+Ligar para `reload()` imediatamente após chamar esse método de forçará a recarga a ocorrer em um novo processo. Isso deve ser usado quando esse processo é instável ou inutilizável, por exemplo, a fim de recuperar do evento `unresponsive` .
+
+
 
 ```js
-contents.on('unresponsive', async () => {
-  const { response } = await dialog.showMessageBox({
-    message: 'App X has become unresponsive',
-    title: 'Do you want to try forcefully reloading the app?',
-    buttons: ['OK', 'Cancel'],
+contents.on('não responde', async () => {
+  const { response } = aguard dialog.showMessageBox({
+    mensagem: 'O aplicativo X ficou sem resposta',
+    título: 'Você quer tentar recarregar o aplicativo com força?',
+    botões: ['OK', 'Cancelar'],
     cancelId: 1
   })
-  if (response === 0) {
-    contents.forcefullyCrashRenderer()
-    contents.reload()
-  }
-})
+  se (resposta === 0) {
+    contents.vigorosamenteCrashRenderer()
+    conteúdo.reload()
+
+}
 ```
 
-#### `contents.setUserAgent(userAgent)`
 
-* `userAgent` String
 
-Overrides the user agent for this web page.
+
+#### `contents.setUserAgent (userAgent)`
+
+* `userAgent` Cordas
+
+Substitui o agente de usuário por esta página da Web.
+
+
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+Retornos `String` - O usuário é o agente do usuário para esta página.
 
-#### `contents.insertCSS(css[, options])`
 
-* `css` String
-* `options` Object (optional)
-  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+#### `contents.insertCSS(css[, opções])`
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+* `css` Cordas
+* objeto `options` (opcional) 
+    * `cssOrigin` String (opcional) - Pode ser 'usuário' ou 'autor'; Especificar 'usuário' permite impedir que sites sobrepondam o CSS inserido. Padrão é 'autor'.
+
+Devoluções `Promise<String>` - Uma promessa que se resolve com uma chave para o CSS inserido que pode ser usada posteriormente para remover o CSS via `contents.removeInsertedCSS(key)`.
+
+Injeta CSS na página web atual e retorna uma chave exclusiva para a folha de inserida.
+
+
 
 ```js
-contents.on('did-finish-load', () => {
-  contents.insertCSS('html, body { background-color: #f00; }')
+contents.on ('did-finish-load', () => {
+  contents.insertCSS('html, corpo { cor de fundo: #f00; }')
 })
 ```
 
-#### `contents.removeInsertedCSS(key)`
 
-* `key` String
 
-Returns `Promise<void>` - Resolves if the removal was successful.
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+#### `contents.removeInsertedCSS(chave)`
+
+* `key` Cordas
+
+Devoluções `Promise<void>` - Resolve se a remoção foi bem sucedida.
+
+Remove o CSS inserido da página web atual. A folha de estilo é identificada por sua chave, que é devolvida de `contents.insertCSS(css)`.
+
+
 
 ```js
-contents.on('did-finish-load', async () => {
-  const key = await contents.insertCSS('html, body { background-color: #f00; }')
-  contents.removeInsertedCSS(key)
+contents.on ('did-finish-load', async () => {
+  tecla const = aguarde conteúdos.insertCSS('html, corpo { cor de fundo: #f00; }')
+  conteúdo.removeInsertedCSS(key)
 })
 ```
 
-#### `contents.executeJavaScript(code[, userGesture])`
+
+
+
+#### `conteúdo.executeJavaScript(código[, userGesture])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Booleano (opcional) - Padrão é `false`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devoluções `Promise<any>` - Uma promessa que resolve com o resultado do código executado ou é rejeitada se o resultado do código for uma promessa rejeitada.
 
-Evaluates `code` in page.
+Avalia `code` na página.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Na janela do navegador algumas APIs HTML como `requestFullScreen` só podem ser invocadas por um gesto do usuário. A configuração `userGesture` para `true` removerá essa limitação.
 
-Code execution will be suspended until web page stop loading.
+A execução do código será suspensa até que a página da Web pare de carregar.
+
+
 
 ```js
-contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
-  .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").então(resp => resp.json()', true)
+  .then((resultado) => {
+    console.log(resultado) // Será o objeto JSON da chamada de busca
   })
 ```
 
-#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
+
+
+#### `contents.executeJavaScriptInIsolatedWorld (worldId, scripts[, userGesture])`
+
+* `worldId` Integer - O ID do mundo para executar o javascript, `0` é o mundo padrão, `999` é o mundo usado pelo recurso `contextIsolation` da Electron.  Você pode fornecer qualquer inteiro aqui.
 * `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` Booleano (opcional) - Padrão é `false`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devoluções `Promise<any>` - Uma promessa que resolve com o resultado do código executado ou é rejeitada se o resultado do código for uma promessa rejeitada.
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Funciona como `executeJavaScript` , mas avalia `scripts` em um contexto isolado.
 
-#### `contents.setIgnoreMenuShortcuts(ignore)`
 
-* `ignore` Boolean
 
-Ignore application menu shortcuts while this web contents is focused.
+#### `contents.setIgnoreMenuShortcuts(ignorar)`
 
-#### `contents.setWindowOpenHandler(handler)`
+* `ignore` Booleano
 
-* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` Object
-    * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
+Ignore os atalhos do menu do aplicativo enquanto este conteúdo da Web estiver focado.
+
+
+
+#### `contents.setWindowOpenHandler(manipulador)`
+
+* Função `handler`<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+  
+    * objeto `details` 
+        * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
-    * `features` String - Comma separated list of window features provided to `window.open()`. Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+    * `features` String - Comma separated list of window features provided to `window.open()`.
+Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
 
-Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
+Chamado antes de criar uma janela quando `window.open()` é chamado do renderizador . Veja [`window.open()`](window-open.md) para mais detalhes e como usá-lo em conjunto com `did-create-window`.
 
-#### `contents.setAudioMuted(muted)`
 
-* `muted` Boolean
 
-Mute the audio on the current web page.
+#### `contents.setAudioMuted(silenciado)`
+
+* `muted` Booleano
+
+Silencie o áudio na página web atual.
+
+
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+Devolução `Boolean` - Se esta página foi silenciada.
 
-#### `contents.isCurrentlyAudible()`
 
-Returns `Boolean` - Whether audio is currently playing.
 
-#### `contents.setZoomFactor(factor)`
+#### `conteúdo.isCurrentlyAudible()`
 
-* `factor` Double - Zoom factor; default is 1.0.
+Retorna `Boolean` - Se o áudio está sendo reproduzido no momento.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-The factor must be greater than 0.0.
+
+#### `contents.setZoomFactor(fator)`
+
+* `factor` fator Double - Zoom; padrão é 1.0.
+
+Altera o fator de zoom para o fator especificado. O fator zoom é por cento de zoom dividido por 100, então 300% = 3,0.
+
+O fator deve ser maior que 0,0.
+
+
 
 #### `contents.getZoomFactor()`
 
-Returns `Number` - the current zoom factor.
+Retorna `Number` - o fator zoom atual.
 
-#### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+#### `contents.setZoomLevel(nível)`
 
-> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+* número `level` - Nível de zoom.
+
+Altera o nível de zoom para o nível especificado. O tamanho original é 0 e cada incremento acima ou abaixo representa um zoom 20% maior ou menor para padrão limites de 300% e 50% do tamanho original, respectivamente. A fórmula para isso é `scale := 1.2 ^ level`.
+
+
+
+> **NOTA**: A política de zoom no nível do Chromium é de mesma origem, o que significa que o nível de zoom para um domínio específico se propaga em todas as instâncias de janelas com mesmo domínio. Diferenciar os URLs da janela fará com que o zoom funcione por janela.
+
+
 
 #### `contents.getZoomLevel()`
 
-Returns `Number` - the current zoom level.
+Retorna `Number` - o nível de zoom atual.
 
-#### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
 
-Returns `Promise<void>`
+#### `contents.setVisualZoomLevelLimits(mínimoNível, máximoNível)`
 
-Sets the maximum and minimum pinch-to-zoom level.
+* Número de `minimumLevel`
+* Número de `maximumLevel`
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+Retornos `Promise<void>`
+
+Define o nível máximo e mínimo de pinch-to-zoom.
+
+
+
+> ****NOTA : O zoom visual é desativado por padrão em Electron. Para ree enablei-lo, ligue:
 > 
 > ```js
-contents.setVisualZoomLevelLimits(1, 3)
-```
+> contents.setVisualZoomLevelLimits(1, 3)
+> ```
 
-#### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+
+#### `conteúdo.desfazer()`
+
+Executa o comando de edição `undo` na página da Web.
+
+
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+Executa o comando de edição `redo` na página da Web.
+
+
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+Executa o comando de edição `cut` na página da Web.
+
+
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+Executa o comando de edição `copy` na página da Web.
+
+
 
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Copy the image at the given position to the clipboard.
+Copie a imagem na posição dada para a área de transferência.
+
+
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+Executa o comando de edição `paste` na página da Web.
 
-#### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
 
-#### `contents.delete()`
+#### `contentseAndMatchStyle()`
 
-Executes the editing command `delete` in web page.
+Executa o comando de edição `pasteAndMatchStyle` na página da Web.
+
+
+
+#### `conteúdo.delete()`
+
+Executa o comando de edição `delete` na página da Web.
+
+
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+Executa o comando de edição `selectAll` na página da Web.
 
-#### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
 
-#### `contents.replace(text)`
+#### `conteúdo.unselect()`
 
-* `text` String
+Executa o comando de edição `unselect` na página da Web.
 
-Executes the editing command `replace` in web page.
 
-#### `contents.replaceMisspelling(text)`
+
+#### `conteúdo.substituir (texto)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+Executa o comando de edição `replace` na página da Web.
 
-#### `contents.insertText(text)`
+
+
+#### `conteúdo.substituirMesspelling (texto)`
 
 * `text` String
 
-Returns `Promise<void>`
+Executa o comando de edição `replaceMisspelling` na página da Web.
 
-Inserts `text` to the focused element.
 
-#### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
-* `options` Object (optional)
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+#### `contents.insertText(texto)`
 
-Returns `Integer` - The request id used for the request.
+* `text` String
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Retornos `Promise<void>`
 
-#### `contents.stopFindInPage(action)`
+Insere `text` ao elemento focal.
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
 
-Stops any `findInPage` request for the `webContents` with the provided `action`.
+
+#### `contents.findInPage (texto[, opções])`
+
+* `text` String - Conteúdo a ser pesquisado, não deve estar vazio.
+* objeto `options` (opcional) 
+    * `forward` Booleano (opcional) - Quer pesquise para frente ou para trás, é padrão para `true`.
+  * `findNext` Booleano (opcional) - Se a operação é primeira solicitação ou um acompanhamento, inadimplência para `false`.
+  * `matchCase` Booleano (opcional) - Se a pesquisa deve ser sensível a casos, padrão para `false`.
+
+Devolução `Integer` - O id de solicitação utilizado para a solicitação.
+
+Inicia uma solicitação para encontrar todas as partidas para o `text` na página web. O resultado da solicitação pode ser obtido mediante a inscrição [`found-in-page`](web-contents.md#event-found-in-page) evento.
+
+
+
+#### `contents.stopFindInPage(ação)`
+
+* `action` String - Especifica que a ação ocorrerá ao encerrar solicitação [`webContents.findInPage`].
+  
+    * `clearSelection` - Limpe a seleção.
+  * `keepSelection` - Traduza a seleção em uma seleção normal.
+  * `activateSelection` - Concentre-se e clique no nó de seleção.
+
+Solicitamos `findInPage` solicitação `webContents` fornecida `action`s.
+
+
 
 ```javascript
-const { webContents } = require('electron')
-webContents.on('found-in-page', (event, result) => {
-  if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
+const { webContents } = requer ('elétron')
+webContents.on ('found-in-page', (evento, resultado) => {
+  se (resultado.finalUpdate) webContents.stopFindInPage ('clearSelection')
 })
 
-const requestId = webContents.findInPage('api')
+const requestId = webContents.findInPage ('api')
 console.log(requestId)
 ```
 
-#### `contents.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+#### `contents.capturePage ([rect])`
+
+* `rect` [Retângulo](structures/rectangle.md) (opcional) - A área da página a ser capturada.
+
+Retorna `Promise<NativeImage>` - Resolve com um</a>NativeImage </p> 
+
+Captura um instantâneo da página dentro de `rect`. Omitir `rect` capturará toda a página visível.
+
+
 
 #### `contents.isBeingCaptured()`
 
-Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+Devolução `Boolean` - Se esta página está sendo capturada. Ele retorna verdadeiro quando a contagem de capturas é grande do que 0.
 
-#### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
-* `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
-Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+#### `contents.incrementCapturerCount ([tamanho, stayHidden])`
 
-This also affects the Page Visibility API.
+* `size` [Tamanho](structures/size.md) (opcional) - O tamanho preferido para o captador.
+* `stayHidden` Boolean (opcional) - Mantenha a página escondida em vez de visível.
 
-#### `contents.decrementCapturerCount([stayHidden])`
+Aumente a contagem de captador em um. A página é considerada visível quando sua janela do navegador está oculta e a contagem de capturadores não é zero. Se você quiser que a página fique escondida, você deve garantir que `stayHidden` seja definida como verdadeira.
 
-* `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
+Isso também afeta a API de visibilidade da página.
 
-Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+
+
+#### `contents.decrementCapturerCount ([stayHidden])`
+
+* `stayHidden` Boolean (opcional) - Mantenha a página em estado oculto em vez de visível.
+
+Diminua a contagem de captador em um. A página será definida como estado oculto ou ocluído quando sua janela de do navegador estiver oculta ou ocluída e a contagem de capturadores atingir zero. Se você quiser diminuir a contagem de captador oculto, em vez disso, você deve definir `stayHidden` como verdadeira.
+
+
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Pegue a lista da impressora do sistema.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+Retornos [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options], [callback])`
 
-* `options` Object (optional)
-  * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
-  * `margins` Object (optional)
-    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
-    * `top` Number (optional) - The top margin of the printed web page, in pixels.
-    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
-    * `left` Number (optional) - The left margin of the printed web page, in pixels.
-    * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Por padrão é `false`.
-  * `scaleFactor` Number (optional) - The scale factor of the web page.
-  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
-  * `collate` Boolean (optional) - Whether the web page should be collated.
-  * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
-    * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` Record<string, number> (optional)
-    * `horizontal` Number (optional) - The horizontal dpi.
-    * `vertical` Number (optional) - The vertical dpi.
-  * `header` String (optional) - String to be printed as page header.
-  * `footer` String (optional) - String to be printed as page footer.
-  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
-* `callback` Function (optional)
-  * `success` Boolean - Indicates success of the print call.
-  * `failureReason` String - Error description called back if the print fails.
 
-When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
+#### `conteúdo.print ([options], [callback])`
 
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+* objeto `options` (opcional)
+  
+    * `silent` Boolean (opcional) - Não peça ao usuário configurações de impressão. Por padrão é `false`.
+  * `printBackground` Boolean (opcional) - Imprime a cor de fundo e a imagem de página web. Por padrão é `false`.
+  * `deviceName` String (opcional) - Defina o nome do dispositivo da impressora para usar. Deve ser o nome definido pelo sistema e não o nome 'amigável', por exemplo, 'Brother_QL_820NWB' e não 'Irmão QL-820NWB'.
+  * `color` Boolean (opcional) - Definir se a página da Web impressa estará em cores ou em escala de cinza. O padrão é `true`.
+  * objeto `margins` (opcional) 
+        * `marginType` String (opcional) - Pode ser `default`, `none`, `printableArea`ou `custom`. Se `custom` for escolhido, você também precisará especificar `top`, `bottom`, `left`e `right`.
+    * `top` Número (opcional) - A margem superior da página web impressa, em pixels.
+    * `bottom` Número (opcional) - A margem inferior da página web impressa, em pixels.
+    * `left` Número (opcional) - A margem esquerda da página web impressa, em pixels.
+    * `right` Número (opcional) - A margem certa da página web impressa, em pixels.
+  * `landscape` Boolean (opcional) - Se a página da Web deve ser impressa no modo paisagem. Por padrão é `false`.
+  * `scaleFactor` Número (opcional) - O fator escala da página web.
+  * `pagesPerSheet` Número (opcional) - O número de páginas para imprimir por folha de página.
+  * `collate` Boolean (opcional) - Se a página da Web deve ser colhida.
+  * `copies` Número (opcional) - O número de cópias da página web para imprimir.
+  * `pageRanges` Object[] (opcional) - O intervalo de página para imprimir. No macOS, apenas uma faixa é honrada. 
+        * número `from` - Índice da primeira página a ser impressa (baseada em 0).
+    * número `to` - Índice da última página para imprimir (inclusive) (0-based).
+  * `duplexMode` String (opcional) - Defina o modo duplex da página web impressa. Pode ser `simplex`, `shortEdge`ou `longEdge`.
+  * `dpi` Record<string, number> (opcional) 
+        * `horizontal` Número (opcional) - O dpi horizontal.
+    * `vertical` Número (opcional) - O dpi vertical.
+  * `header` String (opcional) - String a ser impresso como cabeçalho de página.
+  * `footer` String (opcional) - String a ser impresso como rodapé de página.
+  * | de cordas `pageSize` Tamanho (opcional) - Especifique o tamanho da página do documento impresso. Pode ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou um objeto contendo `height`.
+* função `callback` (opcional)
+  
+    * `success` Boolean - Indica o sucesso da chamada de impressão.
+  * `failureReason` String - Descrição do erro chamada de volta se a impressão falhar.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Quando uma `pageSize` personalizada é aprovada, o Chromium tenta validar valores mínimos específicos da plataforma para `width_microns` e `height_microns`. Largura e altura devem ser mínimas de 353 mícrons, mas podem ser mais altas em alguns sistemas operacionais.
 
-Example usage:
+Imprime a página da janela. Quando `silent` estiver definida para `true`, a Electron escolherá impressora padrão do sistema se `deviceName` estiver vazia e as configurações padrão para impressão.
+
+Use `page-break-before: always;` estilo CSS para forçar a impressão em uma nova página.
+
+Uso de exemplo:
+
+
 
 ```js
-const options = {
-  silent: true,
-  deviceName: 'My-Printer',
+opções de const = {
+  silencioso: verdadeiro,
+  dispositivoNo nome: 'Minha impressora',
   pageRanges: [{
     from: 0,
     to: 1
   }]
 }
-win.webContents.print(options, (success, errorType) => {
-  if (!success) console.log(errorType)
+win.webContents.print(opções, (sucesso, erroType) => {
+  se (!sucesso) console.log(errorType)
 })
 ```
 
+
+
+
 #### `contents.printToPDF(options)`
 
-* `options` Object
-  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
-    * `title` String - The title for the PDF header.
-    * `url` String - the url for the PDF footer.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
-  * `pageRanges` Record<string, number> (optional) - The page range to print.
-    * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+* objeto `options`
+  
+    * `headerFooter` Gravar<string, string> (opcional) - o cabeçalho e o rodapé para o PDF. 
+        * `title` String - O título para o cabeçalho PDF.
+    * `url` String - a url para o rodapé PDF.
+  * `landscape` Booleano (opcional) - `true` para paisagem, `false` para retrato.
+  * `marginsType` Inteiro (opcional) - Especifica o tipo de margem a ser usada. Usa 0 para margem padrão, 1 para nenhuma margem e 2 para margem mínima.
+  * `scaleFactor` Número (opcional) - O fator escala da página web. Pode variar de 0 a 100.
+  * `pageRanges` Record<string, number> (opcional) - A faixa de página para imprimir. 
+        * número `from` - Índice da primeira página a ser impressa (baseada em 0).
+    * número `to` - Índice da última página para imprimir (inclusive) (0-based).
+  * | de cordas `pageSize` Tamanho (opcional) - Especifique o tamanho da página do PDF gerado. Pode ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou um Objeto contendo `height` e `width` em mícrons.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+  * `printBackground` Boolean (opcional) - Se imprimir os fundos CSS.
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+  * `printSelectionOnly` Boolean (opcional) - Somente para imprimir a seleção.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Devoluções `Promise<Buffer>` - Resolve com os dados PDF gerados.
 
-By default, an empty `options` will be regarded as:
+Imprime a página da web da janela como PDF com a visualização do Chromium imprimindo configurações personalizadas de .
+
+O `landscape` será ignorado se `@page` regra do CSS for usada na página da Web.
+
+Por padrão, uma `options` vazia será considerada como:
+
+
 
 ```javascript
-{
-  marginsType: 0,
-  printBackground: false,
-  printSelectionOnly: false,
-  landscape: false,
+{ margens
+  Só: 0,
+  impressãoVerme: falso,
+  printSelectionOnly: falso,
+  paisagem: falso,
   pageSize: 'A4',
   scaleFactor: 100
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
 
-An example of `webContents.printToPDF`:
+Use `page-break-before: always;` estilo CSS para forçar a impressão em uma nova página.
+
+Um exemplo de `webContents.printToPDF`:
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = require ('electron')
 const fs = require('fs')
-const path = require('path')
+caminho const = require('path')
 const os = require('os')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('http://github.com')
+vitória const = novo BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com
+    ')
 
-win.webContents.on('did-finish-load', () => {
-  // Use default printing options
-  win.webContents.printToPDF({}).then(data => {
+win.webContents.on ('did-finish-load', () => {
+  // Use opções de impressão padrão
+  win.webContents.printToPDF({}).então(dados => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
-    fs.writeFile(pdfPath, data, (error) => {
-      if (error) throw error
-      console.log(`Wrote PDF successfully to ${pdfPath}`)
+    fs.writeFile(pdfPath, dados, (erro) => {
+      se (erro) jogar erro
+      console.log('Escreveu PDF com sucesso para ${pdfPath}')
     })
-  }).catch(error => {
-    console.log(`Failed to write PDF to ${pdfPath}: `, error)
+  }).catch(erro => { console .log('Não conseguiu gravar PDF para ${pdfPath}: ', erro)
   })
 })
 ```
+
+
+
 
 #### `contents.addWorkSpace(path)`
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Adiciona o caminho especificado ao espaço de trabalho DovTools. Deve ser usado após a criação DevTools:
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.webContents.on('devtools-opened', () => {
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow()
+win.webContents.on('devtools-aberto', () => {
   win.webContents.addWorkSpace(__dirname)
 })
 ```
+
+
+
 
 #### `contents.removeWorkSpace(path)`
 
 * `path` String
 
-Removes the specified path from DevTools workspace.
+Remove o caminho especificado do espaço de trabalho DovTools.
+
+
 
 #### `contents.setDevToolsWebContents(devToolsWebContents)`
 
 * `devToolsWebContents` WebContents
 
-Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
+Usa o `devToolsWebContents` como alvo `WebContents` para mostrar devtools.
 
-The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
+O `devToolsWebContents` não deve ter feito nenhuma navegação, e não deve ser usado para outros fins após a chamada.
 
-By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
+Por padrão, a Electron gerencia os devtools criando uma `WebContents` interna com visão nativa, da qual os desenvolvedores têm controle muito limitado. Com o método `setDevToolsWebContents` , os desenvolvedores podem usar qualquer `WebContents` para mostrar os devtools nele, incluindo `BrowserWindow`, `BrowserView` e tag `<webview>` .
 
-Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
+Note que fechar as ferramentas não destrói o `devToolsWebContents`, é responsabilidade do chamador destruir `devToolsWebContents`.
 
-An example of showing devtools in a `<webview>` tag:
+Um exemplo de mostrar devtools em uma tag `<webview>` :
+
+
 
 ```html
 <html>
 <head>
   <style type="text/css">
-    * { margin: 0; }
-    #browser { height: 70%; }
-    #devtools { height: 30%; }
+    * { margem: 0; }
+    #browser { altura: 70%; }
+    #devtools { altura: 30%; }
   </style>
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { ipcRenderer } = require('electron')
-    const emittedOnce = (element, eventName) => new Promise(resolve => {
-      element.addEventListener(eventName, event => resolve(event), { once: true })
+    const { ipcRenderer } = require ('electron')
+    const emitidoOnce = (elemento, eventName) => nova Promessa(resolver => {
+      elemento.addEventListener(eventName, evento => resolver (evento), { once: true })
     })
-    const browserView = document.getElementById('browser')
-    const devtoolsView = document.getElementById('devtools')
-    const browserReady = emittedOnce(browserView, 'dom-ready')
-    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
-    Promise.all([browserReady, devtoolsReady]).then(() => {
+    navegador constView = document.getElementById('browser')
+    const devtoolsVer = document.getElementById('devtools')
+    navegador constReady = emitidoOnce (browserView , 'dom-ready')
+    const devtoolsReady = emitidoOnce(devtoolsView, 'dom-ready')
+    Promise.all([browserReady, devtoolsReady]).então(() => {
       const targetId = browserView.getWebContentsId()
       const devtoolsId = devtoolsView.getWebContentsId()
       ipcRenderer.send('open-devtools', targetId, devtoolsId)
@@ -1385,388 +1605,524 @@ An example of showing devtools in a `<webview>` tag:
 </html>
 ```
 
+
+
+
 ```js
-// Main process
-const { ipcMain, webContents } = require('electron')
-ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
-  const target = webContents.fromId(targetContentsId)
+Processo principal
+const { ipcMain, webContents } = require ('elétron')
+ipcMain.on ('open-devtools', (evento, targetContentsId, devtoolsContentsId) => {
+  alvo const = webContents.fromId (targetContentsId)
   const devtools = webContents.fromId(devtoolsContentsId)
-  target.setDevToolsWebContents(devtools)
+  alvo.setDevToolsWebContents(devtools)
   target.openDevTools()
 })
 ```
 
-An example of showing devtools in a `BrowserWindow`:
+
+Um exemplo de mostrar devtools em um `BrowserWindow`:
+
+
 
 ```js
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require ('electron')
 
-let win = null
-let devtools = null
+deixar vencer = nulo
+deixar devtools =
 
-app.whenReady().then(() => {
-  win = new BrowserWindow()
-  devtools = new BrowserWindow()
-  win.loadURL('https://github.com')
+nulo app.whenReady().then(((() => {
+  win = novo BrowserWindow()
+  devtools = novo BrowserWindow()
+  win.loadURL ('https://github.com')
   win.webContents.setDevToolsWebContents(devtools.webContents)
-  win.webContents.openDevTools({ mode: 'detach' })
+  win.webContents.openDevTools ({ mode: 'detach' })
 })
 ```
 
+
+
+
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional)
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. O padrão é `verdadeiro`.
+* objeto `options` (opcional) 
+    * `mode` String - Abre as ferramentas com estado de doca especificado, pode ser `right`, `bottom`, `undocked`, `detach`. Inadimplência para o último estado de doca usado. No modo `undocked` é possível voltar atrás. No `detach` modo não é.
+  * `activate` Booleano (opcional) - Se levar a janela de devtools aberta para o primeiro plano. O padrão é `verdadeiro`.
 
-Opens the devtools.
+Abre os devtools.
 
-When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
+Quando `contents` é uma tag `<webview>` , o `mode` seria `detach` por padrão, passar explicitamente um `mode` vazio pode forçar o uso do último estado de doca usado.
+
+
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Fecha os devtools.
+
+
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Retornos `Boolean` - Se os devtools são abertos.
+
+
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Retornos `Boolean` - Se a visão de devtools está focada .
+
+
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Alterna as ferramentas do desenvolvedor.
 
-#### `contents.inspectElement(x, y)`
+
+
+#### `conteúdo.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+Começa a inspecionar elemento na posição (`x`, `y`).
+
+
 
 #### `contents.inspectSharedWorker()`
 
-Opens the developer tools for the shared worker context.
+Abre as ferramentas do desenvolvedor para o contexto do trabalhador compartilhado.
 
-#### `contents.inspectSharedWorkerById(workerId)`
 
-* `workerId` String
 
-Inspects the shared worker based on its ID.
+#### `contents.inspectSharedWorkerById (workerId)`
+
+* `workerId` Cordas
+
+Inspeciona o trabalhador compartilhado com base em sua ID.
+
+
 
 #### `contents.getAllSharedWorkers()`
 
-Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+Retornos [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Informações sobre todos os Trabalhadores Compartilhados.
+
+
 
 #### `contents.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+Abre as ferramentas de desenvolvedor para o contexto do trabalhador de serviços.
 
-#### `contents.send(channel, ...args)`
 
-* `channel` String
-* `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
+#### `contents.send(canal, ... args)`
 
-> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+* `channel` Cordas
+* `...args` qualquer[]
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+Envie uma mensagem assíncroda para o processo de renderização via `channel`, juntamente com argumentos. Os argumentos serão serializados com o algoritmo de clones estruturados [][SCA], assim como [`postMessage`][], para que as cadeias de protótipos não sejam incluídas . O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
-An example of sending messages from the main process to the renderer process:
+
+
+> ****NOTE : O envio de tipos JavaScript não padrão, como objetos DOM ou objetos elétrons especiais, lançará uma exceção.
+
+O processo de renderização pode lidar com a mensagem ouvindo `channel` com o módulo [`ipcRenderer`](ipc-renderer.md) .
+
+Um exemplo de envio de mensagens do processo principal para o processo de renderização:
+
+
 
 ```javascript
 // No processo main.
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require ('electron')
 let win = null
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadURL(`file://${__dirname}/index.html`)
+app.whenReady().(()=> {
+  win = novo BrowserWindow({ width: 800, height: 600 })
+  win.loadURL('arquivo://${__dirname}/index.html')
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('ping', 'whoooooooh!')
   }) 
 })
 ```
 
-```html
-<!-- index.html -->
-<html>
+
+
+
+```html<!-- índice.html --><html>
 <body>
   <script>
-    require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+    requerem ('elétron').ipcRenderer.on('ping', (evento, mensagem) => { console
+      .log(mensagem) // Imprime 'whoooooooh!'
     })
   </script>
 </body>
 </html>
 ```
 
-#### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
-* `channel` String
-* `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+#### `contents.sendToFrame (frameId, canal, ... args)`
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+* `frameId` | Integer [número, número] - o ID do quadro para enviar, ou um par de de `[processId, frameId]` se o quadro estiver em um processo diferente do quadro principal .
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Ex.
+* `channel` Cordas
+
+* `...args` qualquer[]
+
+Envie uma mensagem assíncroda para um quadro específico em um processo de renderização via `channel`, juntamente com argumentos. Os argumentos serão serializados com o</a>do Algoritmo de Clone Estruturado , assim como [`postMessage`][], para que as cadeias de protótipo não sejam incluídas. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.</p> 
+
+
+
+> **NOTA:** Enviar tipos JavaScript não padrão, como objetos DOM ou objetos elétrons especiais, lançará uma exceção.
+
+O processo de renderização pode lidar com a mensagem ouvindo `channel` com o módulo [`ipcRenderer`](ipc-renderer.md) .
+
+Se você quiser obter a `frameId` de um determinado contexto renderizador, você deve usar o valor `webFrame.routingId` .  Ex.
+
+
 
 ```js
-// In a renderer process
-console.log('My frameId is:', require('electron').webFrame.routingId)
+Em um processo de renderização
+console.log('Meu frameId é:', requer ('elétron').webFrame.routingId)
 ```
 
-You can also read `frameId` from all incoming IPC messages in the main process.
+
+Você também pode ler `frameId` de todas as mensagens IPC recebidas no processo principal.
+
+
 
 ```js
-// In the main process
-ipcMain.on('ping', (event) => {
-  console.info('Message came from frameId:', event.frameId)
+No processo principal
+ipcMain.on ('ping', (evento) => {
+  console.info('Mensagem veio de frameId:', event.frameId)
 })
 ```
 
-#### `contents.postMessage(channel, message, [transfer])`
 
-* `channel` String
-* `message` any
-* `transfer` MessagePortMain[] (optional)
 
-Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
+#### `contents.postMessage(canal, mensagem [transfer])`
+
+* `channel` Cordas
+* `message` qualquer
+* `transfer` MessagePortMain[] (opcional)
+
+Envie uma mensagem para o processo de renderização, transferindo opcionalmente a propriedade de zero ou mais [`MessagePortMain`][] objetos.
+
+Os objetos `MessagePortMain` transferidos estarão disponíveis no processo de renderização acessando a propriedade `ports` do evento emitido. Quando chegar na renderização, serão objetos nativos do DOM `MessagePort` .
 
 Como por exemplo:
 
-```js
-// Main process
-const { port1, port2 } = new MessageChannelMain()
-webContents.postMessage('port', { message: 'hello' }, [port1])
 
-// Renderer process
+
+```js
+Principal processo
+const { port1, port2 } = novo MessageChannelMain()
+webContents.postMessage ('port', { message: 'hello' }, [port1])
+
+// Processo renderer
 ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
   // ...
 })
 ```
 
-#### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
-    * `desktop` - Desktop screen type.
-    * `mobile` - Mobile screen type.
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
-  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Enable device emulation with the given parameters.
 
-#### `contents.disableDeviceEmulation()`
+#### `contents.enableDeviceEmulation(parâmetros)`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+* objeto `parameters`
+  
+    * `screenPosition` String - Especifique o tipo de tela para emular (padrão: `desktop`):
+    
+        * `desktop` - Tipo de tela de desktop.
+    * `mobile` - Tipo de tela móvel.
+  * `screenSize` [Tamanho](structures/size.md) - Defina o tamanho da tela emulada (screenPosition == mobile).
+  * `viewPosition` [point](structures/point.md) - Posicione a visualização na tela (screenPosition == mobile) (padrão: `{ x: 0, y: 0 }`).
 
-#### `contents.sendInputEvent(inputEvent)`
+  * `deviceScaleFactor` Inteiro - Defina o fator de escala do dispositivo (se zero padrão para fator de escala original do dispositivo) (padrão: `0`).
 
-* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+  * `viewSize` [Tamanho](structures/size.md) - Defina o tamanho da vista emulada (vazio significa sem substituição)
 
-Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
+  * `scale` Float - Escala de visualização emulada dentro do espaço disponível (não em condições de modo de exibição) (padrão: `1`).
 
-#### `contents.beginFrameSubscription([onlyDirty ,]callback)`
+Habilite a emulação do dispositivo com os parâmetros determinados.
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function
-  * `image` [NativeImage](native-image.md)
-  * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+#### `contents.desabilitarDeviceEmulação()`
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+Desativar a emulação do dispositivo habilitada por `webContents.enableDeviceEmulation`.
 
-#### `contents.endFrameSubscription()`
 
-End subscribing for frame presentation events.
+
+#### `contents.sendInputEvent (inputEvent)`
+
+* `inputEvent` [](structures/mouse-input-event.md) | do MouseInputEvent</a> | mousewheelevent de  [KeyboardInputEvent](structures/keyboard-input-event.md)</li> </ul> 
+  
+  Envia uma `event` de entrada para a página. **Nota:** O [`BrowserWindow`](browser-window.md) contendo o conteúdo precisa estar focado para `sendInputEvent()` funcionar.
+  
+  
+
+#### `conteúdo.beginFrameSubscription([onlyDirty ]callback)`
+
+* `onlyDirty` Booleano (opcional) - Inadimplência para `false`.
+* `callback` Function 
+    * `image` [NativeImage](native-image.md)
+  * </a>de Retângulo `dirtyRect` </li> </ul></li> </ul> 
+    
+    Comece a se inscrever para eventos de apresentação e quadros capturados, o `callback` será chamado com `callback(image, dirtyRect)` quando houver uma apresentação evento.
+    
+    O `image` é um exemplo de [NativeImage](native-image.md) que armazena o quadro capturado.
+    
+    O `dirtyRect` é um objeto com propriedades `x, y, width, height` que descreve qual parte da página foi repintada. Se `onlyDirty` estiver definido para `true`, `image` conterá apenas a área repintada. `onlyDirty` inadimplência para `false`.
+    
+    
+
+#### `conteúdo.endFrameSubscription()`
+
+Final de inscrição para eventos de apresentação de quadros.
+
+
 
 #### `contents.startDrag(item)`
 
-* `item` Object
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
+* objeto `item` 
+    * | de `file` String String - O caminho(s) para o arquivo(s) sendo arrastado.
+  * `icon` [NativeImage](native-image.md) | String - A imagem deve ser não vazia no macOS.
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+Define o `item` como item de arrasto para a operação de arrastar-drop atual, `file` é o caminho absoluto do arquivo a ser arrastado, e `icon` é a imagem que mostra sob cursor ao arrastar.
 
-#### `contents.savePage(fullPath, saveType)`
 
-* `fullPath` String - The full file path.
-* `saveType` String - Specify the save type.
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
 
-Returns `Promise<void>` - resolves if the page is saved.
+#### `contents.savePage (fullPath, saveType)`
+
+* `fullPath` String - O caminho completo do arquivo.
+* `saveType` String - Especifique o tipo de salvamento. 
+    * `HTMLOnly` - Salve apenas o HTML da página.
+  * `HTMLComplete` - Salve a página completa html.
+  * `MHTML` - Salve a página completa como MHTML.
+
+Devoluções `Promise<void>` - resolve se a página for salva.
+
+
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow()
 
-win.loadURL('https://github.com')
+win.loadURL ('https://github.com')
 
-win.webContents.on('did-finish-load', async () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
-    console.log('Page was saved successfully.')
-  }).catch(err => {
-    console.log(err)
+win.webContents.on ('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').então(() => {
+    console.log('Page foi salvo com sucesso.')
+  }).catch(err => { console
+    .log(err)
   })
 })
 ```
 
+
+
+
 #### `contents.showDefinitionForSelection()` no _macOS_
 
-Shows pop-up dictionary that searches the selected word on the page.
+Mostra o dicionário pop-up que pesquisa a palavra selecionada na página.
+
+
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+Devolução `Boolean` - Indica se *renderização offscreen* está habilitada.
+
+
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+Se *renderização offscreen* estiver habilitada e não pintar, comece a pintar.
+
+
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+Se *renderização offscreen* estiver habilitada e pintar, pare de pintar.
+
+
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+Devoluções `Boolean` - Se *renderização offscreen* for habilitado retorna se ele está atualmente pintando.
+
+
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
+Se *renderização offscreen* estiver habilitada, definirá a taxa de quadros para o número especificado. Apenas valores entre 1 e 240 são aceitos.
+
+
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+Retornos `Integer` - Se *renderização offscreen* estiver habilitado, a taxa de quadros atual.
 
-#### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+#### `conteúdo.invalidate()`
+
+Agenda uma repintação completa da janela em que este conteúdo da Web está.
+
+Se *renderização offscreen* estiver habilitado invalida o quadro e gera um novo através do evento `'paint'` .
+
+
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Returns `String` - Returns the WebRTC IP Handling Policy.
+Devolução `String` - Retorna a Política de Manuseio de IP do WebRTC.
 
-#### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy.
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+#### `conteúdo.setWebRTCIPHandlingPolicy(política)`
+
+* `policy` String - Especifique a Política de Manuseio de IP do WebRTC.
+  
+    * `default` - Expõe os IPs públicos e locais do usuário. Este é o comportamento padrão . Quando essa política é usada, o WebRTC tem o direito de enumerar todas as interfaces e vinculá-las a descobrir interfaces públicas.
+
+  * `default_public_interface_only` - Expõe o IP público do usuário, mas não expõe o IP local do usuário. Quando esta política for usada, o WebRTC deve usar apenas a rota padrão usada por http. Isso não expõe nenhum endereço local.
+
+  * `default_public_and_private_interfaces` - Expõe os IPs públicos e locais do usuário . Quando esta política for usada, o WebRTC deve usar apenas a rota padrão usada por http. Isso também expõe o endereço privado padrão associado. A rota padrão é a rota escolhida pelo SO em um ponto final multi-homed.
+
+  * `disable_non_proxied_udp` - Não expõe IPs públicos ou locais. Quando essa política de for usada, o WebRTC só deve usar o TCP para contatar pares ou servidores, a menos que servidor proxy suporte o UDP.
+
+Definir a política de manipulação de IP do WebRTC permite que você controle quais IPs estão expostos via WebRTC. Consulte [browserLeaks](https://browserleaks.com/webrtc) para mais detalhes.
+
+
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
+Devoluções `Integer` - O sistema operacional `pid` do processo de renderizador associado.
+
+
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Retorna `Integer` - A `pid` interna do Cromo do renderizador associado. Pode ser comparado com o `frameProcessId` passado por de navegação específicos de quadro (por exemplo. `did-frame-navigate`)
+
+
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Caminho para o arquivo de saída.
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+Devoluções `Promise<void>` - Indica se o snapshot foi criado com sucesso.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Tira um instantâneo de pilha V8 e salva-o para `filePath`.
+
+
 
 #### `contents.getBackgroundThrottling()`
 
-Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Retorna `Boolean` - se este WebContents irá ou não acelerar animações e temporizadores quando a página ficar em segundo plano. Isso também afeta a API de visibilidade da página.
 
-#### `contents.setBackgroundThrottling(allowed)`
 
-* `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+#### `conteúdo.setBackgroundThrottling (permitido)`
+
+* `allowed` Booleano
+
+Controla se este WebContents irá ou não acelerar animações e temporizadores quando a página ficar em segundo plano. Isso também afeta a API de visibilidade da página.
+
+
 
 #### `contents.getType()`
 
-Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+Retorna `String` - o tipo de webContent. Pode ser `backgroundPage`, `window`, `browserView`, `remote`, `webview` ou `offscreen`.
+
+
 
 ### Propriedades de Instância
 
-#### `contents.audioMuted`
 
-A `Boolean` property that determines whether this page is muted.
+
+#### `conteúdo.audioMuted`
+
+Uma propriedade `Boolean` que determina se esta página é silenciada.
+
+
 
 #### `contents.userAgent`
 
-A `String` property that determines the user agent for this web page.
+Uma propriedade `String` que determina o usuário para esta página da Web.
 
-#### `contents.zoomLevel`
 
-A `Number` property that determines the zoom level for this web contents.
 
-The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+#### `conteúdo.zoomLevel`
 
-#### `contents.zoomFactor`
+Uma propriedade `Number` que determina o nível de zoom para este conteúdo da Web.
 
-A `Number` property that determines the zoom factor for this web contents.
+O tamanho original é 0 e cada incremento acima ou abaixo representa um zoom de 20% maior ou menor para limites padrão de 300% e 50% do tamanho original, respectivamente. A fórmula para isso é `scale := 1.2 ^ level`.
 
-The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
-#### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
+#### `conteúdo.zoomFactor`
 
-Only applicable if *offscreen rendering* is enabled.
+Uma propriedade `Number` que determina o fator zoom para este conteúdo da Web.
+
+O fator zoom é a porcentagem de zoom dividida por 100, então 300% = 3,0.
+
+
+
+#### `conteúdo.frameRate`
+
+Uma propriedade `Integer` que define a taxa de quadros do conteúdo da Web para o número especificado. Apenas valores entre 1 e 240 são aceitos.
+
+Só é aplicável se *renderização offscreen* estiver ativada.
+
+
 
 #### `contents.id` _Readonly_
 
-A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
+Um `Integer` representando o ID exclusivo deste WebContents. Cada ID é único entre todas as `WebContents` instâncias de toda a aplicação electron.
+
+
 
 #### `contents.session` _Readonly_
 
-A [`Session`](session.md) used by this webContents.
+Uma [`Session`](session.md) usada por este webContents.
+
+
 
 #### `contents.hostWebContents` _Readonly_
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+Um caso [`WebContents`](web-contents.md) que pode ser dono deste `WebContents`.
+
+
 
 #### `contents.devToolsWebContents` _Readonly_
 
-A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
+Uma propriedade `WebContents | null` que representa o de DevTools `WebContents` associada a uma determinada `WebContents`.
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**Nota:** Os usuários nunca devem armazenar esse objeto porque ele pode se tornar `null` quando o DevTools for fechado.
+
+
 
 #### `contents.debugger` _Readonly_
 
-A [`Debugger`](debugger.md) instance for this webContents.
+Um [`Debugger`](debugger.md) exemplo para este webContents.
 
-#### `contents.backgroundThrottling`
 
-A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `conteúdo.backgroundThrottling`
+
+Uma propriedade `Boolean` que determina se este WebContents irá ou não acelerar animações e temporizadores quando a página ficar em segundo plano. Isso também afeta a API de visibilidade da página.
+
+
 
 #### `contents.mainFrame` _Readonly_
 
-A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+Uma propriedade [`WebFrameMain`](web-frame-main.md) que representa o quadro superior da hierarquia de quadros da página.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
@@ -1784,5 +2140,7 @@ A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of 
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
