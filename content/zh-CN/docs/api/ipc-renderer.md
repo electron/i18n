@@ -16,7 +16,7 @@
 
 * `channel` String
 * `listener` Function
-  * `event` IpcRendererEvent
+  * `event` 伊普文德事件
   * `...args` any[]
 
 监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
@@ -25,7 +25,7 @@
 
 * `channel` String
 * `listener` Function
-  * `event` IpcRendererEvent
+  * `event` 伊普文德事件
   * `...args` any[]
 
 添加一次性 `listener` 函数。 这个 `listener` 只会在 `channel`下一次收到消息的时候被调用，之后这个监听器会被移除。
@@ -44,109 +44,109 @@
 
 移除所有的监听器，当指定 `channel` 时只移除与其相关的所有监听器。
 
-### `ipcRenderer.send(channel, ...args)`
+### `ipc伦德勒. 发送 （频道，...阿格斯）`
 
 * `channel` String
 * `...args` any[]
 
-通过` channel `向主进程发送异步消息，可以发送任意参数。 Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+通过` channel `向主进程发送异步消息，可以发送任意参数。 参数将与 [结构克隆 算法][SCA]串行，就像 [`window.postMessage`][]一样，因此原型链不会 包括在内。 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **注：** 发送非标准的 JavaScript 类型（如 DOM 对象或 特殊电子对象）将抛出一个例外。
 > 
-> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
+> 由于主过程不支持 DOM 对象，如 `ImageBitmap`、 `File`、 `DOMMatrix` 等，因此此类对象不能通过电子的 IPC 发送到主过程，因为主过程无法 它们进行解码。 试图通过 IPC 发送此类对象将导致错误。
 
-The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
+主过程通过与 [`ipcMain`](ipc-main.md) 模块一起收听 `channel` 来处理它。
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+如果您需要将 [`MessagePort`][] 转移到主过程，请使用 [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer)。
 
-If you want to receive a single response from the main process, like the result of a method call, consider using [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
+如果您想从主过程（如方法调用的结果）收到单个响应，请考虑使用 [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args)。
 
-### `ipcRenderer.invoke(channel, ...args)`
+### `ipc伦德勒. 调用 （频道，...阿格斯）`
 
 * `channel` String
 * `...args` any[]
 
-Returns `Promise<any>` - Resolves with the response from the main process.
+返回 `Promise<any>` - 通过主要流程的响应解决。
 
-Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+通过 `channel` 向主过程发送消息，并期望结果 异步。 参数将与 [结构克隆 算法][SCA]串行，就像 [`window.postMessage`][]一样，因此原型链不会 包括在内。 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **注：** 发送非标准的 JavaScript 类型（如 DOM 对象或 特殊电子对象）将抛出一个例外。
 > 
-> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
+> 由于主过程不支持 DOM 对象，如 `ImageBitmap`、 `File`、 `DOMMatrix` 等，因此此类对象不能通过电子的 IPC 发送到主过程，因为主过程无法 它们进行解码。 试图通过 IPC 发送此类对象将导致错误。
 
-The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+主要过程应与 [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener)一起听取 `channel` 。
 
 例如：
 
 ```javascript
-// Renderer process
-ipcRenderer.invoke('some-name', someArgument).then((result) => {
-  // ...
-})
+渲染器过程
+ipcRenderer.调用（"某个名称"，一些问题）。然后（结果）=> {
+  //
+[）
 
-// Main process
-ipcMain.handle('some-name', async (event, someArgument) => {
-  const result = await doSomeWork(someArgument)
-  return result
-})
+//主要过程
+ipcMain.handle（"某个名称"，不对称（事件，一些争议）=> {
+  结果=等待做一些工作（一些争议）
+  返回结果
+}）
 ```
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+如果您需要将 [`MessagePort`][] 转移到主过程，请使用 [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer)。
 
 如果你不需要回复此消息，请考虑使用 [`ipcRender.sent`](#ipcrenderersendchannel-args)。
 
-### `ipcRenderer.sendSync(channel, ...args)`
+### `ipc伦德勒.发送同步（通道，...阿格斯）`
 
 * `channel` String
 * `...args` any[]
 
 返回 `any` - 由 [`ipcMain`](ipc-main.md) 处理程序发送过来的值。
 
-Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+通过 `channel` 向主过程发送消息，并期望同步 结果。 参数将与 [结构克隆 算法][SCA]串行，就像 [`window.postMessage`][]一样，因此原型链不会 包括在内。 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **注：** 发送非标准的 JavaScript 类型（如 DOM 对象或 特殊电子对象）将抛出一个例外。
 > 
-> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
+> 由于主过程不支持 DOM 对象，如 `ImageBitmap`、 `File`、 `DOMMatrix` 等，因此此类对象不能通过电子的 IPC 发送到主过程，因为主过程无法 它们进行解码。 试图通过 IPC 发送此类对象将导致错误。
 
 主进程可以使用 `ipcMain` 监听 [channel](ipc-main.md)来接收这些消息，并通过 `event.returnValue `设置回复消息。
 
-> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+> :warning: **警告**：发送同步消息将阻止整个 渲染器过程，直到收到答复，所以使用此方法只能作为 最后的手段。 使用异步版本要好得多， [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args)。
 
-### `ipcRenderer.postMessage(channel, message, [transfer])`
+### `ipcRender.邮资信息（频道、消息、 [transfer]）`
 
 * `channel` String
-* `message` any
-* `transfer` MessagePort[] (optional)
+* `message` 任何
+* `transfer` 消息港[]（可选）
 
-Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
+向主过程发送消息，可选地将零 或更多 [`MessagePort`][] 对象的所有权转移。
 
-The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
+通过访问发射事件的 `ports` 属性，转移的 `MessagePort` 对象将在主要过程中作为 [`MessagePortMain`](message-port-main.md) 对象提供。
 
 例如：
 
 ```js
-// Renderer process
-const { port1, port2 } = new MessageChannel()
-ipcRenderer.postMessage('port', { message: 'hello' }, [port1])
+渲染器过程
+康斯特 { port1, port2 } =新的消息通道（）
+ipcRenderer.postmesage（"端口"， { message: 'hello' }， [port1]）
 
-// Main process
-ipcMain.on('port', (e, msg) => {
-  const [port] = e.ports
-  // ...
+//主过程
+ipcMain.on（"端口"，（e，msg）=> =
+ [port] =e.端口
+  //
 })
 ```
 
-For more information on using `MessagePort` and `MessageChannel`, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
+有关使用 `MessagePort` 和 `MessageChannel`的更多信息，请参阅 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel)。
 
-### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
+### `ipc伦德勒. 发送到 （网络康滕西德， 频道， ...阿格斯）`
 
-* `webContentsId` Number
+* `webContentsId` 编号
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+通过 `channel`向带有 `webContentsId` 的窗口发送消息。
 
-### `ipcRenderer.sendToHost(channel, ...args)`
+### `ipc伦德勒. 发送到霍斯特 （频道，...阿格斯）`
 
 * `channel` String
 * `...args` any[]
@@ -155,7 +155,7 @@ Sends a message to a window with `webContentsId` via `channel`.
 
 ## 事件对象
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+传递给 `callback` 的 `event` 对象的文档可以在 [`ipc-renderer-event`](structures/ipc-renderer-event.md) 结构文档中 找到。
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
