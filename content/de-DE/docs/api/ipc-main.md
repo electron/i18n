@@ -1,131 +1,131 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> Kommunizieren Sie asynchron vom Hauptprozess zu Rendererprozessen.
 
 Prozess: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an [Event Emitter][event-emitter]. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+Das `ipcMain` -Modul ist ein [Event Emitter][event-emitter]. Bei Verwendung im Hauptprozess verarbeitet es asynchrone und synchrone Nachrichten, die von einem Renderer Prozess (Webseite) gesendet werden. Nachrichten, die von einem Renderer gesendet werden, werden an dieses -Modul gesendet.
 
-## Sending Messages
+## Senden von Nachrichten
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send][web-contents-send] for more information.
+Es ist auch möglich, Nachrichten vom Hauptprozess an den Renderer zu senden, Prozess zu senden, siehe [webContents.send][web-contents-send] für weitere Informationen.
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* Beim Senden einer Nachricht ist der Ereignisname der `channel`.
+* Um auf eine synchrone Nachricht zu antworten, müssen Sie `event.returnValue`festlegen.
+* Um eine asynchrone Nachricht an den Absender zurückzusenden, können Sie `event.reply(...)`verwenden.  Diese Hilfsmethode verarbeitet automatisch Nachrichten , die von Frames stammen, die nicht der Hauptframe sind (z. B. iframes), während `event.sender.send(...)` immer an den Hauptframe gesendet wird.
 
-An example of sending and handling messages between the render and main processes:
+Ein Beispiel für das Senden und Verarbeiten von Nachrichten zwischen dem Renderund und den wichtigsten Prozessen:
 
 ```javascript
-// In main process.
+Im Hauptprozess.
 const { ipcMain } = require('electron')
-ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+ipcMain.on('asynchronous-message', (event, arg) => '
+  console.log(arg) / prints 'ping'
   event.reply('asynchronous-reply', 'pong')
-})
+')
 
-ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
-  event.returnValue = 'pong'
-})
+ipcMain.on('synchrone-message', (event, arg
+
+  .log
+  > )
 ```
 
 ```javascript
-// In renderer process (web page).
+Im Renderer-Prozess (Webseite).
 const { ipcRenderer } = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) / prints "pong"
 
-ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
-})
-ipcRenderer.send('asynchronous-message', 'ping')
+ipcRenderer.on('asynchronous-reply', (event, arg) => '
+  console.log(arg) / prints "pong"
+
+
 ```
 
 ## Methoden
 
-The `ipcMain` module has the following method to listen for events:
+Das `ipcMain` -Modul verfügt über die folgende Methode zum Abhören von Ereignissen:
 
-### `ipcMain.on(channel, listener)`
+### `ipcMain.on(Kanal, Listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` -Funktion
   * `event` IpcMainEvent
   * `...args` any[]
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Hört `channel`, wenn eine neue Nachricht eintrifft, `listener` mit `listener(event, args...)`aufgerufen wird.
 
-### `ipcMain.once(channel, listener)`
+### `ipcMain.once(Kanal, Listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` -Funktion
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Fügt eine einmalige `listener` Funktion für das Ereignis hinzu. Diese `listener` wird nur aufgerufen, wenn eine Nachricht das nächste Mal an `channel`gesendet wird, nach der sie entfernt wird.
 
-### `ipcMain.removeListener(channel, listener)`
+### `ipcMain.removeListener(Kanal, Listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` -Funktion
   * `...args` any[]
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Entfernt die angegebenen `listener` aus dem Listenerarray für die angegebene `channel`.
 
-### `ipcMain.removeAllListeners([channel])`
+### `ipcMain.removeAlleListen([channel])`
 
 * `channel` String (optional)
 
-Removes listeners of the specified `channel`.
+Entfernt Listener der angegebenen `channel`.
 
-### `ipcMain.handle(channel, listener)`
+### `ipcMain.handle(Kanal, Listener)`
 
 * `channel` String
-* `listener` Function<Promise\<void> | any>
+* `listener` Funktion<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+Fügt einen Handler für einen `invoke`fähigen IPC hinzu. Dieser Handler wird aufgerufen, wenn ein Renderer `ipcRenderer.invoke(channel, ...args)`aufruft.
 
-If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+Wenn `listener` ein Versprechen zurückgibt, wird das letztendliche Ergebnis des Versprechens als Antwort an den Remoteaufrufer zurückgegeben. Andernfalls wird der Rückgabewert des -Listeners als Wert der Antwort verwendet.
 
 ```js
-// Main process
-ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
-  const result = await somePromise(...args)
-  return result
-})
+Hauptprozess
+ipcMain.handle('my-invokable-ipc', async (event, ... args) =>
+  const result = warten einigePromise(... args)
+  Rückgabeergebnis
 
-// Renderer process
-async () => {
+
+/ / Renderer-Prozess
+async () =>
   const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
-  // ...
+  / ...
 }
 ```
 
-The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+Die `event` , die als erstes Argument an den Handler übergeben wird, entspricht dem , der an einen regulären Ereignislistener übergeben wurde. Sie enthält Informationen darüber, welche WebContents die Quelle der Aufrufanforderung ist.
 
-### `ipcMain.handleOnce(channel, listener)`
+### `ipcMain.handleOnce(Kanal, Listener)`
 
 * `channel` String
-* `listener` Function<Promise\<void> | any>
+* `listener` Funktion<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+Behandelt eine einzelne `invoke`fähige IPC-Nachricht und entfernt dann den Listener. Siehe `ipcMain.handle(channel, listener)`.
 
-### `ipcMain.removeHandler(channel)`
+### `ipcMain.removeHandler(Kanal)`
 
 * `channel` String
 
-Removes any handler for `channel`, if present.
+Entfernt alle Handler für `channel`, falls vorhanden.
 
-## IpcMainEvent object
+## IpcMainEvent-Objekt
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+Die Dokumentation für das `event` An das `callback` übergebene Objekt finden Sie in den [`ipc-main-event`](structures/ipc-main-event.md) Strukturdokumenten.
 
-## IpcMainInvokeEvent object
+## IpcMainInvokeEvent-Objekt
 
-The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+Die Dokumentation für das `event` -Objekt, das an `handle` Rückrufe übergeben wurde, finden Sie in den [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) Strukturdokumenten.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [web-contents-send]: web-contents.md#contentssendchannel-args
