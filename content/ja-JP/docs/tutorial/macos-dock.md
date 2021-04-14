@@ -33,8 +33,8 @@ const dockMenu = Menu.buildFromTemplate([
   { label: '新規コマンド...' }
 ])
 
-app.whenReady().then(() => {
-  app.dock.setMenu(dockMenu)
+アプリ.whenReady().then()=> {
+  アプリ.ドック.セットメニュー(ドックメニュー)
 })
 ```
 
