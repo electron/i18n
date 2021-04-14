@@ -34,7 +34,7 @@ A equipe do Electron está animada para anunciar a versão do Electron 9.0.0! Vo
 
 Veja as [notas de lançamento 9.0.0](https://github.com/electron/electron/releases/tag/v9.0.0) para uma lista completa de novos recursos e alterações.
 
-## Breaking Changes
+## Quebrando mudanças
 
 * Aviso de depreciação quando estiver usando `remoto` sem `ativarRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
     * Esta é a primeira etapa de nossos planos para depreciar o módulo `remoto` e movê-lo para o userland. Você pode ler e acompanhar [esta issue](https://github.com/electron/electron/issues/21408) que detalha nossos motivos para isso e inclui uma linha temporal proposta para depreciação.
@@ -43,7 +43,7 @@ Veja as [notas de lançamento 9.0.0](https://github.com/electron/electron/releas
 * Enviar objetos não-JavaScript sobre o IPC agora lança uma exceção. [#21560](https://github.com/electron/electron/pull/21560)
     * Este comportamento foi depreciado no Electron 8.0. No Electron 9.0, o antigo algoritmo de serialização foi removido, e enviar esses objetos não serializáveis agora lançará um erro de "objeto não pôde ser clonado".
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) .
 
 ## Alterações de API
 
