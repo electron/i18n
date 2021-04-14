@@ -1,47 +1,47 @@
 ## Класс: TouchBarSegmentedControl
 
-> Create a segmented control (a button group) where one button has a selected state
+> Создание сегментированный элемент управления (группа кнопок), где одна кнопка имеет выбранное состояние
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `new TouchBarSegmentedControl(options)`
+### `новый TouchBarSegmentedControl (варианты)`
 
 * `options` Object
-  * `segmentStyle` String (optional) - Style of the segments:
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
-    * `rounded` - The control is displayed using the rounded style. Maps to `NSSegmentStyleRounded`.
-    * `textured-rounded` - The control is displayed using the textured rounded style. Maps to `NSSegmentStyleTexturedRounded`.
-    * `round-rect` - The control is displayed using the round rect style. Maps to `NSSegmentStyleRoundRect`.
-    * `textured-square` - The control is displayed using the textured square style. Maps to `NSSegmentStyleTexturedSquare`.
-    * `capsule` - The control is displayed using the capsule style. Maps to `NSSegmentStyleCapsule`.
-    * `small-square` - The control is displayed using the small square style. Maps to `NSSegmentStyleSmallSquare`.
-    * `separated` - The segments in the control are displayed very close to each other but not touching. Maps to `NSSegmentStyleSeparated`.
-  * `mode` String (optional) - The selection mode of the control:
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item. Maps to `NSSegmentSwitchTrackingSelectOne`.
-    * `multiple` - Multiple items can be selected at a time. Maps to `NSSegmentSwitchTrackingSelectAny`.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active. Maps to `NSSegmentSwitchTrackingMomentary`.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is `multiple` it will be the last selected item.
-  * `change` Function (optional) - Called when the user selects a new segment.
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+  * `segmentStyle` String (по желанию) - Стиль сегментов:
+    * `automatic` - По умолчанию. Внешний вид сегментированных элементов управления определяется в зависимости от типа окна, в котором отображается , и положения в окне. Карты для `NSSegmentStyleAutomatic`.
+    * `rounded` - Элемент управления отображается с использованием округлого стиля. Карты для `NSSegmentStyleRounded`.
+    * `textured-rounded` - Элемент управления отображается с использованием текстурированной округлые стиле. Карты для `NSSegmentStyleTexturedRounded`.
+    * `round-rect` - Элемент управления отображается в стиле круглого исправления. Карты для `NSSegmentStyleRoundRect`.
+    * `textured-square` - Управление отображается с использованием текстурированного квадратного стиля. Карты для `NSSegmentStyleTexturedSquare`.
+    * `capsule` - Управление отображается в стиле капсулы. Карты для `NSSegmentStyleCapsule`.
+    * `small-square` - Элемент управления отображается с использованием небольшого квадратного стиля. Карты для `NSSegmentStyleSmallSquare`.
+    * `separated` - Сегменты в элементе управления отображаются очень близко друг к другу , но не касаясь. Карты для `NSSegmentStyleSeparated`.
+  * `mode` Строка (необязательно) - Режим выбора управления:
+    * `single` - По умолчанию. Один элемент, выбранный за один раз, выбрав один из них, не выбирает ранее выбранный элемент. Карты для `NSSegmentSwitchTrackingSelectOne`.
+    * `multiple` - Несколько элементов могут быть выбраны одновременно. Карты для `NSSegmentSwitchTrackingSelectAny`.
+    * `buttons` - Сделать сегменты выступать в качестве кнопок, каждый сегмент может быть нажата и выпущена, но никогда не помечены как активные. Карты для `NSSegmentSwitchTrackingMomentary`.
+  * `segments` [SegmentedControlSegment](structures/segmented-control-segment.md) - массив сегментов для этого управления.
+  * `selectedIndex` Integer (необязательно) - Индекс выбранного в настоящее время сегмента, будет обновляться автоматически с взаимодействием с пользователем. Когда режим будет `multiple` это будет последний выбранный элемент.
+  * `change` функция (необязательно) - Вызывается, когда пользователь выбирает новый сегмент.
+    * `selectedIndex` Integer - Индекс выбранного пользователем сегмента.
+    * `isSelected` Boolean - выбран ли в результате выбора пользователя сегмент или нет.
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Следующие свойства доступны на экземплярах `TouchBarSegmentedControl`:
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+В `String` , представляющий стиль текущего сегмента. Обновление этого значения немедленно обновляет в сенсорной панели.
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Массив `SegmentedControlSegment[]` , представляющий сегменты этого управления. Обновление этого значения обновляет элемент управления в сенсорной панели. Обновление глубоких свойств внутри этого массива **не обновляет сенсорную**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+Проект `Integer` представляющий выбранный в настоящее время сегмент. Изменение этого значения немедленно обновляет в сенсорной панели. Взаимодействие пользователя с сенсорной панели будет обновлять это значение автоматически.
 
 #### `touchBarSegmentedControl.mode`
 
-A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.
+`String` , представляющий текущий режим выбора управления.  Может быть `single`, `multiple` или `buttons`.
