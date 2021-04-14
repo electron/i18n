@@ -28,15 +28,15 @@ Dies ist eine Voraussetzung von <code>Squirrel.Mac`.</p>
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
+Unter Windows müssen Sie Ihre App auf dem Computer eines Benutzers installieren, bevor Sie die `autoUpdater` verwenden können, daher wird empfohlen, die [Elektronen-Winstaller-][installer-lib], [-Elektronenschmiede-][electron-forge-lib] oder das [Grunt-Elektronen-Installer-][installer] -Paket zu verwenden, um ein Windows-Installationsprogramm zu generieren.
 
-When using [electron-winstaller][installer-lib] or [electron-forge][electron-forge-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). Es wird auch empfohlen,  electron-squirrel-startup </ 0> zu verwenden, um Desktop-Verknüpfungen für Ihre App zu erhalten.</p> 
+Wenn Sie [Elektronen-Winstaller-][installer-lib] oder [Elektronenschmiede verwenden,][electron-forge-lib] sicherstellen, dass Sie nicht versuchen, Ihre App [der ersten](https://github.com/electron/windows-installer#handling-squirrel-events) zu aktualisieren (weitere Informationen finden Sie auch [diesem Problem](https://github.com/electron/electron/issues/7155)). Es wird auch empfohlen,  electron-squirrel-startup </ 0> zu verwenden, um Desktop-Verknüpfungen für Ihre App zu erhalten.</p> 
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. Sie müssen dieselbe ID für Ihre App mit der ` app.setAppUserModelId </ 0>  API verwenden , da Windows sonst Ihre App nicht ordnungsgemäß in der Taskleiste anheften kann .</p>
+Das mit Squirrel generierte Installationsprogramm erstellt ein Verknüpfungssymbol mit einer [Application User Model ID][app-user-model-id] im Format `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, Beispiele sind `com.squirrel.slack.Slack` und `com.squirrel.code.Code`. Sie müssen dieselbe ID für Ihre App mit der ` app.setAppUserModelId </ 0>  API verwenden , da Windows sonst Ihre App nicht ordnungsgemäß in der Taskleiste anheften kann .</p>
 
 <p spaces-before="0">Im Gegensatz zu Squirrel.Mac kann Windows Updates auf S3 oder einem anderen statischen Dateihost hosten.
-You can read the documents of <a href="https://github.com/Squirrel/Squirrel.Windows" f-id="squirrel-windows" fo="3">Squirrel.Windows</a> to get more details
-about how Squirrel.Windows works.</p>
+Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Windows" f-id="squirrel-windows" fo="3">Squirrel.Windows</a> lesen, um mehr Details
+wie Squirrel.Windows funktioniert zu erhalten.</p>
 
 <h2 spaces-before="0">Ereignisse</h2>
 
@@ -86,8 +86,8 @@ automatisch heruntergeladen.</p>
 
 <h3 spaces-before="0">Ereignis: 'before-quit-for-update'</h3>
 
-<p spaces-before="0">This event is emitted after a user calls <code>quitAndInstall()`.</p> 
-  When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+<p spaces-before="0">Dieses Ereignis wird nach dem Aufrufen eines Benutzers <code>quitAndInstall()`.</p> 
+  Wenn diese API aufgerufen wird, wird das `before-quit` -Ereignis nicht angezeigt, bevor alle Fenster geschlossen werden. Daher sollten Sie sich dieses Ereignis anhören, wenn Sie Aktionen ausführen möchten, bevor die Fenster geschlossen werden, während ein Prozess beendet wird, sowie `before-quit`.
   
   
 
@@ -97,10 +97,10 @@ Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
 <h3 spaces-before="0"><code>autoUpdater.setFeedURL(optionen)`</h3> 
 
-* `options` Object 
+* `options` -Objekt 
     * `url` String
   * `headers` Record<String, String> (optional) _macOS_ - HTTP-Anfrage-Header.
-  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
+  * `serverType` String (optional) _macOS_ - Kann `json` oder `default`sein, weitere Informationen finden Sie im [Squirrel.Mac][squirrel-mac] README.
 
 Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>
 
@@ -118,7 +118,7 @@ Fragt den Server, ob es ein Update gibt. Es muss zuerst `setFeedURL` aufrufen we
 
 Startet die App neu und installiert damit das Update, sofern es heruntergeladen wurde. Diese Funktion sollte nur aufgerufen werden, nachdem `update-downloaded` ausgelöst wurde.
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+Unter der Haube wird `autoUpdater.quitAndInstall()` zuerst alle Fenster schließen und automatisch `app.quit()` aufrufen, nachdem alle Fenster geschlossen wurden.
 
 **Hinweis.**: Es ist nicht unbedingt notwendig, diese Funktion auszulösen, denn ein fehlerfrei heruntergeladenes Update wird immer automatisch installiert, wenn die App das nächste mal startet.
 
@@ -128,6 +128,7 @@ Under the hood calling `autoUpdater.quitAndInstall()` will close all application
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support
 [installer]: https://github.com/electron/grunt-electron-installer
 [installer-lib]: https://github.com/electron/windows-installer
+[electron-forge-lib]: https://github.com/electron-userland/electron-forge
 [electron-forge-lib]: https://github.com/electron-userland/electron-forge
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
