@@ -1,25 +1,25 @@
-## Class: TouchBarPopover
+## Klasse: TouchBarPopover
 
-> Create a popover in the touch bar for native macOS applications
+> Erstellen eines Popovers in der Touchleiste für native macOS-Anwendungen
 
 Prozess: [Main](../glossary.md#main-process)
 
-### `new TouchBarPopover(options)`
+### `neue TouchBarPopover(Optionen)`
 
-* `options` Object
-  * `label` String (optional) - Popover button text.
-  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
-  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Standard ist `true`.
+* `options` -Objekt
+  * `label` String (optional) - Popover-Schaltflächetext.
+  * `icon` [NativeImage](native-image.md) (optional) - Popover-Schaltflächensymbol.
+  * `items` [TouchBar](touch-bar.md) - Elemente, die im Popover angezeigt werden sollen.
+  * `showCloseButton` Boolean (optional) - `true` , um eine Schließen-Taste auf der linken Seite des Popovers anzuzeigen, `false` , um sie nicht anzuzeigen. Standard ist `true`.
 
 ### Instanz Eigenschaften
 
-The following properties are available on instances of `TouchBarPopover`:
+Die folgenden Eigenschaften sind für Instanzen von `TouchBarPopover`verfügbar:
 
 #### `touchBarPopover.label`
 
-A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
+Ein `String` , der den aktuellen Schaltflächentext des Popovers darstellt. Wenn Sie diesen Wert ändern, wird das Popover in der Touchleiste sofort aktualisiert.
 
 #### `touchBarPopover.icon`
 
-A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
+Ein `NativeImage` , der das aktuelle Schaltflächensymbol des Popovers darstellt. Wenn Sie diesen Wert ändern, wird das Popover in der Touchleiste sofort aktualisiert.
