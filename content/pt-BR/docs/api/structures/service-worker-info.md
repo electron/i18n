@@ -1,5 +1,5 @@
-# ServiceWorkerInfo Object
+# Objeto ServiceWorkerInfo
 
-* `scriptUrl` String - The full URL to the script that this service worker runs
-* `scope` String - The base URL that this service worker is active for.
-* `renderProcessId` Number - The virtual ID of the process that this service worker is running in.  This is not an OS level PID.  This aligns with the ID set used for `webContents.getProcessId()`.
+* `scriptUrl` String - A URL completa para o script que este trabalhador de serviço executa
+* `scope` String - A URL base para a a que este trabalhador de serviço está ativo.
+* número `renderProcessId` - O ID virtual do processo em que esse trabalhador está executando.  Este não é um PID nível de SISTEMA.  Isso se alinha com o conjunto de ID usado para `webContents.getProcessId()`.
