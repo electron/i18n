@@ -46,7 +46,7 @@
 * Строки должны быть ограничены в 80 столбцов.
 * Не делать вложенные списки более чем 2 уровня (из-за markdown отображения).
 * Все блоки кода `js` и `javascript` проверяются линтером по [standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* For unordered lists, use asterisks instead of dashes
+* Для неупорядочеченных списков используйте звездочки вместо тире
 
 ## Выбор слов
 
