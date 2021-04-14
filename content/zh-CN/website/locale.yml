@@ -26,7 +26,6 @@ keyboard_modal:
   open_new_tab: 在新标签页打开选定的搜索结果
 docs:
   title: Electron 文档
-  description: 在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或查看 <a href="/docs/faq"> 常见问题 </a>。
   guides: "指南：开始使用 Electron"
   api_reference: API 参考
   api_structures: API 结构
@@ -39,7 +38,6 @@ docs:
   propose_change: 改进此文档
   version_history: 版本历史
   translate: 翻译此文档
-  view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
   view_more_details: 查看更多语言
@@ -87,7 +85,7 @@ releases:
   all_releases: 全部发行版
   back_to_index: 返回索引
 electron_is_good:
-  title: Apps users love, built with Electron
+  title: 用户喜爱的应用，用电子构建
   description: 数千个跨行业的组织使用 Electron 构建跨平台软件。
 electron_is_easy:
   title: 比你想象的更简单
@@ -133,7 +131,7 @@ headings:
   languages: 语言
 taglines:
   languages: 本地化的内容来自我们强大的全球开发者社区。
-  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
+  announcement: '黑人的命也是命。支持 <a href="https://support.eji.org/give/153413/#!/donation/checkout">平等正义倡议</a> ， <a href="/blacklivesmatter"></a>在这里宣读我们的声明。'
 help_translate: "帮助我们翻译"
 footer:
   see_the_faq: 查看常见问题
@@ -164,7 +162,6 @@ clipboard:
 fiddle_launch_button:
   launch: 启动
   launch_in_fiddle: 在Fiddle中启动
-or: 或
 pages:
   '/':
     title: Electron | 使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序。
@@ -175,9 +172,6 @@ pages:
   '/docs':
     title: ' 文档 '
     description: 最新的 Electron 的指南和 API 参考文档
-  '/docs/all':
-    title: 所有的 Electron 的文档
-    description: 所有 Electron 的指南和 API 文档在一个单独的可搜索的页面。
   '/docs/api':
     title: API
     description: 最新的 Electron 的指南和 API 参考文档
@@ -216,12 +210,12 @@ pages:
   '/donors':
     title: 捐赠者
   '/blacklivesmatter':
-    title: Black Lives Matter
+    title: 黑人的命也是命
 landing:
   get_started: 入门
   fiddle:
     lead_desc: 最简单的 Electron 入门方式。
-    different_os: "Not the right operating system? See:"
+    different_os: "不是正确的操作系统？看到："
     create_app: 创建您的应用程序
     description: 你可以使用 Electron Fiddle 创建并运行小段 Electron 程序，从一个简单的模板开始，随心所欲地挥洒你的创意，选择一个 Electron 版本欣赏运行效果。最后，你可以将其下载保存，或推送 GitHub Gist 上，所有人都可以输入网址运行你的 Fiddle。
     explore: 探索 Electron
