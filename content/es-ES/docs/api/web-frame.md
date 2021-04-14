@@ -10,6 +10,8 @@ Un ejemplo de zoom de la página actual al 200%.
 
 ```javascript
 const { webFrame } = require('electron')
+
+webFrame.setZoomFactor(2)
 ```
 
 ## Métodos
@@ -28,13 +30,13 @@ El factor debe ser mayor que 0.0.
 
 Devuelve `Número` - El factor de zoom actual.
 
-### `webFrame.setZoomLevel(nivel)`
+### `webFrame.setZoomLevel(level)`
 
 * `nivel` Número - Nivel de Zoom.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
-> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+> **Nota**: la política de zoom en el nivel de cromo es la misma-origen, lo que significa que el nivel de zoom para un dominio específico se propaga en todas las instancias de Windows con el mismo dominio. Diferenciar las URL de las ventanas hará que el zoom se trabaje por ventana.
 
 ### `webFrame.getZoomLevel()`
 
@@ -47,7 +49,7 @@ Devuelve `Número` - El nivel de zoom actual.
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **Nota**: el zoom visual se inhabilita por defecto en Electron. Para volver a habilitarlo, llama a:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
@@ -56,8 +58,8 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `idioma` Cadena
-* `provider` Object
-  * `spellCheck` Function
+* Objeto `provider`
+  * Función `spellCheck`
     * `words` String[]
     * `callback` Función
       * `misspeltWords` String[]
@@ -104,7 +106,7 @@ Inyecta CSS en la página web actual y devuelve un identificador único para la 
 
 * `llave` Cadena
 
-Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. La hoja de estilos se identifica por su clave, que se devuelve desde `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(texto)`
 
@@ -116,11 +118,11 @@ Inserta `texto` en el elemento enfocado.
 
 * `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
+* `callback` function (opcional)-se llama una vez que se ha ejecutado la secuencia de comandos. A menos que se suspenda la trama (p. ej., mostrando una alerta modal), la ejecución será sincrónica y la devolución de llamada se invocará antes de que el método regrese. Para compatibilidad con una versión anterior de este método, el parámetro de error es segundo.
   * `resultado` Cualquiera
   * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+Devuelve `Promise<any>` -una promesa que se resuelve con el resultado del código de ejecutado o se rechaza si se produce una ejecución o se produce una promesa rechazada.
 
 Evalúa el `código` en la página.
 
@@ -128,28 +130,28 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
+* `worldId` Integer-el ID del mundo en el que se ejecuta el de JavaScript, `0` es el mundo principal predeterminado (donde se ejecuta el contenido), `999` es el mundo utilizado por la característica de `contextIsolation` de Electron. Acepta valores en el rango 1.. 536870911.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
+* `callback` function (opcional)-se llama una vez que se ha ejecutado la secuencia de comandos. A menos que se suspenda la trama (p. ej., mostrando una alerta modal), la ejecución será sincrónica y la devolución de llamada se invocará antes de que el método regrese.  Para compatibilidad con una versión anterior de este método, el parámetro de error es segundo.
   * `resultado` Cualquiera
   * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
+Devuelve `Promise<any>` -una promesa que se resuelve con el resultado del código de ejecutado o se rechaza si no se puede iniciar la ejecución.
 
 Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
-Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
+Ten en cuenta que cuando se produce un error en la ejecución del script, la promesa devuelta no rechazará y la `result` se `undefined`. Esto se debe a que Chromium no enviar errores de mundos aislados a mundos extranjeros.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
 * `worldId` Integer - El ID de la palabra para correr javascript en, `0` es el mundo por defecto, `999` es el mundo usado por la característica de Electron `contextIsolation`. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
-* `info` Object
+* Objeto `info`
   * `securityOrigin` String (opcional) - Origen de seguridad para el mundo aislado.
   * `csp` String (opcional) - Política de Seguridad de Contenido para el mundo aislado.
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+  * `name` cadena (opcional)-nombre para el mundo aislado. Útil en DevTools.
 
-Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+Establece el origen de seguridad, la política de seguridad del contenido y el nombre del mundo aislado. Nota: si se especifica el `csp` , también se debe especificar el `securityOrigin` .
 
 ### `webFrame.getResourceUsage()`
 
@@ -211,15 +213,15 @@ Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se en
 
 ### `webFrame.isWordMisspelled(word)`
 
-* `word` String - The word to be spellchecked.
+* `word` String-the Word to spellchecked (ortografía).
 
-Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
+Devuelve `Boolean` -true si la palabra está mal escrita de acuerdo con el corrector de ortografía incorporado, falso en caso contrario. Si no se carga ningún diccionario, siempre devuelve false.
 
 ### `webFrame.getWordSuggestions(word)`
 
-* `word` String - The misspelled word.
+* `word` cadena-la palabra mal escrita.
 
-Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
+Devuelve `String[]` -una lista de palabras sugeridas para una palabra determinada. Si la palabra se escribe correctamente, el resultado estará vacío.
 
 ## Propiedades
 
@@ -245,6 +247,6 @@ Un `WebFrame | null` que representa el siguiente frame hermano, la propiedad deb
 
 ### `webFrame.routingId` _Readonly_
 
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+Una `Integer` que representa el ID de trama único en el proceso de representador actual. Las instancias diferentes de WebFrame que se refieren al mismo fotograma subyacente tendrán la misma `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
