@@ -1,23 +1,23 @@
 # Обзор системы сборки
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron использует [GN](https://gn.googlesource.com/gn) для генерации проектов и [ниндзя](https://ninja-build.org/) для строительства. Конфигурации проектов найти в файлах `.gn` и `.gni` файлов.
 
-## GN Files
+## GN Файлы
 
-The following `gn` files contain the main rules for building Electron:
+Следующие `gn` файлы содержат основные правила построения Electron:
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `BUILD.gn` определяет, как строится сам Electron, включает в себя конфигурации по умолчанию для связи с Хромом.
+* `build/args/{debug,release,all}.gn` содержат аргументы по умолчанию для Electron.
 
-## Component Build
+## Сборка компонентов
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Поскольку Chromium является довольно крупным проектом, заключительный этап соединения может занять довольно много минут, что затрудняет его развитие. Для того, чтобы решить это, Chromium представил "компонентную сборку", которая строит каждый компонент как отдельную общую библиотеку, что делает связь очень быстрой, но жертвуя размером и производительностью.
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron наследует этот вариант сборки от Chromium. В `Debug` сборки, двоичный будет связан с общей библиотечной версией компонентов Chromium, чтобы быстрое время связывания; для `Release` , двоичный будет связан с статическими версиями библиотеки, так что мы можем иметь наилучший бинарный размер и производительности.
 
 ## Тестирование
 
-**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
+**NB** _этот раздел устарел и содержит информацию, которая больше не иметь отношение к электрону, построенного GN._
 
 Test your changes conform to the project coding style using:
 
@@ -31,7 +31,7 @@ Test functionality using:
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Всякий раз, когда вы внести изменения в исходный код Electron, вам нужно будет повторно запустить построить до испытаний:
 
 ```sh
 $ npm run build && npm test
