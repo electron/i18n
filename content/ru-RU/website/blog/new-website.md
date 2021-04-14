@@ -45,7 +45,7 @@ ls electron-i18n/content
 
 ## Страницы приложений
 
-На сегодняшний день любое приложение Electron может легко иметь свою собственную страницу на сайте . For a few examples, check out [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), or [GraphQL Playground](https://electronjs.org/apps/graphql-playground), pictured here on the Japanese version of the site:
+На сегодняшний день любое приложение Electron может легко иметь свою собственную страницу на сайте . Для нескольких примеров, проверить [Etcher](https://electronjs.org/apps/etcher), [1Clipboard](https://electronjs.org/apps/1clipboard), или [Graph'L площадка](https://electronjs.org/apps/graphql-playground), на фото здесь, на японской версии сайта:
 
 <figure>
   <a href="https://electronjs.org/apps/graphql-playground">
