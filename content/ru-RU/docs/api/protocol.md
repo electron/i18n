@@ -7,15 +7,15 @@
 Пример реализации протокола, имеющего тот же эффект, что и протокол `file://`:
 
 ```javascript
-const { app, protocol } = require('electron')
-const path = require('path')
+const { app, protocol } и требуют ('электрон')
+const путь - требуют ('путь')
 
-app.whenReady().then(() => {
-  protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
-  })
-})
+app.whenReady ().,после этого (()) -> -
+  protocol.registerFileProtocol ('atom', (запрос, обратный вызов) -> -
+    const URL - request.url.substr(7)
+    обратный вызов (
+путь: path.normalize('${__dirname}/${url}'
+  )
 ```
 
 **Примечание:** Все методы, если не указано другого, могут быть использованы только после того, как событие `ready` модуля `app` будет отправлено.
@@ -27,20 +27,20 @@ app.whenReady().then(() => {
 Для того, чтобы ваш пользовательский протокол работал в сочетании с пользовательским сеансом, вам необходимо явно зарегистрировать его в этом сеансе.
 
 ```javascript
-const { session, app, protocol } = require('electron')
-const path = require('path')
+const { session, app, protocol } - требуют ('электрон')
+const путь - требуют ('путь')
 
-app.whenReady().then(() => {
-  const partition = 'persist:example'
-  const ses = session.fromPartition(partition)
+app.whenReady ().,после этого (()) -> -
+  const partition - 'persist:example'
+  const ses ss ss s.fromPartition (partition)
 
-  ses.protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
-  })
+  ses.protocol.registerFileProtocol('atom', (запрос, обратный вызов) -> -
+    const URL - request.url.substr(7)
+    обратный вызов (путь: путь.нормализовано('${__dirname}/${url}')
+  )
 
-  mainWindow = new BrowserWindow({ webPreferences: { partition } })
-})
+  mainWindow - новый BrowserWindow (является веб- { partition } )
+)
 ```
 
 ## Методы
@@ -53,7 +53,7 @@ app.whenReady().then(() => {
 
 **Примечание:** Этот метод можно использовать только до отправки события `ready` модуля `app` и может быть вызван только один раз.
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. Specify a privilege with the value of `true` to enable the capability.
+Регистрирует `scheme` в качестве стандартной, безопасной, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker, поддерживает получение API и потоковое видео/аудио. Укажите привилегию со значением `true` для включения возможности.
 
 Пример регистрации привилегированной схемы, которая обходит Политику безопасности контента:
 
@@ -80,17 +80,17 @@ Registering a scheme as standard will allow access to files through the [FileSys
 
 По умолчанию веб-хранилище Apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) отключено для нестандартных схем. Поэтому в общем случае, если вы хотите зарегистрировать пользовательский протокол для замены протокола `http`, необходимо зарегистрировать его как стандартную схему.
 
-Protocols that use streams (http and stream protocols) should set `stream: true`. The `<video>` and `<audio>` HTML elements expect protocols to buffer their responses by default. The `stream` flag configures those elements to correctly expect streaming responses.
+Протоколы, в которые используются потоки (протоколы http и stream), должны `stream: true`. В `<video>` и `<audio>` HTML-элементы ожидают, что протоколы буферизации своих ответы по умолчанию. Флаг `stream` эти элементы, чтобы правильно ожидать потоковых ответов.
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Возвращает `Boolean` - Был ли протокол успешно зарегистрирован
 
 Регистрирует протокол `scheme`, который отправит файл в качестве ответа. Обработчик `handler` будет вызван с запросом `request` и обратным вызовом `callback`, где запрос `request` является входящим запросом для схемы `scheme`.
 
@@ -102,11 +102,11 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Возвращает `Boolean` - Был ли протокол успешно зарегистрирован
 
 Регистрирует протокол `scheme`, который отправит `Buffer` в качестве ответа.
 
@@ -124,11 +124,11 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Возвращает `Boolean` - Был ли протокол успешно зарегистрирован
 
 Регистрирует протокол `scheme`, который отправит `String` в качестве ответа.
 
@@ -138,11 +138,11 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` ProtocolResponse
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Возвращает `Boolean` - Был ли протокол успешно зарегистрирован
 
 Регистрирует протокол `scheme`, который отправит HTTP-запрос в качестве ответа.
 
@@ -152,11 +152,11 @@ Returns `Boolean` - Whether the protocol was successfully registered
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully registered
+Возвращает `Boolean` - Был ли протокол успешно зарегистрирован
 
 Регистрирует протокол `scheme`, который отправит поток в качестве ответа.
 
@@ -198,7 +198,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 
-Returns `Boolean` - Whether the protocol was successfully unregistered
+Возвращает `Boolean` - Был ли протокол успешно незарегистрирован
 
 Отменяет регистрацию пользовательского протокола `scheme`.
 
@@ -212,11 +212,11 @@ Returns `Boolean` - Whether the protocol was successfully unregistered
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Возвращает `Boolean` - Был ли протокол успешно перехвачен
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет файл в качестве ответа.
 
@@ -224,11 +224,11 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Возвращает `Boolean` - Был ли протокол успешно перехвачен
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет `String` в качестве ответа.
 
@@ -236,11 +236,11 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Возвращает `Boolean` - Был ли протокол успешно перехвачен
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет `Buffer` в качестве ответа.
 
@@ -248,11 +248,11 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
-    * `response` [ProtocolResponse](structures/protocol-response.md)
+    * `response` [протоколОтветчик](structures/protocol-response.md)
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Возвращает `Boolean` - Был ли протокол успешно перехвачен
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет новый HTTP-запрос в качестве ответа.
 
@@ -260,11 +260,11 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 * `handler` Function
-  * `request` [ProtocolRequest](structures/protocol-request.md)
+  * `request` [ПротоколРеквест](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Returns `Boolean` - Whether the protocol was successfully intercepted
+Возвращает `Boolean` - Был ли протокол успешно перехвачен
 
 То же самое, что и `protocol.registerStreamProtocol`, за исключением того, что он заменяет существующий обработчик протокола.
 
@@ -272,7 +272,7 @@ Returns `Boolean` - Whether the protocol was successfully intercepted
 
 * `scheme` String
 
-Returns `Boolean` - Whether the protocol was successfully unintercepted
+Возвращает `Boolean` - Был ли протокол успешно невмешательн
 
 Удаляет перехватчик, установленный для `scheme` и восстанавливает его оригинальный обработчик.
 
