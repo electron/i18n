@@ -139,41 +139,41 @@ const finishSpin = () => {
     // 2 つの値が同じ場合
     result.label = '😍 やったね!'
     result.textColor = '#FDFF00'
-  } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
+  } その他 {
+    // 値は同じ
+    結果です。.label = '🙁 スピン再び' 結果
+    に 'スピン再びスピン' 結果をする場合に、 textColor = null
   }
-  spinning = false
-}
+  スピン =
+false  }
 
-const touchBar = new TouchBar({
-  items: [
-    spin,
-    new TouchBarSpacer({ size: 'large' }),
-    reel1,
-    new TouchBarSpacer({ size: 'small' }),
-    reel2,
-    new TouchBarSpacer({ size: 'small' }),
-    reel3,
-    new TouchBarSpacer({ size: 'large' }),
-    result
-  ]
-})
+const = 新しいタッチバー ({
+  項目: [
+    スピン,
+    新しいTouchBarSpacer({ size: 'large' })、
+    リール1、
+    新しいTouchBarSpacer({ size: 'small' })、
+    リール2
+    、新しいTouchBarSpacer({ size: 'small' })、
+    リール3、
+    新しいTouchBarSpacer({ size: 'large' })、
+    結果
 
-let window
+)
 
-app.whenReady().then(() => {
-  window = new BrowserWindow({
-    frame: false,
-    titleBarStyle: 'hiddenInset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
+
+
+ウィンドウをapp.when()()ウィンドウ=>
+  ウィンドウ=新しいブラウザウィンドウ(
+    フレーム): false,
+    タイトルバースタイル: 'hiddenInset',
+    幅: 200,
+    高さ: 200,
+    背景色: '#000'
   })
-  window.loadURL('about:blank')
-  window.setTouchBar(touchBar)
-})
+  ウィンドウ.loadURL('約:約::)
+  ウィンドウ.setTouchBar (タッチバー)
+}
 ```
 
 ### 上記のサンプルを実行する
