@@ -2,7 +2,7 @@
 
 > Lokalisierte Werte zurückgegeben durch `app.getLocale()`.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron verwendet die `l10n_util` Bibliothek von Chromium, um das Gebietsschema abzurufen. Mögliche Werte sind unten aufgeführt:
 
 | Sprachcode | Sprachname                |
 | ---------- | ------------------------- |
