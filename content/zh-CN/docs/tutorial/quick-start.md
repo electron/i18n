@@ -8,9 +8,9 @@ Electron 是一个能让你使用 JavaScript, HTML 和 CSS 来创建桌面应用
 
 ### 前提条件
 
-Before proceeding with Electron you need to install [Node.js][node-download]. 我们建议您安装最新可用的 `LTS` 或 `Current 版本` 。
+在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 我们建议您安装最新可用的 `LTS` 或 `Current` 版本。
 
-> 请使用为你平台预构建的 Node.js 安装器来进行安装。 否则，您可能会遇到与不同开发工具不兼容的问题。
+> 请使用为你平台预构建的 Node.js 安装器来进行安装， 否则，您可能会遇到与不同开发工具不兼容的问题。
 
 要检查 Node.js 是否正确安装，请在您的终端输入以下命令：
 
@@ -23,7 +23,7 @@ npm -v
 
 ### 创建基本应用程序
 
-从开发的角度来看，Electron 应用本质上是一个 Node.js 应用。 这意味着您的 Electron 应用程序的起点将是一个 `package.json` 文件，就像在其他的Node.js 应用程序中一样。 最小的 Electron 应用程序具有以下结构：
+从开发的角度来看，Electron 应用本质上是一个 Node.js 应用。 这意味着您的 Electron 应用程序的起点将是一个 `package.json` 文件，就像在其他的Node.js 应用程序中一样。 基本的 Electron 应用程序具有以下结构：
 
 ```plaintext
 my-electron-app/
@@ -47,7 +47,7 @@ npm i --save-dev electron
 
 #### 创建主脚本文件
 
-主脚本指定了运行主进程的 Electron 应用程序的入口(就我们而言，是 `main.js` 文件)。 通常，在主进程中运行的脚本控制应用程序的生命周期、显示图形用户界面及其元素、执行本机操作系统交互以及在网页中创建渲染进程。 Electron 应用程序只能有一个主进程。
+主脚本指定了运行主进程的 Electron 应用程序的入口(对我们而言，是 `main.js` 文件)。 通常，在主进程中运行的脚本控制应用程序的生命周期、显示图形用户界面及其元素、执行本机操作系统交互以及在网页中创建渲染进程。 Electron 应用程序只能有一个主进程。
 
 主脚本可以如下所示：
 
@@ -120,7 +120,7 @@ app.on('window-all-closed', () => {
 
 #### 定义一个预加载脚本
 
-您的预加载脚本就像是Node.js和您的网页之间的桥梁。 它允许你将特定的 API 和行为暴露到你的网页上，而不是不安全地把整个 Node.js 的 API暴露。 在本例中，我们将使用预加载脚本从`process`对象读取版本信息，并用该信息更新网页。
+Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. 它允许你将特定的 API 和行为暴露到你的网页上，而不是危险地把整个 Node.js 的 API暴露。 在本例中，我们将使用预加载脚本从`process`对象读取版本信息，并用该信息更新网页。
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
     "main": "main.js",
     "scripts": {
         "start": "electron ."
-    }
+    •
 }
 ```
 
@@ -183,7 +183,7 @@ npm start
 
 您正在运行的 Electron app 应该如下所示：
 
-![最简的 Electron 应用程序](../images/simplest-electron-app.png)
+![最简单的Electron应用程序](../images/simplest-electron-app.png)
 
 ### 打包并分发应用程序
 
