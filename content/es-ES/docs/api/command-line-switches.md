@@ -30,11 +30,11 @@ entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será c
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Sin el prefijo `*` la URL ha de coincidir exactamente.
+Una lista de servidores separados por comas para las cuales se necesita la delegación de credenciales de usuario. Sin el prefijo `*` la URL ha de coincidir exactamente.
 
-### --disable-ntlm-v2
+### --Disable-NTLM-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+Inhabilita NTLM v2 para plataformas POSIX, sin efecto en otro lugar.
 
 ### --disable-http-cache
 
@@ -71,6 +71,12 @@ Escribe registros de Chromium en la consola.
 
 Esta opción no puede ser usada en `app.commandLine.appendSwitch` ya que es procesada antes que la app del usuario es cargada, pero puedes establecer la variable de entorno `ELECTRON_ENABLE_LOGGING` para lograr el mismo efecto.
 
+## --force-fieldtrials=`trials`
+
+Las pruebas de campo se habilitan o deshabilitan por la fuerza.
+
+Por ejemplo: `WebRTC-Audio-Red-For-Opus/Enabled/`
+
 ### --host-rules=`rules`
 
 Lista de `rules` separadas por coma que controlan como los nombres de host son mapeados.
@@ -79,7 +85,7 @@ Por ejemplo:
 
 * `MAP * 127.0.0.1` Fuerza todos los nombres de host a ser mapeados a 127.0.0.1
 * `MAP *.google.com proxy` Fuerza todos los subdominios google.com a ser resueltos como "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP test.com [::1]:77` obliga a "test.com" a resolver el loopback de IPv6. También obligará al puerto de la dirección de socket resultante a ser 77.
 * `MAP * baz, EXCLUDE www.google.com` Mapeara todo a "baz", excepto para "www.google.com".
 
 Estos mapeados aplican al host punto final en una petición de red (la conexión TCP y el host se solventan en una conexión directa, `CONNECT` en una conexión HTTP proxy, y el host punto fila en una conexión proxy `SOCKS`).
@@ -104,7 +110,7 @@ Specifies the flags passed to the Node.js engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que se refieren específicamente al motor Node.js's V8 JavaScript.
+Vea la [Documentación de Node.js][node-cli] o ejecute `node --help` en su terminal para una lista de las opciones disponibles. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que se refieren específicamente al motor Node.js's V8 JavaScript.
 
 ### --lang
 
@@ -171,33 +177,33 @@ Force using integrated GPU when there are multiple GPUs available.
 
 ## Banderas Node.js
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+Electron soporta algunas de las [CLI flags][node-cli] soportadas por Node.js.
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
-### --inspect-brk[=[host:]port]
+### --Inspect-BRK [= [host:] Puerto]
 
 Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
-### --inspect-port=[host:]port
+### --Inspect-Port = [host:] Puerto
 
 Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
-### --inspect[=[host:]port]
+### --Inspect [= [host:] Port]
 
 Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
-See the [Debugging the Main Process][debugging-main-process] guide for more details.
+Vea la guía de [Debugging the Main Process][debugging-main-process] para más detalles.
 
 Aliased to `--debug[=[host:]port`.
 
-### --inspect-publish-uid=stderr,http
+### --Inspect-Publish-UID = stderr, http
 
 Specify ways of the inspector web socket url exposure.
 
