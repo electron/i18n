@@ -211,13 +211,13 @@ console.log(webFrame.getResourceUsage())
 
 戻り値 `WebFrame` - 渡された `routingId` のもの。見つからなければ `null`。
 
-### `webFrame.isWordMisspelled(word)`
+### `スペルミス(単語)`
 
 * `word` String - スペルチェックされる単語。
 
 戻り値 `Boolean` - 組み込みスペルチェッカーでスペルミスを検知した場合は true、そうでない場合は false です。 辞書が読み込まれていない場合は、常に false を返します。
 
-### `webFrame.getWordSuggestions(word)`
+### `ヒントを得る (単語)`
 
 * `word` String - スペルミスのある単語。
 
