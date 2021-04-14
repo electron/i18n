@@ -1,5 +1,5 @@
-# SharingItem Object
+# Обменitem объект
 
-* `texts` String[] (optional) - An array of text to share.
-* `filePaths` String[] (optional) - An array of files to share.
-* `urls` String[] (optional) - An array of URLs to share.
+* `texts` String ( необязательно) - массив текста для обмена.
+* `filePaths` String ( по желанию) - массив файлов для обмена.
+* `urls` String ( по желанию) - массив URL-адресов для обмена.
