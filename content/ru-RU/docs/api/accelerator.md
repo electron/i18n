@@ -12,10 +12,10 @@
 Сочетания клавиш регистрируются с помощью модуля [`globalShortcut`](global-shortcut.md), используя метод [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), т.е.
 
 ```javascript
-const { app, globalShortcut } = require('electron')
+const { app, globalShortcut } требуют ('электрон')
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+app.whenReady ()..,тогда (()-> и
+  // Зарегистрируйте слушателя ярлыка 'CommandOrControl-Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Сделайте что-нибудь, когда Y и Command/Control нажаты.
   })
