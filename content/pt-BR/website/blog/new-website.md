@@ -82,7 +82,7 @@ Nós movemos o site do electron.atom.io para um novo domínio: [electronjs.org](
 
 O Electron projeto nasceu dentro do [Atom](https://atom.io), o editor de texto open-source do GitHub construído em tecnologias web. O Electron foi originalmente chamado `atom-shell`. Atom foi o primeiro aplicativo a usá-lo, mas não demorou muito para que as pessoas percebessem que este Chromium mágico + tempo de execução do nó poderia ser usado para todos os tipos de aplicativos diferentes. Quando empresas como Microsoft e Slack começaram a usar `atom-shell`, ficou claro que o projeto precisava de um novo nome.
 
-E então nasceu o "Electron". No início de 2016, o GitHub montou uma nova equipe para se concentrar especificamente no desenvolvimento e manutenção do Electron, além do Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
+E então nasceu o "Electron". No início de 2016, o GitHub montou uma nova equipe para se concentrar especificamente no desenvolvimento e manutenção do Electron, além do Atom. Na vez desde então, a Electron foi adotada por milhares de desenvolvedores de aplicativos, e agora é dependente de muitas grandes empresas, muitas das quais têm equipes electron de próprias.
 
 Apoiar os projetos do Electron do GitHub como Atom e o [GitHub Desktop](https://desktop.github.com) ainda é uma prioridade para nossa equipe, mas avançando para um novo domínio, esperamos ajudar a esclarecer a distinção técnica entre Atom e Electron.
 
