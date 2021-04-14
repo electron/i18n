@@ -1,33 +1,33 @@
-## Class: ShareMenu
+## Klasse: ShareMenu
 
-> Create share menu on macOS.
+> Erstellen Sie das Freigabemenü unter macOS.
 
 Prozess: [Main](../glossary.md#main-process)
 
-The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
+Die `ShareMenu` -Klasse erstellt [Share Menu][share-menu] unter macOS, die verwendet werden können, um Informationen aus dem aktuellen Kontext für Apps, Social Media Konten und andere Dienste freizugeben.
 
-For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
+Um das Freigabemenü als Untermenü anderer Menüs einzuschließen, verwenden Sie bitte die `shareMenu` Rolle von [`MenuItem`](menu-item.md).
 
-### `new ShareMenu(sharingItem)`
+### `neues ShareMenu(sharingItem)`
 
-* `sharingItem` SharingItem - The item to share.
+* `sharingItem` SharingItem - Das element, das geteilt werden soll.
 
-Creates a new share menu.
+Erstellt ein neues Freigabemenü.
 
 ### Instanz Methoden
 
-The `shareMenu` object has the following instance methods:
+Das `shareMenu` -Objekt verfügt über die folgenden Instanzmethoden:
 
 #### `shareMenu.popup([options])`
 
-* `options` PopupOptions (optional)
+* `options` PopupOptionen (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` Zahl (optional) - Standard ist die aktuelle Mauscursorposition. Muss deklariert werden, wenn `y` deklariert ist.
+  * `y` Zahl (optional) - Standard ist die aktuelle Mauscursorposition. Muss deklariert werden, wenn `x` deklariert ist.
+  * `positioningItem` Zahl (optional) _macOS_ - Der Index des Menüelements, das unter dem Mauszeiger an den angegebenen Koordinaten positioniert werden soll. Der Standard ist -1.
   * `callback` Funktion (optional) - Wird aufgerufen wenn das Menü geschlossen wird.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Öffnet dieses Menü als Kontextmenü im [`BrowserWindow`](browser-window.md).
 
 #### `shareMenu.closePopup([browserWindow])`
 
