@@ -15,48 +15,48 @@
 返回:
 
 * `event` Event
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` 交易[]- [`Transaction`](structures/transaction.md) 对象阵列。
 
 ## 方法
 
 `inAppPurchase` 模块包含以下方法：
 
-### `inAppPurchase.purchaseProduct(productID[, quantity])`
+### `购买产品（产品ID[，数量]）`
 
 * `productID` String - 预付款商品的ID (`com.example.app.product1` 的ID是 `product1`).
 * `quantity` Integer (可选) - 用户所要购买的商品数量.
 
-Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
+退货 `Promise<Boolean>` - 如果产品有效并添加到付款队列中，则返回 `true` 。
 
 在调用`purchaseProduct`之前，你应该尽可能快的监听`transactions-updated`事件
 
-### `inAppPurchase.getProducts(productIDs)`
+### `在应用程序购买.获取产品（产品ID）`
 
 * `productIDs` String[] - 预购商品ID
 
-Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
+返回 `Promise<Product[]>` - 用一系列 [`Product`](structures/product.md) 对象解决。
 
 检索商品的描述
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean` - whether a user can make a payment.
+退货 `Boolean` - 用户是否可以付款。
 
-### `inAppPurchase.restoreCompletedTransactions()`
+### `在App购买。恢复已完成的交易（）`
 
-Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
+恢复已完成的事务。 此方法可以称为在其他设备上安装购买，也可以为用户删除并重新安装的应用程序恢复购买。
 
-[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
+[付款队列](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) 为可恢复的每个以前完成的事务提供新交易。 每笔交易都包含原始交易的副本。
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String` - the path to the receipt.
+返回 `String` - 收据的路径。
 
-### `inAppPurchase.finishAllTransactions()`
+### `在应用程序购买。完成所有交易（）`
 
 完成所有待处理的交易
 
-### `inAppPurchase.finishTransactionByDate(date)`
+### `在App购买。完成交易日期（日期）`
 
 * `date` String - 待完成交易的ISO标准日期格式
 
