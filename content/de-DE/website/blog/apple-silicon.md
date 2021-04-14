@@ -18,7 +18,7 @@ Ab Electron 11 liefern wir separate Versionen von Electron für Intel Macs und A
 
 Sie müssen zwei Versionen Ihrer App verschicken: eine für x64 (Intel Mac) und eine für arm64 (Apple Silicon). Die gute Nachricht ist, dass [`Elektron-Packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) und [`electron-forge`](https://github.com/electron-userland/electron-forge/) unterstützt bereits die Targetierung der `arm64` Architektur. Solange Sie die aktuellste Version dieser Pakete verwenden, Ihre App sollte einwandfrei funktionieren, sobald Sie die Zielarchitektur auf `arm64` aktualisieren.
 
-In the future, we will release a package that allows you to "merge" your `arm64` and `x64` apps into a single universal binary, but it's worth noting that this binary would be _huge_ and probably isn't ideal for shipping to users.
+In Der Zukunft werden wir ein Paket veröffentlichen, mit dem Sie Ihre `arm64` und `x64` Apps in einer einzigen universellen Binärdatei "zusammenführen" können, aber es ist erwähnenswert, dass diese Binärdatei _riesige_ wäre und wahrscheinlich nicht ideal für den Versand an Benutzer ist.
 
 ## Mögliche Probleme
 
@@ -28,7 +28,7 @@ Da Sie auf eine neue Architektur abzielen, müssen Sie mehrere Abhängigkeiten a
 
 | Abhängigkeit        | Versionsvoraussetzung |
 | ------------------- | --------------------- |
-| Xcode               | `>=12.2.0`         |
+| Xcode               | `>=12,2,0`         |
 | `node-gyp`          | `>=7.1.0`          |
 | `electron-rebuild`  | `>=1.12.0`         |
 | `electron-packager` | `>=15.1.0`         |
