@@ -1,54 +1,54 @@
-# Electron Fuses
+# 电子保险丝
 
-> Package time feature toggles
+> 包装时间功能切换
 
-## What are fuses?
+## 什么是保险丝？
 
-For a subset of Electron functionality it makes sense to disable certain features for an entire application.  For example, 99% of apps don't make use of `ELECTRON_RUN_AS_NODE`, these applications want to be able to ship a binary that is incapable of using that feature.  We also don't want Electron consumers building Electron from source as that is both a massive technical challenge and has a high cost of both time and money.
+对于电子功能的子集，为整个应用程序禁用某些功能是有意义的。  例如，99% 的应用不使用 `ELECTRON_RUN_AS_NODE`，这些应用希望能够发布无法使用该功能的二进制文件。  我们也不希望电子消费者从源头上构建电子，因为这既是一个巨大的技术挑战，又具有高昂的时间和金钱成本。
 
-Fuses are the solution to this problem, at a high level they are "magic bits" in the Electron binary that can be flipped when packaging your Electron app to enable / disable certain features / restrictions.  Because they are flipped at package time before you code sign your app the OS becomes responsible for ensuring those bits aren't flipped back via OS level code signing validation (Gatekeeper / App Locker).
+保险丝是解决这个问题的解决方案，在高水平上，它们是电子二进制文件中的"神奇位"，在包装您的电子应用程序以启用/禁用某些功能/限制时可以翻转。  因为它们在代码签署应用之前在包装时间翻转，因此操作系统将负责确保这些位不会通过操作系统级别代码签名验证（看门人/应用锁）翻转回来。
 
-## How do I flip the fuses?
+## 如何翻转引信？
 
-### The easy way
+### 简单的方法
 
-We've made a handy module `@electron/fuses` to make flipping these fuses easy.  Check out the README of that module for more details on usage and potential error cases.
+我们制作了一个方便的模块 `@electron/fuses` ，使翻转这些引信变得简单。  有关使用情况和潜在错误案例的更多详细信息，请查看该模块的 README。
 
 ```js
-require('@electron/fuses').flipFuses(
-  // Path to electron
-  require('electron'),
-  // Fuses to flip
+需要（'@electron/引信）。翻转（
+  //电子
+  路径需要（"电子"），
+  //引信翻转
   {
     runAsNode: false
   }
-)
+）
 ```
 
-### The hard way
+### 艰难的道路
 
-#### Quick Glossary
+#### 快速词汇表
 
-* **Fuse Wire**: A sequence of bytes in the Electron binary used to control the fuses
-* **Sentinel**: A static known sequence of bytes you can use to locate the fuse wire
-* **Fuse Schema**: The format / allowed values for the fuse wire
+* **引信线**：电子二进制中用于控制引信的字节序列
+* **哨兵**： 一个静态的已知字节序列， 你可以用它来定位保险丝
+* **保险丝架**：引信线的格式/允许值
 
-Manually flipping fuses requires editing the Electron binary and modifying the fuse wire to be the sequence of bytes that represent the state of the fuses you want.
+手动翻转引信需要编辑电子二进制，并将引信线修改为代表您想要的引信状态的字节序列。
 
-Somewhere in the Electron binary there will be a sequence of bytes that look like this:
+在电子二进制的某处将有一系列字节看起来像这样：
 
 ```text
-| ...binary | sentinel_bytes | fuse_version | fuse_wire_length | fuse_wire | ...binary |
+|...二进制|sentinel_bytes |fuse_version |fuse_wire_length |fuse_wire |...二进制|
 ```
 
-* `sentinel_bytes` is always this exact string `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX`
-* `fuse_version` is a single byte whose unsigned integer value represents the version of the fuse schema
-* `fuse_wire_length` is a single byte whose unsigned integer value represents the number of fuses in the following fuse wire
-* `fuse_wire` is a sequence of N bytes, each byte represents a single fuse and its state.
-  * "0" (0x30) indicates the fuse is disabled
-  * "1" (0x31) indicates the fuse is enabled
-  * "r" (0x72) indicates the fuse has been removed and changing the byte to either 1 or 0 will have no effect.
+* `sentinel_bytes` 总是这个确切的字符串 `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX`
+* `fuse_version` 是一个单一的手提包，其未签名的整数值表示引信模式的版本
+* `fuse_wire_length` 是一个单一的手提包，其未签名的整数值表示以下引信线中的引信数量
+* `fuse_wire` 是一个N字节序列，每个字节代表一个导火索及其状态。
+  * "0"（0x30）表示保险丝已禁用
+  * "1"（0x31）表示导火索已启用
+  * "r"（0x72）表示保险丝已被移除，将手提包更改为 1 或 0 将不起作用。
 
-To flip a fuse you find its position in the fuse wire and change it to "0" or "1" depending on the state you'd like.
+要翻转引信，您可以在保险丝中找到其位置，并根据您希望的状态将其更改为"0"或"1"。
 
-You can view the current schema [here](https://github.com/electron/electron/blob/master/build/fuses/fuses.json).
+您可以在此处查看当前的模式 [](https://github.com/electron/electron/blob/master/build/fuses/fuses.json)。
