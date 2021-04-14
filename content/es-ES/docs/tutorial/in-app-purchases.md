@@ -28,41 +28,41 @@ Para testar las compras dentro de la App, tienes que cambiar el `CFBundleIdentif
 Aquí hay un ejemplo de como usar las compras dentro de la App en Electron. Tienes que reemplazar las IDs de los productos por los identificadores de los productos creados con iTunes Connect (el identificador de `com.example.app.product1` es `product1`). Nota que tienes que escuchar al evento `transactions-updated` tan pronto como sea posible en tu App.
 
 ```javascript
-// Proceso principal
+// Main process
 const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Escuche las transacciones tan pronto como sea posible.
+// Listen for transactions as soon as possible.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Verifica cada transacción.
+  // Check each transaction.
   transactions.forEach(function (transaction) {
-    const payment = transacción. cambio de pago
+    const payment = transaction.payment
 
-    (transacción. ransactionState) {
+    switch (transaction.transactionState) {
       case 'purchasing':
-        consola. og(`Comprando ${payment.productIdentifier}... )
+        console.log(`Purchasing ${payment.productIdentifier}...`)
         break
 
       case 'purchased': {
-        consola. og(`${payment.productIdentifier} comprado.`)
+        console.log(`${payment.productIdentifier} purchased.`)
 
-        // Obtener la url del recibo.
+        // Get the receipt url.
         const receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Envía el archivo de recibo al servidor y comprueba si es válido.
+        // Submit the receipt file to the server and check if it is valid.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // Si el recibo es válido, el producto es comprado
+        // If the receipt is valid, the product is purchased
         // ...
 
-        // Acaba la transacción.
-        inAppPurchase.finishTransactionByDate(transaction.transactionDis)
+        // Finish the transaction.
+        inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
       }
@@ -71,7 +71,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finaliza la transacción.
+        // Finish the transaction.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -91,14 +91,14 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
   })
 })
 
-// Verifica si el usuario tiene permitido realizar la compra.
+// Check if the user is allowed to make in-app purchase.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
 // Retrieve and display the product descriptions.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Verificar los parámetros.
+  // Check the parameters.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
@@ -106,14 +106,14 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
 
   // Display the name and price of each product.
   products.forEach(product => {
-    console.log(`El precio de  ${product.localizedTitle} es ${product.formattedPrice}.`)
+    console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
-  // Pregunta al usuario cual producto el/ella quiere comprar.
+  // Ask the user which product he/she wants to purchase.
   const selectedProduct = products[0]
   const selectedQuantity = 1
 
-  // Compra el producto seleccionado.
+  // Purchase the selected product.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')
