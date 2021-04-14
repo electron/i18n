@@ -4,7 +4,7 @@ author: zeke
 date: '2018-04-04'
 ---
   
-The new Electron 2.0 release line is [packed](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) with new features and fixes. Eines der Highlights dieser neuen Hauptversion ist ein neues [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) für Apple's [Mac App Store](https://support.apple.com/en-us/HT202023).
+Die neue Electron 2.0 Release-Linie ist [verpackt](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) mit neuen Funktionen und Korrekturen. Eines der Highlights dieser neuen Hauptversion ist ein neues [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) für Apple's [Mac App Store](https://support.apple.com/en-us/HT202023).
 
 ---
 
@@ -22,7 +22,7 @@ Die neue [`inAppPurchase`](https://github.com/electron/electron/blob/master/docs
 npm i -D electron@beta
 ```
 
-Die Dokumentation für die API kann [auf GitHub](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md)gefunden werden und Adrien waren so freundlich, ein Tutorial über die Verwendung der API zu schreiben. To get started adding in-app purchases to your app, [see the tutorial](https://github.com/AdrienFery/electron/blob/a69bbe882aed1a5aee2b7910afe09900275b2bf6/docs/tutorial/in-app-purchases.md).
+Die Dokumentation für die API kann [auf GitHub](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md)gefunden werden und Adrien waren so freundlich, ein Tutorial über die Verwendung der API zu schreiben. Um beginnen, Ihrer App In-App-Käufe hinzuzufügen, [sich das Tutorial](https://github.com/AdrienFery/electron/blob/a69bbe882aed1a5aee2b7910afe09900275b2bf6/docs/tutorial/in-app-purchases.md).
 
 Weitere [Verbesserungen an der API](https://github.com/electron/electron/pull/12464) sind in Arbeit und werden bald in einer kommenden Electron Beta-Version landen.
 
