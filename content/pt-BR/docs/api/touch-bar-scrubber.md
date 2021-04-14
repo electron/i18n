@@ -1,58 +1,58 @@
 ## Class: TouchBarScrubber
 
-> Create a scrubber (a scrollable selector)
+> Crie um purificador (um seletor rolável)
 
 Processo: [Main](../glossary.md#main-process)
 
-### `new TouchBarScrubber(options)`
+### `novas opções TouchBarScrubber (opções)`
 
-* `options` Object
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
-  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
-    * `selectedIndex` Integer - The index of the item the user selected.
-  * `highlight` Function (optional) - Called when the user taps any item.
-    * `highlightedIndex` Integer - The index of the item the user touched.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
-  * `continuous` Boolean (optional) - Defaults to `true`.
+* objeto `options`
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - Uma variedade de itens para colocar neste purificador.
+  * `select` Função (opcional) - Chamado quando o usuário toca em um item que não foi o último item tocado.
+    * `selectedIndex` Inteiro - O índice do item selecionado pelo usuário.
+  * `highlight` Função (opcional) - Chamado quando o usuário tocar em qualquer item.
+    * `highlightedIndex` Inteiro - O índice do item tocado pelo usuário.
+  * `selectedStyle` String (opcional) - Estilo de item selecionado. Pode ser `background`, `outline` ou `none`. Inadimplência para `none`.
+  * `overlayStyle` String (opcional) - Estilo de item de sobreposição selecionado. Pode ser `background`, `outline` ou `none`. Inadimplência para `none`.
+  * `showArrowButtons` Booleano (opcional) - Inadimplência para `false`.
+  * `mode` String (opcional) - Pode ser `fixed` ou `free`. O padrão é `free`.
+  * `continuous` Booleano (opcional) - Inadimplência para `true`.
 
 ### Propriedades de Instância
 
-The following properties are available on instances of `TouchBarScrubber`:
+As seguintes propriedades estão disponíveis em instâncias de `TouchBarScrubber`:
 
-#### `touchBarScrubber.items`
+#### `touchBarScrubber.itens`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Uma matriz `ScrubberItem[]` representando os itens deste purificador. Atualizando esse valor imediatamente atualiza o controle na barra de toque. Atualizar propriedades profundas dentro deste conjunto **não atualiza a barra de toque**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Valores possíveis:
+Um `String` representando o estilo que os itens selecionados no purificador devem ter. Atualizando esse valor imediatamente atualiza o controle na barra de toque. Valores possíveis:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `none` - Removes all styles.
+* `background` - Mapas para `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Mapas para `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `none` - Remove todos os estilos.
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Valores possíveis:
+Um `String` representando o estilo que os itens selecionados no purificador devem ter. Este estilo é sobreposto em cima do item de esfregador em vez de ser colocado atrás dele. A atualização deste valor atualiza imediatamente o controle na barra de toque . Valores possíveis:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `none` - Removes all styles.
+* `background` - Mapas para `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Mapas para `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `none` - Remove todos os estilos.
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+Um `Boolean` representando se deve mostrar as setas de seleção esquerda/direita neste esfregador. Atualizando esse valor atualiza imediatamente o controle na barra de toque.
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Valores possíveis:
+Um `String` representando o modo deste purificador. Atualizando esse valor imediatamente atualiza o controle na barra de toque. Valores possíveis:
 
-* `fixed` - Maps to `NSScrubberModeFixed`.
-* `free` - Maps to `NSScrubberModeFree`.
+* `fixed` - Mapas para `NSScrubberModeFixed`.
+* `free` - Mapas para `NSScrubberModeFree`.
 
-#### `touchBarScrubber.continuous`
+#### `touchBarScrubber.contínuo`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+Um `Boolean` representando se este esfregador é contínuo ou não. Atualizando esse valor imediatamente atualiza o controle na barra de toque.
