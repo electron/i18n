@@ -1,58 +1,58 @@
-## Class: TouchBarScrubber
+## Класс: TouchBarScrubber
 
-> Create a scrubber (a scrollable selector)
+> Создание скруббера (прокрутки селектора)
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `new TouchBarScrubber(options)`
+### `новый TouchBarScrubber (варианты)`
 
 * `options` Object
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
-  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
-    * `selectedIndex` Integer - The index of the item the user selected.
-  * `highlight` Function (optional) - Called when the user taps any item.
-    * `highlightedIndex` Integer - The index of the item the user touched.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
-  * `continuous` Boolean (optional) - Defaults to `true`.
+  * `items` [ScrubberItem](structures/scrubber-item.md) - массив элементов для места в этом скруббере.
+  * `select` (необязательно) - Вызывается, когда пользователь нажимает на элемент, который не был последним прослушиваемым элементом.
+    * `selectedIndex` Integer - Индекс выбранного пользователем элемента.
+  * `highlight` (необязательно) - Вызывается, когда пользователь нажимает любой элемент.
+    * `highlightedIndex` Integer - Индекс товара, к который прикоснулся пользователь.
+  * `selectedStyle` String (по желанию) - Выбранный стиль элемента. Может быть `background`, `outline` или `none`. По умолчанию `none`.
+  * `overlayStyle` String (необязательно) - Выбранный стиль элемента наложения. Может быть `background`, `outline` или `none`. По умолчанию `none`.
+  * `showArrowButtons` Boolean (по желанию) - По умолчанию `false`.
+  * `mode` строка (по желанию) - может быть `fixed` или `free`. По умолчанию `free`.
+  * `continuous` Boolean (по желанию) - По умолчанию `true`.
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarScrubber`:
+Следующие свойства доступны на экземплярах `TouchBarScrubber`:
 
 #### `touchBarScrubber.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Массив `ScrubberItem[]` , представляющий элементы в этом скруббере. Обновление этого значения обновляет элемент управления в сенсорной панели. Обновление глубоких свойств внутри этого массива **не обновляет сенсорную**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Возможные значения:
+Элемент `String` представляющий стиль, который должны иметь выбранные элементы в скруббере. Обновление этого значения обновляет элемент управления в сенсорной панели. Возможные значения:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `none` - Removes all styles.
+* `background` - Карты `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Карты `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `none` - Удаляет все стили.
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Возможные значения:
+Элемент `String` представляющий стиль, который должны иметь выбранные элементы в скруббере. Этот стиль накладывается поверх элемента скруббера вместо того, чтобы быть помещенным позади него. Обновление этого значения немедленно обновляет элемент управления в сенсорной панели. Возможные значения:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `none` - Removes all styles.
+* `background` - Карты `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Карты `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `none` - Удаляет все стили.
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+В `Boolean` , представляющий, показывать ли стрелки левого/правого выбора в этом скруббере. Обновление этого значения немедленно обновляет элемент управления в сенсорной панели.
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Возможные значения:
+В `String` , представляющий режим этого скруббера. Обновление этого значения обновляет элемент управления в сенсорной панели. Возможные значения:
 
-* `fixed` - Maps to `NSScrubberModeFixed`.
-* `free` - Maps to `NSScrubberModeFree`.
+* `fixed` - Карты `NSScrubberModeFixed`.
+* `free` - Карты `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+В `Boolean` , является ли этот скруббер непрерывным или нет. Обновление этого значения обновляет элемент управления в сенсорной панели.
