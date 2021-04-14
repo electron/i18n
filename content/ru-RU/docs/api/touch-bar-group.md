@@ -1,10 +1,10 @@
-## Class: TouchBarGroup
+## Класс: TouchBarGroup
 
-> Create a group in the touch bar for native macOS applications
+> Создание группы в сенсорной панели для родных приложений macOS
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `new TouchBarGroup(options)`
+### `новый TouchBarGroup (варианты)`
 
 * `options` Object
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+  * `items` [TouchBar](touch-bar.md) - Элементы для отображения в группе.
