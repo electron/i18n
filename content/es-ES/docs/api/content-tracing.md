@@ -34,7 +34,7 @@ Devuelve `Promise<String[]>` - resuelve con un array de grupos de categorías un
 
 Obtenga un conjunto de grupos de categorías. La categoría de grupos puede cambiar a medida que se alcanza nuevas rutas de código. Ver también [lista de categorías de seguimiento integradas](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
-> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
+> **Nota:** Electron agrega una categoría de traza no predeterminada llamada `"electron"`. Esta categoría se puede usar para capturar eventos de rastreo específicos de electrones.
 
 ### `contentTracing.startRecording(options)`
 
@@ -48,7 +48,7 @@ La grabación se inicia de manera inmediata de forma local y asincrónica en los
 
 Si una grabación ya está corriendo, la promesa será inmediatamente resulta, ya que sólo un operación de seguimiento puede estar en progrese a la vez.
 
-### `contentTracing.stopRecording([resultFilePath])`
+### `contentTracing. stopRecording ([resultFilePath])`
 
 * `resultFilePath` String (opcional)
 
