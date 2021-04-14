@@ -328,7 +328,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
+  * `reason` 文字列 - レンダリングプロセスがなくなった理由。  取りうる値:
     * `clean-exit` - ゼロの終了コードでプロセスが終了した
     * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
     * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
@@ -747,6 +747,8 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 **注:** ユーザはカスタムカテゴリからアイテムを削除できますが、Windows では次の `app.setJumpList(categories)` の呼び出しが成功した **後** でないと、削除されたアイテムをカスタムカテゴリに追加し直すことができません。 それより早くカスタムカテゴリに削除されたアイテムを再度追加しようとすると、ジャンプリストからカスタムカテゴリ全体が外れてしまいます。 削除されたアイテムのリストは、`app.getJumpListSettings()` を使って取得できます。
 
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+
 カスタムジャンプリストを作成する非常に簡単な例は以下の通りです。
 
 ```javascript
@@ -867,11 +869,11 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` _macOS_
 
-現在の[ハンドオフ][handoff]ユーザアクティビティを無効にします。
+現在の [ハンドオフ][handoff] ユーザアクティビティを無効にします。
 
 ### `app.resignCurrentActivity()` _macOS_
 
-現在の [ハンドオフ][handoff] ユーザーアクティビティを、無効にせずに非アクティブにします。
+現在の [ハンドオフ][handoff] ユーザーアクティビティを、無効にせずに不活性化します。
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
@@ -884,7 +886,7 @@ if (!gotTheLock) {
 
 * `id` String
 
-[アプリケーションユーザモデルID][app-user-model-id]を `id` に変更します。
+[アプリケーションユーザモデル ID][app-user-model-id] を `id` に変更します。
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
@@ -916,7 +918,7 @@ if (!gotTheLock) {
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はその振る舞いを無効にします。
+既定では、GPU プロセスがあまりに頻繁にクラッシュする場合、ドメイン単位の原則に基づき、再起動するまで Chromium は 3D API (例えばWebGL) を無効にします。 この関数はこの振る舞いを無効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
@@ -1069,7 +1071,7 @@ app.setLoginItemSettings({
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (任意) _Linux_ _Windows_ - JPEGまたはPNGフォーッマットの、アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
 
-Aboutパネルのオプションを設定します。 macOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 macOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細は [Apple のドキュメント][about-panel-options] を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 `credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 
