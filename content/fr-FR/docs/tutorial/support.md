@@ -58,7 +58,7 @@ Les plateformes suivantes sont prises en charge par Electron :
 
 ### macOS
 
-Seul les binaires 64bit sont fournit pour macOs, et la version minimale de macOs supportée est macOS 10.10 (Yosemite).
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.11 (El Capitan).
 
 Le support natif des appareils Apple Silicon (`arm64`) a été ajouté dans Electron 11.0.0.
 
@@ -70,7 +70,7 @@ Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+Les binaires préconstruits d’Electron sont construits sur Ubuntu 18.04.
 
 Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 18.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
