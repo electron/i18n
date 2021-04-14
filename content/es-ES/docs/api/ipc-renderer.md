@@ -28,7 +28,7 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Agrega una función de `listener` una vez para el evento. Este `listener` se invoca solo la próxima vez que se envíe un mensaje a `channel`, después del cual se elimina.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
@@ -44,12 +44,12 @@ Elimina el `listener` especificado del arreglo del oyente para el `channel` espe
 
 Elimina todos los oyentes, o aquellos del `channel` especificado.
 
-### `ipcRenderer.send(channel, ...args)`
+### `ipcRenderer. Send (Channel,... args`
 
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al main process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al main process a través de `channel`, junto con los argumentos. Los argumentos se serializan con el [clon estructurado algoritmo][SCA], al igual que [`window.postMessage`][], por lo que las cadenas de prototipos no se incluirán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -57,18 +57,18 @@ Envía un mensaje asíncrono al main process a través de `channel`, junto con l
 
 El main process maneja esto escuchando por `channel` con el módulo [`ipcMain`](ipc-main.md).
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+Si necesitas transferir una [`MessagePort`][] al proceso principal, usa [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-If you want to receive a single response from the main process, like the result of a method call, consider using [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
+Si quieres recibir una respuesta única del proceso principal, como el resultado de una llamada al método, considera usar [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
 
-### `ipcRenderer.invoke(channel, ...args)`
+### `ipcRenderer. Invoke (Channel,... args`
 
 * `channel` Cadena
 * `...args` any[]
 
 Devuelve `Promise<any>` - Resuelve con la respuesta desde el main process.
 
-Envía un mensaje al main process a través de `channel` y espera un resultado asíncrono. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje al main process a través de `channel` y espera un resultado asíncrono. Los argumentos se serializan con el [clon estructurado algoritmo][SCA], al igual que [`window.postMessage`][], por lo que las cadenas de prototipos no se incluirán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -91,18 +91,18 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 })
 ```
 
-If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+Si necesitas transferir una [`MessagePort`][] al proceso principal, usa [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-If you do not need a response to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+Si no necesitas una respuesta al mensaje, considera usar [`ipcRenderer.send`](#ipcrenderersendchannel-args).
 
-### `ipcRenderer.sendSync(channel, ...args)`
+### `ipcRenderer. sendSync (Channel,... args`
 
 * `channel` Cadena
 * `...args` any[]
 
 Devuelve `any` - El valor enviado de vuelta por el controlador [`ipcMain`](ipc-main.md).
 
-Envía un mensaje al main process a través de `channel` y expera un resultado sincrónicamente. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje al main process a través de `channel` y expera un resultado sincrónicamente. Los argumentos se serializan con el [clon estructurado algoritmo][SCA], al igual que [`window.postMessage`][], por lo que las cadenas de prototipos no se incluirán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -110,17 +110,17 @@ Envía un mensaje al main process a través de `channel` y expera un resultado s
 
 El processo principal lo controlo por escuchar `channel` con el módulo [`ipcMain`](ipc-main.md), y contesta configurando `event.returnValue`.
 
-> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. Es mucho mejor usar la versión asincróna [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+> :warning: **ADVERTENCIA**: enviar un mensaje sincrónico bloqueará todo el proceso del representador de hasta que se reciba la respuesta, por lo que usar este método solo como último recurso . Es mucho mejor usar la versión asincróna [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
-### `ipcRenderer.postMessage(channel, message, [transfer])`
+### `ipcRenderer. postMessage (canal, mensaje, [transfer])`
 
 * `channel` Cadena
 * `mensaje` cualquiera
-* `transfer` MessagePort[] (optional)
+* `transfer` MessagePort [] (opcional)
 
-Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
+Enviar un mensaje al proceso principal, de manera opcional, transferir la propiedad de cero o más [`MessagePort`][] objetos.
 
-The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
+Los objetos `MessagePort` transferidos estarán disponibles en el proceso principal como [`MessagePortMain`](message-port-main.md) objetos al acceder a la propiedad `ports` del evento emitido.
 
 Por ejemplo:
 
@@ -138,7 +138,7 @@ ipcMain.on('port', (e, msg) => {
 
 Para más información sobre el uso de `MessagePort` y `MessageChannel`, vea la [Documentación MDN](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
 
-### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
+### `ipcRenderer. sendTo (webContentsId, Channel,... args`
 
 * `webContentsId` Number
 * `channel` Cadena
@@ -146,7 +146,7 @@ Para más información sobre el uso de `MessagePort` y `MessageChannel`, vea la 
 
 Envía un mensaje a la ventana con `webContentsId` a través de `channel`.
 
-### `ipcRenderer.sendToHost(channel, ...args)`
+### `ipcRenderer. sendToHost (Channel,... args`
 
 * `channel` Cadena
 * `...args` any[]
