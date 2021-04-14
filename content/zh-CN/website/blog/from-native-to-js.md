@@ -58,9 +58,9 @@ mate::ObjectTemplateBuilder(隔离, 原型->原型模板())
 此 JavaScript 对应于：
 
 ```js
-function App{}
-App.prototype.getGPUInfo = function () {
-  // implementation here
+功能应用程序{}
+应用程序。原型。getGPU信息=函数（）{
+  //实现在这里
 }
 ```
 
