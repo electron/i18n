@@ -29,19 +29,19 @@ Empaquetez l’application à l’aide de [electron-packager][electron-packager]
 La sortie devrait ressembler à peu près à ceci :
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+ンン―― Ghost.exe
+ンン―― LICENCE
+ンン―― content_resources_200_percent.pak
+ン―― content_shell.pak
+ン―― d3dcompiler_47.dll
+ンン―― ffmpeg.dll
+―― icud.dat
+libEGL.dll
+ン―― libGLESv2.dll
+ [...]
+
+
+
 ── node.dll
 ── resources
 文<unk> ─ app.asar
