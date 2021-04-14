@@ -11,7 +11,7 @@ Para implementar esta característica en tu aplicación, necesitas llamar a [`we
 Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-start.md), agregue las siguientes líneas al archivo `index.html`:
 
 ```html
-<a href="#" id="drag">Arrastra me</a>
+<a href="#" id="drag">Drag me</a>
 <script src="renderer.js"></script>
 ```
 
