@@ -32,7 +32,7 @@ Ejemplo:
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Las opciones no respaldadas son:
+Las opciones no soportadas son:
 
 ```sh
 --use-bundled-ca
@@ -59,11 +59,11 @@ process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
 
 Por defecto, una clave API de Google recientemente generada podría no tener permitido hacer solicitudes de geolocalización. Para habilitar el servicio web de geolocalización para su proyecto, habilítelo a través de la [API library](https://console.cloud.google.com/apis/library).
 
-N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
+Nota. Deberás agregar una [cuenta de facturación](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) al proyecto asociado a la clave de API para que funcione el servicio Web de geolocalización.
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Inhabilita el soporte de ASAR. Esta variable solo se admite en procesos hijo bifurcados y en los procesos hijo engendrados que establecen `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
@@ -77,7 +77,7 @@ En este modo, podrás ser capaz de pasar [opciones cli](https://nodejs.org/api/c
 * "--force-fips"
 * "--enable-fips"
 
-These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+Estas banderas están inhabilitadas debido al hecho de que Electron usa BoringSSL en lugar de OpenSSL cuando construye el módulo `crypto` node. js, por lo que no funcionará como se diseñó.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
@@ -89,7 +89,7 @@ No utilizar la barra de menú global en Linux.
 
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. Default is `gio`.
+Configura la implementación de la papelera en Linux. El valor predeterminado es `gio`.
 
 Options:
 
@@ -108,7 +108,7 @@ Imprime el registro interno de Chrome a la consola.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Cuando las lecturas de electrones de un archivo ASAR, registra el desplazamiento de lectura y la ruta del archivo para la `tmpdir`del sistema. El archivo resultante se puede proporcionar al módulo de ASAR para optimizar la ordenación del archivo.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -127,7 +127,7 @@ Esta variable de entorno no funcionará si se inicia el `crashReporter`.
 Cuando corre desde el paquete `electron`, esta variable dice al comando `electron` para usar la instancia especificada del constructor de Electron en lugar de uno descargado por `npm install`. Uso:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
+exportar ELECTRON_OVERRIDE_DIST_PATH =/Users/username/projects/electron/out/Testing
 ```
 
 ## Establecido por Electron
