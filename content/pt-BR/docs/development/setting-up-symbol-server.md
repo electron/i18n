@@ -1,34 +1,34 @@
-# Setting Up Symbol Server in Debugger
+# Configuração do servidor símbolo em Debugger
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
+Os símbolos de depuração permitem que você tenha sessões de depuração melhores. Eles têm informações sobre as funções contidas em executáveis e bibliotecas dinâmicas e fornecem informações você para obter pilhas de chamadas limpas. Um servidor símbolo permite que o depurador de carregue os símbolos, binários e fontes corretos automaticamente sem forçando os usuários a baixar arquivos de depuração grandes. O servidor funciona como [servidor símbolo da Microsoft](https://support.microsoft.com/kb/311503) para que a documentação possa ser útil.
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Note que, como as construções eletrônicas liberadas são fortemente otimizadas, a depuração é nem sempre fácil. O depurador não será capaz de mostrar o conteúdo de todas as variáveis e o caminho de execução pode parecer estranho por causa de inlining, chamadas de cauda e outras otimizações de compiladores. A única solução alternativa é construir uma construção local não otimizada.
 
-The official symbol server URL for Electron is https://symbols.electronjs.org. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+A URL oficial do servidor de símbolos para Electron está https://symbols.electronjs.org. Você não pode visitar esta URL diretamente, você deve adicioná-la ao caminho símbolo da sua ferramenta de depuração de . Nos exemplos abaixo, um diretório de cache local é usado para evitar buscar repetidamente o PDB do servidor. Substitua `c:\code\symbols` por um diretório de cache apropriado na sua máquina.
 
-## Using the Symbol Server in Windbg
+## Usando o servidor símbolo em Windbg
 
-The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+O caminho do símbolo Windbg é configurado com um valor de string delimitado com caracteres asterisco. Para usar apenas o servidor símbolo Electron, adicione a seguinte entrada ao seu caminho de símbolo (**Nota:** você pode substituir `c:\code\symbols` por qualquer diretório de gravável no seu computador, se preferir um local diferente para símbolos de baixados):
 
 ```powershell
 SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Defina esta sequência como `_NT_SYMBOL_PATH` no ambiente, usando os menus Windbg, ou digitando o comando `.sympath` . Se você quiser obter símbolos de servidor símbolo da Microsoft também, você deve listar primeiro:
 
 ```powershell
 SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://symbols.electronjs.org
 ```
 
-## Using the symbol server in Visual Studio
+## Usando o servidor símbolo no Visual Studio
 
-![Tools -> Options](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Symbols Settings](https://mdn.mozillademos.org/files/2497/2005_options.gif)
+![Opções de > ferramentas](https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg) ![Configurações de símbolos](https://mdn.mozillademos.org/files/2497/2005_options.gif)
 
-## Troubleshooting: Symbols will not load
+## Solução de problemas: Símbolos não carregarão
 
-Type the following commands in Windbg to print why symbols are not loading:
+Digite os seguintes comandos no Windbg para imprimir por que os símbolos não estão carregando:
 
 ```powershell
-> !sym noisy
-> .reload /f electron.exe
+> !sym barulhento
+> .recarregar /f elétron.exe
 ```
