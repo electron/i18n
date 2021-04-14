@@ -2,7 +2,7 @@
 
 > 通过 `app.getLocale()`来获取本地值
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+电子使用铬的 `l10n_util` 库来获取本地。 以下列出了可能 值：
 
 | 语言码    | 语言名称        |
 | ------ | ----------- |
