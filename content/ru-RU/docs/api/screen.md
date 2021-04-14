@@ -13,37 +13,37 @@
 An example of creating a window that fills the whole screen:
 
 ```javascript fiddle='docs/fiddles/screen/fit-screen'
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } требуют ('электрон')
 
-let win
-app.whenReady().then(() => {
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
-})
+препятствуйте выиграть
+app.whenReady ().)после этого ((()>
+  const { width, height } и screen.getPrimaryDisplay ().workAreaSize
+  выиграть - новый BrowserWindow ({ width, height })
+  win.loadURL ('https://github.com')
+)
 ```
 
 Другой пример создания окна на внешнем дисплее:
 
 ```javascript
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } - требуют ('электрон')
 
-let win
+пусть выигрывают
 
-app.whenReady().then(() => {
-  const displays = screen.getAllDisplays()
-  const externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
+app.whenReady ()..,тогда (()) -> -
+  const отображает - screen.getAllDisplays()
+  const externalDisplay - displays.find (((дисплей) ->
+    обратный display.bounds.x ! 0 || display.bounds.y ! 0
+  q)
 
-  if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
-    })
-    win.loadURL('https://github.com')
-  }
-})
+  если (внешнийDisplay) -
+    win - новый BrowserWindow (no
+      x: externalDisplay.bounds.x, 50,
+      y: externalDisplay.bounds.y 50
+    q)
+    win.loadURL ('https://github.com')
+
+)
 ```
 
 ## События
