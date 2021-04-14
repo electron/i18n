@@ -16,11 +16,11 @@
 
 * `menu` Menu | null
 
-Устанавливает `меню` в качестве меню приложения на macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Устанавливает `меню` в качестве меню приложения на macOS. На Windows и Linux, `menu` будет установлен в качестве верхнего меню каждого окна.
 
 Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. Указанный символ в названии кнопки будет подчеркнут. Символ `&` не отображается в названии кнопки.
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+Прохождение `null` будет подавлять меню по умолчанию. На Windows и Linux это имеет дополнительный эффект удаления бара меню из окна.
 
 **Примечание:** Меню по умолчанию будет создано автоматически, если приложение не установит его. Он содержит стандартные элементы, такие как `Файл`, `Редактировать`, `Вид`, `Окно` и `Помощь`.
 
@@ -44,7 +44,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 Возвращает `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Как правило, `template` представляет 500 `options` для построения [MenuItem](menu-item.md). На использование можно ссылаться выше.
 
 Вы также можете прикрепить другие поля к элементу `template` и они станут свойствами элементов созданного меню.
 
@@ -56,9 +56,9 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 * `options` Object (опционально)
   * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `x` (необязательно) - по умолчанию текущее положение курсора мыши. Должно быть объявлено, `y` объявлено.
+  * `y` (необязательно) - по умолчанию текущее положение курсора мыши. Должно быть объявлено, `x` объявлено.
+  * `positioningItem` (необязательно) _macOS_ - Индекс пункта меню для может быть расположен под курсором мыши в указанных координатах. Значение по умолчанию -1.
   * `callback` Функция (опционально) - вызывается, когда меню закрыто.
 
 Переключает это меню в контекстное меню в [`BrowserWindow`](browser-window.md).
@@ -122,7 +122,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 ## Примеры
 
-An example of creating the application menu with the simple template API:
+Пример создания меню приложений с помощью простого API шаблона:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -162,29 +162,29 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      ...(isMac ? [
+      ...(isMac ? 
         { role: 'pasteAndMatchStyle' },
         { role: 'delete' },
         { role: 'selectAll' },
         { type: 'separator' },
-        {
-          label: 'Speech',
-          submenu: [
+        и
+          : «Речь»,
+          субмену:
             { role: 'startSpeaking' },
             { role: 'stopSpeaking' }
-          ]
-        }
-      ] : [
+
+
+      :
         { role: 'delete' },
         { type: 'separator' },
         { role: 'selectAll' }
-      ])
-    ]
-  },
+      )
+    ,
+  ,
   // { role: 'viewMenu' }
-  {
-    label: 'View',
-    submenu: [
+
+    метка: "Вид",
+    submenu:
       { role: 'reload' },
       { role: 'forceReload' },
       { role: 'toggleDevTools' },
@@ -194,15 +194,15 @@ const template = [
       { role: 'zoomOut' },
       { type: 'separator' },
       { role: 'togglefullscreen' }
-    ]
-  },
+    ,
+  ,
   // { role: 'windowMenu' }
-  {
-    label: 'Window',
-    submenu: [
+
+    этикетка: "Окно",
+    submenu:
       { role: 'minimize' },
       { role: 'zoom' },
-      ...(isMac ? [
+      ... (isMac ? [
         { type: 'separator' },
         { role: 'front' },
         { type: 'separator' },
@@ -232,39 +232,39 @@ Menu.setApplicationMenu(menu)
 
 ### Графический процесс
 
-To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
+Для создания меню, инициированного процессом рендерера, отправьте необходимую информацию в основной процесс с помощью IPC и отправьте основной процесс отображения меню от имени рендерера.
 
-Below is an example of showing a menu when the user right clicks the page:
+Ниже приведен пример отображения меню, когда пользователь право нажимает на страницу:
 
 ```js
-// renderer
-window.addEventListener('contextmenu', (e) => {
+рендерер
+window.addEventListener ('contextmenu', (e) -> -
   e.preventDefault()
-  ipcRenderer.send('show-context-menu')
-})
+  ipcRenderer.send ('show-context-menu')
+q)
 
-ipcRenderer.on('context-menu-command', (e, command) => {
+ipcRenderer.on ('context-menu-command', (например, команда) ->
   // ...
-})
+В)
 
-// main
-ipcMain.on('show-context-menu', (event) => {
-  const template = [
-    {
-      label: 'Menu Item 1',
-      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
-    },
+// главный
+ipcMain.on ('шоу-контекст-меню', (событие) -> -
+  шаблон const ,
+    -
+      метка: 'Menu Item 1',
+      нажмите: () -> - event.sender.send ('контекст-меню-команда', 'меню-элемент-1') -
+    ,
     { type: 'separator' },
     { label: 'Menu Item 2', type: 'checkbox', checked: true }
-  ]
-  const menu = Menu.buildFromTemplate(template)
+  -
+  const menu.buildFromTemplate (шаблон)
   menu.popup(BrowserWindow.fromWebContents(event.sender))
-})
+)
 ```
 
 ## Замечания о меню приложения в macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS имеет совершенно другой стиль меню приложений от Windows и Linux. Вот несколько заметок о том, как сделать меню вашего приложения более родным.
 
 ### Стандартные меню
 
