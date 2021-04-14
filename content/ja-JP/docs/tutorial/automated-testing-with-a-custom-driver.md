@@ -5,17 +5,17 @@ Electron アプリの自動テストを作成するには、アプリケーシ�
 カスタムドライバを作成するには、Node.js の [child_process](https://nodejs.org/api/child_process.html) API を使用します。 テストスイートは、以下のように Electron プロセスを spawn してから、簡単なメッセージングプロトコルを確立します。
 
 ```js
-const childProcess = require('child_process')
-const electronPath = require('electron')
+constプロセス = child_process
+コンスト電子パス = 必要 ('電子')
 
-// spawn the process
-const env = { /* ... */ }
-const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+/
+/ コンスト env = { /*
+. '継承'、'継承'、'ipc']
+コンストプロセス = childProcess.spawn(電子パス、'/app', { stdio, env })
 
-// listen for IPC messages from the app
-appProcess.on('message', (msg) => {
-  // ...
+// アプリ
+appProcess.on('message')、(メッセージ) => {
+  // .
 })
 
 // アプリへ IPC メッセージを送る
@@ -39,46 +39,46 @@ process.send({ my: 'message' })
 利便性のために、より高度な機能を提供するドライバオブジェクトで `appProcess` をラップすることをお勧めします。 以下は、これをどのようにするかの例です。
 
 ```js
-class TestDriver {
-  constructor ({ path, args, env }) {
+クラス TestDriver {
+  コンストラクター ({ path, args, env }) {
     this.rpcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
-    this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
+    子プロセスを開始します
+    env。APP_TEST_DRIVER = 1 // this.process = childProcess.spawn(パス、args、{stdio: [継承する]、[継承する'、'継承'、"
+    メッセージをリッスンする必要があることをアプリに知らせます。 'ipc']、env })
 
-    // handle rpc responses
-    this.process.on('message', (message) => {
-      // pop the handler
-      const rpcCall = this.rpcCalls[message.msgId]
-      if (!rpcCall) return
-      this.rpcCalls[message.msgId] = null
-      // reject/resolve
-      if (message.reject) rpcCall.reject(message.reject)
-      else rpcCall.resolve(message.resolve)
-    })
+    // rpc 応答
+    this.process.on('message') => {
+      // const rpcCall = this.rpcCall
+[message.msgId]
+      (rpc[message.msgId] Call) が   場合
+      は 、=null
+      // 拒否/解決
+      (メッセージ) .reject) rpcCall.reject (message.reject)
+      他の rpcCall.resolve(message.resolve)
+    }
 
-    // wait for ready
-    this.isReady = this.rpc('isReady').catch((err) => {
-      console.error('Application failed to start', err)
-      this.stop()
-      process.exit(1)
-    })
-  }
+    //
+    //
+    準備完了を待ちます 。.isReady = this.rpc('isReady').catch((> ) =
+      コンソール.エラー('アプリケーションが開始できませんでした)、
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
-  async rpc (cmd, ...args) {
-    // send rpc request
-    const msgId = this.rpcCalls.length
+  プロセスを
+      this.stop
+      (1)
+  
+  ): ドライバー.rpc('メソッド', 1, 2, 3).その後().
+  非同期 rpc (cmd, ..args) {
+    // rpc 要求
+    msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
-    return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
-  }
+    返す新しい約束 (((解決、拒否){ resolve, reject }> =
 
-  stop () {
-    this.process.kill()
+    
+
+  終了 )  終了 ( this.process.kill()
   }
-}
+} }
 ```
 
 このアプリでは、RPC 呼び出しのために簡単なハンドラを作成する必要があります。
