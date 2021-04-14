@@ -1,91 +1,91 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Erkennen Sie Tastaturereignisse, wenn die Anwendung nicht über einen Tastaturfokus verfügt.
 
 Prozess: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+Das `globalShortcut` Modul kann eine globale Tastenkombination beim Betriebssystem registrieren/aufheben, sodass Sie die Vorgänge für verschiedene -Verknüpfungen anpassen können.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. This module cannot be used before the `ready` event of the app module is emitted.
+**Hinweis:** Die Verknüpfung ist global; Es funktioniert auch dann, wenn die App nicht über den Tastaturfokus verfügt. Dieses Modul kann nicht verwendet werden, bevor das `ready` Ereignis des App-Moduls ausgesendet wird.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
-  })
+app.whenReady().then()=> '
+  * Registrieren Sie einen 'CommandOrControl+X'-Shortcut-Listener.
+  const ret = globalShortcut.register('CommandOrControl+X', () => '
+    console.log('CommandOrControl+X'
+  ')
 
-  if (!ret) {
-    console.log('registration failed')
-  }
+  wenn (!ret) -
+    Konsole.log('Registrierung fehlgeschlagen')
+  '
 
-  // Check whether a shortcut is registered.
+  / überprüfen Sie, ob eine Verknüpfung registriert ist.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
-})
+')
 
-app.on('will-quit', () => {
-  // Unregister a shortcut.
+app.on('will-quit', () => '
+  /
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  / Alle Verknüpfungen aufheben.
   globalShortcut.unregisterAll()
-})
+)
 ```
 
 ## Methoden
 
-The `globalShortcut` module has the following methods:
+Das `globalShortcut` Modul verfügt über die folgenden Methoden:
 
-### `globalShortcut.register(accelerator, callback)`
+### `globalShortcut.register(Beschleuniger, Rückruf)`
 
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+Gibt `Boolean` zurück : Gibt an, ob die Verknüpfung erfolgreich registriert wurde.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Registriert eine globale Verknüpfung von `accelerator`. Der `callback` wird aufgerufen, wenn die registrierte Verknüpfung vom Benutzer gedrückt wird.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Wenn der Beschleuniger bereits von anderen Anwendungen übernommen wird, schlägt dieser Aufruf stillschweigend fehl. Dieses Verhalten wird von Betriebssystemen beabsichtigt, da sie nicht wollen, dass Anwendungen für globale Verknüpfungen kämpfen.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Die folgenden Beschleuniger werden nicht erfolgreich auf macOS 10.14 Mojave registriert, es sei denn, die App als [vertrauenswürdigen Zugriffsclient autorisiert wurde](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
-* "Media Play/Pause"
+* "Medienwiedergabe/Pause"
 * "Media Next Track"
-* "Media Previous Track"
-* "Media Stop"
+* "Medien vorheriger Track"
+* "Medienstopp"
 
-### `globalShortcut.registerAll(accelerators, callback)`
+### `globalShortcut.registerAll(Beschleuniger, Rückruf)`
 
-* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `accelerators` String[] - ein Array von [Accelerator](accelerator.md)s.
 * `callback` Function
 
-Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+Registriert eine globale Verknüpfung aller `accelerator` Elemente in `accelerators`. Der `callback` wird aufgerufen, wenn eine der registrierten Verknüpfungen vom Benutzer gedrückt wird.
 
-When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Wenn ein gegebener Beschleuniger bereits von anderen Anwendungen übernommen wird, schlägt dieser Aufruf stillschweigend fehl. Dieses Verhalten wird von Betriebssystemen beabsichtigt, da sie nicht wollen, dass Anwendungen für globale Verknüpfungen kämpfen.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Die folgenden Beschleuniger werden nicht erfolgreich auf macOS 10.14 Mojave registriert, es sei denn, die App als [vertrauenswürdigen Zugriffsclient autorisiert wurde](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
-* "Media Play/Pause"
+* "Medienwiedergabe/Pause"
 * "Media Next Track"
-* "Media Previous Track"
-* "Media Stop"
+* "Medien vorheriger Track"
+* "Medienstopp"
 
-### `globalShortcut.isRegistered(accelerator)`
-
-* `accelerator` [Accelerator](accelerator.md)
-
-Returns `Boolean` - Whether this application has registered `accelerator`.
-
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
-
-### `globalShortcut.unregister(accelerator)`
+### `globalShortcut.isRegistered(Beschleuniger)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Gibt `Boolean` zurück - Gibt an, ob diese Anwendung `accelerator`registriert hat.
+
+Wenn der Beschleuniger bereits von anderen Anwendungen übernommen wird, gibt dieser Aufruf immer noch `false`zurück. Dieses Verhalten wird von Betriebssystemen beabsichtigt, da sie nicht möchten, dass Anwendungen für globale Verknüpfungen kämpfen.
+
+### `globalShortcut.unregister(Beschleuniger)`
+
+* `accelerator` [Accelerator](accelerator.md)
+
+Entregistriert die globale Verknüpfung von `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Entregistriert alle globalen Verknüpfungen.
