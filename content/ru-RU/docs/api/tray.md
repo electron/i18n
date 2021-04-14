@@ -7,20 +7,20 @@
 `Tray` является [EventEmitter][event-emitter]'ом.
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } - требуют ('электрон')
 
-let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+пусть лоток - null
+app.whenReady ()...,> -
+  лоток - новый Tray ('/path/to/my/icon')
+  const contextMenu и Menu.buildFromTemplate (я
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
-  ])
-  tray.setToolTip('This is my application.')
-  tray.setContextMenu(contextMenu)
-})
+  )
+  tray.setToolTip ('Это мое приложение.')
+  tray.setContextMenu (контекстMenu)
+)
 ```
 
 __Ограничения платформ:__
@@ -29,35 +29,35 @@ __Ограничения платформ:__
 * В дистрибутивах Linux, которые поддерживают только индикаторы приложений, вы должны установите `libappindicator1`, чтобы значок в трее заработал.
 * Индикатор приложения будет отображаться только при наличии контекстного меню.
 * Когда индикатор приложения используется в Linux, событие `click` игнорируется.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Например:
+* На Linux для того, чтобы изменения, внесенные в `MenuItem`, чтобы вступят в силу, вы должны позвонить `setContextMenu` снова. Например:
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } - требуют ('электрон')
 
-let appIcon = null
-app.whenReady().then(() => {
-  appIcon = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
+пусть appIcon - null
+app.whenReady ()...,> -
+  appIcon - новый Tray ('/path/to/my/icon')
+  const contextMenu и Menu.buildFromTemplate (
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
-  ])
+  )
 
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
+  // Внести изменения в контекст меню
+  contextMenu.items[1].checked - ложные
 
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+  // Позвоните в это снова для Linux, потому что мы изменили контекстное меню
+  appIcon.setContextMenu (contextMenu)
+)
 ```
 
 * В Windows рекомендуется использовать значки `ICO` для получения лучших визуальных эффектов.
 
 Если вы хотите сохранить одинаковое поведение на всех платформах, вам не следует полагаться на событие `click` и всегда прикреплять контекстное меню к значку в трее.
 
-### `new Tray(image, [guid])`
+### `новый Tray (изображение, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
-* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
+* `guid` Строка (необязательно) _Windows_ - Присваивает GUID значку лотка. Если выполняется подпись и подпись содержит организацию в строке темы, то GUID постоянно ассоциируется с этой подписью. Настройки уровня ОС, такие как положение значка лотка в лотке системы, сохранятся, даже если путь к выполненным изменениям. Если выируемый не подписан кодом, то GUID постоянно связан с пути к исполнению. Изменение пути к исполнению нарушит создание значка лотка, и необходимо использовать новый GUID. Тем не менее, настоятельно рекомендуется использовать параметр GUID только в сочетании с подписанным кодом выполненным. Если приложение определяет несколько значков лотка, то каждый значок должен использовать отдельный GUID.
 
 Создаёт новую иконку в трее, связанную с `image`.
 
@@ -139,25 +139,25 @@ app.whenReady().then(() => {
 
 Возникает, когда операция перетаскивания заканчивается в трее или заканчивается в другом месте.
 
-#### Event: 'mouse-up' _macOS_
+#### Событие: 'мышь-вверх' _macOS_
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - позиция события.
 
-Emitted when the mouse is released from clicking the tray icon.
+Излучается при освобождении мыши от нажатия значка лотка.
 
-Note: This will not be emitted if you have set a context menu for your Tray using `tray.setContextMenu`, as a result of macOS-level constraints.
+Примечание: Это не будет излучаться, если вы установили контекстное меню для вашего Tray с `tray.setContextMenu`, в результате ограничений уровня macOS.
 
-#### Event: 'mouse-down' _macOS_
+#### Событие: "мышь вниз" _macOS_
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - позиция события.
 
-Emitted when the mouse clicks the tray icon.
+Излучается при нажатии мыши на значок лотка.
 
 #### Событие: 'mouse-enter' _macOS_
 
@@ -216,7 +216,7 @@ Emitted when the mouse clicks the tray icon.
 
 * `title` String
 * `options` Object (опционально)
-  * `fontType` String (опционально) - Вариант семейства шрифтов для отображения, может быть `моноширинным` или `цифро-моноширинным`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  По умолчанию используют системный шрифт по умолчанию.
+  * `fontType` String (опционально) - Вариант семейства шрифтов для отображения, может быть `моноширинным` или `цифро-моноширинным`. `monospaced` доступна в macOS 10.15 и `monospacedDigit` доступна в macOS 10.11 .  По умолчанию используют системный шрифт по умолчанию.
 
 Устанавливает заголовок, отображаемый рядом со значком в строке состояния (поддержка ANSI цветов).
 
@@ -228,7 +228,7 @@ Emitted when the mouse clicks the tray icon.
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Устанавливает возможность игнорировать события с двойным щелчком мыши. Игнорирование этих событий позволяет обнаружить каждый отдельный щелчок значка лотка.
 
 Значение по умолчанию установлено в значение false.
 
@@ -239,13 +239,13 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 #### `tray.displayBalloon(options)` _Windows_
 
 * `options` Object
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `icon` ([NativeImage](native-image.md) | Строка) (необязательно) - Значок для использования, `iconType` это `custom`.
+  * `iconType` String (по желанию) - может быть `none`, `info`, `warning`, `error` или `custom`. По умолчанию `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. По умолчанию - `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
-  * `noSound` Boolean (опционально) - Не проигрывать соответствующий звук. По умолчанию - `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". По умолчанию - `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
+  * `largeIcon` Boolean (по желанию) - большая версия значка должна быть использована. По умолчанию - `true`. Карты для [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (опционально) - Не проигрывать соответствующий звук. По умолчанию - `false`. Карты для [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (по желанию) - Не отображать уведомление шар, если текущий пользователь находится в "тихое время". По умолчанию - `false`. Карты для [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Отображает всплывающее сообщение в трее.
 
@@ -255,20 +255,20 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 #### `tray.focus()` _Windows_
 
-Возвращает фокус в область уведомления панели задач. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
+Возвращает фокус в область уведомления панели задач. Значки области уведомлений должны использовать это сообщение, когда они завершили свою операцию пользовательского интерфейса. Например, если значок отображает меню ярлыка, но пользователь нажимает ESC, чтобы отменить его, использовать `tray.focus()` , чтобы вернуть фокус в область уведомлений.
 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (опционально)
 * `position` [Point](structures/point.md) (опционально) - Позиция всплывающего сообщения.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Всплывает контекстное меню значка лотка. Когда `menu` будет пройдена, `menu` будет вместо контекстной меню значка лотка.
 
 `position` доступна только для Windows, и это (0, 0) по умолчанию.
 
 #### `tray.closeContextMenu()` _macOS_ _Windows_
 
-Closes an open context menu, as set by `tray.setContextMenu()`.
+Закрывает меню открытого контекста, как это `tray.setContextMenu()`.
 
 #### `tray.setContextMenu(menu)`
 
