@@ -6,7 +6,7 @@ Basierend auf Chromium, benötigt Electron einen Displaytreiber zur Funktion. We
 
 Installieren Sie zuerst [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Es ist ein virtueller Framebuffer, der das X11 Display-Server-Protokoll implementiert - es führt alle grafischen Operationen im Speicher ohne Bildschirmausgabe aus, das ist genau das, was wir brauchen.
 
-Erstelle dann einen virtuellen Xvfb-Bildschirm und exportiere eine Umgebungsvariable namens DISPLAY, die darauf verweist. Chromium in Electron sucht automatisch nach `$DISPLAY`, daher ist keine weitere Konfiguration Ihrer App erforderlich. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. Unter Windows oder macOS wird nichts tun.
+Erstelle dann einen virtuellen Xvfb-Bildschirm und exportiere eine Umgebungsvariable namens DISPLAY, die darauf verweist. Chromium in Electron sucht automatisch nach `$DISPLAY`, daher ist keine weitere Konfiguration Ihrer App erforderlich. Dieser Schritt kann mit der [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe)von Anas Betts automatisiert werden: Stellen Sie Ihren Test Befehle mit `xvfb-maybe` voran und das kleine Tool konfiguriert automatisch Xvfb, falls vom aktuellen System benötigt. Unter Windows oder macOS wird nichts tun.
 
 ```sh
 ## Unter Windows oder macOS ruft Elektron-Mocha
