@@ -29,19 +29,19 @@ Empacote a aplicação utilizando [electron-packager][electron-packager] (ou uma
 A saída deve ser algo mais ou menos assim:
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+♦➤➤ Fantasma.exe
+
+de licença content_resources_200_percent.pak
+(...".dll
+d3dcompiler_47.dll
+
+content_shell. .dat
+libEGL.dll
+libGLESv2.dll
+
+│ (..." [...]
+│
+│.
 ── node.dll
 ── resources
 ├── app.asar
