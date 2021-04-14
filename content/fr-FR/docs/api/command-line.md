@@ -1,49 +1,49 @@
-## Class: CommandLine
+## Classe: CommandLine
 
-> Manipulate the command line arguments for your app that Chromium reads
+> Manipulez les arguments de la ligne de commande pour votre application que Chromium lit
 
 Processus : [Main](../glossary.md#main-process)
 
-The following example shows how to check if the `--disable-gpu` flag is set.
+L’exemple suivant montre comment vérifier si le `--disable-gpu` est défini.
 
 ```javascript
 const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
+Pour plus d’informations sur les types de drapeaux et d’interrupteurs que vous pouvez utiliser, vérifiez les commutateurs [de ligne de commande](./command-line-switches.md) document.
 
 ### Méthodes d’instance
 
-#### `commandLine.appendSwitch(switch[, value])`
+#### `commandLine.appendSwitch(switch[, valeur])`
 
-* `switch` String - A command-line switch, without the leading `--`
-* `value` String (optional) - A value for the given switch
+* `switch` String - Un commutateur de ligne de commande, sans le leader `--`
+* `value` String (facultatif) - Une valeur pour le commutateur donné
 
-Append a switch (with optional `value`) to Chromium's command line.
+Appendez un commutateur (avec `value`) à la ligne de commande de Chrome.
 
-**Note:** Ceci n'affecte pas `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Note:** Ceci n'affecte pas `process.argv`. L’utilisation prévue de cette fonction est contrôler le comportement du Chrome.
 
-#### `commandLine.appendArgument(value)`
+#### `commandLine.appendArgument (valeur)`
 
 * `value` String - L'argument à ajouter à la ligne de commande
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Annexez un argument à la ligne de commande de Chrome. L’argument sera correctement. Les commutateurs précédent les arguments indépendamment de l’ordre apprent.
 
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+Si vous êtes appending un argument comme `--switch=value`, envisager d’utiliser `appendSwitch('switch', 'value')` place.
 
-**Note:** Ceci n'affecte pas `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Note:** Ceci n'affecte pas `process.argv`. L’utilisation prévue de cette fonction est contrôler le comportement du Chrome.
 
-#### `commandLine.hasSwitch(switch)`
+#### `commandLine.hasSwitch (commutateur)`
 
-* `switch` String - A command-line switch
+* `switch` String - Un interrupteur de ligne de commande
 
-Returns `Boolean` - Whether the command-line switch is present.
+Retours `Boolean` - Que l’interrupteur de la ligne de commande soit présent.
 
-#### `commandLine.getSwitchValue(switch)`
+#### `commandLine.getSwitchValue (commutateur)`
 
-* `switch` String - A command-line switch
+* `switch` String - Un interrupteur de ligne de commande
 
-Returns `String` - The command-line switch value.
+Retourne `String` - La valeur de commutateur de ligne de commande.
 
-**Note:** When the switch is not present or has no value, it returns empty string.
+**Remarque :** le commutateur n’est pas présent ou n’a aucune valeur, il renvoie la chaîne vide.
