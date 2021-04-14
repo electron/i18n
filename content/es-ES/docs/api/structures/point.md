@@ -3,4 +3,4 @@
 * `x` Number
 * `y` Number
 
-**Nota:**Ambos``ydeben ser numeros enteros (sin decimales), al suministrar un objeto point.
+**Nota:** Ambos `x` e `y` deben ser numeros enteros, cuando se proporciona un objeto Point como entrada de una API de Electron, se redondeará automáticamente los valores `x` e `y` al entero más cercano.
