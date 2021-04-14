@@ -9,54 +9,54 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.whenReady().then(() => {
-  // Your code here
-})
+app.whenReady().then() =
+
+  >
 ```
 
-## Electron CLI Flags
+## Elektronen-CLI-Flags
 
 ### --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Eine durch Kommas getrennte Liste von Servern, für die die integrierte Authentifizierung aktiviert ist.
 
 Ein Beispiel:
 
 ```sh
---auth-server-whitelist='*example.com, *foobar.com, *baz'
+--auth-server-whitelist='*beispiel.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the URL has to match exactly.
+dann werden alle `url` , die mit `example.com`, `foobar.com`, `baz` enden, als für die integrierte Authentifizierung betrachtet. Ohne `*` Präfix muss die URL genau übereinstimmen.
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+Eine durch Kommas getrennte Liste von Servern, für die eine Delegierung von Benutzeranmeldeinformationen erforderlich ist. Ohne `*` Präfix muss die URL genau übereinstimmen.
 
 ### --disable-ntlm-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+Deaktiviert NTLM v2 für posix-Plattformen, an anderer Stelle kein Effekt.
 
 ### --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Deaktiviert den Datenträgercache für HTTP-Anforderungen.
 
-### --disable-http2
+### --deaktivieren-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Deaktivieren Sie die Protokolle HTTP/2 und SPDY/3.1.
 
 ### --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Verhindert, dass Chromium die Priorität des Renderers unsichtbarer Seiten -Prozessen verringert.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio][play-silent-audio].
+Dieses Flag ist global für alle Renderer-Prozesse, wenn Sie nur Drosselung in einem Fenster deaktivieren möchten, können Sie den Hack von [die Wiedergabe von stillen Audio-][play-silent-audio].
 
 ### --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Erzwingt den maximalen Speicherplatz, der vom Datenträgercache in Bytes verwendet werden soll.
 
 ### --enable-api-filtering-logging
 
-Enables caller stack logging for the following APIs (filtering events):
+Aktiviert die Aufruferlistenprotokollierung für die folgenden APIs (Filterereignisse):
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -67,9 +67,15 @@ Enables caller stack logging for the following APIs (filtering events):
 
 ### --enable-logging
 
-Prints Chromium's logging into console.
+Druckt die Anmeldung von Chromium bei der Konsole.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+Dieser Schalter kann nicht in `app.commandLine.appendSwitch` verwendet werden, da er früher analysiert wird, als die App des Benutzers geladen ist, Aber Sie können die `ELECTRON_ENABLE_LOGGING` Umgebungsvariable festlegen, um den gleichen Effekt zu erzielen.
+
+## --force-fieldtrials=`trials`
+
+Feldversuche, die zwangsweise aktiviert oder deaktiviert werden können.
+
+Zum Beispiel: `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 ### --host-rules=`rules`
 
@@ -77,10 +83,10 @@ A comma-separated list of `rules` that control how hostnames are mapped.
 
 Ein Beispiel:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP * 127.0.0.1` Erzwingt die Zuordnung aller Hostnamen zu 127.0.0.1
+* `MAP *.google.com proxy` Erzwingt, dass alle google.com Subdomains aufgelöst werden, um "Proxy" zu .
+* `MAP test.com [::1]:77` Erzwingt "test.com", um in IPv6-Loopback zu lösen. Wird auch den Port der resultierenden Socketadresse auf 77 zwingen.
+* `MAP * baz, EXCLUDE www.google.com` ordnet alles "baz" neu zu, mit Ausnahme "www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
@@ -101,7 +107,7 @@ Ignore the connections limit for `domains` list separated by `,`.
 Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+$ Elektron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
 See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
