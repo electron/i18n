@@ -3,9 +3,11 @@
 Los módulos nativos de Node.js están soportados por Electron, pero dado que Electron tiene una diferente [interfaz binaria de aplicación (ABI)][abi] de un binario Node.js dado (debido a diferencias tales como usar BoringSSL de Chromium en lugar de OpenSSL), los módulos nativos que use necesitarán ser recompilados para Electron. De lo contrario, obtendrá la siguiente clase de error cuando intente ejecutar su aplicación:
 
 ```sh
-$XYZ$XYZ. Esta versión de Node.js requiere
-NODE_MODULE_VERSION $ABC. Por favor, intenta volver a compilar o reinstalar
-el módulo (por ejemplo, usando `npm rebuild` o `npm install`).
+Error: The module '/path/to/native/module.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION $XYZ. This version of Node.js requires
+NODE_MODULE_VERSION $ABC. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
 ```
 
 ## ¿Cómo instalar módulos nativos?
@@ -21,10 +23,10 @@ Por ejemplo, para instalar la herramienta independiente `electron-rebuild` y rec
 ```sh
 npm install --save-dev electron-rebuild
 
-# Cada vez que ejecute "npm install", ejecute esto:
+# Every time you run "npm install", run this:
 ./node_modules/.bin/electron-rebuild
 
-# Si tienes problemas en Windows, intenta:
+# If you have trouble on Windows, try:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
@@ -37,19 +39,19 @@ Al establecer algunas variables del entorno, puede usar `npm` para instalar mód
 Por ejemplo, para instalar todas las dependencias para Electron:
 
 ```sh
-# Versión de Electron.
+# Electron's version.
 export npm_config_target=1.2.3
-# La arquitectura de Electron, mire https://electronjs.org/docs/tutorial/support#supported-platforms
-# para arquitecturas soportadas.
+# The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
+# for supported architectures.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Descargar encabezados para Electron.
+# Download headers for Electron.
 export npm_config_disturl=https://electronjs.org/headers
-# Informe a node-pre-gyp que estamos construyendo para Electron.
+# Tell node-pre-gyp that we are building for Electron.
 export npm_config_runtime=electron
-# Informe a node-pre-gyp que construya el módulo desde el código fuente.
+# Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
-# Instale todas las dependencias y almacene el caché en ~/.electron-gyp.
+# Install all dependencies, and store cache to ~/.electron-gyp.
 HOME=~/.electron-gyp npm install
 ```
 
