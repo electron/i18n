@@ -175,31 +175,31 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
 これは実験的な機能であるため、デフォルトでは無効になっています。  この機能を有効にするには、`--enable-features=ElectronSerialChooser` コマンドラインスイッチを使用する必要があります。  加えて、これは実験的な Chromium の機能なので、BrowserWindow を開くとき`webPreferences` プロパティに `enableBlinkFeatures: 'Serial'` を設定する必要があります。
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = 必須 ('電子
 
-let win = null
-app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
+)  =
+  を許可します = null
+app.commandLine.appendSwitch('enable-features', 'エレクトロシリアル選択')
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
+アプリ.
+    (
+    => 勝利 = 新しいブラウザウィンドウ({幅: 800,
+
+    webpreferences: {
       enableBlinkFeatures: 'Serial'
     }
-  })
-  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
-    event.preventDefault()
-    const selectedPort = portList.find((device) => {
-      return device.vendorId === 0x2341 && device.productId === 0x0043
-    })
-    if (!selectedPort) {
-      callback('')
-    } else {
-      callback(result1.portId)
-    }
-  })
-})
+  )
+  (イベント、ポートリスト、コールバック) => {
+    イベント.preventDefault()
+    ポート = portList.find((デバイス) =>
+      { 戻りデバイス.ベンダーId ==0x2341 && デバイス.製品Id ==0x0043
+    } )  (!selectedPort) {
+      コールバック (''')
+
+      }
+
+
+} }
 ```
 
 #### イベント: 'serial-port-added' _Experimental_
@@ -326,7 +326,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 戻り値 `Promise<String>` - `url` のプロキシ情報で実行されます。
 
-#### `ses.forceReloadProxyConfig()`
+#### `を行います。`
 
 戻り値 `Promise<void>` - プロキシサービスのすべての内部状態がリセットされたときに解決します。すでに利用可能な場合は最新のプロキシ設定が再適用されます。 プロキシモードが `pac_script` の場合、再び `pacScript` から PAC スクリプトが取得されます。
 
@@ -366,7 +366,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 指定された数のソケットをオリジンに事前接続します。
 
-#### `ses.closeAllConnections()`
+#### `を閉じる()`
 
 戻り値 `Promise<void>` - すべての接続が閉じられた時に解決されます。
 
@@ -386,7 +386,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
     * `verificationResult` String - Chromium からの認証結果。
     * `errorCode` Integer - エラーコード。
   * `callback` Function
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). 証明書エラーコードの他に、以下の特殊コードを取ることがあります。
+    * `verificationResult` Integer - 値は、 [から される証明書エラー コードの 1 つ](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h)です。 証明書エラーコードの他に、以下の特殊コードを取ることがあります。
       * `0` - 成功を示し、証明書の透明性の検証を無効にします。
       * `-2` - 失敗を示します。
       * `-3` - Chromium からの認証結果を使用します。
@@ -514,7 +514,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `String` - このセッションのユーザエージェント。
 
-#### `ses.setSSLConfig(config)`
+#### `を設定します。`
 
 * `config` Object
   * `minVersion` String (任意) - `tls1`、`tls1.1`、`tls1.2`、`tls1.3` のいずれかにできます。 これはリモートサーバーに接続する際に許可する最小の SSL バージョンです。 省略値は `tls1` です。
@@ -565,13 +565,13 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
-#### `ses.setSpellCheckerEnabled(enable)`
+#### `ses.setスペルチェッカーが有効(有効)`
 
 * `enable` Boolean
 
 組み込みスペルチェッカーを有効にするかどうかを設定します。
 
-#### `ses.isSpellCheckerEnabled()`
+#### `ses.isスペルチェッカー有効()`
 
 戻り値 `Boolean` - 組み込みスペルチェッカーが有効化されているかどうか。
 
@@ -684,7 +684,7 @@ app.on('ready', async () => {
 
 この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanguages` API に提供すると、エラーが発生します。
 
-#### `ses.spellCheckerEnabled`
+#### `ses.スペルチェッカーが有効です`
 
 `Boolean` 型で、組み込みスペルチェッカーが有効かどうかを示します。
 
@@ -705,18 +705,18 @@ app.on('ready', async () => {
 このセッションの [`Protocol`](protocol.md) オブジェクト。
 
 ```javascript
-const { app, session } = require('electron')
-const path = require('path')
+const { app, session } = 必須 ('電子)
+コンストパス = 必須 ('path')
 
-app.whenReady().then(() => {
-  const protocol = session.fromPartition('some-partition').protocol
-  if (!protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
-  })) {
-    console.error('Failed to register protocol')
-  }
-})
+アプリ.then()、)==> {
+  定数プロトコル = session.fromPartition('some-partition')プロトコルが
+  (!protocol.registerFileProtocol('atom') (要求、コールバック) => {
+    定数 url = request.url.substr(7)
+    コールバック ({ パス: path.normalize('${__dirname}/${url}')
+  }) { {
+    コンソール.error ('プロトコルを登録できませんでした)
+
+} } )
 ```
 
 #### `ses.netLog` _読み出し専用_
