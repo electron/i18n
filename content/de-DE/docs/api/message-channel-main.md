@@ -1,40 +1,40 @@
 # MessageChannelMain
 
-`MessageChannelMain` is the main-process-side equivalent of the DOM [`MessageChannel`][] object. Its singular function is to create a pair of connected [`MessagePortMain`](message-port-main.md) objects.
+`MessageChannelMain` ist das hauptprozessseitige Äquivalent des DOM- [`MessageChannel`][] -Objekts. Seine einzigartige Funktion besteht darin, ein Paar zu erstellen, das [`MessagePortMain`](message-port-main.md) -Objekten verbunden ist.
 
-See the [Channel Messaging API][] documentation for more information on using channel messaging.
+Weitere Informationen zur Verwendung Channel Messaging finden Sie in der Dokumentation [Channel Messaging][] .
 
-## Class: MessageChannelMain
+## Klasse: MessageChannelMain
 
 Prozess: [Main](../glossary.md#main-process)
 
 Beispiel:
 
 ```js
-// Main process
-const { port1, port2 } = new MessageChannelMain()
+Hauptprozess
+const { port1, port2 } = neue MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 
-// Renderer process
+/ Renderer-Prozess
 const { ipcRenderer } = require('electron')
-ipcRenderer.on('port', (e) => {
-  // e.ports is a list of ports sent along with this message
-  e.ports[0].on('message', (messageEvent) => {
-    console.log(messageEvent.data)
-  })
-})
+ipcRenderer.on('port', (e) => '
+  * e.ports ist eine Liste der Ports, die zusammen mit dieser Nachricht gesendet werden,
+  e.ports[0].on('message', (messageEvent
+
+  .log
+    > )
 ```
 
 ### Instanz Eigenschaften
 
 #### `channel.port1`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Eine [`MessagePortMain`](message-port-main.md) Eigenschaft.
 
 #### `channel.port2`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Eine [`MessagePortMain`](message-port-main.md) Eigenschaft.
 
 [`MessageChannel`]: https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel
-[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[Channel Messaging]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
