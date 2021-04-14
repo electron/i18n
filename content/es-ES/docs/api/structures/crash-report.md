@@ -1,4 +1,4 @@
 # Objeto CrashReport
 
 * `date` Date
-* `id` Cadena
+* `id` String
