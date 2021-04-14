@@ -2,27 +2,27 @@
 
 ## Descripción general
 
-Para distribuir tu aplicación con Electron, necesitas empaquetarla y remarcarla. Para hacer esto, puedes usar herramientas especializadas o enfoques manuales.
+Para distribuir tu aplicación de Electron, necesitas empaquetarla y cambiar el nombre. Para hacer esto, puedes usar herramientas especializadas o manualmente.
 
-## Con herramientas
+## Usando herramientas
 
 Puedes usar las siguientes herramientas para distribuir tu aplicación:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
-* [Electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
-Estas herramientas se encargaran de todo los pasos que necesitas para terminar con una aplicación de Electron distribuible, como empaquetar tu aplicación, cambiar el nombre del ejecutable y configurar los iconos correctos.
+Estas herramientas se encargaran de todo los pasos necesarios para crear una aplicación de Electron distribuible, como empaquetar tu aplicación, cambiar el nombre del ejecutable y configurar los iconos correctos.
 
-Puedes comprobar el ejemplo de como empaquetar tu aplicación con `electron-forge` en nuestra [Guía de Inicio Rápido](quick-start.md#package-and-distribute-the-application).
+En la [Guía de Inicio Rápido](quick-start.md#package-and-distribute-the-application) puedes ver un ejemplo de como empaquetar tu aplicación con `electron-forge`.
 
-## Distribución manual
+## Proceso manual
 
 ### Con binarios precompilados
 
-Para distribuir tu aplicación manualmente, necesitas descargar el [prebuilt binaries](https://github.com/electron/electron/releases) de Electron. Luego, la carpeta que contiene tu aplicación debe llamarse `app` y colocarse en el directorio de recursos de Electron como se muestra en los siguientes ejemplos.
+Para distribuir tu aplicación manualmente, necesitas descargar los [prebuilt binaries](https://github.com/electron/electron/releases) de Electron. Luego, la carpeta que contiene tu aplicación debe llamarse `app` y colocarse en el directorio de recursos de Electron como se muestra en los siguientes ejemplos.
 
-> *NOTA:* la ubicación de los binarios preconstruidos de Electron esta indicado en  `electron/` en los siguientes ejemplos.
+> *NOTA:* la ubicación de los binarios preconstruidos de Electron esta indicado con `electron/` en los siguientes ejemplos.
 
 *En macOS:*
 
@@ -36,19 +36,19 @@ electron/Electron.app/Contents/Resources/app/
 *En Windows y Linux:*
 
 ```plaintext
-electron/recursos/aplicaciones
+electron/resources/app
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-Luego ejecuta `Electron.app` en macOS, `electron` en Linux, o `electron.exe` en Windows, y Electron iniciará tu aplicación. El directorio `electron` luego será su distribución para entregar a los usuarios.
+Luego ejecuta `Electron.app` en macOS, `electron` en Linux, o `electron.exe` en Windows, y tu aplicación Electron se ejecutará. El directorio `electron` será el que hay que dar a tus usuarios.
 
 ### Con un archivo de código fuente de la aplicación
 
-En lugar de enviar tu aplicación copiando todos sus archivos de origen, puedes empaquetar tu aplicación en un archivo [asar][] para mejorar el rendimiento de los archivos de lectura en plataformas como Windows, si aún no estás usando un bundler como como paquete o WebPack.
+En lugar de enviar tu aplicación copiando todos sus archivos de origen, puedes empaquetar tu aplicación en un archivo [asar][] para mejorar el rendimiento de los archivos de lectura en plataformas como Windows, si aún no estás usando un bundler como como Parcel o WebPack.
 
-Para usar un archivo `asar` para reemplazar la carpeta `aplicación`, debe cambiar el nombre del archivo. archive a `app.asar`, y póngalo en el directorio de recursos de Electron como a continuación, y Electron intentará leer el archivo y comenzar desde allí.
+Para usar un archivo `asar` para reemplazar la carpeta `app`, debe cambiar el nombre del archivo. archive a `app.asar`, y póngalo en el directorio de recursos de Electron como a continuación, y Electron intentará leer el archivo y comenzar desde allí.
 
 *En macOS:*
 
@@ -64,22 +64,22 @@ electron/resources/
 └── app.asar
 ```
 
-Puedes encontrar más detalles de como usar `asar` en el [repositorio`electron/asar` ][asar].
+Puedes encontrar más detalles de como usar `asar` en el [repositorio `electron/asar` ][asar].
 
-### Remarcando con binarios descargados
+### Renombrando binarios descargados
 
-Después de agrupar su aplicación en Electron, querrá cambiar la marca de Electron antes de distribuirlo a los usuarios.
+Después de empaquetar su aplicación en Electron, querrá cambiar la marca de Electron antes de distribuirlo a sus usuarios.
 
 #### macOS
 
-Puede cambiar el nombre `Electron.ap ` a cualquier nombre que desee, y también debe cambiar el nombre de los campos `CFBundleDisplayName`, `CFBundleIdentifier` y `CFBundleName` en los siguientes archivos:
+Puede cambiar el nombre `Electron.app` a cualquier nombre que desee, y también debe cambiar el valor de los campos `CFBundleDisplayName`, `CFBundleIdentifier` y `CFBundleName` en los siguientes archivos:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
 También puede cambiar el nombre de la aplicación auxiliar para evitar mostrar `Electron Helper` en el Monitor de actividad, pero asegúrese de haber cambiado el nombre del archivo ejecutable de la aplicación auxiliar.
 
-La estructura de una aplicación renombrada sería como:
+La estructura de una aplicación renombrada sería similar a:
 
 ```plaintext
 MyApp.app/Contents
@@ -99,11 +99,11 @@ Puede cambiar el nombre `electron.exe` a cualquier nombre que desee, y editar su
 
 #### Linux
 
-Puede cambiar el nombre del archivo ejecutable `electrón` a cualquier nombre que desee.
+Puede cambiar el nombre del archivo ejecutable `electron` a cualquier nombre que desee.
 
-### Remarcando al construir Electron desde al fuente
+### Renombrar compilando Electron desde el código fuente
 
-También es posible reidentificar Electron simplemente cambiando el nombre del producto y volver a compilarlo desde el código fuente. Para hacerlo, necesita que el argumento de compilación set corresponda con el nombre del producto (`electron_product_name = "YourProductName"`) en el archivo `args.gn` y recompilarlo.
+También es posible renombrar Electron simplemente cambiando el nombre del producto y volver a compilarlo desde el código fuente. Para hacerlo, necesita que el argumento de compilación se corresponda con el nombre del producto (`electron_product_name = "YourProductName"`) en el archivo `args.gn` y recompilarlo.
 
 [asar]: https://github.com/electron/asar
 
