@@ -28,9 +28,9 @@ Dans la plupart des cas, vous devriez pouvoir tout faire dans l'évènement `rea
 Retourne :
 
 * `event` Événement
-* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
+* `launchInfo` record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Émis lorsqu'Electron a terminé l’initialisation. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été émis et `app.whenReady()` pour obtenir une Promesse qui sera résolue Electron sera initialisé.
+Émis lorsqu'Electron a terminé l’initialisation. Sur macOS, `launchInfo` détient la `userInfo` des `NSUserNotification` ou des informations de [`UNNotificationResponse`](structures/notification-response.md) qui a été utilisé pour ouvrir l’application , si elle a été lancée à partir du centre de notification. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été émis et `app.whenReady()` pour obtenir une Promesse qui sera résolue Electron sera initialisé.
 
 ### Événement : 'window-all-closed'
 
@@ -106,13 +106,13 @@ Retourne :
 
 Émis lorsque l'application est activée. Différentes actions peuvent déclencher cet événement, comme le lancement de l’application pour la première fois, essayer de relancer l’application lorsqu’elle est déjà en cours d’exécution, ou en cliquant sur l'icône du dock de l’application ou de l’icône de la barre des tâches.
 
-### Event: 'did-become-active' _macOS_
+### Evénement : « est devenu actif » _macOS_
 
 Retourne :
 
 * `event` Événement
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+Émis lorsque l’application mac devient active. La différence par rapport `activate` 'événement est que `did-become-active` est émis chaque fois que l’application devient active, non seulement lorsque l’icône Dock est cliquée ou que l’application est relancée.
 
 ### Événement : 'continue-activity' _macOS_
 
@@ -267,9 +267,9 @@ Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` Object
+* `authenticationResponseDetails` objet
   * `url` URL
-* `authInfo` Object
+* `authInfo` objet
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -298,7 +298,7 @@ Si `callback` est appelé sans nom d'utilisateur ou mot de passe, la demande d'a
 
 Émis chaque fois qu'il y a une mise à jour d'informations GPU.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### Evénement: 'gpu-process-crashed' _Deprecated_
 
 Retourne :
 
@@ -307,9 +307,9 @@ Retourne :
 
 Émis lorsque le processus GPU plante ou est tué.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. Ceci n'est pas toujours causé par un plantage. Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**:** cet événement est remplacé par l’événement `child-process-gone` qui contient plus d’informations sur les raisons pour lesquelles le processus enfant a disparu. Ceci n'est pas toujours causé par un plantage. Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Evénement : « renderer-process-crashed » _deprecated_
 
 Retourne :
 
@@ -319,54 +319,54 @@ Retourne :
 
 Émis lorsque le processus de rendu de `webContents` plante ou est tué.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**:** cet événement est remplacé par l’événement `render-process-gone` qui contient plus d’informations sur les raisons pour lesquelles le processus de rendu a disparu. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-### Event: 'render-process-gone'
+### Evénement: 'render-process-gone'
 
 Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `details` Object
+* `details` objet
   * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Processus jamais lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
   * `Codedesortie`Numero integre-Le code de sortie du proces, sauf `si <code>la raison est <code>lancer a echoue,`ou <0>le codeSortie </code>sera une plateforme specifique, de code envoye errone.
 
-Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
+Émis lorsque le processus de rendu disparaît de façon inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
-### Event: 'child-process-gone'
+### Evénement : « child-process-gone »
 
 Retourne :
 
 * `event` Événement
-* `details` Object
+* `details` objet
   * `type` String - Type de processus. Une des valeurs suivantes:
-    * `Utility`
+    * `Utilitaire`
     * `Zygote`
-    * `Sandbox helper`
-    * `GPU`
-    * `Pepper Plugin`
-    * `Pepper Plugin Broker`
-    * `Unknown`
-  * `reason` String - The reason the child process is gone. Valeurs possibles :
+    * `Aide sandbox`
+    * `Gpu`
+    * `Plugin au poivre`
+    * `Courtier Pepper Plugin`
+    * `Inconnu`
+  * `reason` String - La raison pour laquelle le processus enfant a disparu. Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Processus jamais lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
-  * `serviceName` String (optional) - The non-localized name of the process.
-  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+  * `exitCode` - Le code de sortie pour le processus (par exemple l’état de waitpid si sur posix, de GetExitCodeProcess sur Windows).
+  * `serviceName` String (facultatif) - Le nom non localisé du processus.
+  * `name` String (facultatif) - Le nom du processus. Exemples d’utilité : `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. C'est normalement dans les cas où il s'est planté ou qu'il a été tué. It does not include renderer processes.
+Émis lorsque le processus de l’enfant disparaît de façon inattendue. C'est normalement dans les cas où il s'est planté ou qu'il a été tué. Il n’inclut pas les processus de rendu.
 
 ### Événement : 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -386,10 +386,10 @@ Retourne :
 Émis lorsque Electron vient de créer une nouvelle `session`.
 
 ```javascript
-const { app } = require('electron')
+const { app } = require ('electron')
 
-app.on('session-created', (session) => {
-  console.log(session)
+app.on('session-created', (session) => { console
+  .log (session)
 })
 ```
 
@@ -405,7 +405,7 @@ Cet événement sera émis dans l'instance principale de votre application quand
 
 `argv` est un tableau des arguments de la ligne de commande de la seconde instance, et `workingDirectory` est son répertoire de travail actuel. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
-**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+**Remarque :** Si la deuxième instance est démarrée par un utilisateur différent de la première, le tableau `argv` n’inclura pas les arguments.
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
@@ -420,7 +420,7 @@ Retourne :
 
 Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
-### Event: 'remote-require' _Deprecated_
+### Evénement : « besoin à distance » _de_
 
 Retourne :
 
@@ -430,7 +430,7 @@ Retourne :
 
 Émis lorsque `remote.require()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-global' _Deprecated_
+### Evénement: 'remote-get-global' _Deprecated_
 
 Retourne :
 
@@ -440,7 +440,7 @@ Retourne :
 
 Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-builtin' _Deprecated_
+### Evénement: 'remote-get-builtin' _Deprecated_
 
 Retourne :
 
@@ -450,7 +450,7 @@ Retourne :
 
 Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-window' _Deprecated_
+### Evénement: 'remote-get-current-window' _Deprecated_
 
 Retourne :
 
@@ -459,7 +459,7 @@ Retourne :
 
 Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents' _Deprecated_
+### Evénement: 'remote-get-current-web-content' _Deprecated_
 
 Retourne :
 
@@ -490,7 +490,7 @@ Toutes les fenêtres seront fermées immédiatement sans demander à l'utilisate
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional)
+* `options` objet (facultatif)
   * `args` String[] - (facultatif)
   * `execPath` String (facultatif)
 
@@ -510,7 +510,7 @@ const { app } = require('electron') app.relaunch({ args: process.argv.slice(1).c
 
 ### `app.isReady()`
 
-Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon. See also `app.whenReady()`.
+Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon. Voir aussi `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -518,7 +518,7 @@ Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut ast
 
 ### `app.focus([options])`
 
-* `options` Object (optional)
+* `options` objet (facultatif)
   * `steal` Boolean _macOS_ - Destiner l'action à l'application active même si il s'agit d'une autre application.
 
 Sous Linux, donne le focus à la première fenêtre visible. Sur macOS, fait de l'application l'application active. Sous Windows, donne le focus à la première fenêtre de l'application.
@@ -564,18 +564,18 @@ Retourne `String` - Répertoire courant de l'application.
   * `music` Dossier de musique de l’utilisateur.
   * `pictures` Dossier des images de l’utilisateur.
   * `videos` Dossier des vidéos de l’utilisateur.
-  * `recent` Directory for the user's recent files (Windows only).
+  * `recent` répertoire pour les fichiers récents de l’utilisateur (Windows uniquement).
   * `logs` Répertoire du dossier de log de votre application.
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` où les décharges d’accident sont stockées.
 
-Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. On failure, an `Error` is thrown.
+Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. Sur 'échec, une `Error` est lancée.
 
 Si `app.getPath('logs')` est appelé sans que `app.setAppLogsPath()` soit appelé en premier, un répertoire de logs par défaut sera créé équivalent à un appel `app.setAppLogsPath()` sans paramètre `path`.
 
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional)
+* `options` objet (facultatif)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -701,11 +701,11 @@ Cette méthode retourne le nom de l'application du gestionnaire par défaut pour
 
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
 
-* `icon` NativeImage - the display icon of the app handling the protocol.
-* `path` String  - installation path of the app handling the protocol.
-* `name` String - display name of the app handling the protocol.
+* `icon` NativeImage - l’icône d’affichage de l’application qui gère le protocole.
+* `path` String - chemin d’installation de l’application traitant le protocole.
+* `name` String - nom d’affichage de l’application traitant le protocole.
 
-This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+Cette méthode renvoie une promesse qui contient le nom d’application, l’icône et le chemin du gestionnaire par défaut pour le protocole (alias système URI) d’une URL.
 
 ### `app.setUserTasks(tasks)` _Windows_
 
@@ -734,7 +734,7 @@ Définit ou supprime une JumpList personnalisée pour l'application et renvoie l
 
 * `ok` - Tout s'est bien passé.
 * `error` - Une ou plusieurs erreurs se sont produites, activez la journalisation de la durée d'exécution pour déterminer la cause probable.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+* `invalidSeparatorError` - Une tentative a été faite d’ajouter un séparateur à une personnalisée dans la liste jump. Les séparateurs ne sont autorisés que dans catégorie `Tasks` standard.
 * `fileTypeRegistrationError` - Tentative d'ajout d'un lien de fichier dans la JumpList pour un type de fichier que l'application n'est pas enregistrée pour gérer.
 * `customCategoryAccessDeniedError` - Les catégories personnalisées ne peuvent pas être ajoutées à la JumpList en raison de la confidentialité de l'utilisateur ou des paramètres de politique de groupe.
 
@@ -744,58 +744,60 @@ Si `cetagories` est `null`, la JumpList personnalisée précédemment définie (
 
 **Remarque :** Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows n'autorisera pas l'ajout d'un élément supprimé dans une catégorie personnalisée avant le **prochain** appel réussi à `app.setJumpList(categories)`. Toute tentative de réajouter un élément supprimé à une catégorie personnalisée plus tôt, cela entraînera l'omission de toute la catégorie personnalisée dans la JumpList. La liste des éléments supprimés peut être obtenue à l'aide de `app.getJumpListSettings()`.
 
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+
 Voici un exemple très simple de la création d'une JumpList personnalisé :
 
 ```javascript
-const { app } = require('electron')
+const { app } = require ('electron')
 
 app.setJumpList([
   {
     type: 'custom',
     name: 'Recent Projects',
     items: [
-      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-      { type: 'file', path: 'C:\\Projects\\project2.proj' }
+      { type: 'file', path: 'C:\Projects\\project1.proj' },
+      { type: 'file', chemin: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
-    items: [
-      {
-        type: 'task',
-        title: 'Tool A',
-        program: process.execPath,
-        args: '--run-tool-a',
-        icon: process.execPath,
+  { // a un nom donc 'type' est supposé être « custom »
+    nom: 'Outils',
+    éléments: [
+      { type
+        : 'task',
+        titre: 'Tool A', programme
+        : process.execPath,
+        args: '--run-tool-a', icône
+        : process.execPath,
         iconIndex: 0,
         description: 'Runs Tool A'
       },
-      {
-        type: 'task',
-        title: 'Tool B',
-        program: process.execPath,
-        args: '--run-tool-b',
-        icon: process.execPath,
+      { type
+        : 'task',
+        titre: 'Tool B', programme
+        : process.execPath,
+        args: '--run-tool-b', icône
+        : process.execPath,
         iconIndex: 0,
         description: 'Runs Tool B'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
-    items: [
-      {
-        type: 'task',
-        title: 'New Project',
-        program: process.execPath,
-        args: '--new-project',
-        description: 'Create a new project.'
+  { // n'
+        pas de nom et pas de type donc « type » est supposé être des « tâches »
+    éléments: [
+      { type : « tâche », titre
+        : « Nouveau projet », programme
+        : process.execPath,
+        args: « --nouveau-projet », description
+        : « Créer un nouveau projet.
       },
       { type: 'separator' },
-      {
-        type: 'task',
-        title: 'Recover Project',
-        program: process.execPath,
+      { type
+        : 'task',
+        titre: 'Recover Project', programme
+        : process.execPath,
         args: '--recover-project',
         description: 'Recover Project'
       }
@@ -810,7 +812,7 @@ Retourne `Boolean`
 
 La valeur renvoyée par cette méthode indique si cette instance de votre application a obtenu le verrou ou non.  S'il n'a pas réussi à obtenir le verrou vous pouvez supposer qu'une autre instance de votre application est déjà en cours d'exécution avec le verrou et quitter immédiatement.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Elle renvoie `false` si votre process devrait quitter immédiatement, puisqu'il a envoyé ses paramètres à une instance qui possède déjà le verrou.
+C'est-à-dire. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Elle renvoie `false` si votre process devrait quitter immédiatement, puisqu'il a envoyé ses paramètres à une instance qui possède déjà le verrou.
 
 Sur macOS, le système impose automatiquement une instance unique lorsque les utilisateurs essaient d'ouvrir une seconde instance de votre application dans Finder, et les événements `open-file` et `open-url` seront émis pour cela. Cependant, lorsque les utilisateurs démarrent votre application en ligne de commande , le mécanisme d'instance unique du système sera contourné, et vous devez utiliser cette méthode pour assurer une seule instance.
 
@@ -834,7 +836,7 @@ if (!gotTheLock) {
   })
 
   // Créer myWindow, charger le reste de l'app, etc...
-  app.whenReady().then(() => {
+  app.whenReady().then()) => {
     myWindow = createWindow()
   })
 }
@@ -854,9 +856,9 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`][activity-type].
 * `userInfo` n'importe quel - état spécifique à l'application à stocker pour utilisation par un autre appareil.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `webpageURL` String (facultatif) - La page Web à charger dans un navigateur si aucune application appropriée n’est installée sur l’appareil de reprise. Le régime doit être `http` ou `https`.
 
-Créée un `NSUserActivity` et le défini en tant qu'activité courante. The activity is eligible for [Handoff][handoff] to another device afterward.
+Créée un `NSUserActivity` et le défini en tant qu'activité courante. Après cela, l'activité devient éligible à la fonction [Handoff][handoff] sur l'autre périphérique.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -885,19 +887,19 @@ Change le [Application User Model ID][app-user-model-id] à `id`.
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+* `policy` String - Peut être « régulier », « accessoire » ou « interdit ».
 
 Sets the activation policy for a given app.
 
 Activation policy types:
 
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+* « régulier » - L’application est une application ordinaire qui apparaît dans le dock et peut avoir une interface utilisateur.
+* « accessoire » - L’application n’apparaît pas dans le dock et n’a pas de barre de menu, mais elle peut être activée programmatiquement ou en cliquant sur l’une de ses fenêtres.
+* « interdit » - L’application n’apparaît pas dans le dock et ne peut pas créer de fenêtres ou être activée.
 
 ### `app.importCertificate(options, callback)` _Linux_
 
-* `options` Object
+* `options` objet
   * `certificate` String - Chemin pour le fichier pkcs12.
   * `password` String - La Passphrase pour le certificat.
 * `callback` Function
@@ -941,7 +943,7 @@ Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moin
 {
   auxAttributes:
    {
-     amdSwitchable: true,
+     amdSwitchable: vrai,
      canSupportThreadedTextureMailbox: false,
      directComposition: false,
      directRendering: true,
@@ -949,10 +951,10 @@ Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moin
      inProcessGpu: true,
      initializationTime: 0,
      jpegDecodeAcceleratorSupported: false,
-     optimus: false,
-     passthroughCmdDecoder: false,
-     sandboxed: false,
-     softwareRendering: false,
+     optimus: false, false,
+     passthroughCmdDecoder: faux,
+     bac à sable: faux, logiciel
+     Rendering: faux,
      supportsOverlays: false,
      videoDecodeAcceleratorFlags: 0
    },
@@ -968,7 +970,7 @@ Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moin
 
 ### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
+* `count` Integer (facultatif) - Si une valeur est fournie, réglez le badge à la valeur fournie autrement, sur macOS, affichez un point blanc uni (par exemple un nombre inconnu de notifications). Sur Linux, si une valeur n’est pas fournie, le badge ne s’affichera pas.
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -976,7 +978,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -988,38 +990,38 @@ Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (optional)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+* `options` objet (facultatif)
+  * `path` String (facultatif) _Windows_ - Le chemin exécutable à comparer. Par défaut à `process.execPath`.
+  * `args` String[] (facultatif) _Windows_ - Les arguments de la ligne de commande pour comparer contre. Par défaut à un tableau vide.
 
 Si vous avez fourni des options `path` et `args` à `app.setLoginItemSettings`, vous devez passer les mêmes arguments ici pour que `openAtLogin` soit défini correctement.
 
 Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` si l'application est configurée pour démarrer à l'ouverture de session.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. This setting is not available on [MAS builds][mas-builds].
-* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
-* `launchItems` Object[] _Windows_
-  * `name` String _Windows_ - name value of a registry entry.
-  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
-  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
-  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
-  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
+* `openAsHidden` Boolean _macOS_ - `true` si l’application est définie pour s’ouvrir comme caché à la connexion. Ce paramètre n’est pas disponible [mas construit][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` si l’application a été ouverte à la connexion automatiquement. Ce paramètre n’est pas disponible [mas construit][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` si l’application a été ouverte comme un élément de connexion caché. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. Ce paramètre n’est pas disponible [mas construit][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` si l’application a été ouverte comme un élément de connexion que devrait restaurer l’état de la session précédente. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. Ce paramètre n’est pas disponible [mas construit][mas-builds].
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` si l’application est définie pour s’ouvrir à la connexion et sa clé d’exécuteur n’est pas désactivée. Cela diffère de `openAtLogin` car il ignore l’option `args` , cette propriété sera vraie si l’exécutable donné serait lancé à la connexion avec **tous les arguments** .
+* `launchItems` Objet[] _Windows_
+  * `name` String _Windows_ - valeur nom d’une entrée de registre.
+  * `path` String _Windows_ - L’exécutable à une application qui correspond à une entrée de registre.
+  * `args` String[] _Windows_ - les arguments de la ligne de commande à transmettre à l’exécuteur testamentaire.
+  * `scope` Chaîne _Windows_ - l’un des `user` ou `machine`. Indique si l’entrée du registre est sous `HKEY_CURRENT USER` ou `HKEY_LOCAL_MACHINE`.
+  * `enabled` Boolean _Windows_ - `true` si la clé du registre des applications est approuvée par démarrage et s’affiche donc comme `enabled` dans les paramètres Task Manager et Windows.
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
-* `settings` Object
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Par défaut, `faux`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. This setting is not available on [MAS builds][mas-builds].
-  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
-  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Par défaut, `true`.
-  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Configurer les paramètres de l'application lors de l'ouverture de session.
+* `settings` objet
+  * `openAtLogin` Boolean (facultatif) - `true` pour ouvrir l’application à la connexion, `false` supprimer l’application en tant qu’élément de connexion. Par défaut, `faux`.
+  * `openAsHidden` Boolean (facultatif) _macOS_ - `true` pour ouvrir l’application comme caché. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. Ce paramètre n’est pas disponible [mas construit][mas-builds].
+  * `path` String (facultatif) _Windows_ - L’exécutable à lancer à la connexion. Par défaut à `process.execPath`.
+  * `args` String[] (facultatif) _Windows_ - Les arguments de la ligne de commande à transmettre l’exécuteur testamentaire. Par défaut à un tableau vide. Prenez soin d’envelopper les chemins dans citations.
+  * `enabled` Boolean (facultatif) _Windows_ - `true` modifiera la clé de registre approuvée par démarrage et `enable / disable` l’application dans le gestionnaire de tâches et les paramètres Windows. Par défaut, `true`.
+  * `name` String (facultatif) _Windows_ - nom de valeur à écrire dans le registre. Par défaut à l’AppUserModelId de l’application(). Configurer les paramètres de l'application lors de l'ouverture de session.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Par exemple :
+Pour fonctionner avec `autoUpdater` d'Electron sur Windows, qui utilise [Squirrel][Squirrel-Windows], vous aurez besoin de configurer le chemin de démarrage de Update.exe et de lui passer les arguments qui définissent le nom de votre application. Par exemple :
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1056,15 +1058,15 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 ### `app.setAboutPanelOptions(options)`
 
-* `options` Object
+* `options` objet
   * `applicationName` String (optional) - Nom de l'application.
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
   * `version` String (facultatif) _macOS_ - Le numéro de version de l'application.
-  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `credits` String (facultatif) _macOS_ _Windows_ - Informations de crédit.
   * `auteurs` String[] (facultatif) _Linux_ - Liste des auteurs d'applications.
   * `site web` String (facultatif) _Linux_ - Le site web de l'application.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (facultatif) _Linux_ _Windows_ - Chemin vers l’icône de l’application dans un format de fichier JPEG ou PNG. Sur Linux, sera affiché sous forme de pixels 64x64 tout en conservant le rapport d’aspect.
 
 Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on macOS. Voir [la documentation Apple][about-panel-options] pour de plus amples informations. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
 
@@ -1086,11 +1088,11 @@ Retourne `Fonction` - Cette fonction **doit** être appelée une fois que vous a
 
 ```js
 // Commence à accéder au fichier.
-const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 🎉
+arrêt constAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// Vous pouvez maintenant accéder au fichier en dehors du bac à sable 🎉
 
-// Remember to stop accessing the file once you've finished with it.
-stopAccessingSecurityScopedResource()
+// N’oubliez pas d’arrêter d’accéder au fichier une fois que vous avez terminé avec elle.
+'arrêtAccessingSecurityScopedResource ()
 ```
 
 Commencez à accéder à une ressource périmée de sécurité. Avec cette méthode, les applications Electron qui sont empaquetées pour le Mac App Store peuvent atteindre en dehors de leur sandbox pour accéder aux fichiers choisis par l'utilisateur. Voir la documentation de [Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) pour une description du fonctionnement de ce système.
@@ -1107,8 +1109,8 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (optional)
-  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
+* `options` objet (facultatif)
+  * `conflictHandler` fonction\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - Le type de conflit de déplacement rencontré par le gestionnaire ; peut être `exists` ou `existsAndRunning`, où `existe` signifie qu'une application du même nom est présente dans le répertoire Applications et `existsAndRunning` signifie à la fois qu'elle existe et qu'elle est actuellement en cours d'exécution.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1146,7 +1148,7 @@ By default this API will return `false`.
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+* `enabled` Boolean - Activer ou désactiver `Secure Keyboard Entry`
 
 Set the `Secure Keyboard Entry` is enabled in your application.
 
@@ -1178,7 +1180,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
