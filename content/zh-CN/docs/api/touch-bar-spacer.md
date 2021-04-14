@@ -4,18 +4,18 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-### `new TouchBarSpacer(options)`
+### `新的触摸栏（选项）`
 
 * `选项` 对象
-  * `size` String (optional) - Size of spacer, possible values are:
-    * ` small `-项之间的留较小间距。 Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
-    * ` large `-项之间的留较大间距。 Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
-    * ` flexible `-补齐所有可用空间。 Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
+  * `size` 字符串（可选） - 间隔器的大小，可能的值是：
+    * ` small `-项之间的留较小间距。 地图到 `NSTouchBarItemIdentifierFixedSpaceSmall`。 这是默认值。
+    * ` large `-项之间的留较大间距。 地图到 `NSTouchBarItemIdentifierFixedSpaceLarge`。
+    * ` flexible `-补齐所有可用空间。 地图到 `NSTouchBarItemIdentifierFlexibleSpace`。
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarSpacer`:
+下列属性可在 `TouchBarSpacer`实例中提供：
 
-#### `touchBarSpacer.size`
+#### `触摸巴空间器。大小`
 
-A `String` representing the size of the spacer.  Can be `small`, `large` or `flexible`.
+代表间隔器大小的 `String` 。  可以 `small`， `large` 或 `flexible`。
