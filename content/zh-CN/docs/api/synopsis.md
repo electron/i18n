@@ -11,24 +11,24 @@ Electron 还为开发原生桌面应用程序提供了一些额外的内置模�
 主进程脚本就像一个普通的Node.js脚本：
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
-let win = null
+康斯特 { app, BrowserWindow } =要求（'电子'）
+让赢=空
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadURL('https://github.com')
-})
+应用程序。当准备（然后）=> {
+  赢=新的浏览器窗口（{ width: 800, height: 600 }）
+  赢
+.com。
 ```
 
 如果 `nodeIntegration` 被启用，那么渲染进程除了额外能够使用node模块的能力外，与普通网页没有什么区别
 
 ```html
-<!DOCTYPE html>
+<！doctype html>
 <html>
 <body>
 <script>
-  const fs = require('fs')
-  console.log(fs.readFileSync(__filename, 'utf8'))
+  康斯特 fs = 需要 （'fs'）
+  控制台.log （fs. 阅读文件同步 （__filename， 'utf8'）
 </script>
 </body>
 </html>
@@ -41,42 +41,42 @@ app.whenReady().then(() => {
 从0.37开始，可以使用 [destructuring assignment][destructuring-assignment] (es6解构赋值)来使内置模块更容易使用。
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
+康斯特 { app, BrowserWindow } =要求（'电子'）
 
-let win
+让赢
 
-app.whenReady().then(() => {
-  win = new BrowserWindow()
-  win.loadURL('https://github.com')
-})
+应用程序。当准备（然后）=> {
+  赢=新的浏览器窗口（）
+  赢
+.com。
 ```
 
 如果您需要整个 ` electron ` 模块, 则可以`require`它, 然后使用 destructuring 从 ` electron ` 访问各个模块。
 
 ```javascript
-const electron = require('electron')
-const { app, BrowserWindow } = electron
+康斯特电子=需要（'电子'）
+const { app, BrowserWindow } =电子
 
-let win
+让赢得
 
-app.whenReady().then(() => {
-  win = new BrowserWindow()
-  win.loadURL('https://github.com')
-})
+应用程序。当准备好时。然后（）=> {
+  赢=新的浏览器窗口（）
+  赢
+.com。
 ```
 
 这等效于以下代码:
 
 ```javascript
-const electron = require('electron')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-let win
+康斯特电子=需要（'电子'）
+const应用程序=electron.app
+浏览器窗口=电子。浏览器窗口
+让赢
 
-app.whenReady().then(() => {
-  win = new BrowserWindow()
-  win.loadURL('https://github.com')
-})
+应用程序。当准备好时，然后=> {
+  赢=新的浏览器窗口（）
+  赢
+.com。
 ```
 
 [gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
