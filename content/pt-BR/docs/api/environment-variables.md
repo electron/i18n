@@ -14,87 +14,87 @@ $ electron
 Exemplo de console do Windows:
 
 ```powershell
-> set ELECTRON_ENABLE_LOGGING=true
-> electron
+> conjunto ELECTRON_ENABLE_LOGGING=elétron
+> verdadeiro
 ```
 
-## Production Variables
+## Variáveis de Produção
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+As seguintes variáveis de ambiente destinam-se principalmente ao uso em tempo de execução em aplicações eletrônicas embaladas.
 
 ### `NODE_OPTIONS`
 
-Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+O elétron inclui suporte para um subconjunto de [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options)do Node. A maioria é apoiada, com exceção daqueles que conflitam com o uso do BoringSSL pelo Chromium.
 
 Exemplo:
 
 ```sh
-export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+exportar NODE_OPTIONS="---sem-avisos -max-old-space-size=2048"
 ```
 
-Unsupported options are:
+As opções sem suporte são:
 
 ```sh
 --use-bundled-ca
 --force-fips
---enable-fips
---openssl-config
+--habilitar-fips
+--abresl-config
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+`NODE_OPTIONS` são explicitamente proibidos em aplicativos embalados, exceto pelo seguinte:
 
 ```sh
---max-http-header-size
+-max-http-header-size
 --http-parser
 ```
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+O suporte à geolocalização na Electron requer o uso do serviço web de geolocalização do Google Cloud Platform. Para habilitar esse recurso, adquira uma [a chave API do Google](https://developers.google.com/maps/documentation/geolocation/get-api-key) e coloque o seguinte código em seu arquivo principal de processo, antes de abrir qualquer janelas do navegador que farão solicitações de geolocalização:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+Por padrão, uma tecla de API do Google recém-gerada pode não ser permitida para fazer solicitações de geolocalização. Para habilitar o webservice de geolocalização para o seu projeto, habilite-o através da biblioteca de API [](https://console.cloud.google.com/apis/library).
 
-N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
+N.b. Você precisará adicionar uma [Conta de Faturamento](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) ao projeto associado à chave de API para que o webservice de geolocalização funcione.
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Desabilita o suporte ASAR. Essa variável só é suportada em processos infantis bifurcados e gerou processos infantis que estabelecem `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+Inicia o processo como um processo .js Nó normal.
 
-In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+Neste modo, você poderá passar [opções cli](https://nodejs.org/api/cli.html) para Node.js como que você faria ao executar o Nó normal.js executável, com exceção das seguintes bandeiras:
 
-* "--openssl-config"
-* "--use-bundled-ca"
-* "--use-openssl-ca",
-* "--force-fips"
-* "--enable-fips"
+* "-abre-config"
+* "-use-bundled-ca"
+* "-use-openssl-ca",
+* "-fíbula-fips"
+* "-habilitar-fips"
 
-These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+Essas bandeiras são desativadas devido ao fato de que a Electron usa BoringSSL em vez de OpenSSL ao construir o módulo `crypto` do Node.js e, portanto, não funcionará como projetado.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
+### `ELECTRON_NO_ATTACH_CONSOLE` __do Windows
 
-Don't attach to the current console session.
+Não se conecte à sessão atual do console.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
+### </em>Linux `ELECTRON_FORCE_WINDOW_MENU_BAR` _</h3>
 
-Don't use the global menu bar on Linux.
+Não use a barra de menu global no Linux.
 
-### `ELECTRON_TRASH` _Linux_
+### </em>Linux `ELECTRON_TRASH` _</h3>
 
-Set the trash implementation on Linux. Default is `gio`.
+Defina a implementação do lixo no Linux. O padrão é `gio`.
 
-Options:
+Opções:
 
-* `gvfs-trash`
-* `trash-cli`
+* `gvfs-lixo`
+* `lixo cli`
 * `kioclient5`
 * `kioclient`
 
@@ -108,7 +108,7 @@ Imprime o log interno do Chrome para o console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Quando o Electron ler a partir de um arquivo ASAR, registre o deslocamento de leitura e o caminho do arquivo para o sistema `tmpdir`. O arquivo resultante pode ser fornecido ao módulo ASAR para otimizar o pedido de arquivos.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -116,7 +116,7 @@ Imprime o rastreamento da pilha para o console quando o Electron trava.
 
 Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
+### `ELECTRON_DEFAULT_ERROR_MODE` __do Windows
 
 Mostra a caixa de diálogo de travamento do Windows quando o Electron trava.
 
@@ -124,16 +124,16 @@ Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usando:
+Ao correr do pacote `electron` , esta variável diz o comando `electron` usar a compilação especificada da Electron em vez de a baixada por `npm install`. Usando:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
+exportar ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
 
-## Set By Electron
+## Definido por elétron
 
-Electron sets some variables in your environment at runtime.
+Elétron define algumas variáveis em seu ambiente em tempo de execução.
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
-This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.
+Esta variável é definida para o valor de `XDG_CURRENT_DESKTOP` com a originalmente lançada.  O elétron às vezes modifica o valor da `XDG_CURRENT_DESKTOP` para afetar outra lógica dentro do Cromo, então se você quiser acesso ao _valor original de_ você deve procurar essa variável de ambiente em vez disso.
