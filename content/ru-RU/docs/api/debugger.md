@@ -7,28 +7,28 @@
 Инструменты разработчика Chrome имеют [специальную привязку][rdp] доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { BrowserWindow } - требуют ('электрон')
+const win - новый BrowserWindow ()
 
-try {
-  win.webContents.debugger.attach('1.1')
-} catch (err) {
-  console.log('Debugger attach failed : ', err)
-}
+попробуйте -
+  win.webContents.debugger.attach ('1.1')
+- catch (ошибка) -
+  console.log ('Debugger attach) ошибка)
+-
 
-win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
-})
+win.webContents.debugger.on ('detach', (событие, причина) ->
+  консоли.log ('Debugger отделено из-за : ', причина)
+к)
 
-win.webContents.debugger.on('message', (event, method, params) => {
-  if (method === 'Network.requestWillBeSent') {
-    if (params.request.url === 'https://www.github.com') {
+win.webContents.debugger.on ('сообщение', (событие, метод, парамы) -> -
+  если (метод - 'Network.requestWillBeSent') -
+    если (парамс. request.url -1 'https://www.github.com') -
       win.webContents.debugger.detach()
-    }
-  }
-})
+    -
+  -
+)
 
-win.webContents.debugger.sendCommand('Network.enable')
+win.webContents.debugger.sendCommand ('Network.enable')
 ```
 
 ### События экземпляра
@@ -40,7 +40,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `event` Event
 * `reason` String - причина отсоединения отладчика.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Испускаемый при отладке сеанса. Это происходит либо при `webContents` , либо при использовании devtools для прилагаемого `webContents`.
 
 #### Событие: 'message'
 
@@ -48,8 +48,8 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 * `event` Event
 * `method` String - имя метода.
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `params` - Параметры события, определяемые "параметрами", атрибутом в протоколе удаленной отладки.
+* `sessionId` String - Уникальный идентификатор прикрепленного сеанса отладки, будет соответствовать значению, отправленное `debugger.sendCommand`.
 
 Возникает при отладке инструментальных событий.
 
@@ -69,11 +69,11 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Отключает отладчик от `webContents`.
 
-#### `debugger.sendCommand(method[, commandParams, sessionId])`
+#### `debugger.sendCommand (метод, commandParams, sessionId)`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `method` String - Название метода должно быть одним из методов, определяемых [отладки][rdp].
 * `commandParams` any (опционально) - JSON объект с параметрами запроса.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
+* `sessionId` String (необязательно) - отправьте команду цели с идентификатором сеанса отладки. Начальное значение можно получить, отправив [Target.attachToTarget][attachToTarget] сообщение.
 
 Возвращает `Promise<any>` - Promise, которое разрешается с ответом, определенным атрибутом 'returns' описания команды в протоколе удаленной отладки, или отклоняется, указывая на сбой команды.
 
