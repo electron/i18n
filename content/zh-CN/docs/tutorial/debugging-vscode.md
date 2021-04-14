@@ -1,8 +1,8 @@
 # 使用 VsCode调试
 
-This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
+本指南将介绍如何为您自己的电子项目以及本机电子代码库设置 VSCode 调试。
 
-## Debugging your Electron app
+## 调试您的电子应用程序
 
 ### 主进程
 
@@ -40,13 +40,13 @@ $ code electron-quick-start
 
 这是一个预先配置的项目，你可以下载并直接在 VSCode中调试: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## 调试电子代码库
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+如果您想从源上构建电子并修改本机电子代码库，此部分将帮助您测试您的修改。
 
-For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
+对于那些不确定在哪里获得此代码或如何构建它， [电子的生成工具](https://github.com/electron/build-tools) 自动化，并解释这个过程的大部分。 如果你想手动设置环境，你可以改为使用这些 [建立说明](https://www.electronjs.org/docs/development/build-instructions-gn)。
 
-### Windows (C++)
+### 视窗（C++）
 
 #### 1. 在 VSCode 中打开一个 Electron 项目。
 
@@ -58,41 +58,47 @@ $ code electron-quick-start
 #### 2. 添加具有以下配置的文件 `.vscode/launch.json`：
 
 ```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "(Windows) Launch",
-      "type": "cppvsdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}\\out\\your-executable-location\\electron.exe",
-      "args": ["your-electron-project-path"],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [
-          {"name": "ELECTRON_ENABLE_LOGGING", "value": "true"},
-          {"name": "ELECTRON_ENABLE_STACK_DUMPING", "value": "true"},
-          {"name": "ELECTRON_RUN_AS_NODE", "value": ""},
-      ],
-      "externalConsole": false,
-      "sourceFileMap": {
-          "o:\\": "${workspaceFolder}",
-      },
-    },
+•
+  "版本"："0.2.0"，
+  "配置"：[
+    ]
+      "名称"："（窗口）启动"，
+      "类型"："cppvsdbg"，
+      "请求"："启动"，
+      "程序"："${workspaceFolder}[出]您的可执行位置\电子.exe"，
+      "args"："您的电子项目路径"]，
+      "停止进入"：虚假的，
+      的"cwd"："${workspaceFolder}"，
+      "环境"：[
+          {"名称"："ELECTRON_ENABLE_LOGGING"，"价值"："真实"}，
+          {"名称"："ELECTRON_ENABLE_STACK_DUMPING"，"价值"："真实"[，
+          {"名称"："ELECTRON_RUN_AS_NODE"，"价值"："}，
+      ]，
+      "外部 文件"：虚假的，
+      的"来源文件"：{
+          "o：\"："${workspaceFolder}"，
+      }，
+    [，
   ]
 }
 ```
 
-**Configuration Notes**
+**配置说明**
 
-* `cppvsdbg` requires the [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) be enabled.
-* `${workspaceFolder}` is the full path to Chromium's `src` directory.
-* `your-executable-location` will be one of the following depending on a few items:
-  * `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
-  * `Release`: If you built a Release build rather than a Testing build.
-  * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
-* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
+* `cppvsdbg` 需要启用内置 [C/C++扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) 。
+* `${workspaceFolder}` 是铬 `src` 目录的完整路径。
+* `your-executable-location` 将取决于以下几个项目之一：
+  * `Testing`：如果您使用 [电子构建工具](https://github.com/electron/build-tools) 的默认设置，或从源</a>
+
+构建时的默认说明。</li> 
+    
+      * `Release`：如果您构建了版本生成，而不是测试生成。
+  * `your-directory-name`：如果您在从默认值构建过程中修改了此版本，这将是您指定的任何版本。</ul></li> 
+
+* `args` 阵列字符串 `"your-electron-project-path"` 应该是您用于测试的 Electron 项目的目录或 `main.js` 文件的绝对路径。 在这个例子中，它应该是你 `electron-quick-start`的道路。</ul> 
+
+
 
 #### 3. 调试
 
-Set some breakpoints in the .cc files of your choosing in the native Electron C++ code, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging).
+在原生电子C++代码中设置您选择的 .cc 文件中的一些断点，并开始在 [Debug 视图](https://code.visualstudio.com/docs/editor/debugging)中进行调试。
