@@ -5,16 +5,16 @@
 Vous pouvez utiliser [app.commandLine.appendSwitch][append-switch] pour l'ajouter au script principal de votre application avant que l'événement [ready][ready] du module [app][app] soit émis :
 
 ```javascript
-const { app } = require('electron')
+const { app } = require ('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+app.commandLine.appendSwitch ('host-rules', 'MAP * 127.0.0.1')
 
-app.whenReady().then(() => {
-  // Your code here
+app.whenReady().then()=> {
+  // Votre code ici
 })
 ```
 
-## Electron CLI Flags
+## Drapeaux CLI électroniques
 
 ### --auth-server-whitelist=`url`
 
@@ -30,11 +30,11 @@ puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appli
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Sans le préfixe `*` l'URL doit correspondre exactement.
+Une liste de serveurs séparés par virgule pour lesquels une délégation d’informations d’identification utilisateur est requise. Sans le préfixe `*` l'URL doit correspondre exactement.
 
-### --disable-ntlm-v2
+### --désactiver-ntlm-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+Désactive NTLM v2 pour les plates-formes posix, aucun effet ailleurs.
 
 ### --disable-http-cache
 
@@ -56,7 +56,7 @@ Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 ### --enable-api-filtering-logging
 
-Enables caller stack logging for the following APIs (filtering events):
+Permet à l’appelant de cumuler les API suivantes (événements de filtrage) :
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -71,6 +71,12 @@ Envoie les traces de Chromium à la console.
 
 Ce commutateur ne peut pas être utilisé dans `app.commandLine.appendSwitch` car il est pris en compte avant que l'app utilisateur soit chargée, mais vous pouvez activer la variable d'environnement `ELECTRON_ENABLE_LOGGING` pour obtenir le même résultat.
 
+## --force-fieldtrials=`trials`
+
+Les essais sur le terrain doivent être activés ou désactivés de force.
+
+For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+
 ### --host-rules=`rules`
 
 Une liste séparée par des virgules de `rules` qui contrôle comment les noms d'hôtes sont mappés.
@@ -79,7 +85,7 @@ Par exemple :
 
 * `MAP * 127.0.0.1` Force tous les noms d'hôtes à être mappés à 127.0.0.1
 * `MAP *.google.com proxy` Force tous les sous-domaines google.com à être résolus en "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP test.com [::1]:77` Forces « test.com » à résoudre à IPv6 loopback. Forcera également le port de l’adresse de prise résultante à 77.
 * `MAP * baz, EXCLUDE www.google.com` Remappe tout à "baz", sauf pour "www.google.com".
 
 Ces mappages s'appliquent à l'hôte ciblé dans une requête réseau (le résolveur de connexion et d'hôte TCP dans une connexion directe, et l'hôte `CONNECT` dans une connexion avec proxy HTTP, et l'hôte du point terminal dans une connexion proxy `SOCKS`).
@@ -175,19 +181,19 @@ Electron prend en charge certains des [drapeaux CLI][node-cli] pris en charge pa
 
 **Remarque :** Le passage d'options de ligne de commande non supportées n'aura aucun effet lorsque Electron ne s'exécute pas en mode `ELECTRON_RUN_AS_NODE`.
 
-### --inspect-brk[=[host:]port]
+### --inspect-brk[=[hôte:]port]
 
 Activate inspector on host:port and break at start of user script. Configuration par défaut pour host:port 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
-### --inspect-port=[host:]port
+### --inspect-port=[hôte:]port
 
 Set the `host:port` to be used when the inspector is activated. Utile lors de l’activation de l’inspecteur en envoyant le signal SIGUSR1. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
-### --inspect[=[host:]port]
+### --inspecter[=[hôte:]port]
 
 Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
