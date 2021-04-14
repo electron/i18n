@@ -19,33 +19,33 @@ app.dock.bounce()
 
 Returns `Integer` - Eine ID welche den Request repräsentiert.
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Wenn `critical` übergeben wird, springt das Dock-Symbol so lange ab, bis entweder die Anwendung aktiv wird oder die Anforderung abgebrochen wird.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Wenn `informational` übergeben wird, springt das Dock-Symbol eine Sekunde lang. Die Anforderung bleibt jedoch aktiv, bis entweder die Anwendung aktiv wird oder die Anforderung abgebrochen wird.
 
-**Nota Bene:** This method can only be used while the app is not focused; when the app is focused it will return -1.
+**Nota Bene:** Diese Methode kann nur verwendet werden, während die App nicht fokussiert ist; Wenn die App fokussiert ist, wird sie -1 zurückgegeben.
 
 #### `dock.cancelBounce(id)` _macOS_
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Abbrechen des Absprungs von `id`.
 
 #### `dock.downloadFinished(filePath)` _macOS_
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Springt den Downloads-Stack auf, wenn sich der filePath im Ordner Downloads befindet.
 
 #### `dock.setBadge(text)` _macOS_
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Legt fest, dass die Zeichenfolge im Badging-Bereich des Docks angezeigt wird.
 
 #### `dock.getBadge()` _macOS_
 
-Returns `String` - The badge string of the dock.
+Gibt `String` zurück - Die Badge-Zeichenfolge des Docks.
 
 #### `dock.hide()` _macOS_
 
@@ -53,21 +53,21 @@ Versteckt das dock icon.
 
 #### `dock.show()` _macOS_
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+Gibt `Promise<void>` zurück - Wird aufgelöst, wenn das Dock-Symbol angezeigt wird.
 
 #### `dock.isVisible()` _macOS_
 
-Returns `Boolean` - Whether the dock icon is visible.
+Gibt `Boolean` zurück : Gibt an, ob das Docksymbol sichtbar ist.
 
 #### `dock.setMenu(menu)` _macOS_
 
 * `menu` [Menu](menu.md)
 
-Sets the application's \[dock menu\]\[dock-menu\].
+Legt das [Dockmenü] der Anwendung[dock-menu]fest.
 
 #### `dock.getMenu()` _macOS_
 
-Returns `Menu | null` - The application's \[dock menu\]\[dock-menu\].
+Gibt `Menu | null` zurück - Das [Dockmenü] der Anwendung[dock-menu].
 
 #### `dock.setIcon(image)` _macOS_
 
