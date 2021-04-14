@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 执行此命令将在您执行的目录下生成一个`.cpuprofile`和一个`.heapprofile` 文件。 这两个文件都可以使用 Chrome 开发者工具进行分析，分别使用 `Performance` 和 `Memory` 标签 进行分析。
 
-![performance-cpu-prof][]
+![性能 - cpu - 普罗普][]
 
-![performance-heap-prof][]
+![性能堆专业][]
 
 在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
@@ -86,43 +86,43 @@ node --cpu-prof --heap-prof -e "require('request')"
 让我们考虑一个示例，并假定您的应用程序正在以架空的`.foo`形式解析文件 。 为了做到这一点，它依赖同样架空的`foo-parserver` 模块。 在传统的 Node.js 开发中，你可以写代码热加载依赖：
 
 ```js
-const fs = require('fs')
-const fooParser = require('foo-parser')
+const fs=要求（'fs'）
+康斯特·福帕瑟=要求（'foo-parser'）
 
-class Parser {
-  constructor () {
-    this.files = fs.readdirSync('.')
+类帕瑟{
+  构造（）{
+    此文件=fs.读取音节（'。
+  [
+
+  获得Parsed文件（）{
+    返回fooParser.parse（此文件）
   }
+=
 
-  getParsedFiles () {
-    return fooParser.parse(this.files)
-  }
-}
+const解析器=新的Parser（）
 
-const parser = new Parser()
-
-module.exports = { parser }
+模块。出口= { parser }
 ```
 
 在上面的例子中，我们做了很多工作，一旦文件加载，我们就会立即执行。 我们需要立即获取解析的文件吗？ 或许我们可以晚一点再做这件事，当`getParsedFiles()` 真正的执行到的时候？
 
 ```js
-// "fs" is likely already being loaded, so the `require()` call is cheap
-const fs = require('fs')
+"fs"可能已经被加载，所以"要求（）"调用是便宜的
+const fs=要求（'fs'）
 
-class Parser {
-  async getFiles () {
-    // Touch the disk as soon as `getFiles` is called, not sooner.
+类Parser{
+  不对称获取文件（）{
+    //触摸磁盘，只要"获取文件"被调用，而不是更快。
     // 另外，请确保我们不会使用
     // 异步版本来阻止其他操作。
-    this.files = this.files || await fs.readdir('.')
+    这个。文件=这个。文件||等待fs.阅读迪尔（'。）
 
-    return this.files
+    返回此文件
   }
 
-  async getParsedFiles () {
-    // Our fictitious foo-parser is a big and expensive module to load, so
-    // defer that work until we actually need to parse files.
+  不对称获取文件（）{
+    //我们的虚构foo-解析器是一个大而昂贵的模块加载，所以
+    //推迟工作，直到我们实际上需要解析文件。
     // 既然`require()` 里有一个模块缓存， `require()`调用
     // 只会花费一次——其后的 `getParsedFiles()`
     // 将会更快。
@@ -143,13 +143,13 @@ const 解析器 = 新的 Parser()
 
 ## 3) 阻塞主进程
 
-Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 它处理应用内各个组件之间的窗口、交互和 通信。 它还容纳了 UI 线程。
 
 在任何情况下你都不应阻塞此进程或者运行时间长的用户界面线程。 阻塞UI线程意味着您的整个应用程序将冻结直到主进程准备好继续处理。
 
 ### 为什么？
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
+主过程及其 UI 线程本质上是应用内主要 操作的控制塔。 当操作系统告诉应用鼠标点击 时，它会在它到达您的窗口之前通过主过程。 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
 
 Electron 和 Chromium 谨慎地将大型的磁盘I/O 和 CPU绑定的操作放入新线程，以避免阻塞UI 线程。 你也应该这样做。
 
@@ -207,7 +207,7 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 ### 为什么？
 
-许多开始使用基于Web的应用程序的Electron用户后来都使用了桌面应用。 作为网页开发者，我们习惯了从各种内容交付网站加载资源。 Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible and avoid letting your users wait for resources that never change and could easily be included  in your app.
+许多开始使用基于Web的应用程序的Electron用户后来都使用了桌面应用。 作为网页开发者，我们习惯了从各种内容交付网站加载资源。 现在，您正在 运送适当的桌面应用程序，尝试尽可能"切断电源线" ，避免让用户等待永远不会改变的资源， 很容易包含在您的应用程序中。
 
 一个典型的例子是谷歌字体。 许多开发者使用谷歌令人印象深刻的免费字体集，这些字体通过内容交付网络获取。 方法显而易见：包括几行CSS 和谷歌将处理其余部分。
 
@@ -240,8 +240,8 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 在撰写这篇文章时，受欢迎的选择包括[Webpack][webpack], [Parcel][parcel]和[rollup.js][rollup]。
 
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
+[性能 - cpu - 普罗普]: ../images/performance-cpu-prof.png
+[性能堆专业]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
