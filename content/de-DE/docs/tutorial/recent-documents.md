@@ -12,7 +12,7 @@ __Dock Menu einer Anwendung:__
 
 ![macOS Dock Menü][2]
 
-To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
+Um eine Datei zu aktuellen Dokumenten hinzuzufügen, müssen Sie die [app.addRecentDocument][addrecentdocument] -API verwenden.
 
 ## Beispiel
 
@@ -32,7 +32,7 @@ Nachdem Sie die Electron-Anwendung gestartet haben, klicken Sie mit der rechten 
 
 ### Liste der letzten Dokumente löschen
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
+Um die Liste der letzten Dokumente zu löschen, müssen Sie [app.clearRecentDocuments][clearrecentdocuments] API in der `main.js` -Datei verwenden:
 
 ```javascript
 const { app } = require('electron')
