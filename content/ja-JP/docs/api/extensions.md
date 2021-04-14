@@ -60,7 +60,7 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
-- `chrome.runtime.getPlatformInfo`
+- `クロム.ランタイム.ゲットプラットフォーム情報`
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
@@ -87,17 +87,17 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 > **注:** Chrome では、タブ ID に `-1` を渡すと "現在アクティブなタブ" を意味します。 Electron にはそのような概念がないため、タブ ID として `-1` を渡すことはサポートされておらず、エラーとなります。
 
-### `chrome.management`
+### `クロム管理`
 
 `chrome.management` のうち以下のメソッドがサポートされています。
 
-- `chrome.management.getAll`
-- `chrome.management.get`
-- `chrome.management.getSelf`
-- `chrome.management.getPermissionWarningsById`
-- `chrome.management.getPermissionWarningsByManifest`
-- `chrome.management.onEnabled`
-- `chrome.management.onDisabled`
+- `すべてのクロム.管理.getall`
+- `クロム.管理.get`
+- `クロム.管理.ゲットセルフ`
+- `を使用します。`
+- `マニフェストによって表示されます。`
+- `有効に設定されています。`
+- `無効にした場合`
 
 ### `chrome.webRequest`
 
