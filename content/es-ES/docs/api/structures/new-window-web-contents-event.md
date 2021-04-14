@@ -1,3 +1,3 @@
-# NuevaVentanaNuevoEventodeContenidoWeb-Objeto extendido`Evento`
+# Objecto NewWindowWebContentsEvent extiende `Event`
 
-* `newGuest` BrowserWindow (optional)
+* `newGuest` BrowserWindow (opcional)
