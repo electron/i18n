@@ -27,9 +27,9 @@ Si le contexte V8 plante, le DevTools affichera ce message.
 
 `DevTools a été déconnecté de la page. Une fois la page rechargée, DevTools se reconnectera automatiquement.`
 
-Les logs Chromium peuvent être activés via la variable d'environnement `ELECTRON_ENABLE_LOGGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
+Les logs Chromium peuvent être activés via la variable d'environnement `ELECTRON_ENABLE_LOGGING`. Pour plus d’informations, consultez la documentation [variables de l’environnement](../api/environment-variables.md#electron_enable_logging).
 
-Alternativement, l'argument de la ligne de commande `--enable-logging` peut être passé. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).
+Alternativement, l'argument de la ligne de commande `--enable-logging` peut être passé. Plus d’informations sont disponibles dans la ligne de commande [la ligne de commande change la documentation](../api/command-line-switches.md#--enable-logging).
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools
