@@ -17,7 +17,7 @@ También es posible enviar mensajes desde el proceso principal al proceso de ren
 Ejemplo de envío y manejo de mensajes entre el proceso de renderizado y el principal:
 
 ```javascript
-// En el proceso principal.
+// In main process.
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
@@ -31,7 +31,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```
 
 ```javascript
-// En el proceso de renderizado (página web).
+// In renderer process (web page).
 const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
@@ -61,7 +61,7 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Agrega una función de `listener` una vez para el evento. Este `listener` se invoca solo la próxima vez que se envíe un mensaje a `channel`, después del cual se elimina.
 
 ### `ipcMain.removeListener(channel, listener)`
 
@@ -77,14 +77,14 @@ Elimina el `listener` especificado del arreglo del oyente para el `channel` espe
 
 Elimina los oyentes del `channel` especificado.
 
-### `ipcMain.handle(channel, listener)`
+### `ipcMain. Handle (Channel, Listener)`
 
 * `channel` Cadena
-* `listener` Function<Promise\<void> | any>
+* `listener`<Promise\<void> de función | cualquier >
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+Agrega un controlador para una IPC `invoke`able. Se llamará a este controlador cada vez que un procesador llame a `ipcRenderer.invoke(channel, ...args)`.
 
 Si `listener` devuelve una Promise, el eventual resultado de la promise será devuelto como una respuesta al controlador remoto. De lo contrario, el valor de retorno del listener será usado como el valor de la respuesta.
 
@@ -104,16 +104,16 @@ async () => {
 
 El `event` que es pasado como primer argumento al handler es el mismo que es pasado a un event listener normal. Incluye información sobre cual WebContents es el origen de la solicitud invocada.
 
-### `ipcMain.handleOnce(channel, listener)`
+### `ipcMain. handleOnce (Channel, Listener)`
 
 * `channel` Cadena
-* `listener` Function<Promise\<void> | any>
+* `listener`<Promise\<void> de función | cualquier >
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Maneja un solo `invoke`able mensaje IPC, luego elimina el listener. See `ipcMain.handle(channel, listener)`.
+Maneja un solo `invoke`able mensaje IPC, luego elimina el listener. Consulta `ipcMain.handle(channel, listener)`.
 
-### `ipcMain.removeHandler(channel)`
+### `ipcMain. removeHandler (Channel)`
 
 * `channel` Cadena
 
