@@ -70,4 +70,4 @@ Obwohl die Rechtschreibprüfung selbst keine Typen sendet, Wörter oder Benutzer
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Weitere Informationen dazu, woher sie die Wörterbuchdateien erhalten und wie Sie sie hosten müssen, finden Sie in den Dokumenten für [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) .
