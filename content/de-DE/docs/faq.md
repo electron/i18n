@@ -24,7 +24,7 @@ Neue Funktionalitäten von Node.js werden in der Regel durch V8 Upgrades ermögl
 
 ## Wie kann man Daten zwischen Webseiten austauschen?
 
-Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste Weg, HTML5-APIs zu verwenden, die bereits in Browsern zur Verfügung stehen. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste Weg, HTML5-APIs zu verwenden, die bereits in Browsern zur Verfügung stehen. Gute Kandidaten sind [Speicher-API-][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage]und [IndexedDB][indexed-db].
 
 Alternativ können Sie auch die von Electron zur Verfügung gestellten IPC-Primitive verwenden. Um Daten zwischen Haupt- und Renderer-Prozessen zu teilen, Sie können die [`ipcMain`](api/ipc-main.md) und [`ipcRenderer`](api/ipc-renderer.md) Module verwenden. Um direkt zwischen den Webseiten zu kommunizieren, können Sie einen [`MessagePort`][message-port] von einem zur anderen senden möglicherweise über den Hauptprozess mit [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Nachträgliche Kommunikation über Nachrichten-Ports ist direkt und zieht nicht durch den Hauptprozess um.
 
@@ -102,7 +102,7 @@ Es ist sehr wahrscheinlich, dass das Modul im falschen Prozess verwendet wird. B
 
 ## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
 
-If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Beispiel:
+Wenn [Anti-Aliasing-](https://alienryderflex.com/sub_pixel/) für Subpixel deaktiviert ist, können Schriftarten auf LCD-Bildschirmen verschwommen aussehen. Beispiel:
 
 ![Unterpixel-Rendering-Beispiel][]
 
@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Auch wenn Sie keinen Unterschied sehen, dürfen einige Ihrer Benutzer dies tun. Es ist am besten, den Hintergrund auf diese Weise zu setzen, es sei denn, Sie haben Gründe dafür, dies nicht zu tun.
+Der Effekt ist nur auf (einige?) sichtbar LCD-Bildschirme. Auch wenn Sie keinen Unterschied sehen, dürfen einige Ihrer Benutzer dies tun. Es ist am besten, den Hintergrund auf diese Weise zu setzen, es sei denn, Sie haben Gründe dafür, dies nicht zu tun.
 
 Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gewünschten Effekt hat.
 
