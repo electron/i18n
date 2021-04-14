@@ -29,10 +29,10 @@ Web Workers支持Node.js的所有内置模块，而且`asar`档案也仍通过No
 现在安全顺利地加载原生模块的唯一办法，就是确保在Web Workers启动后app不加载原生模块。
 
 ```javascript
-process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+过程。dlopen=（）=> =
+  抛出新的错误（"加载原生模块不安全"）
 }
-const worker = new Worker('script.js')
+const工作人员=新工人（"脚本.js"）
 ```
 
 [web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers
