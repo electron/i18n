@@ -2,7 +2,7 @@
 
 > Gère des fichiers et URLs à l'aide de leurs applications par défaut.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
+Processus: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-bac à sable seulement)
 
 Le module `shell` fournit des fonctions liées à l'intégration bureau.
 
@@ -14,7 +14,7 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
+**remarque :** que le module `shell` peut être utilisé dans le processus de rendu, il ne fonctionnera pas dans un renderer bac à sable.
 
 ## Méthodes
 
@@ -24,45 +24,45 @@ Le module `shell` dispose des méthodes suivantes :
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+Affichez le fichier donné dans un gestionnaire de fichiers. Si possible, sélectionnez le fichier.
 
 ### `shell.openPath(path)`
 
 * `path` String
 
-Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
+Retours `Promise<String>` - Se résout avec une chaîne contenant le message d’erreur correspondant à l’échec en cas d’échec, sinon «  ».
 
 Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternal(url[, options])`
 
 * `url` String - 2081 caractères max. sur Windows.
-* `options` Object (optional)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+* `options` objet (facultatif)
+  * `activate` Boolean (facultatif) _macOS_ - `true` pour mettre l’application ouverte au premier plan. La valeur par défaut `true`.
   * `workingDirectory` String (optional) _Windows_ - Le dossier de travail.
 
 Retourne `Promise<void>`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Ouvrez l’URL de protocole externe donnée de la manière par défaut du bureau. (Par exemple, mailto: URL dans l’agent de messagerie par défaut de l’utilisateur).
 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
 
 * `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
+* `deleteOnFail` Boolean (facultatif) - Qu’il s’agisse ou non de supprimer unilatéralement l’élément si la corbeille est désactivée ou non prise en charge sur le volume. _macOS_
 
-Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
+Retours `Boolean` - Si l’article a été déplacé avec succès à la poubelle ou autrement supprimé.
 
-> NOTE: This method is deprecated. Use `shell.trashItem` instead.
+> REMARQUE : Cette méthode est dépréciée. Utilisez- `shell.trashItem` à la place.
 
 Déplace le fichier donné dans la poubelle et retourne un booléen.
 
 ### `shell.trashItem(path)`
 
-* `path` String - path to the item to be moved to the trash.
+* `path` String - chemin vers l’élément à déplacer à la poubelle.
 
-Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
+Retours `Promise<void>` - Se résout lorsque l’opération est terminée. Rejette s’il y a eu une erreur lors de la suppression de l’élément demandé.
 
-This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
+Cela déplace un chemin vers l’emplacement des déchets spécifiques à l’OS (Trash on macOS, Recycle Bin sur Windows, et un emplacement spécifique à l’environnement de bureau sur Linux).
 
 ### `shell.beep()`
 
@@ -71,7 +71,7 @@ This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following:
+* `operation` String (facultatif) - Par défaut est `create`, peut être l’un des suivants:
   * `create` - Créer un nouveau raccourci, écrase si besoin.
   * `update` - Met à jour les propriétés seulement sur un raccourci existant.
   * `replace` - Remplace un raccourci existant, échoue si le raccourci n'existe pas.
