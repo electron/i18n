@@ -1,29 +1,29 @@
 # Übersicht
 
-> How to use Node.js and Electron APIs.
+> Verwendung von Node.js- und Electron-APIs.
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+Alle integrierten Module von [Node.js](https://nodejs.org/api/) sind in Electron- und Drittanbieter-Knotenmodulen ebenfalls vollständig unterstützt (einschließlich [nativemodule](../tutorial/using-native-node-modules.md)).
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
+Electron bietet auch einige zusätzliche integrierte Module für die Entwicklung nativer Desktop-Anwendungen. Einige Module sind nur im Hauptprozess verfügbar, einige sind nur im Rendererprozess (Webseite) verfügbar, und einige können in beiden Prozesstyps verwendet werden.
 
-The basic rule is: if a module is [GUI][gui] or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) scripts to be able to use those modules.
+Die Grundregel lautet: Wenn ein Modul [GUI][gui] oder Low-Level-System verwandt ist, sollte es nur im Hauptprozess verfügbar sein. Sie müssen mit konzept [Hauptprozess vs. Renderer-Prozess](../tutorial/quick-start.md#main-and-renderer-processes) Skripts vertraut sein, um diese Module verwenden zu können.
 
 Das Main-Prozess Script ist wie ein normales Node.js Script:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
-let win = null
+win = null
 
-app.whenReady().then(() => {
+app.whenReady().then() => '
   win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
-})
+)
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules if `nodeIntegration` is enabled:
+Der Renderer-Prozess unterscheidet sich nicht von einer normalen Webseite, mit Ausnahme der zusätzlichen Möglichkeit, Knotenmodule zu verwenden, wenn `nodeIntegration` aktiviert ist:
 
 ```html
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html>
 <body>
 <script>
@@ -34,21 +34,21 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-application).
+Um Ihre App auszuführen, lesen Sie [Führen Sie Ihre App](../tutorial/quick-start.md#run-your-application)aus.
 
 ## Destructuring assignment
 
-As of 0.37, you can use [destructuring assignment][destructuring-assignment] to make it easier to use built-in modules.
+Ab 0.37 können Sie [Destructuring-Zuweisung][destructuring-assignment] verwenden, um die Verwendung integrierten Modulen zu vereinfachen.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-let win
 
-app.whenReady().then(() => {
+
+app.whenReady().then() => '
   win = new BrowserWindow()
   win.loadURL('https://github.com')
-})
+gewinnen lassen.
 ```
 
 Wenn du das gesamte `electron` Module brauchst, dann kannst du dieses per require einbinden und auf einzelne `electron` Module per destructuring zugreifen.
@@ -57,12 +57,12 @@ Wenn du das gesamte `electron` Module brauchst, dann kannst du dieses per requir
 const electron = require('electron')
 const { app, BrowserWindow } = electron
 
-let win
+lassen sie
 
-app.whenReady().then(() => {
+app.whenReady(). dann() =>
   win = new BrowserWindow()
   win.loadURL('https://github.com')
-})
+
 ```
 
 Dies ist equivalent zum folgenden Code:
@@ -70,13 +70,13 @@ Dies ist equivalent zum folgenden Code:
 ```javascript
 const electron = require('electron')
 const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-let win
+const BrowserWindow = electron. BrowserWindow
 
-app.whenReady().then(() => {
+
+app.whenReady(). dann() =>
   win = new BrowserWindow()
   win.loadURL('https://github.com')
-})
+
 ```
 
 [gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
