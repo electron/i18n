@@ -1,51 +1,51 @@
 # Mitteilung
 
-> Create OS desktop notifications
+> Erstellen von OS-Desktopbenachrichtigungen
 
 Prozess: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Verwendung im Rendererprozess
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Wenn Sie Benachrichtigungen aus einem Renderer-Prozess anzeigen möchten, sollten Sie die [HTML5-Benachrichtigungs-API verwenden,](../tutorial/notifications.md)
 
-## Class: Notification
+## Klasse: Benachrichtigung
 
-> Create OS desktop notifications
+> Erstellen von OS-Desktopbenachrichtigungen
 
 Prozess: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification` ist ein [EventEmitter][event-emitter].
 
-It creates a new `Notification` with native properties as set by the `options`.
+Es erstellt eine neue `Notification` mit systemeigenen Eigenschaften, die von der `options`festgelegt werden.
 
 ### Static Methods
 
-The `Notification` class has the following static methods:
+Die `Notification` -Klasse verfügt über die folgenden statischen Methoden:
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Gibt `Boolean` zurück - Gibt an, ob Desktopbenachrichtigungen auf dem aktuellen System unterstützt werden
 
-### `new Notification([options])`
+### `neue Benachrichtigung ([options])`
 
-* `options` Object (optional)
-  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
-  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
-  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
-  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
-  * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
-  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
-  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
+* `options` Objekt (optional)
+  * `title` String (optional) - Ein Titel für die Benachrichtigung, der oben im Benachrichtigungsfenster angezeigt wird, wenn sie angezeigt wird.
+  * `subtitle` String (optional) _macOS_ - Ein Untertitel für die Benachrichtigung, der unter dem Titel angezeigt wird.
+  * `body` String (optional) - Der Textkörper der Benachrichtigung, der unter dem Titel oder Untertitel angezeigt wird.
+  * `silent` boolesch (optional) - Gibt an, ob beim Anzeigen der Benachrichtigung ein OS-Benachrichtigungsrauschen ausgesendet werden soll.
+  * `icon` (String | [NativeImage](native-image.md)) (optional) - Ein Symbol, das in der Benachrichtigung verwendet werden soll.
+  * `hasReply` boolesche (optional) _macOS_ - Gibt an, ob der Benachrichtigung eine Inline-Antwortoption hinzugefügt werden soll.
+  * `timeoutType` String (optional) _Linux_ _Windows_ - Die Timeoutdauer der Benachrichtigung. Kann 'default' oder 'never' sein.
+  * `replyPlaceholder` String (optional) _macOS_ - Der Platzhalter, der in das Eingabefeld für inline Antworten geschrieben werden soll.
+  * `sound` String (optional) _macOS_ - Der Name der Sounddatei, die wiedergegeben werden soll, wenn die Benachrichtigung angezeigt wird.
+  * `urgency` String (optional) _Linux_ - Die Dringlichkeitsstufe der Benachrichtigung. Kann "normal", "kritisch" oder "niedrig" sein.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Aktionen, die der Benachrichtigung hinzugefügt werden sollen. Bitte lesen Sie die verfügbaren Aktionen und Einschränkungen in der dokumentation `NotificationAction` .
+  * `closeButtonText` String (optional) _macOS_ - Ein benutzerdefinierter Titel für die Schaltfläche Schließen einer Warnung. Eine leere Zeichenfolge bewirkt, dass der standardmäßige lokalisierte Text verwendet wird.
+  * `toastXml` String (optional) _Windows_ - Eine benutzerdefinierte Beschreibung der Benachrichtigung unter Windows ersetzt alle oben genannten Eigenschaften. Bietet die vollständige Anpassung des Entwurfs und des Verhaltens der Benachrichtigung.
 
 ### Instanz Events
 
-Objects created with `new Notification` emit the following events:
+Objekte, die mit `new Notification` erstellt wurden, senden die folgenden Ereignisse aus:
 
 **Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
@@ -55,7 +55,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Wenn die Benachrichtigung dem Benutzer angezeigt wird, beachten Sie, dass dies mehrmals ausgelöst werden kann, da eine Benachrichtigung mehrmals über die `show()` -Methode angezeigt werden kann.
 
 #### Ereignis: 'click'
 
@@ -63,7 +63,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+Wird gesendet, wenn der Benutzer auf die Benachrichtigung klickt.
 
 #### Event: 'close'
 
@@ -71,112 +71,112 @@ Rückgabewert:
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+Emittiert, wenn die Benachrichtigung durch manuelles Eingreifen des Benutzers geschlossen wird.
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+Dieses Ereignis wird nicht garantiert in allen Fällen ausgesendet, in denen die Benachrichtigung geschlossen wird.
 
-#### Event: 'reply' _macOS_
-
-Rückgabewert:
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field.
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' _macOS_
+#### Ereignis: 'Antwort' _macOS_
 
 Rückgabewert:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `reply` String - Die Zeichenfolge, die der Benutzer in das Inline-Antwortfeld eingegeben hat.
 
-#### Event: 'failed' _Windows_
+Ausgegeben, wenn der Benutzer auf die Schaltfläche "Antworten" in einer Benachrichtigung mit `hasReply: true`klickt.
+
+#### Veranstaltung: 'Aktion' _macOS_
 
 Rückgabewert:
 
 * `event` Event
-* `error` String - The error encountered during execution of the `show()` method.
+* `index` - Der Index der aktivierten Aktion.
 
-Emitted when an error is encountered while creating and showing the native notification.
+#### Ereignis: 'fehlgeschlagen' _Windows_
+
+Rückgabewert:
+
+* `event` Event
+* `error` String - Der Fehler, der bei der Ausführung der `show()` -Methode aufgetreten ist.
+
+Wird angezeigt, wenn beim Erstellen und Anzeigen der systemeigenen Benachrichtigung ein Fehler auftritt.
 
 ### Instanz Methoden
 
-Objects created with `new Notification` have the following instance methods:
+Objekte, die mit `new Notification` erstellt wurden, verfügen über die folgenden Instanzmethoden:
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Sofort zeigt die Benachrichtigung an den Benutzer, bitte beachten Sie, dass dies bedeutet, im Gegensatz zu den HTML5-Benachrichtigungsimplementierung, Instanziieren eines `new Notification` es nicht sofort dem Benutzer anzeigt, müssen Sie diese Methode aufrufen, bevor das Betriebssystem sie anzeigt.
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+Wenn die Benachrichtigung zuvor angezeigt wurde, wird die zuvor angezeigte Benachrichtigung verworfen und eine neue Benachrichtigung mit identischen Eigenschaften erstellt.
 
 #### `notification.close()`
 
-Dismisses the notification.
+Die Benachrichtigung wird verworfen.
 
 ### Instanz Eigenschaften
 
 #### `notification.title`
 
-A `String` property representing the title of the notification.
+Eine `String` Eigenschaft, die den Titel der Benachrichtigung darstellt.
 
 #### `notification.subtitle`
 
-A `String` property representing the subtitle of the notification.
+Eine `String` Eigenschaft, die den Untertitel der Benachrichtigung darstellt.
 
 #### `notification.body`
 
-A `String` property representing the body of the notification.
+Eine `String` Eigenschaft, die den Text der Benachrichtigung darstellt.
 
 #### `notification.replyPlaceholder`
 
-A `String` property representing the reply placeholder of the notification.
+Eine `String` Eigenschaft, die den Antwortplatzhalter der Benachrichtigung darstellt.
 
 #### `notification.sound`
 
-A `String` property representing the sound of the notification.
+Eine `String` Eigenschaft, die den Klang der Benachrichtigung darstellt.
 
 #### `notification.closeButtonText`
 
-A `String` property representing the close button text of the notification.
+Eine `String` Eigenschaft, die den Text der Schaltfläche schließen der Benachrichtigung darstellt.
 
-#### `notification.silent`
+#### `benachrichtigung.silent`
 
-A `Boolean` property representing whether the notification is silent.
+Eine `Boolean` Eigenschaft, die angibt, ob die Benachrichtigung stumm ist.
 
 #### `notification.hasReply`
 
-A `Boolean` property representing whether the notification has a reply action.
+Eine `Boolean` Eigenschaft, die angibt, ob die Benachrichtigung über eine Antwortaktion verfügt.
 
-#### `notification.urgency` _Linux_
+#### `notification.urgency` _Linux-_
 
-A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+Eine `String` Eigenschaft, die die Dringlichkeitsstufe der Benachrichtigung darstellt. Kann "normal", "kritisch" oder "niedrig" sein.
 
-Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+Standard ist "niedrig" - weitere Informationen finden Sie unter [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) .
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+Eine `String` Eigenschaft, die den Typ der Timeoutdauer für die Benachrichtigung darstellt. Kann 'default' oder 'never' sein.
 
-If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
+Wenn `timeoutType` auf "nie" festgelegt ist, läuft die Benachrichtigung nie ab. Sie bleibt geöffnet, bis sie von der aufrufenden API oder dem Benutzer geschlossen wird.
 
-#### `notification.actions`
+#### `benachrichtigung.Aktionen`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+Eine [`NotificationAction[]`](structures/notification-action.md) Eigenschaft, die die Aktionen der Benachrichtigung darstellt.
 
-#### `notification.toastXml` _Windows_
+#### `notification.toastXml` _Windows-_
 
-A `String` property representing the custom Toast XML of the notification.
+Eine `String` Eigenschaft, die den benutzerdefinierten Popup-XML der Benachrichtigung darstellt.
 
-### Playing Sounds
+### Wiedergabe von Sounds
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Unter macOS können Sie den Namen des Sounds angeben, den Sie wiedergeben möchten, wenn die Benachrichtigung angezeigt wird. Jeder der Standard-Sounds (unter Systemeinstellungen > Sound) kann zusätzlich zu benutzerdefinierten Sounddateien verwendet werden. Stellen Sie sicher, dass die Sound- -Datei unter dem App-Bundle (z. B. `YourApp.app/Contents/Resources`) kopiert wird, oder einer der folgenden Speicherorte:
 
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
+* `Bibliothek/Sounds`
+* `/Bibliothek/Sounds`
+* `/Netzwerk/Bibliothek/Sounds`
+* `/System/Bibliothek/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Weitere Informationen finden Sie in den [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) -Dokumenten.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
