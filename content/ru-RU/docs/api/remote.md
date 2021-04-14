@@ -4,20 +4,20 @@
 
 Процесс: [Графический](../glossary.md#renderer-process)
 
-> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> ⚠️ ВНИМАНИЕ ⚠️ `remote` модуль [deprecated](https://github.com/electron/electron/issues/21408). Вместо `remote`, используйте [`ipcRenderer`](ipc-renderer.md) и [`ipcMain`](ipc-main.md).
 > 
-> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+> Узнайте больше о том, почему `remote` модуль является [здесь](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 > 
-> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
-
-Модуль `remote` обеспечивает простой способ для межпроцессного взаимодействия (IPC) между процессом рендеринга (веб-страницы) и основного процесса.
-
-В Electron GUI-ориентированные модули (такие, как `dialog`, `menu` и т. д.) доступны только в основном процессе, но не в процессе рендеринга. Для того, чтобы использовать их в рендер-процессе, необходим модуль `ipc`, чтобы посылать межпроцессные сообщения в основной процесс. С модулем `remote` вы можете вызывать методы объекта основного процесса без явной отправки межпроцессных сообщений, это похоже на Java [RMI][rmi]. Пример создания окна браузера из рендер-процесса:
-
-```javascript
-const { BrowserWindow } = require('electron').remote
-const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('https://github.com')
+> Если вы все еще хотите использовать `remote` несмотря на проблемы производительности и безопасности,</a>@electron см.</p> </blockquote> 
+> 
+> Модуль `remote` обеспечивает простой способ для межпроцессного взаимодействия (IPC) между процессом рендеринга (веб-страницы) и основного процесса.
+> 
+> В Electron GUI-ориентированные модули (такие, как `dialog`, `menu` и т. д.) доступны только в основном процессе, но не в процессе рендеринга. Для того, чтобы использовать их в рендер-процессе, необходим модуль `ipc`, чтобы посылать межпроцессные сообщения в основной процесс. С модулем `remote` вы можете вызывать методы объекта основного процесса без явной отправки межпроцессных сообщений, это похоже на Java [RMI][rmi]. Пример создания окна браузера из рендер-процесса:
+> 
+> ```javascript
+const { BrowserWindow } требуют ('electron').удаленный
+const выиграть - новый BrowserWindow ({ width: 800, height: 600 })
+win.loadURL ('https://github.com')
 ```
 
 **Примечание:** Для обратной связи (доступа к рендер-процессу из основного процесса), вы можете использовать [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
@@ -49,7 +49,7 @@ Electron следит за тем, что пока удаленный объек
 
 Код основного процесса может принимать колбэки рендер-процесса (например, модуль `remote`), но вы должны использовать эту особенность в предельной осторожностью.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Во-первых, чтобы избежать тупиков, обратные вызовы перешли к основному процессу, называются асинхронно. Не следует ожидать, что основной процесс получить возвратную стоимость пройденных обратных вызовов.
 
 Например, вы не можете использовать функцию из рендер-процесса в `Array.map`, вызываемой в основном процессе:
 
@@ -78,11 +78,11 @@ console.log(withRendererCb, withLocalCb)
 
 Во вторых, колбэки, передаваемые в основной процесс будут сохраняться до сборки мусора основным процессом.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Например, следующий код кажется невинным на первый взгляд. Он устанавливает обратный вызов для `close` события на удаленном объекте:
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+требуют ('electron').remote.getCurrentWindow ().on('close', () ->
+  // Окно было закрыто...
 })
 ```
 
@@ -125,7 +125,7 @@ console.log(app)
 
 ### `remote.require`
 
-A `NodeJS.Require` function equivalent to `require(module)` in the main process. Модули, указанные по их относительному пути, будут определены относительно точки входа основного процесса.
+Функция `NodeJS.Require` , эквивалентная `require(module)` в основном процессе. Модули, указанные по их относительному пути, будут определены относительно точки входа основного процесса.
 
 например
 
@@ -140,9 +140,9 @@ project/
 ```
 
 ```js
-// main process: main/index.js
-const { app } = require('electron')
-app.whenReady().then(() => { /* ... */ })
+основной процесс: основной/индексный.js
+ { app } - требуют ('электрон')
+app.whenReady ()..,> () -  .
 ```
 
 ```js
@@ -157,7 +157,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` _Только чтение_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Объект `NodeJS.Process` объекта.  Объект `process` в основном процессе. Это то же самое, `remote.getGlobal('process')` но кэшировано.
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
