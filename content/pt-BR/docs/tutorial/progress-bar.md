@@ -2,27 +2,27 @@
 
 ## Visão Geral
 
-A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
+Uma barra de progresso permite que uma janela forneça informações de progresso ao usuário sem a necessidade de mudar para a própria janela.
 
-On Windows, you can use a taskbar button to display a progress bar.
+No Windows, você pode usar um botão de barra de tarefas para exibir uma barra de progresso.
 
-![Windows Progress Bar][1]
+![Barra de Progresso do Windows][1]
 
-On macOS, the progress bar will be displayed as a part of the dock icon.
+No macOS, a barra de progresso será exibida como parte do ícone de doca.
 
-![macOS Progress Bar][2]
+![barra de progresso do macOS][2]
 
-On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
+No Linux, a interface gráfica Unity também tem um recurso semelhante que permite você especificar a barra de progresso no launcher.
 
-![Linux Progress Bar][3]
+![Barra de Progresso Linux][3]
 
-> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
+> NOTA: no Windows, cada janela pode ter sua própria barra de progresso, enquanto no macOS e Linux (Unity) pode haver apenas uma barra de progresso para o aplicativo.
 
 ----
 
-All three cases are covered by the same API - the [`setProgressBar()`][setprogressbar] method available on an instance of `BrowserWindow`. To indicate your progress, call this method with a number between `0` and `1`. For example, if you have a long-running task that is currently at 63% towards completion, you would call it as `setProgressBar(0.63)`.
+Todos os três casos são cobertos pela mesma API - o método [`setProgressBar()`][setprogressbar] disponível em uma instância de `BrowserWindow`. Para indicar seu progresso, ligue para este método com um número entre `0` e `1`. Por exemplo, se você tem uma tarefa de longa duração que está atualmente em 63% para a conclusão, você a chamaria de `setProgressBar(0.63)`.
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar, whereas setting it to values greater than `1` (e.g. `2`) will switch the progress bar to indeterminate mode (Windows-only -- it will clamp to 100% otherwise). In this mode, a progress bar remains active but does not show an actual percentage. Use this mode for situations when you do not know how long an operation will take to complete.
+Definindo o parâmetro para valores negativos (por exemplo. `-1`) removerá o progresso barra, ao que defini-lo para valores maiores que `1` (por exemplo. `2`) mudará a barra de progresso para o modo indeterminado (somente windows -- ele será fixado em 100% caso contrário). Neste modo, uma barra de progresso permanece ativa, mas não mostra uma porcentagem real. Use este modo para situações em que você não sabe quanto tempo uma operação levará para ser concluída.
 
 Veja a [documentação da API para mais opções e modos][setprogressbar].
 
@@ -37,13 +37,13 @@ const win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-After launching the Electron application, you should see the bar in the dock (macOS) or taskbar (Windows, Unity), indicating the progress percentage you just defined.
+Depois de lançar o aplicativo Electron, você deve ver a barra em dock (macOS) ou barra de tarefas (Windows, Unity), indicando o progresso porcentagem que você acabou de definir.
 
-![macOS dock progress bar](../images/dock-progress-bar.png)
+![barra de progresso do dock macOS](../images/dock-progress-bar.png)
 
-For macOS, the progress bar will also be indicated for your application when using [Mission Control](https://support.apple.com/en-us/HT204100):
+Para macOS, a barra de progresso também será indicada para o seu aplicativo ao usar [](https://support.apple.com/en-us/HT204100)de Controle de Missão :
 
-![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
+![Barra de Progresso do Controle da Missão](../images/mission-control-progress-bar.png)
 
 [1]: https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png
 [2]: ../images/macos-progress-bar.png
