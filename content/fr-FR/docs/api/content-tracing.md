@@ -9,17 +9,17 @@ Ce module n'inclut pas d'interface web. Pour afficher les traces enregistrées, 
 **Remarque :** Vous ne devriez pas utiliser ce module tant que l'événement `ready` du module de l'application n'est pas émis.
 
 ```javascript
-const { app, contentTracing } = require('electron')
+const { app, contentTracing } = require ('electron')
 
-app.whenReady().then(() => {
+app.whenReady().then()( ) => {
   (async () => {
-    await contentTracing.startRecording({
+    attendre contentTracing.. startRecording({
       included_categories: ['*']
-    })
-    console.log('Tracing started')
-    await new Promise(resolve => setTimeout(resolve, 5000))
-    const path = await contentTracing.stopRecording()
-    console.log('Tracing data recorded to ' + path)
+    }) console
+    .log ('Tracing started')
+    attendent de nouvelles promesses (résolution => setTimeout(résoudre, 5000))
+    chemin de const = attendre contentTracing.stopRecording() console
+    .log ('Traçage des données enregistrées à ' + chemin)
   })()
 })
 ```
@@ -34,7 +34,7 @@ Retourne `Promise<String[]>` - résout avec un tableau de groupes de catégories
 
 Obtenir un ensemble de groupes de catégories. Les groupes de catégories peuvent changer lorsque de nouveaux chemins de code sont atteints. Voir aussi la [liste des catégories de traçage intégrées](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
-> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
+> **NOTE:** Electron ajoute une catégorie de traçage non par défaut appelée `"electron"`. Cette catégorie peut être utilisée pour capturer des événements de traçage spécifiques aux électrons.
 
 ### `contentTracing.startRecording(options)`
 
