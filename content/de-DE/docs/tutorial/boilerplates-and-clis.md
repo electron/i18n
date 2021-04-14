@@ -2,7 +2,7 @@
 
 Die Entwicklung von Elektronen ist nicht beurteilt - es gibt keine "einzige richtige Methode", um eine Electron-Anwendung zu entwickeln, zu bauen, zu paketieren oder freizugeben. Zusätzliche Funktionen für Electron, sowohl für die Build- als auch für die Laufzeit finden Sie in der Regel unter [npm](https://www.npmjs.com/search?q=electron) in einzelnen Paketen, erlaubt Entwicklern, sowohl als auch Pipeline zu bauen, die sie benötigen.
 
-Dieses Niveau der Modularität und Erweiterbarkeit stellt sicher, dass alle Entwickler, die mit Electron arbeiten, sowohl groß als auch klein in Teamgröße sind niemals in dem eingeschränkt, was sie während ihres Entwicklungslebenszyklus tun können oder können. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Dieses Niveau der Modularität und Erweiterbarkeit stellt sicher, dass alle Entwickler, die mit Electron arbeiten, sowohl groß als auch klein in Teamgröße sind niemals in dem eingeschränkt, was sie während ihres Entwicklungslebenszyklus tun können oder können. für viele Entwickler kann jedoch eine der von der Community gesteuerten Boilerplates oder Befehlszeilentools Tools das Kompilieren, Verpacken und Freigeben einer -App erheblich vereinfachen.
 
 ## Boilerplate vs CLI
 
@@ -28,8 +28,8 @@ Weitere Informationen und Dokumentation finden Sie im [Projektarchiv](https://gi
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. Es ist sehr beliebt in der Community und verwendet `Elektron-Builder` intern.
+Wenn Sie keine Werkzeuge, sondern nur eine solide Bauplatte zum Bauen wollen, CT Lins [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) einen Blick wert sein könnte. Es ist sehr beliebt in der Community und verwendet `Elektron-Builder` intern.
 
 ## Andere Tools und Boilerplates
 
-Die ["Awesome Electron" Liste](https://github.com/sindresorhus/awesome-electron#boilerplates) enthält weitere Werkzeuge und Boilerplatten zur Auswahl. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+Die ["Awesome Electron" Liste](https://github.com/sindresorhus/awesome-electron#boilerplates) enthält weitere Werkzeuge und Boilerplatten zur Auswahl. Wenn Sie die Länge der Liste einschüchternd finden, vergessen Sie nicht , dass das Hinzufügen von Tools während der Zeit ein gültiger Ansatz ist.
