@@ -4,7 +4,7 @@ Los desarrolladores preguntan frecuentemente sobre estrategias para optimizar el
 
 La sabiduría y la información sobre cómo construir sitios web con rendimiento con JavaScript generalmente también se aplica a las aplicaciones Electron. Hasta cierto punto, los recursos discuten cómo construir Nodo performante. s aplicaciones también aplican, pero tenga cuidado de entender que el término "rendimiento" significa cosas diferentes para un Nodo. s backend de lo que hace para una aplicación ejecutándose en un cliente.
 
-This list is provided for your convenience – and is, much like our [security checklist][security] – not meant to exhaustive. Probablemente sea posible construir una aplicación Electron lenta que siga todos los pasos descritos a continuación. Electron es una potente plataforma de desarrollo que te permite, al desarrollador, hacer más o menos lo que quieras. Toda esa libertad significa que el rendimiento es en gran medida tu responsabilidad.
+Esta lista se proporciona para tu conveniencia, y es, al igual que nuestra [lista de verificación de seguridad][security] – no destinada a ser exhaustiva. Probablemente sea posible construir una aplicación Electron lenta que siga todos los pasos descritos a continuación. Electron es una potente plataforma de desarrollo que te permite, al desarrollador, hacer más o menos lo que quieras. Toda esa libertad significa que el rendimiento es en gran medida tu responsabilidad.
 
 ## Medida, Medida, Medida
 
@@ -107,14 +107,14 @@ module.exports = { parser }
 En el ejemplo anterior, estamos haciendo un montón de trabajo que se está ejecutando tan pronto como se carga el archivo. ¿Necesitamos obtener archivos analizados de inmediato? ¿Podríamos hacer este trabajo un poco más tarde, cuando `getParsedFiles()` es realmente llamado?
 
 ```js
-// "fs" probablemente ya está siendo cargado, así que la llamada `require()` es barata
+// "fs" is likely already being loaded, so the `require()` call is cheap
 const fs = require('fs')
 
-class Analizador {
+class Parser {
   async getFiles () {
-    // Toca el disco tan pronto como `getFiles` sea llamado, no antes.
-    // Además, asegúrese de que no estamos bloqueando otras operaciones usando
-    // la versión asincrónica.
+    // Touch the disk as soon as `getFiles` is called, not sooner.
+    // Also, ensure that we're not blocking other operations by using
+    // the asynchronous version.
     this.files = this.files || await fs.readdir('.')
 
     return this.files
@@ -123,33 +123,33 @@ class Analizador {
   async getParsedFiles () {
     // Our fictitious foo-parser is a big and expensive module to load, so
     // defer that work until we actually need to parse files.
-    // Ya que `require()` viene con una caché de módulos, la llamada `require()`
-    // solo será costosa una vez - las llamadas posteriores de `getParsedFiles()`
-    // serán más rápidas.
+    // Since `require()` comes with a module cache, the `require()` call
+    // will only be expensive once - subsequent calls of `getParsedFiles()`
+    // will be faster.
     const fooParser = require('foo-parser')
     const files = await this.getFiles()
 
-    return fooParser. arse(files)
+    return fooParser.parse(files)
   }
 }
 
-// Esta operación es ahora mucho más barata que en nuestro ejemplo anterior
+// This operation is now a lot cheaper than in our previous example
 const parser = new Parser()
 
-módulo. xports = { parser }
+module.exports = { parser }
 ```
 
 En resumen, asigna recursos "justo a tiempo" en lugar de asignarlos todos cuando tu aplicación inicie.
 
 ## 3) Bloquear el proceso principal
 
-El proceso principal de Electron (a veces llamado "proceso del navegador") es especial: es el proceso padre de todos los demás procesos de tu aplicación y el proceso principal con el que interactúa el sistema operativo. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+El proceso principal de Electron (a veces llamado "proceso del navegador") es especial: es el proceso padre de todos los demás procesos de tu aplicación y el proceso principal con el que interactúa el sistema operativo. Controla las ventanas, las interacciones y la la comunicación entre diversos componentes dentro de tu app. También aloja el subproceso de interfaz de usuario .
 
 Bajo ninguna circunstancia debe bloquear este proceso y el hilo de interfaz con operaciones de larga ejecución. Bloquear el hilo de interfaz de usuario significa que toda tu aplicación se congelará hasta que el proceso principal esté listo para continuar procesando.
 
 ### ¿Por qué?
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. Si la ventana está renderizando una animación suavizada, tendrá que hablar con el proceso GPU sobre eso, una vez más pasando por el proceso principal.
+El proceso principal y su subproceso de interfaz de usuario son esencialmente la torre de control para las operaciones de principales dentro de tu app. Cuando el sistema operativo le dice a tu App acerca de un clic del ratón, pasará por el proceso principal antes de que llegue a tu ventana. Si la ventana está renderizando una animación suavizada, tendrá que hablar con el proceso GPU sobre eso, una vez más pasando por el proceso principal.
 
 Electron y Chromium tienen cuidado de poner operaciones pesadas de E/S y de CPU en nuevos hilos para evitar bloquear el hilo de la interfaz. Deberían hacer lo mismo.
 
@@ -157,7 +157,7 @@ Electron y Chromium tienen cuidado de poner operaciones pesadas de E/S y de CPU 
 
 La poderosa arquitectura multiproceso de Electron está lista para ayudarte con tus tareas largas, pero también incluye un pequeño número de trampas de rendimiento.
 
-1) For long running CPU-heavy tasks, make use of [worker threads][worker-threads], consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
+1) para realizar tareas pesadas de larga duración, utiliza [subprocesos de trabajo][worker-threads], considera moverlos a la ventana BrowserWindow o (como último recurso) generar un proceso dedicado.
 
 2) Evitar usar el IPC sincrónico y el módulo `remoto` tanto como sea posible. Aunque hay casos de uso legítimos, es demasiado fácil bloquear sin saberlo el hilo de interfaz de usuario usando el módulo `remoto`.
 
@@ -197,7 +197,7 @@ Es raro que un polirelleno basado en JavaScript sea más rápido que la función
 
 Operar bajo la suposición de que los polirellenos en las versiones actuales de Electron son innecesarios. Si tienes dudas, revisa [caniuse. om](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
 
-Además, examine cuidadosamente las bibliotecas que utiliza. ¿Son realmente necesarias? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available][jquery-need].
+Además, examine cuidadosamente las bibliotecas que utiliza. ¿Son realmente necesarias? `jQuery`, por ejemplo, fue un gran éxito que muchas de sus características ahora son parte del conjunto de características de JavaScript estándar [disponible][jquery-need].
 
 Si está utilizando un transpilador/compilador como TypeScript, examine su configuración y asegúrese de que está dirigiendo a la última versión de ECMAScript soportada por Electron.
 
@@ -237,7 +237,7 @@ El desarrollo moderno de JavaScript generalmente involucra muchos archivos y mó
 
 Hay numerosos bundlers de JavaScript ahí fuera y sabemos mejor que enfurecer a la comunidad recomendando una herramienta sobre otra. Sin embargo, recomendamos que utilice un bundler que sea capaz de manejar el entorno único de Electron que necesita manejar ambos nodos. y entornos de navegador.
 
-As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
+A partir de la redacción de este artículo, las opciones populares incluyen [][webpack]WebPack, [Parcel][parcel]y [Rollup. js][rollup].
 
 [security]: ./security.md
 [performance-cpu-prof]: ../images/performance-cpu-prof.png
@@ -249,6 +249,7 @@ As of writing this article, the popular choices include [Webpack][webpack], [Par
 [multithreading]: ./multithreading.md
 [jquery-need]: http://youmightnotneedjquery.com/
 [service-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+[webpack]: https://webpack.js.org/
 [webpack]: https://webpack.js.org/
 [parcel]: https://parceljs.org/
 [rollup]: https://rollupjs.org/
