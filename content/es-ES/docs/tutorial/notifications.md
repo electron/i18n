@@ -21,12 +21,12 @@ Asumiendo que tiene una aplicación Electron funcional de la [Guía de inicio r�
 y añadir el archivo `rendererer.js`:
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const myNotification = new Notification('Título', {
+const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
 
 myNotification.onclick = () => {
-  console.log('Notificación pulsada')
+  console.log('Notification clicked')
 }
 ```
 
@@ -66,11 +66,11 @@ Si bien el código y la experiencia del usuario en los sistemas operativos son s
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Esto puede ser anulado durante el desarrollo, por lo que añadir `node_modules\electron\dist\electron.exe` a su Menú Inicio también hace el truco . Navegue al archivo en Explorer, haga clic derecho y "Anclar para iniciar el menú". Luego necesitará añadir la línea `app.setAppUserModelId(process.execPath)` a su proceso principal para ver las notificaciones.
+* En Windows 10, se debe instalar un acceso directo a tu App con un [ID del modelo de usuario de aplicación][app-user-model-id] debe instalarse en el menú Inicio de . Esto puede ser anulado durante el desarrollo, por lo que añadir `node_modules\electron\dist\electron.exe` a su Menú Inicio también hace el truco . Navegue al archivo en Explorer, haga clic derecho y "Anclar para iniciar el menú". Luego necesitará añadir la línea `app.setAppUserModelId(process.execPath)` a su proceso principal para ver las notificaciones.
 * En Windows 8.1 y Windows 8, un acceso directo para tu aplicación con un [Application User Model ID][app-user-model-id] debe ser instalado en el Start screen. Sin embargo, tenga en cuenta que no es necesario fijarlo a la pantalla de Inicio.
 * En Windows 7, las notificaciones funcionan a través de una implementación personalizada que se asemeja visualmente a la nativa en los sistemas más nuevos.
 
-Electron intenta automatizar el trabajo en torno de la Application User Model ID. Cuando Electron es usado junto con el framework de instalación y actualización Squirrel [shortcuts will automatically be set correctly][squirrel-events]. Además, Electron detectará que Squirrel fue usada y automáticamente llamará a `app.setAppUserModelId()` con el valor correcto. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
+Electron intenta automatizar el trabajo en torno de la Application User Model ID. Cuando Electron es usado junto con el framework de instalación y actualización Squirrel [shortcuts will automatically be set correctly][squirrel-events]. Además, Electron detectará que Squirrel fue usada y automáticamente llamará a `app.setAppUserModelId()` con el valor correcto. Durante el desarrollo, es posible que tengas para llamar a [`app.setAppUserModelId()`][set-app-user-model-id] tú mismo.
 
 Además, en Windows 8, la longitud máxima para el cuerpo de la notificación es de 250 caracteres, y el equipo de Windows recomienda que las notificaciones se mantengan en 200 caracteres. Dicho eso, esa limitación se eliminó en Windows 10, y el equipo de Windows les pidió a los desarrolladores que fuesen razonables. Intentar enviar cantidades gigantescas de texto a la API (miles de caracteres) puede provocar inestabilidad.
 
@@ -113,6 +113,7 @@ Las notificaciones se envían utilizando `libnotify` que puede mostrar notificac
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 
 [notification-spec]: https://developer.gnome.org/notification-spec/
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [set-app-user-model-id]: ../api/app.md#appsetappusermodelidid-windows
 [squirrel-events]: https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events
