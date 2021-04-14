@@ -6,10 +6,10 @@
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
 
-* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
+* [`Electron's Discord`](https://discord.com/invite/electron) 频道为：
   * 寻求帮助
-  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  * Sharing ideas with other Electron app developers
+  * 生态系统应用程序，如 [电子锻造](https://github.com/electron-userland/electron-forge) 和 [电子小提琴](https://github.com/electron/fiddle)
+  * 与其他电子应用开发人员分享创意
   * 以及更多！
 * [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
 * `#atom-shell` Freenode上的频道
@@ -58,7 +58,7 @@
 
 ### macOS
 
-对 macOS 仅提供64位版本，并且只支持 macOS 10.10 (Yosemite) 以及更高版本。
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.11 (El Capitan).
 
 Electron 11.0.0 已原生支持 Apple Silicon (`arm64`) 设备。
 
