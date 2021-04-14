@@ -7,4 +7,4 @@
 * `icon` String (facultatif) - Le chemin vers l'icône, peut être un DLL ou EXE. `icon` et `iconIndex` doivent être initiés ensemble. La valeur par défaut est vide, qui utilise l' icône de la cible.
 * `iconIndex` Number (facultatif) - L'ID de la ressource icône lorsque `icon` est un DLL ou EXE. Par défaut, 0.
 * `appUserModelId` String (facultatif) - Le User Model ID de l'application. Par défaut est vide.
-* `toastActivatorClsid` String (optional) - The Application Toast Activator CLSID. Needed for participating in Action Center.
+* `toastActivatorClsid` String (facultatif) - L’application Toast Activateur CLSID. Besoin de pour participer au Centre d’action.
