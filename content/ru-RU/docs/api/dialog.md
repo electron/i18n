@@ -23,16 +23,16 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] 
   * `defaultPath` String (опционально)
   * `buttonLabel` String(опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String ( по желанию) - Содержит, какие функции диалог должен использовать. Поддерживаются следующие значения:
     * `openFile` - Позволяет выбирать файлы.
     * `openDirectory` - Позволяет выбирать папки.
     * `multiSelections` - Позволяет выбрать несколько объектов.
     * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` _macOS_ - Позволяет создавать новые директории из диалога.
     * `promptToCreate` _Windows_ - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - Отключите автоматический псевдоним (симлинк) путь разрешения. Выбранные псевдонимы теперь возвращают путь псевдонима вместо того, их целевой путь.
     * `treatPackageAsDirectory` _macOS_ - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
-    * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
+    * `dontAddToRecent` _Windows_ - Не добавляйте элемент, открытый в список последних документов.
   * `message` String (опционально) _macOS_ - Сообщение, которое будет отображено над полями ввода.
   * `securityScopedBookmarks` Boolean (опционально) _macOS_ _mas_ - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
 
@@ -40,7 +40,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] 
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Например:
+В `filters` указан массив типов файлов, которые могут отображаться или , когда вы хотите ограничить пользователя определенным типом. Например:
 
 ```javascript
 {
@@ -71,28 +71,28 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (опционально)
   * `buttonLabel` String(опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String ( по желанию) - Содержит, какие функции диалог должен использовать. Поддерживаются следующие значения:
     * `openFile` - Позволяет выбирать файлы.
     * `openDirectory` - Позволяет выбирать папки.
     * `multiSelections` - Позволяет выбрать несколько объектов.
     * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` _macOS_ - Позволяет создавать новые директории из диалога.
     * `promptToCreate` _Windows_ - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - Отключите автоматический псевдоним (симлинк) путь разрешения. Выбранные псевдонимы теперь возвращают путь псевдонима вместо того, их целевой путь.
     * `treatPackageAsDirectory` _macOS_ - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
-    * `dontAddToRecent` _Windows_ - Do not add the item being opened to the recent documents list.
+    * `dontAddToRecent` _Windows_ - Не добавляйте элемент, открытый в список последних документов.
   * `message` String (опционально) _macOS_ - Сообщение, которое будет отображено над полями ввода.
   * `securityScopedBookmarks` Boolean (опционально) _macOS_ _mas_ - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
 
 Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
 * `canceled` Boolean - независимо от того, был ли диалог отменен.
-* `filePaths` String[] - Массив файлов, которые выбрал пользователь. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (необязательно) _macOS_ _mas_ - Массив строк, соответствующих массиву `filePaths`, в кодировке base64, который содержит закладки с областью безопасности. Для его использования, `securityScopedBookmarks` должны быть активированы. (For return values, see [table here](#bookmarks-array).)
+* `filePaths` String[] - Массив файлов, которые выбрал пользователь. Если диалог будет отменен, это будет пустой массив.
+* `bookmarks` String[] (необязательно) _macOS_ _mas_ - Массив строк, соответствующих массиву `filePaths`, в кодировке base64, который содержит закладки с областью безопасности. Для его использования, `securityScopedBookmarks` должны быть активированы. (Для значений возврата см. [здесь](#bookmarks-array).)
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Например:
+В `filters` указан массив типов файлов, которые могут отображаться или , когда вы хотите ограничить пользователя определенным типом. Например:
 
 ```javascript
 {
@@ -131,12 +131,12 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (необязательно) _macOS_ - Сообщение, которое будет показано над полями ввода.
   * `nameFieldLabel` String (необязательно) _macOS_ - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
   * `showsTagField` Boolean (необязательно) _macOS_ - Показать поле ввода тегов, по умолчанию `true`.
-  * `properties` String[] (optional)
+  * `properties` Струна » (по желанию)
     * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` _macOS_ - Позволяет создавать новые директории из диалога.
     * `treatPackageAsDirectory` _macOS_ - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
-    * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
-    * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
+    * `showOverwriteConfirmation` _Linux_ - Устанавливает, будет ли пользователю представлен диалог подтверждения, если пользователь навеет имя файла, которое уже существует.
+    * `dontAddToRecent` _Windows_ - Не добавляйте сохраненный элемент в список последних документов.
   * `securityScopedBookmarks` Boolean (необязательно) _maxOS_ _mas_ - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
 Возвращает `String | undefined`, путь к файлу, выбранному пользователем; если диалог отменен, то возвращает `undefined`.
@@ -155,20 +155,20 @@ dialog.showOpenDialog(mainWindow, {
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
   * `message` String (необязательно) _macOS_ - Сообщение, которое будет показано над полями ввода.
   * `nameFieldLabel` String (необязательно) _macOS_ - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
-  * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
-  * `properties` String[] (optional)
+  * `showsTagField` Boolean (по желанию) _macOS_ - Показать поле ввода тегов, по умолчанию `true`.
+  * `properties` Струна » (по желанию)
     * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` _macOS_ - Позволяет создавать новые директории из диалога.
     * `treatPackageAsDirectory` _macOS_ - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
-    * `showOverwriteConfirmation` _Linux_ - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
-    * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
+    * `showOverwriteConfirmation` _Linux_ - Устанавливает, будет ли пользователю представлен диалог подтверждения, если пользователь навеет имя файла, которое уже существует.
+    * `dontAddToRecent` _Windows_ - Не добавляйте сохраненный элемент в список последних документов.
   * `securityScopedBookmarks` Boolean (необязательно) _maxOS_ _mas_ - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
 Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
 * `canceled` Boolean - независимо от того, был ли диалог отменен.
-* `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-* `bookmark` String (необязательно) _macOS_ _mas_ - Строка в кодировке base64, содержащая зкладку с областью безопасности сохранённого файла. `securityScopedBookmarks` должны быть активированы для её использования. (For return values, see [table here](#bookmarks-array).)
+* `filePath` Строка (необязательно) - Если диалог будет отменен, это будет `undefined`.
+* `bookmark` String (необязательно) _macOS_ _mas_ - Строка в кодировке base64, содержащая зкладку с областью безопасности сохранённого файла. `securityScopedBookmarks` должны быть активированы для её использования. (Для значений возврата см. [здесь](#bookmarks-array).)
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
@@ -182,12 +182,12 @@ dialog.showOpenDialog(mainWindow, {
 * `options` Object
   * `message` String - содержимое сообщения.
   * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String ( по желанию) - Массив текстов для кнопок. На Windows пустой массив с приведет к одной кнопке с пометкой "ОК".
   * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
   * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. По умолчанию `false`.
+  * `checkboxChecked` Boolean (по желанию) - Первоначальная проверка состояния флажока. По умолчанию `false`.
   * `icon` ([NativeImage](native-image.md) | String) (опционально)
   * `cancelId` Integer (опционально) - Индекс кнопки, которая будет использоваться для отмены диалога, через клавишу `Esc`. По умолчанию это назначается первой кнопке с меткой "Отмена" или "Нет". Если этот параметр не установлен и нет таких отмеченных кнопок, как возвращаемое значение будет использоваться `0`.
   * `noLink` Boolean (опционально) - В Windows Electron попытается выяснить, какие из `buttons` являются общими кнопками (например, «Отмена» или «Да»), и отобразить остальные как ссылки команд в диалоговом окне. Это может сделать диалог в стиле современных приложений Windows. Если вам не нравится такое поведение, вы можете установить `noLink` на `true`.
@@ -195,9 +195,9 @@ dialog.showOpenDialog(mainWindow, {
 
 Возвращает `Integer` - индекс нажатой кнопки.
 
-Показывает окно сообщения, оно будет блокировать процесс, пока не будет закрыто окно сообщения. It returns the index of the clicked button.
+Показывает окно сообщения, оно будет блокировать процесс, пока не будет закрыто окно сообщения. Возвращает индекс нажатой кнопки.
 
-Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным. If `browserWindow` is not shown dialog will not be attached to it. В этом случае он будет отображаться как независимое окно.
+Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным. Если `browserWindow` не показан диалог, он не будет к нему прикреплен. В этом случае он будет отображаться как независимое окно.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
@@ -205,12 +205,12 @@ dialog.showOpenDialog(mainWindow, {
 * `options` Object
   * `message` String - содержимое сообщения.
   * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String ( по желанию) - Массив текстов для кнопок. На Windows пустой массив с приведет к одной кнопке с пометкой "ОК".
   * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
   * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. По умолчанию `false`.
+  * `checkboxChecked` Boolean (по желанию) - Первоначальная проверка состояния флажока. По умолчанию `false`.
   * `icon` [NativeImage](native-image.md) (опционально)
   * `cancelId` Integer (опционально) - Индекс кнопки, которая будет использоваться для отмены диалога, через клавишу `Esc`. По умолчанию это назначается первой кнопке с меткой "Отмена" или "Нет". Если этот параметр не установлен и нет таких отмеченных кнопок, как возвращаемое значение будет использоваться `0`.
   * `noLink` Boolean (опционально) - В Windows Electron попытается выяснить, какие из `buttons` являются общими кнопками (например, «Отмена» или «Да»), и отобразить остальные как ссылки команд в диалоговом окне. Это может сделать диалог в стиле современных приложений Windows. Если вам не нравится такое поведение, вы можете установить `noLink` на `true`.
@@ -218,10 +218,10 @@ dialog.showOpenDialog(mainWindow, {
 
 Возвращает `Promise<Object>` - разрешает Promise, содержащие следующие свойства:
 
-* `response` Number - The index of the clicked button.
-* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+* `response` номер - Индекс нажатой кнопки.
+* `checkboxChecked` Boolean - Проверенное состояние флажока, если `checkboxLabel` был установлен. В противном случае `false`.
 
-Shows a message box.
+Показывает окно сообщений.
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
@@ -250,16 +250,16 @@ Shows a message box.
 * Не используется аргумент `message`, так как ОС предоставляет свое собственное подтверждение диалогового окна.
 * Экран `browserWindow` игнорируется, поскольку невозможно сделать это диалоговое окно подтверждения.
 
-## Bookmarks array
+## Массив закладок
 
-`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`и `showSaveDialogSync` вернут `bookmarks` массив.
 
-| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
-| ---------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
-| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
-| macOS mas  | False                           |     NA      | `[]` (empty array)             |
-| non mas    | any                             |     NA      | `[]` (empty array)             |
+| Тип сборки | securityScopedBookmarks boolean | Тип возврата | Возвратное значение           |
+| ---------- | ------------------------------- |:------------:| ----------------------------- |
+| macOS мас  | Истинный                        |    Успех     | `(ДЛИННЫЙBOOKMARKSTRING')`    |
+| macOS мас  | Истинный                        |    Error     | `['']` (массив пустой строки) |
+| macOS мас  | Ложных                          |      Na      | `[]` (пустой массив)          |
+| не мас     | Любой                           |      Na      | `[]` (пустой массив)          |
 
 ## "Листы"
 
