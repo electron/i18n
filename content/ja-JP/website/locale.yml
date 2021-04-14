@@ -26,7 +26,6 @@ keyboard_modal:
   open_new_tab: 選択した検索結果を新しいタブで開く
 docs:
   title: Electron ドキュメント
-  description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
   guides: "ガイド: Electronで始める"
   api_reference: API リファレンス
   api_structures: API構造
@@ -39,7 +38,6 @@ docs:
   propose_change: このドキュメントを改善する
   version_history: 過去のバージョン
   translate: ドキュメントの翻訳に参加する
-  view_all_docs: Electronに関する全てのドキュメントを1ページで表示する
 languages:
   choose_language: 言語選択
   view_more_details: 言語の詳細をもっと表示する
@@ -164,7 +162,6 @@ clipboard:
 fiddle_launch_button:
   launch: 動かす
   launch_in_fiddle: Fiddle で動かす
-or: または
 pages:
   '/':
     title: Electron | JavaScript, HTML, CSSによるクロスプラットフォームなデスクトップアプリ開発
@@ -175,9 +172,6 @@ pages:
   '/docs':
     title: ドキュメント
     description: 最新の Electron に関するガイドと API リファレンス
-  '/docs/all':
-    title: Electronに関する全てのドキュメント
-    description: Electron のガイド、APIドキュメントは単一の検索可能なページにまとめています。
   '/docs/api':
     title: API
     description: 最新の Electron のための API リファレンス
