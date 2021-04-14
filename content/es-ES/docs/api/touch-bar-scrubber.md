@@ -8,14 +8,14 @@ Proceso: [Main](../glossary.md#main-process)
 
 * `options` Object
   * `elementos` [elemento a depurar[]](structures/scrubber-item.md) - Un arreglo de elementos a depurar.
-  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
+  * `select` function (opcional)-se llama cuando el usuario puntea un elemento que no fue el último elemento roscado.
     * `seleccionar índice` Entero - El índice del elemento que el usuario seleccionó.
-  * `highlight` Function (optional) - Called when the user taps any item.
+  * `highlight` function (opcional)-se llama cuando el usuario toca cualquier elemento.
     * `índice destacado` Entero - El índice del elemento que el usuario tocó.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `selectedStyle` String (opcional) - Estilo de elemento seleccionado. Puede ser `background`, `outline` o `none`. Por defecto es `none`.
+  * `overlayStyle` String (opcional) - Estilo de elemento de superposición seleccionado. Puede ser `background`, `outline` o `none`. Por defecto es `none`.
   * `showArrowButtons` Boolean (opcional) - Por defecto a `false`.
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
+  * `mode` String (opcional) - Puede ser `fixed` o `free`. Por defecto es `free`.
   * `continuous` Boolean (opcional) - Por defecto a `true`.
 
 ### Propiedades de Instancia
@@ -44,15 +44,15 @@ Una `Cadena` que representa el estilo que deben tener los elementos seleccionado
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+Una `Boolean` que representa si se mostrarán las flechas de selección izquierda/derecha en este depurador. Actualizar este valor inmediatamente actualiza el control en el touch bar.
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Posibles valores:
+Un `String` que representa el modo de este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Posibles valores:
 
 * `fijo` - Mapa a `NSScrubberModeFixed`.
 * `libre` - Mapa a `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Actualizar este valor actualiza inmediatamente el control en la barra táctil.
+Un `Boolean` que representa si este depurador es continuo o no. Actualizar este valor actualiza inmediatamente el control en la barra táctil.
