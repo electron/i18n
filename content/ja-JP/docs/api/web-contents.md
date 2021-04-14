@@ -336,7 +336,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
+  * `reason` 文字列 - レンダリングプロセスがなくなった理由。  取りうる値:
     * `clean-exit` - ゼロの終了コードでプロセスが終了した
     * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
     * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
@@ -391,13 +391,13 @@ Webページが応答しなくなるときに発生します。
 メニューショートカットだけを阻害するには、[`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore) を使用します。
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = 必須 ('electron')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+定数が有効 = 新しい BrowserWindow({ width: 800, height: 600 })
 
-win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+win.webContents.on ('入力前イベント', => {
+  // たとえば、
+  時にアプリケーション メニューのキーボード ショートカットを有効にする // Ctrl/Cmd がダウンしている場合のみ有効にします。
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -923,18 +923,18 @@ win.loadURL('http://github.com').then(() => {
 メソッドを呼び出した直後にこの `reload()` を呼び出すと、新しいプロセスでリロードが発生します。 これは、このプロセスが不安定または使用不可の場合、例えば `unresponsive` イベントから回復する際に使用されるべきです。
 
 ```js
-contents.on('unresponsive', async () => {
-  const { response } = await dialog.showMessageBox({
-    message: 'App X has become unresponsive',
-    title: 'Do you want to try forcefully reloading the app?',
-    buttons: ['OK', 'Cancel'],
-    cancelId: 1
-  })
-  if (response === 0) {
-    contents.forcefullyCrashRenderer()
-    contents.reload()
+contents.on('応答しない'、非同期()=> {
+  コンスト { response } = await dialog.showMessageBox({
+    メッセージ)、
+    タイトル:「アプリXを強制的に再ロードしたいですか?」、
+    ボタン:'OK'、'キャンセル'、
+    キャンセルボタン:'OK'、'キャンセル'、キャンセルId:1
   }
-})
+  (応答===0)
+
+  
+    
+{
 ```
 
 #### `contents.setUserAgent(userAgent)`
@@ -1020,7 +1020,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   * `details` Object
     * `url` String - `window.open()` に渡されて _解決された_ URL。 例えば `window.open('foo')` でウインドウを開くと、これは `https://the-origin/the/current/path/foo` のようになります。
     * `frameName` String - `window.open()` で指定されたウインドウ名
-    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。 戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
+    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。
+
+  戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
 
 レンダラーから `window.open()` が呼び出されたときに、ウィンドウの作成前に呼び出されます。 詳細や `did-create-window` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
 
@@ -1222,7 +1224,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Object[]  (optional) - The page range to print. macOS では 1 つの範囲のみが許可されています。
+  * `pageRanges` オブジェクト[] (オプション) - 印刷するページ範囲。 macOS では 1 つの範囲のみが許可されています。
     * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
     * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
@@ -1245,17 +1247,17 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 使用例:
 
 ```js
-const options = {
-  silent: true,
-  deviceName: 'My-Printer',
-  pageRanges: [{
+const オプション = {
+  サイレント: true,
+  デバイス名: 'マイプリンタ',
+  ページ範囲: [{
     from: 0,
     to: 1
   }]
-}
-win.webContents.print(options, (success, errorType) => {
-  if (!success) console.log(errorType)
-})
+
+win.webContents.print(オプション, (成功, エラータイプ) => {
+  場合 (!成功) コンソール.log (エラータイプ)
+} )
 ```
 
 #### `contents.printToPDF(options)`
@@ -1298,26 +1300,26 @@ Chromium の印刷のカスタム設定のプレビューで、PDF としてウ�
 これは `webContents.printToPDF` の例です。
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
+const { BrowserWindow } = 必須 ('電子)
+const fs = 必須('fs')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+コンスト os = 必須('os')
+
+コンスト勝利 = 新しいブラウザウィンドウ({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  // Use default printing options
-  win.webContents.printToPDF({}).then(data => {
-    const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
-    fs.writeFile(pdfPath, data, (error) => {
-      if (error) throw error
-      console.log(`Wrote PDF successfully to ${pdfPath}`)
-    })
-  }).catch(error => {
-    console.log(`Failed to write PDF to ${pdfPath}: `, error)
+win.webContents.on('did-finish-load') () => {
+  // 既定の印刷オプション
+  使用する (データ => =
+    =  コンスト pdfPath = path.join(os.homedir)、'デスクトップ'、'temp.pdf')
+    fs.writeFile(pdfPath、 data, (エラー) => {.log
+      コンソールエラーをスローした場合に
+      ('PDF ${pdfPath}を書き込んだ場合'
+    } )
+  } )エラー => {
+    コンソール.log('PDF を書き込み ${pdfPath}: ', エラー)
   })
-})
+} )
 ```
 
 #### `contents.addWorkSpace(path)`
@@ -1327,11 +1329,11 @@ win.webContents.on('did-finish-load', () => {
 指定したパスをデベロッパー ツールのワークスペースに追加します。 デベロッパー ツールが生成された後で使用しなければいけません。
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.webContents.on('devtools-opened', () => {
+const { BrowserWindow } = 必須 ('電子)
+の定数の勝利 = 新しいブラウザウィンドウ()
+win.webContents.on ('devtools- オープン', () => =
   win.webContents.addWorkSpace(__dirname)
-})
+}
 ```
 
 #### `contents.removeWorkSpace(path)`
@@ -1358,42 +1360,42 @@ win.webContents.on('devtools-opened', () => {
 <html>
 <head>
   <style type="text/css">
-    * { margin: 0; }
-    #browser { height: 70%; }
-    #devtools { height: 30%; }
+    * { マージン: 0; }
+    #browser { 高さ: 70%; }
+    #devtools { 高さ: 30% ; }
   </style>
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { ipcRenderer } = require('electron')
-    const emittedOnce = (element, eventName) => new Promise(resolve => {
-      element.addEventListener(eventName, event => resolve(event), { once: true })
-    })
-    const browserView = document.getElementById('browser')
-    const devtoolsView = document.getElementById('devtools')
-    const browserReady = emittedOnce(browserView, 'dom-ready')
-    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
-    Promise.all([browserReady, devtoolsReady]).then(() => {
-      const targetId = browserView.getWebContentsId()
-      const devtoolsId = devtoolsView.getWebContentsId()
-      ipcRenderer.send('open-devtools', targetId, devtoolsId)
-    })
+    const { ipcRenderer } = 必須 ('electron'
+    )
+    constが出力される = (要素, イベント名) => 新しい promise( => {
+      要素.addEventListener (イベント名、 イベント => 解決(イベント)
+    { once: true })
+    ) コンストブラウザビュー =.getElementById('ブラウザ'ブラウザ)
+    、'dom-ready')
+    コンストデブツールレディ =
+    (開発ツールズビュー、'ドムレディ')  プロミス.all([ブラウザレディ、デブツールレディ])、次に(())> {
+      ののターゲット Id = ブラウザービュー.getWebContentsId()
+
+      ipcRenderer.
   </script>
 </body>
 </html>
+    send
 ```
 
 ```js
-// Main process
-const { ipcMain, webContents } = require('electron')
-ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
-  const target = webContents.fromId(targetContentsId)
-  const devtools = webContents.fromId(devtoolsContentsId)
-  target.setDevToolsWebContents(devtools)
-  target.openDevTools()
-})
+主なプロセス
+
+  =必須 { ipcMain, webContents } =('電子)
+必須です(
+
+  
+  
+  > '電子')
 ```
 
 `BrowserWindow` 内で開発者向けツールを表示する例:
@@ -1479,14 +1481,14 @@ ID に基づいて共有ワーカーのインスペクターを起動します�
 
 ```javascript
 // メインプロセス
-const { app, BrowserWindow } = require('electron')
-let win = null
+const { app, BrowserWindow } = win = null
 
-app.whenReady().then(() => {
-  win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadURL(`file://${__dirname}/index.html`)
-  win.webContents.on('did-finish-load', () => {
-    win.webContents.send('ping', 'whoooooooh!')
+
+  > アプリを
+必要('電子)は、新しいブラウザウィンドウ({ width: 800, height: 600 })
+  新しいブラウザウィンドウ()  新しいブラウザウィンドウ()、ファイル://${__dirname}/インデックス.html)
+> ('did-finish-load', =の
+
   })
 })
 ```
