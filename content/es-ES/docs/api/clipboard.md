@@ -9,8 +9,8 @@ En Linux, además hay un portapapeles `selection`. Para manipularlo necesitas pa
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Ejemplo de cadena', 'selección')
-console.log(clipboard.readText ('selección'))
+clipboard.writeText('Example String', 'selection')
+console.log(clipboard.readText('selection'))
 ```
 
 ## Métodos
@@ -229,15 +229,15 @@ console.log(buffer.equals(out))
 Escribe el `buffer` en el portapapeles como `formato`.
 
 ```js
-const { clipboard } = require('electron')
+const { clipboard } = require (' Electron ')
 
-const buffer = Buffer.from('writeBuffer', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+buffer const = buffer. from (' writeBuffer ', ' UTF8 ')
+Clipboard. writeBuffer (' Public. UTF8-Plain-Text ', buffer)
 ```
 
 ### `clipboard.write(datao[, type])`
 
-* `data` Object
+* Objeto `data`
   * `text` Cadena (opcional)
   * `html` Cadena (opcional)
   * `image` [NativeImage](native-image.md) (opcional)
