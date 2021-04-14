@@ -4,19 +4,19 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+在 Electron 中，对于拍摄图像的 ABI，您可以通过文件路径或 `NativeImage` 实例。 传递 `null` 时，将使用空图像。
 
 例如, 创建托盘或设置窗口图标时, 你可以传递 `String` 格式的图片路径
 
 ```javascript
-const { BrowserWindow, Tray } = require('electron')
+康斯特 { BrowserWindow, Tray } = 需要 （'电子'）
 
-const appIcon = new Tray('/Users/somebody/images/icon.png')
-const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
-console.log(appIcon, win)
+康斯特 appIcon = 新托盘 （'/用户/某人/图像/图标.png'）
+缺点赢 = 新的浏览器窗口 （+图标： '/用户/某人/图像/窗口.png'}）
+控制台.log （appIcon， 赢）
 ```
 
-Or read the image from the clipboard, which returns a `NativeImage`:
+或从剪贴板上读取图像，剪贴板返回 `NativeImage`：
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## 支持的格式
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+当前支持 `PNG` 和 `JPEG` 图像格式。 建议`PNG` ，因为它支持透明度和无损压缩。
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
+在 Windows 上，您还可以从文件路径加载 `ICO` 图标。 为了获得最佳的视觉 质量，建议在以下尺寸中至少包括以下尺寸：
 
 * 小图标
   * 16x16 (100% DPI scale)
@@ -49,9 +49,9 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 在具有高 DPI 支持的平台 (如 Apple 视网膜显示器) 上, 可以在图像的基本文件名之后追加 ` @ 2x ` 以将其标记为高分辨率图像。
 
-For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+例如，如果 `icon.png` 是具有标准分辨率的正常图像，则 `icon@2x.png` 将被视为具有双倍 DPI 密度的高分辨率图像。
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. 例如：
+如果您想同时支持具有不同 DPI 密度的显示器， ，您可以将不同大小的图像放在同一文件夹中，并在没有 DPI 后缀的情况下使用文件名 。 例如：
 
 ```plaintext
 images/
@@ -61,12 +61,12 @@ images/
 ```
 
 ```javascript
-const { Tray } = require('electron')
-const appIcon = new Tray('/Users/somebody/images/icon.png')
-console.log(appIcon)
+康斯特 { Tray } = 需要 （'电子'）
+康斯特图标 = 新托盘 （'/ 用户 / 某人 / 图像 / 图标.png'）
+控制台.log （appIcon）
 ```
 
-The following suffixes for DPI are also supported:
+还支持 DPI 的以下后缀：
 
 * `@1x`
 * `@1.25x`
@@ -82,13 +82,13 @@ The following suffixes for DPI are also supported:
 
 ## 模板图片
 
-Template images consist of black and an alpha channel. 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
+模板图像由黑色和阿尔法通道组成。 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
 
-The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
+最常见的情况是使用菜单栏图标的模板图像，这样它就可以 适应浅色和深色菜单条。
 
 ** 注意: **仅在 macOS 上支持Template image。
 
-To mark an image as a template image, its filename should end with the word `Template`. 例如：
+要将图像标记为模板图像，其文件名应以" `Template`"一词结尾。 例如：
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -103,12 +103,12 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 创建一个空的 ` NativeImage ` 实例。
 
-### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
+### `nativeImage.createThumbnailFromPath(path, maxSize)` _马科斯_ _窗口_
 
-* `path` String - path to a file that we intend to construct a thumbnail out of.
-* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+* `path` 字符串 - 通往我们打算构建缩略图的文件的路径。
+* `maxSize` [尺寸](structures/size.md) - 缩略图返回的最大宽度和高度（正数）。 Windows 的实施将忽略 `maxSize.height` ，并根据 `maxSize.width`缩放高度。
 
-Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+返回 `Promise<NativeImage>` - 满足与文件的缩略图预览图像，这是一个 [原生图像](native-image.md)。
 
 ### `nativeImage.createFromPath(path)`
 
@@ -119,35 +119,35 @@ Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview ima
 从位于 ` path ` 的文件创建新的 ` NativeImage ` 实例。 如果 ` path ` 不存在，，无法读取或不是有效图像，方法将返回空图像, 。
 
 ```javascript
-const nativeImage = require('electron').nativeImage
+康斯特原生图像 = 需要 （"电子"）. 原生图像
 
-const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
-console.log(image)
+康斯特图像 = 原生图像. 创建从路径 （'/ 用户 / 某人 / 图像 / 图标.png'）
+控制台.log （图像）
 ```
 
-### `nativeImage.createFromBitmap(buffer, options)`
+### `原生图像。创建从比特图（缓冲区，选项）`
 
 * `buffer` [Buffer][buffer]
 * `选项` 对象
   * `width` Integer
   * `height` Integer
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 返回 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+从 `buffer` 创建一个新的 `NativeImage` 实例，其中包含 `toBitmap()`返回的原始位图 像素数据。 特定格式依赖于平台。
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
 * `options` Object (可选)
-  * `width` Integer (optional) - Required for bitmap buffers.
-  * `height` Integer (optional) - Required for bitmap buffers.
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `width` 整数（可选） - 位图缓冲区所需。
+  * `height` 整数（可选） - 位图缓冲区所需。
+  * `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 返回 `NativeImage`
 
-从 `buffer ` 创建新的 ` NativeImage ` 实例。 Tries to decode as PNG or JPEG first.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。 尝试先解码为巴布亚新几内亚或JPEG。
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -160,71 +160,91 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
-* `hslShift` Number[] (optional)
+* `hslShift` 号[]（可选）
 
 返回 `NativeImage`
 
-从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 有关可能的值列表，请参阅 [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) 。
 
 使用以下规则将`hslShift`应用于图像:
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = 保持不变。 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
+* `hsl_shift[0]` （色调）：图像的绝对色调值 - 0 和 1 地图 到 0 和 360 的色调颜色轮（红色）。
+* `hsl_shift[1]` （饱和）：图像的饱和变化， 遵循关键值： 0 = 去除所有颜色。 0.5 = 保持不变。 1 = 图像完全饱和。
+* `hsl_shift[2]` （亮度）：图像的亮度变化， 遵循关键值： 0 = 去除所有亮度（使所有像素变黑）。 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+在某些情况下， `NSImageName` 与其字符串表示不匹配：其中一个例子是 `NSFolderImageName`，其字符串表示实际上将是 `NSFolder`。 因此，在传递图像之前，您需要确定图像的正确字符串表示。 这可以通过以下几个方面完成：
 
-`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
+`回声-e'#import <Cocoa/Cocoa.h>\n主（）{NSLog（@"%@"，SYSTEM_IMAGE_NAME）：}'|叮当-奥斯特-x客观-c-框架可可- && 。/测试`
 
-where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+如果 `SYSTEM_IMAGE_NAME` 应替换为此列表</a>
+
+的任何值。</p> 
+
+
 
 ## 类: NativeImage
+
+
 
 > 本机图像，如托盘、dock栏和应用图标。
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+
+
 ### 实例方法
 
 以下方法可用于 ` NativeImage ` 类的实例:
 
+
+
 #### `image.toPNG([options])`
 
-* `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+    * `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ][buffer]。
 
+
+
 #### `image.toJPEG(quality)`
 
-* `quality` Integer - Between 0 - 100.
+* `quality` 整数 - 0 - 100 之间。
 
 返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ][buffer]。
 
+
+
 #### `image.toBitmap([options])`
 
-* `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+    * `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ][buffer]。
 
+
+
 #### `image.toDataURL([options])`
 
-* `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+    * `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 返回 ` String `-图像的数据 URL。
 
+
+
 #### `image.getBitmap([options])`
 
-* `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (可选) 
+    * `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ][buffer]。
 
-The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
+`getBitmap()` 和 `toBitmap()` 的区别在于， `getBitmap()` 不 复制位图数据，因此您必须立即在当前事件循环刻度 使用返回的缓冲区：否则数据可能会更改或销毁。
+
+
 
 #### `image.getNativeHandle()` _macOS_
 
@@ -232,17 +252,23 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 _ 必须 _ 确保关联的 ` nativeImage ` 实例保留在周围。
 
+
+
 #### `image.isEmpty()`
 
 返回 ` Boolean `-图像是否为空。
 
-#### `image.getSize([scaleFactor])`
 
-* `scaleFactor` Double (optional) - Defaults to 1.0.
+
+#### `图像。获取大小（[scaleFactor]）`
+
+* `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 Returns [`Size`](structures/size.md).
 
-If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
+如果 `scaleFactor` 通过，这将返回与图像表示最匹配的传递值对应的大小。
+
+
 
 #### `image.setTemplateImage(option)`
 
@@ -250,9 +276,13 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 
 将图像标记为模板图像。
 
+
+
 #### `image.isTemplateImage()`
 
 返回 ` Boolean `-图像是否为模板图像。
+
+
 
 #### `image.crop(rect)`
 
@@ -260,47 +290,59 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 
 返回 ` NativeImage `-裁剪的图像。
 
+
+
 #### `image.resize(options)`
 
-* `选项` 对象
-  * `width` Integer (optional) - Defaults to the image's width.
+* `选项` 对象 
+    * `width` 整数（可选） - 图像宽度的默认值。
   * `height` Integer (可选) - 默认值为图片高度.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` 字符串（可选） - 调整大小图像所需的质量。 可能的值是 `good`、 `better`或 `best`。 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们 转换为特定于算法的方法，该方法取决于基础平台 （CPU、GPU）的功能。 所有三种方法 都有可能映射到给定平台上的同一算法。
 
 返回 ` NativeImage `-裁剪的图像。
 
 如果只指定` height `或` width `，那么当前的长宽比将保留在缩放图像中。
 
-#### `image.getAspectRatio([scaleFactor])`
 
-* `scaleFactor` Double (optional) - Defaults to 1.0.
+
+#### `图像.获取视图拉蒂奥（[scaleFactor]）`
+
+* `scaleFactor` 翻倍（可选） - 默认值为 1.0。
 
 返回 `Float` - 图像的长宽比.
 
-If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+如果 `scaleFactor` 通过，这将返回与图像表示最匹配的传递值对应的纵横比。
 
-#### `image.getScaleFactors()`
 
-Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+
+#### `图像。获取缩放因子（）`
+
+返回 `Float[]` - 与给定原生图像的表示相对应的所有比例因子阵列。
+
+
 
 #### `image.addRepresentation(options)`
 
-* `选项` 对象
-  * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
+* `选项` 对象 
+    * `scaleFactor` 双 - 添加图像表示的刻度因子。
+  * `width` Integer (可选) - 默认值为 0. 如果位图缓冲区 指定为 `buffer`，则需要。
+  * `height` Integer (可选) - 默认值为 0. 如果位图缓冲区 指定为 `buffer`，则需要。
   * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区.
-  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+  * `dataURL` 字符串（可选） - 包含基础64 编码PNG或JPEG图像的数据网址。
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+为特定比例因子添加图像表示。 这可以 使用，以明确地向图像添加不同的比例因子表示。 此 可在空图像上调用。
+
+
 
 ### 实例属性
 
-#### `nativeImage.isMacTemplateImage` _macOS_
 
-A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Please note that this property only has an effect on macOS.
+#### `nativeImage.isMacTemplateImage` _马科斯_
+
+`Boolean` 属性，以确定图像是否被视为 [模板图像](https://developer.apple.com/documentation/appkit/nsimage/1520017-template)。
+
+请注意，此属性仅对 macOS 有影响。
 
 [icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
 
