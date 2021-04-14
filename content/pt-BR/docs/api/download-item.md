@@ -8,28 +8,28 @@ Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // No processo main.
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
-win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
-  item.setSavePath('/tmp/save.pdf')
+const { BrowserWindow } = require ('electron')
+const win = novo BrowserWindow()
+win.webContents.session.on('will-download', (evento, item, webContents) => {
+  // Defina o caminho de salvamento, fazendo com que a Electron não solicite uma caixa de diálogo save.
+  item.setSavePath ('/tmp/save.pdf')
 
-  item.on('updated', (event, state) => {
-    if (state === 'interrupted') {
-      console.log('Download is interrupted but can be resumed')
-    } else if (state === 'progressing') {
-      if (item.isPaused()) {
-        console.log('Download is paused')
+  item.on ('atualizado', (evento, estado) => {
+    se (estado === 'interrompido') {
+      console.log('O download é interrompido, mas pode ser retomado')
+
+      } console
+        .log('Download é pausado')
       } else {
-        console.log(`Received bytes: ${item.getReceivedBytes()}`)
+        console.log('Received bytes: ${item.getReceivedBytes()}')
       }
     }
-  })
-  item.once('done', (event, state) => {
-    if (state === 'completed') {
-      console.log('Download successfully')
+  }) item
+  .once('done', (evento, estado) => {
+    se (estado === 'concluído') {
+      console.log('Baixar com sucesso')
     } else {
-      console.log(`Download failed: ${state}`)
+      console.log('Download falhou: ${state}')
     }
   })
 })
@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Eventos de instância
 
-#### Event: 'updated'
+#### Evento: 'atualizado'
 
 Retorna:
 
@@ -56,122 +56,122 @@ Emitida quando o download foi atualizado e ainda não terminou.
 Retorna:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String - Pode ser `completed`, `cancelled` ou `interrupted`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Emitido quando o download está em um estado terminal. Isso inclui um download completo de , um download cancelado (via `downloadItem.cancel()`), e interrompido download que não pode ser retomado.
 
 `state` pode ser um dos seguintes:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - O download foi concluído com sucesso.
+* `cancelled` - O download foi cancelado.
+* `interrupted` - O download foi interrompido e não pode ser retomado.
 
 ### Métodos de Instância
 
-The `downloadItem` object has the following methods:
+O objeto `downloadItem` tem os seguintes métodos:
 
-#### `downloadItem.setSavePath(path)`
+#### `downloadItem.setSavePath(caminho)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - Defina o caminho do arquivo de salvamento do item de download.
 
-The API is only available in session's `will-download` callback function. If `path` doesn't exist, Electron will try to make the directory recursively. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+A API só está disponível na função de retorno de chamada `will-download` da sessão. Se `path` não existir, Electron tentará fazer o diretório recursivamente. Se o usuário não definir o caminho de salvamento através da API, a Electron usará a rotina de original para determinar o caminho de salvamento; isso geralmente solicita um diálogo de salvamento.
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Devoluções `String` - O caminho de salvar do item de download. Este será o caminho definido através de `downloadItem.setSavePath(path)` ou o caminho selecionado a partir do diálogo de salvar mostrado.
 
-#### `downloadItem.setSaveDialogOptions(options)`
+#### `downloadItem.setSaveDialogOptions(opções)`
 
-* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+* `options` SalvarDialogOptions - Defina as opções de diálogo de arquivos de salvamento. Este objeto tem as mesmas propriedades que o parâmetro `options` de [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+Esta API permite que o usuário defina opções personalizadas para a caixa de diálogo de salvamento que abre para o item de download por padrão. A API só está disponível na função de retorno de chamada `will-download` da sessão.
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+Devoluções `SaveDialogOptions` - Retorna o objeto previamente definido por `downloadItem.setSaveDialogOptions(options)`.
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Pausa o download.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Devoluções `Boolean` - Se o download é pausado.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Retoma o download que foi pausado.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Nota:** Para habilitar downloads resumiveles o servidor do que você está baixando deve suportar solicitações de intervalo e fornecer valores de cabeçalho `Last-Modified` e `ETag` . Caso contrário, `resume()` descartará bytes recebidos anteriormente e reiniciará o download desde o início.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Devoluções `Boolean` - Se o download pode ser retomado.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Cancela a operação de download.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+Devoluções `String` - A URL de origem de onde o item é baixado.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Devoluções `String` - O tipo de mime de arquivos.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Devoluções `Boolean` - Se o download tem gesto do usuário.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Devoluções `String` - O nome do arquivo do item de download.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Nota:** O nome do arquivo nem sempre é o mesmo que o real salvo no disco local. Se o usuário mudar o nome do arquivo em uma caixa de caixa de salvamento de download solicitada, o nome real do arquivo salvo será diferente.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Devoluções `Integer` - O tamanho total em bytes do item de download.
 
-If the size is unknown, it returns 0.
+Se o tamanho é desconhecido, ele retorna 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Devoluções `Integer` - Os bytes recebidos do item de download.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Retorna `String` - O campo Conteúdo-Disposição da resposta cabeçalho.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Retorno `String` - O estado atual. Pode ser `progressing`, `completed`, `cancelled` ou `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Nota:** Os seguintes métodos são úteis especificamente para retomar um item `cancelled` quando a sessão é reiniciada.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+Devoluções `String[]` - A cadeia completa de URL do item, incluindo quaisquer redirecionamentos.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Retornos `String` - Valor do cabeçalho modificado pela última vez.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Retornos `String` - Valor do cabeçalho ETag.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Retorna `Double` - Número de segundos desde a época unix quando o download foi começou.
 
 ### Propriedades de Instância
 
 #### `downloadItem.savePath`
 
-A `String` property that determines the save file path of the download item.
+Uma propriedade `String` que determina o caminho do arquivo salvar do item de download.
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+A propriedade só está disponível na função de retorno de chamada `will-download` da sessão. Se o usuário não definir o caminho de salvamento através da propriedade, a Electron usará a rotina de original para determinar o caminho de salvamento; isso geralmente solicita um diálogo de salvamento.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
