@@ -8,7 +8,7 @@ Généralement, vous créez une application de bureau pour un système d'exploit
 
 ### Prerequisites
 
-Before proceeding with Electron you need to install [Node.js][node-download]. Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
+Avant de procéder avec Electron, vous devez installer [nœud.js][node-download]. Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
 
 > Veuillez installer Node.js en utilisant des installateurs pré-compilés pour votre plate-forme. Dans le cas contraire, vous pourriez rencontrer des problèmes d'incompatibilité avec différents outils de développement.
 
@@ -27,10 +27,10 @@ Du point de vue du développement, une application Electron est essentiellement 
 
 ```plaintext
 my-electron-app/
-├── package.json
-├── main.js
-├── preload.js
-└── index.html
+ン―― package.json
+ン―― main.js
+ンン-― préchargement.js
+― indice.html
 ```
 
 Créons une application de base basée sur la structure ci-dessus.
@@ -52,8 +52,8 @@ Le script principal spécifie le point d'entrée de votre application Electron (
 Le script principal peut ressembler à ceci :
 
 ```javascript fiddle='docs/fiddles/quick-start'
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, BrowserWindow } = require ('electron')
+const path = require ('path')
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -64,20 +64,20 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile ('index.html')
 }
 
-app.whenReady().then(() => {
+app.whenReady().then()=> {
   createWindow()
 
   app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
+    if (BrowserWindow... getAllWindows ().longueur === 0) {
       createWindow()
     }
   })
 })
 
-app.on('window-all-closed', () => {
+app.on ('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -95,12 +95,12 @@ app.on('window-all-closed', () => {
 
 #### Créer une page web
 
-Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
+Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. Vous pouvez accorder en option l’accès à des API .js nœuds supplémentaires en les exposant à partir de votre script de préchargement.
 
 La page `index.html` ressemble à ceci:
 
 ```html fiddle='docs/fiddles/quick-start'
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -110,9 +110,9 @@ La page `index.html` ressemble à ceci:
 <body style="background: white;">
     <h1>Hello World!</h1>
     <p>
-        We are using Node.js <span id="node-version"></span>,
-        Chromium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
+        Nous utilisons Node.js <span id="node-version"></span>,
+        Chrome <span id="chrome-version"></span>,
+        et Electron <span id="electron-version"></span>.
     </p>
 </body>
 </html>
@@ -120,7 +120,7 @@ La page `index.html` ressemble à ceci:
 
 #### Définir un script de préchargement
 
-Votre script de préchargement agit comme un pont entre Node.js et votre page web. Il vous permet d'exposer des API et des comportements spécifiques sur votre page web plutôt que d'exposer de manière non sécurisée la totalité de l'API Node.js. Dans cet exemple, nous utiliserons le script de préchargement pour lire les informations de version à partir de l'objet `process` et mettre à jour la page web avec ces informations.
+Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Il vous permet d'exposer des API et des comportements spécifiques sur votre page web plutôt que d'exposer de manière non sécurisée la totalité de l'API Node.js. Dans cet exemple, nous utiliserons le script de préchargement pour lire les informations de version à partir de l'objet `process` et mettre à jour la page web avec ces informations.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -164,13 +164,13 @@ Par défaut, la commande `npm start` exécutera le script principal avec Node.js
 
 ```json
 {
-    "name": "my-electron-app",
-    "version": "0.1.0",
-    "author": "your name",
-    "description": "My Electron app",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron ."
+    « nom »: « my-electron-app »,
+    « version »: « 0.1.0 »,
+    « author »: « your name »,
+    « description »: « My Electron app »,
+    « main »: « main.js »,
+    « scripts »: {
+        « start »: « electron ».
     }
 }
 ```
@@ -285,11 +285,11 @@ const win = new BrowserWindow()
 Pour appeler le processus principal à partir du moteur de rendu, utilisez le module IPC :
 
 ```js
-// In the Main process
-const { ipcMain } = require('electron')
+Dans le processus principal
+const { ipcMain } = exiger ('electron')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
+ipcMain.handle ('perform-action', (événement, ... args) => {
+  // ... faire des actions au nom du Renderer
 })
 ```
 
