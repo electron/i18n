@@ -1,187 +1,187 @@
-## Class: TouchBar
+## Класс: TouchBar
 
-> Create TouchBar layouts for native macOS applications
+> Создание макетов TouchBar для родных приложений macOS
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `new TouchBar(options)`
+### `новый TouchBar (варианты)`
 
 * `options` Object
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
+  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (по желанию)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (необязательно)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+Создает новую сенсорную планку с указанными элементами. Используйте `BrowserWindow.setTouchBar` , чтобы добавить `TouchBar` в окно.
 
 **Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Совет:** Если у вас нет MacBook с touch Bar, вы можете использовать [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) для проверки использования Touch Bar в приложении.
 
-### Static Properties
+### Статические свойства
 
 #### `TouchBarButton`
 
-A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
+Ссылка [`typeof TouchBarButton`](./touch-bar-button.md) на класс `TouchBarButton` .
 
 #### `TouchBarColorPicker`
 
-A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
+Ссылка [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) на класс `TouchBarColorPicker` .
 
 #### `TouchBarGroup`
 
-A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
+Ссылка [`typeof TouchBarGroup`](./touch-bar-group.md) на класс `TouchBarGroup` .
 
 #### `TouchBarLabel`
 
-A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
+Ссылка [`typeof TouchBarLabel`](./touch-bar-label.md) на класс `TouchBarLabel` .
 
-#### `TouchBarPopover`
+#### `TouchBarПоповер`
 
-A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
+Ссылка [`typeof TouchBarPopover`](./touch-bar-popover.md) на класс `TouchBarPopover` .
 
 #### `TouchBarScrubber`
 
-A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
+Ссылка [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) на класс `TouchBarScrubber` .
 
 #### `TouchBarSegmentedControl`
 
-A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
+Ссылка [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) на класс `TouchBarSegmentedControl` .
 
 #### `TouchBarSlider`
 
-A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
+Ссылка [`typeof TouchBarSlider`](./touch-bar-slider.md) на класс `TouchBarSlider` .
 
 #### `TouchBarSpacer`
 
-A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
+Ссылка [`typeof TouchBarSpacer`](./touch-bar-spacer.md) на класс `TouchBarSpacer` .
 
-#### `TouchBarOtherItemsProxy`
+#### `TouchBarOtherItemsПрокси`
 
-A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
+Ссылка [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) на класс `TouchBarOtherItemsProxy` .
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBar`:
+Следующие свойства доступны на экземплярах `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+Набор `TouchBarItem` который заменит кнопку "esc" на сенсорной панели при наборе. Настройка для `null` восстанавливает кнопку "esc" по умолчанию. Изменение этого значения немедленно обновляет элемент побега в сенсорной панели.
 
 ## Примеры
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Ниже приведен пример простой игровой автомат сенсорный бар игры с кнопкой некоторые этикетки.
 
 ```javascript
-const { app, BrowserWindow, TouchBar } = require('electron')
+const { app, BrowserWindow, TouchBar } - требуют ('электрон')
 
-const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
+const { TouchBarLabel, TouchBarButton, TouchBarSpacer } - TouchBar
 
-let spinning = false
+пусть спиннинг - ложные
 
-// Reel labels
-const reel1 = new TouchBarLabel()
-const reel2 = new TouchBarLabel()
-const reel3 = new TouchBarLabel()
+// Катушка этикетки
+const reel1 - новый TouchBarLabel ()
+const reel2 - новый TouchBarLabel ()
+const reel3 TouchBarLabel ()
 
-// Spin result label
-const result = new TouchBarLabel()
+// Спиновая метка результатов
+конст-результат - новый TouchBarLabel ()
 
-// Spin button
-const spin = new TouchBarButton({
-  label: '🎰 Spin',
+// Кнопка спина
+конст спина - новый TouchBarButton (яп.
+  метка: '🎰 Spin',
   backgroundColor: '#7851A9',
-  click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+  клик: ()> -
+    // Игнорировать клики, если уже спиннинг
+    если (спиннинг) {
       return
     }
 
-    spinning = true
-    result.label = ''
+    спиннинг - истинный
+    result.label - ''
 
-    let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    пусть тайм-аут - 10
+    const spinLength - 4 и 100 0 // 4 секунды
+    const startTime - Date.now ()
 
-    const spinReels = () => {
-      updateReels()
+    const spinReels () -> -
+      updateReels ()
 
-      if ((Date.now() - startTime) >= spinLength) {
-        finishSpin()
-      } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
-        setTimeout(spinReels, timeout)
-      }
-    }
+      если ((Date.now)) - startTime) >- spinLength) -
+        finishSpin ()
+      -
+        // Замедление немного на каждом спину
+        тайм-аут - 1,1
+        setTimeout (spinReels, тайм-аут)
+      -
+    -
 
-    spinReels()
-  }
-})
+    spinReels ()
 
-const getRandomValue = () => {
-  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
-}
+)
 
-const updateReels = () => {
-  reel1.label = getRandomValue()
-  reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
-}
+const getRandomValue () -> ,
+  const values - "🍒", "💎", "7️", "🍊", "🔔". '⭐', '🍇', '🍀''
+  значения возврата (Math.random() - значения.длина)"
+-
 
-const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
-  } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
-  }
-  spinning = false
-}
+const updateReels () ->
+  reel1.label - getRandomValue()
+  reel2.label - getRandomValue ()
+  reel3.label.домВалю ()
+-
 
-const touchBar = new TouchBar({
-  items: [
-    spin,
-    new TouchBarSpacer({ size: 'large' }),
+конст отделкаSpin ()>
+  конст уникальныйВью - новый набор ("reel1.label, reel2.label, reel3.label"). размер
+  если (уникальныеValues No 1) -
+    // Все 3 значения одинаковые
+    result.label - "💰 Jackpot!".
+    result.textColor - '#FDFF00'
+  - еще если (уникальныеValues No 2) -
+    // 2 значения одинаковы
+    result.label и "😍 Winner!"
+    result.textColor - '#FDFF00'
+  - else -
+    // Нет значений одинаковы
+    result.label - '🙁 Spin Again'
+    result.textColor - null
+  -
+  спиннинг -
+    ложный
+-
+
+const touchBar - новый TouchBar ( )
+  элементы:
+    TouchBarSpacer ({ size: 'large' }),
     reel1,
-    new TouchBarSpacer({ size: 'small' }),
+    TouchBarSpacer ({ size: 'small' }),
     reel2,
-    new TouchBarSpacer({ size: 'small' }),
+    TouchBarSpacer ({ size: 'small' }),
     reel3,
-    new TouchBarSpacer({ size: 'large' }),
-    result
-  ]
-})
+    новый TouchBarSpacer ({ size: 'large' }),
+    результат
+  -
+)
 
-let window
+пусть окно
 
-app.whenReady().then(() => {
-  window = new BrowserWindow({
-    frame: false,
-    titleBarStyle: 'hiddenInset',
-    width: 200,
-    height: 200,
+app.whenReady ()...,
+    >
+  : ложное,
+    titleBarStyle: 'hiddenInset', ширина
+    : 200, высота
+    : 200,
     backgroundColor: '#000'
-  })
-  window.loadURL('about:blank')
-  window.setTouchBar(touchBar)
-})
+  )
+  window.loadURL ('about:blank')
+  window.setTouchBar (touchBar)
+)
 ```
 
-### Running the above example
+### Запуск приведенного выше примера
 
-To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
+Чтобы выработать приведенную выше примеру, необходимо (при условии, что в каталоге открыт терминал, который вы хотите запустить пример):
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. Сохраните вышеуказанный файл на компьютере в `touchbar.js`
+2. Установка Electron через `npm install electron`
+3. Вы запустите пример внутри Electron: `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Затем вы должны увидеть новое окно Electron и приложение, запущенное в сенсорной панели (или эмулятор сенсорной панели).
