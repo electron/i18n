@@ -65,7 +65,7 @@ Debido a la integración de Node.js de Electron, hay algunos símbolos extras in
 Para solucionar esto, puede desactivar la integración de Node en Electron:
 
 ```javascript
-// En el proceso principal.
+/// In the main process.
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({
   webPreferences: {
@@ -95,7 +95,7 @@ Cuando se utiliza el módulo de Electron puede encontrar un error como este:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: No se puede leer apropiadamente 'setZoomLevel' de undefined
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
 It is very likely you are using the module in the wrong process. Por ejemplo `electron.app` puede ser utilizado en el proceso principal, mientras que `electron.webFrame` sólo está disponible en los procesos de renderizado.
@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
+El efecto es visible sólo en (algunos?) Pantallas LCD. Incluso si no ves una diferencia, algunos de tus usuarios pueden. Es mejor establecer siempre los antecedentes de esta manera, a menos que tenga razones para no hacerlo.
 
 Tenga en cuenta que sólo establecer el fondo en el CSS no tiene el efecto deseado.
 
