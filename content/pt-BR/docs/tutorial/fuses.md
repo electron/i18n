@@ -1,54 +1,54 @@
-# Electron Fuses
+# Fusíveis eletrônicos
 
-> Package time feature toggles
+> Alternações do recurso de tempo do pacote
 
-## What are fuses?
+## O que são fusíveis?
 
-For a subset of Electron functionality it makes sense to disable certain features for an entire application.  For example, 99% of apps don't make use of `ELECTRON_RUN_AS_NODE`, these applications want to be able to ship a binary that is incapable of using that feature.  We also don't want Electron consumers building Electron from source as that is both a massive technical challenge and has a high cost of both time and money.
+Para um subconjunto de funcionalidade Electron, faz sentido desativar certos recursos para toda uma aplicação.  Por exemplo, 99% dos aplicativos não fazem uso de `ELECTRON_RUN_AS_NODE`, esses aplicativos querem ser capazes de enviar um binário que é incapaz de usar esse recurso.  Também não queremos que os consumidores de Electron construam a Electron de origem, pois isso é um desafio técnico maciço e tem um alto custo de tempo e dinheiro.
 
-Fuses are the solution to this problem, at a high level they are "magic bits" in the Electron binary that can be flipped when packaging your Electron app to enable / disable certain features / restrictions.  Because they are flipped at package time before you code sign your app the OS becomes responsible for ensuring those bits aren't flipped back via OS level code signing validation (Gatekeeper / App Locker).
+Fusíveis são a solução para este problema, em um alto nível são "bits mágicos" no binário Electron que podem ser invertidos ao empacotar seu aplicativo Electron para habilitar / desativar certos recursos / restrições.  Como eles são invertidos na hora do pacote antes de você assinar o seu aplicativo, o SO torna-se responsável por garantir que esses bits não sejam virados para trás via validação de assinatura de código de nível do SISTEMA (Gatekeeper / App Locker).
 
-## How do I flip the fuses?
+## Como eu viro os fusíveis?
 
-### The easy way
+### A maneira fácil
 
-We've made a handy module `@electron/fuses` to make flipping these fuses easy.  Check out the README of that module for more details on usage and potential error cases.
+Fizemos um módulo útil `@electron/fuses` para facilitar a inversão desses fusíveis.  Confira o README desse módulo para obter mais detalhes sobre o uso e possíveis casos de erro.
 
 ```js
-require('@electron/fuses').flipFuses(
-  // Path to electron
-  require('electron'),
-  // Fuses to flip
+requer ('@electron/fuses').flipFuses(
+  // Caminho para elétrons
+  requerem ('elétron'),
+  // Fuses para virar
   {
     runAsNode: false
   }
 )
 ```
 
-### The hard way
+### Da maneira mais difícil
 
-#### Quick Glossary
+#### Glossário Rápido
 
-* **Fuse Wire**: A sequence of bytes in the Electron binary used to control the fuses
-* **Sentinel**: A static known sequence of bytes you can use to locate the fuse wire
-* **Fuse Schema**: The format / allowed values for the fuse wire
+* **Fusível Wire**: Uma sequência de bytes no binário eletrônico usado para controlar os fusíveis
+* **Sentinel**: Uma sequência estática conhecida de bytes que você pode usar para localizar o fio de fusível
+* **Fusível Schema**: O formato / valores permitidos para o fio de fusível
 
-Manually flipping fuses requires editing the Electron binary and modifying the fuse wire to be the sequence of bytes that represent the state of the fuses you want.
+Virar fusíveis manualmente requer editar o binário Electron e modificar o fio de fusível para ser a sequência de bytes que representam o estado dos fusíveis que você deseja.
 
-Somewhere in the Electron binary there will be a sequence of bytes that look like this:
+Em algum lugar no binário electron haverá uma sequência de bytes que se parecem com este:
 
 ```text
-| ...binary | sentinel_bytes | fuse_version | fuse_wire_length | fuse_wire | ...binary |
+| ... | binário sentinel_bytes | fuse_version | fuse_wire_length | fuse_wire | ... | binário
 ```
 
-* `sentinel_bytes` is always this exact string `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX`
-* `fuse_version` is a single byte whose unsigned integer value represents the version of the fuse schema
-* `fuse_wire_length` is a single byte whose unsigned integer value represents the number of fuses in the following fuse wire
-* `fuse_wire` is a sequence of N bytes, each byte represents a single fuse and its state.
-  * "0" (0x30) indicates the fuse is disabled
-  * "1" (0x31) indicates the fuse is enabled
-  * "r" (0x72) indicates the fuse has been removed and changing the byte to either 1 or 0 will have no effect.
+* `sentinel_bytes` é sempre essa `dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX`de corda exata
+* `fuse_version` é um único byte cujo valor inteiro não assinado representa a versão do esquema de fusíveis
+* `fuse_wire_length` é um único byte cujo valor inteiro não assinado representa o número de fusíveis no seguinte fio de fusível
+* `fuse_wire` é uma sequência de N bytes, cada byte representa um único fusível e seu estado.
+  * "0" (0x30) indica que o fusível está desativado
+  * "1" (0x31) indica que o fusível está ativado
+  * "r" (0x72) indica que o fusível foi removido e a mudança do byte para 1 ou 0 não terá efeito.
 
-To flip a fuse you find its position in the fuse wire and change it to "0" or "1" depending on the state you'd like.
+Para virar um fusível você encontra sua posição no fio do fusível e muda-o para "0" ou "1" dependendo do estado que você gostaria.
 
-You can view the current schema [here](https://github.com/electron/electron/blob/master/build/fuses/fuses.json).
+Você pode ver o esquema atual [aqui](https://github.com/electron/electron/blob/master/build/fuses/fuses.json).
