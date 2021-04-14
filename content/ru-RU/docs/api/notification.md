@@ -26,22 +26,22 @@
 
 Возвращает `Boolean` - Поддерживаются ли уведомления рабочего стола в текущей системе
 
-### `new Notification([options])`
+### `новое уведомление ([options])`
 
 * `options` Object (опционально)
-  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` String (по желанию) - название для уведомления, которое будет показано в верхней части окна уведомления при его продемонстрироваи.
   * `subtitle` String (опционально) _macOS_ - Подзаголовок для уведомления, который будет отображаться под заголовком.
-  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
+  * `body` String (по желанию) - текст уведомления, который будет отображаться под заголовком или подзаголовком.
   * `silent` Boolean (опционально) - Использовать ли звук уведомления ОС при отображении уведомления.
   * `icon` (String | [NativeImage](native-image.md)) (опционально) - Значок для отображения в уведомлении.
   * `hasReply` Boolean (опционально) _macOS_ - Нужно ли добавлять встроенный ответ к уведомлению.
-  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `timeoutType` Строка (по _)_ _Linux_ Windows - Продолжительность тайм-аута уведомления. Может быть "по умолчанию" или "никогда".
   * `replyPlaceholder` String (опционально) _macOS_ - Заполнитель для записи в поле ввода встроенного ответа.
   * `sound` String (опционально) _macOS_ - Имя звукового файла, воспроизводимого при отображении уведомления.
-  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `urgency` String (по _)_ Linux - уровень срочности уведомления. Может быть «нормальным», «критическим» или «низким».
   * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) _macOS_ - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
-  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
+  * `closeButtonText` String (не _)_ macOS - пользовательское название для кнопки близкого оповещения. Пустая строка приведет к использованию локализованного текста по умолчанию.
+  * `toastXml` Строка (необязательно) _Windows_ - пользовательское описание уведомления на Windows, затмив все свойства выше. Обеспечивает полную настройку дизайна и поведения уведомления.
 
 ### События экземпляра
 
@@ -91,14 +91,14 @@
 * `event` Event
 * `index` Number - Индекс действия, которое было активировано.
 
-#### Event: 'failed' _Windows_
+#### Событие: «неудачный» _Windows_
 
 Возвращает:
 
 * `event` Event
-* `error` String - The error encountered during execution of the `show()` method.
+* `error` String - Ошибка, с которой сталкиваются во время выполнения `show()` метода.
 
-Emitted when an error is encountered while creating and showing the native notification.
+Испускаемый при создании и показе родного уведомления.
 
 ### Методы экземпляра
 
@@ -150,15 +150,15 @@ Emitted when an error is encountered while creating and showing the native notif
 
 #### `notification.urgency` _Linux_
 
-A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+`String` , представляющее уровень срочности уведомления. Может быть «нормальным», «критическим» или «низким».
 
 Стандартное значение - 'low'. Что бы узнать подробнее, смотрите [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels).
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+Свойство `String` , представляющее тип продолжительности тайм-аута для уведомления. Может быть "по умолчанию" или "никогда".
 
-If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
+Если `timeoutType` установлен на "никогда", уведомление никогда не истекает. Он остается открытым до тех пор, пока не будет закрыт API вызова или пользователем.
 
 #### `notification.actions`
 
@@ -166,11 +166,11 @@ A [`NotificationAction[]`](structures/notification-action.md) свойство, 
 
 #### `notification.toastXml` _Windows_
 
-A `String` property representing the custom Toast XML of the notification.
+Свойство `String` , представляющее пользовательский Toast XML уведомления.
 
 ### Воспроизведение звуков
 
-В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
+В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. Любой из звуков по умолчанию (в соответствии с системой > Звук) могут быть использованы, в дополнение к пользовательским звуковым файлам. Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
 
 * `~/Library/Sounds (~/Библиотека/Звуки)`
 * `/Library/Sounds (/Библиотека/Звуки)`
