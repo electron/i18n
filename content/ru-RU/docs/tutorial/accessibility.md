@@ -1,12 +1,12 @@
 # Доступность
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
+Создание доступных приложений важно, и мы рады предоставить функциональность [Devtron][devtron] и [Spectron][spectron] , что дает разработчикам возможность сделать свои приложения лучше для всех.
 
 ---
 
 Проблемы с доступностью в приложениях Electron аналогичны веб-сайтам, поскольку они оба в конечном итоге являются HTML. Однако, в приложениях на Electron мы не можем использовать онлайн-ресурсы для аудита доступности, поскольку ваше приложение не имеет URL-адреса.
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Читайте далее ознакомление с инструментами.
+Эти функции приносят эти инструменты аудита в приложение Electron. Вы можете добавить аудиты в свои тесты с помощью Spectron или использовать их в DevTools с Devtron. Читайте далее ознакомление с инструментами.
 
 ## Spectron
 
@@ -34,13 +34,13 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Включение функций специальных возможностей вручную
 
-Приложение Electron автоматически включит функции специальных возможностей в наличии вспомогательной технологии (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) на Windows или [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) на MacOS). See Chrome's [accessibility documentation][a11y-docs] for more details.
+Приложение Electron автоматически включит функции специальных возможностей в наличии вспомогательной технологии (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) на Windows или [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) на MacOS). Более подробную информацию [документации chrome][a11y-docs] доступности Chrome.
 
 Вы также можете вручную переключить эти функции в вашем приложении Electron или установив флаги в стороннем родном программном обеспечении.
 
 ### Использование Electron API
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Обратите внимание, что системные вспомогательные утилиты пользователя имеют приоритет над этим параметром и переопределит его.
+Используя [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, вы можете вручную выставить дерево доступности Chrome для пользователей в предпочтениях приложений. Обратите внимание, что системные вспомогательные утилиты пользователя имеют приоритет над этим параметром и переопределит его.
 
 ### Внутри стороннего программного обеспечения
 
