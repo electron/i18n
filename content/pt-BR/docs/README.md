@@ -20,7 +20,7 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
 
 ### Aprendendo os conceitos básicos
 
-* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+* [Modelo de processo da Electron](tutorial/quick-start.md#application-architecture)
   * [Processos Principal e de Renderização](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
@@ -36,7 +36,7 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [Representação de Arquivo para o macOS BrowserWindows](tutorial/represented-file.md)
   * [Drag & Drop de Arquivos Nativo (Arrastar e Soltar)](tutorial/native-file-drag-drop.md)
   * [Renderização fora da tela](tutorial/offscreen-rendering.md)
-  * [Dark Mode](tutorial/dark-mode.md)
+  * [Modo Escuro](tutorial/dark-mode.md)
   * [Incluir conteúdos Web no Electron](tutorial/web-embeds.md)
 * [Boilerplates e CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -45,17 +45,17 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Outras Ferramentas e Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Advanced steps
+### Etapas avançadas
 
 * Arquitetura do Aplicativo
   * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
   * [Estratégias de Performance](tutorial/performance.md)
-  * [Security Strategies](tutorial/security.md)
+  * [Estratégias de segurança](tutorial/security.md)
 * [Acessibilidade](tutorial/accessibility.md)
   * [Habilitar manualmente Recursos de Acessibilidade](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Teste e Depuração](tutorial/application-debugging.md)
   * [O Processo Principal de Depuração](tutorial/debugging-main-process.md)
-  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Depuração com Visual Studio Code](tutorial/debugging-vscode.md)
   * [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)
@@ -120,7 +120,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [nativeTheme](api/native-theme.md)
+* [nativoTheme](api/native-theme.md)
 * [Notificação](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
