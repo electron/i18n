@@ -89,7 +89,7 @@ Puede encontrar más información sobre estos y futuros cambios en la página [C
 * `webContents` Cambios de API:
     * Se añadió una pequeña sugerencia de consola a la consola para ayudar a depurar los fallos del renderizador. [#25317](https://github.com/electron/electron/pull/25317)
     * Se añadió las propiedades `frame` y `webContents` al detalle del objeto en los manejadores webRequest. [#27334](https://github.com/electron/electron/pull/27334)
-    * Added `webContents.forcefullyCrashRenderer()` to forcefully terminate a renderer process to assist with recovering a hung renderer. [#25580](https://github.com/electron/electron/pull/25580)
+    * Se agregó `webContents.forcefullyCrashRenderer()` para terminar forzosamente un proceso de representador para ayudar con la recuperación de un renderizador colgado. [#25580](https://github.com/electron/electron/pull/25580)
     * Se añadió la API `setWindowOpenHandler` para las ventanas hijas creadas por el renderer, y se desaprueba el evento `new-window` event. [#24517](https://github.com/electron/electron/pull/24517)
 * `webFrame` Cambios en la API:
     * Se añadió la API de revisión ortográfica al renderer. [#25060](https://github.com/electron/electron/pull/25060)
