@@ -1,5 +1,5 @@
-# SharingItem Object
+# SharingItem Objet
 
-* `texts` String[] (optional) - An array of text to share.
-* `filePaths` String[] (optional) - An array of files to share.
-* `urls` String[] (optional) - An array of URLs to share.
+* `texts` String[] (facultatif) - Un tableau de texte à partager.
+* `filePaths` String[] (facultatif) - Un tableau de fichiers à partager.
+* `urls` String[] (facultatif) - Une gamme d’URL à partager.
