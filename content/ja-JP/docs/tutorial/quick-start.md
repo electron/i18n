@@ -120,7 +120,7 @@ app.on('window-all-closed', () => {
 
 #### プリロードスクリプトの定義
 
-プリロードスクリプトは、Node.js とウェブページ間のブリッジとして機能します。 Node.js API 全体を公開するのは危険なので、特定の API や動作をウェブページに公開するようにできます。 この例では、プリロードスクリプトで `process` オブジェクトからバージョン情報を読み取り、その情報でウェブページを更新します。
+Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Node.js API 全体を公開するのは危険なので、特定の API や動作をウェブページに公開するようにできます。 この例では、プリロードスクリプトで `process` オブジェクトからバージョン情報を読み取り、その情報でウェブページを更新します。
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -287,12 +287,12 @@ const win = new BrowserWindow()
 レンダラープロセスからメインプロセスを呼び出すには、IPC モジュールを使用します。
 
 ```js
-// In the Main process
-const { ipcMain } = require('electron')
+メインプロセスでは、const { ipcMain } = ipcMain.handle('実行アクション'、イベント)を必要
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
-})
+とする('電子')を
+します。args) => {
+  // ..レンダラ
+}に代わってアクションを実行する
 ```
 
 ```js
