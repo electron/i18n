@@ -8,7 +8,7 @@ Electron - это фреймворк, который позволяет созд
 
 ### Требования
 
-Before proceeding with Electron you need to install [Node.js][node-download]. Мы рекомендуем вам установить последнюю версию `LTS` или `Current` версию.
+Прежде чем приступить к Electron вам нужно [узел.js][node-download]. Мы рекомендуем вам установить последнюю версию `LTS` или `Current` версию.
 
 > Пожалуйста, установите Node.js с помощью предварительно собранных инсталляторов для вашей платформы. Вы можете столкнуться с проблемами несовместимости с различными инструментами разработки.
 
@@ -26,11 +26,11 @@ npm -v
 С точки зрения разработки, приложение Electron по сути является приложением Node.js. Это означает, что начальной точкой вашего приложения Electron будет файл `package.json`, как в любом другом приложении Node.js. Базовое приложение на Electron имеет следующую структуру:
 
 ```plaintext
-my-electron-app/
-├── package.json
-├── main.js
-├── preload.js
-└── index.html
+мой-электрон-приложение /
+├ "пакет.json
+├" основной.js
+├ "предустановки.js
+└ " индекс.html
 ```
 
 Давайте создадим базовое приложение на основе структуры выше.
@@ -52,55 +52,55 @@ npm i --save-dev electron
 Основной скрипт может выглядеть следующим образом:
 
 ```javascript fiddle='docs/fiddles/quick-start'
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, BrowserWindow } - требуют ('электрон')
+const путь - требуют ('путь')
 
-function createWindow () {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+функция createWindow () -
+  const win - новый BrowserWindow ('
+    ширина: 800, высота
+    : 600,
+    webPreferences:
+      preload: path.join(__dirname,, 'preload.js')
+    -
+  q)
 
-  win.loadFile('index.html')
-}
+  win.loadFile ('индекс.html')
+-
 
-app.whenReady().then(() => {
-  createWindow()
+app.whenReady()...,
+    > >
+  создатьWindow()
 
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
-  })
-})
+  app.on('activate', () getAllWindows ().длина No 0) -
+      создатьWindow ()
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
+  )
+q)
+
+app.on('window-all-closed', ()
+
+  >
+  если (process.platform
+    ! )
 ```
 
 ##### Что происходит в коде выше?
 
 1. Строка 1: Для начала, вы импортируете `app` и `BrowserWindow` модули из `Electron` для управления событиями жизненного цикла вашего приложения, а также создания и управления окнами браузера.
-2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
-3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
+2. Строка 2: Во-вторых, вы импортируете `path` пакет, который предоставляет полезные функции для файловых путей.
+3. Строка 4: После этого вы определяете функцию, которая создает [новое окно браузера](../api/browser-window.md#new-browserwindowoptions) со сценарием предварительной загрузки, загружает файл `index.html` в это окно (строка 13, мы обсудим файл позже).
 4. Line 16: Вы создаете новое окно браузера, вызвав функцию `createWindow` после инициализации приложения Electron [](../api/app.md#appwhenready).
-5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Например, после запуска заявки в первый раз или повторного запуска уже запущенного приложения.
-6. Line 25: You add a new listener that tries to quit the application when it no longer has any open windows. Этот слушатель не входит в macOS из-за поведения [системы управления окном](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Строка 18: Вы добавляете нового слушателя, который создает новое окно браузера только тогда, когда приложение не имеет видимых окон после активации. Например, после запуска заявки в первый раз или повторного запуска уже запущенного приложения.
+6. Строка 25: Вы добавляете нового слушателя, который пытается выйти из приложения, когда у него больше нет открытых окон. Этот слушатель не входит в macOS из-за поведения [системы управления окном](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
 
 #### Создать веб-страницу
 
-Это веб-страница, которую вы хотите отобразить после инициализации приложения. Эта веб-страница представляет процесс рендерера. Вы можете создать несколько окон браузера, где каждое окно использует свой собственный рендер. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
+Это веб-страница, которую вы хотите отобразить после инициализации приложения. Эта веб-страница представляет процесс рендерера. Вы можете создать несколько окон браузера, где каждое окно использует свой собственный рендер. Вы можете дополнительно предоставить доступ к .js API, выделив их из сценария предварительной загрузки.
 
 Страница `index.html` выглядит следующим образом:
 
 ```html fiddle='docs/fiddles/quick-start'
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -108,71 +108,71 @@ app.on('window-all-closed', () => {
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body style="background: white;">
-    <h1>Hello World!</h1>
+    <h1>Привет, мир!</h1>
     <p>
-        We are using Node.js <span id="node-version"></span>,
-        Chromium <span id="chrome-version"></span>,
-        and Electron <span id="electron-version"></span>.
+        Мы используем Узел.js <span id="node-version"></span>,
+        Хром <span id="chrome-version"></span>,
+        и Electron <span id="electron-version"></span>.
     </p>
 </body>
 </html>
 ```
 
-#### Define a preload script
+#### Определить сценарий предустановки
 
-Your preload script acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Это позволяет выставлять определенные API и поведение на веб-страницу, а не небезопасно подвергать API .js узла. В этом примере мы будем использовать скрипт предварительной загрузки для чтения информации о версии с `process` объекта и обновления веб-страницы с этой информацией.
 
 ```javascript fiddle='docs/fiddles/quick-start'
-window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  }
+window.addEventListener ('DOMContentLoaded', () -> -
+  const replaceText (селектор, текст) -> - элемент
+    const - document.getElementById (селектор)
+    если (элемент) element.innerText - текст
+  -
 
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
-})
+  для (конст-тип 'chrome', 'узел', 'электрон') -
+    replaceText ('${type}-версия', process.versions[type])
+
+
 ```
 
-##### What's going on above?
+##### Что происходит выше?
 
-1. On line 1: First you define an event listener that tells you when the web page has loaded
-2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
-3. On line 7: Next you loop through the list of components whose version you want to display
-4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
+1. Строка 1: Сначала вы определяете слушателя событий, который сообщает вам, когда веб-страница загружена
+2. На строке 2: Во-вторых, вы определяете функцию утилиты, используемую для настройки текста `index.html`
+3. На строке 7: Далее вы цикл через список компонентов, чья версия вы хотите отобразить
+4. На строке 8: Наконец, вы `replaceText` , чтобы посмотреть вверх по версии `index.html` и установить их текстовое значение значения от `process.versions`
 
 #### Изменить файл package.json
 
 Ваше приложение Electron использует файл `package.json` в качестве основной точки входа (как и любое другое приложение Node.js). Основной скрипт вашего приложения - `main.js`, поэтому измените файл `package.json` соответственно:
 
 ```json
-{
-    "name": "my-electron-app",
-    "version": "0.1.0",
-    "author": "your name",
-    "description": "My Electron app",
-    "main": "main.js"
-}
+
+    "имя": "мой-электрон-приложение",
+    "версия": "0.1.0",
+    "автор": "ваше имя",
+    "описание": "Мой Electron app",
+    "основной": "основной.js"
+
 ```
 
 > ПРИМЕЧАНИЕ: Если поле `main` опущено, Electron попытается загрузить `index.js` файл из каталога, содержащего `package.json`.
 
-> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+> ПРИМЕЧАНИЕ: `author` и `description` необходимы для упаковки, в противном случае ошибка произойдет при запуске `npm run make`.
 
 По умолчанию, старт `npm` запустит основной скрипт с помощью Node.js. Чтобы запустить скрипт с Electron, необходимо изменить его следующим образом:
 
 ```json
-{
-    "name": "my-electron-app",
-    "version": "0.1.0",
-    "author": "your name",
-    "description": "My Electron app",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron ."
-    }
-}
+
+    "имя": "мой-электрон-приложение",
+    "версия": "0.1.0",
+    "автор": "ваше имя",
+    "описание": "Мой electron app",
+    "основной": "основной.js",
+    "скрипты":
+        "старт": "электрон".
+    (
+)
 ```
 
 #### Запустите приложение
@@ -192,17 +192,17 @@ npm start
 1. Импорт Electron Forge в папку приложений:
 
     ```sh
-    npm install --save-dev @electron-forge/cli
-    npx electron-forge import
+    npm установить --сохранить-dev @electron-forge/cli
+    npx электронной кузницы импорта
 
-    ✔ Checking your system
-    ✔ Initializing Git Repository
-    ✔ Writing modified package.json file
-    ✔ Installing dependencies
-    ✔ Writing modified package.json file
+    ✔ Проверка вашей системы
+    ✔ Первоначальная Git Репозиторий
+    ✔ Написание измененного файла package.json
+    ✔ Установка зависимостей
+    ✔ Написание измененного файла package.json
     ✔ Fixing .gitignore
 
-    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
+    Мы должны преобразовать ваше приложение, чтобы быть в формате, который электронн-кузница понимает.
 
     Спасибо за использование "electron-forge"!!!
     ```
@@ -287,12 +287,12 @@ const win = new BrowserWindow()
 Для вызова главного процесса от Renderer, используйте модуль IPC:
 
 ```js
-// In the Main process
-const { ipcMain } = require('electron')
+В главном процессе
+const { ipcMain } требуют ('электрон')
 
-ipcMain.handle('perform-action', (event, ...args) => {
-  // ... do actions on behalf of the Renderer
-})
+ipcMain.handle ('выполнить действие', (событие, ... аргс) -> -
+  // ... делать действия от имени рендерера
+)
 ```
 
 ```js
@@ -306,7 +306,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
+> ПРИМЕЧАНИЕ: Чтобы получить доступ к .js API из процесса Renderer, необходимо установить `nodeIntegration` предпочтение `true` и `contextIsolation` предпочтение `false`.  Обратите внимание, что доступ к API Node.js в любом рендере, который загружает удаленный контент, не рекомендуется по [соображениям безопасности](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron предоставляет полный доступ к Node.js API и его модулям как в основных процессах, так и в процессах Renderer. Например, вы можете прочитать все файлы из корневого каталога:
 
