@@ -1,46 +1,46 @@
-## Class: TouchBarButton
+## Klasse: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Erstellen einer Schaltfläche in der Touchleiste für native macOS-Anwendungen
 
 Prozess: [Main](../glossary.md#main-process)
 
-### `new TouchBarButton(options)`
+### `neue TouchBarButton(Optionen)`
 
-* `options` Object
-  * `label` String (optional) - Button text.
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
-  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Standard ist `true`.
+* `options` -Objekt
+  * `label` String (optional) - Button-Text.
+  * `accessibilityLabel` String (optional) - Eine kurze Beschreibung der Schaltfläche für die Verwendung durch Screenreader wie VoiceOver.
+  * `backgroundColor` String (optional) - Button Hintergrundfarbe im Hex-Format, d.h. `#ABCDEF`.
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button-Symbol.
+  * `iconPosition` String (optional) - Kann `left`, `right` oder `overlay`sein. Standardmäßig `overlay`.
+  * `click` Funktion (optional) - Funktion zum Aufrufen, wenn auf die Schaltfläche geklickt wird.
+  * `enabled` Boolean (optional) - Gibt an, ob sich die Schaltfläche in einem aktivierten Zustand befindet.  Standard ist `true`.
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+Stellen Sie beim Definieren `accessibilityLabel`sicher, dass Sie macOS [Best Practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc)berücksichtigt haben.
 
 ### Instanz Eigenschaften
 
-The following properties are available on instances of `TouchBarButton`:
+Die folgenden Eigenschaften sind für Instanzen von `TouchBarButton`verfügbar:
 
 #### `touchBarButton.accessibilityLabel`
 
-A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
+Ein `String` , der die Beschreibung der Schaltfläche darstellt, die von einer Sprachausgabe gelesen werden soll. Wird nur von Bildschirmlesern gelesen, wenn kein Etikett gesetzt ist.
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Ein `String` , der den aktuellen Text der Schaltfläche darstellt. Wenn Sie diesen Wert ändern, wird die Schaltfläche in der Touchleiste sofort aktualisiert.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Ein `String` Hexcode, der die aktuelle Hintergrundfarbe der Schaltfläche darstellt. Wenn Sie diesen Wert ändern, wird die Taste der Touchleiste sofort aktualisiert.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+Eine `NativeImage` , die das aktuelle Symbol der Schaltfläche darstellt. Wenn Sie diesen Wert ändern, wird die Schaltfläche in der Touchleiste sofort aktualisiert.
 
 #### `touchBarButton.iconPosition`
 
-A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
+Ein `String` - Kann `left`, `right` oder `overlay`sein.  Standardmäßig `overlay`.
 
 #### `touchBarButton.enabled`
 
-A `Boolean` representing whether the button is in an enabled state.
+Ein `Boolean` , der angibt, ob sich die Schaltfläche in einem aktivierten Zustand befindet.
