@@ -1,6 +1,6 @@
 # Installation
 
-To install prebuilt Electron binaries, use [`npm`][npm]. La méthode préférée est d'installer Electron en tant que dépendance de développement dans votre application :
+Pour installer des binaires d’électrons préconstruits, utilisez [`npm`][npm]. La méthode préférée est d'installer Electron en tant que dépendance de développement dans votre application :
 
 ```sh
 npm install electron --save-dev
@@ -39,7 +39,7 @@ Si vous devez utiliser un proxy HTTP, vous devez définir la variable `ELECTRON_
 
 ## Mirroirs et Caches personnalisés
 
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. Cela se fera en se connectant à la page GitHub des release (`https://github.com/electron/electron/releases/tag/v$VERSION`, ou `$VERSION` est la version exacte d'Electron).
+Lors de l’installation, `electron` module vous appellera à [`@electron/get`][electron-get] télécharger des binaires préconstruits de Electron pour votre plate-forme. Cela se fera en se connectant à la page GitHub des release (`https://github.com/electron/electron/releases/tag/v$VERSION`, ou `$VERSION` est la version exacte d'Electron).
 
 Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de fournir un binaire personnalisé, vous pouvez aussi le faire en mettant à disposition un miroir ou un répertoire de cache existant.
 
@@ -121,11 +121,11 @@ Lorsque vous exécutez `npm install electron`, certains utilisateurs rencontrent
 
 Dans la plupart des cas, ces erreurs sont le résultat d'un problème de réseau et non un soucis avec le packet npm `electron`. Les erreurs comme `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` et `ETIMEDOUT` sont toutes des indications d'un problème de réseau. La meilleure solution est d'essayer en changeant de réseau ou juste d'attendre un peu et de réessayer l'installation.
 
-You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
+Vous pouvez également essayer de télécharger Electron directement à partir d' [/électron/libère des][releases] si l’installation via `npm` est défaillante.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
+Si l’installation échoue avec une erreur `EACCESS` , vous devrez peut-être [corriger vos autorisations npm][npm-permissions].
 
-If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
+Si l’erreur ci-dessus persiste, [drapeau de][unsafe-perm] dangereux peut devoir être défini comme vrai :
 
 ```sh
 sudo npm install electron --unsafe-perm=true
