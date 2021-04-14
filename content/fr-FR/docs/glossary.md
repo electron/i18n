@@ -26,7 +26,7 @@ Langue de description de l'interface. Écrire les signatures de fonctions et les
 
 ### IPC
 
-La CIP est synonyme de communication interprocessus. Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
+La CIP est synonyme de communication interprocessus. Electron utilise IPC pour envoyer messages JSON sérialisés entre les [principaux][] et [rendus][] processus.
 
 ### libchromiumcontent
 
@@ -36,7 +36,7 @@ Une bibliothèque partagée qui inclut le [module Chromium Content][] et toutes 
 
 ### main process (processus principal)
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Il gère également les éléments natifs tels que le Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Le processus principal, généralement un fichier nommé `main.js`, est le point d’entrée de chaque 'application Electron. Il contrôle la durée de vie de l’application, de l’ouverture à la fermeture. Il gère également les éléments natifs tels que le Menu, Menu Bar, Dock, Tray, etc. Le principal est responsable de la création de chaque nouveau processus de rendu dans l’application. L’API nœud complète est intégrée.
 
 Le fichier de processus principal de chaque application est spécifié dans la propriété `principale` dans `package.json`. Voici comment `electron .` sait quel fichier exécuter au démarrage.
 
@@ -46,7 +46,7 @@ Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
 ### MAS
 
-Acronyme pour le Mac App Store d'Apple. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
+Acronyme pour le Mac App Store d'Apple. Pour plus de détails sur la soumission de votre application MAS, consultez le Guide de soumission [Mac App Store][].
 
 ### Mojo
 
@@ -80,7 +80,7 @@ Voir aussi : [processus principal](#main-process), [processus de rendu](#render
 
 ### processus de rendu (renderer process)
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. Ils peuvent également être cachés.
+Le processus de rendu est une fenêtre de navigateur dans votre application. Contrairement au processus principal, peut y avoir plusieurs d’entre eux et chacun est exécuté dans un processus distinct. Ils peuvent également être cachés.
 
 Dans un navigateur normal, les pages web sont habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder aux ressources natives. Cependant, les utilisateurs d'Electron peuvent utiliser l'API Node.js dans les pages web, ce qui permet des interactions bas niveau avec le système d'exploitation.
 
@@ -110,17 +110,17 @@ Les numéros de version de V8 correspondent toujours à ceux de Google Chrome. C
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. Il n’a pas les mêmes autorisations que votre page web et toutes les interactions entre votre application et le contenu incorporé seront asynchrones. Cela protège votre application du contenu incorporé.
+`webview` balises sont utilisées pour intégrer du contenu « invité » (comme des pages Web externes) dans votre application Electron. Ils sont similaires à ceux `iframe`, mais diffèrent en ce que chaque webview s’exécute dans un processus distinct. Il n’a pas les mêmes autorisations que votre page web et toutes les interactions entre votre application et le contenu incorporé seront asynchrones. Cela protège votre application du contenu incorporé.
 
 [addons]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
 [module Chromium Content]: https://www.chromium.org/developers/content-module
 [electron-builder]: https://github.com/electron-userland/electron-builder
-[Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
-[main]: #main-process
+[Mac App Store]: tutorial/mac-app-store-submission-guide.md
+[principaux]: #main-process
 [principal]: #main-process
-[renderer]: #renderer-process
+[rendus]: #renderer-process
 [de rendu]: #renderer-process
 [Utilisation des modules natifs de Node]: tutorial/using-native-node-modules.md
 [V8]: #v8
