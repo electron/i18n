@@ -18,7 +18,7 @@ Das `data` Event ist die gewöhnliche Methode um Antwortdaten in Anwendungscode 
 
 #### Event: 'end'
 
-Gibt an dass der Body der Antwort endet. Must be placed before 'data' event.
+Gibt an dass der Body der Antwort endet. Muss vor dem "Daten"-Ereignis platziert werden.
 
 #### Event: 'aborted'
 
@@ -28,42 +28,42 @@ Ausgegeben wenn eine Anfrage während einer laufenden HTTP Transaktion abgebroch
 
 Rückgabewert:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Fehler - In der Regel enthält eine Fehlerzeichenfolge, die die Fehlerursache identifiziert.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Es wird angezeigt, wenn beim Streaming von Antwortdatenereignissen ein Fehler aufgetreten ist. Wenn Server z. B. den Basiswert schließt, während die Antwort noch Streaming ist, wird ein `error` Ereignis für das Antwortobjekt ausgegeben, und anschließend folgt ein `close` Ereignis für das Anforderungsobjekt.
 
 ### Instanz Eigenschaften
 
-An `IncomingMessage` instance has the following readable properties:
+Eine `IncomingMessage` -Instanz verfügt über die folgenden lesbaren Eigenschaften:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+Ein `Integer` , der den HTTP-Antwortstatuscode angibt.
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+Ein `String` , der die HTTP-Statusmeldung darstellt.
 
 #### `response.headers`
 
-A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
+Ein `Record<string, string | string[]>` , der die HTTP-Antwortheader darstellt. Das `headers` -Objekt ist wie folgt formatiert:
 
-* All header names are lowercased.
-* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
-* `set-cookie` is always an array. Duplicates are added to the array.
-* For duplicate `cookie` headers, the values are joined together with '; '.
-* For all other headers, the values are joined together with ', '.
+* Alle Headernamen sind klein.
+* Duplikate von `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`oder `user-agent` werden verworfen.
+* `set-cookie` ist immer ein Array. Duplikate werden dem Array hinzugefügt.
+* Bei doppelten `cookie` -Headern werden die Werte mit '; '.
+* Für alle anderen Header werden die Werte mit ', ' verbunden.
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Ein `String` , der die Versionsnummer des HTTP-Protokolls angibt. Typische Werte sind '1.0' oder '1.1'. Darüber hinaus sind `httpVersionMajor` und `httpVersionMinor` zwei lesbaren Eigenschaften mit Ganzzahlwert, die jeweils die HAUPT- und Nebenversionsnummern des HTTP zurückgeben.
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+Ein `Integer` , der die Hauptversionsnummer des HTTP-Protokolls angibt.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+Ein `Integer` , der die Nebenversionsnummer des HTTP-Protokolls angibt.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
