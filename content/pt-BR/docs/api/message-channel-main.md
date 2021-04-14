@@ -1,25 +1,25 @@
 # MessageChannelMain
 
-`MessageChannelMain` is the main-process-side equivalent of the DOM [`MessageChannel`][] object. Its singular function is to create a pair of connected [`MessagePortMain`](message-port-main.md) objects.
+`MessageChannelMain` é o equivalente principal do objeto [`MessageChannel`][] DOM. Sua função singular é criar um par de objetos conectados [`MessagePortMain`](message-port-main.md) .
 
-See the [Channel Messaging API][] documentation for more information on using channel messaging.
+Consulte a API de mensagens do canal [][] documentação para obter mais informações sobre o uso de mensagens de canal.
 
-## Class: MessageChannelMain
+## Classe: MessageChannelMain
 
 Processo: [Main](../glossary.md#main-process)
 
 Exemplo:
 
 ```js
-// Main process
-const { port1, port2 } = new MessageChannelMain()
-w.webContents.postMessage('port', null, [port2])
-port1.postMessage({ some: 'message' })
+Principal processo
+const { port1, port2 } = novo MessageChannelMain()
+w.webContents.postMessage ('port', nulo, [port2])
+port1.postMessage ({ some: 'message' })
 
-// Renderer process
+// Processo renderizador
 const { ipcRenderer } = require('electron')
-ipcRenderer.on('port', (e) => {
-  // e.ports is a list of ports sent along with this message
+ipcRenderer.on('port','port'. (e) => {
+  // e.ports é uma lista de portas enviadas junto com esta mensagem
   e.ports[0].on('message', (messageEvent) => {
     console.log(messageEvent.data)
   })
@@ -28,13 +28,14 @@ ipcRenderer.on('port', (e) => {
 
 ### Propriedades de Instância
 
-#### `channel.port1`
+#### `canal.port1`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Uma propriedade [`MessagePortMain`](message-port-main.md) .
 
-#### `channel.port2`
+#### `canal.port2`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Uma propriedade [`MessagePortMain`](message-port-main.md) .
 
 [`MessageChannel`]: https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel
-[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[2]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[3]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
