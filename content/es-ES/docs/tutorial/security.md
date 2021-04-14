@@ -71,15 +71,20 @@ Cualquier recurso no incluido con tu aplicación debería ser cargado usando un 
 ### ¿Cómo?
 
 ```js
-// Malo
+// Bad
 browserWindow.loadURL('http://example.com')
 
-// Bueno
+// Good
 browserWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Malo --><script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css"><!-- Bueno --><script crossorigin src="https://example.com/react.js"></script>
+```html
+<!-- Bad -->
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
+
+<!-- Good -->
+<script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -98,7 +103,7 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 ### ¿Cómo?
 
 ```js
-// Incorrecto
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -110,7 +115,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Correcto
+// Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
@@ -142,7 +147,7 @@ Aislamiento de contexto es un ajuste de Electron que permite a los desarrollador
 
 Electron usa la misma tecnología que los [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) de Chromium para activar este comportamiento.
 
-Even when `nodeIntegration: false` is used, to truly enforce strong isolation and prevent the use of Node primitives `contextIsolation` **must** also be used.
+Incluso cuando se usa `nodeIntegration: false` , para implementar de verdad de aislamiento fuerte y evitar el uso de primitivas de nodo `contextIsolation` también se debe usar **** .
 
 ### ¿Por qué & cómo?
 
@@ -205,11 +210,16 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow()
 ```
 
-```html<!-- Malo --><webview disablewebsecurity src="page.html"></webview><!-- Bueno --><webview src="page.html"></webview>
+```html
+<!-- Bad -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- Good -->
+<webview src="page.html"></webview>
 ```
 
 ## 6) Definir una política de seguridad de contenido
@@ -223,10 +233,10 @@ CSP permite que el servidor dando contenido pueda restringir y controlar los rec
 El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
 ```plaintext
-// Incorrecto
+// Bad
 Content-Security-Policy: '*'
 
-// Correcto
+// Good
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
@@ -270,7 +280,7 @@ Cargando contenido sobre `HTTPS` se asegura la autenticidad y la integridad de l
 ### ¿Cómo?
 
 ```js
-// Malo
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -279,7 +289,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -298,7 +308,7 @@ Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciend
 ### ¿Cómo?
 
 ```js
-// Incorrecto
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -307,7 +317,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -324,7 +334,7 @@ En general, probablemente hay buenas razones si una función no fue habilitada p
 ### ¿Cómo?
 
 ```js
-// Incoreccto
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -333,7 +343,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow()
 ```
 
@@ -349,7 +359,12 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 
 ### ¿Cómo?
 
-```html<!-- Malo --><webview allowpopups src="page.html"></webview><!-- Bueno --><webview src="page.html"></webview>
+```html
+<!-- Bad -->
+<webview allowpopups src="page.html"></webview>
+
+<!-- Good -->
+<webview src="page.html"></webview>
 ```
 
 ## 11) Verificar las opciones de WebView antes de la creación
@@ -371,14 +386,14 @@ Antes que la etiqueta [`<webview>`][webview-tag] sea adjuntada, Electron va a di
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Elimine los scripts de precarga si no se utilizan o verifique que su ubicación sea legítima.
+    // Strip away preload scripts if unused or verify their location is legitimate
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Dishabilite la integración Node.js
+    // Disable Node.js integration
     webPreferences.nodeIntegration = false
 
-    // Verifique la URL que se está cargando
+    // Verify URL being loaded
     if (!params.src.startsWith('https://example.com/')) {
       event.preventDefault()
     }
@@ -430,7 +445,7 @@ Si no tienes la necesidad de crear ventanas adicionales de la que sabes que tend
 
 ### ¿Cómo?
 
-[`webContents`][web-contents] delegará a su [controlado de venta abierta][window-open-handler] antes de crear nuevas ventanas. The handler will receive, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you register a handler to monitor the creation of windows, and deny any unexpected window creation.
+[`webContents`][web-contents] delegará a su [controlado de venta abierta][window-open-handler] antes de crear nuevas ventanas. El controlador recibirá, entre otros parámetros, el `url` se solicitó la ventana para abrir y las opciones usadas para crearlo. Te recomendamos que registres un controlador para supervisar la creación de Windows y que niegues cualquier creación de ventana inesperada.
 
 ```js
 const { shell } = require('electron')
@@ -464,13 +479,13 @@ El uso indebido de [`openExternal`][open-external] puede ser apalancado para com
 ### ¿Cómo?
 
 ```js
-// Incorrecto
+//  Bad
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 
 ```js
-//  Correcto
+//  Good
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
@@ -483,7 +498,7 @@ Debe esforzarse por utilizar siempre la última versión disponible de Electron.
 
 Una aplicación construida con una versión anterior de Electron, Chromium y Node.js es un objetivo más fácil que una aplicación que está usando versiones más recientes de esos componentes. Generalmente hablando, los problemas de seguridad y exploits para viejas verciones de Chromium y Node.js están más ampliamente disponibles.
 
-Ambos Chomium y Node.js impresionantes son impresionantes hazañas de ingeniería construidas por miles de talentosos desarrolladores. Dada su popularidad, su seguridad es cuidadosamente probada y analizada por investigadores de seguridad igualmente calificados. Many of those researchers [disclose vulnerabilities responsibly][responsible-disclosure], which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Tu aplicación será más segura si está ejecutando una versión reciente de Electron (y por tanto, Chromium y Node.js) para los cuales problemas de seguridad potenciales no son tan conocidos.
+Ambos Chomium y Node.js impresionantes son impresionantes hazañas de ingeniería construidas por miles de talentosos desarrolladores. Dada su popularidad, su seguridad es cuidadosamente probada y analizada por investigadores de seguridad igualmente calificados. Muchos de esos investigadores [divulgar vulnerabilidades de manera responsable][responsible-disclosure], lo que generalmente significa que los investigadores le darán a Chromium y a node. js algún tiempo para solucionar problemas antes de publicarlos. Tu aplicación será más segura si está ejecutando una versión reciente de Electron (y por tanto, Chromium y Node.js) para los cuales problemas de seguridad potenciales no son tan conocidos.
 
 [browser-window]: ../api/browser-window.md
 
