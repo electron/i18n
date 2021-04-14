@@ -14,7 +14,7 @@ date: '2018-01-22'
 
 无论协议是如何注册的，这种应用都可能受到影响，例如： 使用本机代码, Windows 注册表, 或 Electron's [app.setAssaultProtocol客户端](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API。
 
-macOS and Linux are **not vulnerable** to this issue.
+</strong> 这个问题，macOS和Linux **不脆弱。</p>
 
 ## 减轻影响
 
