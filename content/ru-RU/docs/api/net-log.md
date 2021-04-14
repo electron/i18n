@@ -5,14 +5,14 @@
 Процесс: [Основной](../glossary.md#main-process)
 
 ```javascript
-const { netLog } = require('electron')
+const { netLog } - требуют ('electron')
 
-app.whenReady().then(async () => {
-  await netLog.startLogging('/path/to/net-log')
-  // After some network events
-  const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
-})
+app.whenReady ().,тогда (async ()> -
+  ждут netLog.startLogging ('/path/to/net-log')
+  // После некоторых сетевых событий
+  const path - ждут netLog.stopLogging() консоль
+  .log ('Net-logs написано to', путь)
+)
 ```
 
 Смотрите [`--log-net-log`](command-line-switches.md#--log-net-logpath) для регистрации сетевых событий на протяжении всего жизненного цикла приложения.
@@ -34,7 +34,7 @@ app.whenReady().then(async () => {
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<void>` - resolves when the net log has been flushed to disk.
+Возвращает `Promise<void>` - разрешает, когда чистый журнал был смыт на диск.
 
 Остановка записи сетевых событий. Если не вызвано, ведение сетевого журнала автоматически закроется при выходе из приложения.
 
@@ -42,4 +42,4 @@ Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
 ### `netLog.currentlyLogging` _Только чтение_
 
-A `Boolean` property that indicates whether network logs are currently being recorded.
+В `Boolean` , указывая, регистрируются ли в настоящее время сетевые журналы.
