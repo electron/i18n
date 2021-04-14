@@ -1,61 +1,61 @@
-## Class: ServiceWorkers
+## Classe: Travailleurs de service
 
-> Query and receive events from a sessions active service workers.
+> Interrogez et recevez des événements d’une séance de travailleurs actifs des services.
 
 Processus : [Main](../glossary.md#main-process)
 
-Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
+Les instances de la `ServiceWorkers` sont consultées en utilisant `serviceWorkers` propriété de un `Session`.
 
 Par exemple :
 
 ```javascript
-const { session } = require('electron')
+const { session } = exiger ('electron')
 
-// Get all service workers.
-console.log(session.defaultSession.serviceWorkers.getAllRunning())
+// Obtenir tous les travailleurs de service.
+console.log (session.defaultSession.serviceWorkers.getAllRunning())
 
-// Handle logs and get service worker info
-session.defaultSession.serviceWorkers.on('console-message', (event, messageDetails) => {
-  console.log(
+// Gérer les journaux et obtenir des informations sur les travailleurs de service
+session.defaultSession.serviceWorkers.on('console-message', (événement, messageDetails) => { console
+  .log(
     'Got service worker message',
     messageDetails,
     'from',
-    session.defaultSession.serviceWorkers.getFromVersionID(messageDetails.versionId)
+    session.defaultSession.serviceWorkers.getFromVersionID (messageDetails.versionId)
   )
 })
 ```
 
 ### Événements d’instance
 
-The following events are available on instances of `ServiceWorkers`:
+Les événements suivants sont disponibles sur les instances de `ServiceWorkers`:
 
 #### Événement : 'console-message'
 
 Retourne :
 
 * `event` Événement
-* `messageDetails` Object - Information about the console message
-  * `message` String - The actual console message
-  * `versionId` Number - The version ID of the service worker that sent the log message
-  * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
-  * `level` Number - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
-  * `sourceUrl` String - The URL the message came from
-  * `lineNumber` Number - The line number of the source that triggered this console message
+* `messageDetails` objet - Informations sur le message de la console
+  * `message` String - Le message de la console réelle
+  * `versionId` - L’iD de version du travailleur de service qui a envoyé le message journal
+  * `source` String - Le type de source pour ce message.  Peut être `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` ou `other`.
+  * `level` numéro - Le niveau de journal, de 0 à 3. Dans l’ordre, il correspond `verbose`, `info`, `warning` et `error`.
+  * `sourceUrl` String - L’URL du message est venue de
+  * `lineNumber` numéro - Le numéro de ligne de la source qui a déclenché ce message console
 
-Emitted when a service worker logs something to the console.
+Émis lorsqu’un travailleur de service enregistre quelque chose sur la console.
 
 ### Méthodes d’instance
 
-The following methods are available on instances of `ServiceWorkers`:
+Les méthodes suivantes sont disponibles sur les cas de `ServiceWorkers`:
 
 #### `serviceWorkers.getAllRunning()`
 
-Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
+Retours `Record<Number, ServiceWorkerInfo>` - Un objet [ServiceWorkerInfo](structures/service-worker-info.md) lorsque les clés sont l’ID de version travailleur de service et les valeurs sont les informations sur ce travailleur de service.
 
-#### `serviceWorkers.getFromVersionID(versionId)`
+#### `serviceWorkers.getFromVersionID (versionId)`
 
-* `versionId` Number
+* `versionId` numéro
 
-Returns [`ServiceWorkerInfo`](structures/service-worker-info.md) - Information about this service worker
+Retours [`ServiceWorkerInfo`](structures/service-worker-info.md) - Informations sur ce travailleur de service
 
-If the service worker does not exist or is not running this method will throw an exception.
+Si le travailleur de service n’existe pas ou n’est pas en cours d’exécution de cette méthode jettera une exception.
