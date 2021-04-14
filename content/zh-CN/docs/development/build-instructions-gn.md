@@ -10,9 +10,9 @@
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## 构建工具
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[电子的构建工具](https://github.com/electron/build-tools) 自动化大部分设置，用于从具有不同配置的源中编译电子并生成目标。 如果您希望手动设置环境，则说明如下。
 
 ## 前置知识
 
@@ -26,9 +26,9 @@ Security` → `System` → `Advanced system settings` ，然后添加系统变�
 如果您想 checkout 多份 Electron 源码 (例如多个并行目录 checkout 到不同的分支)， 推荐使用 git 缓存来加速后续对 `gclient`的调用。 为此，设置 `GIT_CACHE_PATH` 环境变量：
 
 ```sh
-$ export GIT_CACHE_PATH="${HOME}/.git_cache"
-$ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+$出口GIT_CACHE_PATH="${HOME}/.git_cache"
+$mkdir-p"${GIT_CACHE_PATH}"
+#这将使用约16G。
 ```
 
 ## 获得源码
@@ -47,12 +47,12 @@ $ gclient sync --with_branch_heads --with_tags
 如果您将来打算从 `electron` 官方地址进行 `git pull` 或 `git push`，那么您需要更新相应文件夹的源 URL。
 
 ```sh
-$ cd src/electron
-$ git remote remove origin
-$ git remote add origin https://github.com/electron/electron
-$ git checkout master
-$ git branch --set-upstream-to=origin/master
-$ cd -
+$cd src/电子
+$git 远程删除原点
+$git 远程添加原点 https://github.com/electron/electron
+$git 结帐主
+$git 分支 - 设置上游到源/主
+$cd -
 ```
 
 :memo: `gclient` 会检查 `src/electron` 目录下的 `DEPS` 文件，从中获取依赖信息 (就像 Chromium 或 Node.js 那样)。 运行 `gclient sync -f` 确保所有用来构建 Electron 的依赖都符合该文件的描述。
@@ -60,181 +60,181 @@ $ cd -
 因此，为了拉取，您将运行以下命令：
 
 ```sh
-$ cd src/electron
-$ git pull
-$ gclient sync -f
+$cd src/电子
+$git拉
+$胶质同步-f
 ```
 
 ## 构建
 
 ```sh
-$ cd src
-$ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
+$cd src
+$ 出口CHROMIUM_BUILDTOOLS_PATH='pwd'/构建图
+$gn 基因输出/测试 - args="进口（\"//电子/生成/args/测试.gn\"） $GN_EXTRA_ARGS"
 ```
 
 若在 Windows 上 (没有可选参数)：
 
 ```sh
-$ cd src
-$ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
+$cd src
+$ 设置CHROMIUM_BUILDTOOLS_PATH=%cd%[ 构建图
+$gn gen 出 / 测试 - args= "进口 （\"/ /电子 / 生成 / args / 测试.gn\"）
 ```
 
-这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 此外，你不应该再次运行 `gn gen` -如果你想改变 建立参数，你可以运行 `gn args out/Testing` 提出一个编辑器。
 
-To see the list of available build configuration options, run `gn args
-out/Testing --list`.
+要查看可用的构建配置选项列表，请 `gn args 运行
+/测试 - 列表`。
 
-**For generating Testing build config of Electron:**
+**用于生成 电子的测试生成配置：**
 
 ```sh
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
+$gn gen 出/测试 -- -- "进口（\"/电子/生成/args/测试.gn\） $GN_EXTRA_ARGS"
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**用于生成版本（又名"非组件"或"静态"），构建 电子的配置：**
 
 ```sh
-$ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
+$gn 基因出/释放 - args="导入（\"/电子/生成/args/释放.gn\） $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**要建立， `ninja` 与 `electron` 的目标运行：** ·奥塔·贝恩：这也需要一段时间，并可能加热你的腿。
 
-For the testing configuration:
+对于测试配置：
 
 ```sh
-$ ninja -C out/Testing electron
+$ 忍者-C出/测试电子
 ```
 
-For the release configuration:
+对于发布配置：
 
 ```sh
-$ ninja -C out/Release electron
+$ 忍者-C出/释放电子
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+这将建立所有以前"不铬"（即 `chromium` 及其依赖关系的 `content/` 目录，包括。 网络基特和V8）， ，所以它将需要一段时间。
 
-The built executable will be under `./out/Testing`:
+已构建的可执行将在 `./out/Testing`下：
 
 ```sh
-$ ./out/Testing/Electron.app/Contents/MacOS/Electron
-# or, on Windows
-$ ./out/Testing/electron.exe
-# or, on Linux
-$ ./out/Testing/electron
+$ ./出/测试/电子.app/内容/MacOS/电子
+# 或，在视窗
+$./出/测试/电子.exe
+# 或，在Linux
+$./出/测试/电子
 ```
 
 ### 打包
 
-On linux, first strip the debugging and symbol information:
+在 linux 上，首先剥离调试和符号信息：
 
 ```sh
-electron/script/strip-binaries.py -d out/Release
+电子/脚本/条状 binaries.py-d 出/释放
 ```
 
-To package the electron build as a distributable zip file:
+将电子生成打包为可分发的拉链文件：
 
 ```sh
-ninja -C out/Release electron:electron_dist_zip
+忍者 -C 出/释放电子：electron_dist_zip
 ```
 
 ### 交叉编译
 
-To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
+要为与构建平台不一样的平台进行编译， 设置 `target_cpu` 并 `target_os` GN 参数。 例如，要从 x64 主机中编译 x86 目标，在 `gn args`中指定 `target_cpu = "x86"` 。
 
 ```sh
-$ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
+$gn 基因出 / 测试 - x86 - 阿格斯]...target_cpu="x86"
 ```
 
-Not all combinations of source and target CPU/OS are supported by Chromium.
+并非所有源和目标 CPU/OS 的组合都由铬支持。
 
-| Host        | Target        | 状态                   |
-| ----------- | ------------- | -------------------- |
-| Windows x64 | Windows arm64 | 实验功能                 |
-| Windows x64 | Windows x86   | Automatically tested |
-| Linux x64   | Linux x86     | Automatically tested |
+| Host  | 目标    | 状态   |
+| ----- | ----- | ---- |
+| 视窗x64 | 视窗臂64 | 实验功能 |
+| 视窗x64 | 视窗x86 | 自动测试 |
+| 利努x64 | 利努x86 | 自动测试 |
 
-If you test other combinations and find them to work, please update this document :)
+如果您测试其他组合并找到它们工作，请更新此文档:)
 
-See the GN reference for allowable values of [`target_os`][target_os values] and [`target_cpu`][target_cpu values].
+有关 [`target_os`][target_os values] 和 [`target_cpu`][target_cpu values]的允许值，请参阅 GN 参考。
 
-#### Windows on Arm (experimental)
+#### 手臂上的窗户（实验）
 
-To cross-compile for Windows on Arm, [follow Chromium's guide](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) to get the necessary dependencies, SDK and libraries, then build with `ELECTRON_BUILDING_WOA=1` in your environment before running `gclient sync`.
+要交叉编译手臂上的 Windows， [按照 Chromium 的指南](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) 获取必要的依赖项、SDK 和库，然后在运行 `gclient sync`之前在环境中 `ELECTRON_BUILDING_WOA=1` 构建。
 
 ```bat
-set ELECTRON_BUILDING_WOA=1
-gclient sync -f --with_branch_heads --with_tags
+设置ELECTRON_BUILDING_WOA=1
+胶度同步-f-with_branch_heads-with_tags
 ```
 
-Or (if using PowerShell):
+或者（如果使用电源壳）：
 
 ```powershell
-$env:ELECTRON_BUILDING_WOA=1
-gclient sync -f --with_branch_heads --with_tags
+$env：ELECTRON_BUILDING_WOA=1
+胶度同步 - f - with_branch_heads - with_tags
 ```
 
-Next, run `gn gen` as above with `target_cpu="arm64"`.
+接下来，用 `target_cpu="arm64"`跑 `gn gen` 如上。
 
 ## 测试
 
-To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
+要运行测试，您首先需要根据作为构建过程的一部分构建的相同版本的节点.js构建测试模块 。 要 生成模块的生成标题以进行对接，可在 `src/` 目录下运行以下 。
 
 ```sh
-$ ninja -C out/Testing third_party/electron_node:headers
+$ 忍者 -C 出/测试third_party/electron_node：头
 ```
 
-You can now [run the tests](testing.md#unit-tests).
+你现在可以 [运行测试](testing.md#unit-tests)。
 
 可以通过增加其它标记来调试程序，例如：
 
 ```sh
-$ npm run test -- \
-  --enable-logging -g 'BrowserWindow module'
+$npm 运行测试 - -
+  - 启用记录 - g "浏览器窗口模块"
 ```
 
-## Sharing the git cache between multiple machines
+## 在多台机器之间共享 git 缓存
 
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+通过将 gclient git 缓存导出 SMB 在 linux 上共享，可以与其他机器共享 gclient git 缓存，但只有一个过程/机器可以在 时间使用缓存。 由 git-缓存脚本创建的锁将尝试防止这种情况，但它可能 在网络中不能完美工作。
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+在 Windows 上，SMBv2 具有目录缓存，该缓存会导致 git 缓存脚本出现问题，因此有必要通过设置注册表密钥将其禁用
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+到0。 更多信息： https://stackoverflow.com/a/9935126
 
-This can be set quickly in powershell (ran as administrator):
+这可以在电源壳中快速设置（作为管理员运行）：
 
 ```powershell
-New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
+新项目-产品-路径"HKLM：\系统]当前控制集|服务\兰曼工作站\参数"-名称目录缓存-时间-价值0-属性类型DWORD-Force
 ```
 
 ## 故障排查
 
-### gclient sync complains about rebase
+### 鳄鱼同步抱怨重新基础
 
-If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
+如果 `gclient sync` 被中断，git 树可能会处于不良状态，从而在未来运行 `gclient sync` 时出现神秘消息：
 
 ```plaintext
-2> Conflict while rebasing this branch.
-2> Fix the conflict and run gclient again.
-2> See man git-rebase for details.
+2> 冲突，同时重新平衡此分支。
+2> 修复冲突，并再次运行闪烁。
+2> 见男子 git 重新基地的细节。
 ```
 
-If there are no git conflicts or rebases in `src/electron`, you may need to abort a `git am` in `src`:
+如果 `src/electron`中没有 git 冲突或重新基础，则可能需要中止 `src`中的 `git am` ：
 
 ```sh
-$ cd ../
-$ git am --abort
-$ cd electron
-$ gclient sync -f
+$光盘。/
+$git am-中止
+$CD电子
+$胶质同步-f
 ```
 
-### I'm being asked for a username/password for chromium-internal.googlesource.com
+### 我被要求为 chromium-internal.googlesource.com 提供用户名/密码
 
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
+如果您在 Windows 上运行 `gclient sync` 时看到 `Username for 'https://chrome-internal.googlesource.com':` 提示，可能是因为 `DEPOT_TOOLS_WIN_TOOLCHAIN` 环境变量未设置为 0。 打开 `Control Panel` → `System and Security` → `System` → `Advanced system settings` ，并添加具有价值 `0`的系统变量 `DEPOT_TOOLS_WIN_TOOLCHAIN` 。  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 
