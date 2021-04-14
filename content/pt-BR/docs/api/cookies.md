@@ -1,6 +1,6 @@
 ## Class: Cookies
 
-> Query and modify a session's cookies.
+> Consulte e modifique os cookies de uma sessão.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -9,29 +9,29 @@ Instâncias da classe `Cookies` são acessadas através da propriedade `cookies`
 Como por exemplo:
 
 ```javascript
-const { session } = require('electron')
+const { session } = requer ('elétron')
 
-// Query all cookies.
+// Consulta de todos os cookies.
 session.defaultSession.cookies.get({})
-  .then((cookies) => {
+  .then(cookies) => {
     console.log(cookies)
-  }).catch((error) => {
-    console.log(error)
+  }).catch((erro) => {
+    console.log(erro)
   })
 
-// Query all cookies associated with a specific url.
+// Consulta de todos os cookies associados a uma url específica.
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
-  .then((cookies) => {
+  .(cookies) => {
     console.log(cookies)
-  }).catch((error) => {
-    console.log(error)
+  }).catch((erro) => {
+    console.log(erro)
   })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
-const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
+// Definir um cookie com os dados de cookies dados do cookie;
+// pode substituir cookies equivalentes se existirem.
+const cookie = { url: 'http://www.github.com', nome: 'dummy_name', valor: 'manequim' }
 session.defaultSession.cookies.set(cookie)
-  .then(() => {
+  .((() => {
     // success
   }, (error) => {
     console.error(error)
@@ -48,12 +48,12 @@ Retorna:
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - O cookie que foi modificado.
-* `cause` String - The cause of the change with one of the following values:
+* `cause` String - A causa da mudança com um dos seguintes valores:
   * `explicit` - O cookie foi modificado diretamente por uma ação do consumidor.
   * `overwrite` - O cookie foi removido automaticamente devido à uma ação de inserção que o sobrescreveu.
   * `expired` - O cookie foi automaticamente removido conforme expirou.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
+  * `evicted` - O biscoito foi automaticamente despejado durante a coleta de lixo.
+  * `expired-overwrite` - O cookie foi substituído com uma data de validade já expirada.
 * `removed` Boolean - `true` se o cookie foi removido, `false` caso contrário.
 
 Emitido quando um cookie é modificado devido à adição, edição, remoção ou expiração.
@@ -62,48 +62,48 @@ Emitido quando um cookie é modificado devido à adição, edição, remoção o
 
 Os metódos a seguir estão disponíveis em instâncias `de Cookies`:
 
-#### `cookies.get(filter)`
+#### `cookies.get (filtro)`
 
-* `filter` Object
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
+* objeto `filter`
+  * `url` String (opcional) - Recupera cookies associados a `url`. Vazio implica recuperar cookies de todos os URLs.
   * `name` String (opcional) - Filtra cookies por nome.
   * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
   * `path` String (opcional) - Recupera cookies nos quais o caminho seja igual a `path`.
   * `secure` Boolean (opcional) - Filtra cookies pela propriedade Secure.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `session` Boolean (opcional) - Filtra a sessão ou os cookies persistentes.
 
-Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+Devoluções `Promise<Cookie[]>` - Uma promessa que resolve uma variedade de objetos de cookies.
 
-Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+Envia uma solicitação para obter todos os cookies correspondentes `filter`, e resolve uma promessa com a resposta.
 
-#### `cookies.set(details)`
+#### `cookies.set(detalhes)`
 
-* `details` Object
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (opcional) - O domínio do cookie; isto será normalizado com um ponto no início para que ele também seja válido para subdomínios. Empty by default if omitted.
-  * `path` String (opcional) - O Diretório do cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Padrão sendo false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Pode ser `unspecified`, `no_restriction`, `lax` ou `strict`.  Default is `no_restriction`.
+* objeto `details`
+  * `url` String - A URL para associar o cookie. A promessa será rejeitada se a URL for inválida.
+  * `name` String (opcional) - O nome do cookie. Esvazie por padrão se omitir.
+  * `value` String (opcional) - O valor do cookie. Esvazie por padrão se omitir.
+  * `domain` String (opcional) - O domínio do cookie; isto será normalizado com um ponto no início para que ele também seja válido para subdomínios. Esvazie por padrão se omitir.
+  * `path` String (opcional) - O Diretório do cookie. Esvazie por padrão se omitir.
+  * `secure` Boolean (opcional) - Se o cookie deve ser marcado como Seguro. Padrão sendo false.
+  * `httpOnly` Boolean (opcional) - Se o cookie deve ser marcado apenas como HTTP. Padrão para falso.
+  * `expirationDate` Double (opcional) - A data de validade do cookie como o número de segundos desde a época UNIX. Se omitido, o cookie se torna uma sessão cookie e não será retido entre as sessões.
+  * `sameSite` String (opcional) - A política de [Mesmo Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) se aplicar a este cookie.  Pode ser `unspecified`, `no_restriction`, `lax` ou `strict`.  O padrão é `no_restriction`.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+Devoluções `Promise<void>` - Uma promessa que se resolve quando o cookie foi definido
 
-Sets a cookie with `details`.
+Define um cookie com `details`.
 
-#### `cookies.remove(url, name)`
+#### `cookies.remove (url, nome)`
 
 * `url` String - A URL associada com o cookie.
 * `name` String - O nome do cookie a ser removido.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+Devoluções `Promise<void>` - Uma promessa que se resolve quando o cookie foi removido
 
-Removes the cookies matching `url` and `name`
+Remove os cookies que combinam `url` e `name`
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+Devoluções `Promise<void>` - Uma promessa que se resolve quando a loja de biscoitos foi lavada
 
 Escreve qualquer cookie que não tenha sido escrito no disco.
