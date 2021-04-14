@@ -4,7 +4,7 @@ author: zeke
 date: '2016-12-20'
 ---
 
-We've added a new [userland](https://electronjs.org/userland) section to the Electron website to help users discover the people, packages, and apps that make up our flourishing open-source ecosystem.
+Wir haben einen neuen [](https://electronjs.org/userland) -Bereich für Userland hinzugefügt, um die Electron-Website zu , um Benutzern zu helfen, die Menschen, Pakete und Apps zu entdecken, die unser blühendes Open-Source-Ökosystem bilden.
 
 ---
 
