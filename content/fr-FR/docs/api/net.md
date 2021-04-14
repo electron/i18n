@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Le module `net` est une API côté client pour émettre des requêtes HTTP(S). Il est semblable aux modules [HTTP](https://nodejs.org/api/http.html) et [HTTPS](https://nodejs.org/api/https.html) de Node.js, mais utilise la bibliothèque réseau natif de Chromium au lieu de l'implémentation de Node.js, offrant un meilleur support pour les proxy web. It also supports checking network status.
+Le module `net` est une API côté client pour émettre des requêtes HTTP(S). Il est semblable aux modules [HTTP](https://nodejs.org/api/http.html) et [HTTPS](https://nodejs.org/api/https.html) de Node.js, mais utilise la bibliothèque réseau natif de Chromium au lieu de l'implémentation de Node.js, offrant un meilleur support pour les proxy web. Il prend également en charge la vérification de l’état du réseau.
 
 Voici une liste non exhaustive de pourquoi vous devriez utiliser le module `net` plutôt que les modules natifs de Node.js :
 
@@ -18,25 +18,25 @@ Les composants de l'API (y compris les classes, méthodes, propriétés et noms 
 Exemple d'utilisation :
 
 ```javascript
-const { app } = require('electron')
-app.whenReady().then(() => {
-  const { net } = require('electron')
+const { app } = require ('electron')
+app.whenReady().then()( => {
+  const { net } = require ('electron')
   const request = net.request('https://github.com')
-  request.on('response', (response) => {
-    console.log(`STATUS: ${response.statusCode}`)
-    console.log(`HEADERS: ${JSON.stringify(response.headers)}`)
-    response.on('data', (chunk) => {
-      console.log(`BODY: ${chunk}`)
+  request.on('response', (réponse) => { console
+    .log ('STATUS: ${response.statusCode}') console
+    .log ('HEADERS: ${JSON.stringify(response.headers)}')
+    response.on('data', (chunk) => { console
+      .log ('BODY: ${chunk}')
     })
-    response.on('end', () => {
-      console.log('No more data in response.')
+    response.on('end', () => { console
+      .log ('Plus de données en réponse.')
     })
   })
-  request.end()
+  request.end ()
 })
 ```
 
-L'API `net` ne peut être utilisée qu'après que l'application ait émit un événement `ready`. Trying to use the module before the `ready` event will throw an error.
+L'API `net` ne peut être utilisée qu'après que l'application ait émit un événement `ready`. Essayer d’utiliser le module avant la `ready` 'événement lancera une erreur.
 
 ## Méthodes
 
@@ -53,14 +53,14 @@ Créer une instance de [`ClientRequest`](./client-request.md) avec les `options`
 
 ### `net.isOnline()`
 
-Returns `Boolean` - Whether there is currently internet connection.
+Retours `Boolean` - Qu’il y ait actuellement une connexion Internet.
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+Une valeur de retour de `false` est un indicateur assez fort que l’utilisateur ne sera pas en mesure de se connecter à des sites distants. Toutefois, une valeur de retour de `true` n’est pas concluante; même si un lien est en place, il n’est de savoir si une tentative de connexion particulière à un site éloigné sera couronnée de succès.
 
 ## Propriétés
 
 ### `net.online` _Readonly_
 
-A `Boolean` property. Whether there is currently internet connection.
+Une `Boolean` propriété. S’il ya actuellement une connexion Internet.
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+Une valeur de retour de `false` est un indicateur assez fort que l’utilisateur ne sera pas en mesure de se connecter à des sites distants. Toutefois, une valeur de retour de `true` n’est pas concluante; même si un lien est en place, il n’est de savoir si une tentative de connexion particulière à un site éloigné sera couronnée de succès.
