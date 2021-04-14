@@ -22,7 +22,7 @@ Alle 6 Wochen kommt eine neue Chromium-Version mit neuen Features, Bugfixes / Si
 
 Sie haben früher als zuvor Zugriff auf neue Funktionen und Korrekturen von Chromium und V8. Wichtig ist, dass du _auch wissen wirst, wenn_ diese neuen Änderungen kommen, so dass du mit besseren Informationen als bisher planen kannst.
 
-The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. Zum Beispiel, wenn [v6.0.0 am 30. Juli 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule)stabil wird, unterstützen wir v6.x, v5.x und v4.x, während v3.x End-Of-Life erreichen wird.
+Das Electron-Team wird [weiterhin](https://electronjs.org/docs/tutorial/support#supported-versions) die neuesten drei Hauptversionen unterstützen. Zum Beispiel, wenn [v6.0.0 am 30. Juli 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule)stabil wird, unterstützen wir v6.x, v5.x und v4.x, während v3.x End-Of-Life erreichen wird.
 
 ## 💬 App Feedback Programm
 
