@@ -1,5 +1,5 @@
-# SharingItem Object
+# Objeto de compartilhamento doitem
 
-* `texts` String[] (optional) - An array of text to share.
-* `filePaths` String[] (optional) - An array of files to share.
-* `urls` String[] (optional) - An array of URLs to share.
+* `texts` String[] (opcional) - Uma matriz de texto para compartilhar.
+* `filePaths` String[] (opcional) - Uma variedade de arquivos para compartilhar.
+* `urls` String[] (opcional) - Uma matriz de URLs para compartilhar.
