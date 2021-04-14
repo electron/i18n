@@ -9,7 +9,7 @@ Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro
 ### Ejemplo
 
 ```javascript
-// En el proceso principal.
+// In the main process.
 const { BrowserView, BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
@@ -40,10 +40,10 @@ Los objetos creados con `new BrowserView` tiene los siguientes métodos de insta
 #### `view.setAutoResize(options)` _Experimental_
 
 * `options` Object
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` por defecto.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` por defecto.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` por defecto.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` por defecto.
+  * `width` Boolean (opcional)-si `true`, el ancho de la vista crecerá y se encogerá con la ventana. `false` por defecto.
+  * `height` Boolean (opcional)-si `true`, la altura de la vista crecerá y se encogerá junto con la ventana. `false` por defecto.
+  * `horizontal` Boolean (opcional)-si `true`, la posición x y la anchura de la vista crecerán y se encogerán proporcionalmente con la ventana. `false` por defecto.
+  * `vertical` Boolean (opcional): si `true`, la posición y y la altura de la vista crecerán y se encogerán proporcionalmente con la ventana. `false` por defecto.
 
 #### `view.setBounds(bounds)` _Experimental_
 
@@ -59,4 +59,4 @@ Los límites `bounds` de esta instancia de BrowserView como un `Object`.
 
 #### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String-color en `#aarrggbb` o `#argb` Form. El canal alfa es opcional.
