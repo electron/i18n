@@ -11,7 +11,7 @@ const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
+Для получения дополнительной информации о том, какие флаги и переключатели вы можете использовать, , [командная линия](./command-line-switches.md) документ.
 
 ### Методы экземпляра
 
