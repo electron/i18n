@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#rende
 
 Dans Electron, pour les API d'acquisition d'images, vous pouvez passer des chemins de fichiers ou des instances de tyipe `NativeImage`. Une image vide sera utilisée lorsque `null` sera transmise.
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+Par exemple, lors de la création d’un plateau ou de la configuration de l’icône d’une fenêtre, vous pouvez passer un de fichier d’image en tant qu' `String`:
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -16,7 +16,7 @@ const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard, which returns a `NativeImage`:
+Ou lisez l’image du presse-papiers, qui renvoie un `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -43,13 +43,13 @@ Sous Windows, vous pouvez également charger les icônes `ICO` à partir de chem
   * 64x64 (200% DPI scale)
   * 256x256
 
-Check the *Size requirements* section in [this article][icons].
+Consultez les exigences *taille* section dans [cet article][icons].
 
 ## Images à haute résolution
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+Sur les plates-formes qui ont un support DPI élevé comme les écrans Apple Retina, vous pouvez appendoir `@2x` après le nom de fichier de base de l’image pour le marquer comme une image haute résolution.
 
-For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Par exemple, si `icon.png` est une image normale qui a une résolution standard, alors `icon@2x.png` sera traitée comme une image haute résolution qui a une double densité d' DPI.
 
 Si vous voulez prendre en charge simultanément les écrans avec des densités DPI différentes, vous pouvez mettre des images de tailles différentes dans le même dossier et utiliser le nom de fichier sans le suffixe des DPI. Par exemple :
 
@@ -80,22 +80,22 @@ Les suffixes suivants pour le DPI sont également pris en charge :
 * `@4x`
 * `@5x`
 
-## Template Image
+## Image de modèle
 
 Les templates d'image sont constituées de noir et d'un canal alpha. Elles ne sont pas destinées à être utilisées comme des images autonomes mais sont généralement mélangées avec d'autres contenus pour créer l'apparence finale désirée.
 
-The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
+Le cas le plus courant est d’utiliser des images de modèle pour une icône de barre de menu, de sorte qu’il s’adapter aux barres de menu claires et sombres.
 
 **Remarque :** Les template d'image ne sont pas prise en charge que sur macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. Par exemple :
+Pour marquer une image comme une image de modèle, son nom de fichier doit se terminer par le mot `Template`. Par exemple :
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## Méthodes
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+Le module `nativeImage` a les méthodes suivantes, qui reviennent toutes dans exemple de la classe `NativeImage` suivante :
 
 ### `nativeImage.createEmpty()`
 
@@ -105,10 +105,10 @@ Crée une instance `NativeImage` vide.
 
 ### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
 
-* `path` String - path to a file that we intend to construct a thumbnail out of.
-* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+* `path` String - chemin vers un fichier que nous avons l’intention de construire une vignette à partir.
+* `maxSize` [taille](structures/size.md) - la largeur maximale et la hauteur (nombres positifs) la vignette retournée peut être. L’implémentation windows `maxSize.height` et l’échelle de la hauteur `maxSize.width`.
 
-Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+Retours `Promise<NativeImage>` - rempli avec l’image d’aperçu miniature du fichier, qui est un [NativeImage](native-image.md).
 
 ### `nativeImage.createFromPath(path)`
 
@@ -116,7 +116,7 @@ Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview ima
 
 Retourne `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+Crée une nouvelle instance `NativeImage` à partir d’un fichier situé à `path`. Cette méthode une image vide si le `path` n’existe pas, ne peut pas être lu ou n’est pas une image valide.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -128,26 +128,26 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer][buffer]
-* `options` Object
+* `options` objet
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+Crée une nouvelle instance `NativeImage` à partir `buffer` qui contient les données brutes bitmap pixel retournées par `toBitmap()`. Le format spécifique dépend de la plate-forme.
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
-* `options` Object (optional)
-  * `width` Integer (optional) - Required for bitmap buffers.
-  * `height` Integer (optional) - Required for bitmap buffers.
+* `options` objet (facultatif)
+  * `width` Integer (facultatif) - Requis pour les tampons bitmap.
+  * `height` Integer (facultatif) - Requis pour les tampons bitmap.
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Crée une nouvelle instance `NativeImage` à partir de `buffer`. Essaie de décoder en tant que PNG ou JPEG d’abord.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -160,39 +160,39 @@ Crée une nouvelle instance `NativeImage` à partir de `dataURL`.
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
-* `hslShift` Number[] (optional)
+* `hslShift` numéro[] (facultatif)
 
 Retourne `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+Crée une nouvelle instance `NativeImage` à partir de l’Image NS qui cartographie à l' nom d’image donné. Consultez [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) pour une liste de valeurs possibles.
 
-The `hslShift` is applied to the image with the following rules:
+Le `hslShift` est appliqué à l’image avec les règles suivantes :
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
+* `hsl_shift[0]` (teinte) : Valeur de teinte absolue pour l’image - 0 et 1 carte à 0 et 360 sur la roue de couleur de teinte (rouge).
+* `hsl_shift[1]` (saturation) : Changement de saturation pour l’image, avec valeurs clés suivantes : 0 = supprimer toutes les couleurs. 0,5 = laisser inchangé. 1 = saturer complètement l’image.
+* `hsl_shift[2]` (légèreté) : Changement de légèreté pour l’image, avec l' suivant les valeurs clés : 0 = supprimer toute légèreté (rendre tous les pixels noirs). 0,5 = laisser inchangé. 1 = pleine légèreté (rendre tous les pixels blancs).
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+Cela signifie que `[-1, 0, 1]` rendra l’image complètement blanche et `[-1, 1, 0]` rendra l’image complètement noire.
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Par conséquent, vous devrez déterminer la bonne représentation de votre image avant de la passer. Cela peut être fait avec les éléments suivants :
+Dans certains cas, le `NSImageName` ne correspond pas à sa représentation des cordes; un exemple de ceci est `NSFolderImageName`, dont la représentation de chaîne serait réellement `NSFolder`. Par conséquent, vous devrez déterminer la bonne représentation de votre image avant de la passer. Cela peut être fait avec les éléments suivants :
 
-`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
+`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@ »%@« , SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
-where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+où `SYSTEM_IMAGE_NAME` devrait être remplacé par n’importe quelle valeur [cette liste](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
 
 ## Classe : NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> Enveloppez les images nativement telles que les icônes de plateau, de dock et d’application.
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Méthodes d’instance
 
-The following methods are available on instances of the `NativeImage` class:
+Les méthodes suivantes sont disponibles sur les instances de la `NativeImage` classe :
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` objet (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées `PNG` de l'image.
@@ -205,26 +205,26 @@ Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées en `
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` objet (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon][buffer] qui contient une copie des données du pixel brut bitmap de l'image.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` objet (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `String` - L'URL des données de l'image.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` objet (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon][buffer] qui contient les données brutes des pixels bitmap de l'image.
 
-The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
+La différence entre `getBitmap()` et `toBitmap()` est que `getBitmap()` ne pas copier les données bitmap, de sorte que vous devez utiliser le tampon retourné immédiatement dans une tique de boucle d’événement en cours; sinon, les données pourraient être modifiées ou détruites.
 
 #### `image.getNativeHandle()` _macOS_
 
@@ -236,13 +236,13 @@ Note que le pointeur retourné est un pointeur faible vers l'image native sous-j
 
 Retourne `Boolean` - Si l'image est vide.
 
-#### `image.getSize([scaleFactor])`
+#### `image.getSize ([scaleFactor])`
 
 * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne [`Size`](structures/size.md).
 
-If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
+Si `scaleFactor` est passé, cela retournera la taille correspondant à la représentation d’image correspondant le plus étroitement à la valeur passée.
 
 #### `image.setTemplateImage(option)`
 
@@ -262,37 +262,37 @@ Retourne `NativeImage` - L'image recadrée.
 
 #### `image.resize(options)`
 
-* `options` Object
-  * `width` Integer (optional) - Defaults to the image's width.
+* `options` objet
+  * `width` Integer (facultatif) - Par défaut à la largeur de l’image.
   * `height` Integer (facultatif) - La hauteur de l'image par défaut.
-  * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Les valeurs possibles sont `good`, `better`, ou `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Les valeurs possibles sont `good`, `better`, ou `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. Ils sont traduits en une méthode spécifique à l’algorithme qui dépend des capacités (Processeur, GPU) de la plate-forme sous-jacente. Il est possible que les trois méthodes être cartographiées sur le même algorithme sur une plate-forme donnée.
 
 Retourne `NativeImage` - L'image redimensionnée.
 
 Si seulement la `hauteur` ou la `largeur` sont spécifiées, alors le ratio d'aspect actuel sera préservé dans l'image redimensionnée.
 
-#### `image.getAspectRatio([scaleFactor])`
+#### `image.getAspectRatio ([scaleFactor])`
 
 * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Float` - Le ratio d'aspect de l'image.
 
-If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+Si `scaleFactor` passé, cela retournera le rapport d’aspect correspondant à la représentation d’image correspondant le plus étroitement à la valeur passée.
 
 #### `image.getScaleFactors()`
 
-Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+Retours `Float[]` - Un tableau de tous les facteurs d’échelle correspondant aux représentations pour un nativeImage donné.
 
 #### `image.addRepresentation(options)`
 
-* `options` Object
-  * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `largeur` Integer (facultatif) - 0 par défaut. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (facultatif) - 0 par défaut. Required if a bitmap buffer is specified as `buffer`.
+* `options` objet
+  * `scaleFactor` Double - Le facteur d’échelle pour ajouter la représentation d’image pour.
+  * `largeur` Integer (facultatif) - 0 par défaut. Requis si un tampon bitmap spécifié comme `buffer`.
+  * `height` Integer (facultatif) - 0 par défaut. Requis si un tampon bitmap spécifié comme `buffer`.
   * `tampon` Buffer (facultatif) - Le tampon contenant les données de l'image brute.
-  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+  * `dataURL` String (facultatif) - L’URL de données contenant soit une base 64 image PNG codée ou JPEG.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Ajouter une représentation d’image pour un facteur d’échelle spécifique. Cela peut être utilisé pour ajouter explicitement différentes représentations de facteurs d’échelle à une image. Ce peut être appelé sur des images vides.
 
 ### Propriétés d'instance
 
