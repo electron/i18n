@@ -80,11 +80,11 @@ Supprime tous les écouteurs du `channel` spécifié.
 ### `ipcMain.handle(canal, écouteur)`
 
 * `channel` String
-* `listener` Function<Promise\<void> | any>
+* `listener` fonction<Promise\<void> | tout>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+Ajoute un gestionnaire pour un `invoke`IPC capable. Ce gestionnaire sera appelé chaque fois qu’un de rendu `ipcRenderer.invoke(channel, ...args)`.
 
 Si `listener` renvoie une Promise, le résultat final de la promesse sera retourné en réponse à l'appelant distant. Sinon, la valeur de retour de l'écouteur sera utilisée comme valeur de la réponse.
 
@@ -109,11 +109,11 @@ Le `event` qui est passé comme premier argument au gestionnaire est le même qu
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function<Promise\<void> | any>
+* `listener` fonction<Promise\<void> | tout>
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+Gère un seul message `invoke`IPC capable, puis supprime l’auditeur. Voir `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 
