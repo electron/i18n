@@ -1,83 +1,83 @@
-## Class: Debugger
+## Klasse: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Ein alternativer Transport für das Remote-Debuggingprotokoll von Chrome.
 
 Prozess: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding][rdp] available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome Developer Tools verfügt über eine [spezielle Bindung][rdp] die zur Laufzeit von JavaScript verfügbar ist und die Interaktion mit Seiten und deren Instrumentierung ermöglicht.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-try {
+versuchen sie
   win.webContents.debugger.attach('1.1')
-} catch (err) {
-  console.log('Debugger attach failed : ', err)
-}
+' catch (err) '
+  console.log('Debugger attach failed: ', err)
+'
 
-win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
-})
+win.webContents.debugger.on('detach', (ereignis.log
+  > , grund)
+')
 
-win.webContents.debugger.on('message', (event, method, params) => {
-  if (method === 'Network.requestWillBeSent') {
-    if (params.request.url === 'https://www.github.com') {
+win.webContents.debugger.on('message', (ereignis, method, params) => '
+  if (Methode === 'Network.requestWillBeSent') -
+    if (params.request.url === 'https://www.github.com') -
       win.webContents.debugger.detach()
-    }
-  }
-})
+    .
+  .
+.
 
-win.webContents.debugger.sendCommand('Network.enable')
+.
 ```
 
 ### Instanz Events
 
-#### Event: 'detach'
+#### Veranstaltung: 'ablösen'
 
 Rückgabewert:
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - Grund für das Trennen des Debuggers.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Wird gesendet, wenn die Debugsitzung beendet wird. Dies geschieht entweder, wenn `webContents` geschlossen wird, oder wenn devtools für die angefügten `webContents`aufgerufen wird.
 
-#### Event: 'message'
+#### Ereignis: 'Nachricht'
 
 Rückgabewert:
 
 * `event` Event
-* `method` String - Method name.
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `method` String - Methodenname.
+* `params` - Ereignisparameter, die durch das Attribut 'parameters' im Remote-Debugging-Protokoll definiert sind.
+* `sessionId` String - Eindeutiger Bezeichner der angehängten Debugsitzung entspricht dem von `debugger.sendCommand`gesendeten Wert .
 
-Emitted whenever the debugging target issues an instrumentation event.
+Wird angezeigt, wenn das Debugziel ein Instrumentationsereignis ausgibt.
 
 ### Instanz Methoden
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (optional) - Angeforderte Debugging-Protokollversion.
 
-Attaches the debugger to the `webContents`.
+Fügt den Debugger an die `webContents`an.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Gibt `Boolean` zurück : Gibt an, ob ein Debugger an die `webContents`angefügt ist.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Detachiert den Debugger vom `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
-* `commandParams` any (optional) - JSON object with request parameters.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
+* `method` String - Methodenname, sollte eine der Methoden sein, die vom [Remote-Debuggingprotokoll][rdp]definiert werden.
+* `commandParams` jedes (optional) - JSON-Objekt mit Anforderungsparametern.
+* `sessionId` String (optional) - Senden Sie den Befehl an das Ziel mit der zugeordneten Debugging-Sitzungs-ID. Der Anfangswert kann erhalten werden, indem [Target.attachToTarget][attachToTarget] Nachricht gesendet wird.
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+Gibt `Promise<any>` zurück - Ein Versprechen, das mit der durch definierten Antwort das Attribut "Returns" der Befehlsbeschreibung im Remote-Debuggingprotokoll auflöst oder abgelehnt wird, was auf den Fehler des Befehls hinweist.
 
-Send given command to the debugging target.
+Geben Sie den Befehl an das Debugziel.
 
 [rdp]: https://chromedevtools.github.io/devtools-protocol/
 
