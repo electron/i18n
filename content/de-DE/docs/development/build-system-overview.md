@@ -1,60 +1,60 @@
 # Build System Übersicht
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron verwendet [GN-](https://gn.googlesource.com/gn) für die Projektgenerierung und [Ninja-](https://ninja-build.org/) für den Bau. Projektkonfigurationen finden Sie in den `.gn` - und `.gni` -Dateien.
 
-## GN Files
+## GN-Dateien
 
-The following `gn` files contain the main rules for building Electron:
+Die folgenden `gn` Dateien enthalten die wichtigsten Regeln für den Gebäude von Electron:
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `BUILD.gn` definiert, wie Electron selbst gebaut wird und enthält die Standardkonfigurationen für die Verknüpfung mit Chromium.
+* `build/args/{debug,release,all}.gn` enthalten die Standardbuildargumente für Erstellen von Electron.
 
 ## Bauen von Komponenten
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Da Chromium ein ziemlich großes Projekt ist, kann die letzte Verbindungsphase einige Minuten dauern, was es schwierig für die Entwicklung macht. Um diesem Problem zu lösen, führte Chromium den "Komponentenbuild" ein, der jede Komponente als einer separaten freigegebenen Bibliothek erstellt, wodurch die Verknüpfung sehr schnell, aber das Opfern der Dateigröße und Leistung.
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron erbt diese Build-Option von Chromium. In `Debug` Builds wird die Binärdatei mit einer freigegebenen Bibliotheksversion der Chromium-Komponenten verknüpft, um schnelle Verknüpfungszeit zu erreichen. Für `Release` Builds wird die Binärdatei mit den statischen Bibliotheksversionen verknüpft, sodass wir die bestmögliche binäre Größe und Leistung haben können.
 
 ## Tests
 
-**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
+**NB** _dieser Abschnitt veraltet ist und Informationen enthält, die für das GN-gebaute Elektron nicht mehr relevant sind._
 
-Test your changes conform to the project coding style using:
-
-```sh
-$ npm run lint
-```
-
-Test functionality using:
+Testen Sie Ihre Änderungen entsprechend dem Projektcodierungsstil, indem Sie:
 
 ```sh
-$ npm test
+$pm-Lauffuss
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Testfunktionalität mit:
 
 ```sh
-$ npm run build && npm test
+$pm-Test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Append `.only` to any `describe` or `it` function call:
+Wenn Sie Änderungen am Electron-Quellcode vornehmen, müssen Sie den Build vor den Tests erneut ausführen:
+
+```sh
+$ npm-Laufbuild && npm-Test
+```
+
+Sie können die Testsammlung schneller ausführen lassen, indem Sie den spezifischen Test isolieren oder blockieren, an dem Sie gerade arbeiten, indem Sie Mochas [exklusive Tests](https://mochajs.org/#exclusive-tests) Funktion verwenden. Fügen Sie `.only` an einen `describe` oder `it` Funktionsaufruf an:
 
 ```js
-describe.only('some feature', () => {
-  // ... only tests in this block will be run
-})
+describe.only('some feature', () => '
+  / ... Nur Tests in diesem Block werden
+ausgeführt.
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Alternativ können Sie die `grep` -Option von moc verwenden, um nur Tests auszuführen, die dem angegebenen Musters für reguläre Ausdrücke entsprechen:
 
 ```sh
-$ npm test -- --grep child_process
+$pm-Test -- --grep-child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Tests, die systemeigene Module enthalten (z. B. `runas`) kann nicht mit dem -Debugbuild ausgeführt werden (siehe [#2558](https://github.com/electron/electron/issues/2558) für Details), aber sie funktionieren mit dem Release-Build.
 
-To run the tests with the release build use:
+So führen Sie die Tests mit der Releasebuildverwendung aus:
 
 ```sh
-$ npm test -- -R
+$ npm-Test -- -R
 ```
