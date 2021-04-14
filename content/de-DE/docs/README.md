@@ -20,7 +20,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 
 ### Grundlagen lernen
 
-* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
+* [Elektronen-Prozessmodell](tutorial/quick-start.md#application-architecture)
   * [Main und Render Prozesse](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
@@ -36,7 +36,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [Repräsentierte Datei für macOS BrowserWindows](tutorial/represented-file.md)
   * [Native Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-  * [Dark Mode](tutorial/dark-mode.md)
+  * [Dark-Modus](tutorial/dark-mode.md)
   * [Einbindung von Webseiten in Electron](tutorial/web-embeds.md)
 * [Boilerplates und CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -45,17 +45,17 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Andere Tools und Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Advanced steps
+### Erweiterte Schritte
 
 * Anwendungsarchitektur
   * [Native Node.js Module benutzen](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-  * [Security Strategies](tutorial/security.md)
+  * [Sicherheitsstrategien](tutorial/security.md)
 * [Barrierefreiheit](tutorial/accessibility.md)
   * [Manuelle Aktivierung der Bedienungshilfen](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testen und Debuggen](tutorial/application-debugging.md)
   * [Debuggen des Hauptprozesses](tutorial/debugging-main-process.md)
-  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Debuggen mit Visual Studio-Code](tutorial/debugging-vscode.md)
   * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
@@ -120,7 +120,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [nativeTheme](api/native-theme.md)
+* [nativeThema](api/native-theme.md)
 * [Mitteilung](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
