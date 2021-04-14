@@ -2,7 +2,7 @@
 
 O desenvolvimento do Electron não é opinionado - não há "uma maneira verdadeira" para desenvolver, compilar, pacote ou lançar uma aplicação Electron. Recursos adicionais para o Electron, tanto para versão de compilação quanto para tempo de execução, podem geralmente ser encontrados no [npm](https://www.npmjs.com/search?q=electron) em pacotes individuais, permitindo que desenvolvedores construam ambos o aplicativo e construam o pipeline de que precisam.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. No entanto, para muitos desenvolvedores, uma das ferramentas de boilerplates ou linha de comando podem tornar drasticamente mais fácil de compilar, compacte e solte um app .
+Esse nível de modularidade e extensão garante que todos os desenvolvedores que trabalham com a Electron, grandes e pequenas em tamanho de equipe, nunca sejam restritos em que eles podem ou não podem fazer em qualquer momento durante seu ciclo de vida de desenvolvimento. No entanto, para muitos desenvolvedores, uma das ferramentas de boilerplates ou linha de comando podem tornar drasticamente mais fácil de compilar, compacte e solte um app .
 
 ## Boilerplate vs CLI
 
@@ -28,7 +28,7 @@ Você pode encontrar mais informações e documentação no [repositório](https
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. É bastante popular na comunidade e usa `builder electron-builder` internamente.
+Se você não quer ferramentas, mas apenas uma caldeira sólida para construir, [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) ct Lin pode valer dar uma olhada. É bastante popular na comunidade e usa `builder electron-builder` internamente.
 
 ## Outras Ferramentas e Boilerplates
 
