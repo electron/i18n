@@ -1,13 +1,13 @@
 # Chromium-Entwicklung
 
-> A collection of resources for learning about Chromium and tracking its development
+> Eine Sammlung von Ressourcen, um mehr über Chrom zu lernen und seine Entwicklung zu verfolgen
 
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- [@ChromiumDev](https://twitter.com/ChromiumDev) auf Twitter
+- [@googlechrome](https://twitter.com/googlechrome) auf Twitter
 - [Blog](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
-- [Source Code](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](https://www.chromium.org/developers/discussion-groups)
+- [Codesuche](https://cs.chromium.org/)
+- [Quellcode](https://cs.chromium.org/chromium/src/)
+- [Entwicklungskalender und Release-Infos](https://www.chromium.org/developers/calendar)
+- [Diskussionsgruppen](https://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+Siehe auch [V8-Entwicklungs-](v8-development.md)
