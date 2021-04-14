@@ -1,6 +1,6 @@
 # Windows 10 ARM
 
-如果您的应用使用Electron 6.0.8及之后的版本，您现在可以在基于ARM的Windows10上构建它。 This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+如果您的应用使用Electron 6.0.8及之后的版本，您现在可以在基于ARM的Windows10上构建它。 这大大提高了性能，但需要重新组合应用中使用的任何本机模块。 它可能需要对您的构建和包装脚本进行小型修复。
 
 ## 运行基本应用
 
@@ -14,11 +14,11 @@
 
 ### 建筑特定代码
 
-Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
+如果...在x64或x86架构之间进行选择的其他逻辑。
 
 ```js
-if (process.arch === 'x64') {
-  // Do 64-bit thing...
+如果（过程。arch=='x64'）{
+  //做64位的事情。。。
 如果你想要的话，你就会知道这个问题。
   // 做32位的事情...
 }
@@ -57,27 +57,27 @@ vs_installer.exe ^
 
 在环境中设置 `npm_config_arch=arm64` 可以创建正确的arm64 `bj` 文件，但标准 _VS 2017 的开发者命令提示_ 将使用x64链接。 要解决这个问题：
 
-1. Duplicate the _x64_x86 Cross Tools Command Prompt for VS 2017_ shortcut (e.g. by locating it in the start menu, right clicking, selecting _Open File Location_, copying and pasting) to somewhere convenient.
+1. 复制VS 2017 _x64_x86交叉工具命令提示_ 快捷方式（例如，通过在开始菜单中定位它，右键单击，选择 _开放文件位置_，复制和粘贴）到方便的地方。
 2. 右键单击新快捷键并选择 _属性_。
 3. 将 _目标_ 字段改为 `vcvarsamd64_arm64.bat` 结尾处改为 `vcvarsamd64_x86.bat`
 
 如果成功完成，命令提示应在启动时打印类似于此的内容：
 
 ```bat
-**********************************************************************
-** Visual Studio 2017 Developer Command Prompt v15.9.15
-** Copyright (c) 2017 Microsoft Corporation
-**********************************************************************
-[vcvarsall.bat] Environment initialized for: 'x64_arm64'
+
+** 视觉工作室 2017 开发人员命令提示 v15.9.15
+** 版权 （c） 2017 微软公司
+x64_arm64
+[vcvarsall.bat]
 ```
 
-If you want to develop your application directly on a Windows on Arm device, substitute `vcvarsx86_arm64.bat` in _Target_ so that cross-compilation can happen with the device's x86 emulation.
+如果您想直接在 Arm 设备上的 Windows 上开发应用，请在 _目标_ 中替换 `vcvarsx86_arm64.bat` ，以便通过设备的 x86 仿真实现交叉编译。
 
 ### 与正确的 `node.lib 链接`
 
-By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) 要解决这个问题：
+默认情况下， `node-gyp` 拆开 Electron 的节点标题，并将 x86 和 x64 版本的 `node.lib` 下载到 `%APPDATA%\..\Local\node-gyp\Cache`中，但它不会下载 arm64 版本（[正在开发](https://github.com/nodejs/node-gyp/pull/1875)中的修复程序。 要解决这个问题：
 
-1. Download the arm64 `node.lib` from https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
+1. 从 https://electronjs.org/headers/v6.0.9/win-arm64/node.lib 下载手臂64 `node.lib`
 2. 移动到 `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
 
 为您正在使用的版本替换 `6.0.9`
