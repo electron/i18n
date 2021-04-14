@@ -4,16 +4,16 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-### `new TouchBarButton(options)`
+### `nuevo TouchBarButton (opciones)`
 
 * `options` Object
   * `Etiqueta` cadena (opcional) - Texto del fondo.
   * `accessibilityLabel` String (opcional) - Una breve descripción del botón para su uso por lectores de pantalla como VoiceOver.
   * `Color del fondo` Cadena (opcional) - Color del fondo en formato hex, ejemplo: `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (opcional) - Icono del botón.
-  * `posición del ícono` Cadena (opcional) - Puede ser `izquierda`, `derecha` o `superpuesto`. Defaults to `overlay`.
+  * `posición del ícono` Cadena (opcional) - Puede ser `izquierda`, `derecha` o `superpuesto`. El valor predeterminado es `overlay`.
   * `click` Función (opcional) - Función a llamar cuando se hace click en el fondo.
-  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Por defecto es `true`.
+  * `enabled` Boolean (opcional)-si el botón está en un estado habilitado.  Por defecto es `true`.
 
 Al definir `accessibilityLabel`, asegúrese de que ha considerado las [mejores prácticas](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc) de macOS.
 
@@ -21,26 +21,26 @@ Al definir `accessibilityLabel`, asegúrese de que ha considerado las [mejores p
 
 Las siguientes propiedades están disponibles en las instancias de `TouchBarButton`:
 
-#### `touchBarButton.accessibilityLabel`
+#### `touchBarButton. accessibilityLabel`
 
-A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
+Una `String` que representa la descripción del botón que leerá un lector de pantalla. Los lectores de pantalla solo los leerán si no se establece ninguna etiqueta.
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Una `String` que representa el texto actual del botón. Si cambias este valor de inmediato, se actualiza el botón en Touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Un `String` código hexadecimal que representa el color de fondo actual del botón. Si cambias este valor de inmediato, se actualiza el botón en la Touch bar.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+Un `NativeImage` que representa el icono del botón actual. Si cambias este valor de inmediato, se actualiza el botón en Touch bar.
 
-#### `touchBarButton.iconPosition`
+#### `touchBarButton. iconPosition`
 
-A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
+Una `String` -puede ser `left`, `right` o `overlay`.  El valor predeterminado es `overlay`.
 
-#### `touchBarButton.enabled`
+#### `touchBarButton. Enabled`
 
-A `Boolean` representing whether the button is in an enabled state.
+Una `Boolean` que representa si el botón está en un estado habilitado.
