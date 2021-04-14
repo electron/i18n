@@ -1,72 +1,72 @@
 # contentTracing
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Sammeln Sie Ablaufverfolgungsdaten von Chromium, um Leistungsengpässe und langsame Vorgänge zu finden.
 
 Prozess: [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
+Dieses Modul enthält keine Weboberfläche. Um aufgezeichnete Ablaufverfolgungen anzuzeigen, verwenden Sie [Trace Viewer][], die unter `chrome://tracing` in Chrome verfügbar sind.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Hinweis:** Sie sollten dieses Modul erst verwenden, wenn das `ready` Ereignis der App Moduls ausgesendet wird.
 
 ```javascript
 const { app, contentTracing } = require('electron')
 
-app.whenReady().then(() => {
-  (async () => {
-    await contentTracing.startRecording({
+app.whenReady().then()=> (
+  async (async () =>
+    warten auf contentTracing.startRecording('
       included_categories: ['*']
-    })
+    ')
     console.log('Tracing started')
-    await new Promise(resolve => setTimeout(resolve, 5000))
-    const path = await contentTracing.stopRecording()
+    warten auf neues Promise(resolve => setTimeout(resolve) 5000))
+    const-Pfad = wait contentTracing.stopRecording()
     console.log('Tracing data recorded to ' + path)
-  })()
-})
+  ')(
+)
 ```
 
 ## Methoden
 
-The `contentTracing` module has the following methods:
+Das `contentTracing` Modul verfügt über die folgenden Methoden:
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+Gibt `Promise<String[]>` zurück : Wird mit einem Array von Kategoriegruppen aufgelöst, sobald alle untergeordneten Prozesse die `getCategories` Anforderung bestätigt haben.
 
-Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+Abrufen einer Gruppe von Kategoriegruppen. Die Kategoriegruppen können sich ändern, wenn neue Codepfade erreicht werden. Siehe auch die [Liste der integrierten Kategorien](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
-> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
+> **HINWEIS:** -Electron fügt eine nicht standardmäßige Ablaufverfolgungskategorie namens `"electron"`hinzu. Diese Kategorie kann verwendet werden, um elektronenspezifische Ablaufverfolgungsereignisse zu erfassen.
 
-### `contentTracing.startRecording(options)`
+### `contentTracing.startRecording(Optionen)`
 
-* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
+* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesUndOptions](structures/trace-categories-and-options.md))
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+Gibt `Promise<void>` zurück - aufgelöst, sobald alle untergeordneten Prozesse die `startRecording` -Anforderung bestätigt haben.
 
-Start recording on all processes.
+Starten Sie die Aufzeichnung für alle Prozesse.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+Die Aufzeichnung beginnt sofort lokal und asynchron bei untergeordneten Prozessen sobald sie die EnableRecording-Anforderung erhalten.
 
-If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
+Wenn eine Aufzeichnung bereits ausgeführt wird, wird das Versprechen sofort aufgelöst, da nur ein Ablaufverfolgungsvorgang gleichzeitig ausgeführt werden kann.
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
 * `resultFilePath` String (optional)
 
-Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Gibt `Promise<String>` zurück : Wird mit einem Pfad zu einer Datei aufgelöst, die die verfolgten Daten enthält, nachdem alle untergeordneten Prozesse die `stopRecording` Anforderung bestätigt haben.
 
-Stop recording on all processes.
+Beenden Sie die Aufzeichnung für alle Prozesse.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+Untergeordnete Prozesse speichern in der Regel Ablaufverfolgungsdaten zwischenunden und senden Ablaufverfolgungsdaten nur selten an den Hauptprozess zurück. Dies trägt dazu bei, den Laufzeitaufwand der Ablaufverfolgung zu minimieren, da das Senden von Ablaufverfolgungsdaten über IPC ein kostspieliger Vorgang sein kann. Daher fordert Chromium , die Ablaufverfolgung zu beenden, alle untergeordneten Prozesse asynchron auf, alle ausstehenden Ablaufverfolgungsdaten zu löschen.
 
-Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
+Ablaufverfolgungsdaten werden in `resultFilePath`geschrieben. Wenn `resultFilePath` leer ist oder nicht angegeben wird, werden Ablaufverfolgungsdaten in eine temporäre Datei geschrieben, und der Pfad wird im Versprechen zurückgegeben.
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+Gibt `Promise<Object>` zurück - Wird mit einem Objekt aufgelöst, das die `value` und `percentage` der maximalen Verwendung des Ablaufverfolgungspuffers enthält.
 
-* `value` Number
-* `percentage` Number
+* `value` -Zahl
+* `percentage` -Zahl
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state.
+Abrufen der maximalen Verwendung über Prozesse des Ablaufverfolgungspuffers als Prozentsatz des vollständigen Status.
 
-[trace viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
+[Trace Viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
