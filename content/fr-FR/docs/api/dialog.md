@@ -18,7 +18,7 @@ Le module `dialog` dispose des méthodes suivantes :
 ### `dialog.showOpenDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* `options` objet
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -30,7 +30,7 @@ Le module `dialog` dispose des méthodes suivantes :
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `promptToCreate` _Windows_ - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - Désactiver le chemin d’accès automatique alias (symlink) résolution. Les alias sélectionnés retourneront désormais le chemin alias au lieu de leur chemin cible.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
     * `dontAddToRecent` _Windows_ - N'ajoutez pas l'élément en cours d'ouverture à la liste des documents récents.
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des zones de saisie.
@@ -40,7 +40,7 @@ Retourne `String[] | undefined` - le chemin du fichier choisi par l'utilisateur 
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Par exemple :
+Le `filters` spécifie un tableau de types de fichiers qui peuvent être affichés ou sélectionnés lorsque vous souhaitez limiter l’utilisateur à un type spécifique. Par exemple :
 
 ```javascript
 {
@@ -66,7 +66,7 @@ dialog.showOpenDialogSync(mainWindow, {
 ### `dialog.showOpenDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* `options` objet
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -78,7 +78,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `promptToCreate` _Windows_ - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
-    * `noResolveAliases` _macOS_ - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
+    * `noResolveAliases` _macOS_ - Désactiver le chemin d’accès automatique alias (symlink) résolution. Les alias sélectionnés retourneront désormais le chemin alias au lieu de leur chemin cible.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
     * `dontAddToRecent` _Windows_ - N'ajoutez pas l'élément en cours d'ouverture à la liste des documents récents.
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des zones de saisie.
@@ -87,12 +87,12 @@ dialog.showOpenDialogSync(mainWindow, {
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
 
 * `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
-* `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur. If the dialog is cancelled this will be an empty array.
+* `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur. Si le dialogue est annulé, il s’agit d’un tableau vide.
 * `signets` String[] (facultatif) _macOS_ _mas_ - Un tableau correspondant au tableau `filePaths` de chaînes encodées en base64 qui contient des données de marque-pages à portée de sécurité. `securityScopedBookmarks` doit être activé pour que ceci soit rempli. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. Par exemple :
+Le `filters` spécifie un tableau de types de fichiers qui peuvent être affichés ou sélectionnés lorsque vous souhaitez limiter l’utilisateur à un type spécifique. Par exemple :
 
 ```javascript
 {
@@ -123,7 +123,7 @@ dialog.showOpenDialog(mainWindow, {
 ### `dialog.showSaveDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* `options` objet
   * `title` String (facultatif)
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) _macOS_ - Affiche le champ de texte. `true` par défaut.
-  * `properties` String[] (optional)
+  * `properties` String[] (facultatif)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
@@ -148,7 +148,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* `options` objet
   * `title` String (facultatif)
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -156,7 +156,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) _macOS_ - Affiche le champ de texte, par défaut à `true`.
-  * `properties` String[] (optional)
+  * `properties` String[] (facultatif)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
@@ -167,8 +167,8 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
 
 * `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
-* `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
+* `filePath` String (facultatif) - Si le dialogue est annulé, ce sera `undefined`.
+* `bookmark` String (facultatif) _macOS_ _mas_ - Base64 encodé qui contient les données de signet à portée de sécurité pour le fichier enregistré. `securityScopedBookmarks` doit être activée pour que cela soit présent. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -179,15 +179,15 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* `options` objet
   * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[] (facultatif) - Tableau des textes pour boutons. Sur Windows, un tableau se traduira par un bouton étiqueté « OK ».
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `detail` String (facultatif) - Informations supplémentaires du message.
   * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `checkboxChecked` Boolean (facultatif) - État vérifié initial de la case contrôle. `false` par défaut.
   * `icon` ([NativeImage](native-image.md) | String) (facultatif)
   * `cancelId` Integer (facultatif) - L'index du bouton à utiliser pour annuler la boîte de dialogue, via la touche `Esc`. Par défaut, ceci est assigné au premier bouton avec l'étiquette "annuler" ou "non". Si aucun bouton de ce type n'existe et que cette option n'est pas définie, `0` sera utilisé comme valeur de retour .
   * `noLink` Booléen (optionnel) - Sous Windows, Electron essaiera de déterminer lequel des les boutons `` sont des boutons courants (comme "Annuler" ou "Oui"), et affichent le d'autres comme liens de commande dans le dialogue. Cela peut faire apparaître la boîte de dialogue dans le style des applications Windows modernes. Si vous n'aimez pas ce comportement, vous pouvez définir `noLink` à `true`.
@@ -195,22 +195,22 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 
 Retourne `Integer` - l'index du bouton cliqué.
 
-Affiche une boîte de message, elle bloque le processus jusqu'à ce que la boîte de message soit fermée. It returns the index of the clicked button.
+Affiche une boîte de message, elle bloque le processus jusqu'à ce que la boîte de message soit fermée. Il renvoie l’index du bouton cliqué.
 
-L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
+L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale. Si `browserWindow` n’est pas affiché, le dialogue ne lui sera pas attaché. Dans ce cas, il sera affiché comme une fenêtre indépendante.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* `options` objet
   * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[] (facultatif) - Tableau des textes pour boutons. Sur Windows, un tableau se traduira par un bouton étiqueté « OK ».
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `detail` String (facultatif) - Informations supplémentaires du message.
   * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `checkboxChecked` Boolean (facultatif) - État vérifié initial de la case contrôle. `false` par défaut.
   * `icon` [NativeImage](native-image.md) (facultatif)
   * `cancelId` Integer (facultatif) - L'index du bouton à utiliser pour annuler la boîte de dialogue, via la touche `Esc`. Par défaut, ceci est assigné au premier bouton avec l'étiquette "annuler" ou "non". Si aucun bouton de ce type n'existe et que cette option n'est pas définie, `0` sera utilisé comme valeur de retour .
   * `noLink` Booléen (optionnel) - Sous Windows, Electron essaiera de déterminer lequel des les boutons `` sont des boutons courants (comme "Annuler" ou "Oui"), et affichent le d'autres comme liens de commande dans le dialogue. Cela peut faire apparaître la boîte de dialogue dans le style des applications Windows modernes. Si vous n'aimez pas ce comportement, vous pouvez définir `noLink` à `true`.
@@ -218,10 +218,10 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 
 Retourne `Promise<Object>` - résout avec une promesse contenant les propriétés suivantes :
 
-* `response` Number - The index of the clicked button.
-* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+* `response` numéro - L’index du bouton cliqué.
+* `checkboxChecked` Boolean - L’état vérifié de la case à cocher si `checkboxLabel` a été défini. Sinon, `false`.
 
-Shows a message box.
+Affiche une boîte à messages.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -237,7 +237,7 @@ Cette API peut être appelée en toute sécurité avant l'évènement `prêt` qu
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* `options` objet
   * `certificat` [certificat](structures/certificate.md) - Le certificat de confiance/importation.
   * `message` String - Le message à afficher à l'utilisateur.
 
@@ -252,14 +252,14 @@ Sous Windows, les options sont plus limitées, en raison des API Win32 utilisée
 
 ## Tableau des signets
 
-`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, et `showSaveDialogSync` retournera un tableau `bookmarks` .
 
-| Type de compilation | securityScopedBookmarks boolean | Return Type | Return Value                   |
-| ------------------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas           | True                            |   Succès    | `['LONGBOOKMARKSTRING']`       |
-| macOS mas           | True                            |    Error    | `['']` (array of empty string) |
-| macOS mas           | False                           |     NA      | `[]` (empty array)             |
-| non mas             | any                             |     NA      | `[]` (empty array)             |
+| Type de compilation | sécuritéScopedBookmarks boolean | Type de retour | Valeur de retour               |
+| ------------------- | ------------------------------- |:--------------:| ------------------------------ |
+| mas macOS           | True                            |     Succès     | `['LONGBOOKMARKSTRING']`       |
+| mas macOS           | True                            |     Error      | `['']` (tableau de corde vide) |
+| mas macOS           | False                           |       NA       | `[]` (tableau vide)            |
+| non mas             | any                             |       NA       | `[]` (tableau vide)            |
 
 ## Feuilles
 
