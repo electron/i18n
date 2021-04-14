@@ -62,7 +62,7 @@ Pour améliorer la sécurité dans l'API `distante` , de nouveaux événements d
 
 BrowserWindow prend maintenant en charge la gestion de plusieurs BrowserViews dans la même BrowserWindow.
 
-## Breaking Changes
+## Briser les changements
 
 ### Par défaut pour les applications empaquetées
 
@@ -99,7 +99,7 @@ Afin d'améliorer la sécurité, les modules suivants sont dépréciés pour êt
 * `os`
 * `chemin d'accès`
 
-## webFrame Isolated World APIs
+## apis du monde isolés webFrame
 `webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` ont été dépréciés en faveur de `webFrame.setIsolatedWorldInfo`.
 
 ### Bac à sable mixte
