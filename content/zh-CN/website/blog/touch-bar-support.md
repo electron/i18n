@@ -12,7 +12,7 @@ Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta 
 
 这是此 API 的第一个版本，因此它将在下一个 个少量Electron 版本中演变。 请查看版本说明以获取更多更新 并打开 [个问题](https://github.com/electron/electron/issues) 以获取任何问题 或缺失的功能。
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+您可以通过 `npm install electron@beta` 安装此版本，并在 [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) 和 [浏览器窗口](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) 电子文档中 了解更多有关它。
 
 非常感谢 [@MarshallOfSound](https://github.com/MarshallOfSound) 为Electron做出贡献。 :tada:
 
@@ -124,10 +124,10 @@ app.once('ready', () => {
   window.loadURL('about:blank')
   window.setTouchBar(touchBar)
 })
-    result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
+    结果.文本颜色="#FDFF00"
+  =其他（唯一值==2）=
+    //2值
+    结果相同 😍。
     结果.文本颜色="#FDFF00"
   }其他=
     //没有值是相同的
