@@ -1,6 +1,6 @@
 # Windows 10 на руке
 
-Если ваше приложение работает с Electron 6.0.8 или более поздними версиями, вы можете собрать его для Windows 10 на Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+Если ваше приложение работает с Electron 6.0.8 или более поздними версиями, вы можете собрать его для Windows 10 на Arm. Это значительно повышает производительность, но требует компенсации любых родных модулей, используемых в вашем приложении. Это также может потребовать небольших исправлений в скриптах сборки и упаковки.
 
 ## Запуск базового приложения
 
@@ -14,7 +14,7 @@
 
 ### Индивидуальный код архитектуры
 
-Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
+Много Windows-специфический код содержит, если ... еще логика, которая выбирает между архитектурами x64 или x86.
 
 ```js
 if (process.arch === 'x64') {
@@ -64,18 +64,18 @@ vs_installer.exe ^
 Если закончилось успешно, при запуске запрос команды должен напечатать что-то похожее на этого:
 
 ```bat
-**********************************************************************
-** Visual Studio 2017 Developer Command Prompt v15.9.15
-** Copyright (c) 2017 Microsoft Corporation
-**********************************************************************
-[vcvarsall.bat] Environment initialized for: 'x64_arm64'
+
+- Visual Studio 2017 Разработчик Command Prompt v15.9.15
+- Авторское право (c) 2017 Корпорация Майкрософт
+Я
+[vcvarsall.bat] x64_arm64
 ```
 
 Если вы хотите разработать свое приложение непосредственно на Windows на устройстве Arm, замените `vcvarsx86_arm64. at` в _Target_ для того, чтобы перекрестная компиляция могла произойти с эмуляцией устройства x86.
 
 ### Связь с правильным `node.lib`
 
-By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) Чтобы исправить это:
+По умолчанию `node-gyp` распаковывает головки узла Electron и загружает версии x86 и x64 `node.lib` в `%APPDATA%\..\Local\node-gyp\Cache`, но он не загружает версию arm64 ([исправление для этого находится в разработке](https://github.com/nodejs/node-gyp/pull/1875).) Чтобы исправить это:
 
 1. Скачайте arm64 `node.lib` с https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
 2. Переместить его в `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
