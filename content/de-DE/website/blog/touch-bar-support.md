@@ -12,15 +12,19 @@ Mit der neuen Touch Bar API können Sie Buttons, Labels, Popovers, Farbe Picker,
 
 Dies ist die erste Version dieser API, daher wird sie sich in den nächsten einigen Electron-Versionen weiterentwickeln. Bitte sehen Sie sich die Versionshinweise für weitere Updates an und öffnen Sie [Probleme](https://github.com/electron/electron/issues) für Probleme oder fehlende Funktionalität.
 
-You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
+Sie können diese Version über `npm install electron@beta` installieren und mehr darüber in der touchBar</a>und [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron Docs erfahren.</p> 
 
 Vielen Dank an [@MarshallOfSound](https://github.com/MarshallOfSound) für den Beitrag zu Electron. :tada:
+
+
 
 ## Touchbar-Beispiel
 
 ![Berührungsleiste Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
 Unten ist ein Beispiel für die Schaffung eines einfachen Slotmaschinenspiels in der Touchbar. Es zeigt, wie man eine Berührungsleiste erzeugt, die Elemente stilisiert und mit einem Fenster assoziiert, Knopf bearbeiten Klicken Sie Ereignisse, und aktualisieren Sie die Labels dynamisch.
+
+
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -86,8 +90,8 @@ const finishSpin = () => {
     // Alle 3 Werte sind das gleiche
     Ergebnis. abel = '💰 Jackpot!'
     result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
+  , wenn (uniqueValues === 2)
+    / 2 Werte
     result.label = '😍 Winner!'
     extColor = '#FDFF00'
   } else {
