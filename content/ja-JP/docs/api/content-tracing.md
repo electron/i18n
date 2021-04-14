@@ -9,18 +9,18 @@
 **注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
-const { app, contentTracing } = require('electron')
+const { app, contentTracing } = 必須 ('電子')
 
-app.whenReady().then(() => {
-  (async () => {
-    await contentTracing.startRecording({
+アプリ.whenReady()、
+  > (async()=> {
+    を待ってコンテンツトレーシング.startRecording({
       included_categories: ['*']
     })
-    console.log('Tracing started')
-    await new Promise(resolve => setTimeout(resolve, 5000))
-    const path = await contentTracing.stopRecording()
-    console.log('Tracing data recorded to ' + path)
-  })()
+    コンソール.log(トレース開始済み)新しい約束を待
+    新しい約束を待ちます(解決 => setTimeout(解決) 5000))
+    のコンストパス =await contentTracing.stopRecording()
+    コンソール.log('トレースデータは ' + パス)
+  })
 })
 ```
 
