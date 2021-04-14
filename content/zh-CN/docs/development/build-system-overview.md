@@ -17,7 +17,7 @@ Electron 也继承了 Chromium 这一构建方式。 在 `Debug` 模式下构建
 
 ## 测试
 
-**NB** _this section is out of date and contains information that is no longer relevant to the GN-built electron._
+**NB** _此部分已过时，包含不再 与 GN 构建的电子相关的信息。_
 
 使用以下方式测试你的修改符合项目编码风格：
 
@@ -40,9 +40,9 @@ $ npm run build && npm test
 你可以通过分离特定的测试来让测试套件运行速度更快或阻止你目前正在使用摩卡的 [独占性测试](https://mochajs.org/#exclusive-tests)功能. 追加 `.only` 到任何 `describe` 或 `it` 函数调用：
 
 ```js
-describe.only('some feature', () => {
-  // ... only tests in this block will be run
-})
+仅描述（"某些功能"，（）=> {
+  //此块中的唯一测试将
+运行}）
 ```
 
 或者，您可以使用 mocha 的 `grep` 选项来只运行与给定正则表达式模式匹配的测试
