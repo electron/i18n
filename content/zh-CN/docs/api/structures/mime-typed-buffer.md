@@ -1,5 +1,5 @@
 # MimeTypedBuffer对象
 
-* `mimeType` String (optional) - MIME type of the buffer.
-* `charset` String (optional) - Charset of the buffer.
+* `mimeType` 字符串（可选） - 缓冲区MIME类型。
+* `charset` 字符串（可选） - 缓冲区字符集。
 * `data` 类型 Buffer - 缓冲区内容.
