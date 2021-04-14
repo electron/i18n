@@ -39,18 +39,6 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 
 Emitido cuando Electron ha cargado su script de inicialización interno y está empezando a carga la página web o el script principal.
 
-Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados de Node de nuevo al scope global cuando la integración de Node está desactivada:
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Propiedades
 
 ### `process.defaultApp` _Readonly_
@@ -59,23 +47,23 @@ Un `Boolean`. When app is started by being passed as parameter to the default ap
 
 ### `process.isMainFrame` _Readonly_
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+Un `Boolean`, `true` cuando el contexto actual del renderer es "main" renderer frame. Si quieres el ID del frame actual deberías usar `webFrame.routingId`.
 
 ### `process.mas` _Readonly_
 
-Un `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Un `Boolean`. Para compilaciones de Mac App Store, esta propiedad es `true`, para otras compilaciones es `undefined`.
 
 ### `proceso.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Un `Boolean` que controla el soporte ASAR dentro de tu aplicación. Establecer esto a `true` desactivará el soporte para archivos `asar` en los módulos integrados de Node.
 
 ### `process.noDeprecation`
 
-Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-deprecation`.
 
 ### `process.resourcesPath` _Readonly_
 
-Una `cadena` que representa la ruta de acceso al directorio de recursos.
+Un `string` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.sandboxed` _Readonly_
 
@@ -83,7 +71,7 @@ Un `Boolean`. When the renderer process is sandboxed, this property is `true`, o
 
 ### `proceso.desechoDegradación`
 
-Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
 ### `proceso.ubicarDegradación`
 
@@ -95,11 +83,11 @@ Un `Booleano` que controla si las advertencias de procesos son enviadas a `stder
 
 ### `process.type` _Readonly_
 
-A `String` representing the current process's type, can be:
+Un `String` que representa el tipo de proceso actual, puede ser:
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - El main process
+* `renderer` - Un renderer process
+* `worker` - En un web worker
 
 ### `process.versions.chrome` _Readonly_
 
@@ -149,9 +137,9 @@ Devuelve `Objecto`:
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Devuelve un objeto con estadísticas de la pila V8. Toma en cuenta que todas las estadísticas son reportadas en Kilobytes.
+Devuelve un objeto con estadísticas de la pila V8. Tome en cuenta que todas las estadísticas son reportadas en Kilobytes.
 
-### `process.getBlinkMemoryInfo()`
+### `Process. getBlinkMemoryInfo ()`
 
 Devuelve `Objecto`:
 
