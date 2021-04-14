@@ -1,16 +1,16 @@
 # Objet TraceConfig
 
-* `recording_mode` String (optional) - Can be `record-until-full`, `record-continuously`, `record-as-much-as-possible` or `trace-to-console`. Defaults to `record-until-full`.
-* `trace_buffer_size_in_kb` number (optional) - maximum size of the trace recording buffer in kilobytes. Defaults to 100MB.
-* `trace_buffer_size_in_events` number (optional) - maximum size of the trace recording buffer in events.
-* `enable_argument_filter` boolean (optional) - if true, filter event data according to a specific list of events that have been manually vetted to not include any PII. See [the implementation in Chromium][trace_event_args_whitelist.cc] for specifics.
-* `included_categories` String[] (optional) - a list of tracing categories to include. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories][] for the list of categories.
-* `excluded_categories` String[] (optional) - a list of tracing categories to exclude. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories][] for the list of categories.
-* `included_process_ids` number[] (optional) - a list of process IDs to include in the trace. If not specified, trace all processes.
-* `histogram_names` String[] (optional) - a list of [histogram][] names to report with the trace.
-* `memory_dump_config` Record<String, any> (optional) - if the `disabled-by-default-memory-infra` category is enabled, this contains optional additional configuration for data collection. See the [Chromium memory-infra docs][memory-infra docs] for more information.
+* `recording_mode` String (facultatif) - Peut être `record-until-full`, `record-continuously`, `record-as-much-as-possible` ou `trace-to-console`. Par défaut à `record-until-full`.
+* `trace_buffer_size_in_kb` nombre (facultatif) - taille maximale de la trace de tampon d’enregistrement en kilooctets. Par défaut à 100 Mo.
+* `trace_buffer_size_in_events` nombre (facultatif) - taille maximale de la trace et enregistrement dans les événements.
+* `enable_argument_filter` boolean (facultatif) - si c’est vrai, filtrer les données d’événements selon une liste spécifique d’événements qui ont été examinés manuellement pour ne pas inclure un IIP. Voir [la mise en œuvre chromium][trace_event_args_whitelist.cc] pour plus de détails.
+* `included_categories` String[] (facultatif) - une liste de catégories de traçage à inclure. Peut inclure des motifs glob-like en utilisant `*` à la fin de la catégorie nom. Consultez [catégories de traçage][] pour la liste des catégories.
+* `excluded_categories` String[] (facultatif) - liste des catégories de traçage à exclure . Peut inclure des motifs glob-like en utilisant `*` à la fin de la catégorie nom. Consultez [catégories de traçage][] pour la liste des catégories.
+* `included_process_ids` numéro[] (facultatif) - une liste d’ID de processus à inclure dans la trace. S’il n’est pas spécifié, tracez tous les processus.
+* `histogram_names` String[] (facultatif) - une liste d' [histogramme][] noms pour signaler avec la trace.
+* `memory_dump_config` enregistrement<String, any> (facultatif) - si la catégorie `disabled-by-default-memory-infra` est activée, cela contient une configuration supplémentaire optionnelle pour la collecte de données. Consultez les [chromium et mémoire-infra docs pour plus][memory-infra docs] 'informations.
 
-An example TraceConfig that roughly matches what Chrome DevTools records:
+Un exemple TraceConfig qui correspond approximativement à ce que Chrome DevTools enregistre :
 
 ```js
 {
@@ -31,7 +31,7 @@ An example TraceConfig that roughly matches what Chrome DevTools records:
 }
 ```
 
-[tracing categories]: https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h
+[catégories de traçage]: https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h
 [memory-infra docs]: https://chromium.googlesource.com/chromium/src/+/master/docs/memory-infra/memory_infra_startup_tracing.md#the-advanced-way
 [trace_event_args_whitelist.cc]: https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc
-[histogram]: https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md
+[histogramme]: https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md
