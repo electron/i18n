@@ -28,7 +28,8 @@ Electron 历史上一直保持主 [Electron 代码](https://github.com/electron/
 
 # 这对 Electron 意味着什么
 
-GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. 此外，我们希望使用单一的构建配置系统将减少Electron升级到新版本Chromium所需的工作。
+GN 的</a> 速度比 GYP 快
+，其文件更具可读性和可维护性。 此外，我们希望使用单一的构建配置系统将减少Electron升级到新版本Chromium所需的工作。</p> 
 
  * 它已经有助于在 Electron 4.0.0 上的开发，因为Chromium 67 已经移除了对 MSVC 的支持，并且已经切换到 Clang 在 Windows 上的建筑。 通过 GN 构建，我们直接继承了Chromium 的所有编译器命令，所以我们可以免费在 Windows 上的 Clang 构建！
 
