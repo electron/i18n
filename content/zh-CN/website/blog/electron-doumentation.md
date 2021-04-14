@@ -20,7 +20,7 @@ date: '2015-06-04'
 
 ### script/docs
 
-To fetch the docs we run a [script](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) with a command line interface of `script/docs vX.XX.X` with or without the `--latest` option (depending on if the version you're importing is the latest version). 获取文档</a> 的
+要获取文档，我们运行 [脚本](https://github.com/electron/electronjs.org/blob/0205b5ab26c96a95121bc564c5824f92108677e0/script/docs) ，其命令行接口 `script/docs vX.XX.X` 有或没有 `--latest` 选项（取决于您导入的版本是否是最新版本）。 获取文档</a> 的
 
 脚本使用一些有趣的节点模块：</p> 
 
@@ -40,12 +40,12 @@ Electron网站是一个Jekyll网站，我们正在为像这样的结构的文档
 
 ```bash
 electron.atom.io
-└── _docs
-    ├── latest
-    ├── v0.27.0
-    ├── v0.26.0
-    ├── so on
-    └── so forth
+└——_docs
+    ├——最新
+    ├——v0.27.0
+    ├——v0.26.0
+    ├——等等，
+    └——等等
 ```
 
 
