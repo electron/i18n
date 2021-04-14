@@ -1,10 +1,10 @@
-# Debugging in VSCode
+# Debuggen in VSCode
 
-This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
+In diesem Handbuch erfahren Sie, wie Sie das VSCode-Debuggen sowohl für Ihr eigenes Electron-Projekt als auch für die native Electron-Codebasis einrichten.
 
-## Debugging your Electron app
+## Debuggen Ihrer Electron-App
 
-### Main process
+### Hauptprozess
 
 #### 1. Öffnen Sie ein Electron Projekt in VSCode.
 
@@ -41,11 +41,11 @@ Legen Sie einige Haltepunkte in `main.js`fest und starten Sie das Debugging in d
 
 Hier finden Sie ein vorkonfiguriertes Projekt, dass Sie herunterladen und direkt in VSCode debuggen können: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## Debuggen der Electron-Codebasis
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+Wenn Sie Electron aus der Quelle erstellen und die native Electron-Codebase ändern möchten, hilft Ihnen dieser Abschnitt beim Testen Ihrer Änderungen.
 
-For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
+Für diejenigen, die sich nicht sicher sind, wo dieser Code erworben werden soll oder wie er erstellt werden soll, automatisiert [Electron es Build Tools](https://github.com/electron/build-tools) den größten Teil dieses Prozesses und erklärt ihn. Wenn Sie die Umgebung manuell einrichten möchten, können Sie diese [Buildanweisungen](https://www.electronjs.org/docs/development/build-instructions-gn)verwenden.
 
 ### Windows (C++)
 
@@ -59,41 +59,47 @@ $ code electron-quick-start
 #### 2. Fügen Sie eine Datei `.vscode/launch.json` mit der folgenden Konfiguration hinzu:
 
 ```json
-{
+-
   "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "(Windows) Launch",
+  "Konfigurationen": [
+    -
+      "Name": "(Windows) Launch",
       "type": "cppvsdbg",
       "request": "launch",
-      "program": "${workspaceFolder}\\out\\your-executable-location\\electron.exe",
-      "args": ["your-electron-project-path"],
+      "program": "
+      .exe${workspaceFolder}
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [
-          {"name": "ELECTRON_ENABLE_LOGGING", "value": "true"},
-          {"name": "ELECTRON_ENABLE_STACK_DUMPING", "value": "true"},
-          {"name": "ELECTRON_RUN_AS_NODE", "value": ""},
+          "Name": "ELECTRON_ENABLE_LOGGING", "value": "true",,
+          "Name": "ELECTRON_ENABLE_STACK_DUMPING", "value": "true" ,
+          "Name": "ELECTRON_RUN_AS_NODE", "wert": ""
       ],
       "externalConsole": false,
-      "sourceFileMap": {
-          "o:\\": "${workspaceFolder}",
-      },
-    },
+      "sourceFileMap":
+          "o:": "${workspaceFolder}",
+      ,
+    ,
   ]
-}
+.
 ```
 
-**Configuration Notes**
+**Konfigurationshinweise**
 
-* `cppvsdbg` requires the [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) be enabled.
-* `${workspaceFolder}` is the full path to Chromium's `src` directory.
-* `your-executable-location` will be one of the following depending on a few items:
-  * `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
-  * `Release`: If you built a Release build rather than a Testing build.
-  * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
-* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
+* `cppvsdbg` erfordert, dass die [integrierte C/C++-Erweiterung aktiviert werden](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) .
+* `${workspaceFolder}` ist der vollständige Pfad zum `src` -Verzeichnis von Chromium.
+* `your-executable-location` wird je nach einigen Punkten einer der folgenden sein:
+  * `Testing`: Wenn Sie die Standardeinstellungen der build-Tools-</a> von
+
+Electron oder die Standardanweisungen verwenden, wenn [erstellen aus Quell-](https://www.electronjs.org/docs/development/build-instructions-gn#building).</li> 
+    
+      * `Release`: Wenn Sie einen Release-Build anstelle eines Testing-Builds erstellt haben.
+  * `your-directory-name`: Wenn Sie dies während des Buildprozesses von der Standardeinstellung aus geändert haben, ist dies das, was Sie angegeben haben.</ul></li> 
+
+* Die `args` Arrayzeichenfolge `"your-electron-project-path"` sollte der absolute Pfad zum Verzeichnis oder zum `main.js` Datei des Electron-Projekts sein, das Sie zum Testen verwenden. In diesem Beispiel sollte es Ihr Weg zu `electron-quick-start`sein.</ul> 
+
+
 
 #### 3. Debugging
 
-Set some breakpoints in the .cc files of your choosing in the native Electron C++ code, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging).
+Legen Sie einige Haltepunkte in den .cc-Dateien Ihrer Wahl im nativen Electron C++-Code fest, und beginnen Sie mit dem Debuggen im [Debugansicht](https://code.visualstudio.com/docs/editor/debugging).
