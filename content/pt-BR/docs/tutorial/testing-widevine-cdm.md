@@ -2,11 +2,11 @@
 
 No Electron você pode usar a biblioteca Widevine CDM inclusa no navegador Chrome.
 
-Módulos de descriptografia de conteúdo Widevine (CDMs) são como os serviços de streaming protegem conteúdo usando vídeo HTML5 para navegadores da web sem depender de um plugin NPAPI como Flash ou Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. Isso permitirá que sites mostrem conteúdo de vídeo protegido por DRM no Firefox sem o uso de plugins NPAPI. O Widevine CDM é executado num sandbox de código aberto que oferece melhor segurança de usuário do que os plugins NPAPI.
+Módulos de descriptografia de conteúdo Widevine (CDMs) são como os serviços de streaming protegem conteúdo usando vídeo HTML5 para navegadores da web sem depender de um plugin NPAPI como Flash ou Silverlight. O suporte ao Widevine é uma solução alternativa para serviços de streaming que atualmente dependem do Silverlight para reprodução de conteúdo de vídeo protegido por DRM. Isso permitirá que sites mostrem conteúdo de vídeo protegido por DRM no Firefox sem o uso de plugins NPAPI. O Widevine CDM é executado num sandbox de código aberto que oferece melhor segurança de usuário do que os plugins NPAPI.
 
 #### Nota sobre VMP
 
-As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
+A partir de [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), as etapas abaixo podem ser apenas algumas das etapas necessárias para habilitar a Widevine; qualquer aplicativo sobre ou depois dessa versão que pretenda usar o CDM Widevine pode precisar ser assinado usando uma licença obtida de [widevine](https://www.widevine.com/) si mesmo.
 
 Por [Widevine](https://www.widevine.com/):
 
