@@ -77,18 +77,18 @@ const driver = new webdriver.Builder()
   .usingServer('http://localhost:9515')
   .withCapabilities({
     'goog:chromeOptions': {
-      // Here is the path to your Electron binary.
-      binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
+      // Voici le chemin vers votre binaire Electron.
+      binaire: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
-  .forBrowser('chrome') // note: use .forBrowser('electron') for selenium-webdriver <= 3.6.0
+  .forBrowser ('chrome') // note: use .forBrowser ('electron') for selenium-webdrive <= 3.6.0
   .build()
 
 driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
-driver.findElement(webdriver.By.name('btnG')).click()
+driver.findElement (webdriver. By.name('q')).sendKeys ('webdriver')
+driver.findElement(webdriver. By.name ('btnG')).click()
 driver.wait(() => {
-  return driver.getTitle().then((title) => {
+  return driver.getTitle().then(title) => {
     return title === 'webdriver - Google Search'
   })
 }, 1000)
@@ -130,7 +130,7 @@ const options = {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/Path-to-Your-App/electron', // Chemin vers votre binaire Electron.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Facultatif, peut-être 'app=' + /path/to/your/app/
     }
   }
 }
@@ -139,11 +139,11 @@ const client = webdriverio.remote(options)
 
 client
   .init()
-  .url('http://google.com')
+  .url ('http://google.com')
   .setValue('#q', 'webdriverio')
-  .click('#btnG')
+  .click ('#btnG')
   .getTitle().then((title) => {
-    console.log('Title was: ' + title)
+    console.log ('Title was: ' + title)
   })
   .end()
 ```
