@@ -39,9 +39,9 @@ La salida debería verse más o menos de esta forma:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── node.dll
 ├── resources
 │   └── app.asar
