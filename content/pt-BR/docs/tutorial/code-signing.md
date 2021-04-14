@@ -21,9 +21,9 @@ Para preparar apropriadamente aplicativos macOS para a versão requer dois passo
 
 Para iniciar o processo, certifique-se de cumprir os requisitos para assinatura e notando seu aplicativo:
 
-1. Enroll in the [Apple Developer Program][] (requires an annual fee)
+1. Inscreva-se no [Apple Developer Program][] (requer uma taxa anual)
 2. Baixar e instalar o [Xcode][] - isto requer um computador executando o macOS
-3. Generate, download, and install [signing certificates][]
+3. Gerar, baixar e instalar certificados de assinatura [][]
 
 O ecossistema do Electron favorece a configuração e a liberdade, por isso existem várias maneiras de assinar sua aplicação e notarizar.
 
@@ -143,7 +143,7 @@ O arquivo `plist` referenciado aqui precisa dos seguintes direitos específicos 
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+Consulte o guia [Mac App Store][].
 
 # Assinando compilações do Windows
 
@@ -162,12 +162,12 @@ Você pode obter um certificado de assinatura de um grande número de revendedor
 Existem várias ferramentas para assinar seu aplicativo de pacotes:
 
 * [`electron-winstaller`][] irá gerar um instalador para janelas e assiná-lo para você
-* [`electron-forge`][] can sign installers it generates through the Squirrel.Windows or MSI targets.
-* [`electron-builder`][] can sign some of its windows targets
+* [`electron-forge`][] pode assinar instaladores que gera através dos alvos Squirrel.Windows ou MSI.
+* [`electron-builder`][] pode assinar alguns de seus alvos de janelas
 
 ## Windows Store
 
-See the [Windows Store Guide][].
+Consulte o guia do Windows Store [][].
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
@@ -177,6 +177,8 @@ See the [Windows Store Guide][].
 [`electron-notarize`]: https://github.com/electron/electron-notarize
 [`electron-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode
-[signing certificates]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
-[Mac App Store Guide]: mac-app-store-submission-guide.md
-[Windows Store Guide]: windows-store-guide.md
+[3]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[4]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
+[Mac App Store]: mac-app-store-submission-guide.md
+[12]: windows-store-guide.md
+[13]: windows-store-guide.md
