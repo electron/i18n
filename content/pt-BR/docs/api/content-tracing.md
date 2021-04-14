@@ -1,72 +1,80 @@
 # contentTracing
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Colete dados de rastreamento do Chromium para encontrar gargalos de desempenho e operações lentas.
 
 Processo: [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
+Este módulo não inclui uma interface web. Para visualizar os traços gravados, use [][]do visualizador de rastreamento, disponível em `chrome://tracing` no Chrome.
 
 **Nota:** Voce nao deve usar este modulo ate que o '`ready` event' do modulo da aplicacao esteja finalizado e emitido.
 
 ```javascript
-const { app, contentTracing } = require('electron')
+const { app, contentTracing } = require ('electron')
 
 app.whenReady().then(() => {
   (async () => {
-    await contentTracing.startRecording({
+    aguardam contentTracing.startRecording({
       included_categories: ['*']
     })
-    console.log('Tracing started')
-    await new Promise(resolve => setTimeout(resolve, 5000))
-    const path = await contentTracing.stopRecording()
-    console.log('Tracing data recorded to ' + path)
+    console.log('Rastreamento iniciado')
+    aguardam nova Promessa(resolver => setTimeout(resolver, 5000))
+    caminho const = aguarde contentTracing.stopRecording()
+    console.log('Rastrear dados gravados em ' + caminho)
   })()
 })
 ```
 
 ## Métodos
 
-The `contentTracing` module has the following methods:
+O módulo `contentTracing` tem os seguintes métodos:
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+Devoluções `Promise<String[]>` - resolve com uma série de grupos de categoria uma vez que todos os processos infantis reconheceram a solicitação `getCategories`
 
-Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+Obtenha um conjunto de grupos de categoria. Os grupos de categoria podem mudar à medida que novos caminhos de código são alcançados. Veja também a lista [das categorias de rastreamento incorporado ](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
-> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
+> **NOTA:** Electron adiciona uma categoria de rastreamento não padrão chamada `"electron"`. Esta categoria pode ser usada para capturar eventos de rastreamento específicos de elétrons.
 
-### `contentTracing.startRecording(options)`
+### `contentTracing.startRecording(opções)`
 
-* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
+* `options` (</a> | traceconfig
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+ [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))</li> </ul> 
+  
+  Devoluções `Promise<void>` - resolvidas uma vez que todos os processos infantis tenham reconhecido o pedido `startRecording` .
+  
+  Comece a gravar em todos os processos.
+  
+  A gravação começa imediatamente localmente e assincronicamente em processos infantis assim que receberem a solicitação Habilitar Gravação.
+  
+  Se uma gravação já estiver sendo em execução, a promessa será imediatamente resolvida, pois apenas uma operação de rastreamento pode estar em andamento de cada vez.
+  
+  
 
-Start recording on all processes.
+### `contentTracing.stopRecording ([resultFilePath])`
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+* `resultFilePath` String (opcional)
 
-If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
+Devoluções `Promise<String>` - resolve com um caminho para um arquivo que contém os dados rastreados uma vez que todos os processos infantis tenham reconhecido a solicitação `stopRecording`
 
-### `contentTracing.stopRecording([resultFilePath])`
+Pare de gravar em todos os processos.
 
-* `resultFilePath` String (optional)
+Os processos infantis normalmente armazenam dados de rastreamento e raramente dão descarga e enviam rastrear dados até o processo principal. Isso ajuda a minimizar a sobrecarga de tempo de execução de rastreamento, uma vez que o envio de dados de rastreamento sobre iPC pode ser uma operação cara. Então, para terminar o rastreamento, o Cromo pede assincronamente a todos os processos infantis que lavem qualquer dados de rastreamento pendentes.
 
-Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Os dados do rastreamento serão escritos em `resultFilePath`. Se `resultFilePath` estiver vazio ou não fornecido, os dados de rastreamento serão escritos em um arquivo temporário, e o caminho será devolvido na promessa.
 
-Stop recording on all processes.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
-
-Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+Devoluções `Promise<Object>` - Resolve com um objeto contendo o `value` e `percentage` de uso máximo do buffer de rastreamento
 
-* `value` Number
-* `percentage` Number
+* Número de `value`
+* Número de `percentage`
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state.
+Obtenha o uso máximo entre os processos de buffer de rastreamento como uma porcentagem do estado completo.
 
-[trace viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
+[1]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
+
+[2]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
