@@ -9,8 +9,8 @@ Une fenêtre sans cadre est une fenêtre qui n'a pas de [chrome](https://develop
 Pour créer une fenêtre sans cadre, vous devez définir `frame` à `false` dans [BrowserWindow](browser-window.md)'s `options`:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const { BrowserWindow } = require ('electron')
+const win = new BrowserWindow ({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -23,8 +23,8 @@ Il existe une autre façon de spécifier une fenêtre sans chrominance. Au lieu 
 Résultats dans une barre de titre cachée et une fenêtre de contenu en taille réelle, Pourtant, la barre de titre possède toujours les contrôles standard des fenêtres (« feux de circulation ») en haut à gauche.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const { BrowserWindow } = require ('electron')
+const win = new BrowserWindow ({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -33,18 +33,18 @@ win.show()
 Résultats dans une barre de titre cachée avec un aspect alternatif où les boutons de feux de circulation sont un peu plus intégrés à partir du bord de la fenêtre.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const { BrowserWindow } = require ('electron')
+const win = new BrowserWindow ({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover`
 
-Utilise les boutons personnalisés de fermeture dessinée, et miniaturise les boutons qui affichent en survolant en haut à gauche de la fenêtre. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. Cette option n'est applicable que pour les fenêtres sans cadres.
+Utilise les boutons personnalisés de fermeture dessinée, et miniaturise les boutons qui affichent en survolant en haut à gauche de la fenêtre. Le bouton plein écran 'est pas disponible en raison des restrictions des fenêtres sans cadre car elles interface avec les masques de fenêtre macOS d’Apple. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. Cette option n'est applicable que pour les fenêtres sans cadres.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const { BrowserWindow } = require ('electron')
+const win = new BrowserWindow ({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -53,17 +53,20 @@ win.show()
 En définissant l'option `transparente` à `true`, vous pouvez également rendre la fenêtre sans cadre transparente :
 
 ```javascript
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ transparent: true, frame: false })
+const { BrowserWindow } = require ('electron')
+const win = new BrowserWindow ({ transparent: true, frame: false })
 win.show()
 ```
 
 ### Limitations
 
 * Vous ne pouvez pas cliquer à travers la zone transparente. Nous allons introduire une API pour définir la forme de fenêtre pour résoudre ce problème, voir [notre problème](https://github.com/electron/electron/issues/1335) pour plus de détails.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
+* Les fenêtres transparentes ne sont pas resizables. Le réglage `resizable` ' `true` peut rendre fenêtre transparente cesser de fonctionner sur certaines plates-formes.
 * Le filtre `flur` ne s'applique qu'à la page web, donc il n'y a aucun moyen d'appliquer l'effet de flou au contenu en dessous de la fenêtre (i. . d'autres applications s'ouvrent sur le système de l'utilisateur).
-* Sur les systèmes d'exploitation Windows, les fenêtres transparentes ne fonctionneront pas lorsque DWM est désactivé.
+* The window will not be transparent when DevTools is opened.
+* On Windows operating systems,
+  * transparent windows will not work when DWM is disabled.
+  * transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on [this pull request](https://github.com/electron/electron/pull/28207).
 * Sous Linux, les utilisateurs doivent mettre `--enable-transparent-visuals --disable-gpu` dans la ligne de commande pour désactiver le GPU et permettre à ARGB de rendre une fenêtre transparente, ceci est causé par un bogue amont que [canal alpha ne fonctionne pas sur certains pilotes NVidia](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) sur Linux.
 * Sur Mac, l'ombre native de la fenêtre ne sera pas affichée sur une fenêtre transparente.
 
@@ -82,19 +85,19 @@ win.setIgnoreMouseEvents(true)
 Ignorer les messages de la souris rend la page Web inaccessible au mouvement de la souris, ce qui signifie que les événements de déplacement de la souris ne seront pas émis. Sur les systèmes d'exploitation Windows, un paramètre optionnel peut être utilisé pour déplacer les messages de la souris vers la page web, permettant d'émettre des événements tels que `souris` :
 
 ```javascript
-const { ipcRenderer } = require('electron')
-const el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
+const { ipcRenderer } = require ('electron')
+const el = document.getElementById ('clickThroughElement')
+el.addEventListener ('mouseenter', () => {
+  ipcRenderer.send ('set-ignore-mouse-events', true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
-  ipcRenderer.send('set-ignore-mouse-events', false)
+  ipcRenderer.send ('set-ignore-mouse-events', false)
 })
 
 // Main process
-const { ipcMain } = require('electron')
-ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
-  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
+const { ipcMain } = require ('electron')
+ipcMain.on('set-ignore-mouse-events', (event, ... args) => {
+  BrowserWindow.fromWebContents (event.sender).setIgnoreMouseEvents(... args)
 })
 ```
 
@@ -125,7 +128,7 @@ Si vous définissez seulement une barre de titre personnalisée comme glissable,
 
 ## Sélection de texte
 
-In a frameless window the dragging behavior may conflict with selecting text. Par exemple, lorsque vous faites glisser la fenêtre depuis la barre de titre, vous pouvez accidentellement sélectionner son texte. Afin d'éviter cela, vous devez désactiver la sélection de texte dans une zone déplaçable. Comme ceci :
+Dans une fenêtre sans cadre, le comportement de traînée peut entrer en conflit avec la sélection du texte. Par exemple, lorsque vous faites glisser la fenêtre depuis la barre de titre, vous pouvez accidentellement sélectionner son texte. Afin d'éviter cela, vous devez désactiver la sélection de texte dans une zone déplaçable. Comme ceci :
 
 ```css
 .titlebar {
