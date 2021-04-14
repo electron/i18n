@@ -4,7 +4,7 @@
 
 Todos los [módulos incorporados de Node.js](https://nodejs.org/api/) está disponibles en Electrón y los nodos de terceros también son completamente compatibles (incluyendo a los [ módulos nativos](../tutorial/using-native-node-modules.md)).
 
-Electrón además provee algunos módulos incorporados extra para desarrollar aplicaciones de escritorio nativas. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in either process type.
+Electrón además provee algunos módulos incorporados extra para desarrollar aplicaciones de escritorio nativas. Algunos módulos solo están disponibles en el proceso principal, algunos solo están disponibles en el proceso del representador (Página Web), y algunos se pueden usar en cualquier tipo de proceso.
 
 La regla básica es: si un módulo es [ GUI][gui] o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. Debes estar familiarizado con el concepto de los scripts [main process vs. renderer process](../tutorial/quick-start.md#main-and-renderer-processes) para ser capaz de usar esos módulos.
 
