@@ -6,12 +6,12 @@
 
 Если вы ищете помощь в программировании, для ответов на вопросы, или присоединиться к обсуждению с другими разработчиками, которые используют Electron, вы можете взаимодействовать с сообществом в этих местах:
 
-* [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  * Getting help
-  * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
-  * Sharing ideas with other Electron app developers
-  * And more!
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
+* [`Electron's Discord`](https://discord.com/invite/electron) имеет каналы для:
+  * Получение справки
+  * Экосистемные приложения, [Electron Forge](https://github.com/electron-userland/electron-forge) и [Electron Fiddle](https://github.com/electron/fiddle)
+  * Обмен идеями с другими разработчиками приложений Electron
+  * И многое другое!
+* [`electron`](https://discuss.atom.io/c/electron) категория на форумах «Атом»
 * `#atom-shell` канал на Freenode
 * `#electron` канал на [Atom Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(Русский)*
@@ -58,22 +58,22 @@
 
 ### macOS
 
-Только 64-битные файлы предоставляются для macOS, и минимальная поддерживаемая версия macOS — macOS 10.10 (Yosemite).
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.11 (El Capitan).
 
-Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
+Родная поддержка устройств Apple Silicon (`arm64`) была добавлена в Electron 11.0.0.
 
 ### Windows
 
 Поддерживаются Windows 7 и более поздние версии, более старые операционные системы не поддерживаются (и не работают).
 
-Оба двоичных файла `ia32` (`x86`) и `x64` (`amd64`) предоставляются для Windows. [Native support for Windows on Arm (`arm64`) devices was added in Electron 6.0.8.](windows-arm.md). Запуск приложений, упакованных с предыдущими версиями, возможен с использованием бинарного файла ia32.
+Оба двоичных файла `ia32` (`x86`) и `x64` (`amd64`) предоставляются для Windows. [поддержка устройств Windows on Arm (`arm64`) была добавлена в Electron 6.0.8.](windows-arm.md). Запуск приложений, упакованных с предыдущими версиями, возможен с использованием бинарного файла ia32.
 
 ### Linux
 
-The prebuilt binaries of Electron are built on Ubuntu 18.04.
+Готовые двоичные файлы Electron построены на Убунту 18.04.
 
 Будет ли готовая бинарная сборка включена в дистрибутив, зависит от того, включает ли дистрибутив библиотеки, с которыми связан Electron на компилирруемой платформе, поэтому гарантируется работа только в Ubuntu 18.04, но следующие платформы также проверяются, чтобы иметь возможность запускать прекомпилированные сборки Electron:
 
 * Ubuntu 14.04 и новее
-* Fedora 24 and newer
-* Debian 8 and newer
+* Fedora 24 и новее
+* Debian 8 и новее
