@@ -1,28 +1,28 @@
-# `sandbox` Option
+# Opção `sandbox`
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Crie uma janela do navegador com uma renderização com caixa de areia. Com essa opção habilitada, o renderizador deve comunicar via IPC ao processo principal para acessar APIs de nó.
 
-One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Um dos principais recursos de segurança do Chromium é que toda a renderização piscada/JavaScript código é executado dentro de uma caixa de areia. Esta caixa de areia usa recursos específicos do SISTEMA para garantir que que explora no processo de renderização não possa prejudicar o sistema.
 
-In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) more information about the sandbox.
+Em outras palavras, quando a caixa de areia é habilitada, os renderizadores só podem fazer alterações ao sistema, delegando tarefas ao processo principal via IPC. [Aqui está](https://www.chromium.org/developers/design-documents/sandbox) mais informações sobre a caixa de areia.
 
-Since a major feature in Electron is the ability to run Node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most Node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+Uma vez que uma característica importante na Electron é a capacidade de executar o Node.js no processo de renderização (facilitando o desenvolvimento de aplicações de desktop usando tecnologias de web), a caixa de areia é desativada por elétrons. Isso ocorre porque a maioria das APIs .js Node exigem acesso ao sistema. `require()` por exemplo, não é possível sem permissões do sistema de arquivos, que não estão disponíveis em um ambiente de sandboxed.
 
-Usually this is not a problem for desktop applications since the code is always trusted, but it makes Electron less secure than Chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force Electron to spawn a classic Chromium renderer that is compatible with the sandbox.
+Normalmente, isso não é um problema para aplicativos de desktop, uma vez que o código é sempre confiável, mas torna o Electron menos seguro que o Chromium para exibir conteúdo web não confiável. Para aplicações que requerem mais segurança, a bandeira `sandbox` forçará a Electron a gerar um renderizador clássico de Cromo que é compatível com a caixa de areia.
 
-A sandboxed renderer doesn't have a Node.js environment running and doesn't expose Node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the Electron renderer API.
+Um renderizador com caixa de areia não tem um ambiente .js node em execução e não expõe AS APIs do Node.js JavaScript ao código do cliente. A única exceção é o script pré-carregamento, que tem acesso a um subconjunto da API renderizador eletrônica.
 
-Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in Chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
+Outra diferença é que os renderizadores com caixa de areia não modificam nenhuma das APIs padrão JavaScript. Consequentemente, algumas APIs, como `window.open` funcionarão como fazem no Cromo (ou seja, não retornam um [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Exemplo
 
-To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
+Para criar uma janela de caixa de areia, passe `sandbox: true` para `webPreferences`:
 
 ```js
-let win
-app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
+deixe ganhar
+app.whenReady().(()=> {
+  win = novo BrowserWindow({
+    webPreferência: {
       sandbox: true
     }
   })
@@ -30,31 +30,31 @@ app.whenReady().then(() => {
 })
 ```
 
-In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+No código acima o [`BrowserWindow`](browser-window.md) criado tem Nó.js desativado e pode se comunicar somente via IPC. O uso desta opção impede a Electron de criar um nó.js tempo de execução na renderização. Além disso, dentro desta nova janela `window.open` segue o comportamento nativo (por padrão Electron cria um [`BrowserWindow`](browser-window.md) e retorna um proxy para isso via `window.open`).
 
-[`app.enableSandbox`](app.md#appenablesandbox) can be used to force `sandbox: true` for all `BrowserWindow` instances.
+[`app.enableSandbox`](app.md#appenablesandbox) podem ser usados para forçar `sandbox: true` para todas as instâncias `BrowserWindow` .
 
 ```js
-let win
+deixe ganhar
 app.enableSandbox()
-app.whenReady().then(() => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
-  win = new BrowserWindow()
+app.whenReady().then(((() => {
+  // não precisa passar 'sandbox: true' desde que 'app.enableSandbox()' foi chamado.
+  win = novo BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
 
-## Preload
+## Pré-carga
 
-An app can make customizations to sandboxed renderers using a preload script. Aqui está um exemplo:
+Um aplicativo pode fazer personalizações para renderizadores de caixa de areia usando um script de pré-carga. Aqui está um exemplo:
 
 ```js
-let win
-app.whenReady().then(() => {
-  win = new BrowserWindow({
-    webPreferences: {
-      sandbox: true,
-      preload: path.join(app.getAppPath(), 'preload.js')
+deixe ganhar
+app.whenReady().(((() => {
+  win = novo BrowserWindow({
+    webPreferências: {
+      sandbox: true, true,
+      pré-carga: path.join(app.getAppPath(), 'préload.js')
     }
   })
   win.loadURL('http://google.com')
@@ -64,36 +64,36 @@ app.whenReady().then(() => {
 e preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of Electron renderer APIs. Without
-// contextIsolation enabled, it's possible to accidentally leak privileged
-// globals like ipcRenderer to web content.
-const { ipcRenderer } = require('electron')
+Este arquivo é carregado sempre que um contexto javascript é criado. Ele é executado em um escopo
+// privado que pode acessar um subconjunto de APIs renderer electron. Sem
+// contextIsolation habilitado, é possível acidentalmente vazar
+privilegiados // globais como ipcRenderer para conteúdo web.
+const { ipcRenderer } = require ('electron')
 
-const defaultWindowOpen = window.open
+const defaultWindowOpen = janela.open
 
-window.open = function customWindowOpen (url, ...args) {
+janela.open = função personalizadaWindowOpen (url, ... args) {
   ipcRenderer.send('report-window-open', location.origin, url, args)
-  return defaultWindowOpen(url + '?from_electron=1', ...args)
+  retorno padrãoWindowOpen (url + '?from_electron=1', ... args)
 }
 ```
 
-Important things to notice in the preload script:
+Coisas importantes a serem notarias no script de pré-carga:
 
-- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
+- Mesmo que o renderizador de caixa de areia não tenha Node.js funcionando, ele ainda tem acesso a um ambiente limitado semelhante a um nó: `Buffer`, `process`, `setImmediate`, `clearImmediate` e `require` estão disponíveis.
+- O script pré-carga deve ser contido em um único script, mas é possível ter código de pré-carga complexo composto com vários módulos usando uma ferramenta como webpack ou browserify. Um exemplo de uso do browserify está abaixo.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Para criar um pacote de navegador e usá-lo como um script de pré-carga, algo como o seguinte deve ser usado:
 
 ```sh
   browserify preload/index.js \
-    -x electron \
-    --insert-global-vars=__filename,__dirname -o preload.js
+    -x elétron \
+    --insert-global-vars=__filename,__dirname -o pré-carga.js
 ```
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+O sinalizador `-x` deve ser usado com qualquer módulo necessário que já esteja exposto em o escopo de pré-carga, e diz ao browserify para usar a função `require` de inc dentro para ele. `--insert-global-vars` garantirá que `process`, `Buffer` e `setImmediate` também sejam retirados do escopo de incisão (normalmente navegador injeta código para esses).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Atualmente, a função `require` fornecida no escopo de pré-carga expõe os seguintes módulos:
 
 - `electron`
   - `crashReporter`
@@ -105,19 +105,19 @@ Currently the `require` function provided in the preload scope exposes the follo
 - `timers`
 - `url`
 
-More may be added as needed to expose more Electron APIs in the sandbox.
+Mais podem ser adicionados conforme necessário para expor mais APIs eletrônicas na caixa de areia.
 
-## Rendering untrusted content
+## Renderização de conteúdo não confiável
 
-Rendering untrusted content in Electron is still somewhat uncharted territory, though some apps are finding success (e.g. Beaker Browser). Our goal is to get as close to Chrome as we can in terms of the security of sandboxed content, but ultimately we will always be behind due to a few fundamental issues:
+Renderizar conteúdo não confiável no Electron ainda é um território um pouco desconhecido, embora alguns aplicativos estejam encontrando sucesso (por exemplo, Beaker Browser). Nosso objetivo é obter o mais próximo possível do Chrome em termos de segurança de conteúdo sandboxed, mas em última análise, sempre estaremos para trás devido a algumas questões fundamentais:
 
-1. We do not have the dedicated resources or expertise that Chromium has to apply to the security of its product. We do our best to make use of what we have, to inherit everything we can from Chromium, and to respond quickly to security issues, but Electron cannot be as secure as Chromium without the resources that Chromium is able to dedicate.
-2. Some security features in Chrome (such as Safe Browsing and Certificate Transparency) require a centralized authority and dedicated servers, both of which run counter to the goals of the Electron project. As such, we disable those features in Electron, at the cost of the associated security they would otherwise bring.
-3. There is only one Chromium, whereas there are many thousands of apps built on Electron, all of which behave slightly differently. Accounting for those differences can yield a huge possibility space, and make it challenging to ensure the security of the platform in unusual use cases.
-4. We can't push security updates to users directly, so we rely on app vendors to upgrade the version of Electron underlying their app in order for security updates to reach users.
+1. Não temos os recursos ou conhecimentos dedicados que o Chromium tem para aplicar à segurança de seu produto. Fazemos o nosso melhor para fazer uso do que temos, herdar tudo o que pudermos do Cromo, e responder rapidamente a problemas de segurança , mas a Electron não pode ser tão segura quanto o Cromo sem os recursos que o Cromo é capaz de dedicar.
+2. Alguns recursos de segurança no Chrome (como Navegação segura e Certificado Transparência) exigem uma autoridade centralizada e servidores dedicados, ambos de que vão contra os objetivos do projeto Electron. Como tal, desabilitomos essas características em Electron, ao custo da segurança associada que eles trariam de outra forma.
+3. Há apenas um Chromium, enquanto há muitos milhares de aplicativos construídos na Electron, todos os quais se comportam ligeiramente diferente. A contabilização dessas diferenças pode render um espaço enorme de possibilidades, e torná-lo desafiador para garantir a segurança da plataforma em casos de uso incomum.
+4. Não podemos empurrar as atualizações de segurança diretamente para os usuários, por isso contamos com os fornecedores de aplicativos para atualizar a versão da Electron subjacente ao seu aplicativo, a fim de que atualizações de segurança cheguem aos usuários.
 
-Here are some things to consider before rendering untrusted content:
+Aqui estão algumas coisas a considerar antes de tornar o conteúdo não confiável:
 
-- A preload script can accidentally leak privileged APIs to untrusted code, unless [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) is also enabled.
-- Some bug in the V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
-- While we make our best effort to backport Chromium security fixes to older versions of Electron, we do not make a guarantee that every fix will be backported. Your best chance at staying secure is to be on the latest stable version of Electron.
+- Um script de pré-carga pode acidentalmente vazar APIs privilegiadas para código não confiável, , a menos que [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) também esteja habilitado.
+- Alguns bugs no motor V8 podem permitir que o código malicioso acesse o renderizador APIs de pré-carga, efetivamente concedendo acesso total ao sistema através do módulo `remote` . Portanto, é altamente recomendável [desativar o módulo `remote` ](../tutorial/security.md#15-disable-the-remote-module). Se a desativação não for viável, você deve [filtrar seletivamente o módulo `remote` ](../tutorial/security.md#16-filter-the-remote-module).
+- Embora façamos nosso melhor esforço para retropor as correções de segurança do Chromium para versões mais antigas da Electron, não garantimos que cada correção será apoiada. Sua melhor chance de se manter seguro é estar na última versão estável de Electron.
