@@ -27,9 +27,9 @@ A equipe do Electron está animada para anunciar a versão do Electron 7.0.0! Vo
 
 Veja as [notas de lançamento 7.0.0](https://github.com/electron/electron/releases/tag/v7.0.0) para obter uma lista mais longa de alterações.
 
-## Breaking Changes
+## Quebrando mudanças
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md) page.
+Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md) .
 
  * APIs obsoletas removidas:
      * Versões baseadas em chamadas de funções que agora usam Promises. [#17907](https://github.com/electron/electron/pull/17907)
