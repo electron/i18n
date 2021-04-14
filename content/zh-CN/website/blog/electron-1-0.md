@@ -42,7 +42,7 @@ Electron 1.0是API稳定性和成熟性的一个重要里程碑。 此 版本允
 
   * **需要图** 来帮助您在主进程和渲染器进程中可视化应用的内部和外部 库依赖关系
   * **IPC 监视** 可以跟踪和显示您应用中发送和接收的消息
-  * **Event inspector** that shows you the events and listeners that are registered in your app on the core Electron APIs such as the window, app, and processes
+  * **事件检查员** ，向您展示在核心电子 ABI （如窗口、应用和流程）上的应用中注册的事件和侦听器
   * **用于检查您的应用程序有常见错误和缺少 功能的App Linter**
 
 ## Spectron
@@ -51,7 +51,7 @@ Electron 1.0是API稳定性和成熟性的一个重要里程碑。 此 版本允
 
 [![Spectron](https://cloud.githubusercontent.com/assets/378023/15138218/590d50c2-16c9-11e6-9b54-2d73729fe189.png)][spectron]
 
-Spectron 3.0 has comprehensive support for the entire Electron API allowing you to more quickly write tests that verify your application's behavior in various scenarios and environments. Spectron 基于 [铬刀][chromedriver] 和 [WebDriverIO][webdriver] ，因此它还具有用于页面导航、用户 输入和 JavaScript 执行的完整 API。
+Spectron 3.0 对整个 Electron API 有全面的支持，允许您 更快地编写测试，以验证应用在各种 场景和环境中的行为。 Spectron 基于 [铬刀][chromedriver] 和 [WebDriverIO][webdriver] ，因此它还具有用于页面导航、用户 输入和 JavaScript 执行的完整 API。
 
 ## 社区
 
