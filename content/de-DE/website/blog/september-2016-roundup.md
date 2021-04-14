@@ -1,5 +1,5 @@
 ---
-title: 'September 2016: New Apps'
+title: 'September 2016: Neue Apps'
 author: haackiert
 date: '2016-10-06'
 ---
@@ -16,7 +16,7 @@ Wenn Sie eine Electron-App erstellt haben oder ein Meeting veranstalten, erstell
 
 Im September hielt GitHub seine GitHub Universe Konferenz als die Veranstaltung für Menschen die die Zukunft von Software aufbauen. Auf der Veranstaltung gab es ein paar interessante Electron-Vorträge.
 
-* [Making Electron Development Simpler, More Pleasant, and More Productive](https://www.youtube.com/watch?v=Eqg_IqVeI5s) by Machisté Quintana, a Software Engineer at Slack.
+* [Making Electron Development Simpler, More Pleasant, and More Productive](https://www.youtube.com/watch?v=Eqg_IqVeI5s) von Machisté Quintana, a Software Engineer bei Slack.
 * [Elektronisch: Desktop-Apps mit Web-Sprachen](https://www.youtube.com/watch?v=FNHBfN8c32U) von Zeke Sikelianos, einem Electron-Entwickler bei GitHub.
 
 Wenn Sie am 5. Dezember in Paris sind, wird Zeke [einen Electron-Vortrag bei dotJS 2016](https://twitter.com/dotJS/status/783615732307333120) halten.
