@@ -4,7 +4,7 @@ author:
   - sofianguía
   - ckerr
   - codebytere
-date: '30-07-2019'
+date: '2019-07-30'
 ---
 
 El equipo de Electron está encantado de anunciar el lanzamiento de Electron 6.0.0! Puedes instalarlo con npm a través de `npm install electron@latest` o descargarlo desde nuestra [página web de lanzamientos](https://electronjs.org/releases/stable). La versión está llena de actualizaciones, correcciones y nuevas características. ¡No podemos esperar a ver lo que construyes con ellos! ¡Sigue leyendo para obtener más detalles sobre esta versión, y por favor comparte tus comentarios!
