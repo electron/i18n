@@ -9,11 +9,11 @@
 ### `new MenuItem(options)`
 
 * `options` Object
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
+  * `click` (необязательно) - Будет называться с `click(menuItem, browserWindow, event)` , когда пункт меню нажал.
     * `menuItem` MenuItem
-    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
+    * `browserWindow` [BrowserWindow](browser-window.md) | неопределенный - Это не будет определено, если окно не открыто.
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `shareMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Смотрите [роли](#roles).
+  * `role` String (по желанию) - может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `shareMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu` - Определите действие пункта меню, когда указанное `click` имущество будет проигнорировано. Смотрите [роли](#roles).
   * `type` String (опционально) - Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
   * `label` String (опционально)
   * `sublabel` String (опционально)
@@ -24,12 +24,12 @@
   * `acceleratorWorksWhenHidden` Boolean (опционально) _macOS_ - по умолчанию `true`, когда `false`, accelerator не допустит активации элемента, если элемент не отображается.
   * `visible` Boolean (опционально) - Если false, пункт меню будет полностью скрыт.
   * `checked` Boolean (опционально) - Должно быть указано только для `checkbox` или `radio` типов элементов меню.
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
-  * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
+  * `registerAccelerator` Boolean ( _)_ _Linux_ - Если она ложная, ускоритель не будет зарегистрирован с системой, но он все равно будет отображаться. Defaults to true.
+  * `sharingItem` SharingItem (необязательно) _macOS_ - Элемент для обмена, когда `role` является `shareMenu`.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (опционально) - Необходимо указать для `submenu` типы элементов меню. Если `submenu` указано, то `type: 'submenu'` может быть опущен. Если значение не является [`Menu`](menu.md) то оно будет автоматически преобразовано в значение `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * `id` String (по желанию) - Уникальный в рамках одного меню. Если он определен, то он использоваться в качестве ссылки на этот элемент атрибутом позиции.
   * `before` String[] (опционально) - Вставляет этот элемент перед элементом с указанным названием. Если указанный элемент не существует, то элемент будет вставлен в конец меню. Кроме того, подразумевается, что рассматриваемый элемент меню размещен в той же "группе", что и сам элемент.
-  * `after` String[] (optional) - Inserts this item after the item with the specified label. Если ссылаемый элемент не существует, тогда элемент будет вставлен в конец меню.
+  * `after` String ( по желанию) - Вставляет этот элемент после элемента с указанной этикеткой. Если ссылаемый элемент не существует, тогда элемент будет вставлен в конец меню.
   * `beforeGroupContaining` String[] (опционально) - Предоставляет возможность в одном контекстном меню объявить размещение группы, содержащей элемент, перед группой, содержащей элемент с указанной меткой.
   * `afterGroupContaining` String[] (опционально) - Предоставляет возможность в одном контекстном меню объявить размещение группы, содержащей элемент, после группы, содержащей элемент с указанной меткой.
 
@@ -48,7 +48,7 @@
 Свойство `role` может иметь следующие значения:
 
 * `undo - Отменить`
-* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
+* `about` - Триггер родной о панели (пользовательский ящик сообщения на окне, который не предоставляет свои собственные).
 * `redo - Восстановить`
 * `cut - Вырезать`
 * `copy - Копировать`
@@ -66,7 +66,7 @@
 * `resetZoom` - Сброс измененного масштаба страницы до исходного размера.
 * `zoomIn` - Увеличение масштаба страницы на 10%.
 * `zoomOut` - Уменьшение масштаба страницы на 10%.
-* `toggleSpellChecker` - Enable/disable builtin spell checker.
+* `toggleSpellChecker` - Включить/ отключить встроенный проверку орфографии.
 * `fileMenu` - Полное меню "Файл" по умолчанию (Закрыть/Выйти)
 * `editMenu` - Полное меню "Редактировать" (Отменить, копировать и т. д.).
 * `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
@@ -92,11 +92,11 @@ The following additional roles are available on _macOS_:
 * `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Оно предназначено только для использования в Меню Приложений и *не* то же самое, что и подменю "Сервисы", используемое в контекстных меню приложений macOS, которое не реализовано в Electron.
 * `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
 * `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
-* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - submenu [меню][ShareMenu]. Свойство `sharingItem` также должно быть установлено для обозначения элемента для обмена.
 
 При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
+**Nota Bene:** Свойства `enabled` и `visibility` не доступны для пунктов меню верхнего уровня в лотке на macOS.
 
 ### Свойства экземпляра
 
@@ -108,11 +108,11 @@ The following additional roles are available on _macOS_:
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label.
+В `String` с указанием видимой метки элемента.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+A `Function` that is fired when the MenuItem receives a click event. Это можно назвать с `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
@@ -124,11 +124,11 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.type`
 
-`Строка` с указанием типа элемента. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+`Строка` с указанием типа элемента. Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
 
 #### `menuItem.role`
 
-`String` (опционально) с указанием роли элемента, если установлено. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+`String` (опционально) с указанием роли элемента, если установлено. Может быть `отменено`, `redo`, `сократить`, `копировать`, `вставить`, `pasteAndMatchStyle`, `удалить`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `минимизируйте`, `близко`, `справки`, `о`, `сервисах`, `скрыть`, `скрыть`, `показов`, `выход`, `startSpeaking`, `stopSpeaking`, `масштаба`, `передней`, `меню приложения`, `меню файлов`, `меню редактирования`, `меню просмотра`, `последних документов`, `переключателей панели`, `selectNextTab`, `selectПредыдущая вкладка`, `Объединение Всех Windows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -140,7 +140,7 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel.
+`String` , указывающий на подлейбл товара.
 
 #### `menuItem.toolTip` _macOS_
 
@@ -166,15 +166,15 @@ A `String` indicating the item's sublabel.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+В `Boolean` указывается, должен ли ускоритель быть зарегистрирован в или просто отображен.
 
-This property can be dynamically changed.
+Это свойство может быть динамически изменено.
 
 #### `menuItem.sharingItem` _macOS_
 
-A `SharingItem` indicating the item to share when the `role` is `shareMenu`.
+Данный `SharingItem` , указывающий элемент для обмена, когда `role` находится `shareMenu`.
 
-This property can be dynamically changed.
+Это свойство может быть динамически изменено.
 
 #### `menuItem.commandId`
 
