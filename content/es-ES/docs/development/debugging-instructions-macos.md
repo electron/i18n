@@ -11,7 +11,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 * **.lldbinit**: Crear o editar `~/.lldbinit` para permitir que el código de Chromium sea correctamente mapeado de fuentes.
 
    ```text
-   importar script ~/electron/src/tools/lldb/lldbinit.py
+   command script import ~/electron/src/tools/lldb/lldbinit.py
    ```
 
 ## Adjuntado y depuración de Electron
@@ -21,7 +21,7 @@ Para empezar una sesión de depuración, abra el terminal e inicie `lldb`, pasan
 ```sh
 $ lldb ./out/Testing/Electron.app
 (lldb) target create "./out/Testing/Electron.app"
-Ejecutable actual establecido en './out/Testing/Electron.app' (x86_64).
+Current executable set to './out/Testing/Electron.app' (x86_64).
 ```
 
 ### Establecer puntos de interrupción
