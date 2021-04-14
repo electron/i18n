@@ -3,7 +3,7 @@ title: Electron 8.0.0
 author:
   - jkleinsc
   - sofianguía
-date: '04-02-2020'
+date: '2020-02-04'
 ---
 
 ¡Electron 8.0.0 ha sido liberado! Incluye actualizaciones a Chromium `80`, V8 `8.0`y Node.js `12.13.0`. ¡Hemos añadido el corrector ortográfico integrado de Chrome y mucho más!
