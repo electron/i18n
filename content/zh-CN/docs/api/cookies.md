@@ -48,7 +48,7 @@ session.defaultSession.cookies.set(cookie)
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - 变更后的 cookie 值。
-* `cause` String - The cause of the change with one of the following values:
+* `cause` 字符串 - 更改的原因与以下值之一：
   * ` explicit ` - cookie 是由消费者的操作直接更改的。
   * ` overwrite ` - 一个覆盖原值的插入操作导致的 cookie 被自动删除。
   * ` expired ` - cookie 在过期时自动删除。
@@ -64,8 +64,8 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.get(filter)`
 
-* `filter` Object
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
+* `filter` 对象
+  * `url` 字符串（可选） - 检索与 `url`相关的饼干。 空意味着检索所有网址的饼干。
   * ` name `String (可选) - 按名称筛选 cookie。
   * `domain` String (optional) - 检索与域名或者 `domain` 子域名匹配的cookie。
   * ` path `String (可选) - 检索路径与 ` path ` 匹配的 cookie。
@@ -78,16 +78,16 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.set(details)`
 
-* `details` Object
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。 Empty by default if omitted.
-  * `path` String (可选) - cookie 的路径。 Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. 默认为false。
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. 默认值为 false.
+* `details` 对象
+  * `url` 字符串 - 将饼干与 URL 关联的 URL。 如果URL无效，承诺将被拒绝。
+  * `name` 字符串（可选） - 饼干的名称。 如果省略，默认情况下为空。
+  * `value` 字符串（可选） - 饼干的价值。 如果省略，默认情况下为空。
+  * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。 如果省略，默认情况下为空。
+  * `path` String (可选) - cookie 的路径。 如果省略，默认情况下为空。
+  * `secure` 布尔 （可选） - 饼干是否应该标记为安全。 默认为false。
+  * `httpOnly` 布尔 （可选） - 饼干是否应该只标记为 Http 。 默认值为 false.
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  可以被设置为`unspecified`，`no_restriction`，`lax`或者`strict`  Default is `no_restriction`.
+  * `sameSite` 字符串（可选） - [同一网站](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) 政策适用于此cookie。  可以被设置为`unspecified`，`no_restriction`，`lax`或者`strict`  默认值 `no_restriction`。
 
 返回 `Promise<void>` - cookie 设置时解析的一个 promise。
 
