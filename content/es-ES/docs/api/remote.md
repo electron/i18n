@@ -4,11 +4,11 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-> ⚠️ ADVERTENCIA ⚠️ El módulo  `remote` es [obsoleto](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
+> ⚠️ ADVERTENCIA ⚠️ El módulo  `remote` es [obsoleto](https://github.com/electron/electron/issues/21408). En lugar de `remote`, usa [`ipcRenderer`](ipc-renderer.md) y [`ipcMain`](ipc-main.md).
 > 
 > Lea más sobre porque el módulo `remote` es obsoleto [aquí](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 > 
-> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
+> Si aún quieres usar `remote` a pesar del rendimiento y la seguridad inquietudes, consulta [@electron/Remote](https://github.com/electron/remote).
 
 El módulo `remote` proporciona una manera sencilla de hacer una comunicación (IPC) entre el proceso de renderizado (página web) y el proceso principal.
 
@@ -49,12 +49,12 @@ Los tipos de valor primario como cadenas y números, sin embargo, son enviados p
 
 El código en el proceso principal puede aceptar callbacks desde el renderizador, por ejemplo el módulo `remote`, pero hay que extremo cuidado cuando se usa esta característica.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+En primer lugar, para evitar los interbloqueos, las devoluciones de llamada pasadas al proceso principal se denominan asincrónicamente. No debes esperar que el proceso principal obtener el valor devuelto de las devoluciones de llamada que se pasaron.
 
 Por ejemplo, no se puede utilizar una función del proceso de renderizado en un `Array.map` llamado en el proceso principal:
 
 ```javascript
-// proceso principal mapNumbers.js
+// main process mapNumbers.js
 exports.withRendererCallback = (mapper) => {
   return [1, 2, 3].map(mapper)
 }
@@ -65,7 +65,7 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// proceso de renderizado
+// renderer process
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
@@ -78,7 +78,7 @@ Como puede observarse, el valor devuelto sincrónico del callback renderizador n
 
 Segundo, los callbacks pasados al proceso principal persistirán hasta que los desechos del proceso principal los recopile.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Por ejemplo, el siguiente código parece inocente a primera vista. Instala una devolución de llamada de para el evento `close` en un objeto remoto:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -123,9 +123,9 @@ Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el
 
 ## Propiedades
 
-### `remoto.require`
+### `remote.require`
 
-A `NodeJS.Require` function equivalent to `require(module)` in the main process. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
+Una función de `NodeJS.Require` equivalente a `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
 por ejemplo.
 
@@ -146,18 +146,18 @@ app.whenReady().then(() => { /* ... */ })
 ```
 
 ```js
-// algún módulo relativo: main/foo.js
+// some relative module: main/foo.js
 module.exports = 'bar'
 ```
 
 ```js
-// proceso de renderizado: renderer/index.js
+// renderer process: renderer/index.js
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
 ### `remote.process` _Readonly_
 
-A `NodeJS.Process` object.  The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Un objeto `NodeJS.Process`.  El objeto `process` en el main process. Esto es el mismo que `remote.getGlobal('process')` pero está en cache.
 
 [rmi]: https://en.wikipedia.org/wiki/Java_remote_method_invocation
 [enumerable-properties]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties
