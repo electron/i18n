@@ -12,7 +12,7 @@ date: '2019-02-01'
 
 2014年，V8团队已弃用 `v8:::Handle` 代理 `v8::本地` 代理本地句柄。 Electron 5.0 包含最终删除 `v8:::处理好的` 和本机节点。 s 仍然使用它的插件需要更新后才能使用 Electron 5.0 使用。
 
-要求的代码更改是最小的 但 *仍然使用 `v8::Handle` 的* 本机节点模块将无法使用 Electron 5 构建。 并且需要修改。 The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
+要求的代码更改是最小的 但 *仍然使用 `v8::Handle` 的* 本机节点模块将无法使用 Electron 5 构建。 并且需要修改。 好消息是，节点.js v12 也将包含此 V8 更改，因此任何使用 `v8::Handle` 的模块都需要更新 *无论如何* 与即将推出的节点版本配合使用。
 
 ## 我保留一个本地插件，我怎么能帮忙？
 
