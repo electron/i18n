@@ -1,5 +1,5 @@
 ---
-title: 'July 2016: New Apps and Meetups'
+title: '2016 年 7 月：新应用和聚会'
 author: 吉尔福德
 date: '2016-08-04'
 ---
@@ -8,7 +8,7 @@ date: '2016-08-04'
 
 ---
 
-这个网站更新了新的 [个应用程序](https://electronjs.org/apps) and [Meetups](https://electronjs.org/community) 遍及 [社区的拉取请求](https://github.com/electron/electronjs.org/pulls)。 You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
+这个网站更新了新的 [个应用程序](https://electronjs.org/apps) and [Meetups](https://electronjs.org/community) 遍及 [社区的拉取请求](https://github.com/electron/electronjs.org/pulls)。 您可以 [观看存储库](https://github.com/electron/electronjs.org) 以获取新添加的通知，或者如果您对 _网站的所有更改_ 不感兴趣，请订阅 [博客 RSS 源](https://electronjs.org/feed.xml)。
 
 如果您已经制作了 Electron 应用程序或主办了一次会议 作出一个 [拉取请求](https://github.com/electron/electronjs.org) 以将其添加到站点，它将进行下一次整合。
 
