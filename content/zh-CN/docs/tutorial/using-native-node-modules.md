@@ -1,6 +1,6 @@
 # 使用 Node 原生模块
 
-Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)][abi] from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
+原生Node.js模块由Electron支持，但由于Electron具有与给定Node.js不同的 [应用二进制界面 （ABI）][abi].js二进制（由于使用铬的 BoringSL 而不是 OpenSSL 等 差异），您使用的原生 模块需要为Electron重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -16,21 +16,21 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### 为 Electron 安装并重新编译模块
 
-您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`][electron-rebuild] 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。 If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
+您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`][electron-rebuild] 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。 如果您使用的是 [电子锻造][electron-forge]，则该工具在开发模式和分发时都会自动 使用。
 
-For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
+例如，安装独立的 `electron-rebuild` 工具，然后通过命令行与它一起重建 模块：
 
 ```sh
-npm install --save-dev electron-rebuild
+npm 安装 - 保存开发电子重建
 
-# Every time you run "npm install", run this:
-./node_modules/.bin/electron-rebuild
+# 每次运行"npm 安装"时，运行此操作：
+。/node_modules/.bin/电子重建
 
-# If you have trouble on Windows, try:
-.\node_modules\.bin\electron-rebuild.cmd
+# 如果您在 Windows 上遇到问题，请尝试：
+。\node_modules.bin电子重建. cmd
 ```
 
-For more information on usage and integration with other tools such as [Electron Packager][electron-packager], consult the project's README.
+有关 [电子 包装][electron-packager]等其他工具的使用和集成的更多信息，请咨询该项目的README。
 
 ### 通过 `npm` 安装
 
@@ -102,7 +102,7 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 尤其重要的是：
 
 * 您链接了 `node.lib` 来自 _Electron_ 而不是节点。 如果您链接到 错误的 `node.lib` 当您需要 Electron 中的 模块时，您将会遇到加载时间错误。
-* 您包含标志 `/DELAYLOAD:node.exe`。 If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
+* 您包含标志 `/DELAYLOAD:node.exe`。 如果 `node.exe` 链接没有延迟 ，则延迟加载挂钩将无法启动， 符号的节点将无法正确解决。
 * `win_delay_load_hook.obj` 直接连接到最终的 DLL。 如果钩子 设置在依赖的 DLL 中，它不会在适当的时候开火。
 
 请参阅 [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) 以示例显示延迟载荷钩，如果您正在执行自己的操作。
@@ -111,15 +111,15 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 [`预构建`](https://github.com/prebuild/prebuild) 提供了一种发布 本机节点模块的方式，并且预建了二进制节点 和 Electron。
 
-If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+如果 `prebuild`驱动的模块为 Electron 中的使用提供二进制文件， 确保省略 `--build-from-source` 和 `npm_config_build_from_source` 环境变量，以便充分利用预建的二进制文件。
 
 ## 依赖于 `node-pre-gyp` 的模块
 
 [`node-pre-gyp` 工具][node-pre-gyp] 提供一种部署原生 Node 预编译二进制模块的方法， 许多流行的模块都是使用它。
 
-Sometimes those modules work fine under Electron, but when there are no Electron-specific binaries available, you'll need to build from source. Because of this, it is recommended to use `electron-rebuild` for these modules.
+有时这些模块在 Electron 下工作正常，但当没有 电子特异性二进制文件可用时，您需要从源头构建。 因此，建议为这些模块使用 `electron-rebuild` 。
 
-If you are following the `npm` way of installing modules, you'll need to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+如果您正在按照安装模块的 `npm` 方式，则需要将 `--build-from-source` 传递到 `npm`，或设置 `npm_config_build_from_source` 环境变量。
 
 [abi]: https://en.wikipedia.org/wiki/Application_binary_interface
 [electron-rebuild]: https://github.com/electron/electron-rebuild
