@@ -39,23 +39,11 @@
 
 Срабатывает, когда Electron загрузил свой скрипт внутренней инициализации и начинает загружать веб-страницу или основной скрипт.
 
-Это событие может использоваться preload скриптом, чтобы вернуть удаленные Node global symbols в глобальную область видимости, когда node integration выключен:
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Свойства
 
 ### `process.defaultApp` _Только чтение_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+А `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Только чтение_
 
@@ -63,7 +51,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Только чтение_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+А `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
@@ -71,7 +59,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.noDeprecation`
 
-`Boolean` который управляет тем, будут ли предупреждения об устаревании выводиться в `stderr` или нет. Установка в `true` заглушит предупреждения об устаревании. Это свойство используется вместо флага командной строки `--no-deprecation`.
+`Boolean`. Контролирует будут ли неодобряющие предупреждения выводиться в `stderr`. Установка в `true` заглушит неодобряющие предупреждения. Это свойство используется вместо флага командной строки `--no-deprecation`.
 
 ### `process.resourcesPath` _Только чтение_
 
@@ -79,7 +67,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.sandboxed` _Только чтение_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+А `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.throwDeprecation`
 
@@ -97,9 +85,9 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 A `String` representing the current process's type, can be:
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - Основной процесс
+* `renderer` - Процесс рендерера
+* `worker` - В веб-работник
 
 ### `process.versions.chrome` _Только чтение_
 
@@ -111,7 +99,7 @@ A `String` representing the current process's type, can be:
 
 ### `process.windowsStore` _Только чтение_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+А `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Методы
 
@@ -200,16 +188,16 @@ console.log(version)
 
 * `filePath` String - Путь к выходному файлу.
 
-Возвращает `Boolean`, который указывает успешно ли создан снимок.
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 ### `process.hang()`
 
-Вызывает зависание основного потока текущего процесса.
+Causes the main thread of the current process hang.
 
 ### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
-Устанавливает мягкое ограничение дескрипторов файлов до `maxDescriptors` или жесткое ограничение операционной системы, в зависимости от того, какое значение ниже для текущего процесса.
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
