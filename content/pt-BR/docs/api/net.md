@@ -1,42 +1,42 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Emitir solicitações HTTP/HTTPS usando a biblioteca de rede nativa do Chromium
 
 Processo: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies. It also supports checking network status.
+O módulo `net` é uma API do lado do cliente para emitir solicitações HTTP(S). É semelhante ao [módulos de](https://nodejs.org/api/http.html) HTTP e [HTTPS](https://nodejs.org/api/https.html) de Node.js mas usa biblioteca de rede nativa do Chromium em vez da implementação .js Node, oferecendo melhor suporte para proxies web. Ele também suporta verificar o status da rede.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+A seguir está uma lista não exaustiva de por que você pode considerar usar o módulo `net` em vez dos módulos .js nó nativo:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Gerenciamento automático da configuração proxy do sistema, suporte aos arquivos de configuração wpad e proxy pac.
+* Túnel automático de solicitações HTTPS.
+* Suporte para autenticação de proxies usando esquemas básicos de autenticação, digestão, NTLM, Kerberos ou negociar esquemas de autenticação.
+* Suporte para proxies de monitoramento de tráfego: Proxies semelhantes a violinista usados para acesso controle e monitoramento.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+Os componentes de API (incluindo classes, métodos, propriedades e nomes de eventos) são semelhantes aos usados em Node.js.
 
-Example usage:
+Uso de exemplo:
 
 ```javascript
-const { app } = require('electron')
-app.whenReady().then(() => {
+const { app } = require ('electron')
+app.whenReady().then(((() => {
   const { net } = require('electron')
-  const request = net.request('https://github.com')
-  request.on('response', (response) => {
-    console.log(`STATUS: ${response.statusCode}`)
-    console.log(`HEADERS: ${JSON.stringify(response.headers)}`)
+  pedido de const = net.request ('https://github.com')
+  request.on('response', (resposta) => {
+    console.log('STATUS: ${response.statusCode}') console
+    .log('HEADERS: ${JSON.stringify(response.headers)}')
     response.on('data', (chunk) => {
-      console.log(`BODY: ${chunk}`)
+      console.log('BODY: ${chunk}')
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('Sem mais dados em resposta.')
     })
   })
   request.end()
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+A `net` API só pode ser usada após o aplicativo emitir o evento `ready` . Tentar usar o módulo antes do evento `ready` vai dar um erro.
 
 ## Métodos
 
@@ -44,22 +44,22 @@ O módulo `net` possui os seguintes métodos:
 
 ### `net.request(options)`
 
-* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
+* `options` (ClientRequestConstructorOptions | String) - As opções de `ClientRequest` construtor.
 
-Returns [`ClientRequest`](./client-request.md)
+Retornos [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Cria uma instância [`ClientRequest`](./client-request.md) utilizando os `options` fornecidos que são encaminhados diretamente para o `ClientRequest` construtor. O método `net.request` seria usado para emitir solicitações de HTTP seguras e inseguras de acordo com o esquema de protocolo especificado no objeto `options` .
 
 ### `net.isOnline()`
 
-Returns `Boolean` - Whether there is currently internet connection.
+Retornos `Boolean` - Se existe atualmente conexão com a internet.
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+Um valor de retorno de `false` é um indicador muito forte de que o usuário não será capaz de se conectar a sites remotos. No entanto, o valor de retorno de `true` é inconclusivo; mesmo que algum link esteja para cima, é incerto se uma determinada tentativa de conexão a um determinado local remoto será bem sucedida.
 
 ## Propriedades
 
 ### `net.online` _Readonly_
 
-A `Boolean` property. Whether there is currently internet connection.
+Uma propriedade `Boolean` . Se existe atualmente conexão com a internet.
 
-A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
+Um valor de retorno de `false` é um indicador muito forte de que o usuário não será capaz de se conectar a sites remotos. No entanto, o valor de retorno de `true` é inconclusivo; mesmo que algum link esteja para cima, é incerto se uma determinada tentativa de conexão a um determinado local remoto será bem sucedida.
