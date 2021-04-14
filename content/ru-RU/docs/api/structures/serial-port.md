@@ -1,10 +1,10 @@
-# SerialPort Object
+# Объект serialPort
 
-* `portId` String - Unique identifier for the port.
-* `portName` String - Name of the port.
-* `displayName` String - A string suitable for display to the user for describing this device.
-* `vendorId` String - Optional USB vendor ID.
-* `productId` String - Optional USB product ID.
-* `serialNumber` String - The USB device serial number.
-* `usbDriverName` String (optional) - Represents a single serial port on macOS can be enumerated by multiple drivers.
-* `deviceInstanceId` String (optional) - A stable identifier on Windows that can be used for device permissions.
+* `portId` String - уникальный идентификатор для порта.
+* `portName` String - Название порта.
+* `displayName` String - строка, подходящая для отображения пользователем для описания этого устройства.
+* `vendorId` String - дополнительный идентификатор поставщика USB.
+* `productId` String - Дополнительный идентификатор USB-продукта.
+* `serialNumber` String - серийный номер USB-устройства.
+* `usbDriverName` String (по желанию) - Представляет один серийный порт на macOS может быть перечислен несколькими драйверами.
+* `deviceInstanceId` String (по желанию) - стабильный идентификатор на Windows, который может быть использован для разрешений устройств.
