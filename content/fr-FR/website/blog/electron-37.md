@@ -65,12 +65,12 @@ Consultez [cet exemple](https://googlechrome.github.io/samples/keyboardevent-cod
 Chrome 49 a ajouté deux nouveaux événements `fenêtre` </code> qui vous permettent d'être notifié lorsqu'une [promesse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) rejetée n'est pas gérée.
 
 ```js
-window.addEventListener('unhandledrejection', function (event) {
-  console.log('A rejected promise was unhandled', event.promise, event.reason)
+window.addEventListener ('unhandledrejection', fonction (événement) { console
+  .log ('Une promesse rejetée n’a pas été manipulée', event.promise, event.reason)
 })
 
-window.addEventListener('rejectionhandled', function (event) {
-  console.log('A rejected promise was handled', event.promise, event.reason)
+window.addEventListener ('rejectionhandled', function (event) {
+  console.log ('Une promesse rejetée a été manipulée', event.promise, event.reason)
 })
 ```
 
