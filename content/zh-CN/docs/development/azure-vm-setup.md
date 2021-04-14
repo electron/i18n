@@ -1,62 +1,65 @@
-# Updating an Appveyor Azure Image
+# 更新应用者蔚蓝形象
 
-Electron CI on Windows uses AppVeyor, which in turn uses Azure VM images to run.  Occasionally, these VM images need to be updated due to changes in Chromium requirements.  In order to update you will need [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) and the [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0).
+Windows 上的电子 CI 使用应用维奥，后者又使用 Azure VM 图像运行。  有时，由于铬要求的变化，这些 VM 图像需要更新。  为了更新，您将需要 [电源壳](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) 和 [Azure 电源壳模块](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0)。
 
-Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
+有时，我们需要更新这些图像，由于铬的变化或其他杂项构建要求的变化。
 
-Example Use Case:
+示例使用案例：
     * 我们需要安装`VS15.9`或者我们已安装好`VS15.7`；然后可能会请求我们去更新Azure镜像
 
-1. Identify the image you wish to modify.
+1. 识别要修改的图像。
     * 在 [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml)文件中，镜像通过该文件来识别 *镜像* 配置。
         * *“images”*该命名被对应用来定义云构建，例如：[libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8)
     * 找到你希望去修改构建在云端的镜像并且注意镜像的 **VHD Blob Path**（标签），它是对应键值对的值
-        * You will need this URI path to copy into a new image.
+        * 您将需要此 URI 路径来复制到新图像中。
     * 同时需要的的存储账号名，在AppVeyor中被标记为 **Disk Storage Account Name**
 
-2. Get the Azure storage account key
-    * Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor.
-        * Example, for `appveyorlibccbuilds` **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts
-            * Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
+2. 获取 Azure 存储帐户密钥
+    * 使用存储在 LastPass（Azure 企业下）中的凭据登录 Azure，然后找到与 AppVeyor 中查找的名称对应的存储帐户。
+        * 例如，对于 `appveyorlibccbuilds` **磁盘存储帐户名称** 您在存储帐户列表中查找 `appveyorlibccbuilds` @ 家庭 < 存储帐户
+            * 单击它并查找 `Access Keys`，然后您可以使用列表中的任何密钥。
 
-3. Get the full virtual machine image URI from Azure
-    * Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images
-        * In the following list, look for the VHD path name you got from Appveyor and then click on it.
-            * Copy the whole URL from the top of the subsequent window.
+3. 从蔚蓝获取完整的虚拟机图像 URI
+    * 导航到家庭 < 存储帐户 < `$ACCT_NAME` < Blobs < 图像
+        * 在下面的列表中，查找您从 Appveyor 获得的 VHD 路径名称，然后单击它。
+            * 从后续窗口顶部复制整个 URL。
 
-4. Copy the image using the [Copy Master Image PowerShell script](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
-    * It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
-    * Use the storage account name, key, and URI obtained from Azure to run this script.
-        * See Step 3 for URI & when prompted, press enter to use same storage account as destination.
-        * Use default destination container name `(images)`
-        * Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp.
-            * Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
-    * Go into Azure and get the URI for the newly created image as described in a previous step
+4. 使用</a>复制主图像电源壳脚本
 
-5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
-    * From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
-    * You will need the credential information available in the AppVeyor build cloud definition.
-        * This includes:
-            * Client ID
-            * Client Secret
-            * Tenant ID
-            * Subscription ID
-            * Resource Group
-            * Virtual Network
-    * You will also need to specify
-        * Master VM name - just a unique name to identify the temporary VM
-        * Master VM size - use `Standard_F32s_v2`
-        * Master VHD URI - use URI obtained @ end of previous step
-        * Location use `East US`
+复制图像。</p> 
+   
+       * 复制 VM 至关重要，因为如果您将 VM 与 AppVeyor 无法同时使用的图像旋转到图像上。
+    * 使用从 Azure 获得的存储帐户名称、密钥和 URI 来运行此脚本。 
+              * 提示时，请参阅 URI & 步骤 3，按输入以使用与目的地相同的存储帐户。
+        * 使用默认目的地容器名称 `(images)`
+        * 此外，在命名副本时，使用表示新图像将包含的内容（如果已更改）和日期戳的名称。 
+                      * 前。 `libcc-20core-vs2017-15.9-2019-04-15.vhd`
+    * 进入 Azure 并获取前一步骤中描述的新创建图像的 URI</li> 
 
-6. Log back into Azure and find the VM you just created in Home < Virtual Machines < `$YOUR_NEW_VM`
-    * You can download a RDP (Remote Desktop) file to access the VM.
+5 旋转一个新的VM使用 [创建主VM从VHD电源壳](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1)。
+  
+      * 从电源壳，执行 `ps1` 文件与 `./create_master_vm_from_vhd.ps1`
+    * 您将需要 AppVeyor 构建云定义中可用的凭据信息。 
+              * 这包括： 
+                      * 客户端 ID
+            * 客户端机密
+            * 租户 ID
+            * 订阅 ID
+            * 资源组
+            * 虚拟网络
+    * 您还需要指定 
+              * 主VM名称-只是一个独特的名称来识别临时VM
+        * 主VM尺寸- 使用 `Standard_F32s_v2`
+        * 主VHD URI-使用URI获得@结束前一步
+        * 位置使用 `East US`
+6 重新登录到 Azure，并找到您刚刚在家庭虚拟机上创建的 VM < < `$YOUR_NEW_VM`
+  
+      * 您可以下载RDP（远程桌面）文件来访问VM。
+7 使用微软远程桌面，单击 `Connect` 连接到 VM。
+  
+      * 登录 VM 的凭据在 lastPass 中根据 `AppVeyor Enterprise master VM` 凭据找到。
+8 根据需要修改 VM。
 
-7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.
-    * Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
+9 关闭VM，然后在Azure中将其删除。
 
-8. Modify the VM as required.
-
-9. Shut down the VM and then delete it in Azure.
-
-10. Add the new image to the Appveyor Cloud settings or modify an existing image to point to the new VHD.
+10 将新图像添加到应用云设置或修改现有图像以指向新的 VHD。</ol>
