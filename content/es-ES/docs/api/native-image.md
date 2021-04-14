@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+En Electron, en el caso de las API que toman imágenes, puedes pasar rutas de archivo o instancias de`NativeImage` . Una imagen vacía será usada cuando se pase `null`.
 
 Por ejemplo, cuando se crea una bandeja o se configura un icono de la ventana, se puede pasar una ruta de archivo de imagen como un `String`:
 
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## Formatos Soportados
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+Actualmente los formatos de imágenes `PNG` y `JPEG` están soportados. `PNG` es recomendado por su soporte de transparencia y compresión sin pérdida.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
+En Windows, puedes leer iconos `ICO` desde rutas de archivos. Para obtener la mejor calidad de visual, se recomienda incluir al menos los siguientes tamaños en:
 
 * Ícono pequeño
   * 16x16 (100% DPI scale)
@@ -51,7 +51,7 @@ En las plataformas compatibles con altos PPP como las pantallas Apple Retina, se
 
 Por ejemplo, si `icon.png` es una imagen normal que tiene resolución estándar, entonces `icon@2x.png` será tratado como una imagen de alta resolución que tiene densidad DPI.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Por ejemplo:
+Si quieres admitir pantallas con densidades de PPP diferentes al mismo tiempo, puedes colocar imágenes con diferentes tamaños en la misma carpeta y usar el nombre de archivo sin sufijos ppp. Por ejemplo:
 
 ```plaintext
 images/
@@ -82,13 +82,13 @@ Los siguientes sufijos para DPI son soportados:
 
 ## Imagen de plantilla
 
-Template images consist of black and an alpha channel. Las imágenes de plantilla no están destinadas a ser utilizadas como imágenes independientes y son generalmente mezcladas con otro contenido para crear la apariencia final deseada.
+Las imágenes de plantilla consisten en negro y un canal alfa. Las imágenes de plantilla no están destinadas a ser utilizadas como imágenes independientes y son generalmente mezcladas con otro contenido para crear la apariencia final deseada.
 
 El caso mas común es usar imágenes de plantillas para el icono de una barra de menú, así este se puede adaptar a ambas barras de menú clara y oscura.
 
 **Nota:** La imagen de plantilla sólo es soportada en macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. Por ejemplo:
+Para marcar una imagen como plantilla, su nombre de archivo debe terminar con la palabra `Template`. Por ejemplo:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -105,10 +105,14 @@ Crea una instancia vacía `NativeImage`.
 
 ### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
 
-* `path` String - path to a file that we intend to construct a thumbnail out of.
-* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+* `path` ruta de cadena a un archivo del que pretendemos construir una miniatura.
+* `maxSize` [tamaño](structures/size.md) -la anchura y la altura máximas (números positivos) que puede ser la miniatura devuelta. La implementación de Windows ignorará `maxSize.height` y escalará la altura según `maxSize.width`.
 
-Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+Devuelve `Promise<NativeImage>` -cumplido con la imagen de vista previa en miniatura del archivo, que es una</a>
+
+NativeImage.</p> 
+
+
 
 ### `nativeImage.createFromPath(path)`
 
@@ -118,36 +122,45 @@ Devuelve `NativeImage`
 
 Crea una instancia `NativeImage` desde un archivo ubicado en `path`. Este método devuelve una imagen si la `path` no existe, o si no puede ser leída o si la imagen no es válida.
 
-```javascript
-const nativeImage = require('electron').nativeImage
 
-const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
-console.log(image)
+
+```javascript
+const nativeImage = require (' Electron '). nativeImage
+
+const Image = nativeImage. createFromPath ('/users/somebody/images/Icon.png ')
+Console. log (Image)
 ```
+
+
+
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer][buffer]
-* `options` Object
-  * `width` Integer
+* `options` Object 
+    * `width` Integer
   * `alto` Integer
   * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+Crea una nueva instancia de `NativeImage` a partir de `buffer` que contiene el mapa de bits sin procesar datos de píxel devueltos por `toBitmap()`. El formato específico depende de la plataforma.
+
+
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
-* `options` Object (opcional)
-  * `width` Integer (opcional) - Requerido para búferes de bipmaps.
+* `options` Object (opcional) 
+    * `width` Integer (opcional) - Requerido para búferes de bipmaps.
   * `height` Entero (opcional) - Necesario para los búferes de mapa de bits.
   * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `NativeImage`
 
-Crea una nueva instancia `NativeImage` desde `buffer`. Tries to decode as PNG or JPEG first.
+Crea una nueva instancia `NativeImage` desde `buffer`. Intenta decodificar como PNG o JPEG en primer lugar.
+
+
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -156,6 +169,8 @@ Crea una nueva instancia `NativeImage` desde `buffer`. Tries to decode as PNG or
 Devuelve `NativeImage`
 
 Crea una nueva instancia `NativeImage` desde `dataURL`.
+
+
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
@@ -169,7 +184,9 @@ Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el n
 El `hslShift` se aplica a la imagen con las siguientes reglas:
 
 * `hsl_shift[0]` (hue): El valor de hue absoluto para la imagen - 0 y 1 mapea a 0 y 360 en la rueda de color hue  (rojo).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = Dejar sin cambios. 1 = fully saturate the image.
+
+* `hsl_shift[1]` (saturación): un desplazamiento de saturación para la imagen, con los siguientes valores de clave: 0 = eliminar todo el color. 0.5 = Dejar sin cambios. 1 = saturar por completo la imagen.
+
 * `hsl_shift[2]` (luminosidad): Un cambio en la luminosidad para la imagen, con los siguientes valores  claves: 0 = elimina toda la luminosidad (hace que todos los pixeles sean negros). 0.5 = Dejar sin cambios. 1 = Luminosidad total (hace que todos los píxeles sean blancos).
 
 Esto significa que `[-1, 0, 1]` hará la imagen completamente blanca y `[-1, 1, 0]` la hará completamente negra.
@@ -180,22 +197,32 @@ En algunos casos, el `NSImageName` no coincide con su cadena de representación;
 
 donde `SYSTEM_IMAGE_NAME` debe ser reemplazado con cualquier valor de [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
 
+
+
 ## Clase: NativeImage
+
+
 
 > Envuelve nativamente imágenes como la bandeja, el muelle y los íconos de las aplicaciones.
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+
+
 ### Métodos de Instancia
 
 Los siguientes métodos están disponibles para las distancias de la clase `NativeImage`:
 
+
+
 #### `image.toPNG([options])`
 
-* `options` Object (opcional)
-  * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
+* `options` Object (opcional) 
+    * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `Buffer` - Un [Buffer][buffer] que contiene la información codificada de la imagen `PNG`.
+
+
 
 #### `image.toJPEG(quality)`
 
@@ -203,28 +230,36 @@ Devuelve `Buffer` - Un [Buffer][buffer] que contiene la información codificada 
 
 Devuelve `Buffer` - Un [Buffer][buffer]que contiene la información codificada de la imagen `JPEG`.
 
+
+
 #### `image.toBitmap([options])`
 
-* `options` Object (opcional)
-  * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
+* `options` Object (opcional) 
+    * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `Buffer` - Un [Buffer][buffer] que contiene una copia de la información sin procesar de pixeles del mapa de bits de la imagen.
 
+
+
 #### `image.toDataURL([options])`
 
-* `options` Object (opcional)
-  * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
+* `options` Object (opcional) 
+    * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `String` - El URL de información de la imagen.
 
+
+
 #### `image.getBitmap([options])`
 
-* `options` Object (opcional)
-  * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
+* `options` Object (opcional) 
+    * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `Buffer` - Un [Buffer][buffer] que contiene la información sin procesar de pixeles del mapa de bits de la imagen.
 
 La diferencia entre `getBitmap()` y `toBitmap()` es que `getBitmap()` no copia los datos bitmap, por lo que debe utilizar inmediatamente el Búfer devuelto en el ciclo del evento actual; de lo contrario, los datos podrían modificarse o destruirse.
+
+
 
 #### `image.getNativeHandle()` _macOS_
 
@@ -232,9 +267,13 @@ Devuelve `Buffer` - Un [Buffer][buffer] que almacena el puntero C en el controla
 
 Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacente en lugar de una copia. Por lo tanto, _debe _ asegurarse que la instancia asociada `nativeImage` se encuentre cerca.
 
+
+
 #### `image.isEmpty()`
 
 Devuelve `Boolean` - Si la imagen está vacía.
+
+
 
 #### `image.getSize([scaleFactor])`
 
@@ -242,7 +281,9 @@ Devuelve `Boolean` - Si la imagen está vacía.
 
 Devuelve [`Size`](structures/size.md).
 
-If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
+Si se pasa `scaleFactor` , Esto devolverá el tamaño correspondiente a la representación de la imagen que coincida más con el valor que se pasa.
+
+
 
 #### `image.setTemplateImage(option)`
 
@@ -250,9 +291,13 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 
 Marca la imagen como una imagen de plantilla.
 
+
+
 #### `image.isTemplateImage()`
 
 Devuelve `Boolean` - Si la imagen es una imagen de plantilla.
+
+
 
 #### `image.crop(rect)`
 
@@ -260,10 +305,12 @@ Devuelve `Boolean` - Si la imagen es una imagen de plantilla.
 
 Devuelve `NativeImage` - La imagen recortada.
 
+
+
 #### `image.resize(options)`
 
-* `options` Object
-  * `width` Integer (opcional) - Por defecto es el ancho de la imagen.
+* `options` Object 
+    * `width` Integer (opcional) - Por defecto es el ancho de la imagen.
   * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen.
   * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los posibles valores soportados son `good`, `better`, o `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
@@ -271,30 +318,40 @@ Devuelve `NativeImage` - La imagen redimensionada.
 
 Si solo la `height` o la `width` son especificadas, entonces la relación de aspecto actual se conservará en la imagen redimensionada.
 
+
+
 #### `image.getAspectRatio([scaleFactor])`
 
 * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `Float` - La relación de aspecto de la imagen.
 
-If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+Si se pasa `scaleFactor` , Esto devolverá la proporción de aspecto correspondiente a la representación de la imagen que más se asemeje al valor aprobado.
+
+
 
 #### `image.getScaleFactors()`
 
-Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+Devuelve `Float[]` -una matriz de todos los factores de escala correspondientes a las representaciones de una imagen Nativedada determinada.
+
+
 
 #### `image.addRepresentation(options)`
 
-* `options` Object
-  * `scaleFactor` Double - El factor de escala para agregar a la representación de la imagen.
-  * `width` Entero (opcional) - Por defecto es 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Entero (opcional) - Por defecto es 0. Required if a bitmap buffer is specified as `buffer`.
+* `options` Object 
+    * `scaleFactor` Double - El factor de escala para agregar a la representación de la imagen.
+  * `width` Entero (opcional) - Por defecto es 0. Requerido si un del búfer de mapa de bits se especifica como `buffer`.
+  * `height` Entero (opcional) - Por defecto es 0. Requerido si un del búfer de mapa de bits se especifica como `buffer`.
   * `buffer` Buffer (opcional) - El buffer que contiene los datos de la imagen sin procesar.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Agregar una representación de imagen para un factor de escala específico. Esto se puede usar para agregar de forma explícita representaciones de factores de escala diferentes a una imagen. Este se puede llamar en imágenes vacías.
+
+
 
 ### Propiedades de Instancia
+
+
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
