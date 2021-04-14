@@ -29,25 +29,25 @@ npm install -g electron-windows-store
 结构输出应该看起来大致像这样:
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
-├── node.dll
-├── resources
-│   └── app.asar
-├── v8_context_snapshot.bin
-├── squirrel.exe
-└── ui_resources_200_percent.pak
+├——幽灵.exe
+├——
+├——content_resources_200_percent.pak
+├——content_shell.pak
+├——d3dcompiler_47.dll
+├——法佩格.dll
+├ 伊库特.dat
+├--自由.dll
+├--自由人2.dll
+├-当地人
+│ ├-am.pak
+│ ├--阿尔-帕克
+│ ├--- [...]
+├-节点.dll
+├-资源
+│ └-应用程序.阿萨尔
+├---v8_context_snapshot.bin
+├-松鼠.exe
+└--ui_resources_200_percent.pak
 ```
 
 ## 步骤 2: 运行 electron-windows-store
