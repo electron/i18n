@@ -6,35 +6,45 @@ Ce dépôt utilise des règles de qualité de code pour JavaScript et C++ ainsi 
 
 ## Linting
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons][standard-addons] to be informed of coding style violations before you ever commit them.
+Pour vous assurer que votre JavaScript est en conformité avec le style de de codage électronique, exécutez `npm run lint-js`, qui exécutera des `standard` à la fois contre Electron lui-même ainsi que les tests unitaires. Si vous utilisez un d’éditeur avec un système plugin/addon, vous pouvez utiliser l’un des nombreux addons [Addons standardJS][standard-addons] pour être informé des violations du style de codage avant de les commettre.
 
-To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
+Pour exécuter `standard` paramètres, exécutez- `npm run lint-js --` suivi de arguments que vous voulez passer à `standard`.
 
-To ensure that your C++ is in compliance with the Electron coding style, run `npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+Pour vous assurer que votre C++ est conforme au style de codage Electron, exécutez `npm run lint-cpp`, qui exécute un script `cpplint` . Nous vous recommandons utiliser `clang-format` et préparé [un court tutoriel](clang-format.md).
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+Il n’y a pas beaucoup de Python dans ce référentiel, mais il est également régi règles de style de codage. `npm run lint-py` vérifierons tous les Python, en utilisant `pylint` pour le faire.
 
 ## Tests unitaires
 
-If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+Si vous n’utilisez pas</a>d’outils de build
+, assurez-vous que ce nom que vous avez configuré pour votre build local d’Electron est l’un des `Testing`, `Release`, `Default`, `Debug`ou que vous avez défini `process.env.ELECTRON_OUT_DIR`. Sans ces ensembles, Electron ne pas effectuer certaines étapes de pré-test.</p> 
 
-To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+Pour exécuter tous les tests unitaires, exécutez `npm run test`. Les tests unitaires sont une application électronique (surprise!) que l’on retrouve dans `spec` dossier. Notez qu’il a sa propre `package.json` et que ses dépendances ne sont donc pas définies dans le haut niveau `package.json`.
 
-To run only specific tests matching a pattern, run `npm run test --
--g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
+Pour exécuter uniquement des tests spécifiques correspondant à un modèle, `exécutez un test d’exécuter npm --
+-g=PATTERN`, en remplaçant le `PATTERN` par un regex qui correspond aux de tests que vous souhaitez exécuter. À titre d’exemple : si vous ne souhaitez exécuter que des tests IPC, vous exécuteriez `npm run test -- -g ipc`.
 
-### Testing on Windows 10 devices
 
-#### Extra steps to run the unit test:
 
-1. Visual Studio 2019 must be installed.
-2. Node headers have to be compiled for your configuration.
+### Tests sur les appareils Windows 10
+
+
+
+#### Étapes supplémentaires pour exécuter le test unitaire :
+
+1. Visual Studio 2019 doit être installé.
+2. Les en-têtes de nœud doivent être compilés pour votre configuration. 
+   
+   
 
    ```powershell
-   ninja -C out\Testing third_party\electron_node:headers
+   ninja -C out\Testing third_party\electron_node:en-têtes
    ```
 
-3. The electron.lib has to be copied as node.lib.
+
+3. L’electron.lib doit être copié comme node.lib. 
+   
+   
 
    ```powershell
    cd out\Testing
@@ -42,21 +52,26 @@ To run only specific tests matching a pattern, run `npm run test --
    copy electron.lib gen\node_headers\Release\node.lib
    ```
 
-#### Missing fonts
 
-[Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
 
-1. Push the Windows key and search for _Manage optional features_.
-2. Click _Add a feature_.
-3. Select _Japanese Supplemental Fonts_ and click _Install_.
 
-#### Pixel measurements
+#### Polices manquantes
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+[certains appareils Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) n’expédiquent pas avec la police Meiryo installée, ce qui peut provoquer un test de repli de police. Pour installer Meiryo :
 
-To configure display scaling:
+1. Poussez la clé Windows et recherchez des fonctionnalités _gérer les fonctionnalités_.
+2. Cliquez _Ajouter une fonctionnalité_.
+3. Sélectionnez _polices supplémentaires japonaises_ cliquez sur _installer_.
 
-1. Push the Windows key and search for _Display settings_.
-2. Under _Scale and layout_, make sure that the device is set to 100%.
+
+
+#### Mesures de pixel
+
+Certains tests qui reposent sur des mesures précises des pixels peuvent ne pas fonctionner correctement sur les appareils avec des paramètres d’écran Hi-DPI en raison d’erreurs de précision de point flottant. Pour exécuter ces tests correctement, assurez-vous que l’appareil est réglé à 100% mise à l’échelle.
+
+Pour configurer la mise à l’échelle d’affichage :
+
+1. Poussez la clé Windows et recherchez les paramètres _'affichage_.
+2. Sous _échelle et la mise en_, assurez-vous que l’appareil est réglé à 100%.
 
 [standard-addons]: https://standardjs.com/#are-there-text-editor-plugins
