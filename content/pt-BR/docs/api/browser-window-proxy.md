@@ -4,11 +4,11 @@
 
 Processo: [Renderizador](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+O objeto `BrowserWindowProxy` é devolvido de `window.open` e fornece funcionalidade limitada com a janela da criança.
 
 ### Métodos de Instância
 
-The `BrowserWindowProxy` object has the following instance methods:
+O objeto `BrowserWindowProxy` tem os seguintes métodos de instância:
 
 #### `win.blur()`
 
@@ -22,29 +22,29 @@ Forçadamente fecha a janela filha sem chamar o evento unload.
 
 * `code` String
 
-Evaluates the code in the child window.
+Avalia o código na janela da criança.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Foca a janela da criança (traz a janela para a frente).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Invoca o diálogo de impressão na janela da criança.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` any
+* `message` qualquer
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Envia uma mensagem para a janela da criança com a origem especificada ou `*` sem preferência de origem .
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+Além desses métodos, a janela infantil implementa `window.opener` objeto sem propriedades e um único método.
 
 ### Propriedades de Instância
 
-The `BrowserWindowProxy` object has the following instance properties:
+O objeto `BrowserWindowProxy` tem as seguintes propriedades de instância:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+Uma `Boolean` que é definida para acontecer depois que a janela da criança é fechada.
