@@ -6,18 +6,18 @@
 
 Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
-## Sandbox
+## 沙 箱
 
 在沙盒化的渲染进程中， `process` 对象只包含了API的一个子集:
 
-- `crash()`
-- `hang()`
-- `getCreationTime()`
-- `getHeapStatistics()`
-- `getBlinkMemoryInfo()`
+- `崩溃（）`
+- `挂（）`
+- `获取创建时间（）`
+- `获取海普统计学（）`
+- `获取链接记忆信息（）`
 - `getProcessMemoryInfo()`
 - `getSystemMemoryInfo()`
-- `getSystemVersion()`
+- `获取系统转换（）`
 - `getCPUUsage()`
 - `getIOCounters()`
 - `argv`
@@ -39,31 +39,19 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 当Electron加载了它的内部初始化脚本并且是正要开始加载网页或主脚本时触发。
 
-当node集成被关闭时，预加载脚本可以使用它将删除的 Node global symbols 添加回全局范围：
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Properties
 
-### `process.defaultApp` _Readonly_
+### `process.defaultApp` _·里德利·_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+一 `Boolean`。 When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` _Readonly_
+### `process.isMainFrame` _·里德利·_
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` _Readonly_
+### `process.mas` _·里德利·_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+一 `Boolean`。 For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
@@ -73,13 +61,13 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 `Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
-### `process.resourcesPath` _Readonly_
+### `process.resourcesPath` _·里德利·_
 
 ` String ` 类型， 表示资源目录的路径。
 
-### `process.sandboxed` _Readonly_
+### `process.sandboxed` _·里德利·_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+一 `Boolean`。 When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.throwDeprecation`
 
@@ -93,25 +81,25 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
-### `process.type` _Readonly_
+### `process.type` _·里德利·_
 
 A `String` representing the current process's type, can be:
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - 主要过程
+* `renderer` - 渲染器过程
+* `worker` - 在网络工作者中
 
-### `process.versions.chrome` _Readonly_
+### `process.versions.chrome` _·里德利·_
 
 ` string `，一个表示 Chrome 版本的字符串。
 
-### `process.versions.electron` _Readonly_
+### `process.versions.electron` _·里德利·_
 
 ` string `，一个表示 Electron 版本的字符串。
 
-### `process.windowsStore` _Readonly_
+### `process.windowsStore` _·里德利·_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+一 `Boolean`。 If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## 方法
 
@@ -121,11 +109,11 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 导致当前进程崩溃的主线程。
 
-### `process.getCreationTime()`
+### `过程。获取创建时间（）`
 
 返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+Indicates the creation time of the application. 时间表示为自时代以来的毫秒数。 It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
@@ -135,29 +123,29 @@ Indicates the creation time of the application. The time is represented as numbe
 
 返回 [`IOCounters`](structures/io-counters.md)
 
-### `process.getHeapStatistics()`
+### `过程。获取集权统计学（）`
 
 返回 ` Object `:
 
-* `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
+* `totalHeapSize` 整数
+* `totalHeapSizeExecutable` 整数
+* `totalPhysicalSize` 整数
+* `totalAvailableSize` 整数
+* `usedHeapSize` 整数
+* `heapSizeLimit` 整数
+* `mallocedMemory` 整数
+* `peakMallocedMemory` 整数
+* `doesZapGarbage` ·布尔
 
 Returns an object with V8 heap statistics. 备注：所有数据值以KB为单位
 
-### `process.getBlinkMemoryInfo()`
+### `过程。获取链接记忆信息（）`
 
 返回 ` Object `:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `allocated` 整数 - 千字节中所有分配对象的大小。
+* `marked` 整数 - 千字节中所有标记对象的大小。
+* `total` 整数 - 千字节分配的空间总数。
 
 Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
@@ -180,7 +168,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
-### `process.getSystemVersion()`
+### `过程。获取系统转换（）`
 
 Returns `String` - The version of the host operating system.
 
@@ -198,11 +186,11 @@ console.log(version)
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` 字符串 - 输出文件的路径。
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+采取V8堆快照，并保存到 `filePath`。
 
 ### `process.hang()`
 
