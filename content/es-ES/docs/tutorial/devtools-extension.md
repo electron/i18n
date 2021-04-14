@@ -29,7 +29,7 @@ Usando el [React Developer Tools][react-devtools] como un ejemplo:
     const path = require('path')
     const os = require('os')
 
-    // en macOS
+    // on macOS
     const reactDevToolsPath = path.join(
       os.homedir(),
       '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.9.0_0'
