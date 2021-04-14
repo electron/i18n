@@ -4,14 +4,14 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `new TouchBarLabel(options)`
+### `nouveau TouchBarLabel (options)`
 
-* `options` Object
+* `options` objet
   * `label` String (facultatif) - Texte à afficher.
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
+  * `accessibilityLabel` String (facultatif) - Une courte description du bouton pour une utilisation par les lecteurs d’écran comme VoiceOver.
   * `textColor` String (facultatif) - Couleur hexadécimal du texte, c.-à-d. `#ABCDEF`.
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+Lors de la `accessibilityLabel`, assurez-vous d’avoir considéré macOS [meilleures pratiques](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Propriétés d'instance
 
@@ -19,12 +19,12 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarLabel
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Un `String` représentant le texte actuel de l’étiquette. La modification de cette valeur met immédiatement à jour l’étiquette la barre tactile.
 
 #### `touchBarLabel.accessibilityLabel`
 
-A `String` representing the description of the label to be read by a screen reader.
+Un `String` la description de l’étiquette à lire par un lecteur d’écran.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Un `String` code hex représentant la couleur de texte actuelle de l’étiquette. La modification de cette valeur met immédiatement à jour 'étiquette dans la barre tactile.
