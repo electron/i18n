@@ -80,13 +80,13 @@ autoUpdater. n('update-downloaded', (событие, releaseNotes, releaseName) 
     кнопки: ['Перезапустить', 'Позже'],
     название: 'Application Update',
     сообщение: процесс. latform === 'win32' ? releaseNotes : releaseName,
-    detail: 'Новая версия была загружена. Restart the application to apply the updates.'
-  }
+    detail: 'Новая версия была загружена. Перезапустить приложение, чтобы применить обновления.
+  
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall()
-  })
-})
+  dialog.showMessageBox (dialogOpts
+
+  
+    > ).
 ```
 
 Также убедитесь, что ошибки [обрабатываются](../api/auto-updater.md#event-error). Вот пример для записи в `stderr`:
