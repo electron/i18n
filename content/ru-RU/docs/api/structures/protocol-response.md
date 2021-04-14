@@ -11,6 +11,6 @@
 * `referrer` String (опционально) - Это `referrer` URL. Это используется только для файлов и URL ответов.
 * `method` String (опционально) - Это HTTP `method`. Это используется только для файлов и URL ответов.
 * `session` Session (опционально) -Сессия, используемая для запроса URL, по умолчанию HTTP-запрос будет повторно использовать текущую сессию. Установка `session` в `null` будет использовать случайную независимую сессию. Это используется только для URL ответов.
-* `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (optional) - The data used as upload data. Это используется только для URL ответов, когда `method` является `"POST"`.
+* `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (по желанию) - данные, используемые в качестве данных загрузки. Это используется только для URL ответов, когда `method` является `"POST"`.
 
 [net-error]: https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h
