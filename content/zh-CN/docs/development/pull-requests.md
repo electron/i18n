@@ -34,7 +34,7 @@ $ git fetch upstream
 
 根据您的操作系统, 项目构建步骤和依赖项稍有不同。 请参阅这些关于构建 Electron 项目的详细指南:
 
-* [Building on macOS](build-instructions-macos.md)
+* [以马科斯为基础](build-instructions-macos.md)
 * [在 Linux 上构建](build-instructions-linux.md)
 * [在 Windows 上构建](build-instructions-windows.md)
 
@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### 步骤4: 编写代码
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+针对 `electron/electron` 存储库打开的大多数拉取请求包括 更改 `shell/` 文件夹中的 C/C++ 代码、 `lib/` 文件夹中的 javaScript 代码 、 `docs/api/` 文档或 `spec/` 文件夹中的测试。
 
 请确保都运行 ` npm run lint ` 在任何代码更改后, 以确保它们遵循项目的代码样式。
 
@@ -73,38 +73,38 @@ $ git commit
 
 好的提交说明应描述更改的内容和原因。 Electron项目使用[语义化提交信息](https://conventionalcommits.org/)以精简发布过程。
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+在拉动请求可以合并之前，它 **必须** 具有带有语义前缀的拉动请求标题。
 
 带有语义化前缀的提交信息的样例：
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
+* `修复：如果无法防止默认，请不要覆盖prevent_default`
+* `壮举：添加应用程序。是包装（）方法`
 * `docs: app.isDefaultProtocolClient 现在在Linux可用`
 
 常见前缀：
 
-* fix: A bug fix
-* feat: A new feature
-* docs: Documentation changes
-* test: Adding missing tests or correcting existing tests
-* build: Changes that affect the build system
-* ci: Changes to our CI configuration files and scripts
-* perf: A code change that improves performance
-* refactor: A code change that neither fixes a bug nor adds a feature
-* style: Changes that do not affect the meaning of the code (linting)
-* vendor: Bumping a dependency like libchromiumcontent or node
+* 修复：错误修复
+* 壮举：新功能
+* 文档：文档更改
+* 测试：添加缺失的测试或更正现有测试
+* 构建：影响构建系统的更改
+* ci：更改我们的CI配置文件和脚本
+* 性能：提高性能的代码更改
+* 重构器：既不修复错误也不添加功能的代码更改
+* 样式：不影响代码含义的更改（衬里）
+* 供应商： 颠簸依赖性， 如紫铬或节点
 
 其他在写提交信息时需要留意的事情：
 
 1. 第一行应该:
-   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * 包含更改的简短描述（最好是 50 个字符或更少， ，不超过 72 个字符）
    * 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
 2. 将第二行留空。
 3. 每行文字在72列处换行。
 
 #### 重大更改
 
-A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). 一个重大更改可以是任何类型提交的一部分。 e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+在其可选的 身体或脚部分的开头 `BREAKING CHANGE:` 文本的提交会引入突发的 API 更改（与语义版本中的主要 相关）。 一个重大更改可以是任何类型提交的一部分。 例如，除 其他类型外， `fix:`、 `feat:` & `chore:` 类型均有效。
 
 参阅 [conventionalcommits.org](https://conventionalcommits.org) 以获得更多细节。
 
@@ -131,7 +131,7 @@ $ npm run test
 
 请确保 linter 不报告任何问题, 并且所有测试都通过。 请不要提交失败的修补程序或检查。
 
-If you are updating tests and want to run a single spec to check it:
+如果您正在更新测试并希望运行单个规格来检查它：
 
 ```sh
 $ npm run test -match=menu
@@ -180,9 +180,9 @@ $ git push origin my-branch
 
 #### 批准和请求更改工作流程
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+所有拉取请求都需要获得 [代码所有者的批准，](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) 您为了着陆而修改的区域。 每当维护者查看拉 请求时，他们可能会请求更改。 这些可能很小，例如修复拼写错误，或者 可能涉及实质性更改。 这些请求意在有所帮助，但有时 可能会被视为突然或无益，特别是如果它们不包括关于 *如何* 改变它们的具体建议 具体建议。
 
-尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 这样的困难往往可以用一点耐心来解决。 That said, reviewers should be expected to provide helpful feedback.
+尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 这样的困难往往可以用一点耐心来解决。 也就是说， 评论者应该提供有用的反馈。
 
 ### 步骤11: 执行合并
 
@@ -196,4 +196,4 @@ All pull requests require approval from a [Code Owner](https://github.com/electr
 
 理想情况下, 代码合并请求将在 CI 的所有平台上通过测试 ("变成绿色")。 这意味着所有测试都通过, 并且没有 linting 错误。 然而，CI 自身的基础设施在特定的平台上或者在"不可靠"的测试下会失败("变红") 的情况并不少见。 必须手动检查每个 CI 故障以确定原因。
 
-CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+当您打开拉动请求时，CI 会自动启动，但只有 核心维护器才能重新启动 CI 运行。 如果您认为 CI 给出了 假阴性，请要求维护者重新启动测试。
