@@ -36,15 +36,15 @@ yarn add electron --dev --exact
 
 Se você já estivesse usando definições de terceiros como `@types/electron` e `@types/node`, você deve removê-los de seu projeto Electron para evitar colisões.
 
-O arquivo de definição é derivado de nossa [documentação da API estruturada](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), então será sempre consistente com a [documentação de API do Electron](https://electronjs.org/docs/api/). Just install `electron` and you'll always get TypeScript definitions that are up to date with the version of Electron you're using.
+O arquivo de definição é derivado de nossa [documentação da API estruturada](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), então será sempre consistente com a [documentação de API do Electron](https://electronjs.org/docs/api/). Basta instalar `electron` e você sempre terá definições do TypeScript que estão atualizadas com a versão do Electron que você está usando.
 
 ## Usando
 
 Para um resumo de como instalar e usar as novas anotações do Electron's TypeScript, assista esta breve screencast: <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/), you've already got TypeScript support built in. There are also community-maintained plugins for [Atom](https://atom.io/packages/atom-typescript), [Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin), [vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), and [other editors](https://www.typescriptlang.org/index.html#download-links).
+Se você está usando [](https://code.visualstudio.com/)de código do estúdio visual, você já tem suporte ao TypeScript incorporado. Há também plugins de mantidos pela comunidade para [](https://atom.io/packages/atom-typescript)Atom , [Sublime](https://github.com/Microsoft/TypeScript-Sublime-Plugin), [vim](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support#vim), e [outros editores](https://www.typescriptlang.org/index.html#download-links).
 
-Once your editor is configured for TypeScript, you'll start to see more context-aware behavior like autocomplete suggestions, inline method reference, argument checking, and more.
+Uma vez que seu editor esteja configurado para TypeScript, você começará a ver um comportamento mais consciente do contexto, como sugestões de preenchimento automático, referência no método inline, verificação de argumentos e muito mais.
 
 <figure>
   <img src="https://cloud.githubusercontent.com/assets/2289/26128017/f6318c20-3a3f-11e7-9c2c-401a32d1f9fb.png" alt="Autocompletar método">
