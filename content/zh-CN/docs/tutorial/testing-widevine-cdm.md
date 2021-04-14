@@ -2,7 +2,7 @@
 
 在 Electron 中，你可以使用 Widevine CDM 库装载 Chrome 浏览器。
 
-Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. 广义支持是目前依靠银灯来播放 DRM保护视频内容的 流媒体服务的替代解决方案。 它将允许网站在 Firefox 中显示 DRM 保护的视频 内容，而无需使用 NPAPI 插件。 宽体清洁发展机制运行于 开放源码清洁发展机制沙盒，比NPAPI插件提供更好的用户安全。
+广文内容解密模块 （CDM） 是流媒体服务如何保护使用 HTML5 视频到 Web 浏览器的 内容，而无需依赖闪存或银光等 NPAPI 插件 。 广义支持是目前依靠银灯来播放 DRM保护视频内容的 流媒体服务的替代解决方案。 它将允许网站在 Firefox 中显示 DRM 保护的视频 内容，而无需使用 NPAPI 插件。 宽体清洁发展机制运行于 开放源码清洁发展机制沙盒，比NPAPI插件提供更好的用户安全。
 
 #### VMP 上的注释
 
@@ -34,7 +34,7 @@ Widevine Content Decryption Modules (CDMs) are how streaming services protect co
 
 ## 使用库
 
-在获取库文件后，您应该将路径传递到文件 与 `--wandvine-cdm-path` 命令行开关， 和库版本 用 `--widvine-cdm-version` 开关。 The command line switches have to be passed before the `ready` event of `app` module gets emitted.
+在获取库文件后，您应该将路径传递到文件 与 `--wandvine-cdm-path` 命令行开关， 和库版本 用 `--widvine-cdm-version` 开关。 在发出 `app` 模块的 `ready` 事件之前，必须 通过命令线交换机。
 
 示例代码：
 
@@ -46,13 +46,13 @@ const { app, BrowserWindow } = require('electron')
 // * Windows上的 `widvinecdm.dll` 。
 app.commandLine.appendSwitch('widvine-cdm-path', '/path/to/warvine_library')
 // 插件版本可以从 Chrome://components`页面获取。
-app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
+应用.命令Line.附录开关（"宽文cdm版本"，"1.4.8.866"）
 
-let win = null
-app.whenReady().then(() => {
-  win = new BrowserWindow()
-  win.show()
-})
+让赢=空
+
+
+  
+  > 应用程序。
 ```
 
 ## 验证广义清洁发展机制支持
