@@ -32,7 +32,7 @@ El "Main World" es el contexto de JavaScript que corre tu código renderer princ
 
 ### Mundo aislado
 
-Cuando `contextIsolation` está activado en tu `webPreferences`, tus scripts `preload` se ejecutan en un "Mundo Aislado".  Puede leer más sobre aislamiento del contexto y que afecta en los documentos [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
+Cuando `contextIsolation` está activado en tu `webPreferences` (este es el comportamiento por defecto desde Electron 12.0.0), tus scripts `preload` corren en un "Mundo aislado".  Puede leer más sobre aislamiento del contexto y que afecta en los documentos [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
 
 ## Métodos
 
@@ -95,9 +95,25 @@ Dado que los parámetros, errores y valores de retorno son **copiados** cuando s
 | `Objeto`                                                                                                       | Complejo    | ✅                     | ✅                          | Las llaves deben ser soportadas usando solo los tipos "Simple" en esta tabla.  Los valores deben ser soportadas en esta tabla.  Las modificaciones del prototipo se eliminan.  Enviar clases personalizadas copiará valores pero no el prototipo. |
 | `Array`                                                                                                        | Complejo    | ✅                     | ✅                          | Mismas limitaciones para el tipo `Object`                                                                                                                                                                                                         |
 | `Error`                                                                                                        | Complejo    | ✅                     | ✅                          | Los errores que se lanzan también se copian, esto puede resultar en que el mensaje y el seguimiento de la pila del error cambien ligeramente debido a que se lanzan en un contexto diferente                                                      |
-| `Promise`                                                                                                      | Complejo    | ✅                     | ✅                          | Las promesas solo se transfieren si son el valor de retorno o el parámetro exacto.  Las promesas anidadas en arrays o objetos serán eliminadas.                                                                                                   |
+| `Promesa`                                                                                                      | Complejo    | ✅                     | ✅                          | Las promesas solo se transfieren si son el valor de retorno o el parámetro exacto.  Las promesas anidadas en arrays o objetos serán eliminadas.                                                                                                   |
 | `Function`                                                                                                     | Complejo    | ✅                     | ✅                          | Las modificaciones del prototipo se eliminan.  Enviar clases o constructores no funcionará.                                                                                                                                                       |
 | [Tipos Clonables](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple      | ✅                     | ✅                          | Veer el documento vinculado en tipos clonables                                                                                                                                                                                                    |
 | `Símbolo`                                                                                                      | N/A         | ❌                     | ❌                          | Los Symbols no pueden ser copiados a través de contextos así que son eliminados                                                                                                                                                                   |
 
 Si el tipo que te interesa no está en la tabla anterior, probablemente no esté soportado.
+
+### Exponer Global Symbols de Node
+
+El `contextBridge` puede ser utilizado por el script de precarga para dar acceso al renderizador a las APIs de Node. La tabla de tipos soportados descrita anteriormente aplica también a las APIs de Node que expongas a través de `contextBridge`. Tenga en cuenta que muchas APIs de Nodo conceden acceso a los recursos del sistema local. Se muy cauteloso sobre que APIs y globales expones a contenido remoto que no es de confianza.
+
+```javascript
+const { contextBridge } = require('electron')
+const crypto = require('crypto')
+contextBridge.exposeInMainWorld('nodeCrypto', {
+  sha256sum (data) {
+    const hash = crypto.createHash('sha256')
+    hash.update(data)
+    return hash.digest('hex')
+  }
+})
+```
