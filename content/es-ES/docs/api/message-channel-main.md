@@ -1,8 +1,8 @@
 # MessageChannelMain
 
-`MessageChannelMain` is the main-process-side equivalent of the DOM [`MessageChannel`][] object. Its singular function is to create a pair of connected [`MessagePortMain`](message-port-main.md) objects.
+`MessageChannelMain` es el equivalente del lado del proceso principal del DOM [`MessageChannel`][] objeto. Su función singular es crear un par de [conectados`MessagePortMain`](message-port-main.md) objetos.
 
-See the [Channel Messaging API][] documentation for more information on using channel messaging.
+Consulta la documentación de la API de mensajería de [Channel][] para obtener más información sobre el uso de mensajería de canal.
 
 ## Clase: MessageChannelMain
 
@@ -30,11 +30,11 @@ ipcRenderer.on('port', (e) => {
 
 #### `channel.port1`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Una propiedad [`MessagePortMain`](message-port-main.md).
 
 #### `channel.port2`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Una propiedad [`MessagePortMain`](message-port-main.md).
 
 [`MessageChannel`]: https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel
-[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[Channel]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
