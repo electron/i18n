@@ -4,4 +4,4 @@
 * `referrer` String
 * `method` String
 * `uploadData` [UploadData[]](upload-data.md) (optional)
-* `headers` Record<String, String>
+* `headers` -Rekord<String, String>
