@@ -1,8 +1,8 @@
 # Depurando en VSCode
 
-This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
+Esta guía va sobre cómo configurar la depuración VSCode para tu propio proyecto de electrones, así como la base de código de electrones nativa.
 
-## Debugging your Electron app
+## Depurar tu App Electron
 
 ### Proceso principal
 
@@ -20,7 +20,7 @@ $ code electron-quick-start
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Depurar el Proceso Principal",
+      "name": "Debug Main Process",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
@@ -41,11 +41,11 @@ Establece algunos puntos de interrupción en `main.js`, y comienza a depurar en 
 
 Aquí hay un proyecto preconfigurado que puede descargar y depurar directamente en VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## Depurar la base de código de electrones
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+Si deseas construir Electron desde la fuente y modificar la base de código electrón nativa, esta sección te ayudará a probar tus modificaciones.
 
-For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
+Para aquellos que no están seguro de dónde adquirir este código o cómo construirla, [herramientas de construcción de Electron](https://github.com/electron/build-tools) automatiza y explica la mayor parte de este proceso. Si deseas configurar de forma manual el entorno, puedes usar en su lugar estas instrucciones de construcción de [](https://www.electronjs.org/docs/development/build-instructions-gn).
 
 ### Windows (C++)
 
@@ -84,16 +84,16 @@ $ code electron-quick-start
 }
 ```
 
-**Configuration Notes**
+**Notas de configuración**
 
-* `cppvsdbg` requires the [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) be enabled.
-* `${workspaceFolder}` is the full path to Chromium's `src` directory.
-* `your-executable-location` will be one of the following depending on a few items:
-  * `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
-  * `Release`: If you built a Release build rather than a Testing build.
-  * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
-* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
+* `cppvsdbg` requiere la [extensión de C/C++ integrada](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) habilitarse.
+* `${workspaceFolder}` es la ruta completa al directorio de `src` de Chromium.
+* `your-executable-location` será uno de los siguientes según algunos elementos:
+  * `Testing`: Si estás usando los parámetros predeterminados de las herramientas de construcción de [Electron](https://github.com/electron/build-tools) o las instrucciones predeterminadas cuando [construir desde la fuente](https://www.electronjs.org/docs/development/build-instructions-gn#building).
+  * `Release`: si construiste una compilación de lanzamiento en lugar de una compilación de prueba.
+  * `your-directory-name`: si Modificaste esto durante tu proceso de construcción desde el predeterminado, será lo que especificaste.
+* La cadena de la matriz de `args` `"your-electron-project-path"` debe ser la ruta absoluta al directorio o al archivo `main.js` del proyecto electrónico que estás utilizando para la prueba. En este ejemplo, debe ser tu ruta para `electron-quick-start`.
 
 #### 3. Depurar
 
-Set some breakpoints in the .cc files of your choosing in the native Electron C++ code, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging).
+Establece algunos puntos de interrupción en los archivos. CC que elijas en el código nativo de Electron C++, e inicia la depuración en el</a>vista de depuración.</p>
