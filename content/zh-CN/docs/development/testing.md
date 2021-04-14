@@ -12,11 +12,11 @@
 
 要确保您的C ++代码符合Electron编码风格，请执行`npm run lint-cpp`，它将会执行`cpplint`脚本。 我们建议您使用`clang-format`并准备[一个简短的教程](clang-format.md)。
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+这个存储库中没有很多 Python，但它也受编码样式规则 。 `npm run lint-py` 将检查所有Python，使用 `pylint` 这样做。
 
 ## 单元测试
 
-If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+如果您没有使用 [构建工具](https://github.com/electron/build-tools)， 确保您为 本地电子构建配置的名称是您设置 `process.env.ELECTRON_OUT_DIR`的 `Testing`、 `Release`、 `Default`、 `Debug`或 之一。 如果没有这些设置，电子将无法 执行一些预测试步骤。
 
 要运行所有单元测试，请执行 `npm run test`。 单元测试其实也是一个Electron应用！你可以在`spec` 文件夹中找到它。 请注意，单元测试也有自己的 `package.json`，因此它的依赖没有在最顶层的`package.json`中定义。
 
@@ -25,24 +25,24 @@ If you are not using [build-tools](https://github.com/electron/build-tools), ens
 
 ### 在Windows10上测试
 
-#### Extra steps to run the unit test:
+#### 运行单元测试的额外步骤：
 
-1. Visual Studio 2019 must be installed.
-2. Node headers have to be compiled for your configuration.
-
-   ```powershell
-   ninja -C out\Testing third_party\electron_node:headers
-   ```
-
-3. The electron.lib has to be copied as node.lib.
+1. 必须安装 2019 年视觉工作室。
+2. 必须为您的配置编译节点标题。
 
    ```powershell
-   cd out\Testing
-   mkdir gen\node_headers\Release
-   copy electron.lib gen\node_headers\Release\node.lib
+   忍者-C出\T摄入third_party\electron_node：头
    ```
 
-#### Missing fonts
+3. 电子.lib必须作为节点复制。
+
+   ```powershell
+   cd出\T
+   mkdir代\node_headers\R易
+   复制电子。lib基因\node_headers\R易\n奥德。lib
+   ```
+
+#### 缺少字体
 
 [一些 Windows 10 设备](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list)上没有默认安装Meriryo字体，这会导致字体回退测试的失败。 要安装Meiryo字体：
 
@@ -50,7 +50,7 @@ If you are not using [build-tools](https://github.com/electron/build-tools), ens
 2. 单击_添加功能_
 3. 选择_Japanese Supplemental Fonts_并单击 _安装_
 
-#### Pixel measurements
+#### 像素测量
 
 由于浮点数精度误差，某些依赖于精确像素测量的测试可能无法正常在Hi-DPI屏幕的设备上工作。 为了使这些测试能正常运行，请确保设备的缩放比为100%。
 
