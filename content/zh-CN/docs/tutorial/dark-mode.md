@@ -64,23 +64,23 @@ const { ipcRenderer } = require('electron')
 
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
   const isDarkMode = await ipcRenderer.invoke('dark-mode:toggle')
-  document.getElementById('theme-source').innerHTML = isDarkMode ? 'Dark' : 'Light'
-})
+  document.getElementById('theme-source').innerHTML = isDarkMode ? "黑暗"："光"
+}）
 
-document.getElementById('reset-to-system').addEventListener('click', async () => {
-  await ipcRenderer.invoke('dark-mode:system')
-  document.getElementById('theme-source').innerHTML = 'System'
-})
+文档。获取"重置到系统"（"重置到系统"）。添加事件听者（"点击"，不对称（）=> {
+  等待ipcRenderer.调用（"暗模式：系统"）
+  文档
+。
 ```
 
-If you run your code at this point, you'll see that your buttons don't do anything just yet, and your Main process will output an error like this when you click on your buttons: `Error occurred in handler for 'dark-mode:toggle': No handler registered for 'dark-mode:toggle'` This is expected — we haven't actually touched any `nativeTheme` code yet.
+如果您此时运行代码，您将看到您的按钮尚未 任何内容，当 您单击按钮时，主过程将输出这样的错误： `Error occurred in handler for 'dark-mode:toggle': No handler registered for 'dark-mode:toggle'` 这是意料之中的- 我们实际上尚未触及任何 `nativeTheme` 代码。
 
-Now that we're done wiring the IPC from the Renderer's side, the next step is to update the `main.js` file to handle events from the Renderer process.
+现在，我们已经完成了从渲染器侧的 IPC 布线， 的下一步是更新 `main.js` 文件以处理来自渲染器过程的事件。
 
-Depending on the received event, we update the [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) property to apply the desired theme on the system's native UI elements (e.g. context menus) and propagate the preferred color scheme to the Renderer process:
+根据收到的事件，我们更新 [`nativeTheme.themeSource`](../api/native-theme.md#nativethemethemesource) 属性， （如上下文菜单）在系统的原生UI元素上应用所需的主题，并将首选配色方案传播到渲染器 过程：
 
-* Upon receiving `dark-mode:toggle`, we check if the dark theme is currently active using the `nativeTheme.shouldUseDarkColors` property, and set the `themeSource` to the opposite theme.
-* Upon receiving `dark-mode:system`, we reset the `themeSource` to `system`.
+* 收到 `dark-mode:toggle`后，我们检查暗主题当前是否 使用 `nativeTheme.shouldUseDarkColors` 属性，并将 `themeSource` 设置为相反的主题。
+* 收到 `dark-mode:system`后，我们将 `themeSource` 重置为 `system`。
 
 ```javascript
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
@@ -118,24 +118,24 @@ app.on('window-all-closed', () => {
   }
 })
 
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
+app.on('activate'，（）=> {
+  如果（浏览器窗口。获取所有窗口）。长度==0）{
+    创建窗口（）
   }
-})
+}）
 ```
 
-The final step is to add a bit of styling to enable dark mode for the web parts of the UI by leveraging the [`prefers-color-scheme`][prefer-color-scheme] CSS attribute. The value of `prefers-color-scheme` will follow your `nativeTheme.themeSource` setting.
+最后一步是利用 CSS 属性 [`prefers-color-scheme`][prefer-color-scheme] ，为 UI 的 Web 部件添加一点造型，以启用暗模式。 `prefers-color-scheme` 的价值将遵循您的 `nativeTheme.themeSource` 设置。
 
 创建一个 `styles.css` 文件，并添加以下行：
 
 ```css fiddle='docs/fiddles/features/macos-dark-mode'
-@media (prefers-color-scheme: dark) {
-  body { background:  #333; color: white; }
+@media（首选配色方案：深色）{
+  身体{背景：#333;颜色：白色;}
 }
 
-@media (prefers-color-scheme: light) {
-  body { background:  #ddd; color: black; }
+@media（首选配色方案：浅色）{
+  身体{背景：#ddd;颜色：黑色;}
 }
 ```
 
