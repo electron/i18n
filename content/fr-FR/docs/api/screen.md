@@ -8,31 +8,31 @@ Ce module ne peut pas être utilisé tant que l'événement `prêt` du module `a
 
 `screen` est un [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Note:** Dans le renderer / DevTools, `window.screen` est une propriété réservée DOM , de sorte que l’écriture `let { screen } = require('electron')` ne fonctionnera pas.
 
 Un exemple de création d'une fenêtre qui prendra tout l'écran :
 
 ```javascript fiddle='docs/fiddles/screen/fit-screen'
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } = require ('electron')
 
 let win
-app.whenReady().then(() => {
+app.whenReady().then()=> {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
   win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
+  win.loadURL ('https://github.com')
 })
 ```
 
 Un autre exemple de création d'une fenêtre dans l'écran externe :
 
 ```javascript
-const { app, BrowserWindow, screen } = require('electron')
+const { app, BrowserWindow, screen } = require ('electron')
 
 let win
 
-app.whenReady().then(() => {
+app.whenReady().then()( => {
   const displays = screen.getAllDisplays()
-  const externalDisplay = displays.find((display) => {
+  const externalDisplay = displays.find((display) => {  {
     return display.bounds.x !== 0 || display.bounds.y !== 0
   })
 
@@ -41,7 +41,7 @@ app.whenReady().then(() => {
       x: externalDisplay.bounds.x + 50,
       y: externalDisplay.bounds.y + 50
     })
-    win.loadURL('https://github.com')
+    win.loadURL ('https://github.com')
   }
 })
 ```
@@ -114,7 +114,7 @@ Retourne [`Display`](structures/display.md) - L'écran qui croise le plus les li
 
 Retourne [`Point`](structures/point.md)
 
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+Convertit un point physique de l’écran en un point DIP d’écran. L’échelle DPI est effectuée par rapport à l’affichage contenant le point physique.
 
 ### `screen.dipToScreenPoint(point)` _Windows_
 
@@ -122,24 +122,24 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 Retourne [`Point`](structures/point.md)
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+Convertit un point DIP d’écran en un point physique de l’écran. L’échelle DPI est effectuée par rapport à l’affichage contenant le point DIP.
 
 ### `screen.screenToDipRect(window, rect)` _Windows_
 
-* `window` [BrowserWindow](browser-window.md) | null
+* `window` [BrowserWindow](browser-window.md) | Null
 * `rect` [Rectangle](structures/rectangle.md)
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Convertit un rect physique d’écran en un rect dip d’écran. L’échelle DPI est effectuée par rapport à l’affichage le plus proche `window`. Si `window` null, la mise à l’échelle sera effectuée à l’affichage le plus proche `rect`.
 
 ### `screen.dipToScreenRect(window, rect)` _Windows_
 
-* `window` [BrowserWindow](browser-window.md) | null
+* `window` [BrowserWindow](browser-window.md) | Null
 * `rect` [Rectangle](structures/rectangle.md)
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Convertit un écran DIP rect en rect physique d’écran. L’échelle DPI est effectuée par rapport à l’affichage le plus proche `window`. Si `window` null, la mise à l’échelle sera effectuée à l’affichage le plus proche `rect`.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
