@@ -1,46 +1,46 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Bloqueie o sistema de entrar no modo de baixa potência (sono).
 
 Processo: [Main](../glossary.md#main-process)
 
 Como por exemplo:
 
 ```javascript
-const { powerSaveBlocker } = require('electron')
+const { powerSaveBlocker } = require ('electron')
 
-const id = powerSaveBlocker.start('prevent-display-sleep')
-console.log(powerSaveBlocker.isStarted(id))
+const id = powerSaveBlocker.start ('prevent-display-sleep')
+console.log (powerSaveBlocker.isStarted(id))
 
 powerSaveBlocker.stop(id)
 ```
 
 ## Métodos
 
-The `powerSaveBlocker` module has the following methods:
+O módulo `powerSaveBlocker` tem os seguintes métodos:
 
-### `powerSaveBlocker.start(type)`
+### `powerSaveBlocker.start(tipo)`
 
-* `type` String - Power save blocker type.
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+* `type` String - Tipo de bloqueador de energia.
+  * `prevent-app-suspension` - Impedir que o pedido seja suspenso. Mantém o sistema ativo, mas permite que a tela seja desligada. Exemplos de casos de uso: baixar um arquivo ou reproduzir áudio.
+  * `prevent-display-sleep` - Evite que o display durma. Mantém sistema e tela ativos. Caso de uso de exemplo: reprodução de vídeo.
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker.
+Devoluções `Integer` - O ID do bloqueador atribuído a este bloqueador de energia.
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+Começa a impedir que o sistema entre no modo de baixa potência. Retorna um inteiro identificar o bloqueador de economia de energia.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
+**Nota:** `prevent-display-sleep` tem maior precedência sobre `prevent-app-suspension`. Apenas o tipo de maior precedência faz efeito. Em outras palavras, `prevent-display-sleep` sempre prevalece sobre `prevent-app-suspension`.
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
+Por exemplo, uma API chamando A solicitações de `prevent-app-suspension`e outro chamado B solicita `prevent-display-sleep`. `prevent-display-sleep` serão utilizadas até que B pare sua solicitação. Depois disso, `prevent-app-suspension` é usado.
 
 ### `powerSaveBlocker.stop(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - O bloqueio de energia devolvido por `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Pára o bloqueador de salvamento de energia especificado.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - O bloqueio de energia devolvido por `powerSaveBlocker.start`.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+Retornos `Boolean` - Se a `powerSaveBlocker` correspondente já começou.
