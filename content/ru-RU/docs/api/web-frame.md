@@ -4,7 +4,7 @@
 
 Процесс: [Графический](../glossary.md#renderer-process)
 
-`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+`webFrame` экспорта модуля Electron является примером `WebFrame` класса, представляющего верхнюю рамку текущего `BrowserWindow`. Подрамки могут быть определенными свойствами и методами (например. `webFrame.firstChild`).
 
 Пример масштабирования текущей страницы до 200%.
 
@@ -16,15 +16,15 @@ webFrame.setZoomFactor(2)
 
 ## Методы
 
-The `WebFrame` class has the following instance methods:
+Класс `WebFrame` имеет следующие методы экземпляра:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Double - Zoom factor; default is 1.0.
+* `factor` Двойной - Увеличить фактор; по умолчанию составляет 1,0.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Изменяет коэффициент масштабирования на указанный фактор. Коэффициент увеличения на 100, так что 300% и 3,0.
 
-The factor must be greater than 0.0.
+Коэффициент должен быть больше 0,0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -36,7 +36,7 @@ The factor must be greater than 0.0.
 
 Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
-> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
+> **ПРИМЕЧАНИЕ**: Политика масштабирования на уровне Chromium имеет одно и то же происхождение, что означает, что уровень масштабирования для определенного домена распространяется во всех экземплярах окон с одним и тем же доменом. Дифференциация URL-адресов окон позволит увеличить работу на окно.
 
 ### `webFrame.getZoomLevel()`
 
@@ -49,64 +49,64 @@ The factor must be greater than 0.0.
 
 Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **ПРИМЕЧАНИЕ**: Визуальный зум отключен по умолчанию в Electron. Чтобы включить его, позвоните:
 > 
 > ```js
-webFrame.setVisualZoomLevelLimits(1, 3)
+webFrame.setVisual'oomLevelLimits (1, 3)
 ```
 
-### `webFrame.setSpellCheckProvider(language, provider)`
+### `webFrame.setSpellCheckProvider (язык, провайдер)`
 
 * `language` String
-* `provider` Object
-  * `spellCheck` Function
-    * `words` String[]
+* `provider` объект
+  * `spellCheck` функция
+    * `words` Струна»
     * `callback` Function
-      * `misspeltWords` String[]
+      * `misspeltWords` Струна»
 
 Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
 
-If you want to use this method you must disable the builtin spellchecker when you construct the window.
+Если вы хотите использовать этот метод, вы должны отключить встроенный орфографии, когда построить окно.
 
 ```js
-const mainWindow = new BrowserWindow({
+const mainWindow - новый BrowserWindow (является
   webPreferences: {
     spellcheck: false
   }
-})
+)
 ```
 
-The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
+Целью `provider` быть объект, который имеет `spellCheck` метод, который массив отдельных слов для проверки орфографии. Функция `spellCheck` выполняется асинхронно и `callback` функцию массивом слов с ошибками после завершения.
 
 Пример использования [node-spellchecker][spellchecker] как поставщик:
 
 ```javascript
-const { webFrame } = require('electron')
-const spellChecker = require('spellchecker')
-webFrame.setSpellCheckProvider('en-US', {
-  spellCheck (words, callback) {
-    setTimeout(() => {
-      const spellchecker = require('spellchecker')
-      const misspelled = words.filter(x => spellchecker.isMisspelled(x))
-      callback(misspelled)
-    }, 0)
-  }
-})
+const { webFrame } требуют ('электрон')
+const spellChecker - требуют ('spellchecker')
+webFrame.setSpellCheckProvider ('en-US',
+  spellCheck (слова, обратный вызов) -
+    setTimeout (() -> -
+      const spellchecker - требуют ('spellchecker')
+      const misspelled - words.filter (x> spellchecker.isMisspelled (x))
+      обратный вызов (неправильно)
+    , 0)
+
+  )
 ```
 
-### `webFrame.insertCSS(css)`
+### `webFrame.insertCSS (css)`
 
-* `css` String - CSS source code.
+* `css` String - исходный код CSS.
 
-Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
+Возвращает `String` - ключ для вставленного CSS, который позже может быть использован для удаления CSS через `webFrame.removeInsertedCSS(key)`.
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+Вводит CSS на текущую веб-страницу и возвращает уникальный ключ для вставленного таблицы.
 
-### `webFrame.removeInsertedCSS(key)`
+### `webFrame.removeInsertedCSS (ключ)`
 
 * `key` String
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+Удаляет вставленный CSS с текущей веб-страницы. Таблица стилей идентифицируется ключом, который возвращается из `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
@@ -118,11 +118,11 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 * `code` String
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
+* `callback` (необязательно) - Вызывается после выполнения скрипта. Если , что кадр приостановлен (например, отображение модального оповещения), выполнение будет синхронным и обратный вызов будет вызван до возвращения метода. Для совместимости со старой версией этого метода параметр ошибки является вторым.
   * `result` Any
   * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
+Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если выполнение бросает или приводит к отклонению обещания.
 
 Вычисляет `code` на странице.
 
@@ -130,28 +130,28 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
-* `scripts` [WebSource[]](structures/web-source.md)
+* `worldId` Integer - Идентификатор мира для запуска JavaScript в, `0` является основным миром по умолчанию (где содержание работает), `999` является мир, используемый `contextIsolation` electron. Принимает значения в диапазоне 1..536870911.
+* `scripts` [WebSource](structures/web-source.md)
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
-* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
+* `callback` (необязательно) - Вызывается после выполнения скрипта. Если , что кадр приостановлен (например, отображение модального оповещения), выполнение будет синхронным и обратный вызов будет вызван до возвращения метода.  Для совместимости со старой версией этого метода параметр ошибки является вторым.
   * `result` Any
   * `error` Error
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
+Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода отклонено, если выполнение не может начаться.
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Работает как `executeJavaScript` но оценивает `scripts` в изолированном контексте.
 
-Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
+Обратите внимание, что при выполнении скрипта возвращается обещание не будет и `result` будет `undefined`. Это потому, что Хром не ошибки отправки изолированных миров в зарубежные миры.
 
-### `webFrame.setIsolatedWorldInfo(worldId, info)`
+### `webFrame.setIsolatedWorldInfo (worldId, информация)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `info` Object
-  * `securityOrigin` String (optional) - Security origin for the isolated world.
-  * `csp` String (optional) - Content Security Policy for the isolated world.
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+* `worldId` Integer - Идентификатор мира для запуска javascript в, `0` является мир по умолчанию, `999` мир, используемый Электроны `contextIsolation` функцию. Расширения Chrome резервируют диапазон СВ в `[1 << 20, 1 << 29)`. Вы можете предоставить любой integer здесь.
+* `info` объект
+  * `securityOrigin` String (по желанию) - Происхождение безопасности для изолированного мира.
+  * `csp` String (необязательно) - Политика безопасности контента для изолированного мира.
+  * `name` String (необязательно) - Имя для изолированного мира. Полезно в devtools.
 
-Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+Установите происхождение безопасности, политику безопасности содержимого и название изолированного мира. Примечание: Если `csp` указан, то `securityOrigin` также должна быть указана.
 
 ### `webFrame.getResourceUsage()`
 
@@ -193,60 +193,60 @@ console.log(webFrame.getResourceUsage())
 
 Обратите внимание, что безрассудный вызов этого метода вероятно замедлит Electron, поскольку ему придется чистить кэши даже если они уже пустые, так что этот метод следует вызывать только в случае, когда вы уверены, что страница стала использовать меньше памяти (например, произошел переход с супер-тяжёлой страницы на лёгкую без ожидаемого возврата обратно на тяжёлую).
 
-### `webFrame.getFrameForSelector(selector)`
+### `webFrame.getFrameForSelector (селектор)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - селектор CSS для элемента кадра.
 
-Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
+Возвращает `WebFrame` - Элемент кадра в документе `webFrame's` , выбранном `selector`, `null` будет возвращен, если `selector` не выберет кадр или , если кадр не находится в текущем процессе рендерера.
 
-### `webFrame.findFrameByName(name)`
+### `webFrame.findFrameByName (имя)`
 
 * `name` String
 
-Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
+Возвращает `WebFrame` - Ребенок `webFrame` с поставленным `name`, `null` будет возвращен, если нет такого кадра или если кадр не находится в текущем процесса рендерера.
 
-### `webFrame.findFrameByRoutingId(routingId)`
+### `webFrame.findFrameByRoutingId (маршрутизацияId)`
 
-* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+* `routingId` Integer - `Integer` представляющий уникальный идентификатор кадра в процессе рендеринга. СВУ маршрутизации могут быть извлечены из `WebFrame` экземпляров (`webFrame.routingId`), а также передаются по конкретным `WebContents` навигационным событиям (например. `did-frame-navigate`)
 
-Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
+Возвращает `WebFrame` - то есть поставленную `routingId`, `null` если не нашли.
 
-### `webFrame.isWordMisspelled(word)`
+### `webFrame.isWordMisspelled (слово)`
 
-* `word` String - The word to be spellchecked.
+* `word` - Слово, которое должно быть орфографии.
 
-Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
+Возвращает `Boolean` - Правда, если слово неправильно в соответствии со встроенным в , ложные в противном случае. Если словарь не загружен, всегда возвращайте его ложным.
 
-### `webFrame.getWordSuggestions(word)`
+### `webFrame.getWordSuggestions (слово)`
 
-* `word` String - The misspelled word.
+* `word` Строка - Неправильное слово.
 
-Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
+Возвращает `String[]` - Список предлагаемых слов для данного слова. Если слово написано правильно, результат будет пустым.
 
 ## Свойства
 
-### `webFrame.top` _Readonly_
+### `webFrame.top` _Ридонли_
 
-A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+В `WebFrame | null` , представляющем верхний кадр в иерархии кадров, к которой принадлежит `webFrame` , свойство будет `null` , если верхний кадр не находится в текущем процессе рендеринга.
 
-### `webFrame.opener` _Readonly_
+### `webFrame.opener` _Ридонли_
 
-A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+В `WebFrame | null` , представляющих кадр, который открыл `webFrame`, свойство быть `null` , если нет нож или нож не в текущем процессе рендеринга.
 
-### `webFrame.parent` _Readonly_
+### `webFrame.parent` _Ридонли_
 
-A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+Данный `WebFrame | null` представляющий родительский кадр `webFrame`, свойство будет `null` , `webFrame` является верхней или родитель не находится в текущем процессе рендеринга.
 
-### `webFrame.firstChild` _Readonly_
+### `webFrame.firstChild` _Ридонли_
 
-A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+Проект `WebFrame | null` , представляющий первый ребенок кадр `webFrame`, свойство будет `null` если `webFrame` не имеет детей или если первый ребенок не находится в процессе рендеринга.
 
-### `webFrame.nextSibling` _Readonly_
+### `webFrame.nextSibling` _Ридонли_
 
-A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+В `WebFrame | null` , представляющем следующий кадр брата, свойство будет `null` , если `webFrame` является последним кадром в его родителе или если следующий брат не находится в текущем процессе рендеринга.
 
-### `webFrame.routingId` _Readonly_
+### `webFrame.routingId` _Ридонли_
 
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+`Integer` представляющий уникальный идентификатор кадра в текущем процессе рендеринга. Отдельные экземпляры WebFrame, которые ссылаются на один и тот же базовый кадр, будут же `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
