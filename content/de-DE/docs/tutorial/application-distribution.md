@@ -2,27 +2,27 @@
 
 ## Übersicht
 
-Um Ihre App mit Electron zu verteilen, müssen Sie sie paketieren und neu markieren. To do this, you can either use specialized tooling or manual approaches.
+Um Ihre App mit Electron zu verteilen, müssen Sie sie paketieren und neu markieren. Dazu können Sie entweder spezielle Werkzeuge oder manuelle Ansätze verwenden.
 
-## With tooling
+## Mit Werkzeugen
 
-You can use the following tools to distribute your application:
+Sie können die folgenden Tools verwenden, um Ihre Anwendung zu verteilen:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron application, such as bundling your application, rebranding the executable, and setting the right icons.
+Diese Tools kümmern sich um alle Schritte, die Sie ausführen müssen, um mit einer verteilbaren Electron-Anwendung zu enden, wie z. B. das Bündeln Ihrer Anwendung, Rebranding der ausführbaren Datei und das Festlegen der richtigen Symbole.
 
-You can check the example of how to package your app with `electron-forge` in our [Quick Start Guide](quick-start.md#package-and-distribute-the-application).
+Sie können das Beispiel zum Verpacken Ihrer App mit `electron-forge` in unserer [Schnellstartanleitung](quick-start.md#package-and-distribute-the-application).
 
 ## Manuelle Verteilung
 
-### With prebuilt binaries
+### Mit vorgefertigten Binärdateien
 
-To distribute your app manually, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist.
+Um Ihre App manuell zu verteilen, müssen Sie die [vorgefertigten -Binärdateien von Electron](https://github.com/electron/electron/releases)herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist.
 
-> *NOTE:* the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+> *HINWEIS:* die Position der vorgefertigten Binärdateien von Electron wird mit `electron/` in den folgenden Beispielen angezeigt.
 
 *Unter macOS:*
 
@@ -42,11 +42,11 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` on macOS, `electron` on Linux, or `electron.exe` on Windows, and Electron will start as your app. The `electron` directory will then be your distribution to deliver to users.
+Führen Sie dann `Electron.app` unter macOS, `electron` unter Linux oder `electron.exe` unter Windows aus, und Electron wird als App gestartet. Das `electron` -Verzeichnis dann Ihre Verteilung sein, die an Benutzer übermittelt werden soll.
 
-### With an app source code archive
+### Mit einem App-Quellcodearchiv
 
-Instead of from shipping your app by copying all of its source files, you can package your app into an [asar][] archive to improve the performance of reading files on platforms like Windows, if you are not already using a bundler such as Parcel or Webpack.
+Anstatt Ihre App durch Kopieren aller Quelldateien zu versenden, können Sie Ihre App in ein [asar][] Archiv packen, um die Leistung beim Lesen Dateien auf Plattformen wie Windows zu verbessern, wenn Sie nicht bereits einen Bundler wie wie Parcel oder Webpack verwenden.
 
 Um ein `asar`-Archiv zu nutzen, um den `app` Ordner zu ersetzen, müssen Sie das Archiv in `app.asar` umbenennen und, wie unten, in das Resources-Verzeichnis von Electron verschieben. Erst dann wird Electron versuchen das Archiv zu lesen und daraus starten.
 
@@ -64,9 +64,9 @@ electron/resources/
 └── app.asar
 ```
 
-You can find more details on how to use `asar` in the [`electron/asar` repository][asar].
+Weitere Informationen zur Verwendung von `asar` finden Sie im [`electron/asar` -Repository][asar].
 
-### Rebranding with downloaded binaries
+### Rebranding mit heruntergeladenen Binärdateien
 
 Nachdem Sie Ihre App in Electron gebündelt haben, sollten Sie Electron umbennen, bevor Sie es an Ihre Nutzer weiterreichen.
 
@@ -101,7 +101,7 @@ Sie können `electron.exe` einen beliebigen Namen geben und das Icon der App bzw
 
 Sie können der ausführbaren `electron`-Datei einen beliebigen Namen geben.
 
-### Rebranding by rebuilding Electron from source
+### Rebranding durch Wiederaufbau von Electron aus der Quelle
 
 Es ist auch möglich Electron zu rebranden, indem man den Produktnamen ändert und es vom Sourcecode buildet. Um dies zu Tun müssen sie das Buildargument, das zum Produktnamen gehört (`electron_product_name = "IhrProduktName"`) in der `args.gn` Datei setzen und rebuilden.
 
