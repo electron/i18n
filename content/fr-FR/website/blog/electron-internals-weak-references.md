@@ -1,5 +1,5 @@
 ---
-title: 'Electron Internals: Weak References'
+title: 'Electron Internals: Références faibles'
 author: zcbenz
 date: '2016-09-20'
 ---
@@ -138,7 +138,7 @@ remote.require = function (name) {
 }
 ```
 
-Note that the `remoteObjectCache` stores objects as weak references, so there is no need to delete the key when the object is garbage collected.
+Notez que le `remoteObjectCache` les objets comme des références faibles, il n’est donc 'est pas nécessaire de supprimer la clé lorsque l’objet est collecté.
 
 ## Code natif
 
