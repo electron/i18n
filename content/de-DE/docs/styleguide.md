@@ -46,7 +46,7 @@ Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 * Lines should be wrapped at 80 columns.
 * Keine Schachtelungen sind mehr als 2 Ebenen (aufgrund des Markdown Renderers).
 * Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* For unordered lists, use asterisks instead of dashes
+* Verwenden Sie für ungeordnete Listen Sternchen anstelle von Bindestrichen
 
 ## Wörter auswählen
 
@@ -61,84 +61,84 @@ Die folgenden Regeln gelten nur für Dokumentationen der APIs.
 
 Baby636.
 
-Under the page title must be a one-line description starting with `>`.
+Unter dem Seitentitel muss eine einzeilige Beschreibung sein, die mit `>`beginnt.
 
-Using `session` as example:
+Verwenden sie `session` als Beispiel:
 
 ```markdown
-# session
+• Sitzung
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Verwalten von Browsersitzungen, Cookies, Cache, Proxy-Einstellungen usw.
 ```
 
 ### Methoden und Events von Modulen
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Bei Modulen, die keine Klassen sind, müssen ihre Methoden und Ereignisse unter `## Methods` und `## Events` Kapitel aufgeführt werden.
 
 Verwende `AutoUpdater` als Beispiel:
 
 ```markdown
-# autoUpdater
+• autoUpdater
 
-## Events
+-Ereignisse
 
-### Event: 'error'
+-Ereignis: 'error'
 
-## Methods
+''Methoden
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+'autoUpdater.setFeedURL(url[, requestHeaders])'
 ```
 
 ### Klassen
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
+* API-Klassen oder Klassen, die Teil von Modulen sind, müssen in einem `## Class: TheClassName` Kapitel aufgeführt werden.
+* Eine Seite kann mehrere Klassen haben.
 * Konstruktoren müssen mit `###` Level-Titeln aufgelistet werden.
 * [Statische Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) müssen unter einem Kapitel `### Statische Methoden` aufgelistet werden.
 * [Instanz-Methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) müssen unter einem `### Instanz-Methoden` Kapitel aufgelistet werden.
 * Alle Methoden, die einen Rückgabewert haben, müssen ihre Beschreibung mit "Returns `[TYPE]` - Rückgabewert" beginnen
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
+  * Wenn die Methode eine `Object`zurückgibt, kann ihre Struktur mithilfe eines Doppelpunkts gefolgt von einer Zeile gefolgt von einer Zeilenumzlinie angegeben werden, dann eine ungeordnete Liste von Eigenschaften im gleichen Stil wie Funktionsparameter.
+* Instanzereignisse müssen unter einem `### Instance Events` Kapitel aufgeführt werden.
 * Instanz-Eigenschaften müssen im Kapitel `### Instanz-Eigenschaften` aufgelistet werden.
-  * Instance properties must start with "A [Property Type] ..."
+  * Instanzeigenschaften müssen mit "A [Property Type] ..." beginnen.
 
-Using the `Session` and `Cookies` classes as an example:
+Verwenden der `Session` - und `Cookies` -Klassen als Beispiel:
 
 ```markdown
-# session
+• Sitzung
 
-## Methods
+-Methoden
 
-### session.fromPartition(partition)
+-session.fromPartition(partition(partition)-
 
-## Static Properties
+, "Static Properties
 
-### session.defaultSession
+" session.defaultSession
 
-## Class: Session
+-Class: Session
 
-### Instance Events
+- Instanzereignisse
 
-#### Event: 'will-download'
+--Ereignis: 'will-download'
 
-### Instance Methods
+''-Instanz' Methoden
 
-#### `ses.getCacheSize()`
+'ses.getCacheSize()'
 
-### Instance Properties
+'Instanzeigenschaften
 
-#### `ses.cookies`
+'ses.cookies'
 
-## Class: Cookies
+Klasse: Cookies
 
-### Instance Methods
+, Instanzmethoden
 
-#### `cookies.get(filter, callback)`
+'cookies.get(filter, Rückruf)'
 ```
 
 ### Methoden
 
-The methods chapter must be in the following form:
+Das Methodenkapitel muss in der folgenden Form sein:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -149,13 +149,13 @@ The methods chapter must be in the following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Der Titel kann `###` oder `####`-Ebenen sein, je nachdem, ob es sich um eine Methode ein Modul oder eine Klasse handelt.
 
 Bei Modulen ist der `objectName` der Name des Moduls. Für Klassen muss es der Name der Instanz der Klasse sein und darf nicht der gleiche sein wie der Name des Moduls.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Beispielsweise müssen die Methoden der `Session` -Klasse unter dem `session` -Modul `ses` als `objectName` verwenden.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Die optionalen Argumente werden durch eckige Klammern notiert, `[]` das optionale Argument sowie das Komma, das erforderlich ist, wenn dieses optionale Argument einem anderen Argument folgt:
 
 ```sh
 erforderlich[, optional]
@@ -168,21 +168,21 @@ Unter der Methode finden Sie detailliertere Informationen zu jedem der Argumente
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Oder ein benutzerdefinierter Typ wie die [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Werte können `macOS`, `Windows` oder `Linux` sein.
+Wenn ein Argument oder eine Methode für bestimmte Plattformen eindeutig ist, werden diese Plattformen mit einer durch Leerzeichen getrennten kursiven Liste nach dem Datentyp bezeichnet. Werte können `macOS`, `Windows` oder `Linux` sein.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* 'animate' Boolean (optional) _macOS_ _Windows_ - Animieren Sie das Ding.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` Typargumente müssen angeben, welche Elemente das Array in der Beschreibung unten enthalten kann.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Die Beschreibung für `Function` Typargumente sollte deutlich machen, wie sie aufgerufen werden kann, und die Typen der Parameter auflisten, die an sie übergeben werden.
 
 ### Ereignisse
 
-The events chapter must be in following form:
+Das Veranstaltungskapitel muss in folgender Form sein:
 
 ```markdown
 ### Ereignis: 'aufwachen'
@@ -194,21 +194,21 @@ Gibt zurück:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Der Titel kann `###` oder `####`-Ebenen sein, je nachdem, ob es sich um ein Ereignis einem Modul oder einer Klasse handelt.
 
-The arguments of an event follow the same rules as methods.
+Die Argumente eines Ereignisses folgen den gleichen Regeln wie Methoden.
 
 ### Eigenschaften
 
-The properties chapter must be in following form:
+Das Eigenschaftenkapitel muss in folgender Form sein:
 
 ```markdown
-### session.defaultSession
+Session.defaultSession
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Der Titel kann `###` oder `####`-Ebenen sein, je nachdem, ob es sich um eine Eigenschaft ein Modul oder eine Klasse handelt.
 
 ## Übersetzungen der Dokumentationen
 
