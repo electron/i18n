@@ -13,7 +13,7 @@ Das Electron Team freut sich über die Veröffentlichung von Electron 6.0.0! Sie
 
 ## Was ist neu
 
-Today marks a first for the Electron project: this is the first time we've made a stable Electron release **on the same day** as the corresponding [Chrome stable release](https://www.chromestatus.com/features/schedule)! 🎉
+Heute ist es eine Premiere für das Electron-Projekt: Es ist das erste Mal, dass wir am selben Tag</strong> wie die entsprechende [Chrome-Stabilitätsversion](https://www.chromestatus.com/features/schedule)eine stabile Electron-Version **haben! 🎉</p>
 
 Ein Großteil der Funktionen von Electronic wird von den Kernkomponenten von Chromium, Node.js und V8 bereitgestellt. Electron hält über diese Projekte auf dem Laufenden, um unseren Nutzern neue JavaScript-Funktionen, Performance-Verbesserungen und Sicherheits-Korrekturen zu bieten. Jedes dieser Pakete hat einen Haupt-Versions-Bump in Electron 6:
 
@@ -74,7 +74,7 @@ Um die [gehärtete Laufzeit zu aktivieren,](https://developer.apple.com/document
 
 Um diese Ansprüche auf die Prozessarten auszudehnen, die sie benötigen Chromium [hat](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) drei neue Varianten der Helper App hinzugefügt: eine für Renderer (`Electron Helper (Renderer). pp`), einer für den GPU-Prozess (`Electron Helper (GPU). pp`) und eins für Plugins (`Electron Helper (Plugin).app`).
 
-Folks using `electron-osx-sign` to codesign their Electron app shouldn't have to make any changes to their build logic. Wenn Sie Ihre App mit benutzerdefinierten Skripten kodesignen, sollten Sie sicherstellen, dass die drei neuen Helfer-Anwendungen korrekt programmiert sind.
+Leute, die `electron-osx-sign` verwenden, um ihre Electron-App mitzugestalten, sollten keine Änderungen an ihrer Buildlogik vornehmen müssen. Wenn Sie Ihre App mit benutzerdefinierten Skripten kodesignen, sollten Sie sicherstellen, dass die drei neuen Helfer-Anwendungen korrekt programmiert sind.
 
 Um Ihre Anwendung korrekt mit diesen neuen Helfern zu verpacken, müssen Sie `electron-packager@14.0.4` oder höher verwenden.  Wenn Sie `Elektron-Builder` verwenden, sollten Sie [dieses Problem](https://github.com/electron-userland/electron-builder/issues/4104) folgen, um die Unterstützung für diese neuen Helfer zu verfolgen.
 
@@ -94,7 +94,7 @@ Nach unserer [-Unterstützungspolitik](https://electronjs.org/docs/tutorial/supp
 
 ## App Feedback Programm
 
-Wir verwenden weiterhin unser [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) für Tests. Projekte, die an diesem Programm teilnehmen, testen Electron-Betas auf ihren Apps; und im Gegenzug werden die neuen Fehler, die sie finden, für die stabile Veröffentlichung priorisiert. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+Wir verwenden weiterhin unser [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) für Tests. Projekte, die an diesem Programm teilnehmen, testen Electron-Betas auf ihren Apps; und im Gegenzug werden die neuen Fehler, die sie finden, für die stabile Veröffentlichung priorisiert. Wenn Sie teilnehmen möchten oder mehr erfahren möchten, [sich unseren Blogbeitrag über das Programm](https://electronjs.org/blog/app-feedback-program).
 
 ## Was ist als Nächstes
 
