@@ -27,7 +27,7 @@ L'équipe d'Electron est heureuse d'annoncer la sortie d'Electron 7.0.0 ! Vous p
 
 Voir les [notes de version 7.0.0](https://github.com/electron/electron/releases/tag/v7.0.0) pour une liste plus longue de modifications.
 
-## Breaking Changes
+## Briser les changements
 
 Plus d'informations à propos de ces changements et de futurs peuvent être trouvées sur la page [Changements de rupture planifiés](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
 
@@ -49,7 +49,7 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 
 ## Fin du support pour 4.x.y
 
-Electron 4.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
+Electron 4.x.y a a atteint la fin du support selon la politique de soutien [projet](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
 
 ## Programme de feedback
 
