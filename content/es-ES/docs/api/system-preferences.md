@@ -5,7 +5,7 @@
 Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
-const { systemPreferences } = requiere('electron')
+const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
@@ -46,11 +46,11 @@ Devuelve:
 
 ## Métodos
 
-### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _obsoleto_
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
+**desaprobado:** debe usar la nueva API de [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) .
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
@@ -62,21 +62,21 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 * Registro `userInfo`<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Las publicaciones `event` como notificaciones nativas de macOS. El `userInfo` es un de objeto que contiene el Diccionario de información del usuario enviado junto con la notificación.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
 * Registro `userInfo`<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Las publicaciones `event` como notificaciones nativas de macOS. El `userInfo` es un de objeto que contiene el Diccionario de información del usuario enviado junto con la notificación.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
 * Registro `userInfo`<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Las publicaciones `event` como notificaciones nativas de macOS. El `userInfo` es un de objeto que contiene el Diccionario de información del usuario enviado junto con la notificación.
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
@@ -101,15 +101,15 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
-* `evento` Cadena
-* `callback` Función
-  * `evento` Cadena
+* `event` String
+* `callback` Function
+  * `event` String
   * Registro `userInfo`<String, unknown>
   * String `object`
 
 Devuelve `Number` - El ID de la suscripción
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+Igual que `subscribeNotification`, pero usa `NSNotificationCenter` para los valores predeterminados locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
@@ -119,23 +119,25 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
   * Registro `userInfo`<String, unknown>
   * String `object`
 
+Devuelve `Number` - El ID de la suscripción
+
 Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` _macOS_
 
-* `id` Íntegro
+* `id` Integer
 
 Remueve el subscriptor con el `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
-* `id` Íntegro
+* `id` Integer
 
 Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` _macOS_
 
-* `id` Íntegro
+* `id` Integer
 
 Igual que `unsubscribeNotification`, pero remueve el subscriptor desde `NSWorkspace.sharedWorkspace.notificationCenter`.
 
@@ -164,8 +166,8 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
-* `llave` Cadena
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `key` String
+* `type` String-puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
 * `value` Cadena
 
 Establece el valor de `key` en `NSUserDefaults`.
@@ -178,7 +180,7 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.removeUserDefault(key)` _macOS_
 
-* `llave` Cadena
+* `key` String
 
 Elimina el `key` en `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
@@ -202,10 +204,10 @@ if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
 const win = new BrowserWindow(browserOptions)
 
 // Navigate.
-si (browserOptions.transparent) {
+if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
- // No hay transparencia, así que cargamos un retroceso que usa estilos básicos.
+  // No transparency, so we load a fallback that uses basic styles.
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
@@ -216,9 +218,9 @@ Devuelve `Cadena` - El sistema actual de usuarios amplía el acento del color de
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
-const rojo = color.substr(0, 2) // "aa"
-const verde = color.substr(2, 2) // "bb"
-const azul = color.substr(4, 2) // "cc"
+const red = color.substr(0, 2) // "aa"
+const green = color.substr(2, 2) // "bb"
+const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
@@ -226,15 +228,15 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
 
 ### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` String - One of the following values:
-  * On **Windows**:
+* `color` String-uno de los siguientes valores:
+  * En ****de Windows:
     * `3d-dark-shadow` - Sombra oscura para elementos de tres dimensiones mostrados.
     * `3d-face` - Color facial para elementos de tres dimensiones mostrados y para cuadro de fondos de las caja de diálogo.
     * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
     * `3d-light` - Color claro para elementos de tres dimensiones mostrados.
     * `3d-shadow` - Color oscuro para elementos de tres dimensiones mostrados.
     * `active-border` - Borde de ventana activo.
-    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+    * `active-caption` -barra de título de la ventana activa. Especifica el color del lado izquierdo en el degradado de color de la barra de título de una ventana activa si el efecto degradado está habilitado.
     * `active-caption-gradient` - El color del lado derecho en el tono del color de un título de barra de una ventana activa.
     * `app-workspace` - Color de fondo de múltiples documentos de aplicaciones de interfase.
     * `button-text` - Texto en los botones de presión.
@@ -245,7 +247,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `highlight-text` - Texto de objeto(s) seleccionados en un control.
     * `hotlight` - Color para un hiperlink o un muy rastreado objeto.
     * `inactive-border` - Borde de ventana inactivo.
-    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+    * `inactive-caption` -leyenda de ventana inactiva. Especifica el color del lado izquierdo en el degradado de color de la barra de título de una ventana inactiva si el efecto degradado está habilitado.
     * `inactive-caption-gradient` - Color del lado derecho en el tono de color de un título de barra de una ventana inactiva.
     * `inactive-caption-text` - Color del texto en un subtítulo inactivo.
     * `info-background` - Color de fondo para control de información de herramientas.
@@ -258,8 +260,8 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window` - Fondo de la ventana.
     * `window-frame` - Cuadro de ventana.
     * `window-text` - Texto en ventanas.
-  * On **macOS**
-    * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla. _deprecated_
+  * En ****macOS
+    * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla. __obsoleto
     * `control-background` - El fondo de un elemento de interfaz grande, tal como un navegador o tablet.
     * `control` - La superficie de un control.
     * `control-text` - El texto de un control que no está deshabilitado.
@@ -293,13 +295,13 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-background` - El fondo de una ventana.
     * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Vea el [Windows docs][windows-colors] y el [macOS docs][macos-colors] para más detalles.
 
 Los siguientes colores solo están disponibles en macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, y `unemphasized-selected-text`.
 
 ### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` String - One of the following values:
+* `color` String-uno de los siguientes valores:
   * `azul`
   * `marrón`
   * `gris`
@@ -314,17 +316,17 @@ Devuelve `String` - El sistema de color estándar formateado como `#RRGGBBAA`.
 
 Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _Obsoleto_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
 
 Returns `Boolean` - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondo oscuro) está activo. De otra manera `false`.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+**Obsoleto:** Debería usar la nueva API [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly).
 
 ### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
 Devuelve `Boolean` - `true` si un tema de alto contraste está activo, si no `false`.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**Deprecated:** Use la nueva API de [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly).
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -332,7 +334,7 @@ Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
 Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-### `systemPreferences.getAppLevelAppearance()` _macOS_ _Obsoleto_
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 Devuelve`String` | `null` - Puede ser `dark`, `light` o `unknown`.
 
@@ -416,7 +418,7 @@ Posibles valores que se pueden configurar son `dark` y `light` y posibles valore
 
 Esta propiedad solo está disponible en macOS 10.14 Mojave o posteriores.
 
-### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
+### `systemPreferences.effectiveAppearance` _macOS_ _ReadOnly_
 
 Una propiedad `String` que puede ser `dark`, `light` o `unknown`.
 
