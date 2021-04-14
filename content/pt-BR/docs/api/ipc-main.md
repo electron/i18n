@@ -12,120 +12,120 @@ Também é possível enviar mensagens do processo principal para o processo de r
 
 * Ao enviar uma mensagem, o nome do evento é o `channel`.
 * Para responder a uma mensagem síncrona, você precisa de configurar `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* Para enviar uma mensagem assíncronda de volta ao remetente, você pode usar `event.reply(...)`.  Este método de auxiliar lidará automaticamente com mensagens provenientes de quadros que não são o quadro principal (por exemplo, iframes) enquanto `event.sender.send(...)` sempre enviarão para o quadro principal.
 
 Um exemplo de enviar e manipular mensagens entre os processos de renderização e principais:
 
 ```javascript
-// In main process.
-const { ipcMain } = require('electron')
-ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
-  event.reply('asynchronous-reply', 'pong')
+No processo principal.
+const { ipcMain } = require ('electron')
+ipcMain.on ('assíncrona-mensagem', (evento, arg) => { console
+  .log(arg) // i prints "ping"
+  event.reply('assíncrona-resposta', 'pong')
 })
 
-ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+ipcMain.on ('mensagem síncrona', (evento, arg) => { console
+  .log(arg) // i prints "ping"
   event.returnValue = 'pong'
 })
 ```
 
 ```javascript
-// In renderer process (web page).
-const { ipcRenderer } = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+No processo renderizador (página web).
+const { ipcRenderer } = requer ('elétron')
+console.log(ipcRenderer.sendSync('mensagem síncronia', 'ping')) // imprime "pong"
 
-ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+ipcRenderer.on('assíncronão-resposta', (evento, arg) => { console
+  .log(arg) // i prints "pong"
 })
-ipcRenderer.send('asynchronous-message', 'ping')
+ipcRenderer.send('assíncronão-mensagem', 'ping')
 ```
 
 ## Métodos
 
 O módulo `ipcMain` possui o seguinte método para ouvir eventos:
 
-### `ipcMain.on(channel, listener)`
+### `ipcMain.on(canal, ouvinte)`
 
-* `channel` String
-* `listener` Function
+* `channel` Cordas
+* Função `listener`
   * `event` IpcMainEvent
-  * `...args` any[]
+  * `...args` qualquer[]
 
 Ouve o `channel`, quando uma mensagem chega, o `listener` deve ser chamado com `listener(event, args...)`.
 
-### `ipcMain.once(channel, listener)`
+### `ipcMain.once (canal, ouvinte)`
 
-* `channel` String
-* `listener` Function
+* `channel` Cordas
+* Função `listener`
   * `event` IpcMainEvent
-  * `...args` any[]
+  * `...args` qualquer[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Adiciona uma função de `listener` única vez para o evento. Este `listener` é invocado apenas na próxima vez que uma mensagem for enviada para `channel`, após a qual ela é removida.
 
-### `ipcMain.removeListener(channel, listener)`
+### `ipcMain.removeListener (canal, ouvinte)`
 
-* `channel` String
-* `listener` Function
-  * `...args` any[]
+* `channel` Cordas
+* Função `listener`
+  * `...args` qualquer[]
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Remove o `listener` especificado da matriz de ouvintes para o `channel`especificado .
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` String (opcional)
 
-Removes listeners of the specified `channel`.
+Remove os ouvintes do `channel`especificado .
 
-### `ipcMain.handle(channel, listener)`
+### `ipcMain.handle (canal, ouvinte)`
 
-* `channel` String
-* `listener` Function<Promise\<void> | any>
+* `channel` Cordas
+* <Promise\<void> | de função `listener` qualquer>
   * `event` IpcMainInvokeEvent
-  * `...args` any[]
+  * `...args` qualquer[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+Adiciona um manipulador para um IPC `invoke`capaz. Este manipulador será chamado sempre que um renderizador de chamar `ipcRenderer.invoke(channel, ...args)`.
 
-If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+Se `listener` retornar uma Promessa, o resultado final da promessa será devolvido como resposta ao chamador remoto. Caso contrário, o valor de retorno do ouvinte será usado como o valor da resposta.
 
 ```js
-// Main process
-ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
-  const result = await somePromise(...args)
-  return result
+Processo principal
+ipcMain.handle ('my-invokable-ipc', async (evento, ... args) => {
+  resultado const = aguarde alguma Prossíção(... args) resultado de retorno
+
 })
 
-// Renderer process
+// Processo renderizador
 async () => {
-  const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
+  resultado const = await ipcRenderer.invoke ('my-invokable-ipc', arg1, arg2)
   // ...
 }
 ```
 
-The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+A `event` que é aprovada como o primeiro argumento para o manipulador é o mesmo que que passou para um ouvinte de eventos regular. Ele inclui informações sobre quais WebContents é a fonte da solicitação de invocação.
 
-### `ipcMain.handleOnce(channel, listener)`
+### `ipcMain.handleOnce (canal, ouvinte)`
 
-* `channel` String
-* `listener` Function<Promise\<void> | any>
+* `channel` Cordas
+* <Promise\<void> | de função `listener` qualquer>
   * `event` IpcMainInvokeEvent
-  * `...args` any[]
+  * `...args` qualquer[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+Manipula uma única mensagem IPC `invoke`capaz e, em seguida, remove o ouvinte. Veja `ipcMain.handle(channel, listener)`.
 
-### `ipcMain.removeHandler(channel)`
+### `ipcMain.removeHandler(canal)`
 
-* `channel` String
+* `channel` Cordas
 
-Removes any handler for `channel`, if present.
+Remove qualquer manipulador para `channel`, se estiver presente.
 
-## IpcMainEvent object
+## Objeto IpcMainEvent
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+A documentação do objeto `event` passou para o `callback` pode ser encontrada nos [`ipc-main-event`](structures/ipc-main-event.md) documentos da estrutura.
 
-## IpcMainInvokeEvent object
+## Objeto IpcMainInvokeEvent
 
-The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+A documentação do objeto `event` passou para `handle` retornos de chamadas pode ser encontrada nos documentos da estrutura [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) .
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 [web-contents-send]: web-contents.md#contentssendchannel-args
