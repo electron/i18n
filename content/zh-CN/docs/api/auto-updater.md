@@ -22,13 +22,13 @@
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
+在 Windows 上，您必须将应用安装到用户的机器中，然后才能 使用 `autoUpdater`，因此建议您使用 [电子胜利器][installer-lib]、 [电子锻造][electron-forge-lib] 或 [咕噜电子安装器][installer] 包来生成 Windows 安装程序。
 
-When using [electron-winstaller][installer-lib] or [electron-forge][electron-forge-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). 还建议使用 [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) 来创建应用程序的桌面快捷方式。
+当使用 [电子胜利者][installer-lib] 或 [电子锻造][electron-forge-lib] 确保您不会尝试更新您的应用程序 [它第一次运行](https://github.com/electron/windows-installer#handling-squirrel-events) （也请参阅 [这个问题的更多信息](https://github.com/electron/electron/issues/7155)）。 还建议使用 [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) 来创建应用程序的桌面快捷方式。
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
+与松鼠生成的安装程序将创建一个快捷方式图标与 [应用程序用户模型ID][app-user-model-id] `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`的格式，示例 `com.squirrel.slack.Slack` 和 `com.squirrel.code.Code`。 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
 
-与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
+与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读松鼠 [文档。视窗][squirrel-windows] 了解松鼠的更多细节。
 
 ## 事件
 
@@ -109,6 +109,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support
 [squirrel-windows]: https://github.com/Squirrel/Squirrel.Windows
 [installer]: https://github.com/electron/grunt-electron-installer
+[installer-lib]: https://github.com/electron/windows-installer
 [installer-lib]: https://github.com/electron/windows-installer
 [electron-forge-lib]: https://github.com/electron-userland/electron-forge
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
