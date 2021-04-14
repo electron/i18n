@@ -38,7 +38,7 @@ Mal podemos esperar para ver o que vocês construem com eles! Continue lendo par
 
 Veja as [notas de lançamento 10.0.0](https://github.com/electron/electron/releases/tag/v10.0.0) para ver uma lista completa de novos recursos e alterações.
 
-## Breaking Changes
+## Quebrando mudanças
 
 * Alterado o valor padrão de `enableRemoteModule` para `false`. [#22091](https://github.com/electron/electron/pull/22091)
     * Esta é parte de nossos planos para depreciar o módulo `remoto` e movê-lo para o userland. Você pode ler e acompanhar [esta issue](https://github.com/electron/electron/issues/21408) que detalha nossos motivos para isso e inclui uma linha temporal proposta para depreciação.
@@ -47,7 +47,7 @@ Veja as [notas de lançamento 10.0.0](https://github.com/electron/electron/relea
    * Você pode ler e acompanhar [esta issue](https://github.com/electron/electron/issues/18397) que detalha nossos motivos para isso e inclui uma linha temporal proposta para depreciação.
 * Corrigido o posicionamento dos botões de janela no macOS quando a localidade do SO era definida para um idioma RTL (como Árabe ou Hebraico). Os aplicativos sem usar janelas podem ter que ter em conta essa alteração ao estilizar suas janelas. [#22016](https://github.com/electron/electron/pull/22016)
 
-More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
+Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) .
 
 ## Alterações de API
 
@@ -73,9 +73,9 @@ Para informações sobre mudanças planejadas em futuras versões do Electron, [
 
 ### Trabalho continuado para Depreciação do módulo</code> remoto `(em Electron 11)</h3>
 
-<p spaces-before="0">We started work to remove the remote module in <a href="https://www.electronjs.org/blog/electron-9-0">Electron 9</a> and we're continuing plans to remove the <code>remote` module. No Electron 11, planejamos continuar trabalhando para implementar o [WeakRef](https://v8.dev/features/weak-references) como fizemos no Electron 10. Por favor leia e siga [esse problema](https://github.com/electron/electron/issues/21408) para planos e detalhes completos para descontinuação.</p>
+<p spaces-before="0">Começamos a trabalhar para remover o módulo remoto em <a href="https://www.electronjs.org/blog/electron-9-0"></a> Electron 9 e estamos continuando os planos de remover o módulo <code>remote` . No Electron 11, planejamos continuar trabalhando para implementar o [WeakRef](https://v8.dev/features/weak-references) como fizemos no Electron 10. Por favor leia e siga [esse problema](https://github.com/electron/electron/issues/21408) para planos e detalhes completos para descontinuação.</p>
 
-### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
-_Edit: Originally, this blog post stated that we would disable renderer process reuse in Electron 11. Disabling renderer process reuse has now been pushed to Electron 12._
+### Passo final para exigir que módulos de nó nativo sejam context aware ou N-API (em Elétron 12)
+_Editar: Originalmente, este post no blog afirmava que desativaríamos o reutilizador do processo renderer no Elétron 11. A reutilização do processo de renderização desativação foi agora empurrada para o Elétron 12._
 
-From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12. Read [this issue](https://github.com/electron/electron/issues/18397) for full details including the proposed timeline.
+A partir do Electron 6 em diante, estamos lançando as bases para exigir [módulos de nó nativos](https://nodejs.org/api/addons.html) carregados no processo renderizador sejam [](https://nodejs.org/api/n-api.html) N-API ou [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). A aplicação dessa mudança permite uma segurança mais forte, um desempenho mais rápido e uma carga de trabalho de manutenção reduzida. A etapa final deste plano é remover a capacidade de desativar a reutilização do processo renderizado no Elétron 12. Leia [esta edição](https://github.com/electron/electron/issues/18397) para obter detalhes completos, incluindo o cronograma proposto.
