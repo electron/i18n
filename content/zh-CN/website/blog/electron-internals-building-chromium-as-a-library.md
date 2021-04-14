@@ -34,13 +34,13 @@ NW.js和Electron很早的版本正在使用这种方式建造。
 
 [亮度](https://github.com/electron/brightray) 项目也是作为libchromiumcontent的一部分生来的， 它提供了内容模块周围的薄层。
 
-By using libchromiumcontent and brightray together, developers can quickly build a browser without getting into the details of building Chromium. 它取消了建造 项目的快速网络和强大机器的要求。
+通过一起使用氦气和亮光，开发人员可以 快速构建浏览器，而无需了解构建 Chromium 的细节。 它取消了建造 项目的快速网络和强大机器的要求。
 
 Apart from Electron, there were also other Chromium-based projects built in this way, like the [Breach browser](https://www.quora.com/Is-Breach-Browser-still-in-development).
 
 ## 过滤导出的符号
 
-On Windows there is a limitation of how many symbols one shared library can export. 随着Chromium代码库的增加，在 libchromiumcontext 中导出的符号数量很快就超过了限制。
+在 Windows 上，共享库可以 导出的符号数量是有限制的。 随着Chromium代码库的增加，在 libchromiumcontext 中导出的符号数量很快就超过了限制。
 
 解决方案是在生成 DLL 文件时过滤不需要的符号。 由 [提供一个 `来工作。 f` 链接文件](https://github.com/electron/libchromiumcontent/pull/11/commits/85ca0f60208eef2c5013a29bb4cf3d21feb5030b), 然后使用 脚本到 [判断是否应该导出命名空间下的符号 ](https://github.com/electron/libchromiumcontent/pull/47/commits/d2fed090e47392254f2981a56fe4208938e538cd)
 
@@ -60,13 +60,13 @@ Chromium继续成长， Chromium中导出了如此多的符号，甚至内容模
 
 如前所述，Chromium有两种构建模式。 由于 配送原始二进制件，我们不得不在libchromiumcontent中运送两种不同的二进制品分布 。 其中一个叫做 `static_bull` build, 其中包括 每个模块的所有静态库，由正常构建Chromium生成的。 另一个是 `shared_Library`, 它包括组件构建生成的每个 模块的所有共享库。
 
-In Electron, the Debug version is linked with the `shared_library` version of libchromiumcontent, because it is small to download and takes little time when linking the final executable. And the Release version of Electron is linked with the `static_library` version of libchromiumcontent, so the compiler can generate full symbols which are important for debugging, and the linker can do much better optimization since it knows which object files are needed and which are not.
+在 Electron 中，Debug 版本与 `shared_library` 版本的 氦气质连接在一起，因为它下载量小，在链接最终可执行文件时 的时间也很少。 电子的释放版本 与 `static_library` 版本的libromiumcontent链接，因此编译器 可以生成对调试很重要的完整符号，链接器 可以做得更好的优化，因为它知道哪些对象文件 需要，哪些不是。
 
 所以对于正常的开发，开发者只需要构建调试版本， 不需要一个良好的网络或强大的机器。 虽然发布 版本需要更好的硬件才能生成，但它可以产生更好的 优化二进制文件。
 
 ## `gn` 更新
 
-Being one of the largest projects in the world, most normal systems are not suitable for building Chromium, and the Chromium team develops their own build tools.
+作为世界上最大的项目之一，大多数正常系统 不适合建造铬，铬团队开发自己的构建 工具。
 
 较早版本的Chromium正在使用 `gyp` 作为构建系统，但它受到了 的减缓， 复杂的 项目很难理解它的配置文件。 经过多年的开发，Chromium 切换到 `gn` 作为 构建系统，构建速度快得多，结构清晰。
 
