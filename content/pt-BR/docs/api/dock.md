@@ -1,10 +1,10 @@
-## Class: Dock
+## Classe: Doca
 
-> Control your app in the macOS dock
+> Controle seu aplicativo no dock do macOS
 
 Processo: [Main](../glossary.md#main-process)
 
-The following example shows how to bounce your icon on the dock.
+O exemplo a seguir mostra como rebater seu ícone na doca.
 
 ```javascript
 const { app } = require('electron')
@@ -13,39 +13,39 @@ app.dock.bounce()
 
 ### Métodos de Instância
 
-#### `dock.bounce([type])` _macOS_
+#### `dock.bounce([type])` __macOS
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (opcional) - Pode ser `critical` ou `informational`. O padrão é `informational`
 
-Returns `Integer` - an ID representing the request.
+Retorna `Integer` - uma ID representando o pedido.
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Quando `critical` for aprovada, o ícone da doca saltará até que o aplicativo fique ativo ou a solicitação seja cancelada.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Quando `informational` for aprovada, o ícone da doca saltará por um segundo. No entanto, a solicitação permanece ativa até que o aplicativo se torne ativo ou a solicitação seja cancelada.
 
-**Nota Bene:** This method can only be used while the app is not focused; when the app is focused it will return -1.
+**Nota Bene:** Este método só pode ser usado enquanto o aplicativo não estiver focado; quando o aplicativo estiver focado, ele retornará -1.
 
-#### `dock.cancelBounce(id)` _macOS_
+#### `dock.cancelBounce(id)` __macOS
 
 * `id` Inteiro
 
-Cancel the bounce of `id`.
+Cancele o salto de `id`.
 
-#### `dock.downloadFinished(filePath)` _macOS_
+#### `dock.downloadFinished(filePath)` __macOS
 
-* `filePath` String
+* `filePath` Cordas
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Pula a pilha Downloads se o filePath estiver dentro da pasta Downloads.
 
-#### `dock.setBadge(text)` _macOS_
+#### `dock.setBadge(text)` __macOS
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Define a corda a ser exibida na área de badging do cais.
 
 #### `dock.getBadge()` no _macOS_
 
-Returns `String` - The badge string of the dock.
+Retorna `String` - A sequência de crachá da doca.
 
 #### `dock.hide()` no _macOS_
 
@@ -53,23 +53,23 @@ Esconde o ícone na Dock.
 
 #### `dock.show()` no _macOS_
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+Devoluções `Promise<void>` - Resolve quando o ícone da doca é mostrado.
 
 #### `dock.isVisible()` no _macOS_
 
-Returns `Boolean` - Whether the dock icon is visible.
+Devoluções `Boolean` - Se o ícone da doca é visível.
 
-#### `dock.setMenu(menu)` _macOS_
+#### `dock.setMenu(menu)` __macOS
 
 * `menu` [Menu](menu.md)
 
-Sets the application's \[dock menu\]\[dock-menu\].
+Define o[dock-menu]do aplicativo [menu dock] .
 
 #### `dock.getMenu()` no _macOS_
 
-Returns `Menu | null` - The application's \[dock menu\]\[dock-menu\].
+Devoluções `Menu | null` - O[dock-menu]do aplicativo [menu dock] .
 
-#### `dock.setIcon(image)` _macOS_
+#### `dock.setIcon(image)` __macOS
 
 * `image` ([NativeImage](native-image.md) | String)
 
