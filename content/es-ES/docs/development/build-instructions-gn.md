@@ -27,7 +27,7 @@ Si planeas hacer checkout de Electron más de una vez (por ejemplo, para tener m
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# Esto usará alrededor de 16G.
+# This will use about 16G.
 ```
 
 ## Obteniendo el código
@@ -110,7 +110,7 @@ Para la configuración de la lanzamiento:
 $ ninja -C out/Release electron
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+Esto construirá todo lo que antes era ' libchromiumcontent ' (es decir, el `content/` directorio de `chromium` y sus dependencias, incl. WebKit y V8), por lo que tomará un tiempo.
 
 El ejecutable compilado estará en `./out/Testing`:
 
@@ -161,7 +161,7 @@ Vea la referencia de GN para valores permitidos de [`target_os`][target_os value
 Para compilar de forma cruzada para Windows en Arm, [follow Chromium's guide](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) para obtener las dependencias necesarias, SDK y librerias, luego construir con `ELECTRON_BUILDING_WOA=1` en su entorno antes de ejecutar `gclient sync`.
 
 ```bat
-estalecer ELECTRON_BUILDING_WOA=1
+set ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
@@ -216,9 +216,9 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 Si `gclient sync` es interrumpido el arbol de git puede quedar en mal estado, lo que conduce a un mensaje críptico cuando se ejecuta `gclient sync` en el futuro:
 
 ```plaintext
-2> Conflicto mietras se hace rebase de esta rama.
-2> Corrija el conflicto y ejecute gclient de nuevo.
-2> Consulte man git-rebase para más detalles.
+2> Conflict while rebasing this branch.
+2> Fix the conflict and run gclient again.
+2> See man git-rebase for details.
 ```
 
 Si no hay conflictos de git o rebases en `src/electron`, puede necesitar abortar un `git am` en `src`:
