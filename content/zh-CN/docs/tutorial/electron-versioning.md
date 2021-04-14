@@ -36,7 +36,7 @@ npm install --save-dev electron@latest
 
 我们将详细介绍 git 分支是如何工作的，npm 标记是如何工作的，开发人员应该看到什么，以及如何能够支持更改。
 
-# SemVer
+# 塞姆弗
 
 从 2.0 开始，Electron 将遵循 SemVer。
 
@@ -75,7 +75,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 过程如下:
 
-1. All new major and minor releases lines begin with a beta series indicated by SemVer prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. 在第一次测试后，测试版随后的释放必须满足以下所有条件：
+1. 所有新的主要和次要版本行都以 SemVer 预发布 `beta.N`标签指示的测试版系列开始，例如： `2.0.0-beta.1`. 在第一次测试后，测试版随后的释放必须满足以下所有条件：
     1. 更改是落后的 API 兼容 (允许废弃)
     2. 实现我们稳定的时间表的危险必须是低的。
 2. 如果允许更改需要在释放测试版之后进行，则使用并增加预放标签，例如`2.0.0-beta.2`。
@@ -142,4 +142,4 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
 * Release 分支永远不会合并回 master 分支
 * 发布分支 _在_ 其`package.json ` 中包含正确的版本
-* 一旦一个主要的释放分支被切割，主子就必须被打碎为下一个大师。  I.e. `master` is always versioned as the next theoretical release branch
+* 一旦一个主要的释放分支被切割，主子就必须被打碎为下一个大师。  即。 `master` 始终被版本为下一个理论发布分支
