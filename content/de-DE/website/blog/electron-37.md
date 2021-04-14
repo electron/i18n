@@ -92,7 +92,7 @@ multiply(5) // 5
 
 #### Destructuring assignment
 
-Chrome 49 added [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make assigning variables and function parameters much easier.
+Chrome 49 hat [zerstöreren Zuweisung](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) hinzugefügt, um das Zuweisen von Variablen und Funktionsparametern erheblich zu vereinfachen.
 
 Dies macht Electron benötigt sauberer und kompakter, um es jetzt zuzuweisen:
 
