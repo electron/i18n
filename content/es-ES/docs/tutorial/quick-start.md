@@ -8,7 +8,7 @@ Por lo general, usted crea una aplicación de escritorio para un sistema operati
 
 ### Prerequisitos
 
-Before proceeding with Electron you need to install [Node.js][node-download]. Recomendamos que instale la última versión de `LTS` o `Current` disponible.
+Antes de proceder con Electron, debes instalar [node. js][node-download]. Recomendamos que instale la última versión de `LTS` o `Current` disponible.
 
 > Por favor instale Node.js usando instaladores precompilados para su plataforma. De lo contrario, puede encontrarse con problemas de incompatibilidad con diferentes herramientas de desarrollo.
 
@@ -120,7 +120,7 @@ La página `index.html` se ve como sigue:
 
 #### Definir un script de precarga
 
-Su script de precarga actúa como un puente entre Node.js y su página web. Le permite exponer APIs y comportamientos específicos a su página web en lugar de exponer de forma insegura toda la API de Node.js. En este ejemplo usaremos el script de precarga para leer la información de la versión desde el objeto `process` y actualizar la página web con esa información.
+Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Le permite exponer APIs y comportamientos específicos a su página web en lugar de exponer de forma insegura toda la API de Node.js. En este ejemplo usaremos el script de precarga para leer la información de la versión desde el objeto `process` y actualizar la página web con esa información.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -178,7 +178,7 @@ Por defecto, el comando `npm start` ejecutará el script principal con Node.js. 
 #### Ejecuta tu aplicación
 
 ```sh
-npm inicio
+npm start
 ```
 
 Su aplicación Electron en ejecución debería verse de la siguiente manera:
@@ -202,9 +202,9 @@ La forma más simple y rápida de distribuir su aplicación recién creada es us
     ✔ Writing modified package.json file
     ✔ Fixing .gitignore
 
-    Hemos INTENTADO convertir tu aplicación a un formato que electron-forge entiende.
+    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
 
-    Gracias por usar "electron-forge"!!!
+    Thanks for using "electron-forge"!!!
     ```
 
 1. Crear una distributable:
@@ -212,27 +212,27 @@ La forma más simple y rápida de distribuir su aplicación recién creada es us
     ```sh
     npm run make
 
-    > my-gsod-electron-app@1.0. make /my-electron-app
+    > my-gsod-electron-app@1.0.0 make /my-electron-app
     > electron-forge make
 
-    ✔ Chequeando su sistema
-    ✔ Resolviendo la configuración de Forge
-    Necesitamos empaquetar su aplicación antes de que podamos hacerlo
-    ✔ Preparando la aplicación de paquete para arch: x64
-    ✔ Preparando las dependencias nativas
-    ✔ Aplicación de empaquetado
-    Creando para los siguientes objetivos: zip
-    ✔ Making for target: zip - En plataforma: darwin - Para arch: x64
+    ✔ Checking your system
+    ✔ Resolving Forge Config
+    We need to package your application before we can make it
+    ✔ Preparing to Package Application for arch: x64
+    ✔ Preparing native dependencies
+    ✔ Packaging Application
+    Making for the following targets: zip
+    ✔ Making for target: zip - On platform: darwin - For arch: x64
     ```
 
     Electron-forge crea la carpeta `out` donde se ubicará tu paquete:
 
     ```plain
-    // Ejemplo para MacOS
+    // Example for MacOS
     out/
-    Ninguno: out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
-    Ninguno...
-    ★ out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
+    ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
+    ├── ...
+    └── out/my-electron-app-darwin-x64/my-electron-app.app/Contents/MacOS/my-electron-app
     ```
 
 ## Aprender lo básico
@@ -296,7 +296,7 @@ ipcMain.handle('perform-action', (event, ...args) => {
 ```
 
 ```js
-// En el proceso de Renderer
+// In the Renderer process
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('perform-action', ...args)
