@@ -4,59 +4,59 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-### `new TouchBar(options)`
+### `新的触摸栏（选项）`
 
 * `选项` 对象
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
+  * `items` （[触摸巴顿](touch-bar-button.md) | [触摸巴彩色皮克](touch-bar-color-picker.md) | [触摸栏组](touch-bar-group.md) | [触摸巴贝尔](touch-bar-label.md) | [触摸栏](touch-bar-popover.md) | [触摸栏](touch-bar-scrubber.md) | [触摸栏隔离控制](touch-bar-segmented-control.md) | [触摸滑机](touch-bar-slider.md) | [触摸栏](touch-bar-spacer.md)）[]（可选）
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (可选的)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+创建一个新的触摸栏与指定的项目。 使用 `BrowserWindow.setTouchBar` 将 `TouchBar` 添加到窗口。
 
 **注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
 
 **提示：**如果您没有带Touch Bar的MacBook，则可以使用[ Touch Bar Simulator ](https://github.com/sindresorhus/touch-bar-simulator)来测试应用中的Touch Bar使用情况。
 
-### Static Properties
+### 静态属性
 
-#### `TouchBarButton`
+#### `触摸巴布顿`
 
-A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
+`TouchBarButton` 类的 [`typeof TouchBarButton`](./touch-bar-button.md) 参考。
 
-#### `TouchBarColorPicker`
+#### `触摸巴彩色皮克`
 
-A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
+`TouchBarColorPicker` 类的 [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) 参考。
 
-#### `TouchBarGroup`
+#### `触摸栏组`
 
-A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
+`TouchBarGroup` 类的 [`typeof TouchBarGroup`](./touch-bar-group.md) 参考。
 
-#### `TouchBarLabel`
+#### `触摸巴拉贝尔`
 
-A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
+`TouchBarLabel` 类的 [`typeof TouchBarLabel`](./touch-bar-label.md) 参考。
 
-#### `TouchBarPopover`
+#### `触摸栏弹出`
 
-A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
+`TouchBarPopover` 类的 [`typeof TouchBarPopover`](./touch-bar-popover.md) 参考。
 
-#### `TouchBarScrubber`
+#### `触摸巴斯克鲁伯`
 
-A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
+`TouchBarScrubber` 类的 [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) 参考。
 
-#### `TouchBarSegmentedControl`
+#### `触摸栏隔离控制`
 
-A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
+`TouchBarSegmentedControl` 类的 [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) 参考。
 
-#### `TouchBarSlider`
+#### `触摸栏滑机`
 
-A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
+`TouchBarSlider` 类的 [`typeof TouchBarSlider`](./touch-bar-slider.md) 参考。
 
-#### `TouchBarSpacer`
+#### `触摸巴空间器`
 
-A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
+`TouchBarSpacer` 类的 [`typeof TouchBarSpacer`](./touch-bar-spacer.md) 参考。
 
-#### `TouchBarOtherItemsProxy`
+#### `触摸巴其他石墨斯普罗西`
 
-A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
+`TouchBarOtherItemsProxy` 类的 [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) 参考。
 
 ### 实例属性
 
@@ -71,109 +71,109 @@ A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference
 下面是一个带有一个按钮和若干文本的简易Touch bar老虎机游戏示例
 
 ```javascript
-const { app, BrowserWindow, TouchBar } = require('electron')
+康斯特 { app, BrowserWindow, TouchBar } =要求（'电子'）
 
-const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
+锥 { TouchBarLabel, TouchBarButton, TouchBarSpacer } =TouchBar
 
-let spinning = false
+让旋转=假
 
-// Reel labels
-const reel1 = new TouchBarLabel()
-const reel2 = new TouchBarLabel()
-const reel3 = new TouchBarLabel()
+//卷轴标签
+锥卷轴1=新的触摸巴拉贝尔（）
+锥卷轴2=新的触摸杆卷轴（）
+锥卷轴3= 新的 TouchBar 标签 （）
 
-// Spin result label
-const result = new TouchBarLabel()
+// 旋转结果标签
+缺点结果 = 新的 TouchBar 标签 （）
 
-// Spin button
-const spin = new TouchBarButton({
-  label: '🎰 Spin',
-  backgroundColor: '#7851A9',
-  click: () => {
-    // Ignore clicks if already spinning
-    if (spinning) {
+// 旋转按钮
+康斯特旋转 = 新的触摸巴按钮 （+
+  标签： "🎰旋转"，
+  背景颜色： '#7851A9'，
+  单击：（）=> {
+    //如果（旋转） {
       return
     }
 
-    spinning = true
-    result.label = ''
+    旋转
 
-    let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
-    const startTime = Date.now()
+    旋转，请忽略单击。标签="
 
-    const spinReels = () => {
-      updateReels()
+    让超时=10
+    const旋转长=4*100 0//4秒
+    const开始时间=日期。now（）
 
-      if ((Date.now() - startTime) >= spinLength) {
-        finishSpin()
-      } else {
-        // Slow down a bit on each spin
-        timeout *= 1.1
-        setTimeout(spinReels, timeout)
-      }
-    }
+    const旋转音圈=（）=> =
+      更新（）
 
-    spinReels()
-  }
-})
+      如果（（日期.now）-开始时间） >=旋转长）{
+        完成Spin（）
+      }其他{
+        //每次旋转
+        超时减慢一点*=1.1
+        设置超时（旋转， 超时）
+      =
+    =
 
-const getRandomValue = () => {
-  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
-  return values[Math.floor(Math.random() * values.length)]
-}
+    旋转（）
+  =
+}）
 
-const updateReels = () => {
-  reel1.label = getRandomValue()
-  reel2.label = getRandomValue()
-  reel3.label = getRandomValue()
-}
+连续获得随机值=（）=> {
+  const值=[🍒'，'💎'，'7️♥'，'🍊'，'🔔' "⭐"， "🍇"， "🍀"]
+  返回值 [Math. 地板 （数学. 随机 ）] [值. 长度]]
+[
 
-const finishSpin = () => {
-  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) {
-    // All 3 values are the same
-    result.label = '💰 Jackpot!'
-    result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 values are the same
-    result.label = '😍 Winner!'
-    result.textColor = '#FDFF00'
-  } else {
-    // No values are the same
-    result.label = '🙁 Spin Again'
-    result.textColor = null
-  }
-  spinning = false
-}
+续更新] （） => [
+  卷轴 1. 标签 = 获取随机价值 （）
+  卷轴 2. 标签 = 获取随机价值 （）
+  重新标记 = 获取
+[
 
-const touchBar = new TouchBar({
-  items: [
-    spin,
-    new TouchBarSpacer({ size: 'large' }),
-    reel1,
-    new TouchBarSpacer({ size: 'small' }),
-    reel2,
-    new TouchBarSpacer({ size: 'small' }),
-    reel3,
-    new TouchBarSpacer({ size: 'large' }),
-    result
+const 完成Spin = （） => =
+  const 唯一价值 = 新集 （[卷轴 1.标签， 卷轴 2.标签， 卷轴 3.标签]）. 大小
+  如果 （唯一价值 == 1） {
+    // 所有 3 个值都是相同的
+    结果 💰。
+    结果.文本颜色="#FDFF00"
+  =其他（唯一值==2）=
+    //2值
+    结果相同 😍。
+    结果.文本颜色="#FDFF00"
+  }其他=
+    //没有值是相同的
+    结果。标签="🙁再次旋转"
+    结果。文本颜色=空
+  =
+  旋转=假
+=
+
+锥体触摸栏=新TouchBar（{
+  项：[
+    旋转，
+    新的触摸栏空间器（{ size: 'large' }），
+    卷轴1，
+    新的触摸栏空间器（{ size: 'small' }），
+    卷轴2，
+    新的 TouchBarSpacer （{ size: 'small' }），
+    卷轴 3，
+    个新的 TouchbarSpacer （{ size: 'large' }），
+    结果
   ]
-})
+[）
 
-let window
+让窗口
 
-app.whenReady().then(() => {
-  window = new BrowserWindow({
-    frame: false,
-    titleBarStyle: 'hiddenInset',
-    width: 200,
-    height: 200,
-    backgroundColor: '#000'
-  })
-  window.loadURL('about:blank')
-  window.setTouchBar(touchBar)
-})
+应用程序
+    
+  > 。：假的，
+    标题BarStyle：'隐藏嵌套'，
+    宽度：200，
+    高度：200，
+    背景颜色：'#000'
+  }）
+
+窗口
+  。
 ```
 
 ### 运行以上示例
