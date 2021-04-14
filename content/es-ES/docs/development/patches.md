@@ -10,33 +10,34 @@ Cada parche en Electron es una carga de mantenimiento. Cuando el código origina
 2. El parche permite que el código se compile en el entorno Electron, pero no se puede confirmar en upstream porque es específico de Electron (p.ej. parchear las referencias al `Profile` Chrome). Incluye razonamiento sobre por qué el cambio no se puede implementar sin un parche (por ejemplo, subclasificar o copiar el código).
 3. El parche realiza cambios específicos de Electron en la funcionalidad que son fundamentalmente incompatibles con el upstream.
 
-In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **Deberíamos enfocarnos en los cambios siempre que podamos y evitar los parches de duración indefinida**.
+En general, todos los proyectos ascendentes con los que trabajamos son personas amigables y, a menudo, se complacen en aceptar refactorizaciones que permitan que el código en cuestión sea compatible con electrones y el proyecto ascendente. (Véase, p. ej. [este](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) cambio en Chromium, que nos permitió eliminar un parche que hizo la misma cosa, o [este](https://github.com/nodejs/node/pull/22110) cambio en el nodo, que era un nodo sin OP, pero solucionó un error en Electron.) **Deberíamos enfocarnos en los cambios siempre que podamos y evitar los parches de duración indefinida**.
 
 ## Sistema de parches
 
-If you find yourself in the unfortunate position of having to make a change which can only be made through patching an upstream project, you'll need to know how to manage patches in Electron.
+Si te encuentras en la situación desafortunada de tener que hacer un cambio que solo se puede hacer mediante la revisión de un proyecto ascendente, necesitarás saber cómo administrar los parches en Electron.
 
-Todos los parches a los proyectos upstream en Electron están contenidos en el directorio `patches/`. Cada subdirectorio de `patches/` contiene varios archivos de parche, junto con un archivo `.patches` el cual lista el orden en el cual los parches deberían ser aplicados. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
+Todos los parches a los proyectos upstream en Electron están contenidos en el directorio `patches/`. Cada subdirectorio de `patches/` contiene varios archivos de parche, junto con un archivo `.patches` el cual lista el orden en el cual los parches deberían ser aplicados. Piensa en estos archivos como que componen una serie de confirmaciones de Git que se aplican en la parte superior del proyecto ascendente después de que lo revisemos.
 
 ```text
 patches
 ├── config.json   <-- this describes which patchset directory is applied to what project
 ├── chromium
-│   ├── .patches
-│   ├── accelerator.patch
-│   ├── add_contentgpuclient_precreatemessageloop_callback.patch
+│   ├── .patches
+│   ├── accelerator.patch
+│   ├── add_contentgpuclient_precreatemessageloop_callback.patch
 │   ⋮
 ├── node
-│   ├── .patches
-│   ├── add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
-│   ├── build_add_gn_build_files.patch
-│   ⋮
+│   ├── .patches
+│   ├── add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
+│   ├── build_add_gn_build_files.patch
+│   ⋮
 ⋮
+
 ```
 
 Para ayudar a manejar estos conjuntos de parches, proporcionamos dos herramientas: `git-import-patches` y `git-export-patches`. `git-import-patches` importa un conjunto de archivos de parche en un repositorio git aplicando cada parche en el orden correcto y creando un commit para cada parche. `git-export-patches` hace el reverso; exporta una serie de commits git en un repositorio a un conjunto de ficheros en un directorio y un arvhivo `.patches` adjunto.
 
-> Nota al margen: la razón por la que usamos un archivo `.patches` para mantener el orden de los parches aplicados, en lugar de anteponer un número como `001-` a cada archivo, es porque reduce los conflictos relacionados al orden de parches. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
+> Nota al margen: la razón por la que usamos un archivo `.patches` para mantener el orden de los parches aplicados, en lugar de anteponer un número como `001-` a cada archivo, es porque reduce los conflictos relacionados al orden de parches. Evita la situación en la que dos PRs agregan un parche al final de la serie con la misma numeración y terminan ambos consiguiendo fusionados resultando en un identificador duplicado, y también reduce la rotación cuando se agrega o se elimina un parche en el centro de la serie.
 
 ### Uso
 
