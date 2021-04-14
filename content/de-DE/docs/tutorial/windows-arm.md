@@ -1,6 +1,6 @@
 # Windows 10 auf Arm
 
-Wenn Ihre App mit Electron 6.0.8 oder höher läuft, können Sie sie nun unter Arm für Windows 10 bauen. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+Wenn Ihre App mit Electron 6.0.8 oder höher läuft, können Sie sie nun unter Arm für Windows 10 bauen. Dies verbessert die Leistung erheblich, erfordert jedoch eine Neukompilierung aller systemeigenen Module, die in Ihrer App verwendet werden. Es kann auch kleine Korrekturen für Ihre Build- und Verpackungsskripte erfordern.
 
 ## Eine einfache App ausführen
 
@@ -14,7 +14,7 @@ Wenn Ihre App keine nativen Module verwendet, ist es wirklich einfach, eine Arm-
 
 ### Architektur-spezifischer Code
 
-Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
+Viele Windows-spezifische Code enthält, wenn... eine andere Logik, die entweder zwischen der x64- oder x86-Architektur auswählt.
 
 ```js
 if (process.arch === 'x64') {
@@ -75,7 +75,7 @@ Wenn Sie Ihre Anwendung direkt auf einem Windows-Arm-Gerät entwickeln möchten,
 
 ### Verlinkung gegen die korrekte `node.lib`
 
-By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) Um dies zu beheben:
+Standardmäßig entpackt `node-gyp` die Node-Header von Electron und lädt die x86- und x64-Versionen von `node.lib` in `%APPDATA%\..\Local\node-gyp\Cache`herunter, aber es lädt die arm64-Version nicht herunter ([eine Korrektur dafür ist in Entwicklung](https://github.com/nodejs/node-gyp/pull/1875).) Um dies zu beheben:
 
 1. Lade die arm64 `node.lib` von https://electronjs.org/headers/v6.0.9/win-arm64/node.lib herunter
 2. Verschiebe es nach `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
