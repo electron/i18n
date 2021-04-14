@@ -28,9 +28,9 @@ app.on('window-all-closed', () => {
 Возвращает:
 
 * `event` Event
-* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
+* `launchInfo` рекорд<string, any> | [УведомлениеОтветить](structures/notification-response.md) _macOS_
 
-Происходит единожды при завершении инициализации Electron. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Вы также можете вызвать `app.isReady()` для проверки того, что событие уже произошло и `app.whenReady()` чтобы получить Promise, который выполнится, когда Electron будет инициализирован.
+Происходит единожды при завершении инициализации Electron. На macOS `launchInfo` хранит `userInfo` `NSUserNotification` или информацию от [`UNNotificationResponse`](structures/notification-response.md) , которая использовалась для открытия приложения , если оно было запущено из Центра уведомлений. Вы также можете вызвать `app.isReady()` для проверки того, что событие уже произошло и `app.whenReady()` чтобы получить Promise, который выполнится, когда Electron будет инициализирован.
 
 ### Событие: 'window-all-closed'
 
@@ -298,7 +298,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Выдается при каждом обновлении информации о GPU.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### Событие: 'gpu-процесс-crashed' _Deprecated_
 
 Возвращает:
 
@@ -307,9 +307,9 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Возникает, когда процесс GPU аварийно завершает работу или завершается принудительно.
 
-**Устарело:** Это событие заменяется событием `child-process-gone`, которое содержит больше информации о том, почему дочерний процесс исчез. It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**Устарело:** Это событие заменяется событием `child-process-gone`, которое содержит больше информации о том, почему дочерний процесс исчез. Это не всегда, потому что он разбился. На `killed` boolean можно заменить проверки `reason === 'killed'` при переходе на это событие.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Событие: 'renderer-процесс-crashed' _Deprecated_
 
 Возвращает:
 
@@ -319,33 +319,33 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Происходит, когда графический процесс `webContents` аварийно завершает работу или является убитым.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**:** Это событие затухает событие `render-process-gone` , содержит больше информации о том, почему процесс визуализации исчез. Это не всегда, потому что он разбился.  На `killed` boolean можно заменить проверки `reason === 'killed'` при переходе на это событие.
 
-### Event: 'render-process-gone'
+### Событие: 'рендер-процесс-ушел'
 
 Возвращает:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `details` Object
-  * `reason` String - The reason the render process is gone.  Возможные значения:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+* `details` объект
+  * `reason` Строка - Причина, по которой процесс рендеров исчез.  Возможные значения:
+    * `clean-exit` - Процесс вышел с кодом выхода нуля
+    * `abnormal-exit` - Процесс вышел с ненулевой код выхода
+    * `killed` - Процесс был отправлен SIGTERM или иным образом убит извне
+    * `crashed` - Процесс разбился
+    * `oom` - Процесс закончился в памяти
+    * `launch-failed` - Процесс так и не был успешно запущен
+    * `integrity-failure` - Проверки целостности кода Windows не удалось
+  * `exitCode` Integer - Код выхода процесса, если `reason` не `launch-failed`, и в этом случае `exitCode` будет платформы конкретных код ошибки запуска.
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+Испускаемый при процессе рендерера неожиданно исчезает.  Это, как правило потому что он разбился или погиб.
 
 ### Событие 'child-process-gone'
 
 Возвращает:
 
 * `event` Event
-* `details` Object
+* `details` объект
   * `type` String - Тип процесса. Одно из следующих значений:
     * `Utility`
     * `Zygote`
@@ -355,18 +355,18 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
     * `Pepper Plugin Broker`
     * `Unknown`
   * `reason` String - Причина исчезновения дочернего процесса. Возможные значения:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
-  * `serviceName` String (optional) - The non-localized name of the process.
+    * `clean-exit` - Процесс вышел с кодом выхода нуля
+    * `abnormal-exit` - Процесс вышел с ненулевой код выхода
+    * `killed` - Процесс был отправлен SIGTERM или иным образом убит извне
+    * `crashed` - Процесс разбился
+    * `oom` - Процесс закончился в памяти
+    * `launch-failed` - Процесс так и не был успешно запущен
+    * `integrity-failure` - Проверки целостности кода Windows не удалось
+  * `exitCode` - Код выхода для процесса (например, статус от waitpid, если на posix, от GetExitCodeProcess на Windows).
+  * `serviceName` String (по желанию) - не локализованное название процесса.
   * `name` String (опционально) - Название процесса. Например: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture` и т.д.
 
-Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
+Испускаемый, когда процесс ребенка неожиданно исчезает. Это, как правило потому что он разбился или погиб. Он не включает процессы рендерера.
 
 ### Событие: 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -386,11 +386,11 @@ Emitted when the child process unexpectedly disappears. This is normally because
 Происходит после создания новой сессии `session`.
 
 ```javascript
-const { app } = require('electron')
+const { app } требует ('электрон')
 
-app.on('session-created', (session) => {
-  console.log(session)
-})
+app.on ('сессия-создан', (сессия) ->
+  консоль.log (сессия)
+)
 ```
 
 ### Событие: 'second-instance'
@@ -420,7 +420,7 @@ app.on('session-created', (session) => {
 
 Возникает, когда `desktopCapturer.getSources()` вызывается в процессе рендерера `webContents`. Вызов `event.preventDefault()` вернет пустые источники.
 
-### Event: 'remote-require' _Deprecated_
+### Событие: «дистанционное требует» _Deprecated_
 
 Возвращает:
 
@@ -430,7 +430,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-global' _Deprecated_
+### Событие: «дистанционно-получить-глобальный» _Deprecated_
 
 Возвращает:
 
@@ -440,7 +440,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-builtin' _Deprecated_
+### Событие: 'удаленный-получить-builtin' _Deprecated_
 
 Возвращает:
 
@@ -450,7 +450,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-current-window' _Deprecated_
+### Событие: 'дистанционное начало-текущее окно' _Deprecated_
 
 Возвращает:
 
@@ -459,7 +459,7 @@ app.on('session-created', (session) => {
 
 Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents' _Deprecated_
+### Событие: "дистанционное получить-текущий-веб-содержимое" _Deprecated_
 
 Возвращает:
 
@@ -522,11 +522,11 @@ app.exit(0)
 ### `app.focus([options])`
 
 * `options` Object (опционально)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ - Сделайте приемник активным приложением, даже если другое приложение в настоящее активен.
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+На Linux, фокусируется на первом видимом окне. На macOS, делает приложение активное приложение. В Windows основное внимание уделяется первому окну приложения.
 
-You should seek to use the `steal` option as sparingly as possible.
+Вы должны стремиться использовать `steal` как можно экономно.
 
 ### `app.hide()` _macOS_
 
@@ -534,11 +534,11 @@ You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Показывает окна приложений после того, как они были скрыты. Автоматически не фокусируется них.
 
 ### `app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (необязательно) - пользовательский путь для журналов. Должно быть, абсолютно.
 
 Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
@@ -550,9 +550,9 @@ Shows application windows after they were hidden. Does not automatically focus t
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name:
+* `name` Строка - Вы можете запросить следующие пути по имени:
   * `home` домашний каталог пользователя.
-  * `appData` Per-user application data directory, which by default points to:
+  * `appData` каталог данных приложения Per-user, который по умолчанию указывает на:
     * `%APPDATA%` на Windows
     * `$XDG_CONFIG_HOME` или `~/.config` на Linux
     * `~/Library/Application Support` на macOS
@@ -567,11 +567,11 @@ Shows application windows after they were hidden. Does not automatically focus t
   * `music` каталог пользователя "Music".
   * `pictures` каталог пользователя для фотографии.
   * `videos` каталог пользователя для видео.
-  * `recent` Directory for the user's recent files (Windows only).
+  * `recent` каталог для последних файлов пользователя (только Windows).
   * `logs` директория для логов вашего приложения.
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` каталог, где хранятся свалки.
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Возвращает `String` - Путь к специальному каталогу или файлу, связанному с `name`. На неудачи `Error` брошена .
 
 Если `app.getPath('logs')` вызывается без имени `app.setAppLogsPath()`, то сначала создается каталог журнала по умолчанию, эквивалентный вызову `app.setAppLogsPath()` без параметра `path`.
 
@@ -579,7 +579,7 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 * `path` String
 * `options` Object (опционально)
-  * `size` String
+  * `size` Струна
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on _Linux_, 32x32 on _Windows_, не поддерживается на _macOS_.
@@ -626,7 +626,7 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Возвращает `String` - Текущая локализация приложения. Возможные значения возврата задокументированы [здесь](locales.md).
 
 Для установки языка вам потребуется использовать переключатель командной строки во время запуска приложения, который можно найти [здесь](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
@@ -636,7 +636,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Возвращает `String` - Локализация двухкилогового кода [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) пользователя. Значение взято из РОДНЫХ API ОС.
 
 **Примечание:** Когда невозможно определить код страны языка, возвращает пустую строку.
 
@@ -646,7 +646,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 Добавляет `path` к списку последних документов.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Этот список управляется ОС. На Windows, вы можете посетить список из задачи , и на macOS, вы можете посетить его из меню док-станции.
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 
@@ -654,19 +654,19 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - имя вашего протокола, без `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. По умолчанию пустой массив
+* `protocol` String - имя вашего протокола, без `://`. Например, если вы хотите, чтобы ваше приложение `electron://` ссылки, назовите этот метод `electron` в качестве параметра.
+* `path` Строка (не _)_ Windows - Путь к электрону выполняется. По умолчанию `process.execPath`
+* `args` String ( необязательно) _Windows_ - Аргументы перешли к исполнению. По умолчанию пустой массив
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Устанавливает текущий выполняется в качестве обработчика по умолчанию для протокола (ака URI схеме). Это позволяет интегрировать приложение глубже в операционную систему. После регистрации все связи с `your-protocol://` будут открыты с текущей текущей. Вся ссылка, включая протокол, будет передана вашему в качестве параметра.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. За подробными сведениями обращайтесь к [документации компании Apple][CFBundleURLTypes].
+**Примечание:** На macOS можно регистрировать только протоколы, которые были добавлены в в `info.plist`, которые не могут быть изменены во время выполнения. Тем не менее, изменить файл во время сборки через [Electron Forge][electron-forge], [Electron Packager][electron-packager], или путем редактирования `info.plist` с текстовым редактором. За подробными сведениями обращайтесь к [документации компании Apple][CFBundleURLTypes].
 
 **Примечание:** В окружении Windows Store (когда упаковано как `appx`) этот метод вернет `true` для всех вызовов, но ключ реестра, который он устанавливает, не будет доступен другим приложениям.  Чтобы зарегистрировать Ваше приложения в Windows Store как обработчик протокола по умолчанию, Вы должны [объявить протокол в Вашем манифесте](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
+API использует реестр Windows и `LSSetDefaultHandlerForURLScheme` внутренне.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -676,7 +676,7 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Этот метод проверяет, выполняется ли ток в качестве обработчика по умолчанию для (ака схема URI). Если это так, он будет удалить приложение в качестве обработчика по умолчанию.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
@@ -684,31 +684,31 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) _Windows_ - по умолчанию `process.execPath`
 * `args` String[] (optional) _Windows_ - по умолчанию пустой массив
 
-Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
+Возвращает `Boolean` - Является ли текущий выполненный обработчик по умолчанию для (ака URI схеме).
 
 **Примечание:** На macOS можно использовать этот метод для проверки, если приложение было зарегистрировано в качестве обработчика протокола по умолчанию для протокола. Вы также можете проверить это, установив `~/Library/Preferences/com.apple.LaunchServices.plist` на машине macOS. За подробными сведениями обращайтесь к [документации компании Apple][LSCopyDefaultHandlerForURLScheme].
 
-The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+API использует реестр Windows и `LSCopyDefaultHandlerForURLScheme` внутренне.
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - URL-адрес с именем протокола для проверки. В отличие от методов в этой семье, это принимает весь URL, в `://` с минимумом (например. `https://`).
 
-Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+Возвращает `String` - Название приложения, обработавав протокол, или пустой строки, если нет обработчика. Например, если Electron является обработчиком по умолчанию, это может быть `Electron` на Windows и Mac. Однако не полагаться на точный формат, который не гарантированно останется неизменным. Ожидайте другой формат на Linux, возможно, с `.desktop` суффиксом.
 
-This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
+Этот метод возвращает имя приложения обработчика по умолчанию для протокола (ака URI схема) URL.
 
 ### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
 
-* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - URL-адрес с именем протокола для проверки. В отличие от методов в этой семье, это принимает весь URL, в `://` с минимумом (например. `https://`).
 
 Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
-* `icon` NativeImage - the display icon of the app handling the protocol.
-* `path` String  - installation path of the app handling the protocol.
-* `name` String - display name of the app handling the protocol.
+* `icon` NativeImage - значок отображения приложения, обгоняя протокол.
+* `path` String - путь установки приложения, обгоняя протокол.
+* `name` String - отображение имени приложения, обуговаемого протоколом.
 
-This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+Этот метод возвращает обещание, которое содержит имя приложения, значок и путь обработчика по умолчанию для (ака URI схема) URL.
 
 ### `app.setUserTasks(tasks)` _Windows_
 
@@ -737,7 +737,7 @@ This method returns a promise that contains the application name, icon and path 
 
 * `ok` - ничего не случилось.
 * `error` - произошла одна или несколько ошибок, включите ведение журнала выполнения, чтобы выяснить возможную ошибку.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+* `invalidSeparatorError` - Была предпринята попытка добавить сепаратор в пользовательскую категорию в списке перепрыгивок. Сепараторы допускаются только в стандартной `Tasks` категории.
 * `fileTypeRegistrationError` - была сделана попытка добавить ссылку на файл в список переходов для типа файла, который в приложении не зарегистрирован для обработки.
 * `customCategoryAccessDeniedError` - пользовательские категории не могут быть добавлены в список переходов из-за ограничений конфиденциальности пользователей или групповой политики.
 
@@ -747,64 +747,66 @@ This method returns a promise that contains the application name, icon and path 
 
 **Примечание:** Пользователи могут удалять элементы из пользовательских категорий, но Windows не будет позволять возвращать удаленный элемент в пользовательскую категорию до **следующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в пользовательскую категорию перед тем, как метод выполнится, приведёт к исключению всей категории из списка переходов. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+
 Вот очень простой способ, как создать пользовательский список переходов:
 
 ```javascript
-const { app } = require('electron')
+const { app } - требуют ('электрон')
 
-app.setJumpList([
-  {
-    type: 'custom',
-    name: 'Recent Projects',
-    items: [
-      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-      { type: 'file', path: 'C:\\Projects\\project2.proj' }
-    ]
-  },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
-    items: [
-      {
-        type: 'task',
-        title: 'Tool A',
-        program: process.execPath,
-        args: '--run-tool-a',
-        icon: process.execPath,
+app.setJumpList (тип
+    
+  : 'обычай',
+    имя: 'Последние проекты',
+    элементы:
+      - тип: 'файл', путь: 'C: 'Проекты'project1.proj',
+      тип: 'файл', путь: 'C: 'Проекты'project2.proj' -
+    ,
+  ,
+  // имеет имя, так что 'тип' считается "обычай"
+    имя: 'Tools',
+    элементов:
+
+
+        название: 'Tool A',
+        программа: process.execPath,
+        args: '--run-tool-a', значок
+        : process.execPath,
+        iconIndex: 0, описание
+        : 'Runs Tool A'
+      ,
+
+        : 'задача',
+        название: 'Tool B',
+        программа: process.execPath,
+        args: '-run-tool-b', значок
+        : process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
-      },
-      {
-        type: 'task',
-        title: 'Tool B',
-        program: process.execPath,
-        args: '--run-tool-b',
-        icon: process.execPath,
-        iconIndex: 0,
-        description: 'Runs Tool B'
-      }
-    ]
-  },
+        описание: 'Runs Tool B'
+    
+
+
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
-    items: [
-      {
-        type: 'task',
-        title: 'New Project',
-        program: process.execPath,
-        args: '--new-project',
-        description: 'Create a new project.'
-      },
+  / / не имеет имени и не тип так "тип", как предполагается, "задачи"
+    пунктов:
+      и
+        типа: "задача",
+        название: "Новый проект",
+        программа: process.execPath,
+        args: '-новый проект',
+        описание: 'Создать новый проект.'
+      Вопрос,
       { type: 'separator' },
-      {
-        type: 'task',
-        title: 'Recover Project',
-        program: process.execPath,
-        args: '--recover-project',
-        description: 'Recover Project'
-      }
-    ]
-  }
-])
+
+        тип: "задача",
+        название: "Восстановить проект",
+        программа: process.execPath,
+        args: '--восстановить-проект', описание
+        : 'Восстановить проект'
+
+
+  
+
 ```
 
 ### `app.requestSingleInstanceLock()`
@@ -813,7 +815,7 @@ app.setJumpList([
 
 Значение, которое возвращает этот метод, указывает, успешно или нет экземпляр Вашего приложения получило блокировку.  Если не удалось получить блокировку, можно предположить, что другой экземпляр Вашего приложения уже запущен с блокировкой и немедленно выходит.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Возвращает `false`, если Ваш процесс должен немедленно завершиться, так как он отправил свои параметры другому экземпляру, которые уже приобрел блокировку.
+Например. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Возвращает `false`, если Ваш процесс должен немедленно завершиться, так как он отправил свои параметры другому экземпляру, которые уже приобрел блокировку.
 
 На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить `open-file` и `open-url` события. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
 
@@ -837,10 +839,10 @@ if (!gotTheLock) {
   })
 
   // Создать myWindow, загрузить остальную часть приложения, и т.д.
-  app.whenReady().then(() => {
-    myWindow = createWindow()
-  })
-}
+  app.whenReady ().., то (()> -
+    myWindow - создатьWindow ()
+  )
+
 ```
 
 ### `app.hasSingleInstanceLock()`
@@ -857,9 +859,9 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 * `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`][activity-type].
 * `userInfo` any- специфичное, для приложения, состояние для использования другими устройствами.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `webpageURL` String (необязательно) - веб-страница для загрузки в браузере, если не приложение не установлено на устройстве возобновления. Схема должна быть `http` или `https`.
 
-Создает `NSUserActivity` и задает её в качестве текущей активности. The activity is eligible for [Handoff][handoff] to another device afterward.
+Создает `NSUserActivity` и задает её в качестве текущей активности. Активность позже имеет право для [Handoff][handoff] на другом устройстве.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -888,15 +890,15 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+* `policy` String - может быть "регулярным", "аксессуаром" или "запрещенным".
 
 Sets the activation policy for a given app.
 
 Activation policy types:
 
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+* 'обычный' - Приложение является обычным приложением, которое появляется в доке и может иметь пользовательский интерфейс.
+* 'аксессуар' - Приложение не появляется в доке и не имеет бара меню, но оно может быть активировано программно или при нажатии на одно из его окон.
+* 'запрещено' - Приложение не появляется в доке и не может создавать окна или быть активировано.
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -941,37 +943,37 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 Для `infoType` равным `basic`: Промис выполняется с `объектом`, содержащий меньшее количество атрибутов, чем когда запрашивается с `complete`. Вот пример базового ответа:
 
 ```js
-{
+-
   auxAttributes:
-   {
-     amdSwitchable: true,
-     canSupportThreadedTextureMailbox: false,
-     directComposition: false,
-     directRendering: true,
+   и
+     завораживают: правда,
+     canSupportThreadedTextureMailbox: ложный,
+     прямойКомпозиция: ложный,
+     прямойRendering: true,
      glResetNotificationStrategy: 0,
-     inProcessGpu: true,
+     inProcessGpu: правда,
      initializationTime: 0,
-     jpegDecodeAcceleratorSupported: false,
-     optimus: false,
-     passthroughCmdDecoder: false,
-     sandboxed: false,
-     softwareRendering: false,
-     supportsOverlays: false,
+     jpegDecodeAcceleratoratorSupported: ложный,
+     optimus: ложный, ложный,
+     passthroughCmdDecoder: ложный,
+     песочница: ложный,
+     softwareRendering: ложный,
+     поддерживаетOverlays: ложные,
      videoDecodeAcceleratorFlags: 0
-   },
+   К,
   gpuDevice:
-   [{ active: true, deviceId: 26657, vendorId: 4098 },
-     { active: false, deviceId: 3366, vendorId: 32902 }],
+{ active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 },
   machineModelName: 'MacBookPro',
   machineModelVersion: '11.5'
-}
+
 ```
 
 Использование `basics` должно быть предпочтительным, если требуется только основная информация, такая как `vendorId` или `driverId`.
 
 ### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
+* `count` Integer (по желанию) - Если значение предоставлено, установите значок на предоставленное значение в противном случае, на macOS, отобразить простую белую точку (например, неизвестное количество уведомлений). На Linux, если значение не предоставляется значок не будет отображаться.
 
 Возвращает `Boolean` - был ли вызов успешным.
 
@@ -979,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 На macOS отображается на иконке в Dock. На Linux работает только для лаунчера Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -992,37 +994,37 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
 * `options` Object (опционально)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` Строка (необязательно) _Windows_ - выполненный путь для сравнения. По умолчанию `process.execPath`.
+  * `args` String( необязательно) _Windows_ - Аргументы командной строки для сравнения против. По умолчанию пустой массив.
 
 Если Вы предоставили параметры `path` и `args` в `app.setLoginItemSettings`, тогда Вам необходимо передать те же аргументы сюда, чтобы `openAtLogin` установилось корректно.
 
 Возвращает `Object`:
 
 * `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. This setting is not available on [MAS builds][mas-builds].
-* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
-* `launchItems` Object[] _Windows_
-  * `name` String _Windows_ - name value of a registry entry.
-  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
-  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
-  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
-  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
+* `openAsHidden` Boolean _macOS_ - `true` , если приложение будет открыто как скрытое при входе. Эта настройка недоступна на [MAS][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` если приложение было открыто при входе автоматически. Эта настройка недоступна на [MAS][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` если приложение было открыто в качестве скрытого входа элемент. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна на [MAS][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` если приложение было открыто в качестве элемента входа, должен восстановить состояние с предыдущей сессии. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна на [MAS][mas-builds].
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` если приложение будет открыто при входе и его ключ запуска не будет отключен. Это отличается от `openAtLogin` , поскольку он игнорирует `args` вариант, это свойство будет верно, если данный выполненный будет запущен при входе с **любыми** аргументами.
+* `launchItems` объект _Windows_
+  * `name` Строка _Windows_ - значение имени входа в реестр.
+  * `path` строка _Windows_ - выполняется для приложения, которое соответствует записи реестра.
+  * `args` String _Windows_ - аргументы командной строки, чтобы перейти к исполнению.
+  * `scope` String _Windows_ - один из `user` или `machine`. Указывает, находится ли запись в реестре под `HKEY_CURRENT USER` или `HKEY_LOCAL_MACHINE`.
+  * `enabled` Boolean _Windows_ - `true` если ключ реестра приложений одобрен и, следовательно, показывает, `enabled` в настройках Task Manager и Windows.
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
-* `settings` Object
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. This setting is not available on [MAS builds][mas-builds].
-  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
-  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Defaults to `true`.
-  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Установите приложению параметры при входе в систему.
+* `settings` объект
+  * `openAtLogin` Boolean (необязательно) - `true` открыть приложение при входе, `false` удалить приложение в качестве элемента входа. Defaults to `false`.
+  * `openAsHidden` Boolean (по _)_ macOS  - `true` открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. Эта настройка недоступна на [MAS][mas-builds].
+  * `path` String (необязательно) _Windows_ - выполняется для запуска при входе. По умолчанию `process.execPath`.
+  * `args` String (по желанию) _Windows_ - Аргументы командной строки, чтобы передать выируемому. По умолчанию пустой массив. Позаботьтесь, чтобы обернуть пути в котировки.
+  * `enabled` Boolean ( _)_ Windows `true` - изменит ключ реестра, утвержденный стартапом, `enable / disable` приложение в настройках Task Manager и Windows. Defaults to `true`.
+  * `name` String (необязательно) _Windows_ - значение имени для записи в реестр. По умолчанию appUserModelId приложения (). Установите приложению параметры при входе в систему.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Например:
+Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel][Squirrel-Windows], вы можете задать путь запуска Update.exe и передавать аргументы, которые указывают на имя приложения. Например:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1064,10 +1066,10 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationVersion` String (опиционально) - версия приложения.
   * `copyright` String (опиционально) - copyright информация.
   * `version` String (опционально) _macOS_ - номер версии сборки приложения.
-  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `credits` String (по желанию) _macOS_ _Windows_ - Кредитная информация.
   * `authors` String[] (опционально) _Linux_ - список авторов приложения.
   * `website` String (опционально) _Linux_ - веб-сайт приложения.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String ( _)_ _Linux_ Windows  - Путь к значку приложения в формате ФАЙЛА JPEG или PNG. На Linux, будет показано как 64x64 пикселей при сохранении соотношения сторон.
 
 Установите описание панели опций. This will override the values defined in the app's `.plist` file on macOS. Смотрите [Apple docs][about-panel-options] для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
@@ -1089,10 +1091,10 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 
 ```js
 // Получение доступа к файлу.
-const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 🎉
+const stopAccessingSecurityScopedResource - app.startAccessingSecurityScopedResource (данные)
+// Теперь вы можете получить доступ к файлу за пределами песочницы 🎉
 
-// Remember to stop accessing the file once you've finished with it.
+// Не забудьте прекратить доступ к файлу, как только вы закончите с ним.
 stopAccessingSecurityScopedResource()
 ```
 
@@ -1111,7 +1113,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (опционально)
-  * `conflictHandler` Function\<Boolean> (опционально) - обработчик потенциальных конфликтов при неудачных попытках.
+  * `conflictHandler` функция<Boolean> (опционально) - обработчик потенциальных конфликтов при неудачных попытках.
     * `conflictType` String - Тип конфликта перемещения, с которым столкнулся обработчик; может быть `exists` или `existsAndRunning`, где `exists` означает, что приложение с тем же именем присутствует в каталоге приложений, а `existsAndRunning` означает, что он существует и работает в данный момент.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
@@ -1149,7 +1151,7 @@ By default this API will return `false`.
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+* `enabled` Boolean - Включить или отключить `Secure Keyboard Entry`
 
 Set the `Secure Keyboard Entry` is enabled in your application.
 
@@ -1181,7 +1183,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration][unity-requirement].
 
 **Примечание:** На macOS, вы должны убедиться, что ваше приложение имеет разрешение на отображение уведомлений.
 
