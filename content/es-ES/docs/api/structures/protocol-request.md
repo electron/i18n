@@ -1,7 +1,7 @@
 # Objeto ProtocolRequest
 
 * `url` String
-* `referrer` Cadena
+* `referrer` String
 * `method` String
 * `uploadData` [UploadData[]](upload-data.md) (opcional)
-* Registro `headers`<String, String>
+* `headers` Record<String, String>
