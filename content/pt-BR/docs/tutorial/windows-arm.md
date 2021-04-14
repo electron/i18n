@@ -1,6 +1,6 @@
 # Windows 10 no ARM
 
-Se seu aplicativo roda com o Electron 6.0.8 ou superior, agora você pode construí-lo para o Windows 10 no ARM. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+Se seu aplicativo roda com o Electron 6.0.8 ou superior, agora você pode construí-lo para o Windows 10 no ARM. Isso melhora consideravelmente o desempenho, mas requer a recompilação de quaisquer módulos nativos usados em seu aplicativo. Também pode exigir pequenas correções para seus scripts de compilação e embalagem.
 
 ## Executando um app básico
 
@@ -14,7 +14,7 @@ Se o seu aplicativo não usa nenhum módulo nativo, então é muito mais fácil 
 
 ### Código de arquitetura específico
 
-Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
+Muitos códigos específicos do Windows contêm se... outra lógica que seleciona entre as arquiteturas x64 ou x86.
 
 ```js
 if (process.arch === 'x64') {
@@ -75,7 +75,7 @@ Se você deseja desenvolver seu aplicativo diretamente em um dispositivo do Arm,
 
 ### Vinculando com o `node.lib` correto
 
-By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) Para corrigir isto:
+Por padrão, `node-gyp` desembala os cabeçalhos de nó da Electron e baixa as versões x86 e x64 de `node.lib` em `%APPDATA%\..\Local\node-gyp\Cache`, mas não baixa a versão arm64 ([uma correção para isso está em desenvolvimento](https://github.com/nodejs/node-gyp/pull/1875).) Para corrigir isto:
 
 1. Baixe a versão arm64 do `node.lib` de https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
 2. Mova-a para `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
