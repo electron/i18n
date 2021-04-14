@@ -29,19 +29,19 @@ Packen Sie die Anwendung mittels des [Electron-Packagers][electron-packager] (od
 Die Ausgabe sollte etwa wie folgt aussehen:
 
 ```plaintext
-├── Ghost.exe
-├── LICENSE
-├── content_resources_200_percent.pak
-├── content_shell.pak
-├── d3dcompiler_47.dll
-├── ffmpeg.dll
-├── icudtl.dat
-├── libEGL.dll
-├── libGLESv2.dll
-├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+content_resources_200_percent
+.exe
+Content_shell.pak
+
+d3dcompiler_47.dll
+, ffmpeg.dll
+, icudtl.dat
+, libEGL.dll
+, libGLESv2.dll
+, locales
+, am.pak
+, [...]
+.
 <unk> 本<unk> node.dll
 <unk> 本<unk> Ressourcen
 <unk> <unk> <unk> <unk> 本<unk> app.asar
@@ -78,15 +78,15 @@ Eine weitere wichtige Beschränkung ist, dass das kompilierte AppX-Paket noch ei
 
 Sie können Ihre Electron-App mit einer unsichtbaren UWP-Hintergrund-Aufgabe koppeln, die die Funktionen von Windows 10 voll nutzen wird - wie Push-Benachrichtigungen, Cortana Integration oder Live-Fliesen.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample][background-task].
+Um zu sehen, wie eine Electron-App, die eine Hintergrundaufgabe zum Senden von Popupbenachrichtigungen Benachrichtigungen und Live-Kacheln verwendet, [sich das von Microsoft bereitgestellte Beispiel][background-task].
 
 ## Optional: Mit Container-Virtualisierung konvertieren
 
 Um das AppX-Paket zu generieren, verwendet der `Elektron-Windows-Store` CLI eine Vorlage die für die meisten Electron-Apps funktionieren soll. Wenn Sie jedoch einen benutzerdefinierten -Installer verwenden oder Probleme mit dem generierten Paket haben sollten Sie können versuchen, ein Paket mit einem Windows-Container zu erstellen - in diesem Modus das CLI wird Ihre Anwendung in leerem Windows Container installieren und ausführen, um festzustellen, welche Änderungen Ihre Anwendung genau am Betriebssystem vornimmt.
 
-Bevor Sie das CLI zum ersten Mal ausführen, müssen Sie den "Windows Desktop App Converter" einrichten. Dies wird einige Minuten dauern, aber keine Sorge. Du musst nur einmal machen. Download and Desktop App Converter from [here][app-converter]. Sie erhalten zwei Dateien: `DesktopAppConverter.zip` und `BaseImage-14316.wim`.
+Bevor Sie das CLI zum ersten Mal ausführen, müssen Sie den "Windows Desktop App Converter" einrichten. Dies wird einige Minuten dauern, aber keine Sorge. Du musst nur einmal machen. Download und Desktop App Converter von [hier][app-converter]. Sie erhalten zwei Dateien: `DesktopAppConverter.zip` und `BaseImage-14316.wim`.
 
-1. Entpacken `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
+1. Entpacken `DesktopAppConverter.zip`. Stellen Sie von einer erhöhten PowerShell (geöffnet mit "Run as Administrator") sicher, dass Ihre Systemausführung srichtlinie es uns ermöglicht, alles auszuführen, was wir ausführen möchten, indem sie `Set-ExecutionPolicy bypass`aufrufen.
 2. Führen Sie dann die Installation des Desktop-App-Konverters durch und übergeben Sie die -Position des Windows-Basisbildes (heruntergeladen als `BaseImage-14316. im`), von aufrufen `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
 3. Wenn Sie den obigen Befehl ausführen, rufen Sie bitte nach einem Neustart Ihren -Rechner neu und führen Sie den obigen Befehl nach einem erfolgreichen Neustart erneut aus.
 
