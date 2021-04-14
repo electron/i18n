@@ -26,7 +26,6 @@ keyboard_modal:
   open_new_tab: Ouvrir le résultat de recherche sélectionné dans un nouvel onglet
 docs:
   title: Documentation d'Electron
-  description: Voir toute la <a href="/docs/all">documentation sur une seule page</a> ou consulter la <a href="/docs/faq/">FAQ</a>.
   guides: "Guides: Premiers pas avec Electron"
   api_reference: Référence des APIs
   api_structures: API Structures
@@ -39,7 +38,6 @@ docs:
   propose_change: Améliorer ce document
   version_history: Historique des versions
   translate: Traduire ce document
-  view_all_docs: Toute la documentation sur une seule page
 languages:
   choose_language: Choisissez votre langue pour le site
   view_more_details: Voir plus de détails sur les langues
@@ -52,7 +50,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Démarrez</b></a> à construire une application en lisant le <a href='/docs/tutorial/first-app'>tutoriel d'introduction</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Tenez vous au courant des dernières actualités</b></a> en suivant <a href='https://twitter.com/electronjs'>@electronjs</a> sur Twitter et en souscrivant <a href='/blog'>au fil d'actualité du blog</a>."
     localized_docs: "<a href='/languages'><b>Lisez la documentation dans votre langue maternelle</b></a> en visitant la <a href='/languages'>page des langues</a>."
-    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>obtenir de l’aide et des</b> de rétroaction en rejoignant le serveur <a href='https://discord.gg/electron'>Discord</a>, en postant sur <a href='https://discuss.atom.io/c/electron'>Discutez</a>, ou en visitant <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Signalez des problèmes de sécurités</b></a> par mail à l'adresse <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Signalez un bug</b></a> en ouvrant une issue sur le repertoire git <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Demandez des fonctionalités</b></a> en ouvrant une issue sur le repertoire git <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -116,7 +114,7 @@ explore:
   description: "L'application <a href='https://github.com/electron/electron-api-demos'>démo de l'API Electron</a> présente de façon interactive les caractéristiques les plus importantes de l'API Electron. Voir ce qui est possible avec Electron avec un exemple de code et des conseils utiles pour construire votre application."
   fiddle_title: Essayez des expériences plus puissantes avec Electron Fiddle
   see_more_info: Voir plus d'infos
-download: Download
+download: Télécharger
 download_from_github: Télécharger depuis GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Voir toutes les versions</a> sur GitHub
 quick_start:
@@ -128,12 +126,12 @@ quick_start:
   dive_deeper: Ou allez plus loin en lisant la <a href='/docs'>documentation</a>.
 need_help:
   title: Besoin d'aide ?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Posez des questions dans le <a href='https://discuss.atom.io/c/electron'>discutez</a> forum. Suivez <a href="https://twitter.com/electronjs">@electronjs</a> Twitter pour des annonces importantes. Besoin de tendre la main en privé? Courriel <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Langues
 taglines:
   languages: Contenu multilingue de notre fantastique communauté mondiale de développeurs.
-  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
+  announcement: 'Les vies noires comptent. Soutenez <a href="https://support.eji.org/give/153413/#!/donation/checkout">''Initiative pour l’égalité de</a> et <a href="/blacklivesmatter">lisez notre déclaration ici</a>.'
 help_translate: "Aider à traduire"
 footer:
   see_the_faq: Consulter la foire aux questions
@@ -164,7 +162,6 @@ clipboard:
 fiddle_launch_button:
   launch: Démarrer
   launch_in_fiddle: Démarrer dans Fiddle
-or: ou
 pages:
   '/':
     title: Electron | Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS.
@@ -175,9 +172,6 @@ pages:
   '/docs':
     title: Documentation
     description: Guides et documentation de référence des APIs pour la dernière version d'Electron
-  '/docs/all':
-    title: Toute la doc d'Electron!
-    description: Tous les guides et documentation de l'API d'Electron sur une seule page.
   '/docs/api':
     title: API
     description: Documentation de l'API pour la dernière version d'Electron
@@ -216,12 +210,12 @@ pages:
   '/donors':
     title: Donateurs
   '/blacklivesmatter':
-    title: Black Lives Matter
+    title: Les vies noires comptent
 landing:
   get_started: Premiers pas
   fiddle:
     lead_desc: La méthode la plus simple pour démarrer avec Electron
-    different_os: "Not the right operating system? See:"
+    different_os: "Pas le bon système d’exploitation? Voir:"
     create_app: Créez votre application
     description: Electron Fiddle vous permet de créer et de jouer avec de petites expériences Electron. Il vous accueille avec un modèle qui vous permettra de vite démarrer - changez quelques éléments, choisissez la version d'Electron que vous désirez et amusez-vous ! Ensuite, sauvegardez votre Fiddle en tant que GitHub Gist ou dans un dossier local. Une fois qu'il sera push sur GitHub, n'importe qui pourra essayer votre Fiddle en utilisant son URL.
     explore: Explorer Electron
