@@ -2,11 +2,11 @@
 
 ## Übersicht
 
-Electron hat APIs, um das App-Symbol in der Windows Taskleiste zu konfigurieren. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron hat APIs, um das App-Symbol in der Windows Taskleiste zu konfigurieren. Diese API- unterstützt sowohl Windows-Features wie [Erstellung eines `JumpList`](#jumplist), [benutzerdefinierte Miniaturansichten und Symbolleisten](#thumbnail-toolbars), [Symbol-Overlays](#icon-overlays-in-taskbar), als auch den so genannten ["Flash Frame"-Effekt](#flash-frame)sowie plattformübergreifende Features wie [neueren Dokumente][recent-documents] und [Anwendungsfortschritt][progress-bar].
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the taskbar. Das Kontextmenü heißt `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
+Mit Windows können Apps ein benutzerdefiniertes Kontextmenü definieren, das angezeigt wird, wenn Benutzer mit der rechten Maustaste auf das Symbol der App in der Taskleiste klicken . Das Kontextmenü heißt `JumpList`. Sie geben benutzerdefinierte Aktionen in der `Tasks` Kategorie JumpList wie aus [MSDN-][msdn-jumplist]zitiert:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
@@ -14,17 +14,17 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 ![JH](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
-> NOTE: The screenshot above is an example of general tasks of Internet Explorer
+> HINWEIS: Der obige Screenshot ist ein Beispiel für allgemeine Aufgaben von Internet Explorer
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
+Im Gegensatz zum Dock-Menü in macOS, das ein echtes Menü ist, funktionieren Benutzeraufgaben in Windows wie Anwendungsverknüpfungen. Wenn ein Benutzer beispielsweise auf eine Aufgabe klickt, wird das Programm mit angegebenen Argumenten ausgeführt.
 
-To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API.
+Um Benutzeraufgaben für Ihre Anwendung festzulegen, können Sie [app.setUserTasks][setusertaskstasks] -API verwenden.
 
 #### Beispiele
 
-##### Set user tasks
+##### Festlegen von Benutzeraufgaben
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Beginnen Sie mit einer funktionierenden Anwendung aus der [Quick Start Guide](quick-start.md), aktualisieren Sie die `main.js` -Datei mit den folgenden Zeilen:
 
 ```javascript
 const { app } = require('electron')
@@ -41,9 +41,9 @@ app.setUserTasks([
 ])
 ```
 
-##### Clear tasks list
+##### Löschen der Aufgabenliste
 
-To clear your tasks list, you need to call `app.setUserTasks` with an empty array in the `main.js` file.
+Um Ihre Aufgabenliste zu löschen, müssen Sie `app.setUserTasks` mit einem leeren Array in der `main.js` -Datei aufrufen.
 
 ```javascript
 const { app } = require('electron')
@@ -51,13 +51,13 @@ const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-> NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
+> HINWEIS: Die Benutzeraufgaben werden auch nach dem Schließen der Anwendung angezeigt, sodass das für eine Aufgabe angegebene Symbol und der Programmpfad vorhanden sein sollten, bis die Anwendung deinstalliert wird.
 
 ### Miniaturansicht-Symbolleisten
 
-On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
+Unter Windows können Sie einer Taskleiste Layout eines Anwendungsfensters eine Miniaturansichtssymbolleiste mit angegebenen Schaltflächen hinzufügen. Es bietet Benutzern die Möglichkeit, auf den Befehl eines bestimmten Fensters zuzugreifen, ohne das Fenster wiederherzustellen oder zu aktivieren.
 
-As quoted from [MSDN][msdn-thumbnail]:
+Wie aus [MSDN-][msdn-thumbnail]zitiert:
 
 > Diese Symbolleiste ist die übliche Standardsteuerung. Es hat ein Maximum von auf sieben Tasten. Die Kennung jeder Schaltfläche, des Bildes, des Tooltips und des Zustands werden in einer Struktur definiert, die dann an die Taskleiste übergeben wird. Die Anwendung kann Schaltflächen in der Miniaturansicht anzeigen, aktivieren, deaktivieren oder ausblenden, wie dies für den aktuellen Status erforderlich ist.
 > 
@@ -65,15 +65,15 @@ As quoted from [MSDN][msdn-thumbnail]:
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-> NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
+> HINWEIS: Der obige Screenshot ist ein Beispiel für die Miniaturansichtssymbolleiste von Windows Media Player
 
-To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons][setthumbarbuttons]
+Um die Miniaturansichtssymbolleiste in Ihrer Anwendung festzulegen, müssen Sie [BrowserWindow.setThumbarButtons][setthumbarbuttons]
 
 #### Beispiele
 
-##### Set thumbnail toolbar
+##### Festlegen der Miniaturansichtssymbolleiste
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Beginnen Sie mit einer funktionierenden Anwendung aus der [Quick Start Guide](quick-start.md), aktualisieren Sie die `main.js` -Datei mit den folgenden Zeilen:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -82,22 +82,22 @@ const path = require('path')
 const win = new BrowserWindow()
 
 win.setThumbarButtons([
-  {
+  '
     tooltip: 'button1',
-    icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
-  }, {
-    tooltip: 'button2',
+    -Symbol: path.join(__dirname, 'button1.png'),
+    klicken () ,,.log('button1 angeklickt') ,
+  ,
+    QuickTip: 'button2',
     icon: path.join(__dirname, 'button2.png'),
     flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
-  }
+    klicken (.log) -
+  -
 ])
 ```
 
-##### Clear thumbnail toolbar
+##### Klare Miniaturansichtssymbolleiste
 
-To clear thumbnail toolbar buttons, you need to call `BrowserWindow.setThumbarButtons` with an empty array in the `main.js` file.
+Um Miniaturansichtssymbolleistenschaltflächen zu löschen, müssen Sie `BrowserWindow.setThumbarButtons` mit einem leeren Array in der `main.js` -Datei aufrufen.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -108,21 +108,21 @@ win.setThumbarButtons([])
 
 ### Icon-Overlays in Taskleiste
 
-On Windows, a taskbar button can use a small overlay to display application status.
+Unter Windows kann eine Taskleistenschaltfläche ein kleines Overlay verwenden, um den Status Anwendung anzuzeigen.
 
-As quoted from [MSDN][msdn-icon-overlay]:
+Wie aus [MSDN-][msdn-icon-overlay]zitiert:
 
 > Icon-Overlays dienen als kontextabhängige Benachrichtigung über den Status und , um die Notwendigkeit eines separaten Statussymbols für den Benachrichtigungsbereich zu negieren, um diese Informationen mit dem Benutzer zu kommunizieren. Zum Beispiel der neue E-Mail-Status in Microsoft Outlook, der derzeit im Benachrichtigungsbereich angezeigt wird kann nun durch ein Overlay auf der Taskleiste-Taste angezeigt werden. Wiederum musst du während deines Entwicklungszyklus entscheiden, welche Methode für deine Anwendung am besten ist. Overlay-Symbole sollen wichtige, seit langem bestehende Status oder Benachrichtigungen wie den Netzwerkstatus oder den Messenger-Status oder neue Nachrichten liefern. Dem Benutzer sollte nicht mit ständig wechselnden Overlays oder Animationen präsentiert werden.
 
 ![Auf Taskleisten-Schaltfläche überlagern](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-> NOTE: The screenshot above is an example of overlay on a taskbar button
+> HINWEIS: Der Screenshot oben ist ein Beispiel für Overlay auf einer Taskleisten-Schaltfläche
 
-To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon][setoverlayicon] API.
+Um das Overlay-Symbol für ein Fenster festzulegen, müssen Sie die [BrowserWindow.setOverlayIcon][setoverlayicon] -API verwenden.
 
 #### Beispiel
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Beginnen Sie mit einer funktionierenden Anwendung aus der [Quick Start Guide](quick-start.md), aktualisieren Sie die `main.js` -Datei mit den folgenden Zeilen:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -134,17 +134,17 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 ### Blitzrahmen
 
-On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
+Unter Windows können Sie die Taskleistenschaltfläche markieren, um die Aufmerksamkeit des Benutzers zu erhalten. Dies ähnelt dem Abprallen des Dock-Symbols in macOS.
 
-As quoted from [MSDN][msdn-flash-frame]:
+Wie aus [MSDN-][msdn-flash-frame]zitiert:
 
 > Normalerweise wird ein Fenster blinkt, um den Benutzer darüber zu informieren, dass das Fenster Aufmerksamkeit benötigt, aber momentan nicht den Fokus auf die Tastatur hat.
 
-To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame][flashframe] API.
+Um die BrowserWindow-Taskleisten-Schaltfläche zu blinken, müssen Sie die [BrowserWindow.flashFrame][flashframe] -API verwenden.
 
 #### Beispiel
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Beginnen Sie mit einer funktionierenden Anwendung aus der [Quick Start Guide](quick-start.md), aktualisieren Sie die `main.js` -Datei mit den folgenden Zeilen:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,7 +155,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-> NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+> HINWEIS: Vergessen Sie nicht, `win.flashFrame(false)` anzurufen, um den Blitz auszuschalten. Im obigen Beispiel wird es aufgerufen, wenn das Fenster in den Fokus rückt, aber Sie können ein Timeout oder ein anderes Ereignis verwenden, um es zu deaktivieren.
 
 [msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
 
