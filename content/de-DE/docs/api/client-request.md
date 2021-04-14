@@ -8,20 +8,20 @@ Prozess: [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. The `session` option supersedes `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Standard ist `false`.
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
+* `options` (Objekt-| String) - Wenn `options` eine Zeichenfolge ist, wird sie als der Anforderungs-URL interpretiert. Wenn es sich um ein Objekt handelt, wird erwartet, dass es eine HTTP-Anforderung vollständig über die folgenden eigenschaften :
+  * `method` String (optional) - Die HTTP-Anforderungsmethode. Standardmäßig wird die GET -Methode verwendet.
+  * `url` String (optional) - Die Anforderungs-URL. Muss in der absoluten Form mit dem Protokollschema angegeben als http oder https angegeben werden.
+  * `session` Session (optional) - Die [`Session`](session.md) Instanz mit denen die Anforderung zugeordnet ist.
+  * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. Die Option `session` ersetzt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
+  * `credentials` String (optional) - Kann `include` oder `omit`werden. Gibt an, ob mit dieser Anforderung [Anmeldeinformationen](https://fetch.spec.whatwg.org/#credentials) gesendet werden soll. Wenn auf `include`festgelegt, werden Anmeldeinformationen aus der Sitzung verwendet, die der Anforderung zugeordnet ist. Wenn auf `omit`festgelegt, werden Anmeldeinformationen nicht mit der Anforderung gesendet (und das `'login'` -Ereignis wird im Ereignis von 401 nicht ausgelöst). Dies entspricht dem Verhalten der [](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) Option gleichen Namens abrufen. Wenn diese Option nicht angegeben ist, werden authentifizierungs- Daten aus der Sitzung gesendet, und Cookies werden nicht gesendet (es sei denn, `useSessionCookies` festgelegt ist).
+  * `useSessionCookies` boolesch (optional) - Ob Cookies mit diesem Anfrage aus der bereitgestellten Sitzung gesendet werden sollen. Wenn `credentials` angegeben ist, hat diese Option keine Auswirkungen. Standard ist `false`.
+  * `protocol` String (optional) - Kann `http:` oder `https:`werden. Das Protokoll Schema in der Form "scheme:". Standardmäßig ist 'http:'.
   * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung aus Hostnamen und der Port Nummer 'hostname:port'.
   * `hostname` String (optional) - Der Server Host Name.
   * `port` Integer (optional) - Die Port Nummer des Servers.
   * `path` String (optional) - Der Pfad Teil der Anfrage URL.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Standardwert ist `follow`.
-  * `origin` String (optional) - The origin URL of the request.
+  * `redirect` String (optional) - Kann `follow`, `error` oder `manual`sein. Der Umleitungsmodus für diese Anforderung. Wenn der Modus `error`ist, wird jede Umleitung abgebrochen. Wenn der Modus `manual` wird die Umleitung abgebrochen, es sei denn, [`request.followRedirect`](#requestfollowredirect) während des [`redirect`](#event-redirect) -Ereignisses synchron aufgerufen wird.  Standardwert ist `follow`.
+  * `origin` String (optional) - Die Ursprungs-URL der Anforderung.
 
 `options` Eigenschaften wie zum Beispiel `protocol`, `host`, `hostname`, `port` und `path`, folgen strikt dem Node.js Modell, wie im [URL](https://nodejs.org/api/url.html) Modul beschrieben.
 
@@ -49,7 +49,7 @@ Rückgabewert:
 
 Rückgabewert:
 
-* `authInfo` Object
+* `authInfo` -Objekt
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -92,7 +92,7 @@ Ausgesendet, direkt nachdem der letzte Block der `request` Daten in das `request
 
 #### Event: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Emittiert, wenn die `request` abgebrochen wird. Das `abort` -Ereignis wird nicht ausgelöst, wenn die `request` bereits geschlossen ist.
 
 #### Event: 'error'
 
@@ -113,9 +113,9 @@ Rückgabewert:
 * `statusCode` Integer
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Record<String, String[]>
+* `responseHeaders` -Rekord<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Emittiert, wenn der Server eine Umleitungsantwort zurückgibt (z. B. 301 Moved Permanently). Wenn [`request.followRedirect`](#requestfollowredirect) aufrufen, wird die Umleitung fortgesetzt.  Wenn dieses Ereignis behandelt wird, muss [`request.followRedirect`](#requestfollowredirect) **synchron**aufgerufen werden, andernfalls wird die Anforderung abgebrochen.
 
 ### Instanz Eigenschaften
 
@@ -130,38 +130,38 @@ Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen 
 #### `request.setHeader(name, value)`
 
 * `name` String - Ein extra HTTP header Name.
-* `value` String - An extra HTTP header value.
+* `value` String - Ein zusätzlicher HTTP-Headerwert.
 
-Fügt einen extra HTTP header hinzu. The header name will be issued as-is without lowercasing. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. Falls der übergebene wert kein `String` ist, wird die `toString()` Methode aufgerufen, um den Finalen wert zu erhalten.
+Fügt einen extra HTTP header hinzu. Der Headername wird wie nicht niedriger ausgegeben. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. Falls der übergebene wert kein `String` ist, wird die `toString()` Methode aufgerufen, um den Finalen wert zu erhalten.
 
-Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+Bestimmte Header dürfen nicht von Apps festgelegt werden. Diese Header sind unten aufgeführt. Weitere Informationen zu eingeschränkten Headern finden Sie in [Chromium-Header-](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
 
-* `Content-Length`
+* `Content-Länge`
 * `Host`
-* `Trailer` or `Te`
+* `Trailer` oder `Te`
 * `Upgrade`
 * `Cookie2`
 * `Keep-Alive`
-* `Transfer-Encoding`
+* `Transfer-Codierung`
 
-Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
+Darüber hinaus ist das Festlegen des `Connection` -Headers auf den Wert `upgrade` ebenfalls nicht zulässig.
 
 #### `request.getHeader(name)`
 
 * `name` String - Spezifiziert einen extra Header Namen.
 
-Returns `String` - The value of a previously set extra header name.
+Gibt `String` zurück - Der Wert eines zuvor festgelegten zusätzlichen Headernamens.
 
 #### `request.removeHeader(name)`
 
 * `name` String - Spezifiziert einen extra Header Namen.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Entfernt einen zuvor festgelegten zusätzlichen Headernamen. Diese Methode kann nur vor dem ersten Schreiben aufgerufen werden. Der Versuch, es nach dem ersten Schreiben aufzurufen, löst einen Fehler aus.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
+* `chunk` (String | Puffer) - Ein Teil der Daten des Anforderungstextes. Wenn es sich um eine Zeichenfolge handelt, wird sie mithilfe der angegebenen Codierung in einen Puffer konvertiert.
+* `encoding` String (optional) - Wird verwendet, um Zeichenfolgenblöcke in Buffer -Objekte zu konvertieren. Standardwert für 'utf-8'.
 * `callback` Function (optional) - Wird aufgerufen, nachdem der Schreibvorgang beendet ist.
 
 `callback` ist im Wesentlichen eine dummy-Funktion die dem Zweck dient, Ähnlichkeiten mit der Node.js API beizubehalten. Es wird in den nächsten Tick asynchron aufgerufen, nachdem der `chunk` Inhalt auf der Chromium Netzwerkebene geliefert worden ist. Im Gegensatz zu der Node.js Implementierung, ist es nicht Garantiert das der `chunk` Inhalt hochgeladen worden ist, vor dem Aufrufen von `callback`.
@@ -174,7 +174,7 @@ Fügt einen Teil der Daten zum request body. Der erste Schreiboperation könnte 
 * `encoding` String (optional)
 * `callback` Funktion (optional)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Sendet den letzten Teil der Anforderungsdaten. Nachfolgende Schreib- oder Endvorgänge sind nicht zulässig. Das `finish` -Ereignis wird unmittelbar nach dem Endvorgang abgegeben.
 
 #### `request.abort()`
 
@@ -182,14 +182,14 @@ Bricht die laufende HTTP-Interaktion ab. Falls die Anfrage bereits das `close` E
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+Setzt alle ausstehenden Umleitungen fort. Kann nur während eines `'redirect'` -Ereignisses aufgerufen werden.
 
 #### `request.getUploadProgress()`
 
 Gibt das `Object` zurück:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `active` Boolean - Gibt an, ob die Anforderung derzeit aktiv ist. Wenn dies false ist werden keine anderen Eigenschaften festgelegt.
+* `started` Boolean - Gibt an, ob der Upload gestartet wurde. Wenn dies falsch ist, werden sowohl `current` als auch `total` auf 0 gesetzt.
 * `current` Integer - Die Anzahl der bereits hochgeladenen Bytes
 * `total` Integer - Die Anzahl der Bytes, die für diese Anforderung hochgeladen werden
 
