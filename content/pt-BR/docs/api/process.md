@@ -8,28 +8,28 @@ O objeto `process` do Electron estende do [objeto `process` do Node.js](https://
 
 ## Sandbox
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+Em renderizadores de caixa de areia, o objeto `process` contém apenas um subconjunto das APIs:
 
-- `crash()`
-- `hang()`
+- `acidente() acidente()`
+- `hang() hang()`
 - `getCreationTime()`
 - `getHeapStatistics()`
 - `getBlinkMemoryInfo()`
 - `getProcessMemoryInfo()`
 - `getSystemMemoryInfo()`
 - `getSystemVersion()`
-- `getCPUUsage()`
+- `obterCPUUsage()`
 - `getIOCounters()`
-- `argv`
+- `Argv`
 - `execPath`
 - `env`
-- `pid`
-- `arch`
+- `Pid`
+- `Arco`
 - `plataforma`
-- `sandboxed`
+- `Sandboxed`
 - `tipo`
 - `versão`
-- `versions`
+- `Versões`
 - `mas`
 - `windowsStore`
 
@@ -39,23 +39,11 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 Emitido quando o Electron já carregou seu script de inicialização interno e começa a carregar a página da web ou o script principal.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## Propriedades
 
 ### `process.defaultApp` _Readonly_
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Um `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
@@ -63,7 +51,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Readonly_
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Um `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
@@ -79,7 +67,7 @@ Uma `String` que representa o caminho para o diretório de recursos.
 
 ### `process.sandboxed` _Readonly_
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+Um `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.throwDeprecation`
 
@@ -97,9 +85,9 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 A `String` representing the current process's type, can be:
 
-* `browser` - The main process
-* `renderer` - A renderer process
-* `worker` - In a web worker
+* `browser` - O processo principal
+* `renderer` - Um processo de renderização
+* `worker` - Em um web worker
 
 ### `process.versions.chrome` _Readonly_
 
@@ -111,7 +99,7 @@ A `String` representing Electron's version string.
 
 ### `process.windowsStore` _Readonly_
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Um `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Métodos
 
@@ -125,13 +113,13 @@ Causes the main thread of the current process crash.
 
 Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+Indicates the creation time of the application. O tempo é representado como número de milissegundos desde a época. It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
 Returns [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` _Windows_ _Linux_
+### `process.getIOCounters()` __Linux do Windows</em> _</h3>
 
 Returns [`IOCounters`](structures/io-counters.md)
 
@@ -147,7 +135,7 @@ Retorna `Object`:
 * `heapSizeLimit` Integer
 * `mallocedMemory` Integer
 * `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
+* `doesZapGarbage` Booleano
 
 Returns an object with V8 heap statistics. Note-se que todas as estatísticas são relatadas em Kilobytes.
 
@@ -155,9 +143,9 @@ Returns an object with V8 heap statistics. Note-se que todas as estatísticas s�
 
 Retorna `Object`:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `allocated` Inteiro - Tamanho de todos os objetos alocados em Kilobytes.
+* `marked` Inteiro - Tamanho de todos os objetos marcados em Kilobytes.
+* `total` Inteiro - Total de espaço alocado em Kilobytes.
 
 Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
@@ -173,10 +161,10 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 Retorna `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
+* `total` Inteiro - A quantidade total de memória física em Kilobytes disponível para o sistema .
+* `free` Inteiro - A quantidade total de memória que não está sendo usada por aplicativos ou cache de em disco.
+* `swapTotal` Integer _Windows_ __ Linux - A quantidade total de memória de swap em Kilobytes disponível para o sistema .
+* `swapFree` Integer _Windows_ __ Linux - A quantidade gratuita de memória de troca em Kilobytes disponível para o sistema .
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
@@ -198,17 +186,17 @@ console.log(version)
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Caminho para o arquivo de saída.
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Tira um instantâneo de pilha V8 e salva-o para `filePath`.
 
 ### `process.hang()`
 
 Causes the main thread of the current process hang.
 
-### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
+### `process.setFdLimit(maxDescriptors)` __MacOS</em> _Linux</h3>
 
 * `maxDescriptors` Integer
 
