@@ -1,9 +1,9 @@
-## Class: TouchBarOtherItemsProxy
+## Classe: TouchBarOtherItemsProxy
 
-> Instantiates a special "other items proxy", which nests TouchBar elements inherited from Chromium at the space indicated by the proxy. By default, this proxy is added to each TouchBar at the end of the input. For more information, see the AppKit docs on [NSTouchBarItemIdentifierOtherItemsProxy](https://developer.apple.com/documentation/appkit/nstouchbaritemidentifierotheritemsproxy)
+> Instantia um especial "proxy de outros itens", que aninha elementos TouchBar herdados do Chromium no espaço indicado pelo proxy. Por padrão, este proxy é adicionado a cada TouchBar no final da entrada. Para obter mais informações, consulte os documentos do AppKit no [NSTouchBarItemIdentifierOtherItemsProxy](https://developer.apple.com/documentation/appkit/nstouchbaritemidentifierotheritemsproxy)
 > 
-> Note: Only one instance of this class can be added per TouchBar.
+> Nota: Apenas uma instância desta classe pode ser adicionada por TouchBar.
 
 Processo: [Main](../glossary.md#main-process)
 
-### `new TouchBarOtherItemsProxy()`
+### `novo TouchBarOtherItemsProxy()`
