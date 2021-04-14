@@ -1,40 +1,40 @@
 # netLog
 
-> Logging network events for a session.
+> Protokollieren von Netzwerkereignissen für eine Sitzung.
 
 Prozess: [Main](../glossary.md#main-process)
 
 ```javascript
 const { netLog } = require('electron')
 
-app.whenReady().then(async () => {
+app.whenReady().then(async () => '
   await netLog.startLogging('/path/to/net-log')
-  // After some network events
+  / Nach einigen Netzwerkereignissen
   const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
-})
+  console.log('Net-logs written to
+', path)
 ```
 
-See [`--log-net-log`](command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+Sehen Sie sich [`--log-net-log`](command-line-switches.md#--log-net-logpath) an, um Netzwerkereignisse während des gesamten App-Lebenszyklus zu protokollieren.
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Hinweis:** Alle Methoden, sofern nicht angegeben, können nur verwendet werden, nachdem das `ready` Ereignis des `app` Moduls ausgesendet wird.
 
 ## Methoden
 
-### `netLog.startLogging(path[, options])`
+### `netLog.startLogging(path[, optionen])`
 
 * `path` String - Dateipfad zu den Netzwerk Logfiles.
-* `options` Object (optional)
-  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
-  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
+* `options` Objekt (optional)
+  * `captureMode` String (optional) - Welche Arten von Daten sollten erfasst werden. Standardmäßig werden standardmäßig nur Metadaten zu Anforderungen erfasst. Wenn Sie dies auf `includeSensitive` festlegen, werden Cookies und Authentifizierungsdaten enthalten. Wenn Sie auf `everything` festlegen, werden alle Bytes enthalten, die auf Sockets übertragen werden. Kann `default`, `includeSensitive` oder `everything`sein.
+  * `maxFileSize` Zahl (optional) - Wenn das Protokoll über diese Größe hinaus wächst, wird Protokollierung automatisch beendet. Standardwerte auf unbegrenzt.
 
-Returns `Promise<void>` - resolves when the net log has begun recording.
+Gibt `Promise<void>` zurück - wird aufgelöst, wenn das Netzprotokoll mit der Aufzeichnung begonnen hat.
 
 Beginnt die Aufzeichnung von Netzwerk Events in `path`.
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<void>` - resolves when the net log has been flushed to disk.
+Gibt `Promise<void>` zurück - wird aufgelöst, wenn das Netzprotokoll auf den Datenträger geleert wurde.
 
 Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beendet net die Aufzeichnung automatisch wenn die App beendet wird.
 
@@ -42,4 +42,4 @@ Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beende
 
 ### `netLog.currentlyLogging` _Readonly_
 
-A `Boolean` property that indicates whether network logs are currently being recorded.
+Eine `Boolean` Eigenschaft an, die angibt, ob Netzwerkprotokolle gerade aufgezeichnet werden.
