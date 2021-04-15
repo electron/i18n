@@ -10,4 +10,4 @@
 
 **注:** `JumpListCategory` オブジェクトに `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティは設定されている一方で `type` プロパティが省略された場合、`type` は `custom` と見做されます。
 
-**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+**注:** ジャンプリストのアイテムの `description` プロパティは最大長は 260 文字です。 この制限を超えると、アイテムはジャンプリストに追加されず、表示されません。
