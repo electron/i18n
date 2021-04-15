@@ -1,10 +1,10 @@
 # webFrameMain
 
-> Steuern Sie Webseiten und iframes.
+> Control web pages and iframes.
 
 Prozess: [Main](../glossary.md#main-process)
 
-Das `webFrameMain` Modul kann verwendet werden, um Frames über vorhandene [`WebContents`](web-contents.md) Instanzen hinweg zu suchen. Navigationsereignisse sind die häufigsten Anwendungsfall.
+The `webFrameMain` module can be used to lookup frames across existing [`WebContents`](web-contents.md) instances. Navigation events are the common use case.
 
 ```javascript
 const { BrowserWindow, webFrameMain } = require('electron')
@@ -14,52 +14,52 @@ win.loadURL('https://twitter.com')
 
 win.webContents.on(
   'did-frame-navigate',
-  (event, url, isMainFrame, frameProcessId, frameRoutingId) =>
+  (event, url, isMainFrame, frameProcessId, frameRoutingId) => {
     const frame = webFrameMain.fromId(frameProcessId, frameRoutingId)
-    if (frame) -
-      const-Code = 'document.body.innerHTML = document.body.innerHTML.replaceAll("heck", "h*ck")'
+    if (frame) {
+      const code = 'document.body.innerHTML = document.body.innerHTML.replaceAll("heck", "h*ck")'
       frame.executeJavaScript(code)
-
-  
-
+    }
+  }
+)
 ```
 
-Sie können auch auf Frames vorhandener Seiten zugreifen, indem Sie die `mainFrame` -Eigenschaft [`WebContents`](web-contents.md)verwenden.
+You can also access frames of existing pages by using the `mainFrame` property of [`WebContents`](web-contents.md).
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-async function main () '
+async function main () {
   const win = new BrowserWindow({ width: 800, height: 600 })
-  erwarten win.loadURL('https://reddit.com')
+  await win.loadURL('https://reddit.com')
 
-  const youtubeEmbeds = win.webContents.mainFrame .frames.filter((frame) => -
-    versuchen Sie es mit
-      const URL = new URL(frame.url)
-      geben sie url.host === 'www.youtube.com'
-    ' fangen {
+  const youtubeEmbeds = win.webContents.mainFrame.frames.filter((frame) => {
+    try {
+      const url = new URL(frame.url)
+      return url.host === 'www.youtube.com'
+    } catch {
       return false
     }
-  '  ')
+  })
 
-
-.log (youtubeEmbeds)
+  console.log(youtubeEmbeds)
+}
 
 main()
 ```
 
 ## Methoden
 
-Auf diese Methoden kann über das `webFrameMain` -Modul zugegriffen werden:
+These methods can be accessed from the `webFrameMain` module:
 
 ### `webFrameMain.fromId(processId, routingId)`
 
-* `processId` Ganzzahl - Ein `Integer` , der die interne ID des Prozesses darstellt, dem der Frame gehört.
-* `routingId` Ganzzahl - Ein `Integer` , der die eindeutige Frame-ID im aktuellen Rendererprozess darstellt. Routing-IDs können von `WebFrameMain` Instanzen abgerufen werden (`frame.routingId`) und werden auch von Frame- bestimmten `WebContents` Navigationsereignissen (z. B. `did-frame-navigate`).
+* `processId` Integer - An `Integer` representing the internal ID of the process which owns the frame.
+* `routingId` Integer - An `Integer` representing the unique frame ID in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
-Gibt `WebFrameMain | undefined` zurück : Ein Frame mit den angegebenen Prozess- und Routing-IDs, oder `undefined` , wenn den angegebenen IDs kein WebFrameMain zugeordnet ist.
+Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
-## Klasse: WebFrameMain
+## Class: WebFrameMain
 
 Prozess: [Main](../glossary.md#main-process)
 
@@ -70,7 +70,7 @@ Prozess: [Main](../glossary.md#main-process)
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
 
-Gibt `Promise<unknown>` zurück - Ein Versprechen, das mit dem Ergebnis des ausgeführten Codes aufgelöst wird oder abgelehnt wird, wenn die Ausführung ein abgelehntes Versprechen auslöst oder zu führt.
+Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 Bewertet `code` in Der Seite.
 
@@ -78,18 +78,18 @@ Im Browserfenster können einige HTML-APIs wie `requestFullScreen` nur durch ein
 
 #### `frame.reload()`
 
-Gibt `boolean` zurück : Gibt an, ob das erneute Laden erfolgreich initiiert wurde. Führt nur zu `false` , wenn der Rahmen keine Historie hat.
+Returns `boolean` - Whether the reload was initiated successfully. Only results in `false` when the frame has no history.
 
-#### `frame.send(Kanal, ... args)`
+#### `frame.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Senden Sie eine asynchrone Nachricht über `channel`, zusammen mit Argumenten an den Rendererprozess. Argumente werden mit dem \[Structured Clone Algorithm\]\[SCA\]serialisiert, genau wie [`postMessage`][], sodass Prototypketten nicht werden. Beim Senden von Funktionen, Versprechen, Symbolen, WeakMaps oder WeakSets wird eine Ausnahme auslösen.
+Senden Sie eine asynchrone Nachricht über `channel`, zusammen mit Argumenten an den Rendererprozess. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. Beim Senden von Funktionen, Versprechen, Symbolen, WeakMaps oder WeakSets wird eine Ausnahme auslösen.
 
 Der Rendererprozess kann die Nachricht verarbeiten, indem er `channel` mit dem [`ipcRenderer`](ipc-renderer.md) -Modul abhört.
 
-#### `frame.postMessage(Kanal, Nachricht, [transfer])`
+#### `frame.postMessage(channel, message, [transfer])`
 
 * `channel` String
 * `message`
@@ -102,14 +102,14 @@ Die übertragenen `MessagePortMain` Objekte stehen im Renderer- Prozess zur Verf
 Ein Beispiel:
 
 ```js
-Hauptprozess
-const { port1, port2 } = neue MessageChannelMain()
+// Main process
+const { port1, port2 } = new MessageChannelMain()
 webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
 
-/ Renderer-Prozess
-ipcRenderer.on('port', (e, msg) => '
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
-  ...
+  // ...
 })
 ```
 
@@ -117,40 +117,40 @@ ipcRenderer.on('port', (e, msg) => '
 
 #### `frame.url` _Readonly_
 
-Eine `string` , die die aktuelle URL des Frames darstellt.
+A `string` representing the current URL of the frame.
 
 #### `frame.top` _Readonly_
 
-Eine `WebFrameMain | null` , die den oberen Rahmen in der Rahmenhierarchie darstellt, zu der `frame` gehört.
+A `WebFrameMain | null` representing top frame in the frame hierarchy to which `frame` belongs.
 
 #### `frame.parent` _Readonly_
 
-Ein `WebFrameMain | null` , der den übergeordneten Rahmen von `frame`darstellt, wäre die Eigenschaft `null` , wenn `frame` der oberste Frame in der Rahmenhierarchie ist.
+A `WebFrameMain | null` representing parent frame of `frame`, the property would be `null` if `frame` is the top frame in the frame hierarchy.
 
 #### `frame.frames` _Readonly_
 
-Eine `WebFrameMain[]` Auflistung, die die direkten Nachkommen von `frame`enthält.
+A `WebFrameMain[]` collection containing the direct descendents of `frame`.
 
 #### `frame.framesInSubtree` _Readonly_
 
-Eine `WebFrameMain[]` Auflistung, die jeden Frame in der Unterstruktur von `frame`enthält, einschließlich sich selbst. Dies kann nützlich sein, wenn Sie alle Frames durchlaufen.
+A `WebFrameMain[]` collection containing every frame in the subtree of `frame`, including itself. This can be useful when traversing through all frames.
 
 #### `frame.frameTreeNodeId` _Readonly_
 
-Ein `Integer` , der die ID des internen FrameTreeNode- -Instanz des Frames darstellt. Diese ID ist browserglobal und identifiziert eindeutig einen Frame, der Inhalt hostet. Der Bezeichner wird bei der Erstellung des Rahmens fixiert und bleibt für die Lebensdauer des Rahmens konstant. Wenn der Rahmen entfernt wird, wird die ID nicht mehr verwendet.
+An `Integer` representing the id of the frame's internal FrameTreeNode instance. This id is browser-global and uniquely identifies a frame that hosts content. The identifier is fixed at the creation of the frame and stays constant for the lifetime of the frame. When the frame is removed, the id is not used again.
 
 #### `frame.name` _Readonly_
 
-Eine `String` , die den Framenamen darstellt.
+A `String` representing the frame name.
 
 #### `frame.osProcessId` _Readonly_
 
-Eine `Integer` , die das Betriebssystem `pid` des Prozesses darstellt, der diesen Frame besitzt.
+An `Integer` representing the operating system `pid` of the process which owns this frame.
 
 #### `frame.processId` _Readonly_
 
-Ein `Integer` , der die interne Chromium- `pid` des Prozesses darstellt, der diesen Rahmen besitzt. Dies ist nicht dasselbe wie die Betriebssystemprozess-ID; , um diese Verwendung `frame.osProcessId`zu lesen.
+An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
 
 #### `frame.routingId` _Readonly_
 
-Ein `Integer` , der die eindeutige Frame-ID im aktuellen Rendererprozess darstellt. Unterschiedliche `WebFrameMain` Instanzen, die auf denselben zugrunde liegenden Frame verweisen, haben die gleiche `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
