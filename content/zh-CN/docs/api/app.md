@@ -757,7 +757,7 @@ API 使用视窗注册表并在内部 `LSCopyDefaultHandlerForURLScheme` 。
 
 **注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
-**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+**注意：** 跳列表项目 `description` 属性的最大长度为 260 个字符。 超过这个限制，当前项将不会被添加到跳转列表，也不会被展示。
 
 下面是创建自定义跳转列表的一个非常简单的示例:
 
