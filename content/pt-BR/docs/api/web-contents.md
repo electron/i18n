@@ -1141,7 +1141,7 @@ Ignore os atalhos do menu do aplicativo enquanto este conteúdo da Web estiver f
 
 #### `contents.setWindowOpenHandler(manipulador)`
 
-* Função `handler`<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
   
     * objeto `details` 
         * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
