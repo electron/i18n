@@ -85,9 +85,9 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 A `String` representing the current process's type, can be:
 
-* `browser` - Основной процесс
-* `renderer` - Процесс рендерера
-* `worker` - В веб-работник
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _Только чтение_
 
