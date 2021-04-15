@@ -145,12 +145,12 @@ Un `String` représentant le nom du cadre.
 
 #### `frame.osProcessId` _Readonly_
 
-Un `Integer` représentant le système d' `pid` du processus propriétaire de ce cadre.
+An `Integer` representing the operating system `pid` of the process which owns this frame.
 
 #### `frame.processId` _Readonly_
 
-Un `Integer` représentant le système interne chromium `pid` du processus qui possède ce cadre. Ce n’est pas la même chose que l’ID de processus os; pour lire cette utilisation `frame.osProcessId`.
+An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
 
 #### `frame.routingId` _Readonly_
 
-Un `Integer` l’id cadre unique dans le processus de rendu actuel. Les `WebFrameMain` distinctes qui se réfèrent au même cadre sous-jacent pas les mêmes `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
