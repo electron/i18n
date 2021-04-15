@@ -478,13 +478,13 @@ Arrête toute `findInPage` demande de `webview` avec le `action`.
   * `pageRanges` Object[] (facultatif) - La plage de page à imprimer.
     * `from` Number - Index de la première page à imprimer (0-based).
     * `to` numéro - Index de la dernière page à imprimer (inclusivement) (0-based).
-  * `duplexMode` String (facultatif) - Réglez le mode duplex de la page Web imprimée. Peut être `simplex`, `shortEdge`, ou `longEdge`.
-  * `dpi` record<string, number> (facultatif)
-    * `horizontal` numéro (facultatif) - Le dpi horizontal.
-    * `vertical` numéro (facultatif) - Le dpi vertical.
-  * `header` String (facultatif) - Chaîne à imprimer comme en-tête de page.
-  * `footer` String (facultatif) - Chaîne à imprimer en tant que pied de page.
-  * `pageSize` String | Taille (facultatif) - Spécifiez la taille de la page du document imprimé. Peut être `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou un objet contenant `height`.
+  * `duplexMode` String (facultatif) - Réglez le mode duplex de la page Web imprimée. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Retourne `Promise<void>`
 
@@ -493,18 +493,18 @@ Imprime `webview`page Web de l’équipe. Même que `webContents.print([options]
 ### `<webview>.printToPDF (options)`
 
 * `options` objet
-  * `headerFooter` record<string, string> (facultatif) - l’en-tête et le pied pour le PDF.
-    * `title` String - Le titre de l’en-tête PDF.
-    * `url` String - l’url pour le pied PDF.
-  * `landscape` Boolean (facultatif) - `true` pour le paysage, `false` pour le portrait.
-  * `marginsType` Integer (facultatif) - Spécifie le type de marges à utiliser. Utilise 0 pour marge par défaut, 1 pour aucune marge, et 2 pour la marge minimale. et `width` dans des microns.
-  * `scaleFactor` numéro (facultatif) - Le facteur d’échelle de la page Web. Peut varier de 0 à 100.
-  * `pageRanges` enregistrement<string, number> (facultatif) - La plage de page à imprimer. Sur macOS, seule la première gamme est à l’honneur.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. et `width` dans des microns.
+  * `scaleFactor` numéro (facultatif) - Le facteur d’échelle de la page Web. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print. Sur macOS, seule la première gamme est à l’honneur.
     * `from` Number - Index de la première page à imprimer (0-based).
     * `to` numéro - Index de la dernière page à imprimer (inclusivement) (0-based).
-  * `pageSize` String | Taille (facultatif) - Spécifiez la taille de la page du PDF généré. Peut être `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou un objet contenant `height`
-  * `printBackground` Boolean (facultatif) - S’il est d’imprimer des arrière-plans CSS.
-  * `printSelectionOnly` Boolean (facultatif) - Que ce soit pour imprimer la sélection seulement.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Peut être `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou un objet contenant `height`
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
 Retours `Promise<Uint8Array>` - Se résout avec les données PDF générées.
 
@@ -572,7 +572,7 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
-Affiche le dictionnaire pop-up qui recherche le mot sélectionné sur la page.
+Shows pop-up dictionary that searches the selected word on the page.
 
 ### `<webview>.getWebContentsId ()`
 
