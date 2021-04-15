@@ -572,7 +572,7 @@ Clears the navigation history.
 
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
-显示在页面上搜索所选单词的弹出字典。
+Shows pop-up dictionary that searches the selected word on the page.
 
 ### `<webview>.获取网络控制（）`
 
