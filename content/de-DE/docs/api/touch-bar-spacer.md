@@ -9,13 +9,13 @@ Prozess: [Main](../glossary.md#main-process)
 * `options` -Objekt
   * `size` String (optional) - Größe des Abstands, mögliche Werte sind:
     * `small` - Kleiner Abstand zwischen Elementen. Karten zu `NSTouchBarItemIdentifierFixedSpaceSmall`. Dies ist die Standardeinstellung.
-    * `large` - Großer Abstand zwischen Elementen. Karten zu `NSTouchBarItemIdentifierFixedSpaceLarge`.
-    * `flexible` - Nehmen Sie alle verfügbaren Platz. Karten zu `NSTouchBarItemIdentifierFlexibleSpace`.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
 
 ### Instanz Eigenschaften
 
-Die folgenden Eigenschaften sind für Instanzen von `TouchBarSpacer`verfügbar:
+The following properties are available on instances of `TouchBarSpacer`:
 
 #### `touchBarSpacer.size`
 
-Ein `String` , der die Größe des Abstandszeichens darstellt.  Kann `small`, `large` oder `flexible`sein.
+A `String` representing the size of the spacer.  Can be `small`, `large` or `flexible`.
