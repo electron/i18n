@@ -4,7 +4,7 @@ author: zeke
 date: '2018-04-04'
 ---
   
-Новая линия релиза Electron 2.0 [упакована](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) с новыми функциями и исправлениями. Одним из основных моментов из этой новой основной версии является [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) для Apple, [Mac App Store](https://support.apple.com/en-us/HT202023).
+Новая линия релиза Electron 2.0 [упакована](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) с новыми функциями и исправлениями. One of the highlights from this new major version is a new [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) for Apple's [Mac App Store](https://support.apple.com/en-us/HT202023).
 
 ---
 
