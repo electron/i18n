@@ -5,13 +5,13 @@
 您可以在[app][app] 模块的[ready][ready]事件生效之前，使用[app.commandLine.appendSwitch][append-switch]将它们附加到您的应用程序的主要脚本中：
 
 ```javascript
-康斯特 { app } =需要（"电子"）
-应用程序。命令行。附录开关（"远程调试端口"， "8315"）
-应用程序.命令行。附录开关（"主机规则"，"MAP* 127.0.0.1"）
+const { app } = require('electron')
+app.commandLine.appendSwitch('remote-debugging-port', '8315')
+app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-
-
-  > 应用程序。
+app.whenReady().then(() => {
+  // Your code here
+})
 ```
 
 ## Electron CLI Flags
@@ -26,15 +26,15 @@
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. 如果没有 `*` 前缀，URL必须完全匹配。
+则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. Without `*` prefix the URL has to match exactly.
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-需要授权用户凭据的服务器逗号分离列表。 如果没有 `*` 前缀，URL必须完全匹配。
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
-### --禁用-无国他明-v2
+### --disable-ntlm-v2
 
-禁用NTLM v2的posix平台，没有其他地方的影响。
+Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ### --disable-http-cache
 
@@ -54,9 +54,9 @@
 
 强制磁盘缓存使用的最大磁盘空间（以字节为单位）。
 
-### --启用-阿皮过滤-记录
+### --enable-api-filtering-logging
 
-启用呼叫者堆栈记录以下 ABI（过滤事件）：
+Enables caller stack logging for the following APIs (filtering events):
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -85,7 +85,7 @@ For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 * `MAP * 127.0.0.1` 强制将所有主机名映射到127.0.0.1
 * `MAP *.google.com proxy` 强制所有google.com子域名解析到"proxy".
-* `MAP test.com [::1]:77` 力"test.com"解决IPv6回路。 将 也迫使由此产生的插座地址的端口为 77。
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
 
 这些映射适用于网络请求中的端点主机. 网络请求包括TCP连接和直连的主机解析器, 以及HTTP代理连接中的`CONNECT`方式, 以及在`SOCKS`代理连接中的端点主机.
@@ -124,7 +124,7 @@ See the [Node.js documentation][node-cli] or run `node --help` in your terminal 
 
 Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
 
-### --无沙盒
+### --no-sandbox
 
 Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
 
@@ -181,19 +181,19 @@ Electron supports some of the [CLI flags][node-cli] supported by Node.js.
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
-### --检查-伯克[主机：]端口]
+### --inspect-brk[=[host:]port]
 
 Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
-### --检查端口][主机：]端口
+### --inspect-port=[host:]port
 
 Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
-### --检查[主机：]端口]
+### --inspect[=[host:]port]
 
 Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
@@ -203,7 +203,7 @@ V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug 
 
 Aliased to `--debug[=[host:]port`.
 
-### --检查-发布-乌伊德-斯特德，赫特普
+### --inspect-publish-uid=stderr,http
 
 Specify ways of the inspector web socket url exposure.
 
