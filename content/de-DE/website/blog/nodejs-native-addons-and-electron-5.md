@@ -12,7 +12,7 @@ Wenn Sie Probleme mit der Verwendung eines nativen Node.js Addons mit Electron 5
 
 2014 veraltete das V8-Team `v8::Handle` zugunsten von `v8::Local` für lokale Handles. Electron 5.0 enthält eine Version von V8, die schließlich `v8::Handle` für den guten und nativen Knoten entfernt hat. s Erweiterungen, die es noch verwenden, müssen aktualisiert werden, bevor sie mit Electron 5.0 verwendet werden können.
 
-Die erforderliche Änderung des Codes ist minimal, aber *jedes* natives Knoten-Modul, das immer noch `v8::Handle` verwendet, wird nicht mit Electron 5 kompilieren. und muss geändert werden. Die gute Nachricht ist, dass Node.js v12 auch diese V8-Änderung enthält, so dass alle Module, die `v8::Handle` verwenden, *sowieso aktualisiert werden müssen,* mit der kommenden Version von Node zu arbeiten.
+Die erforderliche Änderung des Codes ist minimal, aber *jedes* natives Knoten-Modul, das immer noch `v8::Handle` verwendet, wird nicht mit Electron 5 kompilieren. und muss geändert werden. The good news is that Node.js v12 will also include this V8 change, so any modules that use `v8::Handle` will need to be updated *anyway* to work with the upcoming version of Node.
 
 ## Ich unterhalte ein natives Addon, wie kann ich helfen?
 
