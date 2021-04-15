@@ -330,7 +330,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 **已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 它 并不总是因为它坠毁了。  当您切换到该事件时， 检查 `reason === 'killed'` 可以替换 `killed` 布尔。
 
-#### 事件： "渲染过程消失"
+#### 事件: 'render-process-gone'
 
 返回:
 
@@ -713,46 +713,46 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 
 在渲染器过程中调用 `desktopCapturer.getSources()` 时发出。 呼叫 `event.preventDefault()` 将使其返回空源。
 
-#### 事件： "远程要求" _弃用_
+#### 事件： "remote-require" _弃用_
 
 返回:
 
-* `event` 伊普克梅因事件
+* `event` IpcMainEvent
 * `moduleName` String
 
 在渲染器过程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件： "远程全球" _弃用_
+#### 事件： "remote-get-global" _弃用_
 
 返回:
 
-* `event` 伊普克梅因事件
+* `event` IpcMainEvent
 * `globalName` String
 
 在渲染器过程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件： "远程构建" _弃用_
+#### 事件： "remote-get-builtin" _弃用_
 
 返回:
 
-* `event` 伊普克梅因事件
+* `event` IpcMainEvent
 * `moduleName` String
 
 在渲染器过程中调用 `remote.getBuiltin()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件： "远程获取电流窗口" _弃用_
+#### 事件： "remote-get-current-window" _弃用_
 
 返回:
 
-* `event` 伊普克梅因事件
+* `event` IpcMainEvent
 
 在渲染器过程中调用 `remote.getCurrentWindow()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 事件： "远程获取当前网络内容" _弃用_
+#### 事件： "remote-get-current-web-contents" _弃用_
 
 返回:
 
-* `event` 伊普克梅因事件
+* `event` IpcMainEvent
 
 在渲染器过程中调用 `remote.getCurrentWebContents()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
