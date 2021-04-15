@@ -18,7 +18,7 @@ date: '2016-08-16'
 
 Electron安装过程常常是新开发者的绊脚石。 许多勇敢的人试图通过运行 `npm 安装electron` 而不是 `npm 安装electron-prebuilded`来开始开发一个 Electron 只要发现(往往是在非常混乱的情况下)他们所寻找的不是 `电子`
 
-这是因为在 npm 上存在一个 `电子` 项目， 是在 GitHub 的 Electron 项目存在之前创建的。 为了帮助 Electron 开发更轻松、更直观，我们联系了现有 `electron` npm 套餐的 所有者，询问他是否愿意让我们使用 名称。 幸运的是，他是我们项目的粉丝，同意帮助我们重新调整名字 。
+这是因为在 npm 上存在一个 `电子` 项目， 是在 GitHub 的 Electron 项目存在之前创建的。 To help make Electron development easier and more intuitive for new developers, we reached out to the owner of the existing `electron` npm package to ask if he'd be willing to let us use the name. 幸运的是，他是我们项目的粉丝，同意帮助我们重新调整名字 。
 
 ## 预设生命于
 
