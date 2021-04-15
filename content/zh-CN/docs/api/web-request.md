@@ -8,7 +8,7 @@
 
 ` WebRequest ` 下的所有方法接收 `filter ` 和 ` listener ` 两个参数。 当 API 中有事件被触发时, ` listener(details) ` 会被调用， `details` 中包含了请求的详细信息。
 
-⚠️只有最后一个附加的 `listener` 将被使用。 将 `null` 作为 `listener` 将取消订阅活动。
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 ` filter ` 对象具有一个 ` url ` 属性, 它是一个 url 模式数组, 用于筛选出与 url 模式不匹配的请求。 如果省略 ` filter `, 则所有请求都将匹配。
 
@@ -36,22 +36,22 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `response` 对象
+    * `response` Object
       * `cancel` Boolean (可选)
       * `redirectURL` String (可选) - 原始请求被阻止发送或完成，而不是重定向到给定的URL。
 
@@ -61,41 +61,41 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 必须使用 `response` 对象调用` callback `。
 
-有效 `urls`的一些示例：
+Some examples of valid `urls`:
 
 ```js
-"http://foo:1234/"
-"http://foo.com/"
-"http://foo:1234/bar"
-"***"
-"***/example.com/"
-"***/example.com/foo/* "
-"htt：//*.foo：1234/"
-"file://foo:1234/bar"
-""
-"***/www.foo.com/"
+'http://foo:1234/'
+'http://foo.com/'
+'http://foo:1234/bar'
+'*://*/*'
+'*://example.com/*'
+'*://example.com/foo/*'
+'http://*.foo:1234/'
+'file://foo:1234/bar'
+'http://foo:*/'
+'*://www.foo.com/'
 ```
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` 记录<string, string>
+    * `requestHeaders` Record<string, string>
   * `callback` Function
-    * `beforeSendResponse` 对象
+    * `beforeSendResponse` Object
       * `cancel` Boolean (可选)
-      * `requestHeaders` 记录<string, string | string[]> （可选） - 如果提供，将 这些标题提出请求。
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
 一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
 
@@ -103,41 +103,41 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` 记录<string, string>
+    * `requestHeaders` Record<string, string>
 
 在请求发送到服务器之前，`listener`将以`listener(details)`的形式被调用，在该侦听器被出发前，上一个对 `onBeforeSendHeaders` 响应的修改是可见的。
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `requestHeaders` 记录<string, string>
+    * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function
     * `headersReceivedResponse` Object
@@ -151,16 +151,16 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -173,16 +173,16 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -197,16 +197,16 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -220,16 +220,16 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` 对象（可选）
+* `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` 功能|空
+* `listener` Function | null
   * `details` 对象
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
-    * `webContents` 网络聊天（可选）
-    * `frame` 网络框架（可选）
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
