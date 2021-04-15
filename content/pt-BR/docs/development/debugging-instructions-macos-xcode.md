@@ -1,19 +1,19 @@
-## Depuração com XCode
+## Debugging with XCode
 
-### Gerar projeto xcode para fontes de depuração (não pode criar código a partir de xcode)
+### Generate xcode project for debugging sources (cannot build code from xcode)
 
-Execute `gn gen` com o argumento --ide=xcode.
+Run `gn gen` with the --ide=xcode argument.
 
 ```sh
 $ gn gen out/Testing --ide=xcode
 ```
 
-Isso vai gerar o electron.ninja.xcworkspace. Você terá que abrir este espaço de trabalho para definir pontos de interrupção e inspecionar.
+This will generate the electron.ninja.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
 
-Consulte `gn help gen` para obter mais informações sobre a geração de projetos IDE com GN.
+See `gn help gen` for more information on generating IDE projects with GN.
 
-### Depuração e pontos de interrupção
+### Debugging and breakpoints
 
-Inicie o aplicativo Electron após a compilação. Agora você pode abrir o espaço de trabalho xcode criado acima e anexar-se ao processo Electron através do menu de depuração > Debug Attach To Process > Electron. [Nota: Se você quiser depurar processo renderizador, você precisa se conectar ao Ajudante de Elétrons também.]
+Launch Electron app after build. You can now open the xcode workspace created above and attach to the Electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
 
-Agora você pode definir pontos de interrupção em qualquer um dos arquivos indexados. No entanto, você não será capaz de definir pontos de interrupção diretamente na fonte Chromium. Para definir pontos de interrupção na fonte Chromium, você pode escolher Debug > Breakpoints > Criar Ponto de Ruptura Simbólica e definir qualquer nome de função como o símbolo. Isso definirá o ponto de interrupção para todas as funções com esse nome, de todas as classes, se houver mais de uma. Você também pode fazer esta etapa de definição de break points antes de anexar o depurador, no entanto, pontos de interrupção reais para funções simbólicas de breakpoint podem não aparecer até que o depurador esteja conectado ao aplicativo.
+You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the Chromium source. To set break points in the Chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
