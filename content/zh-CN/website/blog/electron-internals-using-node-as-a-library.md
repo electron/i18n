@@ -1,5 +1,5 @@
 ---
-title: '电子内部：使用节点作为库'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---
@@ -20,7 +20,7 @@ date: '2016-08-08'
 
 [`个节点。 yp`](https://github.com/nodejs/node/blob/v6.3.1/node.gyp) 节点源代码目录中的文件描述节点 是如何构建的， 加上许多 [`GYP`](https://gyp.gsrc.io) 变量来控制 节点的哪些部分已启用以及是否打开某些配置。
 
-要更改构建标志，您需要设置项目 `.gypi` 文件中的变量。 节点中的 `配置` 脚本可以为您生成一些常见的 配置，例如运行 `。 配置 --shared` 将生成 一个 `config.gyi` 其中包含指示节点作为共享库构建的变量。
+To change the build flags, you need to set the variables in the `.gypi` file of your project. 节点中的 `配置` 脚本可以为您生成一些常见的 配置，例如运行 `。 配置 --shared` 将生成 一个 `config.gyi` 其中包含指示节点作为共享库构建的变量。
 
 Electron 不使用 `配置` 脚本，因为它有自己的构建脚本。 节点配置在 [`common.gypi`](https://github.com/electron/electron/blob/master/common.gypi) 文件 中定义了 Electron的根源代码目录。
 
@@ -28,13 +28,13 @@ Electron 不使用 `配置` 脚本，因为它有自己的构建脚本。 节点
 
 在 Electron 节点正通过设置 `GYP` 变量 `node_shared` 到 `true`so 节点的构建类型将从 `可执行文件` 更改为 `shared_bull`和包含节点的源代码 `主要` 入口点将不会被编译。
 
-由于 Electron 使用用铬装运的 V8 库，则不使用节点源代码中包含的 V8 库 。 通过设置 `node_use_v8_platform` 和 `node_use_bundled_v8` 到 `false` 来做到这一点。
+Since Electron uses the V8 library shipped with Chromium, the V8 library included in Node's source code is not used. 通过设置 `node_use_v8_platform` 和 `node_use_bundled_v8` 到 `false` 来做到这一点。
 
 ## 共享库或静态库
 
 当与节点链接时，有两个选项：您可以构建节点作为 静态库，并将其包含在最终可执行文件中。 或者你可以构建它作为一个 共享库，并且将它与最终可执行文件一起运送。
 
-Electron，节点是作为静态库长期构建的。 这使得 构建简单，启用了最佳的编译器优化，并允许 Electron 在没有额外 `node.dll` 文件的情况下 分发。
+Electron，节点是作为静态库长期构建的。 This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
 
 然而，Chrome切换到使用 [BoringSSL](https://boringssl.googlesource.com/boringssl) 后改变了这种情况。 BoringSSL is a fork of [OpenSSL](https://www.openssl.org) that removes several unused APIs and changes many existing interfaces. 因为节点仍在使用 OpenSSL，编译器会产生无数的 链接错误，如果它们是相互冲突的符号连接在一起的话。 因为节点仍在使用 OpenSSL，编译器会产生无数的 链接错误，如果它们是相互冲突的符号连接在一起的话。
 
