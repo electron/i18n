@@ -99,7 +99,7 @@ Afin d'améliorer la sécurité, les modules suivants sont dépréciés pour êt
 * `os`
 * `chemin d'accès`
 
-## apis du monde isolés webFrame
+## webFrame Isolated World APIs
 `webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` ont été dépréciés en faveur de `webFrame.setIsolatedWorldInfo`.
 
 ### Bac à sable mixte
