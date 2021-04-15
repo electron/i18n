@@ -90,24 +90,24 @@ Mais informações sobre essas e futuras alterações podem ser encontradas na p
     * Adicionou uma pequena dica de console para console para ajudar a depurar falhas do renderizador. [#25317](https://github.com/electron/electron/pull/25317)
     * Adicionadas `frame` e propriedades `webContents` aos objetos de detalhes nos manipuladores webRequest. [#27334](https://github.com/electron/electron/pull/27334)
     * Adicionado `webContents.forcefullyCrashRenderer()` para encerrar com força um processo de renderização para ajudar na recuperação de um renderizador pendurado. [#25580](https://github.com/electron/electron/pull/25580)
-    * Adicionado `setWindowOpenHandler` API para janelas infantis criadas por renderizações e depredescar `new-window` evento. [#24517](https://github.com/electron/electron/pull/24517)
-* `webFrame` alterações da API:
-    * Adicionada API de verificação ortográfica ao renderizador. [#25060](https://github.com/electron/electron/pull/25060)
+    * Added `setWindowOpenHandler` API for renderer-created child windows, and deprecate `new-window` event. [#24517](https://github.com/electron/electron/pull/24517)
+* `webFrame` API changes:
+    * Added spellcheck API to renderer. [#25060](https://github.com/electron/electron/pull/25060)
 
-### Alterações removidas/preteridas
+### Removed/Deprecated Changes
 
-As seguintes APIs foram removidas ou agora estão preteridas:
+The following APIs have been removed or are now deprecated:
 
 * Preteriu o módulo `remote` . É substituído por [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
-* Removidos APIs `crashReporter` preteridos. [#26709](https://github.com/electron/electron/pull/26709)
-* Removeu links para o site da Electron do menu padrão 'Ajuda' em aplicativos embalados. [#25831](https://github.com/electron/electron/pull/25831)
+* Removed deprecated `crashReporter` APIs. [#26709](https://github.com/electron/electron/pull/26709)
+* Removed links to the Electron website from the default 'Help' menu in packaged apps. [#25831](https://github.com/electron/electron/pull/25831)
 
-## Fim do suporte para 9.x.y
+## End of Support for 9.x.y
 
-O Electron 9.x.y chegou ao fim do suporte de acordo com a política de suporte [do projeto](https://electronjs.org/docs/tutorial/support#supported-versions). Desenvolvedores e aplicativos são encorajados a atualizar para uma versão mais recente do Electron.
+Electron 9.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Desenvolvedores e aplicativos são encorajados a atualizar para uma versão mais recente do Electron.
 
 ## Próximos passos
 
-No curto prazo você pode esperar que a equipe continue focando em acompanhar o desenvolvimento dos principais componentes que compõem o Electron, incluindo Chromium, Node e V8. Embora tenhamos o cuidado de não fazer promessas sobre datas de lançamento, nosso plano é lançar novas versões principais do Electron com novas versões desses componentes aproximadamente trimestralmente. O cronograma [provisório 13.0.0](https://electronjs.org/docs/tutorial/electron-timelines) mapeia datas-chave no ciclo de vida de desenvolvimento do Electron 13.0. Além disso, [veja o nosso documento de versão](https://electronjs.org/docs/tutorial/electron-versioning) para informações mais detalhadas sobre versão no Electron.
+No curto prazo você pode esperar que a equipe continue focando em acompanhar o desenvolvimento dos principais componentes que compõem o Electron, incluindo Chromium, Node e V8. Embora tenhamos o cuidado de não fazer promessas sobre datas de lançamento, nosso plano é lançar novas versões principais do Electron com novas versões desses componentes aproximadamente trimestralmente. The [tentative 13.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 13.0 development life cycle. Além disso, [veja o nosso documento de versão](https://electronjs.org/docs/tutorial/electron-versioning) para informações mais detalhadas sobre versão no Electron.
 
 Para informações sobre mudanças planejadas em futuras versões do Electron, [veja nosso Documento de Interrupção Planejada (Alterações de Abertura)](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
