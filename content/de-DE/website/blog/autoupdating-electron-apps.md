@@ -19,7 +19,7 @@ Heute veröffentlichen wir ein kostenloses Open-Source, [aktualisiert Webservice
 
 Electron has an [autoUpdater](https://electronjs.org/docs/tutorial/updates) API that gives apps the ability to consume metadata from a remote endpoint to check for updates, download them in the background, and install them automatically.
 
-Das Aktivieren dieser Updates war für viele Entwickler von Electron-Apps ein umständlicher Schritt im Bereitstellungsprozess , da ein Webserver bereitgestellt und verwaltet werden muss, nur um Metadaten zum App-Versionsverlauf bereitzustellen.
+Enabling these updates has been a cumbersome step in the deployment process for many Electron app developers because it requires a web server to be deployed and maintained just to serve app version history metadata.
 
 Heute kündigen wir eine neue Drop-In Lösung für automatische App-Updates an. Wenn sich Ihre Electron-App in einem öffentlichen GitHub Repository befindet und Sie GitHub Releases verwenden, um Builds zu veröffentlichen, Sie können diesen Dienst nutzen, um kontinuierliche App-Updates für Ihre Benutzer bereitzustellen.
 
