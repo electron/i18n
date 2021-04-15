@@ -66,9 +66,9 @@ Für die normale Entwicklung brauchen die Entwickler nur die Debug-Version zu er
 
 ## Das `gn` Update
 
-Als eines der größten Projekte der Welt sind die meisten normalen Systeme nicht geeignet für den Bau von Chromium, und das Chromium-Team entwickelt eigene Werkzeuge.
+Being one of the largest projects in the world, most normal systems are not suitable for building Chromium, and the Chromium team develops their own build tools.
 
-Frühere Versionen von Chromium benutzten `gyp` als Build-System, aber es leidet daran, dass langsam ist, und seine Konfigurationsdatei wird für komplexe Projekte schwer zu verstehen. Nach Jahren der Entwicklung wechselte Chromium zu `gn` als Build-System, das viel schneller ist und eine klare Architektur hat.
+Frühere Versionen von Chromium benutzten `gyp` als Build-System, aber es leidet daran, dass langsam ist, und seine Konfigurationsdatei wird für komplexe Projekte schwer zu verstehen. After years of development, Chromium switched to `gn` as a build system, which is much faster and has a clear architecture.
 
 Eine der Verbesserungen von `gn` ist die Einführung von `source_set`, die eine Gruppe von Objektdateien repräsentiert. Im `gyp`wurde jedes Modul entweder durch `static_library` oder `shared_library`repräsentiert , und für die normale Erstellung von Chromium, erzeugte jedes Modul eine statische Bibliothek und sie wurden in der letzten ausführbaren miteinander verknüpft. Durch die Verwendung von `gn`erzeugt nun jedes Modul nur noch eine Menge Objektdateien und die endgültige ausführbare Datei verbindet nur alle Objektdateien zusammen , so dass die statischen Zwischendateien nicht mehr generiert werden.
 
