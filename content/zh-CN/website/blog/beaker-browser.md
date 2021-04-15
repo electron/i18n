@@ -6,7 +6,7 @@ author:
 date: '2017-02-07'
 ---
 
-本周，我们赶上了 [保罗弗雷泽](http://pfrazee.github.io/)， [烧杯浏览器](https://beakerbrowser.com/)的创造者 。 Beaker是一个实验性的 点对点网页浏览器，它使用 Dat 协议来托管来自用户的 设备。
+This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker是一个实验性的 点对点网页浏览器，它使用 Dat 协议来托管来自用户的 设备。
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
