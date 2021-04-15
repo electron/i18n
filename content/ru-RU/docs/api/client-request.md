@@ -15,13 +15,13 @@
   * `partition` String (опционально) – название [`раздела`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Вариант `session` затмевает `partition`. Поэтому, если параметр `session` явно указан, то `partition` игнорируется.
   * `credentials` строка (по желанию) - может быть `include` или `omit`. Следует ли отправить [учетные данные](https://fetch.spec.whatwg.org/#credentials) с этим запросом. При наборе `include`, учетные данные от сеанса, связанного , запрос будет использоваться. Если установлено `omit`, учетные данные не будут отправлены с запросом (и событие `'login'` не будет срабатывать в случае 401). Это соответствует поведению [получить](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) с тем же именем. Если эта опция не указана, аутентификация данные из сеанса будут отправлены, и файлы cookie не будут отправлены (если `useSessionCookies` не установлен).
   * `useSessionCookies` Boolean (по желанию) - Следует ли отправлять файлы cookie с запроса от предоставленной сессии. Если `credentials` указан, этот не имеет эффекта. По умолчанию - `false`.
-  * `protocol` строка (по желанию) - может быть `http:` или `https:`. Протокол схеме в виде «схемы».. По умолчанию 'http:'.
+  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. По умолчанию 'http:'.
   * `host` String (опционально) - объединенное с номером порта доменное имя сервера 'доменное_имя:порт'.
   * `hostname` String (опционально) – доменное имя сервера.
   * `port` Integer (опционально) – номер порта сервера.
   * `path` String (опционально) - часть пути запроса URL.
-  * `redirect` Строка (по желанию) - может быть `follow`, `error` или `manual`. Для этого запроса будет перенаправлен режим перенаправления. Когда режим будет `error`, любое перенаправление будет прервано. При использовании `manual` перенаправление будет отменено, если [`request.followRedirect`](#requestfollowredirect) не будет во время [`redirect`](#event-redirect) события.  По умолчанию - `follow`.
-  * `origin` Строка (необязательно) - URL-адрес происхождения запроса.
+  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  По умолчанию - `follow`.
+  * `origin` String (optional) - The origin URL of the request.
 
 Свойства `options`, такие как `protocol`, `host`, `hostname`, `port` и `path`, строго следуют модели Node.js, которая описана в модуле [URL](https://nodejs.org/api/url.html).
 
@@ -134,17 +134,17 @@ request.on('login', (authInfo, callback) => {
 
 Добавляет дополнительный HTTP-заголовок. Имя заголовка будет выдано как есть, без нижнего регистра. Может быть вызвано только перед первой записи. Вызов этого метода после первой записи вызовет ошибку. Если переданное значение это не `String`, тогда метод `toString()` будет вызван, чтобы получить конечное значение.
 
-Некоторые заготовки ограничены в настройке приложениями. Эти заготовки перечислены ниже. Более подробную информацию об ограниченных заголовках можно найти [заголовке Chromium utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
 
-* `Длина контента`
+* `Content-Length`
 * `Узла`
-* `Trailer` или `Te`
-* `Обновления`
-* `Печенье2`
-* `Сохранить-живой`
-* `Передача-кодирование`
+* `Trailer` or `Te`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
 
-Кроме того, `Connection` заголовка на значение `upgrade` также запрещено.
+Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
 
 #### `request.getHeader(name)`
 
@@ -182,7 +182,7 @@ request.on('login', (authInfo, callback) => {
 
 #### `request.followRedirect()`
 
-Продолжает любое ожидающего перенаправления. Может быть вызвано только во время `'redirect'` мероприятия.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 
