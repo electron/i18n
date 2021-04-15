@@ -71,34 +71,34 @@ Para mostrar os argumentos e variáveis locais para o quadro atual, execute `fra
 }
 ```
 
-Para fazer uma etapa única de nível de origem no segmento selecionado atualmente, execute `step` (ou `s`). Isso te levaria para `name_override_.empty()`. Para prosseguir e dar um passo mais, executar `next` (ou `n`).
+To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
 
 ```sh
-(lldb) passo
-Processo 25244 parou
-* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', razão de parada = passo em
-    quadro #0: 0x0000000100162dcc Electron Framework'atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 em browser.cc:119
+(lldb) step
+Process 25244 stopped
+* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
+    frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119
    116
-   117 void Browser::SetName(const std::string& nome) {
-   118 name_override_ = nome;
--> 119 }
+   117  void Browser::SetName(const std::string& name) {
+   118    name_override_ = name;
+-> 119  }
    120
-   121 int Navegador::GetBadgeCount() {
-   122 badge_count_ de retorno;
+   121  int Browser::GetBadgeCount() {
+   122    return badge_count_;
 ```
 
-**NOTA:** Se você não ver o código-fonte quando acha que deveria, você pode não ter adicionado o arquivo `~/.lldbinit` acima.
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
-Para terminar a depuração neste momento, corra `process continue`. Você também pode continuar até que uma certa linha de seja atingida neste segmento (`thread until 100`). Este comando executará o segmento no quadro de atual até atingir a linha 100 neste quadro ou parar se ele deixar o quadro atual.
+To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
 
-Agora, se você abrir as ferramentas de desenvolvedor da Electron e chamar `setName`, você mais uma vez atingirá o ponto de interrupção .
+Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
 ### Leia mais
 
-LLDB é uma ferramenta poderosa com uma ótima documentação. Para saber mais sobre isso, considere a documentação de depuração da Apple, por exemplo, o</a> de referência da estrutura de comando
+LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference][lldb-command-structure] or the introduction to [Using LLDB as a Standalone Debugger][lldb-standalone].
 
-LLDB ou a introdução ao [usando o LLDB como um][lldb-standalone]de depuração autônomo .</p> 
+You can also check out LLDB's fantastic [manual and tutorial][lldb-tutorial], which will explain more complex debugging scenarios.
 
-Você também pode conferir o fantástico</a>manual e tutorial do LLDB, o que explicará cenários de depuração mais complexos.</p>
-
+[lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
 [lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
+[lldb-tutorial]: https://lldb.llvm.org/tutorial.html
