@@ -134,5 +134,5 @@ Wenn Sie daran interessiert sind, sich am Projekt zu beteiligen, schauen Sie sic
 
 <script async class="speakerdeck-embed" data-id="5aae08bb7c5b4dbd89060cff11bb1300" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
-[DC](https://dcpos.ch/), ein weiterer WebTorrent-Mitwirkender, schrieb [eine Checkliste von Dingen, die Sie tun können,](https://blog.dcpos.ch/how-to-make-your-electron-app-sexy) , damit sich Ihre App poliert und nativ anfühlt. Es enthält Code-Beispiele und umfasst Dinge wie die Integration von MacOS-Dock-Systemen, Ziehen und Ablegen, Desktop-Benachrichtigungen, und stellt sicher, dass Ihre App schnell geladen wird.
+[DC](https://dcpos.ch/), another WebTorrent contributor, wrote [a checklist of things you can do](https://blog.dcpos.ch/how-to-make-your-electron-app-sexy) to make your app feel polished and native. Es enthält Code-Beispiele und umfasst Dinge wie die Integration von MacOS-Dock-Systemen, Ziehen und Ablegen, Desktop-Benachrichtigungen, und stellt sicher, dass Ihre App schnell geladen wird.
 
