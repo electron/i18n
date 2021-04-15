@@ -68,7 +68,7 @@
 #### `帧.执行贾瓦脚本（代码[，用户图片]）`
 
 * `code` String
-* `userGesture` 布尔（可选） - 默认是 `false`。
+* `userGesture` Boolean (optional) - Default is `false`.
 
 返回 `Promise<unknown>` - 承诺，解决与执行的 代码的结果，或被拒绝，如果执行抛出或导致拒绝的承诺。
 
@@ -85,9 +85,9 @@
 * `channel` String
 * `...args` any[]
 
-通过 `channel`向渲染器进程发送异步消息，以及 参数。 参数将与\[结构克隆 算法\]\[SCA\]进行串行，就像[`postMessage`]一样，因此原型链不会 包括在内。 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
+Send an asynchronous message to the renderer process via `channel`, along with arguments. 参数将与\[结构克隆 算法\]\[SCA\]进行串行，就像[`postMessage`]一样，因此原型链不会 包括在内。 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
 
-渲染器过程可以通过与 [`ipcRenderer`](ipc-renderer.md) 模块一起收听 `channel` 来处理消息。
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
 #### `帧.邮资信息（频道、消息、 [transfer]）`
 
@@ -95,9 +95,9 @@
 * `message` 任何
 * `transfer` 消息端口[]（可选）
 
-向渲染器进程发送消息，可选地转移 零或更多 [`MessagePortMain`] 对象的所有权。
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-传输 `MessagePortMain` 对象将通过访问发射事件的 `ports` 属性，在渲染器 过程中提供。 当他们 到达渲染器时，它们将是原生 DOM `MessagePort` 对象。
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 例如：
 
