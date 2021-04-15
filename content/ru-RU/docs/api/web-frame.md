@@ -247,6 +247,6 @@ A `WebFrame | null` representing next sibling frame, the property would be `null
 
 ### `webFrame.routingId` _Readonly_
 
-`Integer` представляющий уникальный идентификатор кадра в текущем процессе рендеринга. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
