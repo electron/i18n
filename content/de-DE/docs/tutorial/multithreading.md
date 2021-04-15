@@ -1,6 +1,6 @@
 # Multithreading
 
-Mit [Web Workers][web-workers]ist es möglich, JavaScript in Threads auf Betriebssystemebene auszuführen.
+With [Web Workers][web-workers], it is possible to run JavaScript in OS-level threads.
 
 ## Multithreaded Node.js
 
@@ -22,9 +22,9 @@ Alle eingebauten Module von Node.js werden von Webworkern unterstützt, und `asa
 
 ## Native Node.js Module
 
-Jedes systemeigene Node.js-Modul kann direkt in Web Workers geladen werden, es wird jedoch dringend empfohlen dies nicht zu tun. Die meisten existierenden nativen Module wurden geschrieben, wobei davon ausgegangen wird, dass die Verwendung in Webworkers zu Abstürzen und Speicherfehlern führt.
+Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Die meisten existierenden nativen Module wurden geschrieben, wobei davon ausgegangen wird, dass die Verwendung in Webworkers zu Abstürzen und Speicherfehlern führt.
 
-Beachten Sie, dass es selbst wenn ein systemeigene Node.js Modul threadsicher ist, immer noch nicht sicher ist, es in einen Web Worker laden, da die `process.dlopen` Funktion nicht Thread sicher ist.
+Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
 
 Die einzige Möglichkeit, ein natives Modul für jetzt sicher zu laden stellt sicher, dass die App nach dem Start der Webworkers keine nativen Module lädt.
 
