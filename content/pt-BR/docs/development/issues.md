@@ -1,16 +1,16 @@
 # Questões com o Electron
 
-* [Como contribuir para problemas](#how-to-contribute-to-issues)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [Perguntas Sobre de Ajuda Geral](#asking-for-general-help)
 * [Enviando um Relatório de Erro](#submitting-a-bug-report)
 * [Fazendo Triagem de um Relatório de Erro](#triaging-a-bug-report)
 * [Resolvendo um Relatório de Erro](#resolving-a-bug-report)
 
-## Como contribuir para problemas
+## How to Contribute to Issues
 
 Para qualquer problema, existem fundamentalmente três maneiras que alguém pode contribuir:
 
-1. Abrindo o assunto para discussão: Se você acredita que encontrou um novo bug na Electron, você deve denunciá-lo criando um novo problema em o rastreador de problemas [`electron/electron`](https://github.com/electron/electron/issues).
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Ajudando a fazer uma triagem acerca do problema: Você pode fazer-lo fornecendo detalhes assistivos (um teste o qual apresenta um bug) ou fornecer sugestões para ajudar com o problema.
 3. Ajudando à resolver o problema: Isso pode ser feito demonstrando que o problema não é problema ou já foi resolvido; so que mais frequentemente, abrindo uma requisição à qual muda a fonte do problema no `electron/electron` de uma forma concreta e revisável.
 
@@ -20,13 +20,13 @@ Para qualquer problema, existem fundamentalmente três maneiras que alguém pode
 
 ## Enviando um Relatório de Erro
 
-Para enviar um relatório de bugs:
+To submit a bug report:
 
-Ao abrir um novo problema no [`electron/electron`](https://github.com/electron/electron/issues/new/choose)de rastreamento de problemas, os usuários serão apresentados com um modelo que deve ser preenchido.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
-Se você acredita que encontrou um bug em Electron, por favor preencha o modelo o melhor de sua capacidade.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
-As duas informações mais importantes necessárias para avaliar o relato de um bug são a descrição e um caso de teste simples para recriá-lo. É mais fácil corrigir um bug se ele pode ser reproduzido.
+As duas informações mais importantes necessárias para avaliar o relato de um bug são a descrição e um caso de teste simples para recriá-lo. It is easier to fix a bug if it can be reproduced.
 
 Veja [Como criar um exemplo Mínimo, Completo e Verificável](https://stackoverflow.com/help/mcve).
 
@@ -36,7 +36,7 @@ Veja [Como criar um exemplo Mínimo, Completo e Verificável](https://stackoverf
 
 Respostas que não fornecem contexto adicional nem detalhes de suporte não são úteis ou profissionais. Para muitos, essas respostas são irritantes e nada amigáveis.
 
-Os colaboradores são encorajados a resolver problemas colaborativamente e ajudar uns aos outros a fazer progresso. Se você encontrar um problema que você acha que é inválido, ou que contém informações incorretas, explique *por que* você se sente assim com contexto adicional de suporte, e esteja disposto a estar convencido de que você pode estar errado. Ao fazê-lo, podemos frequentemente chegar mais rapidamente ao resultado correto.
+Os colaboradores são encorajados a resolver problemas colaborativamente e ajudar uns aos outros a fazer progresso. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Ao fazê-lo, podemos frequentemente chegar mais rapidamente ao resultado correto.
 
 ## Resolvendo um Relatório de Erro
 
