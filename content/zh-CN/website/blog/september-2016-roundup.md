@@ -1,5 +1,5 @@
 ---
-title: '2016 年 9 月：新应用'
+title: 'September 2016: New Apps'
 author: 已打包
 date: '2016-10-06'
 ---
@@ -17,9 +17,9 @@ date: '2016-10-06'
 9月，GitHub 举行了GitHub 宇宙会议，记作人们建设软件未来的活动。 在这次活动中进行了几次令人感兴趣的Electron会谈。
 
 * [通过Slack软件工程师Machistequintana让Electron开发更加简洁、更多和更具生产性的](https://www.youtube.com/watch?v=Eqg_IqVeI5s)
-* [电子：由 GitHub 的电子开发人员 Zeke Sikelianos](https://www.youtube.com/watch?v=FNHBfN8c32U) 的带有 Web 语言的桌面应用。
+* [Electron: Desktop Apps with Web Languages](https://www.youtube.com/watch?v=FNHBfN8c32U) by Zeke Sikelianos, an Electron Developer at GitHub.
 
-此外，如果你碰巧在巴黎12月5日，齐克将 [给电子演讲点JS 2016](https://twitter.com/dotJS/status/783615732307333120)。
+Also, if you happen to be in Paris on December 5, Zeke will be [giving an Electron talk at dotJS 2016](https://twitter.com/dotJS/status/783615732307333120).
 
 ### 新的应用程序
 
