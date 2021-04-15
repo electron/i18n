@@ -1,39 +1,39 @@
-# MensagensPorts em Elétron
+# MessagePorts in Electron
 
-[`MessagePort`][]s são um recurso da Web que permite passar mensagens entre contextos diferentes. É como `window.postMessage`, mas em canais diferentes. O objetivo deste documento é descrever como a Electron estende o modelo de mensagens de do Canal e dar alguns exemplos de como você pode usar messageports em seu aplicativo.
+[`MessagePort`][]s are a web feature that allow passing messages between different contexts. It's like `window.postMessage`, but on different channels. The goal of this document is to describe how Electron extends the Channel Messaging model, and to give some examples of how you might use MessagePorts in your app.
 
-Aqui está um exemplo muito breve do que é um MessagePort e como ele funciona:
+Here is a very brief example of what a MessagePort is and how it works:
 
 ```js
-renderer.js //////
-// MensagensAsAs são criadas em pares. Um par de portas de mensagem conectadas é
-// chamado de canal.
-canal const = novo MessageChannel()
+// renderer.js ///////////////////////////////////////////////////////////////
+// MessagePorts are created in pairs. A connected pair of message ports is
+// called a channel.
+const channel = new MessageChannel()
 
-// A única diferença entre porta1 e porta2 está na forma como você os usa. As mensagens
-// enviadas ao port1 serão recebidas pelo port2 e vice-versa.
-const port1 = canal.port1
-const port2 = canal.port2
+// The only difference between port1 and port2 is in how you use them. Messages
+// sent to port1 will be received by port2 and vice-versa.
+const port1 = channel.port1
+const port2 = channel.port2
 
-// Não há problema em enviar uma mensagem no canal antes que a outra extremidade tenha registrado
-// um ouvinte. As mensagens serão enfileiidas até que um ouvinte seja registrado.
-port2.postMessage ({ answer: 42 })
+// It's OK to send a message on the channel before the other end has registered
+// a listener. Messages will be queued until a listener is registered.
+port2.postMessage({ answer: 42 })
 
-// Aqui enviamos a outra extremidade do canal, port1, para o processo principal. É
-// também possível enviar MessagePorts para outros quadros, ou para os Web Workers, etc.
-ipcRenderer.postMessage('port', nulo, [port1])
+// Here we send the other end of the channel, port1, to the main process. It's
+// also possible to send MessagePorts to other frames, or to Web Workers, etc.
+ipcRenderer.postMessage('port', null, [port1])
 ```
 
 ```js
-principal.js ///////
-// No processo principal, recebemos a porta.
-ipcMain.on('port', (evento) => {
-  // Quando recebemos um MessagePort no processo principal, torna-se um
+// main.js ///////////////////////////////////////////////////////////////////
+// In the main process, we receive the port.
+ipcMain.on('port', (event) => {
+  // When we receive a MessagePort in the main process, it becomes a
   // MessagePortMain.
-  porta const = event.ports[0]
+  const port = event.ports[0]
 
-  // MessagePortMain usa a API de eventos no estilo Node.js, em vez da API de eventos
-  // estilo web. So .on('message', ...) instead of .onmessage = ...
+  // MessagePortMain uses the Node.js-style events API, rather than the
+  // web-style events API. So .on('message', ...) instead of .onmessage = ...
   port.on('message', (event) => {
     // data is { answer: 42 }
     const data = event.data
