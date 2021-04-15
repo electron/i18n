@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Usa botones personalizados de cierre y miniaturiza que se muestran cuando se activa en la parte superior izquierda de la ventana. El botón de pantalla completa no está disponible debido a las restricciones de las ventanas sin marco, ya que interfaz con las máscaras de ventana macOS de Apple. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
+Usa botones personalizados de cierre y miniaturiza que se muestran cuando se activa en la parte superior izquierda de la ventana. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
 
 ```javascript
 const { BrowserWindow } = require('electron')
