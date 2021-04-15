@@ -2,27 +2,27 @@
 
 ## Übersicht
 
-Mit dem Offscreen-Rendering können Sie den Inhalt eines `BrowserWindow` in einer Bitmap abrufen, sodass er an einer beliebigen Stelle gerendert werden kann, z. B. auf Textur in einer 3D-Szene. Das Offscreen-Rendering in Electron verwendet einen ähnlichen Ansatz wie das [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) Projekt.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-*Hinweise*:
+*Notes*:
 
-* Es gibt zwei Rendermodi, die verwendet werden können (siehe Abschnitt unten), und nur der schmutzige Bereich an das `paint` -Ereignis übergeben wird, um effizienter zu sein.
-* Sie können das Rendering anhalten/fortsetzen sowie die Bildrate festlegen.
-* Die maximale Bildrate beträgt 240, da höhere Werte nur Die Leistung Verluste ohne Vorteile bringen.
-* Wenn auf einer Webseite nichts passiert, werden keine Frames generiert.
-* Ein Offscreen-Fenster wird immer als [Frameless Window](../api/frameless-window.md)erstellt.
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 240 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
 ### Render Modi
 
 #### GPU Beschleunigung
 
-GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Aufgrund , dass der Frame von der GPU kopiert werden muss, die mehr Ressourcen benötigt, daher ist dieser Modus langsamer als das Softwareausgabegerät. Der Vorteil dieses Modus ist, dass WebGL und 3D CSS-Animationen unterstützt werden.
+GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Der Vorteil dieses Modus ist, dass WebGL und 3D CSS-Animationen unterstützt werden.
 
 #### Software Ausgabegerät
 
-Dieser Modus verwendet ein Softwareausgabegerät zum Rendern in der CPU, sodass der Frame -Generierung viel schneller ist. Daher wird dieser Modus dem GPU- beschleunigten Modus vorgezogen.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-Um diesen Modus zu aktivieren, muss die GPU-Beschleunigung durch Aufrufen der [`app.disableHardwareAcceleration()`][disablehardwareacceleration] -API deaktiviert werden.
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
 ## Beispiel
 
@@ -34,19 +34,19 @@ const fs = require('fs')
 
 app.disableHardwareAcceleration()
 
+let win
 
-
-app.whenReady().then() => -
-  win = neue BrowserWindow(' webPreferences: { offscreen: true } ')
+app.whenReady().then(() => {
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
   win.loadURL('https://github.com')
-  win.webContents.on('paint', (event, dirty, image) => -
+  win.webContents.on('paint', (event, dirty, image) => {
     fs.writeFileSync('ex.png', image.toPNG())
-  )
+  })
   win.webContents.setFrameRate(60)
-)
+})
 ```
 
-Navigieren Sie nach dem Starten der Electron-Anwendung zum Arbeitsordner Ihrer Anwendung.
+After launching the Electron application, navigate to your application's working folder.
 
 [disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration
