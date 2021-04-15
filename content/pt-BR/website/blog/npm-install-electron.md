@@ -24,7 +24,7 @@ Isto foi porque havia um projeto existente de `electron` no npm, criado antes do
 
 A partir da versão 1.3.1, começamos a publicar os pacotes [`electron`](https://www.npmjs.com/package/electron) e `electron-prebuilt` no npm no tandem. Os dois pacotes são idênticos. Optámos por continuar a publicar o pacote com ambos os nomes por um tempo, para não incomodar os milhares de desenvolvedores que estão atualmente usando `electron-prebuilt` em seus projetos. Recomendamos atualizar seu `pacote. son` arquivos para usar a nova dependência de `electron` , mas continuaremos lançando novas versões de `electron-pré-construídas` até o final de 2016.
 
-O [repositório de](https://github.com/electron-userland/electron-prebuilt) reconstruído por elétrons/elétrons continuará sendo o lar canônico do pacote `electron` npm.
+The [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) repository will remain the canonical home of the `electron` npm package.
 
 ## Muito obrigado
 
@@ -38,5 +38,5 @@ Trabalhamos com a comunidade para atualizar pacotes populares que são afetados 
 
 Se você encontrar algum problema ao instalar este novo pacote, Por favor, deixe-nos saber abrindo uma issue no repositório [electron-userland/electron-prebuild](https://github.com/electron-userland/electron-prebuilt/issues) .
 
-Para quaisquer outros problemas com a Electron, por favor, use o repositório de [elétron/elétron](https://github.com/electron/electron/issues) .
+For any other issues with Electron, please use the [electron/electron](https://github.com/electron/electron/issues) repository.
 
