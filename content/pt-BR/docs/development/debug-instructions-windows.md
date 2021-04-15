@@ -1,16 +1,16 @@
 # Depuração no Windows
 
-Se experimentar falhas ou problemas no Electron que acredita que não são causados pelo seu aplicativo de JavaScript, mas devido ao próprio Electron, a depuração pode ser um pouco complicada, especialmente para os desenvolvedores que não usam a depuração nativa/C++. No entanto, usando o Visual Studio, o servidor símbolo hospedado da Electron, e o código-fonte Electron, você pode habilitar a depuração passo-a-passo com pontos de interrupção dentro do código fonte da Electron.
+Se experimentar falhas ou problemas no Electron que acredita que não são causados pelo seu aplicativo de JavaScript, mas devido ao próprio Electron, a depuração pode ser um pouco complicada, especialmente para os desenvolvedores que não usam a depuração nativa/C++. However, using Visual Studio, Electron's hosted Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
-**Veja também**: Há uma riqueza de informações sobre depuração do Cromo, muitos dos quais também se aplicam à Electron, no site de desenvolvedores do Chromium: [Debugging Chromium no Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
 ## Requisitos
 
-* **Depurar uma compilação de Electron**: A maneira mais fácil é normalmente construí-lo você mesmo, usando as ferramentas e os pré-requisitos listados na [construir instruções para Windows](build-instructions-windows.md). Embora você possa anexar e depurar Electron como você pode baixá-lo diretamente, você descobrirá que ele é fortemente otimizado, tornando a depuração substancialmente mais difícil: O depurador não será capaz de mostrar-lhe o conteúdo de todas as variáveis e o caminho de execução pode parecer estranho por causa da inlinação, chamadas de cauda e outras otimizações do compilador.
+* **Depurar uma compilação de Electron**: A maneira mais fácil é normalmente construí-lo você mesmo, usando as ferramentas e os pré-requisitos listados na [construir instruções para Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
-* **Visual Studio com ferramentas C++**: As edições de comunidade livre de Visual Studio de 2013 e Visual Studio 2015, ambos trabalham. Uma vez instalado, [configurar o Visual Studio para usar o servidor Símbolo da Electron](setting-up-symbol-server.md). Permitirá que o Visual Studio obtenha uma melhor compreensão do que acontece dentro de Electron, tornando mais fácil para apresentar as variáveis num formato legível.
+* **Visual Studio com ferramentas C++**: As edições de comunidade livre de Visual Studio de 2013 e Visual Studio 2015, ambos trabalham. Once installed, [configure Visual Studio to use Electron's Symbol server](setting-up-symbol-server.md). Permitirá que o Visual Studio obtenha uma melhor compreensão do que acontece dentro de Electron, tornando mais fácil para apresentar as variáveis num formato legível.
 
-* ****ProcMon : A ferramenta SysInternals [gratuita][sys-internals] permite inspecionar parâmetros de processos, alças de arquivo e operações de registro.
+* **ProcMon**: The [free SysInternals tool][sys-internals] allows you to inspect a processes parameters, file handles, and registry operations.
 
 ## Anexar e depurar o Electron
 
@@ -22,27 +22,27 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 ### Definir pontos de interrupção
 
-Em seguida, abra o Visual Studio. O Electron não é construído com o Visual Studio e, portanto, não contém um arquivo de projeto - você pode, no entanto, abrir os arquivos de código-fonte "Como Arquivo", o que significa que o Visual Studio irá abri-los sozinho. Você pode ainda definir pontos de interrupção - o Visual Studio descobrirá automaticamente que o código-fonte corresponde ao código em execução no processo anexado e quebra de acordo.
+Em seguida, abra o Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
-Arquivos de código relevantes podem ser encontrados em `./shell/`.
+Relevant code files can be found in `./shell/`.
 
-### Anexar
+### Attaching
 
-Você pode anexar o depurador do Visual Studio a um processo de execução em um computador remoto local ou . Após a execução do processo, clique em Depurar / Anexar ao processo (ou pressione `CTRL+ALT+P`) para abrir a caixa de diálogo "Anexar ao Processo". Você pode usar esse recurso para depurar aplicativos que estão sendo executados em um computador local ou remoto, depurar vários processos simultaneamente.
+You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
 
-Se a Electron estiver sendo executado em uma conta de usuário diferente, selecione a `Show processes from all users` caixa de seleção. Observe que, dependendo de quantas BrowserWindows seu aplicativo abriu, você verá vários processos. Um aplicativo típico de de uma janela resultará em Visual Studio apresentando-lhe duas entradas `Electron.exe` - uma para o processo principal e outra para o processo de renderização . Como a lista só lhe dá nomes, atualmente não há uma maneira confiável de descobrir qual é qual.
+If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
 
-### A que processo devo me anexar?
+### Which Process Should I Attach to?
 
-O código executado dentro do processo principal (ou seja, código encontrado ou eventualmente executado pelo seu arquivo JavaScript principal) será executado dentro do processo principal, enquanto outros códigos serão executados dentro de seu respectivo processo de renderização.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) will run inside the main process, while other code will execute inside its respective renderer process.
 
-Você pode ser anexado a vários programas quando estiver depurando, mas apenas um programa está ativo no depurador a qualquer momento. Você pode definir o do programa ativo na barra de ferramentas `Debug Location` ou na `Processes window`.
+You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 
-## Usando o ProcMon para observar um processo
+## Using ProcMon to Observe a Process
 
-Embora o Visual Studio seja fantástico para inspecionar caminhos específicos de código, a força do ProcMon está realmente em observar tudo o que seu aplicativo está fazendo com o sistema operacional - ele captura Arquivo, Registro, Rede, Processo e Perfil detalhes dos processos. Ele tenta registrar **todos os eventos** que ocorrem e pode ser bastante avassalador, mas se você busca entender o que e como sua aplicação está fazendo com o sistema operacional, pode ser um recurso valioso.
+While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
-Para uma introdução aos recursos básicos e avançados de depuração do ProcMon, vá verificar [este tutorial de vídeo][procmon-instructions] fornecido pela Microsoft.
+For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial][procmon-instructions] provided by Microsoft.
 
 [sys-internals]: https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx
 [procmon-instructions]: https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor
