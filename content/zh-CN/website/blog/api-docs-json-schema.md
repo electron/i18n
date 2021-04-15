@@ -78,7 +78,7 @@ Electron的 API 文档符合 [Electron 编码样式](https://github.com/electron
 
 > 采用标准风格意味着比个人风格更高的代码清晰度和社区协议的重要性。 这对100%的项目和发展文化来说也许是没有道理的，但开放源码对新闻界可能是一个敌视的地方。 设定明确、自动的捐助方期望使项目更加健康。
 
-我们最近还创建了 [标准标记](https://github.com/zeke/standard-markdown) ，以验证文档中所有 JavaScript 代码片段 是否有效且与代码库本身的风格 一致。
+We also recently created [standard-markdown](https://github.com/zeke/standard-markdown) to verify that all the JavaScript code snippets in our documentation are valid and consistent with the style in the codebase itself.
 
 这些工具一起帮助我们使用连续集成 (CI)来自动找到 拉取请求中的错误。 这减少了人类进行代码 审核的负担，并使我们对我们文档的准确性有了更大的信心。
 
