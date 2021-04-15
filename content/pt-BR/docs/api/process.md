@@ -8,28 +8,28 @@ O objeto `process` do Electron estende do [objeto `process` do Node.js](https://
 
 ## Sandbox
 
-Em renderizadores de caixa de areia, o objeto `process` contém apenas um subconjunto das APIs:
+In sandboxed renderers the `process` object contains only a subset of the APIs:
 
-- `acidente() acidente()`
-- `hang() hang()`
+- `crash()`
+- `hang()`
 - `getCreationTime()`
 - `getHeapStatistics()`
 - `getBlinkMemoryInfo()`
 - `getProcessMemoryInfo()`
 - `getSystemMemoryInfo()`
 - `getSystemVersion()`
-- `obterCPUUsage()`
+- `getCPUUsage()`
 - `getIOCounters()`
-- `Argv`
+- `argv`
 - `execPath`
 - `env`
-- `Pid`
-- `Arco`
+- `pid`
+- `arch`
 - `plataforma`
-- `Sandboxed`
+- `sandboxed`
 - `tipo`
 - `versão`
-- `Versões`
+- `versions`
 - `mas`
 - `windowsStore`
 
@@ -85,9 +85,9 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 A `String` representing the current process's type, can be:
 
-* `browser` - O processo principal
-* `renderer` - Um processo de renderização
-* `worker` - Em um web worker
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _Readonly_
 
@@ -119,7 +119,7 @@ Indicates the creation time of the application. O tempo é representado como nú
 
 Returns [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` __Linux do Windows</em> _</h3>
+### `process.getIOCounters()` _Windows_ _Linux_
 
 Returns [`IOCounters`](structures/io-counters.md)
 
@@ -135,7 +135,7 @@ Retorna `Object`:
 * `heapSizeLimit` Integer
 * `mallocedMemory` Integer
 * `peakMallocedMemory` Integer
-* `doesZapGarbage` Booleano
+* `doesZapGarbage` Boolean
 
 Returns an object with V8 heap statistics. Note-se que todas as estatísticas são relatadas em Kilobytes.
 
@@ -143,9 +143,9 @@ Returns an object with V8 heap statistics. Note-se que todas as estatísticas s�
 
 Retorna `Object`:
 
-* `allocated` Inteiro - Tamanho de todos os objetos alocados em Kilobytes.
-* `marked` Inteiro - Tamanho de todos os objetos marcados em Kilobytes.
-* `total` Inteiro - Total de espaço alocado em Kilobytes.
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
 
 Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
@@ -161,10 +161,10 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 Retorna `Object`:
 
-* `total` Inteiro - A quantidade total de memória física em Kilobytes disponível para o sistema .
-* `free` Inteiro - A quantidade total de memória que não está sendo usada por aplicativos ou cache de em disco.
-* `swapTotal` Integer _Windows_ __ Linux - A quantidade total de memória de swap em Kilobytes disponível para o sistema .
-* `swapFree` Integer _Windows_ __ Linux - A quantidade gratuita de memória de troca em Kilobytes disponível para o sistema .
+* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
@@ -186,7 +186,7 @@ console.log(version)
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Caminho para o arquivo de saída.
+* `filePath` String - Path to the output file.
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
@@ -196,7 +196,7 @@ Tira um instantâneo de pilha V8 e salva-o para `filePath`.
 
 Causes the main thread of the current process hang.
 
-### `process.setFdLimit(maxDescriptors)` __MacOS</em> _Linux</h3>
+### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
