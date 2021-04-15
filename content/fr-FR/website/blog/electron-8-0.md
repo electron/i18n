@@ -50,7 +50,7 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
     * `BrowserWindow.fromWebContents()` peut maintenant retourner nulle [#1998](https://github.com/electron/electron/pull/19983)
     * Ajout de `BrowserWindow.getMediaSourceId()` et `BrowserWindow.moveAbove(mediaSourceId)`. [#18926](https://github.com/electron/electron/pull/18926)
     * Ajout de la prise en charge de l'événement `will-move` sur macOS. [#19641](https://github.com/electron/electron/pull/19641)
-* Documenté précédemment sans papiers `crashReporter.getCrashesDirectory()`. [#20417](https://github.com/electron/electron/pull/20417)
+* Documented previously undocumented `crashReporter.getCrashesDirectory()`. [#20417](https://github.com/electron/electron/pull/20417)
 * `Dialogue` modifications de l'API :
     * Ajout de la propriété `dontAddToRecent` à `dialog.showOpenDialog` et `dialogue. howOpenDialogSync` pour éviter que des documents ne soient ajoutés aux documents récents sur Windows dans les boîtes de dialogue ouvertes. [#19669](https://github.com/electron/electron/pull/19669)
     * Ajout de la personnalisation des propriétés à `dialog.showSaveDialog` et `dialog.showSaveDialogSync`. [#19672](https://github.com/electron/electron/pull/19672)
@@ -65,7 +65,7 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 * Ajout de l'option à `shell.moveItemToTrash(fullPath[, deleteOnFail])` sur macOS pour spécifier ce qui se passe lorsque moveItemToTrash échoue. [#19700](https://github.com/electron/electron/pull/19700)
 * `systemPreferences` API change :
     * Mise à jour de la documentation `systemPreferences.getColor(color)` pour macOS. [#2061](https://github.com/electron/electron/pull/20611)
-    * Ajout `screen` type de médias à `systemPreferences.getMediaAccessStatus()`. [#20764](https://github.com/electron/electron/pull/20764)
+    * Added `screen` media type to `systemPreferences.getMediaAccessStatus()`. [#20764](https://github.com/electron/electron/pull/20764)
 * Ajout de `nativeTheme.themeSource` pour permettre aux applications de remplacer Chromium et le choix du thème de l'OS. [#19960](https://github.com/electron/electron/pull/19960)
 * Changements de l'API TouchBar :
     * Propriété `accessibilityLabel` ajoutée à `TouchBarButton` et `TouchBarLabel` pour améliorer l'accessibilité TouchBarButton/TouchBarLab. [#20454](https://github.com/electron/electron/pull/20454)
@@ -92,7 +92,7 @@ Les API suivantes sont maintenant obsolètes:
 
 ## Fin du support pour 5.x.y
 
-Electron 5.x.y a a atteint la fin du support selon la politique de soutien [projet](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
+Electron 5.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
 
 ## Programme de feedback
 
