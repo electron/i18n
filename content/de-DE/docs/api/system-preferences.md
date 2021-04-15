@@ -150,7 +150,7 @@ Add the specified defaults to your application's `NSUserDefaults`.
 ### `systemPreferences.getUserDefault(key, type)` _macOS_
 
 * `key` String
-* `type` String - Kann `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` oder `dictionary`sein.
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Returns `any` - The value of `key` in `NSUserDefaults`.
 
@@ -167,7 +167,7 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String - Kann `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` oder `dictionary`sein.
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.
@@ -194,16 +194,16 @@ An example of using it to determine if you should create a transparent window or
 const { BrowserWindow, systemPreferences } = require('electron')
 const browserOptions = { width: 1000, height: 800 }
 
-/ / Machen Sie das Fenster nur dann transparent, wenn die Plattform es unterstützt.
-if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) '
+// Make the window transparent only if the platform supports it.
+if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
-'
+}
 
-/ Create the window.
-const win = neue BrowserWindow(browserOptions)
+// Create the window.
+const win = new BrowserWindow(browserOptions)
 
-/ Navigieren.
+// Navigate.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
@@ -212,7 +212,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` _windows_ _macOS-_
+### `systemPreferences.getAccentColor()` _Windows_ _macOS_
 
 Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
@@ -226,13 +226,13 @@ const alpha = color.substr(6, 2) // "dd"
 
 This API is only available on macOS 10.14 Mojave or newer.
 
-### `systemPreferences.getColor(color)` _windows_ _macOS-_
+### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` String - Einer der folgenden Werte:
-  * Unter **Windows-**:
-    * `3d-dark-shadow` - Dunkler Schatten für dreidimensionale Anzeigeelemente.
-    * `3d-face` - Flächenfarbe für dreidimensionale Anzeigeelemente und für Dialog -Feldhintergründe.
-    * `3d-highlight` - Hervorhebungsfarbe für dreidimensionale Anzeigeelemente.
+* `color` String - One of the following values:
+  * On **Windows**:
+    * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+    * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+    * `3d-highlight` - Highlight color for three-dimensional display elements.
     * `3d-light` - Lichtfarbe für dreidimensionale Anzeigeelemente.
     * `3d-shadow` - Schattenfarbe für dreidimensionale Anzeigeelemente.
     * `active-border` - Aktiver Fensterrahmen.
@@ -301,7 +301,7 @@ The following colors are only available on macOS 10.14: `find-highlight`, `selec
 
 ### `systemPreferences.getSystemColor(color)` _macOS-_
 
-* `color` String - Einer der folgenden Werte:
+* `color` String - One of the following values:
   * `Blau`
   * `Braun`
   * `Grau`
