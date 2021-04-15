@@ -20,9 +20,9 @@ Chromium 在前后一致的 6 周 [schedule](https://www.chromium.org/developers
 
 ## 🚧 这对我和我的 Electron 应用程序意味着什么？
 
-您将比以往更快地访问新的Chromium和V8功能和修复。 重要的是，您还可以知道这些新更改何时</em> _，因此您将能够以比以前更好的信息进行规划。</p>
+您将比以往更快地访问新的Chromium和V8功能和修复。 Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
 
-电子团队将继续 [支持](https://electronjs.org/docs/tutorial/support#supported-versions) 最新的三个主要版本。 例如，当 [v6.0.0 于7月30日稳定下来，2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule)时，我们将支持v6.x、v5.x和v4.x，而v3.x将达到终身寿命。
+The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. 例如，当 [v6.0.0 于7月30日稳定下来，2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule)时，我们将支持v6.x、v5.x和v4.x，而v3.x将达到终身寿命。
 
 ## 💬 应用反馈项目
 
@@ -37,4 +37,4 @@ Chromium 在前后一致的 6 周 [schedule](https://www.chromium.org/developers
 与Chromium的干部相比，我们的新干部将在这里：
 <img alt="线形图比较Electron 和 Chromium 版本" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
 
-📨如果您有问题，请 [info@electronjs.org](mailto:info@electronjs.org)邮寄给我们。
+📨 If you have questions, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
