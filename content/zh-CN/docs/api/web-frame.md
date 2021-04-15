@@ -226,26 +226,26 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.top` _·里德利·_
 
-`WebFrame | null` 表示 `webFrame` 所属的帧层次结构中的顶框，如果顶帧不在当前 渲染器过程中，则属性将 `null` 。
+A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener` _·里德利·_
+### `webFrame.opener` _Readonly_
 
-代表 `webFrame`打开的框架的 `WebFrame | null` ，如果没有开瓶器或开瓶器不在当前渲染器过程中，则该属性 `null` 。
+A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent` _·里德利·_
+### `webFrame.parent` _Readonly_
 
-代表 `webFrame`父框架的 `WebFrame | null` ，如果 `webFrame` 处于顶部或父不在当前渲染器过程中，则该属性将被 `null` 。
+A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild` _·里德利·_
+### `webFrame.firstChild` _Readonly_
 
-作为代表 `webFrame`第一个儿童框架的 `WebFrame | null` ，如果 `webFrame` 没有孩子，或者如果第一个孩子不在目前的渲染过程中，财产 将 `null` 。
+A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling` _·里德利·_
+### `webFrame.nextSibling` _Readonly_
 
-`WebFrame | null` 代表下一个兄弟姐妹框架，如果 `webFrame` 是其父中的最后一帧，或者如果下一个兄弟姐妹不在当前渲染器 过程中，则该属性将被 `null` 。
+A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId` _·里德利·_
+### `webFrame.routingId` _Readonly_
 
-表示当前渲染器过程中唯一帧 ID 的 `Integer` 。 指同一底层框架的不同 WebFrame 实例将具有相同的 `routingId` 。
+表示当前渲染器过程中唯一帧 ID 的 `Integer` 。 Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
