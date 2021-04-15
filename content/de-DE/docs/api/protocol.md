@@ -208,7 +208,7 @@ Entregistriert das benutzerdefinierte Protokoll von `scheme`.
 
 Gibt `Boolean` zurück - Gibt an, ob `scheme` bereits registriert ist.
 
-### `protocol.interceptFileProtocol(schema, Handler)`
+### `protocol.interceptFileProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` -Funktion
@@ -216,11 +216,11 @@ Gibt `Boolean` zurück - Gibt an, ob `scheme` bereits registriert ist.
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
-Fängt `scheme` Protokoll ab und verwendet `handler` als neuen Handler des Protokolls der eine Datei als Antwort sendet.
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
-### `protocol.interceptStringProtocol(schema, Handler)`
+### `protocol.interceptStringProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` -Funktion
@@ -228,11 +228,11 @@ Fängt `scheme` Protokoll ab und verwendet `handler` als neuen Handler des Proto
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
-Fängt `scheme` Protokoll ab und verwendet `handler` als neue des Protokolls, die eine `String` als Antwort sendet.
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
-### `protocol.interceptBufferProtocol(schema, Handler)`
+### `protocol.interceptBufferProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` -Funktion
@@ -240,11 +240,11 @@ Fängt `scheme` Protokoll ab und verwendet `handler` als neue des Protokolls, di
   * `callback` Function
     * `response` (| [ProtocolResponse](structures/protocol-response.md))
 
-Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
-Fängt `scheme` Protokoll ab und verwendet `handler` als neue des Protokolls, die eine `Buffer` als Antwort sendet.
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
-### `protocol.interceptHttpProtocol(schema, Handler)`
+### `protocol.interceptHttpProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` -Funktion
@@ -252,11 +252,11 @@ Fängt `scheme` Protokoll ab und verwendet `handler` als neue des Protokolls, di
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
 
-Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
-Fängt `scheme` Protokoll ab und verwendet `handler` als neuen Handler des Protokolls der eine neue HTTP-Anforderung als Antwort sendet.
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
-### `protocol.interceptStreamProtocol(schema, Handler)`
+### `protocol.interceptStreamProtocol(scheme, handler)`
 
 * `scheme` String
 * `handler` -Funktion
@@ -264,22 +264,22 @@ Fängt `scheme` Protokoll ab und verwendet `handler` als neuen Handler des Proto
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
-Genauso wie `protocol.registerStreamProtocol`, mit der Ausnahme, dass ein vorhandener Protokollhandler ersetzt wird.
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme)`
 
 * `scheme` String
 
-Gibt `Boolean` zurück - Gibt an, ob das Protokoll erfolgreich abgefangen wurde
+Returns `Boolean` - Whether the protocol was successfully unintercepted
 
-Entfernen Sie den für `scheme` installierten Interceptor, und stellen Sie den ursprünglichen Handler wieder her.
+Remove the interceptor installed for `scheme` and restore its original handler.
 
-### `protocol.isProtocolIntercepted(schema)`
+### `protocol.isProtocolIntercepted(scheme)`
 
 * `scheme` String
 
-Gibt `Boolean` zurück - Gibt an, ob `scheme` bereits abgefangen wurde.
+Returns `Boolean` - Whether `scheme` is already intercepted.
 
 [file-system-api]: https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
