@@ -1017,7 +1017,7 @@ Ignorieren Sie Anwendungsmenüverknüpfungen, während dieser Webinhalt fokussie
 
 #### `contents.setWindowOpenHandler(handler)`
 
-* `handler` -Funktion<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
   * `details` -Objekt
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
@@ -1691,7 +1691,7 @@ Gibt `Integer` zurück - Die interne Chromium- `pid` des zugeordneten Renderers.
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Pfad zur Ausgabedatei.
+* `filePath` String - Path to the output file.
 
 Gibt `Promise<void>` zurück: Gibt an, ob der Snapshot erfolgreich erstellt wurde.
 
