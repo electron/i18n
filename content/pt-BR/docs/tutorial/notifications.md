@@ -65,7 +65,7 @@ Enquanto o código e a experiência do usuário em sistemas operacionais sejam s
 
 ### Windows
 
-* No Windows 10, um atalho para o seu aplicativo com um [ID do modelo de usuário do aplicativo][app-user-model-id] deve ser instalado no Menu iniciar . Isto pode ser overkill durante o desenvolvimento, então adicionar `node_modules\electron\dist\electron.exe` no seu Menu Inicial também faz o truque. Navegue até o arquivo no Explorer, clique com o botão direito e "Fixar em Iniciar". Em seguida, você precisará adicionar a linha `app.setAppUserModelId(process.execPath)` ao seu processo principal para ver as notificações.
+* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Isto pode ser overkill durante o desenvolvimento, então adicionar `node_modules\electron\dist\electron.exe` no seu Menu Inicial também faz o truque. Navegue até o arquivo no Explorer, clique com o botão direito e "Fixar em Iniciar". Em seguida, você precisará adicionar a linha `app.setAppUserModelId(process.execPath)` ao seu processo principal para ver as notificações.
 * No Windows 8.1 e Windows 8, um atalho para o seu aplicativo, com um, [Application User Model ID][app-user-model-id] deve ser instalado na tela inicial. No entanto, ele não precisa ser fixado na a tela iniciar.
 * No Windows 7, notificações funcionam através de uma implementação personalizada que visualmente se assemelha aos sistemas mais novos.
 
@@ -112,7 +112,6 @@ Notificações são enviadas usando `libnotify` que podem mostrar notificações
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 
 [notification-spec]: https://developer.gnome.org/notification-spec/
-[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [set-app-user-model-id]: ../api/app.md#appsetappusermodelidid-windows
 [squirrel-events]: https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events
