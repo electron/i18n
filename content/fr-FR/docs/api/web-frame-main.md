@@ -85,9 +85,9 @@ Retours `boolean` - Si le rechargement a été lancé avec succès. Ne se tradui
 * `channel` String
 * `...args` any[]
 
-Envoyez un message asynchrone au processus de rendu via `channel`, ainsi que arguments. Les arguments seront sérialisés avec le\[SCA\]\[Structured Clone Algorithm\], tout comme [`postMessage`][], de sorte que les chaînes prototypes ne seront pas incluses. L’envoi de fonctions, de promesses, de symboles, de weakmaps ou de weaksets de lancer une exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Les arguments seront sérialisés avec le\[SCA\]\[Structured Clone Algorithm\], tout comme [`postMessage`][], de sorte que les chaînes prototypes ne seront pas incluses. L’envoi de fonctions, de promesses, de symboles, de weakmaps ou de weaksets de lancer une exception.
 
-Le processus de rendu peut gérer le message en écoutant `channel` avec le module [`ipcRenderer`](ipc-renderer.md) .
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
 #### `frame.postMessage (canal, message, [transfer])`
 
