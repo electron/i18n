@@ -53,7 +53,7 @@ El módulo `protocolo` tiene los siguientes métodos:
 
 **Note:** Este método solo puede ser usado antes de que el evento `ready` del modulo `app` sea emitido y solo puede ser llamado una vez.
 
-Registra el `scheme` como estándar, seguro, omite la política de seguridad del contenido para los recursos , permite registrar ServiceWorker, admite fetch API y streaming video/audio. Especifica un privilegio con el valor de `true` para habilitar la capacidad.
+Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker, supports fetch API, and streaming video/audio. Specify a privilege with the value of `true` to enable the capability.
 
 Un ejemplo de registro de un esquema privilegiado, que elude la Política de Seguridad Contenido:
 
@@ -80,7 +80,7 @@ Registrando un esquema como estándar permitirá el acceso a archivos mediante l
 
 Por defecto las apis de web storage (localStorage, sessionStorage, webSQL, indexedDB, cookies) están deshabilitadas para esquemas no estándares. Así que en general, si quieres registrar un protocolo personalizado para reemplazar el protocolo `http`, tienes que registrarlo como un esquema estándar.
 
-Los protocolos que usan secuencias (http y protocolos de secuencia) deben establecer `stream: true`. Los elementos HTML `<video>` y `<audio>` esperan que los protocolos almacenen el búfer de sus respuestas por defecto. La marca `stream` configura esos elementos para esperar respuestas en streaming.
+Protocols that use streams (http and stream protocols) should set `stream: true`. The `<video>` and `<audio>` HTML elements expect protocols to buffer their responses by default. The `stream` flag configures those elements to correctly expect streaming responses.
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
@@ -189,8 +189,8 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 Es posible pasar cualquier objeto que implementa la API readable stream (emite los eventos `data`/`end`/`error`). Por ejemplo, aquí está como puede devolver un archivo:
 
 ```javascript
-Protocol. registerStreamProtocol (' Atom ', (request, callback) => {
-  callback (FS. createReadStream (' index. html '))
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback(fs.createReadStream('index.html'))
 })
 ```
 
@@ -198,7 +198,7 @@ Protocol. registerStreamProtocol (' Atom ', (request, callback) => {
 
 * `scheme` String
 
-Devuelve `Boolean` -si el protocolo fue desregistrado con éxito
+Returns `Boolean` - Whether the protocol was successfully unregistered
 
 Anula el registro del protocolo predeterminado de `esquema`.
 
@@ -216,7 +216,7 @@ Devuelve `Boolean` - Si el `scheme` ya está registrado.
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo fue interceptado exitosamente
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nuevo protocolo lo cual enviará un archivo como respuesta.
 
@@ -228,7 +228,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo fue interceptado exitosamente
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador de protocolo, lo cual envía una `Cadena` como respuesta.
 
@@ -240,7 +240,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
   * `callback` Función
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo fue interceptado exitosamente
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador del protocolo, el cual envía un `Buffer` como respuesta.
 
@@ -252,7 +252,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
   * `callback` Función
     * `response` [Respuesta de Protocolo](structures/protocol-response.md)
 
-Devuelve `Boolean` -si el protocolo fue interceptado exitosamente
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlador del protocolo, el cual envía una nueva solicitud HTTP como respuesta.
 
@@ -264,7 +264,7 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
   * `callback` Función
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo fue interceptado exitosamente
+Returns `Boolean` - Whether the protocol was successfully intercepted
 
 Mismo que `protocol.registerStreamProtocol`, excepto que reemplaza un manejador de protocolo existente.
 
@@ -272,7 +272,7 @@ Mismo que `protocol.registerStreamProtocol`, excepto que reemplaza un manejador 
 
 * `scheme` String
 
-Devuelve `Boolean` -si el protocolo fue exitosamente desinterceptado
+Returns `Boolean` - Whether the protocol was successfully unintercepted
 
 Elimina el interceptor instalado para el `scheme` y restaura su controlador original.
 
