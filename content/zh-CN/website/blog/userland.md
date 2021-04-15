@@ -12,7 +12,7 @@ date: '2016-12-20'
 
 ## 使用土地的来源
 
-使用土地是软件界的人聚集在一起分享工具和想法的地方。 该词源自Unix社区。 当它提到 时，它会在内核之外运行的任何程序，但今天它意味着更多。 当今天的 Javascript 社区的人提到用户时，他们通常是 讨论的 [npm 软件包注册表](http://npm.im)。 这是大多数实验和 创新发生的地方，而节点和 JavaScript 语言（如 Unix 内核）保留了 一组相对较小且稳定的核心功能。
+使用土地是软件界的人聚集在一起分享工具和想法的地方。 该词源自Unix社区。 当它提到 时，它会在内核之外运行的任何程序，但今天它意味着更多。 当今天的 Javascript 社区的人提到用户时，他们通常是 讨论的 [npm 软件包注册表](http://npm.im)。 This is where the majority of experimentation and innovation happens, while Node and the JavaScript language (like the Unix kernel) retain a relatively small and stable set of core features.
 
 ## 节点和 Electron
 
