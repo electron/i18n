@@ -120,7 +120,7 @@ app.on('window-all-closed', () => {
 
 #### プリロードスクリプトの定義
 
-Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Node.js API 全体を公開するのは危険なので、特定の API や動作をウェブページに公開するようにできます。 この例では、プリロードスクリプトで `process` オブジェクトからバージョン情報を読み取り、その情報でウェブページを更新します。
+プリロードスクリプト (この場合では、`preload.js` ファイル) は、Node.js とウェブページ間のブリッジとして機能します。 Node.js API 全体を公開するのは危険なので、特定の API や動作をウェブページに公開するようにできます。 この例では、プリロードスクリプトで `process` オブジェクトからバージョン情報を読み取り、その情報でウェブページを更新します。
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
