@@ -1,43 +1,43 @@
-# Probleme in Der Elektron
+# Issues In Electron
 
-* [Wie man zu Problemen beiträgt](#how-to-contribute-to-issues)
-* [Bitte um allgemeine Hilfe](#asking-for-general-help)
-* [Einreichen eines Fehlerberichts](#submitting-a-bug-report)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
+* [Asking for General Help](#asking-for-general-help)
+* [Submitting a Bug Report](#submitting-a-bug-report)
 * [Triaging a Bug Report](#triaging-a-bug-report)
-* [Auflösen eines Fehlerberichts](#resolving-a-bug-report)
+* [Resolving a Bug Report](#resolving-a-bug-report)
 
-## Wie man zu Problemen beiträgt
+## How to Contribute to Issues
 
-Für jedes Thema gibt es grundsätzlich drei Möglichkeiten, wie eine Person beitragen kann:
+For any issue, there are fundamentally three ways an individual can contribute:
 
-1. Indem Sie das Thema zur Diskussion stellen: Wenn Sie glauben, dass Sie einen neuen Fehler in Electron gefunden haben, sollten Sie es melden, indem Sie ein neues Problem in dem [`electron/electron` Issue Tracker](https://github.com/electron/electron/issues)erstellen.
-2. Indem Sie helfen, das Problem zu wiederholen: Sie können dies entweder tun, indem Sie unterstützende Details (ein reproduzierbarer Testfall, der einen Fehler zeigt) oder indem Sie , Vorschläge zur Lösung des Problems bereitstellen.
-3. Indem Sie helfen, das Problem zu lösen: Dies kann durch den Nachweis , dass das Problem kein Fehler ist oder behoben wird, getan werden; aber häufiger, indem sie eine Pull-Anfrage öffnen, die die Quelle in `electron/electron` in einer konkreten und überprüfbaren Weise ändert.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
+2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
+3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
-## Bitte um allgemeine Hilfe
+## Asking for General Help
 
-["Finding Support"-](../tutorial/support.md#finding-support) verfügt über eine Liste von Ressourcen, um Programmierhilfe zu erhalten, Sicherheitsprobleme zu melden, beitragen und vieles mehr. Bitte verwenden Sie den Problem-Tracker nur für Bugs!
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
-## Einreichen eines Fehlerberichts
+## Submitting a Bug Report
 
-So senden Sie einen Fehlerbericht:
+To submit a bug report:
 
-Beim Öffnen eines neuen Problems im [`electron/electron` Issue Tracker](https://github.com/electron/electron/issues/new/choose)wird Benutzern eine Vorlage angezeigt, die ausgefüllt werden soll.
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
-Wenn Sie glauben, dass Sie einen Fehler in Electron gefunden haben, füllen Sie bitte die Vorlage nach besten Kräften aus.
+If you believe that you have found a bug in Electron, please fill out the template to the best of your ability.
 
-Die beiden wichtigsten Informationen, die für die Auswertung des Berichts erforderlich sind, sind eine Beschreibung des Fehlers und einen einfachen Testfall, um ihn neu zu erstellen. Es ist einfacher, einen Fehler zu beheben, wenn er reproduziert werden kann.
+The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
 
-Weitere Informationen finden Sie unter [Erstellen eines Beispiels für minimal, vollständig und überprüfbar](https://stackoverflow.com/help/mcve).
+See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
 ## Triaging a Bug Report
 
-Es ist üblich, dass offene Fragen Diskussionen beinhalten. Einige Mitwirkende haben möglicherweise unterschiedliche Meinungen, einschließlich, ob das Verhalten ein Fehler oder ein Feature ist. Diese Diskussion ist Teil des Prozesses und sollte konzentriert, hilfreich, und professionell gehalten werden.
+It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
-Knappe Antworten, die weder zusätzlichen Kontext noch unterstützende Details sind nicht hilfreich oder professionell. Für viele sind solche Reaktionen ärgerlich und unfreundlich.
+Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
-Die Beitragenden werden ermutigt, Probleme gemeinsam zu lösen und einem anderen dabei zu helfen, Fortschritte zu erzielen. Wenn Sie auf ein Problem stoßen, das Sie für ungültig halten, oder , das falsche Informationen enthält, erklären Sie *, warum* Sie sich mit zusätzlichen unterstützenden Kontext so fühlen, und seien Sie bereit, davon überzeugt zu sein, dass Sie sich irren können. Auf diese Weise können wir oft schneller zum richtigen Ergebnis gelangen.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
-## Auflösen eines Fehlerberichts
+## Resolving a Bug Report
 
-Die meisten Probleme werden durch Öffnen einer Pull-Anforderung behoben. Der Prozess zum Öffnen und Überprüfen einer Pull-Anforderung ähnelt dem des Öffnens und Austriierens von Problemen, aber enthält einen erforderlichen Überprüfungs- und Genehmigungsworkflow, der sicherstellt, dass die vorgeschlagenen Änderungen der den minimalen Qualitäts- und Funktionsrichtlinien des -Electron-Projekts entsprechen.
+Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
