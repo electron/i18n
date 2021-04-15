@@ -7,42 +7,42 @@
 `webFrameMain` モジュールは、既存の [`WebContents`](web-contents.md) インスタンスを横断したフレームの探索に利用できます。 ナビゲーションイベントがよくあるユースケースでしょう。
 
 ```javascript
-const { BrowserWindow, webFrameMain } = 必須 ('electron')
+const { BrowserWindow, webFrameMain } = require('electron')
 
-コンスト勝利 = 新しいブラウザウィンドウ({ width: 800, height: 1500 })
+const win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('https://twitter.com')
 
 win.webContents.on(
-  「フレームナビゲート」を必要とする)
-  (イベント、url、isMainFrame、フレームプロセスId、フレームルーティングId) => {
-    コンスト フレーム = webFrameMain.fromId (フレーム) が
-    場合 (フレーム)
-      場合は場合は 、 { <a0>.body.innerHTML = document.body.innerHTML = document.body.innerHTML<a0>、"h*ck")
-
-
-  
-    フレーム実行
+  'did-frame-navigate',
+  (event, url, isMainFrame, frameProcessId, frameRoutingId) => {
+    const frame = webFrameMain.fromId(frameProcessId, frameRoutingId)
+    if (frame) {
+      const code = 'document.body.innerHTML = document.body.innerHTML.replaceAll("heck", "h*ck")'
+      frame.executeJavaScript(code)
+    }
+  }
+)
 ```
 
 また、[`WebContents`](web-contents.md) の `mainFrame` プロパティを使用することでも既存ページのフレームへアクセスできます。
 
 ```javascript
-const { BrowserWindow } = 非同期関数のメイン ()
+const { BrowserWindow } = require('electron')
 
-を必要とする ('electron')
-  コンスト勝利 = 新しいブラウザウィンドウ({ width: 800, height: 600 })
-  は、.loadURL('https://reddit.com')
+async function main () {
+  const win = new BrowserWindow({ width: 800, height: 600 })
+  await win.loadURL('https://reddit.com')
 
-  を待っています。 frames.filter((フレーム) => {
-    試行中 .log
-      定数 url = 新しい URL(frame.url)
-      返す url.host =='www.youtube.com'
-    } キャッチ {
+  const youtubeEmbeds = win.webContents.mainFrame.frames.filter((frame) => {
+    try {
+      const url = new URL(frame.url)
+      return url.host === 'www.youtube.com'
+    } catch {
       return false
     }
-  } } )
+  })
 
-  コンソール.log(youtubeEmbeds)
+  console.log(youtubeEmbeds)
 }
 
 main()
@@ -52,7 +52,7 @@ main()
 
 これらのメソッドは、`webFrameMain` モジュールからアクセスできます。
 
-### `をクリックします。`
+### `webFrameMain.fromId(processId, routingId)`
 
 * `processId` Integer - `Integer` 型で、そのフレームを所有しているプロセスの内部 ID を表します。
 * `routingId` Integer - `Integer` 型で、現在のレンダラープロセスでの一意なフレーム ID を表します。 ルーティング ID は、`WebFrameMain` インスタンス (`frame.routingId`) から取得できるほか、フレーム固有の `WebContents` ナビゲーションイベント (`did-frame-navigate` など) によっても渡されます。
@@ -65,7 +65,7 @@ main()
 
 ### インスタンスメソッド
 
-#### `を実行します。`
+#### `frame.executeJavaScript(code[, userGesture])`
 
 * `code` String
 * `userGesture` Boolean (任意) - 省略値は `false`。
