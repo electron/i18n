@@ -4,7 +4,7 @@ Los desarrolladores preguntan frecuentemente sobre estrategias para optimizar el
 
 La sabiduría y la información sobre cómo construir sitios web con rendimiento con JavaScript generalmente también se aplica a las aplicaciones Electron. Hasta cierto punto, los recursos discuten cómo construir Nodo performante. s aplicaciones también aplican, pero tenga cuidado de entender que el término "rendimiento" significa cosas diferentes para un Nodo. s backend de lo que hace para una aplicación ejecutándose en un cliente.
 
-Esta lista se proporciona para tu conveniencia, y es, al igual que nuestra [lista de verificación de seguridad][security] – no destinada a ser exhaustiva. Probablemente sea posible construir una aplicación Electron lenta que siga todos los pasos descritos a continuación. Electron es una potente plataforma de desarrollo que te permite, al desarrollador, hacer más o menos lo que quieras. Toda esa libertad significa que el rendimiento es en gran medida tu responsabilidad.
+This list is provided for your convenience – and is, much like our [security checklist][security] – not meant to exhaustive. Probablemente sea posible construir una aplicación Electron lenta que siga todos los pasos descritos a continuación. Electron es una potente plataforma de desarrollo que te permite, al desarrollador, hacer más o menos lo que quieras. Toda esa libertad significa que el rendimiento es en gran medida tu responsabilidad.
 
 ## Medida, Medida, Medida
 
@@ -143,13 +143,13 @@ En resumen, asigna recursos "justo a tiempo" en lugar de asignarlos todos cuando
 
 ## 3) Bloquear el proceso principal
 
-El proceso principal de Electron (a veces llamado "proceso del navegador") es especial: es el proceso padre de todos los demás procesos de tu aplicación y el proceso principal con el que interactúa el sistema operativo. Controla las ventanas, las interacciones y la la comunicación entre diversos componentes dentro de tu app. También aloja el subproceso de interfaz de usuario .
+El proceso principal de Electron (a veces llamado "proceso del navegador") es especial: es el proceso padre de todos los demás procesos de tu aplicación y el proceso principal con el que interactúa el sistema operativo. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
 
 Bajo ninguna circunstancia debe bloquear este proceso y el hilo de interfaz con operaciones de larga ejecución. Bloquear el hilo de interfaz de usuario significa que toda tu aplicación se congelará hasta que el proceso principal esté listo para continuar procesando.
 
 ### ¿Por qué?
 
-El proceso principal y su subproceso de interfaz de usuario son esencialmente la torre de control para las operaciones de principales dentro de tu app. Cuando el sistema operativo le dice a tu App acerca de un clic del ratón, pasará por el proceso principal antes de que llegue a tu ventana. Si la ventana está renderizando una animación suavizada, tendrá que hablar con el proceso GPU sobre eso, una vez más pasando por el proceso principal.
+The main process and its UI thread are essentially the control tower for major operations inside your app. Cuando el sistema operativo le dice a tu App acerca de un clic del ratón, pasará por el proceso principal antes de que llegue a tu ventana. Si la ventana está renderizando una animación suavizada, tendrá que hablar con el proceso GPU sobre eso, una vez más pasando por el proceso principal.
 
 Electron y Chromium tienen cuidado de poner operaciones pesadas de E/S y de CPU en nuevos hilos para evitar bloquear el hilo de la interfaz. Deberían hacer lo mismo.
 
