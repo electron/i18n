@@ -99,7 +99,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
 
-`callback` 必须用 `response` 对象调用。
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -138,16 +138,16 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusLine` String
     * `statusCode` Integer
     * `requestHeaders` 记录<string, string>
-    * `responseHeaders` 记录<string, string[]> （可选）
+    * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function
-    * `headersReceivedResponse` 对象
+    * `headersReceivedResponse` Object
       * `cancel` Boolean (可选)
-      * `responseHeaders` 记录<string, string | string[]> （可选） - 如果提供，则假设服务器 已用这些标题进行响应。
-      * `statusLine` 字符串（可选） - 应在覆盖 `responseHeaders` 更改标题状态时提供，否则将使用标题状态 原始响应。
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 当HTTP请求接收到报头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
 
-`callback` 必须用 `response` 对象调用。
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -164,7 +164,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` 记录<string, string[]> （可选）
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean - 表明响应是取自硬盘缓存。
     * `statusCode` Integer
     * `statusLine` String
@@ -191,7 +191,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusLine` String
     * `ip` String (可选) - 请求实际发送到的服务器 IP 地址。
     * `fromCache` Boolean
-    * `responseHeaders` 记录<string, string[]> （可选）
+    * `responseHeaders` Record<string, string[]> (optional)
 
 当服务器的初始重定向即将发生时，将以 `listener(details)`的方式调用`listener`。
 
@@ -210,11 +210,11 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` 记录<string, string[]> （可选）
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
-    * `error` 字符串
+    * `error` String
 
 当请求完成时，将以 `listener(details)`的方式调用`listener`。
 
