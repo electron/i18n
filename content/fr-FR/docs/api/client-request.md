@@ -92,7 +92,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Événement : 'abort'
 
-Émis lorsque le `request` est avorté. Le `abort` événement ne sera pas déclenché si le `request` est déjà fermé.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Événement : 'error'
 
@@ -134,17 +134,17 @@ L'utilisation de l'encodage chunked est fortement recommandée si vous avez beso
 
 Ajoute un en-tête HTTP supplémentaire. Le nom de l'en-tête sera publié tel quel sans minuscules. Il peut être appelé seulement avant d'écrire en premier. Appeler cette méthode après la première écriture lancera une erreur. Si la valeur passée n'est pas une `String`, sa méthode `toString()` sera appelée pour obtenir la valeur finale.
 
-Certains en-têtes sont empêchés d’être définis par des applications. Ces en-têtes sont ci-dessous. Plus d’informations sur les en-têtes restreints peuvent être trouvés dans ['en-tête de Chromium](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
 
-* `Longueur du contenu`
+* `Content-Length`
 * `Hôte`
-* `Trailer` ou `Te`
-* `Améliorer`
-* `Cookie2 (cookie2)`
-* `Garder en vie`
-* `Transfert-Encodage`
+* `Trailer` or `Te`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
 
-En outre, le réglage `Connection` 'en-tête de la valeur `upgrade` est également refusé.
+Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
 
 #### `request.getHeader(name)`
 
@@ -156,12 +156,12 @@ Retourne `String` - La valeur d'un nom d'en-tête supplémentaire précédemment
 
 * `name` Chaîne - Spécifie un nom d'en-tête supplémentaire.
 
-Supprime un nom d’en-tête supplémentaire précédemment défini. Cette méthode ne peut être appelée que avant la première écriture. Essayer de l’appeler après la première écriture va jeter une erreur.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Tampon) - Une partie des données de l’organisme de demande. S’il s’agit chaîne, elle est convertie en tampon à l’aide de l’encodage spécifié.
-* `encoding` String (facultatif) - Utilisé pour convertir des morceaux de chaîne en tampon objets. Par défaut à 'utf-8'.
+* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Fonction (facultatif) - Appelée après la fin de l'opération d'écriture.
 
 `callback` est essentiellement une fonction factice introduite dans le but de conserver la similarité avec l'API Node.js. Il est appelé de manière asynchrone dans le prochain tick après que le contenu `chunk` ait été livré à la couche de réseau Chromium. Contrairement à l'implémentation de Node.js, il n'est pas garanti que le contenu `chunk` ait été vidé sur le fil avant que `callback` ne soit appelé.
@@ -174,7 +174,7 @@ Ajoute un morceau de données au corps de la requête. La première opération d
 * `encoding` String (facultatif)
 * `callback` Function (facultatif)
 
-Envoie le dernier morceau des données de demande. Les opérations ultérieures d’écriture ou de ne seront pas autorisées. L `finish` 'événement est émis juste après l’opération de fin.
+Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
@@ -182,14 +182,14 @@ Annule une transaction HTTP en cours. Si la requête a déjà émis l'événemen
 
 #### `request.followRedirect()`
 
-Continue toute redirection en attente. Ne peut être appelé que lors d' `'redirect'` événement.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 
 Retourne `Object`:
 
-* `active` Boolean - Si la demande est actuellement active. Si c’est faux aucune autre propriété ne sera définie
-* `started` Boolean - Si le téléchargement a commencé. Si c’est faux à la fois `current` et `total` 'il sera réglé à 0.
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
 * `current` Integer - Le nombre d'octets qui ont été téléchargés jusqu'à présent
 * `total` Integer - Le nombre d'octets qui seront chargés dans cette requête
 
