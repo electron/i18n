@@ -39,10 +39,10 @@ E aqui está um exemplo de uma descrição de método, neste caso o método de i
 
 ```js
 {
-  nome: 'setMaximumSize',
-  assinatura: '(largura, altura)',
-  descrição: 'Define o tamanho máximo da janela para largura e altura.',
-  parâmetros: [{
+  name: 'setMaximumSize',
+  signature: '(width, height)',
+  description: 'Sets the maximum size of window to width and height.',
+  parameters: [{
     name: 'width',
     type: 'Integer'
   }, {
