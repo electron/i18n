@@ -66,11 +66,11 @@ Während Code und Benutzererfahrung innerhalb der Betriebssysteme ähnlich sind,
 
 ### Windows
 
-* Unter Windows 10 muss eine Verknüpfung zu Ihrer App mit einer [Anwendungsbenutzermodell-ID][app-user-model-id] im Startmenü installiert werden. Dies kann während der Entwicklung überkill sein. Das Hinzufügen von `node_modules\electron\dist\electron.exe` in Ihr Startmenü führt auch den Trick aus. Navigieren Sie zur Datei im Explorer, mit der rechten Maustaste und dem 'Pin to Start Menu'. Sie müssen dann die Zeile `app.setAppUserModelId(process.execPath)` zu Ihrem Hauptprozess hinzufügen, um Benachrichtigungen zu sehen.
-* Unter Windows 8.1 und Windows 8 muss eine Verknüpfung zu Ihrer App mit einer [Application User Model ID][app-user-model-id] auf dem Startbildschirm installiert werden. Beachten Sie jedoch, , dass es nicht auf dem Startbildschirm angeheftet werden muss.
+* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Dies kann während der Entwicklung überkill sein. Das Hinzufügen von `node_modules\electron\dist\electron.exe` in Ihr Startmenü führt auch den Trick aus. Navigieren Sie zur Datei im Explorer, mit der rechten Maustaste und dem 'Pin to Start Menu'. Sie müssen dann die Zeile `app.setAppUserModelId(process.execPath)` zu Ihrem Hauptprozess hinzufügen, um Benachrichtigungen zu sehen.
+* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
 * Unter Windows 7 funktionieren Benachrichtigungen über eine benutzerdefinierte Implementierung, die visuell der nativen auf neueren Systemen ähnelt.
 
-Electron versucht die Arbeit um die Application User Model ID zu automatisieren. Wenn Electron zusammen mit dem Installations- und Aktualisierungsframework Squirrel verwendet wird, werden [Verknüpfungen automatisch korrekt][squirrel-events]eingestellt. Darüber hinaus wird Electron erkennen, dass Squirrel verwendet wurde und wird automatisch `app.setAppUserModelId()` mit dem korrekten Wert aufrufen. Während der Entwicklung haben Sie vielleicht , sich selbst [`app.setAppUserModelId()`][set-app-user-model-id] zu nennen.
+Electron versucht die Arbeit um die Application User Model ID zu automatisieren. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Darüber hinaus wird Electron erkennen, dass Squirrel verwendet wurde und wird automatisch `app.setAppUserModelId()` mit dem korrekten Wert aufrufen. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
 
 Außerdem beträgt die maximale Länge für den Benachrichtigungstext unter Windows 8 250 Zeichen, mit dem Windows-Team, das empfiehlt, Benachrichtigungen bis 200 Zeichen zu halten. Allerdings wurde diese Einschränkung in Windows 10 entfernt, da das Windows-Team die Entwickler auffordert, vernünftig zu sein. Der Versuch, gigantische Textmengen an die API zu senden (Tausende von Zeichen) könnte zu Instabilität führen.
 
@@ -88,23 +88,23 @@ So können Sie vorzeitig festlegen, ob Windows die Benachrichtigung stillschweig
 
 ### macOS
 
-Benachrichtigungen sind unter macOS geradlinig, aber Sie sollten [Apples Human Interface-Richtlinien in Bezug auf Benachrichtigungen][apple-notification-guidelines]beachten.
+Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications][apple-notification-guidelines].
 
 Beachten Sie, dass Benachrichtigungen auf 256 Bytes in der Größe begrenzt sind und abgeschnitten werden, wenn Sie dieses Limit überschreiten.
 
 #### Erweiterte Benachrichtigungen
 
-Spätere Versionen von macOS ermöglichen Benachrichtigungen mit einem Eingabefeld, so dass Benutzer schnell auf eine Benachrichtigung antworten kann. Um Benachrichtigungen mit einem Eingabefeld zu senden, das Userland-Modul [node-mac-notifier][node-mac-notifier]verwenden.
+Spätere Versionen von macOS ermöglichen Benachrichtigungen mit einem Eingabefeld, so dass Benutzer schnell auf eine Benachrichtigung antworten kann. In order to send notifications with an input field, use the userland module [node-mac-notifier][node-mac-notifier].
 
 #### Nicht stören / Sitzungszustand
 
-Um zu erkennen, ob Sie eine Benachrichtigung senden dürfen, verwenden Sie das Benutzerlandmodul [elektronenbenachrichtigungsbezogene][electron-notification-state].
+To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state][electron-notification-state].
 
 Dadurch können Sie frühzeitig erkennen, ob die Benachrichtigung angezeigt wird oder nicht.
 
 ### Linux
 
-Benachrichtigungen werden mit `libnotify` gesendet, die Benachrichtigungen auf jeder Desktop-Umgebung anzeigen können, die [DesktopBenachrichtigungen Spezifikation][notification-spec]folgt, einschließlich Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification][notification-spec], including Cinnamon, Enlightenment, Unity, GNOME, KDE.
 
 [apple-notification-guidelines]: https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/
 
@@ -113,7 +113,6 @@ Benachrichtigungen werden mit `libnotify` gesendet, die Benachrichtigungen auf j
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 
 [notification-spec]: https://developer.gnome.org/notification-spec/
-[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [set-app-user-model-id]: ../api/app.md#appsetappusermodelidid-windows
 [squirrel-events]: https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events
