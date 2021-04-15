@@ -38,7 +38,7 @@ Hier sind einige der Merkmale, die Algolia zu einer guten Passform für das Elec
 
 ## API Docs
 
-Manchmal weiß man *, was* man erreichen will, aber man weiß nicht genau, *, wie* . Electron hat über 750 API-Methoden, Events und Eigenschaften. Kein Mensch kann sich leicht an alle erinnern, aber Computer sind gut in dieser Sache. Unter Verwendung der [JSON API Dokumentation](https://electronjs.org/blog/api-docs-json-schema), indizierten wir alle diese Daten in der Algolia, und nun können Sie einfach die genaue API finden, die Sie suchen.
+Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. Electron hat über 750 API-Methoden, Events und Eigenschaften. Kein Mensch kann sich leicht an alle erinnern, aber Computer sind gut in dieser Sache. Unter Verwendung der [JSON API Dokumentation](https://electronjs.org/blog/api-docs-json-schema), indizierten wir alle diese Daten in der Algolia, und nun können Sie einfach die genaue API finden, die Sie suchen.
 
 Versucht ein Fenster zu verändern? Suche nach [`Größe`] und springe direkt zur gewünschten Methode.
 
