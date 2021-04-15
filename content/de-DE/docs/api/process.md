@@ -134,7 +134,7 @@ Gibt das `Object` zurück:
 * `usedHeapSize` Ganzzahl
 * `heapSizeLimit` Ganzzahl
 * `mallocedMemory` Ganzzahl
-* `peakMallocedMemory` Ganzzahl
+* `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
 Returns an object with V8 heap statistics. Beachten Sie, dass alle Statistiken in Kilobyte angegeben werden.
@@ -143,9 +143,9 @@ Returns an object with V8 heap statistics. Beachten Sie, dass alle Statistiken i
 
 Gibt das `Object` zurück:
 
-* `allocated` Ganzzahl - Größe aller zugeordneten Objekte in Kilobytes.
-* `marked` Ganzzahl - Größe aller markierten Objekte in Kilobytes.
-* `total` Ganzzahl - Gesamt zugewiesener Speicherplatz in Kilobytes.
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
 
 Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
@@ -161,10 +161,10 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 Gibt das `Object` zurück:
 
-* `total` Ganzzahl - Die Gesamtmenge des physischen Speichers in Kilobytes, die dem -System zur Verfügung steht.
-* `free` Ganzzahl - Die Gesamtmenge des Arbeitsspeichers, der nicht von Anwendungen oder Datenträgern Cache verwendet wird.
-* `swapTotal` Integer _Windows_ _Linux_ - Die Gesamtmenge an Swap-Speicher in Kilobytes, die dem -System zur Verfügung steht.
-* `swapFree` Integer _Windows_ _Linux_ - Die freie Menge an Swap-Speicher in Kilobytes, die dem -System zur Verfügung steht.
+* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
@@ -186,7 +186,7 @@ console.log(version)
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Pfad zur Ausgabedatei.
+* `filePath` String - Path to the output file.
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
@@ -198,6 +198,6 @@ Causes the main thread of the current process hang.
 
 ### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
-* `maxDescriptors` Ganzzahl
+* `maxDescriptors` Integer
 
 Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
