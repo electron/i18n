@@ -14,7 +14,7 @@ Electron-Apps, die unter Windows laufen sollen, die sich als Standard- -Handler 
 
 Solche Apps können unabhängig davon, wie das Protokoll registriert ist, beeinflusst werden, z. unter Verwendung des nativen Codes, der Windows Registry oder der Electronic [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API.
 
-macOS und Linux sind **nicht anfällig** diesem Problem.
+macOS and Linux are **not vulnerable** to this issue.
 
 ## Abmilderung
 
