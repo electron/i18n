@@ -58,8 +58,8 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `idioma` Cadena
-* Objeto `provider`
-  * Función `spellCheck`
+* `provider` Object
+  * `spellCheck` Function
     * `words` String[]
     * `callback` Función
       * `misspeltWords` String[]
@@ -106,7 +106,7 @@ Inyecta CSS en la página web actual y devuelve un identificador único para la 
 
 * `llave` Cadena
 
-Elimina el CSS insertado desde la página web actual. La hoja de estilos se identifica por su clave, que se devuelve desde `webFrame.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(texto)`
 
@@ -118,11 +118,11 @@ Inserta `texto` en el elemento enfocado.
 
 * `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `callback` function (opcional)-se llama una vez que se ha ejecutado la secuencia de comandos. A menos que se suspenda la trama (p. ej., mostrando una alerta modal), la ejecución será sincrónica y la devolución de llamada se invocará antes de que el método regrese. Para compatibilidad con una versión anterior de este método, el parámetro de error es segundo.
+* `callback` function (opcional)-se llama una vez que se ha ejecutado la secuencia de comandos. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `resultado` Cualquiera
   * `error` Error
 
-Devuelve `Promise<any>` -una promesa que se resuelve con el resultado del código de ejecutado o se rechaza si se produce una ejecución o se produce una promesa rechazada.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 Evalúa el `código` en la página.
 
@@ -130,28 +130,28 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer-el ID del mundo en el que se ejecuta el de JavaScript, `0` es el mundo principal predeterminado (donde se ejecuta el contenido), `999` es el mundo utilizado por la característica de `contextIsolation` de Electron. Acepta valores en el rango 1.. 536870911.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `callback` function (opcional)-se llama una vez que se ha ejecutado la secuencia de comandos. A menos que se suspenda la trama (p. ej., mostrando una alerta modal), la ejecución será sincrónica y la devolución de llamada se invocará antes de que el método regrese.  Para compatibilidad con una versión anterior de este método, el parámetro de error es segundo.
+* `callback` function (opcional)-se llama una vez que se ha ejecutado la secuencia de comandos. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
   * `resultado` Cualquiera
   * `error` Error
 
-Devuelve `Promise<any>` -una promesa que se resuelve con el resultado del código de ejecutado o se rechaza si no se puede iniciar la ejecución.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
 Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
-Ten en cuenta que cuando se produce un error en la ejecución del script, la promesa devuelta no rechazará y la `result` se `undefined`. Esto se debe a que Chromium no enviar errores de mundos aislados a mundos extranjeros.
+Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
 * `worldId` Integer - El ID de la palabra para correr javascript en, `0` es el mundo por defecto, `999` es el mundo usado por la característica de Electron `contextIsolation`. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
-* Objeto `info`
+* `info` Object
   * `securityOrigin` String (opcional) - Origen de seguridad para el mundo aislado.
   * `csp` String (opcional) - Política de Seguridad de Contenido para el mundo aislado.
-  * `name` cadena (opcional)-nombre para el mundo aislado. Útil en DevTools.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
 
-Establece el origen de seguridad, la política de seguridad del contenido y el nombre del mundo aislado. Nota: si se especifica el `csp` , también se debe especificar el `securityOrigin` .
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
@@ -213,15 +213,15 @@ Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se en
 
 ### `webFrame.isWordMisspelled(word)`
 
-* `word` String-the Word to spellchecked (ortografía).
+* `word` String - The word to be spellchecked.
 
-Devuelve `Boolean` -true si la palabra está mal escrita de acuerdo con el corrector de ortografía incorporado, falso en caso contrario. Si no se carga ningún diccionario, siempre devuelve false.
+Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. Si no se carga ningún diccionario, siempre devuelve false.
 
 ### `webFrame.getWordSuggestions(word)`
 
-* `word` cadena-la palabra mal escrita.
+* `word` String - The misspelled word.
 
-Devuelve `String[]` -una lista de palabras sugeridas para una palabra determinada. Si la palabra se escribe correctamente, el resultado estará vacío.
+Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
 
 ## Propiedades
 
@@ -247,6 +247,6 @@ Un `WebFrame | null` que representa el siguiente frame hermano, la propiedad deb
 
 ### `webFrame.routingId` _Readonly_
 
-Una `Integer` que representa el ID de trama único en el proceso de representador actual. Las instancias diferentes de WebFrame que se refieren al mismo fotograma subyacente tendrán la misma `routingId`.
+Una `Integer` que representa el ID de trama único en el proceso de representador actual. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
