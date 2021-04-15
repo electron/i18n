@@ -54,7 +54,7 @@ Ghost 使用 JavaScript 和节点。 s 在后端和前端，所以能够使用�
 
 ## 您最喜欢的 Electron？
 
-JavaScript 因为是一个庞大的生态系统而著称，它涉及无数的工具和框架，但它给我们带来的便利是很难过分的。 使用 Electron 构建应用仅比构建 Web 应用稍微困难 __ 些，这是一个惊人的壮举。
+JavaScript 因为是一个庞大的生态系统而著称，它涉及无数的工具和框架，但它给我们带来的便利是很难过分的。 Building an app with Electron is only _slightly_ harder than building a web app, which is an amazing  feat.
 
 ## 幽灵完成了吗？ 如果没有，接下来是什么？
 
