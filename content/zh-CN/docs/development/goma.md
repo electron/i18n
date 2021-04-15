@@ -1,37 +1,37 @@
-# 戈马
+# Goma
 
 > Goma是一款很多开源项目都在使用的分布式编译服务，例如Chromium和Android。
 
-电子有一个自定义Goma后端的部署，我们提供给 所有电子维护器。  有关身份验证的详细信息，请参阅下面的 [访问](#access) 部分 。  还有一个 `cache-only` Goma 端点，如果您没有凭据，默认情况下将 使用。  仅存缓存 Goma 的请求不会击中我们的群集，但会从我们的缓存中读取，并应在显著加快构建速度时 。
+Electron has a deployment of a custom Goma Backend that we make available to all Electron Maintainers.  See the [Access](#access) section below for details on authentication.  There is also a `cache-only` Goma endpoint that will be used by default if you do not have credentials.  Requests to the cache-only Goma will not hit our cluster, but will read from our cache and should result in significantly faster build times.
 
-## 启用戈马
+## Enabling Goma
 
-目前使用Goma的唯一支持方式是使用我们的 [构建工具](https://github.com/electron/build-tools)。 当您设置 `build-tools`时，Goma 配置将自动包含在内。
+Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). Goma configuration is automatically included when you set up `build-tools`.
 
-如果您是维护者并能够访问我们的群集，请确保您使用 `--goma=cluster` 运行 `e init` ，以便配置 `build-tools` Goma群集中使用。  如果您有一个现有的配置，您可以在配置文件中设置 `"goma": "cluster"` 。
+If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
 
-## 与戈马一起建造
+## Building with Goma
 
-当您使用 Goma 时，您可以运行 `ninja` ，其 `j` 值远远高于通常由您的机器支持。
+When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.
 
-请不要在 Windows 或 Linux 上设置高于 200</strong> **值，在 macOS 上 **50** 。 我们监控Goma系统的使用情况，发现用户滥用 不合理的并发将予以解激活。</p>
+Please do not set a value higher than **200** on Windows or Linux and **50** on macOS. We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
 
 ```bash
-忍者-C出/测试电子-j 200
+ninja -C out/Testing electron -j 200
 ```
 
-如果您使用 `build-tools`，适当的 `-j` 值将自动 用于您。
+If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
 
-## 监测戈马
+## Monitoring Goma
 
-如果您在本地 机上访问 [http://localhost:8088](http://localhost:8088) ，您可以在编译作业流经goma系统时进行监控。
+If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
 
 ## 访问
 
-出于安全和成本原因，目前仅限于电子维护器 使用电子的Goma集群。  如果你想访问，请前往 `#access-requests` 在 Slack和ping `@goma-squad` 要求访问。  请注意，作为一名 维护者不会自动 ** 授予访问权限，访问权限是根据 个案逐一确定的。
+For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
 
-## 正常工作时间/支持
+## Uptime / Support
 
-我们对Goma集群进行自动监控，并在 https://status.notgoma.com 缓存
+We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
 
-我们不支持使用Goma，任何提出的寻求帮助/有 问题的问题 _可能_ 无缘无故地关闭，我们没有能力处理 这种支持。
+We do not provide support for usage of Goma and any issues raised asking for help / having issues will _probably_ be closed without much reason, we do not have the capacity to handle that kind of support.
