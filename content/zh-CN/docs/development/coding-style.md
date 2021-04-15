@@ -12,12 +12,12 @@
   * 内置Electron模块（如 `ipc`、`app`）
   * 本地模块（使用相对路径）
 * 按照如下顺序排列类的属性
-  * 类方法和属性（从 `@`开始的方法）
-  * 实例方法和属性
+  * Class methods and properties (methods starting with a `@`)
+  * Instance methods and properties
 * 避免与平台相关的代码：
   * 使用 `path.join()` 来组织文件路径。
   * 请使用`os.tmpdir()`而不是`/tmp`来引用临时目录。
-* 在函数末尾明确返回时，使用纯 `return` 。
+* Using a plain `return` when returning explicitly at the end of a function.
   * 不是`return null`，`return undefined`，`null`或`undefined`
 
 ## C + + 和 Python
@@ -39,7 +39,7 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 * 书写 [标准](https://www.npmjs.com/package/standard) JavaScript 样式
 * 文件名应使用 `-` 连接而不是 `_`, 例如. `file-name.js` 而不是 `file_name.js`, 因为在 [github/atom](https://github.com/github/atom)中模块名通常是 `module-name` 形式. 此规则仅适用于 `.js` 文件。
 * 酌情使用更新的 ES6 / ES2015 语法
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 用于需要的和其他的常数.  如果值是原始值，请使用大写命名（例如 `const NUMBER_OF_RETRIES = 5`）。
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 用于需要的和其他的常数.  If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) 用于定义变量
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 代替 `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) 而不是使用字符串连接符 `+`
