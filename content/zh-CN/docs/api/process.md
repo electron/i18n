@@ -17,7 +17,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 - `获取链接记忆信息（）`
 - `getProcessMemoryInfo()`
 - `getSystemMemoryInfo()`
-- `获取系统转换（）`
+- `getSystemVersion()`
 - `getCPUUsage()`
 - `getIOCounters()`
 - `argv`
@@ -41,15 +41,15 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ## Properties
 
-### `process.defaultApp` _·里德利·_
+### `process.defaultApp` _Readonly_
 
 一 `Boolean`。 When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` _·里德利·_
+### `process.isMainFrame` _Readonly_
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` _·里德利·_
+### `process.mas` _Readonly_
 
 一 `Boolean`。 For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
@@ -61,11 +61,11 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 `Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
-### `process.resourcesPath` _·里德利·_
+### `process.resourcesPath` _Readonly_
 
 ` String ` 类型， 表示资源目录的路径。
 
-### `process.sandboxed` _·里德利·_
+### `process.sandboxed` _Readonly_
 
 一 `Boolean`。 When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -81,23 +81,23 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
-### `process.type` _·里德利·_
+### `process.type` _Readonly_
 
 A `String` representing the current process's type, can be:
 
-* `browser` - 主要过程
-* `renderer` - 渲染器过程
-* `worker` - 在网络工作者中
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
-### `process.versions.chrome` _·里德利·_
+### `process.versions.chrome` _Readonly_
 
 ` string `，一个表示 Chrome 版本的字符串。
 
-### `process.versions.electron` _·里德利·_
+### `process.versions.electron` _Readonly_
 
 ` string `，一个表示 Electron 版本的字符串。
 
-### `process.windowsStore` _·里德利·_
+### `process.windowsStore` _Readonly_
 
 一 `Boolean`。 If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
@@ -109,7 +109,7 @@ A `String` representing the current process's type, can be:
 
 导致当前进程崩溃的主线程。
 
-### `过程。获取创建时间（）`
+### `process.getCreationTime()`
 
 返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
@@ -123,29 +123,29 @@ Indicates the creation time of the application. 时间表示为自时代以来�
 
 返回 [`IOCounters`](structures/io-counters.md)
 
-### `过程。获取集权统计学（）`
+### `process.getHeapStatistics()`
 
 返回 ` Object `:
 
-* `totalHeapSize` 整数
-* `totalHeapSizeExecutable` 整数
-* `totalPhysicalSize` 整数
-* `totalAvailableSize` 整数
-* `usedHeapSize` 整数
-* `heapSizeLimit` 整数
-* `mallocedMemory` 整数
-* `peakMallocedMemory` 整数
-* `doesZapGarbage` ·布尔
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
 
 返回包含 V8 堆统计的对象。 备注：所有数据值以KB为单位
 
-### `过程。获取链接记忆信息（）`
+### `process.getBlinkMemoryInfo()`
 
 返回 ` Object `:
 
-* `allocated` 整数 - 千字节中所有分配对象的大小。
-* `marked` 整数 - 千字节中所有标记对象的大小。
-* `total` 整数 - 千字节分配的空间总数。
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
 
 返回带有Blink内存信息的对象。 可以用于调试渲染/DOM相关内存问题。 请注意，所有值都以KB为单位
 
@@ -168,7 +168,7 @@ Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用
 
 Returns an object giving memory usage statistics about the entire system. 请注意，所有统计值都以KB为单位
 
-### `过程。获取系统转换（）`
+### `process.getSystemVersion()`
 
 Returns `String` - The version of the host operating system.
 
@@ -186,7 +186,7 @@ console.log(version)
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` 字符串 - 输出文件的路径。
+* `filePath` String - Path to the output file.
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
