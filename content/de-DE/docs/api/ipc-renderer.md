@@ -15,16 +15,16 @@ Das `ipcRenderer` -Modul verfügt über die folgende Methode zum Abhören von Er
 ### `ipcRenderer.on(Kanal, Listener)`
 
 * `channel` String
-* `listener` -Funktion
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Hört `channel`, wenn eine neue Nachricht eintrifft, `listener` mit `listener(event, args...)`aufgerufen wird.
+Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
 
 ### `ipcRenderer.once(Kanal, Listener)`
 
 * `channel` String
-* `listener` -Funktion
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -33,7 +33,7 @@ Fügt eine einmalige `listener` Funktion für das Ereignis hinzu. Diese `listene
 ### `ipcRenderer.removeListener(Kanal, Listener)`
 
 * `channel` String
-* `listener` -Funktion
+* `listener` Function
   * `...args` any[]
 
 Entfernt die angegebenen `listener` aus dem Listenerarray für die angegebene `channel`.
