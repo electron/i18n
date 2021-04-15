@@ -2,51 +2,51 @@
 
 ## Обзор
 
-Рендеринг за кадром позволяет получить содержимое `BrowserWindow` в bitmap, так что его можно визуализировать в любом месте, например, на текстуре в 3D-сцене. За кадром рендеринга в Electron использует аналогичный подход к [Chromium Встроенные](https://bitbucket.org/chromiumembedded/cef) проекта.
+Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
-*примечания*:
+*Notes*:
 
-* Есть два режима рендеринга, которые могут быть использованы (см. раздел ниже), и только грязная область передается `paint` событие, чтобы быть более эффективным.
-* Вы можете остановить/продолжить визуализацию, а также установить частоту кадров.
-* Максимальная частота кадров составляет 240, так как большие значения приносят только потери без льгот.
-* Когда ничего не происходит на веб-странице, никакие кадры не генерируются.
-* Окно за кадром всегда создается в качестве [безрамоканого окна](../api/frameless-window.md).
+* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* You can stop/continue the rendering as well as set the frame rate.
+* The maximum frame rate is 240 because greater values bring only performance losses with no benefits.
+* When nothing is happening on a webpage, no frames are generated.
+* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
 ### Режимы рендеринга
 
 #### Аппаратное ускорение
 
-Ускоренное отображение GPU означает, что GPU используется для композиции GPU. Из- этого, кадр должен быть скопирован с GPU, который требует больше ресурсов, таким образом, этот режим медленнее, чем выходное устройство программного обеспечения. Преимущество этого режима заключается в том, что поддерживается анимация WebGL и 3D CSS.
+Ускоренное отображение GPU означает, что GPU используется для композиции GPU. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Преимущество этого режима заключается в том, что поддерживается анимация WebGL и 3D CSS.
 
 #### Устройство вывода
 
-Этот режим использует устройство вывода программного обеспечения для рендеринга в процессоре, так что поколения гораздо быстрее. В результате этот режим предпочтительнее ГПУ, ускоренный.
+This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
-Чтобы включить этот режим, ускорение GPU должно быть отключено, позвонив в [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
+To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
 ## Пример
 
 Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), добавьте следующие строки в файл `main.js`:
 
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
-const { app, BrowserWindow } и требуют ('электрон')
-const fs и требуют ('fs')
+const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
 
-app.disableHardwareAcceleration ()
+app.disableHardwareAcceleration()
 
-препятствуйте выиграть
+let win
 
-app.whenReady ().после этого (())>
-  победа - новый BrowserWindow (является веб-преференциями: { offscreen: true } )
+app.whenReady().then(() => {
+  win = new BrowserWindow({ webPreferences: { offscreen: true } })
 
-  win.loadURL ('https://github.com')
-  win.webContents.on ('paint', (событие, грязный, изображение) ->
-    fs.writeFileSync ('ex.png', image.toPNG ())
-  )
-  win.webContents.setFrameRate (60)
-)
+  win.loadURL('https://github.com')
+  win.webContents.on('paint', (event, dirty, image) => {
+    fs.writeFileSync('ex.png', image.toPNG())
+  })
+  win.webContents.setFrameRate(60)
+})
 ```
 
-После запуска приложения Electron перейдите на рабочую папку приложения.
+After launching the Electron application, navigate to your application's working folder.
 
 [disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration
