@@ -21,7 +21,7 @@ Devuelve:
 
 El módulo `inAppPurchase` tiene los siguientes métodos:
 
-### `inAppPurchase. purchaseProduct (productID [, cantidad])`
+### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
 * `productID` String - El identificador del producto a comprar. (El identificador de `com.example.app.product1` es `product1`).
 * `quantity` Integer (opcional) - El número de ítems que el usuario quiere comprar.
@@ -42,11 +42,11 @@ Recupera las descripciones del producto.
 
 Devuelve `Boolean` - si un usuario puede realizar un pago.
 
-### `inAppPurchase. restoreCompletedTransactions ()`
+### `inAppPurchase.restoreCompletedTransactions()`
 
-Restaura las transacciones finalizadas. Este método se puede llamar para instalar compras en dispositivos adicionales, o para restaurar compras para una aplicación que el usuario eliminó y reinstaló.
+Restaura las transacciones finalizadas. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
 
-[la cola de pago](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) entrega una nueva transacción por cada transacción previamente completada que se pueda restaurar. Cada transacción incluye una copia de la transacción original.
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Cada transacción incluye una copia de la transacción original.
 
 ### `inAppPurchase.getReceiptURL()`
 
