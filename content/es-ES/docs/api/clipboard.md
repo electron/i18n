@@ -229,15 +229,15 @@ console.log(buffer.equals(out))
 Escribe el `buffer` en el portapapeles como `formato`.
 
 ```js
-const { clipboard } = require (' Electron ')
+const { clipboard } = require('electron')
 
-buffer const = buffer. from (' writeBuffer ', ' UTF8 ')
-Clipboard. writeBuffer (' Public. UTF8-Plain-Text ', buffer)
+const buffer = Buffer.from('writeBuffer', 'utf8')
+clipboard.writeBuffer('public.utf8-plain-text', buffer)
 ```
 
 ### `clipboard.write(datao[, type])`
 
-* Objeto `data`
+* `data` Object
   * `text` Cadena (opcional)
   * `html` Cadena (opcional)
   * `image` [NativeImage](native-image.md) (opcional)
