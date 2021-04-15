@@ -1,10 +1,10 @@
 # webFrameMain
 
-> Controla las páginas web y los iframes.
+> Control web pages and iframes.
 
 Proceso: [Main](../glossary.md#main-process)
 
-El módulo `webFrameMain` se puede usar para buscar fotogramas en las existentes[`WebContents`](web-contents.md) instancias. Los eventos de navegación son el caso de uso común.
+The `webFrameMain` module can be used to lookup frames across existing [`WebContents`](web-contents.md) instances. Navigation events are the common use case.
 
 ```javascript
 const { BrowserWindow, webFrameMain } = require('electron')
@@ -50,14 +50,14 @@ main()
 
 ## Métodos
 
-Se puede acceder a estos métodos desde el módulo `webFrameMain` :
+These methods can be accessed from the `webFrameMain` module:
 
-### `webFrameMain. fromId (processId, Rutingid)`
+### `webFrameMain.fromId(processId, routingId)`
 
 * `processId` Integer - Un `Integer` representando el ID interno del proceso que posee el frame.
-* `routingId` Integer - Un `Integer` representando el ID único del frame en el renderer process actual. Los ID de enrutamiento se pueden recuperar desde `WebFrameMain`instancias de (`frame.routingId`) y también se pasan por fotogramas eventos de navegación `WebContents` específicos (p. ej. `did-frame-navigate`).
+* `routingId` Integer - Un `Integer` representando el ID único del frame en el renderer process actual. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
-Devuelve `WebFrameMain | undefined` -un marco con el proceso dado y identificadores de direccionamiento, o `undefined` si no hay un WebFrameMain asociado con los ID dados.
+Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
 ## Clase: WebFrameMain
 
@@ -65,12 +65,12 @@ Proceso: [Main](../glossary.md#main-process)
 
 ### Métodos de Instancia
 
-#### `Frame. executeJavaScript (Code [, userGesture])`
+#### `frame.executeJavaScript(code[, userGesture])`
 
 * `codigo` String
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
-Devuelve `Promise<unknown>` -una promesa que se resuelve con el resultado del código de ejecutado o se rechaza si se produce una ejecución o se produce una promesa rechazada.
+Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 Evalúa el `código` en la página.
 
@@ -153,4 +153,4 @@ Un `Integer` que representa el `pid` del proceso interno de Chromium al cual per
 
 #### `frame.routingId` _Readonly_
 
-Una `Integer` que representa el ID de trama único en el proceso de representador actual. Las instancias distintas de `WebFrameMain` que se refieren al mimo frame subyacente tendrán el mismo `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Las instancias distintas de `WebFrameMain` que se refieren al mimo frame subyacente tendrán el mismo `routingId`.
