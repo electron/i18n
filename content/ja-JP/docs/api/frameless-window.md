@@ -64,9 +64,9 @@ win.show()
 * 透明なウィンドウは、サイズを変更できません。 `resizable` を `true` に設定すると、いくつかのプラットフォームでは透明なウインドウが機能しなくなることがあります。
 * `blur` フィルターはWebページにしか適用されないため、ウインドウの下にあるコンテンツ (すなわち、ユーザーのシステムで開かれた他のアプリケーション) にぼかし効果を適用する方法はありません。
 * デベロッパー ツールが開かれているとウインドウは透過しません。
-* On Windows operating systems,
-  * transparent windows will not work when DWM is disabled.
-  * transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on [this pull request](https://github.com/electron/electron/pull/28207).
+* Windows オペレーティングシステムの場合、
+  * DWM が無効だと透過ウインドウが動作しません。
+  * Windows システムメニューの利用やタイトルバーのダブルクリックでは、透過ウインドウを最大化できません。 背景にある理由は [このプルリクエスト](https://github.com/electron/electron/pull/28207) に記載してあります。
 * Linux では、GPU を無効にして透明なウインドウを作成するための ARGB を許可するため、ユーザーがコマンドラインに `--enable-transparent-visuals --disable-gpu` を指定しなければなりません。これは、Linux における [いくつかの NVidia ドライバーでアルファチャンネルが機能しない](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) という上流のバグによるものです。
 * Mac では、ネイティブウインドウの影は透明なウインドウには表示されません。
 
