@@ -210,11 +210,11 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `options` objet (facultatif)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (facultatif) - Une url HTTP Referrer.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (facultatif)
-  * `baseURLForDataURL` String (facultatif) - Url de base (avec séparateur de chemin de suivi) pour les fichiers à charger par l’url de données. Cela n’est nécessaire que si le `url` est une url de données et doit charger d’autres fichiers.
+  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Retours `Promise<void>` - La promesse se résorbera lorsque la page aura terminé le chargement (voir [`did-finish-load`](webview-tag.md#event-did-finish-load)), et rejette les si la page ne se charge pas (voir [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
@@ -224,7 +224,7 @@ Charge le `url` dans la webview, le `url` doit contenir le préfixe du protocole
 
 * `url` String
 
-Lance un téléchargement de la ressource à `url` sans naviguer.
+Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.getURL()`
 
@@ -274,7 +274,7 @@ Retours `Boolean` - Si la page d’invité peut aller à `offset`.
 
 ### `<webview>.clearHistory()`
 
-Efface l’historique de navigation.
+Clears the navigation history.
 
 ### `<webview>.goBack()`
 
@@ -294,11 +294,11 @@ Navigue vers l’index absolu spécifié.
 
 * `offset` Integer
 
-Navigue vers le décalage spécifié à partir de l’entrée actuelle.
+Navigates to the specified offset from the "current entry".
 
 ### `<webview>.isCrashed()`
 
-Retours `Boolean` - Si le processus de rendu s’est écrasé.
+Returns `Boolean` - Whether the renderer process has crashed.
 
 ### `<webview>.setUserAgent(userAgent)`
 
@@ -316,22 +316,22 @@ Retours `String` - L’agent utilisateur pour la page d’invité.
 
 Retours `Promise<String>` - Une promesse qui se résout avec une clé pour le CSS inséré qui peut plus tard être utilisé pour supprimer le CSS via `<webview>.removeInsertedCSS(key)`.
 
-Injecte CSS dans la page Web actuelle et renvoie une clé unique pour la feuille de style insérée.
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ### `<webview>.removeInsertedCSS (clé)`
 
 * `key` String
 
-Retours `Promise<void>` - Se résout si la suppression a été réussie.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-Supprime le CSS inséré de la page Web actuelle. La feuille de style est par sa clé, qui est retournée de `<webview>.insertCSS(css)`.
+Removes the inserted CSS from the current web page. La feuille de style est par sa clé, qui est retournée de `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
 * `code` String
 * `userGesture` Boolean (facultatif) - Par défaut `false`.
 
-Retours `Promise<any>` - Une promesse qui se résout avec le résultat de la de code exécutée ou est rejetée si le résultat du code est une promesse rejetée.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Évalue le `code` dans la page. Si `userGesture` est défini, il créera l’utilisateur contexte gestent dans la page. Les API HTML comme `requestFullScreen`, qui nécessitent une action l’utilisateur, peuvent profiter de cette option pour l’automatisation.
 
@@ -378,7 +378,7 @@ Retours `Boolean` - Si la page d’invité a été mise en sourdine.
 
 ### `<webview>.isCurrentlyAudible()`
 
-Retours `Boolean` - Que l’audio soit actuellement en cours de lecture.
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -438,47 +438,47 @@ Insère le `text` à l'élément ciblé.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Contenu à rechercher, ne doit pas être vide.
+* `text` String - Content to be searched, must not be empty.
 * `options` objet (facultatif)
-  * `forward` Boolean (facultatif) - Que ce soit pour rechercher vers l’avant ou vers l’arrière, par défaut `true`.
-  * `findNext` Boolean (facultatif) - Qu’il s’agisse d’une première demande ou d’un suivi, par défaut `false`.
-  * `matchCase` Boolean (facultatif) - Si la recherche doit être sensible aux cas, par défaut à `false`.
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
-Retours `Integer` - L’id de demande utilisé pour la demande.
+Returns `Integer` - The request id used for the request.
 
-Commence une demande de trouver toutes les correspondances pour les `text` dans la page Web. Le résultat de la demande peut être obtenu en s’abonnant à [`found-in-page`](webview-tag.md#event-found-in-page) événement.
+Starts a request to find all matches for the `text` in the web page. Le résultat de la demande peut être obtenu en s’abonnant à [`found-in-page`](webview-tag.md#event-found-in-page) événement.
 
 ### `<webview>.stopFindInPage(action)`
 
 * `action` String - Spécifie l’action à prendre lors de la fin [`<webview>.findInPage`](#webviewfindinpagetext-options) demande.
-  * `clearSelection` - Effacer la sélection.
-  * `keepSelection` - Traduire la sélection en une sélection normale.
-  * `activateSelection` - Concentrez-vous et cliquez sur le nœud de sélection.
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
 Arrête toute `findInPage` demande de `webview` avec le `action`.
 
 ### `<webview>.print([options])`
 
 * `options` objet (facultatif)
-  * `silent` Boolean (facultatif) - Ne demandez pas à l’utilisateur les paramètres d’impression. Par défaut la valeur est `false`.
-  * `printBackground` Boolean (facultatif) - Imprime la couleur d’arrière-plan et l’image sur la page Web. Par défaut la valeur est `false`.
-  * `deviceName` String (facultatif) - Réglez le nom de l’appareil d’imprimante à utiliser. Doit être le nom défini par le système et non le nom « amical », par exemple « Brother_QL_820NWB » et non « Frère QL-820NWB ».
-  * `color` Boolean (facultatif) - Définissez si la page Web imprimée sera en couleur ou à l’échelle grise. La valeur par défaut est `true`.
-  * `margins` objet (facultatif)
-    * `marginType` String (facultatif) - Peut être `default`, `none`, `printableArea`, ou `custom`. Si `custom` est choisi, vous devrez également spécifier `top`, `bottom`, `left`, et `right`.
-    * `top` numéro (facultatif) - La marge supérieure de la page Web imprimée, en pixels.
-    * `bottom` numéro (facultatif) - La marge inférieure de la page Web imprimée, en pixels.
-    * `left` numéro (facultatif) - La marge gauche de la page Web imprimée, en pixels.
-    * `right` numéro (facultatif) - La marge droite de la page Web imprimée, en pixels.
-  * `landscape` Boolean (facultatif) - Si la page Web doit être imprimée en mode paysage. Par défaut la valeur est `false`.
-  * `scaleFactor` numéro (facultatif) - Le facteur d’échelle de la page Web.
-  * `pagesPerSheet` numéro (facultatif) - Nombre de pages à imprimer par feuille de page.
-  * `collate` Boolean (facultatif) - Si la page Web doit être rassemblée.
-  * `copies` numéro (facultatif) - Nombre de copies de la page Web à imprimer.
+  * `silent` Boolean (optional) - Don't ask user for print settings. Par défaut la valeur est `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Par défaut la valeur est `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. La valeur par défaut est `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Par défaut la valeur est `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Object[] (facultatif) - La plage de page à imprimer.
     * `from` Number - Index de la première page à imprimer (0-based).
-    * `to` numéro - Index de la dernière page à imprimer (inclusivement) (0-based).
-  * `duplexMode` String (facultatif) - Réglez le mode duplex de la page Web imprimée. Can be `simplex`, `shortEdge`, or `longEdge`.
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
@@ -498,10 +498,10 @@ Imprime `webview`page Web de l’équipe. Même que `webContents.print([options]
     * `url` String - the url for the PDF footer.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. et `width` dans des microns.
-  * `scaleFactor` numéro (facultatif) - Le facteur d’échelle de la page Web. Can range from 0 to 100.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print. Sur macOS, seule la première gamme est à l’honneur.
     * `from` Number - Index de la première page à imprimer (0-based).
-    * `to` numéro - Index de la dernière page à imprimer (inclusivement) (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Peut être `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou un objet contenant `height`
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
@@ -549,17 +549,17 @@ Modifie le facteur de zoom en utilisant le facteur spécifié. Le Zoom factor es
 
 * `level` Number - Niveau de zoom.
 
-Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. La formule pour cela est `scale := 1.2 ^ level`.
+Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. The formula for this is `scale := 1.2 ^ level`.
 
-> **NOTE**: La stratégie de zoom au niveau Chrome est de même origine, ce qui signifie que le niveau de zoom pour un domaine spécifique se propage dans toutes les instances de fenêtres avec le même domaine. La différenciation des URL de fenêtre fera fonctionner le zoom par fenêtre.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `<webview>.getZoomFactor()`
 
-Retourne `Number` - le facteur de zoom actuel.
+Returns `Number` - the current zoom factor.
 
 ### `<webview>.getZoomLevel()`
 
-Retourne `Number` - le niveau de zoom actuel.
+Returns `Number` - the current zoom level.
 
 ### `<webview>.setVisualZoomLevelLimits (minimumLevel, maximumLevel)`
 
@@ -633,7 +633,7 @@ Retourne :
 * `title` String
 * `explicitSet` Boolean
 
-Tiré lorsque le titre de la page est défini pendant la navigation. `explicitSet` est faux lorsque le titre synthétisé à partir de l’url du fichier.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Événement : 'page-favicon-updated'
 
@@ -655,9 +655,9 @@ Déclenché lorsque la page quitte plein écran déclenché par l’API HTML.
 
 Retourne :
 
-* `level` Integer - Le niveau de journal, de 0 à 3. Dans l’ordre, il correspond `verbose`, `info`, `warning` et `error`.
+* `level` Integer - The log level, from 0 to 3. Dans l’ordre, il correspond `verbose`, `info`, `warning` et `error`.
 * `message` String - Le message de la console réelle
-* `line` Integer - Le numéro de ligne de la source qui a déclenché ce message console
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
 Tiré lorsque la fenêtre d’invité enregistre un message de console.
@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 Retourne :
 
-* `result` objet
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position du résultat actif.
   * `matches` Integer - Nombre de résultats.
@@ -725,11 +725,11 @@ Retourne :
 
 * `url` String
 
-Émis lorsqu’un utilisateur ou la page veut commencer la navigation. Cela peut se produire lorsque ' `window.location` 'objet est modifié ou qu’un utilisateur clique sur un lien dans la page.
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 Cet événement n’émettra pas lorsque la navigation est commencée programmatiquement avec API comme `<webview>.loadURL` et `<webview>.back`.
 
-Il n’est pas non plus émis lors de la navigation dans la page, comme cliquer sur les liens d’ancrage ou mettre à jour le `window.location.hash`. Utilisez `did-navigate-in-page` événement pour à cette fin.
+Il n’est pas non plus émis lors de la navigation dans la page, comme cliquer sur les liens d’ancrage ou mettre à jour le `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 Appeler `event.preventDefault()` n __a pas__ 'avoir d’effet.
 
@@ -741,7 +741,7 @@ Retourne :
 
 Émis lorsqu'une navigation est faite.
 
-Cet événement n’est pas émis pour les navigations en page, telles que cliquer sur les liens d’ancrage ou mettre à jour le `window.location.hash`. Utilisez `did-navigate-in-page` événement pour à cette fin.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Événement : 'did-navigate-in-page'
 
@@ -827,7 +827,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque la couleur du thème d’une page change. Cela est généralement dû à la rencontre d’une balise meta:
+Emitted when a page's theme color changes. Cela est généralement dû à la rencontre d’une balise meta:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
