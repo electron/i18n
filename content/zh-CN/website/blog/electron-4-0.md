@@ -42,20 +42,20 @@ new BrowserWindow(format@@
 // 控制所有Web内容的 `remote.require`:
 app.on('remote-require'函数(事件, webContents, requestedModuleName) format@@
   // ...
-[）
+})
 
-//从特定的WebContents实例中控制"远程。要求"：
-浏览器Win.web内容。on（"远程要求"，功能（事件，请求模块名称）{
-  //
+// Control `remote.require` from a specific WebContents instance:
+browserWin.webContents.on('remote-require', function (event, requestedModuleName) {
+  // ...
 })
 ```
 
 以类似的方式，在调用 `remote.getGlobal(name)` 时，一个 `远程get-global` 事件被提出。 这与 `远程需要` 事件相同：调用 `preventDefault()` 防止全球返回， 并设置 `事件。 回转值` 返回自定义值。
 
 ```javascript
-控制"远程.获取全球"从所有WebContent：
-应用程序。on（"远程获取全球"，功能（事件，网络内容，重新引用的全球名）{
-  //
+// Control `remote.getGlobal` from all WebContents:
+app.on('remote-get-global', function (event, webContents, requrestedGlobalName) {
+  // ...
 })
 
 // 从一个特定的 WebContent 实例控制 `remote.getGlobal` ：
@@ -85,47 +85,31 @@ win.webContents.setBackgroundThrotling(启用BackgroundThrottling)
 赢。网络控制。设置后地转盘（启用后地转盘）
 ```
 
-有关更多信息，请参阅 `setBackgroundThrottling` 文档</a>
-
-。</p> 
-
-
+See [the `setBackgroundThrottling` documentation](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) for more information.
 
 ## 重大更改
-
-
 
 ### 没有更多 macOS 10.9 支持
 
 Chromium 不再支持 macOS 10.9 (OS X Mavericks) ，因此 [Electron 4.0 及以上不支持](https://github.com/electron/electron/pull/15357)
 
-
-
 ### 单个实例锁定
 
 之前, 要使您的应用成为单一实例应用程序(确保您的应用在任何特定时间只运行一个实例), 您可以使用 `应用。 akeSingleInstance()` 方法。 从 Electron 4.0开始，您必须使用 `app.requestSingleInstanceLock()` 此方法的返回值表示您的应用程序的这个实例是否成功获得了锁。 如果它无法获取锁，您可以假定您的应用程序的另一个实例已经在使用锁定并立即退出。
 
-例如，在各种平台上使用 `requestSingleInstanceLock()` 和有关细微差别行为的信息， [查看](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) `app.requestSingleInstanceLock()` 和相关方法的文档，并 [ `second-instance` 事件](https://electronjs.org/docs/api/app#event-second-instance)。
-
-
+For an example of using `requestSingleInstanceLock()` and information on nuanced behavior on various platforms, [see the documentation for `app.requestSingleInstanceLock()` and related methods](https://electronjs.org/docs/api/app#apprequestsingleinstancelock) and [the `second-instance` event](https://electronjs.org/docs/api/app#event-second-instance).
 
 ### `win_delay_load_hook`
 
 当构建窗口本机模块时，模块 `binding.gyp` 中的 `win_delay_load_hook` 变量必须为 true (这是默认值)。 如果此钩子不存在，那么本机模块将无法在Windows上加载 有一个错误消息，如 `找不到模块`。 [查看本机模块指南](https://electronjs.org/docs/tutorial/using-native-node-modules#a-note-about-win_delay_load_hook) 了解更多信息。
 
-
-
 ## 废弃的
 
 Electron 5.0计划进行以下破坏性更改，因此已在 Electron 4.0中废弃。
 
-
-
 ### 节点.js 集成已禁用 `原生Windowopen`-ed Windows
 
 从 Electron 5.0开始，使用 `原生窗口打开` 选项打开的子窗口将总是禁用 Node.js 集成。
-
-
 
 ### `web首选项` 默认值
 
@@ -143,23 +127,17 @@ Electron 5.0计划进行以下破坏性更改，因此已在 Electron 4.0中废�
 
 请注意：目前有 [个已知bug (#9736)](https://github.com/electron/electron/issues/9736) 阻止 `webview` 标签工作如果 `上下文隔离` 处于开启状态。 关注GitHub 问题以获取最新信息！
 
-了解有关上下文隔离、节点集成和电子安全文档</a>中的 `webview` 标记的更多信息。</p> 
+Learn more about context isolation, Node integration, and the `webview` tag in [the Electron security document](https://electronjs.org/docs/tutorial/security).
 
 Electron 4.0 仍将使用当前的默认值，但如果您不通过明确的值，您将会看到一个废弃的警告。 要准备您的 Electron 5.0应用，请为这些选项使用明确的值。 [查看 `BrowserWindow` 文档](https://electronjs.org/docs/api/browser-window#new-browserwindowoptions) 了解每个选项的详细信息。
-
-
 
 ### `webContents.findInPage(文本[，选项])`
 
 `medialCapitalAsWordStart` and `wordStart` 选项已被废弃，因为它们已被上游删除。
 
-
-
 ## 应用反馈项目
 
 我们在 Electron 3 开发期间启动了 [应用程序反馈程序](https://electronjs.org/blog/app-feedback-program) 。 成功了，因此我们也在开发4.0期间继续这样做。 我们想要向Atlassian, Discord, MS Teams, OpenFin, Slack, Symphony, WhatsApp, and other programme members for their involvement during the 4 测试周期。 要了解更多关于应用反馈方案的信息并参与未来测试， [请查看我们关于程序的博客文章](https://electronjs.org/blog/app-feedback-program)。
-
-
 
 ## 下一步
 
