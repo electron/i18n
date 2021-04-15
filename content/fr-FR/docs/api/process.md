@@ -85,9 +85,9 @@ Un `Booléen` qui contrôle si oui ou non les avertissements affichés sur `stde
 
 A `String` representing the current process's type, can be:
 
-* `browser` - Le processus principal
-* `renderer` - Un processus de rendu
-* `worker` - Dans un travailleur web
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _Readonly_
 
