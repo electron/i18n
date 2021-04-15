@@ -26,7 +26,7 @@ Electron no utiliza el script `configure` ya que tiene sus propios scripts de co
 
 ## Enlazar nodo con Electron
 
-En Electron, el nodo se está vinculando como una biblioteca compartida al establecer la variable de `GYP` `node_shared` a `true`, de manera que el tipo de construcción del nodo se cambiará desde `executable` a `shared_library`, y el código fuente que contiene el punto de entrada del `main`del nodo no se compilará.
+In Electron, Node is being linked as a shared library by setting the `GYP` variable `node_shared` to `true`, so Node's build type will be changed from `executable` to `shared_library`, and the source code containing the Node's `main` entry point will not be compiled.
 
 Puesto que Electron utiliza la librería V8 que se envía con Chromium, no se utiliza la librería V8 incluida en el código fuente de Node. Esto se hace estableciendo `node_use_v8_platform` y `node_use_bundled_v8` a `false`.
 
