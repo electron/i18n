@@ -250,33 +250,33 @@ governance:
     description: Gewährleistet proaktiv die Sicherheit von Electron als Projekt, reagiert auf eingehende Vorfälle und überwacht die Einführung von Korrekturen.
   admins:
     title: Administrative
-    description: Die Administrative Arbeitsgruppe überwacht die gesamte Governance und das gesamte Projekt.
+    description: The Administrative Working Group oversees the entire governance and project.
   api:
     title: API
-    description: Beaufsichtigt den öffentlichen API-Entwurf auf der Grundlage von Projektprinzipien.
+    description: Oversees public API design based on project principles.
   global:
     overview: Übersicht
     associated_repos: Verknüpfte Repositories
-    notes: Besprechungsnotizen
+    notes: Meeting Notes
   definitions:
     title: Definitionen
     list:
-      - Ein <i>Betreuer</i> ist jeder, der eine aktive Rolle in der Governance spielt.
-      - Ein <i>Mitarbeiter</i> ist in der Gemeinschaft aktiv, aber nicht in der Regierungsführung.
-      - Ein <i>Teilnehmer</i> ist jeder, der Betreuer oder Mitarbeiter ist.
-      - Eine <i>Arbeitsgruppe</i> ist eine Gruppe von Betreuern, die gebildet wird, um die Verantwortung für bestimmte Aspekte des Electron-Projekts zu übernehmen. Normalerweise treffen sich diese Gruppen regelmäßig, treffen sich aber in einigen Fällen nur nach Bedarf, um ihrer Verantwortung nachzukommen.
-      - 'Ein <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">Vorsitzender</a> leitet eine Arbeitsgruppe.'
+      - A <i>maintainer</i> is anyone who plays an active role in governance.
+      - A <i>collaborator</i> is active in the community, but not in governance.
+      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
     title: Verantwortungen
-    listdescription: "Alle Arbeitsgruppen haben diese Kernaufgaben:"
+    listdescription: "All Working Groups have these core responsibilities:"
     list:
-      - Sie entscheiden selbst und veröffentlichen ihre Regeln, z. B. wie Entscheidungen getroffen werden, wann Sitzungen abgehalten werden und wer teilnehmen darf.
-      - 'Sie wählen <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection"></a> einen Stuhl aus, der</a> der Gruppe vertreten <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>soll.'
-      - Sie führen Sitzungsnotizen, einschließlich Tagesordnungspunkten, Diskussionspunkten und Ergebnissen, die jeder überprüfen kann.
-      - 'Sie sollen in gutem Glauben</a> mit anderen Arbeitsgruppen zusammenarbeiten und <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">arbeiten.'
-    see_charter: Weitere Informationen finden Sie in <a href="https://github.com/electron/governance/tree/master/charter/README.md">Charter</a> .
-  code_of_conduct: Die Electron-Organisation und alle darin repos halten sich an die folgenden <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Verhaltenskodex.</a>
+      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
+      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
+      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
+    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
+  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
   license: Electron ist mit der <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT Lizenz</a> lizenziert.
-  repository: Weitere Informationen zur Governance-Struktur</a> finden Sie im <a href="https://github.com/electron/governance">-Governance-Repository.
+  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: Seite nicht gefunden.
