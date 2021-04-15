@@ -1,15 +1,15 @@
 ## Class: TouchBarSpacer
 
-> Crie um espaçador entre dois itens na barra de toque para aplicações nativas do macOS
+> Create a spacer between two items in the touch bar for native macOS applications
 
 Processo: [Main](../glossary.md#main-process)
 
-### `novas opções touchBarSpacer (opções)`
+### `new TouchBarSpacer(options)`
 
 * objeto `options`
-  * `size` String (opcional) - Tamanho do espaçador, os valores possíveis são:
-    * `small` - Pequeno espaço entre os itens. Mapas para `NSTouchBarItemIdentifierFixedSpaceSmall`. Este é o padrão.
-    * `large` - Grande espaço entre os itens. Mapas para `NSTouchBarItemIdentifierFixedSpaceLarge`.
+  * `size` String (optional) - Size of spacer, possible values are:
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. Este é o padrão.
+    * `large` - Large space between items. Mapas para `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Ocupar todo o espaço disponível. Mapas para `NSTouchBarItemIdentifierFlexibleSpace`.
 
 ### Propriedades de Instância
