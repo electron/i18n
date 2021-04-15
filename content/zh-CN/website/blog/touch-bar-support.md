@@ -12,7 +12,7 @@ Electron [1.6.3](https://github.com/electron/electron/releases/tag/v1.6.3) beta 
 
 这是此 API 的第一个版本，因此它将在下一个 个少量Electron 版本中演变。 请查看版本说明以获取更多更新 并打开 [个问题](https://github.com/electron/electron/issues) 以获取任何问题 或缺失的功能。
 
-您可以通过 `npm install electron@beta` 安装此版本，并在 [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) 和 [浏览器窗口](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) 电子文档中 了解更多有关它。
+You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
 
 非常感谢 [@MarshallOfSound](https://github.com/MarshallOfSound) 为Electron做出贡献。 :tada:
 
