@@ -46,7 +46,7 @@ See the [12.0.0 release notes](https://github.com/electron/electron/releases/tag
 * Removed Flash support: Chromium has removed support for Flash, which was also removed in Electron 12. See [Chromium's Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
 * Required SSE3 for Chrome on x86: Chromium has removed support for [older x86 CPUs that do not meet a minimum of SSE3 (Streaming SIMD Extensions 3) support](https://docs.google.com/document/d/1QUzL4MGNqX4wiLvukUwBf6FdCL35kCDoEJTm2wMkahw/edit#heading=h.7nki9mck5t64). This support was also removed in Electron 12.
 
-Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) .
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
 ## Alterações de API
 
@@ -89,7 +89,7 @@ Mais informações sobre essas e futuras alterações podem ser encontradas na p
 * `Conteúdo web` Alterações de API:
     * Added a small console hint to console to help debug renderer crashes. [#25317](https://github.com/electron/electron/pull/25317)
     * Added `frame` and `webContents` properties to the details object in webRequest handlers. [#27334](https://github.com/electron/electron/pull/27334)
-    * Adicionado `webContents.forcefullyCrashRenderer()` para encerrar com força um processo de renderização para ajudar na recuperação de um renderizador pendurado. [#25580](https://github.com/electron/electron/pull/25580)
+    * Added `webContents.forcefullyCrashRenderer()` to forcefully terminate a renderer process to assist with recovering a hung renderer. [#25580](https://github.com/electron/electron/pull/25580)
     * Added `setWindowOpenHandler` API for renderer-created child windows, and deprecate `new-window` event. [#24517](https://github.com/electron/electron/pull/24517)
 * `webFrame` API changes:
     * Added spellcheck API to renderer. [#25060](https://github.com/electron/electron/pull/25060)
