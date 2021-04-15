@@ -976,7 +976,7 @@ Returns `Boolean` - Si l'appel a réussi.
 
 Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
-On macOS, it shows on the dock icon. Sous Linux, il ne fonctionne que pour le lanceur Unity.
+Sur macOS, il s'affiche sur l'icône du dock. Sous Linux, il ne fonctionne que pour le lanceur Unity.
 
 **Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
 
