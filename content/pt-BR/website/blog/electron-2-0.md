@@ -43,7 +43,7 @@ Electron 2.0.0 também representa uma melhoria na forma como o Electron é estab
    * Assinatura `menu.popup` modificada </code>. [#11968](https://github.com/electron/electron/pull/11968)
    * Removido depreciado `crashReporter.setExtraParameter` [#11972](https://github.com/electron/electron/pull/11972)
    * Removido obsoleto `webContents.setZoomLevelLimits` e `webFrame.setZoomLevelLimits`. [#11974](https://github.com/electron/electron/pull/11974)
-   * Removidos métodos de `clipboard` preteridos. [#11973](https://github.com/electron/electron/pull/11973)
+   * Removed deprecated `clipboard` methods. [#11973](https://github.com/electron/electron/pull/11973)
    * Suporte removido para parâmetros booleanos para `tray.setHighlightMode`. [#11981](https://github.com/electron/electron/pull/11981)
 
 ## Correções de Bugs
