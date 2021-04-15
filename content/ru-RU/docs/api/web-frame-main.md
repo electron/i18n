@@ -1,95 +1,95 @@
 # webFrameMain
 
-> Управление веб-страницами и iframes.
+> Control web pages and iframes.
 
 Процесс: [Основной](../glossary.md#main-process)
 
-Модуль `webFrameMain` использоваться для осмотра кадров в существующих [`WebContents`](web-contents.md) экземплярах. Навигационные события являются общим использования.
+The `webFrameMain` module can be used to lookup frames across existing [`WebContents`](web-contents.md) instances. Navigation events are the common use case.
 
 ```javascript
-const { BrowserWindow, webFrameMain } - require ('electron')
+const { BrowserWindow, webFrameMain } = require('electron')
 
-const win - новый BrowserWindow ({ width: 800, height: 1500 })
-win.loadURL ('https://twitter.com')
+const win = new BrowserWindow({ width: 800, height: 1500 })
+win.loadURL('https://twitter.com')
 
-win.webContents.on (
+win.webContents.on(
   'did-frame-navigate',
-  (событие, URL, isMainFrame, isMainFrame, frameProcessId, рамкаRoutingId) -> -
-    const frame - webFrameMain.fromId (frameProcessId, frameRoutingId)
-    если (рамка)
-      -
-      const code - 'document.body.innerHTML - document.body.innerHTML.replaceAll", "heck", "h'ck") (код)
-    -
-  -
+  (event, url, isMainFrame, frameProcessId, frameRoutingId) => {
+    const frame = webFrameMain.fromId(frameProcessId, frameRoutingId)
+    if (frame) {
+      const code = 'document.body.innerHTML = document.body.innerHTML.replaceAll("heck", "h*ck")'
+      frame.executeJavaScript(code)
+    }
+  }
 )
 ```
 
-Вы также можете получить доступ к кадрам существующих страниц, используя `mainFrame` свойство [`WebContents`](web-contents.md).
+You can also access frames of existing pages by using the `mainFrame` property of [`WebContents`](web-contents.md).
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-async функции основной () -
-  const выиграть - новый BrowserWindow ({ width: 800, height: 600 })
-  ждут win.loadURL ('https://reddit.com')
+async function main () {
+  const win = new BrowserWindow({ width: 800, height: 600 })
+  await win.loadURL('https://reddit.com')
 
-  const youtubeEmbeds - win.webContents.mainFrame.frames .filter ((рамка) -> -
-    попробуйте -
-      const URL - новый URL (frame.url)
-      url.host - 'www.youtube.com'
-    - catch {
+  const youtubeEmbeds = win.webContents.mainFrame.frames.filter((frame) => {
+    try {
+      const url = new URL(frame.url)
+      return url.host === 'www.youtube.com'
+    } catch {
       return false
     }
-  )
+  })
 
-  console.log (youtubeEmbeds)
--
+  console.log(youtubeEmbeds)
+}
 
 main()
 ```
 
 ## Методы
 
-Эти методы можно получить из `webFrameMain` модуля:
+These methods can be accessed from the `webFrameMain` module:
 
-### `webFrameMain.fromId (processId, маршрутизацияId)`
+### `webFrameMain.fromId(processId, routingId)`
 
-* `processId` Integer - `Integer` представляющий внутренний идентификатор процесса, которому принадлежит кадр.
-* `routingId` Integer - `Integer` представляющий уникальный идентификатор кадра в процессе рендеринга. СВУ маршрутизации могут быть извлечены из `WebFrameMain` экземпляров (`frame.routingId`), а также передаются по конкретным `WebContents` навигационным событиям (например. `did-frame-navigate`).
+* `processId` Integer - An `Integer` representing the internal ID of the process which owns the frame.
+* `routingId` Integer - An `Integer` representing the unique frame ID in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
-Возвращает `WebFrameMain | undefined` - кадр с данным процессом и iD-адресами маршрутизации, или `undefined` если нет WebFrameMain, связанного с данными ID.
+Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
-## Класс: WebFrameMain
+## Class: WebFrameMain
 
 Процесс: [Основной](../glossary.md#main-process)
 
 ### Методы экземпляра
 
-#### `frame.executeJavaScript (код, userGesture)`
+#### `frame.executeJavaScript(code[, userGesture])`
 
 * `code` String
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 
-Возвращает `Promise<unknown>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если выполнение бросает или приводит к отклонению обещания.
+Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 Вычисляет `code` на странице.
 
 В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Указание `userGesture` как `true` снимает это ограничение.
 
-#### `frame.reload ()`
+#### `frame.reload()`
 
-Возвращает `boolean` - Была ли перезагрузка начата успешно. Только приводит к `false` когда кадр не имеет истории.
+Returns `boolean` - Whether the reload was initiated successfully. Only results in `false` when the frame has no history.
 
-#### `frame.send (канал, ... аргс)`
+#### `frame.send(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Отправить асинхронное сообщение процессу рендерера через `channel`, наряду с аргументами. Аргументы будут сериализованы с «Структурированным клоном алгоритмом»[SCA], так же, как и`postMessage`, поэтому прототип цепи не будут включены. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
+Отправить асинхронное сообщение процессу рендерера через `channel`, наряду с аргументами. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
 
 Процесс рендерера может обрабатывать сообщение, слушая `channel` с [`ipcRenderer`](ipc-renderer.md) модулем.
 
-#### `frame.postMessage (канал, сообщение, [transfer])`
+#### `frame.postMessage(channel, message, [transfer])`
 
 * `channel` String (Строка)
 * `message` any
@@ -102,13 +102,13 @@ main()
 Например:
 
 ```js
-Основной процесс
-const { port1, port2 } - новый MessageChannelMain ()
-webContents.mainFrame.postMessage ('port', { message: 'hello' }, [port1])
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
 
-// Процесс рендерера
-ipcRenderer.on ('port', (e, msg) -> -
-  const [port] и e.ports
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
   // ...
 })
 ```
@@ -117,40 +117,40 @@ ipcRenderer.on ('port', (e, msg) -> -
 
 #### `frame.url` _Только чтение_
 
-Веб `string` , представляющий текущий URL-адрес кадра.
+A `string` representing the current URL of the frame.
 
 #### `frame.top` _Только чтение_
 
-В `WebFrameMain | null` , к которой принадлежит `frame` , верхняя рамка.
+A `WebFrameMain | null` representing top frame in the frame hierarchy to which `frame` belongs.
 
 #### `frame.parent` _Только чтение_
 
-В `WebFrameMain | null` , представляющем родительский `frame`, свойство будет `null` , `frame` это верхний кадр в иерархии кадров.
+A `WebFrameMain | null` representing parent frame of `frame`, the property would be `null` if `frame` is the top frame in the frame hierarchy.
 
 #### `frame.frames` _Только чтение_
 
-Коллекция `WebFrameMain[]` , содержащая прямых потомки `frame`.
+A `WebFrameMain[]` collection containing the direct descendents of `frame`.
 
 #### `frame.framesInSubtree` _Только чтение_
 
-Большая `WebFrameMain[]` , содержащая каждый кадр в подтриме `frame`, себя. Это может быть полезно при прохождении через все кадры.
+A `WebFrameMain[]` collection containing every frame in the subtree of `frame`, including itself. This can be useful when traversing through all frames.
 
 #### `frame.frameTreeNodeId` _Только чтение_
 
-Например `Integer` представляет идентификатор внутреннего кадра FrameTreeNode кадра. Этот идентификатор является браузер-глобальный и однозначно определяет кадр, который контента. Идентификатор фиксируется при создании кадра и остается постоянным в течение всего срока службы кадра. При снятии кадра идентификатор не использоваться.
+An `Integer` representing the id of the frame's internal FrameTreeNode instance. This id is browser-global and uniquely identifies a frame that hosts content. The identifier is fixed at the creation of the frame and stays constant for the lifetime of the frame. When the frame is removed, the id is not used again.
 
 #### `frame.name` _Только чтение_
 
-В `String` , представляющий имя кадра.
+A `String` representing the frame name.
 
 #### `frame.osProcessId` _Только чтение_
 
-Проект `Integer` представляющий операционную систему `pid` процесса, которому принадлежит этот кадр.
+An `Integer` representing the operating system `pid` of the process which owns this frame.
 
 #### `frame.processId` _Только чтение_
 
-Проект `Integer` представляющий внутренний `pid` процесса, которому принадлежит этот кадр. Это не то же самое, что идентификатор процесса ОС; читать, что использование `frame.osProcessId`.
+An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
 
 #### `frame.routingId` _Только чтение_
 
-`Integer` представляющий уникальный идентификатор кадра в текущем процессе рендеринга. Отдельные `WebFrameMain` , которые относятся к той же основной будут иметь тот же `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
