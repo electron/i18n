@@ -224,7 +224,7 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` String
 
-无需导航即可在 `url` 启动资源下载。
+Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.getURL()`
 
@@ -240,7 +240,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.是加载大框架（）`
 
-返回 `Boolean` - 主帧（而不仅仅是内框或帧）是否 仍在加载。
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -248,7 +248,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.stop()`
 
-停止任何待定导航。
+Stops any pending navigation.
 
 ### `<webview>.reload()`
 
@@ -298,7 +298,7 @@ Clears the navigation history.
 
 ### `<webview>.isCrashed()`
 
-返回 `Boolean` - 渲染器过程是否崩溃。
+Returns `Boolean` - Whether the renderer process has crashed.
 
 ### `<webview>.setUserAgent(userAgent)`
 
@@ -316,22 +316,22 @@ Clears the navigation history.
 
 返回 `Promise<String>` - 承诺，解决插入的 CSS的密钥，以后可用于通过 `<webview>.removeInsertedCSS(key)`删除CSS。
 
-将 CSS 注入当前网页，并返回插入的 样式表的独特密钥。
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ### `<webview>.删除插电CSS（密钥）`
 
 * `key` String
 
-返回 `Promise<void>` - 如果删除成功，则解决。
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-从当前网页中删除插入的CSS。 样式表由其密钥 识别，该密钥从 `<webview>.insertCSS(css)`返回。
+Removes the inserted CSS from the current web page. 样式表由其密钥 识别，该密钥从 `<webview>.insertCSS(css)`返回。
 
 ### `<webview>.执行贾瓦脚本（代码[，用户图]）`
 
 * `code` String
 * `userGesture` Boolean (可选) - 默认为 `false`。
 
-返回 `Promise<any>` - 承诺会随着执行代码的结果 或被拒绝，如果代码的结果是被拒绝的承诺。
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 在页面中执行 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
 
@@ -378,7 +378,7 @@ Clears the navigation history.
 
 ### `<webview>.是目前可听的（）`
 
-返回 `Boolean` - 音频当前是否正在播放。
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -441,50 +441,50 @@ Clears the navigation history.
 * `text` String - 要搜索的内容，必须非空。
 * `options` Object (可选)
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
-  * `findNext` 布尔（可选） - 无论是第一次请求还是跟进， 默认 `false`。
-  * `matchCase` 布尔（可选） - 搜索是否应对案件敏感， 默认 `false`。
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
-返回 `Integer` - 用于请求的请求 ID。
+Returns `Integer` - The request id used for the request.
 
-开始请求查找网页中 `text` 的所有匹配项。 请求的结果 可以通过订阅 [`found-in-page`](webview-tag.md#event-found-in-page) 活动来获得。
+Starts a request to find all matches for the `text` in the web page. 请求的结果 可以通过订阅 [`found-in-page`](webview-tag.md#event-found-in-page) 活动来获得。
 
 ### `<webview>.stopFindInPage(action)`
 
 * `action` 字符串 - 指定在结束 [`<webview>.findInPage`](#webviewfindinpagetext-options) 请求时要执行的操作。
-  * `clearSelection` - 清除选择。
-  * `keepSelection` - 将选择转换为正常选择。
-  * `activateSelection` - 聚焦并单击选择节点。
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
 以所提供的 `action`停止任何 `findInPage` `webview` 请求。
 
 ### `<webview>.print([options])`
 
 * `options` Object (可选)
-  * `silent` 布尔（可选） - 不要向用户索要打印设置。 默认值为 `false`.
-  * `printBackground` 布尔（可选） - 在网页上打印 背景颜色和图像。 默认值为 `false`.
-  * `deviceName` 字符串（可选） - 设置打印机设备名称以使用。 必须是系统定义的名称，而不是"友好"名称，例如"Brother_QL_820NWB"，而不是"兄弟QL-820NWB"。
-  * `color` 布尔（可选） - 设置印刷网页是彩色还是灰度。 默认值为 `true`。
-  * `margins` 对象（可选）
-    * `marginType` 字符串（可选） - 可以 `default`， `none`， `printableArea`，或 `custom`。 如果选择 `custom` ，您还需要指定 `top`、 `bottom`、 `left`和 `right`。
-    * `top` 编号（可选） - 打印网页的最高边距，以像素表示。
-    * `bottom` 编号（可选） - 打印网页的底边距，以像素表示。
-    * `left` 编号（可选） - 打印网页的左边缘，以像素表示。
-    * `right` 编号（可选） - 打印网页的右边缘，以像素表示。
-  * `landscape` 布尔（可选） - 网页是否应该以横向模式打印。 默认值为 `false`.
-  * `scaleFactor` 编号（可选） - 网页的刻度因子。
-  * `pagesPerSheet` 编号（可选） - 每页打印页数。
-  * `collate` 布尔（可选） - 是否应该整理网页。
-  * `copies` 编号（可选） - 要打印的网页副本数。
+  * `silent` Boolean (optional) - Don't ask user for print settings. 默认值为 `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 默认值为 `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 默认值为 `true`。
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. 默认值为 `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` 对象[]（可选） - 要打印的页面范围。
-    * `from` 编号 - 打印第一页的索引（0 基于）。
-    * `to` 编号 - 打印最后一页的索引（含） （0 基于）。
-  * `duplexMode` 字符串（可选） - 设置打印网页的复式模式。 可以 `simplex`， `shortEdge`，或 `longEdge`。
-  * `dpi` 记录<string, number> （可选）
-    * `horizontal` 编号（可选） - 水平dpi。
-    * `vertical` 编号（可选） - 垂直dpi。
-  * `header` 字符串（可选） - 要打印为页页头的字符串。
-  * `footer` 字符串（可选） - 字符串要打印为页页页脚。
-  * `pageSize` 字符串|大小（可选） - 指定打印文档的页面大小。 可以是 `A3`、 `A4`、 `A5`、 `Legal`、 `Letter`、 `Tabloid` 或含有 `height`的物体。
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 返回 `Promise<void>`
 
@@ -493,18 +493,18 @@ Clears the navigation history.
 ### `<webview>.打印托普DF（选项）`
 
 * `选项` 对象
-  * `headerFooter` 记录<string, string> （可选） - PDF 的标题和脚。
-    * `title` 字符串 - PDF 标题的标题。
-    * `url` 字符串- PDF脚的网址。
-  * `landscape` 布尔（可选） - `true` 景观， `false` 肖像。
-  * `marginsType` 整数（可选） - 指定要使用的边距类型。 使用 0 表示 默认保证金，1 表示无保证金，2 表示最低保证金。 和微米 `width` 。
-  * `scaleFactor` 编号（可选） - 网页的刻度因子。 范围从0到100。
-  * `pageRanges` 记录<string, number> （可选） - 要打印的页面范围。 在macOS上，只有数组的第一个值被信任。
-    * `from` 编号 - 打印第一页的索引（0 基于）。
-    * `to` 编号 - 打印最后一页的索引（含） （0 基于）。
-  * `pageSize` 字符串|大小（可选） - 指定生成的PDF的页面大小。 可 `A3`、 `A4`、 `A5`、 `Legal`、 `Letter`、 `Tabloid` 或含有 `height`
-  * `printBackground` 布尔（可选） - 是否打印CSS背景。
-  * `printSelectionOnly` 布尔（可选） - 是否只打印选择。
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. 和微米 `width` 。
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print. 在macOS上，只有数组的第一个值被信任。
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. 可 `A3`、 `A4`、 `A5`、 `Legal`、 `Letter`、 `Tabloid` 或含有 `height`
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
 返回 `Promise<Uint8Array>` - 使用生成的 PDF 数据解决。
 
@@ -512,7 +512,7 @@ Clears the navigation history.
 
 ### `<webview>.捕获页（[rect]）`
 
-* `rect` [矩形](structures/rectangle.md) （可选） - 要捕获的页面区域。
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
 返回 `Promise<NativeImage>` - 解决与 [原生图像](native-image.md)
 
@@ -535,7 +535,7 @@ Clears the navigation history.
 
 返回 `Promise<void>`
 
-向页面发送输入 `event` 。
+Sends an input `event` to the page.
 
 有关 `event` 对象的详细描述，请参阅 [webContents.发送"事件](web-contents.md#contentssendinputeventinputevent) 。
 
@@ -543,23 +543,23 @@ Clears the navigation history.
 
 * `factor` Number - 缩放比例
 
-将缩放因子更改为指定因子。 缩放因子 缩放百分比除以 100，因此 300% = 3.0。
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
 * `level` Number - 缩放等级。
 
-更改缩放等级。 原始大小为 0，高于或低于每个 增量表示放大 20% 或更小，默认 限制分别为原始大小的 300% 和 50%。 这样做的公式是 `scale := 1.2 ^ level`。
+更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-> **注**：Chromium 级别的缩放策略是同源的，这意味着特定域的 缩放级别在所有具有 同一域名的窗口实例中传播。 区分窗口网址将使每个窗口的缩放工作。
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `<webview>.获取僵尸因子（）`
 
-返回 `Number` - 当前变焦因子。
+Returns `Number` - the current zoom factor.
 
 ### `<webview>.获取僵尸级别（）`
 
-返回 `Number` - 当前缩放级别。
+Returns `Number` - the current zoom level.
 
 ### `<webview>.设置视觉祖姆级别限制（最低级别、最大级别）`
 
@@ -655,9 +655,9 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 返回:
 
-* `level` 整数 - 日志级别，从 0 到 3。 为了它匹配 `verbose`， `info`， `warning` 和 `error`。
+* `level` Integer - The log level, from 0 to 3. 为了它匹配 `verbose`， `info`， `warning` 和 `error`。
 * `message` 字符串 - 实际控制台消息
-* `line` 整数 - 触发此控制台消息的源的行数
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
 当访客窗口记录控制台消息时，已激发。
@@ -767,7 +767,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 }）
 ```
 
-### 活动： "ipc 消息"
+### Event: 'ipc-message'
 
 返回:
 
