@@ -32,7 +32,7 @@ Wir verstehen, dass nicht jeder exakte Benutzernummern teilen kann, aber bessere
 Die Fehler deiner App werden verfolgt und auf dem Radar des Electron-Teams sein. Ihr Feedback hilft dem Electron-Team zu sehen, wie die neuen Betas funktionieren und welche Arbeit geleistet werden muss.
 
 ## Werden die Informationen meiner Anwendung öffentlich freigegeben? Wer bekommt diese Informationen zu sehen?
-Nein, die Informationen Ihrer Anwendung werden nicht an die Allgemeinheit weitergegeben. Informationen werden in einem privaten GitHub Repo aufbewahrt, das nur für Mitglieder des App Feedback-Programms und [Electron Governance](https://github.com/electron/governance) sichtbar ist. Alle Mitglieder haben sich darauf geeinigt, den [Verhaltenskodex von Electron zu befolgen,](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
+Nein, die Informationen Ihrer Anwendung werden nicht an die Allgemeinheit weitergegeben. Informationen werden in einem privaten GitHub Repo aufbewahrt, das nur für Mitglieder des App Feedback-Programms und [Electron Governance](https://github.com/electron/governance) sichtbar ist. All members have agreed to follow Electron's [Code of Conduct](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md).
 
 ## Registrieren
-Wir akzeptieren derzeit eine *begrenzte Anzahl* Anmeldungen. Wenn Sie interessiert sind und die oben genannten Anforderungen erfüllen können, füllen Sie bitte dieses [-Formular](https://goo.gl/forms/OpMEKV75ScN6we7g1) aus.
+We are currently accepting a *limited number* of signups. Wenn Sie interessiert sind und die oben genannten Anforderungen erfüllen können, füllen Sie bitte dieses [-Formular](https://goo.gl/forms/OpMEKV75ScN6we7g1) aus.
