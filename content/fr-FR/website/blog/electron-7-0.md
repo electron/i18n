@@ -49,7 +49,7 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 
 ## Fin du support pour 4.x.y
 
-Electron 4.x.y a a atteint la fin du support selon la politique de soutien [projet](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
+Electron 4.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
 
 ## Programme de feedback
 
