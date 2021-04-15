@@ -4,7 +4,7 @@ author: zeke
 date: '2018-02-12'
 ---
 
-上个星期 [electronjs.org](https://electronjs.org) 网站有几分钟的关机 如果您受到这些短暂中断的影响，对于给您带来的不便，我们深表歉意 。 经过今天的一些调查，我们已经诊断出 这个根源，并且部署了一个 [修复](https://github.com/electron/electronjs.org/pull/1076)。
+上个星期 [electronjs.org](https://electronjs.org) 网站有几分钟的关机 If you were affected by these brief outages, we're sorry for the inconvenience. 经过今天的一些调查，我们已经诊断出 这个根源，并且部署了一个 [修复](https://github.com/electron/electronjs.org/pull/1076)。
 
 ---
 
