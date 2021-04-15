@@ -5,15 +5,15 @@
 运行 `gn gen` 并带上 --ide=xcode 参数
 
 ```sh
-$ gn 基因出/测试 - -
+$ gn gen out/Testing --ide=xcode
 ```
 
 这会生成 electron.ninja.xcworkspace。 您需要打开这个工作区来设置断点和检查。
 
-有关生成带有 GN 的 IDE 项目的更多信息，请参阅 `gn help gen` 。
+See `gn help gen` for more information on generating IDE projects with GN.
 
 ### 调试与断点
 
-生成后启动电子应用。 您现在可以打开上面创建的 xcode 工作区，并通过" > 附加到处理 > 电子"菜单连接到电子过程 。 [注意：如果您想 渲染器过程中进行试，您还需要连接到电子助手。
+Launch Electron app after build. You can now open the xcode workspace created above and attach to the Electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
 
-现在，您可以在任何索引文件中设置断点。 但是，您将无法 直接在铬源中设置断点。 要在铬源中设置断点，您可以选择 Debug > 断点 > 创建 符号断点，并将任何函数名称设置为符号。 这将设置具有该名称的所有函数的断点 ，如果有多个函数，则从所有类中设置断点。 您也可以在附加试用器之前设置断点的此步骤， 但是，在应用附加到 的试断点之前，可能无法显示符号断点函数的实际断点。
+You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the Chromium source. To set break points in the Chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
