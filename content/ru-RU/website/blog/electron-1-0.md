@@ -28,7 +28,7 @@ Electron 1.0 представляет собой главную веху в ст
 
 ## Демонстрации Electron API
 
-Наряду с выпуском 1.0 мы выпускаем новое приложение, которое поможет вам исследовать API Electron и узнать больше о том, как сделать ваше приложение Electron родным. Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native.
+Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native. Along with the 1.0 release, we're releasing a new app to help you explore the Electron APIs and learn more about how to make your Electron app feel native.
 
 [![Демонстрации Electron API](https://cloud.githubusercontent.com/assets/378023/15138216/590acba4-16c9-11e6-863c-bdb0d3ef3eaa.png)][electron-api-demos]
 
@@ -40,7 +40,7 @@ Electron 1.0 представляет собой главную веху в ст
 
 ### Возможности
 
-  * **требуется графический** , который поможет визуализировать внутренние и внешние зависимости библиотеки приложения как в основных процессах, так и в процессах рендеров
+  * **Require graph** that helps you visualize your app's internal and external library dependencies in both the main and renderer processes
   * **IPC монитор** , который отслеживает и отображает отправленные и полученные сообщения между процессами в вашем приложении
   * **Событие инспектор** показывает вам события и слушатели, которые зарегистрированы в вашем приложении на ядре Electron API, такие как окно, приложение и процессы
   * **App Linter** , который проверяет ваши приложения на наличие общих ошибок и недостающей функциональности
