@@ -87,7 +87,7 @@
 
 <ul>
   <li>
-    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
+    <code>menuItem</code> <a href="menu-item.md">MenuItem</a>
   </li>
 </ul>
 
@@ -122,7 +122,7 @@
     <code>pos</code> Integer
   </li>
   <li>
-    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
+    <code>menuItem</code> <a href="menu-item.md">MenuItem</a>
   </li>
 </ul>
 
