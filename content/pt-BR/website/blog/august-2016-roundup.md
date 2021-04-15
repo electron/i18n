@@ -1,5 +1,5 @@
 ---
-title: 'Agosto 2016: Novos Aplicativos'
+title: 'August 2016: New Apps'
 author: lorde
 date: '2016-09-06'
 ---
