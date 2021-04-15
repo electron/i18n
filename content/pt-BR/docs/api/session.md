@@ -765,7 +765,7 @@ Devoluções `Boolean` - Se a palavra foi removida com sucesso do dicionário pe
 
 * `path` String - Caminho para um diretório contendo uma extensão chrome não embalada
 * objeto `options` (opcional) 
-    * `allowFileAccess` Boolean - Se permitir que a extensão leia arquivos locais sobre `file://` protocolo e injete scripts de conteúdo em páginas `file://` . Isto é necessário, por exemplo, para carregar extensões de devtools em URLs `file://` . Padrão para falso.
+    * `allowFileAccess` Boolean - Se permitir que a extensão leia arquivos locais sobre `file://` protocolo e injete scripts de conteúdo em páginas `file://` . Isto é necessário, por exemplo, para carregar extensões de devtools em URLs `file://` . Defaults to false.
 
 Devoluções `Promise<Extension>` - resolve quando a extensão é carregada.
 
