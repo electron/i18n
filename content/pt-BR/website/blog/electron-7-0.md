@@ -29,7 +29,7 @@ Veja as [notas de lançamento 7.0.0](https://github.com/electron/electron/releas
 
 ## Quebrando mudanças
 
-Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md) .
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md) page.
 
  * APIs obsoletas removidas:
      * Versões baseadas em chamadas de funções que agora usam Promises. [#17907](https://github.com/electron/electron/pull/17907)
