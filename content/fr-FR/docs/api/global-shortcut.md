@@ -6,13 +6,13 @@ Processus : [Main](../glossary.md#main-process)
 
 Le module `globalShortcut` peut inscrire/désinscrire un raccourci clavier global avec le système d'exploitation afin que vous puissiez personnaliser les opérations pour les différents raccourcis.
 
-**Remarque :** Le raccourci est global; il fonctionnera même si l'application n'a pas le focus du clavier. Ce module ne peut pas être utilisé avant l' `ready` 'événement du module d’application est émis.
+**Remarque :** Le raccourci est global; il fonctionnera même si l'application n'a pas le focus du clavier. This module cannot be used before the `ready` event of the app module is emitted.
 
 ```javascript
-const { app, globalShortcut } = require ('electron')
+const { app, globalShortcut } = require('electron')
 
-app.whenReady().then()) => {
-  // Enregistrez un auditeur raccourci 'CommandOrControl+X'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
@@ -45,7 +45,7 @@ Le module `globalShortcut` dispose des méthodes suivantes :
 
 Retourne `Boolean` - Si le raccourci a été enregistré avec succès.
 
-Enregistre un raccourci global de `accelerator`. Le `callback` est appelé lorsque raccourci enregistré est pressé par l’utilisateur.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
@@ -61,7 +61,7 @@ Les accélérateurs suivants ne seront pas enregistrés correctement sur macOS 1
 * `accélérateur` String[] - un tableau de [Accelerator](accelerator.md)s.
 * `callback` Function
 
-Enregistre un raccourci global de tous les articles `accelerator` en `accelerators`. Le `callback` est appelé lorsque l’un des raccourcis enregistrés sont pressés par l’utilisateur.
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
 Lorsqu'un accélérateur donné est déjà pris par d'autres applications, cet appel échouera silencieusement. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
