@@ -9,8 +9,8 @@
 Для создания безрамного окна, нужно установить `frame: false` в `параметрах` [BrowserWindow](browser-window.md):
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
-const выиграть - новый BrowserWindow ({ width: 800, height: 600, frame: false })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
@@ -23,8 +23,8 @@ win.show()
 В результате скроется заголовок и содержимое станет во все окно, но заголовок по-прежнему будет иметь стандартное окно контроля ("светофоры") сверху слева.
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
-const выиграть - новый BrowserWindow ({ titleBarStyle: 'hidden' })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -33,18 +33,18 @@ win.show()
 В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
-const выиграть - новый BrowserWindow ({ titleBarStyle: 'hiddenInset' })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover`
 
-Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. Полноэкранная кнопка недоступна из-за ограничений безрамоканых окон, так как интерфейс с масками окна macOS от Apple. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
+Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
-const выиграть - новый BrowserWindow ({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -53,15 +53,15 @@ win.show()
 Установите параметр `transparent` в значение `true`.<br>Примечание: вы можете сделать это только для безрамного окна.<br>Пример:
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
-const выиграть - новый BrowserWindow ({ transparent: true, frame: false })
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
 ### Ограничения
 
 * Вы не можете кликнуть по прозрачной области. Мы собираемся ввести API, чтобы установить форму окна для решения этой задачи, смотрите [нашу проблему](https://github.com/electron/electron/issues/1335).
-* Прозрачные окна не повторно используются. Установка `resizable` для `true` может сделать прозрачное окно прекратить работу на некоторых платформах.
+* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * Фильтр `blur` применяется только к веб-странице, поэтому невозможно применить эффект размытия к содержимому под окном (т.е. другие приложения открываются в системе пользователя).
 * The window will not be transparent when DevTools is opened.
 * On Windows operating systems,
@@ -85,20 +85,20 @@ win.setIgnoreMouseEvents(true)
 Игнорирование сообщений мыши заставляет веб-страницу забыть о движении мыши, что означает, что события движения мыши не будут вырабатываться. В операционных системах Windows дополнительный параметр может быть использован для передачи сообщений о перемещении мыши на веб-странице, что позволяют такие события как `mouseleave`:
 
 ```javascript
-const { ipcRenderer } требуют ('электрон')
-const el - document.getElementById ("clickThroughElement"))
-el.addEventListener ("mouseenter', () ->
-  ipcRenderer.send ('set-ignore-mouse-events', true, { forward: true })
-)
-el.addEventListener ('mouseleave', ()> -
-  ipcRenderer.send ('set-ignore-mouse-events', false)
-q)
+const { ipcRenderer } = require('electron')
+const el = document.getElementById('clickThroughElement')
+el.addEventListener('mouseenter', () => {
+  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
+})
+el.addEventListener('mouseleave', () => {
+  ipcRenderer.send('set-ignore-mouse-events', false)
+})
 
-// Основной процесс
-const { ipcMain } - требуют ('электрон')
-ipcMain.on ('set-ignore-mouse-events', (событие, ... args) -> -
-  BrowserWindow.fromWebContents (event.sender).setIgnoreMouseEvents (... аргс)
-)
+// Main process
+const { ipcMain } = require('electron')
+ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
+  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
+})
 ```
 
 Это делает переход по веб-странице по окончании `el`, и возвращается к нормальному состоянию за ее пределами.
@@ -128,7 +128,7 @@ button {
 
 ## Выделение текста
 
-В бескумном окне поведение перетаскивания может в конфликте с выбором текста. Например, когда вы перетащите заголовок, вы можете случайно выбрать текст на панели заголовка. Чтобы предотвратить это, вам нужно отключить выбор текста в перетаскиваемой области, такой как:
+In a frameless window the dragging behavior may conflict with selecting text. Например, когда вы перетащите заголовок, вы можете случайно выбрать текст на панели заголовка. Чтобы предотвратить это, вам нужно отключить выбор текста в перетаскиваемой области, такой как:
 
 ```css
 .titlebar {
