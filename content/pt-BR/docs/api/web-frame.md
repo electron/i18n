@@ -1,24 +1,24 @@
 # webFrame
 
-> Personalize a renderização da página web atual.
+> Customize the rendering of the current web page.
 
 Processo: [Renderizador](../glossary.md#renderer-process)
 
-`webFrame` exportação do módulo Electron é uma instância da classe `WebFrame` representando o quadro superior do `BrowserWindow`atual . Subquadrados podem ser recuperados por certas propriedades e métodos (por exemplo. `webFrame.firstChild`).
+`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-Um exemplo de zoom da página atual para 200%.
+An example of zooming current page to 200%.
 
 ```javascript
-const { webFrame } = require ('electron')
+const { webFrame } = require('electron')
 
 webFrame.setZoomFactor(2)
 ```
 
 ## Métodos
 
-A classe `WebFrame` tem os seguintes métodos de instância:
+The `WebFrame` class has the following instance methods:
 
-### `webFrame.setZoomFactor(fator)`
+### `webFrame.setZoomFactor(factor)`
 
 * `factor` fator Double - Zoom; padrão é 1.0.
 
@@ -28,9 +28,9 @@ O fator deve ser maior que 0,0.
 
 ### `webFrame.getZoomFactor()`
 
-Retornos `Number` - O fator zoom atual.
+Returns `Number` - The current zoom factor.
 
-### `webFrame.setZoomLevel(nível)`
+### `webFrame.setZoomLevel(level)`
 
 * número `level` - Nível de zoom.
 
@@ -40,9 +40,9 @@ Altera o nível de zoom para o nível especificado. O tamanho original é 0 e ca
 
 ### `webFrame.getZoomLevel()`
 
-Retornos `Number` - O nível de zoom atual.
+Returns `Number` - The current zoom level.
 
-### `webFrame.setVisualZoomLevelLimits (mínimoNível, máximoNível)`
+### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * Número de `minimumLevel`
 * Número de `maximumLevel`
@@ -55,103 +55,103 @@ Define o nível máximo e mínimo de pinch-to-zoom.
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webFrame.setSpellCheckProvider (idioma, provedor)`
+### `webFrame.setSpellCheckProvider(language, provider)`
 
-* `language` Cordas
-* objeto `provider`
-  * Função `spellCheck`
+* `language` String
+* `provider` Object
+  * `spellCheck` Function
     * `words` String[]
     * `callback` Function
       * `misspeltWords` String[]
 
-Define um provedor para verificação ortom ortomial em campos de entrada e áreas de texto.
+Sets a provider for spell checking in input fields and text areas.
 
-Se você quiser usar este método, você deve desativar o verificador ortográfico builtin quando você construir a janela.
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
 
 ```js
-const mainWindow = novo BrowserWindow({
-  webPreferências: {
+const mainWindow = new BrowserWindow({
+  webPreferences: {
     spellcheck: false
   }
 })
 ```
 
-O `provider` deve ser um objeto que tem um método `spellCheck` que aceita uma série de palavras individuais para verificação ortográfica. A função `spellCheck` é executada assincronamente e chama a função `callback` com uma série de palavras mal-humoradas quando concluídas.
+The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-Um exemplo de uso [][spellchecker] de verificação ortográfica de nó como provedor:
+An example of using [node-spellchecker][spellchecker] as provider:
 
 ```javascript
-const { webFrame } = require ('electron')
-feitiço constChecker = require ('spellchecker')
-webFrame.setSpellCheckProvider ('en-US', {
-  spellCheck (palavras, retorno de chamada) {
+const { webFrame } = require('electron')
+const spellChecker = require('spellchecker')
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck (words, callback) {
     setTimeout(() => {
-      verificador ortográfico const = require ('spellchecker')
-      const escrito erroneamente = palavras.filtro(x => spellchecker.isMisspelled(x))
-      callback (escrito errado)
+      const spellchecker = require('spellchecker')
+      const misspelled = words.filter(x => spellchecker.isMisspelled(x))
+      callback(misspelled)
     }, 0)
-
-}
+  }
+})
 ```
 
 ### `webFrame.insertCSS(css)`
 
-* `css` String - Código fonte CSS.
+* `css` String - CSS source code.
 
-Devoluções `String` - Uma chave para o CSS inserido que pode ser usada posteriormente para remover CSS via `webFrame.removeInsertedCSS(key)`.
+Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
 
 Injeta CSS na página web atual e retorna uma chave exclusiva para a folha de inserida.
 
-### `webFrame.removeInsertedCSS(chave)`
+### `webFrame.removeInsertedCSS(key)`
 
 * `key` Cordas
 
-Remove o CSS inserido da página web atual. A folha de estilo é identificada por sua chave, que é devolvida de `webFrame.insertCSS(css)`.
+Remove o CSS inserido da página web atual. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
-### `webFrame.insertText(texto)`
+### `webFrame.insertText(text)`
 
 * `text` String
 
 Insere `text` ao elemento focal.
 
-### `webFrame.executeJavaScript (código[, userGesture, callback])`
+### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
 * `userGesture` Booleano (opcional) - Padrão é `false`.
-* `callback` Função (opcional) - Chamado após a execução do script. A menos que o quadro seja suspenso (por exemplo, mostrando um alerta modal), a execução será síncrono e o retorno de chamada será invocado antes que o método retorne. Para compatibilidade com uma versão mais antiga deste método, o parâmetro de erro é segundo.
-  * `result` Qualquer
+* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
+  * `result` Any
   * `error` Error
 
-Devoluções `Promise<any>` - Uma promessa que se resolve com o resultado do código de executado ou é rejeitada se a execução for lance ou resulte em uma promessa rejeitada.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 Avalia `code` na página.
 
 Na janela do navegador algumas APIs HTML como `requestFullScreen` só podem ser invocadas por um gesto do usuário. A configuração `userGesture` para `true` removerá essa limitação.
 
-### `webFrame.executeJavaScriptInIsolatedWorld (worldId, scripts[, userGesture, callback])`
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - O ID do mundo para executar o javascript , `0` é o mundo principal padrão (onde o conteúdo é executado), `999` é o mundo usado pelo recurso `contextIsolation` da Electron. Aceita valores na faixa 1.536870911.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Booleano (opcional) - Padrão é `false`.
-* `callback` Função (opcional) - Chamado após a execução do script. A menos que o quadro seja suspenso (por exemplo, mostrando um alerta modal), a execução será síncrono e o retorno de chamada será invocado antes que o método retorne.  Para compatibilidade com uma versão mais antiga deste método, o parâmetro de erro é segundo.
-  * `result` Qualquer
+* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
+  * `result` Any
   * `error` Error
 
-Devoluções `Promise<any>` - Uma promessa que se resolve com o resultado do código de executado ou é rejeitada se a execução não puder ser iniciada.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
 Funciona como `executeJavaScript` , mas avalia `scripts` em um contexto isolado.
 
-Note-se que quando a execução do script falhar, a promessa devolvida não rejeitar e o `result` seria `undefined`. Isso porque o Cromo não de enviar erros de mundos isolados para mundos estrangeiros.
+Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
-### `webFrame.setIsolatedWorldInfo (worldId, info)`
+### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Inteiro - O ID do mundo para executar o javascript, `0` é o mundo padrão, `999` é o mundo usado pela Electrons `contextIsolation` recurso. As extensões cromadas reservam a gama de IDs em `[1 << 20, 1 << 29)`. Você pode fornecer qualquer inteiro aqui.
-* objeto `info`
-  * `securityOrigin` String (opcional) - Origem de segurança para o mundo isolado.
-  * `csp` String (opcional) - Política de Segurança de Conteúdo para o mundo isolado.
-  * `name` String (opcional) - Nome para mundo isolado. Útil em devtools.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Você pode fornecer qualquer inteiro aqui.
+* `info` Object
+  * `securityOrigin` String (optional) - Security origin for the isolated world.
+  * `csp` String (optional) - Content Security Policy for the isolated world.
+  * `name` String (opcional) - Nome para mundo isolado. Useful in devtools.
 
-Defina a origem de segurança, a política de segurança de conteúdo e o nome do mundo isolado. Nota: Se o `csp` for especificado, o `securityOrigin` também deve ser especificado.
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
@@ -164,91 +164,89 @@ Retorna `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Retorna um objeto descrevendo informações de uso da memória interna do Blink caches.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Isso vai gerar:
+This will generate:
 
 ```javascript
 {
-  imagens: {
+  images: {
     count: 22,
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* mesmo com "imagens" */ },
-  xslStyleSheets: { /* mesmo com "imagens" */ },
-  fontes: { /* mesmo com "imagens" */ },
-  outra: { /* mesmo com "imagens" */
+  cssStyleSheets: { /* same with "images" */ },
+  xslStyleSheets: { /* same with "images" */ },
+  fonts: { /* same with "images" */ },
+  other: { /* same with "images" */ }
 }
 ```
 
 ### `webFrame.clearCache()`
 
-Tentativas de liberar memória que não está mais sendo usada (como imagens de uma navegação anterior).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Note que chamar cegamente este método provavelmente torna a Electron mais lenta, uma vez que terá que reabastecer esses caches esvaziados, você só deve chamá-lo se um evento em seu aplicativo ocorreu que faz você pensar que sua página está realmente usando menos memória (ou seja, você navegou de uma página super pesada para uma principalmente vazia, e pretende ficar lá).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
-### `webFrame.getFrameForSelector (seletor)`
+### `webFrame.getFrameForSelector(selector)`
 
-* `selector` Sequência - Seletor CSS para um elemento de quadro.
+* `selector` String - CSS selector for a frame element.
 
-Devoluções `WebFrame` - O elemento quadro em `webFrame's` documento selecionado por `selector`, `null` seria devolvido se `selector` não selecionar um quadro ou se o quadro não estiver no processo de renderização atual.
+Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
-### `webFrame.findFrameByName(nome)`
+### `webFrame.findFrameByName(name)`
 
 * `name` String
 
-Devoluções `WebFrame` - Uma criança de `webFrame` com o `name`fornecido , `null` seria devolvida se não houvesse tal quadro ou se o quadro não estivesse no processo de renderização atual.
+Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
-### `webFrame.findFrameByRoutingId(roteamentoId)`
+### `webFrame.findFrameByRoutingId(routingId)`
 
-* `routingId` Integer - Um `Integer` representando a id de quadro única no processo de renderização atual. Os IDs de roteamento podem ser recuperados de `WebFrame` instâncias (`webFrame.routingId`) e também são passados por quadro eventos específicos de navegação `WebContents` (por exemplo. `did-frame-navigate`)
+* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
 
-Devoluções `WebFrame` - que tem o `routingId`fornecido , `null` se não forem encontradas.
+Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
-### `webFrame.isWordMisspelled(palavra)`
+### `webFrame.isWordMisspelled(word)`
 
-* `word` String - A palavra a ser checada.
+* `word` String - The word to be spellchecked.
 
-Retorna `Boolean` - Verdade se a palavra estiver escrita erroneamente de acordo com o verificador ortográfico embutido em , falso de outra forma. Se nenhum dicionário estiver carregado, sempre devolva falso.
+Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
 
-### `webFrame.getWordSuggestions(palavra)`
+### `webFrame.getWordSuggestions(word)`
 
-* `word` String - A palavra mal escrito.
+* `word` String - The misspelled word.
 
-Retorna `String[]` - Uma lista de palavras sugeridas para uma determinada palavra. Se a palavra for escrita corretamente, o resultado estará vazio.
+Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
 
 ## Propriedades
 
 ### `webFrame.top` _Readonly_
 
-Um `WebFrame | null` representando o quadro superior na hierarquia de quadros a que `webFrame` pertence, a propriedade seria `null` se o quadro superior não estivesse no processo de renderização atual.
+A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
 ### `webFrame.opener` _Readonly_
 
-Um `WebFrame | null` representando o quadro que abriu `webFrame`, a propriedade seria `null` se não houver abridor ou abridor não está no processo de renderização atual.
+A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
 ### `webFrame.parent` _Readonly_
 
-Um `WebFrame | null` representando o quadro pai de `webFrame`, a propriedade seria `null` se `webFrame` for superior ou pai não estiver no processo de renderização atual.
+A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
 ### `webFrame.firstChild` _Readonly_
 
-Um `WebFrame | null` representando o primeiro quadro infantil de `webFrame`, o de propriedade seria `null` se `webFrame` não tiver filhos ou se o primeiro filho não estiver no processo de renderização atual .
+A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
 ### `webFrame.nextSibling` _Readonly_
 
-Uma `WebFrame | null` representando o próximo quadro de irmãos, a propriedade seria `null` se `webFrame` é o último quadro em seu pai ou se o próximo irmão não está no processo de renderização atual.
+A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
 ### `webFrame.routingId` _Readonly_
 
-Um `Integer` representando o id de quadro único no processo de renderização atual. Instâncias de WebFrame distintas que se referem ao mesmo quadro subjacente terão o mesmo `routingId`.
-
-[spellchecker]: https://github.com/atom/node-spellchecker
+Um `Integer` representando o id de quadro único no processo de renderização atual. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
