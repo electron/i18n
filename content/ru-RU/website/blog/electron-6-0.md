@@ -74,7 +74,7 @@ Electron 6.0 продолжит модернизацию [](https://github.com/e
 
 сохранить эти права в рамках тех типов процесса, которые их требуют, Chromium [добавил](https://chromium-review.googlesource.com/c/chromium/src/+/1627456) новых вариантов приложения Helper: один для renderers (`Electron Helper (Renderer). pp`), один для процесса GPU (`Electron Helper (GPU). pp`) и один для плагинов (`Electron Helper (Plugin).app`).
 
-Находясь с помощью `electron-osx-sign` для совместного проектирования приложения Electron не нужно вносить никаких изменений в свою логику сборки. Если вы совместно проектировать приложение с пользовательскими скриптами, вы должны убедиться, , что три новых приложения Helper правильно codesigned.
+Находясь с помощью `electron-osx-sign` для совместного проектирования приложения Electron не нужно вносить никаких изменений в свою логику сборки. If you're codesigning your app with custom scripts, you should ensure that the three new Helper applications are correctly codesigned.
 
 Для корректной упаковки вашего приложения с этими новыми помощниками вам необходимо использовать `electron-packager@14.0.4` или выше.  Если вы используете `электродвигатель` , то следуйте за [этой проблемой](https://github.com/electron-userland/electron-builder/issues/4104) для отслеживания поддержки этих новых помощников.
 
