@@ -1,5 +1,5 @@
 ---
-title: '2016 年 7 月：新应用和聚会'
+title: 'July 2016: New Apps and Meetups'
 author: 吉尔福德
 date: '2016-08-04'
 ---
