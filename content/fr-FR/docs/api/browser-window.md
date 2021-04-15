@@ -140,24 +140,24 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `icon` ([NativeImage](native-image.md) | String) (facultatif) - L'icône de la fenêtre. Sur Windows, il est recommandé d'utiliser le format `ICO` pour un rendu optimal. Si non défini, l'icone de l’exécutable sera utilisé.
   * `show` Boolean (facultatif) - Si la fenêtre doit être affichée lors de la création. La valeur par défaut est `true`.
   * `paintWhenInitiallyHidden` Boolean (facultatif) - Si le moteur de rendu doit être actif lorsque `show` est `false` et qu'il vient d'être créé.  Afin que `document.visibilityState` fonctionne correctement lors du premier chargement avec `show: false` vous devez définir ceci à `false`.  Mettre ceci à `false` fera que l'événement `prêt-à-montrer` ne sera pas déclenché.  La valeur par défaut est `true`.
-  * `frame` Boolean (facultatif) - Spécifiez `false` pour créer un [fenêtre sans cadre](frameless-window.md). La valeur par défaut est `true`.
-  * `parent` BrowserWindow (facultatif) - Spécifiez la fenêtre parent. Par défaut est `null`.
-  * `modal` Boolean (facultatif) - Qu’il s’agisse d’une fenêtre modale. Cela ne fonctionne que lorsque la fenêtre est une fenêtre enfant. Par défaut la valeur est `false`.
-  * `acceptFirstMouse` Boolean (facultatif) - Que la vue Web accepte un seul de souris vers le bas qui active simultanément la fenêtre. Par défaut est `false`.
-  * `disableAutoHideCursor` Boolean (facultatif) - S’il s’agit de cacher curseur lors de la dactylographie. Par défaut la valeur est `false`.
-  * `autoHideMenuBar` Boolean (facultatif) - Masquez automatiquement la barre de menu à moins que la `Alt` clé ne soit pressée. Par défaut la valeur est `false`.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). La valeur par défaut est `true`.
+  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Par défaut la valeur est `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Par défaut est `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Par défaut la valeur est `false`.
+  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Par défaut la valeur est `false`.
   * `enableLargerThanScreen` Booléen (facultatif) - Permet à la fenêtre d'être redimensionnée plus grande que l'écran. Seulement pertinent pour macOS, car les autres systèmes d'exploitation autorisent par défaut des fenêtres plus grandes qu'écran par défaut. Par défaut la valeur est `false`.
   * `BackgroundColor` String (facultatif) - Couleur d'arrière-plan de la fenêtre en valeur hexadécimale, comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (alpha au format #AARRGGBB est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
-  * `hasShadow` Boolean (facultatif) - Si la fenêtre doit avoir une ombre. La valeur par défaut est `true`.
-  * `opacity` numéro (facultatif) - Réglez l’opacité initiale de la fenêtre, entre 0,0 (entièrement transparent) et 1,0 (entièrement opaque). Ceci n’est implémenté que sur Windows et macOS.
-  * `darkTheme` Boolean (facultatif) - Forces utilisant le thème sombre pour la fenêtre, ne fonctionne que sur certains environnements de bureau GTK+3. Par défaut la valeur est `false`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. La valeur par défaut est `true`.
+  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Par défaut la valeur est `false`.
   * `transparent` Boolean (facultatif) - Rend la fenêtre [transparente](frameless-window.md#transparent-window). Par défaut la valeur est `false`. Sous Windows, ne fonctionne pas à moins que la fenêtre ne soit sans cadres.
-  * `type` String (facultatif) - Le type de fenêtre, par défaut est fenêtre normale. En savoir plus sur ci-dessous.
-  * `visualEffectState` String (facultatif) - Spécifiez comment l’apparence du matériau doit refléter l’état d’activité de la fenêtre sur macOS. Doit être utilisé avec la `vibrancy` propriété. Les valeurs possibles sont les suivante :
-    * `followWindow` - La toile de fond doit automatiquement apparaître active lorsque la fenêtre est active et inactive lorsqu’elle ne l’est pas. C’est la valeur par défaut.
-    * `active` - La toile de fond doit toujours apparaître active.
-    * `inactive` - La toile de fond doit toujours sembler inactive.
-  * `titleBarStyle` String (facultatif) - Le style de barre de titre de fenêtre. Par défaut est `default`. Les valeurs possibles sont les suivante :
+  * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
+  * `titleBarStyle` String (facultatif) - Le style de barre de titre de fenêtre. Par défaut est `default`. Possible values are:
     * `default` - Résultats dans la barre de titre standard de Mac opaque gris.
     * `Caché` - Résultats dans une barre de titre cachée et une fenêtre de contenu en pleine taille, encore la barre de titre a toujours les contrôles standards de la fenêtre ("feux de circulation") dans en haut à gauche.
     * `hiddenInset` - Résultats dans une barre de titre cachée avec un look alternatif où les boutons du feu de circulation sont légèrement plus insérables à partir du bord de la fenêtre.
@@ -227,7 +227,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 
 Lorsque l'on définie une taille minimum ou maximum pour la fenêtre avec `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, cela contraint les utilisateurs uniquement. Cela ne vous empêche pas de passer une taille qui ne suit pas les contraintes de tailles à `setBounds`/`setSize` ou au constructeur de `BrowserWindow`.
 
-Les valeurs et les comportements possibles de l’option `type` sont dépendants de la plate-forme. Les valeurs possibles sont les suivante :
+Les valeurs et les comportements possibles de l’option `type` sont dépendants de la plate-forme. Possible values are:
 
 * Sur Linux, les types possible sont `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * Sur macOS, les types possibles sont `desktop`, `textured`.
