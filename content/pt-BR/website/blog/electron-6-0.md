@@ -28,7 +28,7 @@ Grande parte da funcionalidade do Electron é fornecida pelos componentes princi
 
 Esta versão também inclui melhorias nas APIs do Electron. [As notas de lançamento](https://github.com/electron/electron/releases/tag/v6.0.0) têm uma lista mais completa, mas aqui estão os destaques:
 
-### Promisificação
+### Promisification
 
 Electron 6.0 continua a iniciativa de [modernização](https://github.com/electron/electron/blob/master/docs/api/modernization/promisification.md) iniciada em 5.0 para melhorar o suporte de [Promessa](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
 
