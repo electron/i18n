@@ -10,9 +10,7 @@ Electron pausiert vorübergehend wichtige Veröffentlichungen
 
 ## Was geschieht jetzt?
 
-Unser [Hauptrelease-Trittfrequenz-Zeitplan](https://www.electronjs.org/blog/12-week-cadence) bewegt sich im Lockstep mit dem von Chromium, und das Chromium-Projekt hat die jüngste Entscheidung getroffen, seine Veröffentlichungen aufgrund angepasster Arbeitszeitpläne</a>
-
-zu unterbrechen. Das bedeutet, dass Electron für die Dauer von Chromiums veränderter Kadenz auch vorübergehend neue Hauptversionen anhalten wird.</p> 
+Our [major release cadence schedule](https://www.electronjs.org/blog/12-week-cadence) moves in lockstep with that of Chromium, and the Chromium project has made the recent decision to [pause its releases](https://blog.chromium.org/2020/03/upcoming-chrome-releases.html) due to adjusted work schedules. Das bedeutet, dass Electron für die Dauer von Chromiums veränderter Kadenz auch vorübergehend neue Hauptversionen anhalten wird.
 
 Wir glauben, dass unsere beste Wahl darin besteht, Chromiums Fußstapfen zu folgen, und so wird sich das Electron-Team in der Zwischenzeit auf Vollzeit-Arbeit an Bugfixes, Sicherheit, Performance und Stabilität umstellen.
 
