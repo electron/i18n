@@ -89,7 +89,7 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 * `webContents` modifications de l'API :
     * Added a small console hint to console to help debug renderer crashes. [#25317](https://github.com/electron/electron/pull/25317)
     * Added `frame` and `webContents` properties to the details object in webRequest handlers. [#27334](https://github.com/electron/electron/pull/27334)
-    * Ajout `webContents.forcefullyCrashRenderer()` de mettre fin avec force à un processus de rendu pour aider à récupérer un renderer suspendu. [#25580](https://github.com/electron/electron/pull/25580)
+    * Added `webContents.forcefullyCrashRenderer()` to forcefully terminate a renderer process to assist with recovering a hung renderer. [#25580](https://github.com/electron/electron/pull/25580)
     * Added `setWindowOpenHandler` API for renderer-created child windows, and deprecate `new-window` event. [#24517](https://github.com/electron/electron/pull/24517)
 * `webFrame` API changes:
     * Added spellcheck API to renderer. [#25060](https://github.com/electron/electron/pull/25060)
