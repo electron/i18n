@@ -16,7 +16,7 @@ date: '2018-12-20'
 
 ### Отключение `удаленного` модуля
 
-Теперь у вас есть возможность отключить `remote` по соображениям безопасности. Модуль может быть отключен для `BrowserWindow`и для `webview` тегов:
+You now have the ability to disable the `remote` module for security reasons. Модуль может быть отключен для `BrowserWindow`и для `webview` тегов:
 
 ```javascript
 // BrowserWindow
@@ -117,11 +117,11 @@ Chromium больше не поддерживает macOS 10.9 (OS X Mavericks),
 
 <div class="table table-ruled table-full-width">
 
-| Недвижимость | Депрекации по умолчанию | Новые правила |
+| Property | Deprecated Default | New Default |
 |----------|--------------------|-------------|
-| 'контекстИзоляция' | «ложные» | "истинный" |
-| 'узелИнтеграция' | "истинный" | «ложные» |
-| 'webviewTag' | значение "узелинтеграции", если установить, в противном случае "истинный" | «ложные» |
+| `contextIsolation` | `false` | `true` |
+| `nodeIntegration` | `true` | `false` |
+| `webviewTag` | value of `nodeIntegration` if set, otherwise `true` | `false` |
 
 </div>
 
