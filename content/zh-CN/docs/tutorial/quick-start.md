@@ -120,7 +120,7 @@ app.on('window-all-closed', () => {
 
 #### 定义一个预加载脚本
 
-Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. 它允许你将特定的 API 和行为暴露到你的网页上，而不是危险地把整个 Node.js 的 API暴露。 在本例中，我们将使用预加载脚本从`process`对象读取版本信息，并用该信息更新网页。
+您的预加载脚本(在本例中是`preload.js` 文件)充当Node.js 和您的网页之间的桥梁。 它允许你将特定的 API 和行为暴露到你的网页上，而不是危险地把整个 Node.js 的 API暴露。 在本例中，我们将使用预加载脚本从`process`对象读取版本信息，并用该信息更新网页。
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
