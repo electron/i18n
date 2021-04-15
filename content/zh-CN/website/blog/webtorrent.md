@@ -74,7 +74,7 @@ WebTorrent 最令人兴奋的用途之一是同行协助。 [Wikipedia](https://
   <img alt="勇敢的徽标" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
 </a>
 
-我们也是 [勇敢的](https://brave.com/) 的巨大粉丝。 勇敢的浏览器会自动阻止广告和跟踪器使网页更快和更安全。 勇敢最近增加了洪流支持，所以你可以 [查看传统的洪流，而无需使用单独的应用程序](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/)。 此功能由 WebTorrent 提供动力。
+我们也是 [勇敢的](https://brave.com/) 的巨大粉丝。 勇敢的浏览器会自动阻止广告和跟踪器使网页更快和更安全。 Brave recently added torrent support, so you can [view traditional torrents without using a separate app](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/). 此功能由 WebTorrent 提供动力。
 
 因此，就像大多数浏览器可以渲染PDF文件一样，勇敢可以渲染磁力链接和种子文件。 它们只是浏览器本机支持的另一种内容。
 
