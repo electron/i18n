@@ -10,4 +10,4 @@
 
 **注意：** 如果 `JumpListCategory` 对象既没有 `type` 也没有 `name` 属性设置，则其 `type` 假定为 `tasks`。 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
 
-**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+**注意：** 跳列表项目 `description` 属性的最大长度为 260 个字符。 超过这个限制，当前项将不会被添加到跳转列表，也不会被展示。
