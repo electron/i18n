@@ -6,13 +6,13 @@
 
 Модуль `globalShortcut` может регистрировать/отменять регистрацию глобальных сочетаний клавиш, так что вы можете настраивать задачи для различных сочетаний клавиш.
 
-**Примечание:** Сочетания клавиш являются глобальными, они будут работать, даже если ваше приложение не акцентирует внимание на клавиатуре. Этот модуль не может быть использован `ready` до того, как будет излучается событие модуля приложения.
+**Примечание:** Сочетания клавиш являются глобальными, они будут работать, даже если ваше приложение не акцентирует внимание на клавиатуре. This module cannot be used before the `ready` event of the app module is emitted.
 
 ```javascript
-const { app, globalShortcut } требуют ('электрон')
+const { app, globalShortcut } = require('electron')
 
-app.whenReady ().,тогда ((()>
-  // Зарегистрируйте слушателя ярлыка 'CommandOrControl'X'.
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 Возвращает `Boolean` - было ли сочетание клавиш успешно зарегистрировано.
 
-Регистрирует глобальный ярлык `accelerator`. Имя `callback` , когда зарегистрированный ярлык нажат пользователем.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 Когда accelerator уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
@@ -61,7 +61,7 @@ app.on('will-quit', () => {
 * `accelerators` String[] - массив [Accelerator](accelerator.md).
 * `callback` Function
 
-Регистрирует глобальный ярлык всех `accelerator` в `accelerators`. Время `callback` , когда любой из зарегистрированных ярлыков нажат пользователем.
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
 Когда определенный accelerator уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
