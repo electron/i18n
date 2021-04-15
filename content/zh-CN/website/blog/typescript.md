@@ -10,7 +10,7 @@ date: '2017-06-01'
 
 TypeScript 是一种由Microsoft创建的开源编程语言。 它是 个通过添加对 静态类型的支持来扩展语言的 JavaScript 叠加集。 TypeScript 社区近年来迅速增长。 和 TypeScript 在 [最爱的编程语言](https://stackoverflow.com/insights/survey/2017#technology-most-loved-dreaded-and-wanted-languages) 中最近的堆栈溢出开发者调查。  TypeScript 被描述为 "JavaScript 缩放", 团队位于 [GitHub](https://githubengineering.com/how-four-native-developers-wrote-an-electron-app/), [Slack](https://slack.engineering/typescript-at-slack-a81307fa288d), 和 [Microsoft](https://github.com/Microsoft/vscode) 都用它来写成可缩放的 Electron 应用，由数以百万计的人使用 。
 
-TypeScript 支持 JavaScript 中的许多较新的语言功能，如 类，对象毁灭。 异步/等待，但其真正的解析 功能是 **类型注释**。 宣布程序预期的输入和输出数据类型可以通过 帮助您在编译时间发现错误来 [减少](https://slack.engineering/typescript-at-slack-a81307fa288d) 的错误，注释也可以作为 [程序如何](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html)工作的正式声明 。
+TypeScript 支持 JavaScript 中的许多较新的语言功能，如 类，对象毁灭。 异步/等待，但其真正的解析 功能是 **类型注释**。 Declaring the input and output datatypes expected by your program can [reduce bugs](https://slack.engineering/typescript-at-slack-a81307fa288d) by helping you find errors at compile time, and the annotations can also serve as a formal declaration of [how your program works](https://staltz.com/all-js-libraries-should-be-authored-in-typescript.html).
 
 当库写入原版 Javascript时，类型常常很模糊 定义为写文档时的事后思考。 函数通常可以 接受更多的类型，而不是文件记录的类型， 或者函数可能有隐藏的 约束，未被记录，因此可能导致运行时错误。
 
