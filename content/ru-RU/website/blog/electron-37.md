@@ -62,7 +62,7 @@ window.addEventListener('keydown', function(event) {
 
 ### События отклонения Обещания
 
-Chrome 49 добавил два новых `window` событий, которые позволяют вам быть уведомлены, когда отклонил [Обещание](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) идет без рук.
+Chrome 49 added two new `window` events that allow you to be notified when an rejected [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) goes unhandled.
 
 ```js
 window.addEventListener('unhandledrejection', function (event) {
