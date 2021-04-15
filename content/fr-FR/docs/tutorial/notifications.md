@@ -66,7 +66,7 @@ Le code et l’expérience utilisateur sur les différents systèmes d’exploit
 
 ### Windows
 
-* Sur Windows 10, un raccourci vers votre application avec un modèle d’identification utilisateur d’application [][app-user-model-id] doit être installé dans le menu Démarrer. Cela peut être overkill pendant le développement, donc ajouter `node_modules\electron\dist\electron.exe` à votre menu de démarrage fait aussi l'astuce . Naviguez vers le fichier dans l'explorateur, cliquez avec le bouton droit de la souris et 'Épingler pour démarrer le menu'. Vous devrez ensuite ajouter la ligne `app.setAppUserModelId(process.execPath)` à votre processus principal pour voir les notifications.
+* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Cela peut être overkill pendant le développement, donc ajouter `node_modules\electron\dist\electron.exe` à votre menu de démarrage fait aussi l'astuce . Naviguez vers le fichier dans l'explorateur, cliquez avec le bouton droit de la souris et 'Épingler pour démarrer le menu'. Vous devrez ensuite ajouter la ligne `app.setAppUserModelId(process.execPath)` à votre processus principal pour voir les notifications.
 * Sous Windows 8.1 et Windows 8, un raccourci vers votre application avec un [Utilisateur de l'application ID modèle][app-user-model-id] doit être installé sur l'écran de démarrage. Notez, cependant, qu’il n’a pas besoin d’être épinglée à l’écran de démarrage.
 * Sur Windows 7, les notifications fonctionnent via une implémentation personnalisée qui ressemble visuellement au natif sur les systèmes plus récents.
 
@@ -113,7 +113,6 @@ Les notifications sont envoyées à l'aide de `libnotify` qui permet l'affichage
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 
 [notification-spec]: https://developer.gnome.org/notification-spec/
-[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [set-app-user-model-id]: ../api/app.md#appsetappusermodelidid-windows
