@@ -4,17 +4,17 @@
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-> ⚠️警告⚠️ `remote` 模块</a>弃用。 而不是 `remote`，使用 [`ipcRenderer`](ipc-renderer.md) 和 [`ipcMain`](ipc-main.md)。</p> 
+> ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
 > 
-> 阅读更多关于为什么 `remote` 模块被弃用 [在这里](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
+> Read more about why the `remote` module is deprecated [here](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 > 
-> 如果您仍然想使用 `remote` 尽管性能和安全 的关注，请参阅 [@electron/远程](https://github.com/electron/remote)。</blockquote> 
-> 
-> ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
-> 
-> 在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ][rmi]。 <br>例如：从渲染进程创建浏览器窗口
-> 
-> ```javascript
+> 如果您仍然想使用 `remote` 尽管性能和安全 的关注，请参阅 [@electron/远程](https://github.com/electron/remote)。
+
+` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
+
+在Electron中, GUI 相关的模块 (如 ` dialog`、` menu ` 等) 仅在主进程中可用, 在渲染进程中不可用。 为了在渲染进程中使用它们, ` ipc ` 模块是向主进程发送进程间消息所必需的。 使用 ` remote ` 模块, 你可以调用 main 进程对象的方法, 而不必显式发送进程间消息, 类似于 Java 的 [ RMI ][rmi]。 <br>例如：从渲染进程创建浏览器窗口
+
+```javascript
 康斯特 { BrowserWindow } =需要（"电子"）。远程
 缺点赢=新的浏览器窗口（{ width: 800, height: 600 }）
 赢.com。
