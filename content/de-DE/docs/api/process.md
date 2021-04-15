@@ -1,16 +1,16 @@
 # process
 
-> Erweiterungen des Prozessobjekts.
+> Extensions to process object.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Das `process` Objekt von Electron wird vom [Node.js `process` -Objekt](https://nodejs.org/api/process.html)erweitert. Es fügt die folgenden Ereignisse, Eigenschaften und Methoden hinzu:
+Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
 ## Sandbox
 
-In Sandkasten-Renderern enthält das `process` -Objekt nur eine Teilmenge der APIs:
+In sandboxed renderers the `process` object contains only a subset of the APIs:
 
-- `absturz()`
+- `crash()`
 - `hang()`
 - `getCreationTime()`
 - `getHeapStatistics()`
@@ -20,24 +20,24 @@ In Sandkasten-Renderern enthält das `process` -Objekt nur eine Teilmenge der AP
 - `getSystemVersion()`
 - `getCPUUsage()`
 - `getIOCounters()`
-- `Argv`
+- `argv`
 - `execPath`
 - `env`
-- `Pid`
-- `Arch`
+- `pid`
+- `arch`
 - `plattform`
-- `Sandbox`
+- `sandboxed`
 - `type`
 - `version`
-- `Versionen`
-- `Mas`
+- `versions`
+- `mas`
 - `windowsStore`
 
 ## Ereignisse
 
-### Ereignis: 'geladen'
+### Event: 'loaded'
 
-Emittiert, wenn Electron sein internes Initialisierungsskript geladen hat und beginnt, die Webseite oder das Hauptskript zu laden.
+Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
 ## Eigenschaften
 
@@ -85,9 +85,9 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 A `String` representing the current process's type, can be:
 
-* `browser` - Der Hauptprozess
-* `renderer` - Ein Rendererprozess
-* `worker` - In einem Web-Worker
+* `browser` - The main process
+* `renderer` - A renderer process
+* `worker` - In a web worker
 
 ### `process.versions.chrome` _Readonly_
 
@@ -119,7 +119,7 @@ Indicates the creation time of the application. Die Zeit wird seit der Epoche al
 
 Returns [`CPUUsage`](structures/cpu-usage.md)
 
-### `process.getIOCounters()` _Windows_ _Linux-_
+### `process.getIOCounters()` _Windows_ _Linux_
 
 Returns [`IOCounters`](structures/io-counters.md)
 
@@ -127,13 +127,13 @@ Returns [`IOCounters`](structures/io-counters.md)
 
 Gibt das `Object` zurück:
 
-* `totalHeapSize` Ganzzahl
-* `totalHeapSizeExecutable` Ganzzahl
-* `totalPhysicalSize` Ganzzahl
-* `totalAvailableSize` Ganzzahl
-* `usedHeapSize` Ganzzahl
-* `heapSizeLimit` Ganzzahl
-* `mallocedMemory` Ganzzahl
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
