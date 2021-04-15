@@ -4,7 +4,7 @@ author: zeke
 date: '2017-11-13'
 ---
 
-Electron hat eine neue Webseite unter [electronjs.org](https://electronjs.org)! Wir haben unserer statischen Jekyll-Website durch einen Node.js-Webserver ersetzt, was uns die Flexibilität gibt, die Website zu internationalisieren und den Weg für aufregendere neue Funktionen zu ebnen.
+Electron hat eine neue Webseite unter [electronjs.org](https://electronjs.org)! We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
 
 ---
 
@@ -36,7 +36,7 @@ Derzeit sind 21 Sprachen für das Electron-Projekt auf Crowdin aktiviert. Das Hi
 
 ## Rohe übersetzte Docs
 
-Wenn Sie die Dokumentation lieber in unformatierten Markdowndateien lesen möchten, können Sie dies jetzt in jeder Sprache tun:
+If you prefer to read documentation in raw markdown files, you can now do that in any language:
 
 ```sh
 git clone https://github.com/electron/electron-i18n
@@ -82,7 +82,7 @@ Wir haben die Seite von electron.atom.io in eine neue Domäne verschoben: [elect
 
 Das Electron-Projekt wurde in [Atom](https://atom.io), GitHub Open-Source-Texteditor auf Web-Technologien aufgebaut. Electron wurde ursprünglich `Atom-Shell` genannt. Atom war die erste App, die es verwendet hat aber es dauerte nicht lange, bis die Leute erkannten, dass diese magische Chrom + Knotenlaufzeit für verschiedene Anwendungen verwendet werden konnte. Wenn Unternehmen wie Microsoft und Slack begonnen haben, `Atom-Shell zu nutzen`, Es wurde klar, dass das Projekt einen neuen Namen braucht.
 
-Und so wurde "Elektronik" geboren. Anfang 2016 stellte GitHub ein neues Team zusammen, das sich speziell auf die Entwicklung und Wartung von Elektronen konzentrieren soll, abgesehen von Atom. In der Zeit seitdem wurde Electron von Tausenden von App-Entwicklern adoptiert, und ist jetzt von vielen großen Unternehmen abhängig, von denen viele von ihnen haben Electron Teams von ihre eigenen.
+Und so wurde "Elektronik" geboren. In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In der Zeit seitdem wurde Electron von Tausenden von App-Entwicklern adoptiert, und ist jetzt von vielen großen Unternehmen abhängig, von denen viele von ihnen haben Electron Teams von ihre eigenen.
 
 Die Unterstützung von GitHub Electron Projekten wie Atom und [GitHub Desktop](https://desktop.github.com) ist für unser Team immer noch eine Priorität aber durch die Umstellung auf eine neue Domäne wollen wir helfen, die technische Unterscheidung zwischen Atom und Electron zu klären.
 
