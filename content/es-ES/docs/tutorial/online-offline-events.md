@@ -9,7 +9,7 @@ El atributo `navigator.onLine` devuelve:
 * `false` si todas la solicitudes de red están garantizada para fallar (p.ej. cuando se desconecta de la red).
 * `true` en todo los otros casos.
 
-Dado que muchos casos devuelven `true`, deberías tratar con situaciones de cuidado de obtener falsos positivos, ya que no siempre podemos suponer que `true` valor signifique que Electron pueda acceder a Internet. Por ejemplo, en casos cuando la computadora esta corriendo un programa de virtualización que tiene un adaptador Ethernet virtual en estado "siempre conectado". Por lo tanto, si quieres determinar el estado de la conexión a Internet de Electron, deberías desarrollar una manera adicional para comprobar esto.
+Since many cases return `true`, you should treat with care situations of getting false positives, as we cannot always assume that `true` value means that Electron can access the Internet. Por ejemplo, en casos cuando la computadora esta corriendo un programa de virtualización que tiene un adaptador Ethernet virtual en estado "siempre conectado". Por lo tanto, si quieres determinar el estado de la conexión a Internet de Electron, deberías desarrollar una manera adicional para comprobar esto.
 
 ## Ejemplo
 
