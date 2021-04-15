@@ -830,7 +830,7 @@ API 使用视窗注册表并在内部 `LSCopyDefaultHandlerForURLScheme` 。
 
 此方法的返回值表示你的应用程序实例是否成功取得了锁。  如果它取得锁失败，你可以假设另一个应用实例已经取得了锁并且仍旧在运行，并立即退出。
 
-即。 This method returns `true` if your process is the primary instance of your application and your app should continue loading.  如果当它返回 `false`如果你的程序没有取得锁，它应该立刻退出，并且将参数发送给那个已经取到锁的进程。
+即。 如果当前进程是应用程序的主要实例，则此方法返回`true`，同时你的应用会继续运行。  如果当它返回 `false`如果你的程序没有取得锁，它应该立刻退出，并且将参数发送给那个已经取到锁的进程。
 
 在 macOS 上, 当用户尝试在 Finder 中打开您的应用程序的第二个实例时, 系统会通过发出 ` open-file ` 和 ` open-url ` 事件来自动强制执行单个实例,。 但是当用户在命令行中启动应用程序时, 系统的单实例机制将被绕过, 您必须手动调用此方法来确保单实例。
 
@@ -875,7 +875,7 @@ if (!gotTheLock) {
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+释放所有由 `requestSingleInstanceLock` 创建的锁。 该方法将允许应用程序的多个实例再次并行运行。
 
 
 
@@ -905,7 +905,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+将当前 [Handoff][handoff] 用户活动标记为非活动，但不使其失效。
 
 
 
@@ -931,9 +931,9 @@ Marks the current [Handoff][handoff] user activity as inactive without invalidat
 
 * `policy` 字符串 - 可以是"常规的"，"附属的"或"禁止的"。
 
-Sets the activation policy for a given app.
+为给定应用设置激活策略。
 
-Activation policy types:
+激活策略类型：
 
 * "常规" - 该应用程序是一个普通的应用程序，显示在码头，可能有一个用户界面。
 * "附件" - 应用程序不显示在 Dock 中，也没有菜单栏，但可以通过编程激活或单击其中一个窗口。
@@ -963,7 +963,7 @@ Activation policy types:
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
+默认情况下, 如果 GPU 进程频繁崩溃, Chromium 会禁用 3D API (例如 WebGL) 直到在每个域的基础上重新启动。 这个函数会禁用该行为。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
@@ -971,7 +971,7 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
+返回 [`ProcessMetric[]`](structures/process-metric.md): 包含所有与应用相关的进程的内存和CPU的使用统计的 `ProcessMetric` 对象的数组。
 
 
 
@@ -979,7 +979,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**注意：** 此信息仅在 `gpu-info-update` 事件触发后才可用。
 
 
 
@@ -987,7 +987,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 * `infoType` 字符串 - 可以 `basic` 或 `complete`。
 
-Returns `Promise<unknown>`
+返回 ` Promise<unknown>`
 
 对于` infoType `等于` complete `： Promise 将包含所有GPU信息的` Object `正如 [ chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc)。 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
 
@@ -1033,9 +1033,9 @@ Returns `Promise<unknown>`
 
 返回 ` Boolean `-是否成功调用。
 
-Sets the counter badge for current app. Setting the count to `0` will hide the badge.
+为当前应用设置计数器角标。 将计数设置为 `0` 将隐藏角标。
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+在 macOS 上，它会在dock 图标上显示。 在 Linux 上，它只适用于 Unity 启动器。
 
 ** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ][unity-requirement]。
 
@@ -1129,13 +1129,13 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意：** 渲染访问权限树可能会严重影响您应用的性能。 默认情况下不应启用该功能。
 
 
 
 ### `应用程序。显示约面板（）`
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+显示应用程序的"关于"面板选项。 这些选项可以被 `app.setAboutPanelOptions(可选)` 所覆盖。
 
 
 
@@ -1151,9 +1151,9 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` 字符串（可选） _Linux_ - 应用程序的网站。
   * `iconPath` 字符串（可选） _Linux_ _视窗_ - 以JPEG或PNG文件格式访问应用程序的图标。 在 Linux 上，将显示为 64x64 像素，同时保留纵横比。
 
-设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on macOS. 更多详细信息, 请查阅 [ Apple 文档 ][about-panel-options]。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+设置 "关于" 面板选项。 这将覆盖应用程序在 macOS 上的 `.plist` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ][about-panel-options]。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
-If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
+如果您没有设置 `credits` 但仍希望在应用中显示它们，AppKit 将在 NSBundle 类的main方法返回的捆绑包中按顺序查找名为"Credits.html", "Credits.rtf"和"Credits.rtfd"的文件。 先找到的文件将被使用，如果未找到，则信息区域将留空。 有关更多信息，请参阅 Apple [文档](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) 。
 
 
 
@@ -1193,7 +1193,7 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 
 ### `应用程序。启用和框（）`
 
-在应用程序上启用完全沙盒模式。 This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+在应用程序上启用完全沙盒模式。 这意味着所有渲染器都将以沙盒的方式运行，无论 WebPreence 中 `sandbox` 标志的值是什么。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
@@ -1201,7 +1201,7 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 
 ### `app.isInApplicationsFolder()` _macOS_
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+返回 `Boolean` - 应用程序当前是否从系统应用程序文件夹运行。 与 `app.moveToApplicationsFolder()`一起使用
 
 
 
@@ -1211,13 +1211,13 @@ Returns `Boolean` - Whether the application is currently running from the system
     * `conflictHandler` 功能\<Boolean> （可选） - 移动失败中潜在冲突的处理程序。 
         * `conflictType` 字符串 - 处理程序遇到的移动冲突类型：可以是 `exists` 或 `existsAndRunning`，其中 `exists` 意味着同名的应用程序存在于应用程序目录中， `existsAndRunning` 意味着它的存在和它目前运行。
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+返回 `Boolean` - 移动是否成功。 请注意，如果移动成功，您的应用程序将退出并重新启动。
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+默认情况下不会显示确认对话框。 如果您希望允许用户确认操作，您可以使用[`dialog`](dialog.md) API 进行确认。
 
-**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 The message in the error should be informative and tell you exactly what went wrong.
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是翔实的，并告诉你到底是哪里出了问题。
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+默认情况下，如果应用程序目录中存在与被移动的应用同名的应用，并且 _未_ 运行，则已有应用将被丢弃，被移动的应用将顶替其位置。 如果它 _正在_ 运行，预先存在的运行应用程序将承担焦点，以前活动的应用程序将退出自己。 此行为可以通过提供可选的冲突处理器来更改，处理器返回的 boolean 将决定移动冲突是否通过默认行为得到解决。  即：返回 `false` 将确保不采取进一步行动，返回 `true` 将导致默认行为同时方法继续执行。
 
 例如：
 
@@ -1239,15 +1239,15 @@ By default, if an app of the same name as the one being moved exists in the Appl
 ```
 
 
-Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
+这意味着，如果应用已经存在于用户目录中，如果用户选择 '继续移动'，则该功能将继续其默认行为，现有应用将被丢弃，当前应用将移动到其位置。
 
 
 
 ### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
-Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+返回 `Boolean` - 是否启用 `Secure Keyboard Entry` 。
 
-By default this API will return `false`.
+默认情况下，此 API 将返回 `false`。
 
 
 
@@ -1255,13 +1255,13 @@ By default this API will return `false`.
 
 * `enabled` 布尔 - 启用或禁用 `Secure Keyboard Entry`
 
-Set the `Secure Keyboard Entry` is enabled in your application.
+在应用中启用 `Secure Keyboard Entry` 。
 
-By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+通过使用此 API，可以防止密码和其他敏感信息等重要信息被其他进程截获。
 
-See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+有关更多详细信息，请参阅[ apple 文档 ](https://developer.apple.com/library/archive/technotes/tn2150/_index.html)。
 
-**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+**注意：** 仅在需要时启用 `Secure Keyboard Entry` ，并在不再需要时禁用。
 
 
 
@@ -1277,7 +1277,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意：** 渲染访问权限树可能会严重影响您应用的性能。 默认情况下不应启用该功能。
 
 
 
