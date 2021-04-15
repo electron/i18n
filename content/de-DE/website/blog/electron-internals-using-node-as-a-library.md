@@ -1,5 +1,5 @@
 ---
-title: 'Elektroneninternal: Verwenden von Knoten als Bibliothek'
+title: 'Electron Internals: Using Node as a Library'
 author: zcbenz
 date: '2016-08-08'
 ---
@@ -32,15 +32,15 @@ Da Electron die mit Chromium ausgelieferte V8-Bibliothek verwendet, wird die V8-
 
 ## Gemeinsame Bibliothek oder statische Bibliothek
 
-Beim Verknüpfen mit Node gibt es zwei Optionen: Sie können Knoten entweder als statische Bibliothek erstellen und in die endgültige ausführbare Datei aufnehmen, oder Sie können sie als freigegebenen Bibliothek erstellen und sie zusammen mit der endgültigen ausführbaren Datei versenden.
+When linking with Node, there are two options: you can either build Node as a static library and include it in the final executable, or you can build it as a shared library and ship it alongside the final executable.
 
-In Electron wurde Node lange Zeit als statische Bibliothek gebaut. Dies machte die erstellen einfach, aktivierte die besten Compileroptimierungen und ermöglichte es, Dass Electron ohne zusätzliche `node.dll` -Datei verteilt werden konnte.
+In Electron wurde Node lange Zeit als statische Bibliothek gebaut. This made the build simple, enabled the best compiler optimizations, and allowed Electron to be distributed without an extra `node.dll` file.
 
 Dies änderte sich jedoch nach dem Wechsel von Chrome auf [BoringSSL](https://boringssl.googlesource.com/boringssl). BoringSSL ist ein Fork von [OpenSSL](https://www.openssl.org) das mehrere ungenutzte APIs entfernt und viele vorhandene Schnittstellen ändert. Da der Knoten immer noch OpenSSL verwendet, würde der Compiler zahlreiche Verknüpfungsfehler aufgrund widersprüchlicher Symbole erzeugen, wenn sie miteinander verknüpft würden.
 
 Electron konnte BoringSSL im Knoten nicht verwenden oder OpenSSL in Chromium, verwenden damit die einzige Option war, auf den Knoten als freigegebene Bibliothek zu wechseln, und [die BoringSSL und OpenSSL Symbole](https://github.com/electron/electron/blob/v1.3.2/common.gypi#L209-L218) in den einzelnen Komponenten verbergen.
 
-Diese Änderung brachte Electron einige positive Nebenwirkungen. Vor diesem ändern können Sie die ausführbare Datei von Electron unter Windows nicht umbenennen, wenn Sie native Module verwendet haben, da der Name der ausführbaren Datei in der Import-Bibliothek fest kodiert ist. Nachdem Node als freigegebene Bibliothek erstellt wurde, wurde diese Einschränkung , da alle systemeigenen Module mit `node.dll`verknüpft waren, deren Name nicht geändert werden musste.
+Diese Änderung brachte Electron einige positive Nebenwirkungen. Vor diesem ändern können Sie die ausführbare Datei von Electron unter Windows nicht umbenennen, wenn Sie native Module verwendet haben, da der Name der ausführbaren Datei in der Import-Bibliothek fest kodiert ist. After Node was built as a shared library, this limitation was gone because all native modules were linked to `node.dll`, whose name didn't need to be changed.
 
 ## Unterstütze native Module
 
