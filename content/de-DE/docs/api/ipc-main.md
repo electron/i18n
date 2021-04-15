@@ -1,63 +1,63 @@
 # ipcMain
 
-> Kommunizieren Sie asynchron vom Hauptprozess zu Rendererprozessen.
+> Communicate asynchronously from the main process to renderer processes.
 
 Prozess: [Main](../glossary.md#main-process)
 
-Das `ipcMain` -Modul ist ein [Event Emitter][event-emitter]. Bei Verwendung im Hauptprozess verarbeitet es asynchrone und synchrone Nachrichten, die von einem Renderer Prozess (Webseite) gesendet werden. Nachrichten, die von einem Renderer gesendet werden, werden an dieses -Modul gesendet.
+The `ipcMain` module is an [Event Emitter][event-emitter]. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
-## Senden von Nachrichten
+## Sending Messages
 
-Es ist auch möglich, Nachrichten vom Hauptprozess an den Renderer zu senden, Prozess zu senden, siehe [webContents.send][web-contents-send] für weitere Informationen.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send][web-contents-send] for more information.
 
 * Beim Senden einer Nachricht ist der Ereignisname der `channel`.
-* Um auf eine synchrone Nachricht zu antworten, müssen Sie `event.returnValue`festlegen.
-* Um eine asynchrone Nachricht an den Absender zurückzusenden, können Sie `event.reply(...)`verwenden.  Diese Hilfsmethode verarbeitet automatisch Nachrichten , die von Frames stammen, die nicht der Hauptframe sind (z. B. iframes), während `event.sender.send(...)` immer an den Hauptframe gesendet wird.
+* To reply to a synchronous message, you need to set `event.returnValue`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`.  This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
-Ein Beispiel für das Senden und Verarbeiten von Nachrichten zwischen dem Renderund und den wichtigsten Prozessen:
+An example of sending and handling messages between the render and main processes:
 
 ```javascript
-Im Hauptprozess.
+// In main process.
 const { ipcMain } = require('electron')
-ipcMain.on('asynchronous-message', (event, arg) => '
-  console.log(arg) / prints 'ping'
+ipcMain.on('asynchronous-message', (event, arg) => {
+  console.log(arg) // prints "ping"
   event.reply('asynchronous-reply', 'pong')
-')
+})
 
-ipcMain.on('synchrone-message', (event, arg
-
-  .log
-  > )
+ipcMain.on('synchronous-message', (event, arg) => {
+  console.log(arg) // prints "ping"
+  event.returnValue = 'pong'
+})
 ```
 
 ```javascript
-Im Renderer-Prozess (Webseite).
+// In renderer process (web page).
 const { ipcRenderer } = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) / prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
-ipcRenderer.on('asynchronous-reply', (event, arg) => '
-  console.log(arg) / prints "pong"
-
-
+ipcRenderer.on('asynchronous-reply', (event, arg) => {
+  console.log(arg) // prints "pong"
+})
+ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
 ## Methoden
 
-Das `ipcMain` -Modul verfügt über die folgende Methode zum Abhören von Ereignissen:
+The `ipcMain` module has the following method to listen for events:
 
-### `ipcMain.on(Kanal, Listener)`
+### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` -Funktion
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
-Hört `channel`, wenn eine neue Nachricht eintrifft, `listener` mit `listener(event, args...)`aufgerufen wird.
+Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
 
 ### `ipcMain.once(Kanal, Listener)`
 
 * `channel` String
-* `listener` -Funktion
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Fügt eine einmalige `listener` Funktion für das Ereignis hinzu. Diese `listene
 ### `ipcMain.removeListener(Kanal, Listener)`
 
 * `channel` String
-* `listener` -Funktion
+* `listener` Function
   * `...args` any[]
 
 Entfernt die angegebenen `listener` aus dem Listenerarray für die angegebene `channel`.
