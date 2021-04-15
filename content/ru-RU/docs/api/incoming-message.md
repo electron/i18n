@@ -18,7 +18,7 @@
 
 #### Событие: 'end'
 
-Указывает, что тело ответа закончилось. Должны быть размещены до события "данные".
+Указывает, что тело ответа закончилось. Must be placed before 'data' event.
 
 #### Событие: 'aborted'
 
@@ -46,13 +46,13 @@
 
 #### `response.headers`
 
-В `Record<string, string | string[]>` , представляющий заготовки ответов HTTP. Объект `headers` отформатирован следующим образом:
+A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
 
 * Все имена заголовков в нижнем регистре.
-* Отбрасываются дубликаты `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, или `user-agent` .
-* `set-cookie` всегда массив. В массив добавляются дубликаты.
-* Для дублирующих `cookie` головного заготовки значения объединяются с '; '.
-* Для всех остальных заготовок, ценности объединяются вместе с ','.
+* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
+* `set-cookie` is always an array. Duplicates are added to the array.
+* For duplicate `cookie` headers, the values are joined together with '; '.
+* For all other headers, the values are joined together with ', '.
 
 #### `response.httpVersion`
 
