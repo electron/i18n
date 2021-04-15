@@ -1426,7 +1426,7 @@ Retornos [`PrinterInfo[]`](structures/printer-info.md)
   * `header` String (opcional) - String a ser impresso como cabeçalho de página.
   * `footer` String (opcional) - String a ser impresso como rodapé de página.
   * | de cordas `pageSize` Tamanho (opcional) - Especifique o tamanho da página do documento impresso. Pode ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou um objeto contendo `height`.
-* função `callback` (opcional)
+* `callback` Function (optional)
   
     * `success` Boolean - Indica o sucesso da chamada de impressão.
   * `failureReason` String - Descrição do erro chamada de volta se a impressão falhar.
