@@ -43,7 +43,7 @@ Veja as [notas de lançamento 9.0.0](https://github.com/electron/electron/releas
 * Enviar objetos não-JavaScript sobre o IPC agora lança uma exceção. [#21560](https://github.com/electron/electron/pull/21560)
     * Este comportamento foi depreciado no Electron 8.0. No Electron 9.0, o antigo algoritmo de serialização foi removido, e enviar esses objetos não serializáveis agora lançará um erro de "objeto não pôde ser clonado".
 
-Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) .
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
 ## Alterações de API
 
