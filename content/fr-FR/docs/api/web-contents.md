@@ -1227,97 +1227,97 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `pageRanges` Objet[] (facultatif) - La plage de page à imprimer. Sur macOS, une seule plage est respectée.
     * `from` Number - Index de la première page à imprimer (0-based).
     * `to` numéro - Index de la dernière page à imprimer (inclusivement) (0-based).
-  * `duplexMode` String (facultatif) - Réglez le mode duplex de la page Web imprimée. Peut être `simplex`, `shortEdge`, ou `longEdge`.
-  * `dpi` record<string, number> (facultatif)
-    * `horizontal` numéro (facultatif) - Le dpi horizontal.
-    * `vertical` numéro (facultatif) - Le dpi vertical.
-  * `header` String (facultatif) - Chaîne à imprimer comme en-tête de page.
-  * `footer` String (facultatif) - Chaîne à imprimer en tant que pied de page.
-  * `pageSize` String | Taille (facultatif) - Spécifiez la taille de la page du document imprimé. Peut être `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou un objet contenant `height`.
+  * `duplexMode` String (facultatif) - Réglez le mode duplex de la page Web imprimée. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `callback` Function (facultatif)
-  * `success` Boolean - Indique le succès de l’appel d’impression.
-  * `failureReason` String - Description des erreurs rappelée en cas d’échec de l’impression.
+  * `success` Boolean - Indicates success of the print call.
+  * `failureReason` String - Error description called back if the print fails.
 
-Lorsqu’un `pageSize` personnalisé est adopté, chrome tente de valider des valeurs minimales spécifiques à la plate-forme pour `width_microns` et `height_microns`. La largeur et la hauteur doivent être d’au moins 353 microns, mais peuvent être plus élevées sur certains systèmes d’exploitation.
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
 
-Imprime la page Web de window. Lorsque `silent` est défini sur `true`, Electron choisira l’imprimante par défaut du système si `deviceName` est vide et les paramètres par défaut pour l’impression.
+Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
-Utilisez `page-break-before: always;` style CSS pour forcer l’impression sur une nouvelle page.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 Exemple d'utilisation :
 
 ```js
-options const = {
-  silencieux: vrai,
+const options = {
+  silent: true,
   deviceName: 'My-Printer',
   pageRanges: [{
     from: 0,
     to: 1
   }]
 }
-win.webContents.print(options, (succès, errorType) => {
-  if (!success) console.log (errorType)
+win.webContents.print(options, (success, errorType) => {
+  if (!success) console.log(errorType)
 })
 ```
 
 #### `contents.printToPDF(options)`
 
 * `options` objet
-  * `headerFooter` record<string, string> (facultatif) - l’en-tête et le pied pour le PDF.
-    * `title` String - Le titre de l’en-tête PDF.
-    * `url` String - l’url pour le pied PDF.
-  * `landscape` Boolean (facultatif) - `true` pour le paysage, `false` pour le portrait.
-  * `marginsType` Integer (facultatif) - Spécifie le type de marges à utiliser. Utilise 0 pour marge par défaut, 1 pour aucune marge, et 2 pour la marge minimale.
-  * `scaleFactor` numéro (facultatif) - Le facteur d’échelle de la page Web. Peut varier de 0 à 100.
-  * `pageRanges` enregistrement<string, number> (facultatif) - La plage de page à imprimer.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `scaleFactor` numéro (facultatif) - Le facteur d’échelle de la page Web. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
     * `from` Number - Index de la première page à imprimer (0-based).
     * `to` numéro - Index de la dernière page à imprimer (inclusivement) (0-based).
-  * `pageSize` String | Taille (facultatif) - Spécifiez la taille de la page du PDF généré. Peut être `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou un objet contenant des `height` et `width` dans les microns.
-  * `printBackground` Boolean (facultatif) - S’il est d’imprimer des arrière-plans CSS.
-  * `printSelectionOnly` Boolean (facultatif) - Que ce soit pour imprimer la sélection seulement.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
-Retours `Promise<Buffer>` - Se résout avec les données PDF générées.
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
-Imprime la page Web de window en PDF avec l’aperçu de Chrome imprimant des paramètres personnalisés.
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
-Le `landscape` sera ignoré si `@page` CSS at-rule est utilisé dans la page Web.
+The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
-Par défaut, un `options` vide sera considéré comme :
+By default, an empty `options` will be regarded as:
 
 ```javascript
 {
   marginsType: 0,
-  printBackground: faux,
-  printSelectionAutout: faux, paysage
-  : faux, page
-  Size: 'A4',
+  printBackground: false,
+  printSelectionOnly: false,
+  landscape: false,
+  pageSize: 'A4',
   scaleFactor: 100
 }
 ```
 
-Utilisez `page-break-before: always;` style CSS pour forcer l’impression sur une nouvelle page.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Un exemple de `webContents.printToPDF`:
+An example of `webContents.printToPDF`:
 
 ```javascript
-const { BrowserWindow } = require ('electron')
-const fs = require ('fs')
-const path = require ('path')
-const os = require ('os')
+const { BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require('path')
+const os = require('os')
 
-const win = new BrowserWindow ({ width: 800, height: 600 })
-win.loadURL ('http://github.com
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com')
 
-win.webContents.on ('did-finish-load', () => {
-  // Utilisez les options d’impression par défaut
+win.webContents.on('did-finish-load', () => {
+  // Use default printing options
   win.webContents.printToPDF({}).then(data => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
-    fs.writeFile (pdfPath, données, (erreur) => {
-      si (erreur) lancer l’erreur
-      console.log ('Wrote PDF avec succès à ${pdfPath}')
+    fs.writeFile(pdfPath, data, (error) => {
+      if (error) throw error
+      console.log(`Wrote PDF successfully to ${pdfPath}`)
     })
-  }).catch (erreur => { console
-    .log ('N' pas écrit PDF à ${pdfPath}: ', erreur)
+  }).catch(error => {
+    console.log(`Failed to write PDF to ${pdfPath}: `, error)
   })
 })
 ```
@@ -1326,10 +1326,10 @@ win.webContents.on ('did-finish-load', () => {
 
 * `path` String
 
-Ajoute le chemin spécifié à l’espace de travail DevTools. Doit être utilisé après devtools création:
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
-const { BrowserWindow } = require ('electron')
+const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
@@ -1340,47 +1340,47 @@ win.webContents.on('devtools-opened', () => {
 
 * `path` String
 
-Supprime le chemin spécifié de l’espace de travail DevTools.
+Removes the specified path from DevTools workspace.
 
-#### `content.setDevToolsWebContents (devToolsWebContents)`
+#### `contents.setDevToolsWebContents(devToolsWebContents)`
 
 * `devToolsWebContents` WebContents
 
-Utilise le `devToolsWebContents` comme cible pour `WebContents` montrer des devtools.
+Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
 
-Le `devToolsWebContents` n’a pas dû faire de navigation, et il ne doit pas être utilisé à d’autres fins après l’appel.
+The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
 
-Par défaut Electron gère les devtools en créant une `WebContents` interne avec vue native, dont les développeurs ont un contrôle très limité. Avec la méthode `setDevToolsWebContents` , les développeurs peuvent utiliser n’importe quelle `WebContents` pour afficher les devtools en elle, y compris `BrowserWindow`, `BrowserView` et `<webview>` tag.
+By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
 
-Notez que la fermeture des devtools ne détruit pas le `devToolsWebContents`, il est la responsabilité de l’appelant de détruire `devToolsWebContents`.
+Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
 
-Un exemple de démonstration de devtools dans une `<webview>` étiquette :
+An example of showing devtools in a `<webview>` tag:
 
 ```html
 <html>
 <head>
   <style type="text/css">
-    * { marge: 0; }
-    #browser { hauteur: 70%; }
-    #devtools { hauteur: 30%; }
+    * { margin: 0; }
+    #browser { height: 70%; }
+    #devtools { height: 30%; }
   </style>
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { ipcRenderer } = require ('electron')
-    const emittedOnce = (element, eventName) => new Promise (resolve => {
-      element.addEventListener (eventName, événement => resolve (event), { once: true })
+    const { ipcRenderer } = require('electron')
+    const emittedOnce = (element, eventName) => new Promise(resolve => {
+      element.addEventListener(eventName, event => resolve(event), { once: true })
     })
-    const browserView = document.getElementById ('browser')
-    const devtoolsView = document.getElementById ('devtools')
-    const browserReady = emittedOnce (browserView , 'dom-ready')
-    const devtoolsReady = emittedOnce (devtoolsView, 'dom-ready')
-    Promise.all([browserReady, devtoolsReady]).then()) => {
+    const browserView = document.getElementById('browser')
+    const devtoolsView = document.getElementById('devtools')
+    const browserReady = emittedOnce(browserView, 'dom-ready')
+    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
+    Promise.all([browserReady, devtoolsReady]).then(() => {
       const targetId = browserView.getWebContentsId()
       const devtoolsId = devtoolsView.getWebContentsId()
-      ipcRenderer.send ('open-devtools', targetId, devtoolsId)
+      ipcRenderer.send('open-devtools', targetId, devtoolsId)
     })
   </script>
 </body>
@@ -1388,29 +1388,29 @@ Un exemple de démonstration de devtools dans une `<webview>` étiquette :
 ```
 
 ```js
-Processus principal
-const { ipcMain, webContents } = require ('electron')
-ipcMain.on ('open-devtools', (événement, targetContentsId, devtoolsContentsId) => {
-  const target = webContents.fromId (targetContentsId)
-  const devtools = webContents.fromId (devtoolsContentsId)
-  target.setDevToolsWebContents (devtools)
+// Main process
+const { ipcMain, webContents } = require('electron')
+ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
+  const target = webContents.fromId(targetContentsId)
+  const devtools = webContents.fromId(devtoolsContentsId)
+  target.setDevToolsWebContents(devtools)
   target.openDevTools()
 })
 ```
 
-Un exemple de démonstration de devtools dans un `BrowserWindow`:
+An example of showing devtools in a `BrowserWindow`:
 
 ```js
-const { app, BrowserWindow } = require ('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 let devtools = null
 
-app.whenReady().then()=> {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   devtools = new BrowserWindow()
-  win.loadURL ('https://github.com')
-  win.webContents.setDevToolsWebContents (devtools.webContents)
+  win.loadURL('https://github.com')
+  win.webContents.setDevToolsWebContents(devtools.webContents)
   win.webContents.openDevTools({ mode: 'detach' })
 })
 ```
@@ -1419,7 +1419,7 @@ app.whenReady().then()=> {
 
 * `options` objet (facultatif)
   * `mode` String - Ouvre les devtools avec l’état de dock spécifié, peut être `right`, `bottom`, `undocked`, `detach`. Défauts pour durer l’état de dock utilisé. En mode `undocked` , il est possible de s’amarrer en arrière. En mode `detach` ce n’est pas le cas.
-  * `activate` Boolean (facultatif) - S’il y a à apporter la fenêtre ouverte les dévtools au premier plan. La valeur par défaut `true`.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. La valeur par défaut `true`.
 
 Ouvre les devtools.
 
@@ -1448,45 +1448,45 @@ Active/désactive les outils développeur.
 
 Commence à inspecter l’élément en position (`x`, `y`).
 
-#### `content.inspectSharedWorker()`
+#### `contents.inspectSharedWorker()`
 
-Ouvre les outils de développement pour le contexte de travail partagé.
+Opens the developer tools for the shared worker context.
 
-#### `content.inspectSharedWorkerById (workerId)`
+#### `contents.inspectSharedWorkerById(workerId)`
 
 * `workerId` String
 
-Inspecte le travailleur partagé en fonction de sa pièce d’identité.
+Inspects the shared worker based on its ID.
 
-#### `content.getAllSharedWorkers()`
+#### `contents.getAllSharedWorkers()`
 
-Retours [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Informations sur tous les travailleurs partagés.
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
 
 #### `contents.inspectServiceWorker()`
 
-Ouvre les outils de développement pour le contexte des travailleurs de service.
+Opens the developer tools for the service worker context.
 
-#### `contents.send(canal, ... args)`
+#### `contents.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Envoyez un message asynchrone au processus de rendu via `channel`, ainsi que arguments. Les arguments seront sérialisés avec le [Structured Clone Algorithm][SCA], tout comme [`postMessage`][], de sorte que les chaînes prototypes ne seront pas incluses. L’envoi de fonctions, de promesses, de symboles, de weakmaps ou de weaksets de lancer une exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. L’envoi de fonctions, de promesses, de symboles, de weakmaps ou de weaksets de lancer une exception.
 
-> **NOTE**: L’envoi de types JavaScript non standard tels que les objets DOM ou objets électroniques spéciaux jettera une exception.
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
-Le processus de rendu peut gérer le message en écoutant `channel` avec le module [`ipcRenderer`](ipc-renderer.md) .
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Un exemple d’envoi de messages du processus principal au processus de rendu :
+An example of sending messages from the main process to the renderer process:
 
 ```javascript
 // Dans le processus main.
-const { app, BrowserWindow } = require ('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
-app.whenReady().then()) => {
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadURL ('file://${__dirname}/index.html')
+  win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('ping', 'whoooooooh!')
   })
@@ -1498,43 +1498,43 @@ app.whenReady().then()) => {
 <html>
 <body>
   <script>
-    require ('electron').ipcRenderer.on('ping', (événement, message) => { console
-      .log (message) // Imprime 'whoooooooh!'
+    require('electron').ipcRenderer.on('ping', (event, message) => {
+      console.log(message) // Prints 'whoooooooh!'
     })
   </script>
 </body>
 </html>
 ```
 
-#### `contents.sendToFrame (frameId, canal, ... args)`
+#### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer | [nombre, nombre] - l’ID du cadre à envoyer, ou une paire de de `[processId, frameId]` si le cadre est dans un processus différent de la cadre principal.
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` String
 * `...args` any[]
 
-Envoyez un message asynchrone à un cadre spécifique dans un processus de rendu via `channel`, ainsi que des arguments. Les arguments seront sérialisés avec le [Structured Clone Algorithm][SCA], tout comme [`postMessage`][], de sorte que les prototypes ne seront pas inclus. L’envoi de fonctions, de promesses, de symboles, de cartes faibles les faibles ensembles jettera une exception.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **REMARQUE :** l’envoi de types JavaScript non standard tels que les objets DOM ou objets électroniques spéciaux jettera une exception.
 
-Le processus de rendu peut gérer le message en écoutant `channel` avec le module [`ipcRenderer`](ipc-renderer.md) .
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Si vous souhaitez obtenir la `frameId` d’un contexte de rendu donné, vous devez utiliser la `webFrame.routingId` valeur.  Exemple :
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Exemple :
 
 ```js
-Dans un processus de rendu
-console.log ('My frameId is:', require ('electron').webFrame.routingId)
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-Vous pouvez également lire les `frameId` de tous les messages IPC entrants dans le processus principal.
+You can also read `frameId` from all incoming IPC messages in the main process.
 
 ```js
-Dans le processus principal
-ipcMain.on ('ping', (événement) => {
-  console.info ('Message est venu de frameId:', event.frameId)
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
 })
 ```
 
-#### `content.postMessage (canal, message, [transfer])`
+#### `contents.postMessage(channel, message, [transfer])`
 
 * `channel` String
 * `message` tous
@@ -1547,9 +1547,9 @@ Les objets `MessagePortMain` transférés seront disponibles dans le processus d
 Par exemple :
 
 ```js
-Processus principal
-const { port1, port2 } = nouveau MessageChannelMain()
-webContents.postMessage ('port', { message: 'hello' }, [port1])
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.postMessage('port', { message: 'hello' }, [port1])
 
 // Renderer process
 ipcRenderer.on('port', (e, msg) => {
@@ -1560,13 +1560,13 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` objet
-  * `screenPosition` String - Spécifiez le type d’écran pour émuler (par défaut: `desktop`):
-    * `desktop` - Type d’écran de bureau.
-    * `mobile` - Type d’écran mobile.
-  * `screenSize` [taille](structures/size.md) - Définir la taille de l’écran émulé (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - Placez la vue sur l’écran (screenPosition == mobile) (par défaut: `{ x: 0, y: 0 }`).
-  * `deviceScaleFactor` Integer - Définissez le facteur d’échelle de l’appareil (si zéro défaut facteur d’échelle de l’appareil d’origine) (par défaut : `0`).
+* `parameters` Object
+  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
+    * `desktop` - Desktop screen type.
+    * `mobile` - Mobile screen type.
+  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
+  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
   * `viewSize` [taille](structures/size.md) - Définir la taille de vue imitée (vide signifie pas de remplacement)
   * `scale` Float - Échelle de vue imitée à l’intérieur de l’espace disponible (pas en forme mode de vue) (par défaut: `1`).
 
@@ -1589,52 +1589,52 @@ Envoie une entrée `event` à la page. **Note:** Le [`BrowserWindow`](browser-wi
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Commencez à vous abonner pour des événements de présentation et des cadres capturés, le `callback` sera appelé avec `callback(image, dirtyRect)` lorsqu’il y aura une présentation événement.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-Le `image` est un exemple de [NativeImage](native-image.md) stocke le cadre capturé.
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-Le `dirtyRect` est un objet avec `x, y, width, height` propriétés que décrit quelle partie de la page a été repeinte. Si `onlyDirty` est configuré `true`, `image` ne contiendra que la zone repeinte. `onlyDirty` par défaut à `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` par défaut à `false`.
 
 #### `contents.endFrameSubscription()`
 
-Fin de l’abonnement pour les événements de présentation de cadre.
+End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` objet
-  * `file` String[] | Chaîne - Le chemin (s) vers le fichier (s) étant traîné.
-  * `icon` [NativeImage](native-image.md) | Chaîne - L’image doit être non vide sur macOS.
+* `item` Object
+  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
-Définit le `item` comme élément de dragage pour l’opération de chute de traînée en cours, `file` est le chemin absolu du fichier à traîner, et `icon` est l’image montrant sous le curseur lors du dragage.
+Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `content.savePage (fullPath, saveType)`
+#### `contents.savePage(fullPath, saveType)`
 
-* `fullPath` String - Le chemin de fichier complet.
-* `saveType` String - Spécifiez le type d’enregistrer.
-  * `HTMLOnly` - Enregistrer uniquement le HTML de la page.
-  * `HTMLComplete` - Enregistrer la page html complet.
-  * `MHTML` - Enregistrez la page html complète sous le nom de MHTML.
+* `fullPath` String - The full file path.
+* `saveType` String - Specify the save type.
+  * `HTMLOnly` - Save only the HTML of the page.
+  * `HTMLComplete` - Save complete-html page.
+  * `MHTML` - Save complete-html page as MHTML.
 
-Renvoie `Promise<void>` - se résout si la page est enregistrée.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
-const { BrowserWindow } = require ('electron')
+const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-win.loadURL ('https://github.com')
+win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', async () => {
-  win.webContents.savePage ('/tmp/test.html', 'HTMLComplete').then()=> { console
-    .log ('Page a été enregistrée avec succès.')
-  }).catch (erreur => {
-    console.log (erreur)
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```
 
 #### `contents.showDefinitionForSelection()` _macOS_
 
-Affiche le dictionnaire pop-up qui recherche le mot sélectionné sur la page.
+Shows pop-up dictionary that searches the selected word on the page.
 
 #### `contents.isOffscreen()`
 
@@ -1675,8 +1675,8 @@ Retours `String` - Renvoie la politique de traitement ip webRTC.
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
 * `policy` String - Spécifiez la politique de traitement ip webRTC.
-  * `default` - Expose les adresses publiques et locales de l’utilisateur. C’est le comportement par défaut. Lorsque cette politique est utilisée, WebRTC a le droit d’énumérer toutes les interfaces et de les lier à la découverte d’interfaces publiques.
-  * `default_public_interface_only` - Expose la propriété intellectuelle publique de l’utilisateur, mais n' exposer la propriété intellectuelle locale de l’utilisateur. Lorsque cette stratégie est utilisée, WebRTC ne doit utiliser l’itinéraire par défaut utilisé par http. Cela n’expose aucune adresse locale.
+  * `default` - Expose les adresses publiques et locales de l’utilisateur. C’est le comportement par défaut. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. Cela n’expose aucune adresse locale.
   * `default_public_and_private_interfaces` - Expose les adresses publiques et locales de l' iPs. Lorsque cette stratégie est utilisée, WebRTC ne doit utiliser l’itinéraire par défaut utilisé par http. Cela expose également l’adresse privée par défaut associée. La par défaut est l’itinéraire choisi par l’OS sur un point d’évaluation multi-accueil.
   * `disable_non_proxied_udp` - N’expose pas les adresses publiques ou locales. Lorsque cette stratégie est utilisée, WebRTC ne doit utiliser TCP que pour contacter des pairs ou des serveurs à moins que serveur proxy ne prend en charge UDP.
 
