@@ -38,7 +38,7 @@ Aqui estão alguns dos recursos que fizeram com que Algolia se encaixe bem no pr
 
 ## API Docs
 
-Às vezes você sabe *o que* você quer realizar, mas você não sabe exatamente *como* fazê-lo. O Electron tem mais de 750 métodos, eventos e propriedades da API. Nenhum humano se recorda de todos eles, mas os computadores são bons nessas coisas. Usando a [documentação da API JSON do Electron](https://electronjs.org/blog/api-docs-json-schema), indexamos todos esses dados no Algolia, E agora você pode encontrar facilmente a API exata que está procurando.
+Sometimes you know *what* you want to accomplish, but you don't know exactly *how* to do it. O Electron tem mais de 750 métodos, eventos e propriedades da API. Nenhum humano se recorda de todos eles, mas os computadores são bons nessas coisas. Usando a [documentação da API JSON do Electron](https://electronjs.org/blog/api-docs-json-schema), indexamos todos esses dados no Algolia, E agora você pode encontrar facilmente a API exata que está procurando.
 
 Tentando redimensionar uma janela? Pesquisar por [`redimensionar`] e pular direto para o método que você precisa.
 
