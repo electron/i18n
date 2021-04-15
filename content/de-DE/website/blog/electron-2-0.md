@@ -35,7 +35,7 @@ Electron 2.0.0 stellt auch eine Verbesserung dar, wie Electron vor einer größe
  * Füge die Möglichkeit hinzu, beliebige Argumente in einem Renderer-Prozess zu setzen. [#11850](https://github.com/electron/electron/pull/11850)
  * Zubehöransicht für Formatauswahl hinzufügen. [#11873](https://github.com/electron/electron/pull/11873)
  * Fixed network delegierte Race-Bedingung. [#12053](https://github.com/electron/electron/pull/12053)
- * Unterstützen Sie `mips64el` unter Linux. Electron benötigt die Werkzeugkette C++14, die zum Zeitpunkt der Veröffentlichung für diesen Bogen nicht verfügbar war. Wir hoffen, die Unterstützung in Zukunft wieder hinzuzufügen.
+ * Unterstützen Sie `mips64el` unter Linux. Electron requires the C++14 toolchain, which was not available for that arch at the time of the release. Wir hoffen, die Unterstützung in Zukunft wieder hinzuzufügen.
 
 ## API-Änderungen brechen
 
