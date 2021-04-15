@@ -23,7 +23,7 @@ date: '2015-11-05'
 
 ## Автоматическое обновление Windows
 
-В Electron `v0.34.1` `auto-updater` был улучшен для работы с [`Squirrel.Windows`](https://github.com/Squirrel/Squirrel.Windows). Это означает, что Electron поддерживает простые способы автоматического обновления вашего приложения на ОС X и Windows. Вы можете прочитать больше о [настройке вашего приложения для автоматического обновления на Windows](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) в документации.
+In Electron `v0.34.1` the `auto-updater` module was improved in order to work with [`Squirrel.Windows`](https://github.com/Squirrel/Squirrel.Windows). Это означает, что Electron поддерживает простые способы автоматического обновления вашего приложения на ОС X и Windows. Вы можете прочитать больше о [настройке вашего приложения для автоматического обновления на Windows](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) в документации.
 
 Связанный Pull Request: [electron/electron#1984](https://github.com/electron/electron/pull/1984)
 
