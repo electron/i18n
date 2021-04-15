@@ -1,4 +1,4 @@
-# Janela sem moldura
+# Frameless Window
 
 > Abra uma janela sem barra de ferramentas, bordas ou outros elementos gráficos do "Chrome".
 
@@ -70,9 +70,9 @@ win.show()
 * On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac, the native window shadow will not be shown on a transparent window.
 
-## Janela click-through
+## Click-through window
 
-Para criar uma janela de cliques, ou seja, fazer com que a janela ignore todos os eventos de do mouse, você pode chamar o [win.setIgnoreMouseEvents(ignorar)][ignore-mouse-events] API:
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -80,55 +80,55 @@ const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Encaminhamento
+### Forwarding
 
-Ignorar mensagens do mouse torna a página da Web alheia ao movimento do mouse, o que significa que os eventos de movimento do mouse não serão emitidos. Nos sistemas operacionais Windows, um parâmetro opcional pode ser usado para encaminhar mensagens de movimento do mouse para a página da Web, permitindo que eventos como `mouseleave` sejam emitidos:
+Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
 
 ```javascript
-const { ipcRenderer } = require ('electron')
-const el = document.getElementById ('clickThroughElement')
-el.addEventListener ('mouseenter', () => {
-  ipcRenderer.send ('set-ignore-mouse-events', true, { forward: true })
+const { ipcRenderer } = require('electron')
+const el = document.getElementById('clickThroughElement')
+el.addEventListener('mouseenter', () => {
+  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
 })
-el.addEventListener ('mouseleave', () => {
-  ipcRenderer.send ('set-ignore-mouse-events', false)
+el.addEventListener('mouseleave', () => {
+  ipcRenderer.send('set-ignore-mouse-events', false)
 })
 
-// Processo principal
-const { ipcMain } = require ('electron')
-ipcMain.on ('set-ignore-mouse-events', (evento, ... args) => {
-  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(... args)
+// Main process
+const { ipcMain } = require('electron')
+ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
+  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
 })
 ```
 
-Isso faz com que a página da Web clique quando `el`e retorna ao normal fora dela.
+This makes the web page click-through when over `el`, and returns to normal outside it.
 
-## Região arrastada
+## Draggable region
 
-Por padrão, a janela sem moldura é não-arrastada. Os aplicativos precisam especificar `-webkit-app-region: drag` em CSS para dizer ao Electron quais regiões são arrastadas (como a barra de título padrão do SISTEMA OPERACIONAL), e os aplicativos também podem usar `-webkit-app-region: no-drag` para excluir a área não-arrastada da região arrastada. Observe que apenas formas retangulares são suportadas no momento.
+By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
-Nota: `-webkit-app-region: drag` é conhecido por ter problemas enquanto as ferramentas do desenvolvedor estão abertas. Veja este [problema do GitHub](https://github.com/electron/electron/issues/3647) para obter mais informações, incluindo uma solução alternativa.
+Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 
-Para tornar toda a janela arrastada, você pode adicionar `-webkit-app-region: drag` como estilo `body`:
+To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
 
 ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-E note que se você fez toda a janela arrastável, você também deve marcar botões como não-arrastados, caso contrário, seria impossível para os usuários clicar em -los:
+And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
 
 ```css
-botão {
-  -webkit-app-região: no-drag;
+button {
+  -webkit-app-region: no-drag;
 }
 ```
 
-Se você está apenas definindo uma barra de título personalizada como draggable, você também precisa fazer todos os botões na barra de títulos não-draggable.
+If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
-## Seleção de texto
+## Text selection
 
-Em uma janela sem moldura, o comportamento de arrasto pode entrar em conflito com a seleção de texto. Por exemplo, quando você arrasta a barra de títulos, você pode selecionar acidentalmente o texto na a barra de títulos. Para evitar isso, você precisa desativar a seleção de texto dentro de uma área arrastada como esta:
+In a frameless window the dragging behavior may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 
 ```css
 .titlebar {
@@ -137,8 +137,8 @@ Em uma janela sem moldura, o comportamento de arrasto pode entrar em conflito co
 }
 ```
 
-## Menu de contexto
+## Context menu
 
-Em algumas plataformas, a área de arrasto será tratada como um quadro não-cliente, de modo quando você clicar com o botão direito do mouse nele, um menu do sistema aparecerá. Para tornar o menu de contexto se comportar corretamente em todas as plataformas, você nunca deve usar um menu de contexto personalizado em áreas arrastadas.
+On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
 
 [ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
