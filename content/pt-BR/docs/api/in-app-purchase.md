@@ -1,63 +1,63 @@
 # inAppPurchase
 
-> Compras no aplicativo na Mac App Store.
+> In-app purchases on Mac App Store.
 
 Processo: [Main](../glossary.md#main-process)
 
 ## Eventos
 
-O módulo `inAppPurchase` emite os seguintes eventos:
+The `inAppPurchase` module emits the following events:
 
-### Evento: 'atualizado em transações'
+### Event: 'transactions-updated'
 
-Emitido quando uma ou mais transações foram atualizadas.
+Emitted when one or more transactions have been updated.
 
 Retorna:
 
 * `event` Event
-* `transactions` Transaction[] - Matriz de objetos [`Transaction`](structures/transaction.md) .
+* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
 ## Métodos
 
-O módulo `inAppPurchase` tem os seguintes métodos:
+The `inAppPurchase` module has the following methods:
 
-### `inAppPurchase.purchaseProduct (productID[, quantidade])`
+### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
-* `productID` String - Os identificadores do produto para compra. (O identificador de `com.example.app.product1` é `product1`).
-* `quantity` Inteiro (opcional) - O número de itens que o usuário deseja comprar.
+* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `quantity` Integer (optional) - The number of items the user wants to purchase.
 
-Devolução `Promise<Boolean>` - Devoluções `true` se o produto for válido e adicionado à fila de pagamento.
+Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
-Você deve ouvir o evento `transactions-updated` o mais rápido possível e certamente antes de chamar `purchaseProduct`.
+You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
 
-### `inAppPurchase.getProducts (productIDs)`
+### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - Os identificadores dos produtos para obter.
+* `productIDs` String[] - The identifiers of the products to get.
 
-Devoluções `Promise<Product[]>` - Resolve com uma matriz de objetos [`Product`](structures/product.md) .
+Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Recupera as descrições do produto.
+Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Devoluções `Boolean` - se um usuário pode fazer um pagamento.
+Returns `Boolean` - whether a user can make a payment.
 
-### `inAppPurchase.restoreTransactionscompletedTransactions()`
+### `inAppPurchase.restoreCompletedTransactions()`
 
-Restaura transações concluídas. Este método pode ser chamado para instalar compras em dispositivos adicionais ou para restaurar compras para um aplicativo que o usuário excluiu e reinstalou.
+Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
 
-[A fila de pagamento](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) oferece uma nova transação para cada transação previamente concluída que pode ser restaurada. Cada transação inclui uma cópia da transação original.
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Devoluções `String` - o caminho para o recebimento.
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completa todas as transações pendentes.
+Completes all pending transactions.
 
-### `inAppPurchase.finishTransactionByDate(data)`
+### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - A data formatada da transação para finalizar.
+* `date` String - The ISO formatted date of the transaction to finish.
 
-Completa as transações pendentes correspondentes à data.
+Completes the pending transactions corresponding to the date.
