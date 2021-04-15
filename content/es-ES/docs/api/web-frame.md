@@ -247,6 +247,6 @@ Un `WebFrame | null` que representa el siguiente frame hermano, la propiedad deb
 
 ### `webFrame.routingId` _Readonly_
 
-Una `Integer` que representa el ID de trama único en el proceso de representador actual. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
