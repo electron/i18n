@@ -92,14 +92,14 @@ Veraltete ServiceWorker-APIs auf WebContent in Vorbereitung auf deren Entfernung
 * `webContents.unregisterServiceWorker`
 
 ### Automatische Module mit Sandbox WebContent
-Um die Sicherheit zu verbessern, werden die folgenden Module für den Einsatz direkt über `require` veraltet und müssen stattdessen über `remote.require` in ein Sandkasten-Webcontents aufgenommen werden:
+In order to improve security, the following modules are being deprecated for use directly via `require` and will instead need to be included via `remote.require` in a sandboxed webcontents:
 * `elektron.screen`
 * `child_process`
 * `fs`
 * `os`
 * `path`
 
-## webFrame Isolierte Welt-APIs
+## webFrame Isolated World APIs
 `webFrame.setIsolatedWorldContentSecurityPolicy`,`webFrame.setIsolatedWorldHumanReadableName`, `webFrame.setIsolatedWorldSecurityOrigin` wurden zugunsten `webFrame.setIsolatedWorldWorldInfo` veraltet.
 
 ### Gemischte Sandbox
@@ -111,7 +111,7 @@ Nach unserer [unterstützten Versionsrichtlinie](https://electronjs.org/docs/tut
 
 ## App Feedback Programm
 
-Wir verwenden weiterhin unser [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) für Tests. Projekte, die an diesem Programm teilnehmen, testen Electron-Betas auf ihren Apps; und im Gegenzug werden die neuen Fehler, die sie finden, für die stabile Veröffentlichung priorisiert. Wenn Sie teilnehmen möchten oder mehr erfahren möchten, [sich unseren Blogbeitrag über das Programm](https://electronjs.org/blog/app-feedback-program).
+Wir verwenden weiterhin unser [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) für Tests. Projekte, die an diesem Programm teilnehmen, testen Electron-Betas auf ihren Apps; und im Gegenzug werden die neuen Fehler, die sie finden, für die stabile Veröffentlichung priorisiert. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
 
 ## Was ist als Nächstes
 
