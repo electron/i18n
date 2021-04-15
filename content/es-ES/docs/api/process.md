@@ -139,7 +139,7 @@ Devuelve `Objecto`:
 
 Devuelve un objeto con estadísticas de la pila V8. Tome en cuenta que todas las estadísticas son reportadas en Kilobytes.
 
-### `Process. getBlinkMemoryInfo ()`
+### `process.getBlinkMemoryInfo()`
 
 Devuelve `Objecto`:
 
