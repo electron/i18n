@@ -531,7 +531,7 @@ Retorna:
 
 * `event` Event
 * `type` Cordas
-* `image` [NativeImage](native-image.md) (opcional)
+* `image` [NativeImage](native-image.md) (optional)
 * `scale` Float (opcional) - fator de escala para o cursor personalizado.
 * `size` [Tamanho](structures/size.md) (opcional) - do tamanho do `image`.
 * `hotspot` [Point](structures/point.md) (opcional) - coordenadas do hotspot do cursor personalizado.
@@ -2014,7 +2014,7 @@ Retorna `Integer` - A `pid` interna do Cromo do renderizador associado. Pode ser
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Caminho para o arquivo de saída.
+* `filePath` String - Path to the output file.
 
 Devoluções `Promise<void>` - Indica se o snapshot foi criado com sucesso.
 
