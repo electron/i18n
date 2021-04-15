@@ -5,16 +5,16 @@
 Vous pouvez utiliser [app.commandLine.appendSwitch][append-switch] pour l'ajouter au script principal de votre application avant que l'événement [ready][ready] du module [app][app] soit émis :
 
 ```javascript
-const { app } = require ('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch ('host-rules', 'MAP * 127.0.0.1')
+app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.whenReady().then()=> {
-  // Votre code ici
+app.whenReady().then(() => {
+  // Your code here
 })
 ```
 
-## Drapeaux CLI électroniques
+## Electron CLI Flags
 
 ### --auth-server-whitelist=`url`
 
@@ -30,11 +30,11 @@ puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appli
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-Une liste de serveurs séparés par virgule pour lesquels une délégation d’informations d’identification utilisateur est requise. Sans le préfixe `*` l'URL doit correspondre exactement.
+A comma-separated list of servers for which delegation of user credentials is required. Sans le préfixe `*` l'URL doit correspondre exactement.
 
-### --désactiver-ntlm-v2
+### --disable-ntlm-v2
 
-Désactive NTLM v2 pour les plates-formes posix, aucun effet ailleurs.
+Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ### --disable-http-cache
 
@@ -56,7 +56,7 @@ Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 ### --enable-api-filtering-logging
 
-Permet à l’appelant de cumuler les API suivantes (événements de filtrage) :
+Enables caller stack logging for the following APIs (filtering events):
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -85,7 +85,7 @@ Par exemple :
 
 * `MAP * 127.0.0.1` Force tous les noms d'hôtes à être mappés à 127.0.0.1
 * `MAP *.google.com proxy` Force tous les sous-domaines google.com à être résolus en "proxy".
-* `MAP test.com [::1]:77` Forces « test.com » à résoudre à IPv6 loopback. Forcera également le port de l’adresse de prise résultante à 77.
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Remappe tout à "baz", sauf pour "www.google.com".
 
 Ces mappages s'appliquent à l'hôte ciblé dans une requête réseau (le résolveur de connexion et d'hôte TCP dans une connexion directe, et l'hôte `CONNECT` dans une connexion avec proxy HTTP, et l'hôte du point terminal dans une connexion proxy `SOCKS`).
@@ -181,19 +181,19 @@ Electron prend en charge certains des [drapeaux CLI][node-cli] pris en charge pa
 
 **Remarque :** Le passage d'options de ligne de commande non supportées n'aura aucun effet lorsque Electron ne s'exécute pas en mode `ELECTRON_RUN_AS_NODE`.
 
-### --inspect-brk[=[hôte:]port]
+### --inspect-brk[=[host:]port]
 
 Activate inspector on host:port and break at start of user script. Configuration par défaut pour host:port 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
-### --inspect-port=[hôte:]port
+### --inspect-port=[host:]port
 
 Set the `host:port` to be used when the inspector is activated. Utile lors de l’activation de l’inspecteur en envoyant le signal SIGUSR1. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
-### --inspecter[=[hôte:]port]
+### --inspect[=[host:]port]
 
 Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
