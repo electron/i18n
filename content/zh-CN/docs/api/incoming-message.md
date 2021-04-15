@@ -18,7 +18,7 @@
 
 #### Event: 'end'
 
-指示响应正文已结束。 必须在"数据"事件之前放置。
+指示响应正文已结束。 Must be placed before 'data' event.
 
 #### Event: 'aborted'
 
@@ -46,13 +46,13 @@
 
 #### `response.headers`
 
-代表 HTTP 响应标题的 `Record<string, string | string[]>` 。 `headers` 对象 格式如下：
+A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
 
 * 所有的头文件名是小写的。
-* 丢弃 `age`、 `authorization`、 `content-length`、 `content-type`、 `etag`、 `expires`、 `from`、 `host`、 `if-modified-since`、 `if-unmodified-since`、 `last-modified`、 `location`、 `max-forwards`、 `proxy-authorization`、 `referer`、 `retry-after`、 `server`、 `user-agent` 。
-* `set-cookie` 始终是一个阵列。 将重复添加到阵列中。
-* 对于重复的 `cookie` 标题，将值与"连接在一起" ：'.
-* 对于所有其他标题，这些值与"，""连接在一起。
+* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
+* `set-cookie` is always an array. Duplicates are added to the array.
+* For duplicate `cookie` headers, the values are joined together with '; '.
+* For all other headers, the values are joined together with ', '.
 
 #### `response.httpVersion`
 
