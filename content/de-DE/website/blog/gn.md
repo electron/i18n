@@ -28,7 +28,7 @@ Wenn Sie eine App mit Electron entwickeln, gibt es ein paar kleinere Änderungen
 
 # Was das für Electron bedeutet
 
-GN ist [schneller](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) als GYP und seine Dateien sind besser lesbar und beobobunterbar. Darüber hinaus hoffen wir, dass die Verwendung eines einzigen Build-Konfigurationssystems die Arbeit verringern wird, die benötigt wird, um Electron auf neue Chromium-Versionen zu aktualisieren.
+GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. Darüber hinaus hoffen wir, dass die Verwendung eines einzigen Build-Konfigurationssystems die Arbeit verringern wird, die benötigt wird, um Electron auf neue Chromium-Versionen zu aktualisieren.
 
  * Es ist bereits bei der Entwicklung von Electron 4.0.0 erheblich geholfen, da Chromium 67 die Unterstützung für MSVC entfernt und mit Clang unter Windows auf Build umgestellt wurde. Mit dem GN Build, erben wir alle Compiler-Befehle von Chromium direkt, so dass wir die Clang Build auf Windows kostenlos!
 
