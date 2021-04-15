@@ -2,15 +2,15 @@
 
 Начиная с версии 0.34.0, Electron позволяет отправлять упакованные приложения в Mac App Store (MAS). В этом руководстве содержится информация о том, как отправить ваше приложение и о ограничениях сборки MAS.
 
-**Примечание:** Отправка приложения на Mac App Store требует регистрации в [apple Developer программе][developer-program], которая стоит денег.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program][developer-program], which costs money.
 
 ## Как отправить приложение
 
-Следующие шаги представляют собой простой способ отправить ваше приложение в Mac App Store. Однако эти шаги не гарантируют, что ваше приложение будет одобрено Apple; Вам еще нужно прочитать руководство Apple по отправке [App][submitting-your-app] о том как соответствовать требованиям Mac App Store.
+Следующие шаги представляют собой простой способ отправить ваше приложение в Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
 
 ### Получить сертификат
 
-Чтобы отправить ваше приложение в Mac App Store, вы должны получить сертификат от Apple. Вы можете следить за [существующими][nwjs-guide] в Интернете.
+Чтобы отправить ваше приложение в Mac App Store, вы должны получить сертификат от Apple. You can follow these [existing guides][nwjs-guide] on web.
 
 ### Получить Team ID
 
@@ -20,7 +20,7 @@
 
 После завершения подготовительной работы вы можете упаковать ваше приложение, подписавшись на [Распределение приложений](application-distribution.md), и переходите к подписанию вашего приложения.
 
-Во-первых, вы должны добавить `ElectronTeamID` ключ к веб- `Info.plist`приложения, имеет свой идентификатор команды в качестве его значения:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -84,11 +84,11 @@
 И затем подпишите ваше приложение следующим сценарием:
 
 ```sh
-Вопрос!/bin/bash
+#!/bin/bash
 
-- Имя вашего приложения.
-АПП "YourApp"
-- Путь вашего приложения для подписания.
+# Name of your app.
+APP="YourApp"
+# The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
 # Путь к местоположению, которое вы хотите поставить подписанный пакет.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -116,9 +116,9 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST"$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-Если вы только что в приложении песочнице под macOS, вы также должны прочитать Apple [Включение App Sandbox][enable-app-sandbox] иметь основную идею, а затем добавить ключи для разрешений, необходимых для вашего приложения на права файлов.
+If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox][enable-app-sandbox] to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
 
-Помимо ручной подписи приложения, вы также можете использовать [-osx-sign][electron-osx-sign] для работы.
+Apart from manually signing your app, you can also choose to use the [electron-osx-sign][electron-osx-sign] module to do the job.
 
 #### Нативные модули подписи
 
@@ -128,15 +128,15 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Также обратите внимание на то, что родные модули могут иметь промежуточные файлы, которые не должны быть включены в (а также их нужно подписать). Если вы используете [-пакет][electron-packager] до версии 8.1.0, `--ignore=.+\.o$` к шагу сборки, чтобы игнорировать эти файлы. Версии 8.1.0 и позже игнорировать эти файлы по умолчанию.
+Также обратите внимание на то, что родные модули могут иметь промежуточные файлы, которые не должны быть включены в (а также их нужно подписать). If you use [electron-packager][electron-packager] before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Версии 8.1.0 и позже игнорировать эти файлы по умолчанию.
 
 ### Загрузите приложение
 
-После подписания приложения вы можете использовать App Loader для загрузки в iTunes Connect для обработки, убедившись, что вы [создали запись][create-record] перед загрузкой.
+After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
 
 ### Отправить ваше приложение на проверку
 
-После этих шагов вы можете [приложение для просмотра][submit-for-review].
+After these steps, you can [submit your app for review][submit-for-review].
 
 ## Ограничения сборки MAS
 
@@ -151,7 +151,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * Некоторые функции специальных возможностей могут не работать.
 * Приложения не будут знать о изменениях DNS.
 
-Кроме того, из-за использования приложения песочнице, ресурсы, которые могут быть доступны приложение строго ограничены; Вы можете прочитать [App Sandboxing][app-sandboxing] для дополнительной информации.
+Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing][app-sandboxing] for more information.
 
 ### Дополнительные права
 
@@ -173,7 +173,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-Более подробную информацию [можно получить в][network-access] ,6 доступа к сети.
+See the [Enabling Network Access documentation][network-access] for more details.
 
 #### dialog.showOpenDialog
 
@@ -182,7 +182,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-Более подробную информацию [можно получить в][user-selected] , ,  пользователь выбрал доступ к файлам.
+See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
 #### dialog.showSaveDialog
 
@@ -191,11 +191,11 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 <true/>
 ```
 
-Более подробную информацию [можно получить в][user-selected] , ,  пользователь выбрал доступ к файлам.
+See the [Enabling User-Selected File Access documentation][user-selected] for more details.
 
 ## Криптографические алгоритмы, которые использует Electron
 
-В зависимости от стран, в которых вы выпускаете ваше приложение, вам может понадобиться для предоставления информации о криптографических алгоритмах, используемых в вашем программном обеспечении. Для получения дополнительной [можно получить документы об][export-compliance] соответствии шифрованию.
+В зависимости от стран, в которых вы выпускаете ваше приложение, вам может понадобиться для предоставления информации о криптографических алгоритмах, используемых в вашем программном обеспечении. See the [encryption export compliance docs][export-compliance] for more information.
 
 Electron использует следующие криптографические алгоритмы:
 
