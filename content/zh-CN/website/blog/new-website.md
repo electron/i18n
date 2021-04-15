@@ -4,7 +4,7 @@ author: zeke
 date: '2017-11-13'
 ---
 
-Electron 有一个新网站在 [electronjs.org](https://electronjs.org)！ 我们已经用节点.js网络服务器取代了 静态的 Jekyll 网站，使我们能够灵活地 网站国际化，并为更令人兴奋的新功能铺平道路。
+Electron 有一个新网站在 [electronjs.org](https://electronjs.org)！ We've replaced our static Jekyll site with a Node.js webserver, giving us flexibility to internationalize the site and paving the way for more exciting new features.
 
 ---
 
@@ -19,7 +19,7 @@ Electron 有一个新网站在 [electronjs.org](https://electronjs.org)！ 我�
   </a>
 </figure>
 
-尽管我们迄今一直在静默地开展这项努力， 超过 75 个Electron 社区成员已经有机地发现了项目 个项目，并参与了网站国际化的努力，以及 将Electron的文档翻译为20多种语言。 我们看到 [每天 来自世界各地的人们](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) 捐款，法语、越南语、印度尼西亚语和汉语等 语言的翻译引领潮流。
+尽管我们迄今一直在静默地开展这项努力， 超过 75 个Electron 社区成员已经有机地发现了项目 个项目，并参与了网站国际化的努力，以及 将Electron的文档翻译为20多种语言。 We are seeing [daily contributions](https://github.com/electron/electron-i18n/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aglotbot%20) from people all over the world, with translations for languages like French, Vietnamese, Indonesian, and Chinese leading the way.
 
 要选择您的语言并查看翻译进度，请访问 [electronjs.org/languages](https://electronjs.org/languages)
 
@@ -36,7 +36,7 @@ Electron 有一个新网站在 [electronjs.org](https://electronjs.org)！ 我�
 
 ## 原始翻译文档
 
-如果您喜欢阅读原始标记文件中的文档，您现在 可以使用任何语言阅读文档：
+If you prefer to read documentation in raw markdown files, you can now do that in any language:
 
 ```sh
 git clone https://github.com/electron/electron-i18n
@@ -82,7 +82,7 @@ macOS 的 [Homebrew](https://brew.sh) 软件包管理器有一个叫做 [cask](h
 
 Electron 项目生于 [Atom](https://atom.io), GitHub的开源文本编辑器 建立在网页技术上。 Electron 原来叫做 `atom-shell`。 Atom 是第一个使用它的应用。 但民间并不需要很长时间才能认识到 这个神奇的 Chromium + 节点运行时间可以用于各种不同的 应用程序。 当像Microsoft 和 Slack这样的公司开始使用 `atom-shell`, 项目显然需要一个新名称。
 
-所以“电子”诞生了。 2016 年初，GitHub 组建了一个新的团队，将 重点放在电子开发和维护上，除了 Atom。 自那时以来的 段时间里，Electron 已被成千上万的应用开发人员所采用，现在许多大公司都依赖电子 ，其中许多公司都有电子团队 自己的团队。
+所以“电子”诞生了。 In early 2016, GitHub assembled a new team to focus specifically on Electron development and maintenance, apart from Atom. In the time since, Electron has been adopted by thousands of app developers, and is now depended on by many large companies, many of which have Electron teams of their own.
 
 支持 GitHub 的 Electron 项目，例如Atom 和 [GitHub 桌面](https://desktop.github.com) 仍然是我们团队的 优先事项。 但通过移到一个新域，我们希望帮助澄清 Atom和 Electron之间的技术区别。
 
