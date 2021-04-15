@@ -1,4 +1,4 @@
-# 网络控制
+# webContents
 
 > 渲染以及控制 web 页面
 
@@ -571,49 +571,49 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
     * `isLooping` 布尔 - 媒体元素是否循环。
     * `isControlsVisible` 布尔 - 媒体元素的控制是否 可见。
     * `canToggleControls` 布尔 - 媒体元素的控制是否 可切换。
-    * `canRotate` 布尔 - 媒体元素是否可以旋转。
-  * `editFlags` 对象 - 这些标志指示渲染器是否认为它 能够执行相应的操作。
-    * `canUndo` 布尔 - 渲染者是否相信它可以撤消。
-    * `canRedo` 布尔 - 渲染器是否相信它可以重道。
-    * `canCut` 布尔 - 渲染器是否相信它可以切割。
-    * `canCopy` 布尔 - 渲染器是否相信它可以复制
-    * `canPaste` 布尔 - 渲染器是否相信它可以粘贴。
-    * `canDelete` 布尔 - 渲染器是否相信它可以删除。
-    * `canSelectAll` 布尔 - 渲染器是否相信它可以选择所有。
+    * `canRotate` Boolean - Whether the media element can be rotated.
+  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
+    * `canUndo` Boolean - Whether the renderer believes it can undo.
+    * `canRedo` Boolean - Whether the renderer believes it can redo.
+    * `canCut` Boolean - Whether the renderer believes it can cut.
+    * `canCopy` Boolean - Whether the renderer believes it can copy
+    * `canPaste` Boolean - Whether the renderer believes it can paste.
+    * `canDelete` Boolean - Whether the renderer believes it can delete.
+    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
 
-当需要处理新的上下文菜单时发出。
+Emitted when there is a new context menu that needs to be handled.
 
 #### 事件: 'select-bluetooth-device'
 
 返回:
 
 * `event` Event
-* `devices` [蓝牙德维奇[]](structures/bluetooth-device.md)
+* `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function
   * `deviceId` String 设备Id
 
-当蓝牙设备需要随叫随到地选择 `navigator.bluetooth.requestDevice`时发出。 要使用 `navigator.bluetooth` 应启用 api `webBluetooth` 。 如果不调用 `event.preventDefault` ，将选择 第一个可用的设备。 应使用要选择的 `deviceId` 呼叫`callback` ，将空字符串传递给 `callback` 将 取消请求。
+Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
-康斯特 { app, BrowserWindow } =要求（'电子'）
+const { app, BrowserWindow } = require('electron')
 
-让赢=空
-应用程序.命令线.附录开关（'启用-实验-Web平台-功能'）
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
-应用程序。当阅读 然后=> {
-  赢=新浏览器窗口（{ width: 800, height: 600 }）
-  赢。 设备列表，回调）=> {
-    事件。防止故障（）
-    结果=设备列表。find（设备）=> {
-      返回设备。设备名== ="测试"
-    }）
-    如果（！结果）{
-      回调（'）
-    }否则{
-      回调（结果。设备）
+app.whenReady().then(() => {
+  win = new BrowserWindow({ width: 800, height: 600 })
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+    event.preventDefault()
+    const result = deviceList.find((device) => {
+      return device.deviceName === 'test'
+    })
+    if (!result) {
+      callback('')
+    } else {
+      callback(result.deviceId)
     }
-  } ）
-}）
+  })
+})
 ```
 
 #### Event: 'paint'
@@ -622,18 +622,18 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [原生图像](native-image.md) - 整个帧的图像数据。
+* `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
-生成新帧时发出。 只有脏区域在 缓冲区通过。
+Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
 ```javascript
-康斯特 { BrowserWindow } =要求（"电子"）
+const { BrowserWindow } = require('electron')
 
-持续赢=新的浏览器窗口（{webPrefers： { offscreen: true } }）
-赢。 （事件，肮脏，图像）=> =
-  //更新比特图（脏，图像。获取比特图）
-}）
-赢.com。
+const win = new BrowserWindow({ webPreferences: { offscreen: true } })
+win.webContents.on('paint', (event, dirty, image) => {
+  // updateBitmap(dirty, image.getBitmap())
+})
+win.loadURL('http://github.com')
 ```
 
 #### Event: 'devtools-reload-page'
@@ -645,21 +645,21 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 返回:
 
 * `event` Event
-* `webPreferences` WebPrefers - 访客 页面使用的 Web 首选项。 可以修改此对象以调整客人 页面的首选项。
-* `params` 记录<string, string> - 其他 `<webview>` 参数，如 `src` URL。 可以修改此对象以调整访客页面的参数。
+* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
-当 `<webview>`的web内容附加到此web 内容时发出。 呼叫 `event.preventDefault()` 将破坏访客页面。
+Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
-此事件可用于在加载之前为 `<webview>` `webContents` 配置 `webPreferences` ，并提供设置无法通过 `<webview>` 属性设置的设置 的能力。
+This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
-**注：** 指定的 `preload` 脚本选项将显示为 `preloadURL` （不是 `preload`）在 `webPreferences` 对象中发出此事件。
+**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
 #### Event: 'did-attach-webview'
 
 返回:
 
 * `event` Event
-* `webContents` 网络内容 - `<webview>`使用的嘉宾网络内容。
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 当`<webview>`被挂载到页面内容中时，触发该事件。
 
@@ -668,34 +668,24 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 返回:
 
 * `event` Event
-* `level` 整数 - 日志级别，从 0 到 3。 为了它匹配 `verbose`， `info`， `warning` 和 `error`。
+* `level` Integer - The log level, from 0 to 3. 为了它匹配 `verbose`， `info`， `warning` 和 `error`。
 * `message` 字符串 - 实际控制台消息
-* `line` 整数 - 触发此控制台消息的源的行数
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
-当关联窗口记录控制台消息时发出。
+Emitted when the associated window logs a console message.
 
-#### 事件："预加载错误"
+#### Event: 'preload-error'
 
 返回:
 
 * `event` Event
-* `preloadPath` 字符串
+* `preloadPath` String
 * `error` Error
 
-当预加载脚本 `preloadPath` 抛出一个未处理的异常 `error`时发出。
+Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
 
-#### 活动： "ipc 消息"
-
-返回:
-
-* `event` Event
-* `channel` String
-* `...args` any[]
-
-当渲染器过程通过 `ipcRenderer.send()`发送异步消息时发出。
-
-#### 活动："ipc-消息同步"
+#### Event: 'ipc-message'
 
 返回:
 
@@ -703,7 +693,17 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 * `channel` String
 * `...args` any[]
 
-当渲染器过程通过 `ipcRenderer.sendSync()`发送同步消息时发出。
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+
+#### Event: 'ipc-message-sync'
+
+返回:
+
+* `event` Event
+* `channel` String
+* `...args` any[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
 #### 事件: 'desktop-capturer-get-sources'
 
@@ -711,7 +711,7 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 
 * `event` Event
 
-在渲染器过程中调用 `desktopCapturer.getSources()` 时发出。 呼叫 `event.preventDefault()` 将使其返回空源。
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. 呼叫 `event.preventDefault()` 将使其返回空源。
 
 #### 事件： "remote-require" _弃用_
 
@@ -720,7 +720,7 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 * `event` IpcMainEvent
 * `moduleName` String
 
-在渲染器过程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `remote.require()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
 #### 事件： "remote-get-global" _弃用_
 
@@ -729,7 +729,7 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 * `event` IpcMainEvent
 * `globalName` String
 
-在渲染器过程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
 #### 事件： "remote-get-builtin" _弃用_
 
@@ -738,7 +738,7 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 * `event` IpcMainEvent
 * `moduleName` String
 
-在渲染器过程中调用 `remote.getBuiltin()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
 #### 事件： "remote-get-current-window" _弃用_
 
@@ -746,7 +746,7 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 
 * `event` IpcMainEvent
 
-在渲染器过程中调用 `remote.getCurrentWindow()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
 #### 事件： "remote-get-current-web-contents" _弃用_
 
@@ -754,18 +754,18 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 
 * `event` IpcMainEvent
 
-在渲染器过程中调用 `remote.getCurrentWebContents()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### 活动："首选尺寸更改"
+#### Event: 'preferred-size-changed'
 
 返回:
 
 * `event` Event
-* `preferredSize` [大小](structures/size.md) - 包含文档布局所需的最小尺寸-无需滚动。
+* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
 
-当 `WebContents` 首选尺寸发生变化时发出。
+Emitted when the `WebContents` preferred size has changed.
 
-只有当 `enablePreferredSizeMode` 定于 `webPreferences`年 `true` 时，才会发出这一事件。
+This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
 
 ### 实例方法
 
@@ -775,18 +775,18 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 * `options` Object (可选)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
-  * `extraHeaders` 字符串（可选） - 由"\n"分开的额外标题。
+  * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` （[上传数据]](structures/upload-raw-data.md) | [上传文件[]](structures/upload-file.md)）（可选）
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
-返回 `Promise<void>` - 当页面完成加载 时，承诺将解决（见 [`did-finish-load`](web-contents.md#event-did-finish-load)），如果页面无法加载，则拒绝 （见 [`did-fail-load`](web-contents.md#event-did-fail-load)）。 已经附加了noop拒绝处理程序，从而避免了未处理的拒绝错误。
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
-在窗口中加载 `url` 。 `url` 必须包含协议前缀， 例如 `http://` 或 `file://`。 如果负载应绕过http缓存，则 使用 `pragma` 头来实现它。
+Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
 ```javascript
-康斯特 { webContents } = 需要 （"电子"）
-缺点选项 = { 额外标题： "普拉格玛： 无缓存\n" =
-网络康滕茨. loadurl （"# "# / github .com"， 选项）
+const { webContents } = require('electron')
+const options = { extraHeaders: 'pragma: no-cache\n' }
+webContents.loadURL('https://github.com', options)
 ```
 
 #### `contents.loadFile(filePath[, options])`
@@ -799,7 +799,7 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 
 返回 `Promise<void>` - 当页面完成加载 时，承诺将解决（见 [`did-finish-load`](web-contents.md#event-did-finish-load)），如果页面无法加载，则拒绝 （见 [`did-fail-load`](web-contents.md#event-did-fail-load)）。
 
-在窗口中加载给定文件， `filePath` 应该是一个路径，以 一个HTML文件相对于您的应用程序的根源。  例如， 这样的应用结构：
+Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
 ```sh
 | root
@@ -819,19 +819,19 @@ win.loadFile('src/index.html')
 
 * `url` String
 
-无需导航即可在 `url` 启动资源下载。 将触发 `session` 的 `will-download` 事件。
+Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
 #### `contents.getURL()`
 
 Returns `String` - 当前页面的URL.
 
 ```javascript
-康斯特 { BrowserWindow } =要求（"电子"）
-赢=新浏览器窗口（{ width: 800, height: 600 }
-.log
-  ）
-赢
-  > .com。
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com').then(() => {
+  const currentURL = win.webContents.getURL()
+  console.log(currentURL)
+})
 ```
 
 #### `contents.getTitle()`
@@ -856,15 +856,15 @@ Returns `String` - 当前页面的URL.
 
 #### `contents.isLoadingMainFrame()`
 
-返回 `Boolean` - 主帧（而不仅仅是内框或帧）是否 仍在加载。
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 #### `contents.isWaitingForResponse()`
 
-返回 `Boolean` - 网页是否在等待页面主 资源的第一反应。
+Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
 
 #### `contents.stop()`
 
-停止任何待定导航。
+Stops any pending navigation.
 
 #### `contents.reload()`
 
@@ -886,7 +886,7 @@ Returns `String` - 当前页面的URL.
 
 * `offset` Integer
 
-返回 `Boolean` - 网页是否可以转到 `offset`。
+Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
@@ -904,7 +904,7 @@ Clears the navigation history.
 
 * `index` Integer
 
-将浏览器导航到指定的绝对网页索引。
+Navigates browser to the specified absolute web page index.
 
 #### `contents.goToOffset(offset)`
 
@@ -912,38 +912,38 @@ Clears the navigation history.
 
 定位到相对于“当前入口”的指定的偏移。
 
-#### `内容。`
+#### `contents.isCrashed()`
 
-返回 `Boolean` - 渲染器过程是否崩溃。
+Returns `Boolean` - Whether the renderer process has crashed.
 
-#### `内容。`
+#### `contents.forcefullyCrashRenderer()`
 
-强制终止当前托管此 `webContents`的渲染器过程。 这将导致 `render-process-gone` 事件与 `reason=killed || reason=crashed` 一起发出。 请注意，某些 WebContents 共享渲染器 过程，因此调用此方法也可能使其他 WebContent 的主机进程 崩溃。
+Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
 
-调用此 方法后立即调用 `reload()` 将强制重新加载在新的过程中发生。 例如，当此过程不稳定或无法使用时，应 使用此程序，以便从 `unresponsive` 事件中恢复 。
+Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
 
 ```js
-内容。on（"无响应"，不对称（）=> {
- { response } ）等待对话
-    。
-    标题：'你想尝试强制重新加载应用程序吗？'，
-    按钮：[确定'，'取消'，
-    取消Id：1
-  }）
-  （响应==0）{
-    内容
-
-  
-    。
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: 'Do you want to try forcefully reloading the app?',
+    buttons: ['OK', 'Cancel'],
+    cancelId: 1
+  })
+  if (response === 0) {
+    contents.forcefullyCrashRenderer()
+    contents.reload()
+  }
+})
 ```
 
-#### `内容。集用户代理（用户代理）`
+#### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
 
 重写该页面的user agent
 
-#### `内容。获取使用者代理（）`
+#### `contents.getUserAgent()`
 
 返回 `String` - 当前页面的user agent.
 
@@ -951,45 +951,45 @@ Clears the navigation history.
 
 * `css` String
 * `options` Object (可选)
-  * `cssOrigin` 字符串（可选） - 可以是"用户"或"作者"：指定"用户"可防止网站凌驾于您插入的CSS之后。 默认值为"作者"。
+  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-返回 `Promise<String>` - 承诺，解决插入CSS的密钥，以后可用于删除CSS通过 `contents.removeInsertedCSS(key)`。
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-将 CSS 注入当前网页，并返回插入的 样式表的独特密钥。
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
-内容。on（"完成加载"，（）=> {
-  内容。 插入CSS（'html，身体{背景颜色：#f00：}）
-}）
+contents.on('did-finish-load', () => {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
 ```
 
-#### `内容。删除内插CSS（密钥）`
+#### `contents.removeInsertedCSS(key)`
 
 * `key` String
 
-返回 `Promise<void>` - 如果删除成功，则解决。
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-从当前网页中删除插入的CSS。 样式表由其密钥 识别，该密钥从 `contents.insertCSS(css)`返回。
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
-内容。on（"完成加载"，不对称（）=> =
-  const键=等待内容。插入CSS（'html，身体{背景颜色：#f00：}'）
-  内容
-。
+contents.on('did-finish-load', async () => {
+  const key = await contents.insertCSS('html, body { background-color: #f00; }')
+  contents.removeInsertedCSS(key)
+})
 ```
 
-#### `内容。执行贾瓦脚本（代码[，用户图]）`
+#### `contents.executeJavaScript(code[, userGesture])`
 
 * `code` String
-* `userGesture` 布尔（可选） - 默认是 `false`。
+* `userGesture` Boolean (optional) - Default is `false`.
 
-返回 `Promise<any>` - 承诺会随着执行代码的结果 或被拒绝，如果代码的结果是被拒绝的承诺。
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 在页面中执行 `code`。
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
-代码执行将暂停，直到网页停止加载。
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -998,21 +998,21 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `内容。执行贾瓦脚本独立世界（世界ID，脚本[，用户图片]）`
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` 整数 - 运行javascript的世界ID， `0` 是默认的世界， `999` 是电子 `contextIsolation` 功能使用的世界。  您可以在此处提供任何整数。
-* `scripts` [网络来源[]](structures/web-source.md)
-* `userGesture` 布尔（可选） - 默认是 `false`。
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (optional) - Default is `false`.
 
-返回 `Promise<any>` - 承诺会随着执行代码的结果 或被拒绝，如果代码的结果是被拒绝的承诺。
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-工作原理像 `executeJavaScript` ，但在一个孤立的上下文中评估 `scripts` 。
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 #### `contents.setIgnoreMenuShortcuts(ignore)`
 
 * `ignore` Boolean
 
-在集中使用此 Web 内容时忽略应用菜单快捷方式。
+Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.setWindowOpenHandler(handler)`
 
@@ -1024,7 +1024,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
   Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
 
-从 渲染器调用 `window.open()` 时，在创建窗口之前调用。 有关更多详细信息以及如何与 `did-create-window`一起使用此信息，请参阅 [`window.open()`](window-open.md) 。
+Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
@@ -1036,35 +1036,35 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 返回 `Boolean` -判断页面是否被静音
 
-#### `内容。目前可听（）`
+#### `contents.isCurrentlyAudible()`
 
-返回 `Boolean` - 音频当前是否正在播放。
+Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` 双 - 缩放因子：默认值为1.0。
+* `factor` Double - Zoom factor; default is 1.0.
 
-将缩放因子更改为指定因子。 缩放因子 缩放百分比除以 100，因此 300% = 3.0。
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-该系数必须大于 0.0。
+The factor must be greater than 0.0.
 
-#### `内容。获取僵尸因子（）`
+#### `contents.getZoomFactor()`
 
-返回 `Number` - 当前变焦因子。
+Returns `Number` - the current zoom factor.
 
 #### `contents.setZoomLevel(level)`
 
 * `level` Number - 缩放等级。
 
-更改缩放等级。 原始大小为 0，高于或低于每个 增量表示放大 20% 或更小，默认 限制分别为原始大小的 300% 和 50%。 这样做的公式是 `scale := 1.2 ^ level`。
+更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-> **注**：Chromium 级别的缩放策略是同源的，这意味着特定域的 缩放级别在所有具有 同一域名的窗口实例中传播。 区分窗口网址将使每个窗口的缩放工作。
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
-#### `内容。获取僵尸级别（）`
+#### `contents.getZoomLevel()`
 
-返回 `Number` - 当前缩放级别。
+Returns `Number` - the current zoom level.
 
-#### `内容。设置视觉Zoom级别限制（最小级别、最大级别）`
+#### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1073,68 +1073,68 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 设置最大和最小缩放级别。
 
-> **注意**：电子中默认禁用视觉变焦。 要重新启用它，请致电：
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
-内容。设置视觉祖姆级别限制（1，3）
+contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `内容。撤消（）`
+#### `contents.undo()`
 
 在页面中执行`undo`编辑命令。
 
-#### `内容。`
+#### `contents.redo()`
 
 在页面中执行` redo `编辑命令。
 
-#### `内容。`
+#### `contents.cut()`
 
 在页面中执行` cut `编辑命令。
 
-#### `内容。复制（）`
+#### `contents.copy()`
 
 在页面中执行` copy `编辑命令。
 
-#### `内容。复制图像（x，y）`
+#### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-将给定位置的图像复制到剪贴板上。
+Copy the image at the given position to the clipboard.
 
-#### `内容。粘贴（）`
+#### `contents.paste()`
 
 在页面中执行` paste `编辑命令。
 
-#### `内容。粘贴和匹配样式（）`
+#### `contents.pasteAndMatchStyle()`
 
 在页面中执行` pasteAndMatchStyle `编辑命令。
 
-#### `内容。删除（）`
+#### `contents.delete()`
 
 在页面中执行` delete `编辑命令。
 
-#### `内容。选择全部（）`
+#### `contents.selectAll()`
 
 在页面中执行` selectAll `编辑命令。
 
-#### `内容。取消选择（）`
+#### `contents.unselect()`
 
 在页面中执行` unselect `编辑命令。
 
-#### `内容。替换（文本）`
+#### `contents.replace(text)`
 
 * `text` String
 
 在页面中执行` replace `编辑命令。
 
-#### `内容。替换拼写（文本）`
+#### `contents.replaceMisspelling(text)`
 
 * `text` String
 
 在页面中执行` replaceMisspelling `编辑命令。
 
-#### `内容。插入文本（文本）`
+#### `contents.insertText(text)`
 
 * `text` String
 
@@ -1142,475 +1142,475 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 插入`text` 到焦点元素
 
-#### `内容.查找页面（文本[，选项]）`
+#### `contents.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
 * `options` Object (可选)
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
-  * `findNext` 布尔（可选） - 无论是第一次请求还是跟进， 默认 `false`。
-  * `matchCase` 布尔（可选） - 搜索是否应对案件敏感， 默认 `false`。
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
-返回 `Integer` - 用于请求的请求 ID。
+Returns `Integer` - The request id used for the request.
 
-开始请求查找网页中 `text` 的所有匹配项。 请求的结果 可以通过订阅 [`found-in-page`](web-contents.md#event-found-in-page) 活动来获得。
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
-#### `内容。停止定义页面（行动）`
+#### `contents.stopFindInPage(action)`
 
-* `action` 字符串 - 指定在结束 [ `webContents.findInPage`] 请求时发生的操作。
-  * `clearSelection` - 清除选择。
-  * `keepSelection` - 将选择转换为正常选择。
-  * `activateSelection` - 聚焦并单击选择节点。
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
-以所提供的 `action`停止任何 `findInPage` `webContents` 请求。
+Stops any `findInPage` request for the `webContents` with the provided `action`.
 
 ```javascript
-康斯特 { webContents } =要求（"电子"）
-网络内容。 （事件，结果）=> =
-  如果（结果.最终更新）网络内容。停止查找页面（"清除选择"）
-}）
+const { webContents } = require('electron')
+webContents.on('found-in-page', (event, result) => {
+  if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
+})
 
-持续请求Id=网络Contents.findInPage（"api"）
-控制台.log（请求）
+const requestId = webContents.findInPage('api')
+console.log(requestId)
 ```
 
-#### `内容。捕获页面（[rect]）`
+#### `contents.capturePage([rect])`
 
-* `rect` [矩形](structures/rectangle.md) （可选） - 要捕获的页面区域。
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
 返回 `Promise<NativeImage>` - 解决与 [原生图像](native-image.md)
 
 在 `rect`内捕获页面的快照。 省略 `rect` 将捕获整个可见页面。
 
-#### `内容。被捕获（）`
+#### `contents.isBeingCaptured()`
 
-返回 `Boolean` - 此页面是否被捕获。 当捕获器计数 大到 0 时，它返回为真。
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
 
-#### `内容。增量捕获器计数（[大小，停留希登]）`
+#### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [尺寸](structures/size.md) （可选） - 捕获器的首选尺寸。
-* `stayHidden` 布尔（可选） - 隐藏页面，而不是可见。
+* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
-将捕获器计数增加一个。 当浏览器窗口 隐藏，捕获器计数为非零时，该页面被视为可见。 如果您希望页面保持隐藏状态，则应确保 `stayHidden` 设置为真实。
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
 
-这也会影响页面可见度 API。
+This also affects the Page Visibility API.
 
-#### `内容。减少捕获计数（[stayHidden]）`
+#### `contents.decrementCapturerCount([stayHidden])`
 
-* `stayHidden` 布尔（可选） - 保持页面处于隐藏状态，而不是可见。
+* `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
 
-将捕获器计数减少一个。 当 浏览器窗口被隐藏或遮挡，捕获器计数达到零时，该页面将被设置为隐藏或遮挡状态。 如果你想 减少隐藏的捕获器计数，而不是你应该设置 `stayHidden` 的真实。
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
 
-#### `内容。获取打印机（）`
+#### `contents.getPrinters()`
 
 获取系统打印机列表
 
 返回 [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `内容。打印（[options]， [callback]）`
+#### `contents.print([options], [callback])`
 
 * `options` Object (可选)
-  * `silent` 布尔（可选） - 不要向用户索要打印设置。 默认值为 `false`.
-  * `printBackground` 布尔（可选） - 在网页上打印 背景颜色和图像。 默认值为 `false`.
-  * `deviceName` 字符串（可选） - 设置打印机设备名称以使用。 必须是系统定义的名称，而不是"友好"名称，例如"Brother_QL_820NWB"，而不是"兄弟QL-820NWB"。
-  * `color` 布尔（可选） - 设置印刷网页是彩色还是灰度。 默认值为 `true`。
-  * `margins` 对象（可选）
-    * `marginType` 字符串（可选） - 可以 `default`， `none`， `printableArea`，或 `custom`。 如果选择 `custom` ，您还需要指定 `top`、 `bottom`、 `left`和 `right`。
-    * `top` 编号（可选） - 打印网页的最高边距，以像素表示。
-    * `bottom` 编号（可选） - 打印网页的底边距，以像素表示。
-    * `left` 编号（可选） - 打印网页的左边缘，以像素表示。
-    * `right` 编号（可选） - 打印网页的右边缘，以像素表示。
-  * `landscape` 布尔（可选） - 网页是否应该以横向模式打印。 默认值为 `false`.
-  * `scaleFactor` 编号（可选） - 网页的刻度因子。
-  * `pagesPerSheet` 编号（可选） - 每页打印页数。
-  * `collate` 布尔（可选） - 是否应该整理网页。
-  * `copies` 编号（可选） - 要打印的网页副本数。
-  * `pageRanges` 对象[]（可选） - 要打印的页面范围。 在 macOS 上，只有一个范围是荣誉的。
-    * `from` 编号 - 打印第一页的索引（0 基于）。
-    * `to` 编号 - 打印最后一页的索引（含） （0 基于）。
-  * `duplexMode` 字符串（可选） - 设置打印网页的复式模式。 可以 `simplex`， `shortEdge`，或 `longEdge`。
-  * `dpi` 记录<string, number> （可选）
-    * `horizontal` 编号（可选） - 水平dpi。
-    * `vertical` 编号（可选） - 垂直dpi。
-  * `header` 字符串（可选） - 要打印为页页头的字符串。
-  * `footer` 字符串（可选） - 字符串要打印为页页页脚。
-  * `pageSize` 字符串|大小（可选） - 指定打印文档的页面大小。 可以是 `A3`、 `A4`、 `A5`、 `Legal`、 `Letter`、 `Tabloid` 或含有 `height`的物体。
+  * `silent` Boolean (optional) - Don't ask user for print settings. 默认值为 `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 默认值为 `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 默认值为 `true`。
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. 默认值为 `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `callback` Function (可选)
-  * `success` 布尔 - 表示打印呼叫的成功。
-  * `failureReason` 字符串 -如果打印失败，会调用错误描述。
+  * `success` Boolean - Indicates success of the print call.
+  * `failureReason` String - Error description called back if the print fails.
 
-当自定义 `pageSize` 通过时，Chromium 尝试验证平台中 `width_microns` 和 `height_microns`的特定最低值。 宽度和高度必须都至少为 353 微米，但在某些操作系统上可能更高。
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
 
-打印窗口的网页。 当 `silent` 设置为 `true`时，如果 `deviceName` 是空的，并且打印的默认设置为 ，Electron 将选择系统默认打印机。
+Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
-使用 `page-break-before: always;` CSS样式强制打印到新的页面。
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 示例用法：
 
 ```js
-const选项={
-  无声：真实、
-  的设备名称：'我的打印机'，
-  页面语言：[{
+const options = {
+  silent: true,
+  deviceName: 'My-Printer',
+  pageRanges: [{
     from: 0,
     to: 1
   }]
-=
-win.webContents.打印（选项，（成功，错误类型）=> =
-  如果（！成功）控制台.log（错误类型）
-}）
+}
+win.webContents.print(options, (success, errorType) => {
+  if (!success) console.log(errorType)
+})
 ```
 
 #### `contents.printToPDF(options)`
 
 * `选项` 对象
-  * `headerFooter` 记录<string, string> （可选） - PDF 的标题和脚。
-    * `title` 字符串 - PDF 标题的标题。
-    * `url` 字符串- PDF脚的网址。
-  * `landscape` 布尔（可选） - `true` 景观， `false` 肖像。
-  * `marginsType` 整数（可选） - 指定要使用的边距类型。 使用 0 表示 默认保证金，1 表示无保证金，2 表示最低保证金。
-  * `scaleFactor` 编号（可选） - 网页的刻度因子。 范围从0到100。
-  * `pageRanges` 记录<string, number> （可选） - 要打印的页面范围。
-    * `from` 编号 - 打印第一页的索引（0 基于）。
-    * `to` 编号 - 打印最后一页的索引（含） （0 基于）。
-  * `pageSize` 字符串|大小（可选） - 指定生成的PDF的页面大小。 可以是 `A3`、 `A4`、 `A5`、 `Legal`、 `Letter`、 `Tabloid` 或含有微米 `height` 和 `width` 的物体。
-  * `printBackground` 布尔（可选） - 是否打印CSS背景。
-  * `printSelectionOnly` 布尔（可选） - 是否只打印选择。
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
-返回 `Promise<Buffer>` - 使用生成的 PDF 数据解决。
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
-将窗口的网页打印为 PDF，并带有 Chromium 的预览打印自定义 设置。
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
-如果在网页中使用 `@page` CSS 规则，则将忽略 `landscape` 。
+The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
-默认情况下，空 `options` 将被视为：
+By default, an empty `options` will be regarded as:
 
 ```javascript
-•
-  页页距类型：0、
-  打印背景：虚假、
-  打印选择只：虚假、
-  图景：虚假、
-  页大小：'A4'、
-  缩放因子：100
+{
+  marginsType: 0,
+  printBackground: false,
+  printSelectionOnly: false,
+  landscape: false,
+  pageSize: 'A4',
+  scaleFactor: 100
 }
 ```
 
-使用 `page-break-before: always;` CSS样式强制打印到新的页面。
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
-`webContents.printToPDF`的例子：
+An example of `webContents.printToPDF`:
 
 ```javascript
-康斯特 { BrowserWindow } =要求（'电子'）
-const fs=要求（'fs'）
-锥路径=要求（'路径'）
-const os=要求（'os'）
+const { BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require('path')
+const os = require('os')
 
-缺点赢=新浏览器窗口（{ width: 800, height: 600 }）
-赢。 .com'）
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com')
 
-win.webContents.on（"完成加载"，（）=> {
-  //使用默认打印选项
-
-    > 赢。 "临时.pdf"）
-    fs. 写文件 （pdfPath， 数据，（错误）=> {如果（错误）在控制台
-      抛出错误
-      .log（"成功将PDF写入 ${pdfPath}"）
-    }）
-  [）。catch（错误=> {
-    控制台.log（"未能将PDF写入 ${pdfPath}：'，错误）
-  }）
-}）
+win.webContents.on('did-finish-load', () => {
+  // Use default printing options
+  win.webContents.printToPDF({}).then(data => {
+    const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
+    fs.writeFile(pdfPath, data, (error) => {
+      if (error) throw error
+      console.log(`Wrote PDF successfully to ${pdfPath}`)
+    })
+  }).catch(error => {
+    console.log(`Failed to write PDF to ${pdfPath}: `, error)
+  })
+})
 ```
 
 #### `contents.addWorkSpace(path)`
 
 * `path` String
 
-将指定的路径添加到DevTools工作空间。 必须在DevTools 创建后使用：
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
-康斯特 { BrowserWindow } =要求（'电子'）
-持续赢=新浏览器窗口（）
-赢。网络控制。on（'开发打开'，（）=> =
-  赢。web康滕茨.addWorkSpace（__dirname）
-}）
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.webContents.on('devtools-opened', () => {
+  win.webContents.addWorkSpace(__dirname)
+})
 ```
 
 #### `contents.removeWorkSpace(path)`
 
 * `path` String
 
-从 DevTools 工作空间中删除指定的路径。
+Removes the specified path from DevTools workspace.
 
-#### `内容。集德夫图尔斯网络控制器（开发图文并网）`
+#### `contents.setDevToolsWebContents(devToolsWebContents)`
 
-* `devToolsWebContents` 网络会议
+* `devToolsWebContents` WebContents
 
-使用 `devToolsWebContents` 作为目标 `WebContents` 显示开发工具。
+Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
 
-`devToolsWebContents` 不得进行任何导航，也不应在通话后将其 用于其他目的。
+The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
 
-默认情况下，Electron 通过创建具有本机视图的内部 `WebContents` 来管理开发人员，而开发人员对该 的控制非常有限。 使用 `setDevToolsWebContents` 方法，开发人员可以使用任何 `WebContents` 来显示其中 的开发人员，包括 `BrowserWindow`、 `BrowserView` 和 `<webview>` 标签。
+By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
 
-请注意，关闭开发人员不会破坏 `devToolsWebContents`，它 是呼叫者的责任，摧毁 `devToolsWebContents`。
+Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
 
-在 `<webview>` 标签中显示开发人员的示例：
+An example of showing devtools in a `<webview>` tag:
 
 ```html
 <html>
 <head>
   <style type="text/css">
-    *{保证金：0：}
-    #browser+高度：70%;}
-    #devtools+高度：30%;=
+    * { margin: 0; }
+    #browser { height: 70%; }
+    #devtools { height: 30%; }
   </style>
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    康斯特 { ipcRenderer } =需要（'电子'）
-    一次发出=（元素，事件名称）=> 新的承诺（解决=> {
-      元素。 事件=> 解决（事件）， { once: true }）
-    }）
-    浏览器浏览器查看=文档。getEementById（"浏览器"）
-    const开发人员视图=文档
-    。，"多姆准备"）
-    联体开发人员已准备好=发出一次（开发图视图，"多姆就绪"）
-    承诺。 然后）=> {
-      站目标Id=浏览器视图。getWeb康滕茨id（）
-      联排版toolsId=开发图景。getWeb康滕茨id（）
-      ipcRenders.发送（'开放式开发人员'，目标ID，开发人员）
-    }）
+    const { ipcRenderer } = require('electron')
+    const emittedOnce = (element, eventName) => new Promise(resolve => {
+      element.addEventListener(eventName, event => resolve(event), { once: true })
+    })
+    const browserView = document.getElementById('browser')
+    const devtoolsView = document.getElementById('devtools')
+    const browserReady = emittedOnce(browserView, 'dom-ready')
+    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
+    Promise.all([browserReady, devtoolsReady]).then(() => {
+      const targetId = browserView.getWebContentsId()
+      const devtoolsId = devtoolsView.getWebContentsId()
+      ipcRenderer.send('open-devtools', targetId, devtoolsId)
+    })
   </script>
 </body>
 </html>
 ```
 
 ```js
-主要过程
-康斯特 { ipcMain, webContents } =要求（"电子"）
-ipcMain.on（"开放式开发"，（事件，目标康滕茨， 德沃尔斯康滕茨id）=> +
-  站目标=webContents.来自ID（目标控制）
-  联名开发人员=webContents.来自ID（开发人员）
-  目标。setdevTools网络控制（开发人员）
-  目标
-。
+// Main process
+const { ipcMain, webContents } = require('electron')
+ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
+  const target = webContents.fromId(targetContentsId)
+  const devtools = webContents.fromId(devtoolsContentsId)
+  target.setDevToolsWebContents(devtools)
+  target.openDevTools()
+})
 ```
 
-在 `BrowserWindow`中显示开发人员的示例：
+An example of showing devtools in a `BrowserWindow`:
 
 ```js
-康斯特 { app, BrowserWindow } =要求（'电子'）
+const { app, BrowserWindow } = require('electron')
 
-让赢=空
-让devtools=空
+let win = null
+let devtools = null
 
-应用程序。当准备好。然后）=> {
-  赢=新的浏览器窗口（）
-  开发人员窗口=新的浏览器窗口（）
-  .com
-  赢.  赢. setdevtools 网络康滕茨 （devtools. web 康滕茨）
-  赢. web 康滕茨. 打开德夫图尔斯 （{ mode: 'detach' }）
-[）
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+  devtools = new BrowserWindow()
+  win.loadURL('https://github.com')
+  win.webContents.setDevToolsWebContents(devtools.webContents)
+  win.webContents.openDevTools({ mode: 'detach' })
+})
 ```
 
 #### `contents.openDevTools([options])`
 
 * `options` Object (可选)
-  * `mode` 弦 - 打开具有指定码头状态的开发人员，可 `right`、 `bottom`、 `undocked`、 `detach`。 默认为最后使用过的基座状态。 在 `undocked` 模式下，可以停靠回来。 在 `detach` 模式下，它不是。
-  * `activate` 布尔（可选） - 是否将打开的开发窗口 前景。 默认值为 `true`。
+  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. 默认值为 `true`。
 
-打开开发人员。
+Opens the devtools.
 
-当 `contents` 是 `<webview>` 标签时，默认情况下， `mode` 将被 `detach` ， 明确通过空 `mode` 可以强制使用上次使用的基座状态。
+When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
-#### `内容。关闭二元图（）`
+#### `contents.closeDevTools()`
 
 关闭开发者工具。
 
-#### `内容。是德夫图打开（）`
+#### `contents.isDevToolsOpened()`
 
 返回`Boolean` - 开发者工具是否处于开启状态。
 
-#### `内容。`
+#### `contents.isDevToolsFocused()`
 
 返回`Boolean` - 开发者工具是否处于当前执行状态。
 
-#### `内容。切换器图（）`
+#### `contents.toggleDevTools()`
 
 切换开发工具
 
-#### `内容。检查（x，y）`
+#### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
 开始检查位于(`x`, `y`) 的元素。
 
-#### `内容。检查共享工人（）`
+#### `contents.inspectSharedWorker()`
 
-为共享的工人上下文打开开发人员工具。
+Opens the developer tools for the shared worker context.
 
-#### `内容。检查共享工人比德（工人ID）`
+#### `contents.inspectSharedWorkerById(workerId)`
 
-* `workerId` 字符串
+* `workerId` String
 
-根据共享工作人员的 ID 进行检查。
+Inspects the shared worker based on its ID.
 
-#### `内容。获取所有共享工人（）`
+#### `contents.getAllSharedWorkers()`
 
-返回 [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - 有关所有共享员工的信息。
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
 
-#### `内容。检查服务人员（）`
+#### `contents.inspectServiceWorker()`
 
-为服务人员上下文打开开发人员工具。
+Opens the developer tools for the service worker context.
 
-#### `内容。发送（频道，阿格斯）`
+#### `contents.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-通过 `channel`向渲染器进程发送异步消息，以及 参数。 参数将与 [结构克隆 算法][SCA]串行，就像 [`postMessage`][]一样，因此原型链不会 包括在内。 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
 
-> **注意**：发送非标准的 JavaScript 类型，如 DOM 对象或 特殊电子对象将抛出一个例外。
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
-渲染器过程可以通过与 [`ipcRenderer`](ipc-renderer.md) 模块一起收听 `channel` 来处理消息。
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-从主过程向渲染器流程发送消息的示例：
+An example of sending messages from the main process to the renderer process:
 
 ```javascript
 // 在主进程中.
-康斯特 { app, BrowserWindow } =要求（'电子'）
-让赢=空
+const { app, BrowserWindow } = require('electron')
+let win = null
 
-应用程序。然后（）=> {
-  赢=新浏览器窗口（{ width: 800, height: 600 }）
-  赢
-  .html${__dirname}。 （）=> {
-    赢。
+app.whenReady().then(() => {
+  win = new BrowserWindow({ width: 800, height: 600 })
+  win.loadURL(`file://${__dirname}/index.html`)
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('ping', 'whoooooooh!')
   })
 })
 ```
 
 ```html
-<!--索引.html ->
+<!-- index.html -->
 <html>
 <body>
   <script>
-    需要 （'电子'）. ipcRenderer. on （'平'， （事件， 消息） => {
-      控制台.log （消息） / / 打印 "哇！
-    [）
+    require('electron').ipcRenderer.on('ping', (event, message) => {
+      console.log(message) // Prints 'whoooooooh!'
+    })
   </script>
 </body>
 </html>
 ```
 
-#### `内容。发送到框架（帧ID，通道，。。。阿格斯）`
+#### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` 整数|[数字，数字] - 要发送到的帧的 ID，或 对 `[processId, frameId]` ，如果框架处于与 主帧不同的过程。
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` String
 * `...args` any[]
 
-通过 `channel`向渲染器过程中的特定帧发送异步消息，以及参数。 参数将与 [结构克隆算法][SCA]串行，就像 [`postMessage`][]一样，因此原型 链将不包括在内。 发送函数、承诺、符号、弱图或 弱集将抛出一个例外。
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **注：** 发送非标准的 JavaScript 类型（如 DOM 对象或 特殊电子对象）将抛出一个例外。
 
-渲染器过程可以通过与 [`ipcRenderer`](ipc-renderer.md) 模块一起收听 `channel` 来处理消息。
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-如果您想要获得给定渲染器上下文的 `frameId` ，您应该 `webFrame.routingId` 值使用。  如下:
-
-```js
-在
-控制台的渲染器过程中.log（"我的相框ID是：'，需要（'电子'）。webFrame.路由Id）
-```
-
-您还可以在主要过程中阅读所有传入 IPC 消息的 `frameId` 。
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  如下:
 
 ```js
-在主要过程中
-ipcMain.on（'ping'，（事件）=> {
-  console.info（"消息来自相框ID：'，事件。帧id）
-}）
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-#### `内容。邮资信息（频道、留言、 [transfer]）`
+You can also read `frameId` from all incoming IPC messages in the main process.
+
+```js
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
+})
+```
+
+#### `contents.postMessage(channel, message, [transfer])`
 
 * `channel` String
 * `message` 任何
 * `transfer` 消息端口[]（可选）
 
-向渲染器进程发送消息，可选地转移 零或更多 [`MessagePortMain`] 对象的所有权。
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-传输 `MessagePortMain` 对象将通过访问发射事件的 `ports` 属性，在渲染器 过程中提供。 当他们 到达渲染器时，它们将是原生 DOM `MessagePort` 对象。
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 例如：
 
 ```js
-主要过程
- { port1, port2 } =新的消息通道主要（）
-网络信箱（"端口"， { message: 'hello' }， [port1]）
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.postMessage('port', { message: 'hello' }, [port1])
 
-//渲染器过程
-ipcRenderer.on（"端口"，（e，msg）=> {
- [port] =电子端口
-  //
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
+  // ...
 })
 ```
 
-#### `内容。启用设备（参数）`
+#### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` 对象
-  * `screenPosition` 字符串 - 指定屏幕类型以模拟 （默认值： `desktop`）：
-    * `desktop` - 桌面屏幕类型。
-    * `mobile` - 移动屏幕类型。
-  * `screenSize` [大小](structures/size.md) - 设置模拟屏幕大小（屏幕位置==移动）。
-  * `viewPosition` [点](structures/point.md) - 将视图放在屏幕上 （屏幕位置==移动）（默认： `{ x: 0, y: 0 }`）。
-  * `deviceScaleFactor` 整数 - 设置设备刻度因子（如果零违约 原始设备刻度因子）（默认： `0`）。
-  * `viewSize` [大小](structures/size.md) - 设置模拟视图大小（空表示无覆盖）
-  * `scale` 浮动 - 可用空间内模拟视图的缩放（不适合 视图模式）（默认： `1`）。
+* `parameters` Object
+  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
+    * `desktop` - Desktop screen type.
+    * `mobile` - Mobile screen type.
+  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
+  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
+  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
 允许设备模拟给定参数。
 
-#### `内容。禁用设备（）`
+#### `contents.disableDeviceEmulation()`
 
 禁止`webContents.enableDeviceEmulation`允许的模拟设备
 
-#### `内容。发送无名事件（输入事件）`
+#### `contents.sendInputEvent(inputEvent)`
 
-* `inputEvent` [鼠标无名小](structures/mouse-input-event.md) | [鼠标轮无](structures/mouse-wheel-input-event.md) | [键盘因特](structures/keyboard-input-event.md)
+* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-向页面发送输入 `event` 。 **注意：** 包含内容的 [`BrowserWindow`](browser-window.md) 需要集中 `sendInputEvent()` 工作。
+Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
 
-#### `内容。开始框架订阅（[仅迪尔蒂，]回拨）`
+#### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * ` onlyDirty ` Boolean (可选) - 默认值为 ` false `.
 * `callback` Function
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-开始订阅演示活动和捕获的帧，当有演示文稿 活动时，将用 `callback(image, dirtyRect)` 调用 `callback` 。
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-`image` 是存储 捕获帧的 [原生图像](native-image.md) 实例。
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-`dirtyRect` 是具有 `x, y, width, height` 属性的对象， 描述页面的哪个部分被重新粉刷。 如果 `onlyDirty` 设置为 `true`， `image` 将只包含重新粉刷的区域。 `onlyDirty` 默认为 `false`。
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
-#### `内容。结束框架订阅（）`
+#### `contents.endFrameSubscription()`
 
-结束订阅框架演示活动。
+End subscribing for frame presentation events.
 
-#### `内容。启动（项目）`
+#### `contents.startDrag(item)`
 
-* `item` 对象
-  * `file` 字符串[]|字符串 - 被拖到文件的路径。
-  * `icon` [原生图像](native-image.md) |字符串 - 图像必须在 macOS 上 非空图像。
+* `item` Object
+  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
-将 `item` 设置为当前拖放操作的拖动项， `file` 是要拖动的文件的 绝对路径， `icon` 是拖动时 光标下显示的图像。
+Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `内容。保存页面（全路径，保存类型）`
+#### `contents.savePage(fullPath, saveType)`
 
-* `fullPath` 字符串 - 完整的文件路径。
-* `saveType` 字符串 - 指定保存类型。
+* `fullPath` String - The full file path.
+* `saveType` String - Specify the save type.
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
@@ -1692,7 +1692,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` 字符串 - 输出文件的路径。
+* `filePath` String - Path to the output file.
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
@@ -1700,13 +1700,13 @@ Returns `Promise<void>` - Indicates whether the snapshot has been created succes
 
 #### `contents.getBackgroundThrottling()`
 
-Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. 这也会影响页面可见度 API。
+Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. 这也会影响页面可见度 API。
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.getType()`
 
@@ -1764,7 +1764,7 @@ A [`Debugger`](debugger.md) instance for this webContents.
 
 #### `contents.backgroundThrottling`
 
-A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. 这也会影响页面可见度 API。
+A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.mainFrame` _Readonly_
 
@@ -1786,6 +1786,5 @@ A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of 
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
-[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
