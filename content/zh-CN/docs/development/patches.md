@@ -1,10 +1,10 @@
-# 电子补丁
+# Patches in Electron
 
-电子是建立在两个主要的上游项目：铬和节点.js。 每个项目也有各自的依赖关系。 我们尽最大努力使用这些依赖项，但有时如果不修补这些上游依赖项以适应我们的使用情况，我们就无法实现我们的目标。
+Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. We try our best to use these dependencies exactly as they are but sometimes we can't achieve our goals without patching those upstream dependencies to fit our use cases.
 
-## 修补程序理由
+## Patch justification
 
-电子中的每个补丁都是维护负担。 当上游代码更改时，修补程序可能会中断-有时甚至没有修补程序冲突或编译错误。 这是一个持续的努力，以保持我们的补丁设置最新和有效。 因此，我们努力将补丁计数保持在最低水平。 To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+Every patch in Electron is a maintenance burden. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
 
 1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
 2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).
