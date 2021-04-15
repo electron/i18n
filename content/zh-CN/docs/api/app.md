@@ -294,7 +294,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 如果 `callback` 在没有用户名或密码的情况下被调用，则身份验证 请求将被取消，身份验证错误将返回到 页面。
 
-### 活动： "gpu 信息更新"
+### 事件: 'gpu-info-update'
 
 每当有GPU信息更新时，都会发出。
 
@@ -321,7 +321,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 **已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 它 并不总是因为它坠毁了。  当您切换到该事件时， 检查 `reason === 'killed'` 可以替换 `killed` 布尔。
 
-### 事件： "渲染过程消失"
+### 事件: 'render-process-gone'
 
 返回:
 
@@ -340,7 +340,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 当渲染器过程意外消失时发出。  这通常是 ，因为它是坠毁或死亡。
 
-### 活动：'儿童过程消失'
+### 事件: 'child-process-gone'
 
 返回:
 
@@ -420,7 +420,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 在 `webContents`的渲染过程中调用 `desktopCapturer.getSources()` 时发出。 呼叫 `event.preventDefault()` 将使其返回空源。
 
-### 事件： "远程要求" _弃用_
+### 事件： "remote-require" _弃用_
 
 返回:
 
@@ -430,7 +430,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 在 `webContents` 的渲染器进程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件： "远程全球" _弃用_
+### 事件： "remote-get-global" _弃用_
 
 返回:
 
@@ -440,7 +440,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 在 `webContents` 的渲染器进程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件： "远程构建" _弃用_
+### 事件： "remote-get-builtin" _弃用_
 
 返回:
 
@@ -450,7 +450,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 在 `webContents` 的渲染器进程中调用 `remote.getBuiltin()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件： "远程获取电流窗口" _弃用_
+### 事件： "remote-get-current-window" _弃用_
 
 返回:
 
@@ -459,7 +459,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 在 `webContents` 的渲染器进程中调用 `remote.getCurrentWindow()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-### 事件： "远程获取当前网络内容" _弃用_
+### 事件： "remote-get-current-web-contents" _弃用_
 
 返回:
 
@@ -698,7 +698,7 @@ API 使用视窗注册表并在内部 `LSCopyDefaultHandlerForURLScheme` 。
 
 此方法返回 URL 协议 （又名 URI 方案）的默认处理程序的应用程序名称。
 
-### `app.getApplicationInfoForProtocol(url)` _马科斯_ _窗口_
+### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
 
 * `url` 字符串 - 要检查的协议名称的 URL。 与这个家庭中的其他 方法不同，它接受整个网址，包括至少 `://` （例如 `https://`）。
 
@@ -879,7 +879,7 @@ if (!gotTheLock) {
 
 
 
-### `app.setUserActivity(type, userInfo[, webpageURL])` _马科斯_
+### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `][activity-type]。
 
@@ -891,7 +891,7 @@ if (!gotTheLock) {
 
 
 
-### `app.getCurrentActivityType()` _马科斯_
+### `app.getCurrentActivityType()` _macOS_
 
 返回 `String` - 正在运行的 activity 的类型
 
@@ -941,7 +941,7 @@ if (!gotTheLock) {
 
 
 
-### `app.importCertificate(options, callback)` _·利努克斯·_
+### `app.importCertificate(options, callback)` _Linux_
 
 * `选项` 对象 
     * `certificate` String - pkcs12 文件的路径
@@ -1169,7 +1169,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` _马斯_
+### `app.startAccessingSecurityScopedResource(bookmarkData)` _macOS_
 
 * `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
@@ -1269,11 +1269,11 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 
 
-### `app.accessibilitySupportEnabled` _马科斯_ _窗口_
+### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+`Boolean`属性 - 如果开启了Chrome的辅助功能，则返回 `true`，否则返回`false`。 如果使用了辅助功能（例如屏幕阅读），该 API 将返回 `true`。 手动将此属性设置为 `true` 可启用 Chrome 的辅助功能支持，允许开发人员在应用程序设置中向用户开放无障碍切换。
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 默认为禁用
+有关详细信息，请参阅[ chromium 的无障碍文档 ](https://www.chromium.org/developers/design-documents/accessibility)。 默认为禁用
 
 此 API 必须在 `ready` 事件触发后调用
 
@@ -1281,37 +1281,37 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 
 
-### `应用程序。应用程序梅努`
+### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+`Menu | null` 属性，如果设置 [`Menu`](menu.md) ，则返回，否则返回 `null` 。 用户可以传递 [Menu](menu.md) 来给此属性赋值。
 
 
 
-### `app.badgeCount` _· 利努克斯 ·_ _· 马科斯 ·_
+### `app.badgeCount` _Linux_ _macOS_
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+返回当前应用角标计数的 `Integer` 属性。 将计数设置为 `0` 将隐藏角标。
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+在 macOS 上，为该属性设置任何非零整数，会显示在dock 图标上。 在 Linux 上，这个属性只适用于 Unity 启动器。
 
 ** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ][unity-requirement]。
 
-**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
+**注意：** 在 macOS 上，为了使该属性生效，您需要确保您的应用程序具有显示通知的权限。
 
 
 
-### `app.commandLine` _·里德利·_
+### `app.commandLine` _只读_
 
-A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
-
-
-
-### `app.dock` _马科斯_ _只_
-
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+[`CommandLine`](./command-line.md) 对象，允许您读取和操作 Chromium 使用的命令行参数。
 
 
 
-### `app.isPackaged` _·里德利·_
+### `app.dock` _macOS_ _只读_
+
+[`Dock`](./dock.md) `| undefined` 对象，允许您在 macOS 上的用户dock中对应用图标进行操作。
+
+
+
+### `app.isPackaged` _只读_
 
 返回一个`Boolean`值，如果应用已经打包，返回`true` ，否则返回`false` 。 对于大多数应用程序，此属性可用于区分开发和生产环境。
 
@@ -1319,33 +1319,33 @@ A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+`String` 属性，指明当前应用程序的名称，即应用程序 `package.json` 文件中的名称。
 
 通常，根据 npm 模块规格的 ， `package.json` 的 `name` 字段是一个简短的低写名称。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 
 
-### `应用。用户代理退回`
+### `app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+`String` Electron 用于全局回退的用户代理字符串。
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level.  It is useful for ensuring that your entire app has the same user agent.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
-
-
-
-### `应用。允许伦德程序重复使用`
-
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
-
-The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+当用户代理在`webContents` 或 `session` 级别没有被设置时，将使用此用户代理。  有助于确保您的整个应用程序具有相同的用户代理。  在应用初始化中尽早设置为自定义值，以确保使用的是您覆盖的值。
 
 
 
-### `app.runningUnderRosettaTranslation` _马科斯_ _只_
+### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+`Boolean` 为`true`时禁止Electron每次导航时都重新启动渲染器进程。  此属性的默认值为 `true`。
 
-You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+目的是让这些覆盖在默认情况下不可用，此属性未来将被删除。  此属性会影响您可以在渲染进程中使用哪些本地模块。  有关 Electron 重新启动渲染进程以及在渲染进程中使用本地模块的未来设计，请查看此[跟踪问题](https://github.com/electron/electron/issues/18397)。
+
+
+
+### `app.runningUnderRosettaTranslation` _macOS_ _只读_
+
+`Boolean` ，为 `true` 表明该应用程序目前正在运行在[转译环境](https://en.wikipedia.org/wiki/Rosetta_(software))下。
+
+您可以使用此属性来提示用户下载应用程序的 arm64 版本，当用户错误地在转译环境下运行 x64 版本。
 
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/
