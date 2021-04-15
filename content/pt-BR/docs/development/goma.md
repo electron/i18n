@@ -8,30 +8,30 @@ O Electron possui uma implantação de um Backend Goma personalizado que nós de
 
 Atualmente, a única maneira suportada de utilizar o Goma é usando nossas [Ferramentas de Construção](https://github.com/electron/build-tools). Uma configuração do Goma é automaticamente incluída quando você configurar as `build-tools`.
 
-Se você é um mantenedor e tem acesso ao nosso cluster, por favor, certifique-se de executar `e init` com `--goma=cluster` , a fim de configurar `build-tools` para usar o cluster Goma.  Se você tiver um config existente, você pode apenas definir `"goma": "cluster"` em seu arquivo de configuração.
+If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
 
-## Prédio com Goma
+## Building with Goma
 
-Quando você está usando Goma você pode executar `ninja` com um valor de `j` substancialmente maior do que normalmente seria suportado por sua máquina.
+When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.
 
-Por favor, não defina um valor superior a **200** no Windows ou Linux e **50** no macOS. Monitoramos o uso do sistema Goma, e os usuários que forem abusados -lo com concorrência irracional serão desativados.
+Please do not set a value higher than **200** on Windows or Linux and **50** on macOS. We monitor Goma system usage, and users found to be abusing it with unreasonable concurrency will be de-activated.
 
 ```bash
-ninja -C out/Testing elétron -j 200
+ninja -C out/Testing electron -j 200
 ```
 
-Se você estiver usando `build-tools`, os valores `-j` apropriados serão usados automaticamente para você.
+If you're using `build-tools`, appropriate `-j` values will automatically be used for you.
 
-## Monitoramento de Goma
+## Monitoring Goma
 
-Se você acessar [http://localhost:8088](http://localhost:8088) em sua máquina de local, você pode monitorar compilar trabalhos à medida que eles fluem através do sistema goma.
+If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
 
 ## Acesso
 
-Por razões de segurança e custo, o acesso ao cluster Goma da Electron está atualmente restrito aos Mantenedores de Elétrons.  Se você quiser acesso, vá para `#access-requests` em Slack e ping `@goma-squad` para pedir acesso.  Por favor, esteja ciente de que ser um mantenedor de não *automaticamente* acesso e acesso é determinado em caso a caso.
+For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
 
-## Tempo de atividade / Suporte
+## Uptime / Support
 
-Temos monitoramento automatizado do nosso cluster e cache Goma em https://status.notgoma.com
+We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
 
-Não oferecemos suporte para o uso do Goma e quaisquer questões levantadas pedindo ajuda/ tendo questões _provavelmente_ ser fechados sem muito motivo, não temos a capacidade de lidar com esse tipo de suporte.
+We do not provide support for usage of Goma and any issues raised asking for help / having issues will _probably_ be closed without much reason, we do not have the capacity to handle that kind of support.
