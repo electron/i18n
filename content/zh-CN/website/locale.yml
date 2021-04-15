@@ -85,7 +85,7 @@ releases:
   all_releases: 全部发行版
   back_to_index: 返回索引
 electron_is_good:
-  title: 用户喜爱的应用，用电子构建
+  title: Apps users love, built with Electron
   description: 数千个跨行业的组织使用 Electron 构建跨平台软件。
 electron_is_easy:
   title: 比你想象的更简单
@@ -131,7 +131,7 @@ headings:
   languages: 语言
 taglines:
   languages: 本地化的内容来自我们强大的全球开发者社区。
-  announcement: '黑人的命也是命。支持 <a href="https://support.eji.org/give/153413/#!/donation/checkout">平等正义倡议</a> ， <a href="/blacklivesmatter"></a>在这里宣读我们的声明。'
+  announcement: 'Black Lives Matter. Support <a href="https://support.eji.org/give/153413/#!/donation/checkout">the Equal Justice Initiative</a> and <a href="/blacklivesmatter">read our statement here</a>.'
 help_translate: "帮助我们翻译"
 footer:
   see_the_faq: 查看常见问题
@@ -210,12 +210,12 @@ pages:
   '/donors':
     title: 捐赠者
   '/blacklivesmatter':
-    title: 黑人的命也是命
+    title: Black Lives Matter
 landing:
   get_started: 入门
   fiddle:
     lead_desc: 最简单的 Electron 入门方式。
-    different_os: "不是正确的操作系统？看到："
+    different_os: "Not the right operating system? See:"
     create_app: 创建您的应用程序
     description: 你可以使用 Electron Fiddle 创建并运行小段 Electron 程序，从一个简单的模板开始，随心所欲地挥洒你的创意，选择一个 Electron 版本欣赏运行效果。最后，你可以将其下载保存，或推送 GitHub Gist 上，所有人都可以输入网址运行你的 Fiddle。
     explore: 探索 Electron
