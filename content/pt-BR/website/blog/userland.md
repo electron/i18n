@@ -4,7 +4,7 @@ author: zeke
 date: '2016-12-20'
 ---
 
-Adicionamos uma nova seção de [userland](https://electronjs.org/userland) para o site Da Electron para ajudar os usuários a descobrir as pessoas, pacotes e aplicativos que fazem nosso florescente ecossistema de código aberto.
+We've added a new [userland](https://electronjs.org/userland) section to the Electron website to help users discover the people, packages, and apps that make up our flourishing open-source ecosystem.
 
 ---
 
@@ -24,9 +24,7 @@ Userland é a contraparte ao "núcleo", permitindo que os usuários criem e comp
 
 Para entender melhor as tendências em nosso ecossistema, analisamos metadados de 15 00 repositórios públicos do GitHub que dependem de `electron` ou `electron-prebuilt`
 
-Usamos o</a>de API do GitHub
-
-, [libraries.io](https://libraries.io/api)de API, e o registro npm para coletar informações sobre dependências, dependências de desenvolvimento, dependentes, autores de pacotes, contribuintes de repo, contagem de downloads, contagem de garfos, contagem de stargazer, etc.</p> 
+We used the [GitHub API](https://developer.github.com/v3/), the [libraries.io API](https://libraries.io/api), and the npm registry to gather info about dependencies, development dependencies, dependents, package authors, repo contributors, download counts, fork counts, stargazer counts, etc.
 
 Em seguida, usamos esses dados para gerar os seguintes relatórios:
 
@@ -38,8 +36,6 @@ Em seguida, usamos esses dados para gerar os seguintes relatórios:
 - [Dependências de Aplicativos](https://electronjs.org/userland/dependencies): Pacotes mais frequentemente listados como `dependências` em aplicativos Electron.
 - [Autores de Pacotes](https://electronjs.org/userland/package_authors): Os autores mais prolíficos dos pacotes npm relacionados ao Electron.
 
-
-
 ## Filtrando resultados
 
 Relatórios como [dependências de aplicativos](https://electronjs.org/userland/dependencies) e [aplicativos favoritos](https://electronjs.org/userland/starred_apps) quais lista pacotes, apps e repos têm uma entrada de texto que pode ser usada para filtrar os resultados.
@@ -47,8 +43,6 @@ Relatórios como [dependências de aplicativos](https://electronjs.org/userland/
 Enquanto você digita nesta entrada, a URL da página é atualizada dinamicamente. Isso permite que você copie uma URL que representa uma fatia específica de dados de userland, e então compartilhe com outras pessoas.
 
 [![bebê](https://cloud.githubusercontent.com/assets/2289/21328807/7bfa75e4-c5ea-11e6-8212-0e7988b367fd.png) ](https://electronjs.org/userland/dev_dependencies?q=babel%20preset)
-
-
 
 ## Mais por vir
 
