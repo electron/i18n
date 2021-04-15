@@ -6,12 +6,12 @@
 
 有关示例, 请参见 [` Menu `](menu.md)。
 
-### `new MenuItem(可选)`
+### `new MenuItem(options)`
 
 * `选项` 对象
-  * `click` 功能（可选） - 单击菜单项时，将用 `click(menuItem, browserWindow, event)` 调用。
-    * `menuItem` 菜单项
-    * `browserWindow` [浏览器窗口](browser-window.md) |未定义 - 如果没有打开窗口，则无法定义此定义。
+  * `click` 函数(可选) - 单击菜单项时，将用 `click(menuItem, browserWindow, event)` 调用。
+    * `menuItem` MenuItem
+    * `browserWindow` [BrowserWindow](browser-window.md) |未定义 - 如果没有打开窗口，则无法定义此定义。
     * `event` [键盘事件](structures/keyboard-event.md)
   * `role` 弦（可选） - 可 `undo`、 `redo`、 `cut`、 `copy`、 `paste`、 `pasteAndMatchStyle`、 `delete`、 `selectAll`、 `reload`、 `forceReload`、 `toggleDevTools`、 `resetZoom`、 `zoomIn`、 `zoomOut`、 `togglefullscreen`、 `window`、 `minimize`、 `close` `help`、 `about`、 `services`、 `hide`、 `hideOthers`、 `unhide`、 `quit`、 `startSpeaking`、 `stopSpeaking`、 `zoom`、 `front`、 `appMenu`、 `fileMenu`、 `editMenu`、 `viewMenu`、 `shareMenu`、 `recentDocuments`、 `toggleTabBar`、 `selectNextTab` `selectPreviousTab`， `mergeAllWindows`、 `clearRecentDocuments`、 `moveTabToNewWindow` 或 `windowMenu` - 定义菜单项的操作时， `click` 属性将被忽略。 参见 [roles](#roles)
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
@@ -47,9 +47,9 @@
 
 `role ` 属性可以具有以下值:
 
-* `撤消`
+* `undo`
 * `about` - 触发一个关于面板的原生信息框（窗口上的自定义消息框，它不提供自己的）。
-* `重做`
+* `redo`
 * `cut`
 * `copy`
 * `paste`
@@ -128,9 +128,9 @@
 
 #### `菜单网站。角色`
 
-`String`（可选） 指出菜单项的角色 Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+`String`（可选） 指出菜单项的角色 可为 `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` 或 `windowMenu`
 
-#### `菜单网站. 加速器`
+#### `menuItem.accelerator`
 
 `Accelerator` （可选），指示物品的加速器，如果设置。
 
@@ -142,7 +142,7 @@
 
 指示物品子标签的 `String` 。
 
-#### `menuItem.toolTip` _马科斯_
+#### `menuItem.toolTip` _macOS_
 
 指示项目悬停文本的 `String` 。
 
