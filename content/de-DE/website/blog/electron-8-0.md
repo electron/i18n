@@ -96,7 +96,7 @@ Electron 5.x.y hat das Ende der Unterstützung gemäß der [Unterstützungsricht
 
 ## App Feedback Programm
 
-Wir verwenden weiterhin unser [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) für Tests. Projekte, die an diesem Programm teilnehmen, testen Electron-Betas auf ihren Apps; und im Gegenzug werden die neuen Fehler, die sie finden, für die stabile Veröffentlichung priorisiert. Wenn Sie teilnehmen möchten oder mehr erfahren möchten, [sich unseren Blogbeitrag über das Programm](https://electronjs.org/blog/app-feedback-program).
+Wir verwenden weiterhin unser [App Feedback Programm](https://electronjs.org/blog/app-feedback-program) für Tests. Projekte, die an diesem Programm teilnehmen, testen Electron-Betas auf ihren Apps; und im Gegenzug werden die neuen Fehler, die sie finden, für die stabile Veröffentlichung priorisiert. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
 
 ## Was ist als Nächstes
 
