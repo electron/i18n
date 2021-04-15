@@ -113,7 +113,7 @@ A `String` representing the current process's type, can be:
 
 返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
-Indicates the creation time of the application. 时间表示为自时代以来的毫秒数。 It returns null if it is unable to get the process creation time.
+Indicates the creation time of the application. 时间表示为自时代以来的毫秒数。 如果无法获得进程创建时间，则返回为空。
 
 ### `process.getCPUUsage()`
 
@@ -137,7 +137,7 @@ Indicates the creation time of the application. 时间表示为自时代以来�
 * `peakMallocedMemory` 整数
 * `doesZapGarbage` ·布尔
 
-Returns an object with V8 heap statistics. 备注：所有数据值以KB为单位
+返回包含 V8 堆统计的对象。 备注：所有数据值以KB为单位
 
 ### `过程。获取链接记忆信息（）`
 
@@ -147,15 +147,15 @@ Returns an object with V8 heap statistics. 备注：所有数据值以KB为单�
 * `marked` 整数 - 千字节中所有标记对象的大小。
 * `total` 整数 - 千字节分配的空间总数。
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+返回带有Blink内存信息的对象。 可以用于调试渲染/DOM相关内存问题。 请注意，所有值都以KB为单位
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+返回 `Promise<ProcessMemoryInfo>` - Promise成功返回 [PrecessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+返回一个对象，提供当前进程的内存使用统计。 请注意，所有统计值都以KB为单位 这个api应该在应用程序准备就绪后被调用。
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用过的页面进行内存压缩。 As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
 
 ### `process.getSystemMemoryInfo()`
 
@@ -166,7 +166,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 * `swapTotal` Integer _Windows_ _Linux_ - 系统交换内存容量（单位：千字节）。
 * `swapFree` Integer _Windows_ _Linux_ - 系统可用交换内存大小（单位：千字节）。
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Returns an object giving memory usage statistics about the entire system. 请注意，所有统计值都以KB为单位
 
 ### `过程。获取系统转换（）`
 
