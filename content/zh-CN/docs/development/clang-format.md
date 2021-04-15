@@ -6,7 +6,7 @@
 
 你可以通过 `npm install -g clang-format` 安装 `clang-format` 和 `git-clang-format`.
 
-要根据电子C++代码样式自动格式化文件，请运行 `clang-format -i path/to/electron/file.cc`。 它应该适用于马科斯/Linux/视窗。
+To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
 格式化已更改代码的工作流:
 
@@ -16,11 +16,11 @@
 4. 运行 `git add your_changed_file.cc`, 并提交你的修改.
 5. 现在准备好的分支推送请求已经被打开.
 
-如果你想在最新的 git 提交 （HEAD） 上格式化更改的代码，您可以 运行 `git-clang-format HEAD~1`。 有关详细信息，请参阅 `git-clang-format -h` 。
+If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
 ## 编辑器集成
 
-您还可以将 `clang-format` 直接集成到您最喜爱的编辑器中。 有关设置编辑器集成的进一步指导，请参阅以下页面：
+You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
 
 * [Atom](https://atom.io/packages/clang-format)
 * [Vim & Emacs](https://clang.llvm.org/docs/ClangFormat.html#vim-integration)
