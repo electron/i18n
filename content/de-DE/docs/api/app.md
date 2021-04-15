@@ -600,21 +600,21 @@ Auf _Linux-_ und _macOS-_hängen Symbole von der Anwendung ab, die dem Datei-Mim
 * `name` String
 * `path` String
 
-Überschreibt die `path` in ein spezielles Verzeichnis oder eine Datei, die `name`zugeordnet ist. Wenn der Pfad ein Verzeichnis angibt, das nicht vorhanden ist, wird ein `Error` ausgelöst. In diesem Fall sollte das Verzeichnis mit `fs.mkdirSync` oder ähnlichem erstellt werden.
+Überschreibt die `path` in ein spezielles Verzeichnis oder eine Datei, die `name`zugeordnet ist. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
-Sie können nur Pfade eines `name` außer Kraft setzen, die in `app.getPath`definiert sind.
+You can only override paths of a `name` defined in `app.getPath`.
 
-Standardmäßig werden die Cookies und Caches der Webseiten unter dem Verzeichnis `userData` gespeichert. Wenn Sie diesen Speicherort ändern möchten, müssen Sie den `userData` Pfad überschreiben, bevor das `ready` Ereignis des `app` Moduls ausgesendet wird.
+By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
-Gibt `String` zurück - Die Version der geladenen Anwendung. Wenn in der `package.json` -Datei der Anwendung keine Version gefunden wird, wird die Version des aktuellen Pakets oder ausführbaren Datei zurückgegeben.
+Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
 
 ### `app.getName()`
 
-Gibt `String` zurück : Der Name der aktuellen Anwendung, d. h. der Name in der `package.json` Datei der Anwendung.
+Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
-Normalerweise ist das `name` Feld von `package.json` ein kurzer Kleinbuchstabenname, entsprechend der npm-Module-Spezifikation. In der Regel sollten Sie auch ein `productName` Feld angeben, das der vollständige großgeschriebene Name Ihrer Anwendung ist und das `name` von Electron bevorzugt wird.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 ### `app.setName(name)`
 
@@ -622,11 +622,11 @@ Normalerweise ist das `name` Feld von `package.json` ein kurzer Kleinbuchstabenn
 
 Überschreibt den Namen der aktuellen Anwendung.
 
-**Hinweis:** Diese Funktion überschreibt den Namen, der intern von Electron verwendet wird; Sie hat keinen Einfluss auf den Namen, den das Betriebssystem verwendet.
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
 
 ### `app.getLocale()`
 
-Gibt `String` zurück - Das aktuelle Anwendungsgebietsschema. Mögliche Rückgabewerte werden hier [](locales.md)dokumentiert.
+Returns `String` - The current application locale. Mögliche Rückgabewerte werden hier [](locales.md)dokumentiert.
 
 Um das Gebietsschema festzulegen, sollten Sie beim App-Start einen Befehlszeilenschalter verwenden, der [hier](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)zu finden ist.
 
@@ -1331,7 +1331,7 @@ Eine `Boolean` Eigenschaft, die `true` zurückgegeben, wenn die App gepackt ist,
 
 A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
 
-Normalerweise ist das `name` Feld von `package.json` ein kurzer Kleinbuchstabenname, entsprechend der npm-Module-Spezifikation. In der Regel sollten Sie auch ein `productName` Feld angeben, das der vollständige großgeschriebene Name Ihrer Anwendung ist und das `name` von Electron bevorzugt wird.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 
 
