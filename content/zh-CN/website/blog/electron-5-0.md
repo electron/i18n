@@ -27,7 +27,7 @@ Electron的大部分功能由Chromium、Node.js和V8的核心组件提供。 Ele
 
 Electron 5还包括对特定Electron API的改进。 以下是主要更改的摘要；对于全部更改的列表，请参阅 [Electron v5.0.0 版本说明](https://github.com/electron/electron/releases/tag/v5.0.0)。
 
-### 专业化
+### Promisification
 
 Electron 5继续 [Promisation倡议](https://github.com/electron/electron/blob/5-0-x/docs/api/promisification.md) 倡议将Electron的回调API转换为使用Promis。 这些API已转换为 Electron 5：
 * `app.getFileIcon`
