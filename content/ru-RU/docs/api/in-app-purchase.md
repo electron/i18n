@@ -40,17 +40,17 @@
 
 ### `inAppPurchase.canMakePayments()`
 
-Возвращает `Boolean` - может ли пользователь произвести платеж.
+Returns `Boolean` - whether a user can make a payment.
 
-### `inAppPurchase.restoreПолletedTransactions()`
+### `inAppPurchase.restoreCompletedTransactions()`
 
-How can I get paid for translation or proofreading of this? Do you pay by Paypal? Can i also create reports for this?-Pls reply-Thank you in adv. Этот метод можно назвать либо для установки покупок на дополнительных устройствах, либо для восстановления покупок для приложения, которое пользователь удалил и переустановило.
+How can I get paid for translation or proofreading of this? Do you pay by Paypal? Can i also create reports for this?-Pls reply-Thank you in adv. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
 
-[Очередь платежей](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) новую транзакцию для каждой ранее завершенной транзакции, которая может быть восстановлена. Каждая транзакция включает в себя копию исходной транзакции.
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Возвращает `String` - путь к квитанции.
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 
