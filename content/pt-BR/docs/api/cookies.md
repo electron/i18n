@@ -85,7 +85,7 @@ Envia uma solicitação para obter todos os cookies correspondentes `filter`, e 
   * `domain` String (opcional) - O domínio do cookie; isto será normalizado com um ponto no início para que ele também seja válido para subdomínios. Esvazie por padrão se omitir.
   * `path` String (opcional) - O Diretório do cookie. Esvazie por padrão se omitir.
   * `secure` Boolean (opcional) - Se o cookie deve ser marcado como Seguro. Padrão sendo false.
-  * `httpOnly` Boolean (opcional) - Se o cookie deve ser marcado apenas como HTTP. Padrão para falso.
+  * `httpOnly` Boolean (opcional) - Se o cookie deve ser marcado apenas como HTTP. Defaults to false.
   * `expirationDate` Double (opcional) - A data de validade do cookie como o número de segundos desde a época UNIX. Se omitido, o cookie se torna uma sessão cookie e não será retido entre as sessões.
   * `sameSite` String (opcional) - A política de [Mesmo Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) se aplicar a este cookie.  Pode ser `unspecified`, `no_restriction`, `lax` ou `strict`.  O padrão é `no_restriction`.
 
