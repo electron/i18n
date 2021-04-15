@@ -4,7 +4,7 @@ author: zeke
 date: '2016-03-25'
 ---
 
-电子 `0.37` 最近 [](https://github.com/electron/electron/releases) 发布，包括从 Chrome 47 到 Chrome 49 的重大升级，以及几个新的核心 ABI。 这个最新版本带来了所有在 [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) and [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html) 中发运的新功能。 这包括CSS 自定义属性，增加 [ES6](http://www.ecma-international.org/ecma-262/6.0/) 支持， `键盘事件` 改进。 `承诺` 改进以及您的 Electron 应用程序现在可以使用的许多其他新功能。
+Electron `0.37` was recently [released](https://github.com/electron/electron/releases) and included a major upgrade from Chrome 47 to Chrome 49 and also several new core APIs. 这个最新版本带来了所有在 [Chrome 48](http://blog.chromium.org/2015/12/chrome-48-beta-present-to-cast-devices_91.html) and [Chrome 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html) 中发运的新功能。 这包括CSS 自定义属性，增加 [ES6](http://www.ecma-international.org/ecma-262/6.0/) 支持， `键盘事件` 改进。 `承诺` 改进以及您的 Electron 应用程序现在可以使用的许多其他新功能。
 
 ---
 
@@ -53,9 +53,9 @@ Chrome 48 添加了新的 `代码` 属性在 `键盘事件` 的事件，这些�
 这将使您的 Electron 应用程序中的自定义键盘快捷键更加准确和更加一致。
 
 ```js
-窗口。add事件听力器（"倒计时"，函数（事件）{
-  控制台.log（'${event.code} 按下。'）
-}）
+window.addEventListener('keydown', function(event) {
+  console.log(`${event.code} was pressed.`)
+})
 ```
 
 查看 [这个示例](https://googlechrome.github.io/samples/keyboardevent-code-attribute/) 来看到它正在操作。
@@ -65,13 +65,13 @@ Chrome 48 添加了新的 `代码` 属性在 `键盘事件` 的事件，这些�
 Chrome 49 添加了两个新的 `窗口` 事件允许您在被拒绝 [承诺](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 未处理时收到通知。
 
 ```js
-窗口.事件听者（"未处理的弹射"， 功能（事件）{
-  控制台.log（'被拒绝
-的承诺未处理'，事件。承诺，事件.原因）
-}）
+window.addEventListener('unhandledrejection', function (event) {
+  console.log('A rejected promise was unhandled', event.promise, event.reason)
+})
 
-窗口.log
-  。
+window.addEventListener('rejectionhandled', function (event) {
+  console.log('A rejected promise was handled', event.promise, event.reason)
+})
 ```
 
 查看 [这个示例](https://googlechrome.github.io/samples/promise-rejection-events/index.html) 来看到它正在操作。
@@ -111,25 +111,25 @@ const {dialog, Tray} = require('electron').远程
 ##### 其他例子
 
 ```js
-破坏阵列并跳过第二个元素
-缺点 [首先， ，最后]=查找所有（）
+// Destructuring an array and skipping the second element
+const [first, , last] = findAll()
 
-//破坏功能参数
-功能是谁（{显示名称：显示名称，全名： {firstName: name}}）{
-  控制台.log（'${displayName} 是 ${name}'）
+// Destructuring function parameters
+function whois({displayName: displayName, fullName: {firstName: name}}){
+  console.log(`${displayName} is ${name}`)
 }
 
-让用户={
-  显示名称："jdoe"，
-  全名：{
-      第一个名字："约翰"，
-      最后一个名字："Doe"
+let user = {
+  displayName: "jdoe",
+  fullName: {
+      firstName: "John",
+      lastName: "Doe"
   }
 }
-谁（用户）//"jdoe是约翰"
+whois(user) // "jdoe is John"
 
-//破坏对象
-让 {name, avatar} =获取用户（）
+// Destructuring an object
+let {name, avatar} = getUser()
 ```
 
 ## 新 Electron APIs
@@ -153,16 +153,16 @@ wind.on('hide', function ()
 当切换系统的 [暗色模式](https://discussions.apple.com/thread/6661740) 主题时，此事件将被发出。
 
 ```js
-康斯特 {app} =需要（"电子"）
+const {app} = require('electron')
 
-应用程序。on（"平台主题更改"，功能（）{
-  控制台.log（"平台主题更改。 在暗色模式下？ ${app.isDarkMode()}`)
+app.on('platform-theme-changed', function () {
+  console.log(`Platform theme changed. 在暗色模式下？ ${app.isDarkMode()}`)
 })
 ```
 
 #### `app.isDarkMode()` for `OS X`
 
-如果系统处于暗模式，则此方法 `true` 返回，否则 `false` 。
+This method returns `true` if the system is in Dark Mode, and `false` otherwise.
 
 #### `滚动触摸开头` and `滚动触摸端` 事件到 BrowserWindow for `OS X`
 
