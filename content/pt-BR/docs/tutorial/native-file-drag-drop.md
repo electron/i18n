@@ -15,7 +15,7 @@ Começando com um aplicativo que funciona no [Guia de Início Rápido](quick-sta
 <script src="renderer.js"></script>
 ```
 
-e adicionar as seguintes linhas ao arquivo `renderer.js` :
+and add the following lines to the `renderer.js` file:
 
 ```javascript
 const { ipcRenderer } = require('electron')
@@ -41,6 +41,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-Depois de lançar o aplicativo Electron, tente arrastar e soltar o item da Janela de Navegador para o seu desktop. Neste guia, o item é um arquivo de Markdown localizado na raiz do projeto:
+After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. Neste guia, o item é um arquivo de Markdown localizado na raiz do projeto:
 
 ![Arraste e solte](../images/drag-and-drop.gif)
