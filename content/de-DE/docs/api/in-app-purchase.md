@@ -1,63 +1,63 @@
 # inAppPurchase
 
-> In-App-Käufe im Mac App Store.
+> In-app purchases on Mac App Store.
 
 Prozess: [Main](../glossary.md#main-process)
 
 ## Ereignisse
 
-Das `inAppPurchase` -Modul gibt die folgenden Ereignisse aus:
+The `inAppPurchase` module emits the following events:
 
-### Ereignis: 'Transaktionen aktualisiert'
+### Event: 'transactions-updated'
 
-Emittiert, wenn eine oder mehrere Buchungen aktualisiert wurden.
+Emitted when one or more transactions have been updated.
 
 Rückgabewert:
 
 * `event` Event
-* `transactions` Transaction[] - Array von [`Transaction`](structures/transaction.md) -Objekten.
+* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
 ## Methoden
 
-Das `inAppPurchase` Modul verfügt über die folgenden Methoden:
+The `inAppPurchase` module has the following methods:
 
-### `inAppPurchase.purchaseProduct(productID[, menge])`
+### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
-* `productID` String - Die Kennungen des zu erwerbenden Produkts. (Der Bezeichner von `com.example.app.product1` ist `product1`).
-* `quantity` Ganzzahl (optional) - Die Anzahl der Artikel, die der Benutzer kaufen möchte.
+* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `quantity` Integer (optional) - The number of items the user wants to purchase.
 
-Gibt `Promise<Boolean>` zurück : Gibt `true` zurück, wenn das Produkt gültig ist und der Zahlungswarteschlange hinzugefügt wurde.
+Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
-Sie sollten so schnell wie möglich und sicherlich vor dem Anruf `purchaseProduct`auf das `transactions-updated` Ereignis hören.
+You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - Die Kennungen der zu erhaltenden Produkte.
+* `productIDs` String[] - The identifiers of the products to get.
 
-Gibt `Promise<Product[]>` zurück : Löst mit einem Array von [`Product`](structures/product.md) -Objekten auf.
+Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Ruft die Produktbeschreibungen ab.
+Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Gibt `Boolean` zurück - ob ein Benutzer eine Zahlung leisten kann.
+Returns `Boolean` - whether a user can make a payment.
 
 ### `inAppPurchase.restoreCompletedTransactions()`
 
-Stellt abgeschlossene Transaktionen wieder her. Diese Methode kann aufgerufen werden, um Käufe auf zusätzlichen Geräten zu installieren oder um Käufe für eine Anwendung wiederherzustellen, die der Benutzer gelöscht und neu installiert hat.
+Restores finished transactions. This method can be called either to install purchases on additional devices, or to restore purchases for an application that the user deleted and reinstalled.
 
-[Die Zahlungswarteschlange](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) liefert eine neue Transaktion für jede zuvor abgeschlossene Transaktion, die wiederhergestellt werden kann. Jede Transaktion enthält eine Kopie der ursprünglichen Transaktion.
+[The payment queue](https://developer.apple.com/documentation/storekit/skpaymentqueue?language=objc) delivers a new transaction for each previously completed transaction that can be restored. Each transaction includes a copy of the original transaction.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Gibt `String` zurück - den Pfad zum Empfang.
+Returns `String` - the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Schließt alle ausstehenden Transaktionen ab.
+Completes all pending transactions.
 
-### `inAppPurchase.finishTransactionByDate(Datum)`
+### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - Das ISO-formatierte Datum der transaktion, die abgeschlossen werden soll.
+* `date` String - The ISO formatted date of the transaction to finish.
 
-Schließt die ausstehenden Buchungen ab, die dem Datum entsprechen.
+Completes the pending transactions corresponding to the date.
