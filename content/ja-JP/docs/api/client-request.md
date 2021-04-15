@@ -136,13 +136,13 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 特定のヘッダーはアプリによって設定されないように制限されています。 これらのヘッダは以下にリストアップしています。 制限付きヘッダーの詳細は、[Chromium のヘッダー ユーティリティ](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22) を参照してください。
 
-* `コンテンツ長`
+* `Content-Length`
 * `ホスト`
 * `Trailer` または `Te`
-* `アップグレード`
-* `クッキー2`
-* `キープアライブ`
-* `転送エンコーディング`
+* `Upgrade`
+* `Cookie2`
+* `Keep-Alive`
+* `Transfer-Encoding`
 
 さらに、`Connection` ヘッダを `upgrade` の値に設定することも禁止されています。
 
