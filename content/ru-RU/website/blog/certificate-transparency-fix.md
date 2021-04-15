@@ -8,7 +8,7 @@ Electron [1.4. 2](https://github.com/electron/electron/releases/tag/v1.4.12) с�
 
 ---
 
-В Electron 1.4.0 &mdash; 1.4.11 HTTPS запросы на сайты с использованием этих сертификатов не будут обработаны после определенной даты. Это влияет на запросы HTTPS, сделанные с помощью базовых сетевых API Chrome таких как `window.fetch`, запросы Ajax, API `net` Electron, `BrowserWindow.loadURL`, `webContents.loadURL`, атрибут `src` на теге `<webview>` и другие.
+В Electron 1.4.0 &mdash; 1.4.11 HTTPS запросы на сайты с использованием этих сертификатов не будут обработаны после определенной даты. This affects HTTPS requests made using Chrome's underlying networking APIs such as `window.fetch`, Ajax requests, Electron's `net` API, `BrowserWindow.loadURL`, `webContents.loadURL`, the `src` attribute on a `<webview>` tag, and others.
 
 Обновление ваших приложений до 1.4.12 предотвратит возникновение ошибок в запросе.
 
