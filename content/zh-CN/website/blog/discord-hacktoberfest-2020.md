@@ -23,7 +23,7 @@ Electron的 [拓展工作组](https://github.com/electron/governance/tree/master
 我们正在设置这个微妙的新服务器，作为社区的中心讨论中心，您可以在 Electron 上获得最新的 条消息。
 
 ## 进入这里！
-到目前为止，服务器的会员包括几个维护者谁一直在一起工作，以设置它，但我们 很高兴与大家聊天！ 快来请求帮助，跟上Electron版的最新版本，或者只是与其他 开发者挂开。 我们有一个方便的 [邀请为您](https://discord.gg/H6uTh7m) ，这会让你访问服务器！
+So far, the server’s membership consists of a few maintainers who have been working together to set it up, but we’re so excited to chat with you all! 快来请求帮助，跟上Electron版的最新版本，或者只是与其他 开发者挂开。 We’ve got a handy [invite for you](https://discord.gg/H6uTh7m) that’ll give you access to the server!
 
 # Hacktoberfest 2020
 作为一个大型和长期运行的开源项目，Electron如果没有其社区的所有 贡献就不会几乎成功。 从提交代码到错误报告到文档更改，还有更多。 这就是为什么我们相信参与Hacktoberfest对于让更广泛的开发者社区 进入项目的重要性。
@@ -36,4 +36,4 @@ Electron的 [拓展工作组](https://github.com/electron/governance/tree/master
 P.S. 如果你特别感到冒险， 我们还有一些积压的问题，标记为 [`帮助您想要`](https://github.com/search?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22+org%3Aelectron+org%3Aelectron-userland) 标签，如果您在寻找更多的挑战。
 
 ## 卡住了吗？ 快来和我们聊天吧！
-此外，我们的 Discord 服务器的大型开启与当年最大的 开放源码软件同时进行，也绝非巧合。 看看#hacktoberfest频道来要求你的Hacktoberfest PR帮助。 万一你错过了 ， [这里的邀请链接再次](https://discord.gg/H6uTh7m)！
+此外，我们的 Discord 服务器的大型开启与当年最大的 开放源码软件同时进行，也绝非巧合。 看看#hacktoberfest频道来要求你的Hacktoberfest PR帮助。 In case you missed it, [here's the invite link again](https://discord.gg/H6uTh7m)!
