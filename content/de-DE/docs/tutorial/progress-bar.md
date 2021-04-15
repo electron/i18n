@@ -2,13 +2,13 @@
 
 ## Übersicht
 
-Eine Fortschrittsleiste ermöglicht es einem Fenster, dem Benutzer Fortschrittsinformationen bereitzustellen, ohne zum Fenster selbst wechseln zu müssen.
+A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
 
-Unter Windows können Sie eine Taskleistenschaltfläche verwenden, um eine Fortschrittsleiste anzuzeigen.
+On Windows, you can use a taskbar button to display a progress bar.
 
-![Windows-Fortschrittsleiste][1]
+![Windows Progress Bar][1]
 
-Unter macOS wird die Fortschrittsleiste als Teil des Dock-Symbols angezeigt.
+On macOS, the progress bar will be displayed as a part of the dock icon.
 
 ![macOS-Fortschrittsleiste][2]
 
