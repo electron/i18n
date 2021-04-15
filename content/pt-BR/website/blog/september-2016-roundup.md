@@ -1,5 +1,5 @@
 ---
-title: 'Setembro 2016: Novos Aplicativos'
+title: 'September 2016: New Apps'
 author: exaustão
 date: '2016-10-06'
 ---
