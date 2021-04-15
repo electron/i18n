@@ -8,7 +8,7 @@ Généralement, vous créez une application de bureau pour un système d'exploit
 
 ### Prerequisites
 
-Avant de procéder avec Electron, vous devez installer [nœud.js][node-download]. Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
+Avant de continuer avec Electron, vous devez installer [Node.js][node-download]. Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
 
 > Veuillez installer Node.js en utilisant des installateurs pré-compilés pour votre plate-forme. Dans le cas contraire, vous pourriez rencontrer des problèmes d'incompatibilité avec différents outils de développement.
 
