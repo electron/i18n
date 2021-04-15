@@ -2,7 +2,7 @@
 
 ## Обзор
 
-У Electron есть API для настройки иконки приложения в macOS Dock. MacOS-только API существует для создания пользовательского меню док-станции, но Electron также использует значок док-станции приложения в качестве точки входа для кросс-платформенной функции, такие как [последние документы][recent-documents] и [прогресс приложения][progress-bar].
+У Electron есть API для настройки иконки приложения в macOS Dock. A macOS-only API exists to create a custom dock menu, but Electron also uses the app dock icon as the entry point for cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
 Пользовательская панель обычно используется для добавления ярлыков к задачам, для которых пользователь не хочет открыть окно всего приложения.
 
@@ -17,25 +17,25 @@ __Dock меню из Terminal.app:__
 Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), обновите файл `main.js` с следующими строками:
 
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
-const { app, Menu } и требуют ('электрон')
+const { app, Menu } = require('electron')
 
-const dockMenu и Menu.buildFromTemplate (я
-
-    этикетке: "Новое окно",
-    нажмите кнопку () консоль.log («Новое окно»)
-  , метка
-    : «Новое окно с настройками»,
-    submenu:
+const dockMenu = Menu.buildFromTemplate([
+  {
+    label: 'New Window',
+    click () { console.log('New Window') }
+  }, {
+    label: 'New Window with Settings',
+    submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
+    ]
+  },
+  { label: 'New Command...' }
+])
 
-  ,
-  » метка: «Новая команда...» -
-)
-
-app.whenReady ().,тогда (()) -> -
-  app.dock.setMenu (dockMenu)
-)
+app.whenReady().then(() => {
+  app.dock.setMenu(dockMenu)
+})
 ```
 
 После запуска приложения Electron щелкните правой кнопкой мыши на значке приложения. Вы должны увидеть пользовательское меню, которое вы только что определили:
