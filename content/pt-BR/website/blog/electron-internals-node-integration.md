@@ -1,5 +1,5 @@
 ---
-title: 'Internals eletrônicos: Integração do loop de mensagens'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---
@@ -26,7 +26,7 @@ Minha primeira tentativa foi reimplementar o loop de mensagens do Chromium com l
 
 Foi fácil para o processo de renderização, uma vez que o seu loop de mensagem ouviu apenas descritores de arquivos e temporizadores, e eu só precisava implementar a interface com libuv.
 
-No entanto, foi significativamente mais difícil para o processo principal. Cada plataforma tem seu próprio tipo de laço de mensagem de GUI. macOS Chromium usa `NSRunLoop`, enquanto Linux usa glib. Tentei muitos hacks para extrair os descritores de arquivos subjacentes dos loops de mensagens de GUI nativos, e então alimentado -los a libuv para iteração, mas ainda conheci casos de borda que não funcionavam.
+No entanto, foi significativamente mais difícil para o processo principal. Cada plataforma tem seu próprio tipo de laço de mensagem de GUI. macOS Chromium usa `NSRunLoop`, enquanto Linux usa glib. I tried lots of hacks to extract the underlying file descriptors out of the native GUI message loops, and then fed them to libuv for iteration, but I still met edge cases that did not work.
 
 Então finalmente adicionei um cronômetro para enquete o loop de mensagens da GUI em um pequeno intervalo. Como resultado o processo levou um uso constante da CPU, e certas operações tiveram longos atrasos.
 
@@ -36,7 +36,7 @@ Tal como o libuv amadureceu, foi possível adoptar uma outra abordagem.
 
 O conceito de fd backend foi introduzido em libuv, que é um descritor de arquivo (ou handle) que libuv enquetes para seu loop de eventos. Então, ao consultar o back-end é possível ser notificado quando houver um novo evento em libuv.
 
-Então em Electron eu criei um segmento separado para enquete o backend fd, e como eu estava usando as chamadas do sistema para votação em vez de APIs libuv, era thread seguro. E sempre que houve um novo evento no loop de eventos do libuv, uma mensagem seria postada no loop de mensagens do Chromium, e os eventos de libuv seriam processados no tópico principal.
+So in Electron I created a separate thread to poll the backend fd, and since I was using the system calls for polling instead of libuv APIs, it was thread safe. E sempre que houve um novo evento no loop de eventos do libuv, uma mensagem seria postada no loop de mensagens do Chromium, e os eventos de libuv seriam processados no tópico principal.
 
 Dessa forma, eu evitei remendar o Chromium e o Node, e o mesmo código foi usado nos processos tanto do principal quanto do renderizador.
 
