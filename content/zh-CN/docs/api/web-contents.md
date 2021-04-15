@@ -1016,7 +1016,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.setWindowOpenHandler(handler)`
 
-* `handler` 功能<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
   * `details` 对象
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
@@ -1611,164 +1611,164 @@ ipcRenderer.on（"端口"，（e，msg）=> {
 
 * `fullPath` 字符串 - 完整的文件路径。
 * `saveType` 字符串 - 指定保存类型。
-  * `HTMLOnly` - 仅保存页面的 HTML。
-  * `HTMLComplete` -保存完整html页面。
-  * `MHTML` -将完整html页面保存为MHTML。
+  * `HTMLOnly` - Save only the HTML of the page.
+  * `HTMLComplete` - Save complete-html page.
+  * `MHTML` - Save complete-html page as MHTML.
 
-返回 `Promise<void>` - 如果页面已保存，则解析。
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
-康斯特 { BrowserWindow } = 要求 （'电子'）
-缺点赢 = 新的浏览器窗口 （）
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
 
-赢. loadurl （'https：// github .com'）
+win.loadURL('https://github.com')
 
-赢。 不对称 （） => =
-  赢. web 康滕茨. 保存页面 （'/ tmp / 测试.html'， 'HTML 完成'.log
-    > ） 。
-  [）。catch（呃=> {
-    控制台.log（呃）
-  }）
-}）
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
+  })
+})
 ```
 
 #### `contents.showDefinitionForSelection()` _macOS_
 
-显示在页面上搜索所选单词的弹出字典。
+Shows pop-up dictionary that searches the selected word on the page.
 
-#### `内容。屏幕外（）`
+#### `contents.isOffscreen()`
 
-返回 `Boolean` - 指示是否启用屏幕外渲染</em> *。</p>
+Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
 
-#### `内容。开始着色（）`
+#### `contents.startPainting()`
 
-如果 *屏幕外渲染* 启用，而不是绘画，开始绘画。
+If *offscreen rendering* is enabled and not painting, start painting.
 
-#### `内容。停止涂漆（）`
+#### `contents.stopPainting()`
 
-如果 *屏幕外渲染* 启用并绘制，请停止绘画。
+If *offscreen rendering* is enabled and painting, stop painting.
 
-#### `内容。`
+#### `contents.isPainting()`
 
-返回 `Boolean` - 如果 *屏幕外渲染* 启用返回，无论它当前是否正在绘画。
+Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
 
-#### `内容。设置帧（fps）`
+#### `contents.setFrameRate(fps)`
 
-* `fps` 整数
+* `fps` Integer
 
-如果启用 *屏幕外渲染* 则将帧速率设置为指定数字。 仅接受 1 到 240 之间的值。
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
 
-#### `内容。获取帧率（）`
+#### `contents.getFrameRate()`
 
-返回 `Integer` - 如果启用 *屏幕外渲染* 返回当前帧速率。
+Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
 
-#### `内容。无效（）`
+#### `contents.invalidate()`
 
-计划此 Web 内容所处于的窗口的完整重新绘入。
+Schedules a full repaint of the window this web contents is in.
 
-如果启用 *屏幕外渲染* 会使帧失效，并通过 `'paint'` 事件生成新的 。
+If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
-#### `内容。获取网络处理政策（）`
+#### `contents.getWebRTCIPHandlingPolicy()`
 
-返回 `String` - 返回 WebRTC IP 处理策略。
+Returns `String` - Returns the WebRTC IP Handling Policy.
 
-#### `内容。设置网络处理政策（政策）`
+#### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` 字符串 - 指定 WebRTC IP 处理策略。
-  * `default` - 曝光用户的公共和本地 IPs。 这是默认 行为。 使用此策略时，WebRTC 有权列举所有 界面并将其绑定以发现公共接口。
-  * `default_public_interface_only` - 暴露用户的公共 IP，但不 暴露用户的本地 IP。 使用此策略时，WebRTC 应仅使用 http 使用的 默认路由。 这不会暴露任何本地地址。
-  * `default_public_and_private_interfaces` - 曝光用户的公共和本地 IPs。 使用此策略时，WebRTC 应仅使用 http 使用的默认路由。 这也暴露了相关的默认专用地址。 默认 路由是操作系统在多主机上选择的路由。
-  * `disable_non_proxied_udp` - 不暴露公共或本地 IP。 使用此 策略时，WebRTC 应仅使用 TCP 联系同行或服务器，除非代理服务器 支持 UDP。
+* `policy` String - Specify the WebRTC IP Handling Policy.
+  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-设置 WebRTC IP 处理策略允许您通过 WebRTC 控制哪些 IP 暴露。 有关更多详细信息，请参阅 [浏览器泄漏](https://browserleaks.com/webrtc) 。
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
-#### `内容。获取过程ID（）`
+#### `contents.getOSProcessId()`
 
-返回 `Integer` - 相关渲染器的操作系统 `pid` 过程。
+Returns `Integer` - The operating system `pid` of the associated renderer process.
 
-#### `内容。获取处理ID（）`
+#### `contents.getProcessId()`
 
-返回 `Integer` - 相关渲染器的铬内部 `pid` 。 是否可以将 与框架特定导航事件 传递的 `frameProcessId` 进行比较（例如 `did-frame-navigate`）
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` 字符串 - 输出文件的路径。
 
-返回 `Promise<void>` - 指示快照是否已成功创建。
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
 采取V8堆快照，并保存到 `filePath`。
 
-#### `内容。`
+#### `contents.getBackgroundThrottling()`
 
-返回 `Boolean` - 当页面成为背景时，此 WebContents 是否会限制动画和定时器 。 这也会影响页面可见度 API。
+Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. 这也会影响页面可见度 API。
 
-#### `内容。设置背景（允许）`
+#### `contents.setBackgroundThrottling(allowed)`
 
-* `allowed` ·布尔
+* `allowed` Boolean
 
-控制此 Web 内容是否会限制当页面成为背景时 的动画和定时器。 这也会影响页面可见度 API。
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. 这也会影响页面可见度 API。
 
-#### `内容。获取类型（）`
+#### `contents.getType()`
 
-返回 `String` - 网络内容的类型。 可 `backgroundPage`、 `window`、 `browserView`、 `remote`、 `webview` 或 `offscreen`。
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### 实例属性
 
-#### `内容。音频已变`
+#### `contents.audioMuted`
 
-决定此页面是否静音的 `Boolean` 属性。
+A `Boolean` property that determines whether this page is muted.
 
-#### `内容。用户代理`
+#### `contents.userAgent`
 
-确定此网页用户代理的 `String` 属性。
+A `String` property that determines the user agent for this web page.
 
-#### `内容。缩放级别`
+#### `contents.zoomLevel`
 
-确定此 Web 内容的缩放级别的 `Number` 属性。
+A `Number` property that determines the zoom level for this web contents.
 
-原始大小为 0，高于或低于每个增量表示放大或缩小 20%，默认限制分别为原始大小的 300% 和 50%。 这样做的公式是 `scale := 1.2 ^ level`。
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-#### `内容。缩放因子`
+#### `contents.zoomFactor`
 
-确定此 Web 内容的缩放因子的 `Number` 属性。
+A `Number` property that determines the zoom factor for this web contents.
 
-缩放系数是放大百分比除以 100，因此 300% = 3.0。
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
-#### `内容。帧速率`
+#### `contents.frameRate`
 
-将 Web 内容的帧速率设置为指定编号的 `Integer` 属性。 仅接受 1 到 240 之间的值。
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
 
-仅适用于启用屏幕外渲染 ** 。
+Only applicable if *offscreen rendering* is enabled.
 
-#### `contents.id` _·里德利·_
+#### `contents.id` _Readonly_
 
-`Integer`类型，代表WebContents的唯一标识（unique ID）。 在整个电子应用程序的所有 `WebContents` 实例中，每个 ID 都是独一无二的。
+`Integer`类型，代表WebContents的唯一标识（unique ID）。 Each ID is unique among all `WebContents` instances of the entire Electron application.
 
-#### `contents.session` _·里德利·_
+#### `contents.session` _Readonly_
 
-此网络内容使用的 [`Session`](session.md) 。
+A [`Session`](session.md) used by this webContents.
 
-#### `contents.hostWebContents` _·里德利·_
+#### `contents.hostWebContents` _Readonly_
 
-可能拥有这种 `WebContents`的 [`WebContents`](web-contents.md) 实例。
+A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
-#### `contents.devToolsWebContents` _·里德利·_
+#### `contents.devToolsWebContents` _Readonly_
 
-代表 DevTools `WebContents` 与给定 `WebContents`相关的 `WebContents | null` 属性。
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
-**注意：** 用户不应存储此对象，因为当 DevTool 关闭时，它可能会变得 `null` 。
+**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
-#### `contents.debugger` _·里德利·_
+#### `contents.debugger` _Readonly_
 
-此网络内容的 [`Debugger`](debugger.md) 实例。
+A [`Debugger`](debugger.md) instance for this webContents.
 
-#### `内容。背景`
+#### `contents.backgroundThrottling`
 
-`Boolean` 属性，决定此 WebContents 是否会在页面成为背景时限制动画和定时器 。 这也会影响页面可见度 API。
+A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. 这也会影响页面可见度 API。
 
-#### `contents.mainFrame` _·里德利·_
+#### `contents.mainFrame` _Readonly_
 
-[`WebFrameMain`](web-frame-main.md) 属性，表示页面框架层次结构的顶部框架。
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
