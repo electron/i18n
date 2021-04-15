@@ -1,5 +1,5 @@
 ---
-title: Elektron 12.0.0
+title: Electron 12.0.0
 author:
   - VerteDinde
   - mlaurencin
@@ -7,107 +7,107 @@ author:
 date: '2021-03-02'
 ---
 
-Electron 12.0.0 wurde veröffentlicht! Es enthält Upgrades auf Chromium `89`, V8 `8.9` und Node.js `14.16`. Wir haben Änderungen am Remotemodul, neue Standardeinstellungen für contextIsolation, eine neue webFrameMain-API und allgemeine Verbesserungen hinzugefügt. Lesen Sie unten für weitere Details!
+Electron 12.0.0 has been released! It includes upgrades to Chromium `89`, V8 `8.9` and Node.js `14.16`. We've added changes to the remote module, new defaults for contextIsolation, a new webFrameMain API, and general improvements. Lesen Sie unten für weitere Details!
 
 ---
 
-Das Electron-Team freut sich, die Veröffentlichung von Electron 12.0.0 ankündigen zu können! Sie können es mit npm installieren über `npm electron@latest` installieren oder von unserer [Release-Website](https://electronjs.org/releases/stable) herunterladen. Lesen Sie weiter für Details zu dieser Version, und teilen Sie bitte Ihr Feedback!
+The Electron team is excited to announce the release of Electron 12.0.0! Sie können es mit npm installieren über `npm electron@latest` installieren oder von unserer [Release-Website](https://electronjs.org/releases/stable) herunterladen. Lesen Sie weiter für Details zu dieser Version, und teilen Sie bitte Ihr Feedback!
 
 ## Bemerkenswerte Änderungen
 
 ### Stapeländerungen
 
-* Chrom- `89`
-    * [Neu in Chrome 88](https://developer.chrome.com/blog/new-in-chrome-88/)
-    * [Neu in Chrome 89](https://developer.chrome.com/blog/new-in-chrome-89/)
-* Knoten.js `14.16`
-    * [Knoten 14.16.0 Blogbeitrag](https://nodejs.org/en/blog/release/v14.16.0/)
-    * [Blogbeitrag Knoten 14.0.0](https://nodejs.org/en/blog/release/v14.0.0/)
-* V8- `8.9`
-    * [V8 8.8 Blog-Beitrag](https://v8.dev/blog/v8-release-88)
-    * [V8 8.9 Blog-Beitrag](https://v8.dev/blog/v8-release-89)
+* Chromium `89`
+    * [New in Chrome 88](https://developer.chrome.com/blog/new-in-chrome-88/)
+    * [New in Chrome 89](https://developer.chrome.com/blog/new-in-chrome-89/)
+* Node.js `14.16`
+    * [Node 14.16.0 blog post](https://nodejs.org/en/blog/release/v14.16.0/)
+    * [Node 14.0.0 blog post](https://nodejs.org/en/blog/release/v14.0.0/)
+* V8 `8.9`
+    * [V8 8.8 blog post](https://v8.dev/blog/v8-release-88)
+    * [V8 8.9 blog post](https://v8.dev/blog/v8-release-89)
 
 ### Merkmale hervorheben
 
-* Die ContextBridge `exposeInMainWorld` -Methode kann jetzt Nicht-Objekt-APIs verfügbar machen. [#26834](https://github.com/electron/electron/pull/26834)
-* Upgrade von Knoten 12 auf Knoten 14. [#23249](https://github.com/electron/electron/pull/25249)
-* Es wurde eine neue `webFrameMain` -API für den Zugriff auf Unterframes einer `WebContents` -Instanz aus dem Hauptprozess hinzugefügt. [#25464](https://github.com/electron/electron/pull/25464)
-* Die Standardwerte von `contextIsolation` und `worldSafeExecuteJavaScript` sind jetzt `true`. [#27949](https://github.com/electron/electron/pull/27949) [#27502](https://github.com/electron/electron/pull/27502)
+* The ContextBridge `exposeInMainWorld` method can now expose non-object APIs. [#26834](https://github.com/electron/electron/pull/26834)
+* Upgraded from Node 12 to Node 14. [#23249](https://github.com/electron/electron/pull/25249)
+* Added a new `webFrameMain` API for accessing sub-frames of a `WebContents` instance from the main process. [#25464](https://github.com/electron/electron/pull/25464)
+* The default values of `contextIsolation` and `worldSafeExecuteJavaScript` are now `true`. [#27949](https://github.com/electron/electron/pull/27949) [#27502](https://github.com/electron/electron/pull/27502)
 
-Eine vollständige Liste der neuen Funktionen und Änderungen finden Sie in den [12.0.0-Versionshinweisen](https://github.com/electron/electron/releases/tag/v12.0.0) .
+See the [12.0.0 release notes](https://github.com/electron/electron/releases/tag/v12.0.0) for a full list of new features and changes.
 
 ## Breaking Changes
 
-* Das `remote` Modul wurde veraltet. Er wird durch [`@electron/remote`](https://github.com/electron/remote)ersetzt. [#25293](https://github.com/electron/electron/pull/25293)
-    * Wenn Sie derzeit das `remote` -Modul verwenden, haben wir hier [eine Anleitung zur Migration zu `@electron/remote` geschrieben.](https://github.com/electron/remote#migrating-from-remote)
-* Der Standardwert von `contextIsolation` wurde in `true`geändert. [#27949](https://github.com/electron/electron/pull/27949)
-* Der Standardwert von `worldSafeExecuteJavaScript` wurde in `true`geändert. [#27502](https://github.com/electron/electron/pull/27502)
-* Der Standardwert von `crashReporter.start({ compress })` wurde von `false` in `true`geändert. [#25288](https://github.com/electron/electron/pull/25288)
-* Flash-Unterstützung entfernt: Chromium hat die Unterstützung für Flash entfernt, die auch in Electron 12 entfernt wurde. Weitere Informationen finden Sie in [Flash Roadmap](https://www.chromium.org/flash-roadmap) von Chromium.
-* Erforderliches SSE3 für Chrome auf x86: Chromium hat die Unterstützung für [älteren x86-CPUs entfernt, die nicht mindestens DIE SSE3-Unterstützung (Streaming SIMD Extensions 3)](https://docs.google.com/document/d/1QUzL4MGNqX4wiLvukUwBf6FdCL35kCDoEJTm2wMkahw/edit#heading=h.7nki9mck5t64)erfüllen. Diese Unterstützung wurde auch in Electron 12 entfernt.
+* Deprecated the `remote` module. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
+    * If you are currently using the `remote` module, we've written [a guide to migrating to `@electron/remote` here.](https://github.com/electron/remote#migrating-from-remote)
+* Changed the default value of `contextIsolation` to `true`. [#27949](https://github.com/electron/electron/pull/27949)
+* Changed the default value of `worldSafeExecuteJavaScript` to `true`. [#27502](https://github.com/electron/electron/pull/27502)
+* Changed the default of `crashReporter.start({ compress })` from `false` to `true`. [#25288](https://github.com/electron/electron/pull/25288)
+* Removed Flash support: Chromium has removed support for Flash, which was also removed in Electron 12. See [Chromium's Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+* Required SSE3 for Chrome on x86: Chromium has removed support for [older x86 CPUs that do not meet a minimum of SSE3 (Streaming SIMD Extensions 3) support](https://docs.google.com/document/d/1QUzL4MGNqX4wiLvukUwBf6FdCL35kCDoEJTm2wMkahw/edit#heading=h.7nki9mck5t64). This support was also removed in Electron 12.
 
 Weitere Informationen zu diesen und zukünftigen Änderungen finden Sie auf der [geplanten Änderungen](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) Seite.
 
 ## API-Änderungen
 
-* `webFrameMain` -API hinzugefügt: Das `webFrameMain` -Modul kann verwendet werden, um Frames über vorhandene [`WebContents`](/docs/api/web-contents.md) -Instanzen hinweg nachzuschlagen. Dies ist das hauptprozessäquivalent der vorhandenen webFrame-API. Weitere Informationen zu dieser neuen API finden Sie [hier](https://github.com/electron/electron/pull/25464)und in unserer [-Dokumentation](https://www.electronjs.org/docs/api/web-frame-main).
+* Added `webFrameMain` API: The `webFrameMain` module can be used to look up frames across existing [`WebContents`](/docs/api/web-contents.md) instances. This is the main process equivalent of the existing webFrame API. More information about this new API can be found [here](https://github.com/electron/electron/pull/25464), and in our [documentation](https://www.electronjs.org/docs/api/web-frame-main).
 * `App` API-Änderungen:
-    * Nicht lokalisierte `serviceName` wurde `'child-process-gone'` / `app.getAppMetrics()`hinzugefügt. [#25975](https://github.com/electron/electron/pull/25975)
-    * Neue `app.runningUnderRosettaTranslation` -Eigenschaft hinzugefügt, um zu erkennen, wenn sie unter Rosetta auf Apple-Silizium ausgeführt wird. [#26444](https://github.com/electron/electron/pull/26444)
-    * `exitCode` zu `render-process-gone` Details hinzugefügt (App & webContents). [#27677](https://github.com/electron/electron/pull/27677)
+    * Added non-localized `serviceName` to `'child-process-gone'` / `app.getAppMetrics()`. [#25975](https://github.com/electron/electron/pull/25975)
+    * Added new `app.runningUnderRosettaTranslation` property to detect when running under rosetta on Apple silicon. [#26444](https://github.com/electron/electron/pull/26444)
+    * Added `exitCode` to `render-process-gone` details (app & webContents). [#27677](https://github.com/electron/electron/pull/27677)
 * `BrowserWindow` API-Änderungen:
-    * `BrowserWindow.isTabletMode()` -API hinzugefügt. [#25209](https://github.com/electron/electron/pull/25209)
-    * `resized` (Windows/macOS) und `moved` (Windows) Ereignisse zu `BrowserWindow`hinzugefügt. [#26216](https://github.com/electron/electron/pull/26216)
-    * Neue `system-context-menu` -Ereignis hinzugefügt, um das Systemkontextmenü zu verhindern und zu überschreiben. [#25795](https://github.com/electron/electron/pull/25795)
-    * `win.setTopBrowserView()` hinzugefügt, damit `BrowserView`s erhöht werden können. [#27713](https://github.com/electron/electron/pull/27713)
-    * Es wurde `webPreferences.preferredSizeMode` hinzugefügt, um Größenansichten entsprechend der Mindestgröße ihres Dokuments zu ermöglichen. [#25874](https://github.com/electron/electron/pull/25874)
-* `contextBridge` API-Änderungen:
-    * Zulässige ContextBridge- `exposeInMainWorld` Methode zum Verfügbarmachen von Nicht-Objekt-APIs. [#26834](https://github.com/electron/electron/pull/26834)
-* `display` API-Änderungen:
-    * `displayFrequency` Eigenschaft zum `Display` -Objekt hinzugefügt, um informationen zur Aktualisierungsrate unter Windows zu erhalten. [#26472](https://github.com/electron/electron/pull/26472)
-* `extensions` API-Änderungen:
-    * Unterstützung für einige `chrome.management` -APIs wurde hinzugefügt. [#25098](https://github.com/electron/electron/pull/25098)
-* `MenuItem` API-Änderungen:
-    * Unterstützung für die Anzeige des macOS-Freigabemenüs wurde hinzugefügt. [#25629](https://github.com/electron/electron/pull/25629)
-* `net` API-Änderungen:
-    * Es wurde eine neue `credentials` Option für `net.request()`hinzugefügt. [#25284](https://github.com/electron/electron/pull/25284)
-    * Es wurde `net.online` hinzugefügt, um festzustellen, ob derzeit eine Internetverbindung besteht. [#21004](https://github.com/electron/electron/pull/21004)
-* `powerMonitor` API-Änderungen:
-    * `powerMonitor.onBatteryPower`hinzugefügt. [#26494](https://github.com/electron/electron/pull/26494)
-    * Schnelles Benutzerwechselereignis zu powerMonitor unter macOS hinzugefügt. [#25321](https://github.com/electron/electron/pull/25321)
+    * Added `BrowserWindow.isTabletMode()` API. [#25209](https://github.com/electron/electron/pull/25209)
+    * Added `resized` (Windows/macOS) and `moved` (Windows) events to `BrowserWindow`. [#26216](https://github.com/electron/electron/pull/26216)
+    * Added new `system-context-menu` event to allow preventing and overriding the system context menu. [#25795](https://github.com/electron/electron/pull/25795)
+    * Added `win.setTopBrowserView()` so that `BrowserView`s can be raised. [#27713](https://github.com/electron/electron/pull/27713)
+    * Added `webPreferences.preferredSizeMode` to allow sizing views according to their document's minimum size. [#25874](https://github.com/electron/electron/pull/25874)
+* `contextBridge` API changes:
+    * Allowed ContextBridge `exposeInMainWorld` method to expose non-object APIs. [#26834](https://github.com/electron/electron/pull/26834)
+* `display` API changes:
+    * Added `displayFrequency` property to the `Display` object to allow getting information about the refresh rate on Windows. [#26472](https://github.com/electron/electron/pull/26472)
+* `extensions` API changes:
+    * Added support for some `chrome.management` APIs. [#25098](https://github.com/electron/electron/pull/25098)
+* `MenuItem` API changes:
+    * Added support for showing macOS share menu. [#25629](https://github.com/electron/electron/pull/25629)
+* `net` API changes:
+    * Added a new `credentials` option for `net.request()`. [#25284](https://github.com/electron/electron/pull/25284)
+    * Added `net.online` for detecting whether there is currently internet connection. [#21004](https://github.com/electron/electron/pull/21004)
+* `powerMonitor` API changes:
+    * Added `powerMonitor.onBatteryPower`. [#26494](https://github.com/electron/electron/pull/26494)
+    * Added fast user switching event to powerMonitor on macOS. [#25321](https://github.com/electron/electron/pull/25321)
 * `Sitzung` API-Änderungen:
-    * `allowFileAccess` Option zum `ses.loadExtension()` -API hinzugefügt. [#27702](https://github.com/electron/electron/pull/27702)
-    * `display-capture` API für `session.setPermissionRequestHandler`hinzugefügt. [#27696](https://github.com/electron/electron/pull/27696)
-    * Es wurde eine `disabledCipherSuites` Option zum `session.setSSLConfig`hinzugefügt. [#25818](https://github.com/electron/electron/pull/25818)
-    * `session``extension-loaded`, `extension-unloaded`und `extension-ready` Ereignisse hinzugefügt. [#25385](https://github.com/electron/electron/pull/25385)
-    * `session.setSSLConfig()` hinzugefügt, um die Konfiguration von SSL zu ermöglichen. [#25461](https://github.com/electron/electron/pull/25461)
-    * Unterstützung für die explizite Angabe von `direct`, `auto_detect` oder `system` Modi in `session.setProxy()`hinzugefügt. [#24937](https://github.com/electron/electron/pull/24937)
-    * [Unterstützung für serial API](https://web.dev/serial/) hinzugefügt. [#25237](https://github.com/electron/electron/pull/25237)
-    * APIs wurden hinzugefügt, um die Rechtschreibprüfung zu aktivieren/deaktivieren. [#26276](https://github.com/electron/electron/pull/26276)
+    * Added `allowFileAccess` option to `ses.loadExtension()` API. [#27702](https://github.com/electron/electron/pull/27702)
+    * Added `display-capture` API for `session.setPermissionRequestHandler`. [#27696](https://github.com/electron/electron/pull/27696)
+    * Added a `disabledCipherSuites` option to `session.setSSLConfig`. [#25818](https://github.com/electron/electron/pull/25818)
+    * Added `extension-loaded`, `extension-unloaded`, and `extension-ready` events to `session`. [#25385](https://github.com/electron/electron/pull/25385)
+    * Added `session.setSSLConfig()` to allow configuring SSL. [#25461](https://github.com/electron/electron/pull/25461)
+    * Added support for explicitly specifying `direct`, `auto_detect` or `system` modes in `session.setProxy()`. [#24937](https://github.com/electron/electron/pull/24937)
+    * Added [Serial API](https://web.dev/serial/) support. [#25237](https://github.com/electron/electron/pull/25237)
+    * Added APIs to enable/disable spell checker. [#26276](https://github.com/electron/electron/pull/26276)
 * `Shell` API-Änderungen:
-    * Es wurde eine neue asynchrone `shell.trashItem()` -API hinzugefügt, die die synchrone `shell.moveItemToTrash()`ersetzt. [#25114](https://github.com/electron/electron/pull/25114)
+    * Added a new asynchronous `shell.trashItem()` API, replacing the synchronous `shell.moveItemToTrash()`. [#25114](https://github.com/electron/electron/pull/25114)
 * `WebContents` API-Änderungen:
-    * Es wurde ein kleiner Konsolenhinweis zur Konsole hinzugefügt, um den Rendererabstürze zu debuggen. [#25317](https://github.com/electron/electron/pull/25317)
-    * `frame` und `webContents` Eigenschaften zum Detailobjekt in webRequest-Handlern hinzugefügt. [#27334](https://github.com/electron/electron/pull/27334)
+    * Added a small console hint to console to help debug renderer crashes. [#25317](https://github.com/electron/electron/pull/25317)
+    * Added `frame` and `webContents` properties to the details object in webRequest handlers. [#27334](https://github.com/electron/electron/pull/27334)
     * `webContents.forcefullyCrashRenderer()` hinzugefügt, um einen Rendererprozess gewaltsam zu beenden, um die Wiederherstellung eines hängenden Renderers zu unterstützen. [#25580](https://github.com/electron/electron/pull/25580)
-    * Es wurde `setWindowOpenHandler` API für vom Renderer erstellte untergeordnete Fenster hinzugefügt, und `new-window` Ereignis abwerten. [#24517](https://github.com/electron/electron/pull/24517)
-* `webFrame` API-Änderungen:
-    * Rechtschreibprüfungs-API für den Renderer hinzugefügt. [#25060](https://github.com/electron/electron/pull/25060)
+    * Added `setWindowOpenHandler` API for renderer-created child windows, and deprecate `new-window` event. [#24517](https://github.com/electron/electron/pull/24517)
+* `webFrame` API changes:
+    * Added spellcheck API to renderer. [#25060](https://github.com/electron/electron/pull/25060)
 
-### Entfernte/veraltete Änderungen
+### Removed/Deprecated Changes
 
-Die folgenden APIs wurden entfernt oder sind jetzt veraltet:
+The following APIs have been removed or are now deprecated:
 
-* Das `remote` Modul wurde veraltet. Er wird durch [`@electron/remote`](https://github.com/electron/remote)ersetzt. [#25293](https://github.com/electron/electron/pull/25293)
-* Veraltete `crashReporter` -APIs wurden entfernt. [#26709](https://github.com/electron/electron/pull/26709)
-* Links zur Electron-Website aus dem Standardmenü "Hilfe" in verpackten Apps entfernt. [#25831](https://github.com/electron/electron/pull/25831)
+* Deprecated the `remote` module. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
+* Removed deprecated `crashReporter` APIs. [#26709](https://github.com/electron/electron/pull/26709)
+* Removed links to the Electron website from the default 'Help' menu in packaged apps. [#25831](https://github.com/electron/electron/pull/25831)
 
-## Ende der Unterstützung für 9.x.y
+## End of Support for 9.x.y
 
-Electron 9.x.y hat gemäß der [Support-Richtlinie des Projekts](https://electronjs.org/docs/tutorial/support#supported-versions)das Ende der Unterstützung erreicht. Entwickler und Anwendungen werden ermutigt, auf eine neuere Version von Electron zu aktualisieren.
+Electron 9.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Entwickler und Anwendungen werden ermutigt, auf eine neuere Version von Electron zu aktualisieren.
 
 ## Was ist als Nächstes
 
-Kurzfristig Sie können erwarten, dass sich das Team weiterhin auf die Entwicklung der wichtigsten Komponenten konzentriert, aus denen Electron besteht, einschließlich Chromium, Knoten und V8. Obwohl wir darauf achten, keine Versprechungen über Veröffentlichungstermine zu machen, unser Plan ist die Veröffentlichung neuer Hauptversionen von Electron mit neuen Versionen dieser Komponenten etwa vierteljährlich. Der [vorläufigen 13.0.0-Zeitplan](https://electronjs.org/docs/tutorial/electron-timelines) die wichtigsten Daten im Entwicklungslebenszyklus von Electron 13.0 abbildet. Siehe [auch unser Versionierungsdokument](https://electronjs.org/docs/tutorial/electron-versioning) für genauere Informationen zur Versionierung in Electron.
+Kurzfristig Sie können erwarten, dass sich das Team weiterhin auf die Entwicklung der wichtigsten Komponenten konzentriert, aus denen Electron besteht, einschließlich Chromium, Knoten und V8. Obwohl wir darauf achten, keine Versprechungen über Veröffentlichungstermine zu machen, unser Plan ist die Veröffentlichung neuer Hauptversionen von Electron mit neuen Versionen dieser Komponenten etwa vierteljährlich. The [tentative 13.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 13.0 development life cycle. Siehe [auch unser Versionierungsdokument](https://electronjs.org/docs/tutorial/electron-versioning) für genauere Informationen zur Versionierung in Electron.
 
 Für Informationen über geplante Änderungen in zukünftigen Versionen von Electron, [lesen Sie unseren geplanten Breaking Changes Doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
