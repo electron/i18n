@@ -8,7 +8,7 @@ Processus : [Main](../glossary.md#main-process)
 
 * `options` objet
   * `size` String (facultatif) - Taille de l’espaceur, les valeurs possibles sont:
-    * `small` - petit espacement entre les éléments. Cartes à `NSTouchBarItemIdentifierFixedSpaceSmall`. C’est la valeur par défaut.
+    * `small` - petit espacement entre les éléments. Cartes à `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
     * `large` - grand espacement entre les éléments. Cartes à `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Prend tout l'espace disponible. Cartes à `NSTouchBarItemIdentifierFlexibleSpace`.
 
