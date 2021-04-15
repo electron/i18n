@@ -1,44 +1,44 @@
-# Technische Unterschiede zwischen Electron und NW.js
+# Technical Differences Between Electron and NW.js
 
-Wie [NW.js][nwjs]bietet Electron eine Plattform zum Schreiben von Desktop-Anwendungen mit Web- -Technologien. Beide Plattformen ermöglichen es Entwicklern, HTML, JavaScript und Node.js zu verwenden. Oberflächlich betrachtet scheinen sie sich sehr ähnlich zu sein.
+Like [NW.js][nwjs], Electron provides a platform to write desktop applications with web technologies. Both platforms enable developers to utilize HTML, JavaScript, and Node.js. On the surface, they seem very similar.
 
-Es gibt jedoch grundlegende Unterschiede zwischen den beiden Projekten, die Electron zu einem völlig separaten Produkt von NW.js machen.
+There are however fundamental differences between the two projects that make Electron a completely separate product from NW.js.
 
-## 1) Anmeldung
+## 1) Entry of Application
 
-In NW.js kann der Haupteinstiegspunkt einer Anwendung eine HTML-Webseite sein. In diesem Fall öffnet NW.js den angegebenen Einstiegspunkt in einem Browserfenster.
+In NW.js, the main entry point of an application can be an HTML web page. In that case, NW.js will open the given entry point in a browser window.
 
-In Electron ist der Einstiegspunkt immer ein JavaScript-Skript. Anstatt eine URL direkt bereitzustellen, erstellen Sie manuell ein Browserfenster und laden eine HTML-Datei mit der API. Sie müssen auch Fensterereignisse anhören, um zu entscheiden, wann die Anwendung beendet werden soll.
+In Electron, the entry point is always a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
 
-Electron funktioniert eher wie die Node.js Laufzeit. Die APIs von Electron sind niedriger, so dass Sie es anstelle von [PhantomJS](https://phantomjs.org/)für Browsertests verwenden können.
+Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](https://phantomjs.org/).
 
-## 2) Knotenintegration
+## 2) Node Integration
 
-In NW.js erfordert die Node-Integration in Webseiten das Patchen von Chromium, während wir in Electron einen anderen Weg gewählt haben, um die `libuv` Schleife mit der Nachrichtenschleife jeder Plattform zu integrieren, um das Hacken von Chromium zu vermeiden. Im [`node_bindings`][node-bindings] Code erfahren Sie, wie dies geschehen ist.
+In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the `libuv` loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`][node-bindings] code for how that was done.
 
-## 3) JavaScript-Kontexte
+## 3) JavaScript Contexts
 
-Wenn Sie ein erfahrener NW.js Benutzer sind, sollten Sie mit dem Konzept des Knotenkontexts und Webkontexts vertraut sein. Diese Konzepte wurden erfunden, weil NW.js umgesetzt wurde.
+If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
 
-Durch die Verwendung der [Multikontext-](https://github.com/nodejs/node-v0.x-archive/commit/756b622) -Funktion von Node führt Electron keinen neuen JavaScript-Kontext in Web- -Seiten ein.
+By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
 
-Hinweis: NW.js unterstützt optional Multi-Kontext seit 0.13.
+Note: NW.js has optionally supported multi-context since 0.13.
 
-## 4) Legacy-Support
+## 4) Legacy Support
 
-NW.js bietet weiterhin eine "Legacy-Version", die Windows XP unterstützt. Es werden keine Sicherheitsupdates empfangen.
+NW.js still offers a "legacy release" that supports Windows XP. It doesn't receive security updates.
 
-Angesichts der Tatsache, dass Hardwarehersteller, Microsoft, Chromium und Node.js nicht einmal kritische Sicherheitsupdates für dieses System veröffentlicht , müssen wir Sie warnen, , dass die Verwendung von Windows XP völlig unsicher und völlig unverantwortlich ist.
+Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't released even critical security updates for that system, we have to warn you that using Windows XP is wildly insecure and outright irresponsible.
 
-Wir verstehen jedoch, dass Anforderungen außerhalb unserer wildesten Vorstellungskraft existieren können, wenn Sie also nach etwas wie Electron suchen, das unter Windows XP läuft, die NW.js Legacy-Version könnte die richtige für Sie sein.
+However, we understand that requirements outside our wildest imagination may exist, so if you're looking for something like Electron that runs on Windows XP, the NW.js legacy release might be the right fit for you.
 
-## 5) Eigenschaften
+## 5) Features
 
-Es gibt zahlreiche Unterschiede in der Anzahl der unterstützten Features. Electron hat eine größere Community , mehr Produktions-Apps verwendet und eine große Menge an Benutzerland-Modulen [, die auf npm][electron-modules]verfügbar sind.
+There are numerous differences in the amount of supported features. Electron has a bigger community, more production apps using it, and [a large amount of userland modules available on npm][electron-modules].
 
-Als Beispiel hat Electron integrierte Unterstützung für automatische Updates und unzählige Tools, die die Erstellung von Installateuren erleichtern. Als Beispiel für NW.js unterstützt NW.js mehr `Chrome.*` APIs für die Entwicklung von Chrome Apps.
+As an example, Electron has built-in support for automatic updates and countless tools that make the creation of installers easier. As an example in favor of NW.js, NW.js supports more `Chrome.*` APIs for the development of Chrome Apps.
 
-Natürlich glauben wir, dass Electron die bessere Plattform für polierte Produktionsanwendungen ist, die mit Web-Technologien (wie Visual Studio Code, Slack oder Facebook Messenger) erstellt wurden. Wir wollen jedoch fair zu unserer Web-Technologie Freunden sein. Wenn Sie Feature-Anforderungen haben, die Electron nicht erfüllt, möchten Sie vielleicht, dass NW.js.
+Naturally, we believe that Electron is the better platform for polished production applications built with web technologies (like Visual Studio Code, Slack, or Facebook Messenger); however, we want to be fair to our web technology friends. If you have feature needs that Electron does not meet, you might want to try NW.js.
 
 [nwjs]: https://nwjs.io/
 [electron-modules]: https://www.npmjs.com/search?q=electron
