@@ -23,7 +23,7 @@ Obwohl dies anscheinend eine Minderheit von Electron-Anwendungen ist, empfehlen 
 
 ## Abmilderung
 
-Diese Sicherheitsanfälligkeit wurde in den heutigen [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4)und [2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) Releases behoben.
+This vulnerability is fixed in today's [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4), and [2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) releases.
 
 Entwickler, die nicht in der Lage sind, die Electron-Version ihrer Anwendung zu aktualisieren, können die Verwundbarkeit mit dem folgenden Code mildern:
 
