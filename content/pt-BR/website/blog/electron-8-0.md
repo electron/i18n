@@ -37,7 +37,7 @@ Veja as [notas de lançamento 8.0.0](https://github.com/electron/electron/releas
 * Os valores enviados sobre o IPC agora são serializados com o Algoritmo de Clone estruturado.  [#20214](https://github.com/electron/electron/pull/20214)
 * A renderização fora da tela está desabilitada devido à falta de um mantenedor para trabalhar neste recurso.  Irrompeu durante a actualização do Chromium e foi desativada posteriormente. [#20772](https://github.com/electron/electron/issues/20772)
 
-Mais informações sobre essas e futuras alterações podem ser encontradas na página [Desmembramento planejado](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) .
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
 ## Alterações de API
 * `aplicação` Alterações na API:
