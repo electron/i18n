@@ -36,7 +36,7 @@ Devuelve `Número` - El factor de zoom actual.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
-> **Nota**: la política de zoom en el nivel de cromo es la misma-origen, lo que significa que el nivel de zoom para un dominio específico se propaga en todas las instancias de Windows con el mismo dominio. Diferenciar las URL de las ventanas hará que el zoom se trabaje por ventana.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `webFrame.getZoomLevel()`
 
@@ -49,7 +49,7 @@ Devuelve `Número` - El nivel de zoom actual.
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-> **Nota**: el zoom visual se inhabilita por defecto en Electron. Para volver a habilitarlo, llama a:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
