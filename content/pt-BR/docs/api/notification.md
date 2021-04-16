@@ -4,9 +4,9 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-## Usando no processo renderizador
+## Using in the renderer process
 
-Se você quiser mostrar Notificações de um processo de renderização, você deve usar a API de notificação HTML5 [](../tutorial/notifications.md)
+If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Class: Notification
 
@@ -14,9 +14,9 @@ Se você quiser mostrar Notificações de um processo de renderização, você d
 
 Processo: [Main](../glossary.md#main-process)
 
-`Notification` é um [][event-emitter]eventEmitter.
+`Notification` is an [EventEmitter][event-emitter].
 
-Cria um novo `Notification` com propriedades nativas definidas pelo `options`.
+It creates a new `Notification` with native properties as set by the `options`.
 
 ### Métodos estáticos
 
@@ -26,26 +26,26 @@ A classe `Notification` tem os seguintes métodos estáticos:
 
 Retorna `Boolean` - se as notificações do desktop são suportadas ou não pelo atual sistema
 
-### `nova Notificação([options])`
+### `new Notification([options])`
 
 * objeto `options` (opcional)
-  * `title` String (opcional) - Um título para a notificação, que será mostrado na parte superior da janela de notificação quando for mostrado.
-  * `subtitle` String (opcional) __ do macOS - Uma legenda para a notificação, que será exibida abaixo do título.
-  * `body` String (opcional) - O texto do corpo da notificação, que será exibido abaixo do título ou legenda.
-  * `silent` Boolean (opcional) - Emitir ou não um ruído de notificação do SISTEMA OPERACIONAL ao mostrar a notificação.
-  * `icon` (| de cordas [NativeImage](native-image.md)) (opcional) - Um ícone a ser usado na notificação.
-  * `hasReply` Boolean (opcional) __ do macOS - Adicionar ou não uma opção de resposta inline à notificação.
-  * `timeoutType` String (opcional) _o Linux_ __ do Windows - A duração do tempo limite da notificação. Pode ser 'padrão' ou 'nunca'.
-  * `replyPlaceholder` String (opcional) __ macOS - O espaço reservado para escrever no campo de entrada de resposta inline.
-  * `sound` String (opcional) __ do macOS - O nome do arquivo de som a ser reproduzido quando a notificação é mostrada.
-  * `urgency` String (opcional) __ Linux - O nível de urgência da notificação. Pode ser 'normal', 'crítico' ou 'baixo'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (opcional) __ do macOS - Ações a serem adicionadas à notificação. Leia as ações e limitações disponíveis na documentação `NotificationAction` .
-  * `closeButtonText` String (opcional) __ macOS - Um título personalizado para o botão de fechamento de um alerta. Uma sequência vazia fará com que o texto localizado padrão seja usado.
-  * `toastXml` String (opcional) __ do Windows - Uma descrição personalizada da Notificação no Windows substituindo todas as propriedades acima. Fornece personalização completa do design e comportamento da notificação.
+  * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
+  * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
+  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
+  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
+  * `hasReply` Boolean (optional) _macOS_ - Whether or not to add an inline reply option to the notification.
+  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `replyPlaceholder` String (optional) _macOS_ - The placeholder to write in the inline reply input field.
+  * `sound` String (optional) _macOS_ - The name of the sound file to play when the notification is shown.
+  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) _macOS_ - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
 ### Eventos de instância
 
-Objetos criados com `new Notification` emitem os seguintes eventos:
+Objects created with `new Notification` emit the following events:
 
 **Nota:** Alguns eventos só estão disponíveis em sistemas operacionais específicos e são rotulados como tal.
 
@@ -55,15 +55,15 @@ Retorna:
 
 * `event` Event
 
-Emitido quando a notificação é mostrada ao usuário, observe que isso pode ser disparado várias vezes, pois uma notificação pode ser mostrada várias vezes através do método `show()` .
+Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
-#### Evento: 'clique'
+#### Event: 'click'
 
 Retorna:
 
 * `event` Event
 
-Emitido quando a notificação é clicada pelo usuário.
+Emitted when the notification is clicked by the user.
 
 #### Evento: 'close'
 
@@ -71,25 +71,25 @@ Retorna:
 
 * `event` Event
 
-Emitido quando a notificação é encerrada por intervenção manual do usuário.
+Emitted when the notification is closed by manual intervention from the user.
 
-Este evento não tem garantia de ser emitido em todos os casos em que a notificação estiver encerrada.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
-#### Evento: 'responder' __do macOS
-
-Retorna:
-
-* `event` Event
-* `reply` String - A sequência que o usuário inseriu no campo de resposta inline.
-
-Emitido quando o usuário clica no botão "Responder" em uma notificação com `hasReply: true`.
-
-#### Evento: 'ação' __do macOS
+#### Event: 'reply' _macOS_
 
 Retorna:
 
 * `event` Event
-* `index` Número - O índice da ação que foi ativada.
+* `reply` String - The string the user entered into the inline reply field.
+
+Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+
+#### Event: 'action' _macOS_
+
+Retorna:
+
+* `event` Event
+* `index` Number - The index of the action that was activated.
 
 #### Event: 'failed' _Windows_
 
@@ -150,13 +150,13 @@ A `Boolean` property representing whether the notification has a reply action.
 
 #### `notification.urgency` _Linux_
 
-A `String` property representing the urgency level of the notification. Pode ser 'normal', 'crítico' ou 'baixo'.
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
 
 Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-A `String` property representing the type of timeout duration for the notification. Pode ser 'padrão' ou 'nunca'.
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
 
 If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
@@ -178,7 +178,5 @@ On macOS, you can specify the name of the sound you'd like to play when the noti
 * `/System/Library/Sounds`
 
 See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
-
-[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
