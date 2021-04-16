@@ -108,54 +108,54 @@ win.setThumbarButtons([])
 
 ### Наслоения значков в панели задач
 
-На Windows кнопка панели задач может использовать небольшую накладку для отображения статуса.
+On Windows, a taskbar button can use a small overlay to display application status.
 
-Как цитирует [MSDN][msdn-icon-overlay]:
+As quoted from [MSDN][msdn-icon-overlay]:
 
 > Наслоения иконок служат контекстуальным уведомлением о статусе, и предназначены для отказа от необходимости отдельной иконки статуса области уведомлений, чтобы сообщить пользователю эту информацию. Например, новый статус почты в Microsoft Outlook, в настоящее время отображается в области уведомлений, можно указывать через накладываемое изображение на кнопку панели задач. Опять же, вы должны решить в течение цикла разработки , какой метод лучше подходит для вашего приложения. Накладываемые иконки предназначены для предоставления важных, давно существующих статусов или уведомлений, таких как сетевой статус, статус сообщения или новая почта. Пользователь не должен быть с постоянно меняющимися наслоениями или анимацией.
 
 ![Наложение на кнопку панели задач](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-> ПРИМЕЧАНИЕ: Скриншот выше является примером наложения на кнопку панели задач
+> NOTE: The screenshot above is an example of overlay on a taskbar button
 
-Чтобы установить значок наложения для окна, необходимо использовать [BrowserWindow.setOverlayIcon][setoverlayicon] API.
+To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon][setoverlayicon] API.
 
 #### Пример
 
 Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const win - новый BrowserWindow ()
+const win = new BrowserWindow()
 
-win.setOverlayIcon ('path/to/overlay.png', 'Описание для наложения')
+win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
 ### Флэш-кадр
 
-На Windows можно выделить кнопку панели задач, чтобы привлечь внимание пользователя. Это похоже на подпрыгивая значок дока в macOS.
+On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 
-Как цитирует [MSDN][msdn-flash-frame]:
+As quoted from [MSDN][msdn-flash-frame]:
 
-> Как правило, окно мигает, чтобы сообщить пользователю, что окно требует , но что в настоящее время он не имеет фокус клавиатуры.
+> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
-Чтобы мигать кнопкой панели задач BrowserWindow, необходимо использовать [BrowserWindow.flashFrame][flashframe] API.
+To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame][flashframe] API.
 
 #### Пример
 
 Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const win - новый BrowserWindow ()
+const win = new BrowserWindow()
 
-win.once ('фокус', () -> win.flashFrame (ложный))
-win.flashFrame (правда)
+win.once('focus', () => win.flashFrame(false))
+win.flashFrame(true)
 ```
 
-> ПРИМЕЧАНИЕ: Не забудьте позвонить `win.flashFrame(false)` , чтобы выключить вспышку. В приведенном выше примере он называется, когда окно находится в фокусе, но для его отключения можно использовать тайм-аут или какое-либо другое событие.
+> NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
 
 [msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
 
