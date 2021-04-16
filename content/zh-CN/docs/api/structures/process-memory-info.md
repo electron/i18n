@@ -1,5 +1,5 @@
 # ProcessMemoryInfo 对象
 
-* `居民集`整数_Linux_ _和 Windows_ - 当前固定到实际物理RAM的内存量，以千字节为单位。
-* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
-* `shared` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself in Kilobytes.
+* `residentSet` Integer _Linux_ _Windows_ - 当前固定到实际物理RAM的内存量(KB)。
+* `private` Integer - 其他进程未共享的内存量，以KB为单位，如JS堆或HTML内容。
+* `shared` Integer - 进程之间共享的内存量，通常是Electron代码本身所消耗的内存，单位为KB。
