@@ -6,15 +6,15 @@
 
 ```javascript
 // В основном процессе.
-const { BrowserWindow } - require ('electron')
+const { BrowserWindow } = require('electron')
 
-const win - новый BrowserWindow ({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-// Загрузите удаленный URL
-win.loadURL ('https://github.com')
+// Load a remote URL
+win.loadURL('https://github.com')
 
-// Или загрузите локальный HTML-файл
-win.loadURL ('файл://${__dirname}/app/index.html')
+// Or load a local HTML file
+win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
 ## Окно без рамки
@@ -23,18 +23,18 @@ win.loadURL ('файл://${__dirname}/app/index.html')
 
 ## Изящный показ окон
 
-При непосредственной загрузке страницы в окне пользователи могут видеть загрузку страницы постепенно, что не является хорошим опытом для родного приложения. Чтобы сделать дисплей окна визуальной вспышки, есть два решения для различных ситуаций.
+When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
 ## Использование `ready-to-show` события
 
 При загрузке страницы, после отрисовки страницы будет происходить событие `ready-to-show`, которое будет происходить первый раз, если окно до этого еще не было показано. Окно, показанное после этого события, не будет иметь визуальной ступенчатой подгрузки:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
-const win - новый BrowserWindow ({ show: false })
-win.once ('ready-to-show', () -> -
-  win.show ()
-)
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ show: false })
+win.once('ready-to-show', () => {
+  win.show()
+})
 ```
 
 Обычно это событие происходит после события `did-finish-load`. Однако, страницы, включающие в себя удаленные ресурсы, могут продолжать подгружаться после происхождения события `did-finish-load`.
@@ -46,10 +46,10 @@ win.once ('ready-to-show', () -> -
 Для больших приложений событие `ready-to-show` может вызываться слишком поздно, что может замедлить приложение. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, задающий цвет фона Вашего приложения:
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const выиграть - новый BrowserWindow ({ backgroundColor: '#2e2c29' })
-win.loadURL ('https://github.com')
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+win.loadURL('https://github.com')
 ```
 
 Обратите внимание, что даже для приложений, использующих `ready-to-show` события, по-прежнему рекомендуется установить `backgroundColor`, чтобы сделать приложение более нативным.
@@ -59,11 +59,11 @@ win.loadURL ('https://github.com')
 С помощью параметра `parent`, Вы можете создавать дочерние окна:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const top - новый BrowserWindow ()
-const child - новый BrowserWindow ({ parent: top })
-child.show ()
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
+child.show()
 top.show()
 ```
 
@@ -74,13 +74,13 @@ top.show()
 Модальное окно - дочернее окно, которое делает недоступным родительское окно. Чтобы создать модальное окно, Вы должны установить два параметра `parent` и `modal`:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const child - новый BrowserWindow ({ parent: top, modal: true, show: false })
-child.loadURL ('https://github.com')
-child.once ('ready-to-show', () -> -
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
+child.loadURL('https://github.com')
+child.once('ready-to-show', () => {
   child.show()
-)
+})
 ```
 
 ## Видимость страниц
@@ -126,24 +126,24 @@ child.once ('ready-to-show', () -> -
   * `maxHeight` Integer (опционально) - максимальная высота окна. По умолчанию нет ограничения.
   * `resizable` Boolean (опционально) - будет ли окно изменять размеры. По умолчанию - `true`.
   * `movable` Boolean (optional) - можно ли будет перемещать окно. Не реализовано в Linux. По умолчанию - `true`.
-  * `minimizable` Boolean (по желанию) - Является ли окно минимизируемым. Не реализовано в Linux. По умолчанию - `true`.
-  * `maximizable` Boolean (по желанию) - Является ли окно максимальным. Не реализовано в Linux. По умолчанию - `true`.
-  * `closable` Boolean (по желанию) - Является ли окно закрыто. Не реализовано в Linux. По умолчанию - `true`.
+  * `minimizable` Boolean (optional) - Whether window is minimizable. Не реализовано в Linux. По умолчанию - `true`.
+  * `maximizable` Boolean (optional) - Whether window is maximizable. Не реализовано в Linux. По умолчанию - `true`.
+  * `closable` Boolean (optional) - Whether window is closable. Не реализовано в Linux. По умолчанию - `true`.
   * `focusable` Boolean (опционально) - может ли быть окно в фокусе. По умолчанию - `true`. На Windows настройка `focusable: false` также подразумевает настройку `skipTaskbar: true`. На Linux настройка `focusable: false` прекращает взаимодействие окна с оконным менеджером, на Windows же всегда остается поверх всех рабочих областей.
   * `alwaysOnTop` Boolean (опционально) - будет ли окно всегда оставаться поверх других окон. По умолчанию - `false`.
   * `fullscreen` Boolean (опционально) - будет ли окно показываться во весь экран. Когда явно установлено `false`, на macOS кнопка полноэкранного режима будет скрыта или отключена. По умолчанию - `false`.
   * `fullscreenable` Boolean (опционально) - может ли окно быть в полноэкранном режиме. На macOS также кнопка увеличить/зумировать должна переключить в полноэкранный режим или увеличить окно. По умолчанию - `true`.
-  * `simpleFullscreen` Boolean (необязательно) - Используйте предварительно Лев полный экран на macOS. По умолчанию - `false`.
-  * `skipTaskbar` Boolean (по желанию) - Следует ли показывать окно в панели задач. По умолчанию `false`.
-  * `kiosk` Boolean (по желанию) - находится ли окно в режиме киоска. По умолчанию - `false`.
+  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. По умолчанию - `false`.
+  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. По умолчанию - `false`.
   * `title` String (опционально) - заголовок окна по умолчанию. По умолчанию `"Electron"`. Если HTML-тег `<title>` определен в HTML-файле, загруженном с помощью `loadURL()`, то это свойство будет игнорироваться.
   * `icon` ([NativeImage](native-image.md) | String) (опционально) - иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
   * `show` Boolean (необязательно) - Будет ли показано окно, когда будет создано. По умолчанию - `true`.
   * `paintWhenInitiallyHidden` Boolean (опционально) - Должен ли рендерер быть активным, когда `show` равен `false` и он только что создан.  Для `document.visibilityState` для корректной работы при первой загрузке с `show: false` необходимо установить значение `false`.  Установка этого в `false` приведёт к тому, что события `ready-to-show` не будут запускаться.  По умолчанию - `true`.
-  * `frame` Boolean (по желанию) - Укажите `false` создать [безрамольную оконную](frameless-window.md). По умолчанию - `true`.
-  * `parent` BrowserWindow (необязательно) - Укажите родительское окно. По умолчанию `null`.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). По умолчанию - `true`.
+  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. По умолчанию - `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. По умолчанию `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. По умолчанию - `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. По умолчанию - `false`.
   * `enableLargerThanScreen` Boolean (опционально) - позволяет окну изменять размер больше, чем экран. Относится только к macOS, так как другие ОС по умолчанию разрешают окна больше экрана. По умолчанию - `false`.
