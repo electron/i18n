@@ -8,10 +8,10 @@ Prozess: [Main](../glossary.md#main-process)
 
 * `options` Object
   * `label` String (optional) - Text to display.
-  * `accessibilityLabel` String (optional) - Eine kurze Beschreibung der Schaltfläche für die Verwendung durch Screenreader wie VoiceOver.
+  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
-Stellen Sie beim Definieren `accessibilityLabel`sicher, dass Sie macOS [Best Practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc)berücksichtigt haben.
+When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Instanz Eigenschaften
 
