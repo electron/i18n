@@ -1,77 +1,77 @@
 # powerMonitor
 
-> Überwachen Sie Die Energiezustandsänderungen.
+> Monitor power state changes.
 
 Prozess: [Main](../glossary.md#main-process)
 
 ## Ereignisse
 
-Das `powerMonitor` -Modul gibt die folgenden Ereignisse aus:
+The `powerMonitor` module emits the following events:
 
-### Ereignis: 'suspend' _macOS_ _Windows_
+### Event: 'suspend' _macOS_ _Windows_
 
-Emittiert, wenn das System angehalten wird.
+Emitted when the system is suspending.
 
-### Ereignis: 'Fortsetzen' _macOS_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
-Emittiert, wenn das System wieder aufgenommen wird.
+Emitted when system is resuming.
 
 ### Event: 'on-ac' _macOS_ _Windows_
 
-Emittiert, wenn das System auf Wechselstrom umgeht.
+Emitted when the system changes to AC power.
 
 ### Event: 'on-battery' _macOS_  _Windows_
 
-Emittiert, wenn das System die Batterieleistung ändert.
+Emitted when system changes to battery power.
 
-### Ereignis: 'Shutdown' _Linux_ _macOS_
+### Event: 'shutdown' _Linux_ _macOS_
 
-Wird gesendet, wenn das System kurz vor einem Neustart oder Herunterfahren steht. Wenn der Ereignishandler `e.preventDefault()`aufruft, versucht Electron, das Herunterfahren des Systems zu verzögern , damit die App ordnungsgemäß beendet werden kann. Wenn `e.preventDefault()` aufgerufen wird, sollte die App so schnell wie möglich beendet werden, indem sie so etwas wie `app.quit()`aufrufen.
+Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
 
-### Ereignis: 'Sperrbildschirm' _macOS_ _Windows_
+### Event: 'lock-screen' _macOS_ _Windows_
 
-Emittiert, wenn das System im Begriff ist, den Bildschirm zu sperren.
+Emitted when the system is about to lock the screen.
 
-### Event: 'Unlock-Screen' _macOS_ _Windows_
+### Event: 'unlock-screen' _macOS_ _Windows_
 
-Emittiert, sobald der Systembildschirm entsperrt ist.
+Emitted as soon as the systems screen is unlocked.
 
-### Ereignis: 'user-did-become-active' _macOS_
+### Event: 'user-did-become-active' _macOS_
 
-Emittiert, wenn eine Anmeldesitzung aktiviert ist. Weitere Informationen finden Sie in [Dokumentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) .
+Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
 
-### Veranstaltung: 'user-did-resign-active' _macOS_
+### Event: 'user-did-resign-active' _macOS_
 
-Emittiert, wenn eine Anmeldesitzung deaktiviert ist. Weitere Informationen finden Sie in [Dokumentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) .
+Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
 
 ## Methoden
 
-Das `powerMonitor` Modul verfügt über die folgenden Methoden:
+The `powerMonitor` module has the following methods:
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 
-* `idleThreshold` Ganzzahl
+* `idleThreshold` Integer
 
-Gibt `String` zurück - Der aktuelle Status des Systems. Kann `active`, `idle`, `locked` oder `unknown`sein.
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Berechnen Sie den Imlaufzustand des Systems. `idleThreshold` ist die Zeit (in Sekunden), die vor dem Leerlauf betrachtet wird.  `locked` ist nur auf unterstützten Systemen verfügbar.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
-Gibt `Integer` zurück - Leerlaufzeit in Sekunden
+Returns `Integer` - Idle time in seconds
 
-Berechnen Sie die Leerlaufzeit des Systems in Sekunden.
+Calculate system idle time in seconds.
 
 ### `powerMonitor.isOnBatteryPower()`
 
-Gibt `Boolean` zurück - Gibt an, ob das System mit Batteriestrom betrieben wird.
+Returns `Boolean` - Whether the system is on battery power.
 
-Um auf Änderungen an dieser Eigenschaft zu überwachen, verwenden Sie die `on-battery` und `on-ac` Ereignisse.
+To monitor for changes in this property, use the `on-battery` and `on-ac` events.
 
 ## Eigenschaften
 
 ### `powerMonitor.onBatteryPower`
 
-Eine `Boolean` Eigenschaft. True, wenn das System mit Batteriestrom betrieben wird.
+Eine `Boolean` Eigenschaft. True if the system is on battery power.
 
-Siehe [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
+See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
