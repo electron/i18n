@@ -1,10 +1,10 @@
-# 消息通道
+# MessageChannelMain
 
-`MessageChannelMain` 是 DOM [`MessageChannel`][] 对象的主要过程侧等效物。 其奇异功能是创建一对 连接 [`MessagePortMain`](message-port-main.md) 对象。
+`MessageChannelMain` is the main-process-side equivalent of the DOM [`MessageChannel`][] object. Its singular function is to create a pair of connected [`MessagePortMain`](message-port-main.md) objects.
 
-有关使用 频道消息的更多信息，请参阅 [通道消息 API][] 文档。
+See the [Channel Messaging API][] documentation for more information on using channel messaging.
 
-## 类： 消息通道
+## Class: MessageChannelMain
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -37,4 +37,4 @@ A [`MessagePortMain`](message-port-main.md) property.
 A [`MessagePortMain`](message-port-main.md) property.
 
 [`MessageChannel`]: https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel
-[通道消息 API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
