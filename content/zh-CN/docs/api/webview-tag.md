@@ -4,9 +4,9 @@
 
 Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webview]，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` 、Electron的 `BrowserView` 或完全避免嵌入内容的体系结构。
 
-## 使
+## Enabling
 
-默认情况下，电子 >=5中禁用 `webview` 标记。  在构造 `BrowserWindow` 时，需要通过设置 `webviewTag` webPreferences选项来启用标签。 更多信息请参看 [BrowserWindows 的构造器文档](browser-window.md)。
+By default the `webview` tag is disabled in Electron >= 5.  在构造 `BrowserWindow` 时，需要通过设置 `webviewTag` webPreferences选项来启用标签。 更多信息请参看 [BrowserWindows 的构造器文档](browser-window.md)。
 
 ## 概览
 
@@ -14,9 +14,9 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-使用 `webview` 标签将"客人"内容（如网页）嵌入到您的 电子应用中。 客人内容包含在 `webview` 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
-与 `iframe`不同， `webview` 运行过程比您的 应用更独立。 它与您的网页没有相同的权限，应用和嵌入式内容之间 的所有交互都是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
 
 ## 示例
 
@@ -30,37 +30,37 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 
 ```html
 <script>
-  加载=（）=> =
-    联网查看=文档。查询器（"Webview"）
-    连续指示器=文档。查询器（"指示器"）
+  onload = () => {
+    const webview = document.querySelector('webview')
+    const indicator = document.querySelector('.indicator')
 
-    收缩加载启动器=（）=> {
-      指示器。
-    [
+    const loadstart = () => {
+      indicator.innerText = 'loading...'
+    }
 
-    联机负载停止=（）=> {
-      指示器。内文本="
-    "
+    const loadstop = () => {
+      indicator.innerText = ''
+    }
 
-    webview.add事件听者（"已启动加载"，加载启动）
-    webview.add事件列表（"已停止加载"，加载端）
+    webview.addEventListener('did-start-loading', loadstart)
+    webview.addEventListener('did-stop-loading', loadstop)
   }
 </script>
 ```
 
-## 内部实施
+## Internal implementation
 
-在引擎盖下， `webview` 实施与 [出过程的iframes（OOPIF）](https://www.chromium.org/developers/design-documents/oop-iframes)。 `webview` 标签本质上是使用阴影 DOM 将 `iframe` 元素包裹在里面的自定义元素。
+Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
 
-因此， `webview` 的行为非常类似于跨领域 `iframe`，例如 例子：
+So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
-* 当单击到 `webview`时，页面焦点将从嵌入器 帧移动到 `webview`。
-* 您无法将键盘、鼠标和滚动事件侦听器添加到 `webview`。
-* 嵌入器框架和 `webview` 之间的所有反应都是异步的。
+* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
+* All reactions between the embedder frame and `webview` are asynchronous.
 
 ## CSS 样式说明
 
-请注意， `webview` 标签的风格在内部使用 `display:flex;` ， 以确保儿童 `iframe` 元素在使用传统和柔性盒布局时，能够填充其 `webview` 容器的全部高度和宽度。 请不要 覆盖 CSS 属性的默认 `display:flex;` ，除非指定内联布局的 `display:inline-flex;` 。
+Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
 ## 标签属性
 
@@ -72,9 +72,9 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/"></webview>
 ```
 
-代表可见网址的 `String` 。 编写此属性会启动顶级 导航。
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
-分配 `src` 自己的值将重新加载当前页面。
+Assigning `src` its own value will reload the current page.
 
 ` src ` 属性还可以接受数据 url, 如 ` data:text/plain, Hellp,world! `。
 
@@ -86,21 +86,21 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 
 一 `Boolean`。 当有此属性时, ` webview ` 中的访客页（guest page）将具有Node集成, 并且可以使用像 ` require ` 和 ` process ` 这样的node APIs 去访问低层系统资源。 Node 集成在访客页中默认是禁用的。
 
-### `节点整合下框`
+### `nodeintegrationinsubframes`
 
 ```html
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-在 `webview`内 等子帧中启用节点JS支持的实验选项 `Boolean` 。 您的所有预加载将加载每个 iframe，您可以 使用 `process.isMainFrame` 来确定您是否在主帧中。 此选项默认在访客页面中被禁用。
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
-### `启用模式`
+### `enableremotemodule`
 
 ```html
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-一 `Boolean`。 当此属性 `false` 时， `webview` 中的访客页面将无法访问 [`remote`](remote.md) 模块。 默认情况下，远程模块不可用。
+一 `Boolean`。 When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
 
 ### `plugins`
 
@@ -108,7 +108,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-一 `Boolean`。 当此属性出现时， `webview` 中的访客页面将能够使用 浏览器插件。 默认情况下，插件已禁用。
+一 `Boolean`。 When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `preload`
 
@@ -116,11 +116,11 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-指定在客人 页面中运行其他脚本之前加载的脚本的 `String` 。 该脚本的URL的协议必须是 `file:`  `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. 该脚本的URL的协议必须是 `file:`  `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
 
 当访客页没有 node integration ，这个脚本仍然有能力去访问所有的 Node APIs, 但是当这个脚本执行执行完成之后，通过Node 注入的全局对象（global objects）将会被删除。
 
-**注意：** 此选项将显示为 `preloadURL` （不是 `preload`）， 指定给 `will-attach-webview` 事件的 `webPreferences` 。
+**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -128,7 +128,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-为访客页面设置引用者 URL 的 `String` 。
+A `String` that sets the referrer URL for the guest page.
 
 ### `useragent`
 
@@ -136,7 +136,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-在页面导航到之前为访客页面设置用户代理的 `String` 。 加载 页面后，使用 `setUserAgent` 方法更改用户代理。
+A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `disablewebsecurity`
 
@@ -144,7 +144,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-一 `Boolean`。 当此属性出现时，访客页面将禁用 Web 安全。 默认情况下启用了 Web 安全。
+一 `Boolean`。 When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -153,9 +153,9 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-设置页面使用的会话的 `String` 。 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
+A `String` that sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
 
-此值只能在第一次导航之前进行修改，因为活动渲染器过程的会话 不能更改。 随后修改 值的尝试将失败，但 DOM 例外。
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
 ### `allowpopups`
 
@@ -163,7 +163,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-一 `Boolean`。 当此属性出现时，客人页面将被允许打开新的 窗口。 默认情况下，弹出窗口已禁用。
+一 `Boolean`。 When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -171,17 +171,17 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-`String` ，这是一个逗号分离的字符串列表，其中指定在 Webview 上设置的 Web 首选项。 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
+A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
 
 该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `0` 解析为 `false`。
 
-### `启用链接字体`
+### `enableblinkfeatures`
 
 ```html
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-`String` ，这是一个字符串列表，其中指定由 `,`启用的闪烁功能。 支持的功能字符串的完整列表可以在 [运行时间可受功能. json5][runtime-enabled-features] 文件中找到。
+A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-`String` ，这是一个字符串列表，其中指定闪烁功能由 `,`分开。 支持的功能字符串的完整列表可以在 [运行时间可受功能. json5][runtime-enabled-features] 文件中找到。
+A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ## 方法
 
@@ -216,11 +216,11 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
-返回 `Promise<void>` - 当页面完成加载 时，承诺将解决（见 [`did-finish-load`](webview-tag.md#event-did-finish-load)），如果页面无法加载，则拒绝 （见 [`did-fail-load`](webview-tag.md#event-did-fail-load)）。
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
 `webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
 
-### `<webview>.下载（网址）`
+### `<webview>.downloadURL(url)`
 
 * `url` String
 
@@ -238,7 +238,7 @@ Initiates a download of the resource at `url` without navigating.
 
 返回 `Boolean` - 访客页是否仍然在加载资源。
 
-### `<webview>.是加载大框架（）`
+### `<webview>.isLoadingMainFrame()`
 
 Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
@@ -314,19 +314,19 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `css` String
 
-返回 `Promise<String>` - 承诺，解决插入的 CSS的密钥，以后可用于通过 `<webview>.removeInsertedCSS(key)`删除CSS。
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
 
 Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
-### `<webview>.删除插电CSS（密钥）`
+### `<webview>.removeInsertedCSS(key)`
 
 * `key` String
 
 Returns `Promise<void>` - Resolves if the removal was successful.
 
-Removes the inserted CSS from the current web page. 样式表由其密钥 识别，该密钥从 `<webview>.insertCSS(css)`返回。
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
-### `<webview>.执行贾瓦脚本（代码[，用户图]）`
+### `<webview>.executeJavaScript(code[, userGesture])`
 
 * `code` String
 * `userGesture` Boolean (可选) - 默认为 `false`。
@@ -337,34 +337,34 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 ### `<webview>.openDevTools()`
 
-为访客页面打开一个开发窗口。
+Opens a DevTools window for guest page.
 
 ### `<webview>.closeDevTools()`
 
-关闭访客页面的开发窗口。
+Closes the DevTools window of guest page.
 
 ### `<webview>.isDevToolsOpened()`
 
-返回 `Boolean` - 是否附有一个DevTools窗口。
+Returns `Boolean` - Whether guest page has a DevTools window attached.
 
 ### `<webview>.isDevToolsFocused()`
 
-返回 `Boolean` - 是否将DevTools窗口的客座页面集中。
+Returns `Boolean` - Whether DevTools window of guest page is focused.
 
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-开始检查客人页面位置（`x`， `y`）的元素。
+Starts inspecting element at position (`x`, `y`) of guest page.
 
-### `<webview>。检查共享工人（）`
+### `<webview>.inspectSharedWorker()`
 
-打开 DevTool，用于客座页面中所展示的共享员工上下文。
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
-为来宾页面中的服务人员上下文打开 DevTool。
+Opens the DevTools for the service worker context present in the guest page.
 
 ### `<webview>.setAudioMuted(muted)`
 
@@ -376,7 +376,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 返回 `Boolean` - 访客页是否被静音。
 
-### `<webview>.是目前可听的（）`
+### `<webview>.isCurrentlyAudible()`
 
 Returns `Boolean` - Whether audio is currently playing.
 
@@ -432,7 +432,7 @@ Returns `Boolean` - Whether audio is currently playing.
 
 * `text` String
 
-返回 `Promise<void>`
+Returns `Promise<void>`
 
 插入`text` 到焦点元素
 
@@ -446,11 +446,11 @@ Returns `Boolean` - Whether audio is currently playing.
 
 Returns `Integer` - The request id used for the request.
 
-Starts a request to find all matches for the `text` in the web page. 请求的结果 可以通过订阅 [`found-in-page`](webview-tag.md#event-found-in-page) 活动来获得。
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` 字符串 - 指定在结束 [`<webview>.findInPage`](#webviewfindinpagetext-options) 请求时要执行的操作。
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -486,7 +486,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `footer` String (optional) - String to be printed as page footer.
   * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
-返回 `Promise<void>`
+Returns `Promise<void>`
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
 
@@ -523,7 +523,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 * `channel` String
 * `...args` any[]
 
-返回 `Promise<void>`
+Returns `Promise<void>`
 
 通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -533,7 +533,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-返回 `Promise<void>`
+Returns `Promise<void>`
 
 Sends an input `event` to the page.
 
@@ -566,7 +566,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-返回 `Promise<void>`
+Returns `Promise<void>`
 
 设置最大和最小缩放级别。
 
@@ -633,7 +633,7 @@ Fired when document in the given frame is loaded.
 * `title` String
 * `explicitSet` Boolean
 
-在导航过程中设置页面标题时激发。 当 标题从文件网址合成时，`explicitSet` 是错误的。
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### 事件: 'page-favicon-updated'
 
