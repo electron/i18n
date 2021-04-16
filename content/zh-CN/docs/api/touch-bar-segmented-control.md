@@ -17,12 +17,12 @@
     * `small-square` - 以小尺寸的矩形样式显示控件 地图到 `NSSegmentStyleSmallSquare`。
     * 表示控件的当前段样式。更新此值会立即更新触摸栏中的控件。 地图到 `NSSegmentStyleSeparated`。
   * `mode` 字符串（可选） - 控制的选择模式：
-    * `single` - 默认值。 一次选择一个项目，选择一个项目取消选择之前选择的项目。 地图到 `NSSegmentSwitchTrackingSelectOne`。
-    * `multiple` - 可以选多个项。 地图到 `NSSegmentSwitchTrackingSelectAny`。
-    * `buttons` - 将段作为按钮使用, 每一段都可以被按下和释放但是不会被标记为激活状态 地图到 `NSSegmentSwitchTrackingMomentary`。
+    * `single` - 默认值。 一次选择一个项目，选择一个项目取消选择之前选择的项目。 Maps to `NSSegmentSwitchTrackingSelectOne`.
+    * `multiple` - 可以选多个项。 Maps to `NSSegmentSwitchTrackingSelectAny`.
+    * `buttons` - 将段作为按钮使用, 每一段都可以被按下和释放但是不会被标记为激活状态 Maps to `NSSegmentSwitchTrackingMomentary`.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - 被放到控件中的段的集合
-  * `selectedIndex` Integer (optional) - 当前选中的段的下标, 这个值会在用户交互时自动更改 当模式 `multiple` 它将是最后选定的项目。
-  * `change` 功能（可选） - 当用户选择新细分市场时调用。
+  * `selectedIndex` Integer (optional) - 当前选中的段的下标, 这个值会在用户交互时自动更改 When the mode is `multiple` it will be the last selected item.
+  * `change` Function (optional) - Called when the user selects a new segment.
     * `selectedIndex` Integer - 用户选中的段的下标。
     * `isSelected` Boolean - 当前段的选中状态
 
@@ -32,7 +32,7 @@
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-表示控件当前段样式的 `String` 。 更新此值立即更新触摸栏中的控制 。
+A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
 
 #### `touchBarSegmentedControl.segments`
 
@@ -42,6 +42,6 @@
 
 `Integer`类型表示的当前选中段 改变这个值会立即触发更新当前段 用户对触摸条的操作会自动更新这个值
 
-#### `触摸栏隔离控制。模式`
+#### `touchBarSegmentedControl.mode`
 
-代表当前控制选择模式的 `String` 。  可以 `single`， `multiple` 或 `buttons`。
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.
