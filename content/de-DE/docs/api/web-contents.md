@@ -564,24 +564,24 @@ Rückgabewert:
   * `inputFieldType` String - Wenn das Kontextmenü für ein Eingabefeld aufgerufen wurde, , der Typ dieses Feldes. Mögliche Werte sind `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Eingabequelle, die das Kontextmenü aufgerufen hat. Kann `none`, `mouse`, `keyboard`, `touch` oder `touchMenu`sein.
   * `mediaFlags` -Objekt - Die Flags für das Medienelement, für das das Kontextmenü aufgerufen wurde.
-    * `inError` Boolean - Ob das Medienelement abgestürzt ist.
-    * `isPaused` Boolean - Gibt an, ob das Medienelement angehalten wird.
-    * `isMuted` Boolean - Gibt an, ob das Medienelement stummgeschaltet ist.
-    * `hasAudio` Boolean - Gibt an, ob das Medienelement Audio hat.
-    * `isLooping` Boolean - Gibt an, ob das Medienelement eine Schleife ist.
-    * `isControlsVisible` Boolean – Gibt an, ob die Steuerelemente des Medienelements sichtbar sind.
-    * `canToggleControls` Boolean - Gibt an, ob die Steuerelemente des Medienelements umschaltbar sind.
-    * `canRotate` Boolean - Gibt an, ob das Medienelement gedreht werden kann.
-  * `editFlags` -Objekt - Diese Flags geben an, ob der Renderer glaubt, dass er die entsprechende Aktion ausführen kann.
-    * `canUndo` Boolean - Ob der Renderer glaubt, dass er rückgängig machen kann.
-    * `canRedo` Boolean - Ob der Renderer glaubt, dass er es wiederholen kann.
-    * `canCut` Boolean - Ob der Renderer glaubt, dass es schneiden kann.
-    * `canCopy` Boolean - Ob der Renderer glaubt, dass er kopieren kann
-    * `canPaste` Boolean - Ob der Renderer glaubt, dass er einfügen kann.
-    * `canDelete` Boolean - Gibt an, ob der Renderer glaubt, dass er löschen kann.
-    * `canSelectAll` Boolean - Ob der Renderer glaubt, dass er alle auswählen kann.
+    * `inError` Boolean - Whether the media element has crashed.
+    * `isPaused` Boolean - Whether the media element is paused.
+    * `isMuted` Boolean - Whether the media element is muted.
+    * `hasAudio` Boolean - Whether the media element has audio.
+    * `isLooping` Boolean - Whether the media element is looping.
+    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
+    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+    * `canRotate` Boolean - Whether the media element can be rotated.
+  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
+    * `canUndo` Boolean - Whether the renderer believes it can undo.
+    * `canRedo` Boolean - Whether the renderer believes it can redo.
+    * `canCut` Boolean - Whether the renderer believes it can cut.
+    * `canCopy` Boolean - Whether the renderer believes it can copy
+    * `canPaste` Boolean - Whether the renderer believes it can paste.
+    * `canDelete` Boolean - Whether the renderer believes it can delete.
+    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
 
-Emittiert, wenn es ein neues Kontextmenü gibt, das behandelt werden muss.
+Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
@@ -592,28 +592,28 @@ Rückgabewert:
 * `callback` Function
   * `deviceId` String
 
-Emittiert, wenn Bluetooth-Gerät auf Abruf ausgewählt werden muss, um `navigator.bluetooth.requestDevice`. Um `navigator.bluetooth` api zu verwenden, sollten `webBluetooth` aktiviert sein. Wenn `event.preventDefault` nicht aufgerufen wird, wird erste verfügbare Gerät ausgewählt. `callback` mit `deviceId` aufgerufen werden sollte, um ausgewählt zu werden, wird die leere Zeichenfolge an `callback` die Anforderung abbrechen.
+Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-lassen sie win = null
+let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
-app.whenReady().then()=> '
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
-  win.webContents.on('select-bluetooth-device', (ereignis, deviceList, callback) =>
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
-    const result = deviceList.find(device) => '
+    const result = deviceList.find((device) => {
       return device.deviceName === 'test'
-    ')
-    wenn (!result)
-    
-      ,  ,
-      callback(result.deviceId
-
-  
-    )
+    })
+    if (!result) {
+      callback('')
+    } else {
+      callback(result.deviceId)
+    }
+  })
+})
 ```
 
 #### Event: 'paint'
@@ -622,60 +622,60 @@ Rückgabewert:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - Die Bilddaten des gesamten Frames.
+* `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
-Emittiert, wenn ein neuer Frame generiert wird. Nur der schmutzige Bereich wird im -Puffer übergeben.
+Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
-const win = new BrowserWindow(' webPreferences: { offscreen: true } ')
-win.webContents.on('paint', (event, dirty, image) => '
-  / updateBitmap(dirty, image.getBitmap())
-')
+const win = new BrowserWindow({ webPreferences: { offscreen: true } })
+win.webContents.on('paint', (event, dirty, image) => {
+  // updateBitmap(dirty, image.getBitmap())
+})
 win.loadURL('http://github.com')
 ```
 
 #### Event: 'devtools-reload-page'
 
-Emittiert, wenn das devtools-Fenster die WebContents zum erneuten Laden anweist
+Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
 Rückgabewert:
 
 * `event` Event
-* `webPreferences` WebPreferences - Die Webeinstellungen, die von der Gastseite verwendet werden. Dieses Objekt kann geändert werden, um die Einstellungen für die Gastseite anzupassen.
-* `params` Record<string, string> - Die anderen `<webview>` Parameter wie die `src` URL. Dieses Objekt kann geändert werden, um die Parameter der Gästeseite anzupassen.
+* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
-Es wird angezeigt, wenn die Webinhalte eines `<webview>`an diese Web- -Inhalte angefügt werden. Wenn sie `event.preventDefault()` aufrufen, wird die Gastseite zerstört.
+Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
-Dieses Ereignis kann verwendet werden, um `webPreferences` für die `webContents` eines `<webview>` zu konfigurieren, bevor es geladen wird, und bietet die Möglichkeit, Einstellungen festzulegen, die nicht über `<webview>` Attribute festgelegt werden können.
+This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
-**Hinweis:** Die angegebene `preload` Skriptoption wird als `preloadURL` (nicht `preload`) im `webPreferences` Mit diesem Ereignis emittierten Objekt angezeigt.
+**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
 #### Event: 'did-attach-webview'
 
 Rückgabewert:
 
 * `event` Event
-* `webContents` WebContents - Die Gastwebinhalte, die vom `<webview>`verwendet werden.
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
-Emittiert, wenn ein `<webview>` an diesen Webinhalt angehängt wurde.
+Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
 Rückgabewert:
 
 * `event` Event
-* `level` Ganzzahl - Die Protokollebene von 0 bis 3. Damit er `verbose`, `info`, `warning` und `error`entspricht.
-* `message` String - Die eigentliche Konsolenmeldung
-* `line` Ganzzahl - Die Zeilennummer der Quelle, die diese Konsolennachricht ausgelöst hat
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
-Wird angezeigt, wenn das zugehörige Fenster eine Konsolennachricht protokolliert.
+Emitted when the associated window logs a console message.
 
-#### Ereignis: 'preload-error'
+#### Event: 'preload-error'
 
 Rückgabewert:
 
@@ -684,19 +684,9 @@ Rückgabewert:
 * ` Fehler </ 0> Fehler</li>
 </ul>
 
-<p spaces-before="0">Es wird gesendet, wenn das Preload-Skript <code>preloadPath` eine nicht behandelte Ausnahme `error`auslöst.</p>
+<p spaces-before="0">Emitted when the preload script <code>preloadPath` throws an unhandled exception `error`.</p>
 
-#### Ereignis: 'ipc-message'
-
-Rückgabewert:
-
-* `event` Event
-* `channel` String
-* `...args` any[]
-
-Emittiert, wenn der Rendererprozess eine asynchrone Nachricht über `ipcRenderer.send()`sendet.
-
-#### Ereignis: 'ipc-message-sync'
+#### Event: 'ipc-message'
 
 Rückgabewert:
 
@@ -704,7 +694,17 @@ Rückgabewert:
 * `channel` String
 * `...args` any[]
 
-Emittiert, wenn der Rendererprozess eine synchrone Nachricht über `ipcRenderer.sendSync()`sendet.
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+
+#### Event: 'ipc-message-sync'
+
+Rückgabewert:
+
+* `event` Event
+* `channel` String
+* `...args` any[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
 #### Event: 'desktop-capturer-get-sources'
 
@@ -712,7 +712,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emittiert, wenn `desktopCapturer.getSources()` im Rendererprozess aufgerufen wird. Wenn `event.preventDefault()` ruft, werden leere Quellen zurückgegeben.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Wenn `event.preventDefault()` ruft, werden leere Quellen zurückgegeben.
 
 #### Ereignis: 'Remote-require' _veraltete_
 
@@ -721,7 +721,7 @@ Rückgabewert:
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emittiert, wenn `remote.require()` im Rendererprozess aufgerufen wird. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 #### Veranstaltung: 'remote-get-global' _veraltete_
 
@@ -730,7 +730,7 @@ Rückgabewert:
 * `event` IpcMainEvent
 * `globalName` String
 
-Emittiert, wenn `remote.getGlobal()` im Rendererprozess aufgerufen wird. Wenn `event.preventDefault()` aufgerufen wird, wird verhindert, dass die globale Zurückgegebenwerden. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Wenn `event.preventDefault()` aufgerufen wird, wird verhindert, dass die globale Zurückgegebenwerden. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 #### Event: 'remote-get-builtin' _veraltete_
 
@@ -739,7 +739,7 @@ Rückgabewert:
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emittiert, wenn `remote.getBuiltin()` im Rendererprozess aufgerufen wird. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 #### Ereignis: 'remote-get-current-window' _veraltete_
 
@@ -747,7 +747,7 @@ Rückgabewert:
 
 * `event` IpcMainEvent
 
-Emittiert, wenn `remote.getCurrentWindow()` im Rendererprozess aufgerufen wird. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 #### Event: 'remote-get-current-web-contents' _veraltete_
 
@@ -755,18 +755,18 @@ Rückgabewert:
 
 * `event` IpcMainEvent
 
-Emittiert, wenn `remote.getCurrentWebContents()` im Rendererprozess aufgerufen wird. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-#### Ereignis: 'bevorzugte Größe geändert'
+#### Event: 'preferred-size-changed'
 
 Rückgabewert:
 
 * `event` Event
-* `preferredSize` [Größe](structures/size.md) – Die Mindestgröße, die für erforderlich ist, enthält das Layout des Dokuments, ohne dass ein Bildlauf erforderlich ist.
+* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
 
-Emittiert, wenn sich die `WebContents` bevorzugte Größe geändert hat.
+Emitted when the `WebContents` preferred size has changed.
 
-Dieses Ereignis wird nur dann emittiert, wenn `enablePreferredSizeMode` in `webPreferences`auf `true` festgelegt ist.
+This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
 
 ### Instanz Methoden
 
@@ -774,15 +774,15 @@ Dieses Ereignis wird nur dann emittiert, wenn `enablePreferredSizeMode` in `webP
 
 * `url` String
 * `options` Objekt (optional)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - Eine HTTP Referrer URL.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) – Ein Benutzer-Agent, der die Anforderung stammt.
-  * `extraHeaders` String (optional) - Zusätzliche Header getrennt durch "\n".
+  * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Basis-URL (mit Nachtrailing-Pfadtrennzeichen) für Dateien, die von der Daten-URL geladen werden sollen. Dies ist nur erforderlich, wenn die angegebene `url` eine Daten-URL ist und andere Dateien laden muss.
+  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Gibt `Promise<void>` zurück - das Versprechen wird aufgelöst, wenn die Seite geladen hat (siehe [`did-finish-load`](web-contents.md#event-did-finish-load)), und lehnt ab, wenn die Seite nicht geladen werden kann (siehe [`did-fail-load`](web-contents.md#event-did-fail-load)). Ein Noop-Ablehnungshandler ist bereits angefügt, wodurch nicht behandelte Ablehnungsfehler vermieden werden.
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
-Lädt die `url` in das Fenster. Die `url` muss das Protokollpräfix enthalten, z. B. die `http://` oder `file://`. Wenn die Last den http-Cache umgehen soll, den `pragma` -Header verwenden, um dies zu erreichen.
+Lädt die `url` in das Fenster. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
 ```javascript
 const { webContents } = require('electron')
@@ -800,7 +800,7 @@ webContents.loadURL('https://github.com', options)
 
 Gibt `Promise<void>` zurück - das Versprechen wird aufgelöst, wenn die Seite geladen hat (siehe [`did-finish-load`](web-contents.md#event-did-finish-load)), und lehnt ab, wenn die Seite nicht geladen werden kann (siehe [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Lädt die angegebene Datei im Fenster, `filePath` sollte ein Pfad zum einer HTML-Datei relativ zum Stamm der Anwendung sein.  Zum Beispiel eine App-Struktur wie diese:
+Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
 ```sh
 | root
@@ -820,7 +820,7 @@ win.loadFile('src/index.html')
 
 * `url` String
 
-Initiiert einen Download der Ressource auf `url` , ohne zu navigieren. Das `will-download` Ereignis der `session` wird ausgelöst.
+Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
 #### `contents.getURL()`
 
@@ -829,43 +829,43 @@ Gibt einen `String` zurück - Die URL der aktuellen web page.
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('http://github.com'
-.log
-  
-  > ).
+win.loadURL('http://github.com').then(() => {
+  const currentURL = win.webContents.getURL()
+  console.log(currentURL)
+})
 ```
 
 #### `contents.getTitle()`
 
-Gibt `String` zurück - Der Titel der aktuellen Webseite.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-Gibt `Boolean` zurück - Gibt an, ob die Webseite zerstört wurde.
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-Fokussiert die Webseite.
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-Gibt `Boolean` zurück - Gibt an, ob die Webseite fokussiert ist.
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-Gibt `Boolean` zurück : Gibt an, ob die Webseite noch Ressourcen lädt.
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
-Gibt `Boolean` zurück - Ob der Hauptrahmen (und nicht nur iframes oder Frames darin) noch geladen wird.
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 #### `contents.isWaitingForResponse()`
 
-Gibt `Boolean` zurück : Gibt an, ob die Webseite auf eine erste Antwort von der Hauptressource der Seite wartet.
+Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
 
 #### `contents.stop()`
 
-Beendet alle ausstehenden Navigationen.
+Stops any pending navigation.
 
 #### `contents.reload()`
 
@@ -877,106 +877,106 @@ Lädt die aktuelle web page neu und ignoriert dabei die Caches.
 
 #### `contents.canGoBack()`
 
-Gibt `Boolean` zurück - Gibt an, ob der Browser zur vorherigen Webseite zurückkehren kann.
+Returns `Boolean` - Whether the browser can go back to previous web page.
 
 #### `contents.canGoForward()`
 
-Gibt `Boolean` zurück - Gibt an, ob der Browser zur nächsten Webseite weitergeleitet werden kann.
+Returns `Boolean` - Whether the browser can go forward to next web page.
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Gibt `Boolean` zurück – Gibt an, ob die Webseite zu `offset`wechseln kann.
+Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-Löscht den Navigationsverlauf.
+Clears the navigation history.
 
 #### `contents.goBack()`
 
-Lässt den Browser eine Webseite zurück.
+Makes the browser go back a web page.
 
 #### `contents.goForward()`
 
-Lässt den Browser eine Webseite vorwärts gehen.
+Makes the browser go forward a web page.
 
 #### `contents.goToIndex(index)`
 
 * `index` Integer
 
-Navigiert im Browser zum angegebenen absoluten Webseitenindex.
+Navigates browser to the specified absolute web page index.
 
 #### `contents.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigiert vom "aktuellen Eintrag" zum angegebenen Offset.
+Navigates to the specified offset from the "current entry".
 
 #### `contents.isCrashed()`
 
-Gibt `Boolean` zurück - Gibt an, ob der Renderer-Prozess abgestürzt ist.
+Returns `Boolean` - Whether the renderer process has crashed.
 
 #### `contents.forcefullyCrashRenderer()`
 
-Beendet den Rendererprozess, der derzeit diese `webContents`hostet, mit Nachdruck. Dadurch wird das `render-process-gone` Ereignis mit dem `reason=killed || reason=crashed`ausgesendet. Bitte beachten Sie, dass einige webContents-Freigabe-Renderer Prozessen und daher das Aufrufen dieser Methode kann auch den Host-Prozess für andere webContents abstürzen.
+Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
 
-Wenn Sie `reload()` unmittelbar nach dem Aufruf dieses -Methode aufrufen, wird das erneute Laden in einem neuen Prozess erzwingen. Dies sollte verwendet werden, wenn dieser Prozess instabil oder unbrauchbar ist, z. B. um vom `unresponsive` -Ereignis wiederherzustellen.
+Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
 
 ```js
-contents.on('nicht ansprechbar', async () =>
-  const { response } = await dialog.showMessageBox('
-    Nachricht: 'App X ist nicht mehr reagiert',
-    Titel: 'Möchten Sie versuchen, die App mit Nachdruck neu zu laden?',
-    -Buttons: ['OK', 'Abbrechen'],
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: 'Do you want to try forcefully reloading the app?',
+    buttons: ['OK', 'Cancel'],
     cancelId: 1
-
-
-  
-    
-    
-  ' .
+  })
+  if (response === 0) {
+    contents.forcefullyCrashRenderer()
+    contents.reload()
+  }
+})
 ```
 
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Überschreibt den Benutzer-Agent für diese Webseite.
+Overrides the user agent for this web page.
 
 #### `contents.getUserAgent()`
 
-Gibt `String` zurück : Der Benutzer-Agent für diese Webseite.
+Returns `String` - The user agent for this web page.
 
-#### `contents.insertCSS(css[, optionen])`
+#### `contents.insertCSS(css[, options])`
 
 * `css` String
 * `options` Objekt (optional)
-  * `cssOrigin` String (optional) - Kann entweder 'user' oder 'author' sein; Durch die Angabe von "Benutzer" können Sie verhindern, dass Websites das von Ihnen eingefügte CSS überschreiben. Standard ist 'author'.
+  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Gibt `Promise<String>` zurück - Ein Versprechen, das mit einem Schlüssel für das eingefügte CSS aufgelöst wird, das später verwendet werden kann, um das CSS über `contents.removeInsertedCSS(key)`zu entfernen.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-Fügt CSS in die aktuelle Webseite ein und gibt einen eindeutigen Schlüssel für das eingefügte -Stylesheet zurück.
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
-contents.on('did-finish-load', () => '
-  contents.insertCSS('html, body 'background-color: #f00; '')
-')
+contents.on('did-finish-load', () => {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
 ```
 
-#### `contents.removeInsertedCSS(Key)`
+#### `contents.removeInsertedCSS(key)`
 
 * `key` String
 
-Gibt `Promise<void>` zurück - Wird behoben, wenn die Entfernung erfolgreich war.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-Entfernt das eingefügte CSS von der aktuellen Webseite. Das Stylesheet wird durch seinen Schlüssel identifiziert, der von `contents.insertCSS(css)`zurückgegeben wird.
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
-contents.on('did-finish-load', async () => '
-  const key = await contents.insertCSS('html, body 'background-color: #f00; '')
+contents.on('did-finish-load', async () => {
+  const key = await contents.insertCSS('html, body { background-color: #f00; }')
   contents.removeInsertedCSS(key)
-
+})
 ```
 
 #### `contents.executeJavaScript(code[, userGesture])`
@@ -984,13 +984,13 @@ contents.on('did-finish-load', async () => '
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
 
-Gibt `Promise<any>` zurück - Ein Versprechen, das mit dem Ergebnis des ausgeführten Codes aufgelöst wird oder abgelehnt wird, wenn das Ergebnis des Codes ein abgelehntes Versprechen ist.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Bewertet `code` in Der Seite.
+Evaluates `code` in page.
 
-Im Browserfenster können einige HTML-APIs wie `requestFullScreen` nur durch eine Geste des Benutzers aufgerufen werden. Wenn Sie `userGesture` auf `true` festlegen, wird diese Einschränkung entfernt.
+In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
-Die Codeausführung wird angehalten, bis die Webseite beendet wird.
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1001,19 +1001,19 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - Die ID der Welt, in der das Javascript ausgeführt werden soll, `0` die Standardwelt ist, `999` die Welt ist, die von Electrons `contextIsolation` -Funktion verwendet wird.  Sie können hier jede ganze Zahl angeben.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
 
-Gibt `Promise<any>` zurück - Ein Versprechen, das mit dem Ergebnis des ausgeführten Codes aufgelöst wird oder abgelehnt wird, wenn das Ergebnis des Codes ein abgelehntes Versprechen ist.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Funktioniert wie `executeJavaScript` , sondern bewertet `scripts` in einem isolierten Kontext.
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 #### `contents.setIgnoreMenuShortcuts(ignore)`
 
 * `ignore` Boolean
 
-Ignorieren Sie Anwendungsmenüverknüpfungen, während dieser Webinhalt fokussiert ist.
+Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.setWindowOpenHandler(handler)`
 
@@ -1025,45 +1025,45 @@ Ignorieren Sie Anwendungsmenüverknüpfungen, während dieser Webinhalt fokussie
 
   Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
 
-Wird aufgerufen, bevor ein Fenster erstellt wird, wenn `window.open()` vom -Renderer aufgerufen wird. Weitere Informationen und die Verwendung in Verbindung mit `did-create-window`finden Sie in [`window.open()`](window-open.md) .
+Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Stummschalten Sie den Ton auf der aktuellen Webseite.
+Mute the audio on the current web page.
 
 #### `contents.isAudioMuted()`
 
-Gibt `Boolean` zurück - Gibt an, ob diese Seite stummgeschaltet wurde.
+Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.isCurrentlyAudible()`
 
-Gibt `Boolean` zurück - Gibt an, ob Audio gerade wiedergegeben wird.
+Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Double - Zoom-Faktor; Der Standardwert ist 1.0.
+* `factor` Double - Zoom factor; default is 1.0.
 
-Ändert den Zoomfaktor in den angegebenen Faktor. Zoom-Faktor ist Zoom Prozent geteilt durch 100, also 300% = 3,0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-Der Faktor muss größer als 0,0 sein.
+The factor must be greater than 0.0.
 
 #### `contents.getZoomFactor()`
 
-Gibt `Number` zurück - den aktuellen Zoomfaktor.
+Returns `Number` - the current zoom factor.
 
 #### `contents.setZoomLevel(level)`
 
 * `level` Number - Zoom level.
 
-Ändert die Zoomstufe auf die angegebene Ebene. Die ursprüngliche Größe ist 0, und jedes -Inkrement über oder unter stellt ein Zoomum um 20 % größer oder kleiner auf standard Grenzwerte von 300 % bzw. 50 % der ursprünglichen Größe dar. Die Formel dafür lautet `scale := 1.2 ^ level`.
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-> **HINWEIS**: Die Zoomrichtlinie auf Chromium-Ebene ist gleich-Ursprung, was bedeutet, dass die Zoomstufe für eine bestimmte Domäne über alle Instanzen von Fenstern mit derselben Domäne weitergegeben wird. Durch die Differenzierung der Fenster-URLs funktioniert der Zoom pro Fenster.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 #### `contents.getZoomLevel()`
 
-Gibt `Number` zurück - die aktuelle Zoomstufe.
+Returns `Number` - the current zoom level.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -1074,7 +1074,7 @@ Rückgaben `Promise<void>`
 
 Setzt das Maximum und Minimum pinch-to-zoom Level.
 
-> **HINWEIS**: Der visuelle Zoom ist in Electron standardmäßig deaktiviert. Um es erneut zu aktivieren, rufen Sie:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
 > contents.setVisualZoomLevelLimits(1, 3)
@@ -1082,58 +1082,58 @@ Setzt das Maximum und Minimum pinch-to-zoom Level.
 
 #### `contents.undo()`
 
-Führt den Bearbeitungsbefehl `undo` in der Webseite aus.
+Executes the editing command `undo` in web page.
 
 #### `contents.redo()`
 
-Führt den Bearbeitungsbefehl `redo` in der Webseite aus.
+Executes the editing command `redo` in web page.
 
 #### `contents.cut()`
 
-Führt den Bearbeitungsbefehl `cut` in der Webseite aus.
+Executes the editing command `cut` in web page.
 
 #### `contents.copy()`
 
-Führt den Bearbeitungsbefehl `copy` in der Webseite aus.
+Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Kopieren Sie das Bild an der angegebenen Position in die Zwischenablage.
+Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-Führt den Bearbeitungsbefehl `paste` in der Webseite aus.
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-Führt den Bearbeitungsbefehl `pasteAndMatchStyle` in der Webseite aus.
+Executes the editing command `pasteAndMatchStyle` in web page.
 
 #### `contents.delete()`
 
-Führt den Bearbeitungsbefehl `delete` in der Webseite aus.
+Executes the editing command `delete` in web page.
 
 #### `contents.selectAll()`
 
-Führt den Bearbeitungsbefehl `selectAll` in der Webseite aus.
+Executes the editing command `selectAll` in web page.
 
 #### `contents.unselect()`
 
-Führt den Bearbeitungsbefehl `unselect` in der Webseite aus.
+Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
 * `text` String
 
-Führt den Bearbeitungsbefehl `replace` in der Webseite aus.
+Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-Führt den Bearbeitungsbefehl `replaceMisspelling` in der Webseite aus.
+Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
@@ -1145,24 +1145,24 @@ Füge `text` in das fokusierte Element ein.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Inhalte, die gesucht werden sollen, dürfen nicht leer sein.
+* `text` String - Content to be searched, must not be empty.
 * `options` Objekt (optional)
-  * `forward` Boolean (optional) - Gibt an, vorwärts oder rückwärts zu suchen, standardmäßig `true`.
-  * `findNext` Boolean (optional) - Unabhängig davon, ob es sich bei dem Vorgang um eine erste Anforderung oder eine Nachverfolgung handelt, standardmäßig `false`.
-  * `matchCase` Boolean (optional) - Ob bei der Suche die Groß-/Kleinschreibung beachtet werden soll, standardmäßig `false`.
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
-Gibt `Integer` zurück - Die für die Anforderung verwendete Anforderungs-ID.
+Returns `Integer` - The request id used for the request.
 
-Startet eine Anforderung, um alle Übereinstimmungen für die `text` auf der Webseite zu finden. Das Ergebnis der Anforderung kann durch Abonnieren [`found-in-page`](web-contents.md#event-found-in-page) Ereignis erhalten werden.
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Gibt die Aktion an, die beim Beenden [`webContents.findInPage`] -Anforderung stattfinden soll.
-  * `clearSelection` - Löschen Sie die Auswahl.
-  * `keepSelection` - Übersetzen Sie die Auswahl in eine normale Auswahl.
-  * `activateSelection` - Fokus und klicken Sie auf den Auswahlknoten.
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
-Beendet jede `findInPage` Anfrage für die `webContents` mit dem bereitgestellten `action`.
+Stops any `findInPage` request for the `webContents` with the provided `action`.
 
 ```javascript
 const { webContents } = require('electron')
@@ -1176,7 +1176,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect])`
 
-* `rect` [Rechteck](structures/rectangle.md) (optional) - Der Bereich der zu erfassenden Seite.
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
 Gibt `Promise<NativeImage>` zurück - Löst mit einem [NativeImage](native-image.md)
 
@@ -1184,119 +1184,119 @@ Erfasst eine Momentaufnahme der Seite in `rect`. Wenn Sie `rect` auslassen, wird
 
 #### `contents.isBeingCaptured()`
 
-Gibt `Boolean` zurück - Gibt an, ob diese Seite erfasst wird. Es gibt true zurück, wenn die der Erfassungsanzahl groß als 0 ist.
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - Die bevorzugte Größe für den Capturer.
-* `stayHidden` boolesch (optional) - Halten Sie die Seite ausgeblendet statt sichtbar.
+* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
-Erhöhen Sie die Anzahl der Erfassungen um eins. Die Seite gilt als sichtbar, wenn das Browserfenster ausgeblendet ist und die Erfassungsanzahl ungleich Null ist. Wenn Sie möchten, dass die Seite ausgeblendet bleibt, sollten Sie sicherstellen, dass `stayHidden` auf true festgelegt ist.
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
 
-Dies wirkt sich auch auf die Seitensichtbarkeits-API aus.
+This also affects the Page Visibility API.
 
 #### `contents.decrementCapturerCount([stayHidden])`
 
-* `stayHidden` boolesch (optional) - Halten Sie die Seite im versteckten Zustand statt sichtbar.
+* `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
 
-Verringern Sie die Anzahl der Erfassungen um eins. Die Seite wird auf einen ausgeblendeten oder ausgeblendeten Zustand festgelegt, wenn das Browserfenster sausiert oder ausgeblendet ist und die Erfassungsanzahl Null erreicht. Wenn Sie stattdessen die Anzahl der ausgeblendeten Erfassungen verringern möchten, sollten Sie `stayHidden` auf true festlegen.
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
 
 #### `contents.getPrinters()`
 
-Holen Sie sich die Systemdruckerliste ab.
+Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
 * `options` Objekt (optional)
-  * `silent` Boolean (optional) - Fragen Sie den Benutzer nicht nach Druckeinstellungen. Standard ist `false`.
-  * `printBackground` Boolean (optional) - Druckt die Hintergrundfarbe und das Bild der der Webseite. Standard ist `false`.
-  * `deviceName` String (optional) - Legen Sie den zu verwendenden Druckergerätenamen fest. Es muss der systemdefinierte Name sein und nicht der 'freundliche' Name, z. B. 'Brother_QL_820NWB' und nicht 'Brother QL-820NWB'.
-  * `color` boolesch (optional) - Legen Sie fest, ob die gedruckte Webseite in Farbe oder Graustufen sein soll. Standard ist `true`.
-  * `margins` Objekt (optional)
-    * `marginType` String (optional) - Kann `default`, `none`, `printableArea`oder `custom`sein. Wenn `custom` ausgewählt ist, müssen Sie auch `top`, `bottom`, `left`und `right`angeben.
-    * `top` Zahl (optional) - Der obere Rand der gedruckten Webseite in Pixel.
-    * `bottom` Zahl (optional) - Der untere Rand der gedruckten Webseite in Pixel.
-    * `left` Zahl (optional) - Der linke Rand der gedruckten Webseite in Pixel.
-    * `right` Zahl (optional) - Der rechte Rand der gedruckten Webseite in Pixel.
-  * `landscape` Boolean (optional) - Gibt an, ob die Webseite im Querformat gedruckt werden soll. Standard ist `false`.
-  * `scaleFactor` Zahl (optional) - Der Skalierungsfaktor der Webseite.
-  * `pagesPerSheet` Anzahl (optional) - Die Anzahl der zu druckenden Seiten pro Seitenblatt.
-  * `collate` Boolean (optional) - Gibt an, ob die Webseite zusammengestellt werden soll.
-  * `copies` -Nummer (optional) - Die Anzahl der zu druckenden Kopien der Webseite.
-  * `pageRanges` Object[] (optional) - Der zu druckende Seitenbereich. Unter macOS wird nur ein Bereich berücksichtigt.
-    * `from` - Index der ersten zu druckenden Seite (0-basiert).
-    * `to` - Index der letzten zu druckenden Seite (inklusive) (0-basiert).
-  * `duplexMode` String (optional) - Legen Sie den Duplexmodus der gedruckten Webseite fest. Kann `simplex`, `shortEdge`oder `longEdge`sein.
-  * `dpi` Datensatz<string, number> (optional)
-    * `horizontal` Zahl (optional) - Die horizontale dpi.
-    * `vertical` Zahl (optional) - Die vertikale dpi.
-  * `header` String (optional) - String, der als Seitenkopf gedruckt werden soll.
-  * `footer` String (optional) - String, der als Seitenfußzeile gedruckt werden soll.
-  * `pageSize` String | Größe (optional) - Geben Sie die Seitengröße des gedruckten Dokuments an. Kann `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` oder ein Objekt sein, das `height`enthält.
+  * `silent` Boolean (optional) - Don't ask user for print settings. Standard ist `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Standard ist `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Standard ist `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Standard ist `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `callback` Funktion (optional)
-  * `success` Boolean - Gibt den Erfolg des Druckaufrufs an.
-  * `failureReason` String - Fehlerbeschreibung wird zurückgerufen, wenn der Druck fehlschlägt.
+  * `success` Boolean - Indicates success of the print call.
+  * `failureReason` String - Error description called back if the print fails.
 
-Wenn ein benutzerdefiniertes `pageSize` übergeben wird, versucht Chromium, plattformspezifische Mindestwerte für `width_microns` und `height_microns`zu überprüfen. Breite und Höhe müssen mindestens 353 Mikrometer betragen, können aber auf einigen Betriebssystemen höher sein.
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
 
-Druckt die Webseite des Fensters. Wenn `silent` auf `true`eingestellt ist, wählt Electron Standarddrucker des Systems aus, wenn `deviceName` leer ist und die Standardeinstellungen für den Druck.
+Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
-Verwenden Sie `page-break-before: always;` CSS-Stil, um das Drucken auf einer neuen Seite zu erzwingen.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 Example usage:
 
 ```js
-const-Optionen =
-  still: true,
+const options = {
+  silent: true,
   deviceName: 'My-Printer',
   pageRanges: [{
     from: 0,
     to: 1
   }]
-'
-win.webContents.print(options, (success, errorType) => '
+}
+win.webContents.print(options, (success, errorType) => {
   if (!success) console.log(errorType)
-
+})
 ```
 
 #### `contents.printToPDF(options)`
 
 * `options` -Objekt
-  * `headerFooter` Record<string, string> (optional) - kopf- und fußzeile für die PDF-Datei.
-    * `title` String - Der Titel für den PDF-Header.
-    * `url` String - die URL für die PDF-Fußzeile.
-  * `landscape` boolesch (optional) - `true` für Landschaft, `false` für Porträt.
-  * `marginsType` Ganzzahl (optional) - Gibt den Typ der zu verwendenden Ränder an. Verwendet 0 für Standardmarge, 1 für keine Marge und 2 für die minimale Marge.
-  * `scaleFactor` Zahl (optional) - Der Skalierungsfaktor der Webseite. Kann von 0 bis 100 reichen.
-  * `pageRanges` Record<string, number> (optional) - Der zu druckende Seitenbereich.
-    * `from` - Index der ersten zu druckenden Seite (0-basiert).
-    * `to` - Index der letzten zu druckenden Seite (inklusive) (0-basiert).
-  * `pageSize` String | Größe (optional) - Geben Sie die Seitengröße der generierten PDF-Datei an. Kann `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` oder ein Objekt sein, das `height` und `width` in Mikrometern enthält.
-  * `printBackground` Boolean (optional) - Ob CSS-Hintergründe gedruckt werden sollen.
-  * `printSelectionOnly` Boolean (optional) - Gibt an, ob nur die Auswahl gedruckt werden soll.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
-Gibt `Promise<Buffer>` zurück - Behebt mit den generierten PDF-Daten.
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
-Druckt die Webseite des Fensters als PDF mit chromiums Vorschau drucken benutzerdefinierte Einstellungen.
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
-Die `landscape` wird ignoriert, wenn `@page` CSS at-rule auf der Webseite verwendet wird.
+The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
-Standardmäßig wird ein leerer `options` als:
+By default, an empty `options` will be regarded as:
 
 ```javascript
--
-  ränderTyp: 0,
+{
+  marginsType: 0,
   printBackground: false,
   printSelectionOnly: false,
-  Landscape: false,
+  landscape: false,
   pageSize: 'A4',
   scaleFactor: 100
-.
+}
 ```
 
-Verwenden Sie `page-break-before: always;` CSS-Stil, um das Drucken auf einer neuen Seite zu erzwingen.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 Ein Beispiel für `webContents.printToPDF`:
 
@@ -1309,94 +1309,94 @@ const os = require('os')
 const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
-win.webContents.on('did-finish-load', () =>
-  // Verwenden Sie die Standarddruckoptionen
-  win.webContents.printToPDF().then(data =>
+win.webContents.on('did-finish-load', () => {
+  // Use default printing options
+  win.webContents.printToPDF({}).then(data => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
-    fs.writeFile(pdfPath, data, (error) => '
-      wenn (Fehler) Fehler
-      Konsole auslösen.log('Schreiben Sie PDF erfolgreich auf ${pdfPath}')
-    ')
-  .catch(error => '
-    console.log('Fehler beim Schreiben von PDF in ${pdfPath}: ', fehler)
-  ')
-
+    fs.writeFile(pdfPath, data, (error) => {
+      if (error) throw error
+      console.log(`Wrote PDF successfully to ${pdfPath}`)
+    })
+  }).catch(error => {
+    console.log(`Failed to write PDF to ${pdfPath}: `, error)
+  })
+})
 ```
 
 #### `contents.addWorkSpace(path)`
 
 * `path` String
 
-Fügt den angegebenen Pfad zum DevTools-Arbeitsbereich hinzu. Muss nach DevTools Erstellung verwendet werden:
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
-win.webContents.on('devtools-opened', () => '
+win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
-')
+})
 ```
 
 #### `contents.removeWorkSpace(path)`
 
 * `path` String
 
-Entfernt den angegebenen Pfad aus dem DevTools-Arbeitsbereich.
+Removes the specified path from DevTools workspace.
 
 #### `contents.setDevToolsWebContents(devToolsWebContents)`
 
 * `devToolsWebContents` WebContents
 
-Verwendet die `devToolsWebContents` als Ziel `WebContents` , um Devtools anzuzeigen.
+Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
 
-Die `devToolsWebContents` dürfen keine Navigation durchgeführt haben, und sie sollten nicht nach dem Anruf für andere Zwecke verwendet werden.
+The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
 
-Standardmäßig verwaltet Electron die Devtools, indem es eine interne `WebContents` mit nativer Ansicht erstellt, auf die Entwickler nur sehr eingeschränkt e.v.a. verfügen. Mit der `setDevToolsWebContents` -Methode können Entwickler jede `WebContents` verwenden, um die darin enthaltenen Devtools anzuzeigen, einschließlich `BrowserWindow`, `BrowserView` und `<webview>` -Tags.
+By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
 
-Beachten Sie, dass das Schließen der Devtools nicht die `devToolsWebContents`zerstört, es ist die Verantwortung des Aufrufers, `devToolsWebContents`zu zerstören.
+Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
 
-Ein Beispiel für das Anzeigen von devtools in einem `<webview>` -Tag:
+An example of showing devtools in a `<webview>` tag:
 
 ```html
 <html>
 <head>
   <style type="text/css">
-    * - Marge: 0;
-    #browser - Höhe: 70%; -
-    #devtools - Höhe: 30%; { ipcRenderer } 
+    * { margin: 0; }
+    #browser { height: 70%; }
+    #devtools { height: 30%; }
   </style>
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-
-    const emittedOnce = (element, eventName) => neues Promise(resolve => -
+    const { ipcRenderer } = require('electron')
+    const emittedOnce = (element, eventName) => new Promise(resolve => {
       element.addEventListener(eventName, event => resolve(event), { once: true })
-    )
+    })
     const browserView = document.getElementById('browser')
-    const devtoolsView = document.getElementBy
-    Id , 'dom-ready')
+    const devtoolsView = document.getElementById('devtools')
+    const browserReady = emittedOnce(browserView, 'dom-ready')
     const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
-    Promise.all([browserReady, devtoolsReady]).then(()=>
+    Promise.all([browserReady, devtoolsReady]).then(() => {
       const targetId = browserView.getWebContentsId()
       const devtoolsId = devtoolsView.getWebContentsId()
-      ipcRenderer.
+      ipcRenderer.send('open-devtools', targetId, devtoolsId)
+    })
   </script>
 </body>
 </html>
-    send
 ```
 
 ```js
-Hauptprozess
+// Main process
 const { ipcMain, webContents } = require('electron')
-ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => '
+ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
   const target = webContents.fromId(targetContentsId)
   const devtools = webContents.fromId(devtoolsContentsId)
-  target.setDevWebContents(devtools)
-  target.
-open
+  target.setDevToolsWebContents(devtools)
+  target.openDevTools()
+})
 ```
 
 Ein Beispiel zum zeigen der DevTools in einem `BrowserWindow`:
@@ -1404,27 +1404,27 @@ Ein Beispiel zum zeigen der DevTools in einem `BrowserWindow`:
 ```js
 const { app, BrowserWindow } = require('electron')
 
-lassen sie win = null
-lassen devtools = null
+let win = null
+let devtools = null
 
-app.whenReady().then() =>
+app.whenReady().then(() => {
   win = new BrowserWindow()
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
-  win.webContents.setDevToolsWebContents(devtools.webContents
-{ mode: 'detach' }
-  )
+  win.webContents.setDevToolsWebContents(devtools.webContents)
+  win.webContents.openDevTools({ mode: 'detach' })
+})
 ```
 
 #### `contents.openDevTools([options])`
 
 * `options` Objekt (optional)
-  * `mode` String - Öffnet die devtools mit dem angegebenen Dock-Status, kann `right`, `bottom`, `undocked`, `detach`sein. Standardmäßig wird der zuletzt verwendete Dockstatus verwendet. Im `undocked` Modus ist es möglich, zurück zu docken. Im `detach` Modus ist es nicht.
-  * `activate` Boolean (optional) - Ob das geöffnete Devtools-Fenster in den Vordergrund rückt. Der Standardwert ist `true`.
+  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. Der Standardwert ist `true`.
 
-Öffnet die Devtools.
+Opens the devtools.
 
-Wenn `contents` ein `<webview>` -Tag ist, wird die `mode` standardmäßig `detach` , das explizite Übergeben eines leeren `mode` die Verwendung des zuletzt verwendeten Dock-Status erzwingen kann.
+When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
@@ -1432,49 +1432,49 @@ Schließt die DevTools.
 
 #### `contents.isDevToolsOpened()`
 
-Gibt `Boolean` zurück - Gibt an, ob die Devtools geöffnet werden.
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-Gibt `Boolean` zurück - Gibt an, ob die devtools-Ansicht fokussiert ist.
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-Schaltet die Entwicklertools um.
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Startet die Prüfung des Elements an der Position (`x`, `y`).
+Starts inspecting element at position (`x`, `y`).
 
 #### `contents.inspectSharedWorker()`
 
-Öffnet die Entwicklertools für den freigegebenen Workerkontext.
+Opens the developer tools for the shared worker context.
 
 #### `contents.inspectSharedWorkerById(workerId)`
 
 * `workerId` String
 
-Überprüft die freigegebene Arbeitskraft basierend auf ihrer ID.
+Inspects the shared worker based on its ID.
 
 #### `contents.getAllSharedWorkers()`
 
-Gibt [`SharedWorkerInfo[]`](structures/shared-worker-info.md) zurück - Informationen zu allen freigegebenen Arbeitskräften.
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
 
 #### `contents.inspectServiceWorker()`
 
-Öffnet die Entwicklertools für den Service-Worker-Kontext.
+Opens the developer tools for the service worker context.
 
-#### `contents.send(Kanal, ... args)`
+#### `contents.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Senden Sie eine asynchrone Nachricht über `channel`, zusammen mit Argumenten an den Rendererprozess. Argumente werden mit dem [Structured Clone Algorithm][SCA]serialisiert, genau wie [`postMessage`][], so dass Prototypketten nicht werden. Beim Senden von Funktionen, Versprechen, Symbolen, WeakMaps oder WeakSets wird eine Ausnahme auslösen.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Beim Senden von Funktionen, Versprechen, Symbolen, WeakMaps oder WeakSets wird eine Ausnahme auslösen.
 
-> **HINWEIS**: Das Senden nicht standardmäßiger JavaScript-Typen wie DOM-Objekte oder speziellen Electron-Objekte löst eine Ausnahme aus.
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1701,13 +1701,13 @@ Erstellt einen V8-Heap-Snapshot und speichert ihn in `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Gibt `Boolean` zurück : ob diese WebContents Animationen und Timer drosseln , wenn die Seite hintergrundgebunden wird. Dies wirkt sich auch auf die Seitensichtbarkeits-API aus.
+Gibt `Boolean` zurück : ob diese WebContents Animationen und Timer drosseln , wenn die Seite hintergrundgebunden wird. This also affects the Page Visibility API.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Steuert, ob diese WebContents Animationen und Timer drosseln, wenn die Seite hintergrundgebunden wird. Dies wirkt sich auch auf die Seitensichtbarkeits-API aus.
+Steuert, ob diese WebContents Animationen und Timer drosseln, wenn die Seite hintergrundgebunden wird. This also affects the Page Visibility API.
 
 #### `contents.getType()`
 
@@ -1765,7 +1765,7 @@ A [`Debugger`](debugger.md) instance for this webContents.
 
 #### `contents.backgroundThrottling`
 
-A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Dies wirkt sich auch auf die Seitensichtbarkeits-API aus.
+A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.mainFrame` _Readonly_
 
