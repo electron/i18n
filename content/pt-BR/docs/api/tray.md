@@ -215,7 +215,7 @@ Define o texto do hover para este ícone de bandeja.
 #### `tray.setTitle(title[, options])` __macOS
 
 * `title` String
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `fontType` String (opcional) - A variante da família da fonte a ser exibida, pode ser `monospaced` ou `monospacedDigit`. `monospaced` está disponível no macOS 10.15+ e `monospacedDigit` está disponível no macOS 10.11+.  Quando deixado em branco, o título usa a fonte padrão do sistema.
 
 Define o título exibido ao lado do ícone da bandeja na barra de status (suporte às cores ANSI).
@@ -238,7 +238,7 @@ Devoluções `Boolean` - Se os eventos de clique duplo serão ignorados.
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* objeto `options`
+* `options` Object
   * `icon` (</a> | NativeImage
 
 String) (opcional) - Ícone a ser usado quando `iconType` estiver `custom`.</li> 
