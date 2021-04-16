@@ -287,13 +287,13 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `shadow` - Виртуальная тень, отбрасываемая поднятым объектом на экране.
     * `tertiary-label` - Текст этикетки меньшей важности, чем второстепенный ярлык, такой как метка, используемая для представления отключенного текста.
     * `text-background` - Текстовый фон.
-    * `text` - Текст в документе.
-    * `under-page-background` - Фон содержания документа.
-    * `unemphasized-selected-content-background` - Выбранное содержимое в окне или представлении без ключей.
-    * `unemphasized-selected-text-background` - Фон для выбранного текста в окне или представлении без ключей.
-    * `unemphasized-selected-text` - Выбранный текст в окне или представлении без ключей.
-    * `window-background` - Фон окна.
-    * `window-frame-text` - Текст в титульной панели окна области.
+    * `text` -  The text in a document.
+    * `under-page-background` -  The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area.
 
 Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
 
@@ -302,21 +302,21 @@ The following colors are only available on macOS 10.14: `find-highlight`, `selec
 ### `systemPreferences.getSystemColor(color)` _macOS_
 
 * `color` String - одно из следующих значений:
-  * `Синий`
-  * `Коричневый`
-  * `Серый`
-  * `Зеленый`
-  * `Оранжевый`
-  * `Розовый`
-  * `Фиолетовый`
-  * `Красного`
-  * `Желтый`
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
 
 Returns `String` - The standard system color formatted as `#RRGGBBAA`.
 
 Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for  more details.
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _deprecated_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
 
 Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
 
@@ -342,7 +342,7 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
 
-* `appearance` струнные | null - может быть `dark` или `light`
+* `appearance` String | null - Can be `dark` or `light`
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
@@ -354,18 +354,18 @@ Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
 ### `systemPreferences.promptTouchID(reason)` _macOS_
 
-* `reason` строка - Причина, по которой вы просите проверку подлинности Touch ID
+* `reason` String - The reason you are asking for Touch ID authentication
 
 Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
 
 ```javascript
-const { systemPreferences } - требуют ('электрон')
+const { systemPreferences } = require('electron')
 
-systemPreferences.promptTouchID ('Чтобы получить согласие на безопасность-Gated Thing'.log
-  > ).
-В).поймать (ошибка>
-  консоли.log (ошибка)
-)
+systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
+  console.log('You have successfully authenticated with Touch ID!')
+}).catch(err => {
+  console.log(err)
+})
 ```
 
 This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
@@ -374,7 +374,7 @@ This API itself will not protect your user data; rather, it is a mechanism to al
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
-* `prompt` Boolean - будет ли пользователь проинформирован через подсказку, если текущий процесс не соответствует действительности.
+* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
 
 Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
