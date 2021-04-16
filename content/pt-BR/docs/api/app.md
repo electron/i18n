@@ -28,9 +28,9 @@ Na maioria dos casos, você deve fazer tudo no manipulador do evento `ready`.
 Retorna:
 
 * `event` Event
-* `launchInfo` Record<string, any> |  Notificações [Reponse](structures/notification-response.md) __do macOS
+* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Emitido uma vez, quando a Electron terminou de inicializar. No macOS, `launchInfo` detém a `userInfo` do `NSUserNotification` ou informações de [`UNNotificationResponse`](structures/notification-response.md) que foi usada para abrir o aplicativo , caso fosse lançado da Central de Notificação. Você também pode ligar para `app.isReady()` para verificar se este evento já foi disparado e `app.whenReady()` para obter uma Promessa que é cumprida quando o Elétron é inicializado.
+Emitted once, when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### Evento: 'window-all-closed'
 
@@ -44,7 +44,7 @@ Retorna:
 
 * `event` Event
 
-Emitido antes do aplicativo começar a fechar suas janelas. Chamar `event.preventDefault()` impedirá o comportamento padrão, que está terminando o aplicativo.
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 **Nota:** Se o encerramento da aplicação for iniciado pelo `autoUpdater.quitAndInstall()`, então o `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fechá-las.
 
@@ -56,7 +56,7 @@ Retorna:
 
 * `event` Event
 
-Emitido quando todas as janelas foram fechadas e o aplicativo vai parar. Chamar `event.preventDefault()` impedirá o comportamento padrão, que está terminando o aplicativo.
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
@@ -93,7 +93,7 @@ Retorna:
 * `event` Event
 * String `url`
 
-Emitido quando o usuário deseja abrir um URL com a aplicação. O arquivo `Info.plist` do aplicativo deve definir o esquema de URL na tecla `CFBundleURLTypes` e definir `NSPrincipalClass` para `AtomApplication`.
+Emitido quando o usuário deseja abrir um URL com a aplicação. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Se você deseja manipular esse evento, você deve chamar `event.preventDefault()`.
 
@@ -120,7 +120,7 @@ Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
-* `userInfo` desconhecido - Contém um estado específico de aplicativo armazenado pela atividade em outro dispositivo.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Emitido durante [Handoff][handoff] quando a atividade em outro dispositivo deseja ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
 
@@ -151,7 +151,7 @@ Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
-* `userInfo` desconhecido - Contém um estado específico do aplicativo armazenado pela atividade.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Emitido durante o [Handoff][handoff] depois que uma atividade deste dispositivo foi continuada com sucesso em outro dispositivo.
 
@@ -161,9 +161,9 @@ Retorna:
 
 * `event` Event
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`][activity-type].
-* `userInfo` desconhecido - Contém um estado específico do aplicativo armazenado pela atividade.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
-Emitido quando o [Handoff][handoff] está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado para ser transferido, você deve ligar para `event.preventDefault()` imediatamente, construir um novo dicionário de `userInfo` e chamá `app.updateCurrentActivity()` em tempo hábil. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
+Emitido quando o [Handoff][handoff] está prestes a ser continuado em outro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
 ### Evento: 'new-window-for-tab' no _macOS_
 
@@ -171,7 +171,7 @@ Retorna:
 
 * `event` Event
 
-Emitido quando o usuário clica no novo botão de guia macOS nativo. O novo botão de guia só é visível se o `BrowserWindow` atual tiver um `tabbingIdentifier`
+Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### Evento: 'browser-window-blur'
 
@@ -267,32 +267,32 @@ Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* objeto `authenticationResponseDetails`
+* `authenticationResponseDetails` Object
   * `url` URL
-* objeto `authInfo`
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (opcional)
-  * `password` String (opcional)
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
 O comportamento padrão é cancelar todas as autenticações. Para sobrescrever isso você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar o `callback(username, password)` com as credenciais.
 
 ```javascript
-const { app } = require ('electron')
+const { app } = require('electron')
 
-app.on('login', (evento, webContents, detalhes, authInfo, callback) => {
+app.on('login', (event, webContents, details, authInfo, callback) => {
   event.preventDefault()
-  callback ('nome de usuário', 'segredo')
+  callback('username', 'secret')
 })
 ```
 
-Se `callback` for chamada sem nome de usuário ou senha, a solicitação de autenticação será cancelada e o erro de autenticação será devolvido à página .
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
