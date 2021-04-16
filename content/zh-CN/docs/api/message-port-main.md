@@ -2,7 +2,7 @@
 
 `MessagePortMain` is the main-process-side equivalent of the DOM [`MessagePort`][] object. It behaves similarly to the DOM version, with the exception that it uses the Node.js `EventEmitter` event system, instead of the DOM `EventTarget` system. This means you should use `port.on('message', ...)` to listen for events, instead of `port.onmessage = ...` or `port.addEventListener('message', ...)`
 
-有关使用 频道消息的更多信息，请参阅 [通道消息 API][] 文档。
+See the [Channel Messaging API][] documentation for more information on using channel messaging.
 
 `MessagePortMain` is an \[EventEmitter\]\[event-emitter\].
 
@@ -44,4 +44,4 @@ Emitted when a MessagePortMain object receives a message.
 Emitted when the remote end of a MessagePortMain object becomes disconnected.
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
-[通道消息 API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
