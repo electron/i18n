@@ -8,20 +8,20 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Objet | Chaîne) - Si `options` est une chaîne, elle est interprétée comme une URL de demande. S’il s’agit d’un objet, on s’attend à ce qu’il spécifie entièrement une demande HTTP via propriétés suivantes :
-  * `method` String (facultatif) - La méthode de demande HTTP. Par défaut à la méthode GET 'eau.
-  * `url` String (facultatif) - L’URL de demande. Doit être fourni dans la forme avec le schéma de protocole spécifié comme http ou https.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (facultatif) - l'instance [`Session`](session.md) avec à laquelle la requête est associée.
-  * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. L `session` option remplace `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
-  * `credentials` String (facultatif) - Peut être `include` ou `omit`. S’il ' [envoyer des informations d'](https://fetch.spec.whatwg.org/#credentials) avec cette demande. S’il est `include`, les informations d’identification de la session associée la demande seront utilisées. S’ils sont définis `omit`, les informations d’identification ne seront pas envoyées avec la demande (et l’événement `'login'` ne sera pas déclenché dans le cas d’un 401). Cela correspond au comportement du [chercher](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option du même nom. Si cette option n’est pas spécifiée, l’authentification données de la session seront envoyées, et les cookies ne seront pas envoyés (sauf si `useSessionCookies` est défini).
-  * `useSessionCookies` Boolean (facultatif) - S’il vous plaît envoyer des cookies avec demande de la session fournie. Si `credentials` spécifié, cette option 'a aucun effet. Par défaut la valeur est `false`.
-  * `protocol` String (facultatif) - Peut être `http:` ou `https:`. Le protocole régime dans la forme « régime: ». Par défaut à 'http:'.
+  * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. The `session` option supersedes `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
+  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Par défaut la valeur est `false`.
+  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
   * `host` String (facultatif) - L'hôte du serveur fourni en concaténation de le nom d'hôte et le numéro de port 'hostname:port'.
   * `hostname` String (facultatif) - Le nom d'hôte du serveur.
   * `port` Integer (facultatif) - Le numéro de port d'écoute du serveur.
   * `path` String (facultatif) - La partie chemin de l'URL de la requête.
-  * `redirect` String (facultatif) - Peut être `follow`, `error` ou `manual`. Le mode de redirection pour cette demande. Lorsque le mode est `error`, toute redirection être interrompue. Lorsque le mode est `manual` la redirection sera annulée à moins que [`request.followRedirect`](#requestfollowredirect) soit invoquée de façon synchrone pendant l' [`redirect`](#event-redirect) événement.  Par défaut, `follow`.
-  * `origin` String (facultatif) - L’URL d’origine de la demande.
+  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Par défaut, `follow`.
+  * `origin` String (optional) - The origin URL of the request.
 
 `options` propriétés telles que `protocole`, `host`, `hostname`, `port` et `path` suivent strictement le modèle Node.js comme décrit dans le module [URL](https://nodejs.org/api/url.html).
 
