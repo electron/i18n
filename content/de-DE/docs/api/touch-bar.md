@@ -6,7 +6,7 @@ Prozess: [Main](../glossary.md#main-process)
 
 ### `neue TouchBar(Optionen)`
 
-* `options` -Objekt
+* `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) |  touchBarSegmentedControl</a> |
 
  [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)</li> 
@@ -15,7 +15,7 @@ Prozess: [Main](../glossary.md#main-process)
     
     Erstellt eine neue Touchleiste mit den angegebenen Elementen. Verwenden Sie `BrowserWindow.setTouchBar` , um die `TouchBar` zu einem Fenster hinzuzufügen.
     
-    **Hinweis:** Die TouchBar-API ist derzeit experimentell und kann sich in zukünftigen Electron-Versionen ändern oder entfernt .
+    **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
     
     **Tipp:** Wenn Sie kein MacBook mit Touch Bar haben, können Sie [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) verwenden, um die Touch Bar-Nutzung in Ihrer App zu testen.
     
