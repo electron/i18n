@@ -65,7 +65,7 @@ Cria um novo ícone de bandeja associado ao `image`.
 
 O módulo `Tray` emite os seguintes eventos:
 
-#### Evento: 'clique'
+#### Event: 'click'
 
 Retorna:
 
