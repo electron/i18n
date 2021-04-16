@@ -1,27 +1,27 @@
 # contentTracing
 
-> 从铬收集跟踪数据，以查找性能瓶颈和操作缓慢。
+> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
 进程：[主进程](../glossary.md#main-process)
 
-此模块不包括 Web 界面。 要查看记录的痕迹，请使用 [跟踪查看器][]，可在 Chrome 的 `chrome://tracing` 处找到。
+This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
 **注意：**在应用程序模块的 `ready ` 事件触发之前，您不应该使用此模块。
 
 ```javascript
-康斯特 { app, contentTracing } =需要（'电子'）
+const { app, contentTracing } = require('electron')
 
-应用程序。当准备。然后）=> {
-  （不对称（）=> {
-    等待内容跟踪。 开始记录（{
-      included_categories：['*]
-    }）
-    控制台.log（"跟踪开始"）
-    等待新的承诺（解决=> 设置超时（解决， 5000））
-    条路径=等待内容跟踪。停止记录（）
-    控制台.log（"跟踪记录到"+路径的数据）
-  }）
-}）
+app.whenReady().then(() => {
+  (async () => {
+    await contentTracing.startRecording({
+      included_categories: ['*']
+    })
+    console.log('Tracing started')
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    const path = await contentTracing.stopRecording()
+    console.log('Tracing data recorded to ' + path)
+  })()
+})
 ```
 
 ## 方法
@@ -69,4 +69,4 @@ Returns `Promise<Object>` - Resolves with an object containing the `value` and `
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state.
 
-[跟踪查看器]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
+[trace viewer]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
