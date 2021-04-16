@@ -15,7 +15,7 @@ Processo: [Main](../glossary.md#main-process)
     
     Cria uma nova barra de toque com os itens especificados. Use `BrowserWindow.setTouchBar` para adicionar o `TouchBar` a uma janela.
     
-    **Nota:** A API touchbar é atualmente experimental e pode alterar ou ser removido em futuras versões eletrônicas.
+    **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
     
     **Dica:** Se você não tem um MacBook com Touch Bar, você pode usar [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) para testar o uso da Touch Bar em seu aplicativo.
     
