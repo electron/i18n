@@ -27,20 +27,20 @@ The `powerSaveBlocker` module has the following methods:
 
 Returns `Integer` - The blocker ID that is assigned to this power blocker.
 
-Starts preventing the system from entering lower-power mode. Retorna um inteiro identificar o bloqueador de economia de energia.
+Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
-**Nota:** `prevent-display-sleep` tem maior precedência sobre `prevent-app-suspension`. Apenas o tipo de maior precedência faz efeito. Em outras palavras, `prevent-display-sleep` sempre prevalece sobre `prevent-app-suspension`.
+**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
 
-Por exemplo, uma API chamando A solicitações de `prevent-app-suspension`e outro chamado B solicita `prevent-display-sleep`. `prevent-display-sleep` serão utilizadas até que B pare sua solicitação. Depois disso, `prevent-app-suspension` é usado.
+For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
 
 ### `powerSaveBlocker.stop(id)`
 
-* `id` Integer - O bloqueio de energia devolvido por `powerSaveBlocker.start`.
+* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
 
-Pára o bloqueador de salvamento de energia especificado.
+Stops the specified power save blocker.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - O bloqueio de energia devolvido por `powerSaveBlocker.start`.
+* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
 
-Retornos `Boolean` - Se a `powerSaveBlocker` correspondente já começou.
+Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
