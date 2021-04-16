@@ -26,11 +26,11 @@ app.whenReady().then(() => {
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. Without `*` prefix the URL has to match exactly.
+则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. 没有 `*` 前缀的 URL 必须完全匹配。
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+A comma-separated list of servers for which delegation of user credentials is required. 没有 `*` 前缀的 URL 必须完全匹配。
 
 ### --disable-ntlm-v2
 
