@@ -21,7 +21,7 @@ El módulo `powerSaveBlocker` tiene los siguientes métodos:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String-Power Save tipo bloqueador.
+* `type` String - Power save blocker type.
   * `prevent-app-suspension` - Evita que la aplicación sea suspendida. Mantiene el sistema activo pero permite apagar la pantalla. Ejemplo de casos de uso: descargar un archivo o reproducir audio.
   * `prevent-display-sleep` - Evita que la pantalla quede inactiva. Mantiene el sistema y la pantalla activos. Ejemplo de caso de uso: reproducción de video.
 
