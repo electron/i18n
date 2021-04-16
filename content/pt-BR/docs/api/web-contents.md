@@ -690,8 +690,8 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 Retorna:
 
 * `event` Event
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
 
@@ -700,8 +700,8 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 Retorna:
 
 * `event` Event
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
@@ -1468,8 +1468,8 @@ Opens the developer tools for the service worker context.
 
 #### `contents.send(channel, ...args)`
 
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
@@ -1509,8 +1509,8 @@ app.whenReady().then(() => {
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
 * `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
@@ -1536,7 +1536,7 @@ ipcMain.on('ping', (event) => {
 
 #### `contents.postMessage(channel, message, [transfer])`
 
-* `channel` Cordas
+* `channel` String
 * `message` any
 * `transfer` MessagePortMain[] (optional)
 
