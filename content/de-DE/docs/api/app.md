@@ -28,9 +28,9 @@ In den meisten Fällen, sollte man alles im `ready` Eventhandler machen.
 Rückgabewert:
 
 * `event` Event
-* `launchInfo` Rekord<string, any> | [NotificationResponse](structures/notification-response.md) _macOS-_
+* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Wird einmal ausgesendet, wenn Electron die Initialisierung beendet hat. Unter macOS enthält `launchInfo` die `userInfo` der `NSUserNotification` oder Informationen aus [`UNNotificationResponse`](structures/notification-response.md) , die zum Öffnen der -Anwendung verwendet wurde, wenn sie von Notification Center gestartet wurde. Sie können auch `app.isReady()` um zu prüfen, ob dieses Ereignis bereits ausgelöst wurde und `app.whenReady()` um ein Promise zu initialisieren, das ausgeführt wird, wenn Electron initialisiert wird.
+Wird einmal ausgesendet, wenn Electron die Initialisierung beendet hat. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Sie können auch `app.isReady()` um zu prüfen, ob dieses Ereignis bereits ausgelöst wurde und `app.whenReady()` um ein Promise zu initialisieren, das ausgeführt wird, wenn Electron initialisiert wird.
 
 ### Event: 'window-all-closed'
 
@@ -93,7 +93,7 @@ Rückgabewert:
 * `event` Event
 * `url` String
 
-Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Die `Info.plist` Datei Ihrer Anwendung muss das URL-Schema innerhalb des `CFBundleURLTypes` Schlüssels definieren und `NSPrincipalClass` auf `AtomApplication`festlegen.
+Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
@@ -106,13 +106,13 @@ Rückgabewert:
 
 Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen können dieses Event auslösen. So zum Beispiel das Starten der App zum ersten mal als solches, eine Wiederbenutzung der App während sie bereits läuft oder einfach ein Klick auf das Dock oder Tastbar Icon der App.
 
-### Veranstaltung: 'did-become-active' _macOS_
+### Event: 'did-become-active' _macOS_
 
 Rückgabewert:
 
 * `event` Event
 
-Emittiert, wenn mac-Anwendung aktiv wird. Der Unterschied zu `activate` Ereignis besteht darin, dass `did-become-active` jedes Mal, wenn die App aktiv wird, und nicht nur , wenn auf das Dock-Symbol geklickt oder die Anwendung neu gestartet wird,  ausgesendet wird.
+Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
 
 ### Event: 'continue-activity' _macOS_
 
@@ -124,7 +124,7 @@ Rückgabewert:
 
 Wird während [Handoff][handoff] ausgelöst, wenn eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
-Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Unterstützte Aktivitätstypen werden in den `Info.plist` der App unter dem `NSUserActivityTypes` -Schlüssel angegeben.
+Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
 ### Event: 'will-continue-activity' _macOS_
 
@@ -163,7 +163,7 @@ Rückgabewert:
 * `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
 
-Wird ausgelöst wenn [Handoff][handoff] auf einem anderen Gerät fortgesetzt wird. Wenn Sie den zu übertragenden Status aktualisieren müssen, sollten Sie `event.preventDefault()` sofort aufrufen, ein neues `userInfo-Wörterbuch` erstellen und `app.updateCurrentActivity()` zeitnah aufrufen. Andernfalls schlägt der Vorgang fehl, und `continue-activity-error` wird aufgerufen.
+Wird ausgelöst wenn [Handoff][handoff] auf einem anderen Gerät fortgesetzt wird. Wenn Sie den zu übertragenden Status aktualisieren müssen, sollten Sie `event.preventDefault()` sofort aufrufen, ein neues `userInfo-Wörterbuch` erstellen und `app.updateCurrentActivity()` zeitnah aufrufen. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -171,7 +171,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emittiert, wenn der Benutzer auf die neue Registerkarte macOS mit systemeigenem MacOS klickt. Die neue -Registerkarte ist nur sichtbar, wenn die aktuelle `BrowserWindow` eine `tabbingIdentifier`
+Emittiert, wenn der Benutzer auf die neue Registerkarte macOS mit systemeigenem MacOS klickt. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### Event: 'browser-window-blur'
 
@@ -180,7 +180,7 @@ Rückgabewert:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emittiert, wenn ein [BrowserWindow](browser-window.md) verschwommen wird.
+Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
@@ -267,9 +267,9 @@ Rückgabewert:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` -Objekt
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` -Objekt
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -281,7 +281,7 @@ Rückgabewert:
 
 Wird ausgelöst wenn `webContents` grundlegende Authentifizierung durchführen will.
 
-Standardmäßig werden alle Authentifizierungen abgebrochen. Um dies zu überschreiben, sollten Sie das Standardverhalten bei `event.preventDefault()` verhindern und `callback(username, password)` mit den Anmeldeinformationen aufrufen.
+Standardmäßig werden alle Authentifizierungen abgebrochen. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -292,24 +292,24 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-Wenn `callback` ohne Benutzernamen oder Kennwort aufgerufen wird, wird die Authentifizierungsanforderung abgebrochen, und der Authentifizierungsfehler wird an die -Seite zurückgegeben.
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
-Wird angezeigt, wenn ein GPU-Infoupdate vorhanden ist.
+Emitted whenever there is a GPU info update.
 
-### Ereignis: 'gpu-process-crashed' _veraltete_
+### Event: 'gpu-process-crashed' _Deprecated_
 
 Rückgabewert:
 
 * `event` Event
 * `killed` Boolean
 
-Emittiert, wenn der GPU-Prozess abstürzt oder abstürzt.
+Emitted when the GPU process crashes or is killed.
 
-**deprecated:** Dieses Ereignis wird durch das ereignis- `child-process-gone` ersetzt das weitere Informationen darüber enthält, warum der untergeordnete Prozess verschwunden ist. Ist es nicht immer, wenn es abgestürzt ist. Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
+**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. Ist es nicht immer, wenn es abgestürzt ist. Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
 
-### Ereignis: 'renderer-process-crashed' _veraltete_
+### Event: 'renderer-process-crashed' _Deprecated_
 
 Rückgabewert:
 
@@ -317,35 +317,35 @@ Rückgabewert:
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emittiert, wenn der Rendererprozess von `webContents` abstürzt oder getötet wird.
+Emitted when the renderer process of `webContents` crashes or is killed.
 
-**Deprecated:** Dieses Ereignis wird durch das `render-process-gone` -Ereignis ersetzt das weitere Informationen darüber enthält, warum der Renderprozess verschwunden ist. Ist es nicht immer, wenn es abgestürzt ist.  Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ist es nicht immer, wenn es abgestürzt ist.  Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
 
-### Ereignis: 'render-process-gone'
+### Event: 'render-process-gone'
 
 Rückgabewert:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `details` -Objekt
-  * `reason` String - Der Grund, warum der Renderprozess vorgangslos ist.  Mögliche werte:
-    * `clean-exit` - Prozess mit einem Exit-Code von Null beendet
-    * `abnormal-exit` - Prozess mit einem Exit-Code ungleich Null beendet
-    * `killed` - Prozess wurde ein SIGTERM gesendet oder auf andere Weise extern getötet
-    * `crashed` - Prozess abgestürzt
-    * `oom` - Prozess läuft nicht mehr auf
-    * `launch-failed` - Prozess nie erfolgreich gestartet
-    * `integrity-failure` - Fehler bei Windows-Codeintegritätsprüfungen
-  * `exitCode` Ganzzahl - Der Exitcode des Prozesses, es sei denn, `reason` `launch-failed`ist, in diesem Fall ist `exitCode` ein plattformspezifischer Fehlerfehlercode.
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Mögliche werte:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
-Emittiert, wenn der Rendererprozess unerwartet verschwindet.  Dies ist normalerweise , weil es abgestürzt oder getötet wurde.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
-### Veranstaltung: 'Child-Process-gone'
+### Event: 'child-process-gone'
 
 Rückgabewert:
 
 * `event` Event
-* `details` -Objekt
+* `details` Object
   * `Typ` String - Prozess-Typ. Einer der folgenden Werte:
     * `Utility`
     * `Zygote`
@@ -354,28 +354,28 @@ Rückgabewert:
     * `Pepper Plugin`
     * `Pepper Plugin Broker`
     * `Unknown`
-  * `reason` String - Der Grund, warum der untergeordnete Prozess weg ist. Mögliche werte:
-    * `clean-exit` - Prozess mit einem Exit-Code von Null beendet
-    * `abnormal-exit` - Prozess mit einem Exit-Code ungleich Null beendet
-    * `killed` - Prozess wurde ein SIGTERM gesendet oder auf andere Weise extern getötet
-    * `crashed` - Prozess abgestürzt
-    * `oom` - Prozess läuft nicht mehr auf
-    * `launch-failed` - Prozess nie erfolgreich gestartet
-    * `integrity-failure` - Fehler bei Windows-Codeintegritätsprüfungen
-  * `exitCode` -Nummer - Der Exit-Code für den Prozess (z.B. Status von waitpid if on posix, von GetExitCodeProcess unter Windows).
-  * `serviceName` String (optional) - Der nicht lokalisierte Name des Prozesses.
-  * `name` String (optional) - Der Name des Prozesses. Beispiele für Dienstprogramme: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`usw.
+  * `reason` String - The reason the child process is gone. Mögliche werte:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+  * `serviceName` String (optional) - The non-localized name of the process.
+  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emittiert, wenn der untergeordnete Prozess unerwartet verschwindet. Dies ist normalerweise , weil es abgestürzt oder getötet wurde. Sie enthält keine Rendererprozesse.
+Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
 
 ### Event: 'accessibility-support-changed' _macOS_ _Windows_
 
 Rückgabewert:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` , wenn die Unterstützung für die Barrierefreiheit von Chrome aktiviert ist, `false` andernfalls.
+* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emittiert, wenn sich die Barrierefreiheitsunterstützung von Chrome ändert. Dieses Ereignis wird ausgelöst, wenn unterstützende Technologien, z. B. Bildschirmleseprogramme, aktiviert oder deaktiviert werden. Weitere Details finden Sie in https://www.chromium.org/developers/design-documents/accessibility.
+Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ### Event: 'session-created'
 
@@ -388,9 +388,9 @@ Emittiert wenn Electron eine neue `Session` erstellt.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (session) =>
+app.on('session-created', (session) => {
   console.log(session)
-)
+})
 ```
 
 ### Event: 'second-instance'
@@ -398,16 +398,16 @@ app.on('session-created', (session) =>
 Rückgabewert:
 
 * `event` Event
-* `argv` String[] - Ein Array der Befehlszeilenargumente der zweiten Instanz
-* `workingDirectory` String - Arbeitsverzeichnis der zweiten Instanz
+* `argv` String[] - An array of the second instance's command line arguments
+* `workingDirectory` String - The second instance's working directory
 
-Dieses Ereignis wird innerhalb der primären Instanz Ihrer Anwendung , wenn eine zweite Instanz ausgeführt wurde, und ruft `app.requestSingleInstanceLock()`auf.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
 
-`argv` ist ein Array der Befehlszeilenargumente der zweiten Instanz, und `workingDirectory` ist sein aktuelles Arbeitsverzeichnis. In der Regel reagieren Anwendungen darauf, indem sie ihr primäres Fenster fokussiert und nicht minimiert.
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
-**Hinweis:** Wenn die zweite Instanz von einem anderen Benutzer als der ersten gestartet wird, enthält das `argv` -Array die Argumente nicht.
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
-Dieses Ereignis wird garantiert nach dem `ready` Ereignis der `app` emittiert wird.
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
 **Hinweis:** Zusätzliche Kommandozeilenargumente könnten von Chromium hinzugefügt werden, wie `--original-process-start-time`.
 
@@ -418,9 +418,9 @@ Rückgabewert:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emittiert, wenn `desktopCapturer.getSources()` im Rendererprozess von `webContents`aufgerufen wird. Wenn `event.preventDefault()` ruft, werden leere Quellen zurückgegeben.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
-### Ereignis: 'Remote-require' _veraltete_
+### Event: 'remote-require' _Deprecated_
 
 Rückgabewert:
 
@@ -428,9 +428,9 @@ Rückgabewert:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emittiert, wenn `remote.require()` im Rendererprozess von `webContents`aufgerufen wird. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-### Veranstaltung: 'remote-get-global' _veraltete_
+### Event: 'remote-get-global' _Deprecated_
 
 Rückgabewert:
 
@@ -438,9 +438,9 @@ Rückgabewert:
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emittiert, wenn `remote.getGlobal()` im Rendererprozess von `webContents`aufgerufen wird. Wenn `event.preventDefault()` aufgerufen wird, wird verhindert, dass die globale Zurückgegebenwerden. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-### Event: 'remote-get-builtin' _veraltete_
+### Event: 'remote-get-builtin' _Deprecated_
 
 Rückgabewert:
 
@@ -448,25 +448,25 @@ Rückgabewert:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emittiert, wenn `remote.getBuiltin()` im Rendererprozess von `webContents`aufgerufen wird. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-### Ereignis: 'remote-get-current-window' _veraltete_
-
-Rückgabewert:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Emittiert, wenn `remote.getCurrentWindow()` im Rendererprozess von `webContents`aufgerufen wird. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
-
-### Event: 'remote-get-current-web-contents' _veraltete_
+### Event: 'remote-get-current-window' _Deprecated_
 
 Rückgabewert:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emittiert, wenn `remote.getCurrentWebContents()` im Rendererprozess von `webContents`aufgerufen wird. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents' _Deprecated_
+
+Rückgabewert:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 ## Methoden
 
