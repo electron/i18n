@@ -84,7 +84,7 @@
   * `message` String (可选) _ macOS _-显示在输入框上方的消息。
   * `securityScopedBookmarks` Boolean (可选) _macOS_ _mas_ - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
-返回 `Promise<Object>` - 用包含以下内容的对象解决：
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` 布尔 - 对话是否被取消。
 * ` filePaths ` String[] - 用户选择的文件路径的数组. 如果对话框被取消，这将是一个空的数组。
@@ -164,7 +164,7 @@
     * `dontAddToRecent` _Windows_ - 不要将保存的项目添加到最近的文档列表中。
   * `securityScopedBookmarks` Boolean (可选) _macOS_ _mas_ - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 
-返回 `Promise<Object>` - 用包含以下内容的对象解决：
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` 布尔 - 对话是否被取消。
 * `filePath` 字符串（可选） - 如果对话被取消，这将是 `undefined`。
