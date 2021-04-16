@@ -1,95 +1,95 @@
 # webFrameMain
 
-> 控制网页和互联网。
+> Control web pages and iframes.
 
 进程：[主进程](../glossary.md#main-process)
 
-`webFrameMain` 模块可用于查找现有 [`WebContents`](web-contents.md) 实例中的帧。 导航事件是常用 案例。
+The `webFrameMain` module can be used to lookup frames across existing [`WebContents`](web-contents.md) instances. Navigation events are the common use case.
 
 ```javascript
-康斯特 { BrowserWindow, webFrameMain } = 要求 （'电子'）
+const { BrowserWindow, webFrameMain } = require('electron')
 
-缺点赢 = 新的浏览器窗口 （{ width: 800, height: 1500 }）
-赢. loadurl （'https：// twitter.com'）
+const win = new BrowserWindow({ width: 800, height: 1500 })
+win.loadURL('https://twitter.com')
 
-赢. web Contents. on （
-  '做帧导航'，
-  （事件， 网址， 是主框架， 帧处理Id，框架路图id）=> =
-    const帧=webFrameMain.从ID（帧处理，帧路霸）
-    如果（帧）=
-      const代码="文档.body.内部HTML=文档.body.内HTML.替换所有（"赫克"，"h*ck"）"
-      帧。 脚本（代码）
+win.webContents.on(
+  'did-frame-navigate',
+  (event, url, isMainFrame, frameProcessId, frameRoutingId) => {
+    const frame = webFrameMain.fromId(frameProcessId, frameRoutingId)
+    if (frame) {
+      const code = 'document.body.innerHTML = document.body.innerHTML.replaceAll("heck", "h*ck")'
+      frame.executeJavaScript(code)
     }
-  =
-）
+  }
+)
 ```
 
-您也可以使用 [`WebContents`](web-contents.md)的 `mainFrame` 属性 访问现有页面的帧。
+You can also access frames of existing pages by using the `mainFrame` property of [`WebContents`](web-contents.md).
 
 ```javascript
-康斯特 { BrowserWindow } = 要求 （'电子'）
+const { BrowserWindow } = require('electron')
 
-不对称功能主 （） =
-  缺点赢 = 新的浏览器窗口 （{ width: 800, height: 600 }）
-  等待胜利
+async function main () {
+  const win = new BrowserWindow({ width: 800, height: 600 })
+  await win.loadURL('https://reddit.com')
 
-  .com。 过滤器（（帧）=> {
-    尝试{
-      网址=新URL（帧.url）
-      返回网址。主机==="www.youtube.com"
-    =捕获 {
+  const youtubeEmbeds = win.webContents.mainFrame.frames.filter((frame) => {
+    try {
+      const url = new URL(frame.url)
+      return url.host === 'www.youtube.com'
+    } catch {
       return false
     }
-  }）
+  })
 
-  控制台.log（youtubeEmbeds）
+  console.log(youtubeEmbeds)
 }
 
-主（）
+main()
 ```
 
 ## 方法
 
-这些方法可以从 `webFrameMain` 模块访问：
+These methods can be accessed from the `webFrameMain` module:
 
-### `网络框架从ID（进程ID，路由ID）`
+### `webFrameMain.fromId(processId, routingId)`
 
-* `processId` 整数 - 代表拥有框架的过程的内部 ID 的 `Integer` 。
-* `routingId` 整数 - 表示当前渲染器过程中唯一帧 ID 的 `Integer` 。 路由 ID 可以从 `WebFrameMain` 实例（`frame.routingId`）中检索，也可以通过框架 特定 `WebContents` 导航事件（例如 `did-frame-navigate`）。
+* `processId` Integer - An `Integer` representing the internal ID of the process which owns the frame.
+* `routingId` Integer - An `Integer` representing the unique frame ID in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
-返回 `WebFrameMain | undefined` - 如果没有与给定 ID 关联的 WebFrameMain，则带有给定流程和路由 ID、 或 `undefined` 的帧。
+Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
-## 类： 网络框架
+## Class: WebFrameMain
 
 进程：[主进程](../glossary.md#main-process)
 
 ### 实例方法
 
-#### `帧.执行贾瓦脚本（代码[，用户图片]）`
+#### `frame.executeJavaScript(code[, userGesture])`
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
 
-返回 `Promise<unknown>` - 承诺，解决与执行的 代码的结果，或被拒绝，如果执行抛出或导致拒绝的承诺。
+Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 在页面中执行 `code`。
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
-#### `帧。重新加载（）`
+#### `frame.reload()`
 
-返回 `boolean` - 是否成功启动重新加载。 只有当框架没有历史记录时，才会产生 `false` 。
+Returns `boolean` - Whether the reload was initiated successfully. Only results in `false` when the frame has no history.
 
-#### `帧。发送（通道，...阿格斯）`
+#### `frame.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. 参数将与\[结构克隆 算法\]\[SCA\]进行串行，就像[`postMessage`]一样，因此原型链不会 包括在内。 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. 发送函数、承诺、符号、弱图或弱集 抛出一个例外。
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-#### `帧.邮资信息（频道、消息、 [transfer]）`
+#### `frame.postMessage(channel, message, [transfer])`
 
 * `channel` String
 * `message` any
@@ -102,55 +102,55 @@ The transferred `MessagePortMain` objects will be available in the renderer proc
 例如：
 
 ```js
-主流程
-持续 { port1, port2 } =新消息通道主要（）
-网络主机。主机.邮资信息（"端口"， { message: 'hello' }， [port1]）
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
 
-// 渲染器过程
-ipcRenderer. on （'端口'， （e， msg） => {
-  康斯特 [port] = e. 端口
-  // 。
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
+  // ...
 })
 ```
 
 ### 实例属性
 
-#### `frame.url` _·里德利·_
+#### `frame.url` _Readonly_
 
-代表框架当前网址的 `string` 。
+A `string` representing the current URL of the frame.
 
-#### `frame.top` _·里德利·_
+#### `frame.top` _Readonly_
 
-`WebFrameMain | null` 表示 `frame` 所属的帧层次结构中的顶框。
+A `WebFrameMain | null` representing top frame in the frame hierarchy to which `frame` belongs.
 
-#### `frame.parent` _·里德利·_
+#### `frame.parent` _Readonly_
 
-如果 `frame` 是框架层次结构中的顶框，则该属性将 `null` `WebFrameMain | null` 表示 `frame`父框架。
+A `WebFrameMain | null` representing parent frame of `frame`, the property would be `null` if `frame` is the top frame in the frame hierarchy.
 
-#### `frame.frames` _·里德利·_
+#### `frame.frames` _Readonly_
 
-包含 `frame`直系后裔的 `WebFrameMain[]` 收藏品。
+A `WebFrameMain[]` collection containing the direct descendents of `frame`.
 
-#### `frame.framesInSubtree` _·里德利·_
+#### `frame.framesInSubtree` _Readonly_
 
-包含 `frame`子树中每一帧的 `WebFrameMain[]` 集合， 包括它本身。 当穿越所有帧时，这非常有用。
+A `WebFrameMain[]` collection containing every frame in the subtree of `frame`, including itself. This can be useful when traversing through all frames.
 
-#### `frame.frameTreeNodeId` _·里德利·_
+#### `frame.frameTreeNodeId` _Readonly_
 
-实例中表示帧内部框架街道节点 ID 的 `Integer` 。 此 ID 是浏览器全局性的，可唯一识别承载 内容的帧。 标识符固定在框架的创建上，并在帧的使用寿命内保持 常数。 拆下框架时，id 不再使用。
+An `Integer` representing the id of the frame's internal FrameTreeNode instance. This id is browser-global and uniquely identifies a frame that hosts content. The identifier is fixed at the creation of the frame and stays constant for the lifetime of the frame. When the frame is removed, the id is not used again.
 
-#### `frame.name` _·里德利·_
+#### `frame.name` _Readonly_
 
-代表框架名称的 `String` 。
+A `String` representing the frame name.
 
-#### `frame.osProcessId` _·里德利·_
+#### `frame.osProcessId` _Readonly_
 
-代表操作系统 `pid` 拥有此框架的过程的 `Integer` 。
+An `Integer` representing the operating system `pid` of the process which owns this frame.
 
-#### `frame.processId` _·里德利·_
+#### `frame.processId` _Readonly_
 
-代表拥有此框架的过程的铬内部 `pid` 的 `Integer` 。 这与操作系统过程 ID 不同：阅读该使用 `frame.osProcessId`。
+An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
 
-#### `frame.routingId` _·里德利·_
+#### `frame.routingId` _Readonly_
 
-表示当前渲染器过程中唯一帧 ID 的 `Integer` 。 指相同底层框架的不同 `WebFrameMain` 实例 具有相同的 `routingId`。
+An `Integer` representing the unique frame id in the current renderer process. Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
