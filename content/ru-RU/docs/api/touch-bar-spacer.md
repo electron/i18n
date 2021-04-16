@@ -8,7 +8,7 @@
 
 * `options` Object
   * `size` строка (необязательно) - Размер спейсера, возможные значения:
-    * `small` - Небольшое пространство между элементами. Карты для `NSTouchBarItemIdentifierFixedSpaceSmall`. Это по умолчанию.
+    * `small` - Небольшое пространство между элементами. Карты для `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
     * `large` - Большое пространство между элементами. Карты для `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Занимает всё доступное пространство. Карты для `NSTouchBarItemIdentifierFlexibleSpace`.
 
