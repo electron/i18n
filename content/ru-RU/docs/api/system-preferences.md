@@ -26,23 +26,23 @@ console.log(systemPreferences.isDarkMode())
 
 * `event` Event
 
-### Событие: "перевернутый цвет-схема изменена" _Windows_ _Deprecated_
+### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 Возвращает:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` если используется перевернутая цветовая гамма (высоко контрастная цветовая гамма со светлым текстом и темным фоном), `false` иначе.
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
-**Deprecated:** должны использовать [`updated`](native-theme.md#event-updated) событие на `nativeTheme` модуле.
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-### Событие: "высококонтрастная цветовая схема-изменена" _Windows_ _Deprecated_
+### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
 Возвращает:
 
 * `event` Event
-* `highContrastColorScheme` Boolean - `true` , если используется тема высокого контраста, `false` иначе.
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-**Deprecated:** должны использовать [`updated`](native-theme.md#event-updated) событие на `nativeTheme` модуле.
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
 ## Методы
 
@@ -50,49 +50,49 @@ console.log(systemPreferences.isDarkMode())
 
 Возвращает `Boolean` - если система в Ночном режиме.
 
-**:** должны использовать новый [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
-Возвращает `Boolean` - Ли Проведите между страницами настройки на.
+Returns `Boolean` - Whether the Swipe between pages setting is on.
 
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
 
 * `event` String
-* `userInfo` рекорд<String, any>
-* `deliverImmediately` Boolean (по желанию) - `true` размещать уведомления немедленно, даже если приложение для подписки неактивно.
+* `userInfo` Record<String, any>
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-Сообщения `event` как родные уведомления macOS. Веб `userInfo` является объектом который содержит словарь пользовательской информации, отправленный вместе с уведомлением.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` рекорд<String, any>
+* `userInfo` Record<String, any>
 
-Сообщения `event` как родные уведомления macOS. Веб `userInfo` является объектом который содержит словарь пользовательской информации, отправленный вместе с уведомлением.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` рекорд<String, any>
+* `userInfo` Record<String, any>
 
-Сообщения `event` как родные уведомления macOS. Веб `userInfo` является объектом который содержит словарь пользовательской информации, отправленный вместе с уведомлением.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` рекорд<String, unknown>
-  * `object` Струна
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
-Возвращает `Number` - Идентификатор этой подписки
+Returns `Number` - The ID of this subscription
 
-Подписываемся на родные уведомления macOS, `callback` будут вызваны с `callback(event, userInfo)` когда произойдет `event` информация. " `userInfo` " - это объект, содержащий словарь пользовательской информации, вместе с уведомлением. Данный `object` отправителем уведомления, а не поддерживает только `NSString` значения на данный момент.
+Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
 
-Возвращается `id` абонента, который может быть использован для отписки `event`.
+The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
-Под капотом этого API подписывается на `NSDistributedNotificationCenter`, пример значения `event` являются:
+Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -104,22 +104,22 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` рекорд<String, unknown>
-  * `object` Струна
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
-Возвращает `Number` - Идентификатор этой подписки
+Returns `Number` - The ID of this subscription
 
-То же `subscribeNotification`, но использует `NSNotificationCenter` для локальных дефолтов. Это необходимо для таких событий, как `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` рекорд<String, unknown>
-  * `object` Струна
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
-Возвращает `Number` - Идентификатор этой подписки
+Returns `Number` - The ID of this subscription
 
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
@@ -143,14 +143,14 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.
 
 ### `systemPreferences.registerDefaults(defaults)` _macOS_
 
-* `defaults` запись<String, String | Boolean | Number> - словарь (`key: value`) пользовательских по умолчанию
+* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
 
 Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` _macOS_
 
 * `key` String
-* `type` - может быть `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` или `dictionary`.
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Возвращает `any` - Значение `key` в `NSUserDefaults`.
 
@@ -167,7 +167,7 @@ Add the specified defaults to your application's `NSUserDefaults`.
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` - может быть `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` или `dictionary`.
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` String
 
 Устанавливает значение `key` в `NSUserDefaults`.
@@ -191,19 +191,19 @@ Returns `Boolean` - `true` if [DWM composition][dwm-composition] (Aero Glass) is
 An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
-const { BrowserWindow, systemPreferences } требуют ('электрон')
-const browserOptions { width: 1000, height: 800 }
+const { BrowserWindow, systemPreferences } = require('electron')
+const browserOptions = { width: 1000, height: 800 }
 
-// Сделайте окно прозрачным только в том случае, если платформа поддерживает его.
-если (process.platform! ) ' win32' || systemPreferences.isAeroGlassEnabled ()) -
-  browserOptions.transparent - true
-  browserOptions.frame - ложный
+// Make the window transparent only if the platform supports it.
+if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
+  browserOptions.transparent = true
+  browserOptions.frame = false
+}
 
+// Create the window.
+const win = new BrowserWindow(browserOptions)
 
-// Создайте окно.
-const win - новый BrowserWindow (browserOptions)
-
-// Навигация.
+// Navigate.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
@@ -228,65 +228,65 @@ This API is only available on macOS 10.14 Mojave or newer.
 
 ### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` String - одно из следующих значений:
-  * На **Windows**:
-    * `3d-dark-shadow` - Темная тень для трехмерных элементов дисплея.
-    * `3d-face` - Цвет лица для трехмерных элементов дисплея и для диалоговых фонов.
-    * `3d-highlight` - Выделите цвет для трехмерных элементов дисплея.
-    * `3d-light` - Светлый цвет для трехмерных элементов дисплея.
-    * `3d-shadow` - Теневой цвет для трехмерных элементов дисплея.
-    * `active-border` - Активная оконная граница.
-    * `active-caption` - Активный бар заголовка окна. Определяет левый боковой цвет цветовом градиенте заголовка активного окна, если эффект градиента включен.
-    * `active-caption-gradient` - Правый боковой цвет в цветовом градиенте в титульном баре активного окна.
-    * `app-workspace` - Фоновый цвет нескольких интерфейсов документов (MDI) приложений.
-    * `button-text` - Текст на кнопках нажатия.
-    * `caption-text` - Текст в подписи, размер коробки, и прокрутки бар стрелка окно.
-    * `desktop` - цвет фона рабочего стола.
-    * `disabled-text` - Серый (отключенный) текст.
-    * `highlight` - Пункт (ы) выбран в элементе управления.
-    * `highlight-text` - Текст элемента (ы), выбранного в элементе управления.
-    * `hotlight` - Цвет для гиперссылки или горячего отслеживания пункта.
-    * `inactive-border` - Неактивная граница окна.
-    * `inactive-caption` - Неактивная подпись к окну. Определяет цвет левой стороны в цветовом градиенте заголовка неактивного окна, если эффект включен.
-    * `inactive-caption-gradient` - Правый боковой цвет в цветовом градиенте неактивной стороне титульного бара окна.
-    * `inactive-caption-text` - Цвет текста в неактивной подписи.
-    * `info-background` - Фоновый цвет для элементов управления инструментом.
-    * `info-text` - Текстовый цвет для элементов управления инструментом.
-    * `menu` - Фон меню.
-    * `menu-highlight` - Цвет, используемый для выделения пунктов меню, когда выглядит как плоское меню.
-    * `menubar` - Фоновый цвет для бара меню, когда меню отображаются как плоские меню.
-    * `menu-text` - Текст в меню.
-    * `scrollbar` - Прокрутите бар серой области.
-    * `window` - Фон окна.
-    * `window-frame` - Оконная рама.
-    * `window-text` - Текст в окнах.
-  * На **macOS**
-    * `alternate-selected-control-text` - Текст на выбранной поверхности в списке или таблице. _депрекированная_
-    * `control-background` - фон большого элемента интерфейса, например браузера или таблицы.
-    * `control` - Поверхность управления.
-    * `control-text` -Текст управления, который не отключен.
-    * `disabled-control-text` - Текст управления, который отключен.
-    * `find-highlight` - Цвет индикатора найдите.
-    * `grid` - сетки элемента интерфейса, такие как таблица.
-    * `header-text` - Текст заголовка ячейки в таблице.
-    * `highlight` - Виртуальный источник света на экране.
-    * `keyboard-focus-indicator` - Кольцо, которое появляется вокруг в настоящее время сосредоточены управления при использовании клавиатуры для навигации интерфейса.
-    * `label` - Текст этикетки, содержащей первичное содержание.
-    * `link` - Ссылка на другой контент.
-    * `placeholder-text` - строка заполнителя в представлении управления или текста.
-    * `quaternary-label` - Текст этикетки меньшей важности, чем третичный ярлык, такой как текст водяного знака.
-    * `scrubber-textured-background` - Фон скруббера в сенсорном баре.
-    * `secondary-label` - Текст этикетки меньшей важности, чем обычный ярлык, такой как метка, используемая для представления подзаголовка или дополнительной информации.
-    * `selected-content-background` - Фон для выбранного содержимого в окне ключа или представлении.
-    * `selected-control` - Поверхность выбранного управления.
-    * `selected-control-text` - Текст выбранного управления.
-    * `selected-menu-item-text` - Текст выбранного меню.
-    * `selected-text-background` - Фон выбранного текста.
-    * `selected-text` - Выбранный текст.
-    * `separator` - сепаратор между различными разделами контента.
-    * `shadow` - Виртуальная тень, отбрасываемая поднятым объектом на экране.
-    * `tertiary-label` - Текст этикетки меньшей важности, чем второстепенный ярлык, такой как метка, используемая для представления отключенного текста.
-    * `text-background` - Текстовый фон.
+* `color` String - One of the following values:
+  * On **Windows**:
+    * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+    * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+    * `3d-highlight` - Highlight color for three-dimensional display elements.
+    * `3d-light` - Light color for three-dimensional display elements.
+    * `3d-shadow` - Shadow color for three-dimensional display elements.
+    * `active-border` - Active window border.
+    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+    * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+    * `app-workspace` - Background color of multiple document interface (MDI) applications.
+    * `button-text` - Text on push buttons.
+    * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+    * `desktop` - Desktop background color.
+    * `disabled-text` - Grayed (disabled) text.
+    * `highlight` - Item(s) selected in a control.
+    * `highlight-text` - Text of item(s) selected in a control.
+    * `hotlight` - Color for a hyperlink or hot-tracked item.
+    * `inactive-border` - Inactive window border.
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+    * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+    * `inactive-caption-text` - Color of text in an inactive caption.
+    * `info-background` - Background color for tooltip controls.
+    * `info-text` - Text color for tooltip controls.
+    * `menu` - Menu background.
+    * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+    * `menubar` - The background color for the menu bar when menus appear as flat menus.
+    * `menu-text` - Text in menus.
+    * `scrollbar` - Scroll bar gray area.
+    * `window` - Window background.
+    * `window-frame` - Window frame.
+    * `window-text` - Text in windows.
+  * On **macOS**
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` -  A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item-text` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
     * `text` -  The text in a document.
     * `under-page-background` -  The background behind a document's content.
     * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
@@ -301,7 +301,7 @@ The following colors are only available on macOS 10.14: `find-highlight`, `selec
 
 ### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` String - одно из следующих значений:
+* `color` String - One of the following values:
   * `blue`
   * `brown`
   * `gray`
