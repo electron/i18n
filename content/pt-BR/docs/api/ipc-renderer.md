@@ -14,40 +14,40 @@ O módulo `ipcRenderer` possui o seguinte método para ouvir eventos e enviar me
 
 ### `ipcRenderer.on(channel, listener)`
 
-* `channel` Cordas
-* Função `listener`
+* `channel` String
+* `listener` Function
   * `event` IpcRendererEvent
-  * `...args` qualquer[]
+  * `...args` any[]
 
 Ouve o `channel`, quando uma mensagem chega, o `listener` deve ser chamado com `listener(event, args...)`.
 
 ### `ipcRenderer.once(channel, listener)`
 
-* `channel` Cordas
-* Função `listener`
+* `channel` String
+* `listener` Function
   * `event` IpcRendererEvent
-  * `...args` qualquer[]
+  * `...args` any[]
 
-Adiciona uma função de `listener` única vez para o evento. Este `listener` é invocado apenas na próxima vez que uma mensagem for enviada para `channel`, após a qual ela é removida.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
-* `channel` Cordas
-* Função `listener`
-  * `...args` qualquer[]
+* `channel` String
+* `listener` Function
+  * `...args` any[]
 
-Remove o `listener` especificado da matriz de ouvintes para o `channel`especificado .
+Removes the specified `listener` from the listener array for the specified `channel`.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` Cordas
+* `channel` String
 
 Remove todos os listeners, ou apenas os do `channel` especificado.
 
 ### `ipcRenderer.send(channel, ...args)`
 
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Envie uma mensagem assíncrona para o processo principal através do `channel`, juntamente com argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
@@ -63,8 +63,8 @@ If you want to receive a single response from the main process, like the result 
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
@@ -97,8 +97,8 @@ If you do not need a response to the message, consider using [`ipcRenderer.send`
 
 ### `ipcRenderer.sendSync(channel, ...args)`
 
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
@@ -114,7 +114,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 ### `ipcRenderer.postMessage(channel, message, [transfer])`
 
-* `channel` Cordas
+* `channel` String
 * `message` any
 * `transfer` MessagePort[] (optional)
 
@@ -141,15 +141,15 @@ For more information on using `MessagePort` and `MessageChannel`, see the [MDN d
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
 * `webContentsId` Number
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
 
