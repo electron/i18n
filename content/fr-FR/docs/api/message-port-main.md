@@ -12,10 +12,10 @@ Processus : [Main](../glossary.md#main-process)
 
 ### Méthodes d’instance
 
-#### `port.postMessage (message, [transfer])`
+#### `port.postMessage(message, [transfer])`
 
 * `message` tous
-* `transfer` MessagePortMain[] (facultatif)
+* `transfer` MessagePortMain[] (optional)
 
 Envoie un message depuis le port, et le cas échéant, transfère la propriété d'objets à d’autres contextes de navigation.
 
@@ -33,7 +33,7 @@ Déconnecte le port qui ne sera donc plus actif.
 
 Retourne :
 
-* `messageEvent` objet
+* `messageEvent` Object
   * `data` {any}
   * `ports` MessagePortMain[]
 
