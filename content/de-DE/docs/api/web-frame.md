@@ -20,11 +20,11 @@ Die `WebFrame` class hat die folgenden Methoden:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Double - Zoom-Faktor; Der Standardwert ist 1.0.
+* `factor` Double - Zoom factor; default is 1.0.
 
-Ändert den Zoomfaktor in den angegebenen Faktor. Zoom-Faktor ist Zoom Prozent geteilt durch 100, also 300% = 3,0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-Der Faktor muss größer als 0,0 sein.
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -34,9 +34,9 @@ Gibt eine `Number` zurück - Der aktuelle Zoom Faktor.
 
 * `level` Number - Zoom level.
 
-Ändert die Zoomstufe auf die angegebene Ebene. Die ursprüngliche Größe ist 0, und jedes -Inkrement über oder unter stellt ein Zoomum um 20 % größer oder kleiner auf standard Grenzwerte von 300 % bzw. 50 % der ursprünglichen Größe dar.
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
-> **HINWEIS**: Die Zoomrichtlinie auf Chromium-Ebene ist gleich-Ursprung, was bedeutet, dass die Zoomstufe für eine bestimmte Domäne über alle Instanzen von Fenstern mit derselben Domäne weitergegeben wird. Durch die Differenzierung der Fenster-URLs funktioniert der Zoom pro Fenster.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `webFrame.getZoomLevel()`
 
@@ -49,7 +49,7 @@ Returns `Number` - Das aktuelle Zoom Level.
 
 Setzt das Maximum und Minimum pinch-to-zoom Level.
 
-> **HINWEIS**: Der visuelle Zoom ist in Electron standardmäßig deaktiviert. Um es erneut zu aktivieren, rufen Sie:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
@@ -100,13 +100,13 @@ webFrame.setSpellCheckProvider('en-US', {
 
 Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
 
-Fügt CSS in die aktuelle Webseite ein und gibt einen eindeutigen Schlüssel für das eingefügte -Stylesheet zurück.
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ### `webFrame.removeInsertedCSS(key)`
 
 * `key` String
 
-Entfernt das eingefügte CSS von der aktuellen Webseite. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
@@ -126,9 +126,9 @@ Füge `text` in das fokusierte Element ein.
 
 <p spaces-before="0">Returns <code>Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.</p>
 
-Bewertet `code` in Der Seite.
+Evaluates `code` in page.
 
-Im Browserfenster können einige HTML-APIs wie `requestFullScreen` nur durch eine Geste des Benutzers aufgerufen werden. Wenn Sie `userGesture` auf `true` festlegen, wird diese Einschränkung entfernt.
+In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
@@ -143,13 +143,13 @@ Im Browserfenster können einige HTML-APIs wie `requestFullScreen` nur durch ein
 
 <p spaces-before="0">Returns <code>Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.</p>
 
-Funktioniert wie `executeJavaScript` , sondern bewertet `scripts` in einem isolierten Kontext.
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Sie können hier jede ganze Zahl angeben.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `info` Object
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
