@@ -153,7 +153,7 @@ Devoluções [`Display[]`](structures/display.md) - Uma série de displays que e
   
   * </a>de Retângulo `rect` </li> </ul> 
   
-  Retornos [`Rectangle`](structures/rectangle.md)
+  Returns [`Rectangle`](structures/rectangle.md)
   
   Converte uma retificada física de tela em uma retificada DIP de tela. A escala DPI é realizada em relação ao display mais próximo de `window`. Se `window` for nulo, o dimensionamento será realizado no visor mais próximo de `rect`.
   
@@ -165,7 +165,7 @@ Devoluções [`Display[]`](structures/display.md) - Uma série de displays que e
   
   * </a>de Retângulo `rect` </li> </ul> 
   
-  Retornos [`Rectangle`](structures/rectangle.md)
+  Returns [`Rectangle`](structures/rectangle.md)
   
   Converte uma retificada dip de tela em uma retificada física da tela. A escala DPI é realizada em relação ao display mais próximo de `window`. Se `window` for nulo, o dimensionamento será realizado no visor mais próximo de `rect`.
 
