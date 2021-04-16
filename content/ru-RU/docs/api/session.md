@@ -504,233 +504,233 @@ Overrides the `userAgent` and `acceptLanguages` for this session.
 
 The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Это не влияет на существующие `WebContents`, и каждый `WebContents` можете использовать `webContents.setUserAgent` для переопределения пользовательского агента в ширину сеанса.
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.isPersistent()`
 
-Возвращает `Boolean` - Является ли эта сессия постоянной. Сеанс `webContents` по умолчанию `BrowserWindow` является постоянным. При создании сеанса раздела сеанс, накрепенный на `persist:` будет постоянным, в то время как другие будут временными.
+Returns `Boolean` - Whether or not this session is a persistent one. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
 
 #### `ses.getUserAgent()`
 
-Возвращает `String` - Пользовательский агент для этой сессии.
+Returns `String` - The user agent for this session.
 
-#### `ses.setSSLConfig (конфиг)`
+#### `ses.setSSLConfig(config)`
 
 * `config` Object
-  * `minVersion` String (по желанию) - может быть `tls1`, `tls1.1`, `tls1.2` или `tls1.3`. Данный версию SSL, чтобы при подключении к удаленным серверам. По умолчанию `tls1`.
-  * `maxVersion` строка (по желанию) - может быть `tls1.2` или `tls1.3`. Максимальная версия SSL позволяет при подключении к удаленным серверам. По умолчанию `tls1.3`.
-  * `disabledCipherSuites` Integer( по желанию) - Список наборов шифров, которые должны быть явно запрещены к использованию в дополнение к тем , которые отключены чистой встроенной политикой. Поддерживаемые буква 0xAABB формы: `cipher_suite[0]` АА `cipher_suite[1]`, как определено в RFC 2246, раздел 7.4.1.2. Непризнанные, с разборчивые наборы шифров в этой форме не вернут ошибку. На фото: чтобы отключить TLS_RSA_WITH_RC4_128_MD5, укажите 0x0004, в то время как отключить TLS_ECDH_ECDSA_WITH_RC4_128_SHA, укажите 0xC002. Обратите внимание, что шифры TLSv1.3 не могут быть отключены с помощью этого механизма.
+  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
+  * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
+  * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
-Устанавливает конфигурацию SSL для сеанса. Все последующие сетевые запросы будут использовать новую конфигурацию. Существующие сетевые соединения (такие как WebSocket соединения) не будут прекращены, но старые розетки в пуле не будут повторно использованы для новых соединений.
+Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
 
-#### `ses.getBlobData (идентификатор)`
+#### `ses.getBlobData(identifier)`
 
-* `identifier` строка - действительный UUID.
+* `identifier` String - Valid UUID.
 
-Возвращает `Promise<Buffer>` - разрешает с blob данных.
+Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
 * `url` String
 
-Инициирует загрузку ресурса по крайней `url`. API будет генерировать [DownloadItem](download-item.md) которые могут быть доступны с [будет скачать](#event-will-download) событие.
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
-**Примечание:** Это не выполняет каких-либо проверок безопасности, которые относятся к происхождению страницы, отличие [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object
-  * `path` String - Абсолютный путь загрузки.
-  * `urlChain` String - Полная цепочка URL для скачивания.
-  * `mimeType` строка (по желанию)
-  * `offset` Integer - Стартовый диапазон для скачивания.
-  * `length` Integer - Общая длина загрузки.
-  * `lastModified` Строка (необязательно) - Последнее измененное значение заголовка.
-  * `eTag` строка (по желанию) - значение заголовка ETag.
-  * `startTime` Double (по желанию) - Время, когда загрузка была количество секунд со времен UNIX.
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Позволяет возобновить `cancelled` или `interrupted` загрузки с предыдущих `Session`. API будет генерировать [DownloadItem](download-item.md) которые могут быть доступны с [будет скачать](#event-will-download) событие. В [DownloadItem](download-item.md) не будет иметь никаких `WebContents` , связанных с ним и если начальное состояние будет `interrupted`. Загрузка начнется только тогда, когда `resume` API будет вызван на [DownloadItem](download-item.md).
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache()`
 
-Возвращает `Promise<void>` - разрешается при смекоте проверки подлинности сеанса HTTP.
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
-#### `ses.setPreloads (предустановки)`
+#### `ses.setPreloads(preloads)`
 
-* `preloads` String - массив абсолютного пути к предзагрузки скриптов
+* `preloads` String[] - An array of absolute path to preload scripts
 
-Добавляет скрипты, которые будут выполняться на ВСЕХ веб-содержимого, которые связаны с этой сессии как раз перед `preload` запуска скриптов.
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-Возвращает `String[]` массив путей для предустановки скриптов, которые были зарегистрированы.
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
-#### `ses.setSpellCheckerEnabled (включить)`
+#### `ses.setSpellCheckerEnabled(enable)`
 
 * `enable` Boolean
 
-Устанавливает, следует ли включить встроенную проверку орфографии.
+Sets whether to enable the builtin spell checker.
 
 #### `ses.isSpellCheckerEnabled()`
 
-Возвращает `Boolean` - включена ли встроенная проверка орфографии.
+Returns `Boolean` - Whether the builtin spell checker is enabled.
 
-#### `ses.setSpellCheckerLanguages (языки)`
+#### `ses.setSpellCheckerLanguages(languages)`
 
-* `languages` String - массив языковых кодов для проверки орфографии.
+* `languages` String[] - An array of language codes to enable the spellchecker for.
 
-Встроенный в орфографии не автоматически определяет, на каком языке пользователь печатает.  Для того, чтобы проверку орфографии, чтобы правильно проверить их слова, вы должны позвонить в этот API с массивом языковых кодов.  Вы можете получить список поддерживаемых языковых кодов с `ses.availableSpellCheckerLanguages` собственности.
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
 
-**Примечание:** на macOS используется os spellchecker и автоматически обнаруживает ваш язык.  Этот API не является операцией на macOS.
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-Возвращает `String[]` - Массив языковых кодов, для которые включен орфография.  Если этот список пуст, орфография будет отыкаться к использованию `en-US`.  По умолчанию при запуске, если этот параметр пустой список Electron будет пытаться заполнить этот настройки с текущей локале ОС.  Эта настройка сохраняется при перезагрузке.
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
 
-**Примечание:** На macOS используется орфография ОС и имеет свой собственный список языков.  Этот API не является операцией на macOS.
+**Note:** On macOS the OS spellchecker is used and has its own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
-* `url` String - базовый URL для Electron для загрузки словарей hunspell.
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-По умолчанию Electron загрузит словари hunspell из Chromium CDN.  Если вы хотите переопределить это поведение, вы можете использовать этот API, чтобы указать загрузщик словаря на собственную размещенную версию hunspell.  Мы публикуем файл `hunspell_dictionaries.zip` с каждым выпуском, который содержит файлы, которые вам нужно для размещения здесь, файловый сервер должен быть **случае нечувствительным** вы должны загрузить каждый файл дважды, один раз с случаем, он имеет в файле и один раз с именем файла, как и все нижние дела.
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
-Если файлы, присутствующие в `hunspell_dictionaries.zip` доступны на `https://example.com/dictionaries/language-code.bdic` то вы должны позвонить в этот api с `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Пожалуйста обратите внимание на задний черту.  URL-адрес словарей формируется как `${url}${filename}`.
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Please note the trailing slash.  The URL to the dictionaries is formed as `${url}${filename}`.
 
-**Примечание:** на macOS используется OS spellchecker, и поэтому мы не загружаем словарные файлы.  Этот API не является операцией на macOS.
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
-#### `ses.listWordsInSpellCheckerDictionary ()`
+#### `ses.listWordsInSpellCheckerDictionary()`
 
-Возвращает `Promise<String[]>` - массив всех слов в пользовательском словаре приложения. Разрешает, когда полный словарь загружается с диска.
+Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
 
-#### `ses.addWordToSpellCheckerDictionary (слово)`
+#### `ses.addWordToSpellCheckerDictionary(word)`
 
-* `word` строка - слово, которое вы хотите добавить в словарь
+* `word` String - The word you want to add to the dictionary
 
-Возвращает `Boolean` - Было ли слово успешно написано в пользовательский словарь. Этот API не будет работать на нестойких (в памяти) сеансах.
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
 
-**Примечание:** на macOS и Windows 10 это слово будет написано в пользовательский словарь ОС, а также
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
 
-#### `ses.removeWordFromSpellCheckerDictionary (слово)`
+#### `ses.removeWordFromSpellCheckerDictionary(word)`
 
-* `word` строка - слово, которое вы хотите удалить из словаря
+* `word` String - The word you want to remove from the dictionary
 
-Возвращает `Boolean` - было ли слово успешно удалено из пользовательского словаря. Этот API не будет работать на нестойких (в памяти) сеансах.
+Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
 
-**Примечание:** на macOS и Windows 10 это слово будет удалено из пользовательского словаря ОС, а также
+**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
 
 #### `ses.loadExtension(path[, options])`
 
-* `path` Строка - Путь к каталогу, содержащем распакованные chrome расширение
+* `path` String - Path to a directory containing an unpacked Chrome extension
 * `options` Object (опционально)
-  * `allowFileAccess` Boolean - Разрешить ли расширение читать локальные файлы в течение `file://` протокола и вводить скрипты контента `file://` страницы. Это необходимо, например, для загрузки devtools на `file://` URL-адреса. По умолчанию - false.
+  * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. По умолчанию - false.
 
-Возвращает `Promise<Extension>` - разрешает при загрузке расширения.
+Returns `Promise<Extension>` - resolves when the extension is loaded.
 
-Этот метод сделает исключение, если расширение не может быть загружено. Если есть предупреждения при установке расширения (например, если расширение запрашивает API, который Electron не поддерживает), то они будут зарегистрированы на консоли.
+This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
 
-Обратите внимание, что Electron не поддерживает весь спектр API расширений Chrome. Более подробную [поддержке API-](extensions.md#supported-extensions-apis) расширения подробную информацию о том, что поддерживается.
+Note that Electron does not support the full range of Chrome extensions APIs. See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for more details on what is supported.
 
-Обратите внимание, что в предыдущих версиях Electron, расширения, которые были , будут помнить для будущих запусков приложения. Это уже не так: `loadExtension` должны быть вызваны на каждой загрузки вашего приложения, если вы хотите, расширение будет загружено.
+Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
 ```js
-const { app, session } требуют ('электрон')
-const путь и требуют ('путь')
+const { app, session } = require('electron')
+const path = require('path')
 
-app.on ('ready', async () -> -
-  ждут session.defaultSession.loadExtension (
-    path.join (__dirname, 'react-devtools'),
-    // allowFileAccess требуется для загрузки расширения devtools на file:// URL-адресах.
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(
+    path.join(__dirname, 'react-devtools'),
+    // allowFileAccess is required to load the devtools extension on file:// URLs.
     { allowFileAccess: true }
   )
-  // Обратите внимание, что для того, чтобы использовать расширение React DevTools, вам нужно
-  // скачать и распаковать копию расширения.
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
 })
 ```
 
-Этот API не поддерживает загрузку упакованных (.crx) расширений.
+This API does not support loading packed (.crx) extensions.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Примечание:** Загрузка расширений в сеансы памяти (нестойкие) не поддерживается и будет бросать ошибку.
+**Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
-#### `ses.removeExtension (расширениеId)`
+#### `ses.removeExtension(extensionId)`
 
-* `extensionId` строка - идентификатор расширения для удаления
+* `extensionId` String - ID of extension to remove
 
-Разгружает расширение.
+Unloads an extension.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-#### `ses.getExtension (расширениеId)`
+#### `ses.getExtension(extensionId)`
 
-* `extensionId` строка - идентификатор расширения запроса
+* `extensionId` String - ID of extension to query
 
-Возвращает `Extension` | `null` - Загруженное расширение с данным идентификатором.
+Returns `Extension` | `null` - The loaded extension with the given ID.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 #### `ses.getAllExtensions()`
 
-Возвращает `Extension[]` - Список всех загруженных расширений.
+Returns `Extension[]` - A list of all loaded extensions.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 ### Свойства экземпляра
 
-Следующие свойства доступны на экземплярах `Session`:
+The following properties are available on instances of `Session`:
 
 #### `ses.availableSpellCheckerLanguages` _Readonly_
 
-Набор `String[]` который состоит из всех известных доступных языков проверки орфографии.  Предоставление языкового для `setSpellCheckerLanguages` API, которого нет в этом массиве, приведет к ошибке.
+A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
 #### `ses.spellCheckerEnabled`
 
-В `Boolean` , указывающий, включена ли встроенная проверка орфографии.
+A `Boolean` indicating whether builtin spell checker is enabled.
 
 #### `ses.cookies` _Readonly_
 
-Объект [`Cookies`](cookies.md) для этой сессии.
+A [`Cookies`](cookies.md) object for this session.
 
 #### `ses.serviceWorkers` _Readonly_
 
-Объект [`ServiceWorkers`](service-workers.md) для этой сессии.
+A [`ServiceWorkers`](service-workers.md) object for this session.
 
 #### `ses.webRequest` _Readonly_
 
-Объект [`WebRequest`](web-request.md) для этой сессии.
+A [`WebRequest`](web-request.md) object for this session.
 
 #### `ses.protocol` _Readonly_
 
-Объект [`Protocol`](protocol.md) для этой сессии.
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
-const { app, session } - требуют ('электрон')
-const path - требуют ('path')
+const { app, session } = require('electron')
+const path = require('path')
 
-app.whenReady ()..
-  
-  > . (запрос, обратный вызов) -> -
-    const URL - request.url.substr(7)
-    обратный вызов (путь: path.normalize('${__dirname}/${url}
-
-  
-    '
-  )
+app.whenReady().then(() => {
+  const protocol = session.fromPartition('some-partition').protocol
+  if (!protocol.registerFileProtocol('atom', (request, callback) => {
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  })) {
+    console.error('Failed to register protocol')
+  }
+})
 ```
 
 #### `ses.netLog` _Readonly_
 
-Объект [`NetLog`](net-log.md) для этой сессии.
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
-const { app, session } и требуют ('электрон')
+const { app, session } = require('electron')
 
-app.whenReady ().тогда (async ()> -
-  const netLog - session.fromPartition ('some-partition').netLog
-  netLog.startLogging ('/path/to/net-log')
-  // После некоторых сетевых событий
-  const path - ждут netLog.stopLogging()
-  консоли.log ('Net-logs написано', путь)
-)
+app.whenReady().then(async () => {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
+})
 ```
