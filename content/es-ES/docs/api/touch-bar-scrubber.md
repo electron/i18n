@@ -8,9 +8,9 @@ Proceso: [Main](../glossary.md#main-process)
 
 * `options` Object
   * `elementos` [elemento a depurar[]](structures/scrubber-item.md) - Un arreglo de elementos a depurar.
-  * `select` function (opcional)-se llama cuando el usuario puntea un elemento que no fue el último elemento roscado.
+  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `seleccionar índice` Entero - El índice del elemento que el usuario seleccionó.
-  * `highlight` function (opcional)-se llama cuando el usuario toca cualquier elemento.
+  * `highlight` Function (optional) - Called when the user taps any item.
     * `índice destacado` Entero - El índice del elemento que el usuario tocó.
   * `selectedStyle` String (opcional) - Estilo de elemento seleccionado. Puede ser `background`, `outline` o `none`. Por defecto es `none`.
   * `overlayStyle` String (opcional) - Estilo de elemento de superposición seleccionado. Puede ser `background`, `outline` o `none`. Por defecto es `none`.
@@ -44,7 +44,7 @@ Una `Cadena` que representa el estilo que deben tener los elementos seleccionado
 
 #### `touchBarScrubber.showArrowButtons`
 
-Una `Boolean` que representa si se mostrarán las flechas de selección izquierda/derecha en este depurador. Actualizar este valor inmediatamente actualiza el control en el touch bar.
+A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Actualizar este valor inmediatamente actualiza el control en el touch bar.
 
 #### `touchBarScrubber.mode`
 
