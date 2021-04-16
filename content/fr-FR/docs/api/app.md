@@ -812,7 +812,7 @@ Retourne `Boolean`
 
 La valeur renvoyée par cette méthode indique si cette instance de votre application a obtenu le verrou ou non.  S'il n'a pas réussi à obtenir le verrou vous pouvez supposer qu'une autre instance de votre application est déjà en cours d'exécution avec le verrou et quitter immédiatement.
 
-C'est-à-dire. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Elle renvoie `false` si votre process devrait quitter immédiatement, puisqu'il a envoyé ses paramètres à une instance qui possède déjà le verrou.
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  Elle renvoie `false` si votre process devrait quitter immédiatement, puisqu'il a envoyé ses paramètres à une instance qui possède déjà le verrou.
 
 Sur macOS, le système impose automatiquement une instance unique lorsque les utilisateurs essaient d'ouvrir une seconde instance de votre application dans Finder, et les événements `open-file` et `open-url` seront émis pour cela. Cependant, lorsque les utilisateurs démarrent votre application en ligne de commande , le mécanisme d'instance unique du système sera contourné, et vous devez utiliser cette méthode pour assurer une seule instance.
 
