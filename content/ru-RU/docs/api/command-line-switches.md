@@ -5,16 +5,16 @@
 Вы можете использовать [app.commandLine.appendSwitch][append-switch], для добавления параметров командной строки, в основном скрипте Вашего приложения, перед тем как произойдет событие [ready][ready] модуля [app][app]:
 
 ```javascript
-const { app } требуют ('электрон')
-app.commandLine.appendSwitch ('дистанционно-отладка-порт', '8315')
-app.commandLine.appendSwitch ('host-rules', 'MAP No 127.0.0.1')
+const { app } = require('electron')
+app.commandLine.appendSwitch('remote-debugging-port', '8315')
+app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.whenReady ().),
-
-  > затем ((()
+app.whenReady().then(() => {
+  // Your code here
+})
 ```
 
-## Электронные флаги CLI
+## Electron CLI Flags
 
 ### --auth-server-whitelist=`ссылка`
 
@@ -30,11 +30,11 @@ app.whenReady ().),
 
 ### --auth-negotiate-delegate-whitelist=`ссылка`
 
-Запятый список серверов, для которых требуется делегирование учетных данных пользователей. Без префикса `*`, ссылка будет полностью соответствовать.
+A comma-separated list of servers for which delegation of user credentials is required. Без префикса `*`, ссылка будет полностью соответствовать.
 
-### --отключить-ntlm-v2
+### --disable-ntlm-v2
 
-Отключает NTLM v2 для платформ posix, никакого эффекта в другом месте.
+Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ### --disable-http-cache
 
@@ -54,9 +54,9 @@ app.whenReady ().),
 
 Максимальный размер кэша на жёстком диске в байтах.
 
-### --включить-api-фильтрации-регистрации
+### --enable-api-filtering-logging
 
-Позволяет журнал стека вызывающего абонента для следующих API (фильтрация событий):
+Enables caller stack logging for the following APIs (filtering events):
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -85,7 +85,7 @@ For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 * `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
 * `MAP *.google.com proxy` Заставляет все поддомены google.com обращаться к "proxy".
-* `MAP test.com [::1]:77` силы "test.com", чтобы решить IPv6 loopback. Также принудительно выставит порт получаемого адреса сокета, равный 77.
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Также принудительно выставит порт получаемого адреса сокета, равный 77.
 * `MAP * baz, EXCLUDE www.google.com` Перенаправляет всё на "baz", за исключением "www.google.com".
 
 Эти перенаправления применяются к хосту конечной точки в сетевом запросе (TCP соединения и резолвер хоста в прямых соединениях, `CONNECT` в HTTP прокси-соединениях и хост конечной точки в `SOCKS` прокси-соединений).
@@ -181,19 +181,19 @@ Electron поддерживает некоторые из флагов [CLI][nod
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
-### --проверка-brk'host:«порт»
+### --inspect-brk[=[host:]port]
 
 Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
-### --проверка-порт-хозяин:Порт
+### --inspect-port=[host:]port
 
 Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
-### --проверка (хозяин:'порт)
+### --inspect[=[host:]port]
 
 Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
@@ -203,7 +203,7 @@ V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug 
 
 Aliased to `--debug[=[host:]port`.
 
-### --проверить-опубликовать-uid'stderr,http
+### --inspect-publish-uid=stderr,http
 
 Specify ways of the inspector web socket url exposure.
 
