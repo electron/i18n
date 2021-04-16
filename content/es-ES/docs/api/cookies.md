@@ -48,7 +48,7 @@ Devuelve:
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
-* `cause` String-la causa del cambio con uno de los siguientes valores:
+* `cause` String - The cause of the change with one of the following values:
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
   * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
   * `expired` - La cookie se eliminó automáticamente debido a que expiró.
@@ -64,7 +64,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 
 #### `cookies.get(filter)`
 
-* Objeto `filter`
+* `filter` Object
   * `url` String (opcional) - Recupera las cookies las cuales están asociadas con la `url`. Vacío implica recuperar las cookies de todas las URLs.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
