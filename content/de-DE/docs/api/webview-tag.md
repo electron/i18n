@@ -211,8 +211,8 @@ webview.addEventListener('dom-ready', () => {
 * `url` URL
 * `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String (optional) – Ein Benutzer-Agent, der die Anforderung stammt.
-  * `extraHeaders` String (optional) - Zusätzliche Header getrennt durch "\n"
+  * `userAgent` String (optional) - A user agent originating the request.
+  * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
@@ -514,9 +514,9 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-Gibt `Promise<NativeImage>` zurück - Löst mit einem [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Erfasst eine Momentaufnahme der Seite in `rect`. Wenn Sie `rect` auslassen, wird die gesamte sichtbare Seite erfasst.
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel, ...args)`
 
