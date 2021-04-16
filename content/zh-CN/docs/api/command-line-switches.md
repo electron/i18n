@@ -183,31 +183,31 @@ Electron 支持一些 Node.js 支持的 [CLI flags][node-cli]。
 
 ### --inspect-brk[=[host:]port]
 
-Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
+在 主机:端口 上激活检查器并在用户脚本开始运行后中断。 默认 主机:端口 为127.0.0.1:9229。
 
-Aliased to `--debug-brk=[host:]port`.
+是 `--debug-brk=[host:]port`的别名
 
 ### --inspect-port=[host:]port
 
-Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
+当检查器被激活时要使用的 `主机:端口`。 常用于通过发送 SIGUSR1 信号激活检查器时。 默认主机是 `127.0.0.1`。
 
-Aliased to `--debug-port=[host:]port`.
+是 `--debug-port=[host:]port`的别名
 
 ### --inspect[=[host:]port]
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+在 `主机:端口` 上激活检查器。 默认是 `127.0.0.1:9229`。
 
-V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
+集成V8 检查器允许Chrome 开发者工具和 IDE 这些工具调试和修改 Electron 实例。 这些工具通过 TCP 端口连接到 Electron 实例，并使用 [Chrome 开发者工具协议](https://chromedevtools.github.io/devtools-protocol/)进行通信。
 
 调试相关的标识, 更多详细信息请查看 [Debugging the Main Process][debugging-main-process]指南。
 
-Aliased to `--debug[=[host:]port`.
+是 `--debug[host:]port`的别名
 
 ### --inspect-publish-uid=stderr,http
 
-Specify ways of the inspector web socket url exposure.
+指定检查器的 web 套接字url 公开方式。
 
-By default inspector websocket url is available in stderr and under /json/list endpoint on http://host:port/json/list.
+默认情况下，websocket url在 stderr 中和在 http://host:port/json/list 的 /json/list 端点下都是可用的。
 
 [app]: app.md
 [append-switch]: command-line.md#commandlineappendswitchswitch-value
