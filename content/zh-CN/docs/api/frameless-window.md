@@ -9,9 +9,9 @@
 要创建无边框窗口，只需在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `：
 
 ```javascript
-康斯特 { BrowserWindow } =要求（'电子'）
-缺点赢=新的浏览器窗口（{ width: 800, height: 600, frame: false }）
-赢。
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
+win.show()
 ```
 
 ### macOS 上的其他方案
@@ -23,9 +23,9 @@
 返回一个隐藏标题栏的全尺寸内容窗口，在左上角仍然有标准的窗口控制按钮（俗称“红绿灯”）。
 
 ```javascript
-康斯特 { BrowserWindow } =要求（'电子'）
-缺点赢=新的浏览器窗口（{ titleBarStyle: 'hidden' }）
-赢。
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
+win.show()
 ```
 
 #### `hiddenInset`
@@ -33,9 +33,9 @@
 返回一个另一种隐藏了标题栏的窗口，其中控制按钮到窗口边框的距离更大。
 
 ```javascript
-康斯特 { BrowserWindow } =要求（'电子'）
-缺点赢=新的浏览器窗口（{ titleBarStyle: 'hiddenInset' }）
-赢。
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+win.show()
 ```
 
 #### `customButtonsOnHover`
@@ -63,10 +63,10 @@
 * 你不能点击穿透透明区域。 我们将引入一个 API 来设置窗口形状以解决此问题, 请参阅 [ our issue ](https://github.com/electron/electron/issues/1335) 以了解详细信息。
 * 透明窗口不可调整大小。 在某些平台上，将 ` resizable ` 设置为 ` true ` 可能会使透明窗口停止工作。
 * `blur ` 筛选器仅适用于网页, 因此无法对位于透明窗口下方的内容应用模糊效果 (例如在用户系统上打开的其他应用程序) 。
-* The window will not be transparent when DevTools is opened.
-* On Windows operating systems,
-  * transparent windows will not work when DWM is disabled.
-  * transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on [this pull request](https://github.com/electron/electron/pull/28207).
+* 当打开开发者工具时，窗口将不透明。
+* 在 Windows 操作系统中，
+  * 当DWM禁用时，透明窗口将失效。
+  * 透明窗口不能通过Windows系统菜单或双击标题栏实现最大化。 其背后的原因可以看[这个pull request](https://github.com/electron/electron/pull/28207)。
 * 在 linux 上, 用户必须在命令行中设置 `--enable-transparent-visuals --disable-gpu ` 来禁用GPU, 启用 ARGB，用以实现窗体透明。 这是由一个上游的 bug 导致的, 即 [ 在Linux机上，透明度通道（alpha channel ）在一些英伟达的驱动（NVidia drivers）中无法运行](https://bugs.chromium.org/p/chromium/issues/detail?id=369209)。
 * 在 Mac 上, 透明窗口无法显示原生窗口的阴影。
 
