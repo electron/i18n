@@ -34,7 +34,7 @@ A equipe do Electron está animada para anunciar a versão do Electron 9.0.0! Vo
 
 Veja as [notas de lançamento 9.0.0](https://github.com/electron/electron/releases/tag/v9.0.0) para uma lista completa de novos recursos e alterações.
 
-## Quebrando mudanças
+## Breaking Changes
 
 * Aviso de depreciação quando estiver usando `remoto` sem `ativarRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
     * Esta é a primeira etapa de nossos planos para depreciar o módulo `remoto` e movê-lo para o userland. Você pode ler e acompanhar [esta issue](https://github.com/electron/electron/issues/21408) que detalha nossos motivos para isso e inclui uma linha temporal proposta para depreciação.
