@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` _Experimental_
 
-* objeto `options` (opcional) 
+* `options` Object (optional) 
     * `webPreferences` Objeto (opcional) - Veja [BrowserWindow](browser-window.md).
 
 
@@ -56,7 +56,7 @@ Objectos criados com `new BrowserView` possuem os seguintes métodos de instânc
 
 #### `view.setAutoResize(options)` _Experimental_
 
-* objeto `options` 
+* `options` Object 
     * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
