@@ -4,14 +4,14 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `nouveau TouchBarSlider (options)`
+### `new TouchBarSlider(options)`
 
 * `options` objet
   * `label` String (facultatif) - Texte du label.
   * `value` Integer (facultatif) - Valeur sélectionnée.
   * `minValue` Integer (facultatif) - Valeur minimale.
   * `maxValue` Integer (facultatif) - Valeur maximale.
-  * `change` fonction (facultatif) - Fonction d’appel lorsque le curseur est modifié.
+  * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Number - La valeur que l'utilisateur a sélectionnée sur le curseur.
 
 ### Propriétés d'instance
@@ -20,16 +20,16 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarSlide
 
 #### `touchBarSlider.label`
 
-Un `String` représentant le texte actuel du curseur. La modification de cette valeur met immédiatement à jour le curseur dans la barre tactile.
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-Un `Number` représentant la valeur actuelle du curseur. La modification de cette valeur met immédiatement à jour le curseur dans la barre tactile.
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-Un `Number` représentant la valeur minimale actuelle du curseur. La modification de cette valeur met immédiatement à jour curseur de la barre tactile.
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-Un `Number` représentant la valeur maximale actuelle du curseur. La modification de cette valeur met immédiatement à jour curseur de la barre tactile.
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
