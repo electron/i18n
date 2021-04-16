@@ -8,7 +8,7 @@ Instancias de la clase `WebRequest` son accesibles usando la propiedad `webReque
 
 Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `listener` será cancelado con `listener(details)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud.
 
-⚠️ solo se usará la última `listener` adjunta. Aprobar `null` como `listener` se deshará del evento.
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 El objeto `filter` tiene una propiedad `urls` que es un arreglo de patrones URL que serán usados para filtrar las solicitudes que no coincidan con los patrones de URL. Si el `filtro` es omitido todas las solicitudes serán atendidas.
 
@@ -36,9 +36,9 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
@@ -51,7 +51,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
     * `fecha y hora` Doble
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Función
-    * Objeto `response`
+    * `response` Object
       * `cancelar` Booleano (opcional)
       * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
 
@@ -78,9 +78,9 @@ Algunos ejemplos de `urls` válidas:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
@@ -93,7 +93,7 @@ Algunos ejemplos de `urls` válidas:
     * `fecha y hora` Doble
     * `requestHeaders` Record<string, string>
   * `callback` Función
-    * Objeto `beforeSendResponse`
+    * `beforeSendResponse` Object
       * `cancelar` Booleano (opcional)
       * `requestHeaders` Record<string, string | string[]> (opcional) -Cuando es proveído, la solicitud será hecha con esas cabeceras.
 
@@ -103,9 +103,9 @@ El `callback` ha de ser llamado con un objeto `response`.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
@@ -122,9 +122,9 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
@@ -140,7 +140,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (opcional)
   * `callback` Función
-    * Objeto `headersReceivedResponse`
+    * `headersReceivedResponse` Object
       * `cancelar` Booleano (opcional)
       * `responseHeaders` Record<string, string | string[]> (opcional) - Cuando es proveído, el servidor se asume que ha respondido con estas cabeceras.
       * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
@@ -151,9 +151,9 @@ El `callback` ha de ser llamado con un objeto `response`.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
@@ -173,9 +173,9 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
@@ -197,9 +197,9 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
@@ -220,9 +220,9 @@ El `listener` será llamado con `listener(details)` cuando una petición es comp
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` objeto (opcional)
+* `filter` Object (optional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` function | Null
+* `listener` Function | null
   * `details` Object
     * `id` Íntegro
     * `url` String
