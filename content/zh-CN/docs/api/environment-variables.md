@@ -29,20 +29,20 @@ Electron 包括对 Node 的 [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli
 示例:
 
 ```sh
-导出NODE_OPTIONS="-无警告-最大旧空间大小=2048"
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
 不支持的选项是：
 
 ```sh
---使用捆绑-ca
--强制-fips
--启用-fips
--打开-配置
--使用-打开-ca
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
 ```
 
-`NODE_OPTIONS` 在包装的应用中明确不允许，但以下内容除外：
+`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
 
 ```sh
 --max-http-header-size
