@@ -24,9 +24,7 @@ To set user tasks for your application, you can use [app.setUserTasks][setuserta
 
 ##### Set user tasks
 
-Começando com um aplicativo de trabalho do</a>do Guia de Início Rápido, atualize o arquivo `main.js` com as seguintes linhas :</p> 
-
-
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app } = require('electron')
@@ -43,14 +41,9 @@ app.setUserTasks([
 ])
 ```
 
-
-
-
 ##### Clear tasks list
 
 To clear your tasks list, you need to call `app.setUserTasks` with an empty array in the `main.js` file.
-
-
 
 ```javascript
 const { app } = require('electron')
@@ -58,12 +51,7 @@ const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-
-
-
 > NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
-
-
 
 ### Thumbnail Toolbars
 
@@ -71,31 +59,21 @@ On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar 
 
 As quoted from [MSDN][msdn-thumbnail]:
 
-
-
 > Esta barra de ferramentas é um controle comum padrão para a barra de ferramentas. Tem um máximo de sete botões. ID de cada botão, imagem, dica e estado são definidos em uma estrutura, que é então passada para a barra de tarefas. O aplicativo pode mostrar, habilitar, desabilitar ou ocultar botões da barra de ferramentas de miniatura, conforme exigido pelo seu estado atual.
 > 
 > Por exemplo, o Windows Media Player pode oferecer controles de mídia padrão como reproduzir, pausar, silenciar e parar.
 
 ![jogador](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-
-
 > NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
 
 To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons][setthumbarbuttons]
 
-
-
 #### Exemplos
-
-
 
 ##### Set thumbnail toolbar
 
-Começando com um aplicativo de trabalho do</a>do Guia de Início Rápido , atualize o arquivo `main.js` com as seguintes linhas :</p> 
-
-
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -117,14 +95,9 @@ win.setThumbarButtons([
 ])
 ```
 
-
-
-
 ##### Clear thumbnail toolbar
 
 To clear thumbnail toolbar buttons, you need to call `BrowserWindow.setThumbarButtons` with an empty array in the `main.js` file.
-
-
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -133,34 +106,23 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-
-
-
 ### Sobreposições de ícone na barra de tarefas
 
 On Windows, a taskbar button can use a small overlay to display application status.
 
 As quoted from [MSDN][msdn-icon-overlay]:
 
-
-
 > Camadas com ícone servem como notificação contextual do status, e se destina a a negar a necessidade de um ícone de status de área de notificação separado para comunicar essa informação ao usuário. Por exemplo, o novo status de e-mail na Microsoft Outlook, atualmente mostrado na área de notificação, agora pode ser indicado através de uma sobreposição no botão barra de tarefas. Novamente, você deve decidir durante seu ciclo de desenvolvimento de qual método é melhor para sua aplicação. Ícones de sobreposição destinam-se a fornecer importantes status de longa duração ou notificações tais como o status de rede, o status de mensageiro ou novos e-mails. O usuário não deve ser apresentado com camadas ou animações constantemente alteradas.
 
 ![Sobreposição no botão barra de tarefas](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
-
-
 
 > NOTE: The screenshot above is an example of overlay on a taskbar button
 
 To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon][setoverlayicon] API.
 
-
-
 #### Exemplo
 
-Começando com um aplicativo de trabalho do</a>do Guia de Início Rápido , atualize o arquivo `main.js` com as seguintes linhas :</p> 
-
-
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -170,28 +132,19 @@ const win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-
-
-
 ### Flash Frame
 
 On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 
 As quoted from [MSDN][msdn-flash-frame]:
 
-
-
 > Normalmente, uma janela é flash para informar ao usuário que a janela requer atenção, mas que atualmente não possui o foco do teclado.
 
 To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame][flashframe] API.
 
-
-
 #### Exemplo
 
-Começando com um aplicativo de trabalho do</a>do Guia de Início Rápido , atualize o arquivo `main.js` com as seguintes linhas :</p> 
-
-
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -201,9 +154,6 @@ const win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
-
-
-
 
 > NOTE: Don't forget to call `win.flashFrame(false)` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
 
