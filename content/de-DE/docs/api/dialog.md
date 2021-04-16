@@ -176,29 +176,29 @@ mit Sicherheitsbereich, wenn sie für den Mac App Store verpackt werden. Wenn di
     
     * `canceled` boolesch - unabhängig davon, ob das Dialogfeld abgebrochen wurde.
 * `filePath` String (optional) - Wenn das Dialogfeld abgebrochen wird, wird dies `undefined`.
-* `bookmark` String (optional) _macOS_ _mas_ - Base64 codierte Zeichenfolge, die die sicherheitsfernen Lesezeichendaten für die gespeicherte Datei enthält. `securityScopedBookmarks` muss möglich sein, damit dies vorhanden ist. (Rückgabewerte finden Sie hier in [Tabelle](#bookmarks-array).)
+* `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (Rückgabewerte finden Sie hier in [Tabelle](#bookmarks-array).)
 
 Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein übergeordnetes Fenster anzufügen, sodass es modal ist.
 
 Die `filters` gibt ein Array von Dateitypen an, die angezeigt werden können, siehe `dialog.showOpenDialog` beispiel.
 
-**Hinweis:** unter macOS wird die Verwendung der asynchronen Version empfohlen, um Probleme beim erweitern und reduzieren des Dialogfelds zu vermeiden.
+**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
 
 
 
-### `dialog.showMessageBoxSync([browserWindow, ]Optionen)`
+### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object
   
-    * `message` String - Inhalt des Meldungsfelds.
-  * `type` String (optional) - Kann `"none"`, `"info"`, `"error"`, `"question"` oder `"warning"`sein. Unter Windows zeigt `"question"` dasselbe Symbol wie `"info"`an, es sei denn, Sie ein Symbol mit der Option `"icon"` festlegen. Unter macOS `"warning"` und `"error"` das gleiche Warnsymbol anzeigen.
+    * `message` String - Content of the message box.
+  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
 
-  * `buttons` String[] (optional) - Array von Texten für Schaltflächen. Unter Windows führt ein leeres Array zu einer Schaltfläche mit der Bezeichnung "OK".
+  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
 
-  * `defaultId` Ganzzahl (optional) - Index der Schaltfläche im Schaltflächenarray, die beim Öffnen des Meldungsfelds standardmäßig ausgewählt .
-  * `title` String (optional) - Titel des Meldungsfelds, einige Plattformen zeigen es nicht an.
-  * `detail` String (optional) - Zusätzliche Informationen der Nachricht.
+  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
+  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` ([NativeImage](native-image.md) | String) (optional)
@@ -219,14 +219,14 @@ Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein �
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object
   
-    * `message` String - Inhalt des Meldungsfelds.
-  * `type` String (optional) - Kann `"none"`, `"info"`, `"error"`, `"question"` oder `"warning"`sein. Unter Windows zeigt `"question"` dasselbe Symbol wie `"info"`an, es sei denn, Sie ein Symbol mit der Option `"icon"` festlegen. Unter macOS `"warning"` und `"error"` das gleiche Warnsymbol anzeigen.
+    * `message` String - Content of the message box.
+  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
 
-  * `buttons` String[] (optional) - Array von Texten für Schaltflächen. Unter Windows führt ein leeres Array zu einer Schaltfläche mit der Bezeichnung "OK".
+  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
 
-  * `defaultId` Ganzzahl (optional) - Index der Schaltfläche im Schaltflächenarray, die beim Öffnen des Meldungsfelds standardmäßig ausgewählt .
-  * `title` String (optional) - Titel des Meldungsfelds, einige Plattformen zeigen es nicht an.
-  * `detail` String (optional) - Zusätzliche Informationen der Nachricht.
+  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
+  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (optional)
