@@ -4,236 +4,236 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-К экземплярам `WebRequest` класса доступа можно получить с помощью `webRequest` свойства `Session`.
+Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
-Методы `WebRequest` принимают факультативную `filter` и `listener`. Данные `listener` вызваны с `listener(details)` , когда событие API произошло. Объект `details` описывает запрос.
+The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request.
 
-⚠️ будет использоваться только `listener` прикрепленная к ней . Проходя `null` как `listener` будет отписаться от события.
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
-Объект `filter` имеет свойство `urls` , которое является массивом шаблонов URL , которые будут использоваться для фильтрации запросов, которые не соответствуют URL- шаблонов. Если `filter` опущен, то все запросы будут соответствовать.
+The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
-Для определенных событий `listener` передается с `callback`, который должен с `response` объектом, `listener` сделал свою работу.
+For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
 
-Пример добавления заголовка `User-Agent` для запросов:
+An example of adding `User-Agent` header for requests:
 
 ```javascript
-const { session } требуют ('электрон')
+const { session } = require('electron')
 
-// Изменить пользовательский агент для всех запросов на следующие URL-адреса.
-конст-фильтр и
-  URL-адреса: «https://.github.com/», '://electron.github.io''
--
+// Modify the user agent for all requests to the following urls.
+const filter = {
+  urls: ['https://*.github.com/*', '*://electron.github.io']
+}
 
-session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подробности, обратный вызов) -> -
-  details.requestHeaders.'User-Agent'" - 'MyAgent'
-  обратный вызов ({ requestHeaders: details.requestHeaders })
-)
+session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
+  details.requestHeaders['User-Agent'] = 'MyAgent'
+  callback({ requestHeaders: details.requestHeaders })
+})
 ```
 
 ### Методы экземпляра
 
-Следующие методы доступны на экземплярах `WebRequest`:
+The following methods are available on instances of `WebRequest`:
 
-#### `webRequest.onBeforeRequest (фильтр, слушатель)`
+#### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
+    * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `response` объект
-      * `cancel` Булан (по желанию)
-      * `redirectURL` String (необязательно) - Исходный запрос не отправлен или завершен и вместо этого перенаправляется на данный URL.
+    * `response` Object
+      * `cancel` Boolean (optional)
+      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
-Запрос `listener` вызван с помощью `listener(details, callback)` , когда будет происходить запрос.
+The `listener` will be called with `listener(details, callback)` when a request is about to occur.
 
-" `uploadData` " - это массив `UploadData` объектов.
+The `uploadData` is an array of `UploadData` objects.
 
-`callback` должен быть вызван с `response` объектом.
+The `callback` has to be called with an `response` object.
 
-Некоторые примеры действительной `urls`:
+Some examples of valid `urls`:
 
 ```js
 'http://foo:1234/'
 'http://foo.com/'
 'http://foo:1234/bar'
-''://'/'
-'://example.com/'
-'://example.com/foo/ "
-": "http://'.foo:1234/"
+'*://*/*'
+'*://example.com/*'
+'*://example.com/foo/*'
+'http://*.foo:1234/'
 'file://foo:1234/bar'
-'http://foo:'/'
-'://www.foo.com/'
+'http://foo:*/'
+'*://www.foo.com/'
 ```
 
-#### `webRequest.onBeforeSendHeaders (фильтр, слушатель)`
+#### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
-    * `requestHeaders` рекорд<string, string>
+    * `timestamp` Double
+    * `requestHeaders` Record<string, string>
   * `callback` Function
-    * `beforeSendResponse` объект
-      * `cancel` Булан (по желанию)
-      * `requestHeaders` запись<string, string | string[]> (необязательно) - При условии, запрос будет сделан с этими головами.
+    * `beforeSendResponse` Object
+      * `cancel` Boolean (optional)
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
-Веб `listener` будет вызван с `listener(details, callback)` перед отправкой запрос http, как только запрос заготовки доступны. Это может произойти после подключения TCP к серверу, но до отправки любых данных http.
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
-`callback` должен быть вызван с `response` объектом.
+The `callback` has to be called with a `response` object.
 
-#### `webRequest.onSendHeaders (фильтр, слушатель)`
+#### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
-    * `requestHeaders` рекорд<string, string>
+    * `timestamp` Double
+    * `requestHeaders` Record<string, string>
 
-Веб `listener` будет вызван с `listener(details)` незадолго до того, как запрос будет отправлен на сервер, изменения предыдущего ответа `onBeforeSendHeaders` видны к тому времени, когда этот слушатель уволен.
+The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
-    * `statusLine` Струна
+    * `timestamp` Double
+    * `statusLine` String
     * `statusCode` Integer
-    * `requestHeaders` рекорд<string, string>
-    * `responseHeaders` запись<string, string[]> (по желанию)
+    * `requestHeaders` Record<string, string>
+    * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function
-    * `headersReceivedResponse` объект
-      * `cancel` Булан (по желанию)
-      * `responseHeaders` запись<string, string | string[]> (необязательно) - При условии, сервер предполагается, , ответил с этими головами.
-      * `statusLine` String (необязательно) - Следует предоставлять при `responseHeaders` изменения статуса заголовка в противном случае будет использоваться исходный ответ на статус заголовка.
+    * `headersReceivedResponse` Object
+      * `cancel` Boolean (optional)
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-Сообщение `listener` вызвано с `listener(details, callback)` , были получены заготовки ответа на запрос.
+The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-`callback` должен быть вызван с `response` объектом.
+The `callback` has to be called with a `response` object.
 
-#### `webRequest.onResponseСтарт (Фильтр, «слушатель»)`
+#### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
-    * `responseHeaders` запись<string, string[]> (по желанию)
-    * `fromCache` Boolean - Указывает, был ли ответ получен из кэша диска.
+    * `timestamp` Double
+    * `responseHeaders` Record<string, string[]> (optional)
+    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
-    * `statusLine` Струна
+    * `statusLine` String
 
-Ответ `listener` вызван с `listener(details)` , когда будет получен первый органа реагирования. Для запросов HTTP это означает, что доступна строка и заготовки ответов.
+The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
 
-#### `webRequest.onBeforeRedirect (фильтр, слушатель)`
+#### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
-    * `redirectURL` Струна
+    * `timestamp` Double
+    * `redirectURL` String
     * `statusCode` Integer
-    * `statusLine` Струна
-    * `ip` String (необязательно) - IP-адрес сервера, на который был отправлен.
-    * `fromCache` Булан
-    * `responseHeaders` запись<string, string[]> (по желанию)
+    * `statusLine` String
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `fromCache` Boolean
+    * `responseHeaders` Record<string, string[]> (optional)
 
-Данный `listener` вызван с помощью `listener(details)` когда сервер, перенаправление, вот-вот произойдет.
+The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
-#### `webRequest.onCompleted (фильтр, слушатель)`
+#### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
-    * `responseHeaders` запись<string, string[]> (по желанию)
-    * `fromCache` Булан
+    * `timestamp` Double
+    * `responseHeaders` Record<string, string[]> (optional)
+    * `fromCache` Boolean
     * `statusCode` Integer
-    * `statusLine` Струна
-    * `error` Струна
+    * `statusLine` String
+    * `error` String
 
-После `listener` запрос будет `listener(details)` с запросом.
+The `listener` will be called with `listener(details)` when a request is completed.
 
-#### `webRequest.onErrorOccurred (Фильтр, «слушатель»)`
+#### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` (по желанию)
-  * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
-* `listener` функции | Null
+* `filter` Object (optional)
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function | null
   * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` (по желанию)
-    * `webContents` WebContents (по желанию)
-    * `frame` WebFrameMain (по желанию)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
-    * `timestamp` Двойной
-    * `fromCache` Булан
-    * `error` строка - Описание ошибки.
+    * `timestamp` Double
+    * `fromCache` Boolean
+    * `error` String - The error description.
 
-Сообщение `listener` вызвано с `listener(details)` когда происходит ошибка.
+The `listener` will be called with `listener(details)` when an error occurs.
