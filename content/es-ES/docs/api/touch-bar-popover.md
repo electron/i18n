@@ -18,8 +18,8 @@ Las siguiente propiedades están disponibles en instancias de `notificaciones de
 
 #### `touchBarPopover.label`
 
-Un `String` que representa el texto del botón actual de la ventana emergente. Al cambiar este valor de inmediato, se actualiza el popover en la Touch bar.
+Un `String` que representa el texto del botón actual de la ventana emergente. Changing this value immediately updates the popover in the touch bar.
 
 #### `touchBarPopover.icon`
 
-Un `NativeImage` que representa el icono del botón actual de la notificación. Al cambiar este valor de inmediato, se actualiza el popover en la Touch bar.
+Un `NativeImage` que representa el icono del botón actual de la notificación. Changing this value immediately updates the popover in the touch bar.
