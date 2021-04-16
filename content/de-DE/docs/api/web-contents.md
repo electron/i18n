@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Rückgabewert:
 * `window` BrowserWindow
-* `details` -Objekt
+* `details` Object
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
     * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -328,25 +328,25 @@ Rückgabewert:
 
 Emitted when the renderer process crashes or is killed.
 
-**Deprecated:** Dieses Ereignis wird durch das `render-process-gone` -Ereignis ersetzt das weitere Informationen darüber enthält, warum der Renderprozess verschwunden ist. Ist es nicht immer, wenn es abgestürzt ist.  Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ist es nicht immer, wenn es abgestürzt ist.  Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
 
-#### Ereignis: 'render-process-gone'
+#### Event: 'render-process-gone'
 
 Rückgabewert:
 
 * `event` Event
-* `details` -Objekt
-  * `reason` String - Der Grund, warum der Renderprozess vorgangslos ist.  Mögliche werte:
-    * `clean-exit` - Prozess mit einem Exit-Code von Null beendet
-    * `abnormal-exit` - Prozess mit einem Exit-Code ungleich Null beendet
-    * `killed` - Prozess wurde ein SIGTERM gesendet oder auf andere Weise extern getötet
-    * `crashed` - Prozess abgestürzt
-    * `oom` - Prozess läuft nicht mehr auf
-    * `launch-failed` - Prozess nie erfolgreich gestartet
-    * `integrity-failure` - Fehler bei Windows-Codeintegritätsprüfungen
-  * `exitCode` Ganzzahl - Der Exitcode des Prozesses, es sei denn, `reason` `launch-failed`ist, in diesem Fall ist `exitCode` ein plattformspezifischer Fehlerfehlercode.
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Mögliche werte:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
-Emittiert, wenn der Rendererprozess unerwartet verschwindet.  Dies ist normalerweise , weil es abgestürzt oder getötet wurde.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 #### Event: 'unresponsive'
 
@@ -404,11 +404,11 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Event: 'enter-html-full-screen'
 
-Wird gesendet, wenn das Fenster in einen Vollbildstatus wechselt, der durch die HTML-API ausgelöst wird.
+Emitted when the window enters a full-screen state triggered by HTML API.
 
 #### Event: 'leave-html-full-screen'
 
-Wird angezeigt, wenn das Fenster einen Vollbildstatus verlässt, der durch die HTML-API ausgelöst wird.
+Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'zoom-changed'
 
@@ -465,9 +465,9 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Rückgabewert:
 
 * `event` Event
-* `authenticationResponseDetails` -Objekt
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` -Objekt
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -712,42 +712,42 @@ Rückgabewert:
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Wenn `event.preventDefault()` ruft, werden leere Quellen zurückgegeben.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### Ereignis: 'Remote-require' _veraltete_
+#### Event: 'remote-require' _Deprecated_
 
 Rückgabewert:
 
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-#### Veranstaltung: 'remote-get-global' _veraltete_
+#### Event: 'remote-get-global' _Deprecated_
 
 Rückgabewert:
 
 * `event` IpcMainEvent
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Wenn `event.preventDefault()` aufgerufen wird, wird verhindert, dass die globale Zurückgegebenwerden. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-#### Event: 'remote-get-builtin' _veraltete_
+#### Event: 'remote-get-builtin' _Deprecated_
 
 Rückgabewert:
 
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process. Wenn `event.preventDefault()` wird verhindert, dass das Modul zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-#### Ereignis: 'remote-get-current-window' _veraltete_
+#### Event: 'remote-get-current-window' _Deprecated_
 
 Rückgabewert:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 #### Event: 'remote-get-current-web-contents' _Deprecated_
 
@@ -755,7 +755,7 @@ Rückgabewert:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 #### Event: 'preferred-size-changed'
 
@@ -775,7 +775,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
 * `url` String
 * `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String (optional) – Ein Benutzer-Agent, der die Anforderung stammt.
+  * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
@@ -794,11 +794,11 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (optional)
-  * `query` Record<String, String> (optional) - An `url.format()`übergeben.
-  * `search` String (optional) - An `url.format()`übergeben.
-  * `hash` String (optional) - An `url.format()`übergeben.
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
-Gibt `Promise<void>` zurück - das Versprechen wird aufgelöst, wenn die Seite geladen hat (siehe [`did-finish-load`](web-contents.md#event-did-finish-load)), und lehnt ab, wenn die Seite nicht geladen werden kann (siehe [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
@@ -1018,7 +1018,7 @@ Ignore application menu shortcuts while this web contents is focused.
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` -Objekt
+  * `details` Object
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
     * `features` String - Comma separated list of window features provided to `window.open()`.
@@ -1178,9 +1178,9 @@ console.log(requestId)
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-Gibt `Promise<NativeImage>` zurück - Löst mit einem [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-Erfasst eine Momentaufnahme der Seite in `rect`. Wenn Sie `rect` auslassen, wird die gesamte sichtbare Seite erfasst.
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `contents.isBeingCaptured()`
 
@@ -1472,7 +1472,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Beim Senden von Funktionen, Versprechen, Symbolen, WeakMaps oder WeakSets wird eine Ausnahme auslösen.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1515,7 +1515,7 @@ app.whenReady().then(() => {
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **HINWEIS:** Das Senden nicht standardmäßiger JavaScript-Typen wie DOM-Objekte oder speziellen Electron-Objekte löst eine Ausnahme aus.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
