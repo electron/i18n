@@ -24,13 +24,9 @@ Novos recursos do Node.js geralmente são trazidos por atualização da V8, desd
 
 ## Como compartilhar dados entre página da web?
 
-Para compartilhar dados entre páginas web (os processos de renderização) a maneira mais simples é usar as APIs do HTML5 que já estão disponíveis nos navegadores. Os bons candidatos são [API de armazenamento][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage]e</a>IndexedDB indexado
-
-.</p> 
+Para compartilhar dados entre páginas web (os processos de renderização) a maneira mais simples é usar as APIs do HTML5 que já estão disponíveis nos navegadores. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
 Como alternativa, você pode usar os primitivos IPC que são fornecidos pelo Electron. Para compartilhar dados entre os processos principal e de renderização, você pode usar os módulos [`ipcMain`](api/ipc-main.md) e [`ipcRenderer`](api/ipc-renderer.md). Para comunicar diretamente entre páginas da web, você pode enviar uma [`MessagePort`][message-port] de uma para a outra possivelmente através do processo principal usando [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). A comunicação subsequente sobre as portas da mensagem é direta e não destaca o processo principal.
-
-
 
 ## A minha bandeja de aplicativo desapareceu depois de alguns minutos.
 
@@ -43,8 +39,6 @@ Se você encontrar esse problema, esses artigos podem ser úteis:
 
 Se você quer uma solução rápida, você pode fazer as variáveis globais, alterando seu código:
 
-
-
 ```javascript
 const { app, Tray } = require('electron')
 app.whenReady().then(() =>{
@@ -53,10 +47,7 @@ app.whenReady().then(() =>{
 })
 ```
 
-
 para isto:
-
-
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -67,16 +58,11 @@ app.whenReady().then(() => {
 })
 ```
 
-
-
-
 ## Eu não posso usar jQuery/RequireJS/Meteor/AngularJS em Electron.
 
 Devido à integração de Node.js do Electron, existem alguns símbolos extras inseridos o DOM como `module`, `exports` e `require`. Isso causa problemas por causa de algumas bibliotecas que querem inserir os símbolos com os mesmos nomes.
 
 Para resolver isso, você pode desativar a integração com node no Electron:
-
-
 
 ```javascript
 // No processo main.
@@ -89,53 +75,40 @@ const win = new BrowserWindow({
 win.show()
 ```
 
-
 Mas se você quer manter as habilidades de usar Node.JS e Electron APIs, você tem que renomear os símbolos na página, antes de incluir outras bibliotecas:
-
-
 
 ```html
 <head>
 <script>
-janela.nodeRequire = exigir;
-de excluir a janela.exija;
-excluir janela.exportações;
-excluir o módulo de exclusão.
+window.nodeRequire = require;
+delete window.require;
+delete window.exports;
+delete window.module;
 </script>
 <script type="text/javascript" src="jquery.js"></script>
 </head>
 ```
 
-
-
-
 ## `require('electron').xxx` é indefinido.
 
 Quando usar o módulo built-in do Electron você pode encontrar um erro como este:
-
-
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-
 É bem provável que você esteja utilizando o módulo no processo errado. Por exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
-
-
 
 ## A fonte parece borrada, o que é isso e o que eu posso fazer?
 
-Se [](https://alienryderflex.com/sub_pixel/) anti-aliasing sub-pixel for desativado, então as fontes nas telas LCD podem parecer embaçadas. Exemplo:
+If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Exemplo:
 
 ![exemplo de renderização de subpixel][]
 
 A anti-aliasing de sub-pixel precisa de um fundo não transparente na camada que contem os glyphs de texto. (Veja [esta publicação](https://github.com/electron/electron/issues/6344#issuecomment-420371918) para mais informações).
 
 Para alcançar este objetivo, defina o fundo do construtor para [BrowserWindow][browser-window]:
-
-
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -144,8 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-
-O efeito é visível apenas em (alguns?) Telas LCD. Mesmo se você não ver uma diferença, alguns de seus usuários podem fazê-lo. É melhor definir sempre os antecedentes desta forma, a menos que tenham razões para não o fazer.
+The effect is visible only on (some?) LCD screens. Mesmo se você não ver uma diferença, alguns de seus usuários podem fazê-lo. É melhor definir sempre os antecedentes desta forma, a menos que tenham razões para não o fazer.
 
 Aviso que apenas definir o background no CSS não tem o mesmo efeito desejado.
 
@@ -154,6 +126,7 @@ Aviso que apenas definir o background no CSS não tem o mesmo efeito desejado.
 [storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
 [local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
 [exemplo de renderização de subpixel]: images/subpixel-rendering-screenshot.gif
