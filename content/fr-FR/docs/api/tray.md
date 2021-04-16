@@ -215,7 +215,7 @@ Définit le texte au survol pour l'icône.
 #### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Définit le titre affiché à côté de l'icône de la barre d'état dans la barre d'état (couleurs support ANSI).
@@ -238,7 +238,7 @@ Retourne un `Boolean` - Si oui ou non les événènements de double clic seront 
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* `options` objet
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
