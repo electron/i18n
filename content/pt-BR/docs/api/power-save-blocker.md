@@ -1,33 +1,33 @@
 # powerSaveBlocker
 
-> Bloqueie o sistema de entrar no modo de baixa potência (sono).
+> Block the system from entering low-power (sleep) mode.
 
 Processo: [Main](../glossary.md#main-process)
 
 Como por exemplo:
 
 ```javascript
-const { powerSaveBlocker } = require ('electron')
+const { powerSaveBlocker } = require('electron')
 
-const id = powerSaveBlocker.start ('prevent-display-sleep')
-console.log (powerSaveBlocker.isStarted(id))
+const id = powerSaveBlocker.start('prevent-display-sleep')
+console.log(powerSaveBlocker.isStarted(id))
 
 powerSaveBlocker.stop(id)
 ```
 
 ## Métodos
 
-O módulo `powerSaveBlocker` tem os seguintes métodos:
+The `powerSaveBlocker` module has the following methods:
 
-### `powerSaveBlocker.start(tipo)`
+### `powerSaveBlocker.start(type)`
 
-* `type` String - Tipo de bloqueador de energia.
-  * `prevent-app-suspension` - Impedir que o pedido seja suspenso. Mantém o sistema ativo, mas permite que a tela seja desligada. Exemplos de casos de uso: baixar um arquivo ou reproduzir áudio.
-  * `prevent-display-sleep` - Evite que o display durma. Mantém sistema e tela ativos. Caso de uso de exemplo: reprodução de vídeo.
+* `type` String - Power save blocker type.
+  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
+  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Devoluções `Integer` - O ID do bloqueador atribuído a este bloqueador de energia.
+Returns `Integer` - The blocker ID that is assigned to this power blocker.
 
-Começa a impedir que o sistema entre no modo de baixa potência. Retorna um inteiro identificar o bloqueador de economia de energia.
+Starts preventing the system from entering lower-power mode. Retorna um inteiro identificar o bloqueador de economia de energia.
 
 **Nota:** `prevent-display-sleep` tem maior precedência sobre `prevent-app-suspension`. Apenas o tipo de maior precedência faz efeito. Em outras palavras, `prevent-display-sleep` sempre prevalece sobre `prevent-app-suspension`.
 
