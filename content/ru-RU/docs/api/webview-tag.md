@@ -224,7 +224,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
 
 * `url` String
 
-Инициирует загрузку ресурса на `url` навигации.
+Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.getURL()`
 
@@ -240,7 +240,7 @@ Returns `Boolean` - Whether guest page is still loading resources.
 
 ### `<webview>.isLoadingMainFrame()`
 
-Возвращает `Boolean` - является ли основной кадр (а не только iframes или кадры в нем) -прежнему загрузки.
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -248,7 +248,7 @@ Returns `Boolean` - Whether the guest page is waiting for a first-response for t
 
 ### `<webview>.stop()`
 
-Остановка любой ожидаемой навигации.
+Stops any pending navigation.
 
 ### `<webview>.reload()`
 
@@ -274,7 +274,7 @@ Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.clearHistory()`
 
-Очищает историю навигации.
+Clears the navigation history.
 
 ### `<webview>.goBack()`
 
@@ -294,11 +294,11 @@ Navigates to the specified absolute index.
 
 * `offset` Integer
 
-Переходит к указанному смещению из "текущей записи".
+Navigates to the specified offset from the "current entry".
 
 ### `<webview>.isCrashed()`
 
-Возвращает `Boolean` - разбился ли процесс рендерера.
+Returns `Boolean` - Whether the renderer process has crashed.
 
 ### `<webview>.setUserAgent(userAgent)`
 
@@ -658,7 +658,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 * `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
-* `sourceId` Струна
+* `sourceId` String
 
 Fired when the guest window logs a console message.
 
@@ -767,7 +767,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Событие: 'ipc-сообщение'
+### Event: 'ipc-message'
 
 Возвращает:
 
