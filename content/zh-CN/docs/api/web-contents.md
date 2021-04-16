@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 返回:
 * `window` BrowserWindow
-* `details` 对象
+* `details` Object
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
     * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -328,25 +328,25 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 当渲染进程崩溃或被结束时触发
 
-**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 它 并不总是因为它坠毁了。  当您切换到该事件时， 检查 `reason === 'killed'` 可以替换 `killed` 布尔。
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 #### 事件: 'render-process-gone'
 
 返回:
 
 * `event` Event
-* `details` 对象
-  * `reason` 字符串 - 渲染过程消失的原因。  可选值：
-    * `clean-exit` - 以零退出代码退出的过程
-    * `abnormal-exit` - 以非零退出代码退出的过程
-    * `killed` - 进程被发送一个西格特姆或以其他方式在外部杀死
-    * `crashed` - 过程崩溃
-    * `oom` - 过程内存耗尽
-    * `launch-failed` - 过程从未成功启动
-    * `integrity-failure` - 窗口代码完整性检查失败
-  * `exitCode` 整数 - 退出代码的过程，除非 `reason` `launch-failed`，在这种情况下， `exitCode` 将是一个平台特定的 发射失败错误代码。
+* `details` Object
+  * `reason` String - The reason the render process is gone.  可选值：
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
-当渲染器过程意外消失时发出。  这通常是 ，因为它是坠毁或死亡。
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 #### 事件: 'unresponsive'
 
@@ -465,17 +465,17 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
 返回:
 
 * `event` Event
-* `authenticationResponseDetails` 对象
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` 对象
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` 字符串（可选）
-  * `password` 字符串（可选）
+  * `username` String (optional)
+  * `password` String (optional)
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
@@ -711,7 +711,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. 呼叫 `event.preventDefault()` 将使其返回空源。
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
 #### 事件： "remote-require" _弃用_
 
@@ -1017,7 +1017,7 @@ Ignore application menu shortcuts while this web contents is focused.
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` 对象
+  * `details` Object
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
     * `features` String - Comma separated list of window features provided to `window.open()`.
