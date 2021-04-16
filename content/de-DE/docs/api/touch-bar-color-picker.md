@@ -6,7 +6,7 @@ Prozess: [Main](../glossary.md#main-process)
 
 ### `neue TouchBarColorPicker(Optionen)`
 
-* `options` -Objekt
+* `options` Object
   * `availableColors` String[] (optional) - Array von Hex-Farbzeichenfolgen, die als mögliche Farben zur Auswahl angezeigt werden.
   * `selectedColor` String (optional) - Die ausgewählte Hexfarbe in der Auswahl, d.h. `#ABCDEF`.
   * `change` Funktion (optional) - Funktion zum Aufrufen, wenn eine Farbe ausgewählt ist.
