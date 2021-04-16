@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Führt zu einer versteckten Titelleiste mit einem alternativen Look, bei dem die Ampeltasten etwas mehr vom Fensterrand eingelassen werden.
+Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Verwendet benutzerdefinierte s-Schließen und miniaturisieren Sie Schaltflächen, die anzeigen, wenn Sie in der oberen linken Seite des Fensters bewegen. Die Vollbild-Schaltfläche ist aufgrund von Einschränkungen von rahmenlosen Fenstern nicht verfügbar, da sie Schnittstelle mit Apples macOS-Fenstermasken. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. Diese Option gilt nur für rahmenlose Fenster.
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -48,7 +48,7 @@ const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: fa
 win.show()
 ```
 
-## Transparentes Fenster
+## Transparent window
 
 Wenn Sie die Option `transparent` auf `true`setzen, können Sie auch das rahmenlose Fenster transparent machen:
 
