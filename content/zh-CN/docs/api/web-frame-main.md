@@ -92,7 +92,7 @@ The renderer process can handle the message by listening to `channel` with the [
 #### `帧.邮资信息（频道、消息、 [transfer]）`
 
 * `channel` String
-* `message` 任何
+* `message` any
 * `transfer` 消息端口[]（可选）
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
