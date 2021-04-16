@@ -68,13 +68,13 @@ Processo: [Main](../glossary.md#main-process)
 #### `frame.executeJavaScript(code[, userGesture])`
 
 * `code` String
-* `userGesture` Booleano (opcional) - Padrão é `false`.
+* `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
-Avalia `code` na página.
+Evaluates `code` in page.
 
-Na janela do navegador algumas APIs HTML como `requestFullScreen` só podem ser invocadas por um gesto do usuário. A configuração `userGesture` para `true` removerá essa limitação.
+In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
 #### `frame.reload()`
 
@@ -92,7 +92,7 @@ The renderer process can handle the message by listening to `channel` with the [
 #### `frame.postMessage(channel, message, [transfer])`
 
 * `channel` Cordas
-* `message` qualquer
+* `message` any
 * `transfer` MessagePortMain[] (opcional)
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
