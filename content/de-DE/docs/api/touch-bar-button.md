@@ -6,7 +6,7 @@ Prozess: [Main](../glossary.md#main-process)
 
 ### `neue TouchBarButton(Optionen)`
 
-* `options` -Objekt
+* `options` Object
   * `label` String (optional) - Button-Text.
   * `accessibilityLabel` String (optional) - Eine kurze Beschreibung der Schaltfläche für die Verwendung durch Screenreader wie VoiceOver.
   * `backgroundColor` String (optional) - Button Hintergrundfarbe im Hex-Format, d.h. `#ABCDEF`.
