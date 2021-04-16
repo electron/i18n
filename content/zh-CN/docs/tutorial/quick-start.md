@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
     "main": "main.js",
     "scripts": {
         "start": "electron ."
-    •
+    }
 }
 ```
 
