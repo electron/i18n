@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `nouveau TouchBarLabel (options)`
+### `new TouchBarLabel(options)`
 
 * `options` objet
   * `label` String (facultatif) - Texte à afficher.
@@ -19,12 +19,12 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarLabel
 
 #### `touchBarLabel.label`
 
-Un `String` représentant le texte actuel de l’étiquette. La modification de cette valeur met immédiatement à jour l’étiquette la barre tactile.
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
-Un `String` la description de l’étiquette à lire par un lecteur d’écran.
+A `String` representing the description of the label to be read by a screen reader.
 
 #### `touchBarLabel.textColor`
 
-Un `String` code hex représentant la couleur de texte actuelle de l’étiquette. La modification de cette valeur met immédiatement à jour 'étiquette dans la barre tactile.
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
