@@ -60,45 +60,45 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Utilisation de `snapcraft` avec `electron-packager`
+## Using `snapcraft` with `electron-packager`
 
-### Étape 1 : Créer un exemple de projet Snapcraft
+### Step 1: Create Sample Snapcraft Project
 
-Créez votre répertoire de projet et ajoutez ce qui suit à `snap/snapcraft.yaml`:
+Create your project directory and add the following to `snap/snapcraft.yaml`:
 
 ```yaml
-nom: electron-packager-hello-world
+name: electron-packager-hello-world
 version: '0.1'
-résumé: Hello World Electron app
+summary: Hello World Electron app
 description: |
-  Simple Hello World Electron app à titre d’exemple
+  Simple Hello World Electron app as an example
 base: core18
-confinement: grade
-strict: stable
+confinement: strict
+grade: stable
 
 apps:
   electron-packager-hello-world:
-    command: electron-quick-start/electron-quick-start --no-sandbox  extensions
-    : fiches [gnome-3-34]
-    :
-    -
-    de prise en charge du navigateur -
-    réseau - environnement
-    de liaison réseau :
-      # Corriger le chemin TMPDIR pour chrome Framework/Electron afin de s’assurer que
-      # libappindicator dispose de ressources lisibles.
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+      # libappindicator has readable resources.
       TMPDIR: $XDG_RUNTIME_DIR
 
-pièces:
-  électron-démarrage rapide:
+parts:
+  electron-quick-start:
     plugin: nil
     source: https://github.com/electron/electron-quick-start.git
     override-build: |
-        npm installer électron-emballeur
-        npx électron-emballeur . --overwrite --platform=linux --output=release-build --prune=true
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
         cp -rv ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-quick-start
     build-snaps:
-    - nœud/14/stable
+    - node/14/stable
     build-packages:
     - unzip
     stage-packages:
@@ -106,12 +106,12 @@ pièces:
     - libnspr4
 ```
 
-Si vous souhaitez appliquer cet exemple à un projet existant :
+If you want to apply this example to an existing project:
 
-- Remplacez `source: https://github.com/electron/electron-quick-start.git` par `source: .`.
-- Remplacez toutes les instances `electron-quick-start` par le nom de votre projet.
+- Replace `source: https://github.com/electron/electron-quick-start.git` with `source: .`.
+- Replace all instances of `electron-quick-start` with your project's name.
 
-### Étape 2: Construire le snap
+### Step 2: Build the snap
 
 ```sh
 $ snapcraft
@@ -120,16 +120,16 @@ $ snapcraft
 Snapped electron-packager-hello-world_0.1_amd64.snap
 ```
 
-### Étape 3 : Installez le snap
+### Step 3: Install the snap
 
 ```sh
-sudo snap installer electron-packager-hello-world_0.1_amd64.snap --dangereux
+sudo snap install electron-packager-hello-world_0.1_amd64.snap --dangerous
 ```
 
-### Étape 4 : Exécutez le snap
+### Step 4: Run the snap
 
 ```sh
-electron-packager-hello-monde
+electron-packager-hello-world
 ```
 
 ## En utilisant un package Debian existant
@@ -142,7 +142,7 @@ Si vous n’avez pas déjà un package `.deb`, utiliser `electron-installer-snap
 
 ### Étape 2 : Créer un snapcraft.yaml
 
-Pour plus d’informations sur les options de configuration disponibles, consultez la documentation [sur la syntaxe snapcraft][snapcraft-syntax]. Prenons un exemple :
+For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
 
 ```yaml
 name: myApp
@@ -153,14 +153,14 @@ description: |
  for you. Some say it keeps you young, maybe even happy.
 
 grade: stable
-confinement: classique
+confinement: classic
 
-pièces:
-  mou: plugin
-    : dump
+parts:
+  slack:
+    plugin: dump
     source: my-deb.deb
     source-type: deb
-    après:
+    after:
       - desktop-gtk3
     stage-packages:
       - libasound2
@@ -171,23 +171,23 @@ pièces:
       - libpulse0
       - libxss1
       - libxtst6
-  électron-lancement: plugin
-    : dump
-    source: fichiers/
-    préparer: |
+  electron-launch:
+    plugin: dump
+    source: files/
+    prepare: |
       chmod +x bin/electron-launch
 
 apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron for ensure
+    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
     # libappindicator has readable resources.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-Comme vous pouvez le voir, le `snapcraft.yaml` demande au système de lancer un fichier appelé `electron-launch`. Dans cet exemple, il transmet des informations à l' binaire de l’application :
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
