@@ -1,12 +1,12 @@
 # session
 
-> Verwalten Sie Browsersitzungen, Cookies, Cache, Proxy-Einstellungen usw.
+> Manage browser sessions, cookies, cache, proxy settings, etc.
 
 Prozess: [Main](../glossary.md#main-process)
 
-Das `session` Modul kann verwendet werden, um neue `Session` Objekte zu erstellen.
+The `session` module can be used to create new `Session` objects.
 
-Sie können auch auf die `session` vorhandener Seiten zugreifen, indem Sie die `session` -Eigenschaft von [`WebContents`](web-contents.md)oder über das `session` -Modul verwenden.
+You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -20,35 +20,35 @@ console.log(ses.getUserAgent())
 
 ## Methoden
 
-Das `session` Modul verfügt über die folgenden Methoden:
+The `session` module has the following methods:
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Objekt (optional)
-  * `cache` Boolean – Gibt an, ob der Cache aktiviert werden soll.
+  * `cache` Boolean - Whether to enable cache.
 
-Gibt `Session` zurück - Eine Sitzungsinstanz aus `partition` Zeichenfolge. Wenn ein vorhandener `Session` mit demselben `partition`vorhanden ist, wird er zurückgegeben. Andernfalls wird eine neue `Session` Instanz mit `options`erstellt.
+Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
-Wenn `partition` mit `persist:`beginnt, verwendet die Seite eine persistente Sitzung die für alle Seiten in der App mit demselben `partition`verfügbar ist. Wenn kein `persist:` -Präfix vorhanden ist, verwendet die Seite eine In-Memory-Sitzung. Wenn die `partition` leer ist, wird die Standardsitzung der App zurückgegeben.
+If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
-Um eine `Session` mit `options`zu erstellen, müssen Sie sicherstellen, dass die `Session` mit dem `partition` noch nie zuvor verwendet wurde. Es gibt keine Möglichkeit, die `options` eines vorhandenen `Session` Objekts zu ändern.
+To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
 ## Eigenschaften
 
-Das `session` Modul verfügt über die folgenden Eigenschaften:
+The `session` module has the following properties:
 
 ### `session.defaultSession`
 
-Ein `Session` Objekt, das Standardsitzungsobjekt der App.
+A `Session` object, the default session object of the app.
 
-## Klasse: Sitzung
+## Class: Session
 
-> Abrufen und Festlegen von Eigenschaften einer Sitzung.
+> Get and set properties of a session.
 
 Prozess: [Main](../glossary.md#main-process)
 
-Sie können ein `Session` Objekt im `session` -Modul erstellen:
+You can create a `Session` object in the `session` module:
 
 ```javascript
 const { session } = require('electron')
@@ -58,9 +58,9 @@ console.log(ses.getUserAgent())
 
 ### Instanz Events
 
-Die folgenden Ereignisse sind auf Instanzen von `Session`verfügbar:
+The following events are available on instances of `Session`:
 
-#### Veranstaltung: 'will-download'
+#### Event: 'will-download'
 
 Rückgabewert:
 
@@ -68,209 +68,209 @@ Rückgabewert:
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emittiert, wenn Electron im Begriff ist, `item` in `webContents`herunterzuladen.
+Emitted when Electron is about to download `item` in `webContents`.
 
-Der Aufruf `event.preventDefault()` bricht den Download ab, und `item` werden ab dem nächsten Tick des Vorgangs nicht verfügbar.
+Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
 ```javascript
 const { session } = require('electron')
-session.defaultSession.on('will-download', (event, item, webContents) => '
+session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
-  require('request')(item.getURL(), (data) => '
-    require('fs').writeFileSync('/somewhere
-
-  ')
+  require('request')(item.getURL(), (data) => {
+    require('fs').writeFileSync('/somewhere', data)
+  })
+})
 ```
 
-#### Ereignis: 'extension-loaded'
+#### Event: 'extension-loaded'
 
 Rückgabewert:
 
 * `event` Event
-* `extension` [Erweiterungs-](structures/extension.md)
+* `extension` [Extension](structures/extension.md)
 
-Emittiert, nachdem eine Erweiterung geladen wurde. Dies tritt auf, wenn eine Erweiterung dem "aktivierten" Erweiterungssatz hinzugefügt wird. Dazu gehören:
+Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. Dazu gehören:
 
-- Erweiterungen, die aus `Session.loadExtension`geladen werden.
-- Erweiterungen, die neu geladen werden:
-  * von einem Absturz.
-  * wenn die Erweiterung sie angefordert hat ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
+- Extensions being loaded from `Session.loadExtension`.
+- Extensions being reloaded:
+  * from a crash.
+  * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
 
-#### Ereignis: 'Erweiterung-entladen'
-
-Rückgabewert:
-
-* `event` Event
-* `extension` [Erweiterungs-](structures/extension.md)
-
-Emittiert, nachdem eine Erweiterung entladen wurde. Dies tritt auf, wenn `Session.removeExtension` aufgerufen wird.
-
-#### Veranstaltung: 'extension-ready'
+#### Event: 'extension-unloaded'
 
 Rückgabewert:
 
 * `event` Event
-* `extension` [Erweiterungs-](structures/extension.md)
+* `extension` [Extension](structures/extension.md)
 
-Nach dem Laden einer Erweiterung wird der gesamte erforderliche Browserstatus initialisiert, um den Start der Hintergrundseite der Erweiterung zu unterstützen.
+Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
 
-#### Veranstaltung: 'preconnect'
-
-Rückgabewert:
-
-* `event` Event
-* `preconnectUrl` String - Die URL, die vom -Renderer zur Vorverbindung angefordert wird.
-* `allowCredentials` Boolean - True, wenn der Renderer anfordert, dass die -Verbindung Anmeldeinformationen enthält (weitere Details finden Sie in der [-Spezifikation](https://w3c.github.io/resource-hints/#preconnect) .
-
-Wird angezeigt, wenn ein Renderprozess eine Vorverbindung mit einer URL anfordert, im Allgemeinen aufgrund eines [Ressourcenhinweises](https://w3c.github.io/resource-hints/).
-
-#### Ereignis: 'spellcheck-dictionary-initialized'
+#### Event: 'extension-ready'
 
 Rückgabewert:
 
 * `event` Event
-* `languageCode` String - Der Sprachcode der Wörterbuchdatei
+* `extension` [Extension](structures/extension.md)
 
-Emittiert, wenn eine hunspell-Wörterbuchdatei erfolgreich initialisiert wurde. Dies tritt auf, nachdem die Datei heruntergeladen wurde.
+Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
 
-#### Veranstaltung: 'spellcheck-dictionary-download-begin'
-
-Rückgabewert:
-
-* `event` Event
-* `languageCode` String - Der Sprachcode der Wörterbuchdatei
-
-Emittiert, wenn eine Hunspell-Wörterbuchdatei mit dem Herunterladen beginnt
-
-#### Veranstaltung: 'spellcheck-dictionary-download-success'
+#### Event: 'preconnect'
 
 Rückgabewert:
 
 * `event` Event
-* `languageCode` String - Der Sprachcode der Wörterbuchdatei
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
+* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
-Emittiert, wenn eine Hunspell-Wörterbuchdatei erfolgreich heruntergeladen wurde
+Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
-#### Ereignis: 'spellcheck-dictionary-download-failure'
-
-Rückgabewert:
-
-* `event` Event
-* `languageCode` String - Der Sprachcode der Wörterbuchdatei
-
-Es wird angezeigt, wenn ein Hunspell-Wörterbuchdateidownload fehlschlägt.  Für Details über den Fehler sollten Sie ein Netlog sammeln und den Download Anfrage überprüfen.
-
-#### Ereignis: 'select-serial-port' _Experimental_
+#### Event: 'spellcheck-dictionary-initialized'
 
 Rückgabewert:
 
 * `event` Event
-* serialPort[] `portList` [](structures/serial-port.md)
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+
+#### Event: 'spellcheck-dictionary-download-begin'
+
+Rückgabewert:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file starts downloading
+
+#### Event: 'spellcheck-dictionary-download-success'
+
+Rückgabewert:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+Rückgabewert:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+
+#### Event: 'select-serial-port' _Experimental_
+
+Rückgabewert:
+
+* `event` Event
+* `portList` [SerialPort[]](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 * `callback` Function
   * `portId` String
 
-Emittiert, wenn ein serieller Anschluss ausgewählt werden muss, wenn ein Aufruf `navigator.serial.requestPort` erfolgt. `callback` mit `portId` aufgerufen werden sollte, um ausgewählt zu werden, wird die Anforderung abbrechen, wenn eine leere Zeichenfolge an `callback` übergeben wird.  Darüber hinaus kann die Berechtigung für `navigator.serial` mithilfe [ses.setPermissionCheckHandler(handler)-](#sessetpermissioncheckhandlerhandler) mit der Berechtigung `serial` verwaltet werden.
+Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
 
-Da es sich um ein experimentelles Feature handelt, ist es standardmäßig deaktiviert.  Um diese Funktion zu aktivieren, müssen Sie den Befehlszeilenschalter `--enable-features=ElectronSerialChooser` verwenden.  Darüber hinaus , da dies eine experimentelle Chromium-Funktion ist, müssen Sie `enableBlinkFeatures: 'Serial'` für die `webPreferences` -Eigenschaft festlegen, wenn Sie ein BrowserWindow öffnen.
+Because this is an experimental feature it is disabled by default.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-lassen sie win = null
-app.commandLine.appendSwitch('enable-features'), 'ElectronSerialChooser')
+let win = null
+app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
 
-app.whenReady().then()=> '
-  win = new BrowserWindow('
-    breite: 800,
-    höhe: 600,
+app.whenReady().then(() => {
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
     webPreferences: {
       enableBlinkFeatures: 'Serial'
     }
-  ')
-  win.webContents.session.on (ereignis, portList, callback) =>
+  })
+  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
     event.preventDefault()
-    const selectedPort = portList.find(device) => '
+    const selectedPort = portList.find((device) => {
       return device.vendorId === 0x2341 && device.productId === 0x0043
-    ')
-    wenn (!selectedPort)
+    })
+    if (!selectedPort) {
       callback('')
-    ,
-      rückruf(result1.portId)
-
-  
-
+    } else {
+      callback(result1.portId)
+    }
+  })
+})
 ```
 
-#### Ereignis: 'serial-port-added' _Experimental_
+#### Event: 'serial-port-added' _Experimental_
 
 Rückgabewert:
 
 * `event` Event
-* `port` [SerialPort-](structures/serial-port.md)
+* `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emittiert, nachdem `navigator.serial.requestPort` aufgerufen wurde und `select-serial-port` ausgelöst wurde, wenn eine neue serielle Schnittstelle verfügbar wird.  Dieses Ereignis wird z. B. ausgelöst, wenn ein neues USB-Gerät angeschlossen ist.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
 
-#### Ereignis: 'serial-port-removed' _Experimental_
+#### Event: 'serial-port-removed' _Experimental_
 
 Rückgabewert:
 
 * `event` Event
-* `port` [SerialPort-](structures/serial-port.md)
+* `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emittiert, nachdem `navigator.serial.requestPort` aufgerufen wurde und `select-serial-port` ausgelöst wurde, wenn eine serielle Schnittstelle entfernt wurde.  Dieses Ereignis wird z. B. ausgelöst, wenn ein USB-Gerät getrennt ist.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
 
 ### Instanz Methoden
 
-Die folgenden Methoden sind für Instanzen von `Session`verfügbar:
+The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize()`
 
-Gibt `Promise<Integer>` zurück - die aktuelle Cachegröße der Sitzung in Bytes.
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 #### `ses.clearCache()`
 
-Gibt `Promise<void>` zurück - wird aufgelöst, wenn der Cache-Clear-Vorgang abgeschlossen ist.
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
-Löscht den HTTP-Cache der Sitzung.
+Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options])`
 
 * `options` Objekt (optional)
-  * `origin` String (optional) - Folgen Sie `window.location.origin`darstellungs `scheme://host:port`.
-  * `storages` String[] (optional) - Die zu löschenden Speichertypen können enthalten: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. Wenn nicht angegeben ist, löschen Sie alle Speichertypen.
-  * `quotas` String[] (optional) - Die zu löschenden Kontingenttypen können enthalten: `temporary`, `persistent`, `syncable`. Wenn nicht angegeben, löschen Sie alle Kontingente.
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
 
-Gibt `Promise<void>` zurück - löst auf, wenn die Speicherdaten gelöscht wurden.
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
-Schreibt alle ungeschriebenen DOMStorage-Daten auf den Datenträger.
+Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config)`
 
-* `config` -Objekt
-  * `mode` String (optional) - Der Proxy-Modus. Es sollte ein von `direct`, `auto_detect`, `pac_script`, `fixed_servers` oder `system`sein. Wenn es nicht angegeben ist, wird es automatisch basierend auf anderen angegebenen Optionen bestimmt.
-    * `direct` Im Direktmodus werden alle Verbindungen direkt erstellt, ohne dass ein Proxy beteiligt ist.
-    * `auto_detect` Im auto_detect Modus wird die Proxykonfiguration durch ein PAC-Skript bestimmt, das bei http://wpad/wpad.dat heruntergeladen werden kann.
-    * `pac_script` Im pac_script Modus wird die Proxykonfiguration durch ein PAC-Skript bestimmt, das von der im `pacScript`angegebenen URL abgerufen wird. Dies ist der Standardmodus , wenn `pacScript` angegeben ist.
-    * `fixed_servers` Im fixed_servers Modus wird die Proxykonfiguration in `proxyRules`angegeben. Dies ist der Standardmodus, wenn `proxyRules` angegeben ist.
-    * `system` Im Systemmodus wird die Proxykonfiguration vom Betriebssystem übernommen. Beachten Sie, dass sich der Systemmodus von der Einstellung ohne Proxykonfiguration unterscheidet. Im letzteren Fall greift Electron auf die Systemeinstellungen nur zurück, wenn keine Befehlszeilenoptionen die Proxykonfiguration beeinflussen.
-  * `pacScript` String (optional) - Die URL, die der PAC-Datei zugeordnet ist.
-  * `proxyRules` String (optional) - Regeln, die angeben, welche Proxys verwendet werden sollen.
-  * `proxyBypassRules` String (optional) - Regeln, die angeben, welche URLs die Proxyeinstellungen umgehen sollen.
+* `config` Object
+  * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
+    * `direct` In direct mode all connections are created directly, without any proxy involved.
+    * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
+    * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. This is the default mode if `pacScript` is specified.
+    * `fixed_servers` In fixed_servers mode the proxy configuration is specified in `proxyRules`. This is the default mode if `proxyRules` is specified.
+    * `system` In system mode the proxy configuration is taken from the operating system. Note that the system mode is different from setting no proxy configuration. In the latter case, Electron falls back to the system settings only if no command-line options influence the proxy configuration.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
-Gibt `Promise<void>` zurück : Löst auf, wenn der Proxyeinstellungsprozess abgeschlossen ist.
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
-Legt die Proxyeinstellungen fest.
+Sets the proxy settings.
 
-Wenn `mode` nicht angegeben ist, werden `pacScript` und `proxyRules` zusammen bereitgestellt, die `proxyRules` Option wird ignoriert, und `pacScript` Konfiguration wird angewendet.
+When `mode` is unspecified, `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-Möglicherweise müssen Sie `ses.closeAllConnections` , um derzeit in Flugverbindungen zu schließen, um zu verhindern, dass gepoolte Sockets mit vorherigem Proxy von zukünftigen Anforderungen wiederverwendet werden.
+You may need `ses.closeAllConnections` to close currently in flight connections to prevent pooled sockets using previous proxy from being reused by future requests.
 
-Die `proxyRules` muss sich an die nachstehenden Regeln halten:
+The `proxyRules` has to follow the rules below:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -282,216 +282,216 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 Ein Beispiel:
 
-* `http=foopy:80;ftp=foopy2` : Verwenden Sie HTTP-Proxy- `foopy:80` für `http://` URLs und HTTP-Proxy- `foopy2:80` für `ftp://` URLs.
-* `foopy:80` - Verwenden Sie HTTP-Proxy- `foopy:80` für alle URLs.
-* `foopy:80,bar,direct://` : Verwenden Sie HTTP-Proxy- `foopy:80` für alle URLs, bei der auf `bar` , wenn `foopy:80` nicht verfügbar ist, und danach ohne Proxy.
-* `socks4://foopy` - Verwenden Sie SOCKS v4-Proxy- `foopy:1080` für alle URLs.
-* `http=foopy,socks5://bar.com` - Verwenden Sie HTTP-Proxy- `foopy` für HTTP-URLs, und führen Sie ein Failover auf die SOCKS5-Proxy- `bar.com` , wenn `foopy` nicht verfügbar ist.
-* `http=foopy,direct://` : Verwenden Sie HTTP-Proxy- `foopy` für HTTP-URLs, und verwenden Sie keinen -Proxy, wenn `foopy` nicht verfügbar ist.
-* `http=foopy;socks=foopy2` : Verwenden Sie HTTP-Proxy- `foopy` für HTTP-URLs und `socks4://foopy2` für alle anderen URLs.
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-Die `proxyBypassRules` ist eine durch Kommas getrennte Liste von Regeln, die unten beschrieben werden:
+The `proxyBypassRules` is a comma separated list of rules described below:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
 
-   Entspricht allen Hostnamen, die dem Muster HOSTNAME_PATTERN entsprechen.
+   Match all hostnames that match the pattern HOSTNAME_PATTERN.
 
-   Beispiele: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
 * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
-   Entspricht einem bestimmten Domänensuffix.
+   Match a particular domain suffix.
 
-   Beispiele: ".google.com", ".com", "http://.google.com"
+   Examples: ".google.com", ".com", "http://.google.com"
 
-* `[ SCHEMA "://" ] IP_LITERAL [ ":" PORT ]`
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
 
-   Entspricht URLs, bei denen es sich um IP-Adressliterale handelt.
+   Match URLs which are IP address literals.
 
-   Beispiele: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+   Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
-   Entspricht jeder URL, die sich um ein IP-Literal handelt, das zwischen dem angegebenen Bereich liegt. DER IP-Bereich wird mithilfe der CIDR-Notation angegeben.
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
 
-   Beispiele: "192.168.1.1/16", "fefe:13::abc/33".
+   Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
-   Entspricht lokalen Adressen. Die Bedeutung von `<local>` ist, ob der Gastgeber mit einem von: "127.0.0.1", "::1", "localhost" übereinstimmt.
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-Gibt `Promise<String>` zurück - Wird mit den Proxyinformationen für `url`aufgelöst.
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.forceReloadProxyConfig()`
 
-Gibt `Promise<void>` zurück - Löst auf, wenn alle internen Zustände des Proxydienstes zurückgesetzt werden und die neueste Proxykonfiguration erneut angewendet wird, wenn sie bereits verfügbar ist. Das pac-Skript wird erneut von `pacScript` abgerufen, wenn der Proxymodus `pac_script`ist.
+Returns `Promise<void>` - Resolves when the all internal states of proxy service is reset and the latest proxy configuration is reapplied if it's already available. The pac script will be fetched from `pacScript` again if the proxy mode is `pac_script`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - Der Download-Speicherort.
+* `path` String - The download location.
 
-Legt das Download-Speicherverzeichnis fest. Standardmäßig ist das Download-Verzeichnis der `Downloads` unter dem jeweiligen App-Ordner.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` -Objekt
-  * `offline` Boolean (optional) - Ob Netzwerkausfall emuliert werden soll. Standardmäßig false.
-  * `latency` Double (optional) - RTT in ms. Standardmäßig 0, wodurch Latenzdrosselung deaktiviert wird.
-  * `downloadThroughput` Double (optional) - Download-Rate in Bps. Standardmäßig 0 , die downloaddrosseln deaktiviert.
-  * `uploadThroughput` Double (optional) - Upload-Rate in Bps. Standardmäßig 0 , die die Upload-Einschränkung deaktiviert.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-Emuliert das Netzwerk mit der angegebenen Konfiguration für die `session`.
+Emulates network with the given configuration for the `session`.
 
 ```javascript
-Emulieren einer GPRS-Verbindung mit 50 kbps Durchsatz und 500 ms Latenz.
+// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-- Um einen Netzwerkausfall zu emulieren.
+// To emulate a network outage.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.preconnect(options)`
 
 * `options` -Objekt
-  * `url` String - URL für preconnect. Nur der Ursprung ist für das Öffnen des Sockels relevant.
-  * `numSockets` Anzahl (optional) - Anzahl der Steckdosen, die vorhergestellt werden sollen. Muss zwischen 1 und 6 liegen. Der Standardwert ist 1.
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Der Standardwert ist 1.
 
-Verbindet die angegebene Anzahl von Sockets vor an einen Ursprung.
+Preconnects the given number of sockets to an origin.
 
 #### `ses.closeAllConnections()`
 
-Gibt `Promise<void>` zurück - Wird aufgelöst, wenn alle Verbindungen geschlossen sind.
+Returns `Promise<void>` - Resolves when all connections are closed.
 
-**Hinweis:** Es wird alle Anfragen, die sich derzeit im Flug befinden, beenden / fehlschlagen.
+**Note:** It will terminate / fail all requests currently in flight.
 
 #### `ses.disableNetworkEmulation()`
 
-Deaktiviert alle Netzwerkemulationen, die bereits für die `session`aktiv sind. Setzt zurück, um die ursprüngliche Netzwerkkonfiguration .
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Funktion | Null
-  * `request` -Objekt
+* `proc` Function | null
+  * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `validatedCertificate` [Zertifikat](structures/certificate.md)
-    * `verificationResult` String - Verifizierungsergebnis aus Chrom.
-    * `errorCode` Ganzzahl - Fehlercode.
+    * `validatedCertificate` [Certificate](structures/certificate.md)
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function
-    * `verificationResult` Ganzzahl - Wert kann einer der Zertifikatsfehlercodes sein, die von [hier](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) werden. Neben den Zertifikatsfehlercodes können die folgenden Sondercodes verwendet werden.
-      * `0` - Gibt den Erfolg an und deaktiviert die Zertifikattransparenzüberprüfung.
-      * `-2` - Gibt einen Fehler an.
-      * `-3` - Verwendet das Verifizierungsergebnis aus Chrom.
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
+      * `0` - Indicates success and disables Certificate Transparency verification.
+      * `-2` - Indicates failure.
+      * `-3` - Uses the verification result from chromium.
 
-Legt das Zertifikat sifzfest, proc für `session`, wird der `proc` mit `proc(request, callback)` aufgerufen, wenn ein Serverzertifikat Überprüfung angefordert wird. Wenn `callback(0)` das Zertifikat akzeptiert, lehnt aufrufendes `callback(-2)` es ab.
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
-Wenn `setCertificateVerifyProc(null)` aufzurufen, wird das Standardzertifikat zurückgesetzt, proc zu überprüfen.
+Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-win.webContents.session.setCertificateVerifyProc((request, callback) =>
+win.webContents.session.setCertificateVerifyProc((request, callback) => {
   const { hostname } = request
-  if (hostname === 'github.com') '
+  if (hostname === 'github.com') {
     callback(0)
-  ' else '
+  } else {
     callback(-2)
-
-
+  }
+})
 ```
 
-> **HINWEIS:** Das Ergebnis dieses Verfahrens wird vom Netzwerkdienst zwischengespeichert.
+> **NOTE:** The result of this procedure is cached by the network service.
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Funktion | Null
-  * `webContents` [WebContents](web-contents.md) - WebContents, das die Berechtigung anfordert.  Bitte beachten Sie, dass Sie, wenn die Anfrage von einem Subframe stammt, `requestingUrl` verwenden sollten, um den Ursprung der Anfrage zu überprüfen.
-  * `permission` String - Der Typ der angeforderten Berechtigung.
-    * `clipboard-read` - Anfordern Sie den Zugriff zum Lesen aus der Zwischenablage.
-    * `media` - Anfordern sie den Zugriff auf Mediengeräte wie Kamera, Mikrofon und Lautsprecher.
+* `handler` Function | null
+  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - The type of requested permission.
+    * `clipboard-read` - Request access to read from the clipboard.
+    * `media` -  Request access to media devices such as camera, microphone and speakers.
     * `aufstellen-Eingreif`-Zugang dem Bildschirm antragen.
-    * `mediaKeySystem` - Fordern Sie Zugriff auf DRM-geschützte Inhalte an.
-    * `geolocation` - Anfordern sie den Zugriff auf den aktuellen Standort des Benutzers.
-    * `notifications` - Anfordern der Benachrichtigungserstellung und der Möglichkeit, sie in der Taskleiste des Benutzers anzuzeigen.
-    * `midi` - MIDI-Zugriff in der `webmidi` -API anfordern.
-    * `midiSysex` - Fordern Sie die Verwendung von System-Exklusivnachrichten in der `webmidi` -API an.
-    * `pointerLock` - Anforderung, Mausbewegungen direkt als Eingabemethode zu interpretieren. Klicken Sie hier [](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) um mehr zu erfahren.
-    * `fullscreen` - Fordern Sie an, dass die App in den Vollbildmodus wechselt.
-    * `openExternal` - Anforderung zum Öffnen von Links in externen Anwendungen.
+    * `mediaKeySystem` - Request access to DRM protected content.
+    * `geolocation` - Request access to user's current location.
+    * `notifications` - Request notification creation and the ability to display them in the user's system tray.
+    * `midi` - Request MIDI access in the `webmidi` API.
+    * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
+    * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
+    * `fullscreen` - Request for the app to enter fullscreen mode.
+    * `openExternal` - Request to open links in external applications.
   * `callback` Function
-    * `permissionGranted` boolesch - Erlauben oder verweigern Sie die Berechtigung.
-  * `details` -Objekt - Einige Eigenschaften sind nur für bestimmte Berechtigungstypen verfügbar.
-    * `externalURL` String (optional) - Die URL der `openExternal` -Anforderung.
-    * `mediaTypes` String[] (optional) - Die angeforderten Medienzugriffstypen, Elemente können `video` oder `audio`
-    * `requestingUrl` String - Die letzte URL, die der anfordernde Frame geladen hat
-    * `isMainFrame` Boolean - Ob der Rahmen, der die Anforderung stellt, der Hauptrahmen ist
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `details` Object - Some properties are only available on certain permission types.
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Legt den Handler fest, der verwendet werden kann, um auf Berechtigungsanforderungen für die `session`zu antworten. Wenn `callback(true)` aufzurufen, wird die Berechtigung zugelassen, und `callback(false)` lehnt sie ab. Um den Handler zu löschen, rufen Sie `setPermissionRequestHandler(null)`auf.
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
-session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => '
-  if (webContents.getURL() === 'some-host' && permission === 'notifications') '
-    rückruf(false) / /verweigert.
-  -
+session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return callback(false) // denied.
+  }
 
-  Rückruf(true)
-
+  callback(true)
+})
 ```
 
-#### `ses.setPermissionCheckHandler(Handler)`
+#### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` -Funktion<Boolean> | null
-  * `webContents` [WebContents](web-contents.md) - WebContents überprüfen die Berechtigung.  Bitte beachten Sie, dass Sie, wenn die Anfrage von einem Subframe stammt, `requestingUrl` verwenden sollten, um den Ursprung der Anfrage zu überprüfen.
-  * `permission` String - Typ der Berechtigungsprüfung.  Gültige Werte sind `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`oder `serial`.
-  * `requestingOrigin` String - Die Ursprungs-URL der Berechtigungsprüfung
-  * `details` -Objekt - Einige Eigenschaften sind nur für bestimmte Berechtigungstypen verfügbar.
-    * `securityOrigin` String - Der Sicherheitsursprung der `media` -Prüfung.
-    * `mediaType` String - Der Typ des angeforderten Medienzugriffs kann `video`, `audio` oder `unknown`
-    * `requestingUrl` String - Die letzte URL, die der anfordernde Frame geladen hat
-    * `isMainFrame` Boolean - Ob der Rahmen, der die Anforderung stellt, der Hauptrahmen ist
+* `handler` Function\<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `details` Object - Some properties are only available on certain permission types.
+    * `securityOrigin` String - The security origin of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Legt den Handler fest, der verwendet werden kann, um auf Berechtigungsprüfungen für die `session`zu reagieren. Wenn `true` zurückgegeben wird, wird die Berechtigung zugelassen, und `false` lehnt sie ab. Um den Handler zu löschen, rufen Sie `setPermissionCheckHandler(null)`auf.
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
-session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => '
-  if (webContents.getURL() === 'some-host' && permission === 'Notifications') '
-    geben false * verweigert
-  '
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return false // denied
+  }
 
-  geben true
-zurück
+  return true
+})
 ```
 
 #### `ses.clearHostResolverCache()`
 
-Gibt `Promise<void>` zurück - Wird aufgelöst, wenn der Vorgang abgeschlossen ist.
+Returns `Promise<void>` - Resolves when the operation is complete.
 
-Löscht den Host-Resolver-Cache.
+Clears the host resolver cache.
 
-#### `ses.allowNTLMCredentialsForDomains(Domänen)`
+#### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - Eine durch Kommas getrennte Liste von Servern, für die integrierte Authentifizierung aktiviert ist.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Legt dynamisch fest, ob immer Anmeldeinformationen für HTTP NTLM oder -Authentifizierung aushandeln werden sollen.
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
 const { session } = require('electron')
-/ betrachten Sie jede URL, die mit 'example.com', 'foobar.com', 'baz'
-/ für die integrierte Authentifizierung endet.
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-/ alle URLs für die integrierte Authentifizierung berücksichtigen.
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
@@ -500,136 +500,136 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `userAgent` String
 * `acceptLanguages` String (optional)
 
-Überschreibt die `userAgent` und `acceptLanguages` für diese Sitzung.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-Die `acceptLanguages` muss eine durch Kommas getrennte geordnete Liste von Sprachcodes, zum Beispiel `"en-US,fr,de,ko,zh-CN,ja"` .
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Dies wirkt sich nicht auf vorhandene `WebContents`aus, und jeder `WebContents` kann `webContents.setUserAgent` verwenden, um den sitzungsweiten Benutzer-Agent zu überschreiben.
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.isPersistent()`
 
-Gibt `Boolean` zurück : Gibt an, ob es sich bei dieser Sitzung um eine persistente Sitzung handelt. Die Standardsitzung `webContents` einer `BrowserWindow` ist persistent. Beim Erstellen einer Sitzung die von einer Partition aus erstellt wird, ist die Sitzung mit dem `persist:` persistent, während andere temporär sind.
+Returns `Boolean` - Whether or not this session is a persistent one. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
 
 #### `ses.getUserAgent()`
 
-Gibt `String` zurück : Der Benutzer-Agent für diese Sitzung.
+Returns `String` - The user agent for this session.
 
 #### `ses.setSSLConfig(config)`
 
-* `config` -Objekt
-  * `minVersion` String (optional) - Kann `tls1`, `tls1.1`, `tls1.2` oder `tls1.3`sein. Die minimalen SSL-Version, die beim Herstellen einer Verbindung mit Remoteservern zulässig ist. Standardmäßig `tls1`.
-  * `maxVersion` String (optional) - Kann `tls1.2` oder `tls1.3`werden. Die maximale SSL-Version beim Herstellen einer Verbindung mit Remoteservern zulässig sein. Standardmäßig `tls1.3`.
-  * `disabledCipherSuites` Integer[] (optional) - Liste der Verschlüsselungssammlungen, die explizit daran gehindert werden sollten, zusätzlich zu den , die durch die integrierte Netzrichtlinie deaktiviert werden. Unterstützte Literalformulare: 0xAABB, bei dem AA `cipher_suite[0]` und BB `cipher_suite[1]`ist, wie in RFC 2246, Abschnitt 7.4.1.2 definiert. Unbekannte, aber analysebare Verschlüsselungssammlungen in diesem Formular geben keinen Fehler zurück. Ex: Um TLS_RSA_WITH_RC4_128_MD5 zu deaktivieren, geben Sie 0x0004 an, während Sie TLS_ECDH_ECDSA_WITH_RC4_128_SHA deaktivieren, 0xC002 angeben. Beachten Sie, dass TLSv1.3-Verschlüsselungen mit diesem Mechanismus nicht deaktiviert werden können.
+* `config` Object
+  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
+  * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
+  * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
-Legt die SSL-Konfiguration für die Sitzung fest. Alle nachfolgenden Netzwerkanforderungen verwenden die neue Konfiguration. Vorhandene Netzwerkverbindungen (z. B. WebSocket Verbindungen) werden nicht beendet, aber alte Sockets im Pool werden nicht für neue Verbindungen wiederverwendet.
+Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
 
-#### `ses.getBlobData(Bezeichner)`
+#### `ses.getBlobData(identifier)`
 
-* `identifier` String - Gültige UUID.
+* `identifier` String - Valid UUID.
 
-Gibt `Promise<Buffer>` zurück - wird mit Blobdaten aufgelöst.
+Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
 * `url` String
 
-Initiiert einen Download der Ressource bei `url`. Die API generiert eine [DownloadItem-](download-item.md) , auf die mit dem [](#event-will-download) -Ereignis heruntergeladen werden kann.
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
-**Hinweis:** Dies führt keine Sicherheitsüberprüfungen durch, die sich auf den Ursprung einer Seite beziehen, im Gegensatz zu [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` -Objekt
-  * `path` String - Absoluter Pfad des Downloads.
-  * `urlChain` String[] - Vollständige URL-Kette für den Download.
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
-  * `offset` Integer - Startbereich für den Download.
-  * `length` Integer - Gesamtlänge des Downloads.
-  * `lastModified` String (optional) - Last-Modified-Headerwert.
-  * `eTag` String (optional) - ETag-Headerwert.
-  * `startTime` Double (optional) - Zeit, zu der der Download in Anzahl von Sekunden seit der UNIX-Epoche gestartet wurde.
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Ermöglicht die Wiederaufnahme `cancelled` oder `interrupted` Von Downloads aus früheren `Session`. Die API generiert eine [DownloadItem-](download-item.md) , auf die mit dem [](#event-will-download) -Ereignis heruntergeladen werden kann. Dem [DownloadItem-](download-item.md) sind keine `WebContents` zugeordnet, und der Anfangsstatus `interrupted`wird. Der Download wird erst gestartet, wenn die `resume` API auf der [DownloadItem](download-item.md)aufgerufen wird.
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache()`
 
-Gibt `Promise<void>` zurück : Löst auf, wenn der HTTP-Authentifizierungscache der Sitzung gelöscht wurde.
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
-#### `ses.setPreloads(Vorspannungen)`
+#### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - Ein Array mit absolutem Pfad zum Vorladen von Skripts
+* `preloads` String[] - An array of absolute path to preload scripts
 
-Fügt Skripts hinzu, die auf ALLE Webinhalte ausgeführt werden, die dieser Sitzung unmittelbar vor der normalen `preload` Skripts verknüpft sind.
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-Gibt `String[]` einem Array von Pfaden zurück, um Skripts vorzuladen, die registriert wurden.
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
-#### `ses.setSpellCheckerEnabled(aktivieren)`
+#### `ses.setSpellCheckerEnabled(enable)`
 
 * `enable` Boolean
 
-Legt fest, ob die integrierte Rechtschreibprüfung aktiviert werden soll.
+Sets whether to enable the builtin spell checker.
 
 #### `ses.isSpellCheckerEnabled()`
 
-Gibt `Boolean` zurück - Gibt an, ob die integrierte Rechtschreibprüfung aktiviert ist.
+Returns `Boolean` - Whether the builtin spell checker is enabled.
 
-#### `ses.setSpellCheckerLanguages(Sprachen)`
+#### `ses.setSpellCheckerLanguages(languages)`
 
-* `languages` String[] - Ein Array von Sprachcodes, für die die Rechtschreibprüfung aktiviert werden kann.
+* `languages` String[] - An array of language codes to enable the spellchecker for.
 
-Die integrierte Rechtschreibprüfung erkennt nicht automatisch, in welche Sprache ein Benutzer eingibt.  Damit die Rechtschreibprüfung ihre Wörter korrekt überprüfen kann, müssen Sie diese API mit einer Reihe von Sprachcodes aufrufen.  Sie können die Liste der unterstützten Sprachcodes mit der `ses.availableSpellCheckerLanguages` -Eigenschaft abrufen.
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
 
-**Hinweis:** unter macOS wird die OS-Rechtschreibprüfung verwendet und erkennt Ihre Sprache automatisch.  Diese API ist ein No-Op unter macOS.
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 #### `ses.getSpellCheckerLanguages()`
 
-Gibt `String[]` zurück - Ein Array von Sprachcodes, für die die Rechtschreibprüfung aktiviert ist.  Wenn diese Liste leer ist, wird die Rechtschreibprüfung auf die Verwendung von `en-US`zurückgesetzt.  Standardmäßig beim Start, wenn es sich bei dieser Einstellung um eine leere Liste handelt, versucht Electron, diese Einstellung mit dem aktuellen OS-Gebietsschema aufzufüllen.  Diese Einstellung wird bei Neustarts beibehalten.
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
 
-**Hinweis:** unter macOS wird die OS-Rechtschreibprüfung verwendet und verfügt über eine eigene Liste von Sprachen.  Diese API ist ein No-Op unter macOS.
+**Note:** On macOS the OS spellchecker is used and has its own list of languages.  This API is a no-op on macOS.
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
-* `url` String - Eine Basis-URL für Electron zum Herunterladen von Hunspell-Wörterbüchern.
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-Standardmäßig lädt Electron hunspell Wörterbücher aus dem Chromium CDN herunter.  Wenn Sie dieses Verhalten überschreiben möchten, können Sie diese API verwenden, um den Wörterbuchdownloader auf Ihre eigene gehostete Version der Wörterbücher zu verweisen.  Wir veröffentlichen eine `hunspell_dictionaries.zip` Datei mit jeder Version, die die Dateien enthält, die Sie hier hosten müssen, muss der Dateiserver **Groß-/Kleinschreibung unsensibel sein,** Sie jede Datei zweimal hochladen müssen, einmal mit dem Fall, dass sie in der ZIP-Datei hat und einmal mit dem Dateinamen wie alle Kleinbuchstaben.
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
-Wenn die in `hunspell_dictionaries.zip` vorhandenen Dateien unter `https://example.com/dictionaries/language-code.bdic` verfügbar sind, sollten Sie diese api mit `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`aufrufen.  Bitte beachten Sie den nachgestellten Schrägstrich.  Die URL zu den Wörterbüchern wird als `${url}${filename}`gebildet.
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Please note the trailing slash.  The URL to the dictionaries is formed as `${url}${filename}`.
 
-**Hinweis:** unter macOS wird die OS-Rechtschreibprüfung verwendet und deshalb laden wir keine Wörterbuchdateien herunter.  Diese API ist ein No-Op unter macOS.
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 
-Gibt `Promise<String[]>` zurück - Ein Array aller Wörter im Benutzerwörterbuch der App. Löst auf, wenn das vollständige Wörterbuch vom Datenträger geladen wird.
+Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
 
-#### `ses.addWordToSpellCheckerDictionary(Wort)`
+#### `ses.addWordToSpellCheckerDictionary(word)`
 
-* `word` - Das Wort, das Sie dem Wörterbuch hinzufügen möchten
+* `word` String - The word you want to add to the dictionary
 
-Gibt `Boolean` zurück : Gibt an, ob das Wort erfolgreich in das Benutzerwörterbuch geschrieben wurde. Diese API funktioniert nicht auf nicht persistenten (in-Memory)-Sitzungen.
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
 
-**Hinweis:** unter macOS und Windows 10 wird dieses Wort auch in das OS-Benutzerwörterbuch geschrieben
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
 
-#### `ses.removeWordFromSpellCheckerDictionary(Wort)`
+#### `ses.removeWordFromSpellCheckerDictionary(word)`
 
-* `word` String - Das Wort, das Sie aus dem Wörterbuch entfernen möchten
+* `word` String - The word you want to remove from the dictionary
 
-Gibt `Boolean` zurück : Gibt an, ob das Wort erfolgreich aus dem Benutzerwörterbuch entfernt wurde. Diese API funktioniert nicht auf nicht persistenten (in-Memory)-Sitzungen.
+Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
 
-**Hinweis:** unter macOS und Windows 10 wird dieses Wort auch aus dem BENUTZERwörterbuch des Betriebssystems entfernt
+**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
 
 #### `ses.loadExtension(path[, options])`
 
-* `path` String - Pfad zu einem Verzeichnis, das eine entpackte Chrome-Erweiterung enthält
+* `path` String - Path to a directory containing an unpacked Chrome extension
 * `options` Objekt (optional)
-  * `allowFileAccess` Boolean - Gibt an, ob die Erweiterung lokale Dateien über `file://` Protokoll lesen und Inhaltsskripts in `file://` Seiten einfügen kann. Dies ist z.B. zum Laden devtools-Erweiterungen auf `file://` URLs erforderlich. Der Standardwert ist false.
+  * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. Der Standardwert ist false.
 
-Gibt `Promise<Extension>` zurück - wird aufgelöst, wenn die Erweiterung geladen wird.
+Returns `Promise<Extension>` - resolves when the extension is loaded.
 
-Diese Methode löst eine Ausnahme aus, wenn die Erweiterung nicht geladen werden konnte. Wenn gibt es Warnungen bei der Installation der Erweiterung (z. B. wenn die Erweiterung eine API anfordert, die Electron nicht unterstützt), werden sie an der Konsole protokolliert.
+This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
 
-Beachten Sie, dass Electron nicht die gesamte Palette der Chrome-Erweiterungs-APIs unterstützt. Weitere Informationen zu den unterstützten Informationen finden Sie unter [-unterstützungs-Erweiterungs-APIs ](extensions.md#supported-extensions-apis) .
+Note that Electron does not support the full range of Chrome extensions APIs. See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for more details on what is supported.
 
 Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
