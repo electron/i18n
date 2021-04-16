@@ -1,26 +1,26 @@
-## Klasse: ShareMenu
+## Class: ShareMenu
 
-> Erstellen Sie das Freigabemenü unter macOS.
+> Create share menu on macOS.
 
 Prozess: [Main](../glossary.md#main-process)
 
-Die `ShareMenu` -Klasse erstellt [Share Menu][share-menu] unter macOS, die verwendet werden können, um Informationen aus dem aktuellen Kontext für Apps, Social Media Konten und andere Dienste freizugeben.
+The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
 
-Um das Freigabemenü als Untermenü anderer Menüs einzuschließen, verwenden Sie bitte die `shareMenu` Rolle von [`MenuItem`](menu-item.md).
+For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
 
-### `neues ShareMenu(sharingItem)`
+### `new ShareMenu(sharingItem)`
 
-* `sharingItem` SharingItem - Das element, das geteilt werden soll.
+* `sharingItem` SharingItem - The item to share.
 
-Erstellt ein neues Freigabemenü.
+Creates a new share menu.
 
 ### Instanz Methoden
 
-Das `shareMenu` -Objekt verfügt über die folgenden Instanzmethoden:
+The `shareMenu` object has the following instance methods:
 
 #### `shareMenu.popup([options])`
 
-* `options` PopupOptionen (optional)
+* `options` PopupOptions (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
