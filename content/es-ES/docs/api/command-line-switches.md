@@ -30,11 +30,11 @@ entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será c
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-Una lista de servidores separados por comas para las cuales se necesita la delegación de credenciales de usuario. Sin el prefijo `*` la URL ha de coincidir exactamente.
+A comma-separated list of servers for which delegation of user credentials is required. Sin el prefijo `*` la URL ha de coincidir exactamente.
 
-### --Disable-NTLM-v2
+### --disable-ntlm-v2
 
-Inhabilita NTLM v2 para plataformas POSIX, sin efecto en otro lugar.
+Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ### --disable-http-cache
 
@@ -85,7 +85,7 @@ Por ejemplo:
 
 * `MAP * 127.0.0.1` Fuerza todos los nombres de host a ser mapeados a 127.0.0.1
 * `MAP *.google.com proxy` Fuerza todos los subdominios google.com a ser resueltos como "proxy".
-* `MAP test.com [::1]:77` obliga a "test.com" a resolver el loopback de IPv6. También obligará al puerto de la dirección de socket resultante a ser 77.
+* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Mapeara todo a "baz", excepto para "www.google.com".
 
 Estos mapeados aplican al host punto final en una petición de red (la conexión TCP y el host se solventan en una conexión directa, `CONNECT` en una conexión HTTP proxy, y el host punto fila en una conexión proxy `SOCKS`).
@@ -181,19 +181,19 @@ Electron soporta algunas de las [CLI flags][node-cli] soportadas por Node.js.
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
-### --Inspect-BRK [= [host:] Puerto]
+### --inspect-brk[=[host:]port]
 
 Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
-### --Inspect-Port = [host:] Puerto
+### --inspect-port=[host:]port
 
 Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
-### --Inspect [= [host:] Port]
+### --inspect[=[host:]port]
 
 Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
@@ -203,7 +203,7 @@ Vea la guía de [Debugging the Main Process][debugging-main-process] para más d
 
 Aliased to `--debug[=[host:]port`.
 
-### --Inspect-Publish-UID = stderr, http
+### --inspect-publish-uid=stderr,http
 
 Specify ways of the inspector web socket url exposure.
 
