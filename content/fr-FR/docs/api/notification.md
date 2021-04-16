@@ -28,7 +28,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 ### `new Notification([options])`
 
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
   * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
