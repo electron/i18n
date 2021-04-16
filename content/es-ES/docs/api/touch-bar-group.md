@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process)
 
-### `nuevo TouchBarGroup (opciones)`
+### `new TouchBarGroup(options)`
 
 * `options` Object
   * `items` [TouchBar](touch-bar.md) - Los elementos que se muestran como un grupo.
