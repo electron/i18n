@@ -137,7 +137,7 @@ Ajoute un en-tête HTTP supplémentaire. Le nom de l'en-tête sera publié tel q
 Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
 
 * `Content-Length`
-* `Hôte`
+* `Host`
 * `Trailer` or `Te`
 * `Upgrade`
 * `Cookie2`
