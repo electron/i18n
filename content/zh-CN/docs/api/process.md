@@ -6,15 +6,15 @@
 
 Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
-## 沙 箱
+## Sandbox
 
 在沙盒化的渲染进程中， `process` 对象只包含了API的一个子集:
 
-- `崩溃（）`
-- `挂（）`
-- `获取创建时间（）`
-- `获取海普统计学（）`
-- `获取链接记忆信息（）`
+- `crash()`
+- `hang()`
+- `getCreationTime()`
+- `getHeapStatistics()`
+- `getBlinkMemoryInfo()`
 - `getProcessMemoryInfo()`
 - `getSystemMemoryInfo()`
 - `getSystemVersion()`
