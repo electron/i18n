@@ -12,15 +12,15 @@
 
 Возникает, когда система приостановлена.
 
-### Событие: «резюме» _macOS_ _Windows_
+### Event: 'resume' _macOS_ _Windows_
 
 Возникает при возобновлении работы системы.
 
-### Событие: 'on-ac' _macOS_ _Windows_
+### Event: 'on-ac' _macOS_ _Windows_
 
 Используется при переключении системы на питание от переменного тока (блока питания).
 
-### Событие: "на батарее" _macOS_  _Windows_
+### Event: 'on-battery' _macOS_  _Windows_
 
 Используется при переключении системы на питание от батареи.
 
@@ -36,13 +36,13 @@
 
 Возникает, как только система разблокирует экран.
 
-### Событие: 'пользователь-сделал-стал активным' _macOS_
+### Event: 'user-did-become-active' _macOS_
 
-Излучается при активации сеанса входа. Дополнительную информацию [можно](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) в документации.
+Emitted when a login session is activated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidbecomeactivenotification?language=objc) for more information.
 
-### Событие: 'пользователь-сделал-уйти в отставку-активный' _macOS_
+### Event: 'user-did-resign-active' _macOS_
 
-Испускаемый при отключении сеанса входа. Дополнительную информацию [можно](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) в документации.
+Emitted when a login session is deactivated. See [documentation](https://developer.apple.com/documentation/appkit/nsworkspacesessiondidresignactivenotification?language=objc) for more information.
 
 ## Методы
 
@@ -52,9 +52,9 @@
 
 * `idleThreshold` Integer
 
-Возвращает `String` - текущее состояние системы. Может быть `active`, `idle`, `locked` или `unknown`.
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` доступна только на поддерживаемых системах.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
@@ -64,14 +64,14 @@ Calculate the system idle state. `idleThreshold` is the amount of time (in secon
 
 ### `powerMonitor.isOnBatteryPower()`
 
-Возвращает `Boolean` - ли система находится на батарее.
+Returns `Boolean` - Whether the system is on battery power.
 
-Для мониторинга изменений в этом свойстве используйте `on-battery` и `on-ac` события.
+To monitor for changes in this property, use the `on-battery` and `on-ac` events.
 
 ## Свойства
 
 ### `powerMonitor.onBatteryPower`
 
-Свойство `Boolean` . Правда, если система находится на батарее.
+Свойство `Boolean` . True if the system is on battery power.
 
-Смотрите [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
+See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
