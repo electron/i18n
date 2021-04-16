@@ -1,6 +1,6 @@
 # Objeto JumpListItem
 
-* `type` String (opcional)-uno de los siguientes:
+* `type` String (optional) - One of the following:
   * `task` - Una tarea lanzará una aplicación con un argumento específico.
   * `separator` - Puede ser usado para separar elementos en la categoría estándar `Tasks`.
   * `file` - Un link de un archivo abrirá uno usando la aplicación que creó el salto de lista, para que esto funciona la aplicación debe estar registrada como controlador del tipo de archivo (A pesar de que no tiene que ser el controlador por defecto).
