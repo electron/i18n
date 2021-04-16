@@ -78,7 +78,7 @@ Envía una solicitud para obtener todas las cookies que coincidan con `filter`, 
 
 #### `cookies.set(details)`
 
-* Objeto `details`
+* `details` Object
   * `url` String - La URL con la que asociar la cookie. La promise será rechazada si la URL es invalida.
   * `name` String (opcional) - El nombre de la cookie. Vacío por defecto si se omite.
   * `value` String (opcional) - El valor de la cookie. Vacío por defecto si se omite.
