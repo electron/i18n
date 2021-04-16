@@ -7,5 +7,5 @@
 * `senderFrame` WebFrameMain _Readonly_ - The frame that sent this message
 * `ports` MessagePortMain[] - Uma lista de MessagePorts que foram transferidos com esta mensagem
 * `reply` Função - Uma função que enviará uma mensagem IPC para o quadro renderizador que enviou a mensagem original que você está usando atualmente.  You should use this method to "reply" to the sent message in order to guarantee the reply will go to the correct process and frame.
-  * `channel` Cordas
-  * `...args` qualquer[]
+  * `channel` String
+  * `...args` any[]
