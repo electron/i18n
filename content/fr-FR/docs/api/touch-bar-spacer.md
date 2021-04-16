@@ -4,18 +4,18 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `nouveau TouchBarSpacer (options)`
+### `new TouchBarSpacer(options)`
 
 * `options` objet
-  * `size` String (facultatif) - Taille de l’espaceur, les valeurs possibles sont:
-    * `small` - petit espacement entre les éléments. Cartes à `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
-    * `large` - grand espacement entre les éléments. Cartes à `NSTouchBarItemIdentifierFixedSpaceLarge`.
-    * `flexible` - Prend tout l'espace disponible. Cartes à `NSTouchBarItemIdentifierFlexibleSpace`.
+  * `size` String (optional) - Size of spacer, possible values are:
+    * `small` - petit espacement entre les éléments. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - grand espacement entre les éléments. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Prend tout l'espace disponible. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
 
 ### Propriétés d'instance
 
-Les propriétés suivantes sont disponibles sur les instances de `TouchBarSpacer`:
+The following properties are available on instances of `TouchBarSpacer`:
 
-#### `touchBarSpacer.size TouchBarSpacer.size TouchBarSpacer.size touchBar`
+#### `touchBarSpacer.size`
 
-Un `String` représentant la taille de l’espaceur.  Peut être `small`, `large` ou `flexible`.
+A `String` representing the size of the spacer.  Peut être `small`, `large` ou `flexible`.
