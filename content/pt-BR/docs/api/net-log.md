@@ -1,31 +1,31 @@
 # netLog
 
-> Registrando eventos de rede para uma sessão.
+> Logging network events for a session.
 
 Processo: [Main](../glossary.md#main-process)
 
 ```javascript
-const { netLog } = require ('electron')
+const { netLog } = require('electron')
 
 app.whenReady().then(async () => {
-  aguard netLog.startLogging ('/path/to/net-log')
-  // Depois de alguns eventos de rede
-  caminho const = aguard netLog.stopLogging()
-  console.log('Net-logs escritos para', caminho)
+  await netLog.startLogging('/path/to/net-log')
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
 
-Veja [`--log-net-log`](command-line-switches.md#--log-net-logpath) para registrar eventos de rede durante todo o ciclo de vida do aplicativo.
+See [`--log-net-log`](command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
 
 **Nota:** Todos os métodos, a menos que seja especificados, só podem ser usados ​​após o evento `app` quando é emitido.
 
 ## Métodos
 
-### `netLog.startLogging (caminho[, opções])`
+### `netLog.startLogging(path[, options])`
 
-* `path` String - Caminho de arquivo para registrar registros de rede.
+* `path` String - File path to record network logs.
 * `options` Object (optional)
-  * `captureMode` String (opcional) - Que tipos de dados devem ser capturados. Até padrão, apenas metadados sobre solicitações serão capturados. Definindo-o para `includeSensitive` incluirá cookies e dados de autenticação. A configuração -lo para `everything` incluirá todos os bytes transferidos em soquetes. Can be `default`, `includeSensitive` or `everything`.
+  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
 Returns `Promise<void>` - resolves when the net log has begun recording.
