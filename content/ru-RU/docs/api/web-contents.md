@@ -1,10 +1,10 @@
 # webContents
 
-> Рендер и управление веб-страницами.
+> Render and control web pages.
 
 Процесс: [Основной](../glossary.md#main-process)
 
-`webContents` является [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
+`webContents` is an [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -33,11 +33,11 @@ console.log(webContents)
 
 Возвращает `WebContents` - веб-контент, который сейчас активен в этом приложении, в ином случае возвращает `null`.
 
-### `webContents.fromId (id)`
+### `webContents.fromId(id)`
 
 * `id` Integer
 
-Возвращает `WebContents` | неопределенный - Экземпляр WebContents с данным идентификатором, или `undefined` если нет WebContents, связанных с данный идентификатор.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Класс: WebContents
 
@@ -47,56 +47,56 @@ console.log(webContents)
 
 ### События экземпляра
 
-#### Событие: 'did-finish-load'
+#### Event: 'did-finish-load'
 
-Излучаемый при навигации, т.е. спиннер вкладки перестал вращаться , и `onload` событие было отправлено.
+Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
 
-#### Событие: 'не-не-нагрузка'
-
-Возвращает:
-
-* `event` Event
-* `errorCode` Integer
-* `errorDescription` Струна
-* `validatedURL` Струна
-* `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
-
-Это событие, как `did-finish-load` , но излучается, когда нагрузка не удалось. Полный список кодов ошибок и их значение можно найти [здесь](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
-
-#### Событие: 'did-fail-provisional-load'
+#### Event: 'did-fail-load'
 
 Возвращает:
 
 * `event` Event
 * `errorCode` Integer
-* `errorDescription` Струна
-* `validatedURL` Струна
+* `errorDescription` String
+* `validatedURL` String
 * `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Это событие, как `did-fail-load` , но излучается, когда нагрузка была (например. `window.stop()` была вызвана).
+This event is like `did-finish-load` but emitted when the load failed. The full list of error codes and their meaning is available [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
-#### Событие: 'did-frame-finish-load'
+#### Event: 'did-fail-provisional-load'
+
+Возвращает:
+
+* `event` Event
+* `errorCode` Integer
+* `errorDescription` String
+* `validatedURL` String
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+
+#### Event: 'did-frame-finish-load'
 
 Возвращает:
 
 * `event` Event
 * `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Испускаемый, когда рама сделала навигацию.
+Emitted when a frame has done navigation.
 
 #### Событие: 'did-start-loading'
 
-Соответствует точкам времени, когда спиннер вкладки начал вращаться.
+Corresponds to the points in time when the spinner of the tab started spinning.
 
 #### Событие: 'did-stop-loading'
 
-Соответствует точкам времени, когда спиннер вкладки перестал вращаться.
+Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Событие: 'dom-ready'
 
@@ -104,7 +104,7 @@ console.log(webContents)
 
 * `event` Event
 
-Испускаемый при загрузке документа в данном кадре.
+Emitted when the document in the given frame is loaded.
 
 #### Событие: 'page-title-updated'
 
@@ -114,78 +114,78 @@ console.log(webContents)
 * `title` String
 * `explicitSet` Boolean
 
-Высовыток, когда заголовок страницы устанавливается во время навигации. `explicitSet` является ложным, название синтезируется из URL-адреса файла.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 #### Событие: 'page-favicon-updated'
 
 Возвращает:
 
 * `event` Event
-* `favicons` String - Массив URL-адресов.
+* `favicons` String[] - Array of URLs.
 
-Излучаемый при просмотре страницы favicon URL-адреса.
+Emitted when page receives favicon urls.
 
-#### Событие: "новое окно" _Deprecated_
+#### Event: 'new-window' _Deprecated_
 
 Возвращает:
 
 * `event` NewWindowWebContentsEvent
 * `url` String
 * `frameName` String
-* `disposition` - может быть `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` и `other`.
-* `options` BrowserWindowConstructorOptions - Варианты, которые будут использоваться для создания новых [`BrowserWindow`](browser-window.md).
-* `additionalFeatures` String - Нестандартные функции (функции, не обрабатываемые хромом или электроном), данные `window.open()`.
-* `referrer` [реферер](structures/referrer.md) - реферер, который будет передан в новое окно. Может или не может привести к отправке `Referer` заголовка , в зависимости от политики реферера.
-* `postBody` [PostBody](structures/post-body.md) (по желанию) - почтовые данные, которые будут отправлены в новое окно, вместе с соответствующими головами, которые будут установлены. Если данные о должности не будут отправлены, значение будет `null`. Определяется только , когда окно создается формой, которая устанавливает `target=_blank`.
+* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
 
-Deprecated в пользу [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-Излучается, когда страница просит открыть новое окно для `url`. Это может быть , запрошенный `window.open` или внешней ссылке, как `<a target='_blank'>`.
+Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
-По умолчанию для `BrowserWindow` будет создан новый `url`.
+By default a new `BrowserWindow` will be created for the `url`.
 
-Вызов `event.preventDefault()` предотвратит автоматическое создание Electron новой [`BrowserWindow`](browser-window.md). Если вы звоните `event.preventDefault()` и вручную создаете новый [`BrowserWindow`](browser-window.md) то вы должны установить `event.newGuest` для ссылки на новый [`BrowserWindow`](browser-window.md) например, невыполнение этого может привести к неожиданному поведению. Например:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Например:
 
 ```javascript
-myBrowserWindow.webContents.on ('новое окно', (событие, URL, frameName, расположение, варианты, additionalFeatures, реферер, postBody) -> -
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
   event.preventDefault()
-  const win - новый BrowserWindow (no
-    webContents: options.webContents, // использовать существующие webContents при условии
-    показать: ложные
-  q)
-  win.once ('ready--ready--to-show', () -> win.show ())
-  если (!options.webContents) -
-    const loadOptions - {
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
+  win.once('ready-to-show', () => win.show())
+  if (!options.webContents) {
+    const loadOptions = {
       httpReferrer: referrer
     }
-    если (postBody ! ) -
-      const { data, contentType, boundary } - postBody
-      loadOptions.postData - postBody.data
-      loadOptions.extraHeaders - "тип контента: ${contentType}; граница"${boundary}'
-    -
+    if (postBody != null) {
+      const { data, contentType, boundary } = postBody
+      loadOptions.postData = postBody.data
+      loadOptions.extraHeaders = `content-type: ${contentType}; boundary=${boundary}`
+    }
 
-    win.loadURL (url, loadOptions) // Существующие webContents будут перемещаться автоматически
-  -
-  event.newGuest - win
-)
+    win.loadURL(url, loadOptions) // existing webContents will be navigated automatically
+  }
+  event.newGuest = win
+})
 ```
 
-#### Событие: 'сделал-создать-окно'
+#### Event: 'did-create-window'
 
 Возвращает:
 * `window` BrowserWindow
 * `details` объект
-    * `url` String - URL для созданного окна.
-    * `frameName` String - Имя, данное созданному окну в `window.open()` вызова.
-    * `options` BrowserWindowConstructorOptions - варианты, используемые для создания BrowserWindow. Они объединены в увеличиваемый приоритет: варианты, от родителя, разобранной опции из строки `features` от `window.open()`, и варианты, данные [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Непризнанные параметры не отфильтрованы.
-    * `additionalFeatures` String - Нестандартные функции (функции, не обработаны хромом или электроном) _deprecated_
-    * `referrer` [реферер](structures/referrer.md) - реферер, который будет передан в новое окно. Может или не может привести к отправке `Referer` заголовка , в зависимости от политики реферера.
-    * `postBody` [PostBody](structures/post-body.md) (по желанию) - почтовые данные которые будут отправлены в новое окно, наряду с соответствующими которые будут установлены. Если данные о должности не будут отправлены, значение будет `null`. Определяется только тогда, когда окно создается формой, которая устанавливает `target=_blank`.
-    * `disposition` - может быть `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` и `other`.
+    * `url` String - URL for the created window.
+    * `frameName` String - Name given to the created window in the `window.open()` call.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
+    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
+    * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
-Излучаемые _после_ успешного создания окна через `window.open` в рендере. Не излучается, если создание окна отменяется из [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-Более подробную [`window.open()`](window-open.md) и как использовать это в сочетании с `webContents.setWindowOpenHandler`.
+See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
 
 #### Событие: 'will-navigate'
 
@@ -194,56 +194,56 @@ myBrowserWindow.webContents.on ('новое окно', (событие, URL, fra
 * `event` Event
 * `url` String
 
-Излучается, когда пользователь или страница хочет начать навигацию. Это может произойти `window.location` объекте или пользователь нажимает на ссылку на странице.
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
-Это событие не будет излучать, когда навигация запущена программно с API, `webContents.loadURL` и `webContents.back`.
+This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
 
-Он также не излучается для навигации на страницах, таких как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
+It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Вызов `event.preventDefault()` предотвратит навигацию.
+Calling `event.preventDefault()` will prevent the navigation.
 
-#### Событие: 'did-start-navigation'
-
-Возвращает:
-
-* `event` Event
-* `url` String
-* `isInPlace` Булан
-* `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
-
-Излучается, когда любой кадр (включая основной) начинает навигацию. `isInPlace` будет `true` для навигации на страницах.
-
-#### Событие: 'будет перенаправление'
+#### Event: 'did-start-navigation'
 
 Возвращает:
 
 * `event` Event
 * `url` String
-* `isInPlace` Булан
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Излучаемый в качестве сервера сторона перенаправления происходит во время навигации.  Например, 302 перенаправления.
+Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
-Это событие будет излучаться после `did-start-navigation` и всегда до `did-redirect-navigation` события для той же навигации.
-
-Вызов `event.preventDefault()` предотвратит навигацию (а не только перенаправление).
-
-#### Событие: 'did-перенаправление-навигация'
+#### Event: 'will-redirect'
 
 Возвращает:
 
 * `event` Event
 * `url` String
-* `isInPlace` Булан
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Излучаемый после перенаправления стороны сервера происходит во время навигации.  Например, 302 перенаправления.
+Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
+
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+
+#### Event: 'did-redirect-navigation'
+
+Возвращает:
+
+* `event` Event
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
 Это событие не может быть предотвращено, если вы хотите предотвратить перенаправления, то должны проверить событие`will-redirect` выше.
 
@@ -253,42 +253,42 @@ myBrowserWindow.webContents.on ('новое окно', (событие, URL, fra
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 для не http навигации
-* `httpStatusText` Строка - пустой для не HTTP навигации
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-Излучается при навигации основного кадра.
+Emitted when a main frame navigation is done.
 
-Это событие не излучается для навигации на страницах, таких как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### Событие: 'did-frame-navigate'
-
-Возвращает:
-
-* `event` Event
-* `url` String
-* `httpResponseCode` Integer - -1 для не http навигации
-* `httpStatusText` String - пустой для не http навигации,
-* `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
-
-Излучается при навигации по кадрам.
-
-Это событие не излучается для навигации на страницах, таких как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
-
-#### Событие: 'сделал-навигация в странице'
+#### Event: 'did-frame-navigate'
 
 Возвращает:
 
 * `event` Event
 * `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
-* `frameProcessId` Интегрер
-* `frameRoutingId` Интегрер
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Излучается при навигации на странице в любом кадре.
+Emitted when any frame navigation is done.
 
-При навигации на странице URL-адрес страницы изменяется, но не навигации за пределами страницы. Примерами этого являются случаи, когда якорные ссылки на кнопку или когда `hashchange` событие DOM.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+#### Event: 'did-navigate-in-page'
+
+Возвращает:
+
+* `event` Event
+* `url` String
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when an in-page navigation happened in any frame.
+
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 #### Событие: 'will-prevent-unload'
 
@@ -296,9 +296,9 @@ myBrowserWindow.webContents.on ('новое окно', (событие, URL, fra
 
 * `event` Event
 
-Испускаемый `beforeunload` обработчик событий пытается отменить выгрузку страницы.
+Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
-Вызов `event.preventDefault()` будет игнорировать `beforeunload` событий и позволит выгрузить страницу.
+Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
 ```javascript
 const { BrowserWindow, dialog } = require('electron')
@@ -319,14 +319,14 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Событие: "разбитый" _Deprecated_
+#### Event: 'crashed' _Deprecated_
 
 Возвращает:
 
 * `event` Event
 * `killed` Boolean
 
-Испускаемый при с крахе процесса рендерера или его погиб.
+Emitted when the renderer process crashes or is killed.
 
 **:** Это событие затухает событие `render-process-gone` , содержит больше информации о том, почему процесс визуализации исчез. Это не всегда, потому что он разбился.  На `killed` boolean можно заменить проверки `reason === 'killed'` при переходе на это событие.
 
@@ -364,31 +364,31 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `name` String
 * `version` String
 
-Излучается при сноме плагина.
+Emitted when a plugin process has crashed.
 
 #### Событие: 'destroyed'
 
-Излучается при `webContents` разрушается.
+Emitted when `webContents` is destroyed.
 
 #### Событие: 'before-input-event'
 
 Возвращает:
 
 * `event` Event
-* `input` объект - Входные свойства.
-  * `type` строка - либо `keyUp` или `keyDown`.
-  * `key` строка - эквивалент [KeyboardEvent.key][keyboardevent].
-  * `code` строка - эквивалент [KeyboardEvent.code][keyboardevent].
-  * `isAutoRepeat` Boolean - Эквивалент [KeyboardEvent.повторить][keyboardevent].
-  * `isComposing` Boolean - эквивалент [KeyboardEvent.isComposing][keyboardevent].
-  * `shift` Boolean - эквивалент [KeyboardEvent.shiftKey][keyboardevent].
-  * `control` Boolean - эквивалент [KeyboardEvent.controlKey][keyboardevent].
-  * `alt` Boolean - эквивалент [KeyboardEvent.altKey][keyboardevent].
-  * `meta` Boolean - эквивалент [KeyboardEvent.metaKey][keyboardevent].
+* `input` Object - Input properties.
+  * `type` String - Either `keyUp` or `keyDown`.
+  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
+  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
+  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
 
-Излучается перед отправкой `keydown` и `keyup` событий на странице. Вызов `event.preventDefault` предотвратит страницу `keydown`/`keyup` события и ярлыки меню.
+Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
-Чтобы предотвратить только ярлыки меню, используйте [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -398,8 +398,8 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('before-input-event', (event, input) => {
   // Например, включать сочетания клавиш меню приложения
   // Только когда Ctrl/Cmd нажаты.
-  win.webContents.setIgnoreMenuShortcuts (!input.control && !input.meta)
-))
+  win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
+})
 ```
 
 #### Событие: 'enter-html-full-screen'
@@ -410,26 +410,26 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Происходит, когда окно выходит из полноэкранного режима с помощью HTML API.
 
-#### Событие: 'зум-изменен'
+#### Event: 'zoom-changed'
 
 Возвращает:
 
 * `event` Event
-* `zoomDirection` строка - может быть `in` или `out`.
+* `zoomDirection` String - Can be `in` or `out`.
 
-Излучается, когда пользователь просит изменить уровень масштабирования с помощью колеса мыши.
+Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
 #### Событие: 'devtools-opened'
 
-Излучается при открытии DevTools.
+Emitted when DevTools is opened.
 
 #### Событие: 'devtools-closed'
 
-Излучается, когда DevTools закрыт.
+Emitted when DevTools is closed.
 
-#### Событие: 'devtools-ориентированных'
+#### Event: 'devtools-focused'
 
-Излучаемый, когда DevTools сосредоточен / открыт.
+Emitted when DevTools is focused / opened.
 
 #### Событие: 'certificate-error'
 
@@ -440,11 +440,11 @@ win.webContents.on('before-input-event', (event, input) => {
 * `error` String - код ошибки.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
-  * `isTrusted` Boolean - Указывает, можно ли считать сертификат доверенным.
+  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
-Излучается, когда не удалось проверить `certificate` для `url`.
+Emitted when failed to verify the `certificate` for `url`.
 
-Использование то же самое с [ `certificate-error` событие `app`](app.md#event-certificate-error).
+The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
 #### Событие: 'select-client-certificate'
 
@@ -454,11 +454,11 @@ win.webContents.on('before-input-event', (event, input) => {
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
-  * `certificate` [Сертификат](structures/certificate.md) - Должен быть сертификат из данного списка.
+  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Происходит, когда запрошен сертификат клиента.
 
-Использование то же самое с [ `select-client-certificate` событие `app`](app.md#event-select-client-certificate).
+The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
 #### Событие: 'login'
 
@@ -479,38 +479,38 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Происходит, когда `webContents` выполняет базовую аутентификацию.
 
-Использование то же самое с [ `login` событие `app`](app.md#event-login).
+The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Событие: 'certificate-error'
 
 Возвращает:
 
 * `event` Event
-* `result` объект
-  * `requestId` Интегрер
-  * `activeMatchOrdinal` Integer - Позиция активного матча.
-  * `matches` Integer - Количество матчей.
-  * `selectionArea` Rectangle - Координаты первого региона матча.
-  * `finalUpdate` Булан
+* `result` Object
+  * `requestId` Integer
+  * `activeMatchOrdinal` Integer - Position of the active match.
+  * `matches` Integer - Number of Matches.
+  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `finalUpdate` Boolean
 
-Излучается, когда результат доступен для `webContents.findInPage`и запроса.
+Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Событие: 'media-started-playing'
 
-Излучается, когда средства массовой информации начинают играть.
+Emitted when media starts playing.
 
 #### Событие: 'media-paused'
 
-Излучается, когда мультимедиа приостанавливается или делается воспроизведение.
+Emitted when media is paused or done playing.
 
 #### Событие: 'did-change-theme-color'
 
 Возвращает:
 
 * `event` Event
-* `color` (String | null) - Тематический цвет в формате "#rrggbb". Это не `null` когда нет цвета темы устанавливается.
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
-Излучается при изменении цвета темы страницы. Это, как правило, из- с мета-тег:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -523,7 +523,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `event` Event
 * `url` String
 
-Излучается, когда мышь перемещается по ссылке или клавиатура перемещает фокус на ссылку.
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Событие: 'cursor-changed'
 
@@ -532,56 +532,56 @@ win.webContents.on('before-input-event', (event, input) => {
 * `event` Event
 * `type` String
 * `image` [NativeImage](native-image.md) (опционально)
-* `scale` Float (необязательно) - фактор масштабирования для пользовательского курсора.
-* `size` [размер](structures/size.md) (необязательно) - размер `image`.
-* `hotspot` [Point](structures/point.md) (по желанию) - координаты точки доступа пользовательского курсора.
+* `scale` Float (optional) - scaling factor for the custom cursor.
+* `size` [Size](structures/size.md) (optional) - the size of the `image`.
+* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-Излучается при изменении типа курсора. Параметр `type` может быть `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` или `custom`.
+Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-Если `type` параметр `custom`, параметр `image` будет держать пользовательский курсор изображения в [`NativeImage`](native-image.md), и `scale`, `size` и `hotspot` будет дополнительную информацию о пользовательском курсоре.
+If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
 #### Событие: 'context-menu'
 
 Возвращает:
 
 * `event` Event
-* `params` объект
-  * `x` - x координаты.
-  * `y` Интегр - у координат.
-  * `linkURL` String - URL ссылки, которая содержит узел контекстного меню, было вызвано.
-  * `linkText` Строка - Текст, связанный со ссылкой. Может быть пустой строки, если содержимое ссылки является изображением.
-  * `pageURL` String - URL страницы верхнего уровня, на которую было контекстное меню.
-  * `frameURL` String - URL подрамник, на который было вызвано контекстное меню.
-  * `srcURL` Строка - URL-адрес источника для элемента, на который было контекстное меню. Элементы с исходными URL-адресами являются изображениями, аудио и видео.
-  * `mediaType` Строка - Тип узла, на который было вызвано контекстное меню. Не быть `none`, `image`, `audio`, `video`, `canvas`, `file` или `plugin`.
-  * `hasImageContents` Boolean - Было ли вызвано контекстное меню на изображении которое имеет непустое содержимое.
-  * `isEditable` Boolean - Является ли контекст редактируемым.
-  * `selectionText` String - Текст выделения, на который было вызвано контекстное меню.
-  * `titleText` String - Название или альт текст выбора, что контекст был вызван на.
-  * `misspelledWord` Строка - Неправильное слово под курсором, если таковые имеются.
-  * `dictionarySuggestions` String - Массив предлагаемых слов, чтобы показать , чтобы заменить `misspelledWord`.  Доступен только в том случае, если имеется слово и орфография включены.
-  * `frameCharset` String - Кодирование символа кадра, на который было вызвано меню.
-  * `inputFieldType` String - Если контекстное меню было вызвано на в поле, тип этого поля. Возможные значения являются `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` Строка - Входной источник, который ссылался на контекстное меню. Может быть `none`, `mouse`, `keyboard`, `touch` или `touchMenu`.
-  * `mediaFlags` объект - Флаги для элемента мультимедиа, на которые было контекстное меню.
-    * `inError` Boolean - Ли элемент средств разбился.
-    * `isPaused` Boolean - приостанавливается ли элемент мультимедиа.
-    * `isMuted` Boolean - Является ли элемент средств массовой информации приглушен.
-    * `hasAudio` Boolean - Имеет ли элемент мультимедиа звук.
-    * `isLooping` Boolean - Является ли элемент мультимедиа циклом.
-    * `isControlsVisible` Boolean - Являются ли элементы управления медиа- видны.
-    * `canToggleControls` Boolean - Являются ли элементы управления медиа- переключаемыми.
-    * `canRotate` Boolean - Можно ли повернуть элемент мультимедиа.
-  * `editFlags` - Эти флаги указывают на то, считает ли , что он способен выполнить соответствующее действие.
-    * `canUndo` - Считает ли рендерер, что это может отменить.
-    * `canRedo` Boolean - Считает ли рендерер, что он может перекрасить.
-    * `canCut` Boolean - считает ли рендерер, что он может сократить.
-    * `canCopy` Boolean - Считает ли рендерер, что он может скопировать
-    * `canPaste` Boolean - считает ли рендерер, что он может вставить.
-    * `canDelete` Boolean - Считает ли рендерер, что он может удалить.
-    * `canSelectAll` Boolean - Считает ли рендерер, что он может выбрать все.
+* `params` Object
+  * `x` Integer - x coordinate.
+  * `y` Integer - y coordinate.
+  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
+  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
+  * `pageURL` String - URL of the top level page that the context menu was invoked on.
+  * `frameURL` String - URL of the subframe that the context menu was invoked on.
+  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
+  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
+  * `isEditable` Boolean - Whether the context is editable.
+  * `selectionText` String - Text of the selection that the context menu was invoked on.
+  * `titleText` String - Title or alt text of the selection that the context was invoked on.
+  * `misspelledWord` String - The misspelled word under the cursor, if any.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
+  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
+  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
+    * `inError` Boolean - Whether the media element has crashed.
+    * `isPaused` Boolean - Whether the media element is paused.
+    * `isMuted` Boolean - Whether the media element is muted.
+    * `hasAudio` Boolean - Whether the media element has audio.
+    * `isLooping` Boolean - Whether the media element is looping.
+    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
+    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+    * `canRotate` Boolean - Whether the media element can be rotated.
+  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
+    * `canUndo` Boolean - Whether the renderer believes it can undo.
+    * `canRedo` Boolean - Whether the renderer believes it can redo.
+    * `canCut` Boolean - Whether the renderer believes it can cut.
+    * `canCopy` Boolean - Whether the renderer believes it can copy
+    * `canPaste` Boolean - Whether the renderer believes it can paste.
+    * `canDelete` Boolean - Whether the renderer believes it can delete.
+    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
 
-Излучается при новом контексте меню, которое должно быть обработано.
+Emitted when there is a new context menu that needs to be handled.
 
 #### Событие: 'select-bluetooth-device'
 
@@ -592,28 +592,28 @@ win.webContents.on('before-input-event', (event, input) => {
 * `callback` Function
   * `deviceId` String
 
-Излучается, когда Bluetooth устройство должно быть выбрано по вызову, чтобы `navigator.bluetooth.requestDevice`. Для использования `navigator.bluetooth` api `webBluetooth` должна быть включена. Если `event.preventDefault` не называется, будет выбрано первое доступное устройство. `callback` должны быть вызваны с `deviceId` , которые будут выбраны, передавая пустую строку `callback` , отмените запрос.
+Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
-const { app, BrowserWindow } - требуют ('электрон')
+const { app, BrowserWindow } = require('electron')
 
-пусть выигрывают - null
-app.commandLine.appendSwitch ('enable-experimental-web-platform-features')
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
-app.whenReady.)., затем ((() -> -
-  win - новый BrowserWindow ({ width: 800, height: 600 })
-  win.webContents.on('select-bluetooth-device', (событие,  win.webContents.on.) deviceList, обратный вызов) -> -
+app.whenReady().then(() => {
+  win = new BrowserWindow({ width: 800, height: 600 })
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
-    const result - deviceList.find (((устройство) -> -
-      return device.deviceName - "тест"
-    q)
-    если (!result) -
-      обратный вызов ('
-    )
-
-      (
-  )
-)
+    const result = deviceList.find((device) => {
+      return device.deviceName === 'test'
+    })
+    if (!result) {
+      callback('')
+    } else {
+      callback(result.deviceId)
+    }
+  })
+})
 ```
 
 #### Событие: 'paint'
@@ -622,55 +622,55 @@ app.whenReady.)., затем ((() -> -
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - Данные изображения всего кадра.
+* `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
-Излучается при сгенерировании нового кадра. Только грязная область передается в буфере.
+Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
 ```javascript
-const { BrowserWindow } и требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const выигрыша - новый BrowserWindow (веб-предрекания: { offscreen: true } )
-win.webContents.on ('paint', (событие, грязное, изображение) -> -
-  // updateBitmap (грязный, image.getBitmap())
-q)
-win.loadURL ('http://github.com')
+const win = new BrowserWindow({ webPreferences: { offscreen: true } })
+win.webContents.on('paint', (event, dirty, image) => {
+  // updateBitmap(dirty, image.getBitmap())
+})
+win.loadURL('http://github.com')
 ```
 
 #### Событие: 'devtools-reload-page'
 
-Излучаемый, когда окно devtools инструктирует webContents перезагрузить
+Emitted when the devtools window instructs the webContents to reload
 
 #### Событие: 'will-attach-webview'
 
 Возвращает:
 
 * `event` Event
-* `webPreferences` WebPreferences - веб-предпочтения, которые будут использоваться гостем странице. Этот объект может быть изменен, чтобы настроить предпочтения для гостевой странице.
-* `params` запись<string, string> - Другие параметры `<webview>` , такие как url `src` . Этот объект может быть изменен для настройки параметров гостевой страницы.
+* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
-Испускаемый, `<webview>`веб-содержимое компании прилагается к этому веб- содержимому. Вызов `event.preventDefault()` уничтожит гостевую страницу.
+Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
-Это событие может быть использовано для настройки `webPreferences` для `webContents` `<webview>` до его загрузки и обеспечивает возможность установки настроек которые не могут быть установлены с помощью `<webview>` атрибутов.
+This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
-**Примечание:** Указанный вариант `preload` скрипта будет отображаться как `preloadURL` (не `preload`) в `webPreferences` , испускаемом этим событием.
+**Note:** The specified `preload` script option will appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Событие: 'did-attach-webview'
+#### Event: 'did-attach-webview'
 
 Возвращает:
 
 * `event` Event
-* `webContents` WebContents - Гостевой веб-контент, который используется `<webview>`.
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
-Излучается, когда `<webview>` был прикреплен к этому веб-содержимому.
+Emitted when a `<webview>` has been attached to this web contents.
 
 #### Событие: 'консоль-сообщение'
 
 Возвращает:
 
 * `event` Event
-* `level` Integer - уровень журнала, от 0 до 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
+* `level` Integer - The log level, from 0 to 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
 * `message` строка - фактическое сообщение консоли
-* `line` Integer - Номер строки источника, который вызвал это сообщение консоли
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` Струна
 
 Испускаемое, когда связанное окно регистрирует сообщение консоли.
