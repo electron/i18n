@@ -2,7 +2,7 @@
 
 * `pid` Integer - Id du processus.
 * `type` String - Type de processus. Une des valeurs suivantes:
-  * `Navigateur`
+  * `Browser`
   * `Tab`
   * `Utilitaire`
   * `Zygote`
@@ -16,10 +16,10 @@
 * `cpu` [CPUUsage](cpu-usage.md) - Usage CPU du processus.
 * `creationTime` Nombre - Heure de création pour ce processus. Le temps est représenté par le nombre de millisecondes depuis l'epoch. Puisque le `pid` peut être réutilisé après la mort d'un processus, il est utile d'utiliser à la fois le `pid` et le `creationTime` pour identifier de manière unique un processus.
 * `memory` [MemoryInfo](memory-info.md) - Information sur la mémoire du processus.
-* `sandboxed` Boolean (facultatif) _macOS_ _Windows_ - Si le processus est bac à sable au niveau OS.
-* `integrityLevel` String (facultatif) _Windows_ - L’une des valeurs suivantes:
-  * `non-confiance`
-  * `Faible`
-  * `Douleur moyenne`
-  * `Haute`
-  * `Inconnu`
+* `sandboxed` Boolean (optional) _macOS_ _Windows_ - Whether the process is sandboxed on OS level.
+* `integrityLevel` String (optional) _Windows_ - One of the following values:
+  * `untrusted`
+  * `low`
+  * `medium`
+  * `high`
+  * `unknown`
