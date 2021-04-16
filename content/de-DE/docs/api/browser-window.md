@@ -113,7 +113,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
 
 ### `new BrowserWindow([options])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
@@ -202,12 +202,12 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
     * `defaultMonospaceFontSize` Ganzzahl (optional) - Standardwerte für `13`.
     * `minimumFontSize` Ganzzahl (optional) - Standardwerte für `0`.
     * `defaultEncoding` String (optional) - Standardwerte für `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Ob Animationen und Timer drosseln sollen, wenn die Seite zum Hintergrund wird. Dies wirkt sich auch auf die [Seitensichtbarkeits-API](#page-visibility)aus. Standardmäßig `true`.
-    * `offscreen` Boolean (optional) - Gibt an, ob das Offscreen-Rendering für den Browser -Fenster aktiviert werden soll. Standardmäßig `false`. Weitere Informationen finden Sie im [Offscreen-Rendering-Tutorial](../tutorial/offscreen-rendering.md) .
+    * `backgroundThrottling` Boolean (optional) - Ob Animationen und Timer drosseln sollen, wenn die Seite zum Hintergrund wird. Dies wirkt sich auch auf die [Seitensichtbarkeits-API](#page-visibility)aus. Defaults to `true`.
+    * `offscreen` Boolean (optional) - Gibt an, ob das Offscreen-Rendering für den Browser -Fenster aktiviert werden soll. Defaults to `false`. Weitere Informationen finden Sie im [Offscreen-Rendering-Tutorial](../tutorial/offscreen-rendering.md) .
     * `contextIsolation` Boolean (optional) - Gibt an, ob Electron-APIs ausgeführt und das angegebene `preload` Skript in einem separaten JavaScript-Kontext werden soll. Standardmäßig `true`. Der Kontext, in dem das `preload` -Skript ausgeführt wird, hat nur Zugriff auf seine eigenen dedizierten `document` - und `window` -Globals sowie eigenen JavaScript-Integrierten (`Array`, `Object`, `JSON`usw.), , die alle für den geladenen Inhalt unsichtbar sind. Die Electron-API nur im `preload` -Skript und nicht auf der geladenen Seite verfügbar sein. Diese Option beim Laden potenziell nicht vertrauenswürdiger Remoteinhalte verwendet werden sollten, um sicherzustellen, der geladene Inhalt nicht mit dem `preload` -Skript und den verwendeten Electron-APIs manipuliert werden kann.  Diese Option verwendet die gleiche Technik, die von [Chrome Content Scripts][chrome-content-scripts]verwendet wird.  Sie können auf diesen Kontext in den Entwicklungstools zugreifen, indem Sie den Eintrag "Elektronenisolierter Kontext" Eintrag im Kombinationsfeld oben auf der Registerkarte Konsole auswählen.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - Wenn true, werden Werte, die von `webFrame.executeJavaScript` zurückgegeben werden, desinfiziert, um sicherzustellen, dass JS-Werte bei Verwendung von `contextIsolation`nicht sicher zwischen Welten kreuzen können. Standardmäßig `true`. _veraltete_
-    * `nativeWindowOpen` Boolean (optional) - Gibt an, ob native `window.open()`verwendet werden soll. Standardmäßig `false`. In untergeordneten Fenstern ist die Integration immer deaktiviert, es sei denn, `nodeIntegrationInSubFrames` ist wahr. **Hinweis:** Diese Option ist derzeit experimentell.
-    * `webviewTag` Boolean (optional) - Gibt an, ob das [`<webview>` -Tag](webview-tag.md)aktiviert werden soll. Standardmäßig `false`. **Hinweis:** Das für die `<webview>` konfigurierte `preload` -Skript bei der Ausführung aktiviert, sodass Sie sicherstellen sollten, dass Remote-/nicht vertrauenswürdige Inhalte nicht in der Lage sind, ein `<webview>` -Tag mit einem möglicherweise schädlichen `preload` -Skript zu erstellen. Sie können das `will-attach-webview` -Ereignis auf [webContents-](web-contents.md) verwenden, um das `preload` Skript zu entfernen und die ursprünglichen Einstellungen des `<webview>`zu überprüfen oder zu ändern.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - Wenn true, werden Werte, die von `webFrame.executeJavaScript` zurückgegeben werden, desinfiziert, um sicherzustellen, dass JS-Werte bei Verwendung von `contextIsolation`nicht sicher zwischen Welten kreuzen können. Defaults to `true`. _veraltete_
+    * `nativeWindowOpen` Boolean (optional) - Gibt an, ob native `window.open()`verwendet werden soll. Defaults to `false`. In untergeordneten Fenstern ist die Integration immer deaktiviert, es sei denn, `nodeIntegrationInSubFrames` ist wahr. **Hinweis:** Diese Option ist derzeit experimentell.
+    * `webviewTag` Boolean (optional) - Gibt an, ob das [`<webview>` -Tag](webview-tag.md)aktiviert werden soll. Defaults to `false`. **Hinweis:** Das für die `<webview>` konfigurierte `preload` -Skript bei der Ausführung aktiviert, sodass Sie sicherstellen sollten, dass Remote-/nicht vertrauenswürdige Inhalte nicht in der Lage sind, ein `<webview>` -Tag mit einem möglicherweise schädlichen `preload` -Skript zu erstellen. Sie können das `will-attach-webview` -Ereignis auf [webContents-](web-contents.md) verwenden, um das `preload` Skript zu entfernen und die ursprünglichen Einstellungen des `<webview>`zu überprüfen oder zu ändern.
     * `additionalArguments` String[] (optional) - Eine Liste von Zeichenfolgen, die im Rendererprozess dieser App `process.argv` angehängt werden.  Nützlich für die Weitergabe kleiner Datenbits an Skripts für Rendererprozesse.
     * `safeDialogs` Boolean (optional) - Gibt an, ob der Browserstil aufeinander folgenden Dialogschutz aktiviert werden soll. Standard ist `false`.
     * `safeDialogsMessage` String (optional) - Die Meldung, die angezeigt werden soll, wenn aufeinander folgenden Dialogschutz ausgelöst wird. Wenn nicht die Standard- Nachricht verwendet werden, beachten Sie, dass sich die Standardnachricht derzeit in Englisch befindet und nicht lokalisiert ist.
@@ -1171,7 +1171,7 @@ Erfasst eine Momentaufnahme der Seite in `rect`. Wenn Sie `rect` auslassen, wird
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - Eine HTTP Referrer URL.
   * `userAgent` String (optional) – Ein Benutzer-Agent, der die Anforderung stammt.
   * `extraHeaders` String (optional) - Zusätzliche Header getrennt durch "\n"
@@ -1211,7 +1211,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `query` Record<String, String> (optional) - An `url.format()`übergeben.
   * `search` String (optional) - An `url.format()`übergeben.
   * `hash` String (optional) - An `url.format()`übergeben.
@@ -1237,7 +1237,7 @@ Entfernen Sie die Menüleiste des Fensters.
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `mode` String _Windows_ - Modus für die Fortschrittsleiste. Kann `none`, `normal`, `indeterminate`, `error` oder `paused`sein.
 
 Legt den Fortschrittswert im Statusbalken fest. Gültiger Bereich ist [0, 1.0].
@@ -1322,7 +1322,7 @@ Legt die QuickInfo fest, die angezeigt wird, wenn sie mit der Maus auf die Minia
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` -Objekt
+* `options` Object
   * `appId` String (optional) - [App-Benutzermodell-ID des Fensters](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Es muss festgelegt werden, sonst haben die anderen Optionen keine Wirkung.
   * `appIconPath` String (optional) - [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)des Fensters .
   * `appIconIndex` Ganzzahl (optional) - Index des Symbols in `appIconPath`. Ignoriert, wenn `appIconPath` nicht festgelegt ist. Default is `0`.
@@ -1355,167 +1355,167 @@ Dies kann nicht aufgerufen werden, wenn `titleBarStyle` auf `customButtonsOnHove
 
 * `hide` Boolean
 
-Legt fest, ob sich die Fenstermenüleiste automatisch ausblenden soll. Sobald die Menüleiste eingestellt wurde, wird nur angezeigt, wenn Benutzer die Taste der `Alt` drücken.
+Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
-Wenn die Menüleiste bereits sichtbar ist, wird `setAutoHideMenuBar(true)` nicht sofort ausgeblendet.
+If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
 #### `win.isMenuBarAutoHide()`
 
-Gibt `Boolean` zurück - Gibt an, ob sich die Menüleiste automatisch selbst ausblendet.
+Returns `Boolean` - Whether menu bar automatically hides itself.
 
 #### `win.setMenuBarVisibility(visible)` _Windows_ _Linux_
 
 * `visible` Boolean
 
-Legt fest, ob die Menüleiste sichtbar sein soll. Wenn die Menüleiste automatisch ausgeblendet ist, können Benutzer die Menüleiste weiterhin aufrufen, indem Sie die Taste einer `Alt` drücken.
+Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
-Gibt `Boolean` zurück - Gibt an, ob die Menüleiste sichtbar ist.
+Returns `Boolean` - Whether the menu bar is visible.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` Objekt (optional)
-  * `visibleOnFullScreen` boolesch (optional) _macOS_ - Legt fest, ob fensterüber Vollbildfenster sichtbar sein soll
+* `options` Object (optional)
+  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows
 
-Legt fest, ob das Fenster in allen Arbeitsbereichen sichtbar sein soll.
+Sets whether the window should be visible on all workspaces.
 
-**Hinweis:** Diese API bewirkt unter Windows nichts.
+**Note:** This API does nothing on Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Gibt `Boolean` zurück : Gibt an, ob das Fenster in allen Arbeitsbereichen sichtbar ist.
+Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Hinweis:** Diese API gibt immer false unter Windows zurück.
+**Note:** This API always returns false on Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` Objekt (optional)
-  * `forward` boolesch (optional) _macOS_ _Windows_ - Wenn true, verschiebt die Maus Nachrichten nach Chromium, wodurch Mausereignisse wie `mouseleave`aktiviert werden. Wird nur verwendet, wenn `ignore` wahr ist. Wenn `ignore` falsch ist, wird die Weiterleitung unabhängig von diesem Wert immer deaktiviert.
+* `options` Object (optional)
+  * `forward` Boolean (optional) _macOS_ _Windows_ - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
-Lässt das Fenster alle Mausereignisse ignorieren.
+Makes the window ignore all mouse events.
 
-Alle Mausereignisse, die in diesem Fenster aufgetreten sind, werden an das Fenster unter diesem Fenster übergeben, aber wenn dieses Fenster den Fokus hat, erhält es weiterhin Tastatur Ereignisse.
+All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
 #### `win.setContentProtection(enable)` _macOS_ _Windows_
 
 * `enable` Boolean
 
-Verhindert, dass der Fensterinhalt von anderen Apps erfasst wird.
+Prevents the window contents from being captured by other apps.
 
-Unter macOS wird der freigabetyp des NSWindow auf NSWindowSharingNone festgelegt. Unter Windows ruft es SetWindowDisplayAffinity mit `WDA_EXCLUDEFROMCAPTURE`auf. Unter Windows 10 Version 2004 und oben wird das Fenster vollständig aus der Erfassung entfernt, ältere Windows-Versionen verhalten sich so, als ob `WDA_MONITOR` angewendet wird, indem ein schwarzes Fenster erfasst wird.
+On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_EXCLUDEFROMCAPTURE`. For Windows 10 version 2004 and up the window will be removed from capture entirely, older Windows versions behave as if `WDA_MONITOR` is applied capturing a black window.
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
 * `focusable` Boolean
 
-Ändert, ob das Fenster fokussiert werden kann.
+Changes whether the window can be focused.
 
-Unter macOS wird der Fokus nicht aus dem Fenster entfernt.
+On macOS it does not remove the focus from the window.
 
-#### `win.setParentWindow(eltern)`
+#### `win.setParentWindow(parent)`
 
-* `parent` BrowserWindow | Null
+* `parent` BrowserWindow | null
 
-Legt `parent` als übergeordnetes Fenster des aktuellen Fensters fest, wird aktuelle Fenster durch übergebenes `null` in ein Fenster der obersten Ebene verwandelt.
+Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
 
 #### `win.getParentWindow()`
 
-Gibt `BrowserWindow` zurück - Das übergeordnete Fenster.
+Returns `BrowserWindow` - The parent window.
 
 #### `win.getChildWindows()`
 
-Gibt `BrowserWindow[]` zurück - Alle untergeordneten Fenster.
+Returns `BrowserWindow[]` - All child windows.
 
 #### `win.setAutoHideCursor(autoHide)` _macOS_
 
 * `autoHide` Boolean
 
-Steuert, ob der Cursor bei der Eingabe ausgeblendet werden soll.
+Controls whether to hide cursor when typing.
 
 #### `win.selectPreviousTab()` _macOS_
 
-Wählt die vorherige Registerkarte aus, wenn systemeigene Registerkarten aktiviert sind und weitere Registerkarten im Fenster vorhanden sind.
+Selects the previous tab when native tabs are enabled and there are other tabs in the window.
 
 #### `win.selectNextTab()` _macOS_
 
-Wählt die nächste Registerkarte aus, wenn systemeigene Registerkarten aktiviert sind und weitere Registerkarten im Fenster vorhanden sind.
+Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
 #### `win.mergeAllWindows()` _macOS_
 
-Führt alle Fenster in einem Fenster mit mehreren Registerkarten zusammen, wenn systemeigene Registerkarten aktiviert sind und es mehr als ein geöffnetes Fenster gibt.
+Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
 #### `win.moveTabToNewWindow()` _macOS_
 
-Verschiebt die aktuelle Registerkarte in ein neues Fenster, wenn systemeigene Registerkarten aktiviert sind und es mehr als eine Registerkarte im aktuellen Fenster gibt.
+Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
 
 #### `win.toggleTabBar()` _macOS_
 
-Schaltet die Sichtbarkeit der Registerkartenleiste um, wenn systemeigene Registerkarten aktiviert sind und es nur eine Registerkarte im aktuellen Fenster gibt.
+Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
 #### `win.addTabbedWindow(browserWindow)` _macOS_
 
 * `browserWindow` BrowserWindow
 
-Fügt ein Fenster als Registerkarte in diesem Fenster nach der Registerkarte für die Fensterinstanz hinzu.
+Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.setVibrancy(type)` _macOS_
 
-* `type` String | NULL - Kann `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`oder `under-page`sein. Weitere Informationen finden Sie der [macOS-Dokumentation][vibrancy-docs] .
+* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. See the [macOS documentation][vibrancy-docs] for more details.
 
-Fügt dem Browserfenster einen Vibrancy-Effekt hinzu. Wenn Sie `null` oder eine leere Zeichenfolge übergeben, wird der Vibranzeffekt auf dem Fenster entfernt.
+Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-Beachten Sie, dass `appearance-based`, `light`, `dark`, `medium-light`und `ultra-dark` veraltet sind und in einer kommenden Version von macOS entfernt werden.
+Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
 #### `win.setTrafficLightPosition(position)` _macOS_
 
-* `position` [-Point-](structures/point.md)
+* `position` [Point](structures/point.md)
 
-Legen Sie eine benutzerdefinierte Position für die Ampeltasten fest. Kann nur mit `titleBarStyle` verwendet werden, der auf `hidden`eingestellt ist.
+Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Gibt `Point` zurück - Die aktuelle Position für die Ampeltasten. Kann nur mit `titleBarStyle` verwendet werden, der auf `hidden`gesetzt ist.
+Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
 
 #### `win.setTouchBar(touchBar)` _macOS_
 
-* `touchBar` TouchBar | Null
+* `touchBar` TouchBar | null
 
-Legt das touchBar-Layout für das aktuelle Fenster fest. Wenn Sie `null` oder `undefined` angeben, wird die Touchleiste gecleart. Diese Methode wirkt sich nur aus, wenn das -Gerät über eine Touchleiste verfügt und unter macOS 10.12.1+ ausgeführt wird.
+Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Hinweis:** Die TouchBar-API ist derzeit experimentell und kann sich in zukünftigen Electron-Versionen ändern oder entfernt .
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
 #### `win.setBrowserView(browserView)` _Experimentell_
 
-* `browserView` [BrowserView](browser-view.md) | null - `browserView` an `win`anfügen. Wenn andere `BrowserView`angeschlossen sind, werden sie aus dieses Fensters entfernt.
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
 #### `win.getBrowserView()` _Experimental_
 
-Gibt `BrowserView | null` zurück - Der `BrowserView` , der mit `win`verbunden ist. Gibt `null` zurück, wenn keine zugeordnet ist. Löst einen Fehler aus, wenn mehrere `BrowserView`s angefügt sind.
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` _Experimentell_
 
 * `browserView` [BrowserView](browser-view.md)
 
-Ersatz-API für setBrowserView unterstützt die Arbeit mit mehreren Browseransichten.
+Replacement API for setBrowserView supporting work with multi browser views.
 
 #### `win.removeBrowserView(browserView)` _Experimentell_
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.setTopBrowserView(browserView)` _Experimentelle_
+#### `win.setTopBrowserView(browserView)` _Experimental_
 
 * `browserView` [BrowserView](browser-view.md)
 
-Erhöht `browserView` über andere `BrowserView`, die an `win`angefügt sind. Löst einen Fehler aus, wenn `browserView` nicht an `win`angefügt ist.
+Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
 
 #### `win.getBrowserViews()` _Experimental_
 
-Gibt `BrowserView[]` zurück - ein Array aller BrowserViews, die mit `addBrowserView` oder `setBrowserView`angefügt wurden.
+Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Hinweis:** Die BrowserView-API ist derzeit experimentell und kann sich in zukünftigen Electron-Versionen ändern oder entfernt werden.
+**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
 [page-visibility-api]: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
