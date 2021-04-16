@@ -631,106 +631,106 @@ Diese Methode löst eine Ausnahme aus, wenn die Erweiterung nicht geladen werden
 
 Beachten Sie, dass Electron nicht die gesamte Palette der Chrome-Erweiterungs-APIs unterstützt. Weitere Informationen zu den unterstützten Informationen finden Sie unter [-unterstützungs-Erweiterungs-APIs ](extensions.md#supported-extensions-apis) .
 
-Beachten Sie, dass in früheren Versionen von Electron, Erweiterungen, die geladen wurden, für zukünftige Ausführungen der Anwendung gespeichert werden. Dies ist nicht mehr der Fall: `loadExtension` müssen bei jedem Start Ihrer App aufgerufen werden, wenn Sie möchten, dass die Erweiterung geladen wird.
+Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
 ```js
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', async () => '
-  warte session.defaultSession.loadExtension(
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(
     path.join(__dirname, 'react-devtools'),
-    / allowFileAccess ist erforderlich, um die devtools-Erweiterung auf file:// URLs zu laden.
+    // allowFileAccess is required to load the devtools extension on file:// URLs.
     { allowFileAccess: true }
   )
-  / Beachten Sie, dass Sie zur Verwendung der Erweiterung React DevTools
-  müssen , eine Kopie der Erweiterung herunterzuladen und zu entpacken.
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
 })
 ```
 
-Diese API unterstützt das Laden von gepackten (.crx) Erweiterungen nicht.
+This API does not support loading packed (.crx) extensions.
 
 **Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
 
-**Hinweis:** Das Laden von Erweiterungen in Speichersitzungen (nicht persistent) wird nicht unterstützt und löst einen Fehler aus.
+**Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
 #### `ses.removeExtension(extensionId)`
 
-* `extensionId` String - ID der zu entfernenden Erweiterung
+* `extensionId` String - ID of extension to remove
 
-Entlädt eine Erweiterung.
+Unloads an extension.
 
 **Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
 
 #### `ses.getExtension(extensionId)`
 
-* `extensionId` String - ID der Erweiterung, die Abfrage ist
+* `extensionId` String - ID of extension to query
 
-Rücksendungen `Extension` | `null` - Die geladene Erweiterung mit der angegebenen ID.
+Returns `Extension` | `null` - The loaded extension with the given ID.
 
 **Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
 
 #### `ses.getAllExtensions()`
 
-Gibt `Extension[]` zurück - Eine Liste aller geladenen Erweiterungen.
+Returns `Extension[]` - A list of all loaded extensions.
 
 **Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
 
 ### Instanz Eigenschaften
 
-Die folgenden Eigenschaften sind für Instanzen von `Session`verfügbar:
+The following properties are available on instances of `Session`:
 
 #### `ses.availableSpellCheckerLanguages` _Readonly_
 
-Ein `String[]` Array, das aus allen bekannten verfügbaren Rechtschreibprüfungssprachen besteht.  Das Bereitstellen einer Sprache Code für die `setSpellCheckerLanguages` -API, die sich nicht in diesem Array befindet, führt zu einem Fehler.
+A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
-#### `ses.spellCheckerAktiviert`
+#### `ses.spellCheckerEnabled`
 
-Ein `Boolean` , der angibt, ob die integrierte Rechtschreibprüfung aktiviert ist.
+A `Boolean` indicating whether builtin spell checker is enabled.
 
 #### `ses.cookies` _Readonly_
 
-Ein [`Cookies`](cookies.md) Objekt für diese Sitzung.
+A [`Cookies`](cookies.md) object for this session.
 
 #### `ses.serviceWorkers` _Readonly_
 
-Ein [`ServiceWorkers`](service-workers.md) Objekt für diese Sitzung.
+A [`ServiceWorkers`](service-workers.md) object for this session.
 
 #### `ses.webRequest` _Readonly_
 
-Ein [`WebRequest`](web-request.md) Objekt für diese Sitzung.
+A [`WebRequest`](web-request.md) object for this session.
 
 #### `ses.protocol` _Readonly_
 
-Ein [`Protocol`](protocol.md) Objekt für diese Sitzung.
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
 const path = require('path')
 
-app.whenReady().then()=> '
+app.whenReady().then(() => {
   const protocol = session.fromPartition('some-partition').protocol
-  if (!protocol.registerFileProtocol('atom', (request, callback) => '
+  if (!protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
-    callback(' path: path.normalize('${__dirname}/${url}') ')
-  ')) '
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  })) {
     console.error('Failed to register protocol')
-  '
-')
+  }
+})
 ```
 
 #### `ses.netLog` _Readonly_
 
-Ein [`NetLog`](net-log.md) Objekt für diese Sitzung.
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
 
-app.whenReady().then(async () => '
+app.whenReady().then(async () => {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  / Nach einigen Netzwerkereignissen
-  const-Pfad = await netLog.stopLogging()
-.log
-
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
+})
 ```
