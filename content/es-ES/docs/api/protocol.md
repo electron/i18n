@@ -85,12 +85,12 @@ Protocols that use streams (http and stream protocols) should set `stream: true`
 ### `protocol.registerFileProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo se registró correctamente
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Registra un protocolo de `scheme` que enviará un archivo como repuesta. El `handler` será llamado con `request` y `callback` donde `request` es una solicitud entrante para el `scheme`.
 
@@ -101,12 +101,12 @@ Por defecto el `scheme` es tratado como `http:`, que es analizado de forma difer
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo se registró correctamente
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Registra un protocolo de `esquema` que enviará un `Buffer` como respuesta.
 
@@ -123,12 +123,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo se registró correctamente
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Registra un protocolo de `esquema` que enviará una `cadena` como respuesta.
 
@@ -137,12 +137,12 @@ El uso es el mismo con `registerFileProtocol`, excepto que el `callback` deberí
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` ProtocolResponse
 
-Devuelve `Boolean` -si el protocolo se registró correctamente
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Registra un protocolo de `esquema` que enviará una solicitud HTTP como respuesta.
 
@@ -151,12 +151,12 @@ El uso es el mismo con `registerFileProtocol`, excepto que el `callback` deberí
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Devuelve `Boolean` -si el protocolo se registró correctamente
+Returns `Boolean` - Whether the protocol was successfully registered
 
 Registra un protocolo de `scheme` que enviará un stream como respuesta.
 
@@ -211,7 +211,7 @@ Devuelve `Boolean` - Si el `scheme` ya está registrado.
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -223,7 +223,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 ### `protocol.interceptStringProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -235,7 +235,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
 ### `protocol.interceptBufferProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
@@ -247,7 +247,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 ### `protocol.interceptHttpProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` [Respuesta de Protocolo](structures/protocol-response.md)
@@ -259,7 +259,7 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
 ### `protocol.interceptStreamProtocol(scheme, handler)`
 
 * `scheme` String
-* Función `handler`
+* `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
