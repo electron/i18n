@@ -28,7 +28,7 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Agrega una función de `listener` una vez para el evento. Este `listener` se invoca solo la próxima vez que se envíe un mensaje a `channel`, después del cual se elimina.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
