@@ -2,37 +2,37 @@
 
 > Die Konfiguration und das Verhalten des Programms kontrollieren ohne das Programm umzuschreiben.
 
-Bestimmte Electron-Verhalten werden durch Umgebungsvariablen gesteuert, da sie früher als die Befehlszeilenflags und den Code der App initialisiert werden.
+Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
 
-POSIX-Shellbeispiel:
+POSIX shell example:
 
 ```sh
-Export ELECTRON_ENABLE_LOGGING=true
-- Elektron
+$ export ELECTRON_ENABLE_LOGGING=true
+$ electron
 ```
 
-Beispiel für die Windows-Konsole:
+Windows console example:
 
 ```powershell
-> ELECTRON_ENABLE_LOGGING=true
-> Elektron eingestellt
+> set ELECTRON_ENABLE_LOGGING=true
+> electron
 ```
 
-## Produktionsvariablen
+## Production Variables
 
-Die folgenden Umgebungsvariablen sind in erster Linie für die Verwendung zur Laufzeit in verpackten Electron-Anwendungen vorgesehen.
+The following environment variables are intended primarily for use at runtime in packaged Electron applications.
 
 ### `NODE_OPTIONS`
 
-Electron unterstützt eine Teilmenge der [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options)von Node . Die Mehrheit wird unterstützt, mit Ausnahme derjenigen, die mit DerVerwendung von BoringSSL durch Chromium in Konflikt stehen.
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
 
 Beispiel:
 
 ```sh
-Export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Nicht unterstützte Optionen sind:
+Unsupported options are:
 
 ```sh
 --use-bundled-ca
@@ -42,7 +42,7 @@ Nicht unterstützte Optionen sind:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` sind in verpackten Apps ausdrücklich nicht zulässig, mit Ausnahme der folgenden:
+`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
 
 ```sh
 --max-http-header-size
@@ -51,31 +51,25 @@ Nicht unterstützte Optionen sind:
 
 ### `GOOGLE_API_KEY`
 
-Geolocation-Unterstützung in Electron erfordert die Nutzung des -Geolocation-Webservice der Google Cloud Platform. Um diese Funktion zu aktivieren, erwerben Sie einen [Google-API-Schlüssel](https://developers.google.com/maps/documentation/geolocation/get-api-key) und platzieren Sie den folgenden Code in Ihrer Hauptprozessdatei, bevor Sie Browserfenster öffnen, die Geolocation-Anforderungen stellen:
+Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-Standardmäßig ist es einem neu generierten Google-API-Schlüssel möglicherweise nicht gestattet, Geolocation-Anforderungen zu stellen. Um den Geolocation-Webservice für Ihr Projekt zu aktivieren, aktivieren Sie ihn über die [-API-Bibliothek](https://console.cloud.google.com/apis/library).
+By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
 
-N.b. Sie müssen dem Projekt</a> , das dem API-Schlüssel zugeordnet ist, ein
-
-Rechnungskonto hinzufügen, damit der Geolocation-Webservice funktioniert.</p> 
-
-
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
-Deaktiviert die ASAR-Unterstützung. Diese Variable wird nur in gegabelten untergeordneten Prozessen und laichenden untergeordneten Prozessen unterstützt, die `ELECTRON_RUN_AS_NODE`festlegen.
-
-
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Startet den Prozess als normalen Node.js-Prozess.
+Starts the process as a normal Node.js process.
 
-In diesem Modus können Sie [cli-Optionen](https://nodejs.org/api/cli.html) an Nodeübergeben .js, wie Sie es tun würden, wenn Sie die normale ausführbare Node.js ausführen, mit Ausnahme der folgenden Flags:
+In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
 
 * "--openssl-config"
 * "--use-bundled-ca"
@@ -83,25 +77,19 @@ In diesem Modus können Sie [cli-Optionen](https://nodejs.org/api/cli.html) an N
 * "--force-fips"
 * "--enable-fips"
 
-Diese Flags sind deaktiviert, da Electron Beim Erstellen des `crypto` -Moduls von Node.js BoringSSL anstelle von OpenSSL verwendet und daher nicht wie vorgesehen funktioniert.
+These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
 
+### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
+Don't attach to the current console session.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` _Windows-_
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux_
 
-Fügen Sie sich nicht an die aktuelle Konsolensitzung an.
+Don't use the global menu bar on Linux.
 
+### `ELECTRON_TRASH` _Linux_
 
-
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` _Linux-_
-
-Verwenden Sie nicht die globale Menüleiste unter Linux.
-
-
-
-### `ELECTRON_TRASH` _Linux-_
-
-Legen Sie die Trash-Implementierung unter Linux fest. Der Standardwert ist `gio`.
+Set the trash implementation on Linux. Default is `gio`.
 
 Options:
 
@@ -110,61 +98,42 @@ Options:
 * `kioclient5`
 * `kioclient`
 
+## Development Variables
 
-
-## Entwicklungsvariablen
-
-Die folgenden Umgebungsvariablen sind in erster Linie für Entwicklungs- und -Debugging-Zwecke gedacht.
-
-
+The following environment variables are intended primarily for development and debugging purposes.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Druckt die interne Protokollierung von Chrome auf der Konsole.
-
-
+Prints Chrome's internal logging to the console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Wenn Electron aus einer ASAR-Datei liest, protokollieren Sie den Leseversatz und den Dateipfad, um das System `tmpdir` . Die resultierende Datei kann dem ASAR-Modul zur Verfügung gestellt werden, , um die Dateireihenfolge zu optimieren.
-
-
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Druckt die Stapelablaufverfolgung auf die Konsole, wenn Electron abstürzt.
+Prints the stack trace to the console when Electron crashes.
 
-Diese Umgebungsvariable funktioniert nicht, wenn die `crashReporter` gestartet wird.
+This environment variable will not work if the `crashReporter` is started.
 
+### `ELECTRON_DEFAULT_ERROR_MODE` _Windows_
 
+Shows the Windows's crash dialog when Electron crashes.
 
-### `ELECTRON_DEFAULT_ERROR_MODE` _Windows-_
-
-Zeigt das Windows-Absturzdialogfeld an, wenn Electron abstürzt.
-
-Diese Umgebungsvariable funktioniert nicht, wenn die `crashReporter` gestartet wird.
-
-
+This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-Beim Ausführen des `electron` -Pakets teilt diese Variable `electron` Befehl mit, den angegebenen Build von Electron zu verwenden, anstatt den von `npm install`heruntergeladenen zu . Beispiel:
-
-
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Beispiel:
 
 ```sh
-Export ELECTRON_OVERRIDE_DIST_PATH=/Benutzer/Benutzername/Projekte/Elektronen/Out/Testing
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
-
-
-
 
 ## Set By Electron
 
-Electron legt einige Variablen in Ihrer Umgebung zur Laufzeit fest.
-
-
+Electron sets some variables in your environment at runtime.
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
-Diese Variable wird auf den Wert von `XDG_CURRENT_DESKTOP` festgelegt, mit dem Ihre Anwendung ursprünglich gestartet .  Electron ändert manchmal den Wert von `XDG_CURRENT_DESKTOP` , um andere Logik innerhalb von Chromium zu beeinflussen, so dass Sie stattdessen nach dieser Umgebungsvariablen suchen sollten, wenn Sie Zugriff auf den _ursprünglichen_ Wert haben möchten.
+This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.
