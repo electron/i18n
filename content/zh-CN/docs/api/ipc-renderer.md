@@ -115,7 +115,7 @@ ipcMain.handle（"某个名称"，不对称（事件，一些争议）=> {
 ### `ipcRender.邮资信息（频道、消息、 [transfer]）`
 
 * `channel` String
-* `message` 任何
+* `message` any
 * `transfer` 消息港[]（可选）
 
 向主过程发送消息，可选地将零 或更多 [`MessagePort`][] 对象的所有权转移。
