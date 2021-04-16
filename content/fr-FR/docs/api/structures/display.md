@@ -9,7 +9,7 @@
 * `colorSpace` String -  représente un espace de couleurs (objet en trois dimensions contenant toutes les combinaisons de couleurs réalisables) servant aux conversions colorimétriques
 * `colorDepth` Number - Quantité de bits par pixel.
 * `depthPerComponent` Number - Quantité de bits par composant de couleur.
-* `displayFrequency` - Le taux de rafraîchissement de l’affichage.
+* `displayFrequency` Number - The display refresh rate.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
