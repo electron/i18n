@@ -626,7 +626,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getLocale()`
 
-返回 `String` - 当前应用地区。 可能的回报值 [记录在这里](locales.md)。
+返回 `String` - 当前应用地区。 Possible return values are documented [here](locales.md).
 
 要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)找到。
 
@@ -636,7 +636,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.getLocaleCountryCode()`
 
-返回 `String` - 用户操作系统的局域两个字母 [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国家/地区代码。 该值取自本机操作系统 ABI。
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **注意：** 当无法检测本地国家代码时，它返回空字符串。
 
@@ -646,7 +646,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 将此 `path` 添加到最近打开的文件列表中
 
-此列表由操作系统管理。 在 Windows 上，您可以从任务 栏访问列表，在 macOS 上，您可以从码头菜单访问它。
+This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 
@@ -654,19 +654,19 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - 协议的名称, 不包含 `://`。 例如， 如果您希望应用处理 `electron://` 链接，请以 `electron` 为参数调用此方法。
-* `path` 字符串（可选） _窗口_ - 电子可执行的路径。 `process.execPath`的默认值
-* `args` 字符串[]（可选） _窗口_ - 参数传递给可执行的。 默认为空阵列
+* `protocol` String - 协议的名称, 不包含 `://`。 For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
 
 返回 ` Boolean `-是否成功调用。
 
-将当前可执行的程序设置为协议（又名URI 方案）的默认处理程序。 它允许您将应用更深入地集成到操作系统中。 注册后，将打开与 `your-protocol://` 的所有链接， 当前可执行。 整个链接（包括协议）将作为参数传递到您的 应用程序。
+Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-**注意：** macOS 上，您只能注册已添加到 应用 `info.plist`的协议，这些协议无法在运行时进行修改。 但是，您可以通过 [电子锻造][electron-forge]、 [电子封装机][electron-packager]，或通过文本 编辑器编辑 `info.plist` ，在生成过程中 更改文件。 有关详细信息，请参阅 [Apple's documentation][CFBundleURLTypes]
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. 有关详细信息，请参阅 [Apple's documentation][CFBundleURLTypes]
 
-**注意：** 在 Windows Store 环境中（当包装为 `appx`时），此 API 将返回所有呼叫的 `true` ，但它设置的注册表键将无法通过其他应用程序 访问。  为了将 Windows Store 应用程序 注册为默认协议处理程序，您必须 [在您的清单](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol)中声明协议。
+**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications.  In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-API 使用视窗注册表并在内部 `LSSetDefaultHandlerForURLScheme` 。
+The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -676,7 +676,7 @@ API 使用视窗注册表并在内部 `LSSetDefaultHandlerForURLScheme` 。
 
 返回 ` Boolean `-是否成功调用。
 
-此方法检查当前可执行的是否为 协议（又名 URI 方案）的默认处理程序。 如果是这样，它将删除应用程序作为默认处理程序。
+This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
@@ -684,39 +684,37 @@ API 使用视窗注册表并在内部 `LSSetDefaultHandlerForURLScheme` 。
 * ` path `String (可选) _ Windows _-默认为 ` process.execPath `
 * `args` String[] (可选) _Windows_ - 默认为空数组
 
-返回 `Boolean` - 当前可执行的是否是 协议（又名URI方案）的默认处理程序。
+Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
 ** 注意: **在macOS上, 您可以使用此方法检查应用程序是否已注册为协议的默认协议处理程序。 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation][LSCopyDefaultHandlerForURLScheme]
 
-API 使用视窗注册表并在内部 `LSCopyDefaultHandlerForURLScheme` 。
+The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` 字符串 - 要检查的协议名称的 URL。 与这个家庭中的其他 方法不同，它接受整个网址，包括至少 `://` （例如 `https://`）。
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
 
-返回 `String` - 处理协议的应用程序的名称，或如果没有处理程序的空 字符串。 例如，如果 Electron 是 URL 的默认 处理器，则可以在 Windows 和 Mac 上 `Electron` 。 但是， 不依赖于不保证保持不变的精确格式。 期待在 Linux 上采用不同的格式，可能带有 `.desktop` 后缀。
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
 
-此方法返回 URL 协议 （又名 URI 方案）的默认处理程序的应用程序名称。
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
 
-* `url` 字符串 - 要检查的协议名称的 URL。 与这个家庭中的其他 方法不同，它接受整个网址，包括至少 `://` （例如 `https://`）。
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
 
-返回 `Promise<Object>` - 用包含以下内容的对象解决：
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
-* `icon` 原生图像 - 处理协议的应用程序的显示图标。
-* `path` 字符串-处理协议的应用程序的安装路径。
-* `name` 字符串-处理协议的应用程序的显示名称。
+* `icon` NativeImage - the display icon of the app handling the protocol.
+* `path` String  - installation path of the app handling the protocol.
+* `name` String - display name of the app handling the protocol.
 
-此方法返回包含 URL 协议 （又名 URI 方案）协议默认处理程序的应用程序名称、图标和路径的承诺。
+This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` _Windows_
 
 * `tasks` [Task[]](structures/task.md) - 由 `Task` 对象组成的数组
 
-将 `tasks` 添加到 Windows 上的跳跃列表</a> 类别的
-
-任务。</p> 
+Adds `tasks` to the [Tasks][tasks] category of the Jump List on Windows.
 
 `tasks` 是 [`Task`](structures/task.md) 对象组成的数组
 
@@ -724,36 +722,28 @@ API 使用视窗注册表并在内部 `LSCopyDefaultHandlerForURLScheme` 。
 
 ** 注意: **如果您想自定义跳转列表, 请使用 ` aapp.setJumpList(categories) ` 来代替。
 
-
-
 ### `app.getJumpListSettings()` _Windows_
 
 返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs][JumpListBeginListMSDN]).
-
-* `removedItems` [JumpListitem []](structures/jump-list-item.md) - 与用户从 跳列表中的自定义类别中明确删除的项目相对应的 `JumpListItem` 对象阵列。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
-
-
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
 
 ### `app.setJumpList(categories)` _Windows_
 
-* `categories` [跳列表类别 []](structures/jump-list-category.md) | `null` - `JumpListCategory` 对象的阵列。
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 设置或删除应用程序的自定义跳转列表，并返回以下字符串之一：
 
 * `ok` - 没有出现错误
 * `error` - 发生一个或多个错误，启用运行日志记录找出可能的原因。
-
-* `invalidSeparatorError` - 尝试将分离器添加到跳转列表中的 自定义类别中。 分离器仅允许在 标准 `Tasks` 类别中使用。
-
+* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` -尝试向自定义跳转列表添加一个文件链接，但是该应用未注册处理该应用类型
-
 * `customCategoryAccessDeniedError` - 由于用户隐私或策略组设置，自定义类别无法添加到跳转列表。
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-**注意：** 如果 `JumpListCategory` 对象既没有 `type` 也没有 `name` 属性设置，则其 `type` 假定为 `tasks`。 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
 
 **注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
@@ -761,68 +751,63 @@ API 使用视窗注册表并在内部 `LSCopyDefaultHandlerForURLScheme` 。
 
 下面是创建自定义跳转列表的一个非常简单的示例:
 
-
-
 ```javascript
-康斯特 { app } =需要（"电子"）
+const { app } = require('electron')
 
-应用程序。setJumplist（[
-  ]
-    类型：'自定义'，
-    名称：'最近项目'，
-    项目：[
-      ]类型：'文件'，路径：'C：\项目]项目1.proj]，
-      类型：'文件'，路径：'C：\项目2.proj'[
+app.setJumpList([
+  {
+    type: 'custom',
+    name: 'Recent Projects',
+    items: [
+      { type: 'file', path: 'C:\\Projects\\project1.proj' },
+      { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
-  }，
-  {//有一个名称，所以"类型"被假定为"自定义"
-    名称："工具"，
-    项目：[
-      ]
-        类型：'任务'，
-        标题： "工具 A"，
-        程序： 过程. execpath，
-        args： '- 运行工具 - a'，
-        图标： 过程. execpath，
-        图标Index： 0，
-        描述： '运行工具 A'
-      [，
+  },
+  { // has a name so `type` is assumed to be "custom"
+    name: 'Tools',
+    items: [
       {
-        类型：'任务'，
-        标题："工具B"，
-        程序：过程.execPath，
-        args：'-运行工具-b'，
-        图标：过程.execPath，
-        图标Index：0，
-        描述："运行工具B"
-      [
+        type: 'task',
+        title: 'Tool A',
+        program: process.execPath,
+        args: '--run-tool-a',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool A'
+      },
+      {
+        type: 'task',
+        title: 'Tool B',
+        program: process.execPath,
+        args: '--run-tool-b',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool B'
+      }
     ]
-
-  { type: 'frequent' }，
-  {//没有名称，所以"类型"被假定为"任务"
-    项目：[
-      ]
-        类型：'任务'，
-        标题：'新项目'，
-        程序：过程.执行路径，
-        args：'-新项目'，
-        描述：'创建一个新项目'。
-      [，
-      { type: 'separator' }，
-      +
-        类型："任务"，
-        标题："恢复项目"，
-        程序：过程。执行路径，
-        args：'-恢复项目'，
-        描述："恢复项目"
-      [
+  },
+  { type: 'frequent' },
+  { // has no name and no type so `type` is assumed to be "tasks"
+    items: [
+      {
+        type: 'task',
+        title: 'New Project',
+        program: process.execPath,
+        args: '--new-project',
+        description: 'Create a new project.'
+      },
+      { type: 'separator' },
+      {
+        type: 'task',
+        title: 'Recover Project',
+        program: process.execPath,
+        args: '--recover-project',
+        description: 'Recover Project'
+      }
     ]
-  ]
-]）
+  }
+])
 ```
-
-
-
 
 ### `app.requestSingleInstanceLock()`
 
@@ -835,8 +820,6 @@ I.e. 如果当前进程是应用程序的主要实例，则此方法返回`true`
 在 macOS 上, 当用户尝试在 Finder 中打开您的应用程序的第二个实例时, 系统会通过发出 ` open-file ` 和 ` open-url ` 事件来自动强制执行单个实例,。 但是当用户在命令行中启动应用程序时, 系统的单实例机制将被绕过, 您必须手动调用此方法来确保单实例。
 
 在第二个实例启动时激活主实例窗口的示例:
-
-
 
 ```javascript
 const { app } = require('electron')
@@ -856,14 +839,11 @@ if (!gotTheLock) {
   })
 
   // 创建 myWindow, 加载应用的其余部分, etc...
-  应用。当准备好时）=> {
-    我的窗口=创建窗口（）
-  }）
+  app.whenReady().then(() => {
+    myWindow = createWindow()
+  })
 }
 ```
-
-
-
 
 ### `app.hasSingleInstanceLock()`
 
@@ -871,53 +851,36 @@ if (!gotTheLock) {
 
 此方法返回你的应用实例当前是否持有单例锁。  你可以通过 `app.requestSingleInstanceLock()`请求锁，并且通过 `app.releaseSingleInstanceLock()` 释放锁。
 
-
-
 ### `app.releaseSingleInstanceLock()`
 
 释放所有由 `requestSingleInstanceLock` 创建的锁。 该方法将允许应用程序的多个实例再次并行运行。
 
-
-
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `][activity-type]。
-
-* `userInfo` 任何 - 特定于应用程序的状态存储，供其他设备使用。
-
-* `webpageURL` 字符串（可选） - 如果没有合适的应用，可在浏览器中加载的网页 安装在恢复设备上。 该计划必须 `http` 或 `https`。
+* `userInfo` any - App-specific state to store for use by another device.
+* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 创建一个 ` NSUserActivity ` 并将其设置为当前活动。 该活动之后可以[Handoff][handoff]到另一个设备。
-
-
 
 ### `app.getCurrentActivityType()` _macOS_
 
 返回 `String` - 正在运行的 activity 的类型
 
-
-
 ### `app.invalidateCurrentActivity()` _macOS_
 
 使当前的[Handoff][handoff]用户活动无效。
-
-
 
 ### `app.resignCurrentActivity()` _macOS_
 
 将当前 [Handoff][handoff] 用户活动标记为非活动，但不使其失效。
 
-
-
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `][activity-type]。
-
-* `userInfo` 任何 - 特定于应用程序的状态存储，供其他设备使用。
+* `userInfo` any - App-specific state to store for use by another device.
 
 当其类型与 ` type ` 匹配时更新当前活动, 将项目从 ` 用户信息 ` 合并到其当前 ` 用户信息 ` 字典中。
-
-
 
 ### `app.setAppUserModelId(id)` _Windows_
 
@@ -925,33 +888,27 @@ if (!gotTheLock) {
 
 改变当前应用的 [Application User Model ID][app-user-model-id] 为 `id`.
 
-
-
 ### `app.setActivationPolicy(policy)` _macOS_
 
-* `policy` 字符串 - 可以是"常规的"，"附属的"或"禁止的"。
+* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
 
 为给定应用设置激活策略。
 
 激活策略类型：
 
-* "常规" - 该应用程序是一个普通的应用程序，显示在码头，可能有一个用户界面。
-* "附件" - 应用程序不显示在 Dock 中，也没有菜单栏，但可以通过编程激活或单击其中一个窗口。
-* "禁止" - 应用程序不显示在坞中，不得创建窗口或激活。
-
-
+* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
+* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
+* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
 
 ### `app.importCertificate(options, callback)` _Linux_
 
-* `选项` 对象 
-    * `certificate` String - pkcs12 文件的路径
+* `选项` 对象
+  * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
-* `callback` Function 
-    * `result` Integer - 导入结果
+* `callback` Function
+  * `result` Integer - 导入结果
 
 将 pkcs12 格式的证书导入到平台证书库。 使用导入操作的 `callback` 调用返回 `result` ，值 `0` 表示成功，而任何其他值表示失败，根据Chromium [net_error_list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) 。
-
-
 
 ### `app.disableHardwareAcceleration()`
 
@@ -959,21 +916,15 @@ if (!gotTheLock) {
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
-
-
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 默认情况下, 如果 GPU 进程频繁崩溃, Chromium 会禁用 3D API (例如 WebGL) 直到在每个域的基础上重新启动。 这个函数会禁用该行为。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
-
-
 ### `app.getAppMetrics()`
 
 返回 [`ProcessMetric[]`](structures/process-metric.md): 包含所有与应用相关的进程的内存和CPU的使用统计的 `ProcessMetric` 对象的数组。
-
-
 
 ### `app.getGPUFeatureStatus()`
 
@@ -981,11 +932,9 @@ if (!gotTheLock) {
 
 **注意：** 此信息仅在 `gpu-info-update` 事件触发后才可用。
 
-
-
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` 字符串 - 可以 `basic` 或 `complete`。
+* `infoType` String - Can be `basic` or `complete`.
 
 返回 ` Promise<unknown>`
 
@@ -993,43 +942,38 @@ if (!gotTheLock) {
 
 对于` infoType `等于` basic `： Promise 至少包含当请求`complete`时的属性`Object`。 下面是一个基础响应示例：
 
-
-
 ```js
 {
-  辅助属性：
+  auxAttributes:
    {
-     可开关：真实，
-     可以支持阅读的字母信箱： 假，
-     直接组合： 假，
-     直接渲染： 真实，
-     glReset 通知战略： 0，
-     在进程Gpu： 真实，
-     初始化时间： 0，
-     jpegdecode 加速器支持： 假，
-     优化： 假，
-     通过CmdDecodeder：假，
-     沙盒：假，
-     软件渲染：假，
-     支持覆盖：假，
-     视频代码加速器火焰：0
-   [，
-  gpuDevice：
-   [{ active: true, deviceId: 26657, vendorId: 4098 }，
-     { active: false, deviceId: 3366, vendorId: 32902 }]，
-  机器名称："MacBookPro"，
-  机器模型转换："11.5"
+     amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0
+   },
+  gpuDevice:
+   [{ active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 }],
+  machineModelName: 'MacBookPro',
+  machineModelVersion: '11.5'
 }
 ```
 
-
 如果只需要基本信息，如` vendorId `或` driverId `，则应优先使用` basic `。
-
-
 
 ### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` 整数（可选） - 如果提供了一个值，则将徽章设置为所提供的值，否则，在 macOS 上，显示一个纯白点（例如未知数量的通知）。 在 Linux 上，如果没有提供值，徽章将不会显示。
+* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
 
 返回 ` Boolean `-是否成功调用。
 
@@ -1039,64 +983,48 @@ if (!gotTheLock) {
 
 ** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ][unity-requirement]。
 
-
-
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
 Returns `Integer` - 获取计数器提醒(badge) 中显示的当前值
-
-
 
 ### `app.isUnityRunning()` _Linux_
 
 Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
-
-
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (可选) 
-    * `path` 字符串（可选） _窗口_ - 可执行路径进行比较。 `process.execPath`的默认值。
-  * `args` 字符串 [] （可选） _Windows_ - 比较 的命令行参数。 默认为空阵列。
+* `options` Object (可选)
+  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置相同的参数已确保正确的设置。
 
 返回 ` Object `:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
-* `openAsHidden` 布尔 _macOS_ - `true` 应用程序是否设置为隐藏在登录时打开。 此设置不适用于 MAS 构建</a>。</p></li> 
-  
-  * `wasOpenedAtLogin` 布尔 _macOS_ - `true` ，如果应用程序在登录时自动打开 。 此设置不适用于 MAS 构建</a>。</p></li> 
-  
-  * `wasOpenedAsHidden` 布尔 _macOS_ - `true` ，如果应用程序被打开作为一个隐藏的登录 项目。 这表示应用程序在启动时不应打开任何窗口。 此设置不适用于 MAS 构建</a>。</p></li> 
-  
-  * `restoreState` 布尔 _macOS_ - `true` ，如果应用程序被打开作为登录项目， 应从上一个会话恢复状态。 这表示程序应该还原上次关闭时打开的窗口。 此设置不适用于 MAS 构建</a>。</p></li> 
-  
-  * `executableWillLaunchAtLogin` 布尔 _Windows_ - `true` 应用程序是否设置为在登录时打开，其运行键未停用。 这与 `openAtLogin` 不同，因为它忽略了 `args` 选项，如果给定的可执行将在登录时启动，并 **任何** 参数，则此属性将是真实的。
-
-* `launchItems` 对象] _视窗_ 
-    * `name` 字符串 _窗口_ - 注册表条目的名称值。
-  * `path` 串 _视窗_ - 可执行的应用程序，对应于注册表条目。
-  * `args` 字符串[] _视窗_ - 传递给可执行的命令行参数。
-  * `scope` 字符串 _窗口_ - `user` 或 `machine`之一。 指示注册表条目是在 `HKEY_CURRENT USER` 下还是 `HKEY_LOCAL_MACHINE`。
-  * `enabled` Boolean _Windows_ - `true` 应用注册表键是否获得启动批准，因此在任务管理器和 Windows 设置中显示为 `enabled` 。</ul> 
-
-
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. 这表示应用程序在启动时不应打开任何窗口。 This setting is not available on [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. 这表示程序应该还原上次关闭时打开的窗口。 This setting is not available on [MAS builds][mas-builds].
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
+* `launchItems` Object[] _Windows_
+  * `name` String _Windows_ - name value of a registry entry.
+  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
+  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
+  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
+  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
-* `settings` 对象 
-    * `openAtLogin` Boolean（可选） - `true` 在登录时打开应用程序， `false` 删除应用程序 作为登录项目。 默认值为 `false`.
-  * `openAsHidden` 布尔 （可选） _macos_ - `true` 打开应用程序隐藏。 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 此设置不适用于 MAS 构建</a>。</li> 
-    
-      * `path` 字符串（可选） _视窗_ - 登录时启动的可执行性。 `process.execPath`的默认值。
-  * `args` 字符串 [] （可选） _Windows_ - 要传递给可执行 命令行参数。 默认为空阵列。 请注意用 引号包装路径。
-  * `enabled` Boolean （可选） _Windows_ - `true` 将更改启动批准的注册表密钥，并在任务管理器和 Windows 设置中 `enable / disable` 应用。 默认值为 `true`。
-  * `name` 字符串（可选） _窗口_ -要写入注册表的价值名称。 默认应用的应用模型。 设置应用程序的登录项设置。</ul></li> </ul> 
+* `settings` Object
+  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. 默认值为 `false`.
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 This setting is not available on [MAS builds][mas-builds].
+  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. 默认值为 `true`。
+  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). 设置应用程序的登录项设置。
 
 如果需要在使用[Squirrel][Squirrel-Windows]的 Windows 上使用 Electron 的 `autoUpdater` ，你需要将启动路径设置为 Update.exe，并传递指定应用程序名称的参数。 例如：
-
-
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1113,15 +1041,12 @@ app.setLoginItemSettings({
 })
 ```
 
-
-
-
 ### `app.isAccessibilitySupportEnabled()` _macOS_ _Windows_
 
 Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
-<h3 spaces-before="0"><code>app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_</h3> 
+<h3 spaces-before="0"><code>app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_</h3>
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 
@@ -1131,43 +1056,33 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **注意：** 渲染访问权限树可能会严重影响您应用的性能。 默认情况下不应启用该功能。
 
-
-
-### `应用程序。显示约面板（）`
+### `app.showAboutPanel()`
 
 显示应用程序的"关于"面板选项。 这些选项可以被 `app.setAboutPanelOptions(可选)` 所覆盖。
 
-
-
 ### `app.setAboutPanelOptions(options)`
 
-* `选项` 对象 
-    * `applicationName` String (可选) - 应用程序的名字
+* `选项` 对象
+  * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
-  * `version` 字符串（可选） _macOS_ - 应用程序的生成版本编号。
-  * `credits` 字符串 （可选） _macos_ _窗口_ - 信用信息。
-  * `authors` 字符串 [] （可选） _Linux_ - 应用作者列表。
-  * `website` 字符串（可选） _Linux_ - 应用程序的网站。
-  * `iconPath` 字符串（可选） _Linux_ _视窗_ - 以JPEG或PNG文件格式访问应用程序的图标。 在 Linux 上，将显示为 64x64 像素，同时保留纵横比。
+  * `version` String (optional) _macOS_ - The app's build version number.
+  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `authors` String[] (optional) _Linux_ - List of app authors.
+  * `website` String (optional) _Linux_ - The app's website.
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 设置 "关于" 面板选项。 这将覆盖应用程序在 macOS 上的 `.plist` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ][about-panel-options]。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
 如果您没有设置 `credits` 但仍希望在应用中显示它们，AppKit 将在 NSBundle 类的main方法返回的捆绑包中按顺序查找名为"Credits.html", "Credits.rtf"和"Credits.rtfd"的文件。 先找到的文件将被使用，如果未找到，则信息区域将留空。 有关更多信息，请参阅 Apple [文档](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) 。
 
-
-
-### `应用程序。是表情符号面板支持（）`
+### `app.isEmojiPanelSupported()`
 
 返回 `布尔值` - 当前操作系统版本是否允许使用本机emoji选取器。
-
-
 
 ### `app.showEmojiPanel()` _macOS_ _Windows_
 
 打开系统自身的emjio选取器。
-
-
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` _macOS_
 
@@ -1175,41 +1090,32 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 返回 `Function` - 该函数 **必须** 在你完成访问安全作用域文件后调用一次。 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
 
-
-
 ```js
 //开始读取文件
-停止访问安全范围资源=应用程序.开始访问安全资源（数据）
-//您现在可以在沙盒之外访问文件🎉
+const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
+// You can now access the file outside of the sandbox 🎉
 
-//请记住，在完成文件后停止访问该文件。
-停止访问安全资源（）
+// Remember to stop accessing the file once you've finished with it.
+stopAccessingSecurityScopedResource()
 ```
-
 
 开始访问安全范围内的资源。 通过这个方法，Electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
-
-
-### `应用程序。启用和框（）`
+### `app.enableSandbox()`
 
 在应用程序上启用完全沙盒模式。 这意味着所有渲染器都将以沙盒的方式运行，无论 WebPreence 中 `sandbox` 标志的值是什么。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
-
-
 ### `app.isInApplicationsFolder()` _macOS_
 
 返回 `Boolean` - 应用程序当前是否从系统应用程序文件夹运行。 与 `app.moveToApplicationsFolder()`一起使用
 
-
-
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (可选) 
-    * `conflictHandler` 功能\<Boolean> （可选） - 移动失败中潜在冲突的处理程序。 
-        * `conflictType` 字符串 - 处理程序遇到的移动冲突类型：可以是 `exists` 或 `existsAndRunning`，其中 `exists` 意味着同名的应用程序存在于应用程序目录中， `existsAndRunning` 意味着它的存在和它目前运行。
+* `options` Object (可选)
+  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 返回 `Boolean` - 移动是否成功。 请注意，如果移动成功，您的应用程序将退出并重新启动。
 
@@ -1221,27 +1127,22 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 例如：
 
-
-
 ```js
-应用。移动应用折叠器（+
-  冲突汉德勒：（冲突类型）=> {
-    （冲突类型==="存在"）{
-      返回对话
-        。
-        按钮： ['停止移动'， '继续移动']，
-        默认 Id： 0，
-        消息： '这个名字的应用程序已经存在'
-      [） == 1
-    =
-  =
-[）
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
 ```
 
-
 这意味着，如果应用已经存在于用户目录中，如果用户选择 '继续移动'，则该功能将继续其默认行为，现有应用将被丢弃，当前应用将移动到其位置。
-
-
 
 ### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
@@ -1249,11 +1150,9 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 默认情况下，此 API 将返回 `false`。
 
-
-
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` 布尔 - 启用或禁用 `Secure Keyboard Entry`
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
 
 在应用中启用 `Secure Keyboard Entry` 。
 
@@ -1263,11 +1162,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **注意：** 仅在需要时启用 `Secure Keyboard Entry` ，并在不再需要时禁用。
 
-
-
 ## Properties
-
-
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
@@ -1279,13 +1174,9 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **注意：** 渲染访问权限树可能会严重影响您应用的性能。 默认情况下不应启用该功能。
 
-
-
 ### `app.applicationMenu`
 
 `Menu | null` 属性，如果设置 [`Menu`](menu.md) ，则返回，否则返回 `null` 。 用户可以传递 [Menu](menu.md) 来给此属性赋值。
-
-
 
 ### `app.badgeCount` _Linux_ _macOS_
 
@@ -1297,25 +1188,17 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **注意：** 在 macOS 上，为了使该属性生效，您需要确保您的应用程序具有显示通知的权限。
 
-
-
 ### `app.commandLine` _只读_
 
 [`CommandLine`](./command-line.md) 对象，允许您读取和操作 Chromium 使用的命令行参数。
-
-
 
 ### `app.dock` _macOS_ _只读_
 
 [`Dock`](./dock.md) `| undefined` 对象，允许您在 macOS 上的用户dock中对应用图标进行操作。
 
-
-
 ### `app.isPackaged` _只读_
 
 返回一个`Boolean`值，如果应用已经打包，返回`true` ，否则返回`false` 。 对于大多数应用程序，此属性可用于区分开发和生产环境。
-
-
 
 ### `app.name`
 
@@ -1323,15 +1206,11 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 通常，根据 npm 模块规格的 ， `package.json` 的 `name` 字段是一个简短的低写名称。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
-
-
 ### `app.userAgentFallback`
 
 `String` Electron 用于全局回退的用户代理字符串。
 
 当用户代理在`webContents` 或 `session` 级别没有被设置时，将使用此用户代理。  有助于确保您的整个应用程序具有相同的用户代理。  在应用初始化中尽早设置为自定义值，以确保使用的是您覆盖的值。
-
-
 
 ### `app.allowRendererProcessReuse`
 
@@ -1339,14 +1218,13 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 目的是让这些覆盖在默认情况下不可用，此属性未来将被删除。  此属性会影响您可以在渲染进程中使用哪些本地模块。  有关 Electron 重新启动渲染进程以及在渲染进程中使用本地模块的未来设计，请查看此[跟踪问题](https://github.com/electron/electron/issues/18397)。
 
-
-
 ### `app.runningUnderRosettaTranslation` _macOS_ _只读_
 
 `Boolean` ，为 `true` 表明该应用程序目前正在运行在[转译环境](https://en.wikipedia.org/wiki/Rosetta_(software))下。
 
 您可以使用此属性来提示用户下载应用程序的 arm64 版本，当用户错误地在转译环境下运行 x64 版本。
 
+[tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/
 [electron-packager]: https://github.com/electron/electron-packager
@@ -1355,6 +1233,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
 [unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
 [about-panel-options]: https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc
