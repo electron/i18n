@@ -33,7 +33,7 @@ Cancel the bounce of `id`.
 
 #### `dock.downloadFinished(filePath)` _macOS_
 
-* `filePath` Cordas
+* `filePath` String
 
 Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
