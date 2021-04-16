@@ -37,7 +37,7 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 ### `shell.openExternal(url[, options])`
 
 * `url` String - 2081 caractères max. sur Windows.
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `activate` Boolean (facultatif) _macOS_ - `true` pour mettre l’application ouverte au premier plan. The default is `true`.
   * `workingDirectory` String (optional) _Windows_ - Le dossier de travail.
 
