@@ -293,7 +293,7 @@ Define o menu de contexto para este ícone.
 
 #### `tray.getBounds()` _macOS_ _Windows_
 
-Retornos [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md)
 
 A `bounds` deste ícone de bandeja como `Object`.
 
