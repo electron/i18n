@@ -28,55 +28,45 @@
 
 `contentTracing`模块包含以下方法：
 
-### `内容跟踪。获取获取（）`
+### `contentTracing.getCategories()`
 
-返回 `Promise<String[]>` - 一旦所有儿童过程都确认了 `getCategories` 请求，则使用一系列类别组解决
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-获取一组类别组。 类别组可以随着新代码路径 的到达而更改。 另请参阅</a>内置追踪 类别的
+Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
-列表。</p> 
+> **NOTE:** Electron adds a non-default tracing category called `"electron"`. This category can be used to capture Electron-specific tracing events.
 
+### `contentTracing.startRecording(options)`
 
+* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
-> **注意：** 电子公司添加了一个名为 `"electron"`的非默认跟踪类别。 此类别可用于捕获特定于电子的跟踪事件。
-
-
-
-### `内容跟踪。开始记录（选项）`
-
-* `options` （[追踪康菲格](structures/trace-config.md) | [追踪和](structures/trace-categories-and-options.md)）
-
-返回 `Promise<void>` - 一旦所有儿童过程都确认了 `startRecording` 请求，退货问题就会得到解决。
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
 在所有进程上开始记录
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。
 
-如果录音已经运行，承诺将立即得到解决，因为 一次只能进行一次跟踪操作。
+If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
+### `contentTracing.stopRecording([resultFilePath])`
 
+* `resultFilePath` String (optional)
 
-### `内容跟踪。停止记录（[resultFilePath]）`
-
-* `resultFilePath` 字符串（可选）
-
-返回 `Promise<String>` - 一旦所有儿童过程都确认了 `stopRecording` 请求，就会使用包含跟踪数据的文件路径进行解析
+Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
 停止所有进程记录。
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 因此， 结束追踪时，Chromium 异步要求所有儿童过程冲洗任何 待处理的跟踪数据。
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-跟踪数据将被写入 `resultFilePath`。 如果 `resultFilePath` 是空的 或未提供，跟踪数据将被写入临时文件，路径 将在承诺中返回。
+Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
+### `contentTracing.getTraceBufferUsage()`
 
-
-### `内容跟踪。获取跟踪使用（）`
-
-返回 `Promise<Object>` - 使用包含微量缓冲区最大使用 `value` 和 `percentage` 的对象解决
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
 
 * `value` Number
 * `percentage` Number
 
-以 全状态的百分比获得跟踪缓冲过程的最大使用量。
+Get the maximum usage across processes of trace buffer as a percentage of the full state.
 
 [跟踪查看器]: https://chromium.googlesource.com/catapult/+/HEAD/tracing/README.md
