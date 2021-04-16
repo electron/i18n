@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `novas opções touchBar (opções)`
 
-* objeto `options`
+* `options` Object
   * `items` (</a> | touchbarbutton[ [](touch-bar-color-picker.md) | TouchBarColorPicker [TouchBarGroup](touch-bar-group.md) |](touch-bar-button.md) | TouchBarLabel
 
  [TouchBarPopover](touch-bar-popover.md) | [](touch-bar-scrubber.md) | TouchBarScrubber [](touch-bar-segmented-control.md) | TouchBarSegmentedControl [TouchBarSlider](touch-bar-slider.md) | [](touch-bar-spacer.md)TouchBarSpacer )[] (opcional)</li> 
