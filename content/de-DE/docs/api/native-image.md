@@ -292,15 +292,15 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
   * `buffer` Buffer (optional) - The buffer containing the raw image data.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
-Fügen Sie eine Bilddarstellung für einen bestimmten Skalierungsfaktor hinzu. Dies kann verwendet werden, , um einem Bild explizit unterschiedliche Skalierungsfaktordarstellungen hinzuzufügen. Diese kann auf leere Bilder aufgerufen werden.
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
 ### Instanz Eigenschaften
 
-#### `nativeImage.isMacTemplateImage` _macOS-_
+#### `nativeImage.isMacTemplateImage` _macOS_
 
-Eine `Boolean` Eigenschaft, die bestimmt, ob das Bild als [Vorlagenbild](https://developer.apple.com/documentation/appkit/nsimage/1520017-template)betrachtet wird.
+A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Bitte beachten Sie, dass diese Unterkunft nur Auswirkungen auf macOS hat.
+Please note that this property only has an effect on macOS.
 
 [icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
 
