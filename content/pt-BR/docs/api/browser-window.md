@@ -885,7 +885,7 @@ No Linux, o setter é um não-op, embora o getter retorne `true`.
 
 #### `win.excludedFromShownWindowsMenu` __macOS
 
-Uma propriedade `Boolean` que determina se a janela está excluída do menu Windows do aplicativo. `false` por padrão.
+Uma propriedade `Boolean` que determina se a janela está excluída do menu Windows do aplicativo. `false` by default.
 
 
 
