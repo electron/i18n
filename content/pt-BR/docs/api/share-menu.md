@@ -1,35 +1,27 @@
-## Classe: ShareMenu
+## Class: ShareMenu
 
-> Crie menu de compartilhamento no macOS.
+> Create share menu on macOS.
 
 Processo: [Main](../glossary.md#main-process)
 
-A classe `ShareMenu` cria</a>
+The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
 
-Menu de Compartilhamento no macOS, que pode ser usado para compartilhar informações do contexto atual para aplicativos, contas de de mídia social e outros serviços.</p> 
+For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
 
-Para incluir o menu de ações como um submenu de outros menus, use o `shareMenu` papel de [`MenuItem`](menu-item.md).
+### `new ShareMenu(sharingItem)`
 
+* `sharingItem` SharingItem - The item to share.
 
-
-### `novo ShareMenu (sharingItem)`
-
-* `sharingItem` SharingItem - O item a compartilhar.
-
-Cria um novo menu de ações.
-
-
+Creates a new share menu.
 
 ### Métodos de Instância
 
-O objeto `shareMenu` tem os seguintes métodos de instância:
+The `shareMenu` object has the following instance methods:
 
+#### `shareMenu.popup([options])`
 
-
-#### `shareMenu.popup ([options])`
-
-* `options` PopupOptions (opcional) 
-    * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `options` PopupOptions (optional)
+  * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
   * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
@@ -37,10 +29,10 @@ O objeto `shareMenu` tem os seguintes métodos de instância:
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
-
-
-#### `shareMenu.closePopup ([browserWindow])`
+#### `shareMenu.closePopup([browserWindow])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Fecha o menu de contexto em `browserWindow`.
+
+[share-menu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/
