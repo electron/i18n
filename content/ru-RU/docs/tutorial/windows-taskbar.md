@@ -24,7 +24,7 @@ To set user tasks for your application, you can use [app.setUserTasks][setuserta
 
 ##### Set user tasks
 
-Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { app } = require('electron')
@@ -73,7 +73,7 @@ To set thumbnail toolbar in your application, you need to use [BrowserWindow.set
 
 ##### Set thumbnail toolbar
 
-Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -122,7 +122,7 @@ To set the overlay icon for a window, you need to use the [BrowserWindow.setOver
 
 #### Пример
 
-Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -144,7 +144,7 @@ To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.fl
 
 #### Пример
 
-Начиная с рабочего приложения от [Руководство по быстрому](quick-start.md), обновите `main.js` файл с следующими строками:
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript
 const { BrowserWindow } = require('electron')
