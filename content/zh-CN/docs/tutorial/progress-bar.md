@@ -2,9 +2,9 @@
 
 ## 概览
 
-进度栏使窗口能够向用户提供进度信息 无需切换到窗口本身。
+A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
 
-在 Windows 上，您可以使用任务栏按钮来显示进度栏。
+On Windows, you can use a taskbar button to display a progress bar.
 
 ![Windows Progress Bar][1]
 
