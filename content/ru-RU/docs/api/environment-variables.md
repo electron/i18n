@@ -42,10 +42,10 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` явно запрещены в упакованных приложениях, за исключением следующих:
+`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
 
 ```sh
---макс-http-заголовок размера
+--max-http-header-size
 --http-parser
 ```
 
@@ -59,25 +59,25 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 По умолчанию, новый сгенерированный ключ API Google не может делать запросы геолокации. Чтобы включить веб-сервис геолокации для вашего проекта требуется [библиотека API](https://console.cloud.google.com/apis/library).
 
-N.b. Для работы веб-службы геолокации [учетную запись](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) к проекту, связанному с ключом API.
+N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
-Отключает поддержку ASAR. Эта переменная поддерживается только в раздвоенных детских процессах, и породила детские процессы, `ELECTRON_RUN_AS_NODE`.
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
 Начинает процесс как Node.js процесс.
 
-В этом режиме вы сможете передать параметры [cli](https://nodejs.org/api/cli.html) в узел.js как вы бы при запуске обычного узла.js выполняется, за исключением следующих флагов:
+In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
 
-* "--открывает-конфиг"
-* "--использование-в комплекте-ca"
-* "--использование-openssl-ca",
-* "--форс-фипс"
-* "--включить-fips"
+* "--openssl-config"
+* "--use-bundled-ca"
+* "--use-openssl-ca",
+* "--force-fips"
+* "--enable-fips"
 
-Эти флаги отключены из-за того, что Electron использует BoringSSL вместо OpenSSL при создании модуля `crypto` Node.js, и поэтому не будет работать так, как задумано.
+These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
@@ -89,7 +89,7 @@ N.b. Для работы веб-службы геолокации [учетну�
 
 ### `ELECTRON_TRASH` _Linux_
 
-Установите реализацию мусора на Linux. По умолчанию `gio`.
+Set the trash implementation on Linux. Default is `gio`.
 
 Параметры:
 
@@ -108,7 +108,7 @@ N.b. Для работы веб-службы геолокации [учетну�
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Когда Electron читает из файла ASAR, зайдите в файл смещения чтения и файл систему `tmpdir`. Полученный файл может быть предоставлен модулю ASAR для оптимизации заказа файлов.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -127,13 +127,13 @@ N.b. Для работы веб-службы геолокации [учетну�
 При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Использование:
 
 ```sh
-экспортные ELECTRON_OVERRIDE_DIST_PATH/пользователи/имя пользователя/проекты/электрон/аут/тестирование
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
 
-## Набор электроном
+## Set By Electron
 
-Electron устанавливает некоторые переменные в вашей среде во время выполнения.
+Electron sets some variables in your environment at runtime.
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
-Эта переменная устанавливается на значение `XDG_CURRENT_DESKTOP` , с было запущено приложение.  Электрон иногда изменяет значение `XDG_CURRENT_DESKTOP` , чтобы повлиять на другую логику в Chromium, так что если вы хотите получить доступ к исходному __ значение вы должны искать эту среду переменной вместо.
+This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron sometimes modifies the value of `XDG_CURRENT_DESKTOP` to affect other logic within Chromium so if you want access to the _original_ value you should look up this environment variable instead.
