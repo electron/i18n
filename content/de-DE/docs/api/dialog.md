@@ -18,7 +18,7 @@ Das `dialog` module hat die folgenden Methoden:
 ### `dialog.showOpenDialogSync([browserWindow, ]Optionen)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` -Objekt
+* `options` Object
   * `title` String (optional)
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
@@ -66,7 +66,7 @@ dialog.showOpenDialogSync(mainWindow,
 ### `dialog.showOpenDialog([browserWindow, ]Optionen)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` -Objekt
+* `options` Object
   * `title` String (optional)
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
@@ -84,7 +84,7 @@ dialog.showOpenDialogSync(mainWindow,
   * `message` String (optional) _macOS_ - Nachricht, die über Eingabe -Feldern angezeigt wird.
   * `securityScopedBookmarks` boolesche (optional) _macOS_ _mas_ - Erstellen Sie [Lesezeichen mit Sicherheitsbereich, die](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) , wenn sie für den Mac App Store verpackt werden.
 
-Gibt `Promise<Object>` zurück - Auflösen mit einem Objekt, das Folgendes enthält:
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` boolesch - unabhängig davon, ob das Dialogfeld abgebrochen wurde.
 * `filePaths` String[] - Ein Array von Dateipfaden, die vom Benutzer ausgewählt wurden. Wenn das Dialogfeld abgebrochen wird, handelt es sich um ein leeres Array.
@@ -123,7 +123,7 @@ dialog.showOpenDialog(mainWindow,
 ### `dialog.showSaveDialogSync([browserWindow, ]Optionen)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` -Objekt
+* `options` Object
   * `title` String (optional)
   * `defaultPath` String (optional) - Absoluter Verzeichnispfad, absolute Datei Pfad oder Dateiname, der standardmäßig verwendet werden soll.
   * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
@@ -152,7 +152,7 @@ mit Sicherheitsbereich, wenn sie für den Mac App Store verpackt werden. Wenn di
 ### `dialog.showSaveDialog([browserWindow, ]Optionen)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` -Objekt
+* `options` Object
   
     * `title` String (optional)
   * `defaultPath` String (optional) - Absoluter Verzeichnispfad, absolute Datei Pfad oder Dateiname, der standardmäßig verwendet werden soll.
@@ -172,7 +172,7 @@ mit Sicherheitsbereich, wenn sie für den Mac App Store verpackt werden. Wenn di
     * `dontAddToRecent` _Windows_ - Fügen Sie das element, das gespeichert wird, nicht zur Liste der letzten Dokumente hinzu.
   * `securityScopedBookmarks` boolesche (optional) _macOS_ _mas_ - Erstellen Sie eine</a> mit Sicherheitsbereich, wenn sie für den Mac App Store verpackt werden. Wenn diese Option aktiviert ist und die Datei noch nicht vorhanden ist, wird eine leere Datei am gewählten Pfad erstellt.</li> </ul></li> </ul> 
     
-    Gibt `Promise<Object>` zurück - Auflösen mit einem Objekt, das Folgendes enthält:
+    Returns `Promise<Object>` - Resolve with an object containing the following:
     
     * `canceled` boolesch - unabhängig davon, ob das Dialogfeld abgebrochen wurde.
 * `filePath` String (optional) - Wenn das Dialogfeld abgebrochen wird, wird dies `undefined`.
@@ -189,7 +189,7 @@ Die `filters` gibt ein Array von Dateitypen an, die angezeigt werden können, si
 ### `dialog.showMessageBoxSync([browserWindow, ]Optionen)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` -Objekt
+* `options` Object
   
     * `message` String - Inhalt des Meldungsfelds.
   * `type` String (optional) - Kann `"none"`, `"info"`, `"error"`, `"question"` oder `"warning"`sein. Unter Windows zeigt `"question"` dasselbe Symbol wie `"info"`an, es sei denn, Sie ein Symbol mit der Option `"icon"` festlegen. Unter macOS `"warning"` und `"error"` das gleiche Warnsymbol anzeigen.
@@ -217,7 +217,7 @@ Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein �
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` -Objekt
+* `options` Object
   
     * `message` String - Inhalt des Meldungsfelds.
   * `type` String (optional) - Kann `"none"`, `"info"`, `"error"`, `"question"` oder `"warning"`sein. Unter Windows zeigt `"question"` dasselbe Symbol wie `"info"`an, es sei denn, Sie ein Symbol mit der Option `"icon"` festlegen. Unter macOS `"warning"` und `"error"` das gleiche Warnsymbol anzeigen.
@@ -259,7 +259,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `options` -Objekt 
+* `options` Object 
     * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
 
