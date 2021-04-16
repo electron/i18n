@@ -7,8 +7,8 @@ Processo: [Main](../glossary.md#main-process)
 As ferramentas de desenvolvedor do Chrome possuem [special binding][rdp] disponível no runtime do JavaScript que permite interagir com páginas e instrumentá-las.
 
 ```javascript
-const { BrowserWindow } = require ('electron')
-const win = novo BrowserWindow()
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')
@@ -16,31 +16,31 @@ try {
   console.log('Debugger attach failed : ', err)
 }
 
-win.webContents.debugger.on('desapegar', (evento, razão) => { console
-  .log('Depurador destacado devido a : ', razão)
+win.webContents.debugger.on('detach', (event, reason) => {
+  console.log('Debugger detached due to : ', reason)
 })
 
-win.webContents.debugger.on('message', (evento, método, params) => {
-  se (método === 'Network.requestWillBeSent') {
-    se (params.request.url === 'https://www.github.com') {
+win.webContents.debugger.on('message', (event, method, params) => {
+  if (method === 'Network.requestWillBeSent') {
+    if (params.request.url === 'https://www.github.com') {
       win.webContents.debugger.detach()
     }
   }
 })
 
-win.webContents.debugger.debugger.sendCommand('Network.enable')
+win.webContents.debugger.sendCommand('Network.enable')
 ```
 
 ### Eventos de instância
 
-#### Evento: 'desapegar'
+#### Event: 'detach'
 
 Retorna:
 
 * `event` Event
-* `reason` String - Razão para desprender depurador.
+* `reason` String - Reason for detaching debugger.
 
-Emitido quando a sessão de depuração é encerrada. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Event: 'message'
 
