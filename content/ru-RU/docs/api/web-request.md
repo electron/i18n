@@ -39,7 +39,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -81,7 +81,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -106,7 +106,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -125,7 +125,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -154,7 +154,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -176,7 +176,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -200,7 +200,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -223,7 +223,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders (фильтр, (подро
 * `filter` (по желанию)
   * `urls` String - Массив шаблонов URL, которые будут использоваться для фильтрации запросов , которые не соответствуют шаблонам URL.
 * `listener` функции | Null
-  * `details` объект
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
