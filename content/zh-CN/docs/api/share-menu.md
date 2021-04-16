@@ -24,7 +24,7 @@
   * `browserWindow` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
   * `x` Number (可选) - 默认为当前鼠标的位置。 如果指定了`y`，则该选项必选。
   * `y` Number (可选) - 默认为当前鼠标的位置。 如果指定了`x`，则该选项必选。
-  * `positioningItem` 编号（可选） _macOS_ - 要 的菜单项索引位于指定坐标的鼠标光标下。 默认值为 -1。
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. 默认值为 -1。
   * `callback` Function (optional) - 会在菜单关闭后被调用.
 
 将此菜单作为 browserWindow <a> 中的上下文菜单弹出。</p> 
