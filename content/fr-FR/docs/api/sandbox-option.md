@@ -65,16 +65,16 @@ et preload.js:
 
 ```js
 // Ce fichier est chargé chaque fois qu'un contexte javascript est créé. Il s'exécute dans une portée privée
-// qui peut accéder à un sous-ensemble d'API de rendu Electron. Sans
-// contexteIsolation activée, il est possible de fuir accidentellement des
-privilégiés // globals comme ipcRenderer au contenu web.
-const { ipcRenderer } = require ('electron')
+// qui peut accéder à un sous-ensemble d'API de rendu Electron. Without
+// contextIsolation enabled, it's possible to accidentally leak privileged
+// globals like ipcRenderer to web content.
+const { ipcRenderer } = require('electron')
 
 const defaultWindowOpen = window.open
 
-window.open = fonction customWindowOpen (url, ... args) {
-  ipcRenderer.send ('report-window-open', location.origin, url, args)
-  return defaultWindowOpen (url + '?from_electron=1', ... args)
+window.open = function customWindowOpen (url, ...args) {
+  ipcRenderer.send('report-window-open', location.origin, url, args)
+  return defaultWindowOpen(url + '?from_electron=1', ...args)
 }
 ```
 
@@ -105,19 +105,19 @@ Actuellement la fonction `require` fournie dans la portée de préchargement exp
 - `timers`
 - `url`
 
-D’autres peuvent être ajoutés au besoin pour exposer plus d’API d’électrons dans le bac à sable.
+More may be added as needed to expose more Electron APIs in the sandbox.
 
-## Rendu de contenu nontrusted
+## Rendering untrusted content
 
-Le rendu du contenu non sécurisé dans Electron est encore un territoire quelque peu inconnu, bien que certaines applications trouvent le succès (par exemple Beaker Browser). Notre objectif est d’obtenir aussi près de Chrome que nous le pouvons en termes de sécurité du contenu bac à sable, mais en fin de compte, nous serons toujours en retard en raison de quelques questions fondamentales:
+Rendering untrusted content in Electron is still somewhat uncharted territory, though some apps are finding success (e.g. Beaker Browser). Our goal is to get as close to Chrome as we can in terms of the security of sandboxed content, but ultimately we will always be behind due to a few fundamental issues:
 
-1. Nous n’avons pas les ressources ou l’expertise dédiées que Chromium doit appliquer à la sécurité de son produit. Nous faisons de notre mieux pour utiliser ce que nous avons , pour hériter de tout ce que nous pouvons du Chrome, et pour répondre rapidement aux problèmes de sécurité , mais Electron ne peut pas être aussi sûr que le chrome sans les ressources que chrome est en mesure de consacrer.
-2. Certaines fonctionnalités de sécurité dans Chrome (telles que la navigation sécurisée et la transparence du certificat ) nécessitent une autorité centralisée et des serveurs dédiés, tous deux de qui va à l’encontre des objectifs du projet Electron. En tant que tel, nous désactivons ces fonctionnalités dans Electron, au prix de la sécurité associée qu’ils qu’ils apporteraient autrement.
-3. Il n’y a qu’un seul chrome, alors qu’il existe plusieurs milliers d’applications sur Electron, qui se comportent toutes légèrement différemment. La comptabilisation de ces différences peut donner un espace de possibilité énorme, et le rendre difficile à assurer la sécurité de la plate-forme dans les cas d’utilisation inhabituelle.
-4. Nous ne pouvons pas pousser directement les mises à jour de sécurité pour les utilisateurs, nous comptons donc sur les fournisseurs d’applications pour mettre à niveau la version d’Electron sous-jacente à leur application afin que les mises à jour de sécurité atteignent les utilisateurs.
+1. We do not have the dedicated resources or expertise that Chromium has to apply to the security of its product. We do our best to make use of what we have, to inherit everything we can from Chromium, and to respond quickly to security issues, but Electron cannot be as secure as Chromium without the resources that Chromium is able to dedicate.
+2. Some security features in Chrome (such as Safe Browsing and Certificate Transparency) require a centralized authority and dedicated servers, both of which run counter to the goals of the Electron project. As such, we disable those features in Electron, at the cost of the associated security they would otherwise bring.
+3. There is only one Chromium, whereas there are many thousands of apps built on Electron, all of which behave slightly differently. Accounting for those differences can yield a huge possibility space, and make it challenging to ensure the security of the platform in unusual use cases.
+4. We can't push security updates to users directly, so we rely on app vendors to upgrade the version of Electron underlying their app in order for security updates to reach users.
 
-Voici quelques éléments à considérer avant de rendre du contenu non fidèle :
+Here are some things to consider before rendering untrusted content:
 
 - Un script de préchargement peut accidentellement fuir des API privilégiées vers du code non fiable, sauf si [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) est également activé.
-- Certains bogues dans le moteur V8 peuvent permettre au code malveillant d’accéder aux API de préchargement de de rendu, accordant ainsi un accès complet au système via le module `remote` . Par conséquent, il est fortement recommandé [désactiver le module `remote` module](../tutorial/security.md#15-disable-the-remote-module). Si la désactivation n’est pas possible, vous devez filtrer [le module `remote` de](../tutorial/security.md#16-filter-the-remote-module).
-- Bien que nous faisons de notre mieux pour faire reculer les correctifs de sécurité chrome vers les anciennes versions d’Electron, nous ne garantissons pas que chaque correctif sera backported. Votre meilleure chance de rester en sécurité est d’être sur la dernière version stable 'Electron.
+- Some bug in the V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
+- While we make our best effort to backport Chromium security fixes to older versions of Electron, we do not make a guarantee that every fix will be backported. Your best chance at staying secure is to be on the latest stable version of Electron.
