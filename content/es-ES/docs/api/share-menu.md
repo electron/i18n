@@ -1,26 +1,26 @@
 ## Clase: ShareMenu
 
-> Menú crear compartir en macOS.
+> Create share menu on macOS.
 
 Proceso: [Main](../glossary.md#main-process)
 
-La clase `ShareMenu` crea [menú para compartir][share-menu] en macOS, que se puede usar para compartir información desde el contexto actual a apps, redes sociales cuentas y otros servicios.
+The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
 
-Para incluir el menú compartir como un submenú de otros menús, usa el `shareMenu` rol de [`MenuItem`](menu-item.md).
+For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
 
-### `nuevo ShareMenu (sharingItem)`
+### `new ShareMenu(sharingItem)`
 
-* `sharingItem` SharingItem: el elemento que se compartirá.
+* `sharingItem` SharingItem - The item to share.
 
-Crea un nuevo menú para compartir.
+Creates a new share menu.
 
 ### Métodos de Instancia
 
-El objeto `shareMenu` tiene los siguientes métodos de instancia:
+The `shareMenu` object has the following instance methods:
 
-#### `shareMenu. Popup ([options])`
+#### `shareMenu.popup([options])`
 
-* `options` PopupOptions (opcional)
+* `options` PopupOptions (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (opcional) - Por defecto es la ventana seleccionada.
   * `x` Número (opcional) - Default es la posición actual del cursor. Debe ser declarado si `y` es declarado.
   * `y` Número (opcional) - Default es la posición actual del cursor. Debe ser declarado si `x` es declarado.
@@ -29,7 +29,7 @@ El objeto `shareMenu` tiene los siguientes métodos de instancia:
 
 Este menú aparece como un menú contextual en el [`BrowserWindow`](browser-window.md).
 
-#### `shareMenu. closePopup ([browserWindow])`
+#### `shareMenu.closePopup([browserWindow])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (opcional) - Por defecto es la ventana seleccionada.
 
