@@ -14,7 +14,7 @@ Prozess: [Main](../glossary.md#main-process)
 
 #### `port.postMessage(Nachricht, [transfer])`
 
-* `message`
+* `message` any
 * `transfer` MessagePortMain[] (optional)
 
 Sendet eine Nachricht vom Port und überträgt optional den Besitz von Objekten, die , in andere Browserkontexte.
