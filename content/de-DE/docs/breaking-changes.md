@@ -626,7 +626,7 @@ Datei3
 In Electron <=6 würde dies eine `Dateiliste` mit einem `Datei` Objekt für:
 
 ```console
-Pfad/zu/Ordner
+path/to/folder
 ```
 
 In Electron 7 liefert dies nun eine `Dateiliste` mit einem `Datei-` Objekt für:
@@ -637,13 +637,13 @@ In Electron 7 liefert dies nun eine `Dateiliste` mit einem `Datei-` Objekt für:
 /path/to/folder/file1
 ```
 
-Beachten Sie, dass `webkitdirectory` den Pfad nicht mehr dem ausgewählten Ordner anzeigt. Wenn Sie den Pfad zum ausgewählten Ordner anstelle des Ordnerinhalts benötigen, die `dialog.showOpenDialog` -API ([Link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) anzeigen.
+Beachten Sie, dass `webkitdirectory` den Pfad nicht mehr dem ausgewählten Ordner anzeigt. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
-### API geändert: Rückruf-basierte Versionen von promisifizierten APIs
+### API Changed: Callback-based versions of promisified APIs
 
-Electron 5 und Electron 6 führten Promise-basierte Versionen vorhandener asynchronen APIs ein und verstellten ihre älteren, Callback-basierten Gegenstücke. In Electron 7 werden nun alle veralteten Callback-basierten APIs entfernt.
+Electron 5 and Electron 6 introduced Promise-based versions of existing asynchronous APIs and deprecated their older, callback-based counterparts. In Electron 7, all deprecated callback-based APIs are now removed.
 
-Diese Funktionen geben jetzt nur noch Versprechen zurück:
+These functions now only return Promises:
 
 * `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
 * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
@@ -686,47 +686,47 @@ Diese Funktionen haben nun zwei Formen, synchron und promise-basiert asynchron:
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-## Geplante Brechende API-Änderungen (6.0)
+## Planned Breaking API Changes (6.0)
 
 ### API geändert: `win.setMenu(null)` ist jetzt `win.removeMenu()`
 
 ```js
-Veraltete
+// Deprecated
 win.setMenu(null)
-/ / Ersetzen durch
+// Replace with
 win.removeMenu()
 ```
 
 ### API geändert: `electron.screen` im Renderer-Prozess sollte über `Remote` aufgerufen werden
 
 ```js
-Veraltete
-erfordern ('Elektron').Screen
-/ / Ersetzen mit
-require('electron').
+// Deprecated
+require('electron').screen
+// Replace with
+require('electron').remote.screen
 ```
 
 ### API geändert: `require()`eingebaute Knoten in Sandbox-Renderer laden nicht mehr implizit die `entfernte` Version
 
 ```js
-Veraltete
+// Deprecated
 require('child_process')
-/ / Ersetzen mit
+// Replace with
 require('electron').remote.require('child_process')
 
-/ / Deprecated
+// Deprecated
 require('fs')
-/ / Ersetzen mit
+// Replace with
 require('electron').remote.require('fs')
 
-/ Veraltete
+// Deprecated
 require('os')
-/ / Ersetzen mit
+// Replace with
 require('electron').remote.require('os')
 
-/ / Deprecated
+// Deprecated
 require('path')
-/ / Ersetzen mit
+// Replace with
 require('electron').remote.require('path')
 ```
 
@@ -751,42 +751,42 @@ const idleTime = powerMonitor.getSystemIdleTime()
 ### Veraltet: `app.enableMixedSandbox()` wird nicht mehr benötigt
 
 ```js
-Veraltete
+// Deprecated
 app.enableMixedSandbox()
 ```
 
-Der Mixed-Sandbox-Modus ist jetzt standardmäßig aktiviert.
+Mixed-sandbox mode is now enabled by default.
 
 ### Veraltet: `Tray.setHighlightMode`
 
-Unter macOS Catalina bricht unsere frühere Tray-Implementierung. Apples nativer Ersatz unterstützt keine Änderung des Hervorhebungsverhaltens.
+Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
 
 ```js
-Veraltete
+// Deprecated
 tray.setHighlightMode(mode)
-/ API werden in v7.0 ohne Ersatz entfernt.
+// API will be removed in v7.0 without replacement.
 ```
 
-## Geplante Brechende API-Änderungen (5.0)
+## Planned Breaking API Changes (5.0)
 
 ### Standard geändert: `nodeIntegration` und `webviewTag` default to false, `contextIsolation` defaults to true
 
-Die folgenden `webPreferences` Optionsstandardwerte sind zugunsten der unten aufgeführten neuen Standardwerte veraltet.
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
 
-| Eigenschaft        | Veraltete Standardeinstellung        | Neuer Standardwert |
-| ------------------ | ------------------------------------ | ------------------ |
-| `contextIsolation` | `false`                              | `true`             |
-| `nodeIntegration`  | `true`                               | `false`            |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`            |
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-z.B. Erneute Aktivierung des webviewTags
+z.B. Re-enabling the webviewTag
 
 ```js
-const w = neues BrowserWindow(-
+const w = new BrowserWindow({
   webPreferences: {
     webviewTag: true
   }
-)
+})
 ```
 
 ### Verhalten geändert: `Knoten-Integration` in untergeordneten Fenstern, geöffnet über `nativeWindowOpen`
@@ -795,16 +795,16 @@ Kindfenster, die mit der Option `nativeWindowOpen` geöffnet wurden, werden die 
 
 ### API geändert: Das Registrieren von privilegierten Schemas muss jetzt erledigt werden, bevor die App fertig ist
 
-Renderer Prozess-APIs `webFrame.registerURLSchemeAsPrivileged` und `webFrame.registerURLSchemeAsBypassingCSP` sowie Browser-Prozess-API `protocol.registerStandardSchemes` wurden entfernt. Eine neue API, `protocol.registerSchemesAsPrivileged` wurde hinzugefügt und sollte zum Registrieren benutzerdefinierter Schemas mit den erforderlichen Berechtigungen verwendet werden. Benutzerdefinierte Schemata müssen registriert werden, bevor die App bereit ist.
+Renderer Prozess-APIs `webFrame.registerURLSchemeAsPrivileged` und `webFrame.registerURLSchemeAsBypassingCSP` sowie Browser-Prozess-API `protocol.registerStandardSchemes` wurden entfernt. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
 
 ### Veraltet: `webFrame.setIsolatedWorld*` ersetzt durch `webFrame.setIsolatedWorldInfo`
 
 ```js
-Veraltet
+// Deprecated
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-/ / Ersetzen durch
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -816,63 +816,63 @@ webFrame.setIsolatedWorldInfo(
 
 ### API geändert: `webFrame.setSpellCheckProvider` nimmt jetzt einen asynchronen Callback ein
 
-Der `spellCheck` Rückruf ist jetzt asynchron, und `autoCorrectWord` Parameter wurde entfernt.
+The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
 
 ```js
-Veraltete
-webFrame.setSpellCheckProvider('en-US', true,
-  spellCheck: (text) =>
-    rückgabe !spellchecker.isMisspelled(text)
-  .
-)
-/ Ersetzen mit
-webFrame.setSpellCheckProvider('en-US', '
-  spellCheck: (words, callback) => '
-    callback(words.filter(text=> spellchecker.
-
-  is
+// Deprecated
+webFrame.setSpellCheckProvider('en-US', true, {
+  spellCheck: (text) => {
+    return !spellchecker.isMisspelled(text)
+  }
+})
+// Replace with
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck: (words, callback) => {
+    callback(words.filter(text => spellchecker.isMisspelled(text)))
+  }
+})
 ```
 
-### API geändert: `webContents.getZoomLevel` und `webContents.getZoomFactor` sind jetzt synchron
+### API Changed: `webContents.getZoomLevel` and `webContents.getZoomFactor` are now synchronous
 
-`webContents.getZoomLevel` und `webContents.getZoomFactor` keine Rückrufparameter mehr, sondern direkt ihre Nummernwerte zurückgeben.
+`webContents.getZoomLevel` and `webContents.getZoomFactor` no longer take callback parameters, instead directly returning their number values.
 
 ```js
-Veraltete
-webContents.getZoomLevel((level) =>
-  konsole.log(ebene)
-)
-/ Ersetzen mit
-const-Ebene = webContents.getZoomLevel()
+// Deprecated
+webContents.getZoomLevel((level) => {
+  console.log(level)
+})
+// Replace with
+const level = webContents.getZoomLevel()
 console.log(level)
 ```
 
 ```js
-Veraltet
-webContents.getZoomFactor((factor) =>
-  konsole.log(Faktor)
-)
-/ Ersetzen mit
-const-Faktor = webContents.getZoomFactor()
-konsole.log(Faktor)
+// Deprecated
+webContents.getZoomFactor((factor) => {
+  console.log(factor)
+})
+// Replace with
+const factor = webContents.getZoomFactor()
+console.log(factor)
 ```
 
-## Geplante Brechende API-Änderungen (4.0)
+## Planned Breaking API Changes (4.0)
 
-Die folgende Liste enthält die brechenden API-Änderungen, die in Electron 4.0 vorgenommen wurden.
+The following list includes the breaking API changes made in Electron 4.0.
 
 ### `app.makeSingleInstance`
 
 ```js
-Veraltete
-app.makeSingleInstance((argv, cwd) =>
+// Deprecated
+app.makeSingleInstance((argv, cwd) => {
   /* ... */
-)
-/ Ersetzen mit
+})
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', (event, argv, cwd) => '
+app.on('second-instance', (event, argv, cwd) => {
   /* ... */
-))
+})
 ```
 
 ### `app.releaseSingleInstance`
@@ -894,11 +894,11 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Beim Erstellen systemeigener Module für Fenster muss die `win_delay_load_hook` -Variable in `binding.gyp` des Moduls true sein (standardeinstellung). Wenn dieser Hook nicht vorhanden ist, kann das systemeigene Modul nicht auf Windows geladen werden, mit einer Fehlermeldung Meldung wie `Cannot find module`. Weitere Informationen finden Sie im [systemeigenen Modul ](/docs/tutorial/using-native-node-modules.md) .
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
-## Brechen von API-Änderungen (3.0)
+## Breaking API Changes (3.0)
 
-Die folgende Liste enthält die brechenden API-Änderungen in Electron 3.0.
+The following list includes the breaking API changes in Electron 3.0.
 
 ### `app`
 
@@ -1008,14 +1008,14 @@ screen.getPrimaryDisplay().workArea
 ### `session`
 
 ```js
-Veraltete
-ses.setCertificateVerifyProc((hostname, certificate, callback) =>
+// Deprecated
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
-)
-/ / Ersetzen mit
-ses.setCertificateVerifyProc((request, callback) =>
+})
+// Replace with
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
-)
+})
 ```
 
 ### `Fach`
@@ -1079,13 +1079,13 @@ webview.onkeyup = () => { /* handler */ }
 
 Dies ist die URL, die beim Erstellen systemeigener Knotenmodule als `disturl` in einer `.npmrc` Datei oder als `--dist-url` Befehlszeilenflag angegeben ist.
 
-Veraltet: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Ersetzen durch: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
-## Brechen von API-Änderungen (2.0)
+## Breaking API Changes (2.0)
 
-Die folgende Liste enthält die brechenden API-Änderungen, die in Electron 2.0 vorgenommen wurden.
+The following list includes the breaking API changes made in Electron 2.0.
 
 ### `BrowserWindow`
 
@@ -1123,7 +1123,7 @@ nativeImage.toJPEG()
 
 ### `process`
 
-* `process.versions.electron` und `process.version.chrome` werden schreibgeschützten Eigenschaften aus Konsistenz mit den anderen `process.versions` Eigenschaften, die von Node festgelegt werden, vorgenommen.
+* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
 ### `webContents`
 
@@ -1152,12 +1152,12 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Duplizieren von ARM-Assets
+### Duplicate ARM Assets
 
-Jede Electron-Version enthält zwei identische ARM-Builds mit leicht unterschiedlichen Dateinamen, wie `electron-v1.7.3-linux-arm.zip` und `electron-v1.7.3-linux-armv7l.zip`. Das Asset mit dem Präfix `v7l` wurde hinzugefügt, um den Benutzern zu klären, welche ARM-Version es unterstützt, und um es von zukünftigen armv6l- und arm64-Assets zu veruntreuen, die produziert werden können.
+Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
-Die Datei _ohne das Präfix_ wird immer noch veröffentlicht, um zu vermeiden, dass Setups, die sie verbrauchen könnten, unterbrochen werden. Ab 2.0 wird die unvoreingestellte Datei nicht mehr veröffentlicht.
+Die Datei _ohne das Präfix_ wird immer noch veröffentlicht, um zu vermeiden, dass Setups, die sie verbrauchen könnten, unterbrochen werden. Starting at 2.0, the unprefixed file will no longer be published.
 
-Einzelheiten sind [6986](https://github.com/electron/electron/pull/6986) und [7189](https://github.com/electron/electron/pull/7189).
+For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
 
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
