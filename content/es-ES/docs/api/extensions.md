@@ -2,13 +2,13 @@
 
 Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-index], primarily to support DevTools extensions and Chromium-internal extensions, but it also happens to support some other extension capabilities.
 
-> **Nota:** Electron no admite extensiones de cromo arbitrarias desde la tienda de , y es una</strong> **no objetivo del proyecto Electron para ser perfectamente compatible con la implementación de extensiones de Chrome.</p> </blockquote> 
-> 
-> ## Cargar extensiones
-> 
-> Electron solo admite la carga de extensiones desempaquetadas (es decir, los archivos `.crx` no funcionan). Las extensiones se instalan por`session`. Para cargar una extensión, llame a [`ses.loadExtension`](session.md#sesloadextensionpath-options):
-> 
-> ```js
+> **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
+
+## Cargar extensiones
+
+Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. Para cargar una extensión, llame a [`ses.loadExtension`](session.md#sesloadextensionpath-options):
+
+```js
 const { session } = require('electron')
 
 session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
@@ -16,15 +16,15 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 })
 ```
 
-Las extensiones cargadas no se recordaron automáticamente en las salidas; Si no llamar `loadExtension` cuando se ejecuta la aplicación, la extensión no se cargará.
+Loaded extensions will not be automatically remembered across exits; if you do not call `loadExtension` when the app runs, the extension will not be loaded.
 
-Ten en cuenta que cargar extensiones solo se admite en sesiones persistentes. Si intentas cargar una extensión en una sesión en memoria, se producirá un error.
+Note that loading extensions is only supported in persistent sessions. Attempting to load an extension into an in-memory session will throw an error.
 
-Consulta la [`session`](session.md) documentación para obtener más información acerca de cargar, descargar y consultar extensiones activas.
+See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
 
-## API de extensiones admitidas
+## Supported Extensions APIs
 
-Admitimos las siguientes API de extensiones, con algunas advertencias. Otras API pueden ser soportadas Adicionalmente, pero la compatibilidad con cualquier API que no se enumeren aquí es provisional y puede ser eliminada.
+We support the following extensions APIs, with some caveats. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
 
 ### `chrome.devtools.inspectedWindow`
 
@@ -51,7 +51,7 @@ Los siguientes métodos de `chrome.extension` son soportados:
 
 ### `chrome.runtime`
 
-Se admiten las siguientes propiedades de `chrome.runtime` :
+The following properties of `chrome.runtime` are supported:
 
 - `chrome.runtime.lastError`
 - `chrome.runtime.id`
@@ -85,11 +85,11 @@ Los siguientes métodos de `chrome.tabs` son soportados:
 - `chrome.tabs.sendMessage`
 - `chrome.tabs.executeScript`
 
-> **Nota:** en Chrome, pasar `-1` como un ID de tabulación significa la pestaña " activa actualmente". Dado que Electron no tiene tal concepto, pasar `-1` como un ID de pestaña no es compatible y generará un error.
+> **Note:** In Chrome, passing `-1` as a tab ID signifies the "currently active tab". Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
 
 ### `chrome.management`
 
-Se admiten los siguientes métodos de `chrome.management` :
+The following methods of `chrome.management` are supported:
 
 - `chrome.management.getAll`
 - `chrome.management.get`
@@ -103,6 +103,6 @@ Se admiten los siguientes métodos de `chrome.management` :
 
 Todas las características de esta API son compatibles.
 
-> **Nota:** [`webRequest`módulo de](web-request.md) de electrones tiene prioridad sobre `chrome.webRequest` si hay controladores en conflicto.
+> **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index
