@@ -669,7 +669,7 @@ Retourne :
 
 * `event` Événement
 * `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
-* `message` String - Le message de la console réelle
+* `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
@@ -1567,24 +1567,24 @@ ipcRenderer.on('port', (e, msg) => {
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
-  * `viewSize` [taille](structures/size.md) - Définir la taille de vue imitée (vide signifie pas de remplacement)
-  * `scale` Float - Échelle de vue imitée à l’intérieur de l’espace disponible (pas en forme mode de vue) (par défaut: `1`).
+  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Activer l’émulation de l’appareil avec les paramètres donnés.
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-Désactiver l’émulation de l’appareil activée par `webContents.enableDeviceEmulation`.
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(inputEvent)`
 
 * `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Envoie une entrée `event` à la page. **Note:** Le [`BrowserWindow`](browser-window.md) contenant le contenu doit être concentré pour que `sendInputEvent()` fonctionne.
+Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (facultatif) - Par défaut à `false`.
+* `onlyDirty` Boolean (optional) - Defaults to `false`.
 * `callback` Function
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1638,137 +1638,137 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 #### `contents.isOffscreen()`
 
-Retours `Boolean` - Indique si *rendu hors écran* est activé.
+Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
 
 #### `contents.startPainting()`
 
-Si *rendu hors écran* activé et non la peinture, commencez à peindre.
+If *offscreen rendering* is enabled and not painting, start painting.
 
 #### `contents.stopPainting()`
 
-Si *rendu hors écran* activé et la peinture, arrêtez de peindre.
+If *offscreen rendering* is enabled and painting, stop painting.
 
 #### `contents.isPainting()`
 
-Retours `Boolean` - Si *rendu hors écran* activé retourne si elle est actuellement la peinture.
+Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` Integer
 
-Si *rendu hors écran* activé définit le taux d’image au nombre spécifié. Seules les valeurs comprises entre 1 et 240 sont acceptées.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
 
 #### `contents.getFrameRate()`
 
-Retours `Integer` - Si *rendu hors écran* activé renvoie le taux d’image actuel.
+Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
 
 #### `contents.invalidate()`
 
 Planifie une repeindre complète de la fenêtre dans qui se trouve ce contenu Web.
 
-Si *rendu hors écran* activé invalide le cadre et génère une nouvelle à travers l' `'paint'` événement.
+If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Retours `String` - Renvoie la politique de traitement ip webRTC.
+Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Spécifiez la politique de traitement ip webRTC.
-  * `default` - Expose les adresses publiques et locales de l’utilisateur. C’est le comportement par défaut. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. Cela n’expose aucune adresse locale.
-  * `default_public_and_private_interfaces` - Expose les adresses publiques et locales de l' iPs. Lorsque cette stratégie est utilisée, WebRTC ne doit utiliser l’itinéraire par défaut utilisé par http. Cela expose également l’adresse privée par défaut associée. La par défaut est l’itinéraire choisi par l’OS sur un point d’évaluation multi-accueil.
-  * `disable_non_proxied_udp` - N’expose pas les adresses publiques ou locales. Lorsque cette stratégie est utilisée, WebRTC ne doit utiliser TCP que pour contacter des pairs ou des serveurs à moins que serveur proxy ne prend en charge UDP.
+* `policy` String - Specify the WebRTC IP Handling Policy.
+  * `default` - Exposes user's public and local IPs. C’est le comportement par défaut. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-L’établissement de la politique de traitement ip webRTC vous permet de contrôler les adresses IP exposées via WebRTC. Voir [BrowserLeaks pour](https://browserleaks.com/webrtc) plus détails.
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
-Retours `Integer` - Le système d' `pid` du processus de associé.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
 
-#### `content.getProcessId ()`
+#### `contents.getProcessId()`
 
-Retours `Integer` - Le système interne `pid` Chrome du rendu associé. Peut il être comparé aux `frameProcessId` passé par des événements de navigation spécifiques au cadre (p. ex. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Chemin vers le fichier de sortie.
 
-Retours `Promise<void>` - Indique si l’instantané a été créé avec succès.
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
 Prend un instantané de tas V8 et l'enregistre dans `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Retourne `Boolean` - si oui ou non ce WebContents va étrangler les animations et les lorsque la page devient en arrière-plan. This also affects the Page Visibility API.
+Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
-#### `content.setBackgroundThrottling (autorisé)`
+#### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Contrôle si oui ou non ce WebContents va étrangler les animations et les lorsque la page devient en arrière-plan. This also affects the Page Visibility API.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
-#### `content.getType()`
+#### `contents.getType()`
 
-Retourne `String` - le type de webContent. Peut être `backgroundPage`, `window`, `browserView`, `remote`, `webview` ou `offscreen`.
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Propriétés d'instance
 
-#### `content.audioMuted`
+#### `contents.audioMuted`
 
-Une `Boolean` propriété qui détermine si cette page est en sourdine.
+A `Boolean` property that determines whether this page is muted.
 
-#### `content.userAgent`
+#### `contents.userAgent`
 
-Une `String` propriété qui détermine l’agent utilisateur de cette page Web.
+A `String` property that determines the user agent for this web page.
 
-#### `content.zoomLevel`
+#### `contents.zoomLevel`
 
-Une `Number` propriété qui détermine le niveau de zoom pour ce contenu Web.
+A `Number` property that determines the zoom level for this web contents.
 
-La taille d’origine est de 0 et chaque incrément au-dessus ou au-dessous représente un zoom de 20% plus grand ou plus petit à des limites par défaut de 300% et 50% de la taille d’origine, respectivement. La formule pour cela est `scale := 1.2 ^ level`.
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-#### `content.zoomFactor (en)`
+#### `contents.zoomFactor`
 
-Une `Number` propriété qui détermine le facteur de zoom pour ce contenu Web.
+A `Number` property that determines the zoom factor for this web contents.
 
-Le facteur de zoom est le pourcentage de zoom divisé par 100, donc 300% = 3,0.
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
-#### `content.frameRate`
+#### `contents.frameRate`
 
-Une `Integer` propriété qui définit le taux d’image du contenu Web au nombre spécifié. Seules les valeurs comprises entre 1 et 240 sont acceptées.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
 
-Seulement applicable si *rendu hors écran* activé.
+Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
-Un `Integer` représentant l’identité unique de ce WebContents. Chaque ID est unique parmi ceux des instances de `WebContents` de l'application Electron.
+A `Integer` representing the unique ID of this WebContents. Chaque ID est unique parmi ceux des instances de `WebContents` de l'application Electron.
 
 #### `contents.session` _Readonly_
 
-Un [`Session`](session.md) utilisé par ce webContents.
+A [`Session`](session.md) used by this webContents.
 
 #### `contents.hostWebContents` _Readonly_
 
-Une [`WebContents`](web-contents.md) cas qui pourrait posséder cette `WebContents`.
+A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
 #### `contents.devToolsWebContents` _Readonly_
 
-Une `WebContents | null` propriété qui représente le devTools `WebContents` associé à un `WebContents`.
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
-**note :** utilisateurs ne doivent jamais stocker cet objet parce qu’il peut devenir `null` lorsque les DevTools ont été fermés.
+**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
 #### `contents.debugger` _Readonly_
 
-Un [`Debugger`](debugger.md) exemple pour ce webContents.
+A [`Debugger`](debugger.md) instance for this webContents.
 
-#### `content.backgroundTrottant`
+#### `contents.backgroundThrottling`
 
-Une `Boolean` qui détermine si oui ou non ce WebContents va étrangler les animations et les lorsque la page devient en arrière-plan. This also affects the Page Visibility API.
+A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.mainFrame` _Readonly_
 
-Une [`WebFrameMain`](web-frame-main.md) qui représente le cadre supérieur de la hiérarchie de trame de la page.
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
