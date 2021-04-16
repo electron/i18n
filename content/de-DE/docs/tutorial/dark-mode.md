@@ -2,17 +2,17 @@
 
 ## Übersicht
 
-### Automatische Aktualisierung der systemeigenen Schnittstellen
+### Automatically update the native interfaces
 
-"Native Schnittstellen" umfassen die Dateiauswahl, Fensterrahmen, Dialogfelder, Kontext- Menüs und vieles mehr - alles, wo die Benutzeroberfläche von Ihrem Betriebssystem stammt und nicht aus Ihrer App . Das Standardverhalten besteht darin, sich für diese automatische Thesen- aus dem Betriebssystem zu entscheiden.
+"Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. The default behavior is to opt into this automatic theming from the OS.
 
-### Automatische Aktualisierung Ihrer eigenen Schnittstellen
+### Automatically update your own interfaces
 
-Wenn Ihre App über einen eigenen dunklen Modus verfügt, sollten Sie sie synchron mit einstellung des dunklen Modus ein- und ausschalten. Sie können dies tun, indem Sie die [Prefer-Color-Schema-][] CSS-Medienabfrage verwenden.
+If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by using the [prefer-color-scheme][] CSS media query.
 
-### Aktualisieren Sie manuell Ihre eigenen Schnittstellen
+### Manually update your own interfaces
 
-Wenn Sie manuell zwischen Hell-/Dunkel-Modi wechseln möchten, können Sie dies tun, indem Sie den gewünschten Modus in der [themeSource](../api/native-theme.md#nativethemethemesource) -Eigenschaft des `nativeTheme` -Moduls einstellen. Der Wert dieser Eigenschaft wird an den Renderer-Prozess weitergegeben. Alle CSS-Regeln im Zusammenhang mit `prefers-color-scheme` werden entsprechend aktualisiert.
+If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](../api/native-theme.md#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
 
 ## macOS settings
 
@@ -147,5 +147,5 @@ After launching the Electron application, you can change modes or reset the them
 [electron-forge]: https://www.electronforge.io/
 [electron-packager]: https://github.com/electron/electron-packager
 [packager-darwindarkmode-api]: https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html#darwindarkmodesupport
-[Prefer-Color-Schema-]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+[prefer-color-scheme]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 [prefer-color-scheme]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
