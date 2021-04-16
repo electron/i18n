@@ -1,26 +1,26 @@
-## Класс: ShareMenu
+## Class: ShareMenu
 
-> Создание меню общих возможностей на macOS.
+> Create share menu on macOS.
 
 Процесс: [Основной](../glossary.md#main-process)
 
-Класс `ShareMenu` создает [Share Menu][share-menu] на macOS, которое может быть использовано для обмена информацией из текущего контекста в приложения, социальные сети учетные записи и другие службы.
+The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
 
-Для включения меню share в подменю других меню, пожалуйста, используйте `shareMenu` роль [`MenuItem`](menu-item.md).
+For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
 
-### `новый ShareMenu (sharingItem)`
+### `new ShareMenu(sharingItem)`
 
-* `sharingItem` SharingItem - элемент для обмена.
+* `sharingItem` SharingItem - The item to share.
 
-Создает новое меню акций.
+Creates a new share menu.
 
 ### Методы экземпляра
 
-Объект `shareMenu` имеет следующие методы экземпляра:
+The `shareMenu` object has the following instance methods:
 
-#### `shareMenu.popup ([options])`
+#### `shareMenu.popup([options])`
 
-* `options` PopupOptions (по желанию)
+* `options` PopupOptions (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -29,7 +29,7 @@
 
 Переключает это меню в контекстное меню в [`BrowserWindow`](browser-window.md).
 
-#### `shareMenu.closePopup ([browserWindow])`
+#### `shareMenu.closePopup([browserWindow])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
 
