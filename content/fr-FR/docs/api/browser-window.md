@@ -122,8 +122,8 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `center` Boolean (facultatif) - afficher la fenêtre dans le centre de l’écran.
   * `Largeurmin`Integre (optionel)-La largeur minimum de la Fenetre. La valeur par defaut en est ``.
   * `minHeight` Integer (facultatif) - Hauteur minimale de la fenêtre en pixels. La valeur par defaut en est ``.
-  * `maxWidth` Integer (facultatif) - Largeur maximale de la fenêtre. La valeur par défaut n’est pas une limite.
-  * `maxHeight` Integer (optional) - Window's maximum height. La valeur par défaut n’est pas une limite.
+  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
+  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
   * `resizable` Boolean (optional) - Whether window is resizable. La valeur par défaut est `true`.
   * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. La valeur par défaut est `true`.
   * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. La valeur par défaut est `true`.
