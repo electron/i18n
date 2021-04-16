@@ -115,7 +115,7 @@ Der Hauptprozess verarbeitet es, indem er mit [`ipcMain`](ipc-main.md) Modul auf
 ### `ipcRenderer.postMessage(Kanal, Nachricht, [transfer])`
 
 * `channel` String
-* `message`
+* `message` any
 * `transfer` MessagePort[] (optional)
 
 Senden Sie eine Nachricht an den Hauptprozess, wodurch optional der Besitz von null oder mehr [`MessagePort`][] -Objekten übertragen wird.
