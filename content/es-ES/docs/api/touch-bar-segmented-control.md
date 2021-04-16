@@ -22,7 +22,7 @@ Proceso: [Main](../glossary.md#main-process)
     * `buttons` - Hace que los segmentos actúen como botones. Cada segmento puede ser presionado y liberado pero nunca ser marcado como activo. Mapea a `NSSegmentSwitchTrackingMomentary`.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un arreglo de elementos para colocar en este control.
   * `selectedIndex` Integer (opcional) - El índice del segmento actual seleccionado, se actualizará automáticamente con la interacción del usuario. Cuando el modo es `multiple` será el último elemento seleccionado.
-  * `change` function (opcional)-se llama cuando el usuario selecciona un nuevo segmento.
+  * `change` Function (optional) - Called when the user selects a new segment.
     * `selectedIndex` Integer - El índice del elemento seleccionado por el usuario.
     * `isSelected` Boolean - Si el elemento es seleccionado o no como resultado de la selección del usuario.
 
@@ -44,4 +44,4 @@ Un `entero` que representa el segmento seleccionado actual. Cambiar este valor a
 
 #### `touchBarSegmentedControl.mode`
 
-Una `String` que representa el modo de selección actual del control.  Puede ser `single`, `multiple` o `buttons`.
+A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.
