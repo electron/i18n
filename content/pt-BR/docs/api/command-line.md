@@ -38,12 +38,12 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 * `switch` String - Uma opção de linha de comando
 
-Retornos `Boolean` - Se o switch de linha de comando estiver presente.
+Returns `Boolean` - Whether the command-line switch is present.
 
-#### `commandLine.getSwitchValue (switch)`
+#### `commandLine.getSwitchValue(switch)`
 
 * `switch` String - Uma opção de linha de comando
 
-Retornos `String` - O valor do switch de linha de comando.
+Returns `String` - The command-line switch value.
 
-**Nota:** Quando o interruptor não está presente ou não tem valor, ele retorna a sequência vazia.
+**Note:** When the switch is not present or has no value, it returns empty string.
