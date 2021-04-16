@@ -54,7 +54,7 @@ L'objet `menu` a les méthodes d'instance suivantes:
 
 #### `menu.popup([options])`
 
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
   * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `y` est déclaré.
   * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `x` est déclaré.
