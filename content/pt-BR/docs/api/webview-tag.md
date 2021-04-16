@@ -441,7 +441,7 @@ Devoluções `Boolean` - Se o processo de renderização caiu.
 
 ### `<webview>.setUserAgent (userAgent)`
 
-* `userAgent` Cordas
+* `userAgent` String
 
 Substitui o agente de usuário para a página de convidados.
 
@@ -625,21 +625,21 @@ Executa o comando de edição `replaceMisspelling` na página.
 
 Retornos `Promise<void>`
 
-Insere `text` ao elemento focal.
+Inserts `text` to the focused element.
 
 
 
 ### `<webview>.findInPage(texto[, opções])`
 
-* `text` String - Conteúdo a ser pesquisado, não deve estar vazio.
+* `text` String - Content to be searched, must not be empty.
 * objeto `options` (opcional) 
-    * `forward` Booleano (opcional) - Quer pesquise para frente ou para trás, é padrão para `true`.
-  * `findNext` Booleano (opcional) - Se a operação é primeira solicitação ou um acompanhamento, inadimplência para `false`.
-  * `matchCase` Booleano (opcional) - Se a pesquisa deve ser sensível a casos, padrão para `false`.
+    * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
-Devolução `Integer` - O id de solicitação utilizado para a solicitação.
+Returns `Integer` - The request id used for the request.
 
-Inicia uma solicitação para encontrar todas as partidas para o `text` na página web. O resultado da solicitação pode ser obtido mediante a inscrição [`found-in-page`](webview-tag.md#event-found-in-page) evento.
+Starts a request to find all matches for the `text` in the web page. O resultado da solicitação pode ser obtido mediante a inscrição [`found-in-page`](webview-tag.md#event-found-in-page) evento.
 
 
 
@@ -647,9 +647,9 @@ Inicia uma solicitação para encontrar todas as partidas para o `text` na pági
 
 * `action` String - Especifica que a ação ocorrerá ao encerrar [`<webview>.findInPage`](#webviewfindinpagetext-options) solicitação.
   
-    * `clearSelection` - Limpe a seleção.
-  * `keepSelection` - Traduza a seleção em uma seleção normal.
-  * `activateSelection` - Concentre-se e clique no nó de seleção.
+    * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
 Solicitamos `findInPage` solicitação `webview` fornecida `action`s.
 
@@ -658,31 +658,31 @@ Solicitamos `findInPage` solicitação `webview` fornecida `action`s.
 ### `<webview>.print ([options])`
 
 * objeto `options` (opcional) 
-    * `silent` Boolean (opcional) - Não peça ao usuário configurações de impressão. Por padrão é `false`.
-  * `printBackground` Boolean (opcional) - Imprime a cor de fundo e a imagem de página web. Por padrão é `false`.
-  * `deviceName` String (opcional) - Defina o nome do dispositivo da impressora para usar. Deve ser o nome definido pelo sistema e não o nome 'amigável', por exemplo, 'Brother_QL_820NWB' e não 'Irmão QL-820NWB'.
-  * `color` Boolean (opcional) - Definir se a página da Web impressa estará em cores ou em escala de cinza. O padrão é `true`.
-  * objeto `margins` (opcional) 
-        * `marginType` String (opcional) - Pode ser `default`, `none`, `printableArea`ou `custom`. Se `custom` for escolhido, você também precisará especificar `top`, `bottom`, `left`e `right`.
-    * `top` Número (opcional) - A margem superior da página web impressa, em pixels.
-    * `bottom` Número (opcional) - A margem inferior da página web impressa, em pixels.
-    * `left` Número (opcional) - A margem esquerda da página web impressa, em pixels.
-    * `right` Número (opcional) - A margem certa da página web impressa, em pixels.
-  * `landscape` Boolean (opcional) - Se a página da Web deve ser impressa no modo paisagem. Por padrão é `false`.
-  * `scaleFactor` Número (opcional) - O fator escala da página web.
-  * `pagesPerSheet` Número (opcional) - O número de páginas para imprimir por folha de página.
-  * `collate` Boolean (opcional) - Se a página da Web deve ser colhida.
-  * `copies` Número (opcional) - O número de cópias da página web para imprimir.
+    * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. O padrão é `true`.
+  * `margins` Object (optional) 
+        * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Por padrão é `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Object[] (opcional) - O intervalo de página para imprimir. 
-        * número `from` - Índice da primeira página a ser impressa (baseada em 0).
-    * número `to` - Índice da última página para imprimir (inclusive) (0-based).
-  * `duplexMode` String (opcional) - Defina o modo duplex da página web impressa. Pode ser `simplex`, `shortEdge`ou `longEdge`.
-  * `dpi` Record<string, number> (opcional) 
-        * `horizontal` Número (opcional) - O dpi horizontal.
-    * `vertical` Número (opcional) - O dpi vertical.
-  * `header` String (opcional) - String a ser impresso como cabeçalho de página.
-  * `footer` String (opcional) - String a ser impresso como rodapé de página.
-  * | de cordas `pageSize` Tamanho (opcional) - Especifique o tamanho da página do documento impresso. Pode ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou um objeto contendo `height`.
+        * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional) 
+        * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Retornos `Promise<void>`
 
@@ -694,20 +694,20 @@ Impressões `webview`página da web. O mesmo que `webContents.print([options])`.
 
 * objeto `options`
   
-    * `headerFooter` Gravar<string, string> (opcional) - o cabeçalho e o rodapé para o PDF. 
-        * `title` String - O título para o cabeçalho PDF.
-    * `url` String - a url para o rodapé PDF.
-  * `landscape` Booleano (opcional) - `true` para paisagem, `false` para retrato.
-  * `marginsType` Inteiro (opcional) - Especifica o tipo de margem a ser usada. Usa 0 para margem padrão, 1 para nenhuma margem e 2 para margem mínima. e `width` em mícrons.
-  * `scaleFactor` Número (opcional) - O fator escala da página web. Pode variar de 0 a 100.
-  * `pageRanges` Record<string, number> (opcional) - A faixa de página para imprimir. No macOS, apenas a primeira gama é honrada. 
-        * número `from` - Índice da primeira página a ser impressa (baseada em 0).
-    * número `to` - Índice da última página para imprimir (inclusive) (0-based).
-  * | de cordas `pageSize` Tamanho (opcional) - Especifique o tamanho da página do PDF gerado. Pode ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou um objeto contendo `height`
+    * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF. 
+        * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. e `width` em mícrons.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print. No macOS, apenas a primeira gama é honrada. 
+        * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pode ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ou um objeto contendo `height`
 
-  * `printBackground` Boolean (opcional) - Se imprimir os fundos CSS.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
 
-  * `printSelectionOnly` Boolean (opcional) - Somente para imprimir a seleção.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
 Devoluções `Promise<Uint8Array>` - Resolve com os dados PDF gerados.
 
@@ -717,7 +717,7 @@ Imprime `webview`página da web como PDF, o mesmo que `webContents.printToPDF(op
 
 ### `<webview>.capturePage ([rect])`
 
-* `rect` [Retângulo](structures/rectangle.md) (opcional) - A área da página a ser capturada.
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
 Retorna `Promise<NativeImage>` - Resolve com um</a>NativeImage </p> 
 
@@ -744,7 +744,7 @@ Consulte [webContents.enviar](web-contents.md#contentssendchannel-args) para exe
   
   Retornos `Promise<void>`
   
-  Envia uma `event` de entrada para a página.
+  Sends an input `event` to the page.
   
   Consulte [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) para obter uma descrição detalhada do objeto `event` .
   
@@ -789,13 +789,13 @@ Retorna `Number` - o nível de zoom atual.
 
 Retornos `Promise<void>`
 
-Define o nível máximo e mínimo de pinch-to-zoom.
+Sets the maximum and minimum pinch-to-zoom level.
 
 
 
 ### `<webview>.showDefinitionForSelection()` __macOS
 
-Mostra o dicionário pop-up que pesquisa a palavra selecionada na página.
+Shows pop-up dictionary that searches the selected word on the page.
 
 
 
