@@ -1476,110 +1476,112 @@ Senden Sie eine asynchrone Nachricht über `channel`, zusammen mit Argumenten an
 
 > **HINWEIS**: Das Senden nicht standardmäßiger JavaScript-Typen wie DOM-Objekte oder speziellen Electron-Objekte löst eine Ausnahme aus.
 
-Der Rendererprozess kann die Nachricht verarbeiten, indem er `channel` mit dem [`ipcRenderer`](ipc-renderer.md) -Modul abhört.
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Ein Beispiel für das Senden von Nachrichten vom Hauptprozess an den Rendererprozess:
+An example of sending messages from the main process to the renderer process:
 
 ```javascript
 // Im Hauptprozess.
 const { app, BrowserWindow } = require('electron')
-win = null
+let win = null
 
-app.whenReady().then() => -
+app.whenReady().then(() => {
   win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadURL('file://${__dirname}/index.html')
-  win.webContents.on('did-finish-load', () => '
-    win.webContents.send', 'whoooooooh!')
+  win.loadURL(`file://${__dirname}/index.html`)
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('ping', 'whoooooooh!')
   })
 })
 ```
 
-```html<!-- Index.html --><html>
+```html
+<!-- index.html -->
+<html>
 <body>
   <script>
-    require('electron').ipcRenderer.on('ping', (ereignis, message) => '
-      console.log(message) / / Prints 'whoooooooh!'
-    "
+    require('electron').ipcRenderer.on('ping', (event, message) => {
+      console.log(message) // Prints 'whoooooooh!'
+    })
   </script>
 </body>
 </html>
 ```
 
-#### `contents.sendToFrame(frameId, kanal, ... args)`
+#### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Ganzzahl-| [Nummer, Zahl] - die ID des zu sendenden Rahmens oder ein Paar `[processId, frameId]` , wenn sich der Rahmen in einem anderen Prozess befindet als der -Hauptrahmen.
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` String
 * `...args` any[]
 
-Senden Sie eine asynchrone Nachricht über `channel`zusammen mit Argumenten an einen bestimmten Frame in einem Rendererprozess. Argumente werden mit dem [Structured Clone Algorithm][SCA]serialisiert, genau wie [`postMessage`][], so dass Prototypen Ketten nicht enthalten sind. Das Senden von Funktionen, Versprechen, Symbolen, WeakMaps oder WeakSets löst eine Ausnahme aus.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **HINWEIS:** Das Senden nicht standardmäßiger JavaScript-Typen wie DOM-Objekte oder speziellen Electron-Objekte löst eine Ausnahme aus.
 
-Der Rendererprozess kann die Nachricht verarbeiten, indem er `channel` mit dem [`ipcRenderer`](ipc-renderer.md) -Modul abhört.
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Wenn Sie die `frameId` eines bestimmten Rendererkontexts abrufen möchten, sollten Sie den `webFrame.routingId` -Wert verwenden.  z.B.
-
-```js
-In einem Rendererprozess
-Konsole.log('My frameId is:', require('electron').webFrame.routingId)
-```
-
-Sie können auch `frameId` aus allen eingehenden IPC-Nachrichten im Hauptprozess lesen.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  z.B.
 
 ```js
-Im Hauptprozess
-ipcMain.on('ping', (event) => '
-  console.info('Message kam von frameId:', event.frameId)
-')
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-#### `contents.postMessage(Kanal, Nachricht, [transfer])`
+You can also read `frameId` from all incoming IPC messages in the main process.
+
+```js
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
+})
+```
+
+#### `contents.postMessage(channel, message, [transfer])`
 
 * `channel` String
-* `message`
+* `message` any
 * `transfer` MessagePortMain[] (optional)
 
-Senden Sie eine Nachricht an den Rendererprozess, wodurch optional der Besitz von Null oder mehr [`MessagePortMain`]-Objekten übertragen wird.
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-Die übertragenen `MessagePortMain` Objekte stehen im Renderer- Prozess zur Verfügung, indem sie auf die `ports` -Eigenschaft des emitted-Ereignisses zugreifen. Wenn sie im Renderer ankommen , sind sie systemeigene DOM- `MessagePort` -Objekte.
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 Ein Beispiel:
 
 ```js
-Hauptprozess
-const { port1, port2 } = neue MessageChannelMain()
+// Main process
+const { port1, port2 } = new MessageChannelMain()
 webContents.postMessage('port', { message: 'hello' }, [port1])
 
-/ Renderer-Prozess
-ipcRenderer.on('port', (e, msg) => '
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
-  ...
+  // ...
 })
 ```
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` -Objekt
-  * `screenPosition` String - Geben Sie den Bildschirmtyp an, der emulieren soll (Standard: `desktop`):
-    * `desktop` - Desktop-Bildschirmtyp.
-    * `mobile` - Mobiler Bildschirmtyp.
-  * `screenSize` [Größe](structures/size.md) - Legen Sie die emulierte Bildschirmgröße fest (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - Positionieren Sie die Ansicht auf dem Bildschirm (screenPosition == mobile) (Standard: `{ x: 0, y: 0 }`).
-  * `deviceScaleFactor` Ganzzahl - Legen Sie den Geräteskalierungsfaktor fest (wenn Null standardmäßig auf ursprünglichen Geräteskalierungsfaktor) (Standard: `0`).
-  * `viewSize` [Größe](structures/size.md) - Festlegen der emulierten Ansichtsgröße (leer bedeutet keine Außerkraftsetzung)
-  * `scale` Float - Skalierung der emulierten Ansicht innerhalb des verfügbaren Raums (nicht in Ansichtsmodus) (Standard: `1`).
+* `parameters` Object
+  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
+    * `desktop` - Desktop screen type.
+    * `mobile` - Mobile screen type.
+  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
+  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
+  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Aktivieren Sie die Geräteemulation mit den angegebenen Parametern.
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-Deaktivieren Sie die Geräteemulation, die durch `webContents.enableDeviceEmulation`aktiviert ist.
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(inputEvent)`
 
 * `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Sendet eine Eingabe `event` an die Seite. **Hinweis:** Die [`BrowserWindow`](browser-window.md) , die den Inhalt enthält, müssen fokussiert werden, damit `sendInputEvent()` funktioniert.
+Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
@@ -1588,33 +1590,33 @@ Sendet eine Eingabe `event` an die Seite. **Hinweis:** Die [`BrowserWindow`](bro
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Beginnen Sie mit dem Abonnieren von Präsentationsereignissen und erfassten Frames wird der `callback` mit `callback(image, dirtyRect)` aufgerufen, wenn eine Präsentation Ereignis vorhanden ist.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-Die `image` ist eine Instanz [NativeImage-](native-image.md) , in der der erfasste Frame gespeichert wird.
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-Der `dirtyRect` ist ein Objekt mit `x, y, width, height` Eigenschaften, die beschreibt, welcher Teil der Seite neu gezeichnet wurde. Wenn `onlyDirty` auf `true`festgelegt ist, enthält `image` nur den neu lackierten Bereich. `onlyDirty` standardmäßig auf `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
-Beenden Sie das Abonnieren für Framepräsentationsereignisse.
+End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` -Objekt
-  * `file` String[] | String - Der Pfad(e) zu den Filen, die gezogen werden.
-  * `icon` [NativeImage](native-image.md) | String - Das Bild muss unter macOS nicht leer sein.
+* `item` Object
+  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
-Legt die `item` als Ziehelement für den aktuellen Drag-Drop-Vorgang fest, `file` ist der absoluter Pfad der zu ziehenden Datei, und `icon` ist das Bild, das beim Ziehen unter Cursor angezeigt wird.
+Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
 #### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - Der volle Dateipfad.
-* `saveType` String - Geben Sie den Speichertyp an.
-  * `HTMLOnly` - Speichern Sie nur den HTML-Code der Seite.
-  * `HTMLComplete` - Complete-HTML-Seite speichern.
-  * `MHTML` - Speichern Sie die Complete-HTML-Seite als MHTML.
+* `saveType` String - Specify the save type.
+  * `HTMLOnly` - Save only the HTML of the page.
+  * `HTMLComplete` - Save complete-html page.
+  * `MHTML` - Save complete-html page as MHTML.
 
-Gibt `Promise<void>` zurück - löst auf, wenn die Seite gespeichert wird.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1622,13 +1624,13 @@ const win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', async () => '
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete.log
-    > ').
-  .catch(err =>
-    Konsole.log(err)
-  )
-)
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
+  })
+})
 ```
 
 #### `contents.showDefinitionForSelection()` _macOS_
@@ -1735,39 +1737,39 @@ Der Zoomfaktor ist der Zoom-Prozentsatz geteilt durch 100, also 300% = 3,0.
 
 #### `contents.frameRate`
 
-Eine `Integer` Eigenschaft, die die Bildrate des Webinhalts auf die angegebene Zahl festlegt. Es werden nur Werte zwischen 1 und 240 akzeptiert.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Es werden nur Werte zwischen 1 und 240 akzeptiert.
 
-Nur anwendbar, wenn *Offscreen-Rendering-* aktiviert ist.
+Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
-Ein `Integer` , der die eindeutige ID dieser WebContents darstellt. Jede ID ist unter allen `WebContents` Instanzen der gesamten Electron-Anwendung eindeutig.
+A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
 
 #### `contents.session` _Readonly_
 
-Ein [`Session`](session.md) , der von diesen webContents verwendet wird.
+A [`Session`](session.md) used by this webContents.
 
 #### `contents.hostWebContents` _Readonly_
 
-Eine [`WebContents`](web-contents.md) Instanz, die diese `WebContents`besitzen könnte.
+A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
 #### `contents.devToolsWebContents` _Readonly_
 
-Eine `WebContents | null` Eigenschaft, die die von DevTools darstellt, `WebContents` einem bestimmten `WebContents`zugeordnet.
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
-**Hinweis:** Benutzer sollten dieses Objekt niemals speichern, da es möglicherweise `null` wird, wenn die DevTools geschlossen wurden.
+**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
 #### `contents.debugger` _Readonly_
 
-Eine [`Debugger`](debugger.md) Instanz für diese webContents.
+A [`Debugger`](debugger.md) instance for this webContents.
 
 #### `contents.backgroundThrottling`
 
-Eine `Boolean` Eigenschaft, die bestimmt, ob diese WebContents Animationen und Timer drosseln , wenn die Seite hintergrundgebunden wird. Dies wirkt sich auch auf die Seitensichtbarkeits-API aus.
+A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Dies wirkt sich auch auf die Seitensichtbarkeits-API aus.
 
 #### `contents.mainFrame` _Readonly_
 
-Eine [`WebFrameMain`](web-frame-main.md) Eigenschaft, die den oberen Rahmen der Rahmenhierarchie der Seite darstellt.
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
