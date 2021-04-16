@@ -199,22 +199,22 @@ Die `filters` gibt ein Array von Dateitypen an, die angezeigt werden können, si
   * `defaultId` Ganzzahl (optional) - Index der Schaltfläche im Schaltflächenarray, die beim Öffnen des Meldungsfelds standardmäßig ausgewählt .
   * `title` String (optional) - Titel des Meldungsfelds, einige Plattformen zeigen es nicht an.
   * `detail` String (optional) - Zusätzliche Informationen der Nachricht.
-  * `checkboxLabel` String (optional) - Wenn angegeben, wird das Meldungsfeld ein Kontrollkästchen mit der angegebenen Bezeichnung enthalten.
-  * `checkboxChecked` Boolean (optional) - Der zunächst überprüfte Status des Kontrollkästchens . `false` standardmäßig.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `cancelId` Ganzzahl (optional) - Der Index der Schaltfläche, die zum Abbrechen des Dialogs verwendet werden soll, über die `Esc` -Taste. Standardmäßig wird dies der ersten Schaltfläche mit "abbrechen" oder "nein" als -Label zugewiesen. Wenn keine solchen beschrifteten Schaltflächen vorhanden sind und diese Option nicht festgelegt ist, wird `0` als Rückgabewert verwendet.
-  * `noLink` Boolean (optional) - Unter Windows wird Electron versuchen herauszufinden, welche der die `buttons` häufigen Schaltflächen sind (wie "Abbrechen" oder "Ja"), und die anderen als Befehlslinks im Dialog zeigen. Dadurch kann das Dialogfeld in Stil moderner Windows-Apps angezeigt werden. Wenn Ihnen dieses Verhalten nicht gefällt, können Sie `noLink` auf `true`festlegen.
-  * `normalizeAccessKeys` boolesch (optional) - Normalisieren Sie die Tastaturzugriffstasten plattformübergreifend. Standard ist `false`. Wenn Sie dies aktivieren, wird davon ausgegangen `&` in den Schaltflächenbeschriftungen für die Platzierung der Tastenkombinationstaste verwendet wird und Beschriftungen werden konvertiert, damit sie auf jeder Plattform ordnungsgemäß funktionieren, `&` Zeichen unter macOS entfernt, unter Linux in `_` konvertiert und unter Windows unberührt bleiben. Beispielsweise wird eine Schaltflächenbezeichnung `Vie&w` in `Vie_w` unter Linux und `View` unter macOS konvertiert und kann über `Alt-W` unter Windows und Linux ausgewählt werden.
+  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
+  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
+  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Standard ist `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 
-Gibt `Integer` zurück - den Index der angeklickten Schaltfläche.
+Returns `Integer` - the index of the clicked button.
 
-Zeigt ein Meldungsfeld an, das den Prozess blockiert, bis das Meldungsfeld geschlossen wird. Es gibt den Index der angeklickten Schaltfläche zurück.
+Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein übergeordnetes Fenster anzufügen, sodass es modal ist. Wenn `browserWindow` nicht angezeigt wird, wird das Dialogfeld nicht angefügt. In diesem Fall wird es als unabhängiges Fenster angezeigt.
+Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein übergeordnetes Fenster anzufügen, sodass es modal ist. If `browserWindow` is not shown dialog will not be attached to it. In such case it will be displayed as an independent window.
 
 
 
-### `dialog.showMessageBox([browserWindow, ]Optionen)`
+### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` -Objekt
@@ -227,19 +227,19 @@ Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein �
   * `defaultId` Ganzzahl (optional) - Index der Schaltfläche im Schaltflächenarray, die beim Öffnen des Meldungsfelds standardmäßig ausgewählt .
   * `title` String (optional) - Titel des Meldungsfelds, einige Plattformen zeigen es nicht an.
   * `detail` String (optional) - Zusätzliche Informationen der Nachricht.
-  * `checkboxLabel` String (optional) - Wenn angegeben, wird das Meldungsfeld ein Kontrollkästchen mit der angegebenen Bezeichnung enthalten.
-  * `checkboxChecked` Boolean (optional) - Der zunächst überprüfte Status des Kontrollkästchens . `false` standardmäßig.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Ganzzahl (optional) - Der Index der Schaltfläche, die zum Abbrechen des Dialogs verwendet werden soll, über die `Esc` -Taste. Standardmäßig wird dies der ersten Schaltfläche mit "abbrechen" oder "nein" als -Label zugewiesen. Wenn keine solchen beschrifteten Schaltflächen vorhanden sind und diese Option nicht festgelegt ist, wird `0` als Rückgabewert verwendet.
-  * `noLink` Boolean (optional) - Unter Windows wird Electron versuchen herauszufinden, welche der die `buttons` häufigen Schaltflächen sind (wie "Abbrechen" oder "Ja"), und die anderen als Befehlslinks im Dialog zeigen. Dadurch kann das Dialogfeld in Stil moderner Windows-Apps angezeigt werden. Wenn Ihnen dieses Verhalten nicht gefällt, können Sie `noLink` auf `true`festlegen.
-  * `normalizeAccessKeys` boolesch (optional) - Normalisieren Sie die Tastaturzugriffstasten plattformübergreifend. Standard ist `false`. Wenn Sie dies aktivieren, wird davon ausgegangen `&` in den Schaltflächenbeschriftungen für die Platzierung der Tastenkombinationstaste verwendet wird und Beschriftungen werden konvertiert, damit sie auf jeder Plattform ordnungsgemäß funktionieren, `&` Zeichen unter macOS entfernt, unter Linux in `_` konvertiert und unter Windows unberührt bleiben. Beispielsweise wird eine Schaltflächenbezeichnung `Vie&w` in `Vie_w` unter Linux und `View` unter macOS konvertiert und kann über `Alt-W` unter Windows und Linux ausgewählt werden.
+  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
+  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
+  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Standard ist `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 
-Gibt `Promise<Object>` zurück - löst mit einem Versprechen auf, das die folgenden Eigenschaften enthält:
+Returns `Promise<Object>` - resolves with a promise containing the following properties:
 
-* `response` - Der Index der angeklickten Schaltfläche.
-* `checkboxChecked` Boolean - Der aktivierte Status des Kontrollkästchens, wenn `checkboxLabel` festgelegt wurde. Ansonsten `false`.
+* `response` Number - The index of the clicked button.
+* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
-Zeigt ein Meldungsfeld an.
+Shows a message box.
 
 Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein übergeordnetes Fenster anzufügen, sodass es modal ist.
 
@@ -247,12 +247,12 @@ Das Argument `browserWindow` ermöglicht es dem Dialogfeld, sich selbst an ein �
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - Der Titel, der im Fehlerfeld angezeigt werden soll.
-* `content` String - Der Textinhalt, der im Fehlerfeld angezeigt werden soll.
+* `title` String - The title to display in the error box.
+* `content` String - The text content to display in the error box.
 
-Zeigt ein modales Dialogfeld an, in dem eine Fehlermeldung angezeigt wird.
+Displays a modal dialog that shows an error message.
 
-Diese API kann sicher aufgerufen werden, bevor das `ready` -Ereignis das `app` -Modul ausgibt, es in der Regel verwendet wird, um Fehler in der frühen Phase des Startvorgangs zu melden. Wenn vor dem App- `ready`-Ereignis unter Linux aufgerufen wird, wird die Nachricht an stderr, und kein GUI-Dialog angezeigt.
+This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
 
 
 
@@ -260,37 +260,37 @@ Diese API kann sicher aufgerufen werden, bevor das `ready` -Ereignis das `app` -
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` -Objekt 
-    * `certificate` [Zertifikat](structures/certificate.md) - Das Zertifikat, dem Vertrauenswürdige/Import ist.
-  * `message` String - Die Meldung, die dem Benutzer angezeigt werden soll.
+    * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
+  * `message` String - The message to display to the user.
 
-Gibt `Promise<void>` zurück - löst auf, wenn das Dialogfeld zertifikatsvertrauensangezeigt wird.
+Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 
-Unter macOS wird ein modales Dialogfeld angezeigt, das eine Meldung und ein Zertifikat Informationen anzeigt und dem Benutzer die Möglichkeit gibt, dem Zertifikat zu vertrauen/zu importieren. Wenn Sie ein `browserWindow` Argument angeben, wird das Dialogfeld an das übergeordnete Fenster angefügt, sodass es modal ist.
+On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
 
-Unter Windows sind die Optionen aufgrund der verwendeten Win32-APIs eingeschränkter:
+On Windows the options are more limited, due to the Win32 APIs used:
 
-* Das `message` -Argument wird nicht verwendet, da das Betriebssystem eine eigene Bestätigung Dialog bietet.
+* The `message` argument is not used, as the OS provides its own confirmation dialog.
 
-* Das `browserWindow` -Argument wird ignoriert, da es nicht möglich ist, diesem Bestätigungsdialogfeld modal zu machen.
-
-
-
-## Lesezeichen-Array
-
-`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`und `showSaveDialogSync` geben ein `bookmarks` Array zurück.
-
-| Buildtyp  | securityScopedBookmarks boolesch | Rückgabetyp | Rückgabewert                           |
-| --------- | -------------------------------- |:-----------:| -------------------------------------- |
-| macOS mas | STIMMT                           |   Erfolg    | `['LONGBOOKMARKstring']`               |
-| macOS mas | STIMMT                           |    Error    | `['']` (Array der leeren Zeichenfolge) |
-| macOS mas | FALSE                            |     Na      | `[]` (leeres Array)                    |
-| nicht mas | jegliche                         |     Na      | `[]` (leeres Array)                    |
+* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
 
 
 
+## Bookmarks array
 
-## Blätter
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
 
-Unter macOS werden Dialogfelder als Blätter angezeigt, die an ein Fenster angefügt sind, wenn Sie einen [`BrowserWindow`](browser-window.md) Verweis im Parameter `browserWindow` oder Modals angeben, wenn kein Fenster angegeben ist.
+| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
+| ---------- | ------------------------------- |:-----------:| ------------------------------ |
+| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
+| macOS mas  | False                           |     NA      | `[]` (empty array)             |
+| non mas    | any                             |     NA      | `[]` (empty array)             |
 
-Sie können `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` aufrufen, um den Versatz aus dem Fensterrahmen zu ändern, an dem Blätter befestigt sind.
+
+
+
+## Sheets
+
+On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
+
+You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
