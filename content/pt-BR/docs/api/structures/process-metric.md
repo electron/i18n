@@ -14,12 +14,12 @@
 * `serviceName` String (opcional) - O nome não localizado do processo.
 * `name` String (opcional) - O nome do processo. Exemplos de utilidade: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 * `CPU` [CPUUsage](cpu-usage.md) - uso da CPU.
-* `creationTime` Número - Tempo de criação para este processo. O tempo é representado como número de milissegundos desde a época. Uma vez que o `pid` pode ser reutilizado após a morte de um processo, é útil usar tanto o `pid` quanto o `creationTime` para identificar um processo exclusivamente.
+* `creationTime` Number - Creation time for this process. O tempo é representado como número de milissegundos desde a época. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
 * `memória` [MemoryInfo](memory-info.md) - informações de memória para o processo.
-* `sandboxed` Boolean (opcional) __ _o_ do iCarros - Se o processo é sandboxed no nível do SISTEMA OPERACIONAL.
-* `integrityLevel` String (opcional) __ do Windows - Um dos seguintes valores:
-  * `Untrusted`
+* `sandboxed` Boolean (optional) _macOS_ _Windows_ - Whether the process is sandboxed on OS level.
+* `integrityLevel` String (optional) _Windows_ - One of the following values:
+  * `untrusted`
   * `baixo`
-  * `Média`
+  * `medium`
   * `alto`
   * `desconhecido`
