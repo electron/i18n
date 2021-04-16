@@ -1,35 +1,35 @@
-## Класс: TouchBarSlider
+## Class: TouchBarSlider
 
-> Создайте ползунок в сенсорной панели для родных приложений macOS
+> Create a slider in the touch bar for native macOS applications
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `новый TouchBarSlider (варианты)`
+### `new TouchBarSlider(options)`
 
 * `options` Object
-  * `label` строка (необязательно) - Текст этикетки.
-  * `value` (необязательно) - Выбранное значение.
-  * `minValue` (необязательно) - Минимальное значение.
-  * `maxValue` Integer (по желанию) - Максимальное значение.
-  * `change` (необязательно) - Функция вызова при изменении слайдера.
-    * `newValue` номер - значение, выбранное пользователем на слайдере.
+  * `label` String (optional) - Label text.
+  * `value` Integer (optional) - Selected value.
+  * `minValue` Integer (optional) - Minimum value.
+  * `maxValue` Integer (optional) - Maximum value.
+  * `change` Function (optional) - Function to call when the slider is changed.
+    * `newValue` Number - The value that the user selected on the Slider.
 
 ### Свойства экземпляра
 
-Следующие свойства доступны на экземплярах `TouchBarSlider`:
+The following properties are available on instances of `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-В `String` , представляющий текущий текст слайдера. Изменение этого значения немедленно обновляет ползунок в сенсорной панели.
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-`Number` , представляющий текущее значение слайдера. Изменение этого значения немедленно обновляет ползунок в сенсорной панели.
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-`Number` , представляющий текущее минимальное значение слайдера. Изменение этого значения немедленно обновляет ползунок в сенсорной панели.
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-`Number` , представляющий текущее максимальное значение слайдера. Изменение этого значения немедленно обновляет ползунок в сенсорной панели.
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
