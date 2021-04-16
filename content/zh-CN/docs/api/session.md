@@ -763,49 +763,49 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 请注意，电子不支持全系列的铬扩展API。 有关支持的内容的更多详细信息，请参阅 [支持扩展 ABI](extensions.md#supported-extensions-apis) 更多详细信息。
 
-请注意，在以前版本的 Electron 中，加载的扩展将 在应用程序的未来运行中记住。 情况已经不是这样了：如果您希望加载 扩展，则必须在应用的每个启动上调用 `loadExtension` 。
+Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
 
 
 ```js
-康斯特 { app, session } =需要（"电子"）
-条路径=需要（"路径"）
+const { app, session } = require('electron')
+const path = require('path')
 
-应用程序。 不对称（）=> =
-  等待会话。默认Session.load扩展（
-    路径。join（__dirname，"反应式扩展"），
-    //允许文件访问需要加载 file:// 网址上的扩展。
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(
+    path.join(__dirname, 'react-devtools'),
+    // allowFileAccess is required to load the devtools extension on file:// URLs.
     { allowFileAccess: true }
-  ）
-  //请注意，要使用"反应DevTools"扩展，您需要
-  //下载并解答扩展的副本。
+  )
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
 })
 ```
 
 
-此 API 不支持加载包装（.crx）扩展。
+This API does not support loading packed (.crx) extensions.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**注意：** 将扩展加载到内存（非持久性）会话 支持，并且会抛出错误。
+**Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
 
 
-#### `ses.删除扩展（扩展ID）`
+#### `ses.removeExtension(extensionId)`
 
-* `extensionId` 字符串 - 要删除的扩展 ID
+* `extensionId` String - ID of extension to remove
 
-卸载扩展。
+Unloads an extension.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
 
 
-#### `ses.获取扩展（扩展ID）`
+#### `ses.getExtension(extensionId)`
 
-* `extensionId` 字符串 - 要查询的扩展 ID
+* `extensionId` String - ID of extension to query
 
-返回 `Extension` | `null` -加载的扩展与给定的ID。
+Returns `Extension` | `null` - The loaded extension with the given ID.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
@@ -813,7 +813,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.获取所有扩展（）`
 
-返回 `Extension[]` - 所有加载扩展的列表。
+Returns `Extension[]` - A list of all loaded extensions.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
@@ -823,74 +823,74 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 以下属性在` Session </ 0>实例上可用：</p>
 
-<h4 spaces-before="0"><code>ses.availableSpellCheckerLanguages` _·里德利·_</h4> 
+<h4 spaces-before="0"><code>ses.availableSpellCheckerLanguages` _Readonly_</h4> 
 
-`String[]` 阵列，由所有已知的可用拼写检查语言组成。  向不在此阵列中的 `setSpellCheckerLanguages` API 提供语言 代码将导致错误。
-
-
-
-#### `塞斯. 拼写检查器可`
-
-指示是否启用内置拼写检查器的 `Boolean` 。
+A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
 
 
-#### `ses.cookies` _·里德利·_
+#### `ses.spellCheckerEnabled`
 
-此会话的 [`Cookies`](cookies.md) 对象。
-
-
-
-#### `ses.serviceWorkers` _·里德利·_
-
-此会话的 [`ServiceWorkers`](service-workers.md) 对象。
+A `Boolean` indicating whether builtin spell checker is enabled.
 
 
 
-#### `ses.webRequest` _·里德利·_
+#### `ses.cookies` _Readonly_
 
-此会话的 [`WebRequest`](web-request.md) 对象。
+A [`Cookies`](cookies.md) object for this session.
 
 
 
-#### `ses.protocol` _·里德利·_
+#### `ses.serviceWorkers` _Readonly_
 
-此会话的 [`Protocol`](protocol.md) 对象。
+A [`ServiceWorkers`](service-workers.md) object for this session.
+
+
+
+#### `ses.webRequest` _Readonly_
+
+A [`WebRequest`](web-request.md) object for this session.
+
+
+
+#### `ses.protocol` _Readonly_
+
+A [`Protocol`](protocol.md) object for this session.
 
 
 
 ```javascript
-康斯特 { app, session } =要求（"电子"）
-const路径=需要（'路径'）
+const { app, session } = require('electron')
+const path = require('path')
 
-应用程序。当准备（然后）=> =
-  const协议=会话。从分区（'某些分区'。协议
-  如果（！协议。注册文件（'原子'， （请求、回调）=> =
-    const url=请求.url.substr（7）
-    回调（+路径：路径。规范化（"${__dirname}/${url}"）}）
-  ））{
-    控制台。error（"未注册协议"）
-  =
-}）
+app.whenReady().then(() => {
+  const protocol = session.fromPartition('some-partition').protocol
+  if (!protocol.registerFileProtocol('atom', (request, callback) => {
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  })) {
+    console.error('Failed to register protocol')
+  }
+})
 ```
 
 
 
 
-#### `ses.netLog` _·里德利·_
+#### `ses.netLog` _Readonly_
 
-此会话的 [`NetLog`](net-log.md) 对象。
+A [`NetLog`](net-log.md) object for this session.
 
 
 
 ```javascript
-康斯特 { app, session } =需要（"电子"）
+const { app, session } = require('electron')
 
-应用程序。当已准备好时。然后（不对称（）=> {
-  续网格=会话。从分区（"某些分区"）。netLog
-
-  //在某些网络事件
-  持续路径之后 =等待 netLog.stopLo）
-  控制台.log（"写入的网络日志"， 路径）
-}）
+app.whenReady().then(async () => {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
+})
 ```
