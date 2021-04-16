@@ -14,41 +14,41 @@
 
 ## Запланированные критические изменения API (14.0)
 
-### API Изменено: `window.(open)`
+### API Changed: `window.(open)`
 
-Дополнительный параметр `frameName` больше не будет устанавливать название окна. Теперь это следует спецификации, описанной [документации](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) соответствии с соответствующим параметром `windowName`.
+The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
 
-Если вы использовали этот параметр, чтобы установить название окна, вы можете вместо этого использовать [win.setTitle (название)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
 
-### Удалено: `worldSafeExecuteJavaScript`
+### Removed: `worldSafeExecuteJavaScript`
 
-В Electron 14 `worldSafeExecuteJavaScript` будут удалены.  Альтернативы нет, пожалуйста, убедитесь ваш код работает с включенным свойством.  Он был включен по умолчанию, так как Electron
+In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
 12.
 
-Это изменение повлияет на вас, если вы используете `webFrame.executeJavaScript` или `webFrame.executeJavaScriptInIsolatedWorld`. Необходимо убедиться, что значения, возвращенные одним из этих методов, поддерживаются API [Context Bridge](api/context-bridge.md#parameter--error--return-type-support) поскольку эти методы используют ту же семантику прохождения значения.
+You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
 
 ## Запланированные критические изменения API (13.0)
 
-### API Изменено: `session.setPermissionCheckHandler(handler)`
+### API Changed: `session.setPermissionCheckHandler(handler)`
 
-Методы `handler` первого параметра раньше всегда были `webContents`, теперь его иногда можно `null`.  Вы должны использовать `requestingOrigin`, `embeddingOrigin` и `securityOrigin` свойства, чтобы правильно реагировать на проверку разрешения.  Поскольку `webContents` можно `null` на это уже нельзя положиться.
+The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
 
 ```js
-Старый код
-session.setPermissionCheckHandler ((webContents, разрешение) ->
-  если (webContents.getURL().startsWith ('https://google.com/') && разрешение на "уведомление") {
+// Old code
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
     return true
   }
-  возвращение ложных
-евро)
+  return false
+})
 
-// Заменить
-session.setPermissionCheckHandler ((webContents, разрешение, запрашиваяОригина)
-{
+// Replace with
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
     return true
   }
-  && -> -
-  если (новый URL (запросОригина google.com).
+  return false
+})
 ```
 
 ### Удалено: `shell.moveItemToTrash()`
@@ -56,15 +56,15 @@ session.setPermissionCheckHandler ((webContents, разрешение, запр�
 Удален синхронный `shell.moveItemToTrash()` API. Используйте асинхронный `shell.trashItem()` вместо этого.
 
 ```js
-Удален в Electron 13
-shell.moveItemToTrash (путь)
-// Заменить
-shell.trashItem (путь)....
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
+shell.trashItem(path).then(/* ... */)
 ```
 
-### Удалено: `BrowserWindow` API расширения
+### Removed: `BrowserWindow` extension APIs
 
-Увеханые API расширения были удалены:
+The deprecated extension APIs have been removed:
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -73,64 +73,64 @@ shell.trashItem (путь)....
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Вместо этого используйте API сеанса:
+Use the session APIs instead:
 
 * `ses.loadExtension(path)`
-* `ses.removeExtension (extension_id)`
+* `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-Удален в Electron 13
-BrowserWindow.addExtension (путь)
-BrowserWindow.addDevToolsExtension (путь)
-// Заменить
-session.defaultSession.loadExtension (путь)
+// Removed in Electron 13
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
+session.defaultSession.loadExtension(path)
 ```
 
 ```js
-Удален в Electron 13
-BrowserWindow.removeExtension (имя)
-BrowserWindow.removeDevToolsExtension (имя)
-// Заменить
-session.defaultSession.removeExtension (extension_id)
+// Removed in Electron 13
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
+session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-Удален в Electron 13
-BrowserWindow.getExtensions ()
-BrowserWindow.getDevToolsExtensions ()
-// Заменить
-session.defaultSession.getAllExtensions ()
+// Removed in Electron 13
+BrowserWindow.getExtensions()
+BrowserWindow.getDevToolsExtensions()
+// Replace with
+session.defaultSession.getAllExtensions()
 ```
 
-### Удалено: методы в `systemPreferences`
+### Removed: methods in `systemPreferences`
 
-Следующие `systemPreferences` были уветаны:
+The following `systemPreferences` methods have been deprecated:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Вместо этого используйте `nativeTheme` свойства:
+Use the following `nativeTheme` properties instead:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-Удален в electron 13
-systemPreferences.isDarkMode ()
-// Заменить на
+// Removed in Electron 13
+systemPreferences.isDarkMode()
+// Replace with
 nativeTheme.shouldUseDarkColors
 
-// Удалено в системе Electron 13
-Preferences.isInvertedColorScheme()
-// Заменить
+// Removed in Electron 13
+systemPreferences.isInvertedColorScheme()
+// Replace with
 nativeTheme.shouldUseInvertedColorScheme
 
-// Удалено в Electron 13
+// Removed in Electron 13
 systemPreferences.isHighContrastColorScheme()
-// Заменить на
+// Replace with
 nativeTheme.shouldUseHighContrastColors
 ```
 
@@ -140,11 +140,11 @@ nativeTheme.shouldUseHighContrastColors
 
 Chromium удалил поддержку Flash, и поэтому мы должны следовать этому примеру. Смотрите Chromium [Flash Roadmap](https://www.chromium.org/flash-roadmap) для получения более подробной информации.
 
-### Значение по умолчанию изменено: `worldSafeExecuteJavaScript` по умолчанию `true`
+### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
-В Electron 12 `worldSafeExecuteJavaScript` включен по умолчанию.  Чтобы восстановить предыдущее поведение, `worldSafeExecuteJavaScript: false` должны быть указаны в WebPreferences. Пожалуйста, обратите внимание, что установка этой `false` для **является**.
+In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
 
-Эта опция будет удалена в Electron 14, поэтому, пожалуйста, перемитите код для поддержки значения значения.
+This option will be removed in Electron 14 so please migrate your code to support the default value.
 
 ### Default Changed: `contextIsolation` defaults to `true`
 
@@ -366,10 +366,10 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Вместо этого используйте API сеанса:
+Use the session APIs instead:
 
 * `ses.loadExtension(path)`
-* `ses.removeExtension (extension_id)`
+* `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
@@ -519,13 +519,13 @@ nativeTheme.on('updated', () => { /* ... */ })
 
 ### Deprecated: methods in `systemPreferences`
 
-Следующие `systemPreferences` были уветаны:
+The following `systemPreferences` methods have been deprecated:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Вместо этого используйте `nativeTheme` свойства:
+Use the following `nativeTheme` properties instead:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
