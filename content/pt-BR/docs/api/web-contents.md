@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Retorna:
 * `window` BrowserWindow
-* objeto `details`
+* `details` Object
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
     * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -328,25 +328,25 @@ Retorna:
 
 Emitted when the renderer process crashes or is killed.
 
-**Preterido:** Este evento é superado pelo evento `render-process-gone` que contém mais informações sobre por que o processo de renderização desapareceu. Não é sempre porque caiu.  O `killed` booleano pode ser substituído por verificando `reason === 'killed'` quando você mudar para esse evento.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Evento: 'render-processo-gone'
+#### Event: 'render-process-gone'
 
 Retorna:
 
 * `event` Event
-* objeto `details`
-  * `reason` String - A razão pela qual o processo de renderização se foi.  Valores possíveis:
-    * `clean-exit` - Processo saiu com um código de saída de zero
-    * `abnormal-exit` - Processo saiu com um código de saída não-zero
-    * `killed` - Processo foi enviado um SIGTERM ou de outra forma morto externamente
-    * `crashed` - Processo caiu
-    * `oom` - Processo ficou sem memória
-    * `launch-failed` - Processo nunca lançado com sucesso
-    * `integrity-failure` - Verificações de integridade de código do Windows falharam
-  * `exitCode` Integer - O código de saída do processo, a menos que `reason` seja `launch-failed`, nesse caso `exitCode` será um código de erro de falha de lançamento específico plataforma.
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Valores possíveis:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
-Emitido quando o processo de renderização desaparece inesperadamente.  Isso normalmente é porque foi acidentado ou morto.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 #### Evento: 'unresponsive'
 
@@ -354,7 +354,7 @@ Emitido quando a página web fica sem resposta.
 
 #### Evento: 'responsive'
 
-Emitido quando a página web sem resposta se torna responsiva novamente.
+Emitted when the unresponsive web page becomes responsive again.
 
 #### Event: 'plugin-crashed'
 
@@ -404,11 +404,11 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Evento: 'enter-html-full-screen'
 
-Emitido quando a janela entra em um estado de tela cheia acionado pela API HTML.
+Emitted when the window enters a full-screen state triggered by HTML API.
 
 #### Evento: 'leave-html-full-screen'
 
-Emitido quando a janela deixa um estado de tela cheia acionado pela API HTML.
+Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'zoom-changed'
 
@@ -467,15 +467,15 @@ Retorna:
 * `event` Event
 * objeto `authenticationResponseDetails`
   * `url` URL
-* objeto `authInfo`
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (opcional)
-  * `password` String (opcional)
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
@@ -705,15 +705,15 @@ Retorna:
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
-#### Evento: 'desktop-capturer-get-sources'
+#### Event: 'desktop-capturer-get-sources'
 
 Retorna:
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Ligar para `event.preventDefault()` fará com que devolva fontes vazias.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### Evento: 'remota-require' __preterido
+#### Event: 'remote-require' _Deprecated_
 
 Retorna:
 
@@ -722,7 +722,7 @@ Retorna:
 
 Emitted when `remote.require()` is called in the renderer process. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Evento: 'remoto-get-global' __preterido
+#### Event: 'remote-get-global' _Deprecated_
 
 Retorna:
 
@@ -731,7 +731,7 @@ Retorna:
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Evocando `event.preventDefault()` irá previnir o global ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Evento: ' _de  preterido_s
+#### Event: 'remote-get-builtin' _Deprecated_
 
 Retorna:
 
@@ -740,21 +740,21 @@ Retorna:
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Evento: 'janela remota-get-current-window' __preterido
+#### Event: 'remote-get-current-window' _Deprecated_
 
 Retorna:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Ligar para `event.preventDefault()` impedirá que o objeto seja devolvido. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Evento: 'remote-get-current-content' _Preterido_
+#### Event: 'remote-get-current-web-contents' _Deprecated_
 
 Retorna:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Ligar para `event.preventDefault()` impedirá que o objeto seja devolvido. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 #### Event: 'preferred-size-changed'
 
@@ -772,7 +772,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
 #### `contents.loadURL(url[, options])`
 
 * String `url`
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -792,7 +792,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -950,7 +950,7 @@ Returns `String` - The user agent for this web page.
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -1017,7 +1017,7 @@ Ignore application menu shortcuts while this web contents is focused.
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * objeto `details`
+  * `details` Object
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
     * `features` String - Comma separated list of window features provided to `window.open()`.
@@ -1145,7 +1145,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1208,7 +1208,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
@@ -1262,7 +1262,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* objeto `options`
+* `options` Object
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
@@ -1417,7 +1417,7 @@ app.whenReady().then(() => {
 
 #### `contents.openDevTools([options])`
 
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. O padrão é `verdadeiro`.
 
