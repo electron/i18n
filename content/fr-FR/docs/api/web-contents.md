@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Retourne :
 * `window` BrowserWindow
-* `details` objet
+* `details` Object
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
     * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -328,25 +328,25 @@ Retourne :
 
 Émis lorsque le processus renderer crash ou est interrompu.
 
-**:** cet événement est remplacé par l’événement `render-process-gone` qui contient plus d’informations sur les raisons pour lesquelles le processus de rendu a disparu. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-#### Evénement: 'render-process-gone'
+#### Event: 'render-process-gone'
 
 Retourne :
 
 * `event` Événement
-* `details` objet
+* `details` Object
   * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Processus jamais lancé avec succès
+    * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
   * `Codedesortie`Numero integre-Le code de sortie du proces, sauf `si <code>la raison est <code>lancer a echoue,`ou <0>le codeSortie </code>sera une plateforme specifique, de code envoye errone.
 
-Émis lorsque le processus de rendu disparaît de façon inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
+Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
 #### Événement : 'unresponsive'
 
@@ -465,9 +465,9 @@ L'utilisation est pareil que [l'événement `select-client-certificate` de `app`
 Retourne :
 
 * `event` Événement
-* `authenticationResponseDetails` objet
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` objet
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -713,7 +713,7 @@ Retourne :
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
-#### Evénement : « besoin à distance » _de_
+#### Event: 'remote-require' _Deprecated_
 
 Retourne :
 
@@ -722,7 +722,7 @@ Retourne :
 
 Emitted when `remote.require()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Evénement: 'remote-get-global' _Deprecated_
+#### Event: 'remote-get-global' _Deprecated_
 
 Retourne :
 
@@ -731,7 +731,7 @@ Retourne :
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Evénement: 'remote-get-builtin' _Deprecated_
+#### Event: 'remote-get-builtin' _Deprecated_
 
 Retourne :
 
@@ -740,7 +740,7 @@ Retourne :
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Evénement: 'remote-get-current-window' _Deprecated_
+#### Event: 'remote-get-current-window' _Deprecated_
 
 Retourne :
 
@@ -748,7 +748,7 @@ Retourne :
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Evénement: 'remote-get-current-web-content' _Deprecated_
+#### Event: 'remote-get-current-web-contents' _Deprecated_
 
 Retourne :
 
@@ -772,7 +772,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n".
@@ -792,7 +792,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `query` Enregistrement<String, String> (facultatif) - Passé à `url.format()`.
   * `search` String (facultatif) - Passé à `url.format()`.
   * `hash` String (facultatif) - Passé à `url.format()`.
@@ -950,7 +950,7 @@ Returns `String` - The user agent for this web page.
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -1017,7 +1017,7 @@ Ignore application menu shortcuts while this web contents is focused.
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` objet
+  * `details` Object
     * `url`Fiche-La _version_resolue du URL envoyee a`fenetre.ouverte{}`. par ex. ouvrir une fenetre avec`fenetre.ouverte ('foo')`va generer une chose comme`https://the-origin/the/current/path/foo`.
     * `Nommarge`Fiche-Nom de fenetre fourni a `window.open=fenetre.ouverte()`
     * `traits`Fiche-Une liste de traits de fenetre separee par comas, a ete fournie a`window.open()`.
@@ -1145,7 +1145,7 @@ Insère le `text` à l'élément ciblé.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1208,7 +1208,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Par défaut la valeur est `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Par défaut la valeur est `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
@@ -1262,7 +1262,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `options` objet
+* `options` Object
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
@@ -1417,7 +1417,7 @@ app.whenReady().then(() => {
 
 #### `contents.openDevTools([options])`
 
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
@@ -1471,7 +1471,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. L’envoi de fonctions, de promesses, de symboles, de weakmaps ou de weaksets de lancer une exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1514,7 +1514,7 @@ app.whenReady().then(() => {
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **REMARQUE :** l’envoi de types JavaScript non standard tels que les objets DOM ou objets électroniques spéciaux jettera une exception.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
