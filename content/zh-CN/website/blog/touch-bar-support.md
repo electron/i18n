@@ -124,10 +124,10 @@ app.once('ready', () => {
   window.loadURL('about:blank')
   window.setTouchBar(touchBar)
 })
-    结果.文本颜色="#FDFF00"
-  =其他（唯一值==2）=
-    //2值
-    结果相同 😍。
+    result.textColor = '#FDFF00'
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
+    result.label = '😍 Winner!'
     结果.文本颜色="#FDFF00"
   }其他=
     //没有值是相同的
