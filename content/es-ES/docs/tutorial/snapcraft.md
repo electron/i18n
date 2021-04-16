@@ -142,7 +142,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-Para obtener más información sobre las opciones de configuración disponibles, consulta la [documentación sobre la sintaxis de snapcraft][snapcraft-syntax]. Echemos un vistazo a un ejemplo:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
 
 ```yaml
 name: myApp
@@ -187,7 +187,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-Como puedes ver, el `snapcraft.yaml` instruye al sistema para que lance un archivo llamado `electron-launch`. En este ejemplo, pasa información al binario de la App:
+As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
 
 ```sh
 #!/bin/sh
