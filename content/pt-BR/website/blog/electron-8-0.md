@@ -30,7 +30,7 @@ A equipe do Electron está animada para anunciar a versão do Electron 8.0.0! Vo
 
 Veja as [notas de lançamento 8.0.0](https://github.com/electron/electron/releases/tag/v8.0.0) para uma lista completa de novos recursos e alterações.
 
-## Quebrando mudanças
+## Breaking Changes
 
 * Mostrar nome do módulo no aviso de depreciação para módulos de contexto. [#21952](https://github.com/electron/electron/pull/21952)
     * Este é o trabalho continuado para futuros requisitos de que módulos nativos de nó carregados no processo de renderização sejam [N-API](https://nodejs.org/api/n-api.html) ou [Contexto Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Informações completas e linha do tempo proposta é detalhado em [esse problema](https://github.com/electron/electron/issues/18397).
