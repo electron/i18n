@@ -49,7 +49,7 @@ Rückgabewert:
 
 Rückgabewert:
 
-* `authInfo` -Objekt
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
