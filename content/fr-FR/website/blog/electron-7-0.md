@@ -27,7 +27,7 @@ L'équipe d'Electron est heureuse d'annoncer la sortie d'Electron 7.0.0 ! Vous p
 
 Voir les [notes de version 7.0.0](https://github.com/electron/electron/releases/tag/v7.0.0) pour une liste plus longue de modifications.
 
-## Briser les changements
+## Breaking Changes
 
 Plus d'informations à propos de ces changements et de futurs peuvent être trouvées sur la page [Changements de rupture planifiés](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
 
