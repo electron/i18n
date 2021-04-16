@@ -20,7 +20,7 @@ Définit le menu `` comme le menu d'application sur macOS. Sous Windows et Linux
 
 Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. Le caractère indiqué dans l'étiquette du bouton obtient un souligné . Le caractère `&` n'est pas affiché sur l'étiquette du bouton.
 
-Passer `null` supprimera le menu par défaut. Sur Windows et Linux, cela a pour effet supplémentaire de supprimer la barre de menu de la fenêtre.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
 **Note:** Le menu par défaut sera créé automatiquement si l'application ne le définit pas. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
 
@@ -44,7 +44,7 @@ Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.app
 
 Retourne `Menu`
 
-Généralement, le paramètre `template` est un tableau d' `options` pour construire un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus. L’utilisation peut être référencée ci-dessus.
+Généralement, le paramètre `template` est un tableau d' `options` pour construire un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus. The usage can be referenced above.
 
 Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
@@ -79,7 +79,7 @@ Ajoute le `menuItem` au menu.
 
 * `id` String
 
-Retourne `MenuItem | null` l’élément avec le `id`
+Returns `MenuItem | null` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -122,7 +122,7 @@ Chaque `Menu` consiste en plusieurs [`MenuItem`](menu-item.md)s et chaque `MenuI
 
 ## Exemples
 
-Un exemple de création du menu d’application avec l’API modèle simple:
+An example of creating the application menu with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -168,7 +168,7 @@ const template = [
         { role: 'selectAll' },
         { type: 'separator' },
         {
-          étiquette: « Discours »,
+          label: 'Speech',
           submenu: [
             { role: 'startSpeaking' },
             { role: 'stopSpeaking' }
@@ -197,12 +197,12 @@ const template = [
     ]
   },
   // { role: 'windowMenu' }
-  { étiquette
-    : « Fenêtre »,
+  {
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
       { role: 'zoom' },
-      ... (isMac ? [
+      ...(isMac ? [
         { type: 'separator' },
         { role: 'front' },
         { type: 'separator' },
@@ -232,39 +232,39 @@ Menu.setApplicationMenu(menu)
 
 ### Processus de rendu
 
-Pour créer des menus initiés par le processus de rendu, envoyez les informations de requises au processus principal à l’aide d’IPC et que le processus principal affiche le menu au nom du renderer.
+To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
 
-Voici un exemple d’affichage d’un menu lorsque l’utilisateur clique à droite sur la page :
+Below is an example of showing a menu when the user right clicks the page:
 
 ```js
-renderer
-window.addEventListener ('contextmenu', (e) => {
+// renderer
+window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  ipcRenderer.send ('show-context-menu')
+  ipcRenderer.send('show-context-menu')
 })
 
-ipcRenderer.on ('context-menu-command', (e, commande) => {
+ipcRenderer.on('context-menu-command', (e, command) => {
   // ...
 })
 
-//
-ipcMain.on ('show-context-menu', (événement) => { modèle de const
-  = [
-    { étiquette
-      : 'Menu Item 1',
-      cliquez sur: () => { event.sender.send ('context-menu-command', 'menu-item-1') }
+// main
+ipcMain.on('show-context-menu', (event) => {
+  const template = [
+    {
+      label: 'Menu Item 1',
+      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
     },
     { type: 'separator' },
     { label: 'Menu Item 2', type: 'checkbox', checked: true }
-  ] menu const
-  = Menu.buildFromTemplate(template)
-  menu.popup (BrowserWindow.fromWebContents (event.sender))
+  ]
+  const menu = Menu.buildFromTemplate(template)
+  menu.popup(BrowserWindow.fromWebContents(event.sender))
 })
 ```
 
 ## Notes sur le menu d'application macOS
 
-macOS a un style complètement différent de menu d’application de Windows et Linux. Voici quelques notes sur la façon de rendre le menu de votre application plus natif.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Standard Menus
 
@@ -347,7 +347,7 @@ Modèle :
 
 ```javascript
 [
-  { id: '1', étiquette: 'one', after: ['3'] },
+  { id: '1', label: 'one', after: ['3'] },
   { id: '2', label: 'two', before: ['1'] },
   { id: '3', label: 'three' }
 ]
