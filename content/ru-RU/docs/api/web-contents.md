@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Возвращает:
 * `window` BrowserWindow
-* `details` объект
+* `details` Object
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
     * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -328,25 +328,25 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Emitted when the renderer process crashes or is killed.
 
-**:** Это событие затухает событие `render-process-gone` , содержит больше информации о том, почему процесс визуализации исчез. Это не всегда, потому что он разбился.  На `killed` boolean можно заменить проверки `reason === 'killed'` при переходе на это событие.
+**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-#### Событие: 'рендер-процесс-ушел'
+#### Event: 'render-process-gone'
 
 Возвращает:
 
 * `event` Event
-* `details` объект
-  * `reason` Строка - Причина, по которой процесс рендеров исчез.  Возможные значения:
-    * `clean-exit` - Процесс вышел с кодом выхода нуля
-    * `abnormal-exit` - Процесс вышел с ненулевой код выхода
-    * `killed` - Процесс был отправлен SIGTERM или иным образом убит извне
-    * `crashed` - Процесс разбился
-    * `oom` - Процесс закончился в памяти
-    * `launch-failed` - Процесс так и не был успешно запущен
-    * `integrity-failure` - Проверки целостности кода Windows не удалось
-  * `exitCode` Integer - Код выхода процесса, если `reason` не `launch-failed`, и в этом случае `exitCode` будет платформы конкретных код ошибки запуска.
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Возможные значения:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
-Испускаемый при процессе рендерера неожиданно исчезает.  Это, как правило потому что он разбился или погиб.
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 #### Событие: 'unresponsive'
 
@@ -663,13 +663,13 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Emitted when a `<webview>` has been attached to this web contents.
 
-#### Событие: 'консоль-сообщение'
+#### Event: 'console-message'
 
 Возвращает:
 
 * `event` Event
-* `level` Integer - The log level, from 0 to 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
-* `message` строка - фактическое сообщение консоли
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` Струна
 
@@ -713,7 +713,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Излучается при `desktopCapturer.getSources()` вызывается в процессе рендерера. Вызов `event.preventDefault()` вернет пустые источники.
 
-#### Событие: «дистанционное требует» _Deprecated_
+#### Event: 'remote-require' _Deprecated_
 
 Возвращает:
 
@@ -722,7 +722,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Излучается при `remote.require()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Событие: «дистанционно-получить-глобальный» _Deprecated_
+#### Event: 'remote-get-global' _Deprecated_
 
 Возвращает:
 
@@ -731,7 +731,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Излучается при `remote.getGlobal()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Событие: 'удаленный-получить-builtin' _Deprecated_
+#### Event: 'remote-get-builtin' _Deprecated_
 
 Возвращает:
 
@@ -740,7 +740,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Излучается при `remote.getBuiltin()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Событие: 'дистанционное начало-текущее окно' _Deprecated_
+#### Event: 'remote-get-current-window' _Deprecated_
 
 Возвращает:
 
@@ -748,7 +748,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Излучается при `remote.getCurrentWindow()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Событие: "дистанционное получить-текущий-веб-содержимое" _Deprecated_
+#### Event: 'remote-get-current-web-contents' _Deprecated_
 
 Возвращает:
 
@@ -1017,7 +1017,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` объект
+  * `details` Object
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
     * `features` String - Comma separated list of window features provided to `window.open()`.
@@ -1536,7 +1536,7 @@ ipcMain.on ('ping', (событие) -> -
 
 * `channel` String (Строка)
 * `message` any
-* `transfer` MessagePortMain (по желанию)
+* `transfer` MessagePortMain[] (optional)
 
 Отправить сообщение процессу рендерера, по желанию передав право собственности на ноль или более -`MessagePortMain`объектов.
 
