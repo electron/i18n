@@ -1,29 +1,29 @@
-# Build-Anweisungen
+# Build Instructions
 
-Befolgen Sie die folgenden Richtlinien für den Aufbau von Electron.
+Follow the guidelines below for building Electron.
 
-## Plattformvoraussetzungen
+## Platform prerequisites
 
-Überprüfen Sie die Buildvoraussetzungen für Ihre Plattform, bevor Sie fortfahren
+Check the build prerequisites for your platform before proceeding
 
 * [macOS](build-instructions-macos.md#prerequisites)
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Buildtools
+## Build Tools
 
-[Electron es Build Tools](https://github.com/electron/build-tools) einen Großteil des Setups für die Kompilierung von Electron aus der Quelle mit unterschiedlichen Konfigurationen und Buildzielen automatisieren. Wenn Sie die Umgebung manuell einrichten möchten, finden Sie die folgenden Anweisungen.
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
 
-## GN-Voraussetzungen
+## GN prerequisites
 
-Sie müssen [`depot_tools`][depot-tools]installieren, das Toolset , das zum Abrufen von Chromium und seinen Abhängigkeiten verwendet wird.
+You'll need to install [`depot_tools`][depot-tools], the toolset used for fetching Chromium and its dependencies.
 
-Außerdem müssen Sie unter Windows die Umgebungsvariable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`festlegen. Öffnen Sie dazu `Control Panel` → `System- und
--Sicherheits` → `System` → `Advanced system settings` und fügen Sie eine Systemvariable `DEPOT_TOOLS_WIN_TOOLCHAIN` mit dem Wert `0`hinzu.  Dadurch wird `depot_tools` aufgefordert, Ihre lokal installierte Version von Visual Studio zu verwenden (standardmäßig wird `depot_tools` versuchen, eine Google-interne Version herunterzuladen, auf die nur Googler Zugriff haben).
+Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
+Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
 
-### Einrichten des Git-Cache
+### Setting up the git cache
 
-Wenn Sie beabsichtigen, Electron mehrmals auszuchecken (z. B. um mehrere parallele Verzeichnisse auf verschiedene Zweige auszuchecken), beschleunigt die Verwendung des Git- -Cache nachfolgende Aufrufe von `gclient`. Legen Sie dazu eine `GIT_CACHE_PATH` Umgebungsvariable fest:
+If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -234,7 +234,7 @@ $ gclient sync -f
 
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
 
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  Dadurch wird `depot_tools` aufgefordert, Ihre lokal installierte Version von Visual Studio zu verwenden (standardmäßig wird `depot_tools` versuchen, eine Google-interne Version herunterzuladen, auf die nur Googler Zugriff haben).
+If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 
