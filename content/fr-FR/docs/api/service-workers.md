@@ -1,40 +1,40 @@
-## Classe: Travailleurs de service
+## Class: ServiceWorkers
 
-> Interrogez et recevez des événements d’une séance de travailleurs actifs des services.
+> Query and receive events from a sessions active service workers.
 
 Processus : [Main](../glossary.md#main-process)
 
-Les instances de la `ServiceWorkers` sont consultées en utilisant `serviceWorkers` propriété de un `Session`.
+Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
 Par exemple :
 
 ```javascript
-const { session } = exiger ('electron')
+const { session } = require('electron')
 
-// Obtenir tous les travailleurs de service.
-console.log (session.defaultSession.serviceWorkers.getAllRunning())
+// Get all service workers.
+console.log(session.defaultSession.serviceWorkers.getAllRunning())
 
-// Gérer les journaux et obtenir des informations sur les travailleurs de service
-session.defaultSession.serviceWorkers.on('console-message', (événement, messageDetails) => { console
-  .log(
+// Handle logs and get service worker info
+session.defaultSession.serviceWorkers.on('console-message', (event, messageDetails) => {
+  console.log(
     'Got service worker message',
     messageDetails,
     'from',
-    session.defaultSession.serviceWorkers.getFromVersionID (messageDetails.versionId)
+    session.defaultSession.serviceWorkers.getFromVersionID(messageDetails.versionId)
   )
 })
 ```
 
 ### Événements d’instance
 
-Les événements suivants sont disponibles sur les instances de `ServiceWorkers`:
+The following events are available on instances of `ServiceWorkers`:
 
 #### Événement : 'console-message'
 
 Retourne :
 
 * `event` Événement
-* `messageDetails` objet - Informations sur le message de la console
+* `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
   * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
