@@ -4,12 +4,12 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `nouveau TouchBarColorPicker (options)`
+### `new TouchBarColorPicker(options)`
 
-* `options` objet
+* `options` Object
   * `availableColors` String[] (facultatif) - Tableau de chaîne de caractères de couleurs en hexadécimal pouvant être choisi.
   * `selectedColor` String (facultatif) - La couleur en hexadécimal selectionné dans le sélecteur, c.-à-d. `#ABCDEF`.
-  * `change` fonction (facultatif) - Fonction d’appel lorsqu’une couleur est sélectionnée.
+  * `change` Function (optional) - Function to call when a color is selected.
     * `color` String - La couleur que l'utilisateur a sélectionnée dans le sélecteur.
 
 ### Propriétés d'instance
@@ -18,8 +18,8 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarColor
 
 #### `touchBarColorPicker.availableColors`
 
-Un `String[]` représentant les couleurs disponibles du cueilleur de couleurs à sélectionner. Modification immédiate de cette valeur met à jour le cueilleur de couleurs dans la barre tactile.
+A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
 
 #### `touchBarColorPicker.selectedColor`
 
-Un `String` code hex représentant la couleur actuellement sélectionnée par le cueilleur de couleurs. Modification immédiate de cette valeur met à jour le cueilleur de couleurs dans la barre tactile.
+A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
