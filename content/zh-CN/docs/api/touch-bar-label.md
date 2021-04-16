@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-### `新的触摸巴标签（选项）`
+### `new TouchBarLabel(options)`
 
 * `选项` 对象
   * `label` String (可选) - 显示的文本.
@@ -25,16 +25,16 @@
 
 #### `touchBarLabel.label`
 
-代表标签当前文本的 `String` 。 更改此值会立即在触摸栏 更新标签。
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
 
 
-#### `触摸巴拉贝尔.无障碍标签`
+#### `touchBarLabel.accessibilityLabel`
 
-`String` 表示屏幕阅读器要阅读的标签的描述。
+A `String` representing the description of the label to be read by a screen reader.
 
 
 
 #### `touchBarLabel.textColor`
 
-`String` 六角形代码，表示标签当前的文本颜色。 更改此值会立即更新触摸栏中的 标签。
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
