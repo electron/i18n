@@ -104,7 +104,7 @@ Injects CSS into the current web page and returns a unique key for the inserted 
 
 ### `webFrame.removeInsertedCSS(key)`
 
-* `key` Cordas
+* `key` String
 
 Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
