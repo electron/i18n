@@ -49,15 +49,15 @@ Retorna:
 
 Retorna:
 
-* objeto `authInfo`
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (opcional)
-  * `password` String (opcional)
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitido quando um proxy de autenticação está solicitando as credenciais de usuário.
 
