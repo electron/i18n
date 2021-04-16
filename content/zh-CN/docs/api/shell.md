@@ -2,7 +2,7 @@
 
 > 使用默认应用程序管理文件和 url。
 
-流程： [主](../glossary.md#main-process)、 [渲染器](../glossary.md#renderer-process) （仅限非沙盒）
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
 ` shell ` 模块提供与桌面集成相关的功能。
 
