@@ -651,12 +651,12 @@ Fired when page enters fullscreen triggered by HTML API.
 
 Fired when page leaves fullscreen triggered by HTML API.
 
-### Событие: 'консоль-сообщение'
+### Event: 'console-message'
 
 Возвращает:
 
-* `level` Integer - The log level, from 0 to 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
-* `message` строка - фактическое сообщение консоли
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` Струна
 
