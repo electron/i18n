@@ -1,61 +1,61 @@
-## 类：服务工作者
+## Class: ServiceWorkers
 
-> 查询和接收来自会话中现役服务人员的事件。
+> Query and receive events from a sessions active service workers.
 
 进程：[主进程](../glossary.md#main-process)
 
-使用 `Session`的 `serviceWorkers` 属性访问 `ServiceWorkers` 类的实例。
+Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
 例如：
 
 ```javascript
-康斯特 { session } =要求（"电子"）
+const { session } = require('electron')
 
-//获取所有服务人员。
-控制台.log（会话.默认服务人员.getallRunning）
+// Get all service workers.
+console.log(session.defaultSession.serviceWorkers.getAllRunning())
 
-//处理日志，并在会话
-获取服务人员信息。 （事件，消息尾部）=> •
-  控制台.log（
-    "获取服务人员消息"，
-    消息尾声，
-    "来自"，
-    会话。默认服务人员。从"服务人员"（消息尾部.versionId）
-  ）
-}）
+// Handle logs and get service worker info
+session.defaultSession.serviceWorkers.on('console-message', (event, messageDetails) => {
+  console.log(
+    'Got service worker message',
+    messageDetails,
+    'from',
+    session.defaultSession.serviceWorkers.getFromVersionID(messageDetails.versionId)
+  )
+})
 ```
 
 ### 实例事件
 
-下列活动可在 `ServiceWorkers`：
+The following events are available on instances of `ServiceWorkers`:
 
 #### Event: 'console-message'
 
 返回:
 
 * `event` Event
-* `messageDetails` 对象 - 有关控制台消息的信息
-  * `message` 字符串 - 实际控制台消息
-  * `versionId` 号码 - 发送日志消息的服务人员的版本 ID
-  * `source` 字符串 - 此消息的源类型。  可 `javascript`、 `xml`、 `network`、 `console-api`、 `storage`、 `app-cache`、 `rendering`、 `security`、 `deprecation`、 `worker`、 `violation`、 `intervention`、 `recommendation` 或 `other`。
-  * `level` 编号 - 日志级别，从 0 到 3。 为了它匹配 `verbose`， `info`， `warning` 和 `error`。
-  * `sourceUrl` 字符串 - 消息来自的 URL
-  * `lineNumber` 编号 - 触发此控制台消息的源的行数
+* `messageDetails` Object - Information about the console message
+  * `message` String - The actual console message
+  * `versionId` Number - The version ID of the service worker that sent the log message
+  * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
+  * `level` Number - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+  * `sourceUrl` String - The URL the message came from
+  * `lineNumber` Number - The line number of the source that triggered this console message
 
-当服务人员将某些东西记录到控制台时发出。
+Emitted when a service worker logs something to the console.
 
 ### 实例方法
 
-下列方法可适用于 `ServiceWorkers`：
+The following methods are available on instances of `ServiceWorkers`:
 
-#### `服务工人。获取所有运行（）`
+#### `serviceWorkers.getAllRunning()`
 
-返回 `Record<Number, ServiceWorkerInfo>` - [服务工作者信息](structures/service-worker-info.md) 对象，其中密钥是服务人员版本 ID，值是有关该服务人员的信息。
+Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
 
-#### `服务工人。从反向ID（版本ID）获取`
+#### `serviceWorkers.getFromVersionID(versionId)`
 
-* `versionId` 编号
+* `versionId` Number
 
-返回 [`ServiceWorkerInfo`](structures/service-worker-info.md) - 有关此服务人员的信息
+Returns [`ServiceWorkerInfo`](structures/service-worker-info.md) - Information about this service worker
 
-如果服务人员不存在或没有运行此方法将抛出一个例外。
+If the service worker does not exist or is not running this method will throw an exception.
