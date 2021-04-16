@@ -105,13 +105,13 @@ session.defaultSession.getAllExtensions()
 
 ### Eliminado: métodos en `systemPreferences`
 
-Los siguientes métodos de `systemPreferences` han quedado obsoletos:
+The following `systemPreferences` methods have been deprecated:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-En su lugar, utiliza las siguientes propiedades de `nativeTheme` :
+Use the following `nativeTheme` properties instead:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
@@ -218,11 +218,11 @@ shell.trashItem(path).then(/* ... */)
 
 ## Cambios planeados en la API(11.0)
 
-### Eliminado: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` y `id` propiedad de `BrowserView`
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
 
-Ahora se eliminaron las API experimentales `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` . Además, también se eliminó la propiedad `id` de `BrowserView` .
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
 
-Para obtener información más detallada, consulta [#23578](https://github.com/electron/electron/pull/23578).
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Cambios de API de ruptura planificados (10.0)
 
@@ -333,7 +333,7 @@ protocol.registerFileProtocol(scheme, handler)
 
 El protocolo registrado o interceptado no tiene efecto en la página actual hasta que ocurra la navegación.
 
-### `Protocol. isProtocolHandled`
+### `protocol.isProtocolHandled`
 
 Esta API está obsoleta y los usuarios deberían usar `protocol.isProtocolRegistered` y `protocol.isProtocolIntercepted` en su lugar.
 
@@ -426,7 +426,7 @@ La API `shell.openItem` ha sido reemplazada por una API asincrónica `shell.open
 
 ### Comportamiento cambiado: Los valores enviados a través de IPC ahora se serializan con el algoritmo de clon estructurado
 
-El algoritmo utilizado para serializar los objetos enviados sobre IPC (a través de `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` y métodos de relacionados) se ha cambiado de un algoritmo personalizado a un V8's integrado [algoritmo de clon estructurado][SCA], el mismo algoritmo que se usa para serializar mensajes para `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
 
 * Enviar Functions, Promises, WeakMaps, WeakSets, o objetos que contengan tales valores sobre IPC no lanzará ninguna excepción, en lugar de convertir las funciones a `undefined`.
 
@@ -497,16 +497,16 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Desaprobado: `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función emitirá una advertencia en Electron 8. x y dejará de existir en Electron 9. x. El nivel de zoom de diseño límites ahora se fijan a un mínimo de 0,25 y a un máximo de 5,0, como se define [aquí](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Eventos en desuso en `systemPreferences`
+### Deprecated events in `systemPreferences`
 
-Los siguientes eventos de `systemPreferences` han quedado obsoletos:
+The following `systemPreferences` events have been deprecated:
 
 * `inverted-color-scheme-changed`
 * `high-contrast-color-scheme-changed`
 
-En su lugar, usa el nuevo evento `updated` en el módulo `nativeTheme` .
+Use the new `updated` event on the `nativeTheme` module instead.
 
 ```js
 // Deprecated
@@ -517,15 +517,15 @@ systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
-### Obsoleto: métodos en `systemPreferences`
+### Deprecated: methods in `systemPreferences`
 
-Los siguientes métodos de `systemPreferences` han quedado obsoletos:
+The following `systemPreferences` methods have been deprecated:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-En su lugar, utiliza las siguientes propiedades de `nativeTheme` :
+Use the following `nativeTheme` properties instead:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
@@ -772,7 +772,7 @@ Los siguientes valores por defectos de opción `webPreferences` están obsoletos
 | `nodeIntegration`  | `true`                               | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
-Por ejemplo. Volver a habilitar la webviewTag
+Por ejemplo. Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({
