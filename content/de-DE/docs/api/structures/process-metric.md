@@ -11,8 +11,8 @@
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
   * `Unknown`
-* `serviceName` String (optional) - Der nicht lokalisierte Name des Prozesses.
-* `name` String (optional) - Der Name des Prozesses. Beispiele für Dienstprogramme: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`usw.
+* `serviceName` String (optional) - The non-localized name of the process.
+* `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 * `cpu` [CPUUsage](cpu-usage.md) - CPU-Auslastung des Prozesses.
 * `CreationTime` Number - Erstellungszeit für diesen Prozess. Die Zeit wird seit der Epoche als Anzahl von Millisekunden dargestellt. Da die `pid` wiederverwendet werden kann, nachdem ein Prozess stirbt, ist es nützlich, sowohl `pid` als auch `creationTime` zu verwenden, um einen Prozess eindeutig zu identifizieren.
 * `memory` [MemoryInfo](memory-info.md) - Speicherinformationen für den Prozess.
