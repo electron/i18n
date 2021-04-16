@@ -92,7 +92,7 @@ Insere o `menuItem` na posição `pos` do menu.
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-**Nota:** Alguns eventos só estão disponíveis em sistemas operacionais específicos e são rotulados como tal.
+**Note:** Some events are only available on specific operating systems and are labeled as such.
 
 #### Event: 'menu-will-show'
 
@@ -290,8 +290,8 @@ The [`setMenu` method][setMenu] of browser windows can set the menu of certain b
 
 You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-* `before` - Inserts this item before the item with the specified label. Se o item não existir, o item será inserido no final de menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. Se o item não existir, o item será inserido no final de menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
 * `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
 * `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
