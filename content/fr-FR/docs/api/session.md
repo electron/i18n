@@ -89,7 +89,7 @@ Retourne :
 * `event` Événement
 * `extension` [Extension](structures/extension.md)
 
-Émis après le chargement d’une extension. Cela se produit chaque fois qu’une extension ajoutée à l’ensemble d’extensions « activées ». Cela comprend :
+Émis après le chargement d’une extension. Cela se produit chaque fois qu’une extension ajoutée à l’ensemble d’extensions « activées ». This includes:
 
 - Extensions chargées à partir `session.loadExtension`.
 - Extensions rechargées :
