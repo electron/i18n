@@ -364,71 +364,71 @@ webview.addEventListener ('дом-готов', () -> -
 
 ### `<webview>.inspectServiceWorker()`
 
-Открывает DevTools для контекста работника службы, присутствуют на гостевой странице.
+Opens the DevTools for the service worker context present in the guest page.
 
-### `<webview>.setAudioMuted (мутирован)`
+### `<webview>.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Установите страницу гостя приглушенной.
+Set guest page muted.
 
 ### `<webview>.isAudioMuted()`
 
-Возвращает `Boolean` - Была ли отключена гостевая страница.
+Returns `Boolean` - Whether guest page has been muted.
 
-### `<webview>.isCurrentlyAudible ()`
+### `<webview>.isCurrentlyAudible()`
 
 Возвращает `Boolean` - Ли аудио в настоящее время играет.
 
 ### `<webview>.undo()`
 
-Выполняет `undo` на странице.
+Executes editing command `undo` in page.
 
 ### `<webview>.redo()`
 
-Выполняет `redo` на странице.
+Executes editing command `redo` in page.
 
 ### `<webview>.cut()`
 
-Выполняет `cut` на странице.
+Executes editing command `cut` in page.
 
 ### `<webview>.copy()`
 
-Выполняет `copy` на странице.
+Executes editing command `copy` in page.
 
 ### `<webview>.paste()`
 
-Выполняет `paste` на странице.
+Executes editing command `paste` in page.
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Выполняет `pasteAndMatchStyle` на странице.
+Executes editing command `pasteAndMatchStyle` in page.
 
-### `<webview>.delete ()`
+### `<webview>.delete()`
 
-Выполняет `delete` на странице.
+Executes editing command `delete` in page.
 
-### `<webview>.selectAll ()`
+### `<webview>.selectAll()`
 
-Выполняет `selectAll` на странице.
+Executes editing command `selectAll` in page.
 
 ### `<webview>.unselect()`
 
-Выполняет `unselect` на странице.
+Executes editing command `unselect` in page.
 
-### `<webview>.replace (текст)`
-
-* `text` String
-
-Выполняет `replace` на странице.
-
-### `<webview>.replaceMisspelling (текст)`
+### `<webview>.replace(text)`
 
 * `text` String
 
-Выполняет `replaceMisspelling` на странице.
+Executes editing command `replace` in page.
 
-### `<webview>.insertText (текст)`
+### `<webview>.replaceMisspelling(text)`
+
+* `text` String
+
+Executes editing command `replaceMisspelling` in page.
+
+### `<webview>.insertText(text)`
 
 * `text` String
 
@@ -436,7 +436,7 @@ webview.addEventListener ('дом-готов', () -> -
 
 Вставляет `text` в элемент с фокусом.
 
-### `<webview>.findInPage (текст, опции)`
+### `<webview>.findInPage(text[, options])`
 
 * `text` Строка - Содержимое для поиска, не должно быть пустым.
 * `options` Object (опционально)
@@ -446,18 +446,18 @@ webview.addEventListener ('дом-готов', () -> -
 
 Возвращает `Integer` - идентификатор запроса, используемый для запроса.
 
-Начинается запрос на поиск всех совпадений для `text` на веб-странице. Результат запроса можно получить , подписавшись на [`found-in-page`](webview-tag.md#event-found-in-page) событие.
+Начинается запрос на поиск всех совпадений для `text` на веб-странице. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
-### `<webview>.stopFindInPage (действие)`
+### `<webview>.stopFindInPage(action)`
 
-* `action` String - Определяет действие, которое происходит при [`<webview>.findInPage`](#webviewfindinpagetext-options) запроса.
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
   * `clearSelection` - Очистить выбор.
   * `keepSelection` - Перевести выбор в нормальный выбор.
   * `activateSelection` - Сосредоточьтесь и нажмите на узел выбора.
 
-Прекращает `findInPage` запрос на `webview` с предоставленным `action`.
+Stops any `findInPage` request for the `webview` with the provided `action`.
 
-### `<webview>.print ([options])`
+### `<webview>.print([options])`
 
 * `options` Object (опционально)
   * `silent` Boolean (по желанию) - Не спрашивайте у пользователя настройки печати. По умолчанию - `false`.
@@ -475,7 +475,7 @@ webview.addEventListener ('дом-готов', () -> -
   * `pagesPerSheet` (необязательно) - количество страниц для печати на листе страницы.
   * `collate` Boolean (по желанию) - Следует ли собирать веб-страницу.
   * `copies` номер (необязательно) - количество копий веб-страницы для печати.
-  * `pageRanges` Объект» (необязательно) - диапазон страниц для печати.
+  * `pageRanges` Object[] (optional) - The page range to print.
     * `from` - Индекс первой страницы для печати (0 на основе).
     * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
   * `duplexMode` String (по желанию) - Установите дуплексный режим печатной веб-страницы. Может быть `simplex`, `shortEdge`, или `longEdge`.
@@ -488,29 +488,29 @@ webview.addEventListener ('дом-готов', () -> -
 
 Возвращает `Promise<void>`
 
-Печать `webview`'s веб-страницы. Так же, как `webContents.print([options])`.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
-### `<webview>.printToPDF (варианты)`
+### `<webview>.printToPDF(options)`
 
 * `options` Object
   * `headerFooter` запись<string, string> (по желанию) - заголовок и лакея для PDF.
     * `title` String - Название заголовка PDF.
     * `url` String - URL для pdf footer.
   * `landscape` Boolean (по желанию) - `true` для пейзажа, `false` для портрета.
-  * `marginsType` Integer (необязательно) - определяет тип маржи для использования. Использует 0 для по умолчанию, 1 без маржи и 2 для минимальной маржи. и `width` в микронах.
+  * `marginsType` Integer (необязательно) - определяет тип маржи для использования. Использует 0 для по умолчанию, 1 без маржи и 2 для минимальной маржи. and `width` in microns.
   * `scaleFactor` номер (необязательно) - коэффициент масштаба веб-страницы. Может варьироваться от 0 до 100.
-  * `pageRanges` запись<string, number> (по желанию) - диапазон страниц для печати. На macOS почитается только первый ряд.
+  * `pageRanges` запись<string, number> (по желанию) - диапазон страниц для печати. On macOS, only the first range is honored.
     * `from` - Индекс первой страницы для печати (0 на основе).
     * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
-  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы сгенерированного PDF. Может быть `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` или объект, содержащий `height`
+  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы сгенерированного PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
   * `printBackground` Boolean (необязательно) - Следует ли печатать CSS фоны.
   * `printSelectionOnly` Boolean (необязательно) - Следует ли печатать только выбор.
 
-Возвращает `Promise<Uint8Array>` - Разрешает с генерируемыми данными PDF.
+Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
-Печать `webview`веб-страницы, как PDF, так же, как `webContents.printToPDF(options)`.
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
-### `<webview>.capturePage ([rect])`
+### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (по желанию) - область страницы, которая должна быть захвачена.
 
@@ -518,34 +518,34 @@ webview.addEventListener ('дом-готов', () -> -
 
 Захватывает снимок страницы в границах `rect`. Пропустив `rect`, будет сделан захват всей видимой страницы.
 
-### `<webview>.send (канал, ... аргс)`
+### `<webview>.send(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
 Возвращает `Promise<void>`
 
-Отправить асинхронное сообщение для процесса рендерера через `channel`, вы также можете произвольные аргументы. Процесс рендерера может обрабатывать сообщение, слушать `channel` с помощью [`ipcRenderer`](ipc-renderer.md) модуля.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Смотрите [webContents.send](web-contents.md#contentssendchannel-args) для примеров.
+See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
-### `<webview>.sendInputEvent (событие)`
+### `<webview>.sendInputEvent(event)`
 
-* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [клавиатураInputEvent](structures/keyboard-input-event.md)
+* `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 Возвращает `Promise<void>`
 
 Отправляет входную `event` на страницу.
 
-Подробнее [объекта можно усмотреть на сайте webContents.](web-contents.md#contentssendinputeventinputevent) `event` InputEvent.
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) for detailed description of `event` object.
 
-### `<webview>.set'oomFactor (фактор)`
+### `<webview>.setZoomFactor(factor)`
 
 * `factor` Number - фактор увилечения.
 
 Изменяет коэффициент масштабирования на указанный фактор. Коэффициент увеличения на 100, так что 300% и 3,0.
 
-### `<webview>.set'oomLevel (уровень)`
+### `<webview>.setZoomLevel(level)`
 
 * `level` Number - уровень увеличения.
 
@@ -553,15 +553,15 @@ webview.addEventListener ('дом-готов', () -> -
 
 > **ПРИМЕЧАНИЕ**: Политика масштабирования на уровне Chromium имеет одно и то же происхождение, что означает, что уровень масштабирования для определенного домена распространяется во всех экземплярах окон с одним и тем же доменом. Дифференциация URL-адресов окон позволит увеличить работу на окно.
 
-### `<webview>.get'oomFactor()`
+### `<webview>.getZoomFactor()`
 
 Возвращает `Number` - текущий коэффициент масштабирования.
 
-### `<webview>.get'oomLevel()`
+### `<webview>.getZoomLevel()`
 
 Возвращает `Number` - текущий уровень масштабирования.
 
-### `<webview>.setVisual'oomLevelLimits (минимумУровень, максимальныйУровень)`
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -576,24 +576,24 @@ webview.addEventListener ('дом-готов', () -> -
 
 ### `<webview>.getWebContentsId()`
 
-Возвращает `Number` - WebContents ID этого `webview`.
+Returns `Number` - The WebContents ID of this `webview`.
 
-## СОБЫТИЯ DOM
+## DOM Events
 
-Следующие события DOM доступны для тега `webview` :
+The following DOM events are available to the `webview` tag:
 
-### Событие: 'нагрузка-коммит'
+### Event: 'load-commit'
 
 Возвращает:
 
 * `url` String
 * `isMainFrame` Boolean
 
-Уволен, когда нагрузка совершила. Это включает навигацию в рамках текущего документа, а также нагрузки уровня подформера, но не включает асинхронные ресурсные нагрузки.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Event: 'did-finish-load'
 
-Уволенный при навигации, т.е. спиннер вкладки остановится спиннинг, и `onload` событие будет отправлено.
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Event: 'did-fail-load'
 
@@ -604,7 +604,7 @@ webview.addEventListener ('дом-готов', () -> -
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-Это событие, как `did-finish-load`, но выстрелил, когда нагрузка не удалось отменена, например. `window.stop()` вызывается.
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### Event: 'did-frame-finish-load'
 
@@ -612,19 +612,19 @@ webview.addEventListener ('дом-готов', () -> -
 
 * `isMainFrame` Boolean
 
-Работает, когда рама сделала навигацию.
+Fired when a frame has done navigation.
 
 ### Событие: 'did-start-loading'
 
-Соответствует точкам времени, когда спиннер вкладки начинает вращаться.
+Corresponds to the points in time when the spinner of the tab starts spinning.
 
 ### Событие: 'did-stop-loading'
 
-Соответствует точкам времени, когда спиннер вкладки перестает вращаться.
+Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Событие: 'dom-ready'
 
-Устанавливается при загрузке документа в данном кадре.
+Fired when document in the given frame is loaded.
 
 ### Событие: 'page-title-updated'
 
@@ -641,15 +641,15 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 * `favicons` String[] - Array of URLs.
 
-Уволенный, когда страница получает favicon URL-адреса.
+Fired when page receives favicon urls.
 
 ### Событие: 'enter-html-full-screen'
 
-Запущен, когда страница входит в полноэкранный экран, вызванный HTML API.
+Fired when page enters fullscreen triggered by HTML API.
 
 ### Событие: 'leave-html-full-screen'
 
-Уволенный, когда страница покидает полноэкранный экран, вызванный HTML API.
+Fired when page leaves fullscreen triggered by HTML API.
 
 ### Событие: 'консоль-сообщение'
 
@@ -660,15 +660,15 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` Струна
 
-Выстрел, когда окно гостя регистрирует сообщение консоли.
+Fired when the guest window logs a console message.
 
-Следующий пример кода направляет все сообщения журнала на консоль встраиваемого учета уровня журнала или других свойств.
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
-const веб-просмотр - document.querySelector ('webview')
-webview.addEventListener ("консоль-сообщение", (е) -> - консоль
-  .log ("Гостевая страница зарегистрировала сообщение:', e.message)
-)
+const webview = document.querySelector('webview')
+webview.addEventListener('console-message', (e) => {
+  console.log('Guest page logged a message:', e.message)
+})
 ```
 
 ### Событие: 'certificate-error'
@@ -682,16 +682,16 @@ webview.addEventListener ("консоль-сообщение", (е) -> - кон�
   * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Уволен, когда результат доступен для [`webview.findInPage`](#webviewfindinpagetext-options) запроса.
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
-const веб-просмотр - document.querySelector ('webview')
-webview.addEventListener ('найдено на странице', (e) -> -
-  webview.stopFindInPage ('keepSelection')
-q)
+const webview = document.querySelector('webview')
+webview.addEventListener('found-in-page', (e) => {
+  webview.stopFindInPage('keepSelection')
+})
 
-const requestId - webview.findInPage ('test')
-консоли.log (запрос)
+const requestId = webview.findInPage('test')
+console.log(requestId)
 ```
 
 ### Событие: 'new-window'
@@ -701,22 +701,22 @@ const requestId - webview.findInPage ('test')
 * `url` String
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` BrowserWindowConstructorOptions - Варианты, которые должны быть использованы для создания новых [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Уволенный, когда гостевая страница пытается открыть новое окно браузера.
+Fired when the guest page attempts to open a new browser window.
 
-Следующий пример кода открывает новый URL в браузере системы по умолчанию.
+The following example code opens the new url in system's default browser.
 
 ```javascript
-const { shell } требуют ('электрон')
-const webview - document.querySelector ('webview')
+const { shell } = require('electron')
+const webview = document.querySelector('webview')
 
-webview.addEventListener ('новое окно', async (e) -> - протокол
-  const (новый URL(e.url)).Протокол
-  если (протокол No 'http:' || протокол 'https:') -
-    ждут shell.openExternal (e.url)
-  и
-)
+webview.addEventListener('new-window', async (e) => {
+  const protocol = (new URL(e.url)).protocol
+  if (protocol === 'http:' || protocol === 'https:') {
+    await shell.openExternal(e.url)
+  }
+})
 ```
 
 ### Событие: 'will-navigate'
@@ -727,11 +727,11 @@ webview.addEventListener ('новое окно', async (e) -> - протокол
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
-Это событие не будет излучать, когда навигация запущена программно с API, `<webview>.loadURL` и `<webview>.back`.
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-Он также не излучается во время на странице навигации, такие как нажатие якорных ссылок или обновление `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Вызов `event.preventDefault()` не __может__ никакого эффекта.
+Calling `event.preventDefault()` does __NOT__ have any effect.
 
 ### Событие: 'did-navigate'
 
@@ -739,7 +739,7 @@ Emitted when a user or the page wants to start navigation. It can happen when th
 
 * `url` String
 
-Испускаемый при навигации.
+Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -750,21 +750,21 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 * `isMainFrame` Boolean
 * `url` String
 
-Испускаемый при навигации на странице.
+Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 ### Событие: 'close'
 
-Уволенный, когда гостевая страница пытается закрыться.
+Fired when the guest page attempts to close itself.
 
-Следующий пример кода перемещается по `webview` `about:blank` когда гость пытается закрыться.
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
 ```javascript
-const веб-просмотр - document.querySelector ('webview')
-webview.addEventListener ('close', () -> -
-  webview.src - 'о:blank'
-)
+const webview = document.querySelector('webview')
+webview.addEventListener('close', () => {
+  webview.src = 'about:blank'
+})
 ```
 
 ### Событие: 'ipc-сообщение'
@@ -772,33 +772,33 @@ webview.addEventListener ('close', () -> -
 Возвращает:
 
 * `channel` String (Строка)
-* `args` любой из них.
+* `args` any[]
 
-Уволен, когда гостевая страница отправила асинхронное сообщение на страницу встраивания.
+Fired when the guest page has sent an asynchronous message to embedder page.
 
-С `sendToHost` и `ipc-message` событием вы можете общаться страницей гостя и страницей встраивания:
+With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
 
 ```javascript
-На странице встраиваемого встраивания.
-const webview - document.querySelector ('webview')
-webview.addEventListener ('ipc-message', (событие) -> -
-  консоль.log (event.channel)
-  // Печать "понг"
-)
-webview.send ('ping')
+// In embedder page.
+const webview = document.querySelector('webview')
+webview.addEventListener('ipc-message', (event) => {
+  console.log(event.channel)
+  // Prints "pong"
+})
+webview.send('ping')
 ```
 
 ```javascript
-На гостевой странице.
-const { ipcRenderer } требуют ('электрон')
-ipcRenderer.on ('ping', () -> -
-  ipcRenderer.sendToHost ('pong')
-)
+// In guest page.
+const { ipcRenderer } = require('electron')
+ipcRenderer.on('ping', () => {
+  ipcRenderer.sendToHost('pong')
+})
 ```
 
 ### Событие: 'crashed'
 
-Произведено при сверительной обработке.
+Fired when the renderer process is crashed.
 
 ### Событие: 'plugin-crashed'
 
@@ -807,11 +807,11 @@ ipcRenderer.on ('ping', () -> -
 * `name` String
 * `version` String
 
-Уволен при сноме плагина.
+Fired when a plugin process is crashed.
 
 ### Событие: 'destroyed'
 
-Уволен при уничтожении WebContents.
+Fired when the WebContents is destroyed.
 
 ### Событие: 'media-started-playing'
 
@@ -825,9 +825,9 @@ Emitted when media is paused or done playing.
 
 Возвращает:
 
-* `themeColor` Струна
+* `themeColor` String
 
-Emitted when a page's theme color changes. Это, как правило, из-за встречи мета-тег:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
