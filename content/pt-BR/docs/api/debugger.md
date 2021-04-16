@@ -40,18 +40,18 @@ Retorna:
 * `event` Event
 * `reason` String - Razão para desprender depurador.
 
-Emitido quando a sessão de depuração é encerrada. Isso acontece quando `webContents` é fechada ou as ferramentas são invocadas para o `webContents`anexado .
+Emitido quando a sessão de depuração é encerrada. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Evento: 'mensagem'
+#### Event: 'message'
 
 Retorna:
 
 * `event` Event
-* `method` String - Nome do método.
-* `params` qualquer - Parâmetros de evento definidos pelos 'parâmetros' atributo no protocolo de depuração remota.
-* `sessionId` String - Identificador exclusivo da sessão de depuração anexada, corresponderá ao valor enviado de `debugger.sendCommand`.
+* `method` String - Method name.
+* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
 
-Emitido sempre que o alvo de depuração emite um evento de instrumentação.
+Emitted whenever the debugging target issues an instrumentation event.
 
 ### Métodos de Instância
 
@@ -69,17 +69,15 @@ Retorna um `Boolean` - que mostra se o debugger está anexado à `webContents`.
 
 Retira o debugger de `webContents`.
 
-#### `debugger.sendCommand(método[, commandParams, sessionId])`
+#### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Nome do método, deve ser um dos métodos definidos pelo protocolo de depuração remota [][rdp].
-* `commandParams` qualquer objeto (opcional) - JSON com parâmetros de solicitação.
-* `sessionId` String (opcional) - enviar comando para o alvo com id de depuração de depuração associada. O valor inicial pode ser obtido enviando [Target.attachToTarget][attachToTarget] mensagem.
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `commandParams` any (optional) - JSON object with request parameters.
+* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
-Devoluções `Promise<any>` - Uma promessa que resolve com a resposta definida por o atributo 'returns' da descrição do comando no protocolo de depuração remota ou é rejeitada indicando a falha do comando.
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
-Envie o comando dado para o alvo de depuração.
-
-[rdp]: https://chromedevtools.github.io/devtools-protocol/
+Send given command to the debugging target.
 
 [rdp]: https://chromedevtools.github.io/devtools-protocol/
 
