@@ -520,8 +520,8 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 ### `<webview>.send(channel, ...args)`
 
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Returns `Promise<void>`
 
@@ -771,7 +771,7 @@ webview.addEventListener('close', () => {
 
 Retorna:
 
-* `channel` Cordas
+* `channel` String
 * `args` any[]
 
 Fired when the guest page has sent an asynchronous message to embedder page.
