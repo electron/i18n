@@ -1,14 +1,14 @@
-## Klasse: TouchBarSpacer
+## Class: TouchBarSpacer
 
-> Erstellen eines Abstandszwischenstücks zwischen zwei Elementen in der Touchleiste für native macOS-Anwendungen
+> Create a spacer between two items in the touch bar for native macOS applications
 
 Prozess: [Main](../glossary.md#main-process)
 
-### `neue TouchBarSpacer(Optionen)`
+### `new TouchBarSpacer(options)`
 
 * `options` Object
-  * `size` String (optional) - Größe des Abstands, mögliche Werte sind:
-    * `small` - Kleiner Abstand zwischen Elementen. Karten zu `NSTouchBarItemIdentifierFixedSpaceSmall`. Dies ist die Standardeinstellung.
+  * `size` String (optional) - Size of spacer, possible values are:
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. Dies ist die Standardeinstellung.
     * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
 
