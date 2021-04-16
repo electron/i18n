@@ -91,93 +91,93 @@ Retorna:
 * `event` Event
 * `index` Número - O índice da ação que foi ativada.
 
-#### Evento: 'falhou' __do Windows
+#### Event: 'failed' _Windows_
 
 Retorna:
 
 * `event` Event
-* `error` String - O erro encontrado durante a execução do método `show()` .
+* `error` String - The error encountered during execution of the `show()` method.
 
-Emitido quando um erro é encontrado ao criar e mostrar a notificação nativa.
+Emitted when an error is encountered while creating and showing the native notification.
 
 ### Métodos de Instância
 
-Objetos criados com `new Notification` têm os seguintes métodos de instância:
+Objects created with `new Notification` have the following instance methods:
 
 #### `notification.show()`
 
-Imediatamente mostra a notificação ao usuário, observe que isso significa ao contrário da implementação de notificação HTML5 , instanciando um `new Notification` não mostrado imediatamente ao usuário, você precisa chamar este método antes que o do SISTEMA OPERACIONAL o exiba.
+Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
 
-Se a notificação tiver sido mostrada antes, este método descartará a notificação anteriormente mostrada e criará uma nova com propriedades idênticas.
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
 
 #### `notification.close()`
 
-Descarta a notificação.
+Dismisses the notification.
 
 ### Propriedades de Instância
 
 #### `notification.title`
 
-Uma propriedade `String` representando o título da notificação.
+A `String` property representing the title of the notification.
 
-#### `notificação.legenda`
+#### `notification.subtitle`
 
-Um `String` propriedade representando a legenda da notificação.
+A `String` property representing the subtitle of the notification.
 
-#### `notificação.corpo`
+#### `notification.body`
 
-Uma propriedade `String` representando o corpo da notificação.
+A `String` property representing the body of the notification.
 
 #### `notification.replyPlaceholder`
 
-Um `String` propriedade representando o espaço reservado de resposta da notificação.
+A `String` property representing the reply placeholder of the notification.
 
 #### `notification.sound`
 
-Uma propriedade `String` representando o som da notificação.
+A `String` property representing the sound of the notification.
 
 #### `notification.closeButtonText`
 
-Uma propriedade `String` representando o texto do botão de fechamento da notificação.
+A `String` property representing the close button text of the notification.
 
-#### `notificação.silent`
+#### `notification.silent`
 
-Uma propriedade `Boolean` representando se a notificação é silenciosa.
+A `Boolean` property representing whether the notification is silent.
 
-#### `notificação.hasReply`
+#### `notification.hasReply`
 
-Um `Boolean` propriedade representando se a notificação tem uma ação de resposta.
+A `Boolean` property representing whether the notification has a reply action.
 
-#### </em>Linux `notification.urgency` _</h4>
+#### `notification.urgency` _Linux_
 
-Um `String` imóvel representando o nível de urgência da notificação. Pode ser 'normal', 'crítico' ou 'baixo'.
+A `String` property representing the urgency level of the notification. Pode ser 'normal', 'crítico' ou 'baixo'.
 
-A inadimplência é 'baixa' - veja [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) para obter mais informações.
+Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
 
-#### `notification.timeoutType` __Do</em> _Linux</h4>
+#### `notification.timeoutType` _Linux_ _Windows_
 
-Uma propriedade `String` representando o tipo de tempo limite para a notificação. Pode ser 'padrão' ou 'nunca'.
+A `String` property representing the type of timeout duration for the notification. Pode ser 'padrão' ou 'nunca'.
 
-Se `timeoutType` for definida como 'nunca', a notificação nunca expira. Ele permanece aberto até ser fechado pela API de chamada ou pelo usuário.
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 
-Um [`NotificationAction[]`](structures/notification-action.md) imóvel representando as ações da notificação.
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
-#### `notification.toastXml` __do Windows
+#### `notification.toastXml` _Windows_
 
-Uma propriedade `String` representando o Toast XML personalizado da notificação.
+A `String` property representing the custom Toast XML of the notification.
 
-### Tocando Sons
+### Playing Sounds
 
-No macOS, você pode especificar o nome do som que deseja reproduzir quando a notificação for mostrada. Qualquer um dos sons padrão (em System Preferences > Sound) pode ser usado, além de arquivos de som personalizados. Certifique-se de que o arquivo de som seja copiado sob o pacote de aplicativos (por exemplo, `YourApp.app/Contents/Resources`), ou um dos seguintes locais:
+On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
-* `~/Biblioteca/Sons`
-* `/Biblioteca/Sons`
-* `/Rede/Biblioteca/Sons`
-* `/Sistema/Biblioteca/Sons`
+* `~/Library/Sounds`
+* `/Library/Sounds`
+* `/Network/Library/Sounds`
+* `/System/Library/Sounds`
 
-Consulte os [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) para obter mais informações.
+See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
 
