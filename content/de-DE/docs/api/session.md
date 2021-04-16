@@ -650,7 +650,7 @@ app.on('ready', async () => {
 
 This API does not support loading packed (.crx) extensions.
 
-**Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 **Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
@@ -660,7 +660,7 @@ This API does not support loading packed (.crx) extensions.
 
 Unloads an extension.
 
-**Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 #### `ses.getExtension(extensionId)`
 
@@ -668,13 +668,13 @@ Unloads an extension.
 
 Returns `Extension` | `null` - The loaded extension with the given ID.
 
-**Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 #### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
-**Hinweis:** Diese API kann nicht aufgerufen werden, bevor das `ready` Ereignis des `app` -Moduls ausgesendet wird.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 ### Instanz Eigenschaften
 
