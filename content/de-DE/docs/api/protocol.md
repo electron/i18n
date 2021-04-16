@@ -18,7 +18,7 @@ app.whenReady().then(() => {
 })
 ```
 
-**Hinweis:** Alle Methoden, sofern nicht angegeben, können nur verwendet werden, nachdem das `ready` Ereignis des `app` Moduls ausgesendet wird.
+**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
 ## Using `protocol` with a custom `partition` or `session`
 
