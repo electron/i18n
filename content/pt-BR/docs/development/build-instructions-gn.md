@@ -226,15 +226,15 @@ Se `gclient sync` for interrompida, a árvore de git pode ser deixada em um esta
 Se não houver conflitos ou rebases de git em `src/electron`, você pode precisar abortar um `git am` em `src`:
 
 ```sh
-Cd $ .. /
-$ git am --abortar
-$ cd elétron
+$ cd ../
+$ git am --abort
+$ cd electron
 $ gclient sync -f
 ```
 
-### Estou pedindo um nome de usuário/senha para chromium-internal.googlesource.com
+### I'm being asked for a username/password for chromium-internal.googlesource.com
 
-Se você vir um prompt para `Username for 'https://chrome-internal.googlesource.com':` ao executar `gclient sync` no Windows, provavelmente é porque a variável de ambiente `DEPOT_TOOLS_WIN_TOOLCHAIN` não está definida como 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  Isso diz ao `depot_tools` usar sua versão localmente instalada do Visual Studio (por padrão, `depot_tools` tentará baixar uma versão interna do Google que apenas os Googlers têm acesso).
+If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  Isso diz ao `depot_tools` usar sua versão localmente instalada do Visual Studio (por padrão, `depot_tools` tentará baixar uma versão interna do Google que apenas os Googlers têm acesso).
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 
