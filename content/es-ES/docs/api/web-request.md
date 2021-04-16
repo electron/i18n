@@ -39,7 +39,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
@@ -81,7 +81,7 @@ Algunos ejemplos de `urls` válidas:
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
@@ -106,7 +106,7 @@ El `callback` ha de ser llamado con un objeto `response`.
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
@@ -125,7 +125,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
@@ -154,7 +154,7 @@ El `callback` ha de ser llamado con un objeto `response`.
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
@@ -176,7 +176,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
@@ -200,7 +200,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
@@ -223,7 +223,7 @@ El `listener` será llamado con `listener(details)` cuando una petición es comp
 * `filter` objeto (opcional)
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` function | Null
-  * Objeto `details`
+  * `details` Object
     * `id` Íntegro
     * `url` String
     * `method` String
