@@ -26,69 +26,69 @@ console.log(systemPreferences.isDarkMode())
 
 * `event` Event
 
-### 事件： "倒色方案更改" _Windows_ _弃用_
+### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 返回:
 
 * `event` Event
-* `invertedColorScheme` 布尔 - `true` 如果使用倒置配色方案（带有浅文本和深色背景的高对比度配色方案），则 `false` 。
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
-**弃用：** 应该使用 `nativeTheme` 模块上的新 [`updated`](native-theme.md#event-updated) 事件。
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-### 事件： "高对比度配色方案改变" _视窗_ _弃用_
+### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
 返回:
 
 * `event` Event
-* `highContrastColorScheme` 布尔 - `true` ， 如果一个高对比度的主题被使用， 否则 `false` 。
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-**弃用：** 应该使用 `nativeTheme` 模块上的新 [`updated`](native-theme.md#event-updated) 事件。
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
 ## 方法
 
-### `systemPreferences.isDarkMode()` _macOS_ _视窗_ _弃用_
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
 返回`Boolean`，表示系统是否处于Dark模式
 
-**弃用：** 应该使用新的 [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API。
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
 返回值 `Boolean` - 是否在页面设置之间进行滑动。
 
-### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _马科斯_
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
 
 * `event` String
-* `userInfo` 记录<String, any>
-* `deliverImmediately` Boolean （可选） - 即使订阅应用程序处于非活动状态， `true` 立即发布通知。
+* `userInfo` Record<String, any>
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-帖子 `event` 为 macOS 的原生通知。 `userInfo` 是包含随通知一起发送的用户信息字典的对象 。
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` 记录<String, any>
+* `userInfo` Record<String, any>
 
-帖子 `event` 为 macOS 的原生通知。 `userInfo` 是包含随通知一起发送的用户信息字典的对象 。
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `event` String
-* `userInfo` 记录<String, any>
+* `userInfo` Record<String, any>
 
-帖子 `event` 为 macOS 的原生通知。 `userInfo` 是包含随通知一起发送的用户信息字典的对象 。
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` 记录<String, unknown>
-  * `object` 字符串
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 返回 `Number` - 该订阅的 ID
 
-订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。 `object` 是通知的发送者， 并且仅支持当前 `NSString` 值。
+订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。 The `object` is the sender of the notification, and only supports `NSString` values for now.
 
 返回订阅的 ` id `, 可用于取消该订阅的 `event`.
 
@@ -104,20 +104,20 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` 记录<String, unknown>
-  * `object` 字符串
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 返回 `Number` - 该订阅的 ID
 
-与 `subscribeNotification`相同，但使用 `NSNotificationCenter` 进行本地默认。 这是必要的事件，如 `NSUserDefaultsDidChangeNotification`。
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
 * `event` String
 * `callback` Function
   * `event` String
-  * `userInfo` 记录<String, unknown>
-  * `object` 字符串
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 返回 `Number` - 该订阅的 ID
 
@@ -143,7 +143,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.registerDefaults(defaults)` _macOS_
 
-* `defaults` 记录<String, String | Boolean | Number> - （`key: value`） 用户默认的字典
+* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
 
 在应用的`NSUserDefaults`配置项中添加其它默认设置。
 
@@ -167,12 +167,12 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` 弦-可以 `string`， `boolean`， `integer`， `float`， `double`， `url`， `array` 或 `dictionary`。
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` String
 
 设置 `NSUserDefaults` 中 `key` 的值.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+请注意， `type` 应匹配实际类型的 `value`。 如果他们没有，就会抛出一个异常。
 
 常用的 `key` 和 `type` 的类型为:
 
@@ -182,7 +182,7 @@ Note that `type` should match actual type of `value`. An exception is thrown if 
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+删除 `NSUserDefaults`中的 `key` 。 可以用来恢复默认值或之前用 `setUserDefault` 为一个 `key` 设置的全局变量。
 
 ### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
@@ -191,19 +191,19 @@ Removes the `key` in `NSUserDefaults`. This can be used to restore the default o
 使用它来确定是否应创建透明窗口的示例 (当禁用 DWM 组合时, 透明窗口无法正常工作):
 
 ```javascript
-康斯特 { BrowserWindow, systemPreferences } =要求（"电子"）
-浏览器选项= { width: 1000, height: 800 }
+const { BrowserWindow, systemPreferences } = require('electron')
+const browserOptions = { width: 1000, height: 800 }
 
-//使窗口透明，只有当平台支持它。
-如果（进程.平台！]="win32"||系统预置。iseroGlass可（）{
-  浏览器选项。透明=真正的
-  浏览器选项。frame=虚假
-=
+// Make the window transparent only if the platform supports it.
+if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
+  browserOptions.transparent = true
+  browserOptions.frame = false
+}
 
-/创建窗口。
-续赢=新的浏览器窗口（浏览器选项）
+// Create the window.
+const win = new BrowserWindow(browserOptions)
 
-//导航。
+// Navigate.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
@@ -212,7 +212,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` _窗口_ _马科斯_
+### `systemPreferences.getAccentColor()` _Windows_ _macOS_
 
 返回 `String` - 用户当前系统偏好颜色，RGBA 十六进制形式.
 
@@ -224,19 +224,19 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-This API is only available on macOS 10.14 Mojave or newer.
+此 API 仅在 macOS 10.14 Mojave 或更高版本上可用。
 
-### `systemPreferences.getColor(color)` _窗口_ _马科斯_
+### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` 字符串 - 以下值之一：
-  * 在 **窗口**：
+* `color` String - One of the following values:
+  * On **Windows**:
     * `3d-dark-shadow` - 三维显示元素的暗阴影。
     * `3d-face` - 面向三维显示元素和对话框背景的颜色。
     * `3d-highlight` - 三维显示元素的高亮色.
     * `3d-light` - 三维显示元素的亮色.
     * `3d-shadow` - 三维显示元素的阴影颜色.
     * `active-border` - 活动窗口边框。
-    * `active-caption` - 活动窗口标题栏。 如果启用了渐变 效应，则 活动窗口标题栏的颜色梯度中指定左侧颜色。
+    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
     * `active-caption-gradient` - 活动窗口标题栏的颜色渐变中的右侧颜色。
     * `app-workspace` - 多文档界面 (MDI) 应用程序的背景颜色。
     * `button-text` - 按钮上的文本。
@@ -247,7 +247,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `highlight-text` - 在控件中选择的项目文本。
     * `hotlight` - 超链接或热追踪项目的颜色。
     * `inactive-border` - 非活动窗口边框。
-    * `inactive-caption` - 非活动窗口标题。 如果启用了渐变 效果，则指定处于非活动窗口标题栏颜色渐变中的左侧颜色 。
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
     * `inactive-caption-gradient` - 非活动窗口标题栏的颜色渐变中的右侧颜色。
     * `inactive-caption-text` - 非活动标题中的文字颜色。
     * `info-background` - 工具提示控件的背景颜色。
@@ -260,73 +260,73 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window` - 窗口的背景色.
     * `window-frame` - 窗口框.
     * `window-text` - 窗口的文字。
-  * 在 **马科斯**
-    * `alternate-selected-control-text` - 列表或表格中所选表面上的文本。 _弃_
-    * `control-background` - 大型界面元素（如浏览器或表）的背景。
-    * `control` - 控制的表面。
-    * `control-text` - 不禁用的控件的文本。
-    * `disabled-control-text` - 禁用的控件文本。
-    * `find-highlight` - 查找指示器的颜色。
-    * `grid` - 界面元素（如表）的网格线。
-    * `header-text` - 桌子上的标题单元格的文本。
-    * `highlight` - 屏幕上的虚拟光源。
-    * `keyboard-focus-indicator` - 使用键盘进行界面导航时，围绕当前聚焦控制出现的环。
-    * `label` - 包含主要内容的标签的文本。
-    * `link` - 指向其他内容的链接。
-    * `placeholder-text` - 控制或文本视图中的占位符字符串。
-    * `quaternary-label` - 比水印文本等第三级标签重要性较小的标签的文本。
-    * `scrubber-textured-background` - 触摸栏中洗涤器的背景。
-    * `secondary-label` - 比普通标签重要的标签（如用于表示副标题或其他信息的标签）的文本。
-    * `selected-content-background` - 关键窗口或视图中所选内容的背景。
-    * `selected-control` - 选定控制的表面。
-    * `selected-control-text` - 选定的控件的文本。
-    * `selected-menu-item-text` - 选定菜单的文本。
-    * `selected-text-background` - 选定文本的背景。
-    * `selected-text` - 选定的文本。
-    * `separator` - 不同内容部分之间的分离器。
-    * `shadow` - 屏幕上凸起的物体投下的虚拟阴影。
-    * `tertiary-label` - 比次要标签（如用于表示禁用文本的标签）重要性较小的标签的文本。
-    * `text-background` - 文本背景。
-    * `text` - 文档中的文本。
-    * `under-page-background` - 文档内容背后的背景。
-    * `unemphasized-selected-content-background` - 非密钥窗口或视图中的选定内容。
-    * `unemphasized-selected-text-background` - 非密钥窗口或视图中所选文本的背景。
-    * `unemphasized-selected-text` - 非密钥窗口或视图中的选定文本。
-    * `window-background` - 窗户的背景。
-    * `window-frame-text` - 窗口标题栏区域中的文本。
+  * On **macOS**
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` -  A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item-text` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` -  The text in a document.
+    * `under-page-background` -  The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area.
 
-返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
+返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). 更多详细信息请参阅 [Windows docs][windows-colors] 和 [macOS 文档][macos-colors]。
 
-The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
+以下颜色仅在 macOS 10.14 上可用：`find-hightlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, 和 `unemphasized-selected-text`
 
-### `systemPreferences.getSystemColor(color)` _马科斯_
+### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` 字符串 - 以下值之一：
-  * `蓝色`
-  * `棕色`
-  * `灰色`
-  * `绿色`
-  * `橙`
-  * `粉红色`
-  * `紫色`
-  * `红`
-  * `黄色`
+* `color` String - One of the following values:
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
 
-Returns `String` - The standard system color formatted as `#RRGGBBAA`.
+返回 `String` - 标准系统颜色，格式为 `#RRGGBBAA`。
 
-Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for  more details.
+返回几个标准系统颜色之一，这些颜色可自动适应鲜艳度的变化并更改辅助功能设置，如"增加对比度"和"降低透明度"。 有关更多详细信息，请参阅[ apple 文档 ](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors)。
 
-### `systemPreferences.isInvertedColorScheme()` _视窗_ _弃用_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
 
-Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+返回 `Boolean` - 如果使用反转颜色方案(亮文字暗背景的高对比度主题) 则为`true`，否则为`false`。
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+**已废弃：** 请使用新的 [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API。
 
-### `systemPreferences.isHighContrastColorScheme()` _macOS_ _视窗_ _弃用_
+### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
-Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
+返回 `Boolean` - 如果启用了高对比度主题为`true`，否则为`false`。
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**已废弃：** 请使用新的 [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API。
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -334,38 +334,38 @@ Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise
 
 获取当前应用到你的程序上的 macOS 设置项，会映射到 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-### `systemPreferences.getAppLevelAppearance()` _马科斯_ _弃用_
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 返回 `String` | `null` - 其值可能为 `dark`、`light` 或 `unknown`。
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). 您可以使用 `setAppLevelAppearance` API 来设置此值。
+获取您在macOS上为您的应用程序设置的外观，映射到[NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc)。 您可以使用 `setAppLevelAppearance` API 来设置此值。
 
-### `systemPreferences.setAppLevelAppearance(appearance)` _马科斯_ _弃用_
+### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
 
 * `appearance` String | null - 可以是 `dark` 或 `light`
 
 设定您的应用程序的外观设置，这应该覆盖系统默认值以及覆盖 `getEffectiveAppearance` 的值。
 
-### `systemPreferences.canPromptTouchID()` _马科斯_
+### `systemPreferences.canPromptTouchID()` _macOS_
 
 Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
 **NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
 
-### `systemPreferences.promptTouchID(reason)` _马科斯_
+### `systemPreferences.promptTouchID(reason)` _macOS_
 
-* `reason` 字符串 - 您要求触摸 ID 身份验证的原因
+* `reason` String - The reason you are asking for Touch ID authentication
 
 Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
 
 ```javascript
-const { systemPreferences } =要求（"电子"）
+const { systemPreferences } = require('electron')
 
-系统Prepres.提示触摸ID（"要获得安全门事件的同意"）。然后（成功=> {
-  控制台.log（"您已成功通过触摸ID进行身份验证！
-[）。catch（呃=> {
-  控制台.log（呃）
-}）
+systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
+  console.log('You have successfully authenticated with Touch ID!')
+}).catch(err => {
+  console.log(err)
+})
 ```
 
 This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
@@ -374,13 +374,13 @@ This API itself will not protect your user data; rather, it is a mechanism to al
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
-* `prompt` Boolean - 如果当前流程不受信任，是否会通过提示通知用户。
+* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
 
 Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
-### `systemPreferences.getMediaAccessStatus(mediaType)` _窗口_ _马科斯_
+### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` 弦-可以 `microphone`， `camera` 或 `screen`。
+* `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
 Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
