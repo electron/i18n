@@ -85,9 +85,9 @@ Returns `boolean` - Whether the reload was initiated successfully. Only results 
 * `channel` Cordas
 * `...args` qualquer[]
 
-Envie uma mensagem assíncroda para o processo de renderização via `channel`, juntamente com argumentos. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
-O processo de renderização pode lidar com a mensagem ouvindo `channel` com o módulo [`ipcRenderer`](ipc-renderer.md) .
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
 #### `frame.postMessage(channel, message, [transfer])`
 
@@ -95,9 +95,9 @@ O processo de renderização pode lidar com a mensagem ouvindo `channel` com o m
 * `message` qualquer
 * `transfer` MessagePortMain[] (opcional)
 
-Envie uma mensagem para o processo de renderização, transferindo opcionalmente a propriedade de zero ou mais [`MessagePortMain`][] objetos.
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-Os objetos `MessagePortMain` transferidos estarão disponíveis no processo de renderização acessando a propriedade `ports` do evento emitido. Quando chegar na renderização, serão objetos nativos do DOM `MessagePort` .
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 Como por exemplo:
 
