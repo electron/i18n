@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Verwendet benutzerdefinierte s-Schließen und miniaturisieren Sie Schaltflächen, die anzeigen, wenn Sie in der oberen linken Seite des Fensters bewegen. Die Vollbild-Schaltfläche ist aufgrund von Einschränkungen von rahmenlosen Fenstern nicht verfügbar, da sie Schnittstelle mit Apples macOS-Fenstermasken. Diese benutzerdefinierten Schaltflächen verhindern Probleme mit Mausereignissen, die mit den Symbolleistenschaltflächen für das Standardfenster auftreten. Diese Option gilt nur für rahmenlose Fenster.
+Verwendet benutzerdefinierte s-Schließen und miniaturisieren Sie Schaltflächen, die anzeigen, wenn Sie in der oberen linken Seite des Fensters bewegen. Die Vollbild-Schaltfläche ist aufgrund von Einschränkungen von rahmenlosen Fenstern nicht verfügbar, da sie Schnittstelle mit Apples macOS-Fenstermasken. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. Diese Option gilt nur für rahmenlose Fenster.
 
 ```javascript
 const { BrowserWindow } = require('electron')
