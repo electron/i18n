@@ -1,62 +1,62 @@
-# Suporte à extensão do Chrome
+# Chrome Extension Support
 
-A Electron suporta um subconjunto do [Chrome Extensions API][chrome-extensions-api-index], principalmente para suportar extensões e extensões internas do DevTools e Chromium, mas também acontece de suportar alguns outros recursos de extensão .
+Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-index], primarily to support DevTools extensions and Chromium-internal extensions, but it also happens to support some other extension capabilities.
 
-> **Nota:** Electron não suporta extensões arbitrárias do Chrome da loja , e é um</strong> não-objetivo **do projeto Electron ser perfeitamente compatível com a implementação de extensões do Chrome.</p> </blockquote> 
-> 
-> ## Extensões de carregamento
-> 
-> O electron só suporta carregar extensões não embaladas (ou seja, `.crx` arquivos não funcionam). As extensões são instaladas por`session`. Para carregar uma extensão, ligue para [`ses.loadExtension`](session.md#sesloadextensionpath-options):
-> 
-> ```js
-const { session } = require ('electron')
+> **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
 
-session.loadExtension ('path/to/unpacked/extension').então({ id }) => {
+## Loading extensions
+
+Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath-options):
+
+```js
+const { session } = require('electron')
+
+session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
   // ...
 })
 ```
 
-As extensões carregadas não serão automaticamente lembradas nas saídas; se você não chamar `loadExtension` quando o aplicativo for executado, a extensão não será carregada.
+Loaded extensions will not be automatically remembered across exits; if you do not call `loadExtension` when the app runs, the extension will not be loaded.
 
-Observe que as extensões de carregamento só são suportadas em sessões persistentes. Tentar carregar uma extensão em uma sessão de memória irá jogar um erro.
+Note that loading extensions is only supported in persistent sessions. Attempting to load an extension into an in-memory session will throw an error.
 
-Consulte a documentação [`session`](session.md) para obter mais informações sobre de carga, descarga e consulta de extensões ativas.
+See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
 
-## APIs de extensões suportadas
+## Supported Extensions APIs
 
-Apoiamos as seguintes APIs de extensões, com algumas ressalvas. Outras APIs podem adicionalmente ser suportadas, mas o suporte para quaisquer APIs não listadas aqui é provisório e pode ser removido.
+We support the following extensions APIs, with some caveats. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
 
 ### `chrome.devtools.inspectedWindow`
 
-Todos os recursos desta API são suportados.
+All features of this API are supported.
 
 ### `chrome.devtools.network`
 
-Todos os recursos desta API são suportados.
+All features of this API are supported.
 
 ### `chrome.devtools.panels`
 
-Todos os recursos desta API são suportados.
+All features of this API are supported.
 
 ### `chrome.extension`
 
-As seguintes propriedades de `chrome.extension` são suportadas:
+The following properties of `chrome.extension` are supported:
 
 - `chrome.extension.lastError`
 
-Os seguintes métodos de `chrome.extension` são suportados:
+The following methods of `chrome.extension` are supported:
 
 - `chrome.extension.getURL`
 - `chrome.extension.getBackgroundPage`
 
 ### `chrome.runtime`
 
-As seguintes propriedades de `chrome.runtime` são suportadas:
+The following properties of `chrome.runtime` are supported:
 
 - `chrome.runtime.lastError`
 - `chrome.runtime.id`
 
-Os seguintes métodos de `chrome.runtime` são suportados:
+The following methods of `chrome.runtime` are supported:
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
@@ -65,7 +65,7 @@ Os seguintes métodos de `chrome.runtime` são suportados:
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
 
-Os seguintes eventos de `chrome.runtime` são suportados:
+The following events of `chrome.runtime` are supported:
 
 - `chrome.runtime.onStartup`
 - `chrome.runtime.onInstalled`
@@ -76,20 +76,20 @@ Os seguintes eventos de `chrome.runtime` são suportados:
 
 ### `chrome.storage`
 
-Apenas `chrome.storage.local` é suportado; `chrome.storage.sync` e `chrome.storage.managed` não são.
+Only `chrome.storage.local` is supported; `chrome.storage.sync` and `chrome.storage.managed` are not.
 
 ### `chrome.tabs`
 
-Os seguintes métodos de `chrome.tabs` são suportados:
+The following methods of `chrome.tabs` are supported:
 
-- `chrome.tabs.sendMEssage`
+- `chrome.tabs.sendMessage`
 - `chrome.tabs.executeScript`
 
-> **Nota:** No Chrome, passar `-1` como iD da guia significa a "guia atualmente ativa". Como a Electron não tem esse conceito, passar `-1` como um ID de guia não é suportado e levantará um erro.
+> **Note:** In Chrome, passing `-1` as a tab ID signifies the "currently active tab". Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
 
 ### `chrome.management`
 
-Os seguintes métodos de `chrome.management` são suportados:
+The following methods of `chrome.management` are supported:
 
 - `chrome.management.getAll`
 - `chrome.management.get`
@@ -101,8 +101,8 @@ Os seguintes métodos de `chrome.management` são suportados:
 
 ### `chrome.webRequest`
 
-Todos os recursos desta API são suportados.
+All features of this API are supported.
 
-> **NOTA:** módulo [`webRequest`](web-request.md) da Electron tem precedência sobre `chrome.webRequest` se houver manipuladores conflitantes.
+> **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index
