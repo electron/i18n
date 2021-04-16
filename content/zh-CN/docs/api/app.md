@@ -28,9 +28,9 @@ app.on('window-all-closed', () => {
 返回:
 
 * `event` Event
-* `launchInfo` 记录<string, any> | [通知回应](structures/notification-response.md) _马科斯_
+* `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-当 Electron 完成初始化时，发出一次。 在 macOS 上， `launchInfo` 持有用于打开 应用程序的 [`UNNotificationResponse`](structures/notification-response.md) `NSUserNotification` 或信息的 `userInfo` ，如果该申请是从通知中心启动的。 您也可以致电 `app.isReady()` ，检查此事件是否已启动，并 `app.whenReady()` ，以便在电子初始化时实现承诺。
+当 Electron 完成初始化时，发出一次。 On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
 
 ### 事件: 'window-all-closed'
 
@@ -44,7 +44,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-在程序关闭窗口前发信号。 呼叫 `event.preventDefault()` 将防止默认行为，即 终止应用程序。
+在程序关闭窗口前发信号。 Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 **注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
@@ -56,7 +56,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-当所有窗口已关闭且应用程序将退出时，将发出。 呼叫 `event.preventDefault()` 将防止默认行为，即 终止应用程序。
+Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
@@ -93,7 +93,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `url` String
 
-当用户想要在应用中打开一个 URL 时发出。 您的申请 `Info.plist` 文件必须在 `CFBundleURLTypes` 密钥内定义 URL 方案，并 设置 `NSPrincipalClass` `AtomApplication`。
+当用户想要在应用中打开一个 URL 时发出。 Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -120,7 +120,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` 未知 - 包含活动存储在另一台设备上 的特定应用状态。
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 当来自不同设备的活动通过 [Handoff][handoff] 想要恢复时触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -151,7 +151,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` 未知 - 包含活动存储的特定应用状态。
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 当来自不同设备的活动通过 [Handoff][handoff] 成功恢复后触发。
 
@@ -161,9 +161,9 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` 未知 - 包含活动存储的特定应用状态。
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
-当 [Handoff][handoff] 即将通过另一个设备恢复时触发。 如果您需要更新要转移的状态，请立即致电 `event.preventDefault()` ，构建新的 `userInfo` 字典，并及时致电 `app.updateCurrentActivity()` 。 否则，操作会失败，并且触发 `continue-activity-error`
+当 [Handoff][handoff] 即将通过另一个设备恢复时触发。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. 否则，操作会失败，并且触发 `continue-activity-error`
 
 ### 事件: 'new-window-for-tab' _macOS_
 
@@ -171,7 +171,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-当用户单击本机 macOS 新选项卡按钮时发出。 仅当当前 `BrowserWindow` 有 `tabbingIdentifier`时，才能看到新的 选项卡按钮
+Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### 事件: 'browser-window-blur'
 
@@ -267,36 +267,36 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` 对象
+* `authenticationResponseDetails` Object
   * `url` URL
-* `authInfo` 对象
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` 字符串（可选）
-  * `password` 字符串（可选）
+  * `username` String (optional)
+  * `password` String (optional)
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
 默认行为是取消所有身份验证。 默认行为是取消所有的验证行为，如果需要重写这个行为，你需要用 `event.preventDefault()` 来阻止默认行为，并且使用 `callback(username, password)` 来验证。
 
 ```javascript
-康斯特 { app } =需要（"电子"）
+const { app } = require('electron')
 
-应用程序。on（"登录"，（事件，WebContents，详细信息，身份验证信息，回调）=> {
-  事件
-
-  。
+app.on('login', (event, webContents, details, authInfo, callback) => {
+  event.preventDefault()
+  callback('username', 'secret')
+})
 ```
 
-如果 `callback` 在没有用户名或密码的情况下被调用，则身份验证 请求将被取消，身份验证错误将返回到 页面。
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### 事件: 'gpu-info-update'
 
-每当有GPU信息更新时，都会发出。
+Emitted whenever there is a GPU info update.
 
 ### 事件: 'gpu-process-crashed' _已废弃_
 
@@ -307,7 +307,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 当gpu进程崩溃或关闭（杀死）时触发
 
-**已废弃：**这个事件被包含更多子进程退出信息原因的`child-process-gone`事件取代了。 它 并不总是因为它坠毁了。 当您切换到该事件时， 检查 `reason === 'killed'` 可以替换 `killed` 布尔。
+**已废弃：**这个事件被包含更多子进程退出信息原因的`child-process-gone`事件取代了。 It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 ### 事件: 'renderer-process-crashed' _已废弃_
 
@@ -319,7 +319,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 当渲染器进程`webContents`崩溃或关闭（杀死）时触发。
 
-**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 它 并不总是因为它坠毁了。  当您切换到该事件时， 检查 `reason === 'killed'` 可以替换 `killed` 布尔。
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
 ### 事件: 'render-process-gone'
 
@@ -327,46 +327,46 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `details` 对象
-  * `reason` 字符串 - 渲染过程消失的原因。  可选值：
-    * `clean-exit` - 以零退出代码退出的过程
-    * `abnormal-exit` - 以非零退出代码退出的过程
-    * `killed` - 进程被发送一个西格特姆或以其他方式在外部杀死
-    * `crashed` - 过程崩溃
-    * `oom` - 过程内存耗尽
-    * `launch-failed` - 过程从未成功启动
-    * `integrity-failure` - 窗口代码完整性检查失败
-  * `exitCode` 整数 - 退出代码的过程，除非 `reason` `launch-failed`，在这种情况下， `exitCode` 将是一个平台特定的 发射失败错误代码。
+* `details` Object
+  * `reason` String - The reason the render process is gone.  可选值：
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
 
-当渲染器过程意外消失时发出。  这通常是 ，因为它是坠毁或死亡。
+Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
 ### 事件: 'child-process-gone'
 
 返回:
 
 * `event` Event
-* `details` 对象
-  * `type` 字符串-过程类型。 以下值之一：
-    * `实用`
-    * `受精卵`
-    * `沙盒帮手`
-    * `Gpu`
-    * `胡椒插件`
-    * `胡椒插件经纪人`
-    * `未知`
-  * `reason` 字符串 - 孩子过程消失的原因。 可选值：
-    * `clean-exit` - 以零退出代码退出的过程
-    * `abnormal-exit` - 以非零退出代码退出的过程
-    * `killed` - 进程被发送一个西格特姆或以其他方式在外部杀死
-    * `crashed` - 过程崩溃
-    * `oom` - 过程内存耗尽
-    * `launch-failed` - 过程从未成功启动
-    * `integrity-failure` - 窗口代码完整性检查失败
-  * `exitCode` 号 - 过程的退出代码 （例如，如果在posix上，则来自等待状态，从 Windows 上的 GetExitcode 处理）。
-  * `serviceName` 字符串（可选） - 过程的非本地化名称。
-  * `name` 字符串（可选） - 过程的名称。 实用工具示例： `Audio Service`、 `Content Decryption Module Service`、 `Network Service`、 `Video Capture`等。
+* `details` Object
+  * `type` String - Process type. One of the following values:
+    * `Utility`
+    * `Zygote`
+    * `Sandbox helper`
+    * `GPU`
+    * `Pepper Plugin`
+    * `Pepper Plugin Broker`
+    * `Unknown`
+  * `reason` String - The reason the child process is gone. 可选值：
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
+    * `launch-failed` - Process never successfully launched
+    * `integrity-failure` - Windows code integrity checks failed
+  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+  * `serviceName` String (optional) - The non-localized name of the process.
+  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-当孩子的过程意外消失时发出。 这通常是 ，因为它是坠毁或死亡。 它不包括渲染器过程。
+Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
 
 ### 事件: "accessibility-support-changed" _ macOS _ _ Windows _
 
@@ -386,11 +386,11 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 当 Electron创建了一个新的 `session`后被触发.
 
 ```javascript
-康斯特 { app } =需要（"电子"）
+const { app } = require('electron')
 
-应用程序。on（"会话创建"，（会话）=> {
-  控制台.log（会话）
-}）
+app.on('session-created', (session) => {
+  console.log(session)
+})
 ```
 
 ### 事件: 'second-instance'
@@ -405,7 +405,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
-**注意：** 如果第二个实例是由与第一个用户不同的用户开始的，则 `argv` 阵列将不包括参数。
+**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
@@ -418,7 +418,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-在 `webContents`的渲染过程中调用 `desktopCapturer.getSources()` 时发出。 呼叫 `event.preventDefault()` 将使其返回空源。
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### 事件： "remote-require" _弃用_
 
@@ -484,7 +484,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 * `exitCode` Integer (可选)
 
-立即退出与 `exitCode`。 `exitCode` 默认值为0。
+Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
 所有窗口都将立即被关闭，而不询问用户，而且 `before-quit` 和 `will-quit` 事件也不会被触发。
 
@@ -513,7 +513,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false` 另见 `app.whenReady()`。
+返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false` See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -522,11 +522,11 @@ app.exit(0)
 ### `app.focus([options])`
 
 * `options` Object (可选)
-  * `steal` 布尔 _macOS_ - 使接收器成为活动应用程序，即使另一个应用程序 当前处于活动状态。
+  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
-在Linux上，专注于第一个可见窗口。 在 macOS 上，使应用程序 活动应用程序。 在 Windows 上，关注应用程序的第一个窗口。
+On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
-您应该尽量谨慎地使用 `steal` 选项。
+You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
@@ -534,15 +534,15 @@ app.exit(0)
 
 ### `app.show()` _macOS_
 
-显示应用程序窗口后，他们被隐藏。 不会自动将焦点 他们。
+Shows application windows after they were hidden. Does not automatically focus them.
 
-### `应用程序。设置应用程序路径（[path]）`
+### `app.setAppLogsPath([path])`
 
-* `path` 字符串（可选） - 日志的自定义路径。 必须是绝对的。
+* `path` String (optional) - A custom path for your logs. Must be absolute.
 
-设置或创建应用日志的目录，然后可以使用 `app.getPath()` 或 `app.setPath(pathName, newPath)`进行操作。
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-调用没有 `path` 参数的 `app.setAppLogsPath()` 将导致此目录被设置为 `~/Library/Logs/YourAppName` _macOS_，并在 _Linux_ 和 _视窗_的 `userData` 目录内。
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
 
 ### `app.getAppPath()`
 
@@ -550,9 +550,9 @@ app.exit(0)
 
 ### `app.getPath(name)`
 
-* `name` 字符串 - 您可以按名称请求以下路径：
+* `name` String - You can request the following paths by the name:
   * `home` 用户的 home 文件夹（主目录）
-  * `appData` 每个用户的应用程序数据目录，默认指向：
+  * `appData` Per-user application data directory, which by default points to:
     * `%APPDATA%` Windows 中
     * `$XDG_CONFIG_HOME` or `~/.config` Linux 中
     * `~/Library/Application Support` macOS 中
@@ -567,11 +567,11 @@ app.exit(0)
   * `music` 用户音乐目录的路径
   * `pictures` 用户图片目录的路径
   * `videos` 用户视频目录的路径
-  * `recent` 用户最近文件的目录（仅限 Windows）。
+  * `recent` Directory for the user's recent files (Windows only).
   * ` logs `应用程序的日志文件夹
-  * `crashDumps` 存储崩溃转储的目录。
+  * `crashDumps` Directory where crash dumps are stored.
 
-返回 `String` - 与 `name`相关的特殊目录或文件的路径。 在 失败时， `Error` 被抛出。
+Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
 If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
@@ -579,7 +579,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 * `path` String
 * `options` Object (可选)
-  * `size` 字符串
+  * `size` String
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - _Linux_上是 48x48, _Windows_ 上是 32x32, _macOS_ 中无效
@@ -600,7 +600,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 * `name` String
 * `path` String
 
-重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 如果路径指定不存在的目录，则抛出 `Error` 。 在这种情况下，目录的创建应具有 `fs.mkdirSync` 或类似内容。
+重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 `name` 参数只能使用 `app.getPath` 定义过的 name
 
@@ -614,7 +614,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 返回 ` String `-当前应用程序的名称, 它是应用程序的 ` package. json ` 文件中的名称。
 
-通常，根据 npm 模块规格的 ， `package.json` 的 `name` 字段是一个简短的低写名称。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.setName(name)`
 
@@ -622,11 +622,11 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 设置当前应用程序的名字
 
-**注：** 此函数覆盖电子内部使用的名称：它不会影响操作系统使用的名称。
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
 
 ### `app.getLocale()`
 
-返回 `String` - 当前应用地区。 Possible return values are documented [here](locales.md).
+Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
 要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)找到。
 
@@ -1204,7 +1204,7 @@ app.moveToApplicationsFolder({
 
 `String` 属性，指明当前应用程序的名称，即应用程序 `package.json` 文件中的名称。
 
-通常，根据 npm 模块规格的 ， `package.json` 的 `name` 字段是一个简短的低写名称。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.userAgentFallback`
 
