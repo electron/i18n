@@ -1,4 +1,4 @@
-# Modo oscuro
+# Dark Mode
 
 ## Descripción general
 
@@ -141,7 +141,7 @@ Create a `styles.css` file and add the following lines:
 
 Después de iniciar la aplicación de electrones, puedes cambiar los modos o restablecer el tema de al predeterminado del sistema haciendo clic en los botones correspondientes:
 
-![Modo oscuro](../images/dark_mode.gif)
+![Dark Mode](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/
