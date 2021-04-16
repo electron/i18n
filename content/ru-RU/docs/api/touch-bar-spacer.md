@@ -4,18 +4,18 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `новый TouchBarSpacer (варианты)`
+### `new TouchBarSpacer(options)`
 
 * `options` Object
-  * `size` строка (необязательно) - Размер спейсера, возможные значения:
-    * `small` - Небольшое пространство между элементами. Карты для `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
-    * `large` - Большое пространство между элементами. Карты для `NSTouchBarItemIdentifierFixedSpaceLarge`.
-    * `flexible` - Занимает всё доступное пространство. Карты для `NSTouchBarItemIdentifierFlexibleSpace`.
+  * `size` String (optional) - Size of spacer, possible values are:
+    * `small` - Небольшое пространство между элементами. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Большое пространство между элементами. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Занимает всё доступное пространство. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
 
 ### Свойства экземпляра
 
-Следующие свойства доступны на экземплярах `TouchBarSpacer`:
+The following properties are available on instances of `TouchBarSpacer`:
 
 #### `touchBarSpacer.size`
 
-`String` , представляющий размер спейсера.  Может быть `small`, `large` или `flexible`.
+A `String` representing the size of the spacer.  Can be `small`, `large` or `flexible`.
