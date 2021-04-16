@@ -2,11 +2,11 @@
 
 > Verwalten von Dateien und URLs durch ihre Standardprogramme.
 
-Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (nur nicht sandkastenfrei)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) (non-sandboxed only)
 
-Das `shell` -Modul bietet Funktionen im Zusammenhang mit der Desktop-Integration.
+The `shell` module provides functions related to desktop integration.
 
-Ein Beispiel für das Öffnen einer URL im Standardbrowser des Benutzers:
+An example of opening a URL in the user's default browser:
 
 ```javascript
 const { shell } = require('electron')
@@ -14,79 +14,79 @@ const { shell } = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-**Hinweis:** Während das `shell` -Modul im Renderer-Prozess verwendet werden kann, funktioniert es nicht in einem Sandkasten-Renderer.
+**Note:** While the `shell` module can be used in the renderer process, it will not function in a sandboxed renderer.
 
 ## Methoden
 
-Das `shell` Modul verfügt über die folgenden Methoden:
+The `shell` module has the following methods:
 
 ### `shell.showItemInFolder(fullPath)`
 
 * `fullPath` String
 
-Zeigen Sie die angegebene Datei in einem Dateimanager an. Wählen Sie nach Möglichkeit die Datei aus.
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openPath(path)`
 
 * `path` String
 
-Gibt `Promise<String>` zurück - Behebt mit einer Zeichenfolge, die die Fehlermeldung enthält, die dem Fehler entspricht, wenn ein Fehler aufgetreten ist, andernfalls "".
+Returns `Promise<String>` - Resolves with a string containing the error message corresponding to the failure if a failure occurred, otherwise "".
 
-Öffnen Sie die angegebene Datei standardmäßig auf dem Desktop.
+Open the given file in the desktop's default manner.
 
 ### `shell.openExternal(url[, options])`
 
-* `url` String - Max. 2081 Zeichen in Fenstern.
-* `options` Objekt (optional)
-  * `activate` boolesch (optional) _macOS_ - `true` , um die geöffnete Anwendung in den Vordergrund zu rücken. Der Standardwert ist `true`.
-  * `workingDirectory` String (optional) _Windows_ - Das Arbeitsverzeichnis.
+* `url` String - Max 2081 characters on windows.
+* `options` Object (optional)
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) _Windows_ - The working directory.
 
-Rückgaben `Promise<void>`
+Returns `Promise<void>`
 
-Öffnen Sie die angegebene externe Protokoll-URL standardmäßig auf dem Desktop. (Z. B. mailto: URLs im Standard-Mail-Agent des Benutzers).
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _veraltete_
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
 
 * `fullPath` String
-* `deleteOnFail` boolesch (optional) - Gibt an, ob das Element einseitig entfernt werden soll, wenn der Papierkorb auf dem Volume deaktiviert oder nicht unterstützt wird. _macOS-_
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
 
-Gibt `Boolean` zurück : Gibt an, ob das Element erfolgreich in den Papierkorb verschoben oder anderweitig gelöscht wurde.
+Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
-> HINWEIS: Diese Methode ist veraltet. Verwenden Sie stattdessen `shell.trashItem` .
+> NOTE: This method is deprecated. Use `shell.trashItem` instead.
 
-Verschieben Sie die angegebene Datei in den Papierkorb und geben Sie einen booleschen Status für den Vorgang zurück.
+Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.trashItem(path)`
 
-* `path` String - Pfad zu dem Element, das in den Papierkorb verschoben werden soll.
+* `path` String - path to the item to be moved to the trash.
 
-Gibt `Promise<void>` zurück - Wird behoben, wenn der Vorgang abgeschlossen wurde. Lehnt ab, wenn beim Löschen des angeforderten Elements ein Fehler aufgetreten ist.
+Returns `Promise<void>` - Resolves when the operation has been completed. Rejects if there was an error while deleting the requested item.
 
-Dadurch wird ein Pfad zum OS-spezifischen Papierkorbspeicherort verschoben (Trash unter macOS, Bin unter Windows und ein Desktop-umgebungsspezifischer Speicherort unter Linux).
+This moves a path to the OS-specific trash location (Trash on macOS, Recycle Bin on Windows, and a desktop-environment-specific location on Linux).
 
 ### `shell.beep()`
 
-Spielen Sie den Piepton.
+Play the beep sound.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows-_
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
 * `shortcutPath` String
-* `operation` String (optional) - Standard ist `create`, kann einer der folgenden sein:
-  * `create` - Erstellt eine neue Verknüpfung, bei Bedarf überschreibt.
-  * `update` - Aktualisiert angegebene Eigenschaften nur für eine vorhandene Verknüpfung.
-  * `replace` - Überschreibt eine vorhandene Verknüpfung, schlägt fehl, wenn die Verknüpfung nicht vorhanden .
+* `operation` String (optional) - Default is `create`, can be one of following:
+  * `create` - Creates a new shortcut, overwriting if necessary.
+  * `update` - Updates specified properties only on an existing shortcut.
+  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Gibt `Boolean` zurück : Gibt an, ob die Verknüpfung erfolgreich erstellt wurde.
+Returns `Boolean` - Whether the shortcut was created successfully.
 
-Erstellt oder aktualisiert eine Verknüpfung unter `shortcutPath`.
+Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` _Windows_
 
 * `shortcutPath` String
 
-Rücksendungen [`ShortcutDetails`](structures/shortcut-details.md)
+Returns [`ShortcutDetails`](structures/shortcut-details.md)
 
-Löst die Verknüpfungsverknüpfung bei `shortcutPath`auf.
+Resolves the shortcut link at `shortcutPath`.
 
-Eine Ausnahme wird ausgelöst, wenn ein Fehler auftritt.
+An exception will be thrown when any error happens.
