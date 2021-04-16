@@ -1,22 +1,22 @@
 # nativeImage
 
-> Erstellen Sie Tray-, Dock- und Anwendungssymbole mithilfe von PNG- oder JPG-Dateien.
+> Create tray, dock, and application icons using PNG or JPG files.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron können Sie für die APIs, die Bilder aufnehmen, entweder Dateipfade oder `NativeImage` Instanzen übergeben. Ein leeres Bild wird verwendet, wenn `null` übergeben wird.
+In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
-Wenn Sie z. B. ein Fach erstellen oder das Symbol eines Fensters festlegen, können Sie einen Bilddateipfad als `String`übergeben:
+For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-const win = new BrowserWindow(' icon: '/Users/somebody/images/window.png' '.log
-'
+const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
+console.log(appIcon, win)
 ```
 
-Oder lesen Sie das Bild aus der Zwischenablage, das eine `NativeImage`zurückgibt:
+Or read the image from the clipboard, which returns a `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## Unterstütze Formate
 
-Derzeit werden `PNG` und `JPEG` Bildformate unterstützt. `PNG` wird empfohlen, da er Transparenz und verlustfreie Komprimierung unterstützt.
+Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
-Unter Windows können Sie auch `ICO` Symbole aus Dateipfaden laden. Für beste visuelle Qualität wird empfohlen, mindestens die folgenden Größen in die folgenden Größen aufzunehmen:
+On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * Kleines Icon
   * 16x16 (100% DPI scale)
@@ -43,15 +43,15 @@ Unter Windows können Sie auch `ICO` Symbole aus Dateipfaden laden. Für beste v
   * 64x64 (200% DPI scale)
   * 256x256
 
-Überprüfen Sie den Abschnitt *Größe* Abschnitt in [diesem Artikel][icons].
+Check the *Size requirements* section in [this article][icons].
 
 ## Hochauflösende Bilder
 
-Auf Plattformen mit hoher DPI-Unterstützung, wie Apple Retina-Displays, können Sie `@2x` nach dem Basisdateinamen des Bildes anhängen, um es als hochauflösendes Bild zu markieren.
+On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
 
-Wenn `icon.png` beispielsweise ein normales Bild mit Standardauflösung ist, werden `icon@2x.png` als bild mit hoher Auflösung behandelt, das eine doppelte DPI- -Dichte aufweist.
+For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
-Wenn Sie Displays mit unterschiedlichen DPI-Dichten gleichzeitig unterstützen möchten, können Sie Bilder mit unterschiedlichen Größen in denselben Ordner einlegen und den Dateinamen ohne DPI-Suffixe verwenden. Ein Beispiel:
+If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. Ein Beispiel:
 
 ```plaintext
 images/
@@ -66,7 +66,7 @@ const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Die folgenden Suffixe für DPI werden ebenfalls unterstützt:
+The following suffixes for DPI are also supported:
 
 * `@1x`
 * `@1.25x`
@@ -82,41 +82,41 @@ Die folgenden Suffixe für DPI werden ebenfalls unterstützt:
 
 ## Template Bild
 
-Vorlagenbilder bestehen aus Schwarz und einem Alphakanal. Vorlagenbilder sind nicht als eigenständige Bilder gedacht und werden in der Regel mit anderen Inhalten gemischt, um das gewünschte endgültige Erscheinungsbild zu erstellen.
+Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
-Der häufigste Fall ist die Verwendung von Vorlagenbildern für ein Menüleistensymbol, damit es sich sowohl an helle als auch dunkle Menüleisten anpassen kann.
+The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
-**Hinweis:** Vorlagenbild wird nur unter macOS unterstützt.
+**Note:** Template image is only supported on macOS.
 
-Um ein Bild als Vorlagenbild zu markieren, sollte der Dateiname mit dem Wort `Template`enden. Ein Beispiel:
+To mark an image as a template image, its filename should end with the word `Template`. Ein Beispiel:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## Methoden
 
-Das `nativeImage` -Modul verfügt über die folgenden Methoden, die alle einer Instanz der `NativeImage` -Klasse zurückgeben:
+The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
 
 ### `nativeImage.createEmpty()`
 
-Rückgaben `NativeImage`
+Returns `NativeImage`
 
-Erstellt eine leere `NativeImage` Instanz.
+Creates an empty `NativeImage` instance.
 
 ### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
 
-* `path` String - Pfad zu einer Datei, aus der wir eine Miniaturansicht erstellen möchten.
-* `maxSize` [Größe](structures/size.md) - die maximale Breite und Höhe (positive Zahlen), die die zurückgegebene Miniaturansicht zurückgegeben werden kann. Die Windows-Implementierung ignoriert `maxSize.height` und skaliert die Höhe entsprechend `maxSize.width`.
+* `path` String - path to a file that we intend to construct a thumbnail out of.
+* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
 
-Gibt `Promise<NativeImage>` zurück - erfüllt mit dem Miniaturansichtsbild der Datei, das eine [NativeImage](native-image.md)ist.
+Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
 
 ### `nativeImage.createFromPath(path)`
 
 * `path` String
 
-Rückgaben `NativeImage`
+Returns `NativeImage`
 
-Erstellt eine neue `NativeImage` Instanz aus einer Datei, die sich in `path`befindet. Diese Methode gibt ein leeres Bild zurück, wenn die `path` nicht vorhanden ist, nicht gelesen werden kann oder kein gültiges Bild .
+Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -125,44 +125,44 @@ const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
-### `nativeImage.createFromBitmap(Puffer, Optionen)`
+### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer][buffer]
 * `options` -Objekt
   * `width` Integer
   * `height` Integer
-  * `scaleFactor` Double (optional) - Standardwerte 1.0.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Rückgaben `NativeImage`
+Returns `NativeImage`
 
-Erstellt eine neue `NativeImage` -Instanz aus `buffer` , die die unformatierte Bitmap Pixeldaten enthält, die von `toBitmap()`zurückgegeben werden. Das spezifische Format ist plattformabhängig.
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
 * `options` Objekt (optional)
-  * `width` Ganzzahl (optional) - Erforderlich für Bitmappuffer.
-  * `height` Ganzzahl (optional) - Erforderlich für Bitmappuffer.
-  * `scaleFactor` Double (optional) - Standardwerte 1.0.
+  * `width` Integer (optional) - Required for bitmap buffers.
+  * `height` Integer (optional) - Required for bitmap buffers.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Rückgaben `NativeImage`
+Returns `NativeImage`
 
-Erstellt eine neue `NativeImage` -Instanz aus `buffer`. Versucht, zuerst als PNG oder JPEG zu dekodieren.
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
 * `dataURL` String
 
-Rückgaben `NativeImage`
+Returns `NativeImage`
 
-Erstellt eine neue `NativeImage` -Instanz aus `dataURL`.
+Creates a new `NativeImage` instance from `dataURL`.
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
 * `hslShift` Number[] (optional)
 
-Rückgaben `NativeImage`
+Returns `NativeImage`
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
@@ -193,7 +193,7 @@ The following methods are available on instances of the `NativeImage` class:
 #### `image.toPNG([options])`
 
 * `options` Objekt (optional)
-  * `scaleFactor` Double (optional) - Standardwerte 1.0.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer][buffer] that contains the image's `PNG` encoded data.
 
@@ -206,21 +206,21 @@ Returns `Buffer` - A [Buffer][buffer] that contains the image's `JPEG` encoded d
 #### `image.toBitmap([options])`
 
 * `options` Objekt (optional)
-  * `scaleFactor` Double (optional) - Standardwerte 1.0.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer][buffer] that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
 * `options` Objekt (optional)
-  * `scaleFactor` Double (optional) - Standardwerte 1.0.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
 * `options` Objekt (optional)
-  * `scaleFactor` Double (optional) - Standardwerte 1.0.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer][buffer] that contains the image's raw bitmap pixel data.
 
@@ -238,7 +238,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize([scaleFactor])`
 
-* `scaleFactor` Double (optional) - Standardwerte 1.0.
+* `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns [`Size`](structures/size.md).
 
@@ -273,7 +273,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.getAspectRatio([scaleFactor])`
 
-* `scaleFactor` Double (optional) - Standardwerte 1.0.
+* `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Float` - The image's aspect ratio.
 
