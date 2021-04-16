@@ -1,30 +1,30 @@
 ## Class: TouchBarLabel
 
-> Crie um rótulo na barra de toque para aplicações nativas do macOS
+> Create a label in the touch bar for native macOS applications
 
 Processo: [Main](../glossary.md#main-process)
 
-### `novas opções TouchBarLabel (opções)`
+### `new TouchBarLabel(options)`
 
 * objeto `options`
-  * `label` String (opcional) - Texto a ser exibido.
+  * `label` String (optional) - Text to display.
   * `accessibilityLabel` String (opcional) - Uma breve descrição do botão para uso por leitores de tela como VoiceOver.
-  * `textColor` String (opcional) - Cor hexa de texto, ou seja, `#ABCDEF`.
+  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
 Ao definir `accessibilityLabel`, certifique-se de considerar o macOS [as melhores práticas](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Propriedades de Instância
 
-As seguintes propriedades estão disponíveis em instâncias de `TouchBarLabel`:
+The following properties are available on instances of `TouchBarLabel`:
 
 #### `touchBarLabel.label`
 
-Um `String` representando o texto atual da etiqueta. Alterar esse valor atualiza imediatamente o rótulo em a barra de toque.
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
-Um `String` representando a descrição do rótulo a ser lido por um leitor de tela.
+A `String` representing the description of the label to be read by a screen reader.
 
 #### `touchBarLabel.textColor`
 
-Um código hexax `String` representando a cor de texto atual da etiqueta. Alterar esse valor atualiza imediatamente o rótulo na barra de toque.
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
