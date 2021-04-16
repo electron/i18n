@@ -4,59 +4,59 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-### `nouvelle TouchBar (options)`
+### `new TouchBar(options)`
 
-* `options` objet
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (facultatif)
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (facultatif)
+* `options` Object
+  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
-Crée une nouvelle barre tactile avec les éléments spécifiés. Utilisez `BrowserWindow.setTouchBar` pour ajouter le `TouchBar` à une fenêtre.
+Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
 **Remarque :** L’API TouchBar est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
 
 **Astuce :** Si vous n’avez pas un MacBook avec Touch Bar, vous pouvez utiliser [Touch Bar simulator](https://github.com/sindresorhus/touch-bar-simulator) pour tester la Touch Bar dans votre application.
 
-### Propriétés statiques
+### Static Properties
 
 #### `TouchBarButton`
 
-Une [`typeof TouchBarButton`](./touch-bar-button.md) référence à la `TouchBarButton` classe.
+A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
 
 #### `TouchBarColorPicker`
 
-Une [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) référence à la `TouchBarColorPicker` classe.
+A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
 
 #### `TouchBarGroup`
 
-Une [`typeof TouchBarGroup`](./touch-bar-group.md) référence à la `TouchBarGroup` classe.
+A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
 
 #### `TouchBarLabel`
 
-Une [`typeof TouchBarLabel`](./touch-bar-label.md) référence à la `TouchBarLabel` classe.
+A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
 
 #### `TouchBarPopover`
 
-Une [`typeof TouchBarPopover`](./touch-bar-popover.md) référence à la `TouchBarPopover` classe.
+A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
 
 #### `TouchBarScrubber`
 
-Une [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) référence à la `TouchBarScrubber` classe.
+A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
 
 #### `TouchBarSegmentedControl`
 
-Une [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) référence à la `TouchBarSegmentedControl` classe.
+A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
 
 #### `TouchBarSlider`
 
-Une [`typeof TouchBarSlider`](./touch-bar-slider.md) référence à la `TouchBarSlider` classe.
+A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
 
 #### `TouchBarSpacer`
 
-Une [`typeof TouchBarSpacer`](./touch-bar-spacer.md) référence à la `TouchBarSpacer` classe.
+A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
 #### `TouchBarOtherItemsProxy`
 
-Une [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) référence à la `TouchBarOtherItemsProxy` classe.
+A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
 ### Propriétés d'instance
 
@@ -64,14 +64,14 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBar` :
 
 #### `touchBar.escapeItem`
 
-Un `TouchBarItem` qui remplacera le bouton « esc » sur la barre tactile lorsqu’il est réglé. Le définir à `null` restaurera le bouton "esc". Changer cette valeur immédiatement met à jour le bouton "esc" dans la touch bar.
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Le définir à `null` restaurera le bouton "esc". Changer cette valeur immédiatement met à jour le bouton "esc" dans la touch bar.
 
 ## Exemples
 
 Voici un exemple d’un jeu de machine à sous dans la touch bar avec un bouton et quelques labels.
 
 ```javascript
-const { app, BrowserWindow, TouchBar } = require ('electron')
+const { app, BrowserWindow, TouchBar } = require('electron')
 
 const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 
@@ -80,7 +80,7 @@ let spinning = false
 // Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
-const reel3 = nouveau TouchBarLabel()
+const reel3 = new TouchBarLabel()
 
 // Spin result label
 const result = new TouchBarLabel()
@@ -89,90 +89,90 @@ const result = new TouchBarLabel()
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
-  cliquez sur: () => {
-    // Ignorer les clics si déjà tourner
-    si (filature) {
+  click: () => {
+    // Ignore clicks if already spinning
+    if (spinning) {
       return
     }
 
-    filature = true
+    spinning = true
     result.label = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 secondes
+    const spinLength = 4 * 1000 // 4 seconds
     const startTime = Date.now()
 
     const spinReels = () => {
       updateReels()
 
-      if ((Date.now)) - startTime) >= spinLength) {
+      if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
-      } autre {
-        // Ralentissez un peu sur chaque tour
-        délai d’attente *= 1,1
-        setTimeout (spinReels, délai d’attente)
+      } else {
+        // Slow down a bit on each spin
+        timeout *= 1.1
+        setTimeout(spinReels, timeout)
       }
     }
 
-    spinReels ()
+    spinReels()
   }
 })
 
 const getRandomValue = () => {
-  valeurs const = ['🍒', '💎', '7️', '🍊', '🔔', '⭐', '🍇', '🍀']
+  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
   return values[Math.floor(Math.random() * values.length)]
 }
 
 const updateReels = () => {
   reel1.label = getRandomValue()
   reel2.label = getRandomValue()
-  reel3.label = getRandomValue ()
+  reel3.label = getRandomValue()
 }
 
 const finishSpin = () => {
-  const uniqueValues = new Set ([reel1.label, reel2.label, reel3.label]).size
+  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // Les 3 valeurs sont les mêmes
+    // All 3 values are the same
     result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
-  } autre si (valeurs uniques === 2) {
-    // 2 valeurs sont les mêmes
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
     result.label = '😍 Winner!'
     result.textColor = '#FDFF00'
   } else {
-    // Aucune valeur n’est la même
+    // No values are the same
     result.label = '🙁 Spin Again'
     result.textColor = null
   }
   spinning = false
 }
 
-const touchBar = new TouchBar ({
+const touchBar = new TouchBar({
   items: [
     spin,
-    nouveau TouchBarSpacer ({ size: 'large' }),
+    new TouchBarSpacer({ size: 'large' }),
     reel1,
-    nouveau TouchBarSpacer ({ size: 'small' }),
+    new TouchBarSpacer({ size: 'small' }),
     reel2,
-    nouveau TouchBarSpacer ({ size: 'small' }),
+    new TouchBarSpacer({ size: 'small' }),
     reel3,
-    nouveau TouchBarSpacer ({ size: 'large' }),
-    résultat
+    new TouchBarSpacer({ size: 'large' }),
+    result
   ]
 })
 
-laisser la fenêtre
+let window
 
-app.whenReady ().then()=> { fenêtre
-  = nouveau BrowserWindow ({ cadre
-    : faux,
-    titleBarStyle: 'hiddenInset', largeur
-    : 200,
-    hauteur: 200,
+app.whenReady().then(() => {
+  window = new BrowserWindow({
+    frame: false,
+    titleBarStyle: 'hiddenInset',
+    width: 200,
+    height: 200,
     backgroundColor: '#000'
   })
-  window.loadURL ('about:blank')
-  window.setTouchBar (touchBar)
+  window.loadURL('about:blank')
+  window.setTouchBar(touchBar)
 })
 ```
 
