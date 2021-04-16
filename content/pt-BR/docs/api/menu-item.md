@@ -8,7 +8,7 @@ Veja [`Menu`](menu.md) para exemplos.
 
 ### `new MenuItem(options)`
 
-* objeto `options`
+* `options` Object
   * `click` Função (opcional) - Será chamado com `click(menuItem, browserWindow, event)` quando o item do menu for clicado.
     * `menuItem` MenuItem
     * </a> | do Navegador `browserWindow`
@@ -67,43 +67,42 @@ A propriedade `role` pode ter os seguintes valores:
 * `quit` - Saia do pedido.
 * `reload` - Recarrega a janela atual.
 * `forceReload` - Recarregue a janela atual ignorando o cache.
-* `toggleDevTools` - Alternar ferramentas de desenvolvedor na janela atual.
-* `togglefullscreen` - Alterne o modo de tela cheia na janela atual.
-* `resetZoom` - Redefinir o nível de zoom da página focada para o tamanho original.
-* `zoomIn` - Zoom na página focada em 10%.
-* `zoomOut` - Ampliar a página focada em 10%.
-* `toggleSpellChecker` - Ativar/desativar o verificador ortomfeito incorporado.
-* `fileMenu` - Menu "Arquivo" padrão completo (Fechar / Sair)
+* `toggleDevTools` - Toggle developer tools in the current window.
+* `togglefullscreen` - Toggle full screen mode on the current window.
+* `resetZoom` - Reset the focused page's zoom level to the original size.
+* `zoomIn` - Zoom in the focused page by 10%.
+* `zoomOut` - Zoom out the focused page by 10%.
+* `toggleSpellChecker` - Enable/disable builtin spell checker.
+* `fileMenu` - Whole default "File" menu (Close / Quit)
 * `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.).
-* `viewMenu` - Menu padrão completo "Exibir" (Recarregar, Alternar ferramentas de desenvolvedor, etc.)
-* `windowMenu` - Menu "Janela" padrão completo (Minimizar, Zoom, etc.).
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
-As seguintes funções adicionais estão disponíveis no</em>_macOS :</p> 
+The following additional roles are available on _macOS_:
 
-* `appMenu` - Menu padrão completo de "App" (Sobre, Serviços, etc.)
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `hide` - Mapeia para a ação `hide`.
-* `hideOthers` - Mapa para a ação `hideOtherApplications` .
+* `hideOthers` - Map to the `hideOtherApplications` action.
 * `hideothers` - Mapeia para a ação `unhideAllApplications`.
-* `startSpeaking` - Mapa para a ação `startSpeaking` .
-* `stopSpeaking` - Mapa para a ação `stopSpeaking` .
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
 * `hide` - Mapeia para a ação `arrangeInFront`.
 * `zoom` - Mapeia para a ação `performZoom`.
-* `toggleTabBar` - Mapa para a ação `toggleTabBar` .
-* `selectNextTab` - Mapa para a ação `selectNextTab` .
-* `selectPreviousTab` - Mapa para a ação `selectPreviousTab` .
-* `mergeAllWindows` - Mapa para a ação `mergeAllWindows` .
-* `moveTabToNewWindow` - Mapa para a ação `moveTabToNewWindow` .
-* `window` - O submenu é um menu "Janela".
-* `help` - O submenu é um menu "Ajuda".
-* `services` - O submenu é um menu</a> "Serviços". Este é destinado apenas para uso no Menu de Aplicativos e não é *não* o mesmo que o submenu "Serviços" usado em menus de contexto em aplicativos macOS, que não é implementado na Electron.</li> 
-  
-  * `recentDocuments` - O submenu é um menu "Open Recent".
-* `clearRecentDocuments` - Mapa para a ação `clearRecentDocuments` .
-* `shareMenu` - O submenu é [menu de compartilhamento][ShareMenu]. A propriedade `sharingItem` também deve ser definida para indicar o item a compartilhar.</ul> 
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
 
-Ao especificar um `role` no macOS, `label` e `accelerator` são as únicas opções que afetarão o item do menu. Todas as outras opções serão ignoradas. `role`minúsculas, por exemplo. `toggledevtools`, ainda é apoiado.
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
-**Nota Bene:** As propriedades `enabled` e `visibility` não estão disponíveis para itens de menu de alto nível na bandeja no macOS.
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
 
 
 
@@ -115,66 +114,65 @@ As seguintes propriedades estão disponíveis em instâncias de `MenuItem`:
 
 #### `menuItem.id`
 
-Uma `String` indicando o id exclusivo do item, esta propriedade pode ser alterada dinamicamente.
+A `String` indicating the item's unique id, this property can be dynamically changed.
 
 
 
 #### `menuItem.label`
 
-Um `String` indicando o rótulo visível do item.
+A `String` indicating the item's visible label.
 
 
 
 #### `menuItem.click`
 
-Uma `Function` que é ativada quando um item de menu recebe um evento de clique. Pode ser chamado com `menuItem.click(event, focusedWindow, focusedWebContents)`.
+Uma `Function` que é ativada quando um item de menu recebe um evento de clique. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* </a>do Navegador `focusedWindow` </li> 
-  
-  * `focusedWebContents` [WebContents](web-contents.md)</ul> 
+* `focusedWindow` [BrowserWindow](browser-window.md)
+* `focusedWebContents` [WebContents](web-contents.md)
 
 
 
 #### `menuItem.submenu`
 
-Um `Menu` (opcional) contendo o menu submenu do item, se presente.
+A `Menu` (optional) containing the menu item's submenu, if present.
 
 
 
 #### `menuItem.type`
 
-Um `String` indicando o tipo do item. Pode ser `normal`, `separator`, `submenu`, `checkbox` ou `radio`.
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 
 
 #### `menuItem.role`
 
-Um `String` (opcional) indicando a função do item, se definido. Podem ser `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`,  ,  , `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu` `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` ou `windowMenu`
+A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
 
 
 
-#### `menuItem.acelerador`
+#### `menuItem.accelerator`
 
-Um `Accelerator` (opcional) indicando o acelerador do item, se definido.
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 
 
-#### `menuItem.ícone`
+#### `menuItem.icon`
 
-Um `NativeImage | String` (opcional) indicando o ícone do item , se definido.
+A `NativeImage | String` (optional) indicating the item's icon, if set.
 
 
 
 #### `menuItem.sublabel`
 
-Um `String` indicando a sublato do item.
+A `String` indicating the item's sublabel.
 
 
 
-#### `menuItem.toolTip` __macOS
+#### `menuItem.toolTip` _macOS_
 
-Um `String` indicando o texto do item pairando.
+A `String` indicating the item's hover text.
 
 
 
@@ -204,28 +202,28 @@ Você pode adicionar uma função `click` para comportamentos adicionais.
 
 #### `menuItem.registerAccelerator`
 
-Uma `Boolean` indicando se o acelerador deve ser registrado no sistema ou apenas exibido.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
 
-Esta propriedade pode ser alterada dinamicamente.
+This property can be dynamically changed.
 
 
 
-#### `menuItem.sharingItem` __macOS
+#### `menuItem.sharingItem` _macOS_
 
-Um `SharingItem` indicando o item para compartilhar quando o `role` é `shareMenu`.
+A `SharingItem` indicating the item to share when the `role` is `shareMenu`.
 
-Esta propriedade pode ser alterada dinamicamente.
+This property can be dynamically changed.
 
 
 
 #### `menuItem.commandId`
 
-Um `Number` indicando o id único sequencial de um item.
+A `Number` indicating an item's sequential unique id.
 
 
 
 #### `menuItem.menu`
 
-Um `Menu` que o item faz parte.
+A `Menu` that the item is a part of.
 
 [ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/
