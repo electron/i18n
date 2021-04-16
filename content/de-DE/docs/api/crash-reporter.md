@@ -4,66 +4,66 @@
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Im Folgenden finden Sie ein Beispiel für das Einrichten von Electron, um Absturzberichte automatisch an einen Remoteserver zu übermitteln:
+The following is an example of setting up Electron to automatically submit crash reports to a remote server:
 
 ```javascript
 const { crashReporter } = require('electron')
 
-crashReporter.start(' submitURL: 'https://your-domain.com/url-to-submit'
+crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ```
 
 Zum einrichten eines Servers, zum aktzeptieren und verarbeiten von Crash Reports, können sie folgenden Projekte verwenden:
 
-* [Socorro](https://github.com/mozilla/socorro)
+* [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Oder verwenden Sie eine gehostete Lösung von Drittanbietern:
+Or use a 3rd party hosted solution:
 
 * [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Absturzberichte werden vorübergehend gespeichert, bevor sie in ein Verzeichnis hochgeladen werden, das unter dem Benutzerdatenverzeichnis der App liegt (unter Windows und Mac "Crashpad" genannt, oder "Crash Reports" unter Linux). Sie können dieses Verzeichnis überschreiben, indem Sie `app.setPath('crashDumps', '/path/to/crashes')` aufrufen, bevor Sie den Absturz Reporter starten.
+Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
 
-Unter Windows und macOS verwendet Electron [-](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) , um Abstürze zu überwachen und zu melden. Unter Linux verwendet Electron [Breakpad-](https://chromium.googlesource.com/breakpad/breakpad/+/master/). Diese ist ein Implementierungsdetail, das von Chromium gesteuert wird, und es kann sich in Zukunft ändern. Insbesondere ist Crashpad neuer und wird wahrscheinlich irgendwann Breakpad auf allen Plattformen ersetzen.
+On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
 
-### Hinweis zu untergeordneten Node-Prozessen unter Linux
+### Note about Node child processes on Linux
 
-Wenn Sie das Modul Node.js `child_process` verwenden und Abstürze von diesen Prozessen unter Linux melden möchten, müssen Sie einen zusätzlichen Schritt ausführen, um den Absturzreporter im untergeordneten Prozess richtig zu initialisieren . Dies ist auf Mac oder Windows nicht notwendig, da diese Plattformen Crashpad verwenden, das automatisch untergeordnete Prozesse überwacht .
+If you are using the Node.js `child_process` module and want to report crashes from those processes on Linux, there is an extra step you will need to take to properly initialize the crash reporter in the child process. This is not necessary on Mac or Windows, as those platforms use Crashpad, which automatically monitors child processes.
 
-Da `require('electron')` in untergeordneten Knotenprozessen nicht verfügbar ist, sind die folgenden APIs für das `process` -Objekt in untergeordneten Knotenprozessen verfügbar. Beachten Sie, dass unter Linux jeder untergeordnete Knotenprozess über eine eigene Instanz dem Breakpad-Absturzreporter verfügt. Dies ist unähnlich zu Renderer-Untergeordneten Prozessen, , die über einen "Stub"-Breakpad-Reporter verfügen, der Informationen an den Hauptprozess für die Berichterstattung zurückgibt.
+Since `require('electron')` is not available in Node child processes, the following APIs are available on the `process` object in Node child processes. Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
 
 #### `process.crashReporter.start(options)`
 
-Siehe [`crashReporter.start()`](#crashreporterstartoptions).
+See [`crashReporter.start()`](#crashreporterstartoptions).
 
 #### `process.crashReporter.getParameters()`
 
-Siehe [`crashReporter.getParameters()`](#crashreportergetparameters).
+See [`crashReporter.getParameters()`](#crashreportergetparameters).
 
-#### `process.crashReporter.addExtraParameter(Schlüssel, Wert)`
+#### `process.crashReporter.addExtraParameter(key, value)`
 
-Siehe [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
+See [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
 
-#### `process.crashReporter.removeExtraParameter(Schlüssel)`
+#### `process.crashReporter.removeExtraParameter(key)`
 
-Siehe [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
+See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
 
 ## Methoden
 
-Das `crashReporter` Modul verfügt über die folgenden Methoden:
+The `crashReporter` module has the following methods:
 
-### `crashReporter.start(Optionen)`
+### `crashReporter.start(options)`
 
 * `options` -Objekt
-  * `submitURL` String - URL, an die Absturzberichte als POST gesendet werden.
-  * `productName` String (optional) - Standardwerte für `app.name`.
-  * `companyName` String (optional) _veraltete_ - Veralteter Alias für `{ globalExtra: { _companyName: ... } }`.
-  * `uploadToServer` Boolean (optional) - Gibt an, ob Absturzberichte an den Server gesendet werden sollen. Wenn false, werden Absturzberichte gesammelt und im Verzeichnis Abstürze gespeichert, aber nicht hochgeladen. Standard ist `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Wenn true, werden abstürzende im Hauptprozess generierte Abstürze nicht an den Systemabsturzhandler weitergeleitet. Standard ist `false`.
-  * `rateLimit` boolesch (optional) _macOS_ _Windows_ - Wenn true, begrenzen Sie die Anzahl der hochgeladenen Abstürze auf 1/Stunde. Standard ist `false`.
-  * `compress` Boolean (optional) - Wenn true, werden Absturzberichte komprimiert und mit `Content-Encoding: gzip`hochgeladen. Standard ist `true`.
-  * `extra` Record<String, String> (optional) - Zusätzliche Zeichenfolgenschlüssel/-wert- Anmerkungen, die zusammen mit Absturzberichten gesendet werden, die im Hauptprozess generiert werden. Es werden nur Zeichenfolgenwerte unterstützt. Abstürze, die in untergeordneten Prozessen generiert werden, enthalten diese zusätzlichen Parameter, um Berichte abzustürzen, die aus untergeordneten Prozessen generiert werden, rufen [`addExtraParameter`](#crashreporteraddextraparameterkey-value) aus dem untergeordneten Prozess auf.
+  * `submitURL` String - URL that crash reports will be sent to as POST.
+  * `productName` String (optional) - Defaults to `app.name`.
+  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Standard ist `true`.
+  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. Standard ist `false`.
+  * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. Standard ist `false`.
+  * `compress` Boolean (optional) - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. Standard ist `true`.
+  * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
   * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
 
 This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.
