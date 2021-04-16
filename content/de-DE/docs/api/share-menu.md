@@ -22,12 +22,12 @@ Das `shareMenu` -Objekt verfügt über die folgenden Instanzmethoden:
 
 * `options` PopupOptionen (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
-  * `x` Zahl (optional) - Standard ist die aktuelle Mauscursorposition. Muss deklariert werden, wenn `y` deklariert ist.
-  * `y` Zahl (optional) - Standard ist die aktuelle Mauscursorposition. Muss deklariert werden, wenn `x` deklariert ist.
-  * `positioningItem` Zahl (optional) _macOS_ - Der Index des Menüelements, das unter dem Mauszeiger an den angegebenen Koordinaten positioniert werden soll. Der Standard ist -1.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Funktion (optional) - Wird aufgerufen wenn das Menü geschlossen wird.
 
-Öffnet dieses Menü als Kontextmenü im [`BrowserWindow`](browser-window.md).
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `shareMenu.closePopup([browserWindow])`
 
