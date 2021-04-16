@@ -72,6 +72,6 @@ To monitor for changes in this property, use the `on-battery` and `on-ac` events
 
 ### `powerMonitor.onBatteryPower`
 
-Une `Boolean` propriété. True if the system is on battery power.
+A `Boolean` property. True if the system is on battery power.
 
 See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
