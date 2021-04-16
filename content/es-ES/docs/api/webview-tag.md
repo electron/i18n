@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 Devuelve:
 
-* Objeto `result`
+* `result` Object
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
@@ -729,7 +729,7 @@ Emitido cuando un usuario o l página quiere empezar la navegación. Puede ocurr
 
 Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Utiliza `did-navigate-in-page` evento para este propósito.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 Llamar a `event.preventDefault()`, __NO__ tiene ningún efecto.
 
@@ -741,7 +741,7 @@ Devuelve:
 
 Emitido cuando la navegación es finalizada.
 
-Este evento no se emite para las navegaciones en la página, como hacer clic en los enlaces de ancla o actualizar el `window.location.hash`. Utiliza `did-navigate-in-page` evento para este propósito.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Evento: 'did-navigate-in-page'
 
@@ -827,7 +827,7 @@ Devuelve:
 
 * `themeColor` Cadena
 
-Se emite cuando cambia el color del tema de una página. This is usually due to encountering a meta tag:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
