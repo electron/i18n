@@ -29,18 +29,18 @@ O objeto `shareMenu` tem os seguintes métodos de instância:
 #### `shareMenu.popup ([options])`
 
 * `options` PopupOptions (opcional) 
-    * `browserWindow` [BrowserWindow](browser-window.md) (opcional) - Padrão é a janela focada.
-  * `x` Número (opcional) - Padrão é a posição atual do cursor do mouse. Deve ser declarado se `y` for declarado.
-  * `y` Número (opcional) - Padrão é a posição atual do cursor do mouse. Deve ser declarado se `x` for declarado.
-  * número `positioningItem` (opcional) __ do macOS - O índice do item do menu ser posicionado sob o cursor do mouse nas coordenadas especificadas. O padrão é -1.
-  * função `callback` (opcional) - Chamado quando o menu estiver fechado.
+    * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `callback` Function (optional) - Called when menu is closed.
 
-Aparece este menu como um menu de contexto no [`BrowserWindow`](browser-window.md).
+Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 
 
 #### `shareMenu.closePopup ([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (opcional) - Padrão é a janela focada.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
 Fecha o menu de contexto em `browserWindow`.
