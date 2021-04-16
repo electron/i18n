@@ -648,7 +648,7 @@ Devuelve:
 * `webPreferences` WebPreferences-las preferencias web que será utilizada por la página de de invitados. Este objeto se puede modificar para ajustar las preferencias de la página de del invitado.
 * `params`<string, string> de registro-los otros parámetros de `<webview>` como la URL de `src` . Este objeto se puede modificar para ajustar los parámetros de la página del huésped.
 
-Se emite cuando se conecta el contenido Web de un `<webview>`a este contenido Web. Llamar a `event.preventDefault()` destruirá la página del huésped.
+Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
 Este evento puede utilizarse para configurar `webPreferences` para la `webContents` de un `<webview>`antes de que se carga y proporciona la capacidad de configuración que no se puede establecer a través de atributos `<webview>`.
 
@@ -711,7 +711,7 @@ Devuelve:
 
 * `event` Event
 
-Se emite cuando se llama a `desktopCapturer.getSources()` en el proceso del representador. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
 
 #### Evento: 'remote-require' _Obsoleto_
 
@@ -761,11 +761,11 @@ Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de render
 Devuelve:
 
 * `event` Event
-* `preferredSize` [tamaño](structures/size.md) -el tamaño mínimo necesario para contener el diseño del documento, sin requerir desplazamiento.
+* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
 
-Se emite cuando ha cambiado el `WebContents` tamaño preferido.
+Emitted when the `WebContents` preferred size has changed.
 
-Este evento solo se emitirá cuando `enablePreferredSizeMode` esté establecido en `true` en `webPreferences`.
+This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
 
 ### Métodos de Instancia
 
@@ -799,7 +799,7 @@ webContents.loadURL('https://github.com', options)
 
 Devuelve `Promise<void>` - la promesa sera resolvida cuando la página haya finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y será rechazada si la pagina falla al cargar (mira [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Carga el archivo dado en la ventana, `filePath` debe ser una ruta para un archivo HTML relativo a la raíz de tu aplicación.  Por ejemplo una estructura de aplicación como la siguiente:
+Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
 ```sh
 | root
@@ -819,7 +819,7 @@ win.loadFile('src/index.html')
 
 * `url` String
 
-Inicia una descarga del recurso en `url` sin navegar. Se activará el evento `will-download` de `session` .
+Inicia una descarga del recurso en `url` sin navegar. The `will-download` event of `session` will be triggered.
 
 #### `contents.getURL()`
 
@@ -951,7 +951,7 @@ Devuelve `String` - El agente usuario para esta página web.
 
 * `css` Cadena
 * `options` Object (opcional)
-  * `cssOrigin` String (opcional)-puede ser ' User ' o ' author '; Especificar ' User ' te permite evitar que los sitios web invaliden el CSS que insertas. El valor predeterminado es ' author ' (autor).
+  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Devuelve `Promise<String>` - Una promesa que resuelve con una llave para el CSS insertado que puede ser utilizado más tarde para eliminar el CSS a través `contents.removeInsertedCSS(key)`.
 
@@ -969,7 +969,7 @@ contents.on('did-finish-load', () => {
 
 Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
-Elimina el CSS insertado desde la página web actual. La hoja de estilos se identifica por su clave, que se devuelve desde `contents.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
 contents.on('did-finish-load', async () => {
@@ -1016,7 +1016,7 @@ Ignora los accesos directos del menú de la aplicación mientras se enfoca los c
 
 #### `contents.setWindowOpenHandler(handler)`
 
-* Función `handler`<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
   * `details` Object
     * `url` String - La versión _resuelta_ de la URL pasada a `window.open()`. por ejemplo una ventana con `window.open('foo')` producirá algo como `https://the-origin/the/current/path/foo`.
     * `frameName` String - Nombre de la ventana proporcionado en `window.open()`
@@ -1024,7 +1024,7 @@ Ignora los accesos directos del menú de la aplicación mientras se enfoca los c
 
   Devuelve `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancela la creación de la nueva ventana. `allow` permitirá la que se cree la nueva ventana. Especificando `overrideBrowserWindowOptions` permite la personalización de la ventana creada. Devolver un valor no reconocido como un null, undefined o un objeto sin una 'action' reconocida resultará en un error de consola tiene el mismo efecto que devolver `{action: 'deny'}`.
 
-Se llama antes de crear una ventana cuando se llama a `window.open()` desde el representador de . Consulta [`window.open()`](window-open.md) para obtener más detalles y cómo utilizar esto en conjunción con `did-create-window`.
+Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
@@ -1058,7 +1058,7 @@ Devuelve `Number` - el factor de zoom actual.
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. La fórmula para esto es `scale := 1.2 ^ level`.
 
-> **Nota**: la política de zoom en el nivel de cromo es la misma-origen, lo que significa que el nivel de zoom para un dominio específico se propaga en todas las instancias de Windows con el mismo dominio. Diferenciar las URL de las ventanas hará que el zoom se trabaje por ventana.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 #### `contents.getZoomLevel()`
 
@@ -1073,7 +1073,7 @@ Devuelve `Promise<void>`
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-> **Nota**: el zoom visual se inhabilita por defecto en Electron. Para volver a habilitarlo, llama a:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
 contents.setVisualZoomLevelLimits(1, 3)
@@ -1156,7 +1156,7 @@ Empieza una solicitud para encontrar todas las coincidencias para el `text` en l
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String-especifica la acción a tener lugar cuando finaliza [`webContents.findInPage`] solicitud.
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
   * `clearSelection` - Borrar la selección.
   * `keepSelection` - Traduce la selección en una selección normal.
   * `activateSelection` - Enfoca y hace clic en el nodo de selección.
@@ -1183,7 +1183,7 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
 
 #### `contents.isBeingCaptured()`
 
-Devuelve `Boolean` -si se está capturando esta página. Devuelve true cuando el conteo del capturador es grande y luego 0.
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
@@ -1209,25 +1209,25 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
 #### `contents.print([options], [callback])`
 
 * `options` Object (opcional)
-  * `silent` Boolean (opcional)-no le pidas a un usuario las configuraciones de impresión. Por defecto es `false`.
-  * `printBackground` Boolean (opcional)-imprime el color de fondo y la imagen de la Página Web. Por defecto es `false`.
-  * `deviceName` String (opcional)-configura el nombre del dispositivo de la impresora para usar. Debe ser el nombre definido por el sistema y no el nombre ' Friendly ', p. ej., ' Brother_QL_820NWB ' y no ' Brother QL-820NWB '.
-  * `color` Boolean (opcional)-establecer si la página web impresa estará en color o en escala de grises. Por defecto es `true`.
-  * `margins` objeto (opcional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Por defecto es `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por defecto es `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por defecto es `true`.
+  * `margins` Object (optional)
     * `marginType` String (opcional) - Puede ser `default`, `none`, `printableArea`, o `custom`. Si `custom` es elegido, además necesitar especificar `top`, `bottom`, `left`, y `right`.
     * `top` Number (opcional) - El margen superior de la página web impresa, en píxeles.
     * `bottom` Number (opcional) - El margen inferior de la página web impresa, en píxeles.
     * `left` Number (opcional) - El margen izquierdo de la página web impresa, en píxeles.
     * `right` Number (opcional) - El margen derecho de la página web impresa, en píxeles.
-  * `landscape` Boolean (opcional)-si la página web debe imprimirse en modo horizontal. Por defecto es `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Por defecto es `false`.
   * `scaleFactor` Number (opcional) - El factor de escalado de la página web.
   * `pagesPerSheet` Number (opcional) - El número de páginas a imprimir por hoja de página.
   * `collate` Boolean (opcional) - Si la página web debe ser intercalada.
   * `copies` Number (opcional) - El número de copias de la página web a imprimir.
-  * `pageRanges` Object [] (opcional)-el rango de página a imprimir. En macOS, solo se respeta un rango.
-    * `from` número-índice de la primera página en imprimir (basado en 0).
+  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
-  * `duplexMode` String (opcional)-configura el modo dúplex de la página web impresa. Puede ser `simplex`, `shortEdge`o `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (opcional)
     * `horizontal` Number (opcional) - El dpi horizontal.
     * `vertical` Number (opcional) - El dpi vertical.
@@ -1267,12 +1267,12 @@ win.webContents.print(options, (success, errorType) => {
     * `title` String - El título para el encabezado PDF.
     * `url` String - la url para el pie de página PDF.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
-  * `marginsType` Integer (opcional): especifica el tipo de márgenes que se utilizarán. Usa 0 para margen predeterminado, 1 para ningún margen y 2 para un margen mínimo.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Puede variar entre 0 to 100.
-  * `pageRanges`<string, number> de registro (opcional)-el rango de página a imprimir.
-    * `from` número-índice de la primera página en imprimir (basado en 0).
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contiene `height` y `width` en micrones.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
 
@@ -1326,7 +1326,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Agrega la ruta especificada al área de trabajo de DevTools. Se debe usar después de la creación de de DevTools:
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1419,7 +1419,7 @@ app.whenReady().then(() => {
 
 * `options` Object (opcional)
   * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
-  * `activate` Boolean (opcional)-ya sea para llevar la ventana DevTools abierta en primer plano. El valor por defecto es `true`.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. El valor por defecto es `true`.
 
 Abre las herramientas del desarrolador.
 
@@ -1471,7 +1471,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al renderer process a través de `channel` junto con los argumentos. Los argumentos se serializan con el [clon estructurado algoritmo][SCA], al igual que [`postMessage`][], por lo que las cadenas de prototipos no se incluirán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al renderer process a través de `channel` junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
@@ -1508,17 +1508,17 @@ app.whenReady().then(() => {
 
 #### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Integer | [number, number]-el ID del fotograma al que se enviará o un par de de `[processId, frameId]` si el fotograma se encuentra en un proceso diferente para el fotograma principal.
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Los argumentos se serializan con el [algoritmo de clon estructurado][SCA], al igual que [`postMessage`][], por lo que no se incluirán las cadenas de de prototipo. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
-Si quieres obtener el `frameId` de un contexto de representador determinado, debes usar el valor `webFrame.routingId` .  Por ejemplo.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Por ejemplo.
 
 ```js
 // In a renderer process
@@ -1560,8 +1560,8 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* Objeto `parameters`
-  * `screenPosition` String-especifica el tipo de pantalla para emular (predeterminado: `desktop`):
+* `parameters` Object
+  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - El tipo de la pantalla de escritorio.
     * `mobile` - El tipo de la pantalla móvil.
   * `screenSize` [Size](structures/size.md) - Configura el tamaño de la pantalla emulada (screenPosition == mobile).
@@ -1601,7 +1601,7 @@ Finalizar suscripción para eventos de presentación de marcos.
 
 #### `contents.startDrag(item)`
 
-* Objeto `item`
+* `item` Object
   * `file` String[] | String - La ruta(s) al arhivo(s) siendo arrastrado.
   * `icon` [NativeImage](native-image.md) | String - La imagen no debe estar vacía en on macOS.
 
@@ -1610,7 +1610,7 @@ Configura el `item` como un elemento arrastrable para la operación drag-drop ac
 #### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - La ruta completa del archivo.
-* `saveType` String-especifica el tipo de guardado.
+* `saveType` String - Specify the save type.
   * `HTMLOnly` - Guarda solamente el HTML de la página.
   * `HTMLComplete` - Guarda una página html completa.
   * `MHTML` - Guarda una página html completa como MHTML.
@@ -1656,7 +1656,7 @@ Devuelve `Boolean` - Si *offscreen rendering* está habilitado devuelve lo que e
 
 * `fps` Integer
 
-Si ** de representación fuera de pantalla está habilitado, establece la velocidad de fotogramas en el número especificado. Sólo se aceptan valores entre 1 y 240.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Sólo se aceptan valores entre 1 y 240.
 
 #### `contents.getFrameRate()`
 
@@ -1674,13 +1674,13 @@ Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String-especifica la política de gestión de IP de WebRTC.
+* `policy` String - Specify the WebRTC IP Handling Policy.
   * `default` - Revela los IPs locales y publicos del usuario. Este es el comportamiento por defecto. Cuando se usa esta política, WebRTC tiene el derecho de enumerar todas las interfaces y vincularlas para descubrir interfaces públicas.
   * `default_public_interface_only` - Revela el IP público del usuario pero no revela el IP local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto no expone ninguna dirección local.
   * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
-  * `disable_non_proxied_udp` -no expone IPs públicas o locales. Cuando se usa esta política de , WebRTC solo debe usar TCP para ponerse en contacto con los pares o servidores a menos que el servidor proxy admita UDP.
+  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Configurar la política de gestión de IP de WebRTC te permite controlar qué IPs están expuestos mediante WebRTC. Consulta [](https://browserleaks.com/webrtc) BrowserLeaks para más detalles.
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
@@ -1706,7 +1706,7 @@ Devuelve `Boolean` - si este contenido web acelerará o no animaciones y tempori
 
 * `allowed` Boolean
 
-Controla si estos WebContents estrangularán las animaciones y los temporizadores cuando la página se vuelve en segundo plano. Esto también afecta a la API de visibilidad de la página.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.getType()`
 
@@ -1736,9 +1736,9 @@ El factor de zoom es el porcentaje de zoom dividido por 100, así que 300% = 3.0
 
 #### `contents.frameRate`
 
-Una propiedad `Integer` que establece la velocidad de fotogramas de los contenidos web en el número especificado. Sólo se aceptan valores entre 1 y 240.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Sólo se aceptan valores entre 1 y 240.
 
-Solo se aplica si ** de representación fuera de pantalla está habilitado.
+Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
@@ -1768,7 +1768,7 @@ Una propiedad `Boolean` que determina si este WebContents acelera o no las anima
 
 #### `contents.mainFrame` _Readonly_
 
-Una [`WebFrameMain`](web-frame-main.md) propiedad que representa el fotograma superior de la jerarquía de fotogramas de la página.
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
@@ -1786,6 +1786,5 @@ Una [`WebFrameMain`](web-frame-main.md) propiedad que representa el fotograma su
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
-[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
