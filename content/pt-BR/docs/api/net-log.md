@@ -24,7 +24,7 @@ Veja [`--log-net-log`](command-line-switches.md#--log-net-logpath) para registra
 ### `netLog.startLogging (caminho[, opções])`
 
 * `path` String - Caminho de arquivo para registrar registros de rede.
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `captureMode` String (opcional) - Que tipos de dados devem ser capturados. Até padrão, apenas metadados sobre solicitações serão capturados. Definindo-o para `includeSensitive` incluirá cookies e dados de autenticação. A configuração -lo para `everything` incluirá todos os bytes transferidos em soquetes. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
