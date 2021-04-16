@@ -43,19 +43,19 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.defaultApp` _Readonly_
 
-一 `Boolean`。 When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+一 `Boolean`。 当应用程序启动时被作为参数传递给默认应用，这个属性在主进程中是`true`，否则是`undefined`。
 
 ### `process.isMainFrame` _Readonly_
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+`Boolean`，若当前渲染器上下文是 渲染器"主"框架时为`true`。 如果你想得到当前框架的ID，你应该使用 `webFrame.routingId`。
 
 ### `process.mas` _Readonly_
 
-一 `Boolean`。 For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+一 `Boolean`。 为Mac App Store 构建，该属性是 `true`，为其他构建则为`undefined`。
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+`Boolean` 控制您应用程序内的 ASAR 支持。 设置为 `true`将会禁用Node内置模块中对 `asar` 的支持。
 
 ### `process.noDeprecation`
 
@@ -67,7 +67,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.sandboxed` _Readonly_
 
-一 `Boolean`。 When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+一 `Boolean`。 当渲染器进程被沙盒化时，该属性是 `true`，否则是 `undefined`。
 
 ### `process.throwDeprecation`
 
@@ -83,7 +83,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.type` _Readonly_
 
-A `String` representing the current process's type, can be:
+`String` 代表当前进程的类型，可以是：
 
 * `browser` - The main process
 * `renderer` - A renderer process
@@ -99,7 +99,7 @@ A `String` representing the current process's type, can be:
 
 ### `process.windowsStore` _Readonly_
 
-一 `Boolean`。 If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+一 `Boolean`。 如果应用以 Windows 商店应用(appx) 运行，该属性为`true`，否则为 `undefined`。
 
 ## 方法
 
@@ -113,7 +113,7 @@ A `String` representing the current process's type, can be:
 
 返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
-Indicates the creation time of the application. 时间表示为自时代以来的毫秒数。 如果无法获得进程创建时间，则返回为空。
+指示应用程序的创建时间。 时间表示为自时代以来的毫秒数。 如果无法获得进程创建时间，则返回为空。
 
 ### `process.getCPUUsage()`
 
@@ -155,7 +155,7 @@ Indicates the creation time of the application. 时间表示为自时代以来�
 
 返回一个对象，提供当前进程的内存使用统计。 请注意，所有统计值都以KB为单位 这个api应该在应用程序准备就绪后被调用。
 
-Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用过的页面进行内存压缩。 As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用过的页面进行内存压缩。 结果是原始设置大小的值不是我们所期望的。 `私有` 内存更能代表在 macOS 上进程的实际预压缩内存的使用情况。
 
 ### `process.getSystemMemoryInfo()`
 
@@ -166,11 +166,11 @@ Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用
 * `swapTotal` Integer _Windows_ _Linux_ - 系统交换内存容量（单位：千字节）。
 * `swapFree` Integer _Windows_ _Linux_ - 系统可用交换内存大小（单位：千字节）。
 
-Returns an object giving memory usage statistics about the entire system. 请注意，所有统计值都以KB为单位
+返回一个对象，提供整个系统的内存使用统计。 请注意，所有统计值都以KB为单位
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+返回 ` String ` - 主机操作系统的版本。
 
 示例:
 
@@ -182,13 +182,13 @@ console.log(version)
 // On Linux -> '4.15.0-45-generic'
 ```
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**注意：** 它返回实际操作系统版本，而不是在 macOS 上的内核版本，不同于 `os.release()`。
 
 ### `process.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Path to the output file.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+返回 `Boolean` - 指明快捷方式是否被成功创建。
 
 采取V8堆快照，并保存到 `filePath`。
 
