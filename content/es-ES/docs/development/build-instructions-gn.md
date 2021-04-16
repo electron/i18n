@@ -110,7 +110,7 @@ Para la configuración de la lanzamiento:
 $ ninja -C out/Release electron
 ```
 
-Esto construirá todo lo que antes era ' libchromiumcontent ' (es decir, el `content/` directorio de `chromium` y sus dependencias, incl. WebKit y V8), por lo que tomará un tiempo.
+This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
 El ejecutable compilado estará en `./out/Testing`:
 
