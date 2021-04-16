@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process)
 
-`webContents` ist ein [EventEmitter][event-emitter]. Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
+`webContents` is an [EventEmitter][event-emitter]. Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -27,17 +27,17 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Gibt `WebContents[]` zurück - Ein array aller `WebContents` Instanzen. Dies enthält Webinhalte für alle Fenster, Webviews, geöffneten devtools und devtools-Erweiterungshintergrundseiten.
+Gibt `WebContents[]` zurück - Ein array aller `WebContents` Instanzen. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 
 ### `webContents.getFocusedWebContents()`
 
-Gibt `WebContents` zurück - Der Webinhalt, der in dieser Anwendung fokussiert ist, andernfalls gibt `null`zurück.
+Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Rücksendungen `WebContents` | undefined - Eine WebContents-Instanz mit der angegebenen ID oder `undefined` , wenn der angegebenen ID kein WebContents zugeordnet ist.
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## Class: WebContents
 
@@ -63,9 +63,9 @@ Rückgabewert:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Dieses Ereignis ist wie `did-finish-load` , aber emittiert, wenn die Last fehlgeschlagen ist. Die vollständige Liste der Fehlercodes und ihre Bedeutung finden Sie [hier](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
+This event is like `did-finish-load` but emitted when the load failed. The full list of error codes and their meaning is available [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
-#### Veranstaltung: 'did-fail-provisional-load'
+#### Event: 'did-fail-provisional-load'
 
 Rückgabewert:
 
@@ -77,7 +77,7 @@ Rückgabewert:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Dieses Ereignis ist wie `did-fail-load` , aber emittiert, wenn die Last abgebrochen wurde (z. B. `window.stop()` wurde aufgerufen).
+This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
 
 #### Event: 'did-frame-finish-load'
 
@@ -88,15 +88,15 @@ Rückgabewert:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emittiert, wenn ein Frame die Navigation durchgeführt hat.
+Emitted when a frame has done navigation.
 
 #### Event: 'did-start-loading'
 
-Entspricht den Zeitpunkten, zu denen der Spinner der Registerkarte zu drehen begann.
+Corresponds to the points in time when the spinner of the tab started spinning.
 
 #### Event: 'did-stop-loading'
 
-Entspricht den Zeitpunkten, an denen der Spinner der Registerkarte aufgehört hat zu drehen.
+Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'dom-ready'
 
@@ -104,7 +104,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emittiert, wenn das Dokument im angegebenen Frame geladen wird.
+Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-title-updated'
 
@@ -114,7 +114,7 @@ Rückgabewert:
 * `title` String
 * `explicitSet` Boolean
 
-Wird ausgelöst, wenn der Seitentitel während der Navigation festgelegt wird. `explicitSet` ist falsch, wenn Titel aus der Datei-URL synthetisiert wird.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 #### Event: 'page-favicon-updated'
 
@@ -123,69 +123,69 @@ Rückgabewert:
 * `event` Event
 * `favicons` String[] - Array mit URLs.
 
-Emittiert, wenn die Seite favicon-URLs empfängt.
+Emitted when page receives favicon urls.
 
-#### Ereignis: 'new-window' _veraltete_
+#### Event: 'new-window' _Deprecated_
 
 Rückgabewert:
 
 * `event` NewWindowWebContentsEvent
 * `url` String
 * `frameName` String
-* `disposition` String - Kann `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` und `other`sein.
-* `options` BrowserWindowConstructorOptions - Die Optionen, die zum Erstellen der neuen [`BrowserWindow`](browser-window.md)verwendet werden.
-* `additionalFeatures` String[] - Die nicht standardmäßigen Features (Features, die nicht von Chromium oder Electron behandelt werden) `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - Der Referrer, der an das neue Fenster übergeben wird. Kann dazu führen, dass der `Referer` -Header gesendet wird, je nach Referrer-Richtlinie.
-* `postBody` [PostBody](structures/post-body.md) (optional) - Die Postdaten, die , werden zusammen mit den entsprechenden Headern, die festgelegt werden, an das neue Fenster gesendet. Wenn keine Postdaten gesendet werden sollen, wird der Wert `null`. Nur definiert wenn das Fenster von einem Formular erstellt wird, das `target=_blank`festgelegt hat.
+* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
 
-Veraltet zugunsten [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Deprecated in favor of [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-Emittiert, wenn die Seite anfordert, ein neues Fenster für eine `url`zu öffnen. Es könnte von `window.open` oder einem externen Link wie `<a target='_blank'>`angefordert werden.
+Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
-Standardmäßig wird ein neues `BrowserWindow` für die `url`erstellt.
+By default a new `BrowserWindow` will be created for the `url`.
 
-Wenn `event.preventDefault()` aufgerufen wird, verhindert das Aufrufen von Electron, dass es automatisch einen neuen [`BrowserWindow`](browser-window.md)erstellt. Wenn Sie `event.preventDefault()` aufrufen und manuell eine neue [`BrowserWindow`](browser-window.md) erstellen, müssen Sie `event.newGuest` festlegen, um auf die neue [`BrowserWindow`](browser-window.md) Instanz zu verweisen, andernfalls kann dies zu unerwartetem Verhalten führen. Ein Beispiel:
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Ein Beispiel:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => '
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
   event.preventDefault()
-  const win = new BrowserWindow('
-    webContents: options.webContents, / / verwenden Sie vorhandene webContents, wenn
-    zeigen: false
-  
-  () => win.show())
-  wenn (!options.webContents) -
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
+  win.once('ready-to-show', () => win.show())
+  if (!options.webContents) {
     const loadOptions = {
       httpReferrer: referrer
     }
-    wenn (postBody != null)
+    if (postBody != null) {
       const { data, contentType, boundary } = postBody
       loadOptions.postData = postBody.data
-      loadOptions.extraHeaders = 'content-type: ${contentType}; boundary=${boundary}'
-    '
+      loadOptions.extraHeaders = `content-type: ${contentType}; boundary=${boundary}`
+    }
 
-    win.loadURL(url, loadOptions
-
-  
-  )
+    win.loadURL(url, loadOptions) // existing webContents will be navigated automatically
+  }
+  event.newGuest = win
+})
 ```
 
-#### Ereignis: 'did-create-window'
+#### Event: 'did-create-window'
 
 Rückgabewert:
 * `window` BrowserWindow
 * `details` -Objekt
-    * `url` String - URL für das erstellte Fenster.
-    * `frameName` String - Name, der dem erstellten Fenster im `window.open()` -Aufruf angegeben wurde.
-    * `options` BrowserWindowConstructorOptions - Die Optionen, die zum Erstellen des BrowserWindow verwendet werden. Sie werden in zunehmender Priorität zusammengeführt: Optionen, die vom übergeordneten Element geerbt wurden, analysierte Optionen aus der `features` Zeichenfolge aus `window.open()`und Optionen, die von [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)angegeben werden. Nicht erkannte Optionen werden nicht herausgefiltert.
-    * `additionalFeatures` String[] - Die nicht standardmäßigen Merkmale (Features, die nicht mit Chrom oder Electron behandelt werden) _veraltete_
-    * `referrer` [Referrer](structures/referrer.md) - Der Referrer, der an das neue Fenster übergeben wird. Kann dazu führen, dass die `Referer` -Header- gesendet werden, abhängig von der Referrer-Richtlinie.
-    * `postBody` [PostBody](structures/post-body.md) (optional) - Die Postdaten , die zusammen mit den entsprechenden Headern an das neue Fenster gesendet werden, , die festgelegt werden. Wenn keine Postdaten gesendet werden sollen, wird der Wert `null`. Nur definiert, wenn das Fenster von einem Formular erstellt wird, das `target=_blank`festgelegt hat.
-    * `disposition` String - Kann `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` und `other`sein.
+    * `url` String - URL for the created window.
+    * `frameName` String - Name given to the created window in the `window.open()` call.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
+    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
+    * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
-Emittted _nach_ erfolgreichen Erstellung eines Fensters über `window.open` im Renderer. Nicht emittiert, wenn die Erstellung des Fensters von [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)abgebrochen wird.
+Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-Weitere Informationen und die Verwendung in Verbindung mit `webContents.setWindowOpenHandler`finden Sie in [`window.open()`](window-open.md) .
+See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
 
 #### Event: 'will-navigate'
 
@@ -194,13 +194,13 @@ Rückgabewert:
 * `event` Event
 * `url` String
 
-Wird angezeigt, wenn ein Benutzer oder die Seite die Navigation starten möchte. Dies kann vorkommen, wenn das `window.location` Objekt geändert wird oder ein Benutzer auf einen Link auf der Seite klickt.
+Wird angezeigt, wenn ein Benutzer oder die Seite die Navigation starten möchte. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
-Dieses Ereignis wird nicht ausgesendet, wenn die Navigation programmgesteuert mit APIs wie `webContents.loadURL` und `webContents.back`gestartet wird.
+This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
 
-Es wird auch nicht für In-Page-Navigationen emittiert, z. B. durch Klicken auf Ankerlinks oder aktualisieren sie die `window.location.hash`. Verwenden Sie `did-navigate-in-page` Ereignis, um diesen Zweck .
+It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Wenn `event.preventDefault()` aufruft, wird die Navigation verhindert.
+Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-start-navigation'
 
@@ -213,7 +213,7 @@ Rückgabewert:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emittiert, wenn ein Frame (einschließlich Hauptbild) mit der Navigation beginnt. `isInPlace` werden für In-Page-Navigationen `true` .
+Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
 #### Event: 'will-redirect'
 
@@ -226,11 +226,11 @@ Rückgabewert:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emittiert als serverseitige Umleitung tritt während der Navigation auf.  Zum Beispiel eine 302 Umleitung.
+Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
-Dieses Ereignis wird nach `did-start-navigation` und immer vor dem `did-redirect-navigation` -Ereignis für dieselbe Navigation angezeigt.
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
 
-Wenn Sie `event.preventDefault()` aufrufen, wird die Navigation verhindert (nicht nur die Umleitung).
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
 
 #### Event: 'did-redirect-navigation'
 
@@ -243,9 +243,9 @@ Rückgabewert:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emittiert, nachdem während der Navigation eine serverseitige Umleitung erfolgt.  Zum Beispiel eine 302 Umleitung.
+Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
-Dieses Ereignis kann nicht verhindert werden, wenn Sie Umleitungen verhindern möchten, sollten Sie auschecken die `will-redirect` Ereignis oben.
+This event cannot be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
 #### Event: 'did-navigate'
 
@@ -253,12 +253,12 @@ Rückgabewert:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Ganzzahl - -1 für Nicht-HTTP-Navigationen
-* `httpStatusText` String - leer für Nicht-HTTP-Navigationen
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-Emittiert, wenn eine Hauptframenavigation durchgeführt wird.
+Emitted when a main frame navigation is done.
 
-Dieses Ereignis wird nicht für In-Page-Navigationen angezeigt, z. B. durch Klicken auf Ankerlinks oder Aktualisieren der `window.location.hash`. Verwenden Sie `did-navigate-in-page` Ereignis, um diesen Zweck .
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 #### Event: 'did-frame-navigate'
 
@@ -266,15 +266,15 @@ Rückgabewert:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Ganzzahl - -1 für Nicht-HTTP-Navigationen
-* `httpStatusText` String - leer für Nicht-HTTP-Navigationen,
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emittiert, wenn eine Framenavigation durchgeführt wird.
+Emitted when any frame navigation is done.
 
-Dieses Ereignis wird nicht für In-Page-Navigationen angezeigt, z. B. durch Klicken auf Ankerlinks oder Aktualisieren der `window.location.hash`. Verwenden Sie `did-navigate-in-page` Ereignis, um diesen Zweck .
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 #### Event: 'did-navigate-in-page'
 
@@ -286,9 +286,9 @@ Rückgabewert:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emittiert, wenn eine In-Page-Navigation in einem beliebigen Frame stattgefunden hat.
+Emitted when an in-page navigation happened in any frame.
 
-Wenn die In-Page-Navigation stattfindet, ändert sich die Seiten-URL, verursacht jedoch keine Navigation außerhalb der Seite. Beispiele hierfür sind, wenn Ankerverknüpfungen angeklickt werden oder wenn das DOM- `hashchange` -Ereignis ausgelöst wird.
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 #### Event: 'will-prevent-unload'
 
@@ -296,9 +296,9 @@ Rückgabewert:
 
 * `event` Event
 
-Es wird angezeigt, wenn ein `beforeunload` Ereignishandler versucht, das Entladen einer Seite abzubrechen.
+Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
-Wenn `event.preventDefault()` aufruft, wird der des `beforeunload` -Ereignishandlers ignoriert und das Entladen der Seite zugelassen.
+Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
 ```javascript
 const { BrowserWindow, dialog } = require('electron')
@@ -319,14 +319,14 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Veranstaltung: "abgestürzt" _veraltete_
+#### Event: 'crashed' _Deprecated_
 
 Rückgabewert:
 
 * `event` Event
 * `killed` Boolean
 
-Emittiert, wenn der Renderer-Prozess abstürzt oder getötet wird.
+Emitted when the renderer process crashes or is killed.
 
 **Deprecated:** Dieses Ereignis wird durch das `render-process-gone` -Ereignis ersetzt das weitere Informationen darüber enthält, warum der Renderprozess verschwunden ist. Ist es nicht immer, wenn es abgestürzt ist.  Der Boolesche Wert `killed` kann ersetzt werden durch Überprüfung von `reason === 'killed'`, wenn Sie zu diesem Ereignis wechseln.
 
@@ -364,40 +364,40 @@ Rückgabewert:
 * `name` String
 * `version` String
 
-Emittiert, wenn ein Plugin-Prozess abgestürzt ist.
+Emitted when a plugin process has crashed.
 
 #### Event: 'destroyed'
 
-Emittiert, wenn `webContents` zerstört wird.
+Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
 Rückgabewert:
 
 * `event` Event
-* `input` -Objekt - Eingabeeigenschaften.
+* `input` Object - Input properties.
   * `type` String - Entweder `keyUp` oder `keyDown`.
   * `key` String - Equivalent zu [KeyboardEvent.key][keyboardevent].
   * `code` String - Equivalent zu [KeyboardEvent.code][keyboardevent].
   * `isAutoRepeat` Boolean - Equivalent zu [KeyboardEvent.repeat][keyboardevent].
-  * `isComposing` boolesch - Entspricht [KeyboardEvent.isComposing][keyboardevent].
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
   * `shift` Boolean - Equivalent zu [KeyboardEvent.shiftKey][keyboardevent].
   * `control` Boolean - Equivalent zu [KeyboardEvent.controlKey][keyboardevent].
   * `alt` Boolean - Equivalent zu [KeyboardEvent.altKey][keyboardevent].
   * `meta` Boolean - Equivalent zu [KeyboardEvent.metaKey][keyboardevent].
 
-Emittiert, bevor die `keydown` und `keyup` Ereignisse auf der Seite gesendet werden. Wenn `event.preventDefault` aufruft, wird verhindert, dass die Seite `keydown` /`keyup` Ereignisse und die Menüverknüpfungen.
+Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
-Um nur die Menüverknüpfungen zu verhindern, verwenden Sie [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
 
 ```javascript
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-win.webContents.on('before-input-event', (event, input) => '
-  * Aktivieren Sie z. B. Anwendungsmenü-Tastaturbefehle nur, wenn
-  / Strg/Cmd unten sind.
+win.webContents.on('before-input-event', (event, input) => {
+  // For example, only enable application menu keyboard shortcuts when
+  // Ctrl/Cmd are down.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -410,14 +410,14 @@ Wird gesendet, wenn das Fenster in einen Vollbildstatus wechselt, der durch die 
 
 Wird angezeigt, wenn das Fenster einen Vollbildstatus verlässt, der durch die HTML-API ausgelöst wird.
 
-#### Ereignis: 'zoom-changed'
+#### Event: 'zoom-changed'
 
 Rückgabewert:
 
 * `event` Event
-* `zoomDirection` String - Kann `in` oder `out`werden.
+* `zoomDirection` String - Can be `in` or `out`.
 
-Wird gesendet, wenn der Benutzer anfordert, die Zoomstufe mit dem Mausrad zu ändern.
+Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
 #### Event: 'devtools-opened'
 
@@ -429,7 +429,7 @@ Emittiert wenn die DevTools geschlossen wurden.
 
 #### Event: 'devtools-focused'
 
-Emittiert, wenn DevTools fokussiert / geöffnet wird.
+Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
@@ -440,11 +440,11 @@ Rückgabewert:
 * `error` String - Der error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
-  * `isTrusted` boolesch - Gibt an, ob das Zertifikat als vertrauenswürdig betrachtet werden kann.
+  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
-Emittiert, wenn die `certificate` für `url`nicht überprüft werden konnte.
+Emitted when failed to verify the `certificate` for `url`.
 
-Die Verwendung ist die gleiche mit [dem `certificate-error` Ereignis von `app`](app.md#event-certificate-error).
+The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
 #### Event: 'select-client-certificate'
 
@@ -454,11 +454,11 @@ Rückgabewert:
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
-  * `certificate` [Zertifikat](structures/certificate.md) - Muss ein Zertifikat aus der angegebenen Liste sein.
+  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emittiert wenn ein Client Zertifikat angefordert wird.
 
-Die Verwendung ist die gleiche mit [dem `select-client-certificate` Ereignis von `app`](app.md#event-select-client-certificate).
+The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
 #### Event: 'login'
 
@@ -479,21 +479,21 @@ Rückgabewert:
 
 Wird ausgelöst wenn `webContents` grundlegende Authentifizierung durchführen will.
 
-Die Verwendung ist die gleiche mit [dem `login` Ereignis von `app`](app.md#event-login).
+The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
 Rückgabewert:
 
 * `event` Event
-* `result` -Objekt
+* `result` Object
   * `requestId` Integer
-  * `activeMatchOrdinal` Ganzzahl - Position des aktiven Spiels.
-  * `matches` Ganzzahl - Anzahl der Übereinstimmungen.
-  * `selectionArea` -Rechteck - Koordinaten des ersten Übereinstimmungsbereichs.
+  * `activeMatchOrdinal` Integer - Position of the active match.
+  * `matches` Integer - Number of Matches.
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Emittiert, wenn ein Ergebnis für [`webContents.findInPage`] Anforderung verfügbar ist.
+Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Event: 'media-started-playing'
 
@@ -501,16 +501,16 @@ Emittiert wenn ein Media Element anfängt zu spielen.
 
 #### Event: 'media-paused'
 
-Emittiert, wenn Medien angehalten oder die Wiedergabe beendet ist.
+Emitted when media is paused or done playing.
 
 #### Event: 'did-change-theme-color'
 
 Rückgabewert:
 
 * `event` Event
-* `color` (String | null) - Die Designfarbe ist im Format '#rrggbb'. Es ist `null` , wenn keine Designfarbe festgelegt ist.
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
-Emittiert, wenn sich die Designfarbe einer Seite ändert. Dies ist in der Regel auf das Auftreten einem Meta-Tag zurückzuführen:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -523,7 +523,7 @@ Rückgabewert:
 * `event` Event
 * `url` String
 
-Emittiert, wenn sich die Maus über einen Link bewegt oder die Tastatur den Fokus auf einen Link verschiebt.
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
@@ -532,38 +532,38 @@ Rückgabewert:
 * `event` Event
 * `type` String
 * `image` [NativeImage](native-image.md) (optional)
-* `scale` Float (optional) - Skalierungsfaktor für den benutzerdefinierten Cursor.
+* `scale` Float (optional) - scaling factor for the custom cursor.
 * `size` [Size](structures/size.md) (optional) - Die Größe des`Bildes`.
-* `hotspot` [Point](structures/point.md) (optional) - Koordinaten des Hotspots des benutzerdefinierten Cursors.
+* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
 Emittiert wenn der Cursor Typ sich ändert. Der `type` Parameter kann folgenden Werte haben `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-Wenn der Parameter `type` `custom`ist, enthält der Parameter `image` das benutzerdefinierte Cursorbild in einem [`NativeImage`](native-image.md), und `scale`, `size` und `hotspot` enthalten zusätzliche Informationen über den benutzerdefinierten Cursor.
+If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
 #### Event: 'context-menu'
 
 Rückgabewert:
 
 * `event` Event
-* `params` -Objekt
+* `params` Object
   * `x` Integer - x Koordinate.
   * `y` Integer - y Koordinate.
-  * `linkURL` String - URL des Links, der den Knoten einschließt, auf dem das Kontextmenü aufgerufen wurde.
-  * `linkText` String - Text, der dem Link zugeordnet ist. Kann eine leere Zeichenfolge sein, wenn der Inhalt des Links ein Bild ist.
-  * `pageURL` String - URL der Seite der obersten Ebene, auf der das Kontextmenü aufgerufen wurde.
-  * `frameURL` String - URL des Subframes, auf dem das Kontextmenü aufgerufen wurde, .
-  * `srcURL` String - Quell-URL für das Element, für das das Kontextmenü aufgerufen wurde. Elemente mit Quell-URLs sind Bilder, Audio und Video.
-  * `mediaType` String - Typ des Knotens, auf dem das Kontextmenü aufgerufen wurde. Kann `none`, `image`, `audio`, `video`, `canvas` `file` oder `plugin`sein.
-  * `hasImageContents` Boolean - Gibt an, ob das Kontextmenü für ein Bild aufgerufen wurde das nicht leeren Inhalt hat.
-  * `isEditable` Boolean - Gibt an, ob der Kontext editierbar ist.
-  * `selectionText` String - Text der Auswahl, für die das Kontextmenü aufgerufen wurde.
-  * `titleText` String - Titel oder Alttext der Auswahl, für die der Kontext aufgerufen wurde.
-  * `misspelledWord` String - Das falsch geschriebene Wort unter dem Cursor, falls vorhanden.
-  * `dictionarySuggestions` String[] - Ein Array von vorgeschlagenen Wörtern, um den Benutzer anzuzeigen, der die `misspelledWord`ersetzt.  Nur verfügbar, wenn ein falsch geschriebenes Wort und rechtschreibweise aktiviert ist.
-  * `frameCharset` String - Die Zeichencodierung des Frames, für den das Menü aufgerufen wurde.
-  * `inputFieldType` String - Wenn das Kontextmenü für ein Eingabefeld aufgerufen wurde, , der Typ dieses Feldes. Mögliche Werte sind `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Eingabequelle, die das Kontextmenü aufgerufen hat. Kann `none`, `mouse`, `keyboard`, `touch` oder `touchMenu`sein.
-  * `mediaFlags` -Objekt - Die Flags für das Medienelement, für das das Kontextmenü aufgerufen wurde.
+  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
+  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
+  * `pageURL` String - URL of the top level page that the context menu was invoked on.
+  * `frameURL` String - URL of the subframe that the context menu was invoked on.
+  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
+  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
+  * `isEditable` Boolean - Whether the context is editable.
+  * `selectionText` String - Text of the selection that the context menu was invoked on.
+  * `titleText` String - Title or alt text of the selection that the context was invoked on.
+  * `misspelledWord` String - The misspelled word under the cursor, if any.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
+  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
+  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
     * `inError` Boolean - Whether the media element has crashed.
     * `isPaused` Boolean - Whether the media element is paused.
     * `isMuted` Boolean - Whether the media element is muted.
