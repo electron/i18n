@@ -36,7 +36,7 @@ Una biblioteca compartida que incluye el [módulo de contenido de Chromium][] y 
 
 ### proceso principal
 
-El proceso principal, comúnmente un archivo denominado `main.js`, es el punto de entrada para cada App de electrones . Controla la vida de la aplicación, de abierto a cerrado. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. El proceso principal de es responsable de crear cada nuevo proceso de representador en la App. La API completa de Node está integrada.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. Controla la vida de la aplicación, de abierto a cerrado. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. The main process is responsible for creating each new renderer process in the app. La API completa de Node está integrada.
 
 El archivo de proceso principal de cada aplicación se especifica en la propiedad `main` en `package.json`. Así es como `electron` sabe qué archivo ejecutar al inicio.
 
@@ -80,7 +80,7 @@ Véase también: [proceso principal](#main-process), [proceso de renderizado](#r
 
 ### proceso de renderizado
 
-El renderer process es una ventana de navegador en tu aplicación. A diferencia del proceso principal, puede haber múltiples de estos y cada uno se ejecuta en un proceso separado. También se pueden ocultar.
+El renderer process es una ventana de navegador en tu aplicación. Unlike the main process, there can be multiple of these and each is run in a separate process. También se pueden ocultar.
 
 En los navegadores normales, las páginas web generalmente se ejecutan en espacio aislado y no se les permite el acceso a recursos nativos. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
@@ -110,7 +110,7 @@ Los números de versión de V8 siempre corresponden a los de Google Chrome. Chro
 
 ### webview
 
-las etiquetas `webview` se usan para incrustar contenido ' huésped ' (como páginas web externas) en tu App Electron. Son similares a `iframe`s, pero difieren en que cada WebView se ejecuta en un proceso separado. No tiene los mismos permisos que su página web y todas las interacciones entre tu aplicación y el contenido incluido serán asincrónicas. Esto mantiene a tu aplicación protegida de contenido incluido.
+`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. No tiene los mismos permisos que su página web y todas las interacciones entre tu aplicación y el contenido incluido serán asincrónicas. Esto mantiene a tu aplicación protegida de contenido incluido.
 
 [addons]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
