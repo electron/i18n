@@ -213,7 +213,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` （[上传数据]](structures/upload-raw-data.md) | [上传文件[]](structures/upload-file.md)）（可选）
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 返回 `Promise<void>` - 当页面完成加载 时，承诺将解决（见 [`did-finish-load`](webview-tag.md#event-did-finish-load)），如果页面无法加载，则拒绝 （见 [`did-fail-load`](webview-tag.md#event-did-fail-load)）。
@@ -514,9 +514,9 @@ Starts a request to find all matches for the `text` in the web page. 请求的�
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-返回 `Promise<NativeImage>` - 解决与 [原生图像](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-在 `rect`内捕获页面的快照。 省略 `rect` 将捕获整个可见页面。
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.发送（频道，阿格斯）`
 
