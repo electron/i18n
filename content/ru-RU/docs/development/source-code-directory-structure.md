@@ -1,15 +1,15 @@
 # Структура каталога с исходным кодом
 
-Исходный код Electron разделен на несколько частей, в основном после Хрома на конвенциях разделения.
+The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
 
-Возможно, вам придется ознакомиться [многопроцесовой архитектурой Chromium ,](https://dev.chromium.org/developers/design-documents/multi-process-architecture) лучше понять исходный код.
+You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
-## Структура исходных кодов
+## Structure of Source Code
 
 ```diff
 Electron
-├/ - Создайте файлы конфигурации, необходимые для построения с помощью GN.
-├ buildflags/ - Определяет набор функций, которые могут быть условно построены.
+├── build/ - Build configuration files needed to build with GN.
+├── buildflags/ - Determines the set of features that can be conditionally built.
 ├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
 ├── default_app/ - A default app run when Electron is started without
 |                  providing a consumer app.
