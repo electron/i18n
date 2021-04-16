@@ -153,7 +153,7 @@ Ein `Boolean`. When this attribute is present the guest page will have web secur
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Durch Zuweisen derselben `partition`können mehrere Seiten derselben Sitzung gemeinsam nutzen. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -572,7 +572,7 @@ Setzt das Maximum und Minimum pinch-to-zoom Level.
 
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
-Zeigt das Popupwörterbuch an, das das ausgewählte Wort auf der Seite durchsucht.
+Shows pop-up dictionary that searches the selected word on the page.
 
 ### `<webview>.getWebContentsId()`
 
