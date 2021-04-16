@@ -1,98 +1,98 @@
 # Тег `<webview>`
 
-## Предупреждение
+## Warning
 
-Тег Electron `webview` основан на [Chromium, `webview`][chrome-webview]который драматические архитектурные изменения. Это влияет на стабильность `webviews`, включая визуализацию, навигацию и маршрутизацию событий. В настоящее время мы рекомендуем использовать тег `webview` и рассмотреть альтернативные варианты, такие как `iframe`, Electron's `BrowserView`, или архитектура, которая позволяет избежать встроенного контента в целом.
+Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
-## Включение
+## Enabling
 
-По умолчанию `webview` отключен в Electron >No 5.  Вы должны включить тег, настройки `webviewTag` webPreferences при построении вашего `BrowserWindow`. Для более подробной информации [документах конструктора BrowserWindow](browser-window.md).
+By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## Обзор
 
-> Отображение внешнего веб-контента в изолированном кадре и процессе.
+> Display external web content in an isolated frame and process.
 
 Процесс: [Графический](../glossary.md#renderer-process)
 
-Используйте тег `webview` для встраивания содержимого «гостей» (например, веб-страниц) в приложение Electron. Содержимое гостевого номера содержится в `webview` контейнера. Встроенная страница в приложении контролирует, как выкладывается содержимое гостя и рендер.
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
-В отличие `iframe`, `webview` работает в отдельном процессе, чем ваше приложение. Он не имеет тех же разрешений, что и ваша веб-страница, и все взаимодействия приложением и встроенным контентом будут асинхронными. Это обеспечивает безопасность от встроенного содержимого. **Примечание:** большинство методов, веб-просмотр с хост-страницы требуют синхронного вызова к основному процессу.
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
 ## Пример
 
-Чтобы встроить веб-страницу в приложение, добавьте тег `webview` на встраиваемую страницу приложения (это страница приложения, на которую будет отображаться содержимое гостя). В своей форме тег `webview` включает в себя `src` веб-страницы и стилей css которые контролируют внешний вид `webview` контейнера:
+To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-Если вы хотите контролировать гостевой контент каким-либо образом, вы можете написать JavaScript , который слушает события `webview` и реагирует на эти события с помощью `webview` методов. Вот пример кода с двумя слушателями событий: один, который слушает для веб-страницы, чтобы начать загрузку, другой для веб-страницы, чтобы остановить загрузку, и отображает "загрузку ..." сообщение во время загрузки:
+If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
 
 ```html
 <script>
-  onload () -> -
-    const webview - document.querySelector ('webview')
-    const indicator - document.querySelector ('.indicator')
+  onload = () => {
+    const webview = document.querySelector('webview')
+    const indicator = document.querySelector('.indicator')
 
-    const loadstart (
-      > )
-    
+    const loadstart = () => {
+      indicator.innerText = 'loading...'
+    }
 
-    конст-нагрузок () -> - индикатор
-      .innerText - ''
-    -
+    const loadstop = () => {
+      indicator.innerText = ''
+    }
 
-    webview.addEventListener ("did-start-loading",, loadstart)
-    webview.addEventListener ('did-stop-loading', loadstop)
-
+    webview.addEventListener('did-start-loading', loadstart)
+    webview.addEventListener('did-stop-loading', loadstop)
+  }
 </script>
 ```
 
-## Внутренняя реализация
+## Internal implementation
 
-Под капотом `webview` реализована с [вне процесса iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). Тег `webview` по существу пользовательский элемент, использующий теневой DOM, чтобы обернуть `iframe` элемент внутри него.
+Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
 
-Так что поведение `webview` очень похоже на кросс-доменную `iframe`, примеры:
+So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
-* При нажатии на `webview`, фокус страницы будет двигаться от встраиваемого кадра к `webview`.
-* Вы не можете добавить клавиатуру, мышь, и прокрутки событий слушателей `webview`.
-* Все реакции между рамкой встраиваемого `webview` асинхронными.
+* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
+* All reactions between the embedder frame and `webview` are asynchronous.
 
-## CSS Укладка Примечания
+## CSS Styling Notes
 
-Обратите внимание, что стиль тега `webview` использует `display:flex;` внутренне для обеспечения того, чтобы элемент `iframe` ребенка заполнял всю высоту и ширину контейнера `webview` при использовании с традиционными макетами flexbox. Пожалуйста, не переписать значение `display:flex;` CSS, если не указать `display:inline-flex;` для inline макета.
+Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
-## Атрибуты тегов
+## Tag Attributes
 
-Тег `webview` имеет следующие атрибуты:
+The `webview` tag has the following attributes:
 
-### `Src`
+### `src`
 
 ```html
 <webview src="https://www.github.com/"></webview>
 ```
 
-Веб `String` представляющий видимый URL. Написание этого атрибута инициирует навигацию уровня.
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
-Назначение `src` собственного значения перезагрузит текущую страницу.
+Assigning `src` its own value will reload the current page.
 
-Атрибут `src` может также принимать URL-адреса данных, такие как `data:text/plain,Hello, world!`.
+The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
-### `узла`
+### `nodeintegration`
 
 ```html
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-А `Boolean`. При этом атрибуте гостевая страница в `webview` будет иметь интеграцию и может использовать API узла, такие как `require` и `process` , для доступа к низкоуровневым системных ресурсов. Интеграция узла отключена по умолчанию на странице узла.
+А `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
-### `узлаинтеграцииubframes`
+### `nodeintegrationinsubframes`
 
 ```html
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-Метод `Boolean` экспериментального варианта для включения поддержки NodeJS в подрамнике, таких как iframes внутри `webview`. Все ваши предустановки будут загружаться для каждого iframe, вы использовать `process.isMainFrame` , чтобы определить, если вы находитесь в основной кадр или нет. Эта опция отключена по умолчанию на странице гостя.
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -100,15 +100,15 @@
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-А `Boolean`. При использовании этого `false` страница в `webview` не будет иметь доступа к [`remote`](remote.md) модулю. Удаленный модуль недоступен по умолчанию.
+А `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
 
-### `Плагины`
+### `plugins`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-А `Boolean`. При этом атрибуте гостевая страница в `webview` сможет использовать плагины браузера. Плагины отключены по умолчанию.
+А `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `предварительная загрузка`
 
@@ -116,11 +116,11 @@
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Веб `String` который определяет сценарий, который будет загружен до запуска других скриптов на странице страницы. Протокол URL-адреса скрипта должен быть либо `file:` , либо `asar:`, так как он загружен `require` гостевой странице под капотом.
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
 
-Когда у гостевой страницы нет интеграции узла, этот скрипт по-прежнему будет иметь доступ ко всем API узла, но глобальные объекты, введенные Node, будут удалены после завершения выполнения этого скрипта.
+When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
-**Примечание:** Эта опция будет отображаться как `preloadURL` (не `preload`) `webPreferences` , указанном `will-attach-webview` событии.
+**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -128,60 +128,60 @@
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Веб `String` , который устанавливает URL-адрес реферера для гостевой страницы.
+A `String` that sets the referrer URL for the guest page.
 
-### `Useragent`
+### `useragent`
 
 ```html
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Веб `String` , который устанавливает агента пользователя для гостевой страницы, прежде чем страница перемещается. После загрузки страницы используйте `setUserAgent` для изменения пользовательского агента.
+A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
-### `disablewebбезопасность`
+### `disablewebsecurity`
 
 ```html
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-А `Boolean`. При этом атрибуте гостевая страница будет отключена. Веб-безопасность включена по умолчанию.
+А `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
-### `Раздел`
+### `partition`
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Веб `String` , который устанавливает сеанс, используемый страницей. Если `partition` начинается с `persist:`, страница будет использовать постоянный сеанс, доступный для всех страниц приложения с же `partition`. если нет `persist:` префикса, страница будет использовать сеанс в памяти. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. Если `partition` неустановлен, то будет использоваться сеанс по умолчанию.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. если нет `persist:` префикса, страница будет использовать сеанс в памяти. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. If the `partition` is unset then default session of the app will be used.
 
-Это значение может быть изменено только до первой навигации, так как процесса активного рендерера не может измениться. Последующие попытки изменить значение не увенчаются успехом за исключением DOM.
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
-### `позволяютпопупы`
+### `allowpopups`
 
 ```html
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-А `Boolean`. При этом атрибуте гостевой странице будет разрешено открывать новые окна. Всплывающие окна отключены по умолчанию.
+А `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
-### `веб-предосудения`
+### `webpreferences`
 
 ```html
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-Веб `String` который является запятой разделенный список строк, который определяет веб-предпочтения, которые будут установлены на веб-просмотр. Полный список поддерживаемых строк предпочтений можно найти в [BrowserWindow](browser-window.md#new-browserwindowoptions).
+A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-Строка следует тому же формату, что и строка функций в `window.open`. Имя само по себе дается `true` значение. Предпочтение может быть установлено на другое значение, включив `=`, а затем значение. Специальные значения `yes` и `1` интерпретируются как `true`, в то `no` и `0` интерпретируются как `false`.
+The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.
 
-### `включитьblinkfeatures`
+### `enableblinkfeatures`
 
 ```html
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-В `String` , который является списком строк, в которых указаны функции мигать, которые будут включены разделенными `,`. Полный список поддерживаемых строк функций можно найти в [RuntimeEnabledFeatures.json5][runtime-enabled-features] файле.
+A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ### `disableblinkfeatures`
 
@@ -189,21 +189,21 @@
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-В `String` , который является списком строк, в которых указаны функции мигать, которые будут отключены разделены `,`. Полный список поддерживаемых строк функций можно найти в [RuntimeEnabledFeatures.json5][runtime-enabled-features] файле.
+A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
 
 ## Методы
 
-Тег `webview` имеет следующие методы:
+The `webview` tag has the following methods:
 
-**Примечание:** элемент веб-просмотр должен быть загружен перед использованием методов.
+**Note:** The webview element must be loaded before using the methods.
 
 **Пример**
 
 ```javascript
-const веб-просмотр - document.querySelector ('webview')
-webview.addEventListener ('дом-готов', () -> -
-  webview.openDevTools ()
-)
+const webview = document.querySelector('webview')
+webview.addEventListener('dom-ready', () => {
+  webview.openDevTools()
+})
 ```
 
 ### `<webview>.loadURL (url, опционы)`
@@ -216,11 +216,11 @@ webview.addEventListener ('дом-готов', () -> -
   * `postData` ([UploadRawData)](structures/upload-raw-data.md) | [UploadFile)](structures/upload-file.md)) (по желанию)
   * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Возвращает `Promise<void>` - Обещание разрешится, когда страница закончит загрузку (см. [`did-finish-load`](webview-tag.md#event-did-finish-load)), и отклоняет , если страница не загружается (см. [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
-Загружает `url` в веб-просмотре, `url` должен содержать приставку протокола, например, `http://` или `file://`.
+Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
-### `<webview>.downloadURL (url)`
+### `<webview>.downloadURL(url)`
 
 * `url` String
 
@@ -228,15 +228,15 @@ webview.addEventListener ('дом-готов', () -> -
 
 ### `<webview>.getURL()`
 
-Возвращает `String` - URL страницы гостя.
+Returns `String` - The URL of guest page.
 
 ### `<webview>.getTitle()`
 
-Возвращает `String` - Название гостевой страницы.
+Returns `String` - The title of guest page.
 
 ### `<webview>.isLoading()`
 
-Возвращает `Boolean` - Будет ли гостевая страница по-прежнему загружать ресурсы.
+Returns `Boolean` - Whether guest page is still loading resources.
 
 ### `<webview>.isLoadingMainFrame()`
 
@@ -244,7 +244,7 @@ webview.addEventListener ('дом-готов', () -> -
 
 ### `<webview>.isWaitingForResponse()`
 
-Возвращает `Boolean` - ждет ли гостевая страница первого ответа на основной ресурс страницы.
+Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
 
 ### `<webview>.stop()`
 
@@ -252,45 +252,45 @@ webview.addEventListener ('дом-готов', () -> -
 
 ### `<webview>.reload()`
 
-Перезагрузка гостевой страницы.
+Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Перезагружает страницу гостя и игнорирует кэш.
+Reloads the guest page and ignores cache.
 
 ### `<webview>.canGoBack()`
 
-Возвращает `Boolean` - может ли гостевая страница вернуться.
+Returns `Boolean` - Whether the guest page can go back.
 
-### `<webview>.canGoForward ()`
+### `<webview>.canGoForward()`
 
-Возвращает `Boolean` - Может ли гостевая страница идти вперед.
+Returns `Boolean` - Whether the guest page can go forward.
 
-### `<webview>.canGoToOffset (смещение)`
+### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Возвращает `Boolean` - Может ли гостевая страница перейти к `offset`.
+Returns `Boolean` - Whether the guest page can go to `offset`.
 
-### `<webview>.clearИстория()`
+### `<webview>.clearHistory()`
 
 Очищает историю навигации.
 
 ### `<webview>.goBack()`
 
-Делает гостевую страницу вернуться.
+Makes the guest page go back.
 
-### `<webview>.goForward ()`
+### `<webview>.goForward()`
 
-Делает страницу гостя идти вперед.
+Makes the guest page go forward.
 
-### `<webview>.goToIndex (индекс)`
+### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-Переходит к указанному абсолютному индексу.
+Navigates to the specified absolute index.
 
-### `<webview>.goToOffset (смещение)`
+### `<webview>.goToOffset(offset)`
 
 * `offset` Integer
 
@@ -300,67 +300,67 @@ webview.addEventListener ('дом-готов', () -> -
 
 Возвращает `Boolean` - разбился ли процесс рендерера.
 
-### `<webview>.setUserAgent (userAgent)`
+### `<webview>.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Переопределяет агента пользователя для гостевой страницы.
+Overrides the user agent for the guest page.
 
 ### `<webview>.getUserAgent()`
 
-Возвращает `String` - Пользовательский агент для гостевой страницы.
+Returns `String` - The user agent for guest page.
 
-### `<webview>.insertCSS (css)`
+### `<webview>.insertCSS(css)`
 
 * `css` String
 
-Возвращает `Promise<String>` - Обещание, которое разрешает с ключом для вставленного CSS, которые позже могут быть использованы для удаления CSS через `<webview>.removeInsertedCSS(key)`.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
 
 Вводит CSS на текущую веб-страницу и возвращает уникальный ключ для вставленного таблицы.
 
-### `<webview>.removeInsertedCSS (ключ)`
+### `<webview>.removeInsertedCSS(key)`
 
 * `key` String
 
 Возвращает `Promise<void>` - Разрешает, если удаление было успешным.
 
-Удаляет вставленный CSS с текущей веб-страницы. Таблица стилей идентифицируется ключом, который возвращается из `<webview>.insertCSS(css)`.
+Удаляет вставленный CSS с текущей веб-страницы. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
-### `<webview>.executeJavaScript (код, userGesture)`
+### `<webview>.executeJavaScript(code[, userGesture])`
 
 * `code` String
-* `userGesture` Булан (по желанию) - По умолчанию `false`.
+* `userGesture` Boolean (optional) - Default `false`.
 
 Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если результатом кода является отклоненное обещание.
 
-Вычисляет `code` на странице. Если `userGesture` установлен, это создаст контекст жестов на странице. HTML API, `requestFullScreen`, которые требуют действий пользователя, могут воспользоваться этой опцией для автоматизации.
+Вычисляет `code` на странице. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
-Открывает окно DevTools для гостевой страницы.
+Opens a DevTools window for guest page.
 
 ### `<webview>.closeDevTools()`
 
-Закрывает окно DevTools гостевой страницы.
+Closes the DevTools window of guest page.
 
-### `<webview>.isDevToolsOpened ()`
+### `<webview>.isDevToolsOpened()`
 
-Возвращает `Boolean` - Имеет ли гостевая страница прикрепленное окно DevTools.
+Returns `Boolean` - Whether guest page has a DevTools window attached.
 
-### `<webview>.isDevToolsFocused ()`
+### `<webview>.isDevToolsFocused()`
 
-Возвращает `Boolean` - Ли DevTools окно гостевой страницы сосредоточена.
+Returns `Boolean` - Whether DevTools window of guest page is focused.
 
-### `<webview>.inspectElement (x, y)`
+### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Начинает проверку элемента на позиции (`x`, `y`) гостевой страницы.
+Starts inspecting element at position (`x`, `y`) of guest page.
 
 ### `<webview>.inspectSharedWorker()`
 
-Открывает DevTools для общего контекста работника, присутствуют на гостевой странице.
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
