@@ -85,7 +85,7 @@ Returns `boolean` - Whether the reload was initiated successfully. Only results 
 * `channel` String (Строка)
 * `...args` any[]
 
-Отправить асинхронное сообщение процессу рендерера через `channel`, наряду с аргументами. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
+Отправить асинхронное сообщение процессу рендерера через `channel`, наряду с аргументами. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 Процесс рендерера может обрабатывать сообщение, слушая `channel` с [`ipcRenderer`](ipc-renderer.md) модулем.
 
