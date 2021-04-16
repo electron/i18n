@@ -1,5 +1,5 @@
-# 共享网站对象
+# SharingItem Object
 
-* `texts` 字符串 [] （可选） - 要共享的文本阵列。
-* `filePaths` 字符串[]（可选） - 要共享的文件阵列。
-* `urls` 字符串[]（可选） - 要共享的网址阵列。
+* `texts` String[] (optional) - An array of text to share.
+* `filePaths` String[] (optional) - An array of files to share.
+* `urls` String[] (optional) - An array of URLs to share.
