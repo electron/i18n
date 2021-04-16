@@ -22,7 +22,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` _Experimental_
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `webPreferences` Object (optional) - Siehe [BrowserWindow](browser-window.md).
 
 ### Instanz Eigenschaften
@@ -39,7 +39,7 @@ Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Instanzmethod
 
 #### `view.setAutoResize(options)` _Experimentell_
 
-* `options` -Objekt
+* `options` Object
   * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
