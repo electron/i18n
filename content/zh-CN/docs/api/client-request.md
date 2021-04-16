@@ -49,15 +49,15 @@ const request = net.request({
 
 返回:
 
-* `authInfo` 对象
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` 字符串（可选）
-  * `password` 字符串（可选）
+  * `username` String (optional)
+  * `password` String (optional)
 
 当身份验证代理请求用户认证时触发
 
