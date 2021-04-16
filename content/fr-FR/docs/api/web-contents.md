@@ -668,7 +668,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `level` Integer - The log level, from 0 to 3. Dans l’ordre, il correspond `verbose`, `info`, `warning` et `error`.
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - Le message de la console réelle
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
@@ -1538,7 +1538,7 @@ ipcMain.on('ping', (event) => {
 
 * `channel` String
 * `message` tous
-* `transfer` MessagePortMain[] (facultatif)
+* `transfer` MessagePortMain[] (optional)
 
 Envoie un message au processus de rendu en effectuant éventuellement un transfert de propriété de zéro ou plus objets de type [`MessagePortMain`][].
 
