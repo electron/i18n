@@ -460,25 +460,25 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 ### `<webview>.print([options])`
 
 * `options` Object (opcional)
-  * `silent` Boolean (opcional)-no le pidas a un usuario las configuraciones de impresión. Por defecto es `false`.
-  * `printBackground` Boolean (opcional)-imprime el color de fondo y la imagen de la Página Web. Por defecto es `false`.
-  * `deviceName` String (opcional)-configura el nombre del dispositivo de la impresora para usar. Debe ser el nombre definido por el sistema y no el nombre ' Friendly ', p. ej., ' Brother_QL_820NWB ' y no ' Brother QL-820NWB '.
-  * `color` Boolean (opcional)-establecer si la página web impresa estará en color o en escala de grises. Por defecto es `true`.
-  * `margins` objeto (opcional)
+  * `silent` Boolean (optional) - Don't ask user for print settings. Por defecto es `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por defecto es `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por defecto es `true`.
+  * `margins` Object (optional)
     * `marginType` String (opcional) - Puede ser `default`, `none`, `printableArea`, o `custom`. Si `custom` es elegido, además necesitar especificar `top`, `bottom`, `left`, y `right`.
     * `top` Number (opcional) - El margen superior de la página web impresa, en píxeles.
     * `bottom` Number (opcional) - El margen inferior de la página web impresa, en píxeles.
     * `left` Number (opcional) - El margen izquierdo de la página web impresa, en píxeles.
     * `right` Number (opcional) - El margen derecho de la página web impresa, en píxeles.
-  * `landscape` Boolean (opcional)-si la página web debe imprimirse en modo horizontal. Por defecto es `false`.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Por defecto es `false`.
   * `scaleFactor` Number (opcional) - El factor de escalado de la página web.
   * `pagesPerSheet` Number (opcional) - El número de páginas a imprimir por hoja de página.
   * `collate` Boolean (opcional) - Si la página web debe ser intercalada.
   * `copies` Number (opcional) - El número de copias de la página web a imprimir.
   * `pageRanges` Object[] (optional) - The page range to print.
-    * `from` número-índice de la primera página en imprimir (basado en 0).
+    * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
-  * `duplexMode` String (opcional)-configura el modo dúplex de la página web impresa. Puede ser `simplex`, `shortEdge`o `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (opcional)
     * `horizontal` Number (opcional) - El dpi horizontal.
     * `vertical` Number (opcional) - El dpi vertical.
@@ -497,10 +497,10 @@ Imprime la página web de `webview`. Igual que `webContents.print([options])`.
     * `title` String - El título para el encabezado PDF.
     * `url` String - la url para el pie de página PDF.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
-  * `marginsType` Integer (opcional): especifica el tipo de márgenes que se utilizarán. Usa 0 para margen predeterminado, 1 para ningún margen y 2 para un margen mínimo. y `width` en micrones.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. y `width` en micrones.
   * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Puede variar entre 0 to 100.
-  * `pageRanges`<string, number> de registro (opcional)-el rango de página a imprimir. On macOS, only the first range is honored.
-    * `from` número-índice de la primera página en imprimir (basado en 0).
+  * `pageRanges` Record<string, number> (optional) - The page range to print. On macOS, only the first range is honored.
+    * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
   * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height`
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
@@ -551,7 +551,7 @@ Cambia el nivel de zoom al nivel especificado. Factor de zoom es porcentaje de z
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. La fórmula para esto es `scale := 1.2 ^ level`.
 
-> **Nota**: la política de zoom en el nivel de cromo es la misma-origen, lo que significa que el nivel de zoom para un dominio específico se propaga en todas las instancias de Windows con el mismo dominio. Diferenciar las URL de las ventanas hará que el zoom se trabaje por ventana.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `<webview>.getZoomFactor()`
 
