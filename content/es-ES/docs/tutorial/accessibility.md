@@ -6,7 +6,7 @@ Hacer que las aplicaciones sean accesibless es importante y estemos encantados d
 
 Los problemas de accesibilidad en las aplicaciones Electron son similares a los de los sitios web ya que ambos son básicamente HTML. Sin embargo, con las aplicaciones de Electron, no se pueden usar auditorías de accesibilidad online ya que la aplicación no posee una URL que la herramienta de auditoria pueda acceder.
 
-Estas características traen esas herramientas de auditoría a tu App Electron. Puedes elegir agregar auditorías a tus pruebas con Spectron o utilizarlas dentro de DevTools con Devtron. Sigue leyendo para un resumen de las herramientas.
+These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Sigue leyendo para un resumen de las herramientas.
 
 ## Spectron
 
@@ -40,7 +40,7 @@ También puede cambiar manualmente estas características dentro de su aplicaci�
 
 ### Utilizando la API de Electron
 
-Al usar el [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, puedes exponer de forma manual el árbol de accesibilidad de Chrome a los usuarios en las preferencias de la aplicación. Tenga en cuenta que las utilidades de asistencia al sistema del usuario tienen prioridad sobre esta configuración y la reemplazará.
+By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Tenga en cuenta que las utilidades de asistencia al sistema del usuario tienen prioridad sobre esta configuración y la reemplazará.
 
 ### Usando software de terceros
 
