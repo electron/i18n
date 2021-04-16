@@ -69,7 +69,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
@@ -79,7 +79,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被右击时触发。
@@ -88,7 +88,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被双击时触发。
@@ -143,7 +143,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标从单击托盘图标中释放时发出。
@@ -154,7 +154,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标单击托盘图标时发出。
@@ -163,7 +163,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标进入该任务栏图标时，触发该事件。
@@ -172,7 +172,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标离开该任务栏图标时，触发该事件。
@@ -181,7 +181,7 @@ __平台限制：__
 
 返回:
 
-* `event` [键盘事件](structures/keyboard-event.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标在该任务栏图标上移动时，触发该事件。
