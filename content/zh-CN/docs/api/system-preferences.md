@@ -388,9 +388,9 @@ This user consent was not required on macOS 10.13 High Sierra or lower so this m
 
 Windows 10 has a global setting controlling `microphone` and `camera` access for all win32 applications. It will always return `granted` for `screen` and for all media types on older versions of Windows.
 
-### `systemPreferences.askForMediaAccess(mediaType)` _马科斯_
+### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 
-* `mediaType` 字符串 - 请求的媒体类型;可以 `microphone`， `camera`。
+* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
 
 Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it _must_ be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
@@ -398,19 +398,19 @@ Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was 
 
 This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
 
-### `系统预置。获取动画设置（）`
+### `systemPreferences.getAnimationSettings()`
 
 返回 ` Object `:
 
-* `shouldRenderRichAnimation` 布尔 - 返回真实， 如果丰富的动画应该呈现。 查看会话类型（例如远程桌面）和辅助功能设置，为重动画提供指导。
-* `scrollAnimationsEnabledBySystem` Boolean - 根据每个平台确定是否应启用滚动动画（例如由主页/端键生成）。
-* `prefersReducedMotion` 布尔 - 确定用户是否希望基于平台 ABI 降低运动量。
+* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
+* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
+* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
 
 Returns an object with system animation settings.
 
 ## Properties
 
-### `systemPreferences.appLevelAppearance` _马科斯_
+### `systemPreferences.appLevelAppearance` _macOS_
 
 A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
@@ -418,7 +418,7 @@ Possible values that can be set are `dark` and `light`, and possible return valu
 
 This property is only available on macOS 10.14 Mojave or newer.
 
-### `systemPreferences.effectiveAppearance` _马科斯_ _只_
+### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
 
 A `String` property that can be `dark`, `light` or `unknown`.
 
