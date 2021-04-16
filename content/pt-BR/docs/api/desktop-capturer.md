@@ -72,7 +72,7 @@ O módulo `desktopCapturer` tem os seguintes métodos:
 
 ### `desktopCapturer.getSources(opções)`
 
-* objeto `options`
+* `options` Object
   * `types` String[] - Um array de Strings que lista os tipos de área de trabalho a serem capturadas, tipos disponíveis são `screen` e `window`.
   * `thumbnailSize` [Tamanho](structures/size.md) (opcional) - O tamanho para o da miniatura de fonte de mídia deve ser dimensionado. Padrão é `150` x `150`. Ajuste a largura ou a altura para 0 quando não precisar as miniaturas. Isso economizará o tempo de processamento necessário para capturar o conteúdo de cada janela e tela .
   * `fetchWindowIcons` Booleano (opcional) - Defina como true para ativar ícones de janela de busca. O valor padrão é falso. Quando falsa a propriedade appIcon das fontes retornam nulas. O mesmo se uma fonte tiver a tela do tipo.
