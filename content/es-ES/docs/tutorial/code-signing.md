@@ -163,7 +163,7 @@ Hay una serie de herramientas para firmar su aplicación empaquetada:
 
 * [`electron-winstaller`][] generará un instalador para Windows y lo firmará usted
 * [`electron-forge`][] puede firmar instaladores que genera a través de Squirrel.Windows o objetivos MSI.
-* [`electron-builder`][] puede firmar algunos de sus objetivos de Windows
+* [`electron-builder`][] can sign some of its windows targets
 
 ## Windows Store
 
