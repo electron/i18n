@@ -1,6 +1,6 @@
 # Option `sandbox`
 
-> Créez une fenêtre de navigateur avec un renderer bac à sable. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Une des fonctionnalités de sécurité majeure de Chromium est que tous les rendements de Blink/le code JavaScript sont éxécutés isolé dans un bac à sable (sandbox). Ce bac à sable utilise des fonctionnalités spécifiques au système pour s’assurer que les exploits dans le processus de redement ne puissent pas nuire au système.
 
@@ -20,44 +20,44 @@ Pour créer une fenêtre en bac à sable, passez `bac à sable : true` à `webPr
 
 ```js
 let win
-app.whenReady().then()=> {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true
     }
   })
-  win.loadURL ('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
-Dans le code ci-dessus, le [`BrowserWindow`](browser-window.md) qui a été créé a Node.js désactivé et ne peut communiquer que via IPC. L'utilisation de cette option empêche Electron de créer un runtime Node.js dans le moteur de rendu. En outre, dans cette nouvelle fenêtre `window.open` suit le comportement natif (par défaut Electron crée un [`BrowserWindow`](browser-window.md) et renvoie un proxy à ce via `window.open`).
+Dans le code ci-dessus, le [`BrowserWindow`](browser-window.md) qui a été créé a Node.js désactivé et ne peut communiquer que via IPC. L'utilisation de cette option empêche Electron de créer un runtime Node.js dans le moteur de rendu. Also, within this new window `window.open` follows the native behavior (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 [`app.enableSandbox`](app.md#appenablesandbox) peut être utilisé pour forcer `sandbox: true` pour toutes les instances `BrowserWindow`.
 
 ```js
 let win
 app.enableSandbox()
-app.whenReady().then()) => {
-  // pas besoin de passer 'bac à sable: vrai' depuis 'app.enableSandbox)' a été appelé.
-  win = nouveau BrowserWindow()
-  win.loadURL ('http://google.com')
+app.whenReady().then(() => {
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  win = new BrowserWindow()
+  win.loadURL('http://google.com')
 })
 ```
 
 ## Preload
 
-Une application peut effectuer des personnalisations sur des rendus bacs à sable à l’aide d’un script de préchargement. Voici un exemple :
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
-app.whenReady().then()=> {
-  win = new BrowserWindow ({
+app.whenReady().then(() => {
+  win = new BrowserWindow({
     webPreferences: {
-      bac à sable: vrai,
-      préchargement: path.join(app.getAppPath(), 'preload.js')
+      sandbox: true,
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
-  win.loadURL ('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
