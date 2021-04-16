@@ -1,10 +1,10 @@
 ## Clase: ServiceWorkers
 
-> Consultar y recibir eventos de una sesión de los trabajadores del servicio activo.
+> Query and receive events from a sessions active service workers.
 
 Proceso: [Main](../glossary.md#main-process)
 
-Se obtiene acceso a las instancias de la clase `ServiceWorkers` utilizando `serviceWorkers` propiedad de una `Session`.
+Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
 Por ejemplo:
 
@@ -27,35 +27,35 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 ### Eventos de Instancia
 
-Los siguientes eventos están disponibles en instancias de `ServiceWorkers`:
+The following events are available on instances of `ServiceWorkers`:
 
 #### Evento: 'console-message'
 
 Devuelve:
 
 * `event` Event
-* `messageDetails` objeto-información acerca del mensaje de la consola
-  * `message` String-el mensaje de la consola real
-  * `versionId` Number-el ID de versión del Service Worker que envió el mensaje de registro
-  * `source` String-el tipo de fuente para este mensaje.  Puede ser `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` o `other`.
-  * `level` Number-el nivel de registro, de 0 a 3. Con el fin de que coincida con `verbose`, `info`, `warning` y `error`.
-  * `sourceUrl` String-la URL a la que vino el mensaje
-  * Número de `lineNumber` -el número de línea del origen que activó este mensaje de consola
+* `messageDetails` Object - Information about the console message
+  * `message` String - The actual console message
+  * `versionId` Number - The version ID of the service worker that sent the log message
+  * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
+  * `level` Number - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+  * `sourceUrl` String - The URL the message came from
+  * `lineNumber` Number - The line number of the source that triggered this console message
 
-Se emite cuando un Service Worker registra algo en la consola.
+Emitted when a service worker logs something to the console.
 
 ### Métodos de Instancia
 
-Los siguientes métodos están disponibles en instancias de `ServiceWorkers`:
+The following methods are available on instances of `ServiceWorkers`:
 
 #### `serviceWorkers.getAllRunning()`
 
-Devuelve `Record<Number, ServiceWorkerInfo>` -A [ServiceWorkerInfo](structures/service-worker-info.md) objeto donde las claves son el ID de la versión de trabajador del servicio y los valores son la información acerca de ese trabajador del servicio.
+Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
 
 #### `serviceWorserviceWorkers.getFromVersionID(versionId)`
 
-* `versionId` número
+* `versionId` Number
 
-Devuelve [`ServiceWorkerInfo`](structures/service-worker-info.md) -información acerca de este Service Worker
+Returns [`ServiceWorkerInfo`](structures/service-worker-info.md) - Information about this service worker
 
-Si el Service Worker no existe o no está ejecutando este método, lanzará una excepción.
+If the service worker does not exist or is not running this method will throw an exception.
