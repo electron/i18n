@@ -93,7 +93,7 @@ El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el 
 
 * `channel` Cadena
 * `mensaje` cualquiera
-* `transfer` MessagePortMain [] (opcional)
+* `transfer` MessagePortMain[] (optional)
 
 Envía un mensaje al renderer process, transfiriendo opcionalmente la propiedad de cero o más objetos [`MessagePortMain`][].
 
