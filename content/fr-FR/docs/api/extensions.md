@@ -1,24 +1,24 @@
-# Prise en charge de l’extension Chrome
+# Chrome Extension Support
 
-Electron prend en charge un sous-ensemble des extensions [Chrome API][chrome-extensions-api-index], principalement pour prendre en charge les extensions DevTools et les extensions internes au chrome , mais il arrive également de prendre en charge d’autres fonctionnalités d’extension .
+Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-index], primarily to support DevTools extensions and Chromium-internal extensions, but it also happens to support some other extension capabilities.
 
-> **Remarque :** Electron ne prend pas en charge les extensions Chrome arbitraires du magasin , et il s’agit d’un</strong> non objectif **du projet Electron qui est parfaitement compatible avec la mise en œuvre des extensions par Chrome.</p> </blockquote> 
-> 
-> ## Extensions de chargement
-> 
-> Electron ne prend en charge que le chargement des extensions déballées (c’est-à-dire `.crx` les fichiers ne fonctionnent pas). Des extensions sont installées par`session`. Pour charger une extension, appelez [`ses.loadExtension`](session.md#sesloadextensionpath-options):
-> 
-> ```js
-const { session } = require ('electron')
+> **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
 
-session.loadExtension ('path/to/unpacked/extension').then(({ id }) => {
+## Loading extensions
+
+Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath-options):
+
+```js
+const { session } = require('electron')
+
+session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
   // ...
 })
 ```
 
-Les extensions chargées ne seront pas automatiquement rappelées à travers les sorties; si vous n' pas appeler `loadExtension` l’application s’exécute, l’extension ne sera pas chargée.
+Loaded extensions will not be automatically remembered across exits; if you do not call `loadExtension` when the app runs, the extension will not be loaded.
 
-Notez que les extensions de chargement ne sont prises en charge que dans les sessions persistantes. Attempting to load an extension into an in-memory session will throw an error.
+Note that loading extensions is only supported in persistent sessions. Attempting to load an extension into an in-memory session will throw an error.
 
 See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
 
