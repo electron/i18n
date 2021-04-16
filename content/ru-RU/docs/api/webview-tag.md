@@ -591,22 +591,22 @@ webview.addEventListener ('дом-готов', () -> -
 
 Уволен, когда нагрузка совершила. Это включает навигацию в рамках текущего документа, а также нагрузки уровня подформера, но не включает асинхронные ресурсные нагрузки.
 
-### Событие: 'did-finish-load'
+### Event: 'did-finish-load'
 
 Уволенный при навигации, т.е. спиннер вкладки остановится спиннинг, и `onload` событие будет отправлено.
 
-### Событие: 'не-не-нагрузка'
+### Event: 'did-fail-load'
 
 Возвращает:
 
 * `errorCode` Integer
-* `errorDescription` Струна
-* `validatedURL` Струна
+* `errorDescription` String
+* `validatedURL` String
 * `isMainFrame` Boolean
 
 Это событие, как `did-finish-load`, но выстрелил, когда нагрузка не удалось отменена, например. `window.stop()` вызывается.
 
-### Событие: 'did-frame-finish-load'
+### Event: 'did-frame-finish-load'
 
 Возвращает:
 
@@ -633,13 +633,13 @@ webview.addEventListener ('дом-готов', () -> -
 * `title` String
 * `explicitSet` Boolean
 
-Высовыток, когда заголовок страницы устанавливается во время навигации. `explicitSet` является ложным, название синтезируется из URL-адреса файла.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Событие: 'page-favicon-updated'
 
 Возвращает:
 
-* `favicons` String - Массив URL-адресов.
+* `favicons` String[] - Array of URLs.
 
 Уволенный, когда страница получает favicon URL-адреса.
 
@@ -655,9 +655,9 @@ webview.addEventListener ('дом-готов', () -> -
 
 Возвращает:
 
-* `level` Integer - уровень журнала, от 0 до 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
+* `level` Integer - The log level, from 0 to 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
 * `message` строка - фактическое сообщение консоли
-* `line` Integer - Номер строки источника, который вызвал это сообщение консоли
+* `line` Integer - The line number of the source that triggered this console message
 * `sourceId` Струна
 
 Выстрел, когда окно гостя регистрирует сообщение консоли.
@@ -675,12 +675,12 @@ webview.addEventListener ("консоль-сообщение", (е) -> - кон�
 
 Возвращает:
 
-* `result` объект
-  * `requestId` Интегрер
-  * `activeMatchOrdinal` Integer - Позиция активного матча.
-  * `matches` Integer - Количество матчей.
-  * `selectionArea` Rectangle - Координаты первого региона матча.
-  * `finalUpdate` Булан
+* `result` Object
+  * `requestId` Integer
+  * `activeMatchOrdinal` Integer - Position of the active match.
+  * `matches` Integer - Number of Matches.
+  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `finalUpdate` Boolean
 
 Уволен, когда результат доступен для [`webview.findInPage`](#webviewfindinpagetext-options) запроса.
 
@@ -700,7 +700,7 @@ const requestId - webview.findInPage ('test')
 
 * `url` String
 * `frameName` String
-* `disposition` - может быть `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` и `other`.
+* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - Варианты, которые должны быть использованы для создания новых [`BrowserWindow`](browser-window.md).
 
 Уволенный, когда гостевая страница пытается открыть новое окно браузера.
@@ -725,11 +725,11 @@ webview.addEventListener ('новое окно', async (e) -> - протокол
 
 * `url` String
 
-Излучается, когда пользователь или страница хочет начать навигацию. Это может произойти `window.location` объекте или пользователь нажимает на ссылку на странице.
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 Это событие не будет излучать, когда навигация запущена программно с API, `<webview>.loadURL` и `<webview>.back`.
 
-Он также не излучается во время на странице навигации, такие как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
+Он также не излучается во время на странице навигации, такие как нажатие якорных ссылок или обновление `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 Вызов `event.preventDefault()` не __может__ никакого эффекта.
 
@@ -741,9 +741,9 @@ webview.addEventListener ('новое окно', async (e) -> - протокол
 
 Испускаемый при навигации.
 
-Это событие не излучается для навигации на страницах, таких как нажатие якорных ссылок или обновление `window.location.hash`. Используйте `did-navigate-in-page` событие для этой цели.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-### Событие: 'сделал-навигация в странице'
+### Event: 'did-navigate-in-page'
 
 Возвращает:
 
@@ -752,7 +752,7 @@ webview.addEventListener ('новое окно', async (e) -> - протокол
 
 Испускаемый при навигации на странице.
 
-При навигации на странице URL-адрес страницы изменяется, но не навигации за пределами страницы. Примерами этого являются случаи, когда якорные ссылки на кнопку или когда `hashchange` событие DOM.
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 ### Событие: 'close'
 
@@ -815,11 +815,11 @@ ipcRenderer.on ('ping', () -> -
 
 ### Событие: 'media-started-playing'
 
-Излучается, когда средства массовой информации начинают играть.
+Emitted when media starts playing.
 
 ### Событие: 'media-paused'
 
-Излучается, когда мультимедиа приостанавливается или делается воспроизведение.
+Emitted when media is paused or done playing.
 
 ### Событие: 'did-change-theme-color'
 
@@ -827,7 +827,7 @@ ipcRenderer.on ('ping', () -> -
 
 * `themeColor` Струна
 
-Излучается при изменении цвета темы страницы. Это, как правило, из-за встречи мета-тег:
+Emitted when a page's theme color changes. Это, как правило, из-за встречи мета-тег:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -839,19 +839,19 @@ ipcRenderer.on ('ping', () -> -
 
 * `url` String
 
-Излучается, когда мышь перемещается по ссылке или клавиатура перемещает фокус на ссылку.
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 ### Событие: 'devtools-opened'
 
-Излучается при открытии DevTools.
+Emitted when DevTools is opened.
 
 ### Событие: 'devtools-closed'
 
-Излучается, когда DevTools закрыт.
+Emitted when DevTools is closed.
 
-### Событие: 'devtools-ориентированных'
+### Event: 'devtools-focused'
 
-Излучаемый, когда DevTools сосредоточен / открыт.
+Emitted when DevTools is focused / opened.
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
 [chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/
