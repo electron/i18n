@@ -8,7 +8,7 @@ Voir [`Menu`](menu.md) pour des exemples.
 
 ### `new MenuItem(options)`
 
-* `options` objet
+* `options` Object
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
