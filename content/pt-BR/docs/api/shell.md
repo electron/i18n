@@ -50,7 +50,7 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 ### `shell.openExternal(url[, opções])`
 
 * `url` String - Max 2081 caracteres nas janelas.
-* objeto `options` (opcional) 
+* `options` Object (optional) 
     * `activate` Boolean (opcional) __ macOS - `true` para trazer o aplicativo aberto para o primeiro plano. O padrão é `verdadeiro`.
   * `workingDirectory` String (opcional) __ do Windows - O diretório de trabalho.
 
