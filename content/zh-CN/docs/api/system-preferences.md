@@ -348,15 +348,15 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.canPromptTouchID()` _macOS_
 
-Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+返回 `Boolean` - 此设备是否有能力使用 Touch ID。
 
-**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+**注意：**在 macOS 系统的版本低于 Sierra 10.12.2时，此 API 将返回 `false` 。
 
 ### `systemPreferences.promptTouchID(reason)` _macOS_
 
 * `reason` String - The reason you are asking for Touch ID authentication
 
-Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
+返回 `Promise<void>` - resolve如果用户已成功通过Touch ID授权。
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -368,25 +368,25 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 })
 ```
 
-This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
+此 API 本身不会保护您的用户数据；相反，这是一个机制，让你这样做。 原生应用需要在其密钥链入口设置 [访问控制常量](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) ，如 [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) ，当应用读取到后将自动提示 Touch ID 生物识别许可。 该操作可以通过 [`node-keytar`](https://github.com/atom/node-keytar)完成，这样，应用就会用 `node-keytar` 存储加密密钥，并且只有在 `promptTouchID()` resolve时才能取出。
 
-**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+**注意：**在 macOS 系统的版本低于 Sierra 10.12.2时，此 API 返回的Promise将reject 。
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
 * `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
 
-Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
+返回 `Boolean` - 如果当前进程是受信任的无障碍客户端，则为`true`，否则为 `false` 。
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
 * `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
-Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+返回 `String` - 值可以是 `not-determined`， `granted`， `denied`， `restricted` 或 `unknown`。
 
-This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
+在 macOS 10.13 High Sierra 或更低版本上不需要用户授权，因此此方法总是返回 `granted`。 macOS 10.14 Mojave 或更高版本需要授权访问 `麦克风` 和 `摄像头`。 macOS 10.15 Catalina 或更高版本需要授权访问 `屏幕`。
 
-Windows 10 has a global setting controlling `microphone` and `camera` access for all win32 applications. It will always return `granted` for `screen` and for all media types on older versions of Windows.
+Windows 10的全局设置控制了所有win32 应用程序对 `麦克风` 和 `摄像头`的访问权限。 It will always return `granted` for `screen` and for all media types on older versions of Windows.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 
