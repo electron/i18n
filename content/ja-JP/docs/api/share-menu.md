@@ -8,7 +8,7 @@
 
 他のメニューのサブメニューとして共有メニューを含めるには、[`MenuItem`](menu-item.md) の `shareMenu` ロールを使用してください。
 
-### `新しい共有メニュー(アイテムの共有)`
+### `new ShareMenu(sharingItem)`
 
 * `sharingItem` SharingItem - 共有するアイテム。
 
@@ -18,9 +18,9 @@
 
 `shareMenu` オブジェクトには以下のメソッドがあります。
 
-#### `[options])`
+#### `shareMenu.popup([options])`
 
-* `options` ポップアップオプション (オプション)
+* `options` PopupOptions (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
   * `x` Number (任意) - 既定ではマウスカーソルの現在位置です。 `y` が宣言されている場合は宣言する必要があります。
   * `y` Number (任意) - 既定ではマウスカーソルの現在位置です。 `x` が宣言されている場合は宣言する必要があります。
@@ -29,7 +29,7 @@
 
 この menu を [`BrowserWindow`](browser-window.md) 内のコンテキストメニューとしてポップアップします。
 
-#### `[browserWindow])`
+#### `shareMenu.closePopup([browserWindow])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
 
