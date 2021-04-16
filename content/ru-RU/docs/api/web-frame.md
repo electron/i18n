@@ -20,11 +20,11 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Двойной - Увеличить фактор; по умолчанию составляет 1,0.
+* `factor` Double - Zoom factor; default is 1.0.
 
-Изменяет коэффициент масштабирования на указанный фактор. Коэффициент увеличения на 100, так что 300% и 3,0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-Коэффициент должен быть больше 0,0.
+The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -36,7 +36,7 @@ The `WebFrame` class has the following instance methods:
 
 Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
-> **ПРИМЕЧАНИЕ**: Политика масштабирования на уровне Chromium имеет одно и то же происхождение, что означает, что уровень масштабирования для определенного домена распространяется во всех экземплярах окон с одним и тем же доменом. Дифференциация URL-адресов окон позволит увеличить работу на окно.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `webFrame.getZoomLevel()`
 
@@ -49,7 +49,7 @@ The `WebFrame` class has the following instance methods:
 
 Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
-> **ПРИМЕЧАНИЕ**: Визуальный зум отключен по умолчанию в Electron. Чтобы включить его, позвоните:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
@@ -100,13 +100,13 @@ webFrame.setSpellCheckProvider('en-US', {
 
 Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
 
-Вводит CSS на текущую веб-страницу и возвращает уникальный ключ для вставленного таблицы.
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ### `webFrame.removeInsertedCSS(key)`
 
 * `key` String
 
-Удаляет вставленный CSS с текущей веб-страницы. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
@@ -131,7 +131,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
-* `scripts` [WebSource](structures/web-source.md)
+* `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
@@ -139,13 +139,13 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
-Работает как `executeJavaScript` но оценивает `scripts` в изолированном контексте.
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Вы можете предоставить любой integer здесь.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `info` Object
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
