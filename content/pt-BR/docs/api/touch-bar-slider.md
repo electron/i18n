@@ -1,35 +1,35 @@
 ## Class: TouchBarSlider
 
-> Crie um controle deslizante na barra de toque para aplicações nativas do macOS
+> Create a slider in the touch bar for native macOS applications
 
 Processo: [Main](../glossary.md#main-process)
 
-### `novas opções TouchBarSlider (opções)`
+### `new TouchBarSlider(options)`
 
 * objeto `options`
-  * `label` String (opcional) - Texto de rótulo.
-  * `value` Inteiro (opcional) - Valor selecionado.
-  * `minValue` Inteiro (opcional) - Valor mínimo.
-  * `maxValue` Inteiro (opcional) - Valor máximo.
-  * `change` Função (opcional) - Função para chamar quando o controle deslizante é alterado.
-    * `newValue` Número - O valor que o usuário selecionou no Slider.
+  * `label` String (optional) - Label text.
+  * `value` Integer (optional) - Selected value.
+  * `minValue` Integer (optional) - Minimum value.
+  * `maxValue` Integer (optional) - Maximum value.
+  * `change` Function (optional) - Function to call when the slider is changed.
+    * `newValue` Number - The value that the user selected on the Slider.
 
 ### Propriedades de Instância
 
-As seguintes propriedades estão disponíveis em instâncias de `TouchBarSlider`:
+The following properties are available on instances of `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-Um `String` representando o texto atual do controle deslizante. Alterar esse valor atualiza imediatamente o controle deslizante na barra de toque.
+A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-Um `Number` representando o valor atual do controle deslizante. Alterar esse valor atualiza imediatamente o controle deslizante na barra de toque.
+A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
 
-#### `touchBarSlider.minValor`
+#### `touchBarSlider.minValue`
 
-Um `Number` representando o valor mínimo atual do controle deslizante. Alterar esse valor atualiza imediatamente o controle deslizante na barra de toque.
+A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.maxValue`
 
-Um `Number` representando o valor máximo atual do controle deslizante. Alterar esse valor atualiza imediatamente o controle deslizante na barra de toque.
+A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
