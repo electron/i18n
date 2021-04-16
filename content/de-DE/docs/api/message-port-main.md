@@ -1,47 +1,47 @@
 # MessagePortMain
 
-`MessagePortMain` ist das hauptprozessseitige Äquivalent des DOM- [`MessagePort`][] -Objekts. Es verhält sich ähnlich wie die DOM-Version, mit der Ausnahme, dass es das Node.js `EventEmitter` -Ereignissystem anstelle des DOM- `EventTarget` -Systems verwendet. Dies bedeutet, dass Sie `port.on('message', ...)` verwenden sollten, um Ereignisse zu hören, anstatt `port.onmessage = ...` oder `port.addEventListener('message', ...)`
+`MessagePortMain` is the main-process-side equivalent of the DOM [`MessagePort`][] object. It behaves similarly to the DOM version, with the exception that it uses the Node.js `EventEmitter` event system, instead of the DOM `EventTarget` system. This means you should use `port.on('message', ...)` to listen for events, instead of `port.onmessage = ...` or `port.addEventListener('message', ...)`
 
-Weitere Informationen zur Verwendung Channel Messaging finden Sie in der Dokumentation [Channel Messaging][] .
+See the [Channel Messaging API][] documentation for more information on using channel messaging.
 
-`MessagePortMain` ist ein \[EventEmitter\]\[event-emitter\].
+`MessagePortMain` is an \[EventEmitter\]\[event-emitter\].
 
-## Klasse: MessagePortMain
+## Class: MessagePortMain
 
 Prozess: [Main](../glossary.md#main-process)
 
 ### Instanz Methoden
 
-#### `port.postMessage(Nachricht, [transfer])`
+#### `port.postMessage(message, [transfer])`
 
 * `message` any
 * `transfer` MessagePortMain[] (optional)
 
-Sendet eine Nachricht vom Port und überträgt optional den Besitz von Objekten, die , in andere Browserkontexte.
+Sends a message from the port, and optionally, transfers ownership of objects to other browsing contexts.
 
 #### `port.start()`
 
-Startet das Senden von Nachrichten, die sich in der Warteschlange am Port befinden. Nachrichten werden in die Warteschlange gestellt, bis diese Methode aufgerufen wird.
+Starts the sending of messages queued on the port. Messages will be queued until this method is called.
 
 #### `port.close()`
 
-Trennt den Port, sodass er nicht mehr aktiv ist.
+Disconnects the port, so it is no longer active.
 
 ### Instanz Events
 
-#### Ereignis: 'Nachricht'
+#### Event: 'message'
 
 Rückgabewert:
 
-* `messageEvent` -Objekt
-  * `data`
+* `messageEvent` Object
+  * `data` any
   * `ports` MessagePortMain[]
 
-Wird gesendet, wenn ein MessagePortMain-Objekt eine Nachricht empfängt.
+Emitted when a MessagePortMain object receives a message.
 
 #### Event: 'close'
 
-Wird gesendet, wenn das Remote-Ende eines MessagePortMain-Objekts getrennt wird.
+Emitted when the remote end of a MessagePortMain object becomes disconnected.
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
-[Channel Messaging]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
