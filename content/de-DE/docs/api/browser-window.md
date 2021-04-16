@@ -147,97 +147,97 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Standard ist `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Standard ist `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Standard ist `false`.
-  * `backgroundColor` String (optional) - Die Hintergrundfarbe des Fensters als hexadezimaler Wert, wie `#66CD00` oder `#FFF` oder `#80FFFFFF` (alpha im #AARRGGBB Format wird unterstützt, wenn `transparent` auf `true`festgelegt ist). Der Standardwert ist `#FFF` (weiß).
-  * `hasShadow` Boolean (optional) - Ob fenster einen Schatten haben soll. Standard ist `true`.
-  * `opacity` Zahl (optional) - Legen Sie die anfängliche Deckkraft des Fensters zwischen 0,0 (vollständig transparent) und 1,0 (vollständig undurchsichtig) fest. Dies wird nur unter Windows und macOS implementiert.
-  * `darkTheme` Boolean (optional) - Kräfte, die dunkles Design für das Fenster verwenden, funktioniert nur auf einigen GTK+3-Desktop-Umgebungen. Standard ist `false`.
-  * `transparent` boolesch (optional) - Macht das Fenster [transparent](frameless-window.md#transparent-window). Standard ist `false`. Unter Windows funktioniert es nur, wenn das Fenster rahmenlos ist.
-  * `type` String (optional) - Der Typ des Fensters, Standard ist normales Fenster. Mehr darüber finden Sie weiter unten.
-  * `visualEffectState` String (optional) – Geben Sie an, wie die Darstellung des Materials den Fensteraktivitätsstatus unter macOS widerspiegeln soll. Muss mit der `vibrancy` -Eigenschaft verwendet werden. Mögliche Werte sind:
-    * `followWindow` - Der Hintergrund sollte automatisch aktiv angezeigt werden, wenn das Fenster aktiv ist, und inaktiv, wenn dies nicht der Fall ist. Dies ist die Standardeinstellung.
-    * `active` - Der Hintergrund sollte immer aktiv erscheinen.
-    * `inactive` - Der Hintergrund sollte immer inaktiv erscheinen.
-  * `titleBarStyle` String (optional) - Der Stil der Fenstertitelleiste. Der Standardwert ist `default`. Mögliche Werte sind:
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Standard ist `true`.
+  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Standard ist `false`.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Standard ist `false`. On Windows, does not work unless the window is frameless.
+  * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Mögliche Werte sind:
+    * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
+    * `active` - The backdrop should always appear active.
+    * `inactive` - The backdrop should always appear inactive.
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Mögliche Werte sind:
     * `default` - Resultiert in der opaken, grauen Standardfenstertitelleiste von Mac.
     * `hidden` - Resultiert in einer versteckten Titelleiste und einem Fenster mit voller Inhaltsgröße. Das Fenster hat noch immer die standardmäßigen Steuerelemente ("Ampelleuchten") in der oberen linken Ecke.
     * `hiddenInset` - Resultiert in einer versteckten Titelleiste mit einem alternativem Aussehen, bei dem die Ampelleuchten Buttons vom Fensterrand etwas weiter nach innen gerückt wurden.
-    * `customButtonsOnHover` boolesch (optional) - Zeichnen Sie benutzerdefinierte Nah-, und minimieren Sie Schaltflächen in macOS-Rahmenfenstern. Diese Schaltflächen werden nicht angezeigt, es sei denn, sie schweben oben links im Fenster. Diese benutzerdefinierten Schaltflächen verhindern Probleme mit Mausereignissen, die mit den Symbolleistenschaltflächen für das Standardfenster auftreten. **Beachte:** Diese Option ist experimentell.
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Legen Sie eine benutzerdefinierte Position für die Ampeltasten fest. Kann nur verwendet werden, wenn `titleBarStyle` auf `hidden`
-  * `fullscreenWindowTitle` Boolean (optional) - Zeigt den Titel in der Titelleiste im Vollbildmodus unter macOS für alle `titleBarStyle` Optionen an. Standard ist `false`.
-  * `thickFrame` Boolean (optional) - Verwenden Sie `WS_THICKFRAME` Stil für rahmenlose Fenster auf Windows, die Standardfensterrahmen hinzufügt. Fensterschatten und Fensteranimationen werden entfernt wenn dieser Wert `false` ist. Standard ist `true`.
-  * `vibrancy` String (optional) - Fügen Sie dem Fenster eine Art Vibranzeffekt hinzu, und das nur auf macOS. Kann `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud` `fullscreen-ui`,  , `tooltip`, `content`, `under-window`oder `under-page`sein.  Bitte beachten Sie, dass die Verwendung von `frame: false` in Kombination mit einem Vibranzwert erfordert, dass Sie auch eine nicht standardmäßige `titleBarStyle` verwenden. Beachten Sie auch, dass `appearance-based`, `light`, `dark`, `medium-light`und `ultra-dark` veraltet sind und in einer kommenden Version von macOS entfernt werden.
-  * `zoomToPageWidth` Boolean (optional) - Steuert das Verhalten unter macOS, wenn Option auf die grüne Stopplight-Schaltfläche auf der Symbolleiste klicken oder indem Sie auf das Menüelement Fenster > Zoom klicken. Wenn `true`, wird das Fenster beim Zoomen auf die bevorzugte Breite der Webseite vergrößert, `false` veranlassen, auf die Breite des Bildschirms zu zoomen. Dies wirkt sich auch auf das Verhalten beim direkten Aufruf `maximize()` aus. Standard ist `false`.
-  * `tabbingIdentifier` String (optional) - Reitergruppenname, erlaubt das öffnen des Fensters als nativen Reiter unter macOS 10.12+. Fenster mit dem selben Reitergruppennamen werden gruppiert. Dadurch wird auch eine systemeigene neue Registerkarte zur Registerkartenleiste Ihres Fensters hinzugefügt, und Ihr `app` und Fenster kann das `new-window-for-tab` -Ereignis empfangen.
-  * `webPreferences` -Objekt (optional) - Einstellungen der Funktionen der Webseite.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Beachte:** Diese Option ist experimentell.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
+  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Standard ist `false`.
+  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Fensterschatten und Fensteranimationen werden entfernt wenn dieser Wert `false` ist. Standard ist `true`.
+  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Standard ist `false`.
+  * `tabbingIdentifier` String (optional) - Reitergruppenname, erlaubt das öffnen des Fensters als nativen Reiter unter macOS 10.12+. Fenster mit dem selben Reitergruppennamen werden gruppiert. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
+  * `webPreferences` Object (optional) - Settings of web page's features.
     * `devTools` Boolean (optional) - Gibt an ob die Entwicklerwerkzeuge aktiviert sind. Falls dies auf `false` gesetzt ist, kann `BrowserWindow.webContents.openDevTools()` nicht verwendet werden um die Entwicklerwerkzeuge zu öffnen. Standard ist `true`.
-    * `nodeIntegration` Boolean (optional) - Gibt an, ob die Knotenintegration aktiviert ist. Standard ist `false`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Standard ist `false`.
     * `nodeIntegrationsInWorker` Boolean (optional) - Gibt an ob die Node Integration in Web Workern aktiviert ist. Standard ist `false`. Mehr dazu kann in [Multithreading](../tutorial/multithreading.md) gefunden werden.
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimentelle Option für , die die Unterstützung von Node.js in Subframes wie iframes und untergeordneten Fenstern aktivieren. Alle Ihre Vorspannungen werden für jedem iframe geladen, können Sie `process.isMainFrame` verwenden, um zu bestimmen, ob Sie im Hauptframe sind oder nicht.
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Gibt ein Skript an das vor allen anderen Skripten geladen wird bevor andere Skripte der Seite ausgeführt werden. Dieses Skript hat immer Zugriff auf die Node APIs, unabhängig davon ob die Node Integration aktiviert ist oder nicht. Der Wert sollte der absolute Pfad zum Skript sein. Wenn die Node Integration ausgeschaltet ist, kann das Preload Skript globale Node Symbole in den Globalen Scope zurückbringen. Siehe [dieses Beispiel](context-bridge.md#exposing-node-global-symbols).
     * `sandbox` Boolean (optional) - Wenn gesetzt, wird der Renderer des Fensters in einer Sandbox ausgeführt, wodurch es kompatibel mit der Chromium Sandbox wird und die Node.js Integration deaktiviert wird. Dies ist nicht das gleiche wie `nodeIntegration`, da die APIs die dem Preload Skript zur Verfügung stehen stärker limitiert sind. Lesen sie [hier](sandbox-option.md) mehr über diese Option.
-    * `enableRemoteModule` Boolean (optional) - Gibt an, ob das [`remote`](remote.md) -Modul aktiviert werden soll. Standard ist `false`.
-    * `session` [Session](session.md#class-session) (optional) – Legt die Sitzung fest, die von der seite verwendet wird. Anstatt das Session-Objekt direkt zu übergeben, können Sie auch stattdessen die Option `partition` verwenden, die eine Partitionszeichenfolge akzeptiert. Wenn sowohl `session` als auch `partition` angegeben werden, wird `session` bevorzugt. Standard ist die Standardsitzung.
-    * `partition` String (optional) - Legt die Sitzung fest, die von der Seite gemäß der Partitionszeichenfolge der -Sitzung verwendet wird. Wenn `partition` mit `persist:`beginnt, verwendet die eine persistente Sitzung, die für alle Seiten in der App mit dem gleichen `partition`verfügbar ist. Wenn kein `persist:` -Präfix vorhanden ist, verwendet die Seite eine In-Memory-Sitzung. Durch Zuweisen derselben `partition`können mehrere Seiten derselben Sitzung gemeinsam nutzen. Standard ist die Standardsitzung.
-    * `affinity` String (optional) - Wenn angegeben, werden Webseiten mit demselben `affinity` im gleichen Rendererprozess ausgeführt. Beachten Sie, dass aufgrund der Wiederverwendung Renderer-Prozesses bestimmte `webPreferences` Optionen auch dann zwischen den Webseiten gemeinsam genutzt werden, wenn Sie für sie unterschiedliche Werte angegeben haben, einschließlich, aber nicht beschränkt auf `preload`, `sandbox` und `nodeIntegration`. Es wird also vorgeschlagen, genau die gleiche `webPreferences` für Webseiten mit dem gleichen `affinity`zu verwenden. _veraltete_
-    * `zoomFactor` Zahl (optional) - Der Standardzoomfaktor der Seite stellt `3.0` `300%`dar. Der Standardwert ist `1.0`.
-    * `javascript` Boolean (optional) - Aktiviert JavaScript-Unterstützung. Standard ist `true`.
-    * `webSecurity` Boolean (optional) - Wenn `false`, deaktiviert es die Richtlinie mit demselben Ursprung (in der Regel mithilfe von Testwebsites von Personen) und setzt `allowRunningInsecureContent` auf `true` , wenn diese Optionen nicht vom Benutzer festgelegt wurden. Standard ist `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Erlauben Sie einer https-Seite, JavaScript, CSS oder Plugins von http-URLs auszuführen. Standard ist `false`.
-    * `images` Boolean (optional) - Aktiviert die Bildunterstützung. Standard ist `true`.
-    * `textAreasAreResizable` Boolean (optional) - TextArea-Elemente in der Geänderten Datei ändern. Standard ist `true`.
-    * `webgl` Boolean (optional) - Aktiviert WebGL-Unterstützung. Standard ist `true`.
-    * `plugins` Boolean (optional) - Gibt an, ob Plugins aktiviert werden sollen. Standard ist `false`.
-    * `experimentalFeatures` Boolean (optional) - Aktiviert die experimentellen Funktionen von Chromium. Standard ist `false`.
-    * `scrollBounce` Boolean (optional) - Aktiviert scroll bounce (Gummibanding) Effekt auf macOS. Standard ist `false`.
-    * `enableBlinkFeatures` String (optional) - Eine Liste von Feature-Zeichenfolgen, die durch `,`getrennt sind, wie `CSSVariables,KeyboardEventKey` zu aktivieren. Die vollständige Liste der unterstützten Feature- -Zeichenfolgen finden Sie in der Datei [RuntimeEnabledFeatures.json5][runtime-enabled-features] .
-    * `disableBlinkFeatures` String (optional) - Eine Liste von Feature-Zeichenfolgen, die durch `,`getrennt sind, wie `CSSVariables,KeyboardEventKey` zu deaktivieren. Die vollständige Liste der unterstützten Feature-Zeichenfolgen finden Sie in der Datei [RuntimeEnabledFeatures.json5][runtime-enabled-features] .
-    * `defaultFontFamily` -Objekt (optional) - Legt die Standardschriftart für die Schriftfamilie fest.
-      * `standard` String (optional) - Standardwerte für `Times New Roman`.
-      * `serif` String (optional) - Standardwerte für `Times New Roman`.
-      * `sansSerif` String (optional) - Standardwerte für `Arial`.
-      * `monospace` String (optional) - Standardwerte für `Courier New`.
-      * `cursive` String (optional) - Standardwerte für `Script`.
-      * `fantasy` String (optional) - Standardwerte für `Impact`.
-    * `defaultFontSize` Ganzzahl (optional) - Standardwerte für `16`.
-    * `defaultMonospaceFontSize` Ganzzahl (optional) - Standardwerte für `13`.
-    * `minimumFontSize` Ganzzahl (optional) - Standardwerte für `0`.
-    * `defaultEncoding` String (optional) - Standardwerte für `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Ob Animationen und Timer drosseln sollen, wenn die Seite zum Hintergrund wird. Dies wirkt sich auch auf die [Seitensichtbarkeits-API](#page-visibility)aus. Defaults to `true`.
-    * `offscreen` Boolean (optional) - Gibt an, ob das Offscreen-Rendering für den Browser -Fenster aktiviert werden soll. Defaults to `false`. Weitere Informationen finden Sie im [Offscreen-Rendering-Tutorial](../tutorial/offscreen-rendering.md) .
-    * `contextIsolation` Boolean (optional) - Gibt an, ob Electron-APIs ausgeführt und das angegebene `preload` Skript in einem separaten JavaScript-Kontext werden soll. Standardmäßig `true`. Der Kontext, in dem das `preload` -Skript ausgeführt wird, hat nur Zugriff auf seine eigenen dedizierten `document` - und `window` -Globals sowie eigenen JavaScript-Integrierten (`Array`, `Object`, `JSON`usw.), , die alle für den geladenen Inhalt unsichtbar sind. Die Electron-API nur im `preload` -Skript und nicht auf der geladenen Seite verfügbar sein. Diese Option beim Laden potenziell nicht vertrauenswürdiger Remoteinhalte verwendet werden sollten, um sicherzustellen, der geladene Inhalt nicht mit dem `preload` -Skript und den verwendeten Electron-APIs manipuliert werden kann.  Diese Option verwendet die gleiche Technik, die von [Chrome Content Scripts][chrome-content-scripts]verwendet wird.  Sie können auf diesen Kontext in den Entwicklungstools zugreifen, indem Sie den Eintrag "Elektronenisolierter Kontext" Eintrag im Kombinationsfeld oben auf der Registerkarte Konsole auswählen.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - Wenn true, werden Werte, die von `webFrame.executeJavaScript` zurückgegeben werden, desinfiziert, um sicherzustellen, dass JS-Werte bei Verwendung von `contextIsolation`nicht sicher zwischen Welten kreuzen können. Defaults to `true`. _veraltete_
-    * `nativeWindowOpen` Boolean (optional) - Gibt an, ob native `window.open()`verwendet werden soll. Defaults to `false`. In untergeordneten Fenstern ist die Integration immer deaktiviert, es sei denn, `nodeIntegrationInSubFrames` ist wahr. **Hinweis:** Diese Option ist derzeit experimentell.
-    * `webviewTag` Boolean (optional) - Gibt an, ob das [`<webview>` -Tag](webview-tag.md)aktiviert werden soll. Defaults to `false`. **Hinweis:** Das für die `<webview>` konfigurierte `preload` -Skript bei der Ausführung aktiviert, sodass Sie sicherstellen sollten, dass Remote-/nicht vertrauenswürdige Inhalte nicht in der Lage sind, ein `<webview>` -Tag mit einem möglicherweise schädlichen `preload` -Skript zu erstellen. Sie können das `will-attach-webview` -Ereignis auf [webContents-](web-contents.md) verwenden, um das `preload` Skript zu entfernen und die ursprünglichen Einstellungen des `<webview>`zu überprüfen oder zu ändern.
-    * `additionalArguments` String[] (optional) - Eine Liste von Zeichenfolgen, die im Rendererprozess dieser App `process.argv` angehängt werden.  Nützlich für die Weitergabe kleiner Datenbits an Skripts für Rendererprozesse.
-    * `safeDialogs` Boolean (optional) - Gibt an, ob der Browserstil aufeinander folgenden Dialogschutz aktiviert werden soll. Standard ist `false`.
-    * `safeDialogsMessage` String (optional) - Die Meldung, die angezeigt werden soll, wenn aufeinander folgenden Dialogschutz ausgelöst wird. Wenn nicht die Standard- Nachricht verwendet werden, beachten Sie, dass sich die Standardnachricht derzeit in Englisch befindet und nicht lokalisiert ist.
-    * `disableDialogs` Boolean (optional) - Ob Dialoge deaktiviert vollständig. Überschreibt `safeDialogs`. Standard ist `false`.
-    * `navigateOnDragDrop` Boolean (optional) - Ob das Ziehen und Ablegen einer Datei oder eines Links auf die Seite eine Navigation verursacht. Standard ist `false`.
-    * `autoplayPolicy` String (optional) - Die Richtlinie für die automatische Wiedergabe, die auf Inhalt im Fenster angewendet werden soll, kann `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`sein. Standardmäßig `no-user-gesture-required`.
-    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Ob verhindern soll, dass die Größe des Fensters beim Eingeben von HTML-Vollbild nmöglich wird. Standard ist `false`.
-    * `accessibleTitle` String (optional) - Eine alternative Titelzeichenfolge, die nur für Eingabehilfen wie Bildschirmleseprogramme bereitgestellt wird. Diese Zeichenfolge ist nicht direkt für Benutzer sichtbar .
-    * `spellcheck` Boolean (optional) - Gibt an, ob die integrierte Rechtschreibprüfung aktiviert werden soll. Standard ist `true`.
-    * `enableWebSQL` Boolean (optional) - Gibt an, ob die [WebSQL api](https://www.w3.org/TR/webdatabase/)aktiviert werden soll. Standard ist `true`.
-    * `v8CacheOptions` String (optional) - Erzwingt die v8-Code-Caching-Richtlinie, die von blink verwendet . Akzeptierte Werte sind
-      * `none` - Deaktiviert die Codezwischenspeicherung
-      * `code` - Heuristischecodezwischenspeicherung
-      * `bypassHeatCheck` - Umgehungscode-Caching-Heuristik, aber mit verzögerter Kompilierung
-      * `bypassHeatCheckAndEagerCompile` - Das Gleiche wie oben außer Kompilation ist eifrig. Die Standardrichtlinie ist `code`.
-    * `enablePreferredSizeMode` Boolean (optional) - Gibt an, ob bevorzugten Größenmodus aktiviert werden soll. Die bevorzugte Größe ist die Mindestgröße, die erforderlich ist, um das Layout des Dokuments enthalten zu können– ohne dass ein Bildlauf erforderlich ist. Wenn Sie dies zu aktivieren, wird das `preferred-size-changed` Ereignis auf dem `WebContents` ausgegeben, wenn sich die bevorzugte Größe ändert. Standard ist `false`.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Standard ist `false`.
+    * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
+    * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
+    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
+    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
+    * `javascript` Boolean (optional) - Enables JavaScript support. Standard ist `true`.
+    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Standard ist `true`.
+    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Standard ist `false`.
+    * `images` Boolean (optional) - Enables image support. Standard ist `true`.
+    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
+    * `webgl` Boolean (optional) - Enables WebGL support. Standard ist `true`.
+    * `plugins` Boolean (optional) - Whether plugins should be enabled. Standard ist `false`.
+    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Standard ist `false`.
+    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Standard ist `false`.
+    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
+    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][runtime-enabled-features] file.
+    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family.
+      * `standard` String (optional) - Defaults to `Times New Roman`.
+      * `serif` String (optional) - Defaults to `Times New Roman`.
+      * `sansSerif` String (optional) - Defaults to `Arial`.
+      * `monospace` String (optional) - Defaults to `Courier New`.
+      * `cursive` String (optional) - Defaults to `Script`.
+      * `fantasy` String (optional) - Defaults to `Impact`.
+    * `defaultFontSize` Integer (optional) - Defaults to `16`.
+    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
+    * `minimumFontSize` Integer (optional) - Defaults to `0`.
+    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
+    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
+    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
+    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. Defaults to `true`. _Deprecated_
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
+    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
+    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Standard ist `false`.
+    * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. Standard ist `false`.
+    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Standard ist `false`.
+    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Standard ist `true`.
+    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). Standard ist `true`.
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+      * `none` - Disables code caching
+      * `code` - Heuristic based code caching
+      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
+      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
+    * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. Standard ist `false`.
 
-Bei der Einstellung der minimalen oder maximalen Fenstergröße mit `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`schränkt es nur die Benutzer ein. Es wird Sie nicht daran hindern, eine Größe zu übergeben, die keine Größenbeschränkungen an `setBounds`/`setSize` oder an den Konstruktor von `BrowserWindow`folgt.
+When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
-Die möglichen Werte und Verhaltensweisen der `type` Option sind plattformabhängig. Mögliche Werte sind:
+The possible values and behaviors of the `type` option are platform dependent. Mögliche Werte sind:
 
 * Unter Linux sind mögliche Typen `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* Unter macOS sind mögliche Typen `desktop`, `textured`.
-  * Der Typ `textured` fügt das Erscheinungsbild des Metallgradienten (`NSTexturedBackgroundWindowMask`) hinzu.
-  * Der `desktop` -Typ platziert das Fenster auf der Desktop-Hintergrundfensterebene (`kCGDesktopWindowLevel - 1`). Beachten Sie, dass das Desktopfenster keine Fokus-, Tastatur- oder Mausereignisse empfängt, Sie können jedoch `globalShortcut` verwenden, um Eingaben sparsam zu empfangen.
-* Unter Windows ist der mögliche Typ `toolbar`.
+* On macOS, possible types are `desktop`, `textured`.
+  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
+  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
+* On Windows, possible type is `toolbar`.
 
 ### Instanz Events
 
-Objekte, die mit `new BrowserWindow` erstellt wurden, senden die folgenden Ereignisse aus:
+Objects created with `new BrowserWindow` emit the following events:
 
 **Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
@@ -249,7 +249,7 @@ Rückgabewert:
 * `title` String
 * `explicitSet` Boolean
 
-Wenn das Dokument den Titel geändert hat, wird durch aufrufendes `event.preventDefault()` verhindert, dass sich der Titel des systemeigenen Fensters ändert. `explicitSet` ist falsch, wenn der Titel aus der Datei-URL synthetisiert wird.
+Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
 
 #### Event: 'close'
 
@@ -257,27 +257,27 @@ Rückgabewert:
 
 * `event` Event
 
-Emittiert, wenn das Fenster geschlossen wird. Sie wird vor dem `beforeunload` und `unload` Ereignis des DOMs abgegeben. Wenn `event.preventDefault()` wird der Abschluss abgebrochen.
+Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-Normalerweise sollten Sie den `beforeunload` -Handler verwenden, um zu entscheiden, ob das Fenster geschlossen werden soll, das auch aufgerufen wird, wenn das Fenster neu geladen wird. In Electron würde die Rückgabe eines anderen Wertes als `undefined` den schließen. Ein Beispiel:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Ein Beispiel:
 
 ```javascript
-window.onbeforeunload = (e) =>
-  console.log('I want not want to be closed')
+window.onbeforeunload = (e) => {
+  console.log('I do not want to be closed')
 
-  / Im Gegensatz zu normalen Browsern, in denen ein Meldungsfeld an Benutzer aufgefordert wird, wird die Rückgabe
-  / ein nicht-void-Wert den Schließen stillschweigend abbrechen.
-  Es wird empfohlen, die Dialog-API zu verwenden, damit der Benutzer das Schließen der
-  /-Anwendung bestätigen kann.
-  e.returnValue = false / entspricht 'return false' entspricht aber nicht
-.
+  // Unlike usual browsers that a message box will be prompted to users, returning
+  // a non-void value will silently cancel the close.
+  // It is recommended to use the dialog API to let the user confirm closing the
+  // application.
+  e.returnValue = false // equivalent to `return false` but not recommended
+}
 ```
 
-_**Hinweis**: Es gibt einen feinen Unterschied zwischen den Verhaltensweisen von `window.onbeforeunload = handler` und `window.addEventListener('beforeunload', handler)`. Es wird empfohlen, die `event.returnValue` immer explizit festzulegen, anstatt nur einen Wert zurückzugeben, da erstere in Electron konsistenter arbeitet._
+_**Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron._
 
 #### Event: 'closed'
 
-Ausgegeben, wenn das Fenster geschlossen wird. Nachdem Sie dieses Ereignis erhalten haben, sollten Sie den Verweis auf das Fenster entfernen und nicht mehr verwenden.
+Ausgegeben, wenn das Fenster geschlossen wird. After you have received this event you should remove the reference to the window and avoid using it any more.
 
 #### Event: 'session-end' _Windows_
 
@@ -309,44 +309,44 @@ Ausgegeben wenn das Fenster versteckt wird.
 
 #### Event: 'ready-to-show'
 
-Gesendet, wenn die Webseite gerendert wurde (während nicht angezeigt) und das Fenster ohne einem visuellen Blitz angezeigt werden kann.
+Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 #### Event: 'maximize'
 
-Emittiert, wenn das Fenster maximiert wird.
+Emitted when window is maximized.
 
 #### Event: 'unmaximize'
 
-Wird angezeigt, wenn das Fenster aus einem maximierten Zustand beendet wird.
+Emitted when the window exits from a maximized state.
 
 #### Event: 'minimize'
 
-Emittiert, wenn das Fenster minimiert wird.
+Emitted when the window is minimized.
 
 #### Event: 'restore'
 
-Wird angezeigt, wenn das Fenster aus einem minimierten Zustand wiederhergestellt wird.
+Emitted when the window is restored from a minimized state.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
 Rückgabewert:
 
 * `event` Event
-* `newBounds` [Rechteck](structures/rectangle.md) - Größe des Fensters wird geändert.
+* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
-Emittiert, bevor die Größe des Fensters geändert wird. Wenn `event.preventDefault()` wird verhindert, dass die Größe des Fensters geändert wird.
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
 
-Beachten Sie, dass dies nur angezeigt wird, wenn die Größe des Fensters manuell geändert wird. Wenn Sie die Größe des Fensters mit `setBounds`/`setSize` ändern, wird dieses Ereignis nicht angezeigt.
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Event: 'resize'
 
-Emittiert, nachdem die Größe des Fensters geändert wurde.
+Emitted after the window has been resized.
 
-#### Ereignis: 'verkleinert' _macOS_ _Windows_
+#### Event: 'resized' _macOS_ _Windows_
 
-Einmal gesendet, wenn die Größe des Fensters geändert wurde.
+Emitted once when the window has finished being resized.
 
 This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
 
@@ -359,7 +359,7 @@ Rückgabewert:
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
-Beachten Sie, dass dies nur angezeigt wird, wenn die Größe des Fensters manuell geändert wird. Wenn Sie die Größe des Fensters mit `setBounds`/`setSize` ändern, wird dieses Ereignis nicht angezeigt.
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Event: 'move'
 
@@ -703,7 +703,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. Diese Zeichenfolge ist nicht direkt für Benutzer sichtbar .
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### Instanz Methoden
 
@@ -819,7 +819,7 @@ The aspect ratio is not respected when window is resized programmingly with APIs
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Der Standardwert ist `#FFF` (weiß).
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
