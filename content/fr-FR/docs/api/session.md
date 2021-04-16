@@ -149,18 +149,18 @@ Retourne :
 * `event` Événement
 * `languageCode` String - The language code of the dictionary file
 
-Émis lorsqu’un fichier de dictionnaire hunspell a été téléchargé avec succès
+Emitted when a hunspell dictionary file has been successfully downloaded
 
-#### Evénement: 'spellcheck-dictionary-download-failure'
+#### Event: 'spellcheck-dictionary-download-failure'
 
 Retourne :
 
 * `event` Événement
 * `languageCode` String - The language code of the dictionary file
 
-Émis lorsqu’un téléchargement de fichier de dictionnaire hunspell échoue.  Pour plus de sur la défaillance, vous devez collecter un netlog et inspecter le téléchargement demande.
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-#### Evénement: 'select-serial-port' _Experimental_
+#### Event: 'select-serial-port' _Experimental_
 
 Retourne :
 
@@ -170,17 +170,17 @@ Retourne :
 * `callback` Function
   * `portId` String
 
-Émis lorsqu’un port de série doit être sélectionné lorsqu’un appel `navigator.serial.requestPort` est effectué. `callback` doit être appelé avec `portId` à sélectionner, en passant une chaîne vide à `callback` vous annuler la demande.  En outre, l’autorisation `navigator.serial` peut être gérée en utilisant [ses.setPermissionCheckHandler (gestionnaire)](#sessetpermissioncheckhandlerhandler) l’autorisation `serial` .set.
+Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
 
-Parce qu’il s’agit d’une fonctionnalité expérimentale, il est désactivé par défaut.  Pour activer cette fonctionnalité, vous utiliser le commutateur de `--enable-features=ElectronSerialChooser` de commande.  En parce qu’il s’agit d’une fonctionnalité de chrome expérimental, vous devrez définir `enableBlinkFeatures: 'Serial'` sur la propriété `webPreferences` lors de l’ouverture d’un BrowserWindow.
+Because this is an experimental feature it is disabled by default.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
 
 ```javascript
-const { app, BrowserWindow } = require ('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
 
-app.whenReady().then()) => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -188,21 +188,21 @@ app.whenReady().then()) => {
       enableBlinkFeatures: 'Serial'
     }
   })
-  win.webContents.session.on('select-serial-port', (événement, portList, rappel) => {
+  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
     event.preventDefault()
     const selectedPort = portList.find((device) => {
       return device.vendorId === 0x2341 && device.productId === 0x0043
     })
-    si (!selectedPort) {
-      rappel ('')
-    } autre {
-      rappel (result1.portId)
+    if (!selectedPort) {
+      callback('')
+    } else {
+      callback(result1.portId)
     }
   })
 })
 ```
 
-#### Evénement: 'serial-port-added' _Experimental_
+#### Event: 'serial-port-added' _Experimental_
 
 Retourne :
 
@@ -210,9 +210,9 @@ Retourne :
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Émis après `navigator.serial.requestPort` a été appelé et `select-serial-port` a tiré si un nouveau port en série devient disponible.  Par exemple, cet événement s’en tirera lorsqu’un nouvel appareil USB est branché.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
 
-#### Evénement: 'serial-port-removed' _Experimental_
+#### Event: 'serial-port-removed' _Experimental_
 
 Retourne :
 
@@ -220,7 +220,7 @@ Retourne :
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Émis après `navigator.serial.requestPort` a été appelé et `select-serial-port` a tiré si un port en série a été supprimé.  Par exemple, cet événement s’en tirera lorsqu’un périphérique USB est débranché.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
 
 ### Méthodes d’instance
 
@@ -240,33 +240,33 @@ Efface le cache HTTP de la session.
 
 * `options` Object (optional)
   * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. S’il n pas spécifié, effacer tous les types de stockage.
-  * `quotas` String[] (facultatif) - Les types de quotas à effacer, peuvent contenir: `temporary`, `persistent`, `syncable`. S’il n’est pas spécifié, effacer tous les quotas.
+  * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
 
-Retourne `Promise<void>` - se résout lorsque les données de stockage ont été effacées.
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
-Écrit toutes les données DOMStorage non écrites sur disque.
+Writes any unwritten DOMStorage data to disk.
 
-#### `ses.setProxy (config)`
+#### `ses.setProxy(config)`
 
-* `config` objet
-  * `mode` String (facultatif) - Le mode proxy. Devrait être l’un des `direct`, `auto_detect`, `pac_script`, `fixed_servers` ou `system`. S’il n' pas précisé, il sera automatiquement déterminé en fonction d’autres options spécifiques.
-    * `direct` en mode direct toutes les connexions sont créées directement, sans aucun proxy impliqué.
-    * `auto_detect` En mode auto_detect, la configuration proxy est déterminée par un script PAC qui peut être téléchargé à http://wpad/wpad.dat.
-    * `pac_script` En mode pac_script, la configuration proxy est déterminée par un script PAC qui est extrait de l’URL spécifiée dans le `pacScript`. Il s’agit du mode si `pacScript` est spécifié.
-    * `fixed_servers` En mode fixed_servers, la configuration proxy est spécifiée dans `proxyRules`. Il s’agit du mode par défaut `proxyRules` est spécifié.
-    * `system` en mode système, la configuration proxy est prise à partir du système d’exploitation. Notez que le mode système est différent de ne pas définir de configuration proxy. Dans ce dernier cas, Electron retombe dans les paramètres du système que si aucune option de ligne de commande n’influence la configuration du proxy.
-  * `pacScript` String (facultatif) - L’URL associée au fichier PAC.
-  * `proxyRules` String (facultatif) - Règles indiquant les procurations à utiliser.
-  * `proxyBypassRules` String (facultatif) - Règles indiquant quelles URL doivent être les paramètres proxy.
+* `config` Object
+  * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
+    * `direct` In direct mode all connections are created directly, without any proxy involved.
+    * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
+    * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. This is the default mode if `pacScript` is specified.
+    * `fixed_servers` In fixed_servers mode the proxy configuration is specified in `proxyRules`. This is the default mode if `proxyRules` is specified.
+    * `system` In system mode the proxy configuration is taken from the operating system. Note that the system mode is different from setting no proxy configuration. In the latter case, Electron falls back to the system settings only if no command-line options influence the proxy configuration.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
-Renvois `Promise<void>` - Se résout lorsque le processus de paramètre de proxy est terminé.
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
 Indique les paramètres de proxy.
 
-Lorsque `mode` n’est pas spécifié, `pacScript` et `proxyRules` sont fournis ensemble, l’option `proxyRules` est ignorée et la configuration `pacScript` est appliquée.
+When `mode` is unspecified, `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
 You may need `ses.closeAllConnections` to close currently in flight connections to prevent pooled sockets using previous proxy from being reused by future requests.
 
@@ -516,7 +516,7 @@ Renvoie `String` - L'utilisateur de cette session.
 
 #### `ses.setSSLConfig(config)`
 
-* `config` objet
+* `config` Object
   * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
   * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
