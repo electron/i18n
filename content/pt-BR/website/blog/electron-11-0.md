@@ -35,7 +35,7 @@ Mal podemos esperar para ver o que vocês construem com eles! Continue lendo par
 
 See the [11.0.0 release notes](https://github.com/electron/electron/releases/tag/v11.0.0) for a full list of new features and changes.
 
-## Quebrando mudanças
+## Breaking Changes
 
 * Removed experimental APIs: `BrowserView.{fromId, fromWebContents, getAllViews}` and the `id` property of `BrowserView`. [#23578](https://github.com/electron/electron/pull/23578)
 
