@@ -47,9 +47,9 @@ Returns `Number` - The current zoom level.
 * Número de `minimumLevel`
 * Número de `maximumLevel`
 
-Define o nível máximo e mínimo de pinch-to-zoom.
+Sets the maximum and minimum pinch-to-zoom level.
 
-> ****NOTA : O zoom visual é desativado por padrão em Electron. Para ree enablei-lo, ligue:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
@@ -112,7 +112,7 @@ Remove o CSS inserido da página web atual. The stylesheet is identified by its 
 
 * `text` String
 
-Insere `text` ao elemento focal.
+Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
