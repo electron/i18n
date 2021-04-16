@@ -26,7 +26,7 @@ La clase `Notification` tiene los siguientes métodos estáticos:
 
 Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en el sistema actual
 
-### `Notificación nueva ([options])`
+### `new Notification([options])`
 
 * `options` Object (opcional)
   * `title` String (opcional) - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación cuando sea mostrado.
@@ -98,7 +98,7 @@ Devuelve:
 * `event` Event
 * `error` String - El error encontrado durante la ejecución del método `show()`.
 
-Se emite cuando se encuentra un error al crear y mostrar la notificación nativa.
+Emitted when an error is encountered while creating and showing the native notification.
 
 ### Métodos de Instancia
 
@@ -150,15 +150,15 @@ Una propiedad `Boolean` que representa si al notificación tiene a una acción d
 
 #### `notification.urgency` _Linux_
 
-Una propiedad de `String` que representa el nivel de urgencia de la notificación. Puede ser 'normal', 'critical', o 'low'.
+A `String` property representing the urgency level of the notification. Puede ser 'normal', 'critical', o 'low'.
 
 Por defecto es 'low' - vea [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) para más información.
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-Una propiedad de `String` que representa el tipo de duración de tiempo de espera para la notificación. Puede ser 'default' o 'never'.
+A `String` property representing the type of timeout duration for the notification. Puede ser 'default' o 'never'.
 
-Si `timeoutType` se establece en ' Never ', la notificación nunca expira. Permanece abierto hasta que sea cerrado por la API de llamadas o el usuario.
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 
@@ -170,7 +170,7 @@ Una propiedad `String` que representa el Toast XML de la notificación.
 
 ### Reproducción de Sonidos
 
-En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Se puede usar cualquiera de los sonidos predeterminados (en las preferencias del sistema > sonido), además de los archivos de sonido personalizados. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
+En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
