@@ -36,7 +36,7 @@ A `String` representing the controls current segment style. Updating this value 
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Wenn Sie diesen Wert sofort aktualisieren, wird das Steuerelement in der Touchleiste sofort aktualisiert. Durch das Aktualisieren tiefer Eigenschaften in diesem Array **wird die Touchleiste**nicht aktualisiert.
+A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
