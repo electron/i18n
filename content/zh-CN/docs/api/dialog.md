@@ -199,7 +199,7 @@ Shows a message box, it will block the process until the message box is closed. 
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。 If `browserWindow` is not shown dialog will not be attached to it. 在这种情况想，它将作为一个独立的窗口显示。
 
-### `对话。显示信息框（[浏览器窗口，]选项）`
+### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` 对象
@@ -216,9 +216,9 @@ Shows a message box, it will block the process until the message box is closed. 
   * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
   * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 
-返回 `Promise<Object>` - 承诺包含以下属性的解析：
+Returns `Promise<Object>` - resolves with a promise containing the following properties:
 
-* `response` 编号 - 点击按钮的索引。
+* `response` Number - The index of the clicked button.
 * `checkboxChecked` Boolean - 如果设置了 `checkboxLabel`，返回复选框是否被选中的状态。 否则，返回 `false`。
 
 显示一个消息框
@@ -241,7 +241,7 @@ Shows a message box, it will block the process until the message box is closed. 
   * `certificate` [Certificate](structures/certificate.md) - 信任/导入的证书
   * `message` String - 要向用户显示的消息
 
-返回 `Promise<void>` - 显示证书信任对话时解析。
+Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 
 在macOS中, 将弹出一个用于展示消息与证书信息并向用户提供信任/导入证书的选项的模态对话框。 如果提供 ` browserWindow ` 参数, 则该对话框将附加到父窗口, 使其成模态框。
 
@@ -250,16 +250,16 @@ Shows a message box, it will block the process until the message box is closed. 
 * `message` 参数无效，因为操作系统提供了自身的确认对话框。
 * `browserWindow` 参数被忽略，因此无法成为模态对话框。
 
-## 书签阵列
+## Bookmarks array
 
-`showOpenDialog`、 `showOpenDialogSync`、 `showSaveDialog`和 `showSaveDialogSync` 将返回一个 `bookmarks` 阵列。
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
 
-| 构建类型  | 安全范围书签布尔 | 返回类型  | 回报值             |
-| ----- | -------- |:-----:| --------------- |
-| 马科斯马斯 | 真        |  成功   | `['长手册标记]]`     |
-| 马科斯马斯 | 真        | Error | `['']` （空字符串阵列） |
-| 马科斯马斯 | False    |   那   | `[]` （空阵列）      |
-| 非马斯   | 任何       |   那   | `[]` （空阵列）      |
+| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
+| ---------- | ------------------------------- |:-----------:| ------------------------------ |
+| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
+| macOS mas  | False                           |     NA      | `[]` (empty array)             |
+| non mas    | any                             |     NA      | `[]` (empty array)             |
 
 ## 工作表
 
