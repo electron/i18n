@@ -16,14 +16,14 @@ BrowserWindow`. Ela é como uma janela filha, exceto que ela está posicionada e
 
 ```javascript
 // No processo main.
-const { BrowserView, BrowserWindow } = require ('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-const win = novo BrowserWindow({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-visor de const = novo BrowserView()
-win.setBrowserView(visualização)
-view.setBounds({ x: 0, y: 0, largura: 300, altura: 300 })
-view.webContents.loadURL ('https://electronjs.org')
+const view = new BrowserView()
+win.setBrowserView(view)
+view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 
@@ -54,32 +54,32 @@ Objectos criados com `new BrowserView` possuem os seguintes métodos de instânc
 
 
 
-#### </em>Experimental `view.setAutoResize(options)` _</h4> 
+#### `view.setAutoResize(options)` _Experimental_
 
 * objeto `options` 
-    * `width` Booleano (opcional) - Se `true`, a largura da vista crescerá e encolherá junto com a janela. `false` por padrão.
-  * `height` Booleano (opcional) - Se `true`, a altura da vista crescerá e encolherá junto com a janela. `false` por padrão.
-  * `horizontal` Booleano (opcional) - Se `true`, a posição e largura x da vista crescerão e diminuirão proporcionalmente com a janela. `false` por padrão.
-  * `vertical` Booleano (opcional) - Se `true`, a posição e a altura da vista crescerão e diminuirão proporcionalmente com a janela. `false` por padrão.
+    * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 
 
-#### </em>Experimental `view.setBounds(bounds)` _</h4> 
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Redimensiona e move a visão para os limites fornecidos em relação à janela.
+Resizes and moves the view to the supplied bounds relative to the window.
 
 
 
-#### </em>Experimental `view.getBounds()` _</h4> 
+#### `view.getBounds()` _Experimental_
 
-Retornos [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md)
 
-A `bounds` desta instância do BrowserView como `Object`.
+The `bounds` of this BrowserView instance as `Object`.
 
 
 
-#### </em>Experimental `view.setBackgroundColor(color)` _</h4> 
+#### `view.setBackgroundColor(color)` _Experimental_
 
-* `color` String - Cor na forma `#aarrggbb` ou `#argb` . O canal alfa é opcional.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
