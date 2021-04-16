@@ -380,7 +380,7 @@ Returns `Boolean` - `true` if the current process is a trusted accessibility cli
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` - может быть `microphone`, `camera` или `screen`.
+* `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
 Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
@@ -390,7 +390,7 @@ Windows 10 has a global setting controlling `microphone` and `camera` access for
 
 ### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
 
-* `mediaType` String - тип запрашиваемых средств массовой информации; может быть `microphone`, `camera`.
+* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
 
 Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it _must_ be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
@@ -402,9 +402,9 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 Возвращает `Object`:
 
-* `shouldRenderRichAnimation` Boolean - Возвращает верно, если богатые анимации должны быть предоставлены. Просмотр типа сеанса (например, удаленного рабочего стола) и параметров доступности для получения рекомендаций для тяжелой анимации.
-* `scrollAnimationsEnabledBySystem` Boolean - определяет на основе платформы, следует ли включены анимации прокрутки (например, произведенные ключом дома/конца).
-* `prefersReducedMotion` Boolean - Определяет, желает ли пользователь уменьшить движение на основе API-платформы.
+* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
+* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
+* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
 
 Returns an object with system animation settings.
 
