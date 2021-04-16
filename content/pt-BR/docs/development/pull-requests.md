@@ -158,15 +158,15 @@ os requisitos abaixo.
 
 Correções de bugs e novos recursos devem incluir testes e possivelmente benchmarks.
 
-Guia de contribuintes: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
-->
+Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+-->
 ```
 
-### Passo 10: Discutir e atualizar
+### Step 10: Discuss and update
 
-Você provavelmente receberá feedback ou pedidos de alterações na sua solicitação de atração. Esta é uma grande parte do processo de submissão, então não desanime! Alguns contribuintes podem assinar o pedido de retirada imediatamente. Outros podem ter comentários ou comentários detalhados. Esta é uma parte necessária do processo para avaliar se as mudanças são corretas e necessárias.
+You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
-Para fazer alterações em uma solicitação de tração existente, faça as alterações em sua filial local de , adicione um novo compromisso com essas alterações e empurre-as para o seu garfo. O GitHub atualizará automaticamente a solicitação de tração.
+To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
 ```sh
 $ git add my/changed/files
@@ -174,34 +174,26 @@ $ git commit
 $ git push origin my-branch
 ```
 
-Existem uma série de mecanismos mais avançados para gerenciar compromissos usando `git rebase` que podem ser usados, mas estão além do escopo deste guia.
+There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
 
-Sinta-se livre para postar um comentário na solicitação de atração para os revisores de ping se você está aguardando uma resposta sobre algo. Se você encontrar palavras ou siglas que parecem desconhecidas, consulte este</a>glossário
-
-.</p> 
-
-
+Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
 #### Fluxo de trabalho de aprovação e solicitação
 
-Todos os pedidos de retirada requerem aprovação de um proprietário de código [](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) da área que você modificou para pousar. Sempre que um mantenedor revisar uma solicitação de tração, eles podem solicitar alterações. Estes podem ser pequenos, como corrigir um erro de digitação, ou podem envolver alterações substantivas. Tais pedidos visam ser úteis, mas às vezes podem parecer abruptas ou inúteis, especialmente se não incluem sugestões concretas sobre *como* mudá-las.
+All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
-Tente não se desanimar. Se você acha que uma revisão é injusta, diga ou procure a entrada de outro colaborador do projeto. Muitas vezes, tais comentários são resultado de um revisor ter tido tempo insuficiente para ser revisto e não são mal intencionados. Tais dificuldades muitas vezes podem ser resolvidas com um pouco de paciência. Dito isto, espera-se que os revisores forneçam feedback útil.
-
-
+Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feedback.
 
 ### Passo 11: Aterrissagem
 
-Para aterrissar, uma solicitação de retirada precisa ser revisada e aprovada por pelo menos um Proprietário de Código Eletrônico e passar ci. Depois disso, se não houver objeções de outros contribuintes, o pedido de retirada pode ser mesclado.
+In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-Parabéns e obrigado por sua contribuição!
-
-
+Congratulations and thanks for your contribution!
 
 ### Teste de integração contínua
 
-Cada solicitação de tração é testada no sistema de Integração Contínua (CI) para confirmar que funciona nas plataformas suportadas pela Electron.
+Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
-Idealmente, a solicitação de tração passará ("seja verde") em todas as plataformas da CI. Isso significa que todos os testes passam e não há erros de fiação. No entanto, não é incomum que a própria infraestrutura de CI falhe em plataformas específicas ou que os chamados testes "desajeitados" falhem ("seja vermelho"). Cada falha CI deve ser inspecionada manualmente para determinar a causa.
+Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
-O CI é iniciado automaticamente quando você abre uma solicitação de tração, mas apenas os mantenedores do núcleo podem reiniciar uma execução de CI. Se você acredita que a CI está dando um falso negativo, peça a um mantenedor para reiniciar os testes.
+CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
