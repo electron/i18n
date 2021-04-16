@@ -1,31 +1,31 @@
-# СообщениеПортМейн
+# MessagePortMain
 
-`MessagePortMain` является основным эквивалентом DOM- [`MessagePort`][] объекта. Он ведет себя аналогично версии DOM, за исключением , что он использует систему событий Node.js `EventEmitter` , а не DOM `EventTarget` систему. Это означает, что вы `port.on('message', ...)` для прослушивания событий, а не `port.onmessage = ...` или `port.addEventListener('message', ...)`
+`MessagePortMain` is the main-process-side equivalent of the DOM [`MessagePort`][] object. It behaves similarly to the DOM version, with the exception that it uses the Node.js `EventEmitter` event system, instead of the DOM `EventTarget` system. This means you should use `port.on('message', ...)` to listen for events, instead of `port.onmessage = ...` or `port.addEventListener('message', ...)`
 
-Для получения дополнительной [об использовании][] обмена сообщениями канала сообщениями канала.
+See the [Channel Messaging API][] documentation for more information on using channel messaging.
 
-`MessagePortMain` является \[EventEmitter\]\[event-emitter\].
+`MessagePortMain` is an \[EventEmitter\]\[event-emitter\].
 
-## Класс: MessagePortMain
+## Class: MessagePortMain
 
 Процесс: [Основной](../glossary.md#main-process)
 
 ### Методы экземпляра
 
-#### `port.postMessage (сообщение, [transfer])`
+#### `port.postMessage(message, [transfer])`
 
 * `message` any
-* `transfer` MessagePortMain (по желанию)
+* `transfer` MessagePortMain[] (optional)
 
-Отправляет сообщение из порта и, по желанию, передает право собственности на объекты в другие контексты просмотра.
+Sends a message from the port, and optionally, transfers ownership of objects to other browsing contexts.
 
 #### `port.start()`
 
-Начинается отправка сообщений в очереди в порту. Сообщения будут стоять в очереди тех пор, пока этот метод не будет вызван.
+Starts the sending of messages queued on the port. Messages will be queued until this method is called.
 
 #### `port.close()`
 
-Отключает порт, поэтому он больше не активен.
+Disconnects the port, so it is no longer active.
 
 ### События экземпляра
 
@@ -33,15 +33,15 @@
 
 Возвращает:
 
-* `messageEvent` объект
-  * `data` любой
-  * `ports` СообщениеПортМайна
+* `messageEvent` Object
+  * `data` any
+  * `ports` MessagePortMain[]
 
-Испускаемый, когда объект MessagePortMain получает сообщение.
+Emitted when a MessagePortMain object receives a message.
 
 #### Событие: 'close'
 
-Испускаемый при отключении удаленного конца объекта MessagePortMain.
+Emitted when the remote end of a MessagePortMain object becomes disconnected.
 
 [`MessagePort`]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
-[об использовании]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
+[Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
