@@ -1,25 +1,25 @@
-## Класс: TouchBarПоповер
+## Class: TouchBarPopover
 
-> Создание popover в сенсорной панели для родных приложений macOS
+> Create a popover in the touch bar for native macOS applications
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `новый TouchBarPopover (варианты)`
+### `new TouchBarPopover(options)`
 
 * `options` Object
-  * `label` Строка (необязательно) - текст кнопки Popover.
-  * `icon` [NativeImage](native-image.md) (по желанию) - значок кнопки Popover.
-  * `items` [TouchBar](touch-bar.md) - Элементы для отображения в popover.
-  * `showCloseButton` Boolean (необязательно) - `true` для отображения кнопки закрытия слева от popover, `false` не показывать его. По умолчанию - `true`.
+  * `label` String (optional) - Popover button text.
+  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
+  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. По умолчанию - `true`.
 
 ### Свойства экземпляра
 
-Следующие свойства доступны на экземплярах `TouchBarPopover`:
+The following properties are available on instances of `TouchBarPopover`:
 
 #### `touchBarPopover.label`
 
-`String` , представляющий текущий текст кнопки popover. Изменение этого значения немедленно обновляет popover в сенсорной панели.
+A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
 
 #### `touchBarPopover.icon`
 
-На `NativeImage` , представляющий значок кнопки popover. Изменение этого значения немедленно обновляет popover в сенсорной панели.
+A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
