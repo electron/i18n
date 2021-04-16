@@ -1,17 +1,17 @@
-# Открытие окон от рендерера
+# Opening windows from the renderer
 
-Существует несколько способов управления тем, как окна создаются из надежного или содержимого в рендеринге. Windows может быть создана из рендерера двумя способами:
+There are several ways to control how windows are created from trusted or untrusted content within a renderer. Windows can be created from the renderer in two ways:
 
-- нажав на ссылки или отправки формы украшены `target=_blank`
-- JavaScript `window.open()`
+- clicking on links or submitting forms adorned with `target=_blank`
+- JavaScript calling `window.open()`
 
-В не-песочнице рендеров, или когда `nativeWindowOpen` является ложным (по умолчанию), это приводит к созданию [`BrowserWindowProxy`](browser-window-proxy.md), свет обертка вокруг `BrowserWindow`.
+In non-sandboxed renderers, or when `nativeWindowOpen` is false (the default), this results in the creation of a [`BrowserWindowProxy`](browser-window-proxy.md), a light wrapper around `BrowserWindow`.
 
-Однако, когда `sandbox` (или непосредственно, `nativeWindowOpen`) параметр установлен, `Window` экземпляр создается, как и следовало ожидать в браузере. Для содержимого одного же происхождения новое окно создается в рамках того же процесса, что позволяет доступ к окну ребенка напрямую. Это может быть очень полезно для подок окон приложения, которые действуют как панели предпочтений, или аналогичные, как родитель может оказать в подокну непосредственно, как если бы это `div` в родительском.
+However, when the `sandbox` (or directly, `nativeWindowOpen`) option is set, a `Window` instance is created, as you'd expect in the browser. For same-origin content, the new window is created within the same process, enabling the parent to access the child window directly. This can be very useful for app sub-windows that act as preference panels, or similar, as the parent can render to the sub-window directly, as if it were a `div` in the parent.
 
-Electron пар этого родного `Window` с BrowserWindow под капотом. Вы можете воспользоваться всеми преимуществами настройки, доступными при создании BrowserWindow в основном процессе, используя `webContents.setWindowOpenHandler()` для созданных рендерером окон.
+Electron pairs this native Chrome `Window` with a BrowserWindow under the hood. You can take advantage of all the customization available when creating a BrowserWindow in the main process by using `webContents.setWindowOpenHandler()` for renderer-created windows.
 
-Параметры конструктора BrowserWindow устанавливаются в порядке увеличения приоритета : варианты, унаследованные от родителя, разобраные варианты из строки `features` от `window.open()`, связанные с безопасностью webPreferences унаследованные от родителя, и варианты, данные [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Обратите внимание, `webContents.setWindowOpenHandler` имеет последнее слово и полную привилегию , потому что он вызывается в основном процессе.
+BrowserWindow constructor options are set by, in increasing precedence order: options inherited from the parent, parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -19,84 +19,84 @@ Electron пар этого родного `Window` с BrowserWindow под ка�
 * `frameName` String (опиционально)
 * `features` String (опиционально)
 
-Возвращает [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
+Returns [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
-`features` является запятой разделенный список ключевых значений, следуя стандартному формату браузера. Electron будет анализировать `BrowserWindowConstructorOptions` этого списка , где это возможно, для удобства. Для полного управления и улучшения эргономики, рассмотреть возможность `webContents.setWindowOpenHandler` для настройки создания BrowserWindow.
+`features` является запятой разделенный список ключевых значений, следуя стандартному формату браузера. Electron will parse `BrowserWindowConstructorOptions` out of this list where possible, for convenience. For full control and better ergonomics, consider using `webContents.setWindowOpenHandler` to customize the BrowserWindow creation.
 
-Подмножество `WebPreferences` может быть установлено непосредственно, , из строки функций: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`и `webviewTag`.
+A subset of `WebPreferences` can be set directly, unnested, from the features string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, and `webviewTag`.
 
 Например:
 
 ```js
-window.open ('https://github.com', '_blank', 'top'500,left'200,frame-false,nodeIntegration'no')
+window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIntegration=no')
 ```
 
 **Замечания:**
 
-* Интеграция узла всегда будет отключена в открытой `window` если она отключена на родительском окне.
-* Изоляция контекста всегда будет включена в открытой `window` если она включена в родительском окне.
-* JavaScript всегда будет отключен в открытой `window` если он отключен родительского окна.
-* Нестандартные функции (которые не обрабатываются Chromium или Electron), данные в `features` , будут переданы любому зарегистрированного обработчику событий `webContents`'s `did-create-window` в `additionalFeatures` аргументе.
+* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
+* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
+* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `additionalFeatures` argument.
 
-Чтобы настроить или отменить создание окна, можно дополнительно установить обработчик с `webContents.setWindowOpenHandler()` из основного процесса. Возвращаясь `false` отменяет окно, при возврате объекта устанавливается `BrowserWindowConstructorOptions` , используемого при создании окна. Обратите внимание, это более мощно, чем передача опций через строку функций, так как renderer имеет более ограниченные привилегии при определении предпочтений безопасности, чем основной процесс.
+To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `false` cancels the window, while returning an object sets the `BrowserWindowConstructorOptions` used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
 
-### `BrowserWindowProxy` пример
+### `BrowserWindowProxy` example
 
 ```javascript
 
-главное.js
-const mainWindow - новый BrowserWindow ()
+// main.js
+const mainWindow = new BrowserWindow()
 
-mainWindow.webContents.setWindowOpenHandler ((({ url }) -> -
-  если (url.startsWith ('https://github.com/')) -
-    возврат { action: 'allow' }
+mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  if (url.startsWith('https://github.com/')) {
+    return { action: 'allow' }
+  }
+  return { action: 'deny' }
+})
 
-  возврата { action: 'deny' }
-)
-
-mainWindow.webContents.on ('did-create-window', (childWindow) ->
-  // Например...
-  childWindow.webContents ('will-navigate', (e) ->
-    e.preventDefault ()
-  )
-)
+mainWindow.webContents.on('did-create-window', (childWindow) => {
+  // For example...
+  childWindow.webContents('will-navigate', (e) => {
+    e.preventDefault()
+  })
+})
 ```
 
 ```javascript
-рендер.js
-const windowProxy - window.open ("https://github.com/', null, 'minimizable'false')
-windowProxy.postMessage ("привет", 'к')
+// renderer.js
+const windowProxy = window.open('https://github.com/', null, 'minimizable=false')
+windowProxy.postMessage('hi', '*')
 ```
 
-### Родной `Window` пример
+### Native `Window` example
 
 ```javascript
-главное.js
-const mainWindow - новый BrowserWindow (no
+// main.js
+const mainWindow = new BrowserWindow({
   webPreferences: {
     nativeWindowOpen: true
   }
-)
+})
 
-// В этом примере будут созданы только окна с URL-адресом 'about:blank'.
-Все остальные URL-адреса будут заблокированы.
-mainWindow.webContents.setWindowOpenHandler ((({ url }) -> -
-  если (url -1":blank') -
-    возврат :
-      кадр: ложный,
-      полноэкранный: ложный,
-      backgroundColor:
-      webPrefers: {
+// In this example, only windows with the `about:blank` url will be created.
+// All other urls will be blocked.
+mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  if (url === 'about:blank') {
+    return {
+      frame: false,
+      fullscreenable: false,
+      backgroundColor: 'black',
+      webPreferences: {
         preload: 'my-child-window-preload-script.js'
       }
-    -
-  
-
-
+    }
+  }
+  return false
+})
 ```
 
 ```javascript
-процесс рендерирования (mainWindow)
-const childWindow - window.open (', 'modal')
-childWindow.document.write",'<h1>Hello</h1>')
+// renderer process (mainWindow)
+const childWindow = window.open('', 'modal')
+childWindow.document.write('<h1>Hello</h1>')
 ```
