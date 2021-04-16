@@ -1,49 +1,49 @@
-## Klasse: CommandLine
+## Class: CommandLine
 
-> Bearbeiten der Befehlszeilenargumente für Ihre App, die Chromium liest
+> Manipulate the command line arguments for your app that Chromium reads
 
 Prozess: [Main](../glossary.md#main-process)
 
-Das folgende Beispiel zeigt, wie Sie überprüfen, ob das `--disable-gpu` -Flag gesetzt ist.
+The following example shows how to check if the `--disable-gpu` flag is set.
 
 ```javascript
 const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-Weitere Informationen darüber, welche Arten von Flags und Switches Sie verwenden können, finden Sie [Befehlszeilenschalter](./command-line-switches.md) Dokument.
+For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
 
 ### Instanz Methoden
 
-#### `commandLine.appendSwitch(switch[, wert])`
+#### `commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - Ein Befehlszeilenschalter, ohne `--`
-* `value` String (optional) - Ein Wert für den angegebenen Schalter
+* `switch` String - A command-line switch, without the leading `--`
+* `value` String (optional) - A value for the given switch
 
-Fügen Sie einen Schalter (mit optionalem `value`) an die Befehlszeile von Chromium an.
+Append a switch (with optional `value`) to Chromium's command line.
 
-**Hinweis:** Dies wirkt sich nicht auf `process.argv`aus. Die beabsichtigte Verwendung dieser Funktion besteht darin, das Verhalten von Chromium zu kontrollieren.
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
-#### `commandLine.appendArgument(Wert)`
+#### `commandLine.appendArgument(value)`
 
-* `value` String - Das Argument, das an die Befehlszeile angehängt werden soll
+* `value` String - The argument to append to the command line
 
-Fügen Sie ein Argument an die Befehlszeile von Chromium an. Das Argument wird korrekt zitiert. Switches gehen Argumenten unabhängig von der Anfügenreihenfolge voran.
+Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
 
-Wenn Sie ein Argument wie `--switch=value`anfügen, sollten Sie stattdessen `appendSwitch('switch', 'value')` verwenden.
+If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
 
-**Hinweis:** Dies wirkt sich nicht auf `process.argv`aus. Die beabsichtigte Verwendung dieser Funktion besteht darin, das Verhalten von Chromium zu kontrollieren.
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
-#### `commandLine.hasSwitch(Schalter)`
+#### `commandLine.hasSwitch(switch)`
 
-* `switch` String - Ein Befehlszeilenschalter
+* `switch` String - A command-line switch
 
-Gibt `Boolean` zurück - Gibt an, ob der Befehlszeilenschalter vorhanden ist.
+Returns `Boolean` - Whether the command-line switch is present.
 
-#### `commandLine.getSwitchValue(Schalter)`
+#### `commandLine.getSwitchValue(switch)`
 
-* `switch` String - Ein Befehlszeilenschalter
+* `switch` String - A command-line switch
 
-Gibt `String` zurück - Der Befehlszeilenschalterwert.
+Returns `String` - The command-line switch value.
 
-**Hinweis:** Wenn der Schalter nicht vorhanden ist oder keinen Wert hat, gibt er eine leere Zeichenfolge zurück.
+**Note:** When the switch is not present or has no value, it returns empty string.
