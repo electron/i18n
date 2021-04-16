@@ -78,7 +78,7 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.set(details)`
 
-* `details` 对象
+* `details` Object
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
