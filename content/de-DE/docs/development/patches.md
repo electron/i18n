@@ -36,58 +36,58 @@ patches
 
 To help manage these patch sets, we provide two tools: `git-import-patches` and `git-export-patches`. `git-import-patches` imports a set of patch files into a git repository by applying each patch in the correct order and creating a commit for each one. `git-export-patches` does the reverse; it exports a series of git commits in a repository into a set of files in a directory and an accompanying `.patches` file.
 
-> Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. Es verhindert die Situation, dass zwei PRs beide einen Patch am Ende der Serie mit der gleichen Nummerierung hinzufügen und am Ende beide zusammengeführt werden, was zu einem doppelten Bezeichner führt, und es reduziert auch die Abwanderung, wenn ein Patch in der Mitte der Serie hinzugefügt oder gelöscht wird.
+> Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
 
 ### Beispiel
 
-#### Hinzufügen eines neuen Patches
+#### Adding a new patch
 
 ```bash
 $ cd src/third_party/electron_node
-- vim some/code/file.cc
-git commit
-. /.. /electron/script/git-export-patches -o .. /.. /electron/patches/node
+$ vim some/code/file.cc
+$ git commit
+$ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-> **HINWEIS**: `git-export-patches` ignoriert alle nicht festgeschriebenen Dateien, daher müssen Sie einen Commit erstellen, wenn Sie möchten, dass Ihre Änderungen exportiert werden. Die Betreffzeile der Commitnachricht wird verwendet, um den Patchdateinamen abzuleiten, und der Text der Commitnachricht sollte den Grund für das Vorhandensein des Patches enthalten.
+> **NOTE**: `git-export-patches` ignores any uncommitted files, so you must create a commit if you want your changes to be exported. The subject line of the commit message will be used to derive the patch file name, and the body of the commit message should include the reason for the patch's existence.
 
-Das erneute Exportieren von Patches führt manchmal dazu, dass sich Shasums in nicht verwandten Patches ändern. Dies ist im Allgemeinen harmlos und kann ignoriert werden (aber gehen Sie vor und fügen Sie diese Änderungen zu Ihrer PR hinzu, es wird sie davon abhalten, für andere Personen zu zeigen).
+Re-exporting patches will sometimes cause shasums in unrelated patches to change. This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
 
-#### Bearbeiten eines vorhandenen Patches
+#### Editing an existing patch
 
 ```bash
 $ cd src/v8
-- vim some/code/file.cc
-' git log
-' Suchen Sie den Commit-Sha des Patches, den Sie bearbeiten möchten.
+$ vim some/code/file.cc
+$ git log
+# Find the commit sha of the patch you want to edit.
 $ git commit --fixup [COMMIT_SHA]
-$ git rebase --autosquash -i [COMMIT_SHA].
-. /electron/script/git-export-patches -o .. /electron/patches/v8
+$ git rebase --autosquash -i [COMMIT_SHA]^
+$ ../electron/script/git-export-patches -o ../electron/patches/v8
 ```
 
-#### Entfernen eines Patches
+#### Removing a patch
 
 ```bash
-$im src/electron/patches/node/.patches
-- Löschen Sie die Zeile mit dem Namen des Patches, den Sie entfernen möchten,
-cd src/third_party/electron_node
-- git reset --hard refs/patches/upstream-head
-. /.. /electron/script/git-import-patches .. /.. /electron/patches/node
-. /.. /electron/script/git-export-patches -o .. /.. /electron/patches/node
+$ vim src/electron/patches/node/.patches
+# Delete the line with the name of the patch you want to remove
+$ cd src/third_party/electron_node
+$ git reset --hard refs/patches/upstream-head
+$ ../../electron/script/git-import-patches ../../electron/patches/node
+$ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-Beachten Sie, dass `git-import-patches` den Commit markiert, der `HEAD` wurde, als er ausgeführt wurde, als `refs/patches/upstream-head`. Auf diese Weise können Sie nachverfolgen, welche Commits von Electron-Patches stammen (die nach `refs/patches/upstream-head`) und welche Commits sich im Upstream befinden (die vor `refs/patches/upstream-head`).
+Note that `git-import-patches` will mark the commit that was `HEAD` when it was run as `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
 
 #### Konflikte beheben
 
-Beim Aktualisieren einer Upstream-Abhängigkeit können Patches möglicherweise nicht ordnungsgemäß angewendet werden. Häufig kann der Konflikt automatisch durch git mit einer 3-Wege-Zusammenführung gelöst werden. Sie können `git-import-patches` anweisen, den 3-Wege-Zusammenführungsalgorithmus zu verwenden, indem Sie das argument `-3` übergeben:
+When updating an upstream dependency, patches may fail to apply cleanly. Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
 
 ```bash
-electron_node
-third_party Wenn die Patch-Anwendung in der Mitte des Vorgangs fehlgeschlagen ist, können Sie sie zurücksetzen mit:
---abort
-- Und wiederholen Sie dann mit 3-Wege-Zusammenführung:
-. /.. /electron/script/git-import-patches -3 .. /.. /electron/patches/node
+$ cd src/third_party/electron_node
+# If the patch application failed midway through, you can reset it with:
+$ git am --abort
+# And then retry with 3-way merge:
+$ ../../electron/script/git-import-patches -3 ../../electron/patches/node
 ```
 
-Wenn `git-import-patches -3` auf einen Zusammenführungskonflikt stößt, den er nicht automatisch lösen kann, wird er angehalten und ermöglicht es Ihnen, den Konflikt manuell zu lösen. Nachdem Sie den Konflikt gelöst haben, `git add` die aufgelösten Dateien und wenden Sie die restlichen Patches weiter an, indem Sie `git am --continue`ausführen.
+If `git-import-patches -3` encounters a merge conflict that it can't resolve automatically, it will pause and allow you to resolve the conflict manually. Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
