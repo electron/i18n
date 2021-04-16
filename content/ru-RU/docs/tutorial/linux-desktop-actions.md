@@ -2,7 +2,7 @@
 
 ## Обзор
 
-Во многих средах Linux можно добавлять пользовательские записи в систему запуска , изменяя `.desktop` файл. Для документации Canonical's Unity с</a>
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. Для документации Canonical's Unity с</a>
 
 м. For details on a more generic implementation, see the [freedesktop.org Specification][spec].</p> 
 
