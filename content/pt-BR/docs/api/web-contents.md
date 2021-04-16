@@ -350,7 +350,7 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 
 #### Evento: 'unresponsive'
 
-Emitido quando a página web fica sem resposta.
+Emitted when the web page becomes unresponsive.
 
 #### Evento: 'responsive'
 
@@ -465,7 +465,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Retorna:
 
 * `event` Event
-* objeto `authenticationResponseDetails`
+* `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
   * `isProxy` Boolean
@@ -1069,7 +1069,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Retornos `Promise<void>`
+Returns `Promise<void>`
 
 Sets the maximum and minimum pinch-to-zoom level.
 
@@ -1138,7 +1138,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Retornos `Promise<void>`
+Returns `Promise<void>`
 
 Inserts `text` to the focused element.
 
@@ -1212,7 +1212,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. O padrão é `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -1514,7 +1514,7 @@ app.whenReady().then(() => {
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTA:** Enviar tipos JavaScript não padrão, como objetos DOM ou objetos elétrons especiais, lançará uma exceção.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
