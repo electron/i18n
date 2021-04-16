@@ -4,20 +4,20 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-### `新的触摸栏隔离控制（选项）`
+### `new TouchBarSegmentedControl(options)`
 
 * `选项` 对象
-  * `segmentStyle` 字符串（可选） - 段的样式：
-    * `automatic` - 默认值。 分段控制的外观 根据显示控制 的窗口类型和窗口内的位置自动确定。 地图到 `NSSegmentStyleAutomatic`。
-    * `rounded` - 控件的呈现使用圆形风格。 地图到 `NSSegmentStyleRounded`。
-    * `textured-rounded` - 控件的呈现使用纹理圆形风格。 地图到 `NSSegmentStyleTexturedRounded`。
-    * `round-rect` - 以圆角矩形样式显示控件。 地图到 `NSSegmentStyleRoundRect`。
-    * `round-rect` - 以带纹理的矩形样式显示控件。 地图到 `NSSegmentStyleTexturedSquare`。
-    * `capsule` - 以胶囊样式的风格显示控件 地图到 `NSSegmentStyleCapsule`。
-    * `small-square` - 以小尺寸的矩形样式显示控件 地图到 `NSSegmentStyleSmallSquare`。
-    * 表示控件的当前段样式。更新此值会立即更新触摸栏中的控件。 地图到 `NSSegmentStyleSeparated`。
-  * `mode` 字符串（可选） - 控制的选择模式：
-    * `single` - 默认值。 一次选择一个项目，选择一个项目取消选择之前选择的项目。 Maps to `NSSegmentSwitchTrackingSelectOne`.
+  * `segmentStyle` String (optional) - Style of the segments:
+    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
+    * `rounded` - 控件的呈现使用圆形风格。 Maps to `NSSegmentStyleRounded`.
+    * `textured-rounded` - 控件的呈现使用纹理圆形风格。 Maps to `NSSegmentStyleTexturedRounded`.
+    * `round-rect` - 以圆角矩形样式显示控件。 Maps to `NSSegmentStyleRoundRect`.
+    * `round-rect` - 以带纹理的矩形样式显示控件。 Maps to `NSSegmentStyleTexturedSquare`.
+    * `capsule` - 以胶囊样式的风格显示控件 Maps to `NSSegmentStyleCapsule`.
+    * `small-square` - 以小尺寸的矩形样式显示控件 Maps to `NSSegmentStyleSmallSquare`.
+    * 表示控件的当前段样式。更新此值会立即更新触摸栏中的控件。 Maps to `NSSegmentStyleSeparated`.
+  * `mode` String (optional) - The selection mode of the control:
+    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item. Maps to `NSSegmentSwitchTrackingSelectOne`.
     * `multiple` - 可以选多个项。 Maps to `NSSegmentSwitchTrackingSelectAny`.
     * `buttons` - 将段作为按钮使用, 每一段都可以被按下和释放但是不会被标记为激活状态 Maps to `NSSegmentSwitchTrackingMomentary`.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - 被放到控件中的段的集合
