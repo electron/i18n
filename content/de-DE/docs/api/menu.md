@@ -54,7 +54,7 @@ Das `menu` Objekt hat die folgenden Instanz Methoden:
 
 #### `menu.popup([options])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -290,8 +290,8 @@ The [`setMenu` method][setMenu] of browser windows can set the menu of certain b
 
 You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-* `before` - Inserts this item before the item with the specified label. Wenn das , auf das verwiesen wird, nicht vorhanden ist, wird das Element am Ende Menüs eingefügt. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. Wenn das , auf das verwiesen wird, nicht vorhanden ist, wird das Element am Ende Menüs eingefügt. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
 * `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
 * `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
