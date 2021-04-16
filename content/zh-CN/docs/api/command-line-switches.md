@@ -179,7 +179,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 Electron 支持一些 Node.js 支持的 [CLI flags][node-cli]。
 
-**Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
+**注意：** 当Electron 不是以 `ELECTRON_RUN_AS_NODE`运行时，传递不支持的命令行参数到Electron 不会起作用。
 
 ### --inspect-brk[=[host:]port]
 
