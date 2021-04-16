@@ -1,50 +1,50 @@
 ## Klasse: BrowserWindow
 
-> Bearbeiten des untergeordneten Browserfensters
+> Manipulate the child browser window
 
 Prozess: [Renderer](../glossary.md#renderer-process)
 
-Das `BrowserWindowProxy` Objekt wird von `window.open` zurückgegeben und bietet eingeschränkte Funktionalität im untergeordneten Fenster.
+The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
 ### Instanz Methoden
 
-Das `BrowserWindowProxy` -Objekt verfügt über die folgenden Instanzmethoden:
+The `BrowserWindowProxy` object has the following instance methods:
 
 #### `win.blur()`
 
-Entfernt den Fokus aus dem untergeordneten Fenster.
+Removes focus from the child window.
 
 #### `win.close()`
 
-Schließt das untergeordnete Fenster gewaltsam, ohne das Entladeereignis aufzurufen.
+Forcefully closes the child window without calling its unload event.
 
 #### `win.eval(code)`
 
 * `code` String
 
-Wertet den Code im untergeordneten Fenster aus.
+Evaluates the code in the child window.
 
 #### `win.focus()`
 
-Fokussiert das untergeordnete Fenster (bringt das Fenster nach vorne).
+Focuses the child window (brings the window to front).
 
 #### `win.print()`
 
-Ruft das Druckdialogfeld im untergeordneten Fenster auf.
+Invokes the print dialog on the child window.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message`
+* `message` any
 * `targetOrigin` String
 
-Sendet eine Nachricht an das untergeordnete Fenster mit dem angegebenen Ursprung oder `*` ohne Ursprungspräferenz.
+Sends a message to the child window with the specified origin or `*` for no origin preference.
 
-Zusätzlich zu diesen Methoden implementiert das untergeordnete Fenster `window.opener` Objekt ohne Eigenschaften und eine einzelne Methode.
+In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
 ### Instanz Eigenschaften
 
-Das `BrowserWindowProxy` -Objekt verfügt über die folgenden Instanzeigenschaften:
+The `BrowserWindowProxy` object has the following instance properties:
 
 #### `win.closed`
 
-Eine `Boolean` , die auf true festgelegt ist, nachdem das untergeordnete Fenster geschlossen wurde.
+A `Boolean` that is set to true after the child window gets closed.
