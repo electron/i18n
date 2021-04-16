@@ -616,32 +616,32 @@ Isso não afeta os `WebContents`existentes, e cada `WebContents` pode usar `webC
 
 #### `ses.isPersistent()`
 
-Retornos `Boolean` - Se esta sessão é ou não persistente. A sessão de `webContents` padrão de um `BrowserWindow` é persistente. Ao criar uma sessão a partir de uma partição, a sessão prefixada com `persist:` será persistente, enquanto outras serão temporárias.
+Retornos `Boolean` - Se esta sessão é ou não persistente. The default `webContents` session of a `BrowserWindow` is persistent. When creating a session from a partition, session prefixed with `persist:` will be persistent, while others will be temporary.
 
 
 
 #### `ses.getUserAgent()`
 
-Retornos `String` - O agente do usuário para esta sessão.
+Returns `String` - The user agent for this session.
 
 
 
 #### `ses.setSSLConfig(config)`
 
 * objeto `config` 
-    * `minVersion` String (opcional) - Pode ser `tls1`, `tls1.1`, `tls1.2` ou `tls1.3`. O versão SSL mínima para permitir a conexão com servidores remotos. Inadimplência para `tls1`.
-  * `maxVersion` String (opcional) - Pode ser `tls1.2` ou `tls1.3`. A versão máxima do SSL permitir ao se conectar a servidores remotos. Inadimplência para `tls1.3`.
-  * `disabledCipherSuites` Integer[] (opcional) - Lista de suítes cifradas que devem ser explicitamente impedidas de serem usadas, além daquelas desativadas pela política de entrada líquida. Formas literais suportadas: 0xAABB, onde o AA é `cipher_suite[0]` e bb é `cipher_suite[1]`, conforme definido na RFC 2246, Seção 7.4.1.2. Suítes cifras não reconhecidas, mas analisadas neste formulário, não retornarão um erro. Ex: Para desabilitar TLS_RSA_WITH_RC4_128_MD5, especifique 0x0004, enquanto desativar TLS_ECDH_ECDSA_WITH_RC4_128_SHA, especifique 0xC002. Observe que as cifras TLSv1.3 não podem ser desativadas usando este mecanismo.
+    * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
+  * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
+  * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
-Define a configuração SSL para a sessão. Todas as solicitações de rede subsequentes usarão a nova configuração. As conexões de rede existentes (como conexões WebSocket) não serão encerradas, mas as tomadas antigas na piscina não serão reutilizadas para novas conexões.
+Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
 
 
 
-#### `ses.getBlobData (identificador)`
+#### `ses.getBlobData(identifier)`
 
-* `identifier` String - UUID válido.
+* `identifier` String - Valid UUID.
 
-Devolução `Promise<Buffer>` - resolve com dados de bolhas.
+Returns `Promise<Buffer>` - resolves with blob data.
 
 
 
@@ -649,163 +649,163 @@ Devolução `Promise<Buffer>` - resolve com dados de bolhas.
 
 * String `url`
 
-Inicia o download do recurso em `url`. A API vai gerar um</a> downloaditem que pode ser acessado com o [evento de](#event-will-download) de download.</p> 
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
-**Nota:** Isso não realiza verificações de segurança relacionadas à origem de uma página, ao contrário [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 
 
 #### `ses.createInterruptedDownload(options)`
 
 * objeto `options` 
-    * `path` String - Caminho absoluto do download.
-  * `urlChain` String[] - Cadeia completa de URL para o download.
-  * `mimeType` String (opcional)
-  * `offset` Integer - Faixa inicial para o download.
-  * `length` Integer - Duração total do download.
-  * `lastModified` String (opcional) - Valor do cabeçalho modificado pela última vez.
-  * `eTag` String (opcional) - Valor do cabeçalho ETag.
-  * `startTime` Double (opcional) - Tempo em que o download foi iniciado em número de segundos desde a época UNIX.
+    * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Permite retomar `cancelled` ou `interrupted` downloads de `Session`anteriores . A API vai gerar um</a> de DownloadItem [que pode ser acessado com o [o evento de](#event-will-download) . O](download-item.md) downloaditem [não terá nenhuma `WebContents` associada a ele e o estado inicial será `interrupted`. O download só começará quando a API `resume` for chamada no](download-item.md)downloaditem .</p> 
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 
 
 #### `ses.clearAuthCache()`
 
-Devoluções `Promise<void>` - resolve quando o cache de autenticação HTTP da sessão foi limpo.
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 
 
-#### `ses.setPreloads(pré-cargas)`
+#### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - Uma matriz de caminho absoluto para scripts de pré-carregamento
+* `preloads` String[] - An array of absolute path to preload scripts
 
-Adiciona scripts que serão executados em TODOS os conteúdos da Web que estão associados a esta sessão pouco antes do `preload` scripts normais serem executados.
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 
 
 #### `ses.getPreloads()`
 
-Os retornos `String[]` uma série de caminhos para scripts pré-carregados que foram registrados.
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 
 
-#### `ses.setSpellCheckerEnabled (habilitação)`
+#### `ses.setSpellCheckerEnabled(enable)`
 
 * `enable` Booleano
 
-Define se habilita o verificador ortomeiro construído.
+Sets whether to enable the builtin spell checker.
 
 
 
 #### `ses.isSpellCheckerEnabled()`
 
-Devoluções `Boolean` - Se o verificador ortomeiro construído está ativado.
+Returns `Boolean` - Whether the builtin spell checker is enabled.
 
 
 
-#### `ses.setSpellCheckerLanguages (idiomas)`
+#### `ses.setSpellCheckerLanguages(languages)`
 
-* `languages` String[] - Uma série de códigos de idioma para habilitar o verificador ortográfico para.
+* `languages` String[] - An array of language codes to enable the spellchecker for.
 
-O verificador ortográfico incorporado não detecta automaticamente em que idioma um usuário está digitando.  Para que o verificador ortografo verifique corretamente suas palavras, você deve chamar esta API com uma variedade de códigos de idioma.  Você pode obter a lista de códigos de idioma suportados com a propriedade `ses.availableSpellCheckerLanguages` .
+The built in spellchecker does not automatically detect what language a user is typing in.  In order for the spell checker to correctly check their words you must call this API with an array of language codes.  You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
 
-**Nota:** No macOS, o verificador ortográfico do SISTEMA OPERACIONAL é usado e detectará seu idioma automaticamente.  Esta API é um não-op no macOS.
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically.  This API is a no-op on macOS.
 
 
 
 #### `ses.getSpellCheckerLanguages()`
 
-Devoluções `String[]` - Uma matriz de códigos de idioma para o que o verificador ortográfico está habilitado.  Se esta lista estiver vazia, o do spellchecker recuará ao usar `en-US`.  Por padrão no lançamento, se esta configuração for uma lista vazia, a Electron tentará preencher esta configuração com a localização atual do SISTEMA OPERACIONAL.  Esta configuração é persistindo em reinicializações.
+Returns `String[]` - An array of language codes the spellchecker is enabled for.  If this list is empty the spellchecker will fallback to using `en-US`.  By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale.  This setting is persisted across restarts.
 
-**Nota:** No macOS o verificador ortográfico do SO é usado e tem sua própria lista de idiomas.  Esta API é um não-op no macOS.
+**Note:** On macOS the OS spellchecker is used and has its own list of languages.  This API is a no-op on macOS.
 
 
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
-* `url` String - Uma URL base para a Electron para baixar dicionários hunspell de.
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-Por padrão, a Electron baixará dicionários hunspell do CDN chromium.  Se você quiser substituir esse comportamento , você pode usar esta API para apontar o downloader de dicionário em sua própria versão hospedada dos dicionários hunspell .  Publicamos um arquivo `hunspell_dictionaries.zip` com cada versão que contém os arquivos que você precisa para hospedar aqui, o servidor de arquivos deve ser **caso insensível** você deve carregar cada arquivo duas vezes, uma vez com o caso que tem no arquivo ZIP e uma vez com o nome do arquivo como todos os casos inferiores.
+By default Electron will download hunspell dictionaries from the Chromium CDN.  If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries.  We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
 Se os arquivos presentes em `hunspell_dictionaries.zip` estiverem disponíveis em `https://example.com/dictionaries/language-code.bdic` então você deve chamar esta api com `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`.  Tome atenção à barra no final.  A URL para os dicionários é formada como `${url}${filename}`.
 
-**Nota:** No macOS o verificador ortográfico do SO é usado e, portanto, não baixamos nenhum arquivo de dicionário.  Esta API é um não-op no macOS.
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files.  This API is a no-op on macOS.
 
 
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 
-Devoluções `Promise<String[]>` - Uma série de todas as palavras no dicionário personalizado do aplicativo. Resolve quando o dicionário completo é carregado a partir do disco.
+Returns `Promise<String[]>` - An array of all words in app's custom dictionary. Resolves when the full dictionary is loaded from disk.
 
 
 
-#### `ses.addWordToSpellCheckerDictionary(palavra)`
+#### `ses.addWordToSpellCheckerDictionary(word)`
 
-* `word` String - A palavra que você quer adicionar ao dicionário
+* `word` String - The word you want to add to the dictionary
 
-Retorna `Boolean` - Se a palavra foi escrita com sucesso no dicionário personalizado. Esta API não funcionará em sessões não persistentes (na memória).
+Retorna `Boolean` - Se a palavra foi escrita com sucesso no dicionário personalizado. This API will not work on non-persistent (in-memory) sessions.
 
 **Nota:** No macOS e Windows 10, esta palavra será escrita também no dicionário personalizado do sistema operacional
 
 
 
-#### `ses.removeWordFromSpellCheckerDictionary(palavra)`
+#### `ses.removeWordFromSpellCheckerDictionary(word)`
 
-* `word` String - A palavra que você quer remover do dicionário
+* `word` String - The word you want to remove from the dictionary
 
-Devoluções `Boolean` - Se a palavra foi removida com sucesso do dicionário personalizado. Esta API não funcionará em sessões não persistentes (na memória).
+Returns `Boolean` - Whether the word was successfully removed from the custom dictionary. This API will not work on non-persistent (in-memory) sessions.
 
-**Nota:** No macOS e Windows 10 esta palavra também será removida do dicionário personalizado do SISTEMA OPERACIONAL
+**Note:** On macOS and Windows 10 this word will be removed from the OS custom dictionary as well
 
 
 
-#### `ses.loadExtension(caminho[, opções])`
+#### `ses.loadExtension(path[, options])`
 
-* `path` String - Caminho para um diretório contendo uma extensão chrome não embalada
+* `path` String - Path to a directory containing an unpacked Chrome extension
 * objeto `options` (opcional) 
-    * `allowFileAccess` Boolean - Se permitir que a extensão leia arquivos locais sobre `file://` protocolo e injete scripts de conteúdo em páginas `file://` . Isto é necessário, por exemplo, para carregar extensões de devtools em URLs `file://` . Defaults to false.
+    * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. Defaults to false.
 
-Devoluções `Promise<Extension>` - resolve quando a extensão é carregada.
+Returns `Promise<Extension>` - resolves when the extension is loaded.
 
-Este método levantará uma exceção se a extensão não puder ser carregada. Se houver avisos ao instalar a extensão (por exemplo, se a extensão solicitar uma API que a Electron não suporta) então eles serão registrados no console .
+This method will raise an exception if the extension could not be loaded. If there are warnings when installing the extension (e.g. if the extension requests an API that Electron does not support) then they will be logged to the console.
 
-Observe que a Electron não suporta toda a gama de APIs de extensões do Chrome. Consulte [APIs de extensões suportadas](extensions.md#supported-extensions-apis) para mais detalhes sobre o que é suportado.
+Note that Electron does not support the full range of Chrome extensions APIs. See [Supported Extensions APIs](extensions.md#supported-extensions-apis) for more details on what is supported.
 
-Note que nas versões anteriores do Electron, extensões que eram carregadas seriam lembradas para futuras corridas do aplicativo. Este não é mais o caso: `loadExtension` deve ser chamado em cada inicialização do seu aplicativo se você quiser que a extensão seja carregada.
+Note that in previous versions of Electron, extensions that were loaded would be remembered for future runs of the application. This is no longer the case: `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
 
 
 
 ```js
-const { app, session } = requer ('elétron')
-caminho const = require ('path')
+const { app, session } = require('electron')
+const path = require('path')
 
-app.on ('pronto', async () => {
-  aguardam session.defaultSession.loadExtension(
+app.on('ready', async () => {
+  await session.defaultSession.loadExtension(
     path.join(__dirname, 'react-devtools'),
-    // permite que oFileAccess seja necessário para carregar a extensão de devtools em URLs file://.
+    // allowFileAccess is required to load the devtools extension on file:// URLs.
     { allowFileAccess: true }
   )
-  // Observe que para usar a extensão React DevTools, você precisará
-  // baixar e descompactar uma cópia da extensão.
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
 })
 ```
 
 
-Esta API não suporta extensões de carregamento (.crx).
+This API does not support loading packed (.crx) extensions.
 
 **Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
 
-**Nota:** O carregamento de extensões em sessões de memória (não persistente) não é suportado e irá jogar um erro.
+**Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
 
 
 #### `ses.removeExtension(extensionId)`
 
-* `extensionId` String - ID de extensão para remover
+* `extensionId` String - ID of extension to remove
 
-Descarrega uma extensão.
+Unloads an extension.
 
 **Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
 
@@ -813,9 +813,9 @@ Descarrega uma extensão.
 
 #### `ses.getExtension(extensionId)`
 
-* `extensionId` String - ID de extensão para consulta
+* `extensionId` String - ID of extension to query
 
-Retorno `Extension` | `null` - A extensão carregada com o 1999.
+Returns `Extension` | `null` - The loaded extension with the given ID.
 
 **Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
 
@@ -823,7 +823,7 @@ Retorno `Extension` | `null` - A extensão carregada com o 1999.
 
 #### `ses.getAllExtensions()`
 
-Devoluções `Extension[]` - Uma lista de todas as extensões carregadas.
+Returns `Extension[]` - A list of all loaded extensions.
 
 **Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
 
@@ -837,13 +837,13 @@ As seguintes propriedades estão disponíveis em instâncias de `Session`:
 
 #### `ses.availableSpellCheckerLanguages` _Readonly_
 
-Uma matriz `String[]` que consiste em todas as linguagens de correção ortográfica disponíveis.  Fornecer um código de de idiomas para a API `setSpellCheckerLanguages` que não está nesta matriz resultará em um erro.
+Uma matriz `String[]` que consiste em todas as linguagens de correção ortográfica disponíveis.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
 
 
 #### `ses.spellCheckerEnabled`
 
-Um `Boolean` indicando se o verificador ortomfeito incorporado está ativado.
+A `Boolean` indicating whether builtin spell checker is enabled.
 
 
 
@@ -855,7 +855,7 @@ Um objeto [`Cookies`](cookies.md) para esta sessão.
 
 #### `ses.serviceWorkers` _Readonly_
 
-Um objeto [`ServiceWorkers`](service-workers.md) para esta sessão.
+A [`ServiceWorkers`](service-workers.md) object for this session.
 
 
 
@@ -872,16 +872,16 @@ Um objeto [`Protocol`](protocol.md) para esta sessão.
 
 
 ```javascript
-const { app, session } = require ('electron')
-caminho const = require('path')
+const { app, session } = require('electron')
+const path = require('path')
 
-app.whenReady().then((() => {
-  protocolo const = session.fromPartition ('some-partition').protocolo
-  se (!protocol.registerFileProtocol('átomo', (solicitação, retorno de chamada) => {
-    url const = request.url.substr(7)
-    callback({ path: path.normalize('${__dirname}/${url}') })
+app.whenReady().then(() => {
+  const protocol = session.fromPartition('some-partition').protocol
+  if (!protocol.registerFileProtocol('atom', (request, callback) => {
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   })) {
-    console.error('Falha no registro do protocolo')
+    console.error('Failed to register protocol')
   }
 })
 ```
@@ -896,13 +896,13 @@ Um objeto [`NetLog`](net-log.md) para esta sessão.
 
 
 ```javascript
-const { app, session } = require ('electron')
+const { app, session } = require('electron')
 
 app.whenReady().then(async () => {
-  const netLog = session.fromPartition ('some-partition').netLog
-  Log.startLogging ('/path/to/net-log')
-  // Depois de alguns eventos de rede
-  caminho const = aguard netLog.stopLogging()
-  console.log('Net-logs escritos para', caminho)
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
