@@ -146,7 +146,7 @@ O processo principal lida com isso ouvindo `channel` com [`ipcMain`](ipc-main.md
 ### `ipcRenderer.postMessage(canal, mensagem [transfer])`
 
 * `channel` Cordas
-* `message` qualquer
+* `message` any
 * `transfer` MessagePort[] (opcional)
 
 Envie uma mensagem para o processo principal, transferindo opcionalmente a propriedade de objetos ou mais [`MessagePort`][] .
