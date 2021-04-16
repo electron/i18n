@@ -47,7 +47,7 @@ Retorna `Boolean` - se as notificações do desktop são suportadas ou não pelo
 
 Objects created with `new Notification` emit the following events:
 
-**Nota:** Alguns eventos só estão disponíveis em sistemas operacionais específicos e são rotulados como tal.
+**Note:** Some events are only available on specific operating systems and are labeled as such.
 
 #### Evento: 'show'
 
