@@ -8,7 +8,7 @@ Por lo general, usted crea una aplicación de escritorio para un sistema operati
 
 ### Prerequisitos
 
-Antes de proceder con Electron, debes instalar [node. js][node-download]. Recomendamos que instale la última versión de `LTS` o `Current` disponible.
+Before proceeding with Electron you need to install [Node.js][node-download]. Recomendamos que instale la última versión de `LTS` o `Current` disponible.
 
 > Por favor instale Node.js usando instaladores precompilados para su plataforma. De lo contrario, puede encontrarse con problemas de incompatibilidad con diferentes herramientas de desarrollo.
 
