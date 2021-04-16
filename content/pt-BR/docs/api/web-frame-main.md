@@ -93,7 +93,7 @@ The renderer process can handle the message by listening to `channel` with the [
 
 * `channel` Cordas
 * `message` any
-* `transfer` MessagePortMain[] (opcional)
+* `transfer` MessagePortMain[] (optional)
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
