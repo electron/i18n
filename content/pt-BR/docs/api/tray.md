@@ -208,7 +208,7 @@ Define o `image` associado a este ícone de bandeja quando pressionado no macOS.
 
 #### `tray.setToolTip (toolTip)`
 
-* `toolTip` Cordas
+* `toolTip` String
 
 Define o texto do hover para este ícone de bandeja.
 
@@ -226,7 +226,7 @@ Devoluções `String` - o título exibido ao lado do ícone da bandeja na barra 
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` __macOS
 
-* `ignore` Booleano
+* `ignore` Boolean
 
 Define a opção de ignorar eventos de clique duplo. Ignorar esses eventos permite que você de detectar cada clique individual do ícone da bandeja.
 
