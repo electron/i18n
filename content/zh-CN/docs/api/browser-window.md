@@ -6,15 +6,15 @@
 
 ```javascript
 // 在主进程中.
-康斯特 { BrowserWindow } =要求（"电子"）
+const { BrowserWindow } = require('electron')
 
-赢=新的浏览器窗口（{ width: 800, height: 600 }）
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-//加载远程网址
-赢。 loadURL（"https：//github.com"）
+// Load a remote URL
+win.loadURL('https://github.com')
 
-//或加载本地HTML文件
-赢 app/index.html${__dirname}。
+// Or load a local HTML file
+win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
 ## 无边框窗口
@@ -23,33 +23,33 @@
 
 ## 优雅地显示窗口
 
-当直接在窗口中加载页面时，用户可能会看到页面加载的增量，这对本地应用来说不是一个好的体验。 要使窗口显示 没有视觉闪光灯，有两个解决方案，针对不同的情况。
+When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
 ## 使用`ready-to-show`事件
 
 在加载页面时，渲染进程第一次完成绘制时，如果窗口还没有被显示，渲染进程会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
 
 ```javascript
-康斯特 { BrowserWindow } =要求（'电子'）
-缺点赢=新浏览器窗口（{ show: false }）
-赢。一次（'准备显示'，（）=> {
-  赢。显示（）
-}）
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ show: false })
+win.once('ready-to-show', () => {
+  win.show()
+})
 ```
 
 这个事件通常在 `did-finish-load` 事件之后发出，但是页面有许多远程资源时，它可能会在 `did-finish-load`之前发出事件。
 
-请注意，使用此事件意味着渲染器将被视为"可见"，并 油漆，即使 `show` 是假的。  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
 ## 设置 `backgroundColor`
 
 对于一个复杂的应用，`ready-to-show` 可能发出的太晚，会让应用感觉缓慢。 在这种情况下，建议立刻显示窗口，并使用接近应用程序背景的 `backgroundColor`
 
 ```javascript
-康斯特 { BrowserWindow } =要求（"电子"）
+const { BrowserWindow } = require('electron')
 
-缺点赢=新的浏览器窗口（{ backgroundColor: '#2e2c29' }）
-赢.com。
+const win = new BrowserWindow({ backgroundColor: '#2e2c29' })
+win.loadURL('https://github.com')
 ```
 
 请注意，即使是使用 `ready-to-show` 事件的应用程序，仍建议使用设置 `backgroundColor` 使应用程序感觉更原生。
@@ -59,12 +59,12 @@
 通过使用 `parent` 选项，你可以创建子窗口：
 
 ```javascript
-康斯特 { BrowserWindow } =需要（'电子'）
+const { BrowserWindow } = require('electron')
 
-顶=新的浏览器窗口（）
-第一个孩子=新的浏览器窗口（{ parent: top }）
-个孩子。显示（）
-顶部。
+const top = new BrowserWindow()
+const child = new BrowserWindow({ parent: top })
+child.show()
+top.show()
 ```
 
 `child` 窗口将总是显示在 `top` 窗口的顶部.
@@ -74,13 +74,13 @@
 模态窗口是禁用父窗口的子窗口，创建模态窗口必须设置 `parent` 和 `modal` 选项：
 
 ```javascript
-康斯特 { BrowserWindow } = 需要 （'电子'）
+const { BrowserWindow } = require('electron')
 
-个康斯特孩子 = 新的浏览器窗口 （{ parent: top, modal: true, show: false }）
-
-
-  > 个孩子
-.com。
+const child = new BrowserWindow({ parent: top, modal: true, show: false })
+child.loadURL('https://github.com')
+child.once('ready-to-show', () => {
+  child.show()
+})
 ```
 
 ## 页面可见性
@@ -121,54 +121,54 @@
   * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
   * `center` Boolean (可选) - 窗口是否在屏幕居中.
   * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`
-  * `minHeight` 整数（可选） - 窗口的最小高度。 默认值为 `0`
+  * `minHeight` Integer (optional) - Window's minimum height. 默认值为 `0`
   * `maxWidth `Integer(可选)-窗口的最大宽度。 默认值不限
-  * `maxHeight` 整数（可选） - 窗口的最大高度。 默认值不限
-  * `resizable` 布尔（可选） - 窗口是否可重新确定。 默认值为 `true`。
-  * `movable` 布尔（可选） - 窗口是否可移动。 此 在 Linux 上未实施。 默认值为 `true`。
-  * `minimizable` 布尔（可选） - 窗口是否最小化。 这不是 在 Linux 上实施的。 默认值为 `true`。
-  * `maximizable` 布尔（可选） - 窗口是否最大化。 这不是 在 Linux 上实施的。 默认值为 `true`。
-  * `closable` 布尔（可选） - 窗口是否可克隆。 此 在 Linux 上未实施。 默认值为 `true`。
+  * `maxHeight` Integer (optional) - Window's maximum height. 默认值不限
+  * `resizable` Boolean (optional) - Whether window is resizable. 默认值为 `true`。
+  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. 默认值为 `true`。
+  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. 默认值为 `true`。
+  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. 默认值为 `true`。
+  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. 默认值为 `true`。
   * ` focusable ` Boolean (可选) - 窗口是否可以聚焦. 默认值为 `true`。 在 Windows 中设置 `focusable: false` 也意味着设置了`skipTaskbar: true`. 在 Linux 中设置 `focusable: false` 时窗口停止与 wm 交互, 并且窗口将始终置顶。
-  * `alwaysOnTop` 布尔（可选） - 窗口是否应始终保持在 其他窗口的顶部。 默认值为 `false`.
+  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. 默认值为 `false`.
   * ` fullscreen ` Boolean (可选) - 窗口是否全屏. 当明确设置为 `false` 时，在 macOS 上全屏的按钮将被隐藏或禁用. 默认值为 `false`.
   * ` fullscreenable ` Boolean (可选) - 窗口是否可以进入全屏状态. 在 macOS上, 最大化/缩放按钮是否可用 默认值为 `true`。
-  * `simpleFullscreen` 布尔 （可选） - 在 macOS 上使用狮子前全屏。 默认值为 `false`.
-  * `skipTaskbar` 布尔（可选） - 是否显示任务栏中的窗口。 默认值 `false`。
-  * `kiosk` 布尔（可选） - 窗口是否处于亭子模式。 默认值为 `false`.
+  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. 默认值为 `false`.
+  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. 默认值为 `false`.
   * `title`String(可选) - 默认窗口标题 默认为`"Electron"`。 如果由`loadURL()`加载的HTML文件中含有标签`<title>`，此属性将被忽略。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 窗口的图标. 在 Windows 上推荐使用 `ICO` 图标来获得最佳的视觉效果, 默认使用可执行文件的图标.
-  * `show` 布尔（可选） - 创建时是否应显示窗口。 默认值为 `true`。
+  * `show` Boolean (optional) - Whether window should be shown when created. 默认值为 `true`。
   * `paintWhenInitiallyHidden`Boolean(可选) - 当`show`为`false`并且渲染器刚刚被创建时，它是否应激活。  为了让`document.visibilityState` 在`show: false`的情况下第一次加载时正确地工作，你应该把这个设置成`false`.  设置为 `false` 将会导致`ready-to-show` 事件不触发。  默认值为 `true`。
-  * `frame` 布尔（可选） - 指定 `false` ，以创建一个 [无框窗口](frameless-window.md)。 默认值为 `true`。
-  * `parent` 浏览器窗口（可选） - 指定父窗口。 默认值 `null`。
-  * `modal` 布尔（可选） - 这是否是一个模式窗口。 只有当 窗口是儿童窗口时，这才有效。 默认值为 `false`.
-  * `acceptFirstMouse` Boolean（可选） - Web 视图是否接受同时激活窗口的单个 鼠标关闭事件。 默认值 `false`。
-  * `disableAutoHideCursor` 布尔（可选） - 打字时是否隐藏光标。 默认值为 `false`.
-  * `autoHideMenuBar` 布尔（可选） - 自动隐藏菜单栏，除非按下 `Alt` 键。 默认值为 `false`.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). 默认值为 `true`。
+  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. 默认值为 `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. 默认值为 `false`.
+  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. 默认值为 `false`.
   * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小使之大于屏幕的尺寸. 仅适用于 macOS，因为其它操作系统默认允许 大于屏幕的窗口。 默认值为 `false`.
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
   * `hasShadow` Boolean (可选) - 窗口是否有阴影. 默认值为 `true`。
   * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。 目前仅支持Windows 和 macos
-  * `darkTheme` 布尔（可选） - 使用深色主题的窗口，只适用于 一些GTK+3桌面环境的力量。 默认值为 `false`.
-  * `transparent` 布尔（可选） - 使窗口 [透明](frameless-window.md#transparent-window)。 默认值为 `false`. 在 Windows 上，除非窗口无框，否则无法工作。
+  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. 默认值为 `false`.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 更多信息见下文
-  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. 必须与 `vibrancy` 属性一起使用。 可能的值有
-    * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 这是默认值。
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. 可能的值有
+    * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 This is the default.
     * `active` - 后台应一直显示为激活状态。
     * `inactive` - 后台应一直显示为非激活状态。
-  * `titleBarStyle` 字符串（可选） - 窗口标题栏的风格。 默认值 `default`。 可能的值有
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. 可能的值有
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
     * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
     * `customButtonsOnHover` Boolean (可选) - 在macOS的无框窗口上绘制自定义的关闭与最小化按钮. 除非鼠标悬停到窗口的左上角, 否则这些按钮不会显示出来. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. ** 注意: **此选项目前是实验性的。
-  * `trafficLightPosition` [点](structures/point.md) （可选） - 为红绿灯按钮设置自定义位置。 只能将 `titleBarStyle` 设置为 `hidden`
-  * `fullscreenWindowTitle` Boolean （可选） - 在 macOS 上的全屏模式显示 标题栏中的标题，以备所有 `titleBarStyle` 选项。 默认值为 `false`.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
+  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. 默认值为 `false`.
   * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
-  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. 可 `appearance-based`、 `light`、 `dark`、 `titlebar`、 `selection`、 `menu`、 `popover`、 `sidebar`、 `medium-light`、 `ultra-dark`、 `header`、 `sheet`、 `window`、 `hud`、 `fullscreen-ui`、 `tooltip`、 `content`、 `under-window`、 `under-page`。  请注意，使用具有活力值的 `frame: false` 也需要使用非默认 `titleBarStyle` 。 另请注意， `appearance-based`、 `light`、 `dark`、 `medium-light`和 `ultra-dark` 已被弃用，并将在即将推出的 macOS 版本中删除。
-  * `zoomToPageWidth` Boolean （可选） - 当 选项单击工具栏上的绿色车绿灯按钮或单击" 窗口 > 缩放"菜单项时，可控 macOS 上的行为。 如果为 ` true `, 窗口将放大到网页的本身宽度, ` false ` 将使其缩放到屏幕的宽度。 这也会影响直接调用 ` maximize() ` 时的行为。 默认值为 `false`.
+  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. 如果为 ` true `, 窗口将放大到网页的本身宽度, ` false ` 将使其缩放到屏幕的宽度。 这也会影响直接调用 ` maximize() ` 时的行为。 默认值为 `false`.
   * `tabbingIdentifier` String (可选) - 选项组卡的名称，在macOS 10.12+上可使窗口在原生选项卡中打开. 具有相同标识符的窗口将被组合在一起。 这还会在窗口的标签栏中添加一个原生的新选项卡按钮, 并允许 ` app ` 和窗口接收 ` new-window-for-tab` 事件。
-  * `webPreferences` 对象（可选） - 网页功能的设置。
+  * `webPreferences` Object (optional) - Settings of web page's features.
     * `devTools` Boolean (可选) - 是否开启 DevTools. 如果设置为 ` false `, 则无法使用 ` BrowserWindow.webContents.openDevTools () ` 打开 DevTools。 默认值为 `true`。
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. 默认值为 `false`.
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
@@ -178,7 +178,7 @@
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. 默认值为 `false`.
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
-    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` _弃用_
+    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` _Deprecated_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. 默认值为 `1.0`
     * `javascript` Boolean (optional) - Enables JavaScript support. 默认值为 `true`。
     * `webSecurity` Boolean (可选) - 当设置为 `false`, 它将禁用同源策略 (通常用来测试网站), 如果此选项不是由开发者设置的，还会把 `allowRunningInsecureContent`设置为 `true`. 默认值为 `true`。
@@ -204,8 +204,8 @@
     * ` defaultEncoding ` String (可选) - 默认值为 `ISO-8859-1`.
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
-    * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 违约 `true`。 The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `worldSafeExecuteJavaScript` 布尔安（可选） - 如果是真的，从 `webFrame.executeJavaScript` 返回的值将被消毒，以确保JS值 不能不安全地跨越世界时，使用 `contextIsolation`。 默认值为 `true`。 _弃用_
+    * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. Defaults to `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. 默认值为 `true`。 _Deprecated_
     * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. ** 注意: **此选项目前是实验性的。
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
@@ -310,7 +310,7 @@ _**注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('bef
 
 当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
 
-请注意，使用此事件意味着渲染器将被视为"可见"，并 油漆，即使 `show` 是假的。  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
 #### 事件: 'maximize'
 
