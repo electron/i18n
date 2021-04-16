@@ -4,16 +4,16 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`webContents` 是一个 [事件][event-emitter]。 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
+`webContents` is an [EventEmitter][event-emitter]. 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
 
 ```javascript
-康斯特 { BrowserWindow } = 要求 （'电子'）
+const { BrowserWindow } = require('electron')
 
-缺点赢 = 新的浏览器窗口 （{ width: 800, height: 1500 }）
-赢. loadurl （'http：/ / github .com'）
+const win = new BrowserWindow({ width: 800, height: 1500 })
+win.loadURL('http://github.com')
 
-续内容 = win. web 控制台
-控制台.log （内容）
+const contents = win.webContents
+console.log(contents)
 ```
 
 ## 方法
@@ -37,7 +37,7 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 * `id` Integer
 
-返回 `WebContents` |未定义 - 带有给定 ID 的 Web 内容实例，或如果没有与给定 ID 关联的 Web 内容，则 `undefined` 。
+Returns `WebContents` | undefined - A WebContents instance with the given ID, or `undefined` if there is no WebContents associated with the given ID.
 
 ## 类: WebContents
 
@@ -60,12 +60,12 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 这个事件类似于 `did-finish-load` ，只不过是在加载失败之后触发。 完整的错误码列表以及含义，[请看这](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h)
 
-#### 事件："失败-临时加载"
+#### Event: 'did-fail-provisional-load'
 
 返回:
 
@@ -74,8 +74,8 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 这个事件类似于 `did-finish-load`，只不过是在加载失败或取消加载之后触发，例如调用 `window.stop()` 。
 
@@ -85,8 +85,8 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 * `event` Event
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 当框架完成导航（navigation）时触发
 
@@ -114,7 +114,7 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 * `title` String
 * `explicitSet` Boolean
 
-在导航过程中设置页面标题时激发。 当 标题从文件网址合成时，`explicitSet` 是错误的。
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 #### 事件: 'page-favicon-updated'
 
@@ -125,62 +125,62 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 当页面获取到favicon的连接时，触发该事件。
 
-#### 事件： "新窗口" _弃用_
+#### Event: 'new-window' _Deprecated_
 
 返回:
 
-* `event` 新窗口网络康滕茨事件
+* `event` NewWindowWebContentsEvent
 * `url` String
 * `frameName` String
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
 * `options` BrowserWindowConstructorOptions - 用于创建新的 [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - 非标准功能(非标准功能是指这些功能不是由Chromium或Electron处理的功能)，这些功能默认指向`window.open()`.
-* `referrer` [参考](structures/referrer.md) - 将 传递到新窗口的引用者。 可能会或可能不会导致 `Referer` 标题被 发送，具体取决于引用人策略。
-* `postBody` [后身体](structures/post-body.md) （可选） - 的帖子数据将发送到新的窗口，以及适当的标题，将 设置。 如果没有发送任何帖子数据，则值将 `null`。 只有当窗口由设置 `target=_blank`的表单创建时，才定义 。
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
 
 已弃用：[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)。
 
-当页面请求为 `url`打开新窗口时发出。 它可以 `window.open` 或外部链接，如 `<a target='_blank'>`的要求。
+Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
 默认情况下, 将为 ` url ` 创建新的 ` BrowserWindow `。
 
 调用`event.preventDefault()`事件，可以阻止Electron自动创建新的[`BrowserWindow`](browser-window.md)实例。 调用`event.preventDefault()` 事件后，你还可以手动创建新的[`BrowserWindow`](browser-window.md)实例，不过接下来你必须用`event.newGuest`方法来引用[`BrowserWindow`](browser-window.md)实例，如果你不这样做，则可能会产生异常。 例如：
 
 ```javascript
-我的浏览器窗口.网络控制（"新窗口"，（事件，网址，帧名，处置，选项， 附加功能，引用者，后身体）=> {
-  事件。防止默认（）
-  持续赢=新浏览器窗口（{
-    网络内容：选项。webContents，//如果提供
-    显示：虚假
-  }）
-  赢。 显示'，（）=> win.show（）
-  如果（！选项.webContents）{
-    续加载选项= {
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
+  event.preventDefault()
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
+  win.once('ready-to-show', () => win.show())
+  if (!options.webContents) {
+    const loadOptions = {
       httpReferrer: referrer
     }
-    如果（后身体！=空）{
-      康斯特 { data, contentType, boundary } =后身体
-      负载选项。后数据=后身体。 数据
-      负载选择。外标题="内容类型： ${contentType}：边界=${boundary}"
-    =
+    if (postBody != null) {
+      const { data, contentType, boundary } = postBody
+      loadOptions.postData = postBody.data
+      loadOptions.extraHeaders = `content-type: ${contentType}; boundary=${boundary}`
+    }
 
-    赢
-
-  
-  。
+    win.loadURL(url, loadOptions) // existing webContents will be navigated automatically
+  }
+  event.newGuest = win
+})
 ```
 
-#### 活动："创建窗口"
+#### Event: 'did-create-window'
 
 返回:
 * `window` BrowserWindow
 * `details` 对象
-    * `url` 字符串 - 创建窗口的网址。
-    * `frameName` 字符串 - `window.open()` 呼叫中创建的窗口的名称。
-    * `options` 浏览器窗口构建选项 - 用于创建 浏览器窗口的选项。 它们被合并在越来越多的优先级：从父继承 的选项，从 `window.open()``features` 字符串解析选项，以及 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)给出的选项。 Unrecognized options are not filtered out.
+    * `url` String - URL for the created window.
+    * `frameName` String - Name given to the created window in the `window.open()` call.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
     * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
-    * `referrer` [参考](structures/referrer.md) - 将 传递到新窗口的引用者。 May or may not result in the `Referer` header being sent, depending on the referrer policy.
-    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. 如果没有发送任何帖子数据，则值将 `null`。 Only defined when the window is being created by a form that set `target=_blank`.
+    * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
     * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
 Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
@@ -210,8 +210,8 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
@@ -223,8 +223,8 @@ Emitted when any frame (including main) starts navigating. `isInPlace` will be `
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
@@ -240,8 +240,8 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
@@ -269,8 +269,8 @@ Emitted when a main frame navigation is done.
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Emitted when any frame navigation is done.
 
@@ -283,8 +283,8 @@ Emitted when any frame navigation is done.
 * `event` Event
 * `url` String
 * `isMainFrame` Boolean
-* `frameProcessId` 整数
-* `frameRoutingId` 整数
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Emitted when an in-page navigation happened in any frame.
 
@@ -1069,7 +1069,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-返回 `Promise<void>`
+Returns `Promise<void>`
 
 设置最大和最小缩放级别。
 
@@ -1138,7 +1138,7 @@ Copy the image at the given position to the clipboard.
 
 * `text` String
 
-返回 `Promise<void>`
+Returns `Promise<void>`
 
 插入`text` 到焦点元素
 
