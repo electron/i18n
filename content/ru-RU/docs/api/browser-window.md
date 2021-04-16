@@ -209,28 +209,28 @@ child.once('ready-to-show', () => {
     * `nativeWindowOpen` Boolean (опционально) - использовать нативную функцию `window.open()`. Defaults to `false`. Дочерние окна всегда будут отключены для интеграции узлов, если `nodeIntegrationInSubFrames` будет true. **Примечание:** Эта опция в настоящее время экспериментальная.
     * `webviewTag` Boolean (опционально) - включает [`<webview>`-тег](webview-tag.md). Defaults to `false`. **Примечание:** Cкрипт `предварительной загрузки`, настроенный для `<webview>`, будет иметь интеграцию NodeJS, когда будет запущен, так что Вы должны убедиться, что удаленный/непроверенный контент не может создавать тег `<webview>` с возможно вредоносным скриптом `предварительной загрузки`. Вы можете использовать событие `will-attach-webview` на [webContents](web-contents.md), чтобы снять скрипт `предварительной загрузки` и проверить или изменить начальные настройки `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (необязательно) - следует ли включить стиль браузера последовательной защиты диалога. По умолчанию - `false`.
+    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. По умолчанию - `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `disableDialogs` Boolean (необязательно) - Следует ли полностью отключить диалоги полностью. Переопределяет `safeDialogs`. По умолчанию - `false`.
-    * `navigateOnDragDrop` Boolean (по желанию) - Является ли перетаскивание и файла или ссылки на страницу вызывает навигацию. По умолчанию - `false`.
+    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. По умолчанию - `false`.
+    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. По умолчанию - `false`.
     * `autoplayPolicy` String (опционально) - политика автовоспроизведения для применения к содержимому в окне, может быть `no-user-gesture-required`, `user-gesture-required` или `document-user-activation-required`. По умолчанию `no-user-gesture-required`.
-    * `disableHtmlFullscreenWindowResize` Boolean (необязательно) - предотвратить возможность размера окна при вводе HTML Fullscreen. По умолчанию является `false`.
-    * `accessibleTitle` String (необязательно) - альтернативная строка заголовка предоставляется только инструментов доступности, таких как считыватели экрана. Эта строка не является непосредственно видимой для пользователей.
-    * `spellcheck` Boolean (необязательно) - следует ли включить встроенный орфографию. По умолчанию - `true`.
-    * `enableWebSQL` Boolean (по желанию) - следует ли включить [Api WebS'L](https://www.w3.org/TR/webdatabase/). По умолчанию - `true`.
-    * `v8CacheOptions` String (необязательно) - обеспечивает соблюдение политики кэширования кода v8 , используемой мигать. Принятые значения
-      * `none` - Отключает кэширование кода
-      * `code` - Гевристический код кэширования
-      * `bypassHeatCheck` - Обход кода кэширования heuristics, но с ленивым компиляции
-      * `bypassHeatCheckAndEagerCompile` - То же самое, как выше, за исключением компиляции стремится. Политика по умолчанию `code`.
-    * `enablePreferredSizeMode` Boolean (по желанию) - следует ли включить предпочтительный режим размера. Предпочтительным размером является минимальный размер, содержать макет документа, не требуя прокрутки. Включение это приведет к тому `preferred-size-changed` событие будет излучаться на `WebContents` при изменении предпочтительного размера. По умолчанию - `false`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. По умолчанию - `true`.
+    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). По умолчанию - `true`.
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+      * `none` - Disables code caching
+      * `code` - Heuristic based code caching
+      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
+      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
+    * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. По умолчанию - `false`.
 
 Когда установлен минимальный или максимальный размер окна, при помощи `minWidth`/`maxWidth`/`minHeight`/`maxHeight`, это ограничивает только пользователей. Это не позволит Вам установить размер, который не будет следовать ограничениям размера, в `setBounds`/`setSize` или в конструкторе `BrowserWindow`.
 
-Возможные значения и поведение `type` зависят от платформы. Возможные значения:
+The possible values and behaviors of the `type` option are platform dependent. Возможные значения:
 
 * На Linux возможны типы `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* На macOS, возможные типы `desktop`, `textured`.
+* On macOS, possible types are `desktop`, `textured`.
   * Тип `textured` добавляет вид металлического градиента (`NSTexturedBackgroundWindowMask`).
   * Тип `desktop` размещает окно на уровень фонового окна рабочего стола (`kCGDesktopWindowLevel - 1`). Обратите внимание, что окно рабочего стола не будет получить события фокуса, клавиатуры или мыши, но Вы можете использовать `globalShortcut`, чтобы получать ввод.
 * На Windows возможен тип `toolbar`.
@@ -277,7 +277,7 @@ _**Примечание**: Существует тонкая разница ме
 
 #### Событие: 'closed'
 
-Возникает, когда окно будет закрыто. После получения этого события вы удалить ссылку на окно и не использовать его больше.
+Возникает, когда окно будет закрыто. After you have received this event you should remove the reference to the window and avoid using it any more.
 
 #### Событие: 'session-end' _Windows_
 
@@ -336,40 +336,40 @@ _**Примечание**: Существует тонкая разница ме
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Размер окна, на который будет изменено.
 
-Излучается до того, как окно будет повторно изумено. Вызов `event.preventDefault()` позволит предотвратить повторное окно.
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
 
-Обратите внимание, что это испускается только при повторном использовании окна вручную. Размер окна с помощью `setBounds`/`setSize` не будет излучать это событие.
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Событие: 'resize'
 
 Происходит после того, как изменился размер окна.
 
-#### Событие: «измено» _macOS_ _Windows_
+#### Event: 'resized' _macOS_ _Windows_
 
-Излучается один раз, когда окно закончило быть повторной.
+Emitted once when the window has finished being resized.
 
-Это обычно излучается, когда окно было повторно использовано вручную. На macOS, размер окна с `setBounds`/`setSize` и установка параметра `animate` для `true` также будет излучать это событие после того, как размер закончился.
+This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
 
-#### Событие: "будет двигаться" _macOS_ _Windows_
+#### Event: 'will-move' _macOS_ _Windows_
 
 Возвращает:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Расположение, куда окно будет перемещено.
 
-Излучается до того, как окно перемещается. В Windows вызов `event.preventDefault()` предотвратит перемещение окна.
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
-Обратите внимание, что это испускается только при повторном использовании окна вручную. Размер окна с помощью `setBounds`/`setSize` не будет излучать это событие.
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Событие: 'move'
 
 Вызывается, когда окно перемещено на новое место.
 
-#### Событие: «перемещено» _macOS_ _Windows_
+#### Event: 'moved' _macOS_ _Windows_
 
 Вызывается единожды, когда окно перемещается в новое положение.
 
-__Примечание__: На macOS это событие является псевдонимом `move`.
+__Note__: On macOS this event is an alias of `move`.
 
 #### Событие: 'enter-full-screen'
 
@@ -408,14 +408,14 @@ __Примечание__: На macOS это событие является пс
 Команды в нижнем регистре, подчеркивание заменено на дефисы, а префикс `APPCOMMAND_` обрезан. например `APPCOMMAND_BROWSER_BACKWARD` происходит как `browser-backward`.
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
-const выиграть - новый BrowserWindow ()
-win.on ('app-command', (e, cmd) -> -
-  // Перейдите на окно назад, когда пользователь ударит кнопку мыши назад
-  если (cmd - 'браузер-обратно' && win.webContents.canGoBack ()) -
-    win.webContents.goBack ()
-
-
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.on('app-command', (e, cmd) => {
+  // Navigate the window back when the user hits their mouse back button
+  if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
+    win.webContents.goBack()
+  }
+})
 ```
 
 Следующие команды приложения явно поддерживаются на Linux:
@@ -442,7 +442,7 @@ win.on ('app-command', (e, cmd) -> -
 * `event` Event
 * `direction` String
 
-Излучается на 3-пальца салфетки. Возможные направления: `up`, `right`, `down`, `left`.
+Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
 Метод, лежащий в основе этого события, создан для обработки событий смахивания на устаревших трекпадах в стиле macOS, где содержимое на экране нельзя переместить смахнув. Большинство трекпадов macOS по умолчанию не настроены под этот вид смахивания, поэтому для того чтобы правильно работал 'Переход между страницами смахиванием' перейдите в `Системные настройки > Трекпад > Другие жесты ` и включите "Смахивание двумя или тремя пальцами".
 
@@ -467,16 +467,16 @@ win.on ('app-command', (e, cmd) -> -
 
 Происходит, когда нажимается нативная кнопка новой вкладки.
 
-#### Событие: «системный контекст-меню» _Windows_
+#### Event: 'system-context-menu' _Windows_
 
 Возвращает:
 
 * `event` Event
-* `point` [Point](structures/point.md) - Экран координирует контекст меню было вызвано на
+* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
 
-Испускаемое при срабатывании меню контекстов системы в окне, это обычно срабатывает только тогда, когда пользователь право нажимает на не-клиентскую область вашего окна.  Это титульная панель окна или любая область, которую вы как `-webkit-app-region: drag` в безрамочной окне.
+Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
 
-Вызов `event.preventDefault()` предотвратит отображение меню.
+Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 ### Статические методы
 
@@ -494,21 +494,21 @@ win.on ('app-command', (e, cmd) -> -
 
 * `webContents` [WebContents](web-contents.md)
 
-Возвращает `BrowserWindow | null` - Окно, которому принадлежит данный `webContents` или `null` , если содержимое не принадлежит окну.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Возвращает `BrowserWindow` - окно, которое владеет объектом `webContents`. Если данное представление не прикреплено к какому-либо окну, `null`.
+Возвращает `BrowserWindow` - окно, которое владеет объектом `webContents`. If the given view is not attached to any window, returns `null`.
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Возвращает `BrowserWindow | null` - Окно с данной `id`.
+Returns `BrowserWindow | null` - The window with the given `id`.
 
-#### `BrowserWindow.addExtension(path)` _Депрекированная_
+#### `BrowserWindow.addExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -518,9 +518,9 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Примечание:** Этот метод является deprecated. Вместо этого используйте [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
-#### `BrowserWindow.removeExtension(name)` _Депрекированная_
+#### `BrowserWindow.removeExtension(name)` _Deprecated_
 
 * `name` String
 
@@ -528,17 +528,17 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Примечание:** Этот метод является deprecated. Вместо этого используйте [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
-#### `BrowserWindow.getExtensions()` _Депрекированная_
+#### `BrowserWindow.getExtensions()` _Deprecated_
 
 Возвращает `Record<String, ExtensionInfo>` - ключи это имена расширений, а каждое значение это объект, содержащий свойства `name` и `version`.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Примечание:** Этот метод является deprecated. Вместо этого используйте [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
-#### `BrowserWindow.addDevToolsExtension(path)` _Депрекированная_
+#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
 * `path` String
 
@@ -550,9 +550,9 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Примечание:** Этот метод является deprecated. Вместо этого используйте [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
-#### `BrowserWindow.removeDevToolsExtension(name)` _Депрекированная_
+#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
 * `name` String
 
@@ -560,45 +560,45 @@ The method will also not return if the extension's manifest is missing or incomp
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Примечание:** Этот метод является deprecated. Вместо этого используйте [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
-#### `BrowserWindow.getDevToolsExtensions()` _Депрекированная_
+#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
 Возвращает `Record<string, ExtensionInfo>` - ключи это имена расширений, а каждое значение это объект, содержащий свойства `name` и `version`.
 
 To check if a DevTools extension is installed you can run the following:
 
 ```javascript
-const { BrowserWindow } и требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const установлено - 'devtron' в BrowserWindow.getDevToolsExtensions ()
-консоли.log (установлено)
+const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
+console.log(installed)
 ```
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
-**Примечание:** Этот метод является deprecated. Вместо этого используйте [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Свойства экземпляра
 
 Objects created with `new BrowserWindow` have the following properties:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
-// В этом примере "победа" является нашим экземпляром
-const win - новый BrowserWindow ({ width: 800, height: 600 })
-win.loadURL ("https://github.com")
+const { BrowserWindow } = require('electron')
+// In this example `win` is our instance
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('https://github.com')
 ```
 
 #### `win.webContents` _Только чтение_
 
-Объект `WebContents` , которому владеет это окно. Все веб-страницы, связанные с событиями операции будут сделаны через него.
+A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
 #### `win.id` _Только чтение_
 
-Свойство `Integer` представляющее уникальный идентификатор окна. Каждый идентификатор уникален среди `BrowserWindow` экземпляров всего приложения Electron.
+Свойство `Integer` представляющее уникальный идентификатор окна. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
 
 #### `win.autoHideMenuBar`
 
@@ -703,7 +703,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. Эта строка не является непосредственно видимой для пользователей.
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### Методы экземпляра
 
