@@ -535,7 +535,7 @@ Beispiele finden Sie unter [webContents.send](web-contents.md#contentssendchanne
 
 Rückgaben `Promise<void>`
 
-Sendet eine Eingabe `event` an die Seite.
+Sends an input `event` to the page.
 
 Ausführliche Beschreibungen `event` Objekts finden Sie unter [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) .
 
