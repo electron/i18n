@@ -213,7 +213,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (опционально) - Дополнительные заголовки, разделенные "\n"
-  * `postData` ([UploadRawData)](structures/upload-raw-data.md) | [UploadFile)](structures/upload-file.md)) (по желанию)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
@@ -316,22 +316,22 @@ Returns `String` - The user agent for guest page.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
 
-Вводит CSS на текущую веб-страницу и возвращает уникальный ключ для вставленного таблицы.
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ### `<webview>.removeInsertedCSS(key)`
 
 * `key` String
 
-Возвращает `Promise<void>` - Разрешает, если удаление было успешным.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-Удаляет вставленный CSS с текущей веб-страницы. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
 * `code` String
 * `userGesture` Boolean (optional) - Default `false`.
 
-Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если результатом кода является отклоненное обещание.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Вычисляет `code` на странице. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
@@ -378,7 +378,7 @@ Returns `Boolean` - Whether guest page has been muted.
 
 ### `<webview>.isCurrentlyAudible()`
 
-Возвращает `Boolean` - Ли аудио в настоящее время играет.
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -438,53 +438,53 @@ Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` Строка - Содержимое для поиска, не должно быть пустым.
+* `text` String - Content to be searched, must not be empty.
 * `options` Object (опционально)
-  * `forward` Boolean (по желанию) - Следует ли искать вперед или назад, по умолчанию `true`.
-  * `findNext` Boolean (по желанию) - Является ли операция первым запросом или последующей деятельности, по умолчанию `false`.
-  * `matchCase` Boolean (по желанию) - Должен ли поиск быть деликатным, по умолчанию `false`.
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
-Возвращает `Integer` - идентификатор запроса, используемый для запроса.
+Returns `Integer` - The request id used for the request.
 
-Начинается запрос на поиск всех совпадений для `text` на веб-странице. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
 * `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request.
-  * `clearSelection` - Очистить выбор.
-  * `keepSelection` - Перевести выбор в нормальный выбор.
-  * `activateSelection` - Сосредоточьтесь и нажмите на узел выбора.
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
 Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
 * `options` Object (опционально)
-  * `silent` Boolean (по желанию) - Не спрашивайте у пользователя настройки печати. По умолчанию - `false`.
-  * `printBackground` Boolean (по желанию) - Печать фонового цвета и веб-страницы. По умолчанию - `false`.
-  * `deviceName` String (по желанию) - Установите имя устройства принтера для использования. Должно быть системно-определяемое имя, а не «дружественное» имя, например «Brother_QL_820NWB», а не «Брат ЗЛ-820НВБ».
-  * `color` Boolean (по желанию) - Установите, будет ли печатная веб-страница в цвете или серой шкале. По умолчанию - `true`.
-  * `margins` (по желанию)
-    * `marginType` String (по желанию) - может быть `default`, `none`, `printableArea`, или `custom`. Если `custom` выбран, вам также нужно будет указать `top`, `bottom`, `left`и `right`.
-    * `top` (по желанию) - верхняя маржа печатной веб-страницы, в пикселях.
-    * `bottom` (по желанию) - нижняя маржа печатной веб-страницы, в пикселях.
-    * `left` (по желанию) - левая маржа печатной веб-страницы, в пикселях.
-    * `right` (по желанию) - правая маржа печатной веб-страницы, в пикселях.
-  * `landscape` Boolean (по желанию) - Следует ли печатать веб-страницу в ландшафтном режиме. По умолчанию - `false`.
-  * `scaleFactor` номер (необязательно) - коэффициент масштаба веб-страницы.
-  * `pagesPerSheet` (необязательно) - количество страниц для печати на листе страницы.
-  * `collate` Boolean (по желанию) - Следует ли собирать веб-страницу.
-  * `copies` номер (необязательно) - количество копий веб-страницы для печати.
+  * `silent` Boolean (optional) - Don't ask user for print settings. По умолчанию - `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. По умолчанию - `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. По умолчанию - `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. По умолчанию - `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Object[] (optional) - The page range to print.
-    * `from` - Индекс первой страницы для печати (0 на основе).
-    * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
-  * `duplexMode` String (по желанию) - Установите дуплексный режим печатной веб-страницы. Может быть `simplex`, `shortEdge`, или `longEdge`.
-  * `dpi` запись<string, number> (по желанию)
-    * `horizontal` (по желанию) - Горизонтальный dpi.
-    * `vertical` (необязательно) - Вертикальный dpi.
-  * `header` String (по желанию) - Строка для печати в качестве заголовка страницы.
-  * `footer` String (по желанию) - Строка, которая будет напечатана в качестве страницы footer.
-  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы печатного документа. Может быть `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` или объект, содержащий `height`.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
 Возвращает `Promise<void>`
 
@@ -493,18 +493,18 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 ### `<webview>.printToPDF(options)`
 
 * `options` Object
-  * `headerFooter` запись<string, string> (по желанию) - заголовок и лакея для PDF.
-    * `title` String - Название заголовка PDF.
-    * `url` String - URL для pdf footer.
-  * `landscape` Boolean (по желанию) - `true` для пейзажа, `false` для портрета.
-  * `marginsType` Integer (необязательно) - определяет тип маржи для использования. Использует 0 для по умолчанию, 1 без маржи и 2 для минимальной маржи. and `width` in microns.
-  * `scaleFactor` номер (необязательно) - коэффициент масштаба веб-страницы. Может варьироваться от 0 до 100.
-  * `pageRanges` запись<string, number> (по желанию) - диапазон страниц для печати. On macOS, only the first range is honored.
-    * `from` - Индекс первой страницы для печати (0 на основе).
-    * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
-  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы сгенерированного PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
-  * `printBackground` Boolean (необязательно) - Следует ли печатать CSS фоны.
-  * `printSelectionOnly` Boolean (необязательно) - Следует ли печатать только выбор.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print. On macOS, only the first range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
 Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
@@ -512,7 +512,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 ### `<webview>.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (по желанию) - область страницы, которая должна быть захвачена.
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
 Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
 
@@ -535,7 +535,7 @@ See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 Возвращает `Promise<void>`
 
-Отправляет входную `event` на страницу.
+Sends an input `event` to the page.
 
 See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) for detailed description of `event` object.
 
@@ -543,23 +543,23 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 * `factor` Number - фактор увилечения.
 
-Изменяет коэффициент масштабирования на указанный фактор. Коэффициент увеличения на 100, так что 300% и 3,0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
 * `level` Number - уровень увеличения.
 
-Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно. Формула для этого `scale := 1.2 ^ level`.
+Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно. The formula for this is `scale := 1.2 ^ level`.
 
-> **ПРИМЕЧАНИЕ**: Политика масштабирования на уровне Chromium имеет одно и то же происхождение, что означает, что уровень масштабирования для определенного домена распространяется во всех экземплярах окон с одним и тем же доменом. Дифференциация URL-адресов окон позволит увеличить работу на окно.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `<webview>.getZoomFactor()`
 
-Возвращает `Number` - текущий коэффициент масштабирования.
+Returns `Number` - the current zoom factor.
 
 ### `<webview>.getZoomLevel()`
 
-Возвращает `Number` - текущий уровень масштабирования.
+Returns `Number` - the current zoom level.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -572,7 +572,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
-Показывает всплывающий словарь, который ищет выбранное слово на странице.
+Shows pop-up dictionary that searches the selected word on the page.
 
 ### `<webview>.getWebContentsId()`
 
