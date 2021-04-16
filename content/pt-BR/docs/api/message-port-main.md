@@ -14,7 +14,7 @@ Processo: [Main](../glossary.md#main-process)
 
 #### `port.postMessage(mensagem, [transfer])`
 
-* `message` qualquer
+* `message` any
 * `transfer` MessagePortMain[] (opcional)
 
 Envia uma mensagem da porta e, opcionalmente, transfere a propriedade de objetos para outros contextos de navegação.
@@ -29,7 +29,7 @@ Desliga a porta, por isso não está mais ativa.
 
 ### Eventos de instância
 
-#### Evento: 'mensagem'
+#### Event: 'message'
 
 Retorna:
 
