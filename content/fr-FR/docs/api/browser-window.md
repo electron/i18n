@@ -113,7 +113,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 
 ### `new BrowserWindow([options])`
 
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `width` Entier (facultatif) - Largeur de la fenêtre en pixels. Le Defaut est`800`.
   * `height` Entier (facultatif) - Hauteur de la fenêtre en pixels. Defaut es `600`.
   * `x` Entier (optionel) - (**obligatoire** si y n'est pas utilise) Le décalage de la fenêtre a été effacé de l'écran. Le defaut est de centrer la fenetre.
@@ -1170,7 +1170,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (facultatif) - Une URL de référence HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
@@ -1210,7 +1210,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `query` Enregistrement<String, String> (facultatif) - Passé à `url.format()`.
   * `search` String (facultatif) - Passé à `url.format()`.
   * `hash` String (facultatif) - Passé à `url.format()`.
@@ -1236,7 +1236,7 @@ Retirez la barre de menu de la fenêtre.
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1321,7 +1321,7 @@ Définit l'infobulle qui s'affiche en survolant la vignette de la fenêtre dans 
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` objet
+* `options` Object
   * `appId` String (facultatif) - Fenêtre [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Elle doit être définie, sinon les autres options n'auront aucun effet.
   * `appIconPath` String (facultatif) - Fenêtre [Icône de relance](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. La valeur par defaut en est ``.
@@ -1375,7 +1375,7 @@ Retourne `Boolean` - Si la barre de menu est visible.
 #### `win.setVisibleOnWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `visibleOnFullScreen` Booléen (facultatif) _macOS_ - Définit si la fenêtre doit être visible au-dessus des fenêtres plein écran
 
 Définit si la fenêtre doit être visible sur tous les espaces de travail.
@@ -1391,7 +1391,7 @@ Retourne `Boolean` - Si la fenêtre est visible sur tous les espaces de travail.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `Avancer` Boolean (facultatif) _macOS_ _Windows_ - Si vrai, transférez la souris messages vers Chromium, en activant les événements liés à la souris tels que `souris`. Utilisé uniquement lorsque `ignore` est vrai. Si `ignore` est faux, le transfert est toujours désactivé quelle que soit cette valeur.
 
 Fait que la fenêtre ignore tous les événements de la souris.
