@@ -1245,7 +1245,7 @@ Druckt die Webseite des Fensters. Wenn `silent` auf `true`eingestellt ist, wähl
 
 Verwenden Sie `page-break-before: always;` CSS-Stil, um das Drucken auf einer neuen Seite zu erzwingen.
 
-Beispielverwendung:
+Example usage:
 
 ```js
 const-Optionen =
