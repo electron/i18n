@@ -25,21 +25,21 @@ Veja [`--log-net-log`](command-line-switches.md#--log-net-logpath) para registra
 
 * `path` String - Caminho de arquivo para registrar registros de rede.
 * objeto `options` (opcional)
-  * `captureMode` String (opcional) - Que tipos de dados devem ser capturados. Até padrão, apenas metadados sobre solicitações serão capturados. Definindo-o para `includeSensitive` incluirá cookies e dados de autenticação. A configuração -lo para `everything` incluirá todos os bytes transferidos em soquetes. Pode ser `default`, `includeSensitive` ou `everything`.
-  * `maxFileSize` Número (opcional) - Quando o registro crescer além deste tamanho, o registro parará automaticamente. Padrão para ilimitado.
+  * `captureMode` String (opcional) - Que tipos de dados devem ser capturados. Até padrão, apenas metadados sobre solicitações serão capturados. Definindo-o para `includeSensitive` incluirá cookies e dados de autenticação. A configuração -lo para `everything` incluirá todos os bytes transferidos em soquetes. Can be `default`, `includeSensitive` or `everything`.
+  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
-Retornos `Promise<void>` - resolve quando o registro da rede começou a ser gravado.
+Returns `Promise<void>` - resolves when the net log has begun recording.
 
-Começa a gravar eventos de rede para `path`.
+Starts recording network events to `path`.
 
 ### `netLog.stopLogging()`
 
-Devoluções `Promise<void>` - resolve quando o registro da rede foi liberado para o disco.
+Returns `Promise<void>` - resolves when the net log has been flushed to disk.
 
-Para de gravar eventos da rede. Se não for chamado, o registro líquido terminará automaticamente quando o aplicativo sair.
+Stops recording network events. If not called, net logging will automatically end when app quits.
 
 ## Propriedades
 
 ### `netLog.currentlyLogging` _Readonly_
 
-Uma propriedade `Boolean` que indica se os registros de rede estão sendo gravados.
+A `Boolean` property that indicates whether network logs are currently being recorded.
