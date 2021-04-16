@@ -11,24 +11,24 @@
 Скрипт основного процесса похож на обычный скрипт Node.js:
 
 ```javascript
-const { app, BrowserWindow } - требуют ('электрон')
-пусть выигрывают - null
+const { app, BrowserWindow } = require('electron')
+let win = null
 
-app.whenReady ()...,> -
-  win - новый BrowserWindow ({ width: 800, height: 600 })
-  win.loadURL ('https://github.com')
-))
+app.whenReady().then(() => {
+  win = new BrowserWindow({ width: 800, height: 600 })
+  win.loadURL('https://github.com')
+})
 ```
 
 Процесс отрисовки ничем не отличается от обычной веб-страницы, за исключением дополнительной возможности использования модулей node, если параметр `nodeIntegration` имеет значение "Включён":
 
 ```html
-<! DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <body>
 <script>
-  const fs и требуют ('fs')
-  консоли.log (fs.readFileSync (__filename, 'utf8'))
+  const fs = require('fs')
+  console.log(fs.readFileSync(__filename, 'utf8'))
 </script>
 </body>
 </html>
@@ -41,42 +41,42 @@ app.whenReady ()...,> -
 Начиная с версии 0.37 можно использовать [деструктирующее присваивание][destructuring-assignment], для того чтобы упростить использование встроенных модулей.
 
 ```javascript
-const { app, BrowserWindow } - требуют ('электрон')
-
-пусть выигрывают
-
-app.whenReady ()...,> -
-  выиграть - новый BrowserWindow ()
-  win.loadURL ('https://github.com')
-))
-```
-
-Если вам нужен весь `electron` , вы можете потребовать его, а затем деструктурирования для доступа к отдельным модулям из `electron`.
-
-```javascript
-const electron - require ('electron')
-const { app, BrowserWindow } - electron
+const { app, BrowserWindow } = require('electron')
 
 let win
 
-app.whenReady ().
-.com
-  
-  > ..
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+  win.loadURL('https://github.com')
+})
+```
+
+If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+
+```javascript
+const electron = require('electron')
+const { app, BrowserWindow } = electron
+
+let win
+
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+  win.loadURL('https://github.com')
+})
 ```
 
 Это эквивалентно следующему коду:
 
 ```javascript
-const electron - требуют ('электрон')
-приложение const - electron.app
-const BrowserWindow - электрон. BrowserWindow
-позволить выиграть
+const electron = require('electron')
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
+let win
 
-app.whenReady ().., то (()) -> -
-  выиграть новый BrowserWindow ()
-  win.loadURL ('https://github.com')
-)
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+  win.loadURL('https://github.com')
+})
 ```
 
 [gui]: https://en.wikipedia.org/wiki/Graphical_user_interface
