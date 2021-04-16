@@ -12,7 +12,7 @@ __应用 dock 菜单__
 
 ![macOS Dock 菜单][2]
 
-要向最近文档添加文件，您需要使用 [应用.添加中心记录][addrecentdocument] API。
+To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
 
 ## 示例
 
@@ -32,7 +32,7 @@ app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 
 ### 清除最近文档列表
 
-要清除最近文档的列表，您需要在 `main.js` 文件中使用 [应用。清除中心文件][clearrecentdocuments] API：
+To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
 
 ```javascript
 const { app } = require('electron')
@@ -55,20 +55,20 @@ app.clearRecentDocuments()
 您可以添加菜单项以访问和清除最近的文档，方法是在菜单模板中添加以下代码片段：
 
 ```json
-[
-  "submenu"：]
-    •
-      "标签"："最近打开"，
-      "角色"："最近"，"
-      "子"：[
-        ]
-          "标签"："清除最近"，
-          "角色"："清晰的后缀"
-        [
+{
+  "submenu":[
+    {
+      "label":"Open Recent",
+      "role":"recentdocuments",
+      "submenu":[
+        {
+          "label":"Clear Recent",
+          "role":"clearrecentdocuments"
+        }
       ]
-    [
+    }
   ]
-
+}
 ```
 
 ![macOS 最近文档菜单项][6]
