@@ -8,7 +8,7 @@ Normalerweise erstellt man eine Desktop-Anwendung separat für jedes Betriebssys
 
 ### Vorrausetzungen
 
-Bevor Sie mit Electron fortfahren, müssen Sie [Nodeinstallieren.js][node-download]installieren. Wir empfehlen Ihnen, entweder die neueste `LTS` oder `Aktuelle` Version zu installieren.
+Before proceeding with Electron you need to install [Node.js][node-download]. Wir empfehlen Ihnen, entweder die neueste `LTS` oder `Aktuelle` Version zu installieren.
 
 > Bitte installieren Sie Node.js mit vorkompilierten Installern für Ihre Plattform. Andernfalls könnten Inkompatibilitätsprobleme mit verschiedenen Entwicklungstools auftreten.
 
@@ -27,10 +27,10 @@ Aus der Entwicklungsperspektive ist eine Electron-Anwendung im Wesentlichen eine
 
 ```plaintext
 my-electron-app/
-- package.json
--, Main.js
--Preload.js
--Index.html
+├── package.json
+├── main.js
+├── preload.js
+└── index.html
 ```
 
 Lassen Sie uns eine Basisanwendung basierend auf der obigen Struktur erstellen.
@@ -55,52 +55,52 @@ Das Hauptskript kann wie folgt aussehen:
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
--Funktion createWindow () '
-  const win = new BrowserWindow('
-    breite: 800,
-    höhe: 600,
-    webPreferences: '
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
       preload: path.join(__dirname, 'preload.js')
+    }
+  })
 
+  win.loadFile('index.html')
+}
 
-  
-  ('index.html')
-'
-
-app.whenReady().then() => '
+app.whenReady().then(() => {
   createWindow()
 
-  app.on('activate', () => '
-    if (BrowserWindow.getAll) Windows().length === 0)
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
-    -
-  -)
--)
+    }
+  })
+})
 
-app.on('window-all-closed', () => '
-  if (process.platform !== 'darwin') -
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
     app.quit()
-  -
-)
+  }
+})
 ```
 
 ##### Was geschieht oben?
 
 1. Zeile 1: Zuerst werden die Module `app` und `BrowserWindow` des Pakets `electron` importiert, um den Lebenszyklus deiner Anwendung verwalten zu können sowie Browserfenster zu erstellen und zu steuern.
-2. Zeile 2: Zweitens importieren Sie das `path` -Paket, das Dienstprogrammfunktionen für Dateipfade bereitstellt.
-3. Zeile 4: Danach definieren Sie eine Funktion, die eine [neues Browserfenster erstellt](../api/browser-window.md#new-browserwindowoptions) mit einem Preload-Skript `index.html` Datei in dieses Fenster lädt (Zeile 13, wir werden die Datei später besprechen).
+2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
+3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
 4. Zeile 16: Sie erstellen ein neues Browserfenster, indem Sie die Funktion `createWindow` aufrufen, sobald die Electron-Anwendung [initialisiert wurde](../api/app.md#appwhenready).
-5. Zeile 18: Sie fügen einen neuen Listener hinzu, der ein neues Browserfenster nur dann erstellt, wenn die Anwendung nach der Aktivierung keine sichtbaren Fenster hat. Zum Beispiel nach dem ersten Start der Anwendung oder nach dem Neustart der bereits laufenden Anwendung.
+5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Zum Beispiel nach dem ersten Start der Anwendung oder nach dem Neustart der bereits laufenden Anwendung.
 6. Zeile 25: Sie fügen einen neuen "listener" hinzu, der versucht, die Anwendung zu beenden, wenn sie kein geöffnetes Fenster mehr hat. Dieser Listener ist unter macOS aufgrund des [Fensterverwaltungsverhaltens des Betriebssystems](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ein No-Op.
 
 #### Webseite erstellen
 
-Dies ist die Webseite, die nach der Initialisierung der Anwendung angezeigt werden soll. Diese Webseite repräsentiert den Renderer-Prozess. Sie können mehrere Browserfenster erstellen, in denen jedes Fenster seinen eigenen, unabhängigen Renderer verwendet. Sie können optional Zugriff auf zusätzliche Node.js-APIs gewähren, indem Sie sie aus Ihrem Preload-Skript aussetzen.
+Dies ist die Webseite, die nach der Initialisierung der Anwendung angezeigt werden soll. Diese Webseite repräsentiert den Renderer-Prozess. Sie können mehrere Browserfenster erstellen, in denen jedes Fenster seinen eigenen, unabhängigen Renderer verwendet. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
 
 Die `index.html` Seite sieht wie folgt aus:
 
 ```html fiddle='docs/fiddles/quick-start'
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -110,69 +110,69 @@ Die `index.html` Seite sieht wie folgt aus:
 <body style="background: white;">
     <h1>Hello World!</h1>
     <p>
-        Wir verwenden Node.js <span id="node-version"></span>,
+        We are using Node.js <span id="node-version"></span>,
         Chromium <span id="chrome-version"></span>,
-        und Electron <span id="electron-version"></span>.
+        and Electron <span id="electron-version"></span>.
     </p>
 </body>
 </html>
 ```
 
-#### Definieren eines Preload-Skripts
+#### Define a preload script
 
-Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Es ermöglicht Ihnen, bestimmte APIs und Verhaltensweisen auf Ihrer Webseite verfügbar zu machen, anstatt die gesamte Node.js-API unsicher verfügbar zu machen. In diesem Beispiel verwenden wir das Preload-Skript, um Versionsinformationen aus dem `process` -Objekt zu lesen und die Webseite mit diesen Informationen zu aktualisieren.
+Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
 
 ```javascript fiddle='docs/fiddles/quick-start'
-window.addEventListener('DOMContentLoaded', () => '
-  const replaceText = (Selector, text) =>
-    const-Element = document.getElementById(selector)
+window.addEventListener('DOMContentLoaded', () => {
+  const replaceText = (selector, text) => {
+    const element = document.getElementById(selector)
     if (element) element.innerText = text
-  '
+  }
 
-  for (const type of ['chrome', ''
-
-
-  [type]${type}'
+  for (const type of ['chrome', 'node', 'electron']) {
+    replaceText(`${type}-version`, process.versions[type])
+  }
+})
 ```
 
-##### Was ist oben los?
+##### What's going on above?
 
-1. In Zeile 1: Zuerst definieren Sie einen Ereignislistener, der Ihnen mitteilt, wann die Webseite geladen wurde.
-2. In Zeile 2: Zweitens definieren Sie eine Hilfsfunktion, mit der der Text der Platzhalter im `index.html`
-3. In Zeile 7: Als Nächstes durchlaufen Sie die Liste der Komponenten, deren Version Sie anzeigen möchten
-4. In Zeile 8: Schließlich rufen Sie `replaceText` auf, die Versionsplatzhalter in `index.html` nachzuschlagen und ihren Textwert auf die Werte aus `process.versions`
+1. On line 1: First you define an event listener that tells you when the web page has loaded
+2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
+3. On line 7: Next you loop through the list of components whose version you want to display
+4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
 
 #### Ändern Sie Ihre package.json Datei
 
 Ihre Electron-Anwendung verwendet die `package.json` Datei als Haupteintragspunkt (wie jede andere Node.js-Anwendung). Das Hauptskript Ihrer Anwendung ist `main.js`, also ändern Sie die `package.json` Datei entsprechend:
 
 ```json
--
-    "Name": "my-electron-app",
+{
+    "name": "my-electron-app",
     "version": "0.1.0",
-    "autor": "Ihr Name",
-    "Beschreibung": "My Electron app",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js"
-.
+}
 ```
 
 > HINWEIS: Wenn das `Hauptfeld` weggelassen wird, versucht Electron einen `Index zu laden. s` Datei aus dem Verzeichnis, das `package.json` enthält.
 
-> HINWEIS: Die Felder `author` und `description` sind für die Verpackung erforderlich, andernfalls tritt beim Ausführen `npm run make`fehlerfrei auf.
+> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
 
 Standardmäßig wird der `npm start` Befehl das Hauptskript mit Node.js ausführen. Um das Skript mit Electron auszuführen, müssen Sie es als solches ändern:
 
 ```json
-•
-    "Name": "my-electron-app",
+{
+    "name": "my-electron-app",
     "version": "0.1.0",
-    "Autor": "Ihr Name",
-    "Beschreibung": "My Electron app",
+    "author": "your name",
+    "description": "My Electron app",
     "main": "main.js",
-    "scripts"
-        :
-    •
-
+    "scripts": {
+        "start": "electron ."
+    }
+}
 ```
 
 #### Anwendung ausführen
@@ -195,14 +195,14 @@ Der einfachste und schnellste Weg, Ihre neu erstellte App zu verteilen, ist [Ele
     npm install --save-dev @electron-forge/cli
     npx electron-forge import
 
-    ✔ Überprüfen Ihres Systems
-    ✔ Initialisieren von Git Repository
-    ✔ Schreiben der modifizierten package.json-Datei
-    ✔ Installieren von Abhängigkeiten
-    ✔ Schreiben von modifiziertem paket.json-Datei
+    ✔ Checking your system
+    ✔ Initializing Git Repository
+    ✔ Writing modified package.json file
+    ✔ Installing dependencies
+    ✔ Writing modified package.json file
     ✔ Fixing .gitignore
 
-    Wir haben VERSUCHT, Ihre App in ein Format zu konvertieren, das von Electron forge verstanden wird.
+    We have ATTEMPTED to convert your app to be in a format that electron-forge understands.
 
     Vielen Dank für die Verwendung von "electron-forge"!!!
     ```
@@ -292,12 +292,12 @@ const win = new BrowserWindow()
 Um den Hauptprozess vom Renderer aus aufzurufen, verwenden Sie das IPC-Modul:
 
 ```js
-Im Hauptprozess
+// In the Main process
 const { ipcMain } = require('electron')
 
-ipcMain.handle('perform-action', (event, ... args) => -
-  / ... Aktionen im Namen des Renderer-
-ausführen)
+ipcMain.handle('perform-action', (event, ...args) => {
+  // ... do actions on behalf of the Renderer
+})
 ```
 
 ```js
@@ -311,7 +311,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> HINWEIS: Um über den Renderer-Prozess auf die Node.js-API zuzugreifen, müssen Sie die `nodeIntegration` -Voreinstellung auf `true` und die `contextIsolation` -Voreinstellung für `false`festlegen.  Bitte beachten Sie, dass der Zugriff auf die Node.js-API in jedem Renderer, der Remoteinhalte lädt, aus [Sicherheitsgründen nicht empfohlen wird](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
+> NOTE: To access the Node.js API from the Renderer process, you need to set the `nodeIntegration` preference to `true` and the `contextIsolation` preference to `false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron stellt den vollen Zugriff auf die Node.js API und seine Module sowohl im Haupt- als auch im Renderer-Prozess frei. Zum Beispiel können Sie alle Dateien aus dem Stammverzeichnis lesen:
 
