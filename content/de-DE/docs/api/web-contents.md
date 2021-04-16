@@ -1635,109 +1635,109 @@ win.webContents.on('did-finish-load', async () => {
 
 #### `contents.showDefinitionForSelection()` _macOS_
 
-Zeigt das Popupwörterbuch an, das das ausgewählte Wort auf der Seite durchsucht.
+Shows pop-up dictionary that searches the selected word on the page.
 
 #### `contents.isOffscreen()`
 
-Gibt `Boolean` zurück : Gibt an, ob *Offscreen-Rendering-* aktiviert ist.
+Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
 
 #### `contents.startPainting()`
 
-Wenn *Offscreen-Rendering-* aktiviert ist und nicht malen, beginnen Sie mit dem Malen.
+If *offscreen rendering* is enabled and not painting, start painting.
 
 #### `contents.stopPainting()`
 
-Wenn *Offscreen-Rendering-* aktiviert ist und das Malen aktiviert ist, beenden Sie das Malen.
+If *offscreen rendering* is enabled and painting, stop painting.
 
 #### `contents.isPainting()`
 
-Gibt `Boolean` zurück : Wenn *Offscreen-Rendering aktiviert ist, wird* aktiviert, ob es gerade malt.
+Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` Integer
 
-Wenn *Offscreen-Rendering-* aktiviert ist, wird die Bildrate auf die angegebene Zahl festgelegt. Es werden nur Werte zwischen 1 und 240 akzeptiert.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
 
 #### `contents.getFrameRate()`
 
-Gibt `Integer` zurück : Wenn *Offscreen-Rendering aktiviert ist, wird* die aktuelle Bildrate zurückgegeben.
+Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
 
 #### `contents.invalidate()`
 
-Plant eine vollständige Neubemalung des Fensters, in dem sich dieser Webinhalt befindet.
+Schedules a full repaint of the window this web contents is in.
 
-Wenn *Offscreen-Rendering aktiviert ist* , wird der Frame ungültig und ein neues durch das `'paint'` -Ereignis generiert.
+If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Gibt `String` zurück: Gibt die WebRTC IP-Behandlungsrichtlinie zurück.
+Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String – Geben Sie die WebRTC IP-Handhabungsrichtlinie an.
-  * `default` - Stellt öffentliche und lokale IPs des Benutzers zur Anzeige. Dies ist die Standardeinstellung Verhalten. Wenn diese Richtlinie verwendet wird, hat WebRTC das Recht, alle Schnittstellen aufzuzählen und sie zu binden, um öffentliche Schnittstellen zu ermitteln.
-  * `default_public_interface_only` - Macht die öffentliche IP des Benutzers verfügbar, macht jedoch nicht die lokale IP des Benutzers verfügbar machen. Wenn diese Richtlinie verwendet wird, sollte WebRTC nur die Standardroute verwenden, die von http verwendet wird. Dadurch werden keine lokalen Adressen verfügbar gemacht.
-  * `default_public_and_private_interfaces` - Stellt die öffentlichen und lokalen -IPs des Benutzers auf. Wenn diese Richtlinie verwendet wird, sollte WebRTC nur die Standardroute verwenden, die von http verwendet wird. Dadurch wird auch die zugehörige private Standardadresse verfügbar gemacht. Standardroute route ist die Route, die vom Betriebssystem auf einem mehrfach in landgebundenen Endpunkt ausgewählt wurde.
-  * `disable_non_proxied_udp` - Stellt keine öffentlichen oder lokalen IPs zur Hand. Wenn diese -Richtlinie verwendet wird, sollte WebRTC TCP nur verwenden, um Peers oder Server zu kontaktieren, es sei denn, der Proxyserver UDP unterstützt.
+* `policy` String - Specify the WebRTC IP Handling Policy.
+  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Durch Festlegen der WebRTC-IP-Behandlungsrichtlinie können Sie steuern, welche IPs über WebRTC verfügbar gemacht werden. Weitere Informationen finden Sie in [BrowserLeaks ](https://browserleaks.com/webrtc) .
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
-Gibt `Integer` zurück - Das Betriebssystem `pid` des zugeordneten Renderers Prozess.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
 
 #### `contents.getProcessId()`
 
-Gibt `Integer` zurück - Die interne Chromium- `pid` des zugeordneten Renderers. Kann mit dem `frameProcessId` verglichen werden, der von rahmenspezifischen Navigationsereignissen (z. B. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Path to the output file.
 
-Gibt `Promise<void>` zurück: Gibt an, ob der Snapshot erfolgreich erstellt wurde.
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
 Erstellt einen V8-Heap-Snapshot und speichert ihn in `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Gibt `Boolean` zurück : ob diese WebContents Animationen und Timer drosseln , wenn die Seite hintergrundgebunden wird. This also affects the Page Visibility API.
+Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
 * `allowed` Boolean
 
-Steuert, ob diese WebContents Animationen und Timer drosseln, wenn die Seite hintergrundgebunden wird. This also affects the Page Visibility API.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.getType()`
 
-Gibt `String` zurück - den Typ des webContent. Kann `backgroundPage`, `window`, `browserView`, `remote`, `webview` oder `offscreen`sein.
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Instanz Eigenschaften
 
 #### `contents.audioMuted`
 
-Eine `Boolean` Eigenschaft, die bestimmt, ob diese Seite stummgeschaltet ist.
+A `Boolean` property that determines whether this page is muted.
 
 #### `contents.userAgent`
 
-Eine `String` Eigenschaft, die den Benutzer-Agent für diese Webseite bestimmt.
+A `String` property that determines the user agent for this web page.
 
 #### `contents.zoomLevel`
 
-Eine `Number` Eigenschaft, die die Zoomstufe für diesen Webinhalt bestimmt.
+A `Number` property that determines the zoom level for this web contents.
 
-Die ursprüngliche Größe ist 0, und jedes Inkrement über oder unter stellt ein Zoomum um 20 % größer oder kleiner auf Standardlimits von 300 % bzw. 50 % der ursprünglichen Größe dar. Die Formel dafür lautet `scale := 1.2 ^ level`.
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-Eine `Number` Eigenschaft, die den Zoomfaktor für diesen Webinhalt bestimmt.
+A `Number` property that determines the zoom factor for this web contents.
 
-Der Zoomfaktor ist der Zoom-Prozentsatz geteilt durch 100, also 300% = 3,0.
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Es werden nur Werte zwischen 1 und 240 akzeptiert.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
 
 Only applicable if *offscreen rendering* is enabled.
 
