@@ -1,76 +1,76 @@
 # desktopCapturer
 
-> Greifen Sie über die [`navigator.mediaDevices.getUserMedia`][] -API auf Informationen zu Medienquellen zu, die zum Erfassen von Audio- und -Videos vom Desktop verwendet werden können.
+> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Das folgende Beispiel zeigt, wie Sie ein Video von einem Desktop-Fenster aufnehmen, dessen Titel `Elektron` lautet:
 
 ```javascript
-Im Rendererprozess.
+// In the renderer process.
 const { desktopCapturer } = require('electron')
 
-desktopCapturer.getSources(' typen: ['window', 'screen'] ').then(async sources => '
-  for (const source of sources) -
-    if (source.name === 'Electron') '
-      versuchen sie '
-        const stream = await navigator.mediaDevices.getUserMedia('
-          audio source.id
-              
-              
-            : false,
-          video:
-              minBreite: 1280,
-              maxBreite: 1280,
-              minHöhe: 720,
+desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
+  for (const source of sources) {
+    if (source.name === 'Electron') {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: false,
+          video: {
+            mandatory: {
+              chromeMediaSource: 'desktop',
+              chromeMediaSourceId: source.id,
+              minWidth: 1280,
+              maxWidth: 1280,
+              minHeight: 720,
               maxHeight: 720
-
-
-        )
+            }
+          }
+        })
         handleStream(stream)
-      - catch (e) -
+      } catch (e) {
         handleError(e)
+      }
+      return
+    }
+  }
+})
 
-
-    -
-
--  )
-
-Funktion handleStream (stream) -
+function handleStream (stream) {
   const video = document.querySelector('video')
   video.srcObject = stream
   video.onloadedmetadata = (e) => video.play()
+}
 
-
-FunktionshandleFehler (e)
-  Konsole.log(e)
-.
+function handleError (e) {
+  console.log(e)
+}
 ```
 
-Um Videos von einer Quelle zu erfassen, die von `desktopCapturer` bereitgestellt wird, müssen die an [`navigator.mediaDevices.getUserMedia`][] übergeben en Einschränkungen `chromeMediaSource: 'desktop'`und `audio: false`enthalten.
+To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
 
-Um sowohl Audio als auch Video vom gesamten Desktop zu erfassen, müssen die Einschränkungen, die an [`navigator.mediaDevices.getUserMedia`][] übergeben werden, `chromeMediaSource: 'desktop'`, für `audio` und `video`enthalten, sollten jedoch keine `chromeMediaSourceId` Einschränkung enthalten.
+To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
 
 ```javascript
-const-Einschränkungen = -
-  Audio:
-    obligatorisch: {
+const constraints = {
+  audio: {
+    mandatory: {
       chromeMediaSource: 'desktop'
     }
-  ,
-  Video:
-    obligatorisch: {
+  },
+  video: {
+    mandatory: {
       chromeMediaSource: 'desktop'
     }
-  -
-
+  }
+}
 ```
 
 ## Methoden
 
 Das Modul `desktopCapturer` verfügt über die folgenden Methoden:
 
-### `desktopCapturer.getSources(Optionen)`
+### `desktopCapturer.getSources(options)`
 
 * `options` -Objekt
   * `types` String[] - Ein Array von Strings, das die Typen der Desktop-Quellen auflistet die aufgezeichnet werden sollen, verfügbare Typen sind `screen` und `window`.
@@ -79,7 +79,7 @@ Das Modul `desktopCapturer` verfügt über die folgenden Methoden:
 
 Rückgabe `Promise<DesktopCapturerSource[]>` - Löst mit einem Array von [`DesktopCapturerSource`](structures/desktop-capturer-source.md)-Objekte auf, wobei jede `DesktopCapturerSource` einen Bildschirm oder ein einzelnes Fenster darstellt, das erfasst werden kann.
 
-**Hinweis** Die Erfassung der Bildschirminhalte erfordert die Zustimmung des Benutzers zu macOS 10.15 Catalina oder höher, , die von [`systemPreferences.getMediaAccessStatus`][]erkannt werden können.
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
 
 ## Vorbehalte
 
