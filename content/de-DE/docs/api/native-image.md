@@ -128,7 +128,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer][buffer]
-* `options` -Objekt
+* `options` Object
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (optional) - Defaults to 1.0.
@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (optional) - Defaults to 1.0.
@@ -192,7 +192,7 @@ The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer][buffer] that contains the image's `PNG` encoded data.
@@ -205,21 +205,21 @@ Returns `Buffer` - A [Buffer][buffer] that contains the image's `JPEG` encoded d
 
 #### `image.toBitmap([options])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer][buffer] that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer][buffer] that contains the image's raw bitmap pixel data.
@@ -262,7 +262,7 @@ Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
-* `options` -Objekt
+* `options` Object
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
   * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
@@ -285,7 +285,7 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 #### `image.addRepresentation(options)`
 
-* `options` -Objekt
+* `options` Object
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
