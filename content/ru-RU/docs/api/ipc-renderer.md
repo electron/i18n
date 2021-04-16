@@ -49,17 +49,17 @@
 * `channel` String (Строка)
 * `...args` any[]
 
-Отправить асинхронное сообщение к основному процессу через `channel`, наряду с аргументами. Аргументы будут сериализованы с [клонов алгоритм][SCA], как [`window.postMessage`][], так что прототип цепи не будут включены. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
+Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **ПРИМЕЧАНИЕ:** отправка нестандартных типов JavaScript, таких как объекты DOM или специальные объекты Electron, станет исключением.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 > 
-> Поскольку основной процесс не имеет поддержки объектов DOM, таких как `ImageBitmap`, `File`, `DOMMatrix` и так далее, такие объекты не могут быть отправлены на IPC Electron в основной процесс, так как основной процесс не будет иметь никакого способа расшифровать них. Попытка отправить такие объекты через МПК приведет к ошибке.
+> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
 Основной процесс обрабатывает его путем прослушивания `channel` с модулем [`ipcMain`](ipc-main.md).
 
-Если вам нужно перевести [`MessagePort`][] основной процесс, используйте [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-Если вы хотите получить один ответ от основного процесса, например, результат вызова метода, рассмотрите возможность использования [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
+If you want to receive a single response from the main process, like the result of a method call, consider using [`ipcRenderer.invoke`](#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
@@ -68,11 +68,11 @@
 
 Возвращает `Promise<any>` - Разрешается с ответом от основного процесса.
 
-Отправить сообщение на основной процесс через `channel` и ожидать результата асинхронно. Аргументы будут сериализованы с [клонов алгоритм][SCA], как [`window.postMessage`][], так что прототип цепи не будут включены. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
+Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **ПРИМЕЧАНИЕ:** отправка нестандартных типов JavaScript, таких как объекты DOM или специальные объекты Electron, станет исключением.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 > 
-> Поскольку основной процесс не имеет поддержки объектов DOM, таких как `ImageBitmap`, `File`, `DOMMatrix` и так далее, такие объекты не могут быть отправлены на IPC Electron в основной процесс, так как основной процесс не будет иметь никакого способа расшифровать них. Попытка отправить такие объекты через МПК приведет к ошибке.
+> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
 Основной процесс должен прослушивать `channel` с [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
@@ -91,9 +91,9 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 })
 ```
 
-Если вам нужно перевести [`MessagePort`][] основной процесс, используйте [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
+If you need to transfer a [`MessagePort`][] to the main process, use [`ipcRenderer.postMessage`](#ipcrendererpostmessagechannel-message-transfer).
 
-Если вам не нужен ответ на сообщение, рассмотрите возможность использования [`ipcRenderer.send`](#ipcrenderersendchannel-args).
+If you do not need a response to the message, consider using [`ipcRenderer.send`](#ipcrenderersendchannel-args).
 
 ### `ipcRenderer.sendSync(channel, ...args)`
 
@@ -102,41 +102,41 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 Возвращает `any` - Значение, отправленное обработчиком [`ipcMain`](ipc-main.md).
 
-Отправить сообщение на основной процесс через `channel` и ожидать синхронно. Аргументы будут сериализованы с [клонов алгоритм][SCA], как [`window.postMessage`][], так что прототип цепи не будут включены. Функции отправки, обещания, символы, WeakMaps или WeakSets вы можете сделать исключение.
+Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **ПРИМЕЧАНИЕ:** отправка нестандартных типов JavaScript, таких как объекты DOM или специальные объекты Electron, станет исключением.
+> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 > 
-> Поскольку основной процесс не имеет поддержки объектов DOM, таких как `ImageBitmap`, `File`, `DOMMatrix` и так далее, такие объекты не могут быть отправлены на IPC Electron в основной процесс, так как основной процесс не будет иметь никакого способа расшифровать них. Попытка отправить такие объекты через МПК приведет к ошибке.
+> Since the main process does not have support for DOM objects such as `ImageBitmap`, `File`, `DOMMatrix` and so on, such objects cannot be sent over Electron's IPC to the main process, as the main process would have no way to decode them. Attempting to send such objects over IPC will result in an error.
 
 Основной процесс обрабатывает его, прослушивая `channel` с помощью модуля [`ipcMain`](ipc-main.md), и отвечая, установив `event.returnValue`.
 
-> :warning: **ВНИМАНИЕ**: Отправка синхронного сообщения будет блокировать весь процесс рендерера до получения ответа, поэтому используйте этот метод только в крайнем случае. Гораздо лучше использовать асинхронную версию, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
-### `ipcRenderer.postMessage (канал, сообщение, [transfer])`
+### `ipcRenderer.postMessage(channel, message, [transfer])`
 
 * `channel` String (Строка)
 * `message` any
-* `transfer` MessagePort (по желанию)
+* `transfer` MessagePort[] (optional)
 
-Отправить сообщение на основной процесс, факультативно передавая право собственности на нулевую или более [`MessagePort`][] объектов.
+Send a message to the main process, optionally transferring ownership of zero or more [`MessagePort`][] objects.
 
-Переданные `MessagePort` объекты будут доступны в основном процессе в [`MessagePortMain`](message-port-main.md) объектов, `ports` к   свойства испускаемого события.
+The transferred `MessagePort` objects will be available in the main process as [`MessagePortMain`](message-port-main.md) objects by accessing the `ports` property of the emitted event.
 
 Например:
 
 ```js
-Процесс renderer
-const { port1, port2 } - новый канал сообщений ()
-ipcRenderer.postMessage ('порт', { message: 'hello' }, [port1])
+// Renderer process
+const { port1, port2 } = new MessageChannel()
+ipcRenderer.postMessage('port', { message: 'hello' }, [port1])
 
-// Основной процесс
-ipcMain.on ('port', (e, msg) ->
-  const [port] - e.ports
+// Main process
+ipcMain.on('port', (e, msg) => {
+  const [port] = e.ports
   // ...
 })
 ```
 
-Для получения дополнительной информации об использовании `MessagePort` и `MessageChannel`, см. [MDN документации](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
+For more information on using `MessagePort` and `MessageChannel`, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel).
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
