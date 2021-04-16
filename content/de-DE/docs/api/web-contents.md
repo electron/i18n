@@ -749,7 +749,7 @@ Rückgabewert:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Durch aufrufendes `event.preventDefault()` verhindert, dass das Objekt zurückgegeben wird. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
-#### Event: 'remote-get-current-web-contents' _veraltete_
+#### Event: 'remote-get-current-web-contents' _Deprecated_
 
 Rückgabewert:
 
@@ -773,7 +773,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) – Ein Benutzer-Agent, der die Anforderung stammt.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -793,7 +793,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `query` Record<String, String> (optional) - An `url.format()`übergeben.
   * `search` String (optional) - An `url.format()`übergeben.
   * `hash` String (optional) - An `url.format()`übergeben.
@@ -951,7 +951,7 @@ Returns `String` - The user agent for this web page.
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -1070,7 +1070,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Rückgaben `Promise<void>`
+Returns `Promise<void>`
 
 Setzt das Maximum und Minimum pinch-to-zoom Level.
 
@@ -1139,14 +1139,14 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Rückgaben `Promise<void>`
+Returns `Promise<void>`
 
 Füge `text` in das fokusierte Element ein.
 
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1209,7 +1209,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Standard ist `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Standard ist `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
@@ -1263,7 +1263,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `options` -Objekt
+* `options` Object
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
@@ -1418,9 +1418,9 @@ app.whenReady().then(() => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Objekt (optional)
+* `options` Object (optional)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. Der Standardwert ist `true`.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
 Opens the devtools.
 
