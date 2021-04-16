@@ -776,7 +776,7 @@ Emitted when a `<webview>` has been attached to this web contents.
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData)](structures/upload-raw-data.md) | [UploadFile)](structures/upload-file.md)) (по желанию)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Возвращает `Promise<void>` - обещание разрешится, когда страница закончит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет , если страница не загружается (см. [`did-fail-load`](web-contents.md#event-did-fail-load)). Обработчик отклонения нооп уже прикреплен, что позволяет избежать неопроверженных ошибок отказа.
@@ -958,38 +958,38 @@ contents.on ('unresponsive', async () -> -
 Вводит CSS на текущую веб-страницу и возвращает уникальный ключ для вставленного таблицы.
 
 ```js
-contents.on ('did-finish-load', () -> -
-  contents.insertCSS ('html, кузов - фоновый цвет: #f00; q')
-)
+contents.on('did-finish-load', () => {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
 ```
 
-#### `contents.removeInsertedCSS (ключ)`
+#### `contents.removeInsertedCSS(key)`
 
 * `key` String
 
-Возвращает `Promise<void>` - Разрешает, если удаление было успешным.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-Удаляет вставленный CSS с текущей веб-страницы. Таблица стилей идентифицируется ключом, который возвращается из `contents.insertCSS(css)`.
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
-contents.on ('did-finish-load', async () -> -
-  const key - ждут contents.insertCSS ('html, тело - фоновый цвет: #f00; q')
-  contents.removeInsertedCSS (ключ)
-)
+contents.on('did-finish-load', async () => {
+  const key = await contents.insertCSS('html, body { background-color: #f00; }')
+  contents.removeInsertedCSS(key)
+})
 ```
 
-#### `contents.executeJavaScript (код, userGesture)`
+#### `contents.executeJavaScript(code[, userGesture])`
 
 * `code` String
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 
-Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если результатом кода является отклоненное обещание.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Вычисляет `code` на странице.
 
 В окне браузера некоторые HTML API как `requestFullScreen` может быть только вызван жестом пользователя. Указание `userGesture` как `true` снимает это ограничение.
 
-Выполнение кода будет приостановлено до тех пор, пока веб-страница не прекратит загрузку.
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -998,21 +998,21 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.executeJavaScriptInIsolatedWorld (worldId, скрипты, userGesture)`
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - Идентификатор мира для запуска javascript в, `0` является мир по умолчанию, `999` это мир, используемый в `contextIsolation` Electron.  Вы можете предоставить любой integer здесь.
-* `scripts` [WebSource](structures/web-source.md)
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
 
-Возвращает `Promise<any>` - Обещание, которое разрешается с результатом выполненного кода или отвергается, если результатом кода является отклоненное обещание.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Работает как `executeJavaScript` но оценивает `scripts` в изолированном контексте.
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-#### `contents.setIgnoreMenuShortcuts (игнорировать)`
+#### `contents.setIgnoreMenuShortcuts(ignore)`
 
 * `ignore` Boolean
 
-Игнорируйте ярлыки меню приложений, в то время как это веб-содержимое сфокусировано.
+Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.setWindowOpenHandler(handler)`
 
@@ -1024,45 +1024,45 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
   Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
 
-Вызывается перед созданием окна, `window.open()` вызывается из рендерера. Более подробную [`window.open()`](window-open.md) и как использовать это в сочетании с `did-create-window`.
+Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Отключить звук на текущей веб-странице.
+Mute the audio on the current web page.
 
 #### `contents.isAudioMuted()`
 
-Возвращает `Boolean` - Была ли эта страница отключена.
+Returns `Boolean` - Whether this page has been muted.
 
-#### `contents.isCurrentlyAudible ()`
+#### `contents.isCurrentlyAudible()`
 
-Возвращает `Boolean` - Ли аудио в настоящее время играет.
+Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Двойной - Увеличить фактор; по умолчанию составляет 1,0.
+* `factor` Double - Zoom factor; default is 1.0.
 
-Изменяет коэффициент масштабирования на указанный фактор. Коэффициент увеличения на 100, так что 300% и 3,0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
-Коэффициент должен быть больше 0,0.
+The factor must be greater than 0.0.
 
 #### `contents.getZoomFactor()`
 
-Возвращает `Number` - текущий коэффициент масштабирования.
+Returns `Number` - the current zoom factor.
 
 #### `contents.setZoomLevel(level)`
 
 * `level` Number - уровень увеличения.
 
-Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно. Формула для этого `scale := 1.2 ^ level`.
+Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно. The formula for this is `scale := 1.2 ^ level`.
 
-> **ПРИМЕЧАНИЕ**: Политика масштабирования на уровне Chromium имеет одно и то же происхождение, что означает, что уровень масштабирования для определенного домена распространяется во всех экземплярах окон с одним и тем же доменом. Дифференциация URL-адресов окон позволит увеличить работу на окно.
+> **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 #### `contents.getZoomLevel()`
 
-Возвращает `Number` - текущий уровень масштабирования.
+Returns `Number` - the current zoom level.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -1073,68 +1073,68 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
-> **ПРИМЕЧАНИЕ**: Визуальный зум отключен по умолчанию в Electron. Чтобы включить его, позвоните:
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
-contents.setVisual'oomLevelLimits (1, 3)
+contents.setVisualZoomLevelLimits(1, 3)
 ```
 
 #### `contents.undo()`
 
-Выполняет команду редактирования `undo` веб-странице.
+Executes the editing command `undo` in web page.
 
 #### `contents.redo()`
 
-Выполняет команду редактирования `redo` веб-странице.
+Executes the editing command `redo` in web page.
 
-#### `contents.cut ()`
+#### `contents.cut()`
 
-Выполняет команду редактирования `cut` веб-странице.
+Executes the editing command `cut` in web page.
 
-#### `contents.copy ()`
+#### `contents.copy()`
 
-Выполняет команду редактирования `copy` веб-странице.
+Executes the editing command `copy` in web page.
 
-#### `contents.copyImageAt (x, y)`
+#### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Копировать изображение в данном положении буфер обмена.
+Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-Выполняет команду редактирования `paste` веб-странице.
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-Выполняет команду редактирования `pasteAndMatchStyle` веб-странице.
+Executes the editing command `pasteAndMatchStyle` in web page.
 
-#### `contents.delete ()`
+#### `contents.delete()`
 
-Выполняет команду редактирования `delete` веб-странице.
+Executes the editing command `delete` in web page.
 
-#### `contents.selectAll ()`
+#### `contents.selectAll()`
 
-Выполняет команду редактирования `selectAll` веб-странице.
+Executes the editing command `selectAll` in web page.
 
 #### `contents.unselect()`
 
-Выполняет команду редактирования `unselect` веб-странице.
+Executes the editing command `unselect` in web page.
 
-#### `contents.replace (текст)`
-
-* `text` String
-
-Выполняет команду редактирования `replace` веб-странице.
-
-#### `contents.replaceMisspelling (текст)`
+#### `contents.replace(text)`
 
 * `text` String
 
-Выполняет команду редактирования `replaceMisspelling` веб-странице.
+Executes the editing command `replace` in web page.
 
-#### `contents.insertText (текст)`
+#### `contents.replaceMisspelling(text)`
+
+* `text` String
+
+Executes the editing command `replaceMisspelling` in web page.
+
+#### `contents.insertText(text)`
 
 * `text` String
 
@@ -1144,38 +1144,38 @@ contents.setVisual'oomLevelLimits (1, 3)
 
 #### `contents.findInPage(text[, options])`
 
-* `text` Строка - Содержимое для поиска, не должно быть пустым.
+* `text` String - Content to be searched, must not be empty.
 * `options` Object (опционально)
-  * `forward` Boolean (по желанию) - Следует ли искать вперед или назад, по умолчанию `true`.
-  * `findNext` Boolean (по желанию) - Является ли операция первым запросом или последующей деятельности, по умолчанию `false`.
-  * `matchCase` Boolean (по желанию) - Должен ли поиск быть деликатным, по умолчанию `false`.
+  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
-Возвращает `Integer` - идентификатор запроса, используемый для запроса.
+Returns `Integer` - The request id used for the request.
 
-Начинается запрос на поиск всех совпадений для `text` на веб-странице. Результат запроса можно получить , подписавшись на [`found-in-page`](web-contents.md#event-found-in-page) событие.
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
-#### `contents.stopFindInPage (действие)`
+#### `contents.stopFindInPage(action)`
 
-* `action` String - Определяет действие, которое состоится при и`webContents.findInPage`запроса.
-  * `clearSelection` - Очистить выбор.
-  * `keepSelection` - Перевести выбор в нормальный выбор.
-  * `activateSelection` - Сосредоточьтесь и нажмите на узел выбора.
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
+  * `clearSelection` - Clear the selection.
+  * `keepSelection` - Translate the selection into a normal selection.
+  * `activateSelection` - Focus and click the selection node.
 
-Прекращает `findInPage` запрос на `webContents` с предоставленным `action`.
+Stops any `findInPage` request for the `webContents` with the provided `action`.
 
 ```javascript
-const { webContents } требуют ('электрон')
-webContents.on ('найдено-в-странице', (событие, результат) -> -
-  если (result.finalUpdate) webContents.stopFindInPage ('clearSelection')
-q)
+const { webContents } = require('electron')
+webContents.on('found-in-page', (event, result) => {
+  if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
+})
 
-const requestId - webContents.findInPage ('api')
-console.log (requestId)
+const requestId = webContents.findInPage('api')
+console.log(requestId)
 ```
 
 #### `contents.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (по желанию) - область страницы, которая должна быть захвачена.
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
 Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
 
@@ -1183,402 +1183,404 @@ console.log (requestId)
 
 #### `contents.isBeingCaptured()`
 
-Возвращает `Boolean` - Является ли эта страница в настоящее время захвачены. Он возвращается верно, когда захват большой, то 0.
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
 
-#### `contents.incrementCapturerCount (размер, stayHidden)`
+#### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [размер](structures/size.md) (по желанию) - предпочтительный размер для захвата.
-* `stayHidden` Boolean (по желанию) - Держите страницу скрытой, а не видимой.
+* `size` [Size](structures/size.md) (optional) - The preferred size for the capturer.
+* `stayHidden` Boolean (optional) -  Keep the page hidden instead of visible.
 
-Увеличьте количество захвата на один. Страница считается видимой, когда окно браузера скрыто, а количество захватилов не является нулевым. Если вы хотите, чтобы страница была скрыта, вы должны убедиться, что `stayHidden` установлен на реальность.
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
 
-Это также влияет на API видимости Страницы.
+This also affects the Page Visibility API.
 
-#### `contents.decrementCapturerCount ([stayHidden])`
+#### `contents.decrementCapturerCount([stayHidden])`
 
-* `stayHidden` Boolean (по желанию) - Держите страницу в скрытом состоянии, а не видимым.
+* `stayHidden` Boolean (optional) -  Keep the page in hidden state instead of visible.
 
-Уменьшите количество захвата на один. Страница будет настроена в скрытое или закрытый состояние, когда окна браузера скрыты или закрыты, а количество захватилов достигнет нуля. Если вы хотите количество скрытых захватов, вместо этого вы должны установить `stayHidden` с реальностью.
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
 
-#### `contents.getPrinters ()`
+#### `contents.getPrinters()`
 
-Получить список системных принтеров.
+Get the system printer list.
 
-Возвращает [`PrinterInfo[]`](structures/printer-info.md)
+Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
 * `options` Object (опционально)
-  * `silent` Boolean (по желанию) - Не спрашивайте у пользователя настройки печати. По умолчанию - `false`.
-  * `printBackground` Boolean (по желанию) - Печать фонового цвета и веб-страницы. По умолчанию - `false`.
-  * `deviceName` String (по желанию) - Установите имя устройства принтера для использования. Должно быть системно-определяемое имя, а не «дружественное» имя, например «Brother_QL_820NWB», а не «Брат ЗЛ-820НВБ».
-  * `color` Boolean (по желанию) - Установите, будет ли печатная веб-страница в цвете или серой шкале. По умолчанию - `true`.
-  * `margins` (по желанию)
-    * `marginType` String (по желанию) - может быть `default`, `none`, `printableArea`, или `custom`. Если `custom` выбран, вам также нужно будет указать `top`, `bottom`, `left`и `right`.
-    * `top` (по желанию) - верхняя маржа печатной веб-страницы, в пикселях.
-    * `bottom` (по желанию) - нижняя маржа печатной веб-страницы, в пикселях.
-    * `left` (по желанию) - левая маржа печатной веб-страницы, в пикселях.
-    * `right` (по желанию) - правая маржа печатной веб-страницы, в пикселях.
-  * `landscape` Boolean (по желанию) - Следует ли печатать веб-страницу в ландшафтном режиме. По умолчанию - `false`.
-  * `scaleFactor` номер (необязательно) - коэффициент масштаба веб-страницы.
-  * `pagesPerSheet` (необязательно) - количество страниц для печати на листе страницы.
-  * `collate` Boolean (по желанию) - Следует ли собирать веб-страницу.
-  * `copies` номер (необязательно) - количество копий веб-страницы для печати.
-  * `pageRanges` Объект» (необязательно) - диапазон страниц для печати. На macOS, только один диапазон почитается.
-    * `from` - Индекс первой страницы для печати (0 на основе).
-    * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
-  * `duplexMode` String (по желанию) - Установите дуплексный режим печатной веб-страницы. Может быть `simplex`, `shortEdge`, или `longEdge`.
-  * `dpi` запись<string, number> (по желанию)
-    * `horizontal` (по желанию) - Горизонтальный dpi.
-    * `vertical` (необязательно) - Вертикальный dpi.
-  * `header` String (по желанию) - Строка для печати в качестве заголовка страницы.
-  * `footer` String (по желанию) - Строка, которая будет напечатана в качестве страницы footer.
-  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы печатного документа. Может быть `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` или объект, содержащий `height`.
+  * `silent` Boolean (optional) - Don't ask user for print settings. По умолчанию - `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. По умолчанию - `false`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. По умолчанию - `true`.
+  * `margins` Object (optional)
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. По умолчанию - `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Record<string, number> (optional)
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
+  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 * `callback` Function (опционально)
-  * `success` Boolean - указывает на успех печатного звонка.
-  * `failureReason` Строка - Описание ошибки перезвехивает, если печать не удается.
+  * `success` Boolean - Indicates success of the print call.
+  * `failureReason` String - Error description called back if the print fails.
 
-Когда пользовательский `pageSize` пройден, Chromium пытается проверить конкретные минимальные значения платформы для `width_microns` и `height_microns`. Ширина и высота должны быть не менее 353 микрон, но могут быть выше на некоторых операционных системах.
+When a custom `pageSize` is passed, Chromium attempts to validate platform specific minimum values for `width_microns` and `height_microns`. Width and height must both be minimum 353 microns but may be higher on some operating systems.
 
-Печать веб-страницы окна. Когда `silent` установлен на `true`, Electron будет выбирать системы по умолчанию принтер, если `deviceName` пуст и настройки по умолчанию для печати.
+Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
-Используйте `page-break-before: always;` CSS, чтобы заставить печатать на новой странице.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 Пример использования:
 
 ```js
-варианты const :
+const options = {
   silent: true,
   deviceName: 'My-Printer',
-  pageRanges:{
+  pageRanges: [{
     from: 0,
     to: 1
-  }
-
-- win.webContents.print (опции, (успех, errorType) -> -
-  если (!успех) консоль.log (errorType)
-)
+  }]
+}
+win.webContents.print(options, (success, errorType) => {
+  if (!success) console.log(errorType)
+})
 ```
 
 #### `contents.printToPDF(options)`
 
 * `options` Object
-  * `headerFooter` запись<string, string> (по желанию) - заголовок и лакея для PDF.
-    * `title` String - Название заголовка PDF.
-    * `url` String - URL для pdf footer.
-  * `landscape` Boolean (по желанию) - `true` для пейзажа, `false` для портрета.
-  * `marginsType` Integer (необязательно) - определяет тип маржи для использования. Использует 0 для по умолчанию, 1 без маржи и 2 для минимальной маржи.
-  * `scaleFactor` номер (необязательно) - коэффициент масштаба веб-страницы. Может варьироваться от 0 до 100.
-  * `pageRanges` запись<string, number> (по желанию) - диапазон страниц для печати.
-    * `from` - Индекс первой страницы для печати (0 на основе).
-    * `to` - Индекс последней страницы для печати (включительно) (0 на основе).
-  * `pageSize` струнные | Размер (необязательно) - Укажите размер страницы сгенерированного PDF. Может быть `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` или объект, содержащий `height` и `width` в микронах.
-  * `printBackground` Boolean (необязательно) - Следует ли печатать CSS фоны.
-  * `printSelectionOnly` Boolean (необязательно) - Следует ли печатать только выбор.
+  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
+    * `title` String - The title for the PDF header.
+    * `url` String - the url for the PDF footer.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
+  * `pageRanges` Record<string, number> (optional) - The page range to print.
+    * `from` Number - Index of the first page to print (0-based).
+    * `to` Number - Index of the last page to print (inclusive) (0-based).
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
 
-Возвращает `Promise<Buffer>` - Разрешает с генерируемыми данными PDF.
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
-Печатает веб-страницу окна как PDF с пользовательскими настройками печати предварительного просмотра Chromium настройками.
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
-Данные `landscape` проигнорированы, если `@page` csS at-rule используется на веб-странице.
+The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
-По умолчанию пустая `options` будет рассматриваться как:
+By default, an empty `options` will be regarded as:
 
 ```javascript
-
+{
   marginsType: 0,
-  printBackground: ложный,
-  printSelectionСвыборно: ложный,
-  пейзаж: ложный,
+  printBackground: false,
+  printSelectionOnly: false,
+  landscape: false,
   pageSize: 'A4',
   scaleFactor: 100
-.
+}
 ```
 
-Используйте `page-break-before: always;` CSS, чтобы заставить печатать на новой странице.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Пример `webContents.printToPDF`:
+An example of `webContents.printToPDF`:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
-const fs и требуют ('fs')
-const путь - требуют ('путь')
-const os - требуют ('os')
+const { BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require('path')
+const os = require('os')
 
-const win - новый BrowserWindow ({ width: 800, height: 600 })
-win.loadURL ('http://github.com> ')
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com')
 
-win.webContents.on ('did-finish-load', () -> -
-  // Используйте параметры печати по умолчанию
-  win.webContents.printToPDF (яп.), затем (данные -> -
-    const pdfPath - path.join(os.homedir),) 'temp.pdf')
-    fs.writeFile (pdfPath, данные, (ошибка) -  -
-      если (ошибка) ошибка броска
-      консоли.log ('Написал PDF успешно ${pdfPath}')
-    q)
-  q).catch (ошибка No> и
-    консоли.log ('Не удалось написать PDF на ${pdfPath}: ', ошибка)
-  )
-)
+win.webContents.on('did-finish-load', () => {
+  // Use default printing options
+  win.webContents.printToPDF({}).then(data => {
+    const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
+    fs.writeFile(pdfPath, data, (error) => {
+      if (error) throw error
+      console.log(`Wrote PDF successfully to ${pdfPath}`)
+    })
+  }).catch(error => {
+    console.log(`Failed to write PDF to ${pdfPath}: `, error)
+  })
+})
 ```
 
 #### `contents.addWorkSpace(path)`
 
 * `path` String
 
-Добавляет указанный путь в рабочее пространство DevTools. Должно быть использовано после создания devTools :
+Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
-const win - новый BrowserWindow ()
-win.webContents.on ('devtools-opened', () -> -
-  win.webContents.addWorkSpace (__dirname)
-)
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+win.webContents.on('devtools-opened', () => {
+  win.webContents.addWorkSpace(__dirname)
+})
 ```
 
 #### `contents.removeWorkSpace(path)`
 
 * `path` String
 
-Удаляет указанный путь из рабочего пространства DevTools.
+Removes the specified path from DevTools workspace.
 
-#### `contents.setDevToolsWebContents (devToolsWebContents)`
+#### `contents.setDevToolsWebContents(devToolsWebContents)`
 
 * `devToolsWebContents` WebContents
 
-Использует `devToolsWebContents` в качестве целевого `WebContents` , чтобы показать devtools.
+Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
 
-Меню `devToolsWebContents` не должно было делать никакой навигации, и оно не использоваться для других целей после звонка.
+The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
 
-По умолчанию Electron управляет devtools, создавая внутренний `WebContents` с родным видом, который разработчики имеют очень ограниченный контроль. С помощью `setDevToolsWebContents` , разработчики могут использовать любые `WebContents` , чтобы показать в нем, в том числе `BrowserWindow`, `BrowserView` и `<webview>` тег.
+By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
 
-Обратите внимание, что закрытие devtools не разрушает `devToolsWebContents`, это ответственность абонента, чтобы уничтожить `devToolsWebContents`.
+Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
 
-Пример отображения devtools в теге `<webview>` :
+An example of showing devtools in a `<webview>` tag:
 
 ```html
 <html>
 <head>
   <style type="text/css">
-    - маржа: 0;
-    #browser - высота: 70%;
-    #devtools - высота: 30%;
+    * { margin: 0; }
+    #browser { height: 70%; }
+    #devtools { height: 30%; }
   </style>
 </head>
 <body>
   <webview id="browser" src="https://github.com"></webview>
   <webview id="devtools" src="about:blank"></webview>
   <script>
-    const { ipcRenderer } - требуют ('электрон')
-    const emittedOnce (элемент, eventName) -> новое обещание (разрешение -> -
-      element.addEventListener(eventName, событие> разрешение (событие), { once: true })
-    q)
-    const browserView - document.getElementById ('browser')
-    const devtoolsView - document.getElementById ('devtools')
-    const browserReady - emittedOnce (browserView , 'дом-готов')
-    const devtoolsReady - излучаемыйOnce (devtoolsView, 'дом-готов')
-    Promise.all ('browserReady, devtoolsReady).,тогда (() -> -
-      конст targetId - browserView.getWebContentsId ()
-      const devtoolsId - devtoolsView.getWebContentsId()
-      ipcRenderer.send ('open-devtools', targetId, devtoolsId)
-    )
+    const { ipcRenderer } = require('electron')
+    const emittedOnce = (element, eventName) => new Promise(resolve => {
+      element.addEventListener(eventName, event => resolve(event), { once: true })
+    })
+    const browserView = document.getElementById('browser')
+    const devtoolsView = document.getElementById('devtools')
+    const browserReady = emittedOnce(browserView, 'dom-ready')
+    const devtoolsReady = emittedOnce(devtoolsView, 'dom-ready')
+    Promise.all([browserReady, devtoolsReady]).then(() => {
+      const targetId = browserView.getWebContentsId()
+      const devtoolsId = devtoolsView.getWebContentsId()
+      ipcRenderer.send('open-devtools', targetId, devtoolsId)
+    })
   </script>
 </body>
 </html>
 ```
 
 ```js
-Основной процесс
-const { ipcMain, webContents } требуют ('электрон')
-ipcMain.on ('open-devtools', (событие, targetContentsId, devtoolsContentsId) -> -
-  констовая цель - webContents.fromId (targetContentsId)
-  const devtools - webContents.fromId (devtoolsContentsId)
-  target.setDevToolsWebContents (devtools)
-  target.openDevTools(
-)
+// Main process
+const { ipcMain, webContents } = require('electron')
+ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
+  const target = webContents.fromId(targetContentsId)
+  const devtools = webContents.fromId(devtoolsContentsId)
+  target.setDevToolsWebContents(devtools)
+  target.openDevTools()
+})
 ```
 
-Пример отображения devtools в `BrowserWindow`:
+An example of showing devtools in a `BrowserWindow`:
 
 ```js
-const { app, BrowserWindow } - требуют ('электрон')
+const { app, BrowserWindow } = require('electron')
 
-пусть выигрывают - null
-пусть devtools - null
+let win = null
+let devtools = null
 
-app.whenReady ().., затем () -> -
-  win - новый BrowserWindow ()
-  devtools - новый BrowserWindow()
-  win.loadURL ('https://github.com')
-  win.webContents.setDevToolsWebContents (devtools.webContents)
-  win.webContents.openDevTools ({ mode: 'detach' })
-)
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+  devtools = new BrowserWindow()
+  win.loadURL('https://github.com')
+  win.webContents.setDevToolsWebContents(devtools.webContents)
+  win.webContents.openDevTools({ mode: 'detach' })
+})
 ```
 
 #### `contents.openDevTools([options])`
 
 * `options` Object (опционально)
-  * `mode` String - Открывает devtools с указанным состоянием дока, может быть `right`, `bottom`, `undocked`, `detach`. По умолчанию для последнего используемого состояния дока. В `undocked` режиме можно пристыковаться назад. В `detach` режиме это не так.
-  * `activate` Boolean (необязательно) - Следует ли вывести открытое окно devtools на первый план. The default is `true`.
+  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
-Открывает devtools.
+Opens the devtools.
 
-Когда `contents` является тегом `<webview>` , `mode` будет `detach` по умолчанию, явно проходя пустой `mode` может заставить использовать последнее используемое состояние дока.
+When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Закрывает devtools.
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Возвращает `Boolean` - Открыты ли devtools.
+Returns `Boolean` - Whether the devtools is opened.
 
-#### `contents.isDevToolsФокусировано()`
+#### `contents.isDevToolsFocused()`
 
-Возвращает `Boolean` - Ориентировано ли представление devtools.
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-Переключает инструменты разработчика.
+Toggles the developer tools.
 
-#### `contents.inspectЭлement (x, y)`
+#### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Начинается проверка элемента на позиции (`x`, `y`).
+Starts inspecting element at position (`x`, `y`).
 
 #### `contents.inspectSharedWorker()`
 
-Открывает инструменты разработчика для общего контекста работника.
+Opens the developer tools for the shared worker context.
 
-#### `contents.inspectSharedWorkerById (рабочийid)`
+#### `contents.inspectSharedWorkerById(workerId)`
 
-* `workerId` Струна
+* `workerId` String
 
-Проверяет общего работника на основе его идентификатора.
+Inspects the shared worker based on its ID.
 
 #### `contents.getAllSharedWorkers()`
 
-Возвращает [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Информация обо всех общих работников.
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
 
 #### `contents.inspectServiceWorker()`
 
-Открывает инструменты разработчика для контекста работника службы.
+Opens the developer tools for the service worker context.
 
-#### `contents.send (канал, ... аргс)`
+#### `contents.send(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Отправить асинхронное сообщение процессу рендерера через `channel`, наряду с аргументами. Аргументы будут сериализованы с [клонов алгоритм][SCA], как [`postMessage`][], так что прототип цепи не будут включены. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **ПРИМЕЧАНИЕ**: Отправка нестандартных типов JavaScript, таких как объекты DOM или специальные объекты Electron, станет исключением.
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
-Процесс рендерера может обрабатывать сообщение, слушая `channel` с [`ipcRenderer`](ipc-renderer.md) модулем.
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Пример отправки сообщений из основного процесса в процесс рендерера:
+An example of sending messages from the main process to the renderer process:
 
 ```javascript
 // В основном процессе.
-const { app, BrowserWindow } - требуют ('электрон')
-пусть выигрывают - null
+const { app, BrowserWindow } = require('electron')
+let win = null
 
-app.whenReady ()..., то ((()) -> -
-  win - новый BrowserWindow ({ width: 800, height: 600 })
-  win.loadURL ('файл://${__dirname}/index.html')
-  win.webContents.on ('did-finish-load', () -> -
-    win.webContents.send ("пинг", "whoooooooh!")
+app.whenReady().then(() => {
+  win = new BrowserWindow({ width: 800, height: 600 })
+  win.loadURL(`file://${__dirname}/index.html`)
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('ping', 'whoooooooh!')
   })
 })
 ```
 
-```html<!-- индекс.html --><html>
+```html
+<!-- index.html -->
+<html>
 <body>
   <script>
-    требуют ('электрон').ipcRenderer.on('ping', (событие, сообщение) -> -
-      консоли.log (сообщение) // Печатает 'whoooooooh!'
-    В)
+    require('electron').ipcRenderer.on('ping', (event, message) => {
+      console.log(message) // Prints 'whoooooooh!'
+    })
   </script>
 </body>
 </html>
 ```
 
-#### `contents.sendToFrame (frameId, канал, ... аргс)`
+#### `contents.sendToFrame(frameId, channel, ...args)`
 
-* `frameId` Интегр | «Число, число» - идентификатор кадра для отправки или пара `[processId, frameId]` если кадр находится в другом процессе с кадра.
+* `frameId` Integer | [number, number] - the ID of the frame to send to, or a pair of `[processId, frameId]` if the frame is in a different process to the main frame.
 * `channel` String (Строка)
 * `...args` any[]
 
-Отправить асинхронное сообщение в определенный кадр в процессе рендерера через `channel`, наряду с аргументами. Аргументы будут сериализованы с [алгоритмом клонов][SCA], как и [`postMessage`][], поэтому прототип цепи не будут включены. Отправка Функции, Обещания, Символы, WeakMaps, , что WeakSets будет бросать исключение.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
 > **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
-Процесс рендерера может обрабатывать сообщение, слушая `channel` с [`ipcRenderer`](ipc-renderer.md) модулем.
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Если вы хотите получить `frameId` данного контекста рендерера, вы должны использовать `webFrame.routingId` значение.  Например,
-
-```js
-В процессе рендеринга
-консоли.log ('My frameId is:', require ('electron').webFrame.routingId)
-```
-
-Вы также можете прочитать `frameId` всех входящих сообщений IPC в основном процессе.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Например,
 
 ```js
-В основном процессе
-ipcMain.on ('ping', (событие) -> -
-  console.info ("Сообщение пришло из frameId:', event.frameId)
-)
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-#### `contents.postMessage (канал, сообщение, [transfer])`
+You can also read `frameId` from all incoming IPC messages in the main process.
+
+```js
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
+})
+```
+
+#### `contents.postMessage(channel, message, [transfer])`
 
 * `channel` String (Строка)
 * `message` any
 * `transfer` MessagePortMain[] (optional)
 
-Отправить сообщение процессу рендерера, по желанию передав право собственности на ноль или более -`MessagePortMain`объектов.
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-Переданные `MessagePortMain` объекты будут доступны в процессе , получить доступ `ports` к свойству испускаемого события. Когда они в рендер, они будут родными DOM `MessagePort` объектов.
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 Например:
 
 ```js
-Основной процесс
-const { port1, port2 } - новый MessageChannelMain ()
-webContents.postMessage ('port', { message: 'hello' }, [port1])
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+webContents.postMessage('port', { message: 'hello' }, [port1])
 
-// Процесс рендерера
-ipcRenderer.on ('port', (e, msg) ->
-  const [port] и e.ports
+// Renderer process
+ipcRenderer.on('port', (e, msg) => {
+  const [port] = e.ports
   // ...
 })
 ```
 
-#### `contents.enableDeviceEmulation (параметры)`
+#### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` объект
-  * `screenPosition` Строка - Укажите тип экрана для эмулировать (по умолчанию: `desktop`):
-    * `desktop` - Тип экрана рабочего стола.
-    * `mobile` - Мобильный тип экрана.
-  * `screenSize` [размер](structures/size.md) - Установите эмулированный размер экрана (screenPosition - мобильный).
-  * `viewPosition` [Point](structures/point.md) - Распоитите вид на экране (screenPosition - мобильный) (по умолчанию: `{ x: 0, y: 0 }`).
-  * `deviceScaleFactor` Integer - Установите коэффициент масштаба устройства (если ноль по умолчанию исходный коэффициент масштаба устройства) (по умолчанию: `0`).
-  * `viewSize` [размер](structures/size.md) - Установите эмулировать размер представления (пустой означает отсутствие переопределения)
-  * `scale` Float - Шкала эмулировать вид внутри доступного пространства (не в просмотра) (по умолчанию: `1`).
+* `parameters` Object
+  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
+    * `desktop` - Desktop screen type.
+    * `mobile` - Mobile screen type.
+  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
+  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
+  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Включить эмуляцию устройства с учетом данных параметров.
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-Отключить эмуляцию устройства, включенную `webContents.enableDeviceEmulation`.
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
-#### `contents.sendInputEvent (входEvent)`
+#### `contents.sendInputEvent(inputEvent)`
 
-* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [клавиатураInputEvent](structures/keyboard-input-event.md)
+* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Отправляет входную `event` на страницу. **Примечание:** [`BrowserWindow`](browser-window.md) , содержащий содержимое, должен быть сфокусирован для `sendInputEvent()` работы.
+Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
@@ -1587,186 +1589,186 @@ ipcRenderer.on ('port', (e, msg) ->
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Начните подписку на презентационые мероприятия и снятые кадры, `callback` будут называться с `callback(image, dirtyRect)` , когда будет события.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-The `image` является примером [NativeImage](native-image.md) , который хранит захваченный кадр.
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-The `dirtyRect` является объектом с `x, y, width, height` свойствами, описывает, какая часть страницы была перекрашена. Если `onlyDirty` установлен на `true`, `image` будет содержать только перекрашенной области. `onlyDirty` по умолчанию `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
-Окончание подписки на события презентации кадров.
+End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` объект
-  * `file` Струна | Строка - Путь (ы) к файлу (ы) перетаскиваются.
-  * `icon` [NativeImage](native-image.md) | Строка - Изображение должно быть непустое на macOS.
+* `item` Object
+  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
-Устанавливает `item` как перетаскивание элемента для текущей операции перетаскивания, `file` — это абсолютный путь , который нужно перетаскивать, и `icon` — это изображение, показывающее под курсор при перетаскивании.
+Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `contents.savePage (fullPath, saveType)`
+#### `contents.savePage(fullPath, saveType)`
 
-* `fullPath` Строка - Полный путь файла.
-* `saveType` строка - Укажите тип сохранения.
-  * `HTMLOnly` - Сохранить только HTML страницы.
-  * `HTMLComplete` - Сохранить полный HTML страницу.
-  * `MHTML` - Сохранить полный html страницу, как MHTML.
+* `fullPath` String - The full file path.
+* `saveType` String - Specify the save type.
+  * `HTMLOnly` - Save only the HTML of the page.
+  * `HTMLComplete` - Save complete-html page.
+  * `MHTML` - Save complete-html page as MHTML.
 
-Возвращает `Promise<void>` - решает, если страница сохранена.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
-const win - новый BrowserWindow ()
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
 
-win.loadURL ('https://github.com')
+win.loadURL('https://github.com')
 
-win.webContents.on ('did-finish-load', async () ->
-  win.webContents.savePage ('/tmp/test.html', 'HTMLComplete'.log
-    > ).
-  В).поймать (ошибка>
-    консоли.log (ошибка)
-  )
-)
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
+  })
+})
 ```
 
 #### `contents.showDefinitionForSelection()` _macOS_
 
-Показывает всплывающий словарь, который ищет выбранное слово на странице.
+Shows pop-up dictionary that searches the selected word on the page.
 
 #### `contents.isOffscreen()`
 
-Возвращает `Boolean` - Указывает, *ли включена* рендеринг.
+Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
 
 #### `contents.startPainting()`
 
-Если *экран рендеринга* включен, а не живопись, начните рисовать.
+If *offscreen rendering* is enabled and not painting, start painting.
 
 #### `contents.stopPainting()`
 
-Если *экран рендеринга* включен и живопись, прекратите рисовать.
+If *offscreen rendering* is enabled and painting, stop painting.
 
 #### `contents.isPainting()`
 
-Возвращает `Boolean` - Если *экран рендеринга* возвращается ли он в настоящее время живопись.
+Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
 
-#### `contents.setFrameRate (fps)`
+#### `contents.setFrameRate(fps)`
 
-* `fps` Интегрер
+* `fps` Integer
 
-Если *экранная рендеринг* включена, устанавливает частоту кадров к указанному номеру. Принимаются только значения от 1 до 240.
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 240 are accepted.
 
 #### `contents.getFrameRate()`
 
-Возвращает `Integer` - Если *экран рендеринга* включен возвращает текущую частоту кадров.
+Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
 
 #### `contents.invalidate()`
 
-Расписание полной перекраски окна этого веб-содержимого дюйма
+Schedules a full repaint of the window this web contents is in.
 
-Если *экранная рендеринг* включена, аннулирует кадр и генерирует один через `'paint'` событие.
+If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Возвращает `String` - Возвращает WebRTC IP Обработка политики.
+Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` строка - Укажите политику обработки IP-адресов WebRTC.
-  * `default` - Выставляет публичные и локальные ИП пользователя. Это поведение по умолчанию. При использовании этой политики WebRTC имеет право перечислять все интерфейсы и связывать их для обнаружения общедоступных интерфейсов.
-  * `default_public_interface_only` - Предоставляет общедоступный IP пользователя, но не разоблачает локальный IP пользователя. При использовании этой политики WebRTC должен использовать только маршрут, используемый http. Это не предоставляет никаких локальных адресов.
-  * `default_public_and_private_interfaces` - Выставляет публичные и локальные пользователей. При использовании этой политики WebRTC следует использовать только маршрут по умолчанию, используемый по http. Это также предоставляет связанный с этим частный адрес по умолчанию. Маршрут по умолчанию — это маршрут, выбранный ОС на многохомной конечной точке.
-  * `disable_non_proxied_udp` - Не разоблачает публичные или местные ИП. При использовании webRTC следует использовать TCP только для связи с коллегами или серверами, если прокси-сервер поддерживает UDP.
+* `policy` String - Specify the WebRTC IP Handling Policy.
+  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Установка политики обработки IP-адресов WebRTC позволяет контролировать, какие IP-адреса через WebRTC. Более подробную [смотрите](https://browserleaks.com/webrtc) BrowserLeaks веб-сайтах.
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
-Возвращает `Integer` - Операционная система `pid` связанного процесса рендерера.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
 
 #### `contents.getProcessId()`
 
-Возвращает `Integer` - Хром внутреннего `pid` связанного рендерера. Можно с тем, `frameProcessId` пройденный кадром конкретных событий навигации (например. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Путь к выходному файлу.
 
-Возвращает `Promise<void>` - указывает, был ли моментальный снимок создан успешно.
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Возвращает `Boolean` - будет ли этот WebContents дроссельной анимации и таймеры когда страница становится фоном. Это также влияет на API видимости Страницы.
+Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
-#### `contents.setBackgroundThrottling (разрешено)`
+#### `contents.setBackgroundThrottling(allowed)`
 
-* `allowed` Булан
+* `allowed` Boolean
 
-Контролирует, будет ли этот WebContents дроссельной анимации и таймеры когда страница становится фоновой. Это также влияет на API видимости Страницы.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.getType()`
 
-Возвращает `String` - тип webContent. Может быть `backgroundPage`, `window`, `browserView`, `remote`, `webview` или `offscreen`.
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Свойства экземпляра
 
 #### `contents.audioMuted`
 
-Свойство `Boolean` , которое определяет, отключена ли эта страница.
+A `Boolean` property that determines whether this page is muted.
 
 #### `contents.userAgent`
 
-Учетная `String` , которое определяет агента пользователя для этой веб-страницы.
+A `String` property that determines the user agent for this web page.
 
 #### `contents.zoomLevel`
 
-Свойство `Number` которое определяет уровень масштабирования для этого веб-содержимого.
+A `Number` property that determines the zoom level for this web contents.
 
-Первоначальный размер 0, и каждый прирост выше или ниже представляет собой масштабирование 20% больше или меньше по умолчанию пределы 300% и 50% от первоначального размера, соответственно. Формула для этого `scale := 1.2 ^ level`.
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-Свойство `Number` которое определяет коэффициент масштабирования для этого веб-содержимого.
+A `Number` property that determines the zoom factor for this web contents.
 
-Коэффициентом масштабирования является процент масштабирования, разделенный на 100, так что 300% и 3,0.
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.frameRate`
 
-`Integer` , которое устанавливает частоту кадров веб-содержимого на указанный номер. Принимаются только значения от 1 до 240.
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 240 are accepted.
 
-Применяется только в том случае *когда* за кадром  включен.
+Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` _Readonly_
 
-Веб `Integer` представляющий уникальный идентификатор этого WebContents. Каждый идентификатор уникален среди `WebContents` экземпляров всего приложения Electron.
+A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
 
 #### `contents.session` _Readonly_
 
-Новый [`Session`](session.md) используется этим webContents.
+A [`Session`](session.md) used by this webContents.
 
 #### `contents.hostWebContents` _Readonly_
 
-Пример [`WebContents`](web-contents.md) , который может владеть этой `WebContents`.
+A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
 #### `contents.devToolsWebContents` _Readonly_
 
-Новое `WebContents | null` , представляющее devTools `WebContents` связано с данной `WebContents`.
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
-**Примечание:** пользователи никогда не должны хранить этот объект, потому что он может `null` , когда DevTools был закрыт.
+**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
 #### `contents.debugger` _Readonly_
 
-Пример [`Debugger`](debugger.md) для этого webContents.
+A [`Debugger`](debugger.md) instance for this webContents.
 
 #### `contents.backgroundThrottling`
 
-Свойство `Boolean` , которое определяет, будет ли этот WebContents задушить анимацию и таймеры когда страница станет фоновой. Это также влияет на API видимости Страницы.
+A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 #### `contents.mainFrame` _Только чтение_
 
-[`WebFrameMain`](web-frame-main.md) , представляющее верхнюю рамку иерархии кадров страницы.
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
@@ -1784,6 +1786,5 @@ win.webContents.on ('did-finish-load', async () ->
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
-[SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 [`postMessage`]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
