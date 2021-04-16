@@ -1,10 +1,10 @@
 # Estrutura de Diretório do Código Fonte
 
-O código fonte de Elétron é separado em algumas partes, principalmente após o Cromo nas convenções de separação.
+The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
 
-Você pode precisar se familiarizar com [arquitetura de multiprocesso do Chromium](https://dev.chromium.org/developers/design-documents/multi-process-architecture) entender melhor o código-fonte.
+You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
-## Estrutura do Código Fonte
+## Structure of Source Code
 
 ```diff
 Electron
