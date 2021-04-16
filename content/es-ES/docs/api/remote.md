@@ -4,11 +4,11 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-> ⚠️ ADVERTENCIA ⚠️ El módulo  `remote` es [obsoleto](https://github.com/electron/electron/issues/21408). En lugar de `remote`, usa [`ipcRenderer`](ipc-renderer.md) y [`ipcMain`](ipc-main.md).
+> ⚠️ ADVERTENCIA ⚠️ El módulo  `remote` es [obsoleto](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
 > 
 > Lea más sobre porque el módulo `remote` es obsoleto [aquí](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 > 
-> Si aún quieres usar `remote` a pesar del rendimiento y la seguridad inquietudes, consulta [@electron/Remote](https://github.com/electron/remote).
+> If you still want to use `remote` despite the performance and security concerns, see [@electron/remote](https://github.com/electron/remote).
 
 El módulo `remote` proporciona una manera sencilla de hacer una comunicación (IPC) entre el proceso de renderizado (página web) y el proceso principal.
 
@@ -49,7 +49,7 @@ Los tipos de valor primario como cadenas y números, sin embargo, son enviados p
 
 El código en el proceso principal puede aceptar callbacks desde el renderizador, por ejemplo el módulo `remote`, pero hay que extremo cuidado cuando se usa esta característica.
 
-En primer lugar, para evitar los interbloqueos, las devoluciones de llamada pasadas al proceso principal se denominan asincrónicamente. No debes esperar que el proceso principal obtener el valor devuelto de las devoluciones de llamada que se pasaron.
+First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
 Por ejemplo, no se puede utilizar una función del proceso de renderizado en un `Array.map` llamado en el proceso principal:
 
@@ -78,7 +78,7 @@ Como puede observarse, el valor devuelto sincrónico del callback renderizador n
 
 Segundo, los callbacks pasados al proceso principal persistirán hasta que los desechos del proceso principal los recopile.
 
-Por ejemplo, el siguiente código parece inocente a primera vista. Instala una devolución de llamada de para el evento `close` en un objeto remoto:
+Por ejemplo, el siguiente código parece inocente a primera vista. It installs a callback for the `close` event on a remote object:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -125,7 +125,7 @@ Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el
 
 ### `remote.require`
 
-Una función de `NodeJS.Require` equivalente a `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
+A `NodeJS.Require` function equivalent to `require(module)` in the main process. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
 por ejemplo.
 
