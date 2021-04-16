@@ -39,7 +39,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -81,7 +81,7 @@ Some examples of valid `urls`:
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -106,7 +106,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -125,7 +125,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -154,7 +154,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -176,7 +176,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -200,7 +200,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
@@ -223,7 +223,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null
-  * `details` 对象
+  * `details` Object
     * `id` Integer
     * `url` String
     * `method` String
