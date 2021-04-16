@@ -1,223 +1,187 @@
-## Klasse: TouchBar
+## Class: TouchBar
 
-> Erstellen von TouchBar-Layouts für native macOS-Anwendungen
+> Create TouchBar layouts for native macOS applications
 
 Prozess: [Main](../glossary.md#main-process)
 
-### `neue TouchBar(Optionen)`
+### `new TouchBar(options)`
 
 * `options` Object
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) |  touchBarSegmentedControl</a> |
+  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
- [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)</li> 
-    
-      * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) |  touchBarSegmentedControl</a> |  [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)</li> </ul></li> </ul> 
-    
-    Erstellt eine neue Touchleiste mit den angegebenen Elementen. Verwenden Sie `BrowserWindow.setTouchBar` , um die `TouchBar` zu einem Fenster hinzuzufügen.
-    
-    **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
-    
-    **Tipp:** Wenn Sie kein MacBook mit Touch Bar haben, können Sie [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) verwenden, um die Touch Bar-Nutzung in Ihrer App zu testen.
-    
-    
+Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-### Statische Eigenschaften
+**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
+**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
+### Static Properties
 
 #### `TouchBarButton`
 
-Ein [`typeof TouchBarButton`](./touch-bar-button.md) Verweis auf die `TouchBarButton` -Klasse.
-
-
+A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
 
 #### `TouchBarColorPicker`
 
-Ein [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) Verweis auf die `TouchBarColorPicker` -Klasse.
-
-
+A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
 
 #### `TouchBarGroup`
 
-Ein [`typeof TouchBarGroup`](./touch-bar-group.md) Verweis auf die `TouchBarGroup` -Klasse.
-
-
+A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
 
 #### `TouchBarLabel`
 
-Ein [`typeof TouchBarLabel`](./touch-bar-label.md) Verweis auf die `TouchBarLabel` -Klasse.
-
-
+A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
 
 #### `TouchBarPopover`
 
-Ein [`typeof TouchBarPopover`](./touch-bar-popover.md) Verweis auf die `TouchBarPopover` -Klasse.
-
-
+A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
 
 #### `TouchBarScrubber`
 
-Ein [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) Verweis auf die `TouchBarScrubber` -Klasse.
-
-
+A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
 
 #### `TouchBarSegmentedControl`
 
-Ein [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) Verweis auf die `TouchBarSegmentedControl` -Klasse.
-
-
+A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
 
 #### `TouchBarSlider`
 
-Ein [`typeof TouchBarSlider`](./touch-bar-slider.md) Verweis auf die `TouchBarSlider` -Klasse.
-
-
+A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
 
 #### `TouchBarSpacer`
 
-Ein [`typeof TouchBarSpacer`](./touch-bar-spacer.md) Verweis auf die `TouchBarSpacer` -Klasse.
-
-
+A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
 #### `TouchBarOtherItemsProxy`
 
-Ein [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) Verweis auf die `TouchBarOtherItemsProxy` -Klasse.
-
-
+A [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) reference to the `TouchBarOtherItemsProxy` class.
 
 ### Instanz Eigenschaften
 
-Die folgenden Eigenschaften sind für Instanzen von `TouchBar`verfügbar:
-
-
+The following properties are available on instances of `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-Eine `TouchBarItem` , die die "esc"-Taste auf der Touchleiste ersetzt, wenn sie eingestellt wird. Durch festlegen, `null` die Standardschaltfläche "esc" wiederherstellt. Wenn Sie diesen Wert ändern das Escapeelement in der Touchleiste sofort aktualisiert.
-
-
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
 ## Beispiele
 
-Unten ist ein Beispiel für ein einfaches Spielautomaten-Touch-Bar-Spiel mit einer Taste und einigen Etiketten.
-
-
+Below is an example of a simple slot machine touch bar game with a button and some labels.
 
 ```javascript
 const { app, BrowserWindow, TouchBar } = require('electron')
 
 const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 
-spinning lassen = false
+let spinning = false
 
-/ / Reel labels
+// Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-/ / Spin ergebnis label
-const result = new TouchBarLabel() #7851A9
-  🎰
-  
+// Spin result label
+const result = new TouchBarLabel()
 
-
-
-  klicken: () =>
-    / / Klicks ignorieren, wenn bereits
-    wenn (Spinnen) {
+// Spin button
+const spin = new TouchBarButton({
+  label: '🎰 Spin',
+  backgroundColor: '#7851A9',
+  click: () => {
+    // Ignore clicks if already spinning
+    if (spinning) {
       return
     }
 
-    Spinnen = true
+    spinning = true
     result.label = ''
 
-    Timeout lassen = 10
-    const spinLength = 4 * 1000 / / 4 Sekunden
+    let timeout = 10
+    const spinLength = 4 * 1000 // 4 seconds
     const startTime = Date.now()
 
-    const spinReels = () =
-        >
+    const spinReels = () => {
+      updateReels()
 
-      
-      > finishSpin()
-      -  -
-        / Verlangsamung bei jedem Spin
-        Timeout *= 1.1
+      if ((Date.now() - startTime) >= spinLength) {
+        finishSpin()
+      } else {
+        // Slow down a bit on each spin
+        timeout *= 1.1
         setTimeout(spinReels, timeout)
-
-
+      }
+    }
 
     spinReels()
+  }
+})
 
-)
+const getRandomValue = () => {
+  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
+  return values[Math.floor(Math.random() * values.length)]
+}
 
-const getRandomValue = () =>
-  const-Werte = ['🍒', '7️ 💎', '🍊', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '🔔', '⭐', '🍇', '🍀']
-  Rückgabewerte[Math.floor(Math.random() * values.length)]
-
-
-const updateReels = () =>
+const updateReels = () => {
   reel1.label = getRandomValue()
   reel2.label = getRandomValue()
   reel3.label = getRandomValue()
-  > 
+}
 
-
-= new Set([reel1.label, reel2.label, reel3.label]).size
-  if (uniqueValues === 1) '
-    / / Alle 3 Werte sind gleich
+const finishSpin = () => {
+  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
+  if (uniqueValues === 1) {
+    // All 3 values are the same
     result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
-  , wenn (uniqueValues === 2)
-    / 2 Werte
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
     result.label = '😍 Winner!'
     result.textColor = '#FDFF00'
-  ' else '
-    * Keine Werte sind
+  } else {
+    // No values are the same
     result.label = '🙁 Spin Again'
     result.textColor = null
-  '
-  Spinning = false
-'
+  }
+  spinning = false
+}
 
-const touchBar = neue TouchBar('
-  Items: [
+const touchBar = new TouchBar({
+  items: [
     spin,
-    neue TouchBarSpacer({ size: 'large' }),
-    Reel1,
-    neue TouchBarSpacer({ size: 'small' }),
-    Reel2,
-    neue TouchBarSpacer({ size: 'small' }),
-    Reel3,
-    neue TouchBarSpacer({ size: 'large' }),
-    Ergebnis
+    new TouchBarSpacer({ size: 'large' }),
+    reel1,
+    new TouchBarSpacer({ size: 'small' }),
+    reel2,
+    new TouchBarSpacer({ size: 'small' }),
+    reel3,
+    new TouchBarSpacer({ size: 'large' }),
+    result
   ]
-)
+})
 
-fenster lassen
+let window
 
-app.whenReady(
-    
-  > ). : false,
+app.whenReady().then(() => {
+  window = new BrowserWindow({
+    frame: false,
     titleBarStyle: 'hiddenInset',
-    breite: 200,
-    Höhe: 200,
+    width: 200,
+    height: 200,
     backgroundColor: '#000'
-  )
+  })
   window.loadURL('about:blank')
   window.setTouchBar(touchBar)
-)
+})
 ```
 
+### Running the above example
 
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
+1. Save the above file to your computer as `touchbar.js`
+2. Install Electron via `npm install electron`
+3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
 
-### Ausführen des obigen Beispiels
-
-Um das obige Beispiel auszuführen, müssen Sie (vorausgesetzt, Sie haben ein Terminal in dem Verzeichnis geöffnet, das Sie ausführen möchten):
-
-1. Speichern Sie die obige Datei auf Ihrem Computer, `touchbar.js`
-2. Installieren Sie Electron über `npm install electron`
-3. Führen Sie das Beispiel in Electron: `./node_modules/.bin/electron touchbar.js`
-
-Sie sollten dann ein neues Electron-Fenster und die App in Ihrer Touch-Bar (oder Touch-Bar-Emulator) laufen sehen.
+You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
