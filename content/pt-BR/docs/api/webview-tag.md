@@ -153,7 +153,7 @@ Um `Boolean`. When this attribute is present the guest page will have web securi
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Ao atribuir o mesmo `partition`, várias páginas podem compartilhar mesma sessão. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -432,7 +432,7 @@ Executes editing command `replaceMisspelling` in page.
 
 * `text` String
 
-Retornos `Promise<void>`
+Returns `Promise<void>`
 
 Inserts `text` to the focused element.
 
@@ -463,7 +463,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. O padrão é `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -486,7 +486,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `footer` String (optional) - String to be printed as page footer.
   * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
-Retornos `Promise<void>`
+Returns `Promise<void>`
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
 
@@ -523,7 +523,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 * `channel` Cordas
 * `...args` qualquer[]
 
-Retornos `Promise<void>`
+Returns `Promise<void>`
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -533,7 +533,7 @@ See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Retornos `Promise<void>`
+Returns `Promise<void>`
 
 Sends an input `event` to the page.
 
@@ -566,7 +566,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Retornos `Promise<void>`
+Returns `Promise<void>`
 
 Sets the maximum and minimum pinch-to-zoom level.
 
