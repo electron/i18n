@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Usa botões personalizados desenhados perto e miniaturize que exibem ao pairar no canto superior esquerdo da janela. O botão fullscreen não está disponível devido a restrições de janelas sem moldura, pois interface com as máscaras de janela macOS da Apple. Esses botões personalizados evitam problemas com eventos do mouse que ocorrem com os botões padrão da barra de ferramentas da janela. Esta opção só é aplicável para janelas sem moldura.
+Usa botões personalizados desenhados perto e miniaturize que exibem ao pairar no canto superior esquerdo da janela. O botão fullscreen não está disponível devido a restrições de janelas sem moldura, pois interface com as máscaras de janela macOS da Apple. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. Esta opção só é aplicável para janelas sem moldura.
 
 ```javascript
 const { BrowserWindow } = require('electron')
