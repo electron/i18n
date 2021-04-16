@@ -46,11 +46,11 @@ Devuelve:
 
 ## Métodos
 
-### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _obsoleto_
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
-**desaprobado:** debe usar la nueva API de [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) .
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
@@ -62,21 +62,21 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 * Registro `userInfo`<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
-Las publicaciones `event` como notificaciones nativas de macOS. El `userInfo` es un de objeto que contiene el Diccionario de información del usuario enviado junto con la notificación.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
 * Registro `userInfo`<String, any>
 
-Las publicaciones `event` como notificaciones nativas de macOS. El `userInfo` es un de objeto que contiene el Diccionario de información del usuario enviado junto con la notificación.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
 * `evento` Cadena
 * Registro `userInfo`<String, any>
 
-Las publicaciones `event` como notificaciones nativas de macOS. El `userInfo` es un de objeto que contiene el Diccionario de información del usuario enviado junto con la notificación.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
@@ -109,7 +109,7 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 
 Devuelve `Number` - El ID de la suscripción
 
-Igual que `subscribeNotification`, pero usa `NSNotificationCenter` para los valores predeterminados locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
@@ -167,7 +167,7 @@ Algún `key` y `type`s populares:
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
-* `type` String-puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` Cadena
 
 Establece el valor de `key` en `NSUserDefaults`.
@@ -228,15 +228,15 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
 
 ### `systemPreferences.getColor(color)` _Windows_ _macOS_
 
-* `color` String-uno de los siguientes valores:
-  * En ****de Windows:
+* `color` String - One of the following values:
+  * On **Windows**:
     * `3d-dark-shadow` - Sombra oscura para elementos de tres dimensiones mostrados.
     * `3d-face` - Color facial para elementos de tres dimensiones mostrados y para cuadro de fondos de las caja de diálogo.
     * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
     * `3d-light` - Color claro para elementos de tres dimensiones mostrados.
     * `3d-shadow` - Color oscuro para elementos de tres dimensiones mostrados.
     * `active-border` - Borde de ventana activo.
-    * `active-caption` -barra de título de la ventana activa. Especifica el color del lado izquierdo en el degradado de color de la barra de título de una ventana activa si el efecto degradado está habilitado.
+    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
     * `active-caption-gradient` - El color del lado derecho en el tono del color de un título de barra de una ventana activa.
     * `app-workspace` - Color de fondo de múltiples documentos de aplicaciones de interfase.
     * `button-text` - Texto en los botones de presión.
@@ -247,7 +247,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `highlight-text` - Texto de objeto(s) seleccionados en un control.
     * `hotlight` - Color para un hiperlink o un muy rastreado objeto.
     * `inactive-border` - Borde de ventana inactivo.
-    * `inactive-caption` -leyenda de ventana inactiva. Especifica el color del lado izquierdo en el degradado de color de la barra de título de una ventana inactiva si el efecto degradado está habilitado.
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
     * `inactive-caption-gradient` - Color del lado derecho en el tono de color de un título de barra de una ventana inactiva.
     * `inactive-caption-text` - Color del texto en un subtítulo inactivo.
     * `info-background` - Color de fondo para control de información de herramientas.
@@ -260,8 +260,8 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window` - Fondo de la ventana.
     * `window-frame` - Cuadro de ventana.
     * `window-text` - Texto en ventanas.
-  * En ****macOS
-    * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla. __obsoleto
+  * On **macOS**
+    * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla. _deprecated_
     * `control-background` - El fondo de un elemento de interfaz grande, tal como un navegador o tablet.
     * `control` - La superficie de un control.
     * `control-text` - El texto de un control que no está deshabilitado.
@@ -301,7 +301,7 @@ Los siguientes colores solo están disponibles en macOS 10.14: `find-highlight`,
 
 ### `systemPreferences.getSystemColor(color)` _macOS_
 
-* `color` String-uno de los siguientes valores:
+* `color` String - One of the following values:
   * `azul`
   * `marrón`
   * `gris`
@@ -418,7 +418,7 @@ Posibles valores que se pueden configurar son `dark` y `light` y posibles valore
 
 Esta propiedad solo está disponible en macOS 10.14 Mojave o posteriores.
 
-### `systemPreferences.effectiveAppearance` _macOS_ _ReadOnly_
+### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
 
 Una propiedad `String` que puede ser `dark`, `light` o `unknown`.
 
