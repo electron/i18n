@@ -13,113 +13,113 @@ console.log(systemPreferences.isDarkMode())
 
 O objeto `systemPreferences` emite os seguintes eventos:
 
-### Evento: 'accent-color-changed' _Windows_
+### Event: 'accent-color-changed' _Windows_
 
 Retorna:
 
 * `event` Event
-* `newColor` String - A nova cor RGBA que o usuário atribuiu a ser seu sistema cor de acento.
+* `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
-### Evento: 'mudança de cor' __do Windows
-
-Retorna:
-
-* `event` Event
-
-### Evento: 'invertido-colorido-scheme-mudança' _Windows_ __preterido
+### Event: 'color-changed' _Windows_
 
 Retorna:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` se um esquema de cores invertida (um esquema de cores de alto contraste com texto claro e fundos escuros) estiver sendo usado, `false` caso contrário.
 
-**Preterado:** Deve usar o novo evento [`updated`](native-theme.md#event-updated) no módulo `nativeTheme` .
-
-### Evento: 'high-contrast-color-scheme-scheme-changed' _Windows_ _preterido_
+### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 Retorna:
 
 * `event` Event
-* `highContrastColorScheme` Booleano - `true` se um tema de alto contraste está sendo usado, `false` contrário.
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
-**Preterado:** Deve usar o novo evento [`updated`](native-theme.md#event-updated) no módulo `nativeTheme` .
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+
+### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
+
+Retorna:
+
+* `event` Event
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
+
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
 ## Métodos
 
-### `systemPreferences.isDarkMode()` __ __</em> _do   do MacOS</h3>
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
-Devoluções `Boolean` - Se o sistema está no Modo Escuro.
+Returns `Boolean` - Whether the system is in Dark Mode.
 
-**Preterido:** Deve usar a nova API [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) .
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
-### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` __macOS
+### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
-Devolução `Boolean` - Se a configuração deslizar entre páginas está em jogo.
+Returns `Boolean` - Whether the Swipe between pages setting is on.
 
-### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` __macOS
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` _macOS_
 
-* `event` Cordas
-* Registro `userInfo`<String, any>
-* `deliverImmediately` Boolean (opcional) - `true` postar notificações imediatamente mesmo quando o aplicativo de assinatura estiver inativo.
+* `event` String
+* `userInfo` Record<String, any>
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-As postagens `event` como notificações nativas do macOS. O `userInfo` é um Object que contém o dicionário de informações do usuário enviado junto com a notificação.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.postLocalNotification(event, userInfo)` __macOS
+### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
-* `event` Cordas
-* Registro `userInfo`<String, any>
+* `event` String
+* `userInfo` Record<String, any>
 
-As postagens `event` como notificações nativas do macOS. O `userInfo` é um Object que contém o dicionário de informações do usuário enviado junto com a notificação.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.postWorkspaceNotification(event, userInfo)` __macOS
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
-* `event` Cordas
-* Registro `userInfo`<String, any>
+* `event` String
+* `userInfo` Record<String, any>
 
-As postagens `event` como notificações nativas do macOS. O `userInfo` é um Object que contém o dicionário de informações do usuário enviado junto com a notificação.
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.subscribeNotification(event, callback)` __macOS
+### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
-* `event` Cordas
+* `event` String
 * `callback` Function
-  * `event` Cordas
-  * Registro `userInfo`<String, unknown>
-  * `object` Cordas
+  * `event` String
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
-Retornos `Number` - O ID desta assinatura
+Returns `Number` - The ID of this subscription
 
-Assina notificações nativas de macOS, `callback` será chamada com `callback(event, userInfo)` quando o `event` correspondente acontecer. O `userInfo` é um Objeto que contém o dicionário de informações do usuário enviado junto com a notificação. O `object` é o remetente da notificação, e só suporta valores `NSString` por enquanto.
+Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
 
-A `id` do assinante é devolvida, que pode ser usada para cancelar a inscrição do `event`.
+The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
-Sob o capô esta API assina `NSDistributedNotificationCenter`, exemplo de valores de `event` são:
+Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
-* `AppleColorpreferencesChangedNotification`
+* `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
-* `event` Cordas
+* `event` String
 * `callback` Function
-  * `event` Cordas
-  * Registro `userInfo`<String, unknown>
-  * `object` Cordas
+  * `event` String
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
-Retornos `Number` - O ID desta assinatura
+Returns `Number` - The ID of this subscription
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
-* `event` Cordas
+* `event` String
 * `callback` Function
-  * `event` Cordas
-  * Registro `userInfo`<String, unknown>
-  * `object` Cordas
+  * `event` String
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
-Retornos `Number` - O ID desta assinatura
+Returns `Number` - The ID of this subscription
 
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
