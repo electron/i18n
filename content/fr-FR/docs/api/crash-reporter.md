@@ -55,7 +55,7 @@ Le module `crashReporter` dispose des méthodes suivantes :
 
 ### `crashReporter.start(options)`
 
-* `options` objet
+* `options` Object
   * `submitURL` String - URL à laquelle les rapports de plantage seront envoyés en tant que POST.
   * `productName` String (facultatif) - `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
