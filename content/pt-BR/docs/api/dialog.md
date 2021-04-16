@@ -18,7 +18,7 @@ O módulo `dialog` possúi os seguintes métodos:
 ### `dialog.showOpenDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* objeto `options`
+* `options` Object
   * `title` String (opcional)
   * `defaultPath` String (opcional)
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
@@ -66,7 +66,7 @@ dialog.showOpenDialogSync(mainWindow, {
 ### `dialog.showOpenDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* objeto `options`
+* `options` Object
   * `title` String (opcional)
   * `defaultPath` String (opcional)
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
@@ -84,7 +84,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `message` String (opcional) _macOS_ - Mensagem a ser apresentada acima da janela de entrada.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
-Devoluções `Promise<Object>` - Resolver com um objeto contendo o seguinte:
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] - Um array de caminhos de arquivos selecionados pelo usuário. If the dialog is cancelled this will be an empty array.
@@ -123,7 +123,7 @@ dialog.showOpenDialog(mainWindow, {
 ### `dialog.showSaveDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* objeto `options`
+* `options` Object
   * `title` String (opcional)
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
@@ -148,7 +148,7 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* objeto `options`
+* `options` Object
   * `title` String (opcional)
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
@@ -164,7 +164,7 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (optional) _macOS_ _mas_ - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
-Devoluções `Promise<Object>` - Resolver com um objeto contendo o seguinte:
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
 * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
@@ -179,7 +179,7 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* objeto `options`
+* `options` Object
   * `message` String - Conteúdo da caixa de mensagem.
   * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -202,7 +202,7 @@ O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* objeto `options`
+* `options` Object
   * `message` String - Conteúdo da caixa de mensagem.
   * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -237,7 +237,7 @@ Esse API pode ser chamado com segurança antes de que o evento `ready` que é em
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* objeto `options`
+* `options` Object
   * `certificate` [Certificate](structures/certificate.md) - O certificado para trust/import.
   * `message` String - A mensagem a ser exibida para o usuário.
 
