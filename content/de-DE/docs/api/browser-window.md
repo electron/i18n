@@ -10,11 +10,11 @@ const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-/ * Load a remote URL
+// Load a remote URL
 win.loadURL('https://github.com')
 
-/ / Oder laden Sie eine lokale HTML-Datei
-win.loadURL('file://${__dirname}/app/index.html')
+// Or load a local HTML file
+win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
 ## Rahmenloses Fenster
@@ -23,7 +23,7 @@ Um ein transparentes Fenster, ein Fenster ohne chrome oder ein Fenster in einer 
 
 ## Fenster elegant anzeigen
 
-Beim direkten Laden einer Seite im Fenster können Benutzer das Laden der Seite inkrementell sehen, was für eine systemeigene App keine gute Erfahrung darstellt. Damit die Fensteranzeige ohne visuellen Blitz , gibt es zwei Lösungen für unterschiedliche Situationen.
+When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
 ## Verwenden des `ready-to-show` Ereignisses
 
@@ -32,14 +32,14 @@ Das `ready-to-show` Ereignis wird während des Ladens der Seite ausgelöst, fall
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ show: false })
-win.once('ready-to-show', () => '
+win.once('ready-to-show', () => {
   win.show()
-')
+})
 ```
 
 Für gewöhnlich wird dieses Ereignis nach dem `did-finish-load` Ereignis ausgelöst. Bei Seiten mit vielen Remoteressourcen kann es aber passieren dass das Event vor dem `did-finish-load` Ereignis ausgelöst wird.
 
-Bitte beachten Sie, dass die Verwendung dieses Ereignisses impliziert, dass der Renderer als "sichtbar" betrachtet wird und Farbe, obwohl `show` falsch ist.  Dieses Ereignis wird niemals ausgelöst, wenn Sie `paintWhenInitiallyHidden: false`
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 ## Setzen der `backgroundColor`
 
@@ -78,9 +78,9 @@ const { BrowserWindow } = require('electron')
 
 const child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
-child.once('ready-to-show', () => '
+child.once('ready-to-show', () => {
   child.show()
-))
+})
 ```
 
 ## Seiten Sichtbarkeit
@@ -96,7 +96,7 @@ Es wird empfohlen aufwendige Aufgaben zu pausieren wenn der Sichtbarkeitszustand
 
 ## Plattformhinweise
 
-* Unter macOS werden modale Fenster als Blätter angezeigt, die an das übergeordnete Fenster angehängt sind.
+* On macOS modal windows will be displayed as sheets attached to the parent window.
 * Wenn unter macOS übergeordnete Fenster bewegt werden, behalten untergeordnete Fenster ihre Position relativ zum übergeordneten Fenster bei. Unter Windows und Linux bewegen sich die untergeordneten Fenster nicht.
 * Unter Linux wird der Typ von modalen Fenstern zu `dialog` geändert.
 * Unter Linux wird das verstecken von modalen Fenstern von vielen Desktop Umgebungen nicht unterstützt.
@@ -107,46 +107,46 @@ Es wird empfohlen aufwendige Aufgaben zu pausieren wenn der Sichtbarkeitszustand
 
 Prozess: [Main](../glossary.md#main-process)
 
-`BrowserWindow` ist ein [EventEmitter][event-emitter].
+`BrowserWindow` is an [EventEmitter][event-emitter].
 
 Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `options` gesetzt wurden.
 
 ### `new BrowserWindow([options])`
 
 * `options` Objekt (optional)
-  * `width` Ganzzahl (optional) - Die Breite des Fensters in Pixel. Der Standardwert ist `800`.
-  * `height` Ganzzahl (optional) - Die Höhe des Fensters in Pixel. Der Standardwert ist `600`.
-  * `x` Ganzzahl (optional) - (**erforderlich** wenn y verwendet wird) Der linke Versatz des Fensters vom Bildschirm. Standardmäßig wird das Fenster zentriert.
-  * `y` Ganzzahl (optional) - (**erforderlich** wenn x verwendet wird) Der obere Offset des Fensters vom Bildschirm. Standardmäßig wird das Fenster zentriert.
+  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
+  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
+  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - Die `width` und `height` Werte werden als Größe der angezeigten Webseite verwendet. D.h. die tatsächliche Größe des Fensters beinhaltet noch die Rahmengröße und ist deshalb etwas größer. Standard ist `false`.
   * `center` Boolean (optional) - Zeige das Fenster in der Mitte des Bildschirms.
-  * `minWidth` Ganzzahl (optional) - Die minimale Breite des Fensters. Der Standardwert ist `0`.
-  * `minHeight` Ganzzahl (optional) - Die Mindesthöhe des Fensters. Der Standardwert ist `0`.
-  * `maxWidth` Ganzzahl (optional) - Die maximale Breite des Fensters. Der Standardwert ist kein Limit.
-  * `maxHeight` Ganzzahl (optional) - Die maximale Höhe des Fensters. Der Standardwert ist kein Limit.
-  * `resizable` Boolean (optional) - Gibt an, ob die Geänderte Geändertwerden. Standard ist `true`.
-  * `movable` Boolean (optional) - Ob das Fenster beweglich ist. Dies ist nicht unter Linux implementiert. Standard ist `true`.
-  * `minimizable` Boolean (optional) - Ob fenster minimierbar ist. Dies ist nicht unter Linux implementiert. Standard ist `true`.
-  * `maximizable` Boolean (optional) - Ob das Fenster maximierbar ist. Dies ist nicht unter Linux implementiert. Standard ist `true`.
-  * `closable` Boolean (optional) - Ob das Fenster verschließbar ist. Dies ist nicht unter Linux implementiert. Standard ist `true`.
+  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
+  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
+  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
+  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
+  * `resizable` Boolean (optional) - Whether window is resizable. Standard ist `true`.
+  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Standard ist `true`.
+  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Standard ist `true`.
+  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Standard ist `true`.
+  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Standard ist `true`.
   * `focusable` Boolean (optional) - Gibt an ob das Fenster fokussiert werden kann. Standard ist `true`. Unter Windows impliziert die Option `focusable: false` die Option `skipTaskbar: true`. Unter Linux sorgt `focusable: false` dafür dass das Fenster nicht mehr mit dem Fenstermanager interagiert, d.h. das Fenster bleibt in allen Arbeitsoberflächen ganz oben.
-  * `alwaysOnTop` Boolean (optional) - Ob das Fenster immer über anderen Fenstern bleiben soll. Standard ist `false`.
+  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Standard ist `false`.
   * `fullscreen` Boolean (optional) - Gibt an ob das Fenster im Vollbildmodus angezeigt werden soll. Wenn diese Option explizit auf `false` gesetzt wird, wird der Button für Vollbildmodus unter macOS versteckt oder deaktiviert. Standard ist `false`.
   * `fullscreenable` Boolean (optional) - Gibt an ob das Fenster in den Vollbildmodus versetzt werden kann. Unter macOS gibt diese Option auch an, ob der Maximieren/Zoom Button das Fenster in den Vollbildmodus versetzt oder maximiert. Standard ist `true`.
-  * `simpleFullscreen` Boolean (optional) - Verwenden Sie Pre-Lion Vollbild unter macOS. Standard ist `false`.
-  * `skipTaskbar` Boolean (optional) - Gibt an, ob das Fenster in der Taskleiste angezeigt werden soll. Der Standardwert ist `false`.
-  * `kiosk` Boolean (optional) - Gibt an, ob sich das Fenster im Kioskmodus befindet. Standard ist `false`.
-  * `title` String (optional) - Standardfenstertitel. Der Standardwert ist `"Electron"`. Wenn das HTML-Tag `<title>` in der HTML-Datei definiert ist, die von `loadURL()`geladen wird, wird diese Eigenschaft ignoriert.
+  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Standard ist `false`.
+  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
+  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. Standard ist `false`.
+  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. Es empfiehlt sich unter Windows ein `ICO` Icon zu verwenden um die besten visuellen Effekte zu erreichen. Das Icon der Executable wird verwendet wenn dieser Wert nicht definiert wird.
-  * `show` Boolean (optional) - Gibt an, ob das Fenster beim Erstellen angezeigt werden soll. Standard ist `true`.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Gibt an, ob der Renderer aktiv sein soll, wenn `show` `false` und gerade erstellt wurde.  Damit `document.visibilityState` beim ersten Laden mit `show: false` korrekt funktioniert, sollten Sie dies auf `false`setzen.  Wenn Sie diese Einstellung auf `false` festlegen, wird das `ready-to-show` -Ereignis nicht ausgelöst.  Standard ist `true`.
-  * `frame` Boolean (optional) - Geben Sie `false` an, um ein [Frameless Window](frameless-window.md)zu erstellen. Standard ist `true`.
-  * `parent` BrowserWindow (optional) - Geben Sie das übergeordnete Fenster an. Der Standardwert ist `null`.
-  * `modal` Boolean (optional) - Ob es sich um ein modales Fenster handelt. Dies funktioniert nur, wenn es sich bei dem Fenster um ein untergeordnetes Fenster handelt. Standard ist `false`.
-  * `acceptFirstMouse` Boolean (optional) - Gibt an, ob die Webansicht ein einzelnes -Maus-Down-Ereignis akzeptiert, das gleichzeitig das Fenster aktiviert. Der Standardwert ist `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Ob der Cursor bei der Eingabe ausgeblendet werden soll. Standard ist `false`.
-  * `autoHideMenuBar` Boolean (optional) - Blendet die Menüleiste automatisch aus, es sei denn, die `Alt` Taste wird gedrückt. Standard ist `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Aktivieren Sie die Größe des Fensters, die größer als der Bildschirm ist. Nur relevant für macOS, da andere Betriebssysteme standardmäßig fenster größer als Bildschirm ermöglichen. Standard ist `false`.
+  * `show` Boolean (optional) - Whether window should be shown when created. Standard ist `true`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created.  In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`.  Setting this to `false` will cause the `ready-to-show` event to not fire.  Standard ist `true`.
+  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Standard ist `true`.
+  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Standard ist `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Standard ist `false`.
+  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Standard ist `false`.
+  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Standard ist `false`.
   * `backgroundColor` String (optional) - Die Hintergrundfarbe des Fensters als hexadezimaler Wert, wie `#66CD00` oder `#FFF` oder `#80FFFFFF` (alpha im #AARRGGBB Format wird unterstützt, wenn `transparent` auf `true`festgelegt ist). Der Standardwert ist `#FFF` (weiß).
   * `hasShadow` Boolean (optional) - Ob fenster einen Schatten haben soll. Standard ist `true`.
   * `opacity` Zahl (optional) - Legen Sie die anfängliche Deckkraft des Fensters zwischen 0,0 (vollständig transparent) und 1,0 (vollständig undurchsichtig) fest. Dies wird nur unter Windows und macOS implementiert.
@@ -311,7 +311,7 @@ Ausgegeben wenn das Fenster versteckt wird.
 
 Gesendet, wenn die Webseite gerendert wurde (während nicht angezeigt) und das Fenster ohne einem visuellen Blitz angezeigt werden kann.
 
-Bitte beachten Sie, dass die Verwendung dieses Ereignisses impliziert, dass der Renderer als "sichtbar" betrachtet wird und Farbe, obwohl `show` falsch ist.  Dieses Ereignis wird niemals ausgelöst, wenn Sie `paintWhenInitiallyHidden: false`
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 #### Event: 'maximize'
 
@@ -1325,7 +1325,7 @@ Legt die QuickInfo fest, die angezeigt wird, wenn sie mit der Maus auf die Minia
 * `options` -Objekt
   * `appId` String (optional) - [App-Benutzermodell-ID des Fensters](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Es muss festgelegt werden, sonst haben die anderen Optionen keine Wirkung.
   * `appIconPath` String (optional) - [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)des Fensters .
-  * `appIconIndex` Ganzzahl (optional) - Index des Symbols in `appIconPath`. Ignoriert, wenn `appIconPath` nicht festgelegt ist. Der Standardwert ist `0`.
+  * `appIconIndex` Ganzzahl (optional) - Index des Symbols in `appIconPath`. Ignoriert, wenn `appIconPath` nicht festgelegt ist. Default is `0`.
   * `relaunchCommand` String (optional) - [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)des Fensters .
   * `relaunchDisplayName` String (optional) - [Relaunch-Anzeigename](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)des Fensters .
 
