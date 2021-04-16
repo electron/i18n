@@ -1,4 +1,4 @@
-# Quebrando mudanças
+# Breaking Changes
 
 Quebrar as alterações serão documentadas aqui e quando possível as advertências de depreciação adicionadas ao código JS. pelo menos [uma versão principal](tutorial/electron-versioning.md#semver) antes que a alteração seja feita.
 
@@ -14,40 +14,40 @@ Este documento usa a seguinte convenção para categorizar as alterações mais 
 
 ## Alterações planejadas na API (14.0)
 
-### API alterada: `window.(open)`
+### API Changed: `window.(open)`
 
-O parâmetro opcional `frameName` não definirá mais o título da janela. Segue-se agora a especificação descrita pela documentação nativa [](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) sob o parâmetro correspondente `windowName`.
+The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
 
-Se você estava usando este parâmetro para definir o título de uma janela, você pode usar [win.setTitle (título)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
 
-### Removido: `worldSafeExecuteJavaScript`
+### Removed: `worldSafeExecuteJavaScript`
 
-Em Elétron 14, `worldSafeExecuteJavaScript` serão removidos.  Não há alternativa, por favor, garantir que seu código funcione com esta propriedade habilitada.  Ele foi ativado por padrão desde Electron
+In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
 12.
 
-Você será afetado por esta mudança se você usar `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. Você precisará garantir que os valores devolvidos por qualquer um desses métodos sejam suportados pela API [Context Bridge](api/context-bridge.md#parameter--error--return-type-support) , pois esses métodos usam o mesmo valor passando semântica.
+You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
 
 ## Alterações planejadas na API (13.0)
 
-### API alterada: `session.setPermissionCheckHandler(handler)`
+### API Changed: `session.setPermissionCheckHandler(handler)`
 
-O primeiro parâmetro de métodos `handler` era anteriormente sempre um `webContents`, agora às vezes pode ser `null`.  Você deve usar as propriedades `requestingOrigin`, `embeddingOrigin` e `securityOrigin` para responder corretamente à verificação de permissão.  Como o `webContents` pode ser `null` não pode mais ser confiado.
+The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
 
 ```js
-Sessão de
-de código antigo.setPermissionCheckHandler(webContents, permissão) => {
-  se (webContents.getURL().startsWith('https://google.com/') && permissão === 'notificação') {
+// Old code
+session.setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
     return true
   }
-  devolver falsa
+  return false
 })
 
-// Substituir com
-session.setPermissionCheckHandler((webContents, permissão, solicitandoOrigin) => {
-  se (novo URL (solicitandoOrigin).hostname === 'google.com' && permissão === 'notificação') {
+// Replace with
+session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
     return true
   }
-  devolver falsa
+  return false
 })
 ```
 
@@ -56,82 +56,82 @@ session.setPermissionCheckHandler((webContents, permissão, solicitandoOrigin) =
 A API depreciada `shell.moveItemToTrash()` foi removida. Use a `shell.trashItem()` assíncrona.
 
 ```js
-Removido em Electron 13
-shell.moveItemToTrash(caminho)
-// Substituir por
+// Removed in Electron 13
+shell.moveItemToTrash(path)
+// Replace with
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Removido: APIs de extensão `BrowserWindow`
+### Removed: `BrowserWindow` extension APIs
 
-As APIs de extensão preteridas foram removidas:
+The deprecated extension APIs have been removed:
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
-* `BrowserWindow.removeExtension(nome)`
-* `BrowserWindow.removeDevToolsExtension(nome)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use as APIs de sessão em vez disso:
+Use the session APIs instead:
 
-* `ses.loadExtension(caminho)`
+* `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-Removido no Electron 13
+// Removed in Electron 13
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Substituir com
+// Replace with
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-Removido no Electron 13
-BrowserWindow.removeExtension(nome)
-BrowserWindow.removeDevToolsExtension(nome)
-// Substituir com
+// Removed in Electron 13
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-Removido no Electron 13
+// Removed in Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Substituir por
+// Replace with
 session.defaultSession.getAllExtensions()
 ```
 
-### Removido: métodos em `systemPreferences`
+### Removed: methods in `systemPreferences`
 
-Os seguintes métodos `systemPreferences` foram preteridos:
+The following `systemPreferences` methods have been deprecated:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use as seguintes propriedades `nativeTheme` :
+Use the following `nativeTheme` properties instead:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-Removido em Electron 13
-sistemaPreferencias.isDarkMode()
-// Substituir por
-nativoTheme.shouldUseDarkColors
+// Removed in Electron 13
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
 
-// Removido em Electron 13
-sistemaPreferências.isInvertedColorScheme()
-/// Substitua por
+// Removed in Electron 13
+systemPreferences.isInvertedColorScheme()
+// Replace with
 nativeTheme.shouldUseInvertedColorScheme
 
-// Removido em Electron 13
-sistemaPreferencias.isHighContrastColorScheme()
-// Substituir por
-nativoTheme.shouldUseHighContrastColors
+// Removed in Electron 13
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastColors
 ```
 
 ## Alterações planejadas na API (12.0)
@@ -140,11 +140,11 @@ nativoTheme.shouldUseHighContrastColors
 
 O Chromium removeu o suporte para Flash, então devemos seguir o exemplo. Consulte o [Flash Roadmap do Chromium](https://www.chromium.org/flash-roadmap) para mais detalhes .
 
-### Padrão Alterado: `worldSafeExecuteJavaScript` inadimplência para `true`
+### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
-No Elétron 12, `worldSafeExecuteJavaScript` será habilitado por padrão.  Para restaurar o comportamento anterior, `worldSafeExecuteJavaScript: false` devem ser especificados em WebPreferências. Observe que definir esta opção para `false` é ****inseguro .
+In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
 
-Esta opção será removida no Elétron 14, então, por favor, migrem seu código para suportar o valor padrão.
+This option will be removed in Electron 14 so please migrate your code to support the default value.
 
 ### Alterado padrão: `contextIsolamento` padrão é `verdadeiro`
 
@@ -152,13 +152,13 @@ Em Electron 12, `contextIsolamento` será ativado por padrão.  Para restaurar o
 
 Recomendamos [ter contextIsolamento ativado](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) para a segurança do seu aplicativo.
 
-Outra implicação é que `require()` não pode ser usada no processo de renderização, a menos que `nodeIntegration` seja `true` e `contextIsolation` seja `false`.
+Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
 Para mais detalhes veja: https://github.com/electron/electron/issues/23506
 
 ### Removido: `crashReporter.getCrashesDirectory()`
 
-O método `crashReporter.getCrashesDirectory` foi removido. O uso deve ser substituído por `app.getPath('crashDumps')`.
+O método `crashReporter.getCrashesDirectory` foi removido. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
 // Removido no Electron 12
@@ -167,9 +167,9 @@ crashReporter.getCrashesDirectory()
 app.getPath('crashDumps')
 ```
 
-### Removido: `crashReporter` métodos no processo renderizador
+### Removed: `crashReporter` methods in the renderer process
 
-Os seguintes métodos `crashReporter` não estão mais disponíveis no processo de renderização :
+The following `crashReporter` methods are no longer available in the renderer process:
 
 * `início_crashReporter.start`
 * `Relatório`
@@ -178,9 +178,9 @@ Os seguintes métodos `crashReporter` não estão mais disponíveis no processo 
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-Eles devem ser chamados apenas do processo principal.
+They should be called only from the main process.
 
-Consulte [#23265](https://github.com/electron/electron/pull/23265) para mais detalhes.
+See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
 ### Padrão alterado: `crashReporter.start({ compress: true })`
 
@@ -218,39 +218,39 @@ shell.trashItem(path).then(/* ... */)
 
 ## Alterações planejadas na API (11.0)
 
-### Removido: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` e propriedade `id` de `BrowserView`
+### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
 
-As APIs experimentais `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` foram removidas. Além disso, a propriedade `id` de `BrowserView` também foi removida.
+The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
 
-Para obter informações mais detalhadas, consulte [#23578](https://github.com/electron/electron/pull/23578).
+For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Alterações planejadas na API (10.0)
 
-### Preterido: `companyName` argumento para `crashReporter.start()`
+### Deprecated: `companyName` argument to `crashReporter.start()`
 
-O `companyName` argumento para `crashReporter.start()`, que antes era exigido, agora é opcional, e ainda assim, é preterido. Para obter o mesmo comportamento de forma não preterida, você pode passar um valor `companyName` em `globalExtra`.
+The `companyName` argument to `crashReporter.start()`, which was previously required, is now optional, and further, is deprecated. To get the same behavior in a non-deprecated way, you can pass a `companyName` value in `globalExtra`.
 
 ```js
-Preterido em Electron 10
-crashReporter.start ({ companyName: 'Umbrella Corporation' })
-// Substituir por
+// Deprecated in Electron 10
+crashReporter.start({ companyName: 'Umbrella Corporation' })
+// Replace with
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Preterido: `crashReporter.getCrashesDirectory()`
+### Deprecated: `crashReporter.getCrashesDirectory()`
 
-O método `crashReporter.getCrashesDirectory` foi preterido. O uso deve ser substituído por `app.getPath('crashDumps')`.
+The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
-Preterido em Electron 10
+// Deprecated in Electron 10
 crashReporter.getCrashesDirectory()
-// Substituir com
-app.getPath ('crashDumps')
+// Replace with
+app.getPath('crashDumps')
 ```
 
-### Depreciado: `crashReporter` métodos no processo renderizador
+### Deprecated: `crashReporter` methods in the renderer process
 
-Chamar os seguintes métodos `crashReporter` do processo renderizador é preterido:
+Calling the following `crashReporter` methods from the renderer process is deprecated:
 
 * `início_crashReporter.start`
 * `Relatório`
@@ -259,11 +259,11 @@ Chamar os seguintes métodos `crashReporter` do processo renderizador é preteri
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-Os únicos métodos não depreciados que restam no módulo `crashReporter` na renderização são `addExtraParameter`, `removeExtraParameter` e `getParameters`.
+The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
-Todos os métodos acima permanecem não depreciados quando chamados do processo principal.
+All above methods remain non-deprecated when called from the main process.
 
-Consulte [#23265](https://github.com/electron/electron/pull/23265) para mais detalhes.
+See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
 ### Descontinuado: `crashReporter.start({ compress: false })`
 
@@ -287,19 +287,19 @@ const w = new BrowserWindow({
 })
 ```
 
-Nós [recomendamos se afastar do módulo de remoto](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
-### `protocolo.unregisterProtocol`
+### `protocol.unregisterProtocol`
 
-### `protocolo.uninterceptProtocol`
+### `protocol.uninterceptProtocol`
 
-As APIs agora são síncronos e o retorno opcional não é mais necessário.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-Protocolo de
-preterido.não-recadoProtocol(esquema, () => { /* ... */ })
-// Substituir com
-protocolo.unregisterProtocol(scheme)
+// Deprecated
+protocol.unregisterProtocol(scheme, () => { /* ... */ })
+// Replace with
+protocol.unregisterProtocol(scheme)
 ```
 
 ### `protocol.registerFileProtocol`
@@ -308,39 +308,39 @@ protocolo.unregisterProtocol(scheme)
 
 ### `protocol.registerStringProtocol`
 
-### `protocolo.registerHttpProtocol`
+### `protocol.registerHttpProtocol`
 
 ### `protocol.registerStreamProtocol`
 
-### `protocolo.interceptFileProtocol`
+### `protocol.interceptFileProtocol`
 
-### `protocolo.interceptStringProtocol`
+### `protocol.interceptStringProtocol`
 
-### `protocolo.interceptBufferProtocol`
+### `protocol.interceptBufferProtocol`
 
-### `protocolo.interceptHttpProtocol`
+### `protocol.interceptHttpProtocol`
 
-### `protocolo.interceptStreamProtocol`
+### `protocol.interceptStreamProtocol`
 
-As APIs agora são síncronos e o retorno opcional não é mais necessário.
+The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-Preterido
-protocol.registerFileProtocol(esquema, manipulador, () => { /* ... */ })
-// Substituir por
-protocolo.registerFileProtocol(esquema, manipulador)
+// Deprecated
+protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
+// Replace with
+protocol.registerFileProtocol(scheme, handler)
 ```
 
-O protocolo registrado ou interceptado não tem efeito na página atual até que a navegação aconteça.
+The registered or intercepted protocol does not have effect on current page until navigation happens.
 
 ### `protocol.isProtocolHandled`
 
-Esta API é preterida e os usuários devem usar `protocol.isProtocolRegistered` e `protocol.isProtocolIntercepted` em vez disso.
+This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
 
 ```javascript
-Deprecado
-protocolo.isProtocolHandled(scheme).then(((() => { /* ... */ })
-// Substituir por
+// Deprecated
+protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
+// Replace with
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
@@ -355,44 +355,44 @@ Se isso impactar você, você pode definir temporariamente o `app.allowRendererP
 
 Para obter informações mais detalhadas, consulte [#18397](https://github.com/electron/electron/issues/18397).
 
-### Preteridos: APIs de extensão `BrowserWindow`
+### Deprecated: `BrowserWindow` extension APIs
 
-As seguintes APIs de extensão foram preteridas:
+The following extension APIs have been deprecated:
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
-* `BrowserWindow.removeExtension(nome)`
-* `BrowserWindow.removeDevToolsExtension(nome)`
+* `BrowserWindow.removeExtension(name)`
+* `BrowserWindow.removeDevToolsExtension(name)`
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use as APIs de sessão em vez disso:
+Use the session APIs instead:
 
-* `ses.loadExtension(caminho)`
+* `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-Preterido no Electron 9
+// Deprecated in Electron 9
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Substituir com
+// Replace with
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-Preterido no Electron 9
-BrowserWindow.removeExtension(nome)
-BrowserWindow.removeDevToolsExtension(nome)
-// Substituir por
+// Deprecated in Electron 9
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-Preterido no Electron 9
+// Deprecated in Electron 9
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Substituir por
+// Replace with
 session.defaultSession.getAllExtensions()
 ```
 
@@ -410,7 +410,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 
 ### Removido: `webFrame.setLayoutZoomLevelLimits()`
 
-O Chromium removeu o suporte para alterar os limites de nível de zoom de layout, e está além da capacidade da Electron de mantê-lo. A função foi preterida em Electron 8.x, e foi removida em Elétron 9.x. Os limites de nível de zoom de layout agora são fixados em um mínimo de 0,25 e um máximo de 5,0, conforme definido [aqui](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportamento alterado: Enviar objetos não-JS sobre o IPC agora lança uma exceção
 
@@ -426,48 +426,48 @@ A API `shell.openItem` foi substituída por uma API assíncrona `shell.openPath`
 
 ### Comportamento alterado: os valores enviados sobre o IPC agora são serializados com o Algoritmo de Clone Estruturado
 
-O algoritmo usado para serializar objetos enviados pelo IPC (através de `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` e métodos relacionados) foi trocado de um algoritmo personalizado para o [Algoritmo de Clone estruturado da V8][SCA], o mesmo algoritmo usado para serializar mensagens para `postMessage`. Isso traz uma melhoria de desempenho 2x para mensagens de grande , mas também traz algumas mudanças de comportamento.
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
-* Envio de funções, promessas, weakmaps, WeakSets ou objetos contendo qualquer tais valores, sobre IPC agora lançará uma exceção, em vez de silenciosamente converter as funções para `undefined`.
-
-```js
-Anteriormente:
-ipcRenderer.send ('channel', { valor: 3, someFunction: () => {} })
-// => resulta em { value: 3 } chegando no processo principal
-
-// Da Electron 8:
-ipcRenderer.send ('canal', { valor: 3, alguma função: () => {} })
-// => lança erro("() => {} não poderia ser clonado.")
-```
-
-* `NaN`, `Infinity` e `-Infinity` agora serão corretamente serializados, em vez de serem convertidos em `null`.
-* Objetos contendo referências cíclicas serão agora serializados corretamente, em vez de serem convertidos em `null`.
-* `Set`, `Map`, `Error` e `RegExp` valores serão corretamente serializados, em vez de serem convertidos em `{}`.
-* `BigInt` valores serão corretamente serializados, em vez de serem convertidos em `null`.
-* Matrizes esparsas serão serializadas como tal, em vez de serem convertidas em matrizes densas com `null`s.
-* `Date` objetos serão transferidos como objetos `Date` , em vez de serem convertidos à sua representação de strings ISO.
-* Arrays digitados (como `Uint8Array`, `Uint16Array`, `Uint32Array` e assim por diante) serão transferidos como tal, em vez de serem convertidos em Node.js `Buffer`.
-* Objetos .js `Buffer` nó serão transferidos como `Uint8Array`s. Você pode converter um `Uint8Array` de volta para um Nó.js `Buffer` embrulhando o `ArrayBuffer`subjacente:
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
 
 ```js
-Buffer.from (value.buffer, value.byteOffset, value.byteLength)
+// Previously:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => results in { value: 3 } arriving in the main process
+
+// From Electron 8:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => throws Error("() => {} could not be cloned.")
 ```
 
-Enviando objetos que não sejam tipos nativos de JS, como objetos DOM (por exemplo, `Element`, `Location`, `DOMMatrix`), Objetos .js node (por exemplo. `process.env`, `Stream`), ou objetos elétrons (por exemplo. `WebContents`, `BrowserWindow`, `WebFrame`) é preterido. Em Electron 8, esses objetos serão serializados como antes com uma mensagem DeprecationWarning, mas a partir do Elétron 9, o envio esses tipos de objetos lançará um erro "não poderia ser clonado".
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
+```js
+Buffer.from(value.buffer, value.byteOffset, value.byteLength)
+```
+
+Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
 
 ### Descontinuado: `<webview>.getWebContents()`
 
-Esta API é implementada usando o módulo `remote` , que tem de desempenho e implicações de segurança. Portanto, seu uso deve ser explícito.
+This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
 ```js
-Depreciado
+// Deprecated
 webview.getWebContents()
-// Substituir com
+// Replace with
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-No entanto, recomenda-se evitar o uso do módulo `remote` completamente.
+However, it is recommended to avoid using the `remote` module altogether.
 
 ```js
 // principal
@@ -497,75 +497,75 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Obsoleto: `webFrame.setLayoutZoomLevelLimits()`
 
-O Chromium removeu o suporte para alterar os limites de nível de zoom de layout, e está além da capacidade da Electron de mantê-lo. A função emitirá um aviso em Elétron 8.x, e deixará de existir no Elétron 9.x. O nível de zoom de layout limites agora são fixados em um mínimo de 0,25 e um máximo de 5,0, conforme definido [aqui](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Eventos preteridos em `systemPreferences`
+### Deprecated events in `systemPreferences`
 
-Os seguintes eventos `systemPreferences` foram preteridos:
+The following `systemPreferences` events have been deprecated:
 
-* `inverted-cor-esquema-alterado`
-* `alta-contraste-cor-esquema-mudou`
+* `inverted-color-scheme-changed`
+* `high-contrast-color-scheme-changed`
 
-Use o novo evento `updated` no módulo `nativeTheme` .
+Use the new `updated` event on the `nativeTheme` module instead.
 
 ```js
-Sistema de
-preteridoPreferências.on ('invertido-colorido-scheme-changed', () => { /* ... * * } sistema
-Preferências.on ('high-contrast-color-scheme-changed', () => { /* ... */ })
+// Deprecated
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Substituir por
-nativeTheme.on('atualizado', () => { /* ... */ })
+// Replace with
+nativeTheme.on('updated', () => { /* ... */ })
 ```
 
-### Preterido: métodos em `systemPreferences`
+### Deprecated: methods in `systemPreferences`
 
-Os seguintes métodos `systemPreferences` foram preteridos:
+The following `systemPreferences` methods have been deprecated:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use as seguintes propriedades `nativeTheme` :
+Use the following `nativeTheme` properties instead:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-Sistema de
-preteridoPreferencias.isDarkMode()
-// Substituir por
-nativoTheme.shouldUseDarkColors
+// Deprecated
+systemPreferences.isDarkMode()
+// Replace with
+nativeTheme.shouldUseDarkColors
 
-// Sistema de
-pretadoPreferences.isInvertedColorScheme()
-// Substitua por
+// Deprecated
+systemPreferences.isInvertedColorScheme()
+// Replace with
 nativeTheme.shouldUseInvertedColorScheme
 
-// Sistema de
-precadoPreferencias.isHighContrastColorScheme()
-// Substituir por
-nativoTheme.shouldUseHighContratrastColors
+// Deprecated
+systemPreferences.isHighContrastColorScheme()
+// Replace with
+nativeTheme.shouldUseHighContrastColors
 ```
 
 ## Alterações planejadas na API (7.0)
 
 ### Descontinuado: URL dos cabeçalhos do Node Atom.io
 
-Esta é a URL especificada como `disturl` em um arquivo `.npmrc` ou como a bandeira da linha de comando `--dist-url` ao criar módulos de nó nativos.  Ambos serão apoiados para o futuro previsível, mas é recomendável que você mude.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Preterido: https://atom.io/download/electron
+Deprecated: https://atom.io/download/electron
 
-Substitua por: https://electronjs.org/headers
+Replace with: https://electronjs.org/headers
 
 ### API alterada: `session.clearAuthCache()` não aceita mais opções
 
-A `session.clearAuthCache` API não aceita mais opções para o que limpar e, em vez disso, limpa incondicionalmente todo o cache.
+The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-Sessão de
-preterida.clearAuthCache({ type: 'password' })
-// Substituir por
+// Deprecated
+session.clearAuthCache({ type: 'password' })
+// Replace with
 session.clearAuthCache()
 ```
 
@@ -606,27 +606,27 @@ webFrame.setIsolatedWorldInfo (
 
 ### Removido: `marcado a propriedade` em `getBlinkMemoryInfo`
 
-Esta propriedade foi removida no Chromium 77, e como tal não está mais disponível.
+This property was removed in Chromium 77, and as such is no longer available.
 
 ### Comportamento alterado: `atributo webkitdirectory` para `<input type="file"/>` agora lista o conteúdo do diretório
 
-A propriedade `webkitdirectory` em entradas de arquivos HTML permite que eles selecionem pastas. Versões anteriores do Electron tiveram uma implementação incorreta onde o `event.target.files` da entrada devolveu um `FileList` que devolveu um `File` correspondente à pasta selecionada.
+A propriedade `webkitdirectory` em entradas de arquivos HTML permite que eles selecionem pastas. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
 
 A partir do Electron 7, `FileList` agora é a lista de todos os arquivos contidos dentro da pasta, similarmente ao Chrome, Firefox e Edge ([link para documentação MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
 Como ilustração, tire um diretório com esta estrutura:
 
 ```console
-
-arquivo de pasta1
-arquivo2
-└➤➤ arquivo3
+folder
+├── file1
+├── file2
+└── file3
 ```
 
 No Electron <=6, isto retornaria um `FileList` com um `arquivo` objeto para:
 
 ```console
-caminho/para/pasta
+path/to/folder
 ```
 
 No Electron 7, agora retorna um `FileList` com um objeto `File` para:
@@ -637,13 +637,13 @@ No Electron 7, agora retorna um `FileList` com um objeto `File` para:
 /path/to/folder/file1
 ```
 
-Observe que `webkitdirectory` não expõe o caminho à pasta selecionada. Se você exigir o caminho para a pasta selecionada em vez do conteúdo da pasta, ver a API `dialog.showOpenDialog` ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Observe que `webkitdirectory` não expõe o caminho à pasta selecionada. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
-### API alterada: Versões baseadas em callback de APIs promisificadas
+### API Changed: Callback-based versions of promisified APIs
 
-O Electron 5 e o Electron 6 introduziram versões baseadas na Promessa das APIs assíncronsas existentes e preteriu suas contrapartes mais antigas baseadas em callback. No Electron 7, todas as APIs baseadas em callback preteridos são agora removidas.
+Electron 5 and Electron 6 introduced Promise-based versions of existing asynchronous APIs and deprecated their older, callback-based counterparts. In Electron 7, all deprecated callback-based APIs are now removed.
 
-Essas funções agora só retornam Promessas:
+These functions now only return Promises:
 
 * `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
 * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
@@ -691,43 +691,43 @@ Essas funções agora têm duas formas, sincronizadas e baseadas em Promiss:
 ### API alterada: `win.setMenu(null)` agora é `win.removeMenu()`
 
 ```js
-Preterido
-win.setMenu(nulo)
-// Substituir por
+// Deprecated
+win.setMenu(null)
+// Replace with
 win.removeMenu()
 ```
 
 ### API alterada: `electron.screen` no processo de renderização deve ser acessado via `controle remoto`
 
 ```js
-
-preteridos requerem ('elétron').tela
-// Substituir por
-requer ('elétron').remote.screen
+// Deprecated
+require('electron').screen
+// Replace with
+require('electron').remote.screen
 ```
 
 ### API Alterada: `require()`a construção de nó em renderizadores sandboxed não carrega mais implicitamente a versão `remota`
 
 ```js
+// Deprecated
+require('child_process')
+// Replace with
+require('electron').remote.require('child_process')
 
-preterido child_process s requerem
-// Substituir por
-requer ('elétron').remote.require ('child_process')
+// Deprecated
+require('fs')
+// Replace with
+require('electron').remote.require('fs')
 
-//
-preteridos requerem ('fs')
-// Substituir por
-requerem ('elétron').remote.require('fs'))
+// Deprecated
+require('os')
+// Replace with
+require('electron').remote.require('os')
 
-//
-preteridos requerem ('os')
-// Substituir por
-requer ('elétron').remote.require('os')
-
-//
-preteridos requerem ('path')
-// Substituir por
-requerem ('elétron').remoto.require('path')
+// Deprecated
+require('path')
+// Replace with
+require('electron').remote.require('path')
 ```
 
 ### Descontinuado: `powerMonitor.querySystemIdleState` substituído por `powerMonitor.getSystemIdleState`
@@ -751,39 +751,39 @@ const idleTime = powerMonitor.getSystemIdleTime()
 ### Descontinuado: `app.enableMixedSandbox()` não é mais necessário
 
 ```js
-
-prediced app.enableMixedSandbox()
+// Deprecated
+app.enableMixedSandbox()
 ```
 
-O modo caixa de areia mista agora está ativado por padrão.
+Mixed-sandbox mode is now enabled by default.
 
 ### Obsoleto: `Tray.setHighlightMode`
 
-Sob o macOS Catalina, nossa implementação anterior tray quebra. O substituto nativo da Apple não suporta mudar o comportamento de destaque.
+Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
 
 ```js
-Depreciado
-tray.setHighlightMode(modo)
-// API será removido em v7.0 sem substituição.
+// Deprecated
+tray.setHighlightMode(mode)
+// API will be removed in v7.0 without replacement.
 ```
 
 ## Alterações planejadas na API (5.0)
 
 ### Alterado padrão: `nodeIntegração` e `webviewTag` padrão para falso, `contextIsolação` é verdadeiro
 
-Os seguintes `webPreferences` os valores padrão da opção são preteridos em favor dos novos padrões listados abaixo.
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
 
-| Propriedade              | Padrão preterido                         | Novo Padrão |
-| ------------------------ | ---------------------------------------- | ----------- |
-| `contextualizarIsolação` | `False`                                  | `true`      |
-| `nodeIntegração`         | `true`                                   | `False`     |
-| `webviewTag`             | `nodeIntegration` se definir mais `true` | `False`     |
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-Ex. Reativando o webviewTag
+Ex. Re-enabling the webviewTag
 
 ```js
-const w = novo BrowserWindow({
-  webPreferências: {
+const w = new BrowserWindow({
+  webPreferences: {
     webviewTag: true
   }
 })
@@ -795,17 +795,17 @@ Janelas filhas abertas com a opção `nativeWindowOpen` sempre terão a integra�
 
 ### API alterada: Registrar esquemas privilegiados deve ser feito antes do aplicativo ser pronto
 
-As APIs do processo Renderer `webFrame.registerURLSchemeAsPrivileged` e `webFrame.registerURLSchemeAsBypassingCSP` bem como o processo do navegador na API `protocol.registerStandardSchemes` foram removidos. Uma nova API, `protocol.registerSchemesAsPrivileged` foi adicionada e deve ser usada para registrar esquemas personalizados com os privilégios necessários. Esquemas personalizados devem ser registrados antes do aplicativo pronto.
+As APIs do processo Renderer `webFrame.registerURLSchemeAsPrivileged` e `webFrame.registerURLSchemeAsBypassingCSP` bem como o processo do navegador na API `protocol.registerStandardSchemes` foram removidos. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
 
 ### Obsoleto: `webFrame.setIsolatedWorld*` substituído por `webFrame.setIsolatedWorldInfo`
 
 ```js
-Deprecado
-webFrame.setIsolatedWorldContentSecurityPolicy (worldId, csp)
-webFrame.setIsolatedWorldHumanReadableName (worldId, nome)
-webFrame.setIsolatedWorldSecurityOrigin (worldId, securityOrigin)
-// Substituir por
-webFrame.setIsolatedWorldInfo (
+// Deprecated
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
   worldId,
   {
     securityOrigin: 'some_origin',
@@ -816,61 +816,61 @@ webFrame.setIsolatedWorldInfo (
 
 ### API alterada: `webFrame.setSpellCheckProvider` agora leva um callback assíncrono
 
-O retorno `spellCheck` agora é assíncrona, e `autoCorrectWord` parâmetro foi removido.
+The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
 
 ```js
-Deprecado
-webFrame.setSpellCheckProvider ('en-US', true, {
+// Deprecated
+webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck: (text) => {
     return !spellchecker.isMisspelled(text)
   }
 })
-// Substituir por
+// Replace with
 webFrame.setSpellCheckProvider('en-US', {
-  spellChecker: (palavras, retorno de chamada) => {
-    callback (words.filter(text => spellchecker.isMisspelled(text))
+  spellCheck: (words, callback) => {
+    callback(words.filter(text => spellchecker.isMisspelled(text)))
   }
 })
 ```
 
-### API alterado: `webContents.getZoomLevel` e `webContents.getZoomFactor` agora são síncronsas
+### API Changed: `webContents.getZoomLevel` and `webContents.getZoomFactor` are now synchronous
 
-`webContents.getZoomLevel` e `webContents.getZoomFactor` não aceitam mais parâmetros de retorno de chamada, , em vez disso, retornando diretamente seus valores numé somados.
+`webContents.getZoomLevel` and `webContents.getZoomFactor` no longer take callback parameters, instead directly returning their number values.
 
 ```js
-
-preterido webContents.getZoomLevel((nível) => { console
-  .log(nível)
+// Deprecated
+webContents.getZoomLevel((level) => {
+  console.log(level)
 })
-// Substituir com
-nível const = webContents.getZoomLevel() console
-.log(nível)
+// Replace with
+const level = webContents.getZoomLevel()
+console.log(level)
 ```
 
 ```js
-
-preterido webContents.getZoomFactor((fator) => { console
-  .log(fator)
+// Deprecated
+webContents.getZoomFactor((factor) => {
+  console.log(factor)
 })
-// Substituir por
-fator const = webContents.getZoomFactor() console
-.log(fator)
+// Replace with
+const factor = webContents.getZoomFactor()
+console.log(factor)
 ```
 
 ## Alterações planejadas na API (4.0)
 
-A lista a seguir inclui as alterações de API de ruptura feitas no Elétron 4.0.
+The following list includes the breaking API changes made in Electron 4.0.
 
 ### `app.makeSingleInstance`
 
 ```js
-Deprecado
-app.makeSingleInstance(argv, cwd) => {
+// Deprecated
+app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Substituir por
+// Replace with
 app.requestSingleInstanceLock()
-app.on('segunda instância', (evento, argv, cwd) => {
+app.on('second-instance', (event, argv, cwd) => {
   /* ... */
 })
 ```
@@ -887,14 +887,14 @@ app.releaseSingleInstanceLock()
 ### `app.getGPUInfo`
 
 ```js
-app.getGPUInfo ('completo')
-// Agora se comporta da mesma forma com 'básico' no aplicativo macOS
-.getGPUInfo('básico')
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
 ```
 
 ### `win_delay_load_hook`
 
-Ao construir módulos nativos para janelas, a variável `win_delay_load_hook` em `binding.gyp` do módulo deve ser verdadeira (que é o padrão). Se este gancho não estiver presente, o módulo nativo não carregará no Windows, com um erro mensagem como `Cannot find module`. Consulte o [módulo nativo guia](/docs/tutorial/using-native-node-modules.md) para mais.
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 ## Alterações na API (3.0)
 
@@ -903,14 +903,14 @@ A lista a seguir inclui as alterações na API do Election 3.0.
 ### `app`
 
 ```js
-
-preterido  app.getAppMemoryInfo()
-// Substituir por
+// Deprecated
+app.getAppMemoryInfo()
+// Replace with
 app.getAppMetrics()
 
-// Métricas preteridas
-const = app.getAppMetrics()
-const { memory } = métricas[0] // Propriedade preterida
+// Deprecated
+const metrics = app.getAppMetrics()
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ### `BrowserWindow`
@@ -992,28 +992,28 @@ nativeImage.createFromBuffer(buffer, {
 ### `processado`
 
 ```js
-Informações preteridas
-const = process.getProcessMemoryInfo()
+// Deprecated
+const info = process.getProcessMemoryInfo()
 ```
 
 ### `screen`
 
 ```js
-Depreciado
+// Deprecated
 screen.getMenuBarHeight()
-// Substituir por
+// Replace with
 screen.getPrimaryDisplay().workArea
 ```
 
 ### `session`
 
 ```js
-Deprecado
-ses.setCertificateVerifyProc((hostname, certificado, callback) => {
+// Deprecated
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Substituir por
-ses.setCertificVerifyProc(((solicitação, retorno de chamada) => {
+// Replace with
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```
@@ -1021,71 +1021,71 @@ ses.setCertificVerifyProc(((solicitação, retorno de chamada) => {
 ### `Tray`
 
 ```js
-Deprecado
+// Deprecated
 tray.setHighlightMode(true)
-// Substituir por
-bandeja.setHighlightMode('on')
+// Replace with
+tray.setHighlightMode('on')
 
-// Depreterado
-bandeja.setHighlightMode (falso)
-// Substituir por bandeja
-.setHighlightMode('off')
+// Deprecated
+tray.setHighlightMode(false)
+// Replace with
+tray.setHighlightMode('off')
 ```
 
 ### `webContents`
 
 ```js
+// Deprecated
+webContents.openDevTools({ detach: true })
+// Replace with
+webContents.openDevTools({ mode: 'detach' })
 
-
-preterido  webContents({ detach: true })  // Substituir por
-webContents.openDevTools ({ mode: 'detach' })
-
-// Removido
-webContents.setSize(opções)
-// Não há substituição para esta API
+// Removed
+webContents.setSize(options)
+// There is no replacement for this API
 ```
 
 ### `webFrame`
 
 ```js
-Preterido
-webFrame.registerURLSchemeAsSecure ('app')
-// Substituir com
+// Deprecated
+webFrame.registerURLSchemeAsSecure('app')
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Preterido
-webFrame.registerURLSchemeAsPrivileged ('app', { secure: true })
-// Substituir por
-protocolo.registerStandardSchemes(['app'], { secure: true })
+// Deprecated
+webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
+// Replace with
+protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ### `<webview>`
 
 ```js
-Removido
+// Removed
 webview.setAttribute('disableguestresize', '')
-// Não há substituição para esta API
+// There is no replacement for this API
 
-// Removido
+// Removed
 webview.setAttribute('guestinstance', instanceId)
-// Não há substituição para esta API
+// There is no replacement for this API
 
-// Os ouvintes do teclado não trabalham mais na tag webview
-webview.onkeydown = () => { /* manipulador */ }
-webview.onkeyup = () => { /* manipulador */ }
+// Keyboard listeners no longer work on webview tag
+webview.onkeydown = () => { /* handler */ }
+webview.onkeyup = () => { /* handler */ }
 ```
 
-### URL de cabeçalhos de nó
+### Node Headers URL
 
-Esta é a URL especificada como `disturl` em um arquivo `.npmrc` ou como a bandeira da linha de comando `--dist-url` ao criar módulos de nó nativos.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Preterido: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Substitua por: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 ## Alterações na API (2.0)
 
-A lista a seguir inclui as alterações de API de ruptura feitas no Elétron 2.0.
+The following list includes the breaking API changes made in Electron 2.0.
 
 ### `BrowserWindow`
 
@@ -1101,63 +1101,63 @@ const windowB = new BrowserWindow(optionsB)
 ### `menu`
 
 ```js
-Removido
-menu.popup (browserWindow, 100, 200, 2)
-// Substituído por menu
-.popup (browserWindow, { x: 100, y: 200, positioningItem: 2 })
+// Removed
+menu.popup(browserWindow, 100, 200, 2)
+// Replaced with
+menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ### `nativeImage`
 
 ```js
-Removido
+// Removed
 nativeImage.toPng()
-// Substituído por
+// Replaced with
 nativeImage.toPNG()
 
-// Removido
-nativoImage.toJpeg()
-// Substituído por
-nativoImage.toJPEG().
+// Removed
+nativeImage.toJpeg()
+// Replaced with
+nativeImage.toJPEG()
 ```
 
 ### `processado`
 
-* `process.versions.electron` e `process.version.chrome` serão feitas propriedades somente leitura para consistência com as outras propriedades `process.versions` definidas pelo Node.
+* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
 ### `webContents`
 
 ```js
-Removido
+// Removed
 webContents.setZoomLevelLimits(1, 2)
-// Substituído por
+// Replaced with
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `webFrame`
 
 ```js
-Removido
+// Removed
 webFrame.setZoomLevelLimits(1, 2)
-// Substituído por
+// Replaced with
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `<webview>`
 
 ```js
-Removido
+// Removed
 webview.setZoomLevelLimits(1, 2)
-// Substituído por
+// Replaced with
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Ativos ARM duplicados
+### Duplicate ARM Assets
 
-Cada versão electron inclui duas compilações ARM idênticas com nomes de arquivos ligeiramente diferentes, como `electron-v1.7.3-linux-arm.zip` e `electron-v1.7.3-linux-armv7l.zip`. O ativo com o prefixo `v7l` foi adicionado para esclarecer aos usuários qual versão ARM ele suporta, e desambiguar-lo de futuros ativos armv6l e arm64 que possam ser produzidos.
+Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
-O arquivo _sem o prefixo_ ainda está sendo publicado para evitar quebrar configurações que podem estar consumindo. A partir das 2.0, o arquivo não prefixado não será mais publicado.
+O arquivo _sem o prefixo_ ainda está sendo publicado para evitar quebrar configurações que podem estar consumindo. Starting at 2.0, the unprefixed file will no longer be published.
 
-Para mais detalhes, consulte [6986](https://github.com/electron/electron/pull/6986) e [7189](https://github.com/electron/electron/pull/7189).
+For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
 
 [SCA]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
