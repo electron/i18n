@@ -10,21 +10,21 @@ On Windows, you can use a taskbar button to display a progress bar.
 
 On macOS, the progress bar will be displayed as a part of the dock icon.
 
-![macOS-Fortschrittsleiste][2]
+![macOS Progress Bar][2]
 
-Unter Linux verfügt die grafische Unity-Oberfläche auch über eine ähnliche Funktion, mit der Sie die Fortschrittsleiste im Launcher angeben können.
+On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
 
-![Linux-Fortschrittsleiste][3]
+![Linux Progress Bar][3]
 
-> HINWEIS: Unter Windows kann jedes Fenster seine eigene Fortschrittsleiste haben, während es unter macOS und Linux (Unity) nur einen Fortschrittsbalken für die Anwendung geben kann.
+> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
 
 ----
 
-Alle drei Fälle werden von derselben API abgedeckt - der [`setProgressBar()`][setprogressbar] Methode, die auf einer Instanz von `BrowserWindow`verfügbar ist. Um Ihren Fortschritt anzuzeigen, rufen Sie diese Methode mit einer zwischen `0` und `1`auf. Wenn Sie z. B. eine lang andauernde Aufgabe haben, die derzeit bei 63 % ist, würden Sie sie als `setProgressBar(0.63)`bezeichnen.
+All three cases are covered by the same API - the [`setProgressBar()`][setprogressbar] method available on an instance of `BrowserWindow`. To indicate your progress, call this method with a number between `0` and `1`. For example, if you have a long-running task that is currently at 63% towards completion, you would call it as `setProgressBar(0.63)`.
 
-Festlegen des Parameters auf negative Werte (z.B. `-1`) entfernt den Fortschritt Balken, während er auf Werte von mehr als `1` (z. B. `2`) schaltet die Fortschrittsleiste in den unbestimmten Modus (nur Windows -- sie klemmt auf 100% andernfalls). In diesem Modus bleibt ein Fortschrittsbalken aktiv, zeigt jedoch keinen tatsächlichen Prozentsatz an. Verwenden Sie diesen Modus für Situationen, in denen Sie nicht wissen, wie lange ein Vorgang dauert.
+Setting the parameter to negative values (e.g. `-1`) will remove the progress bar, whereas setting it to values greater than `1` (e.g. `2`) will switch the progress bar to indeterminate mode (Windows-only -- it will clamp to 100% otherwise). In this mode, a progress bar remains active but does not show an actual percentage. Use this mode for situations when you do not know how long an operation will take to complete.
 
-Weitere Optionen und Modi finden Sie in der [-API-Dokumentation][setprogressbar].
+See the [API documentation for more options and modes][setprogressbar].
 
 ## Beispiel
 
@@ -37,13 +37,13 @@ const win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-Nach dem Starten der Electron-Anwendung sollte die Leiste in Dock (macOS) oder Taskleiste (Windows, Unity) angezeigt werden, die den Fortschritt Prozentsatz angibt, den Sie gerade definiert haben.
+After launching the Electron application, you should see the bar in the dock (macOS) or taskbar (Windows, Unity), indicating the progress percentage you just defined.
 
-![macOS Dock-Fortschrittsleiste](../images/dock-progress-bar.png)
+![macOS dock progress bar](../images/dock-progress-bar.png)
 
-Für macOS wird die Fortschrittsleiste auch für Ihre Anwendung angezeigt, wenn sie [Mission Control](https://support.apple.com/en-us/HT204100)verwenden:
+For macOS, the progress bar will also be indicated for your application when using [Mission Control](https://support.apple.com/en-us/HT204100):
 
-![Missionskontroll-Fortschrittsleiste](../images/mission-control-progress-bar.png)
+![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
 
 [1]: https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png
 [2]: ../images/macos-progress-bar.png
