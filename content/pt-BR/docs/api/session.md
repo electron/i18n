@@ -25,7 +25,7 @@ The `session` module has the following methods:
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `cache` Boolean - Whether to enable cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -238,7 +238,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options])`
 
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
@@ -338,7 +338,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* objeto `options`
+* `options` Object
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -360,7 +360,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* objeto `options`
+* `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -539,7 +539,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* objeto `options`
+* `options` Object
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
@@ -567,7 +567,7 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 #### `ses.setSpellCheckerEnabled(enable)`
 
-* `enable` Booleano
+* `enable` Boolean
 
 Sets whether to enable the builtin spell checker.
 
@@ -622,7 +622,7 @@ Returns `Boolean` - Whether the word was successfully removed from the custom di
 #### `ses.loadExtension(path[, options])`
 
 * `path` String - Path to a directory containing an unpacked Chrome extension
-* objeto `options` (opcional)
+* `options` Object (optional)
   * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. Defaults to false.
 
 Returns `Promise<Extension>` - resolves when the extension is loaded.
@@ -650,7 +650,7 @@ app.on('ready', async () => {
 
 This API does not support loading packed (.crx) extensions.
 
-**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 **Note:** Loading extensions into in-memory (non-persistent) sessions is not supported and will throw an error.
 
@@ -660,7 +660,7 @@ This API does not support loading packed (.crx) extensions.
 
 Unloads an extension.
 
-**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 #### `ses.getExtension(extensionId)`
 
@@ -668,13 +668,13 @@ Unloads an extension.
 
 Returns `Extension` | `null` - The loaded extension with the given ID.
 
-**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 #### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
-**Nota:** Esta API não pode ser chamada antes que o evento `ready` do módulo `app` seja emitido.
+**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
 ### Propriedades de Instância
 
