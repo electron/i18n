@@ -82,8 +82,8 @@ Returns `boolean` - Whether the reload was initiated successfully. Only results 
 
 #### `frame.send(channel, ...args)`
 
-* `channel` Cordas
-* `...args` qualquer[]
+* `channel` String
+* `...args` any[]
 
 Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. O envio de funções, promessas, símbolos, weakmaps ou WeakSets lançará uma exceção.
 
@@ -91,7 +91,7 @@ The renderer process can handle the message by listening to `channel` with the [
 
 #### `frame.postMessage(channel, message, [transfer])`
 
-* `channel` Cordas
+* `channel` String
 * `message` any
 * `transfer` MessagePortMain[] (optional)
 
