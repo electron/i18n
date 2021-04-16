@@ -171,7 +171,7 @@ This switch only works when `--enable-logging` is also passed.
 
 Force using discrete GPU when there are multiple GPUs available.
 
-### -force_low_power_gpu
+### --force_low_power_gpu
 
 Force using integrated GPU when there are multiple GPUs available.
 
@@ -181,19 +181,19 @@ Electron supports some of the [CLI flags][node-cli] supported by Node.js.
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
-### --inspecionar-brk[=[host:]porta]
+### --inspect-brk[=[host:]port]
 
 Activate inspector on host:port and break at start of user script. Default host:port is 127.0.0.1:9229.
 
 Aliased to `--debug-brk=[host:]port`.
 
-### -inspecionar porta=[host:]porta
+### --inspect-port=[host:]port
 
 Set the `host:port` to be used when the inspector is activated. Useful when activating the inspector by sending the SIGUSR1 signal. Default host is `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 
-### --inspecionar[=[host:]porta]
+### --inspect[=[host:]port]
 
 Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
 
@@ -203,7 +203,7 @@ See the [Debugging the Main Process][debugging-main-process] guide for more deta
 
 Aliased to `--debug[=[host:]port`.
 
-### --inspecionar-publicar-uid=stderr,http
+### --inspect-publish-uid=stderr,http
 
 Specify ways of the inspector web socket url exposure.
 
