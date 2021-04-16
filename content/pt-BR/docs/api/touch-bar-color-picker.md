@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `novas opções TouchBarColorPicker (opções)`
 
-* objeto `options`
+* `options` Object
   * `availableColors` String[] (opcional) - Matriz de cordas de cor hexais para aparecer como cores possíveis para selecionar.
   * `selectedColor` String (opcional) - A cor hexais selecionada no catador, ou seja, `#ABCDEF`.
   * `change` Função (opcional) - Função para chamar quando uma cor é selecionada.
