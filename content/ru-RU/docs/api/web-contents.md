@@ -671,31 +671,21 @@ Emitted when a `<webview>` has been attached to this web contents.
 * `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
-* `sourceId` Струна
+* `sourceId` String
 
-Испускаемое, когда связанное окно регистрирует сообщение консоли.
+Emitted when the associated window logs a console message.
 
-#### Событие: «предустановка-ошибка»
+#### Event: 'preload-error'
 
 Возвращает:
 
 * `event` Event
-* `preloadPath` Струна
+* `preloadPath` String
 * `error` Error
 
-Испускаемый при предварительной загрузке `preloadPath` бросает неохвоженные `error`.
+Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
 
-#### Событие: 'ipc-сообщение'
-
-Возвращает:
-
-* `event` Event
-* `channel` String (Строка)
-* `...args` any[]
-
-Излучается, когда процесс рендерера отправляет асинхронное сообщение через `ipcRenderer.send()`.
-
-#### Событие: 'ipc-сообщение-синхронизация'
+#### Event: 'ipc-message'
 
 Возвращает:
 
@@ -703,7 +693,17 @@ Emitted when a `<webview>` has been attached to this web contents.
 * `channel` String (Строка)
 * `...args` any[]
 
-Излучается, когда процесс рендерера отправляет синхронное сообщение через `ipcRenderer.sendSync()`.
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+
+#### Event: 'ipc-message-sync'
+
+Возвращает:
+
+* `event` Event
+* `channel` String (Строка)
+* `...args` any[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
 #### Событие: 'desktop-capturer-get-sources'
 
@@ -711,7 +711,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 * `event` Event
 
-Излучается при `desktopCapturer.getSources()` вызывается в процессе рендерера. Вызов `event.preventDefault()` вернет пустые источники.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Вызов `event.preventDefault()` вернет пустые источники.
 
 #### Event: 'remote-require' _Deprecated_
 
@@ -720,7 +720,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 * `event` IpcMainEvent
 * `moduleName` String
 
-Излучается при `remote.require()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 #### Event: 'remote-get-global' _Deprecated_
 
@@ -729,7 +729,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 * `event` IpcMainEvent
 * `globalName` String
 
-Излучается при `remote.getGlobal()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 #### Event: 'remote-get-builtin' _Deprecated_
 
@@ -738,7 +738,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 * `event` IpcMainEvent
 * `moduleName` String
 
-Излучается при `remote.getBuiltin()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 #### Event: 'remote-get-current-window' _Deprecated_
 
@@ -746,7 +746,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 * `event` IpcMainEvent
 
-Излучается при `remote.getCurrentWindow()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 #### Event: 'remote-get-current-web-contents' _Deprecated_
 
@@ -754,18 +754,18 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 * `event` IpcMainEvent
 
-Излучается при `remote.getCurrentWebContents()` вызывается в процессе рендерера. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Событие: 'preferred-size-changed'
+#### Event: 'preferred-size-changed'
 
 Возвращает:
 
 * `event` Event
-* `preferredSize` [размер](structures/size.md) - минимальный размер, должен содержать макет документа, не требуя прокрутки.
+* `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
 
-Испускаемый при `WebContents` предпочтительный размер изменился.
+Emitted when the `WebContents` preferred size has changed.
 
-Это событие будет излучаться только тогда `enablePreferredSizeMode` когда он будет `true` в `webPreferences`.
+This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
 
 ### Методы экземпляра
 
@@ -779,14 +779,14 @@ Emitted when a `<webview>` has been attached to this web contents.
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Возвращает `Promise<void>` - обещание разрешится, когда страница закончит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет , если страница не загружается (см. [`did-fail-load`](web-contents.md#event-did-fail-load)). Обработчик отклонения нооп уже прикреплен, что позволяет избежать неопроверженных ошибок отказа.
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
-Загружает `url` в окно. В `url` должен содержаться приставка протокола, например, `http://` или `file://`. Если нагрузка должна обойти кэш http, использовать `pragma` заголовок для ее достижения.
+Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
 ```javascript
-const { webContents } - требуют ('электрон')
-вариантов const - экстраголов: 'pragma: нет кэша\n' s
-webContents.loadURL('https://github.com', варианты)
+const { webContents } = require('electron')
+const options = { extraHeaders: 'pragma: no-cache\n' }
+webContents.loadURL('https://github.com', options)
 ```
 
 #### `contents.loadFile(filePath[, options])`
@@ -799,163 +799,163 @@ webContents.loadURL('https://github.com', варианты)
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Загружает данный файл в окно, `filePath` должен быть путь к HTML файл по отношению к корню вашего приложения.  Например, структуру приложения, как это:
+Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
 ```sh
-| корневые
+| root
 | - package.json
 | - src
-|   - главное.js
-|   - индекс.html
+|   - main.js
+|   - index.html
 ```
 
-Потребуется код, как это
+Would require code like this
 
 ```js
-win.loadFile (src/index.html')
+win.loadFile('src/index.html')
 ```
 
 #### `contents.downloadURL(url)`
 
 * `url` String
 
-Инициирует загрузку ресурса на `url` навигации. Начнется `will-download` событие `session` года.
+Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
 #### `contents.getURL()`
 
-Возвращает `String` - URL текущей веб-страницы.
+Returns `String` - The URL of the current web page.
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
-const win - новый BrowserWindow ({ width: 800, height: 600 })
-win.loadURL ('http://github.com')., то ((() -> -
-  const currentURL - win.webContents.getURL()
-  консоль.log (currentURL)
-
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com').then(() => {
+  const currentURL = win.webContents.getURL()
+  console.log(currentURL)
+})
 ```
 
 #### `contents.getTitle()`
 
-Возвращает `String` - Название текущей веб-страницы.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-Возвращает `Boolean` - Будет ли веб-страница уничтожена.
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-Фокусирует веб-страницу.
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-Возвращает `Boolean` - Ориентирована ли веб-страница.
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-Возвращает `Boolean` - Является ли веб-страница по-прежнему загрузки ресурсов.
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
-Возвращает `Boolean` - является ли основной кадр (а не только iframes или кадры в нем) -прежнему загрузки.
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 #### `contents.isWaitingForResponse()`
 
-Возвращает `Boolean` - ждет ли веб-страница первого ответа от основного ресурса страницы.
+Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
 
 #### `contents.stop()`
 
-Остановка любой ожидаемой навигации.
+Stops any pending navigation.
 
 #### `contents.reload()`
 
-Перезагрузка текущей веб-страницы.
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Перезагружает текущую страницу и игнорирует кэш.
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
-Возвращает `Boolean` - Может ли браузер вернуться на предыдущую веб-страницу.
+Returns `Boolean` - Whether the browser can go back to previous web page.
 
 #### `contents.canGoForward()`
 
-Возвращает `Boolean` - Может ли браузер перейти на следующую веб-страницу.
+Returns `Boolean` - Whether the browser can go forward to next web page.
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Возвращает `Boolean` - Может ли веб-страница перейти к `offset`.
+Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-Очищает историю навигации.
+Clears the navigation history.
 
 #### `contents.goBack()`
 
-Делает браузер вернуться веб-страницы.
+Makes the browser go back a web page.
 
 #### `contents.goForward()`
 
-Делает браузер идти вперед веб-страницы.
+Makes the browser go forward a web page.
 
 #### `contents.goToIndex(index)`
 
 * `index` Integer
 
-Переходит браузер к указанному абсолютному индексу веб-страниц.
+Navigates browser to the specified absolute web page index.
 
 #### `contents.goToOffset(offset)`
 
 * `offset` Integer
 
-Переходит к указанному смещению из "текущей записи".
+Navigates to the specified offset from the "current entry".
 
 #### `contents.isCrashed()`
 
-Возвращает `Boolean` - разбился ли процесс рендерера.
+Returns `Boolean` - Whether the renderer process has crashed.
 
 #### `contents.forcefullyCrashRenderer()`
 
-Принудительно завершает процесс визуализации, который в настоящее время хостинг этой `webContents`. Это приведет к `render-process-gone` , которое будет излучаться с `reason=killed || reason=crashed`. Пожалуйста, обратите внимание, что некоторые webContents доля процессов и, следовательно, называя этот метод может также сбой для других webContents, а также.
+Forcefully terminates the renderer process that is currently hosting this `webContents`. This will cause the `render-process-gone` event to be emitted with the `reason=killed || reason=crashed`. Please note that some webContents share renderer processes and therefore calling this method may also crash the host process for other webContents as well.
 
-Вызов `reload()` сразу после вызова этого метода заставит перезагрузку произойти в новом процессе. Это следует использовать когда этот процесс нестабилен или непригоден для использования, например, для из `unresponsive` события.
+Calling `reload()` immediately after calling this method will force the reload to occur in a new process. This should be used when this process is unstable or unusable, for instance in order to recover from the `unresponsive` event.
 
 ```js
-contents.on ('unresponsive', async () -> -
-  const { response } - ждут dialog.showMessageBox (сообщение
-    : 'App X стал безответным',
-    название: "Вы хотите попробовать принудительно перезагрузить приложение?", кнопки
-    : "OK", "Отмена",
+contents.on('unresponsive', async () => {
+  const { response } = await dialog.showMessageBox({
+    message: 'App X has become unresponsive',
+    title: 'Do you want to try forcefully reloading the app?',
+    buttons: ['OK', 'Cancel'],
     cancelId: 1
-  )
-  если (ответ No 0) -
+  })
+  if (response === 0) {
     contents.forcefullyCrashRenderer()
     contents.reload()
-
-
+  }
+})
 ```
 
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Переопределяет агента пользователя для этой веб-страницы.
+Overrides the user agent for this web page.
 
 #### `contents.getUserAgent()`
 
-Возвращает `String` - пользовательский агент для этой веб-страницы.
+Returns `String` - The user agent for this web page.
 
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
 * `options` Object (опционально)
-  * `cssOrigin` String (по желанию) - может быть либо "пользователем", либо "автором"; Указание "пользователя" позволяет предотвратить переопределение веб-сайтов CSS, которые вы вставляете. По умолчанию является "автором".
+  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Возвращает `Promise<String>` - Обещание, которое разрешает с ключом для вставленных CSS, которые впоследствии могут быть использованы для удаления CSS через `contents.removeInsertedCSS(key)`.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
-Вводит CSS на текущую веб-страницу и возвращает уникальный ключ для вставленного таблицы.
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
 contents.on('did-finish-load', () => {
