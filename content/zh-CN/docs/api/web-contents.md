@@ -1537,7 +1537,7 @@ ipcMain.on('ping', (event) => {
 #### `contents.postMessage(channel, message, [transfer])`
 
 * `channel` String
-* `message` 任何
+* `message` any
 * `transfer` 消息端口[]（可选）
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
