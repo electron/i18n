@@ -35,27 +35,27 @@ Retourne :
 
 * `event` Événement
 * `messageDetails` objet - Informations sur le message de la console
-  * `message` String - Le message de la console réelle
-  * `versionId` - L’iD de version du travailleur de service qui a envoyé le message journal
-  * `source` String - Le type de source pour ce message.  Peut être `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` ou `other`.
-  * `level` numéro - Le niveau de journal, de 0 à 3. Dans l’ordre, il correspond `verbose`, `info`, `warning` et `error`.
-  * `sourceUrl` String - L’URL du message est venue de
-  * `lineNumber` numéro - Le numéro de ligne de la source qui a déclenché ce message console
+  * `message` String - The actual console message
+  * `versionId` Number - The version ID of the service worker that sent the log message
+  * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
+  * `level` Number - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+  * `sourceUrl` String - The URL the message came from
+  * `lineNumber` Number - The line number of the source that triggered this console message
 
-Émis lorsqu’un travailleur de service enregistre quelque chose sur la console.
+Emitted when a service worker logs something to the console.
 
 ### Méthodes d’instance
 
-Les méthodes suivantes sont disponibles sur les cas de `ServiceWorkers`:
+The following methods are available on instances of `ServiceWorkers`:
 
 #### `serviceWorkers.getAllRunning()`
 
-Retours `Record<Number, ServiceWorkerInfo>` - Un objet [ServiceWorkerInfo](structures/service-worker-info.md) lorsque les clés sont l’ID de version travailleur de service et les valeurs sont les informations sur ce travailleur de service.
+Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
 
-#### `serviceWorkers.getFromVersionID (versionId)`
+#### `serviceWorkers.getFromVersionID(versionId)`
 
-* `versionId` numéro
+* `versionId` Number
 
-Retours [`ServiceWorkerInfo`](structures/service-worker-info.md) - Informations sur ce travailleur de service
+Returns [`ServiceWorkerInfo`](structures/service-worker-info.md) - Information about this service worker
 
-Si le travailleur de service n’existe pas ou n’est pas en cours d’exécution de cette méthode jettera une exception.
+If the service worker does not exist or is not running this method will throw an exception.
