@@ -92,12 +92,12 @@ Der Rendererprozess kann die Nachricht verarbeiten, indem er `channel` mit dem [
 #### `frame.postMessage(channel, message, [transfer])`
 
 * `channel` String
-* `message`
+* `message` any
 * `transfer` MessagePortMain[] (optional)
 
-Senden Sie eine Nachricht an den Rendererprozess, wodurch optional der Besitz von Null oder mehr [`MessagePortMain`]-Objekten übertragen wird.
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-Die übertragenen `MessagePortMain` Objekte stehen im Renderer- Prozess zur Verfügung, indem sie auf die `ports` -Eigenschaft des emitted-Ereignisses zugreifen. Wenn sie im Renderer ankommen , sind sie systemeigene DOM- `MessagePort` -Objekte.
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 Ein Beispiel:
 
