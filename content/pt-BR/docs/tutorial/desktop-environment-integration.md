@@ -18,7 +18,7 @@ Veja a [documentação da Barra de Progresso](progress-bar.md).
 
 ## Iniciador do Unity
 
-Consulte a documentação do [Unity Launcher][unity-launcher].
+See the [Unity Launcher documentation][unity-launcher].
 
 ## Arquivo Representado para a Janela do macOS
 
