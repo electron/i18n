@@ -16,7 +16,7 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 
 const view = new BrowserView()
 win.setBrowserView(view)
-view.setBounds(' x: 0, y: 0, width: 300, height: 300 ')
+view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
@@ -40,23 +40,23 @@ Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Instanzmethod
 #### `view.setAutoResize(options)` _Experimentell_
 
 * `options` -Objekt
-  * `width` Boolean (optional) - Wenn `true`, wächst und schrumpft die Breite der Ansicht zusammen mit dem Fenster zusammen. `false` standardmäßig.
-  * `height` Boolean (optional) - Wenn `true`, wird die Höhe der Ansicht zusammen mit dem Fenster wachsen und verkleinern. `false` standardmäßig.
-  * `horizontal` Boolean (optional) - Wenn `true`, wird die x-Position und -Breite der Ansicht und proportional mit dem Fenster verkleinert. `false` standardmäßig.
-  * `vertical` boolesch (optional) - Wenn `true`, wird die y-Position und -Höhe der Ansicht und proportional mit dem Fenster verkleinert. `false` standardmäßig.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` _Experimentell_
 
 * `bounds` [Rectangle](structures/rectangle.md) Boundings des Displays
 
-Ändert die Größe und verschiebt die Ansicht auf die angegebenen Grenzen relativ zum Fenster.
+Resizes and moves the view to the supplied bounds relative to the window.
 
 #### `view.getBounds()` _Experimental_
 
 Returns [`Rectangle`](structures/rectangle.md)
 
-Die `bounds` dieser BrowserView-Instanz als `Object`.
+The `bounds` of this BrowserView instance as `Object`.
 
 #### `view.setBackgroundColor(color)` _Experimentell_
 
-* `color` String - Farbe in `#aarrggbb` oder `#argb` Form. Der Alphakanal ist optional.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
