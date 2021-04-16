@@ -135,7 +135,7 @@
 
 ### 渲染进程（网页）可用的模块:
 
-* [上下文桥](api/context-bridge.md)
+* [contextBridge](api/context-bridge.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [webFrame](api/web-frame.md)
 
