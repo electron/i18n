@@ -1151,7 +1151,7 @@ By default this API will return `false`.
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` Boolean-enable o Disable `Secure Keyboard Entry`
+* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
 
 Set the `Secure Keyboard Entry` is enabled in your application.
 
@@ -1191,7 +1191,7 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 Un objeto [`CommandLine`](./command-line.md) que te permite leer y manipular los argumentos de linea de comando que usa Chromium.
 
-### `app.dock` _macOS_ _ReadOnly_
+### `app.dock` _macOS_ _Readonly_
 
 A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
@@ -1217,7 +1217,7 @@ Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene
 
 La intención para estos anuladores es desactivan por defecto y luego en algún punto en el futuro esta propiedad sera eliminada.  Esta propiedad impacta en cuales modulos nativos puedes usar en el renderer process.  Para más información de la dirección en que Electron esta yendo con el renderer process, reinicio y uso de modulos nativos en el renderer process por favor revisa esto [Tracking Issue](https://github.com/electron/electron/issues/18397).
 
-### `app.runningUnderRosettaTranslation` _macOS_ _ReadOnly_
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
 A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
