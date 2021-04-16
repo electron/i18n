@@ -1,25 +1,25 @@
 ## Class: TouchBarColorPicker
 
-> Crie um catador de cores na barra de toque para aplicações nativas do macOS
+> Create a color picker in the touch bar for native macOS applications
 
 Processo: [Main](../glossary.md#main-process)
 
-### `novas opções TouchBarColorPicker (opções)`
+### `new TouchBarColorPicker(options)`
 
 * `options` Object
-  * `availableColors` String[] (opcional) - Matriz de cordas de cor hexais para aparecer como cores possíveis para selecionar.
-  * `selectedColor` String (opcional) - A cor hexais selecionada no catador, ou seja, `#ABCDEF`.
-  * `change` Função (opcional) - Função para chamar quando uma cor é selecionada.
-    * `color` String - A cor que o usuário selecionou do catador.
+  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
+  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
+  * `change` Function (optional) - Function to call when a color is selected.
+    * `color` String - The color that the user selected from the picker.
 
 ### Propriedades de Instância
 
-As seguintes propriedades estão disponíveis em instâncias de `TouchBarColorPicker`:
+The following properties are available on instances of `TouchBarColorPicker`:
 
-#### `touchBarColorPicker.disponívelColors`
+#### `touchBarColorPicker.availableColors`
 
-Uma matriz `String[]` representando as cores disponíveis do seletor de cores para selecionar. Alterar esse valor imediatamente atualiza o catador de cores na barra de toque.
+A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
 
 #### `touchBarColorPicker.selectedColor`
 
-Um código hexamax `String` representando a cor selecionada do selecionador de cores atualmente. Alterar esse valor imediatamente atualiza o catador de cores na barra de toque.
+A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
