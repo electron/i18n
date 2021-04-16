@@ -160,137 +160,137 @@ Erstellt eine neue `NativeImage` -Instanz aus `dataURL`.
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
-* `hslShift` -Nummer[] (optional)
+* `hslShift` Number[] (optional)
 
 Rückgaben `NativeImage`
 
-Erstellt eine neue `NativeImage` -Instanz aus dem NSImage, die dem angegebenen Bildnamen zugeordnet ist. Eine Liste der möglichen Werte finden Sie unter [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) .
+Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
-Die `hslShift` wird auf das Bild mit den folgenden Regeln angewendet:
+The `hslShift` is applied to the image with the following rules:
 
-* `hsl_shift[0]` (Farbton): Der absolute Farbtonwert für das Bild - 0 und 1 Karte 0 und 360 auf dem Farbton-Farbrad (rot).
-* `hsl_shift[1]` (Sättigung): Eine Sättigungsverschiebung für das Bild mit dem folgenden Schlüsselwerten: 0 = alle Farben entfernen. 0.5 = unverändert lassen. 1 = das Bild vollständig sättigen.
-* `hsl_shift[2]` (Leichtigkeit): Eine Lichtverhältnisseverschiebung für das Bild mit dem folgenden Schlüsselwerten: 0 = entfernen Sie alle Leichtigkeit (alle Pixel schwarz machen). 0.5 = unverändert lassen. 1 = volle Leichtigkeit (alle Pixel weiß machen).
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
-Das bedeutet, dass `[-1, 0, 1]` das Bild vollständig weiß und `[-1, 1, 0]` das Bild vollständig schwarz machen.
+This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
-In einigen Fällen stimmt die `NSImageName` nicht mit ihrer Zeichenfolgendarstellung überein. Ein Beispiel hierfür ist `NSFolderImageName`, deren Zeichenfolgendarstellung tatsächlich `NSFolder`wäre. Daher müssen Sie die richtige Zeichenfolgendarstellung für Ihr Bild bestimmen, bevor Sie es übergeben. Dies kann mit den folgenden Erfolgen erfolgen:
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
 
-`echo -e '#import <Cocoa/Cocoa.h>\nint main() ' NSLog('%@", SYSTEM_IMAGE_NAME); '| clang -otest -x objective-c -framework Kakao - && ./test`
+`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
-wobei `SYSTEM_IMAGE_NAME` durch einen beliebigen Wert aus [dieser Liste](https://developer.apple.com/documentation/appkit/nsimagename?language=objc)ersetzt werden sollten.
+where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
 
 ## Class: NativeImage
 
-> Natives Umwickeln von Bildern wie Tray-, Dock- und Anwendungssymbolen.
+> Natively wrap images such as tray, dock, and application icons.
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Instanz Methoden
 
-Die folgenden Methoden sind für Instanzen der `NativeImage` -Klasse verfügbar:
+The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
 * `options` Objekt (optional)
   * `scaleFactor` Double (optional) - Standardwerte 1.0.
 
-Gibt `Buffer` zurück : Ein [Buffer][buffer] , der die `PNG` codierten Daten des Bildes enthält.
+Returns `Buffer` - A [Buffer][buffer] that contains the image's `PNG` encoded data.
 
 #### `image.toJPEG(quality)`
 
-* `quality` Ganzzahl - Zwischen 0 - 100.
+* `quality` Integer - Between 0 - 100.
 
-Gibt `Buffer` zurück : Ein [Buffer][buffer] , der die `JPEG` codierten Daten des Bildes enthält.
+Returns `Buffer` - A [Buffer][buffer] that contains the image's `JPEG` encoded data.
 
 #### `image.toBitmap([options])`
 
 * `options` Objekt (optional)
   * `scaleFactor` Double (optional) - Standardwerte 1.0.
 
-Gibt `Buffer` zurück : Ein [Puffer-][buffer] , der eine Kopie des unformatierten Bitmap- Daten des Bildes enthält.
+Returns `Buffer` - A [Buffer][buffer] that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
 * `options` Objekt (optional)
   * `scaleFactor` Double (optional) - Standardwerte 1.0.
 
-Gibt `String` zurück - Die Daten-URL des Bildes.
+Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
 * `options` Objekt (optional)
   * `scaleFactor` Double (optional) - Standardwerte 1.0.
 
-Gibt `Buffer` zurück : Ein [Buffer][buffer] , der die unformatierten Bitmap-Pixeldaten des Bildes enthält.
+Returns `Buffer` - A [Buffer][buffer] that contains the image's raw bitmap pixel data.
 
-Der Unterschied zwischen `getBitmap()` und `toBitmap()` besteht darin, dass `getBitmap()` die Bitmapdaten nicht kopiert, sodass Sie den zurückgegebenen Puffer sofort in aktuellen Ereignisschleifen-Tick verwenden müssen. Andernfalls können die Daten geändert oder zerstört werden.
+The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` _macOS_
 
-Gibt `Buffer` zurück - Ein [Buffer-][buffer] , der C-Zeiger auf das zugrunde liegende systemeigene Handle das Bild speichert. Unter macOS wird ein Zeiger auf `NSImage` Instanz zurückgegeben.
+Returns `Buffer` - A [Buffer][buffer] that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-Beachten Sie, dass der zurückgegebene Zeiger ein Schwachzeiger auf das zugrunde liegende systemeigene Bild anstelle einer Kopie ist, daher müssen Sie</em> _sicherstellen, dass die zugeordnete `nativeImage` Instanz beibehalten wird.</p>
+Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you _must_ ensure that the associated `nativeImage` instance is kept around.
 
 #### `image.isEmpty()`
 
-Gibt `Boolean` zurück : Gibt an, ob das Bild leer ist.
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize([scaleFactor])`
 
 * `scaleFactor` Double (optional) - Standardwerte 1.0.
 
-Gibt [`Size`](structures/size.md)zurück.
+Returns [`Size`](structures/size.md).
 
-Wenn `scaleFactor` übergeben wird, wird die Größe zurückgegeben, die der Bilddarstellung entspricht, die dem übergebenen Wert am ehesten entspricht.
+If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Markiert das Bild als Vorlagenbild.
+Marks the image as a template image.
 
 #### `image.isTemplateImage()`
 
-Gibt `Boolean` zurück : Gibt an, ob es sich bei dem Bild um ein Vorlagenbild handelt.
+Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
-* `rect` [Rechteck](structures/rectangle.md) - Der Bereich des zuzuschneidenden Bildes.
+* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
 
-Gibt `NativeImage` zurück - Das zugeschnittene Bild.
+Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
 * `options` -Objekt
-  * `width` Ganzzahl (optional) - Stellt die Standardeinstellung für die Breite des Bildes ein.
-  * `height` Ganzzahl (optional) - Stellt die Einstellung zur Bildhöhe ein.
-  * `quality` String (optional) - Die gewünschte Qualität des Größenänderungsbildes. Mögliche Werte sind `good`, `better`oder `best`. Der Standardwert ist `best`. Diese Werte drücken einen gewünschten Qualitäts-/Geschwindigkeits-Kompromiss aus. Sie werden in eine algorithmusspezifische Methode übersetzt, die von den Fähigkeiten (CPU, GPU) der zugrunde liegenden Plattform abhängt. Es ist möglich, dass alle drei Methoden dem gleichen Algorithmus auf einer bestimmten Plattform zugeordnet werden.
+  * `width` Integer (optional) - Defaults to the image's width.
+  * `height` Integer (optional) - Defaults to the image's height.
+  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-Gibt `NativeImage` zurück - Das geänderte Bild.
+Returns `NativeImage` - The resized image.
 
-Wenn nur die `height` oder die `width` angegeben werden, wird das aktuelle Seitenverhältnis im Bild mit der geänderten Größe beibehalten.
+If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio([scaleFactor])`
 
 * `scaleFactor` Double (optional) - Standardwerte 1.0.
 
-Gibt `Float` zurück - Das Seitenverhältnis des Bildes.
+Returns `Float` - The image's aspect ratio.
 
-Wenn `scaleFactor` übergeben wird, wird das Seitenverhältnis zurückgegeben, das der Bilddarstellung entspricht, die dem übergebenen Wert am ehesten entspricht.
+If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
 
 #### `image.getScaleFactors()`
 
-Gibt `Float[]` zurück - Ein Array aller Skalierungsfaktoren, die Darstellungen für ein bestimmtes nativeImage entsprechen.
+Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
 
 #### `image.addRepresentation(options)`
 
 * `options` -Objekt
-  * `scaleFactor` Double - Der Skalierungsfaktor, für den die Bilddarstellung hinzugefügt werden soll.
-  * `width` Ganzzahl (optional) - Standardwerte auf 0. Erforderlich, wenn ein Bitmappuffer als `buffer`angegeben ist.
-  * `height` Ganzzahl (optional) - Standardwerte auf 0. Erforderlich, wenn ein Bitmappuffer als `buffer`angegeben ist.
-  * `buffer` Puffer (optional) - Der Puffer, der die Rohbilddaten enthält.
-  * `dataURL` String (optional) - Die Daten-URL, die entweder ein Basis-64- codiertes PNG- oder JPEG-Bild enthält.
+  * `scaleFactor` Double - The scale factor to add the image representation for.
+  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `buffer` Buffer (optional) - The buffer containing the raw image data.
+  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Fügen Sie eine Bilddarstellung für einen bestimmten Skalierungsfaktor hinzu. Dies kann verwendet werden, , um einem Bild explizit unterschiedliche Skalierungsfaktordarstellungen hinzuzufügen. Diese kann auf leere Bilder aufgerufen werden.
 
@@ -303,9 +303,5 @@ Eine `Boolean` Eigenschaft, die bestimmt, ob das Bild als [Vorlagenbild](https:/
 Bitte beachten Sie, dass diese Unterkunft nur Auswirkungen auf macOS hat.
 
 [icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
-
-[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
-
-[buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
 
 [buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer
