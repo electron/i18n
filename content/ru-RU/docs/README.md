@@ -20,7 +20,7 @@
 
 ### Изучение основ
 
-* [Модель процесса электрона](tutorial/quick-start.md#application-architecture)
+* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
   * [Main и Renderer процессы](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
@@ -36,7 +36,7 @@
   * [Представленный файл для macOS BrowserWindows](tutorial/represented-file.md)
   * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
-  * [Темный режим](tutorial/dark-mode.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Веб-встраивание в Electron](tutorial/web-embeds.md)
 * [Макеты и CLI](tutorial/boilerplates-and-clis.md)
   * [Макеты против CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -45,17 +45,17 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Другие инструменты и макеты](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Расширенные шаги
+### Advanced steps
 
 * Архитектура приложения
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-  * [Стратегии безопасности](tutorial/security.md)
+  * [Security Strategies](tutorial/security.md)
 * [Доступность](tutorial/accessibility.md)
   * [Включение функций специальных возможностей вручную](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестирование и отладка](tutorial/application-debugging.md)
   * [Отладка главного процесса](tutorial/debugging-main-process.md)
-  * [Отладка с визуальным кодом студии](tutorial/debugging-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
