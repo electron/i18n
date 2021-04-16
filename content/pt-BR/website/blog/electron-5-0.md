@@ -62,7 +62,7 @@ Para melhorar a segurança na API</code> remoto `, novos eventos remotos foram a
 
 Agora é possível gerenciar vários BrowserViews dentro do mesmo BrowserWindow.
 
-## Quebrando mudanças
+## Breaking Changes
 
 ### Padrão para aplicativos empacotados
 
