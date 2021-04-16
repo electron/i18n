@@ -36,7 +36,7 @@ API 组件（包括类、方法、属性和事件名称）与 节点中使用的
 }）
 ```
 
-只有在应用程序发出 `ready` 事件后才能使用 `net` API。 尝试在 `ready` 事件之前使用模块会抛出错误。
+只有在应用程序发出 `ready` 事件后才能使用 `net` API。 Trying to use the module before the `ready` event will throw an error.
 
 ## 方法
 
@@ -44,22 +44,22 @@ API 组件（包括类、方法、属性和事件名称）与 节点中使用的
 
 ### `net.request(options)`
 
-* `options` （客户要求建筑|字符串） - `ClientRequest` 构造器选项。
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 返回 [`ClientRequest`](./client-request.md)
 
 使用 ` options ` 创建 [` ClientRequest `](./client-request.md) 实例, 这些选项直接转发到 ` ClientRequest ` 的构造函数。 ` net.request ` 方法将根据 ` options ` 对象中的指定协议方案, 去发送安全和不安全的 HTTP 请求（ both secure and insecure HTTP requests）。
 
-### `网。在线（）`
+### `net.isOnline()`
 
-返回 `Boolean` - 是否有当前的互联网连接。
+Returns `Boolean` - Whether there is currently internet connection.
 
-`false` 的返回值是用户 无法连接到远程站点的一个相当有力的指标。 然而， `true` 的回报价值没有定论：即使某些链接已打开，也不确定 特定连接到特定远程站点 是否会成功。
+A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
 
 ## Properties
 
-### `net.online` _·里德利·_
+### `net.online` _Readonly_
 
-`Boolean` 属性。 目前是否有互联网连接。
+A `Boolean` property. Whether there is currently internet connection.
 
-`false` 的返回值是用户 无法连接到远程站点的一个相当有力的指标。 然而， `true` 的回报价值没有定论：即使某些链接已打开，也不确定 特定连接到特定远程站点 是否会成功。
+A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
