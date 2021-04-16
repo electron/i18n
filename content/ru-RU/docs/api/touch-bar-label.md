@@ -4,12 +4,12 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-### `новый TouchBarLabel (варианты)`
+### `new TouchBarLabel(options)`
 
 * `options` Object
-  * `label` строка (необязательно) - Текст для отображения.
+  * `label` String (optional) - Text to display.
   * `accessibilityLabel` String (по желанию) - Краткое описание кнопки для использования на screenreaders как VoiceOver.
-  * `textColor` строка (по желанию) - Hex цвет текста, т.е. `#ABCDEF`.
+  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
 При определении `accessibilityLabel`убедитесь, что вы рассмотрели macOS [передовой практики](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
@@ -19,12 +19,12 @@
 
 #### `touchBarLabel.label`
 
-В `String` , представляющий текущий текст метки. Изменение этого значения немедленно обновляет этикетку в сенсорной панели.
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
-`String` , представляющий описание этикетки для чтения считывателем экрана.
+A `String` representing the description of the label to be read by a screen reader.
 
 #### `touchBarLabel.textColor`
 
-В `String` шестиугольный код, представляющий текущий цвет текста метки. Изменение этого значения немедленно обновляет этикетку в сенсорной панели.
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
