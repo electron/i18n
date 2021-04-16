@@ -137,7 +137,7 @@ console.log(imagem)
 ### `nativeImage.createFromBitmap (buffer, opções)`
 
 * `buffer` [Buffer][buffer]
-* objeto `options` 
+* `options` Object 
     * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
@@ -151,7 +151,7 @@ Cria uma nova instância de `NativeImage` a partir de `buffer` que contém o bit
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
-* objeto `options` (opcional) 
+* `options` Object (optional) 
     * `width` Inteiro (opcional) - Necessário para buffers de bitmap.
   * `height` Integer (opicional) - Necessário para buffers de bitmap.
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
@@ -217,7 +217,7 @@ Os seguintes métodos estão disponíveis nas instâncias da classe `NativeImage
 
 #### `image.toPNG([options])`
 
-* objeto `options` (opcional) 
+* `options` Object (optional) 
     * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer][buffer] que contém os dados codificados de `PNG` da imagem.
@@ -234,7 +234,7 @@ Retorna `Buffer` - Um [Buffer][buffer] que contém os dados codificados de `JPG`
 
 #### `image.toBitmap([options])`
 
-* objeto `options` (opcional) 
+* `options` Object (optional) 
     * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer][buffer] que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
@@ -243,7 +243,7 @@ Retorna `Buffer` - Um [Buffer][buffer] que contém uma copia dos dados de bitmap
 
 #### `image.toDataURL([options])`
 
-* objeto `options` (opcional) 
+* `options` Object (optional) 
     * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `String` - Os dados de URL da imagem.
@@ -252,7 +252,7 @@ Retorna `String` - Os dados de URL da imagem.
 
 #### `image.getBitmap([options])`
 
-* objeto `options` (opcional) 
+* `options` Object (optional) 
     * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer][buffer] que contém os dados de bitmap crus (sem alterações) da imagem.
@@ -309,7 +309,7 @@ Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
-* objeto `options` 
+* `options` Object 
     * `width` Inteiro (opcional) - Padrão para a largura da imagem.
   * `height` Inteiro (opcional) - Padrão na altura da imagem.
   * `quality` String (opcional) - A qualidade desejada da imagem de redimensionar. Os valores possíveis são `good`, `better`ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos em um método específico de algoritmo que depende das capacidades (CPU, GPU) da plataforma subjacente. É possível que todos os três métodos sejam mapeados para o mesmo algoritmo em uma determinada plataforma.
@@ -338,7 +338,7 @@ Retornos `Float[]` - Uma série de todos os fatores de escala correspondentes a 
 
 #### `image.addRepresentation(options)`
 
-* objeto `options` 
+* `options` Object 
     * `scaleFactor` Double - O fator de escala para adicionar a representação da imagem.
   * `width` Integer (optional) - Padrão sendo 0. Necessário se um de buffer de bitmap for especificado como `buffer`.
   * `height` Integer (opcional) - Padrão sendo 0. Necessário se um de buffer de bitmap for especificado como `buffer`.
