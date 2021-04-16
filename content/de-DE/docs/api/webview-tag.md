@@ -2,69 +2,69 @@
 
 ## Warnung
 
-Das `webview` -Tag von Electron basiert auf [ `webview`][chrome-webview]von Chromium, das dramatische architektonische Veränderungen durchläuft. Dies wirkt sich auf die Stabilität von `webviews`, einschließlich Rendering, Navigation und Ereignisrouting aus. Wir empfehlen derzeit, das `webview` -Tag nicht verwenden und Alternativen wie `iframe`, Electron es `BrowserView`, oder eine Architektur zu berücksichtigen, die eingebettete Inhalte vollständig vermeidet.
+Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
-## Aktivieren
+## Enabling
 
-Standardmäßig ist das `webview` -Tag in Electron >= 5 deaktiviert.  Sie müssen das Tag aktivieren, indem Sie beim Erstellen ihrer `BrowserWindow` die Option `webviewTag` webPreferences festlegen. Weitere Informationen finden Sie unter [BrowserWindow-Konstruktor-Docs](browser-window.md).
+By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## Übersicht
 
-> Anzeigen externer Webinhalte in einem isolierten Frame und Prozess.
+> Display external web content in an isolated frame and process.
 
 Prozess: [Renderer](../glossary.md#renderer-process)
 
-Verwenden Sie das `webview` -Tag, um "Gast"-Inhalte (z. B. Webseiten) in Ihre Electron-App einzubetten. Der Gastinhalt ist im `webview` -Container enthalten. Eine eingebettete Seite in Ihrer App steuert, wie der Gastinhalt angeordnet und gerendert wird.
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
-Im Gegensatz zu einem `iframe`wird die `webview` in einem separaten Prozess als Ihre -App ausgeführt. Es verfügt nicht über die gleichen Berechtigungen wie Ihre Webseite, und alle Interaktionen zwischen Ihrer App und eingebetteten Inhalten sind asynchron. Dadurch wird Ihre App vor eingebetteten Inhalten geschützt. **Hinweis:** Die meisten Methoden, die in der Webview von der Hostseite aufgerufen werden, erfordern einen synchronen Aufruf des Hauptprozesses.
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
 ## Beispiel
 
-Um eine Webseite in Ihre App einzubetten, fügen Sie das `webview` -Tag zum Einbetten Ihrer App Seite hinzu (dies ist die App-Seite, auf der der Gastinhalt angezeigt wird). In seiner einfachsten Form enthält das `webview` -Tag die `src` der Webseite und css-Stile, die die Darstellung des `webview` -Containers steuern :
+To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-Wenn Sie den Gastinhalt in irgendeiner Weise steuern möchten, können Sie JavaScript- schreiben, das auf `webview` Ereignisse abhört und auf diese Ereignisse mit den `webview` Methoden antwortet. Hier ist Beispielcode mit zwei Ereignislistenern: einer, der hört, bis die Webseite mit dem Laden beginnt, der andere, damit die Webseite das Laden beendet, und ein "Laden..." anzeigt. Meldung während der Ladezeit:
+If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
 
 ```html
 <script>
-  onload = () =>
+  onload = () => {
     const webview = document.querySelector('webview')
     const indicator = document.querySelector('.indicator')
 
-    const loadstart = () => '
+    const loadstart = () => {
       indicator.innerText = 'loading...'
-    •
+    }
 
-    const loadstop = () =>
+    const loadstop = () => {
       indicator.innerText = ''
-    '
+    }
 
     webview.addEventListener('did-start-loading', loadstart)
     webview.addEventListener('did-stop-loading', loadstop)
-  '
+  }
 </script>
 ```
 
-## Interne Umsetzung
+## Internal implementation
 
-Unter der Haube wird `webview` mit [Out-of-Process-iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes)implementiert. Das `webview` -Tag ist im Wesentlichen ein benutzerdefiniertes Element, das Schatten-DOM verwendet, um ein `iframe` -Element darin zu umschließen.
+Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
 
-Das Verhalten von `webview` ist also einem domänenübergreifenden `iframe`sehr ähnlich, wie Beispiele:
+So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
-* Wenn Sie auf eine `webview`klicken, wird der Seitenfokus vom Einbettungsrahmen Frame in `webview`verschoben.
-* Sie können `webview`keine Tastatur-, Maus- und Bildlaufereignislistener hinzufügen.
-* Alle Reaktionen zwischen dem Einbettungsrahmen und `webview` sind asynchron.
+* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
+* All reactions between the embedder frame and `webview` are asynchronous.
 
-## CSS Styling Notizen
+## CSS Styling Notes
 
-Bitte beachten Sie, dass der Stil des `webview` -Tags intern `display:flex;` verwendet, um sicherzustellen, dass das untergeordnete `iframe` Element die volle Höhe und Breite seines `webview` -Containers ausfüllt, wenn es mit herkömmlichen und Flexbox-Layouts verwendet wird. Bitte überschreiben Sie die Standardeigenschaft `display:flex;` CSS nicht , es sei denn, Sie geben `display:inline-flex;` für das Inlinelayout an.
+Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
-## Tag-Attribute
+## Tag Attributes
 
-Das `webview` -Tag weist die folgenden Attribute auf:
+The `webview` tag has the following attributes:
 
 ### `src`
 
@@ -72,19 +72,19 @@ Das `webview` -Tag weist die folgenden Attribute auf:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Ein `String` , der die sichtbare URL darstellt. Wenn Sie in dieses Attribut schreiben, wird die der obersten Ebene initiiert.
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
-Wenn Sie `src` eigenen Wertzuweisen, wird die aktuelle Seite neu geladen.
+Assigning `src` its own value will reload the current page.
 
-Das `src` -Attribut kann auch Daten-URLs akzeptieren, z. B. `data:text/plain,Hello, world!`.
+The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
-### `Knotenintegration`
+### `nodeintegration`
 
 ```html
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-Ein `Boolean`. Wenn dieses Attribut vorhanden ist, verfügt die Gastseite in `webview` über eine -Integration von Knoten und kann Knoten-APIs wie `require` und `process` verwenden, um auf Systemressourcen auf niedriger Ebene zuzugreifen. Die Knotenintegration ist standardmäßig auf der Seite "Gast deaktiviert.
+Ein `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ Ein `Boolean`. Wenn dieses Attribut vorhanden ist, verfügt die Gastseite in `we
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-Ein `Boolean` für die experimentelle Option zum Aktivieren der NodeJS-Unterstützung in Subframes wie iframes, die sich im `webview` . Alle Ihre Vorspannungen werden für jeden iframe geladen, Sie können `process.isMainFrame` verwenden, um zu bestimmen, ob Sie sich im Hauptframe befinden oder nicht. Diese Option ist standardmäßig auf der Gastseite deaktiviert.
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -100,7 +100,7 @@ Ein `Boolean` für die experimentelle Option zum Aktivieren der NodeJS-Unterstü
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-Ein `Boolean`. Wenn dieses Attribut `false` die Gastseite in `webview` keinen Zugriff auf das [`remote`](remote.md) -Modul . Das Remotemodul ist standardmäßig nicht verfügbar.
+Ein `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
 
 ### `plug-ins`
 
@@ -108,19 +108,19 @@ Ein `Boolean`. Wenn dieses Attribut `false` die Gastseite in `webview` keinen Zu
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-Ein `Boolean`. Wenn dieses Attribut vorhanden ist, kann die Gastseite in `webview` Browser-Plugins verwenden. Plugins sind standardmäßig deaktiviert.
+Ein `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
-### `Vorspannung`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Ein `String` , der ein Skript angibt, das geladen wird, bevor andere Skripts auf der Seite des Gastes ausgeführt werden. Das Protokoll der SKRIPT-URL muss entweder `file:` oder `asar:`sein, da es von `require` in der Gastseite unter der Haube geladen wird.
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
 
-Wenn die Gastseite keine Knotenintegration hat, hat dieses Skript weiterhin Zugriff auf alle Knoten-APIs, aber globale Objekte, die von Node eingefügt werden, werden gelöscht, nachdem die Ausführung dieses Skripts abgeschlossen wurde.
+When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
-**Hinweis:** Diese Option wird als `preloadURL` (nicht `preload`) in der `webPreferences` angezeigt, die für das `will-attach-webview` -Ereignis angegeben ist.
+**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -128,15 +128,15 @@ Wenn die Gastseite keine Knotenintegration hat, hat dieses Skript weiterhin Zugr
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Eine `String` , die die Referrer-URL für die Gastseite festlegt.
+A `String` that sets the referrer URL for the guest page.
 
-### `Useragent`
+### `useragent`
 
 ```html
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Eine `String` , die den Benutzer-Agent für die Gastseite festlegt, bevor die Seite navigiert wird. Nachdem die Seite geladen wurde, verwenden Sie die `setUserAgent` Methode, um den Benutzer-Agent zu ändern.
+A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `disablewebsecurity`
 
@@ -144,16 +144,16 @@ Eine `String` , die den Benutzer-Agent für die Gastseite festlegt, bevor die Se
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-Ein `Boolean`. Wenn dieses Attribut vorhanden ist, ist die Websicherheit auf der Gastseite deaktiviert. Die Websicherheit ist standardmäßig aktiviert.
+Ein `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
-### `Partition`
+### `partition`
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Eine `String` , die die von der Seite verwendete Sitzung festlegt. Wenn `partition` mit `persist:`beginnt, verwendet die Seite eine persistente Sitzung, die für alle Seiten in der App mit dem gleichen `partition`verfügbar ist. if there is no `persist:` prefix, the page will use an in-memory session. Durch Zuweisen derselben `partition`können mehrere Seiten derselben Sitzung gemeinsam nutzen. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Durch Zuweisen derselben `partition`können mehrere Seiten derselben Sitzung gemeinsam nutzen. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -633,7 +633,7 @@ Rückgabewert:
 * `title` String
 * `explicitSet` Boolean
 
-Wird ausgelöst, wenn der Seitentitel während der Navigation festgelegt wird. `explicitSet` ist falsch, wenn Titel aus der Datei-URL synthetisiert wird.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Event: 'page-favicon-updated'
 
@@ -675,11 +675,11 @@ webview.addEventListener('console-message', (e) => {
 
 Rückgabewert:
 
-* `result` -Objekt
+* `result` Object
   * `requestId` Integer
-  * `activeMatchOrdinal` Ganzzahl - Position des aktiven Spiels.
-  * `matches` Ganzzahl - Anzahl der Übereinstimmungen.
-  * `selectionArea` -Rechteck - Koordinaten des ersten Übereinstimmungsbereichs.
+  * `activeMatchOrdinal` Integer - Position of the active match.
+  * `matches` Integer - Number of Matches.
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
 Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
@@ -700,7 +700,7 @@ Rückgabewert:
 
 * `url` String
 * `frameName` String
-* `disposition` String - Kann `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` und `other`sein.
+* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 Fired when the guest page attempts to open a new browser window.
@@ -725,11 +725,11 @@ Rückgabewert:
 
 * `url` String
 
-Wird angezeigt, wenn ein Benutzer oder die Seite die Navigation starten möchte. Dies kann vorkommen, wenn das `window.location` Objekt geändert wird oder ein Benutzer auf einen Link auf der Seite klickt.
+Wird angezeigt, wenn ein Benutzer oder die Seite die Navigation starten möchte. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Verwenden Sie `did-navigate-in-page` Ereignis, um diesen Zweck .
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 Calling `event.preventDefault()` does __NOT__ have any effect.
 
@@ -741,7 +741,7 @@ Rückgabewert:
 
 Emitted when a navigation is done.
 
-Dieses Ereignis wird nicht für In-Page-Navigationen angezeigt, z. B. durch Klicken auf Ankerlinks oder Aktualisieren der `window.location.hash`. Verwenden Sie `did-navigate-in-page` Ereignis, um diesen Zweck .
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Event: 'did-navigate-in-page'
 
@@ -752,7 +752,7 @@ Rückgabewert:
 
 Emitted when an in-page navigation happened.
 
-Wenn die In-Page-Navigation stattfindet, ändert sich die Seiten-URL, verursacht jedoch keine Navigation außerhalb der Seite. Beispiele hierfür sind, wenn Ankerverknüpfungen angeklickt werden oder wenn das DOM- `hashchange` -Ereignis ausgelöst wird.
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 ### Event: 'close'
 
@@ -819,7 +819,7 @@ Emittiert wenn ein Media Element anfängt zu spielen.
 
 ### Event: 'media-paused'
 
-Emittiert, wenn Medien angehalten oder die Wiedergabe beendet ist.
+Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
@@ -827,7 +827,7 @@ Rückgabewert:
 
 * `themeColor` String
 
-Emittiert, wenn sich die Designfarbe einer Seite ändert. This is usually due to encountering a meta tag:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -839,7 +839,7 @@ Rückgabewert:
 
 * `url` String
 
-Emittiert, wenn sich die Maus über einen Link bewegt oder die Tastatur den Fokus auf einen Link verschiebt.
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 ### Event: 'devtools-opened'
 
@@ -851,7 +851,7 @@ Emittiert wenn die DevTools geschlossen wurden.
 
 ### Event: 'devtools-focused'
 
-Emittiert, wenn DevTools fokussiert / geöffnet wird.
+Emitted when DevTools is focused / opened.
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
 [chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/
