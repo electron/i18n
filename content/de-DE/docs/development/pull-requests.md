@@ -12,10 +12,10 @@
   * [Schritt 7: Teste](#step-7-test)
   * [Schritt 8: Push](#step-8-push)
   * [Schritt 9: Erstelle einen Pull Request](#step-9-opening-the-pull-request)
-  * [Schritt 10: Besprechen und Aktualisieren](#step-10-discuss-and-update)
-    * [Workflow für Genehmigungs- und Anforderungsänderungen](#approval-and-request-changes-workflow)
-  * [Schritt 11: Landung](#step-11-landing)
-  * [Kontinuierliche Integrationstests](#continuous-integration-testing)
+  * [Step 10: Discuss and Update](#step-10-discuss-and-update)
+    * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
+  * [Step 11: Landing](#step-11-landing)
+  * [Continuous Integration Testing](#continuous-integration-testing)
 
 ## Einrichtung deiner Lokalen Entwicklungsumgebung
 
@@ -34,7 +34,7 @@ $ git fetch upstream
 
 Build Schritte und Abhängigkeiten unterscheiden sich leicht, abhängig von Deinem Betriebssystem. Lies hier für eine detaillierte Anleitung zum lokalen bauen von Electron Apps:
 
-* [Aufbauend auf macOS](build-instructions-macos.md)
+* [Building on macOS](build-instructions-macos.md)
 * [Bauen auf Linux](build-instructions-linux.md)
 * [Bauen auf Windows](build-instructions-windows.md)
 
@@ -42,7 +42,7 @@ Nach dem lokalen bauen des Projekts bist du startklar zum machen von Änderungen
 
 ### Schritt 3: Branch
 
-Um Ihre Entwicklungsumgebung zu organisieren, erstellen Sie lokale Branchen, um Ihre Arbeit halten. Diese sollten direkt vom `master` Verzweigungszweig verzweigt werden.
+To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
@@ -52,96 +52,96 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Schritt 4: Code
 
-Die meisten Pull-Anforderungen, die für das `electron/electron` -Repository geöffnet wurden, enthalten Änderungen am C/C++-Code im Ordner `shell/` , den JavaScript-Code im Ordner `lib/` , die Dokumentation in `docs/api/` oder Tests im Ordner `spec/` .
+Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
-Stellen Sie sicher, dass Sie von Zeit zu Zeit `npm run lint` für alle Codeänderungen ausführen, , um sicherzustellen, dass sie dem Codestil des Projekts entsprechen.
+Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
 
-Weitere Informationen zu bewährten Methoden zum Ändern von Code in verschiedenen Teilen Projekts finden Sie unter [](coding-style.md) des Codierungs stils.
+See [coding style](coding-style.md) for more information about best practice when modifying code in different parts of the project.
 
 ### Schritt 5: Commit
 
-Es wird empfohlen, ihre Änderungen logisch innerhalb einzelner -Commits gruppiert zu halten. Viele Mitwirkende finden es einfacher, Änderungen zu überprüfen, die auf mehrere Commits aufgeteilt sind. Die Anzahl der Commits in einer Pull-Anforderung ist unbegrenzt.
+It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Beachten Sie, dass mehrere Commits oft gequetscht werden, wenn sie gelandet werden.
+Note that multiple commits often get squashed when they are landed.
 
 #### Schritt 5: Commit
 
-Eine gute Commit-Nachricht sollte beschreiben, was sich geändert hat und warum. Das Electron-Projekt verwendet [semantische Commit-Nachrichten](https://conventionalcommits.org/) , um Freigabeprozess zu optimieren.
+A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-Bevor eine Pullanforderung zusammengeführt werden kann, muss **einen Pull-Anforderungstitel mit einem semantischen Präfix** haben.
+Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
 
-Beispiele für Commit-Nachrichten mit semantischen Präfixen:
+Examples of commit messages with semantic prefixes:
 
-* `fix: Prevent_default nicht überschreiben, wenn der Standardnichtwert verhindert wurde`
-* `feat: app.isPackaged()-Methode hinzufügen`
-* `docs: app.isDefaultProtocolClient ist jetzt unter Linux verfügbar`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
-Allgemeine Präfixe:
+Common prefixes:
 
-* fix: Eine Fehlerbehebung
-* feat: Eine neue Funktion
-* Dokumente: Dokumentationsänderungen
-* Test: Hinzufügen fehlender Tests oder Korrigieren vorhandener Tests
-* Build: Änderungen, die sich auf das Buildsystem auswirken
-* ci: Änderungen an unseren CI-Konfigurationsdateien und Skripten
-* perf: Eine Codeänderung, die die Leistung verbessert
-* Refactor: Eine Codeänderung, die weder einen Fehler behebt noch eine Funktion hinzufügt
-* style: Änderungen, die die Bedeutung des Codes nicht beeinflussen (Linting)
-* Anbieter: Bumping einer Abhängigkeit wie libchromiumcontent oder node
+* fix: A bug fix
+* feat: A new feature
+* docs: Documentation changes
+* test: Adding missing tests or correcting existing tests
+* build: Changes that affect the build system
+* ci: Changes to our CI configuration files and scripts
+* perf: A code change that improves performance
+* refactor: A code change that neither fixes a bug nor adds a feature
+* style: Changes that do not affect the meaning of the code (linting)
+* vendor: Bumping a dependency like libchromiumcontent or node
 
-Andere Dinge, die Sie beim Schreiben einer Commit-Nachricht beachten sollten:
+Other things to keep in mind when writing a commit message:
 
-1. Die erste Zeile sollte:
-   * enthalten eine kurze Beschreibung der Änderung (vorzugsweise 50 Zeichen oder weniger, und nicht mehr als 72 Zeichen)
-   * mit Ausnahme der richtigen Substantive, Akronyme und Wörter, die sich auf Code beziehen, wie Funktions-/Variablennamen, vollständig in Kleinbuchstaben sein
-2. Lassen Sie die zweite Zeile leer.
-3. Umschließen Sie alle anderen Zeilen mit 72 Spalten.
+1. The first line should:
+   * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+   * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+2. Keep the second line blank.
+3. Wrap all other lines at 72 columns.
 
 #### Breaking Changes
 
-Ein Commit, der den Text am Anfang seines optionalen Text- oder Fußzeilenabschnitts `BREAKING CHANGE:` hat, führt eine brechende API-Änderung ein (die mit der Haupt- in der semantischen Versionierung korreliert). Eine brechende Änderung kann Teil von Commits eines beliebigen Typs sein. z.B. ein `fix:`, `feat:` & `chore:` Typen wären alle gültig, zusätzlich zu jeder anderen Typ.
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
-Weitere Informationen finden Sie in [conventionalcommits.org](https://conventionalcommits.org) .
+See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
 ### Schritt 6: Rebase
 
-Sobald Sie Ihre Änderungen vorgenommen haben, ist es eine gute Idee, `git rebase` (nicht `git merge`) zu verwenden, um Ihre Arbeit mit dem Haupt-Repository zu synchronisieren.
+Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-Dadurch wird sichergestellt, dass Ihr Arbeitszweig die neuesten Änderungen von `electron/electron` Master hat.
+This ensures that your working branch has the latest changes from `electron/electron` master.
 
 ### Schritt 7: Teste
 
-Fehlerbehebungen und Funktionen sollten immer mit Tests kommen. Ein [Testleitfaden](testing.md) wurde bereitgestellt, um den Prozess zu vereinfachen. Ein Blick auf andere Tests, um zu sehen, wie sie strukturiert werden sollten, kann ebenfalls hilfreich sein.
+Bug fixes and features should always come with tests. A [testing guide](testing.md) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
-Führen Sie vor dem Absenden Ihrer Änderungen in einer Pull-Anforderung immer die vollständige Testsammlung aus. So führen Sie die Tests aus:
+Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 
 ```sh
 $ npm run test
 ```
 
-Stellen Sie sicher, dass der linter keine Probleme meldet und dass alle Tests erfolgreich sind. Bitte senden Sie keine Patches, die bei beiden Überprüfungen fehlschlagen.
+Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
 
-Wenn Sie Tests aktualisieren und eine einzelne Spezifikation ausführen möchten, um sie zu überprüfen:
+If you are updating tests and want to run a single spec to check it:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-Die oben genannten würden nur Spezifikationsmodule ausführen, die `menu`, was für alle nützlich ist, die an Tests arbeiten, die andernfalls ganz am Ende Testzyklus wären.
+The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
 ### Schritt 8: Push
 
-Sobald Ihre Commits bereit sind zu gehen -- mit bestandenen Tests und Fusseln -- den Prozess des Öffnens einer Pull-Anforderung beginnen, indem Sie Ihren Arbeitszweig auf GitHub an Ihre Gabel drücken.
+Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -149,24 +149,24 @@ $ git push origin my-branch
 
 ### Schritt 9: Erstelle einen Pull Request
 
-In GitHub wird Ihnen beim Öffnen einer neuen Pull-Anforderung eine Vorlage angezeigt, die ausgefüllt werden soll:
+From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
 ```markdown
 <!--
-Vielen Dank für Ihre Pull-Anfrage. Bitte geben Sie oben eine Beschreibung an und überprüfen Sie
-den folgenden Anforderungen.
+Thank you for your pull request. Please provide a description above and review
+the requirements below.
 
-Fehlerbehebungen und neue Funktionen sollten Tests und möglicherweise Benchmarks enthalten.
+Bug fixes and new features should include tests and possibly benchmarks.
 
-Leitfaden für die Beiträge: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 
-### Schritt 10: Besprechen und Aktualisieren
+### Step 10: Discuss and update
 
-Sie erhalten wahrscheinlich Feedback oder Änderungen an Ihrer Pull-Anfrage. Dies ist ein großer Teil des Einreichungsprozesses, also lassen Sie sich nicht entmutigen! Einige Beitragszahler können sich sofort für die Pull-Anfrage anmelden. Andere haben möglicherweise detaillierte Kommentare oder Feedback. Dies ist ein notwendiger Teil des Prozesses , um zu beurteilen, ob die Änderungen richtig und notwendig sind.
+You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
-Um Änderungen an einer vorhandenen Pull-Anforderung vorzunehmen, nehmen Sie die Änderungen an Ihrem lokalen -Zweig vor, fügen Sie mit diesen Änderungen einen neuen Commit hinzu, und schieben Sie diese an Ihre Forke. GitHub aktualisiert die Pull-Anforderung automatisch.
+To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
 ```sh
 $ git add my/changed/files
@@ -174,26 +174,26 @@ $ git commit
 $ git push origin my-branch
 ```
 
-Es gibt eine Reihe von erweiterten Mechanismen für die Verwaltung von Commits mit `git rebase` , die verwendet werden können, aber über den Rahmen dieses Handbuchs hinausgehen.
+There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
 
-Fühlen Sie sich frei, einen Kommentar in der Pull-Anfrage an Ping-Rezensenten zu posten, wenn Sie auf eine Antwort auf etwas warten. Wenn Sie auf Wörter oder Akronyme stoßen, die unbekannt erscheinen, lesen Sie dieses [Glossar](https://sites.google.com/a/chromium.org/dev/glossary).
+Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Workflow für Genehmigungs- und Anforderungsänderungen
+#### Approval and Request Changes Workflow
 
-Alle Pull-Anforderungen bedürfen der Genehmigung eines [Code-Besitzers](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) des Gebiets, das Sie geändert haben, um zu landen. Wenn ein Betreuer einen Pull- Anforderung überprüft, kann er Änderungen anfordern. Diese können klein sein, z. B. das Fixieren eines Tippfehlers, oder wesentliche Änderungen mit sich bringen können. Solche Anfragen sollen hilfreich sein, aber kann manchmal als abrupt oder nicht hilfreich auftreten, vor allem, wenn sie nicht konkrete Vorschläge zu *enthalten, wie* , sie zu ändern.
+All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
-Versuchen Sie, sich nicht entmutigen zu lassen. Wenn Sie der Meinung sind, dass eine Überprüfung ungerecht ist, sagen Sie dies oder suchen Sie die Eingabe eines anderen Projektbeitragenden. Oft sind solche Kommentare das Ergebnis ein Gutachter hat sich nicht genügend Zeit für die Überprüfung genommen und sind nicht schlecht gemeint. Solche Schwierigkeiten können oft mit ein wenig Geduld gelöst werden. Dennoch sollte von Gutachtern ein hilfreiches Feedback erwartet werden.
+Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feedback.
 
-### Schritt 11: Landung
+### Step 11: Landing
 
-Um zu landen, muss ein Pull-Antrag von mindestens einem Electron Code Owner überprüft und genehmigt werden und CI passieren. Wenn es danach keine Einwänden anderer Mitwirkender gibt, kann die Pull-Anforderung zusammengeführt werden.
+In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-Herzlichen Glückwunsch und Dank für Ihren Beitrag!
+Congratulations and thanks for your contribution!
 
-### Kontinuierliche Integrationstests
+### Continuous Integration Testing
 
-Jede Pull-Anforderung wird auf dem Continuous Integration (CI)-System getestet, um bestätigen, dass sie auf den unterstützten Plattformen von Electron funktioniert.
+Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
-Im Idealfall wird die Pull-Anforderung auf allen CI-Plattformen übergeben ("grün sein"). Dies bedeutet, dass alle Tests erfolgreich sind und es keine Fehler gibt. Es es jedoch nicht ungewöhnlich ist, dass die CI-Infrastruktur selbst an bestimmten -Plattformen scheitert oder dass so genannte "flaky"-Tests scheitern ("rot sein"). Jeder CI- Fehler muss manuell überprüft werden, um die Ursache zu ermitteln.
+Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
 
-CI wird automatisch gestartet, wenn Sie eine Pull-Anforderung öffnen, aber nur Core-Betreuer einen CI-Lauf neu starten können. Wenn Sie der Meinung sind, dass CI eine falsch negativ gibt, bitten Sie einen Betreuer, die Tests neu zu starten.
+CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
