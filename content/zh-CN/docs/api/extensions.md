@@ -1,107 +1,107 @@
-# 铬扩展支持
+# Chrome Extension Support
 
-电子支持 [铬扩展 API][chrome-extensions-api-index]的子集，主要支持DevTools扩展和 铬内部扩展，但它也碰巧支持一些其他 扩展功能。
+Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-index], primarily to support DevTools extensions and Chromium-internal extensions, but it also happens to support some other extension capabilities.
 
-> **注意：** 电子不支持 存储的任意 Chrome 扩展，并且电子项目的 **非目标** 与 Chrome 的扩展实施完全 兼容。
+> **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
 
-## 加载扩展
+## Loading extensions
 
-电子仅支持加载未包装的扩展（即 `.crx` 文件不 工作）。 扩展按`session`安装。 要加载扩展，请致电 [`ses.loadExtension`](session.md#sesloadextensionpath-options)：
+Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath-options):
 
 ```js
-续 { session } =要求（"电子"）
+const { session } = require('electron')
 
-会话。加载扩展（"路径/到/拆包/扩展"）然后（{ id }）=> {
-  //
+session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
+  // ...
 })
 ```
 
-加载的扩展不会跨出口自动记住：如果您 在应用运行时不呼叫 `loadExtension` ，则不会加载扩展。
+Loaded extensions will not be automatically remembered across exits; if you do not call `loadExtension` when the app runs, the extension will not be loaded.
 
-请注意，加载扩展仅在持续会话中支持。 尝试将扩展加载到内存会话中会抛出一个错误。
+Note that loading extensions is only supported in persistent sessions. Attempting to load an extension into an in-memory session will throw an error.
 
-有关 加载、卸载和查询活动扩展的更多信息，请参阅 [`session`](session.md) 文档。
+See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
 
-## 支持扩展 ABI
+## Supported Extensions APIs
 
-我们支持以下扩展 ABI，并提出了一些警告。 其他 ABI 可能 其他支持，但此处未列出的任何 ABI 的支持 临时的，可能会被删除。
+We support the following extensions APIs, with some caveats. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
 
-### `铬. 德夫图尔. 检查窗口`
+### `chrome.devtools.inspectedWindow`
 
-此 API 的所有功能都得到支持。
+All features of this API are supported.
 
-### `铬. 开发凳子. 网络`
+### `chrome.devtools.network`
 
-此 API 的所有功能都得到支持。
+All features of this API are supported.
 
-### `铬. 开发凳子. 面板`
+### `chrome.devtools.panels`
 
-此 API 的所有功能都得到支持。
+All features of this API are supported.
 
-### `铬。扩展`
+### `chrome.extension`
 
-支持 `chrome.extension` 的以下属性：
+The following properties of `chrome.extension` are supported:
 
-- `铬. 扩展. 最后`
+- `chrome.extension.lastError`
 
-支持以下 `chrome.extension` 方法：
+The following methods of `chrome.extension` are supported:
 
-- `铬.扩展。获取`
-- `铬. 扩展. 获取后地页`
+- `chrome.extension.getURL`
+- `chrome.extension.getBackgroundPage`
 
-### `铬。运行时间`
+### `chrome.runtime`
 
-支持 `chrome.runtime` 的以下属性：
+The following properties of `chrome.runtime` are supported:
 
-- `铬。 运行时间. 最后`
+- `chrome.runtime.lastError`
 - `chrome.runtime.id`
 
-支持以下 `chrome.runtime` 方法：
+The following methods of `chrome.runtime` are supported:
 
-- `铬。运行时间。获取后地页`
-- `铬。 运行时间. 获取马尼菲斯特`
-- `铬。 运行时间. 获取平台信息`
-- `铬。 运行时间. 获取`
-- `铬. 运行时间. 连接`
-- `铬。 运行时间. 发送信息`
+- `chrome.runtime.getBackgroundPage`
+- `chrome.runtime.getManifest`
+- `chrome.runtime.getPlatformInfo`
+- `chrome.runtime.getURL`
+- `chrome.runtime.connect`
+- `chrome.runtime.sendMessage`
 
-支持以下 `chrome.runtime` 活动：
+The following events of `chrome.runtime` are supported:
 
-- `铬。运行时间。启动`
-- `铬。 运行时间. 安装`
-- `铬。 运行时间. 暂停`
-- `铬。 运行时间. 暂停`
-- `铬。运行时间。连接`
-- `铬。运行时间。信息`
+- `chrome.runtime.onStartup`
+- `chrome.runtime.onInstalled`
+- `chrome.runtime.onSuspend`
+- `chrome.runtime.onSuspendCanceled`
+- `chrome.runtime.onConnect`
+- `chrome.runtime.onMessage`
 
-### `铬存储`
+### `chrome.storage`
 
-仅支持 `chrome.storage.local` ： `chrome.storage.sync` 和 `chrome.storage.managed` 不是。
+Only `chrome.storage.local` is supported; `chrome.storage.sync` and `chrome.storage.managed` are not.
 
-### `铬。`
+### `chrome.tabs`
 
-支持以下 `chrome.tabs` 方法：
+The following methods of `chrome.tabs` are supported:
 
-- `铬. 标签. 发送信息`
-- `铬. 标签. 执行脚本`
+- `chrome.tabs.sendMessage`
+- `chrome.tabs.executeScript`
 
-> **注意：在Chrome中** ，将 `-1` 作为选项卡 ID 表示"当前活动 选项卡"。 由于 Electron 没有此类概念，因此通过 `-1` 作为选项卡 ID 不会 支持，并且会产生错误。
+> **Note:** In Chrome, passing `-1` as a tab ID signifies the "currently active tab". Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
 
-### `铬管理`
+### `chrome.management`
 
-支持以下 `chrome.management` 方法：
+The following methods of `chrome.management` are supported:
 
-- `铬.管理。获取所有`
-- `铬. 管理. 获取`
-- `铬.管理。获取自我`
-- `铬.管理。获取管理警告`
-- `铬.管理.获取通过马尼菲斯特的警告`
-- `铬. 管理. 可打开`
-- `铬。管理。可解`
+- `chrome.management.getAll`
+- `chrome.management.get`
+- `chrome.management.getSelf`
+- `chrome.management.getPermissionWarningsById`
+- `chrome.management.getPermissionWarningsByManifest`
+- `chrome.management.onEnabled`
+- `chrome.management.onDisabled`
 
 ### `chrome.webRequest`
 
-此 API 的所有功能都得到支持。
+All features of this API are supported.
 
 > **注意：** 如果有冲突需要处理，Electron 的 [`webRequest`](web-request.md) 模块将优先于 `chrome.web` 。
 
