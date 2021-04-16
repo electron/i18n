@@ -1,40 +1,40 @@
 # MessageChannelMain
 
-`MessageChannelMain` 'est l’équivalent principal du côté du processus du DOM [`MessageChannel`][] objet. Sa fonction singulière est de créer une paire de objets [`MessagePortMain`](message-port-main.md) connectés.
+`MessageChannelMain` is the main-process-side equivalent of the DOM [`MessageChannel`][] object. Its singular function is to create a pair of connected [`MessagePortMain`](message-port-main.md) objects.
 
 Pour plus d'informations sur l'utilisation de la messagerie de canal, consultez la documentation de [Channel Messaging API][].
 
-## Classe: MessageChannelMain
+## Class: MessageChannelMain
 
 Processus : [Main](../glossary.md#main-process)
 
 Exemple :
 
 ```js
-Processus principal
-const { port1, port2 } = nouveau MessageChannelMain()
-w.webContents.postMessage ('port', null, [port2])
+// Main process
+const { port1, port2 } = new MessageChannelMain()
+w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 
 // Renderer process
-const { ipcRenderer } = require ('electron')
-ipcRenderer.on('port', e) => {
-  // e.ports est une liste de ports envoyés avec ce message
-  par exemple ports[0].on ('message', (messageEvent) => { console
-    .log (messageEvent.data)
+const { ipcRenderer } = require('electron')
+ipcRenderer.on('port', (e) => {
+  // e.ports is a list of ports sent along with this message
+  e.ports[0].on('message', (messageEvent) => {
+    console.log(messageEvent.data)
   })
 })
 ```
 
 ### Propriétés d'instance
 
-#### `channel.port1 (en)`
+#### `channel.port1`
 
-Une [`MessagePortMain`](message-port-main.md) propriété.
+A [`MessagePortMain`](message-port-main.md) property.
 
-#### `channel.port2 (en)`
+#### `channel.port2`
 
-Une [`MessagePortMain`](message-port-main.md) propriété.
+A [`MessagePortMain`](message-port-main.md) property.
 
 [`MessageChannel`]: https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel
 [Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API
