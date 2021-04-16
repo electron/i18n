@@ -8,31 +8,31 @@ Es wäre hilfreich sich in [Chromium's Multi-Prozess Architekture](https://dev.c
 
 ```diff
 Electron
-- Build/ - Erstellen von Konfigurationsdateien, die zum Erstellen mit GN erforderlich sind.
-- buildflags/ - Bestimmt den Satz von Features, die bedingt erstellt werden können.
-• chromium_src/- - Quellcode, der aus Chromium kopiert wurde, der nicht Teil der Inhaltsebene ist.
-- default_app/- Eine Standard-App wird ausgeführt, wenn Electron ohne
-| gestartet wird.                  Bereitstellung einer Verbraucher-App.
-- Dokumentation von Electron.
-|   Api/ - Dokumentation für die extern ausgerichteten Module und APIs von Electron.
-|   Entwicklung/ - Dokumentation zur Unterstützung bei der Entwicklung von und mit Elektron.
-|   Fiddles/ - Ein Satz von Codeausschnitten, die man in Electron Fiddle ausführen kann.
-|   Bilder/ - Bilder, die in der Dokumentation verwendet werden.
-|   Tutorial/ - Tutorial-Dokumente für verschiedene Aspekte von Electron.
-- JavaScript/TypeScript-Quellcode.
-|   Browser/ - Hauptprozessinitialisierungscode.
-|   |   Api/- API-Implementierung für Hauptprozessmodule.
-|   |   • Remote/ - Code im Zusammenhang mit dem Remote-Modul, da es
-|   |                 im Hauptprozess verwendet werden.
-|   - In Bezug auf die Logik, die sowohl von Haupt- als auch von Rendererprozessen benötigt wird.
-|   |   Api/ - API-Implementierung für Module, die in
-|   |              Sowohl die Haupt- als auch die Rendererprozesse
-|   • isolated_renderer/ - Behandelt die Erstellung isolierter Rendererprozesse, wenn
-|   |                        contextIsolation ist aktiviert.
-|   - Renderer-Prozessinitialisierungscode.
-|   |   Api/- API-Implementierung für Renderer-Prozessmodule.
-|   |   Erweiterung/ - Code für die Verwendung von Chrome Extensions
-|   |   |                im Renderer-Prozess von Electron.
+├── build/ - Build configuration files needed to build with GN.
+├── buildflags/ - Determines the set of features that can be conditionally built.
+├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
+├── default_app/ - A default app run when Electron is started without
+|                  providing a consumer app.
+├── docs/ - Electron's documentation.
+|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
+|   ├── development/ - Documentation to aid in developing for and with Electron.
+|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
+|   ├── images/ - Images used in documentation.
+|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+├── lib/ - JavaScript/TypeScript source code.
+|   ├── browser/ - Main process initialization code.
+|   |   ├── api/ - API implementation for main process modules.
+|   |   └── remote/ - Code related to the remote module as it is
+|   |                 used in the main process.
+|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   |   └── api/ - API implementation for modules that can be used in
+|   |              both the main and renderer processes
+|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
+|   |                        contextIsolation is enabled.
+|   ├── renderer/ - Renderer process initialization code.
+|   |   ├── api/ - API implementation for renderer process modules.
+|   |   ├── extension/ - Code related to use of Chrome Extensions
+|   |   |                in Electron's renderer process.
 |   |   • Remote/ - Logik, die die Verwendung des Remote-Moduls in
 |   |   |             den Hauptprozess.
 |   |   Web-View/ - Logik, die die Verwendung von Webviews im
@@ -81,7 +81,7 @@ Shell/ - C++-Quellcode.
 * **dist** - Temporäres Verzeichnis, das vom skript `script/create-dist.py` erstellt wurde, wenn eine Distribution erstellt wird.
 * **external_binaries** - Heruntergeladene Binärdateien von Drittanbieter-Frameworks, die das Erstellen mit `gn`nicht unterstützen .
 * **node_modules** - Knotenmodule von Drittanbietern, die zum Erstellen verwendet werden.
-* **npm** - Logic für die Installation von Electron via npm.
+* **npm** - Logic for installation of Electron via npm.
 * **out** - Temporäres Ausgabeverzeichnis von `ninja`.
 * **Skript** - Skripte, die für Entwicklungszwecke wie Gebäude, Verpackung, Tests usw. verwendet werden.
 
