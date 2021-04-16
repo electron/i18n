@@ -655,8 +655,8 @@ Disparado cuando la página deja la pantalla completa activada por HTML API.
 
 Devuelve:
 
-* `level` Entero - El nivel de registro, desde 0 hasta 3. Con el fin de que coincida con `verbose`, `info`, `warning` y `error`.
-* `message` String-el mensaje de la consola real
+* `level` Entero - El nivel de registro, desde 0 hasta 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
 * `line` Entero - El número de línea de la fuente que activó este mensaje de consola
 * `sourceId` Cadena
 
