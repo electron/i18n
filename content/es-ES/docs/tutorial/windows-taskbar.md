@@ -2,11 +2,11 @@
 
 ## Descripción general
 
-Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. Esta de API admite características de solo Windows [como la creación de una](#jumplist)de `JumpList`, [miniaturas y barras de herramientas](#thumbnail-toolbars), [icono superposiciones](#icon-overlays-in-taskbar)y el efecto de ["marco de Flash"](#flash-frame), y las características multiplataforma como [documentos recientes][recent-documents] y [progreso de la aplicación][progress-bar].
+Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
 
 ## JumpList
 
-Windows permite a las aplicaciones definir un menú contextual personalizado que aparece cuando los usuarios hacen clic con el botón derecho en el ícono de las aplicaciones en la barra de tareas. Ese menú contextual se llama `JumpList`. Puedes especificar acciones personalizadas en la categoría de `Tasks` de JumpList, como se cita desde [][msdn-jumplist]MSDN:
+Windows permite a las aplicaciones definir un menú contextual personalizado que aparece cuando los usuarios hacen clic con el botón derecho en el ícono de las aplicaciones en la barra de tareas. Ese menú contextual se llama `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
 
 > Las aplicaciones definen tareas basadas tanto en las características del programa como en las cosas claves que se espera que haga un usuario con ellas. Las tareas deben estar libres de contexto, en que la aplicación no necesita ejecutarse para que funcione. También deberían ser las acciones estadísticamente más comunes que un usuario normal llevaría a cabo en una aplicación, como redactar un mensaje de correo electrónico o abrir el calendario en un programa de correo, crear un nuevo documento en un procesador de texto, iniciar una aplicación en un determinado modo, o ejecuta uno de sus subcomandos. Una aplicación no debe saturar el menú con características avanzadas que los usuarios estándar no necesitarán o acciones únicas como el registro. No utilice tareas para artículos promocionales como actualizaciones u ofertas especiales.
 > 
@@ -18,7 +18,7 @@ Windows permite a las aplicaciones definir un menú contextual personalizado que
 
 A diferencia del dock menú en macOS el cual es un menú real, user tasks en Windows funcionan como atajos de aplicación. Por ejemplo, cuando un usuario pulsa en un task, el programa será ejecutado con argumentos especificados.
 
-Para configurar las tareas del usuario para tu aplicación, puedes usar [app. setUserTasks][setusertaskstasks] API.
+To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API.
 
 #### Ejemplos
 
@@ -51,11 +51,11 @@ const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-> Nota: las tareas del usuario seguirán mostrándose incluso después de cerrar tu aplicación de , por lo que debe existir el icono y la ruta del programa especificados para una tarea hasta que se desinstale tu aplicación.
+> NOTE: The user tasks will still be displayed even after closing your application, so the icon and program path specified for a task should exist until your application is uninstalled.
 
 ### Barra de tareas de Thumbnail
 
-En Windows, puedes agregar una barra de herramientas en miniatura con botones especificados a una barra de tareas diseño de una ventana de aplicación. Brinda a los usuarios una manera de acceder a un comando de ventana particular sin restaurar o activar la ventana.
+On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
 
 Como se cita desde [MSDN][msdn-thumbnail]:
 
@@ -67,7 +67,7 @@ Como se cita desde [MSDN][msdn-thumbnail]:
 
 > NOTA: La captura de pantalla anterior es un ejemplo de thumbnail toolbar del Media Player de  Windows
 
-Para configurar una barra de herramientas en miniatura en tu aplicación, debes usar [BrowserWindow. setThumbarButtons][setthumbarbuttons]
+To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons][setthumbarbuttons]
 
 #### Ejemplos
 
@@ -118,7 +118,7 @@ Como se cita desde [MSDN][msdn-icon-overlay]:
 
 > NOTA: La captura de pantalla anterior es un ejemplo de superposición en un botón de la barra de tareas
 
-Para configurar el icono de superposición de una ventana, debes usar el [BrowserWindow. setOverlayIcon][setoverlayicon] API.
+To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon][setoverlayicon] API.
 
 #### Ejemplo
 
@@ -156,8 +156,6 @@ win.flashFrame(true)
 ```
 
 > NOTA: No olvides llamar a `win.flashFrame(false)` para desactivar el destello. En el ejemplo anterior,  es llamado cuando la ventana entra en foco, pero puede que uses un temporizador o algún otro evento para desactivarlo.
-
-[msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
 
 [msdn-jumplist]: https://docs.microsoft.com/en-us/windows/win32/shell/taskbar-extensions#tasks
 
