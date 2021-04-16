@@ -1,26 +1,26 @@
-## Classe: ShareMenu
+## Class: ShareMenu
 
-> Créez un menu de partage sur macOS.
+> Create share menu on macOS.
 
 Processus : [Main](../glossary.md#main-process)
 
-La `ShareMenu` crée [share menu][share-menu] sur macOS, qui peut être utilisé pour partager des informations du contexte actuel aux applications, médias sociaux comptes, et d’autres services.
+The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
 
-Pour inclure le menu de partage comme un sous-nombre d’autres menus, s’il vous plaît utiliser `shareMenu` rôle de [`MenuItem`](menu-item.md).
+For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
 
-### `nouveau ShareMenu (sharingItem)`
+### `new ShareMenu(sharingItem)`
 
-* `sharingItem` SharingItem - L’élément à partager.
+* `sharingItem` SharingItem - The item to share.
 
-Crée un nouveau menu de partage.
+Creates a new share menu.
 
 ### Méthodes d’instance
 
-L `shareMenu` objet a les méthodes d’instance suivantes :
+The `shareMenu` object has the following instance methods:
 
-#### `shareMenu.popup ([options])`
+#### `shareMenu.popup([options])`
 
-* `options` PopupOptions (facultatif)
+* `options` PopupOptions (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
   * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `y` est déclaré.
   * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `x` est déclaré.
@@ -29,7 +29,7 @@ L `shareMenu` objet a les méthodes d’instance suivantes :
 
 Dépile ce menu sous la forme d'un menu contextuel dans la [`BrowserWindow`](browser-window.md).
 
-#### `shareMenu.closePopup ([browserWindow])`
+#### `shareMenu.closePopup([browserWindow])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
 
