@@ -1336,7 +1336,7 @@ A [`CommandLine`](./command-line.md) object that allows you to read and manipula
 
 
 
-### `app.dock` __ _macOS Readonly_
+### `app.dock` _macOS_ _Readonly_
 
 A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
 
@@ -1372,7 +1372,7 @@ The intention is for these overrides to become disabled by default and then at s
 
 
 
-### `app.runningUnderRosettaTranslation` __ _macOS Readonly_
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
 A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
