@@ -1,26 +1,26 @@
-## 类： 共享梅努
+## Class: ShareMenu
 
-> 在 macOS 上创建共享菜单。
+> Create share menu on macOS.
 
 进程：[主进程](../glossary.md#main-process)
 
-`ShareMenu` 类在 macOS 上创建 [共享菜单][share-menu] ，可用于 共享从当前上下文到应用、社交媒体 帐户和其他服务的信息。
+The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
 
-有关将共享菜单作为其他菜单的子菜单，请使用 [`MenuItem`](menu-item.md)的 `shareMenu` 角色。
+For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
 
-### `新共享梅努（共享网站）`
+### `new ShareMenu(sharingItem)`
 
-* `sharingItem` 共享网站 - 要共享的项目。
+* `sharingItem` SharingItem - The item to share.
 
-创建新的共享菜单。
+Creates a new share menu.
 
 ### 实例方法
 
-`shareMenu` 对象具有以下实例方法：
+The `shareMenu` object has the following instance methods:
 
-#### `分享梅努. 弹出窗口 （[options]）`
+#### `shareMenu.popup([options])`
 
-* `options` 弹出选项（可选）
+* `options` PopupOptions (optional)
   * `browserWindow` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
   * `x` Number (可选) - 默认为当前鼠标的位置。 如果指定了`y`，则该选项必选。
   * `y` Number (可选) - 默认为当前鼠标的位置。 如果指定了`x`，则该选项必选。
@@ -32,7 +32,7 @@
 
 
 <h4 spaces-before="0">
-  <code>分享梅努. 特写 （[browserWindow]）</code>
+  <code>shareMenu.closePopup([browserWindow])</code>
 </h4>
 
 <ul>
