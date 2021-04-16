@@ -1994,21 +1994,21 @@ Devolução `String` - Retorna a Política de Manuseio de IP do WebRTC.
 
   * `default_public_and_private_interfaces` - Expõe os IPs públicos e locais do usuário . Quando esta política for usada, o WebRTC deve usar apenas a rota padrão usada por http. Isso também expõe o endereço privado padrão associado. A rota padrão é a rota escolhida pelo SO em um ponto final multi-homed.
 
-  * `disable_non_proxied_udp` - Não expõe IPs públicos ou locais. Quando essa política de for usada, o WebRTC só deve usar o TCP para contatar pares ou servidores, a menos que servidor proxy suporte o UDP.
+  * `disable_non_proxied_udp` - Não expõe IPs públicos ou locais. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Definir a política de manipulação de IP do WebRTC permite que você controle quais IPs estão expostos via WebRTC. Consulte [browserLeaks](https://browserleaks.com/webrtc) para mais detalhes.
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 
 
 #### `contents.getOSProcessId()`
 
-Devoluções `Integer` - O sistema operacional `pid` do processo de renderizador associado.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
 
 
 
 #### `contents.getProcessId()`
 
-Retorna `Integer` - A `pid` interna do Cromo do renderizador associado. Pode ser comparado com o `frameProcessId` passado por de navegação específicos de quadro (por exemplo. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 
 
@@ -2016,7 +2016,7 @@ Retorna `Integer` - A `pid` interna do Cromo do renderizador associado. Pode ser
 
 * `filePath` String - Path to the output file.
 
-Devoluções `Promise<void>` - Indica se o snapshot foi criado com sucesso.
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
 Tira um instantâneo de pilha V8 e salva-o para `filePath`.
 
@@ -2024,21 +2024,21 @@ Tira um instantâneo de pilha V8 e salva-o para `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
-Retorna `Boolean` - se este WebContents irá ou não acelerar animações e temporizadores quando a página ficar em segundo plano. Isso também afeta a API de visibilidade da página.
+Returns `Boolean` - whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Isso também afeta a API de visibilidade da página.
 
 
 
-#### `conteúdo.setBackgroundThrottling (permitido)`
+#### `contents.setBackgroundThrottling(allowed)`
 
-* `allowed` Booleano
+* `allowed` Boolean
 
-Controla se este WebContents irá ou não acelerar animações e temporizadores quando a página ficar em segundo plano. Isso também afeta a API de visibilidade da página.
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Isso também afeta a API de visibilidade da página.
 
 
 
 #### `contents.getType()`
 
-Retorna `String` - o tipo de webContent. Pode ser `backgroundPage`, `window`, `browserView`, `remote`, `webview` ou `offscreen`.
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 
 
@@ -2046,83 +2046,83 @@ Retorna `String` - o tipo de webContent. Pode ser `backgroundPage`, `window`, `b
 
 
 
-#### `conteúdo.audioMuted`
+#### `contents.audioMuted`
 
-Uma propriedade `Boolean` que determina se esta página é silenciada.
+A `Boolean` property that determines whether this page is muted.
 
 
 
 #### `contents.userAgent`
 
-Uma propriedade `String` que determina o usuário para esta página da Web.
+A `String` property that determines the user agent for this web page.
 
 
 
-#### `conteúdo.zoomLevel`
+#### `contents.zoomLevel`
 
-Uma propriedade `Number` que determina o nível de zoom para este conteúdo da Web.
+A `Number` property that determines the zoom level for this web contents.
 
-O tamanho original é 0 e cada incremento acima ou abaixo representa um zoom de 20% maior ou menor para limites padrão de 300% e 50% do tamanho original, respectivamente. A fórmula para isso é `scale := 1.2 ^ level`.
-
-
-
-#### `conteúdo.zoomFactor`
-
-Uma propriedade `Number` que determina o fator zoom para este conteúdo da Web.
-
-O fator zoom é a porcentagem de zoom dividida por 100, então 300% = 3,0.
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
 
 
-#### `conteúdo.frameRate`
+#### `contents.zoomFactor`
 
-Uma propriedade `Integer` que define a taxa de quadros do conteúdo da Web para o número especificado. Apenas valores entre 1 e 240 são aceitos.
+A `Number` property that determines the zoom factor for this web contents.
 
-Só é aplicável se *renderização offscreen* estiver ativada.
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
+
+
+
+#### `contents.frameRate`
+
+An `Integer` property that sets the frame rate of the web contents to the specified number. Apenas valores entre 1 e 240 são aceitos.
+
+Only applicable if *offscreen rendering* is enabled.
 
 
 
 #### `contents.id` _Readonly_
 
-Um `Integer` representando o ID exclusivo deste WebContents. Cada ID é único entre todas as `WebContents` instâncias de toda a aplicação electron.
+A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
 
 
 
 #### `contents.session` _Readonly_
 
-Uma [`Session`](session.md) usada por este webContents.
+A [`Session`](session.md) used by this webContents.
 
 
 
 #### `contents.hostWebContents` _Readonly_
 
-Um caso [`WebContents`](web-contents.md) que pode ser dono deste `WebContents`.
+A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
 
 
 #### `contents.devToolsWebContents` _Readonly_
 
-Uma propriedade `WebContents | null` que representa o de DevTools `WebContents` associada a uma determinada `WebContents`.
+A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
-**Nota:** Os usuários nunca devem armazenar esse objeto porque ele pode se tornar `null` quando o DevTools for fechado.
+**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
 
 
 #### `contents.debugger` _Readonly_
 
-Um [`Debugger`](debugger.md) exemplo para este webContents.
+A [`Debugger`](debugger.md) instance for this webContents.
 
 
 
-#### `conteúdo.backgroundThrottling`
+#### `contents.backgroundThrottling`
 
-Uma propriedade `Boolean` que determina se este WebContents irá ou não acelerar animações e temporizadores quando a página ficar em segundo plano. Isso também afeta a API de visibilidade da página.
+A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Isso também afeta a API de visibilidade da página.
 
 
 
 #### `contents.mainFrame` _Readonly_
 
-Uma propriedade [`WebFrameMain`](web-frame-main.md) que representa o quadro superior da hierarquia de quadros da página.
+A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
