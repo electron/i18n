@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Devuelve:
 * `window` Navegador Windows
-* Objeto `details`
+* `details` Object
     * `url` String-URL para la ventana creada.
     * `frameName` string-name dado a la ventana creada en la `window.open()` llamada.
     * `options` BrowserWindowConstructorOptions-las opciones usadas para crear el BrowserWindow. Se fusionan en una precedencia creciente: opciones heredadas desde el padre, opciones analizadas de la cadena `features` de `window.open()`, y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Las opciones no reconocidas no se filtran.
@@ -335,18 +335,18 @@ Emitido cuando el proceso se crashea o es terminado.
 Devuelve:
 
 * `event` Event
-* Objeto `details`
-  * `reason` String-la razón por la que el proceso de renderizado se ha ido.  Posibles valores:
-    * `clean-exit` -proceso salido con un código de salida de cero
-    * `abnormal-exit` -proceso salido con un código de salida distinto a cero
-    * `killed` -proceso fue enviado un SIGTERM o asesinado externamente
-    * `crashed` -Process se estrelló
-    * `oom` -Process se quedó sin memoria
+* `details` Object
+  * `reason` String - The reason the render process is gone.  Posibles valores:
+    * `clean-exit` - Process exited with an exit code of zero
+    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `crashed` - Process crashed
+    * `oom` - Process ran out of memory
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` -las verificaciones de integridad de código de Windows fallaron
+    * `integrity-failure` - Windows code integrity checks failed
   * `exitCode` Integer - El código de salida del proceso, a menos que `reason` sea `launch-failed`, en cuyo caso `exitCode` será un código de error de ejecución especifico de la plataforma.
 
-Emitido cuando el renderer process desaparece inesperadamente.  Esto suele ser porque fue estrellado o asesinado.
+Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
 
 #### Evento: "unresponsive"
 
@@ -668,8 +668,8 @@ Emitido cuando se ha adjuntado un `<webview>` a este contenido web.
 Devuelve:
 
 * `event` Event
-* `level` Entero - El nivel de registro, desde 0 hasta 3. Con el fin de que coincida con `verbose`, `info`, `warning` y `error`.
-* `message` String-el mensaje de la consola real
+* `level` Entero - El nivel de registro, desde 0 hasta 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
 * `line` Entero - El número de línea de la fuente que activó este mensaje de consola
 * `sourceId` Cadena
 
@@ -1017,7 +1017,7 @@ Ignora los accesos directos del menú de la aplicación mientras se enfoca los c
 #### `contents.setWindowOpenHandler(handler)`
 
 * Función `handler`<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * Objeto `details`
+  * `details` Object
     * `url` String - La versión _resuelta_ de la URL pasada a `window.open()`. por ejemplo una ventana con `window.open('foo')` producirá algo como `https://the-origin/the/current/path/foo`.
     * `frameName` String - Nombre de la ventana proporcionado en `window.open()`
     * `features` String - Lista separada por coma de la características de ventana proporcionada a `window.open()`.
@@ -1538,7 +1538,7 @@ ipcMain.on('ping', (event) => {
 
 * `channel` Cadena
 * `mensaje` cualquiera
-* `transfer` MessagePortMain [] (opcional)
+* `transfer` MessagePortMain[] (optional)
 
 Envía un mensaje al renderer process, transfiriendo opcionalmente la propiedad de cero o más objetos [`MessagePortMain`][].
 
