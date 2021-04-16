@@ -6,5 +6,5 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `novas opções do TouchBarGroup (opções)`
 
-* objeto `options`
+* `options` Object
   * `items` [TouchBar](touch-bar.md) - Itens para exibir em grupo.
