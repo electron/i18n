@@ -4,19 +4,19 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-### `新的触摸栏（选项）`
+### `new TouchBarScrubber(options)`
 
 * `选项` 对象
   * `items` [ScrubberItem[]](structures/scrubber-item.md) 一个数组，表示 scrubber 里的项目。
-  * `select` 功能（可选） - 当用户点击不是最后一个点击项的项目时调用。
+  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - 用户选中项排序。
-  * `highlight` 功能（可选） - 当用户点击任何项目时调用。
+  * `highlight` Function (optional) - Called when the user taps any item.
     * highlightedIndex Integer - 用户选中项排序.
-  * `selectedStyle` 字符串（可选） - 选定的项目样式。 可以 `background`， `outline` 或 `none`。 `none`的默认值。
-  * `overlayStyle` 字符串（可选） - 选定的叠加项目样式。 可以 `background`， `outline` 或 `none`。 `none`的默认值。
-  * `showArrowButtons` 布尔（可选） - 默认 `false`。
-  * `mode` 字符串（可选） - 可以 `fixed` 或 `free`。 默认值为 `free`。
-  * `continuous` 布尔（可选） - 默认 `true`。
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
+  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
+  * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### 实例属性
 
@@ -32,7 +32,7 @@
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射到`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `none` - 删除所有样式。
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,19 +40,19 @@
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射到`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `none` - 删除所有样式。
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.showArrowButtons`
 
-代表是否在此洗涤器中显示左/右选择箭头的 `Boolean` 。 更新此值 立即更新触摸栏中的控制。
+A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
 
 #### `touchBarScrubber.mode`
 
-代表此洗涤器模式的 `String` 。 改变这个值会立刻刷新touch bar内的控件。 可选值：
+A `String` representing the mode of this scrubber. 改变这个值会立刻刷新touch bar内的控件。 可选值：
 
 * `fixed` - 映射到`NSScrubberModeFixed`
 * `free` - 映射到`NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-代表此洗涤器是否连续的 `Boolean` 。 改变这个值会立刻刷新touch bar内的控件。
+A `Boolean` representing whether this scrubber is continuous or not. 改变这个值会立刻刷新touch bar内的控件。
