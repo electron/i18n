@@ -9,13 +9,13 @@
 Вы также можете получить доступ к `session` существующих страниц, используя свойство `session` в [`WebContents`](web-contents.md), или из модуля `session`.
 
 ```javascript
-const { BrowserWindow } - требуют ('электрон')
+const { BrowserWindow } = require('electron')
 
-const win - новый BrowserWindow ({ width: 800, height: 600 })
-win.loadURL ('http://github.com')
+const win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com')
 
-const ses - win.webContents.session
-console.log (ses.getUserAgent())
+const ses = win.webContents.session
+console.log(ses.getUserAgent())
 ```
 
 ## Методы
@@ -82,39 +82,39 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Событие: 'расширение загружено'
+#### Event: 'extension-loaded'
 
 Возвращает:
 
 * `event` Event
-* `extension` [расширение](structures/extension.md)
+* `extension` [Extension](structures/extension.md)
 
-Излучается после загрузки расширения. Это происходит всякий раз, когда добавляется в "включенный" набор расширений. Это включает в себя:
+Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. Это включает в себя:
 
-- Расширения загружаются из `Session.loadExtension`.
-- Перезагружаемые расширения:
-  * от аварии.
-  * если расширение просил его ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
+- Extensions being loaded from `Session.loadExtension`.
+- Extensions being reloaded:
+  * from a crash.
+  * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
 
-#### Событие: «выгруженное расширение»
-
-Возвращает:
-
-* `event` Event
-* `extension` [расширение](structures/extension.md)
-
-Излучается после выгрузки расширения. Это происходит, `Session.removeExtension` называется.
-
-#### Событие: 'продление готово'
+#### Event: 'extension-unloaded'
 
 Возвращает:
 
 * `event` Event
-* `extension` [расширение](structures/extension.md)
+* `extension` [Extension](structures/extension.md)
 
-Испускаемый после загрузки расширения и все необходимое состояние инициализирован для поддержки начала фоновой страницы расширения.
+Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
 
-#### Событие: 'preconnect'
+#### Event: 'extension-ready'
+
+Возвращает:
+
+* `event` Event
+* `extension` [Extension](structures/extension.md)
+
+Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
+
+#### Event: 'preconnect'
 
 Возвращает:
 
@@ -124,103 +124,103 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Возникает, когда в процессе рендеринга запрашивается предварительное подключение к URL, как правило, из-за [подсказки ресурса](https://w3c.github.io/resource-hints/).
 
-#### Событие: 'spellcheck-словарь-инициализированный'
+#### Event: 'spellcheck-dictionary-initialized'
 
 Возвращает:
 
 * `event` Event
-* `languageCode` строка - языковой код словарного файла
+* `languageCode` String - The language code of the dictionary file
 
-Испускаемый при успешной инициале словаря hunspell. Это происходит после загрузки файла.
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
-#### Событие: 'spellcheck-dictionary-download-begin'
-
-Возвращает:
-
-* `event` Event
-* `languageCode` строка - языковой код словарного файла
-
-Излучаемый, когда файл словаря hunspell начинает загрузку
-
-#### Событие: 'spellcheck-dictionary-download-success'
+#### Event: 'spellcheck-dictionary-download-begin'
 
 Возвращает:
 
 * `event` Event
-* `languageCode` строка - языковой код словарного файла
+* `languageCode` String - The language code of the dictionary file
 
-Излучаемый при успешной загрузке словаря hunspell
+Emitted when a hunspell dictionary file starts downloading
 
-#### Событие: 'spellcheck-dictionary-download-failure'
-
-Возвращает:
-
-* `event` Event
-* `languageCode` строка - языковой код словарного файла
-
-Испускаемый при с загрузке словаря hunspell не удается.  Для получения информации о сбое вы должны собрать netlog и проверить загрузку запроса.
-
-#### Событие: «выбор-серийный порт» _экспериментальный_
+#### Event: 'spellcheck-dictionary-download-success'
 
 Возвращает:
 
 * `event` Event
-* `portList` [Серийныйпорт](structures/serial-port.md)
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+Возвращает:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
+
+#### Event: 'select-serial-port' _Experimental_
+
+Возвращает:
+
+* `event` Event
+* `portList` [SerialPort[]](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 * `callback` Function
-  * `portId` Струна
+  * `portId` String
 
-Испускаемый при выборе последовательного порта при вызове `navigator.serial.requestPort` делается. `callback` должны быть вызваны с `portId` , которые будут выбраны, передавая пустую строку `callback` , отменить запрос.  Кроме того, разрешение `navigator.serial` может управляться с помощью [ses.setPermissionCheckHandler (обработчик)](#sessetpermissioncheckhandlerhandler) с `serial` разрешения.
+Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
 
-Поскольку это экспериментальная функция, она отключена по умолчанию.  Чтобы включить эту функцию, вам нужно будет использовать `--enable-features=ElectronSerialChooser` переключатель командной строки.  Кроме , потому что это экспериментальная функция Chromium вам нужно будет установить `enableBlinkFeatures: 'Serial'` на `webPreferences` при открытии BrowserWindow.
+Because this is an experimental feature it is disabled by default.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
 
 ```javascript
-const { app, BrowserWindow } требуют ('электрон')
+const { app, BrowserWindow } = require('electron')
 
-выиграть и аннулировать
-app.commandLine.appendSwitch ('enable-features', 'ElectronSerialChooser')
+let win = null
+app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
 
-app.whenReady ()..,тогда (()) -> -
-  выиграть - новый BrowserWindow (ширина
-    : 800,
-    высота: 600,
+app.whenReady().then(() => {
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
     webPreferences: {
       enableBlinkFeatures: 'Serial'
     }
-  )
-  win.webContents.session.on,'select-serial-port', (событие, portList, обратный вызов) -> -
+  })
+  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
     event.preventDefault()
-    const selectedPort - portList.find (((устройство) -> -
-      return device.vendorId - 0x2341 && device.productId 0x0043
-    )
-    если (!выбранныйПорт) -
-      обратный вызов (')
-    -
-      обратный вызов (result1.portId)
-
-  )
-)
+    const selectedPort = portList.find((device) => {
+      return device.vendorId === 0x2341 && device.productId === 0x0043
+    })
+    if (!selectedPort) {
+      callback('')
+    } else {
+      callback(result1.portId)
+    }
+  })
+})
 ```
 
-#### Событие: «серийный порт-добавленный» _экспериментальный_
+#### Event: 'serial-port-added' _Experimental_
 
 Возвращает:
 
 * `event` Event
-* `port` [Серийный](structures/serial-port.md)
+* `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Излучаемый `navigator.serial.requestPort` был вызван и `select-serial-port` уволен, если новый серийный порт становится доступным.  Например, это событие заготовит при подключении нового USB-устройства.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
 
-#### Событие: «серийный порт-удален» _экспериментальный_
+#### Event: 'serial-port-removed' _Experimental_
 
 Возвращает:
 
 * `event` Event
-* `port` [Серийный](structures/serial-port.md)
+* `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Излучаемый после `navigator.serial.requestPort` был вызван и `select-serial-port` он выстрелил, если серийный порт был удален.  Например, это событие заготовит при отключении USB-устройства.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
 
 ### Методы экземпляра
 
@@ -240,8 +240,8 @@ app.whenReady ()..,тогда (()) -> -
 
 * `options` Object (опционально)
   * `origin` String (опционально) - Должен следовать представлению `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. Если не указаны, очистите все типы хранения.
-  * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`. Если не указано, очистить все квоты.
+  * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
+  * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
 
 Возвращает `Promise<void>` - Разрешение после завершения очистки данных хранилища.
 
@@ -251,24 +251,24 @@ app.whenReady ()..,тогда (()) -> -
 
 #### `ses.setProxy(config)`
 
-* `config` объект
-  * `mode` String (необязательно) - режим прокси. Должен быть одним из `direct`, `auto_detect`, `pac_script`, `fixed_servers` или `system`. Если он не , он будет автоматически определяться на основе других указанных вариантов.
-    * `direct` В прямом режиме все соединения создаются непосредственно, без каких-либо прокси участие.
-    * `auto_detect` В auto_detect режиме конфигурация прокси определяется скриптом PAC, который быть загружен http://wpad/wpad.dat.
-    * `pac_script` В pac_script режиме конфигурация прокси определяется скриптом PAC, который из URL-адреса, указанного в `pacScript`. Это режим по умолчанию если `pacScript` указан.
-    * `fixed_servers` В fixed_servers режиме конфигурация прокси указана в `proxyRules`. Это режим по умолчанию, `proxyRules` указана.
-    * `system` В системном режиме конфигурация прокси взята из операционной системы. Обратите внимание, что режим системы отличается от настройки конфигурации прокси. В последнем случае Electron возвращается к настройкам системы только если параметры командной строки не влияют на конфигурацию прокси.
-  * `pacScript` String (необязательно) - URL,ассоциативный с файлом PAC.
-  * `proxyRules` String (необязательно) - Правила, указывающие, какие прокси использовать.
-  * `proxyBypassRules` String (необязательно) - Правила, указывающие, какие URL должны обойти настройки прокси.
+* `config` Object
+  * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
+    * `direct` In direct mode all connections are created directly, without any proxy involved.
+    * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
+    * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. This is the default mode if `pacScript` is specified.
+    * `fixed_servers` In fixed_servers mode the proxy configuration is specified in `proxyRules`. This is the default mode if `proxyRules` is specified.
+    * `system` In system mode the proxy configuration is taken from the operating system. Note that the system mode is different from setting no proxy configuration. In the latter case, Electron falls back to the system settings only if no command-line options influence the proxy configuration.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Возвращает `Promise<void>` - Разрешение после завершения процесса настройки прокси.
 
 Установка настроек прокси.
 
-Когда `mode` не определена, `pacScript` и `proxyRules` предоставлены вместе, `proxyRules` вариант игнорируется и `pacScript` конфигурация.
+When `mode` is unspecified, `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-Возможно, вам `ses.closeAllConnections` закрыть в настоящее время в полете соединения, чтобы предотвратить разъемы с использованием предыдущих прокси от повторного использования будущих запросов.
+You may need `ses.closeAllConnections` to close currently in flight connections to prevent pooled sockets using previous proxy from being reused by future requests.
 
 `proxyRules` должен следовать следующим правилам:
 
@@ -302,7 +302,7 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 
    Соответствует суффиксу конкретного домена.
 
-   Примеры: ".google.com", ".com", "http://.google.com"
+   Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
 
@@ -312,13 +312,13 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
-   Матч любой URL, который является IP буквальное, что падает между данного диапазона. Диапазон IP указан с помощью нотации CIDR.
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
 
    Например: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
-   Матч местных адресов. Смысл игры `<local>` , будет ли один из: "127.0.0.0.1", ":1", "localhost".
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -328,21 +328,21 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 
 #### `ses.forceReloadProxyConfig()`
 
-Возвращает `Promise<void>` - Разрешает, когда все внутренние состояния прокси-сервиса сбрасывается и последняя конфигурация прокси повторно, если она уже доступна. Сценарий pac будет извлечен из `pacScript` , если режим прокси- `pac_script`.
+Returns `Promise<void>` - Resolves when the all internal states of proxy service is reset and the latest proxy configuration is reapplied if it's already available. The pac script will be fetched from `pacScript` again if the proxy mode is `pac_script`.
 
 #### `ses.setDownloadPath(path)`
 
 * `path` String - Место загрузки.
 
-Наборы каталога экономии загрузки. По умолчанию каталог загрузки будет самым `Downloads` под соответствующей папкой приложения.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (по желанию) - следует ли эмулировать отключение сети. Defaults to false.
-  * `latency` (необязательно) - RTT в мс. По умолчанию до 0, который отключит задержки регулирования.
-  * `downloadThroughput` (необязательно) - Скорость загрузки в Bps. По умолчанию до 0 который отключит регулирование загрузки.
-  * `uploadThroughput` (по желанию) - Скорость загрузки в Bps. По умолчанию до 0 который отключит регулирование загрузки.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 Эмулирует сеть с заданной конфигурацией для `session`.
 
@@ -361,32 +361,32 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 #### `ses.preconnect(options)`
 
 * `options` Object
-  * `url` String - URL для при подключения. Только происхождение имеет отношение к открытию розетки.
-  * `numSockets` (по желанию) - количество розеток для подключения. Должно быть, от 1 до 6. По умолчанию до 1.
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
-Подключается данное количество розеток к источнику.
+Preconnects the given number of sockets to an origin.
 
 #### `ses.closeAllConnections()`
 
-Возвращает `Promise<void>` - Разрешает, когда все соединения закрыты.
+Returns `Promise<void>` - Resolves when all connections are closed.
 
-**Примечание:** он будет прекратить / не все запросы в настоящее время в полете.
+**Note:** It will terminate / fail all requests currently in flight.
 
 #### `ses.disableNetworkEmulation()`
 
-Отключает любую сетевую эмуляцию, уже активную для `session`. Сбросы для исходной конфигурации сети.
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` функции | Null
+* `proc` Function | null
   * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `validatedCertificate` [сертификат](structures/certificate.md)
+    * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Результат проверки из хрома.
     * `errorCode` Integer - Код ошибки.
   * `callback` Function
-    * `verificationResult` Integer - Значение может быть одним из кодов ошибок сертификата, из [здесь](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). Помимо кодов ошибок сертификата, могут быть использованы следующие специальные коды.
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - Указывает на успех и отключает проверку прозрачности сертификата.
       * `-2` - указывает на сбой.
       * `-3` - Использует результат проверки из хрома.
@@ -396,113 +396,113 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 Вызов `setCertificateVerifyProc (null)` приведет к возврату к процедуре проверки сертификата по умолчанию.
 
 ```javascript
-const { BrowserWindow } требуют ('электрон')
-const win - новый BrowserWindow ()
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
 
-win.webContents.session.setCertificateVerifyProc ((запрос, обратный вызов)>
-  const { hostname } - запрос
-  , если (имя хоста - 'github.com') -
-    обратный вызов (0)
-  - еще
-    обратный вызов (-2)
-
-)
+win.webContents.session.setCertificateVerifyProc((request, callback) => {
+  const { hostname } = request
+  if (hostname === 'github.com') {
+    callback(0)
+  } else {
+    callback(-2)
+  }
+})
 ```
 
-> **ПРИМЕЧАНИЕ:** Результат этой процедуры кэширован сетевой службой.
+> **NOTE:** The result of this procedure is cached by the network service.
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` функции | Null
-  * `webContents` [WebContents](web-contents.md) - WebContents запрашивает разрешение.  Пожалуйста, обратите внимание, что если запрос исходит от подрамник вы должны `requestingUrl` для проверки происхождения запроса.
-  * `permission` Строка - Тип запрошенного разрешения.
-    * `clipboard-read` - Запрос доступа к считывку с буфера обмена.
-    * `media` - Запрос доступа к медиа-устройствам, таким как камера, микрофон и динамики.
-    * `display-capture` - Запрос доступа для захвата экрана.
-    * `mediaKeySystem` - Запрос доступа к защищенному drM контенту.
-    * `geolocation` - Запрос доступа к текущему местоположению пользователя.
-    * `notifications` - Создание уведомлений и возможность отображения их в лотке системы пользователя.
-    * `midi` - Запрос доступа MIDI в `webmidi` API.
-    * `midiSysex` - Запросите использование системных эксклюзивных сообщений в `webmidi` API.
-    * `pointerLock` - Просьба непосредственно интерпретировать движения мыши как входной метод. Нажмите [здесь](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) чтобы узнать больше.
-    * `fullscreen` - Запрос на приложение, чтобы войти в полноэкранный режим.
-    * `openExternal` - Запрос на открытие ссылок во внешних приложениях.
+* `handler` Function | null
+  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - The type of requested permission.
+    * `clipboard-read` - Request access to read from the clipboard.
+    * `media` -  Request access to media devices such as camera, microphone and speakers.
+    * `display-capture` - Request access to capture the screen.
+    * `mediaKeySystem` - Request access to DRM protected content.
+    * `geolocation` - Request access to user's current location.
+    * `notifications` - Request notification creation and the ability to display them in the user's system tray.
+    * `midi` - Request MIDI access in the `webmidi` API.
+    * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
+    * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
+    * `fullscreen` - Request for the app to enter fullscreen mode.
+    * `openExternal` - Request to open links in external applications.
   * `callback` Function
-    * `permissionGranted` Boolean - Разрешить или отказать в разрешении.
-  * `details` объект - Некоторые свойства доступны только на определенных типах разрешений.
-    * `externalURL` String (по желанию) - URL-адрес `openExternal` запроса.
-    * `mediaTypes` String ( по желанию) - Типы запрашиваемого доступа к средствам массовой информации, элементы могут быть `video` или `audio`
-    * `requestingUrl` Строка - Последний URL запрашивающий кадр загружен
-    * `isMainFrame` Boolean - Является ли кадр, делая запрос, основным кадром
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `details` Object - Some properties are only available on certain permission types.
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Устанавливает обработчик, который может быть использован для ответа на запросы о разрешении на `session`. Вызов `callback(true)` позволит разрешение, и `callback(false)` будет отвергать его. Чтобы очистить обработчик, позвоните `setPermissionRequestHandler(null)`.
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
-const { session } - требуют ('электрон')
-session.fromPartition ('some-partition').setPermissionRequestHandler ((webContents, разрешение, обратный вызов) -> -
-  если (webContents.getURL.) - "некоторый хост" && разрешение на "уведомления") -
-    обратный обратный вызов (ложный) // отказано.
-  -
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return callback(false) // denied.
+  }
 
-  обратный вызов (истинный)
-)
+  callback(true)
+})
 ```
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function\<Boolean> | Null
-  * `webContents` [WebContents](web-contents.md) - WebContents проверки разрешения.  Пожалуйста, обратите внимание, что если запрос исходит от подрамник вы должны `requestingUrl` для проверки происхождения запроса.
-  * `permission` Строка - Тип проверки разрешения.  Действительные значения являются `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, или `serial`.
-  * `requestingOrigin` Строка - URL-адрес разрешения
-  * `details` объект - Некоторые свойства доступны только на определенных типах разрешений.
-    * `securityOrigin` String - Происхождение безопасности `media` проверки.
-    * `mediaType` String - Тип запрашиваемого доступа к средствам массовой информации, может быть `video`, `audio` или `unknown`
-    * `requestingUrl` Строка - Последний URL запрашивающий кадр загружен
-    * `isMainFrame` Boolean - Является ли кадр, делая запрос, основным кадром
+* `handler` Function\<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `details` Object - Some properties are only available on certain permission types.
+    * `securityOrigin` String - The security origin of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Устанавливает обработчик, который может быть использован для ответа на проверку разрешений для `session`. Возвращение `true` позволит разрешение, и `false` будет отвергать его. Чтобы очистить обработчик, позвоните `setPermissionCheckHandler(null)`.
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 
 ```javascript
-const { session } требуют ('электрон')
-session.fromPartition ('some-partition').setPermissionCheckHandler ((webContents, разрешение) ->
-  если (webContents.getURL() - "некоторое-хозяин" && разрешение на "уведомления") -
-    возвращение ложное // отказано
-  -
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return false // denied
+  }
 
-  возврат истинных
-)
+  return true
+})
 ```
 
 #### `ses.clearHostResolverCache()`
 
-Возвращает `Promise<void>` - Разрешается, когда операция завершена.
+Returns `Promise<void>` - Resolves when the operation is complete.
 
-Очищает кэш разрешения хоста.
+Clears the host resolver cache.
 
-#### `ses.allowNTLMCredentialsForDomains (домены)`
+#### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - запятый список серверов, для которых включена интегрированная аутентификация.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Динамически устанавливает, следует ли всегда отправлять учетные данные для HTTP NTLM или аутентификации.
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
-const { session } требует ('electron')
-// рассмотрите любой URL, заканчивающийся 'example.com', 'foobar.com', 'baz'
-// для интегрированной аутентификации.
-session.defaultSession.allowNTLMCredentialsForDomains (пример.com, No foobar.com, база)
+const { session } = require('electron')
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
+session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// рассмотрите все URL-адреса для интегрированной аутентификации.
-session.defaultSession.allowNTLMCredentialsForDomains ('')
+// consider all urls for integrated authentication.
+session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
-#### `ses.setUserAgent (пользовательАгент, принятьLanguages)`
+#### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` строка (по желанию)
+* `acceptLanguages` String (optional)
 
-Переопределяет `userAgent` и `acceptLanguages` для этой сессии.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-В `acceptLanguages` должны быть разделены запятые упорядоченный список языковых кодов, например например `"en-US,fr,de,ko,zh-CN,ja"`.
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
 Это не влияет на существующие `WebContents`, и каждый `WebContents` можете использовать `webContents.setUserAgent` для переопределения пользовательского агента в ширину сеанса.
 
@@ -516,7 +516,7 @@ session.defaultSession.allowNTLMCredentialsForDomains ('')
 
 #### `ses.setSSLConfig (конфиг)`
 
-* `config` объект
+* `config` Object
   * `minVersion` String (по желанию) - может быть `tls1`, `tls1.1`, `tls1.2` или `tls1.3`. Данный версию SSL, чтобы при подключении к удаленным серверам. По умолчанию `tls1`.
   * `maxVersion` строка (по желанию) - может быть `tls1.2` или `tls1.3`. Максимальная версия SSL позволяет при подключении к удаленным серверам. По умолчанию `tls1.3`.
   * `disabledCipherSuites` Integer( по желанию) - Список наборов шифров, которые должны быть явно запрещены к использованию в дополнение к тем , которые отключены чистой встроенной политикой. Поддерживаемые буква 0xAABB формы: `cipher_suite[0]` АА `cipher_suite[1]`, как определено в RFC 2246, раздел 7.4.1.2. Непризнанные, с разборчивые наборы шифров в этой форме не вернут ошибку. На фото: чтобы отключить TLS_RSA_WITH_RC4_128_MD5, укажите 0x0004, в то время как отключить TLS_ECDH_ECDSA_WITH_RC4_128_SHA, укажите 0xC002. Обратите внимание, что шифры TLSv1.3 не могут быть отключены с помощью этого механизма.
