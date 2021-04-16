@@ -1,61 +1,61 @@
-## Класс: Работники сервиса
+## Class: ServiceWorkers
 
-> Запрос и получение событий от сессий активных работников службы.
+> Query and receive events from a sessions active service workers.
 
 Процесс: [Основной](../glossary.md#main-process)
 
-К экземплярам `ServiceWorkers` доступны с помощью `serviceWorkers` имущества `Session`.
+Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
 
 Например:
 
 ```javascript
-const { session } требуют ('электрон')
+const { session } = require('electron')
 
-// Получить все работники службы.
-консоль.log (session.defaultSession.serviceWorkers.getAllRunning())
+// Get all service workers.
+console.log(session.defaultSession.serviceWorkers.getAllRunning())
 
-// Ручка журналов и получить информацию работника службы
-session.defaultSession.serviceWorkers.on ('консоль-сообщение', (событие, сообщениеОтделы) -> - консоль
-  .log (
+// Handle logs and get service worker info
+session.defaultSession.serviceWorkers.on('console-message', (event, messageDetails) => {
+  console.log(
     'Got service worker message',
     messageDetails,
     'from',
-    session.defaultSession.serviceWorkers.getFromVersionID (messageDetails.versionId)
+    session.defaultSession.serviceWorkers.getFromVersionID(messageDetails.versionId)
   )
-)
+})
 ```
 
 ### События экземпляра
 
-Следующие события доступны на экземплярах `ServiceWorkers`:
+The following events are available on instances of `ServiceWorkers`:
 
-#### Событие: 'консоль-сообщение'
+#### Event: 'console-message'
 
 Возвращает:
 
 * `event` Event
-* `messageDetails` объект - Информация о сообщении консоли
-  * `message` строка - фактическое сообщение консоли
-  * `versionId` номер - Идентификатор версии сотрудника службы, который отправил сообщение журнала
-  * `source` String - Тип источника для этого сообщения.  Могут быть `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` или `other`.
-  * `level` номер - уровень журнала, от 0 до 3. Для того, чтобы он `verbose`, `info`, `warning` и `error`.
-  * `sourceUrl` строка - URL сообщение пришло от
-  * `lineNumber` номер - номер строки источника, который вызвал это сообщение консоли
+* `messageDetails` Object - Information about the console message
+  * `message` String - The actual console message
+  * `versionId` Number - The version ID of the service worker that sent the log message
+  * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
+  * `level` Number - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+  * `sourceUrl` String - The URL the message came from
+  * `lineNumber` Number - The line number of the source that triggered this console message
 
-Излучаемый, когда работник службы регистрирует что-то на консоли.
+Emitted when a service worker logs something to the console.
 
 ### Методы экземпляра
 
-Следующие методы доступны на экземплярах `ServiceWorkers`:
+The following methods are available on instances of `ServiceWorkers`:
 
 #### `serviceWorkers.getAllRunning()`
 
-Возвращает `Record<Number, ServiceWorkerInfo>` - [ServiceWorkerInfo](structures/service-worker-info.md) объект, где ключи являются идентификатором версии работника службы и значениями являются информация об этом работнике службы.
+Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
 
-#### `serviceWorkers.getFromVersionID (версияId)`
+#### `serviceWorkers.getFromVersionID(versionId)`
 
-* `versionId` номер
+* `versionId` Number
 
-Возвращает [`ServiceWorkerInfo`](structures/service-worker-info.md) - Информация об этом сервисе работника
+Returns [`ServiceWorkerInfo`](structures/service-worker-info.md) - Information about this service worker
 
-Если работник службы не существует или не работает, этот метод будет делать исключение.
+If the service worker does not exist or is not running this method will throw an exception.
