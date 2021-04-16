@@ -175,17 +175,17 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 Devuelve:
 * `window` Navegador Windows
 * `details` Object
-    * `url` String-URL para la ventana creada.
-    * `frameName` string-name dado a la ventana creada en la `window.open()` llamada.
-    * `options` BrowserWindowConstructorOptions-las opciones usadas para crear el BrowserWindow. Se fusionan en una precedencia creciente: opciones heredadas desde el padre, opciones analizadas de la cadena `features` de `window.open()`, y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Las opciones no reconocidas no se filtran.
-    * `additionalFeatures` String []-las características no estándar (características no cromo o electrones) _obsoletas_
-    * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede dar como resultado que el encabezado de `Referer` se envíe, en función de la política de referencia.
-    * `postBody` [](structures/post-body.md) PostBody (opcional)-los datos post que se enviarán a la ventana nueva, junto con los encabezados apropiados que se establecerá. Si no hay datos para enviar, el valor será `null`. Solo se define cuando se crea la ventana mediante un formulario que establece `target=_blank`.
-    * `disposition` String-puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` y `other`.
+    * `url` String - URL for the created window.
+    * `frameName` String - Name given to the created window in the `window.open()` call.
+    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. Se fusionan en una precedencia creciente: opciones heredadas desde el padre, opciones analizadas de la cadena `features` de `window.open()`, y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
+    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
+    * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. Si no hay datos para enviar, el valor será `null`. Only defined when the window is being created by a form that set `target=_blank`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
-_emitido después de_ creación exitosa de una ventana a través de `window.open` en el representador. No emitido si la creación de la ventana es cancelada desde [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
+Emitted _after_ successful creation of a window via `window.open` in the renderer. No emitido si la creación de la ventana es cancelada desde [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-Consulta [`window.open()`](window-open.md) para obtener más detalles y cómo utilizar esto en conjunción con `webContents.setWindowOpenHandler`.
+See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
 
 #### Evento: 'will-navigate'
 
@@ -198,7 +198,7 @@ Emitido cuando un usuario o l página quiere empezar la navegación. Puede ocurr
 
 Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `webContents.loadURL` y `webContents.back`.
 
-Tampoco se emite para las navegaciones en la página, como hacer clic en los enlaces de ancla o actualizar el `window.location.hash`. Utiliza `did-navigate-in-page` evento para este propósito.
+It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 Llamando `event.preventDefault()` evitará la navegación.
 
@@ -213,7 +213,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Se emite cuando cualquier fotograma (incluido Main) comienza a navegar. `isInPlace` se `true` para las navegaciones en la página.
+Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
 #### Evento: 'will-redirect'
 
@@ -226,7 +226,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitido como redireccionamiento del lado del servidor se produce durante la navegación.  Por ejemplo, un 302 redirigir.
+Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
 Este evento sera emitido después de `did-start-navigation` y siempre antes del evento `did-redirect-navigation` para la misma navegación.
 
@@ -243,7 +243,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitido después de que se produzca una redirección del lado del servidor durante la navegación.  Por ejemplo, un 302 redirigir.
+Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
 Este evento no puede ser prevenir. Si quieres prevenir redirecciones deber ver el evento `will-redirect` arriba.
 
@@ -258,7 +258,7 @@ Devuelve:
 
 Emitido cuando se realizo un navegación del frame principal.
 
-Este evento no se emite para las navegaciones en la página, como hacer clic en los enlaces de ancla o actualizar el `window.location.hash`. Utiliza `did-navigate-in-page` evento para este propósito.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 #### Evento: 'did-frame-navigate'
 
@@ -274,7 +274,7 @@ Devuelve:
 
 Emitido cuando se ha realizado un navegación de algun frame.
 
-Este evento no se emite para las navegaciones en la página, como hacer clic en los enlaces de ancla o actualizar el `window.location.hash`. Utiliza `did-navigate-in-page` evento para este propósito.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 #### Evento: 'did-navigate-in-page'
 
@@ -375,7 +375,7 @@ Emitido cuando `webContents` es destruido.
 Devuelve:
 
 * `event` Event
-* `input` propiedades de entrada de objeto.
+* `input` Object - Input properties.
   * `type` String - Sea `keyUp` o `keyDown`.
   * `key` String - Es igual a [KeyboardEvent.key][keyboardevent].
   * `code` String - Es igual a [KeyboardEvent.code][keyboardevent].
@@ -486,7 +486,7 @@ El uso es lo mismo que con el evento [the `login` de la `app`](app.md#event-logi
 Devuelve:
 
 * `event` Event
-* Objeto `result`
+* `result` Object
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
@@ -508,9 +508,9 @@ Emitido cuando la media es pausada o ha terminado de reproducirse.
 Devuelve:
 
 * `event` Event
-* `color` (String | null)-el color del tema está en formato de ' #rrggbb '. Es `null` cuando no se establece ningún color del tema.
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
-Se emite cuando cambia el color del tema de una página. Por lo general, esto se debe a encontrar una etiqueta meta:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -545,14 +545,14 @@ Si el parámetro `type` es `custom`, el parámetro de la `image` mantendrá la i
 Devuelve:
 
 * `event` Event
-* Objeto `params`
+* `params` Object
   * Entero `x` - coordenadas x.
   * Entero `y` - coordenadas x.
   * `linkURL` String - URL del enlace que incluye el nodo del menú contextual que fue invocado.
-  * `linkText` String-Text asociado con el enlace. Puede ser una cadena de vacía si los contenidos del enlace son una imagen.
+  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL de la parte superior del nivel de la página que se invocó en el menú del contexto.
   * `framseURL` String - URL de la parte inferior del marco que se invocó en el menú del contexto.
-  * `srcURL` URL de origen de cadena para el elemento en el que se invocó el menú contextual . Los elementos con URL de origen son imágenes, audio y vídeo.
+  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
   * `mediaTipo` String - Tipo de nodo que el menú del contexto fue invocado. Puede ser `none`, `image`, `audio`, `video`, `canvas`, `file` o `plugin`.
   * `<0>tieneImagenContenido` Boolean - si el menú del contexto fue invocado en una imagen la cual tiene contenido no vacío.
   * `esEditable` Boolean - Si el contexto es editable.
@@ -562,8 +562,8 @@ Devuelve:
   * `dictionarySuggestions` String[] - Un array de palabras sugeridas para mostrar al usuario para remplazar el `misspelledWord`.  Solo disponible si hay una palabra mal escrita y el corrector está habilitado.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` fuente de entrada de cadena que invocó el menú contextual. Puede ser `none`, `mouse`, `keyboard`, `touch` o `touchMenu`.
-  * `mediaFlags` Object-los indicadores para el elemento multimedia en que se invocado el menú contextual.
+  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
     * `enError` Boolean - Si el elemento multimedia se ha dañado.
     * `estáPausado` Boolean - Si el elemento multimedia está pausado.
     * `estáSilenciado` Boolean - Si el elemento multimedia está silenciado.
@@ -572,7 +572,7 @@ Devuelve:
     * `esControlVisible` Boolean - Si los controles del elemento multimedia son visibles.
     * `puedeToggleControles` Boolean - Si los controles de los elementos multimedia son toggleable.
     * `puedeRotar` Boolean - Si el elemento multimedia puede ser rotado.
-  * `editFlags` Object-estos indicadores indican si el representador cree que puede realizar la acción correspondiente.
+  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
     * `canUndo` Boolean - Si cree que el procesador puede deshacer.
     * `canRedo` Boolean - Si cree que el procesador pueda rehacer.
     * `canCut` Boolean - Si cree que el procesador puede cortar.
@@ -624,7 +624,7 @@ Devuelve:
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - La información de la imagen de todo el fotograma.
 
-Se emite cuando se genera un nuevo fotograma. Solo se pasa el área sucia en el búfer de .
+Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -645,8 +645,8 @@ Emitido cuando la ventana devtools instruya la webContents para recargar
 Devuelve:
 
 * `event` Event
-* `webPreferences` WebPreferences-las preferencias web que será utilizada por la página de de invitados. Este objeto se puede modificar para ajustar las preferencias de la página de del invitado.
-* `params`<string, string> de registro-los otros parámetros de `<webview>` como la URL de `src` . Este objeto se puede modificar para ajustar los parámetros de la página del huésped.
+* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
