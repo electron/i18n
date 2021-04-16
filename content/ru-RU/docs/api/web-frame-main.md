@@ -93,7 +93,7 @@ Returns `boolean` - Whether the reload was initiated successfully. Only results 
 
 * `channel` String (Строка)
 * `message` any
-* `transfer` MessagePortMain (по желанию)
+* `transfer` MessagePortMain[] (optional)
 
 Отправить сообщение процессу рендерера, по желанию передав право собственности на ноль или более -`MessagePortMain`объектов.
 
