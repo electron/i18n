@@ -61,7 +61,7 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
   * `event` IpcMainEvent
   * `...args` any[]
 
-Agrega una función de `listener` una vez para el evento. Este `listener` se invoca solo la próxima vez que se envíe un mensaje a `channel`, después del cual se elimina.
+Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
@@ -77,14 +77,14 @@ Elimina el `listener` especificado del arreglo del oyente para el `channel` espe
 
 Elimina los oyentes del `channel` especificado.
 
-### `ipcMain. Handle (Channel, Listener)`
+### `ipcMain.handle(channel, listener)`
 
 * `channel` Cadena
-* `listener`<Promise\<void> de función | cualquier >
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Agrega un controlador para una IPC `invoke`able. Se llamará a este controlador cada vez que un procesador llame a `ipcRenderer.invoke(channel, ...args)`.
+Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
 
 Si `listener` devuelve una Promise, el eventual resultado de la promise será devuelto como una respuesta al controlador remoto. De lo contrario, el valor de retorno del listener será usado como el valor de la respuesta.
 
@@ -104,16 +104,16 @@ async () => {
 
 El `event` que es pasado como primer argumento al handler es el mismo que es pasado a un event listener normal. Incluye información sobre cual WebContents es el origen de la solicitud invocada.
 
-### `ipcMain. handleOnce (Channel, Listener)`
+### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` Cadena
-* `listener`<Promise\<void> de función | cualquier >
+* `listener` Function<Promise\<void> | any>
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Maneja un solo `invoke`able mensaje IPC, luego elimina el listener. Consulta `ipcMain.handle(channel, listener)`.
+Maneja un solo `invoke`able mensaje IPC, luego elimina el listener. See `ipcMain.handle(channel, listener)`.
 
-### `ipcMain. removeHandler (Channel)`
+### `ipcMain.removeHandler(channel)`
 
 * `channel` Cadena
 
