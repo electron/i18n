@@ -669,7 +669,7 @@ Returns `Extension` | `null` - The loaded extension with the given ID.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-#### `ses.获取所有扩展（）`
+#### `ses.getAllExtensions()`
 
 Returns `Extension[]` - A list of all loaded extensions.
 
