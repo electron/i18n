@@ -18,91 +18,91 @@ session.loadExtension ('path/to/unpacked/extension').then(({ id }) => {
 
 Les extensions chargées ne seront pas automatiquement rappelées à travers les sorties; si vous n' pas appeler `loadExtension` l’application s’exécute, l’extension ne sera pas chargée.
 
-Notez que les extensions de chargement ne sont prises en charge que dans les sessions persistantes. Tenter de charger une extension dans une session en mémoire lancera une erreur.
+Notez que les extensions de chargement ne sont prises en charge que dans les sessions persistantes. Attempting to load an extension into an in-memory session will throw an error.
 
-Consultez la documentation [`session`](session.md) pour plus d’informations sur chargement, le déchargement et la requête des extensions actives.
+See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
 
-## API extensions prises en charge
+## Supported Extensions APIs
 
-Nous soutenons les API d’extensions suivantes, avec quelques mises en garde. D’autres API peuvent en outre être prises en charge, mais le soutien pour toutes les API non répertoriées ici provisoire et peut être supprimé.
+We support the following extensions APIs, with some caveats. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
 
 ### `chrome.devtools.inspectedWindow`
 
-Toutes les fonctionnalités de cette API sont prises en charge.
+All features of this API are supported.
 
-### `chrome.devtools.network Chrome`
+### `chrome.devtools.network`
 
-Toutes les fonctionnalités de cette API sont prises en charge.
+All features of this API are supported.
 
-### `chrome.devtools.panels Chrome.devtools.panels Chrome.devtools.panels chrome.`
+### `chrome.devtools.panels`
 
-Toutes les fonctionnalités de cette API sont prises en charge.
+All features of this API are supported.
 
 ### `chrome.extension`
 
-Les propriétés suivantes des `chrome.extension` prises en charge :
+The following properties of `chrome.extension` are supported:
 
-- `chrome.extension.lastError Chrome`
+- `chrome.extension.lastError`
 
-Les méthodes suivantes d' `chrome.extension` sont prises en charge :
+The following methods of `chrome.extension` are supported:
 
-- `chrome.extension.getURL Chrome`
-- `chrome.extension.getBackgroundPage Chrome`
+- `chrome.extension.getURL`
+- `chrome.extension.getBackgroundPage`
 
-### `chrome.runtime Chrome`
+### `chrome.runtime`
 
-Les propriétés suivantes des `chrome.runtime` prises en charge :
+The following properties of `chrome.runtime` are supported:
 
-- `chrome.runtime.lastError Chrome`
+- `chrome.runtime.lastError`
 - `chrome.runtime.id`
 
-Les méthodes suivantes d' `chrome.runtime` sont prises en charge :
+The following methods of `chrome.runtime` are supported:
 
-- `chrome.runtime.getBackgroundPage Chrome.runtime.getBackgroundPage Chrome.runtime.getBackgroundPage chrome.`
-- `chrome.runtime.getManifest Chrome.runtime.getManifest Chrome.runtime.getManifest chrome.`
-- `chrome.runtime.getPlatformInfo Chrome`
-- `chrome.runtime.getURL Chrome`
-- `chrome.runtime.connect Chrome`
-- `chrome.runtime.sendMessage Chrome.runtime.sendMessage chrome.runtime.sendMessage chrome.`
+- `chrome.runtime.getBackgroundPage`
+- `chrome.runtime.getManifest`
+- `chrome.runtime.getPlatformInfo`
+- `chrome.runtime.getURL`
+- `chrome.runtime.connect`
+- `chrome.runtime.sendMessage`
 
-Les événements suivants de `chrome.runtime` sont pris en charge :
+The following events of `chrome.runtime` are supported:
 
-- `chrome.runtime.onStartup Chrome.runtime.onStartup Chrome.runtime.onStartup chrome.`
-- `chrome.runtime.onInstallé`
+- `chrome.runtime.onStartup`
+- `chrome.runtime.onInstalled`
 - `chrome.runtime.onSuspend`
-- `chrome.runtime.onSuspendCanceled Chrome.runtime.onSuspendCanceled Chrome.runtime.onSuspendCanceled chrome.`
-- `chrome.runtime.onConnect Chrome`
-- `chrome.runtime.onMessage Chrome`
+- `chrome.runtime.onSuspendCanceled`
+- `chrome.runtime.onConnect`
+- `chrome.runtime.onMessage`
 
-### `chrome.storage Chrome`
+### `chrome.storage`
 
-Seuls `chrome.storage.local` sont pris en charge; `chrome.storage.sync` et `chrome.storage.managed` ne le sont pas.
+Only `chrome.storage.local` is supported; `chrome.storage.sync` and `chrome.storage.managed` are not.
 
-### `chrome.tabs Chrome`
+### `chrome.tabs`
 
-Les méthodes suivantes d' `chrome.tabs` sont prises en charge :
+The following methods of `chrome.tabs` are supported:
 
-- `chrome.tabs.sendMessage Chrome.tabs.sendMessage chrome.tabs.sendMessage chrome.`
-- `chrome.tabs.executeScript Chrome.tabs.executeScript Chrome.tabs.executeScript chrome.`
+- `chrome.tabs.sendMessage`
+- `chrome.tabs.executeScript`
 
-> **Note:** Chrome, passer `-1` un identifiant d’onglet signifie le « onglet actif ». Étant donné qu’Electron n’a pas un tel concept, passer `-1` comme un identifiant d’onglet n' pas pris en charge et soulèvera une erreur.
+> **Note:** Chrome, passer `-1` un identifiant d’onglet signifie le « onglet actif ». Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
 
-### `chrome.management Chrome`
+### `chrome.management`
 
-Les méthodes suivantes d' `chrome.management` sont prises en charge :
+The following methods of `chrome.management` are supported:
 
-- `chrome.management.getAll Chrome`
-- `chrome.management.get Chrome`
-- `chrome.management.getSelf Chrome`
-- `chrome.management.getPermissionWarningsById Chrome`
-- `chrome.management.getPermissionWarningsByManifest Chrome`
-- `chrome.management.onEnabled Chrome`
-- `chrome.management.onDisabled Chrome`
+- `chrome.management.getAll`
+- `chrome.management.get`
+- `chrome.management.getSelf`
+- `chrome.management.getPermissionWarningsById`
+- `chrome.management.getPermissionWarningsByManifest`
+- `chrome.management.onEnabled`
+- `chrome.management.onDisabled`
 
-### `chrome.webRequest Chrome.webRequest Chrome.webRequest Chrome.`
+### `chrome.webRequest`
 
-Toutes les fonctionnalités de cette API sont prises en charge.
+All features of this API are supported.
 
-> **NOTE :** module de [`webRequest`](web-request.md) 'Electron a préséance sur `chrome.webRequest` s’il y a des gestionnaires contradictoires.
+> **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index
