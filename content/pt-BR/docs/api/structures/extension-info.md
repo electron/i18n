@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
 * `name` String
-* `version` Cordas
+* `version` String
