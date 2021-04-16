@@ -30,11 +30,11 @@ app.whenReady().then(() => {
 
 ### --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. 没有 `*` 前缀的 URL 必须完全匹配。
+需要授权用户凭据的以逗号分隔的服务器列表。 没有 `*` 前缀的 URL 必须完全匹配。
 
 ### --disable-ntlm-v2
 
-Disables NTLM v2 for posix platforms, no effect elsewhere.
+禁用NTLM v2的posix平台，对别处没有影响。
 
 ### --disable-http-cache
 
@@ -56,7 +56,7 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 ### --enable-api-filtering-logging
 
-Enables caller stack logging for the following APIs (filtering events):
+开启以下API 的调用堆栈日志记录(过滤事件)：
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`
@@ -73,9 +73,9 @@ Enables caller stack logging for the following APIs (filtering events):
 
 ## --force-fieldtrials=`trials`
 
-Field trials to be forcefully enabled or disabled.
+试用特性将强制启用或禁用。
 
-For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+例如： `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 ### --host-rules=`rules`
 
@@ -85,7 +85,7 @@ For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 * `MAP * 127.0.0.1` 强制将所有主机名映射到127.0.0.1
 * `MAP *.google.com proxy` 强制所有google.com子域名解析到"proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
+* `MAP test.com [::1]:77` 强制将 "test.com" 解析到 IPv6 环回接口。 也会强制目标套接字地址的端口为77。
 * `MAP * baz, EXCLUDE www.google.com` 把所有地址重新映射到“baz”, 除了"www.google.com".
 
 这些映射适用于网络请求中的端点主机. 网络请求包括TCP连接和直连的主机解析器, 以及HTTP代理连接中的`CONNECT`方式, 以及在`SOCKS`代理连接中的端点主机.
@@ -104,13 +104,13 @@ For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 ### --js-flags=`flags`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+指定传递到 Node.js 引擎的flags。 如果您想在主进程中启用 `flags` ，则必须在一开始运行Electron的时候就传递。
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+查看[Node.js 文档][node-cli]或者在终端中运行`node --help`命令查看可用的flags列表。 此外，还可以运行`node --v8-options`来查看与Node.js的V8 JavaScript引擎特定相关的flags列表。
 
 ### --lang
 
@@ -122,15 +122,15 @@ See the [Node.js documentation][node-cli] or run `node --help` in your terminal 
 
 ### --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+不使用代理服务器，并始终保持直连。 会覆盖其他代理服务器标记。
 
 ### --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+禁用现在默认启用的Chromium 沙盒。 应该只在测试时使用。
 
 ### --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+指示Electron绕过使用; 分号; 分割的给定的主机列表中的代理服务器。 这个标志只有在与` --proxy-server ` 同时使用时才具有效果。
 
 例如：
 
@@ -155,29 +155,29 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ### --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+指定默认的最大活跃V-logging级别；默认值为0。 通常 V-logging 级别为正数。
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
 ### --vmodule=`pattern`
 
-给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 如下: `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 如下: `my_module=2,foo*=3` 会更改所有代码在源文件 `my_module.*` 和 `foo*.*` 中的日志级别。
 
-任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 如下: `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 如下: `*/foo/bar/*=2` 会更改`foo/bar` 目录下源文件中所有代码的日志级别。
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
 ### --force_high_performance_gpu
 
-Force using discrete GPU when there are multiple GPUs available.
+当有多个GPU可用时，强制使用独立显卡。
 
 ### --force_low_power_gpu
 
-Force using integrated GPU when there are multiple GPUs available.
+当有多个GPU可用时，强制使用集成显卡。
 
 ## Node.js Flags
 
-Electron supports some of the [CLI flags][node-cli] supported by Node.js.
+Electron 支持一些 Node.js 支持的 [CLI flags][node-cli]。
 
 **Note:** Passing unsupported command line switches to Electron when it is not running in `ELECTRON_RUN_AS_NODE` will have no effect.
 
