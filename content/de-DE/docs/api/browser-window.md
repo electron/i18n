@@ -684,7 +684,7 @@ Unter Linux ist der Setter ein No-Op, obwohl der Getter `true`zurückgibt.
 
 #### `win.excludedFromShownWindowsMenu` _macOS-_
 
-Eine `Boolean` Eigenschaft, die bestimmt, ob das Fenster aus dem Windows-Menü der Anwendung ausgeschlossen ist. `false` standardmäßig.
+Eine `Boolean` Eigenschaft, die bestimmt, ob das Fenster aus dem Windows-Menü der Anwendung ausgeschlossen ist. `false` by default.
 
 ```js
 const win = neues BrowserWindow({ height: 600, width: 600 })
