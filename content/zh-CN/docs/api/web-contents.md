@@ -177,15 +177,15 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 * `details` 对象
     * `url` 字符串 - 创建窗口的网址。
     * `frameName` 字符串 - `window.open()` 呼叫中创建的窗口的名称。
-    * `options` 浏览器窗口构建选项 - 用于创建 浏览器窗口的选项。 它们被合并在越来越多的优先级：从父继承 的选项，从 `window.open()``features` 字符串解析选项，以及 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)给出的选项。 未识别的选项不会被过滤掉。
-    * `additionalFeatures` 字符串[]- 非标准功能（不 处理铬或电子功能） _废弃_
-    * `referrer` [参考](structures/referrer.md) - 将 传递到新窗口的引用者。 可能会或可能不会导致发送 `Referer` 标题 ，具体取决于引用人策略。
-    * `postBody` [后身体](structures/post-body.md) （可选） - 将发送到新窗口的帖子数据 ，以及将设置的相应标题 。 如果没有发送任何帖子数据，则值将 `null`。 仅在窗口由设置 `target=_blank`的表单创建时定义。
-    * `disposition` 弦-可以 `default`， `foreground-tab`， `background-tab`， `new-window`， `save-to-disk` 和 `other`。
+    * `options` 浏览器窗口构建选项 - 用于创建 浏览器窗口的选项。 它们被合并在越来越多的优先级：从父继承 的选项，从 `window.open()``features` 字符串解析选项，以及 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)给出的选项。 Unrecognized options are not filtered out.
+    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
+    * `referrer` [参考](structures/referrer.md) - 将 传递到新窗口的引用者。 May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. 如果没有发送任何帖子数据，则值将 `null`。 Only defined when the window is being created by a form that set `target=_blank`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
-通过渲染器中的 `window.open` 成功创建窗口后，</em> 发出 _。 如果窗口的创建从 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler)中取消，则不会发出。</p>
+Emitted _after_ successful creation of a window via `window.open` in the renderer. Not emitted if the creation of the window is canceled from [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
-有关更多详细信息以及如何与 `webContents.setWindowOpenHandler`一起使用此信息，请参阅 [`window.open()`](window-open.md) 。
+See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `webContents.setWindowOpenHandler`.
 
 #### Event: 'will-navigate'
 
@@ -194,58 +194,58 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 * `event` Event
 * `url` String
 
-当用户或页面想要开始导航时发出。 当 `window.location` 对象更改或用户单击页面中的链接时，可能会发生这种情况。
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
-当使用 `webContents.loadURL` 和 `webContents.back`等 ABI 进行程序化导航时，此事件不会发出。
+This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
 
-它也不会发出页面导航，如点击锚链接 或更新 `window.location.hash`。 为此目的使用 `did-navigate-in-page` 活动 。
+It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 调用`event.preventDefault()`将阻止导航。
 
-#### 活动："启动导航"
+#### Event: 'did-start-navigation'
 
 返回:
 
 * `event` Event
 * `url` String
-* `isInPlace` ·布尔
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` 整数
 * `frameRoutingId` 整数
 
-当任何帧（包括主框）开始导航时发出。 `isInPlace` 将 `true` 用于页面导航。
+Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
-#### 活动："将重定向"
+#### Event: 'will-redirect'
 
 返回:
 
 * `event` Event
 * `url` String
-* `isInPlace` ·布尔
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` 整数
 * `frameRoutingId` 整数
 
-当服务器侧重定向时，在导航过程中会发出。  例如，302 重定向。
+Emitted as a server side redirect occurs during navigation.  For example a 302 redirect.
 
-此事件将在 `did-start-navigation` 后发出，并且始终在 `did-redirect-navigation` 事件之前发出以进行相同的导航。
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
 
-呼叫 `event.preventDefault()` 将阻止导航（不仅仅是 重定向）。
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
 
-#### 事件："重定向导航"
+#### Event: 'did-redirect-navigation'
 
 返回:
 
 * `event` Event
 * `url` String
-* `isInPlace` ·布尔
+* `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` 整数
 * `frameRoutingId` 整数
 
-服务器端重定向在导航过程中发生后发出。  例如，302 重定向。
+Emitted after a server side redirect occurs during navigation.  For example a 302 redirect.
 
-此事件是无法阻止的，如果您想要防止重定向，您应该 结帐上述 `will-redirect` 事件。
+This event cannot be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
 #### Event: 'did-navigate'
 
@@ -253,28 +253,28 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 * `event` Event
 * `url` String
-* `httpResponseCode` 整数 --1 用于非 HTTP 导航
-* `httpStatusText` 字符串 - 非 HTTP 导航的空
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-完成主帧导航时发出。
+Emitted when a main frame navigation is done.
 
-此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 为此目的使用 `did-navigate-in-page` 活动 。
+此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 Use `did-navigate-in-page` event for this purpose.
 
-#### 事件："做帧导航"
+#### Event: 'did-frame-navigate'
 
 返回:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` 整数 --1 用于非 HTTP 导航
-* `httpStatusText` 字符串 - 非 HTTP 导航的空字符串，
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
 * `isMainFrame` Boolean
 * `frameProcessId` 整数
 * `frameRoutingId` 整数
 
-完成任何帧导航时发出。
+Emitted when any frame navigation is done.
 
-此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 为此目的使用 `did-navigate-in-page` 活动 。
+此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 Use `did-navigate-in-page` event for this purpose.
 
 #### Event: 'did-navigate-in-page'
 
@@ -286,7 +286,7 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 * `frameProcessId` 整数
 * `frameRoutingId` 整数
 
-在任何帧中发生页面导航时发出。
+Emitted when an in-page navigation happened in any frame.
 
 当发生页内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 例如，点击锚点链接，或者DOM的 `hashchange`事件被触发时，都会触发该事件。
 
@@ -296,9 +296,9 @@ Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 * `event` Event
 
-当 `beforeunload` 事件处理程序尝试取消页面卸载时发出。
+Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
-呼叫 `event.preventDefault()` 将忽略 `beforeunload` 事件处理程序 ，并允许卸载页面。
+Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
 ```javascript
 const { BrowserWindow, dialog } = require('electron')
@@ -319,7 +319,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### 事件： "崩溃" _弃用_
+#### Event: 'crashed' _Deprecated_
 
 返回:
 
@@ -375,29 +375,29 @@ win.webContents.on('will-prevent-unload', (event) => {
 返回:
 
 * `event` Event
-* `input` 对象 - 输入属性。
+* `input` Object - Input properties.
   * `type` String - 可以是 `keyUp` ，或者 `keyDown`.
   * `key` String - 等同于 [KeyboardEvent.key][keyboardevent].
   * ` code ` String - 等同于 [KeyboardEvent. code ][keyboardevent].
   * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ][keyboardevent].
-  * `isComposing` 布尔 - 相当于 [键盘事件. 是][keyboardevent]。
+  * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
   * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ][keyboardevent].
   * ` control ` String - 等同于 [KeyboardEvent. controlKey ][keyboardevent].
   * ` alt ` String - 等同于 [KeyboardEvent. altKey ][keyboardevent].
   * ` meta ` String - 等同于 [KeyboardEvent. metaKey ][keyboardevent].
 
-在发送页面中的 `keydown` 和 `keyup` 事件之前发出。 呼叫 `event.preventDefault` 将阻止页面 `keydown`/`keyup` 事件 和菜单快捷方式。
+Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
-要只防止菜单快捷方式，请使用 [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore)：
+To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
 
 ```javascript
-const { BrowserWindow } = 要求 （"电子"）
+const { BrowserWindow } = require('electron')
 
-持续赢 = 新浏览器窗口 （{ width: 800, height: 600 }）
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-win.web Contents.on （"输入事件前"， （事件， 输入） => {
-  // 例如，仅在
-  // Ctrl/Cmd 关闭时启用应用程序菜单键盘快捷方式。
+win.webContents.on('before-input-event', (event, input) => {
+  // For example, only enable application menu keyboard shortcuts when
+  // Ctrl/Cmd are down.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -410,14 +410,14 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 
 窗口离开由HTML API触发的全屏状态时触发
 
-#### 活动："缩放更改"
+#### Event: 'zoom-changed'
 
 返回:
 
 * `event` Event
-* `zoomDirection` 字符串 - 可以 `in` 或 `out`。
+* `zoomDirection` String - Can be `in` or `out`.
 
-当用户请求使用鼠标轮更改变焦级别时发出。
+Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
 #### Event: 'devtools-opened'
 
@@ -454,7 +454,7 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
 * `callback` Function
-  * `certificate` [证书](structures/certificate.md) - 必须是给定列表中的证书。
+  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 当一个客户证书被请求的时候发出。
 
@@ -486,11 +486,11 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 返回:
 
 * `event` Event
-* `result` 对象
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
-  * `selectionArea` 矩形 - 第一个匹配区域的坐标。
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
 如果调用[`webContents.findInPage`]有返回时，会触发这一事件。
@@ -508,9 +508,9 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 返回:
 
 * `event` Event
-* `color` （字符串|无效） - 主题颜色为"#rrggbb"。 当没有设置主题颜色时，它是 `null` 的。
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
-当页面的主题颜色发生变化时发出。 这通常是由于遇到元标签 ：
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -532,44 +532,44 @@ win.web Contents.on （"输入事件前"， （事件， 输入） => {
 * `event` Event
 * `type` String
 * `image` [NativeImage](native-image.md) (可选)
-* `scale` 浮动（可选） - 自定义光标的缩放因子。
+* `scale` Float (optional) - scaling factor for the custom cursor.
 * `size` [Size](structures/size.md) (可选) - `image`大小。
-* `hotspot` [点](structures/point.md) （可选） - 自定义光标的热点坐标。
+* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
 当鼠标指针改变的时候触发。 Type参数值包含：`default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` 或 `custom`.
 
-如果 `type` 参数 `custom`， `image` 参数将在 [`NativeImage`](native-image.md)中保留自定义 光标图像， `scale`、 `size` 和 `hotspot` 将保留有关自定义光标的 附加信息。
+If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
 #### Event: 'context-menu'
 
 返回:
 
 * `event` Event
-* `params` 对象
+* `params` Object
   * `x` Integer - x 坐标。
   * `y` Integer - y 坐标。
-  * `linkURL` 字符串 - 连接上下文菜单节点的链接的 URL 被调用。
-  * `linkText` 字符串 - 与链接关联的文本。 如果链接的内容为图像，则可能是一个空 字符串。
-  * `pageURL` 字符串 - 上下文菜单 调用的顶层页面的 URL。
-  * `frameURL` 字符串 - 上下文菜单 调用的子帧的 URL。
-  * `srcURL` 字符串 - 上下文菜单 引用的元素的源 URL。 带有源网址的元素包括图像、音频和视频。
-  * `mediaType` 字符串 - 上下文菜单被调用的节点类型。 可以 `none`、 `image`、 `audio`、 `video`、 `canvas`、 `file` 或 `plugin`。
-  * `hasImageContents` Boolean - 上下文菜单是否被调用在具有非空内容的图像 。
-  * `isEditable` 布尔 - 上下文是否可编辑。
-  * `selectionText` 字符串 - 上下文菜单 引用的选集文本。
-  * `titleText` 字符串 - 上下文 引用的选集的标题或 alt 文本。
-  * `misspelledWord` 字符串 - 光标下拼错的单词，如果有的话。
-  * `dictionarySuggestions` 字符串[]- 一系列建议的单词，以显示 用户，以取代 `misspelledWord`。  仅在启用拼写错误的 单词和拼写检查器时可用。
-  * `frameCharset` 字符串 - 引用 菜单的框架的字符编码。
-  * `inputFieldType` 字符串 - 如果上下文菜单被调用在字段 输入中，该字段的类型。 可能的价值是 `none`， `plainText`， `password`， `other`。
-  * `menuSourceType` 字符串 - 引用上下文菜单的输入源。 可以是 `none`、 `mouse`、 `keyboard`、 `touch` 或 `touchMenu`。
-  * `mediaFlags` 对象 - 上下文菜单的媒体元素的标记 调用。
-    * `inError` 布尔 - 媒体元素是否崩溃。
-    * `isPaused` 布尔 - 媒体元素是否暂停。
-    * `isMuted` 布尔 - 媒体元素是否静音。
-    * `hasAudio` 布尔 - 媒体元素是否有音频。
-    * `isLooping` 布尔 - 媒体元素是否循环。
-    * `isControlsVisible` 布尔 - 媒体元素的控制是否 可见。
+  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
+  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
+  * `pageURL` String - URL of the top level page that the context menu was invoked on.
+  * `frameURL` String - URL of the subframe that the context menu was invoked on.
+  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
+  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
+  * `isEditable` Boolean - Whether the context is editable.
+  * `selectionText` String - Text of the selection that the context menu was invoked on.
+  * `titleText` String - Title or alt text of the selection that the context was invoked on.
+  * `misspelledWord` String - The misspelled word under the cursor, if any.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`.  Only available if there is a misspelled word and spellchecker is enabled.
+  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
+  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
+    * `inError` Boolean - Whether the media element has crashed.
+    * `isPaused` Boolean - Whether the media element is paused.
+    * `isMuted` Boolean - Whether the media element is muted.
+    * `hasAudio` Boolean - Whether the media element has audio.
+    * `isLooping` Boolean - Whether the media element is looping.
+    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` 布尔 - 媒体元素的控制是否 可切换。
     * `canRotate` Boolean - Whether the media element can be rotated.
   * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
@@ -668,8 +668,8 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 返回:
 
 * `event` Event
-* `level` Integer - The log level, from 0 to 3. 为了它匹配 `verbose`， `info`， `warning` 和 `error`。
-* `message` 字符串 - 实际控制台消息
+* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
+* `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 
