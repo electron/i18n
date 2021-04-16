@@ -776,7 +776,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` （[上传数据]](structures/upload-raw-data.md) | [上传文件[]](structures/upload-file.md)）（可选）
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
@@ -793,11 +793,11 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (可选)
-  * `query` 记录<String, String> （可选） - 传递给 `url.format()`。
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
 
-返回 `Promise<void>` - 当页面完成加载 时，承诺将解决（见 [`did-finish-load`](web-contents.md#event-did-finish-load)），如果页面无法加载，则拒绝 （见 [`did-fail-load`](web-contents.md#event-did-fail-load)）。
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application.  For instance an app structure like this:
 
@@ -1177,9 +1177,9 @@ console.log(requestId)
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-返回 `Promise<NativeImage>` - 解决与 [原生图像](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
-在 `rect`内捕获页面的快照。 省略 `rect` 将捕获整个可见页面。
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `contents.isBeingCaptured()`
 
@@ -1244,7 +1244,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-示例用法：
+Example usage:
 
 ```js
 const options = {
