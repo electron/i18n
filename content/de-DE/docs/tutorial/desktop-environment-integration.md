@@ -18,7 +18,7 @@ Sehen Sie sich die [Fortschrittsbalkendokumentation](progress-bar.md) an.
 
 ## Einheitswerfer
 
-Weitere Informationen finden Sie in der Dokumentation [Unity Launcher][unity-launcher].
+See the [Unity Launcher documentation][unity-launcher].
 
 ## Repräsentierte Datei für MacOS Fenster
 
