@@ -25,7 +25,7 @@ Le module `session` dispose des méthodes suivantes :
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `cache` Boolean - Si vous voulez activer le cache.
 
 Retourne `Session` - Une instance de session de la chaîne de caractères `partition`. Quand il y a une `Session` existante avec la même `partition`, elle sera retournée; sinon une nouvelle instance `Session` sera créée avec `options`.
@@ -238,7 +238,7 @@ Efface le cache HTTP de la session.
 
 #### `ses.clearStorageData([options])`
 
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
   * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. S’il n pas spécifié, effacer tous les types de stockage.
   * `quotas` String[] (facultatif) - Les types de quotas à effacer, peuvent contenir: `temporary`, `persistent`, `syncable`. S’il n’est pas spécifié, effacer tous les quotas.
@@ -268,7 +268,7 @@ Indique les paramètres de proxy.
 
 Lorsque `mode` n’est pas spécifié, `pacScript` et `proxyRules` sont fournis ensemble, l’option `proxyRules` est ignorée et la configuration `pacScript` est appliquée.
 
-Vous devrez peut `ses.closeAllConnections` fermer actuellement dans les connexions de vol pour empêcher prises poolées à l’aide de proxy précédent d’être réutilisées par des demandes futures.
+You may need `ses.closeAllConnections` to close currently in flight connections to prevent pooled sockets using previous proxy from being reused by future requests.
 
 Les `proxyRules` doivent suivre les règles ci-dessous :
 
@@ -282,13 +282,13 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 Par exemple :
 
-* `http=foopy:80;ftp=foopy2` - Utilisez les `foopy:80` proxy HTTP pour `http://` URL et proxy HTTP `foopy2:80` pour `ftp://` URL.
-* `foopy:80` - Utilisez les proxys HTTP `foopy:80` pour toutes les URL.
-* `foopy:80,bar,direct://` - Utilisez les `foopy:80` proxy HTTP pour toutes les URL, à défaut de à `bar` si `foopy:80` n’est pas disponible, et après cela en utilisant aucun proxy.
-* `socks4://foopy` - Utilisez des proxy SOCKS v4 `foopy:1080` pour toutes les URL.
-* `http=foopy,socks5://bar.com` - Utilisez les `foopy` proxy HTTP pour les URL http, et ne pas sur le proxy SOCKS5 `bar.com` si `foopy` n’est pas disponible.
-* `http=foopy,direct://` - Utilisez les proxys HTTP `foopy` pour les URL http, et n’utilisez aucun proxy si `foopy` n’est pas disponible.
-* `http=foopy;socks=foopy2` - Utilisez la `foopy` proxy HTTP pour les URL http, et utilisez `socks4://foopy2` pour toutes les autres URL.
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
 Le `proxyBypassRules` est une liste de règles séparées par des virgules, comme décrites ci-dessous :
 
@@ -302,7 +302,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Correspond à un suffixe de domaine particulier.
 
-   Exemples: « .google.com », « .com », « http://.google.com »
+   Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
 
@@ -310,39 +310,39 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Exemples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
-* `IP_LITERAL « / » PREFIX_LENGTH_IN_BITS`
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
 
-   Faire correspondre n’importe quelle URL qui est à un littéral IP qui se situe entre plage donnée. La plage IP est spécifiée à l’aide de la notation CIDR.
+   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
 
    Exemples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
 
-   Correspondre aux adresses locales. Le sens de `<local>` est de savoir si l’hôte correspond à l’un des: « 127.0.0.1 », « :1 », « localhost ».
+   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-Retours `Promise<String>` - Se résout avec les informations proxy pour `url`.
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
-#### `ses.forceReloadProxyConfig ()`
+#### `ses.forceReloadProxyConfig()`
 
-Retours `Promise<void>` - Se résout lorsque tous les états internes du service proxy sont réinitialisés et que la dernière configuration proxy est réappliquée si elle est déjà disponible. Le script pac sera récupéré à partir de `pacScript` nouveau si le mode proxy est `pac_script`.
+Returns `Promise<void>` - Resolves when the all internal states of proxy service is reset and the latest proxy configuration is reapplied if it's already available. The pac script will be fetched from `pacScript` again if the proxy mode is `pac_script`.
 
 #### `ses.setDownloadPath(path)`
 
 * `path` String - Emplacement de téléchargement.
 
-Définit l’annuaire d’enregistrement de téléchargement. Par défaut, l’annuaire de téléchargement sera le `Downloads` le dossier d’application respectif.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` objet
-  * `offline` Boolean (facultatif) - S’il y a à imiter la panne réseau. Par défaut, est faux.
-  * `latency` Double (facultatif) - RTT en ms. Défauts à 0 qui désactiveront limitation de latence.
-  * `downloadThroughput` Double (facultatif) - Taux de téléchargement en bps. Par défaut à 0 qui désactivera la limitation de téléchargement.
-  * `uploadThroughput` Double (facultatif) - Taux de téléchargement en bps. Par défaut à 0 qui désactivera la limitation de téléchargement.
+* `options` Object
+  * `offline` Boolean (optional) - Whether to emulate network outage. Par défaut, est faux.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 Emule le réseau avec la configuration donnée pour la `session`.
 
@@ -360,82 +360,82 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` objet
-  * `url` String - URL pour préconnecter. Seule l’origine est pertinente pour l’ouverture de la prise.
-  * `numSockets` numéro (facultatif) - nombre de prises à préconnecter. Ça doit être entre 1 et 6. 1 par défaut.
+* `options` Object
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. 1 par défaut.
 
-Préconnecte le nombre donné de prises à une origine.
+Preconnects the given number of sockets to an origin.
 
 #### `ses.closeAllConnections()`
 
-Retours `Promise<void>` - Se résout lorsque toutes les connexions sont fermées.
+Returns `Promise<void>` - Resolves when all connections are closed.
 
-**Note:** Il mettra fin / échouer toutes les demandes actuellement en vol.
+**Note:** It will terminate / fail all requests currently in flight.
 
 #### `ses.disableNetworkEmulation()`
 
-Désactive toute émulation réseau déjà active pour la `session`. Réinitialise pour la configuration réseau d’origine.
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` fonction | Null
-  * `request` objet
+* `proc` Function | null
+  * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `validatedCertificate` [certificat](structures/certificate.md)
+    * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Résultat de la vérification par Chromium.
     * `errorCode` Integer - Code d'erreur.
   * `callback` Function
-    * `verificationResult` Integer - La valeur peut être l’un des codes d’erreur de de [ici](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). Outre les codes d’erreur de certificat, les codes spéciaux suivants peuvent être utilisés.
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used.
       * `0` - Indique la réussite et désactive la vérification de transparence de certificat.
       * `-2` - Indique l'échec.
       * `-3` - Utilise le résultat de la vérification de Chromium.
 
-Définit le certificat vérifier proc pour `session`, le `proc` sera appelé avec `proc(request, callback)` chaque fois qu’un certificat serveur vérification est demandée. Appeler `callback(0)` accepte le certificat, appelle `callback(-2)` le rejette.
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
-Appeler `setCertificateVerifyProc(null)` revient au certificat par défaut pour vérifier proc.
+Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
 ```javascript
-const { BrowserWindow } = require ('electron')
+const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-win.webContents.session.setCertificateVerifyProc((demande, rappel) => {
-  const { hostname } = demande
-  si (nom d’hôte === 'github.com') { rappel
-    (0)
-  } autre { rappel
-    (-2)
+win.webContents.session.setCertificateVerifyProc((request, callback) => {
+  const { hostname } = request
+  if (hostname === 'github.com') {
+    callback(0)
+  } else {
+    callback(-2)
   }
 })
 ```
 
-> **NOTE :** résultat de cette procédure est mis en cache par le service réseau.
+> **NOTE:** The result of this procedure is cached by the network service.
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` fonction | Null
-  * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission.  Veuillez noter que si la demande provient d’un sous-cadre, vous devez utiliser `requestingUrl` vérifier l’origine de la demande.
-  * `permission` String - Le type d’autorisation demandée.
+* `handler` Function | null
+  * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - The type of requested permission.
     * `clipboard-read` - Demande d'accès à la lecture depuis le presse-papiers.
     * `média` - Demande l'accès à des périphériques multimédia tels que la caméra, le microphone et les haut-parleurs.
     * `afficher-capture` Demander acces pour capturer l'ecran.
     * `mediaKeysystem` - Demande d’accès au contenu protégé par DRM.
     * `geolocation` - Demande d'accès à l'emplacement actuel de l'utilisateur.
-    * `notifications` - Demander la création de notification et la possibilité de les afficher dans le plateau système de l’utilisateur.
-    * `midi` - Demandez à MIDI l’accès à l `webmidi` API.
-    * `midiSysex` - Demander l’utilisation de messages exclusifs système dans l' `webmidi` API.
-    * `pointerLock` - Demande d’interpréter directement les mouvements de la souris comme une méthode d’entrée. Cliquez [ici](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) pour en savoir plus.
+    * `notifications` - Request notification creation and the ability to display them in the user's system tray.
+    * `midi` - Request MIDI access in the `webmidi` API.
+    * `midiSysex` - Request the use of system exclusive messages in the `webmidi` API.
+    * `pointerLock` - Request to directly interpret mouse movements as an input method. Cliquez [ici](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) pour en savoir plus.
     * `fullscreen` - Demande de l'application pour passer en mode plein écran.
-    * `openExternal` - Demande d’ouverture de liens dans des applications externes.
+    * `openExternal` - Request to open links in external applications.
   * `callback` Function
-    * `permissionGranted` Boolean - Autoriser ou refuser la permission.
-  * `details` objet - Certaines propriétés ne sont disponibles que sur certains types d’autorisation.
-    * `externalURL` String (facultatif) - L’url du `openExternal` demande.
-    * `mediaTypes` String[] (facultatif) - Les types d’accès aux médias demandés, les éléments peuvent être `video` ou `audio`
-    * `requestingUrl` String - La dernière URL du cadre de demande chargé
-    * `isMainFrame` Boolean - Si le cadre faisant la demande est le cadre principal
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `details` Object - Some properties are only available on certain permission types.
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Définit le gestionnaire qui peut être utilisé pour répondre aux demandes d’autorisation pour le `session`. Appeler `callback(true)` permettra la permission et `callback(false)` la rejettera. Pour dégager le gestionnaire, appelez- `setPermissionRequestHandler(null)`.
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
@@ -450,15 +450,15 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` fonction\<Boolean> | null
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Veuillez noter que si la demande provient d’un sous-cadre, vous devez utiliser `requestingUrl` vérifier l’origine de la demande.
+* `handler` Function\<Boolean> | null
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
   * `requestingOrigin` String - The origin URL of the permission check
-  * `details` objet - Certaines propriétés ne sont disponibles que sur certains types d’autorisation.
+  * `details` Object - Some properties are only available on certain permission types.
     * `securityOrigin` String - The security origin of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
-    * `requestingUrl` String - La dernière URL du cadre de demande chargé
-    * `isMainFrame` Boolean - Si le cadre faisant la demande est le cadre principal
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. Pour effacer le gestionnaire, appelez `setPermissionCheckHandler(null)`.
 
@@ -475,7 +475,7 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 #### `ses.clearHostResolverCache()`
 
-Retourne `Promise<void>` - Se résout lorsque l’opération est terminée.
+Returns `Promise<void>` - Resolves when the operation is complete.
 
 Vide le cache de résolution de l'hôte.
 
@@ -533,13 +533,13 @@ Retourne `Promise<Buffer>` - résout avec des données Blob.
 
 * `url` String
 
-Lance un téléchargement de la ressource à `url`. L’API générera un [downloaditem](download-item.md) qui peut être consulté avec l' [va-t-il](#event-will-download) événement.
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
 
 **Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` objet
+* `options` Object
   * `path` String - Chemin d'accès absolu pour le téléchargement.
   * `urlChain` String[] - Chaîne de caractère complète de l'URL du téléchargement.
   * `type` String (facultatif)
@@ -622,7 +622,7 @@ Returns `Boolean` - Whether the word was successfully removed from the custom di
 #### `ses.loadExtension(path[, options])`
 
 * `path` String - Path to a directory containing an unpacked Chrome extension
-* `options` objet (facultatif)
+* `options` Object (optional)
   * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. Par défaut, faux.
 
 Returns `Promise<Extension>` - resolves when the extension is loaded.
