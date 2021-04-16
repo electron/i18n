@@ -8,7 +8,7 @@ Prozess: [Main](../glossary.md#main-process)
 
 Das `nativeTheme` -Modul gibt die folgenden Ereignisse aus:
 
-### Veranstaltung: 'aktualisiert'
+### Event: 'updated'
 
 Emittiert, wenn sich etwas im zugrunde liegenden NativeTheme geändert hat. Dies bedeutet normalerweise , dass sich entweder der Wert von `shouldUseDarkColors`, `shouldUseHighContrastColors` oder `shouldUseInvertedColorScheme` geändert hat. Sie müssen sie überprüfen, um festzustellen, welche geändert wurde.
 
