@@ -26,7 +26,7 @@ Pour activer ce mode, l'accélération GPU doit être désactivée en appelant l
 
 ## Exemple
 
-Commencer avec une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `main.js`:
+Pour commencer avec une application fonctionnelle, dans le [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `main.js`:
 
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
@@ -47,6 +47,6 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, navigate to your application's working folder.
+Après avoir lancé l'application Electron, accédez au dossier de travail de votre application.
 
 [disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration
