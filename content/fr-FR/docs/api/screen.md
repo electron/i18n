@@ -4,11 +4,11 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Ce module ne peut pas être utilisé tant que l'événement `prêt` du module `app` n'est pas émis.
+Ce module ne peut pas être utilisé tant que l'événement `ready` du module `app` n'est pas émis.
 
 `screen` est un [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Remarque :** Dans le renderer / DevTools, `window.screen` est une propriété réservée au DOM, alors écrire `let { screen } = require('electron')` ne fonctionnera pas.
 
 Un exemple de création d'une fenêtre qui prendra tout l'écran :
 
