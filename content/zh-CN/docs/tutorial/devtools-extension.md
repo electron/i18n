@@ -1,20 +1,20 @@
 # 开发工具扩展程序
 
-Electron supports [Chrome DevTools extensions][devtools-extension], which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
+Electron支持 [Chrome DevTools 扩展程序][devtools-extension]，可增强调试流行 web 框架的能力。
 
-## Loading a DevTools extension with tooling
+## 使用工具加载 DevTools 扩展
 
-The easiest way to load a DevTools extension is to use third-party tooling to automate the process for you. [electron-devtools-installer][electron-devtools-installer] is a popular NPM package that does just that.
+加载 DevTools 扩展的最简单方法是使用第三方工具，来为您实现自动化过程。 [electron-devtools-installer][electron-devtools-installer] 是一个受欢迎的 NPM 包。
 
-## Manually loading a DevTools extension
+## 手动加载 DevTools 扩展
 
-If you don't want to use the tooling approach, you can also do all of the necessary operations by hand. To load an extension in Electron, you need to download it via Chrome, locate its filesystem path, and then load it into your [Session][session] by calling the [`ses.loadExtension`] API.
+如果你不想使用工具加载，你也可以手动完成所有必需的操作。 要在 Electron 中加载扩展，您需要在 Chrome 下载它，找到其文件系统路径，然后通过调用[`ses.loadExtension`] API 将其加载到您的 [Session][session] 中。
 
-Using the [React Developer Tools][react-devtools] as an example:
+下面以[React Developer Tools][react-devtools]为例：
 
-1. Install the extension in Google Chrome.
-1. 打开`chrome://extensions`，找到扩展程序的ID，形如`fmkadmapgofadopljbjfkapdkoienihi`的hash字符串。
-1. Find out the filesystem location used by Chrome for storing extensions:
+1. 在 Google Chrome 中安装扩展。
+1. 打开`chrome://extensions`，找到扩展程序的ID，像 `fmkadmapgofadopljbjfkapdkoienihi` 一样的 hash 字符串。
+1. 找到 Chrome 扩展程序的存放目录：
    * 在Ｗindows 下为 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
    * 在 Linux下为：
      * `~/.config/google-chrome/Default/Extensions/`
@@ -22,7 +22,7 @@ Using the [React Developer Tools][react-devtools] as an example:
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * 在 macOS下为`~/Library/Application Support/Google/Chrome/Default/Extensions`。
-1. Pass the location of the extension to the [`ses.loadExtension`][load-extension] API. For React Developer Tools `v4.9.0`, it looks something like:
+1. 将扩展的位置传递给 [`ses.loadExtension`][load-extension] API。 对于 React Developer Tools `v4.9.0`, 它看起来像：
 
    ```javascript
     const { app, session } = require('electron')
@@ -40,21 +40,21 @@ Using the [React Developer Tools][react-devtools] as an example:
     })
    ```
 
-**注意：**
+**说明：**
 
-* `loadExtension` returns a Promise with an [Extension object][extension-structure], which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
-* `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
-* `loadExtension` must be called on every boot of your app if you want the extension to be loaded.
+* `loadExtension` 返回一个包含 [扩展对象][extension-structure] 的 Promise，其中包含加载的扩展有关的元数据。 在加载页面前，此 Promise 需要被 resolve（例如使用 ` await ` 表达式）。 否则将无法保证扩展被加载。
+* `loadExtension` 无法在 `app` 模块 `ready` 之前调用，也不能被内存(非持久) 会话调用。
+* 如果您希望加载扩展，则必须在应用的每次启动时调用`loadExtension` 。
 
-### Removing a DevTools extension
+### 删除 DevTools 扩展
 
-You can pass the extension's ID to the [`ses.removeExtension`][remove-extension] API to remove it from your Session. Loaded extensions are not persisted between app launches.
+您可以将扩展的 ID 传递给 [`ses.removeExtension`][remove-extension] API，以将其从您的 Session 中删除。 每次应用重新启动，扩展不会持续。
 
-## DevTools extension support
+## DevTools 扩展支持
 
-Electron only supports [a limited set of `chrome.*` APIs][supported-extension-apis], so extensions using unsupported `chrome.*` APIs under the hood may not work.
+Electron 仅支持 [有限的 `chrome.*` APIs ][supported-extension-apis]，所以使用不支持的 `chrome.*` 扩展的 APIs 可能无法工作。
 
-The following Devtools extensions have been tested to work in Electron:
+以下 DevTools 扩展程序已经通过测试，可以在 Electron 中正常工作：
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -66,11 +66,11 @@ The following Devtools extensions have been tested to work in Electron:
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools extension is not working?
+### 如果 DevTools 扩展不工作，我该怎么办？
 
-First, please make sure the extension is still being maintained and is compatible with the latest version of Google Chrome. We cannot provide additional support for unsupported extensions.
+首先，请确保扩展仍在维护中，并与最新版本的 Google Chrome 兼容。 我们不能为不受支持的扩展提供额外支持。
 
-If the extension works on Chrome but not on Electron, file a bug in Electron's [issue tracker][issue-tracker] and describe which part of the extension is not working as expected.
+如果扩展可以在 Chrome 上运行，但不能在 Electron 上运行， 在 Electron 的 [issue Tracker][issue-tracker] 中提交一个错误，并描述扩展的哪个部分不能按预期工作。
 
 [devtools-extension]: https://developer.chrome.com/extensions/devtools
 [session]: ../api/session.md
