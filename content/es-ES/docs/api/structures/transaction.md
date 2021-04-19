@@ -6,6 +6,6 @@
 * `transactionState` String - El estado de la transacción, puede ser: `purchasing`, `purchased`, `failed`, `restored` o `deferred`.
 * `errorCode` Integer - El código de error si ha ocurrido algún error al procesar la transacción.
 * `errorMessage` String - El mensaje de error si ha ocurrido algún error al procesar la transacción.
-* `payment` Object
+* `payment` Objeto
   * `productIdentifier` String - El identificador del producto adquirido.
   * `quantity` Integer  - La cantidad adquirida.
