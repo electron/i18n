@@ -1116,7 +1116,7 @@ Devuelve `Boolean` - Si la aplicación esta actualmente ejecutándose desde la c
   * `conflictHandler` Function\<Boolean> (opcional) - Un controlador para el potencial conflicto en el fallo de movimiento.
     * `conflictType` String - El tipo de conflicto de movimiento encontrado por el controlador; puede ser `exists` o `existsAndRunning`, donde `exists` quiere decir que una aplicación con el mismo nombre está presente el directorio de las Aplicaciones y `existsAndRunning` quiere decir que que existe y que se está ejecutando actualmente.
 
-Devuelve `Boolean` - Si el movimiento fue realizado correctamente. Please note that if the move is successful, your application will quit and relaunch.
+Devuelve `Boolean` - Si el movimiento fue realizado correctamente. Por favor, ten en cuenta que si el movimiento es exitoso, tu aplicación se cerrará y se reiniciará.
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
