@@ -228,7 +228,7 @@ const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Lógica de verificación.
+    // Verification logic.
     event.preventDefault()
     callback(true)
   } else {
@@ -622,7 +622,7 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 
 Reescribe el nombre de la aplicación actual.
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**Nota:** Esta función anula el nombre usado internamente por Electron; no afecta el nombre que el usa el sistema operativo.
 
 ### `app.getLocale()`
 
@@ -747,6 +747,8 @@ Si la `categoría` es `nula` la configuración personalizada previa de la Jump L
 
 **Nota:** Usuarios pueden remover elementos de las categorías personalizadas y Windows no permitirá que un elemento removido sea añadido de nuevo a la categoría personalizada hasta **después** del siguiente llamado exitoso a `app.setJumpList(categories)`. Cualquier intento de añadir nuevamente el elemento a la categoría personalizada antes que eso resultará en que la categoría entera sea omitida de la Jump List. La lista de elemento removidos puede ser obtenida usando `app.getJumpListSettings()`.
 
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+
 Aquí hay un ejemplo sencillo de cómo crear una Jump List personalizada:
 
 ```javascript
@@ -821,23 +823,22 @@ Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda 
 
 ```javascript
 const { app } = require('electron')
-let miVentana = null
+let myWindow = null
 
-const obtenerBloqueo = app.requestSingleInstanceLock()
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (!obtenerBloqueo) {
+if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Si alguien intentó ejecutar un segunda instancia, debemos
- //enfocarnos en nuestra ventana principal.
-    if (miVentana) {
-      if (miVentana.isMinimized()) miVentana.restore()
-      miVentana.focus()
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
     }
   })
 
-  // Crear miVentana, esto cargara el resto de la aplicación, etc...
+  // Create myWindow, load the rest of the app, etc...
   app.whenReady().then(() => {
     myWindow = createWindow()
   })
@@ -860,7 +861,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `userInfo` any - Estado especifico de la aplicación para almacenar para su uso por otro dispositivo.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Crea un `NSUserActivity` y se establece como la actividad actual. The activity is eligible for [Handoff][handoff] to another device afterward.
+Crea un `NSUserActivity` y se establece como la actividad actual. La actividad es elegible para [Handoff][handoff] a otro dispositivo luego.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -980,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. En Linux, solo funciona para Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1003,7 +1004,7 @@ Devuelve `Objecto`:
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
 * `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` si la APP se abrió como un elemento de inicio de sesión oculto . Esto indica que la aplicación no debería abrir ninguna ventana al inicio. This setting is not available on [MAS builds][mas-builds].
 * `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. This setting is not available on [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
@@ -1023,7 +1024,7 @@ Devuelve `Objecto`:
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Por defecto es `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Establece los objetos de inicio de ajuste de la aplicación.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Por ejemplo:
+Para trabajar con `autoUpdater` de Electron en Windows, el cual usa [Squirrel][Squirrel-Windows], querrás establecer el camino de ejecución de Update.exe, y pasarán los argumentos que especifican el nombre de tu aplicación. Por ejemplo:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1089,7 +1090,7 @@ Muestra el selector de emoji nativo de la plataforma.
 Devuelve `Function` - Esta función **debe** ser llamado una vez que hayas terminado de acceder el archivo de ámbito de seguridad. Si no recuerdas de dejar de acceder el marcador, [recursos de nucleo se fugarán](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) y tu aplicación se perderá su capacidad de alcanzar afuera del entorno aislado completamente hasta que se reinicia tu aplicación.
 
 ```js
-// Empezar a acceder el archivo.
+// Start accessing the file.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 🎉
 
@@ -1121,7 +1122,7 @@ No confirmation dialog will be presented by default. If you wish to allow the us
 
 **Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por ejemplo si el usuario cancela el dialogo de autorización, este método va a devolver falso. Si nosotros no realizamos la copia, entonces este método va a lanzar un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Este comportamiento puede ser cambiado proporcionando un controlador de conflicto opcional, donde el booleano devuelto por el controlado determina si el conflicto de movimiento se resuelve o no con el controlador por defecto.  es decir, devolviendo `false` se asegura que no se tomaran más acciones, devolviendo `true` resultará en el comportamiento por defecto y el método continuando.
+Por defecto, si una aplicación con el mismo nombre que la aplicación que esta siendo movida existe en el directorio de las Aplicaciones y _no_ está ejecutándose, la aplicación existente será eliminada y la aplicación activa se moverá en su lugar. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Este comportamiento puede ser cambiado proporcionando un controlador de conflicto opcional, donde el booleano devuelto por el controlado determina si el conflicto de movimiento se resuelve o no con el controlador por defecto.  es decir, devolviendo `false` se asegura que no se tomaran más acciones, devolviendo `true` resultará en el comportamiento por defecto y el método continuando.
 
 Por ejemplo:
 
@@ -1182,7 +1183,7 @@ Una propiedad `Integer` que devuelve el recuento de insignias para la aplicació
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
