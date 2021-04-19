@@ -10,7 +10,7 @@ Hacer aplicaciones accesibles es importante y estamos encantados de introducir n
 
 Los problemas de accesibilidad en las aplicaciones de Electron son similares a los de los sitios web porque ambos son en última instancia HTML. Sin embargo, con las aplicaciones Electron no puede utilizar los recursos en línea para las auditorías de accesibilidad porque su aplicación no tiene una URL a la que apuntar el auditor.
 
-These new features bring those auditing tools to your Electron app. Estas nuevas características traen esas herramientas de auditoría a su aplicación Electron. Lea para obtener un resumen de las herramientas o revise nuestra [documentación de accesibilidad](https://electronjs.org/docs/tutorial/accessibility/) para más información.
+Estas nuevas funciones traen esas herramientas de auditoría a tu App Electron. Estas nuevas características traen esas herramientas de auditoría a su aplicación Electron. Lea para obtener un resumen de las herramientas o revise nuestra [documentación de accesibilidad](https://electronjs.org/docs/tutorial/accessibility/) para más información.
 
 ### Spectron
 
