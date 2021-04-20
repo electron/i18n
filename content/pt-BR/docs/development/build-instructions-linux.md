@@ -1,6 +1,6 @@
 # Instruções para Configurar (Linux)
 
-Siga as instruções abaixo para configurar o Electron no Linux.
+Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Pré-requisitos
 
@@ -111,3 +111,5 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 ### Utilizando compiladores diferentes de `clang`
 
 Construir Electron com compiladores diferentes de `clang` não é suportado.
+
+[application-distribution]: ../tutorial/application-distribution.md
