@@ -22,7 +22,7 @@ Si vous utilisiez ce paramètre pour définir le titre d’une fenêtre, vous po
 
 ### Removed: `worldSafeExecuteJavaScript`
 
-In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  There is no alternative, please ensure your code works with this property enabled.  Il a été activé par défaut depuis Electron
 12.
 
 You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
@@ -73,7 +73,7 @@ Les API d’extension dépréciées ont été supprimées :
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Utilisez plutôt les API de session :
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
@@ -366,7 +366,7 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Utilisez plutôt les API de session :
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
