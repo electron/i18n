@@ -147,10 +147,10 @@ For more information on the available configuration options, see the [documentat
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: Una pequeña descripción de su aplicación.
+summary: A little description for the app.
 description: |
- ¿Sábes qué? ¡Esta aplicación es asombrosa! Hace todas las cosas
- por vos. Algunos dicen que te mantiene joven, tal vez incluso feliz.
+ You know what? This app is amazing! It does all the things
+ for you. Some say it keeps you young, maybe even happy.
 
 grade: stable
 confinement: classic
@@ -200,8 +200,8 @@ Alternativamente, si esta construyendo su `snap` con aislamiento `strict`, puede
 ```yaml
 apps:
   myApp:
-    # Corrija la ruta de TMPDIR para que Chromium Framework/Electron se asegure que 
-    # libappindicator puede leer los recursos.
+    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+    # libappindicator has readable resources.
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
