@@ -1,8 +1,8 @@
 # Objeto extendido
 
-* `id` Cadena
-* Objeto listado.
+* `id` String
+* `manifest` any - Copia de [los datos del manifiesto de la extensión](https://developer.chrome.com/extensions/manifest).
 * `name` String
-* Objeto de lista.
-* `version` Cadena
-* Objeto de lista.
+* `path` String - La ruta del archivo de la extensión.
+* `version` String
+* `url` String - La URL de la `chrome-extension://` de la extensión.
