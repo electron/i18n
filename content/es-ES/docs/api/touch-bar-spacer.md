@@ -8,9 +8,9 @@ Proceso: [Main](../glossary.md#main-process)
 
 * `options` Object
   * `size` String (optional) - Size of spacer, possible values are:
-    * `small` - Espacio pequeño entre los elementos. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. Este es el valor predeterminado.
-    * `large` - Espacio grande entre los elementos. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
-    * `flexible` - Ocupa todo el espacio disponible. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
+    * `small` - Espacio pequeño entre los elementos. Mapea a `NSTouchBarItemIdentifierFixedSpaceSmall`. Este es el valor predeterminado.
+    * `large` - Espacio grande entre los elementos. Mapea a `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Ocupa todo el espacio disponible. Mapea a `NSTouchBarItemIdentifierFlexibleSpace`.
 
 ### Propiedades de Instancia
 
