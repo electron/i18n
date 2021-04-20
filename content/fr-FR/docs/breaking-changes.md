@@ -142,7 +142,7 @@ Chromium a supprimé le support pour Flash, et nous devons donc suivre. Voir la 
 
 ### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
-In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+Dans Electron 12, `worldSafeExecuteJavaScript` sera activé par défaut.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Veuillez noter que définir cette option sur `false` est **non sécurisé**.
 
 This option will be removed in Electron 14 so please migrate your code to support the default value.
 
@@ -158,7 +158,7 @@ Pour plus de détails, voir : https://github.com/electron/electron/issues/23506
 
 ### Removed: `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+La méthode `crashReporter.getCrashesDirectory` a été supprimée. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
 // Removed in Electron 12
@@ -178,9 +178,9 @@ The following `crashReporter` methods are no longer available in the renderer pr
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-They should be called only from the main process.
+Ils ne doivent être appelés qu'à partir du processus principal.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de détails.
 
 ### Par défaut modifié : `crashReporter.start({ compress: true })`
 
@@ -263,7 +263,7 @@ The only non-deprecated methods remaining in the `crashReporter` module in the r
 
 All above methods remain non-deprecated when called from the main process.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de détails.
 
 ### Obsolète : `crashReporter.start({ compress: false })`
 
@@ -293,7 +293,7 @@ Nous [vous recommandons de vous éloigner du module distant](https://medium.com/
 
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Les API sont désormais synchrones et le rappel facultatif n'est plus nécessaire.
 
 ```javascript
 // Deprecated
@@ -322,7 +322,7 @@ protocol.unregisterProtocol(scheme)
 
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Les API sont désormais synchrones et le rappel facultatif n'est plus nécessaire.
 
 ```javascript
 // Deprecated
@@ -457,7 +457,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsolète: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+This API is implemented using the `remote` module, which has both performance and security implications. Par conséquent, son utilisation doit être explicite.
 
 ```js
 // Deprecated
