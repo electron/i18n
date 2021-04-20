@@ -1,6 +1,6 @@
 # ビルド手順 (Windows)
 
-Windows 版 Electron のビルドについては、以下のガイドラインに従ってください。
+Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## 必要な環境
 
@@ -94,3 +94,5 @@ $ git config --system core.longpaths true
 ### ビルドスクリプトがキーを押さないと止まる
 
 このバグは Windows コマンドプロンプトの「機能」によるものです。 `簡易編集モード` を有効にしたプロンプトウィンドウ内をクリックすると発生し、出力テキストを簡単に選択してコピーできるようにすることを目的としています。 誤ってクリックするたびにビルドプロセスが一時停止するため、この機能はコマンドプロンプトのプロパティで無効にできます。
+
+[application-distribution]: ../tutorial/application-distribution.md
