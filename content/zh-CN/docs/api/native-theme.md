@@ -1,4 +1,4 @@
-# nativeTheme
+# 本地主题
 
 > 读取并响应Chromium本地色彩主题中的变化。
 
