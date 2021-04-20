@@ -52,7 +52,7 @@ To run only specific tests matching a pattern, run `npm run test --
 
 #### Pixel measurements
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. Чтобы вывести эти тесты под корректно, убедитесь, что устройство настроено на 100% масштабирование.
 
 To configure display scaling:
 
