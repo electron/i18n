@@ -1,4 +1,4 @@
 # Objeto SharedWorkerInfo
 
-* `id` String - El id único del trabajador compartido.
-* `url` String - La url del trabajador compartido.
+* `id` String - El id único del shared worker.
+* `url` String - La url del shared worker.
