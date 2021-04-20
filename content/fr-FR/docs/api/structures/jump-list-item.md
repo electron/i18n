@@ -8,7 +8,7 @@
 * `program` String (facultatif) - Chemin du programme à exécuter, habituellement, vous devez spécifier `process.execPath` qui ouvre le programme en cours. Doit être défini uniquement si le `type` est `task`.
 * `args` Fiche (facultatif) - Les arguments de ligne de commande lorsque `program` sera exécuté. Doit être défini uniquement si `type` est `task`.
 * `titre` Fiche (facultatif) - Le texte à afficher pour l'élément dans la Liste Jump. Doit  être défini uniquement si `type` est `task`.
-* `description` Fiche (facultatif) - Description de la tâche (affichée dans une infobulle). Doit  être défini uniquement si `type` est `task`.
+* `description` Fiche (facultatif) - Description de la tâche (affichée dans une infobulle). Doit  être défini uniquement si `type` est `task`. Maximum length 260 characters.
 * `iconPath` String (facultatif) - Le chemin d'accès absolu d'une icône à afficher dans une liste de raccourcis, qui peut être une ressource arbitraire d'un fichier de ressource contenant une icône. (`.ico`, `.exe`, `.dll`). Vous pouvez généralement spécifier `process.execPath` pour afficher l’icône du programme.
 * `iconIndex` Number (facultatif) - L'index de l'icône dans le fichier de ressource. Si un fichier de ressource contient plusieurs icône, cette valeur peut être utilisée pour spécifier l'index de l'icône devant être affichée pour cette tâche. Si un fichier de ressource ne contient qu'une seule icône, alors cette propriété doit être définie à zéro.
 * `Repertoiredetravail` Fiche (facultatif) - Le répertoire de travail.  Défaut est vide.
