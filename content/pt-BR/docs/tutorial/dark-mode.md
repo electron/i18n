@@ -1,4 +1,4 @@
-# Dark Mode
+# Modo Escuro
 
 ## Visão Geral
 
@@ -141,7 +141,7 @@ Create a `styles.css` file and add the following lines:
 
 After launching the Electron application, you can change modes or reset the theme to system default by clicking corresponding buttons:
 
-![Dark Mode](../images/dark_mode.gif)
+![Modo Escuro](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/
