@@ -55,7 +55,7 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 })
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
-  // Por ejemplo...
+  // For example...
   childWindow.webContents('will-navigate', (e) => {
     e.preventDefault()
   })
