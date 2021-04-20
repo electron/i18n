@@ -336,7 +336,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
+  * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
     * `clean-exit` - ゼロの終了コードでプロセスが終了した
     * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
     * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
@@ -1224,7 +1224,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Object[]  (optional) - The page range to print. macOS では 1 つの範囲のみが許可されています。
+  * `pageRanges` Object[]  (任意) - 印刷するページ範囲。 macOS では 1 つの範囲のみが許可されています。
     * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
     * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。
