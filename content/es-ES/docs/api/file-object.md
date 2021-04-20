@@ -1,4 +1,4 @@
-# `File` Object
+# Objeto `File`
 
 > Utiliza la API HTML5 `File` para trabajar de forma nativa con los archivos en filesystem.
 
