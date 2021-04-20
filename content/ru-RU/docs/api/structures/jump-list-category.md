@@ -9,3 +9,5 @@
 * `items` JumpListItem[] (опционально) - массив объектов [`JumpListItem`](jump-list-item.md), если `type` является `tasks` или `custom`, иначе оно должно быть опущено.
 
 **Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается как `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
+
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
