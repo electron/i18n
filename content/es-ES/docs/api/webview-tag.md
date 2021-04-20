@@ -78,7 +78,7 @@ Asignarle a `src` su propio valor reiniciará la página actual.
 
 El atributo `src` puede aceptar data de URL, como `data:text/plain,Hello, world!`.
 
-### `no desintegración`
+### `nodeintegration`
 
 ```html
 <webview src="http://www.google.com/" nodeintegration></webview>
@@ -102,7 +102,7 @@ Un `Boolean` para habilitar la opción experimental soporte NodeJS en sub frames
 
 Un `Boolean`. Cuando este atributo es `false` la pagina de invitado en `webview` no tendrá acceso al módulo [`remote`](remote.md). The remote module is unavailable by default.
 
-### `complementos`
+### `plugins`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -110,7 +110,7 @@ Un `Boolean`. Cuando este atributo es `false` la pagina de invitado en `webview`
 
 Un `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
-### `precarga`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -477,32 +477,32 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
   * `copies` Number (opcional) - El número de copias de la página web a imprimir.
   * `pageRanges` Object[] (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
+    * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` Record<string, number> (optional)
+  * `dpi` Record<string, number> (opcional)
     * `horizontal` Number (opcional) - El dpi horizontal.
     * `vertical` Number (opcional) - El dpi vertical.
   * `header` String (opcional) - Cadena a ser impresa como cabecera de la página.
   * `footer` String (opcional) - Cadena a ser impresa como pie de página.
-  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
+  * `pageSize` String | Tamaño (opcional) - Especifique el tamaño de página del documento impreso. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height`.
 
 Devuelve `Promise<void>`
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+Imprime la página web de `webview`. Igual que `webContents.print([options])`.
 
 ### `<webview>.printToPDF(opciones)`
 
 * `options` Object
-  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
-    * `title` String - The title for the PDF header.
-    * `url` String - the url for the PDF footer.
+  * `headerFooter` Record<string, string> (opcional) - el encabezado y el pie de página para el PDF.
+    * `title` String - El título para el encabezado PDF.
+    * `url` String - la url para el pie de página PDF.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
-  * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Can range from 0 to 100.
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. y `width` en micrones.
+  * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Puede variar entre 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print. On macOS, only the first range is honored.
     * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
+    * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height`
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
 
@@ -587,7 +587,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 Devuelve:
 
 * `url` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -599,10 +599,10 @@ Disparado cuando la navegación es terminada, i.e. el girador del tabulador deja
 
 Devuelve:
 
-* `errorCode` Entero
+* `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -610,7 +610,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -631,7 +631,7 @@ Disparado cuando el documento en el frame dado es cargado.
 Devuelve:
 
 * `title` String
-* `explicitSet` Boolen
+* `explicitSet` Boolean
 
 Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
 
@@ -747,7 +747,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Devuelve:
 
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
@@ -805,7 +805,7 @@ Disparado cuando el proceso de renderizado se cierra.
 Devuelve:
 
 * `name` String
-* `version` Cadena
+* `version` String
 
 Disparado cuando el proceso de plugin se cae.
 
