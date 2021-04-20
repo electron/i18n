@@ -154,7 +154,7 @@ const template = [
   },
   // { role: 'editMenu' }
   {
-    label: 'Editar',
+    label: 'Edit',
     submenu: [
       { role: 'undo' },
       { role: 'redo' },
