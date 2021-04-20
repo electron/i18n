@@ -51,7 +51,7 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Возможные значения:
 
 * `fixed` - Maps to `NSScrubberModeFixed`.
-* `free` - Maps to `NSScrubberModeFree`.
+* `free` - Карты `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
