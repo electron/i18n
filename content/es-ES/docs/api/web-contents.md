@@ -39,7 +39,7 @@ Volver `WebContents` - El contenido web que se centra en esta aplicación, de lo
 
 Devuelve `WebContents` | undefined - Una instancia de WebContents con el ID dado, o `undefined` si no hay WebContents asociados con ID dado.
 
-## Clase: ContenidoWeb
+## Clase: WebContents
 
 > Renderice y controle el contenido de una instancia de BrowserWindow.
 
@@ -56,10 +56,10 @@ Emite cuando la navegación está hecha, i.e.
 Devuelve:
 
 * `event` Event
-* `errorCode` Entero
+* `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -70,10 +70,10 @@ Este evento es como `did-finish-load` pero emitido cuando falló la carga. La li
 Devuelve:
 
 * `event` Event
-* `errorCode` Entero
+* `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -84,7 +84,7 @@ Este evento es como `did-fail-load` pero emitido cuando la carga fue cancelada (
 Devuelve:
 
 * `event` Event
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -209,7 +209,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -222,7 +222,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -239,7 +239,7 @@ Devuelve:
 * `event` Event
 * `url` String
 * `isInPlace` Boolean
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -268,7 +268,7 @@ Devuelve:
 * `url` String
 * `httpResponseCode` Integer - -1 para navegaciones no HTTP
 * `httpStatusText` String - vacío para navegaciones no HTTP
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -282,7 +282,7 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -362,7 +362,7 @@ Devuelve:
 
 * `event` Event
 * `name` String
-* `version` Cadena
+* `version` String
 
 Emitido cuando el proceso de enchufe se ha caído.
 
@@ -396,8 +396,8 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // Por ejemplo, solo habilita atajos de teclado del menú de la aplicación cuando
-  // Ctrl/Cmd están presionados.
+  // For example, only enable application menu keyboard shortcuts when
+  // Ctrl/Cmd are down.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -470,10 +470,10 @@ Devuelve:
 * `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
-  * `anfitrión` Cadena
-  * `puerto` Íntegro
-  * `realm` Cadena
-* `callback` Función
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Function
   * `username` String (opcional)
   * `password` String (opcional)
 
@@ -536,7 +536,7 @@ Devuelve:
 * `size` [Size](structures/size.md) (opcional) - El tamaño de la `image`.
 * `hotspot` [Point](structures/point.md) (opcional) - Coordenadas de la zona activa del cursor personalizado.
 
-Emitido cuando el tipo del cursor cambia. El parámetro `type` puede ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+Emitido cuando el tipo del cursor cambia. El parámetro `type` puede ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` o `custom`.
 
 Si el parámetro `type` es `custom`, el parámetro de la `image` mantendrá la imagen del cursor personalizado en un [`NativeImage`](native-image.md), `scale` y `size`, `hotpost` mantendrá información adicional sobre el cursor personalizado.
 
@@ -613,6 +613,7 @@ app.whenReady().then(() => {
       callback(result.deviceId)
     }
   })
+})
 ```
 
 #### Evento: 'paint'
@@ -925,7 +926,7 @@ Llamar a `reload()` inmediatamente después de llamar a este método forzará qu
 contents.on('unresponsive', async () => {
   const { response } = await dialog.showMessageBox({
     message: 'App X has become unresponsive',
-    title: '¿Quieres intentar volver a cargar la aplicación a la fuerza?',
+    title: 'Do you want to try forcefully reloading the app?',
     buttons: ['OK', 'Cancel'],
     cancelId: 1
   })
@@ -964,7 +965,7 @@ contents.on('did-finish-load', () => {
 
 #### `contents.removeInsertedCSS(key)`
 
-* `llave` Cadena
+* `key` String
 
 Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
@@ -993,7 +994,7 @@ La ejecución de código se suspenderá hasta que la pagina pare de cargarse.
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Será el objeto JSON de la fetch call
+    console.log(result) // Will be the JSON object from the fetch call
   })
 ```
 
@@ -1019,7 +1020,9 @@ Ignora los accesos directos del menú de la aplicación mientras se enfoca los c
   * `details` Object
     * `url` String - La versión _resuelta_ de la URL pasada a `window.open()`. por ejemplo una ventana con `window.open('foo')` producirá algo como `https://the-origin/the/current/path/foo`.
     * `frameName` String - Nombre de la ventana proporcionado en `window.open()`
-    * `features` String - Lista separada por coma de la características de ventana proporcionada a `window.open()`. Devuelve `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancela la creación de la nueva ventana. `allow` permitirá la que se cree la nueva ventana. Especificando `overrideBrowserWindowOptions` permite la personalización de la ventana creada. Devolver un valor no reconocido como un null, undefined o un objeto sin una 'action' reconocida resultará en un error de consola tiene el mismo efecto que devolver `{action: 'deny'}`.
+    * `features` String - Lista separada por coma de la características de ventana proporcionada a `window.open()`.
+
+  Devuelve `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancela la creación de la nueva ventana. `allow` permitirá la que se cree la nueva ventana. Especificando `overrideBrowserWindowOptions` permite la personalización de la ventana creada. Devolver un valor no reconocido como un null, undefined o un objeto sin una 'action' reconocida resultará en un error de consola tiene el mismo efecto que devolver `{action: 'deny'}`.
 
 Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
@@ -1121,19 +1124,19 @@ Ejecuta el comando de edición `unselect` en la página web.
 
 #### `contents.replace(text)`
 
-* `texto` String
+* `text` String
 
 Ejecuta el comando de edición `replace` en la página web.
 
 #### `contents.replaceMisspelling(text)`
 
-* `texto` String
+* `text` String
 
 Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 #### `contents.insertText(text)`
 
-* `texto` String
+* `text` String
 
 Devuelve `Promise<void>`
 
@@ -1223,14 +1226,14 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `copies` Number (opcional) - El número de copias de la página web a imprimir.
   * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
+    * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` Record<string, number> (optional)
+  * `dpi` Record<string, number> (opcional)
     * `horizontal` Number (opcional) - El dpi horizontal.
     * `vertical` Number (opcional) - El dpi vertical.
   * `header` String (opcional) - Cadena a ser impresa como cabecera de la página.
   * `footer` String (opcional) - Cadena a ser impresa como pie de página.
-  * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
+  * `pageSize` String | Tamaño (opcional) - Especifique el tamaño de página del documento impreso. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height`.
 * `retrocallback` Funcion (opcional)
   * `success` Boolean - Indica el éxito de la llamada impresa.
   * `failureReason` String - Descripción del error llamada de nuevo si la impresión falla.
@@ -1241,7 +1244,7 @@ Imprime la página web de la ventana. Cuando `silent` es establecido a `true`, E
 
 Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
-Ejemlo de uso:
+Ejemplo de uso:
 
 ```js
 const options = {
@@ -1260,15 +1263,15 @@ win.webContents.print(options, (success, errorType) => {
 #### `contents.printToPDF(options)`
 
 * `options` Object
-  * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
-    * `title` String - The title for the PDF header.
-    * `url` String - the url for the PDF footer.
+  * `headerFooter` Record<string, string> (opcional) - el encabezado y el pie de página para el PDF.
+    * `title` String - El título para el encabezado PDF.
+    * `url` String - la url para el pie de página PDF.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Can range from 0 to 100.
+  * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Puede variar entre 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
-    * `to` Number - Index of the last page to print (inclusive) (0-based).
+    * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
   * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
@@ -1311,10 +1314,10 @@ win.webContents.on('did-finish-load', () => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
     fs.writeFile(pdfPath, data, (error) => {
       if (error) throw error
-      console.log(`PDF escrito con éxito en  ${pdfPath}`)
+      console.log(`Wrote PDF successfully to ${pdfPath}`)
     })
   }).catch(error => {
-    console.log(`Falla al escibir el PDF en ${pdfPath}: `, error)
+    console.log(`Failed to write PDF to ${pdfPath}: `, error)
   })
 })
 ```
@@ -1477,7 +1480,7 @@ El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el 
 Un ejemplo de envío de mensajes desde el proceso principal al proceso de renderizado:
 
 ```javascript
-// En el proceso principal.
+// In the main process.
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1518,16 +1521,16 @@ El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el 
 If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Por ejemplo.
 
 ```js
-// En un proceso renderizador
-console.log('Mi frameid es:', require('electron').webFrame.routingId)
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
 También puede leer el `frameId` de todos los mensajes IPC entrantes en el proceso principal.
 
 ```js
-// En el proceso principal
+// In the main process
 ipcMain.on('ping', (event) => {
-  console.info('Mensaje viene de  frameId:', event.frameId)
+  console.info('Message came from frameId:', event.frameId)
 })
 ```
 
