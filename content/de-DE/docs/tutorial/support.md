@@ -58,7 +58,7 @@ Die folgenden Plattformen werden durch Electron unterstützt:
 
 ### macOS
 
-Nur 64Bit-Binärdateien werden für macOS bereitgestellt, und die minimale Unterstützung für macOS ist macOS 10.10 (Yosemite).
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.11 (El Capitan).
 
 Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
 
