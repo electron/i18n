@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Ein `BrowserView` kann verwendet werden, um zusätzliche Webinhalte in eine [`BrowserWindow`](browser-window.md)einzubetten. Es ist wie ein untergeordnetes Fenster, mit der Ausnahme, dass es relativ zu seinem eigenen Fenster positioniert ist. Es soll eine Alternative zum `webview` -Tag sein.
 
 ### Beispiel
 
