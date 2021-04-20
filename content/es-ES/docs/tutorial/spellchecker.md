@@ -21,10 +21,10 @@ En macOS como usamos las APIs nativas no hay forma de establecer el idioma que u
 Para Windows y Linux hay algunas API de Electron que debes usar para configurar los idiomas para el corrector ortográfico.
 
 ```js
-// Establece el corrector ortográfico para comprobar el inglés de EEUU y Francés
-myWindow.session. etSpellCheckerLanguages(['en-US', 'fr'])
+// Sets the spellchecker to check English US and French
+myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
 
-// Un array de todos los códigos de idioma disponibles
+// An array of all available language codes
 const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
 ```
 
@@ -37,23 +37,23 @@ Toda la información necesaria para generar un menú contextual se proporciona e
 ```js
 const { Menu, MenuItem } = require('electron')
 
-myWindow.webContents. n('context-menu', (evento, params) => {
+myWindow.webContents.on('context-menu', (event, params) => {
   const menu = new Menu()
 
-  // Añadir cada sugerencia ortográfica
-  para (const suggestion of params. ictionarySuggestions) {
-    menu. ppend(new MenuItem({
+  // Add each spelling suggestion
+  for (const suggestion of params.dictionarySuggestions) {
+    menu.append(new MenuItem({
       label: suggestion,
-      click: () => mainWindow.webContents. eplaceMisspelling(suggestion)
+      click: () => mainWindow.webContents.replaceMisspelling(suggestion)
     }))
   }
 
-  // Permite a los usuarios añadir la palabra mal escrita al diccionario
-  if (params. isspelledWord) {
-    menu. ppend(
+  // Allow users to add the misspelled word to the dictionary
+  if (params.misspelledWord) {
+    menu.append(
       new MenuItem({
-        label: 'Añadir al diccionario',
-        clic: () => mainWindow. ebContenidos. ession.addWordToSpellCheckerDictionary(params.misspelledWord)
+        label: 'Add to dictionary',
+        click: () => mainWindow.webContents.session.addWordToSpellCheckerDictionary(params.misspelledWord)
       })
     )
   }
