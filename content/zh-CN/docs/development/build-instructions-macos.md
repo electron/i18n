@@ -1,6 +1,6 @@
 # 构建步骤（macOS）
 
-遵循下面的引导，在 macOS 上构建 Electron.
+Follow the guidelines below for building **Electron itself** on macOS, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## 前提条件
 
@@ -42,3 +42,5 @@ Official Electron builds are built with [Xcode 12.2](https://download.developer.
 ## 构建Electron
 
 参照[Build Instructions: GN](build-instructions-gn.md)
+
+[application-distribution]: ../tutorial/application-distribution.md
