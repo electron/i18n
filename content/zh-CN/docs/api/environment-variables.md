@@ -74,7 +74,7 @@ In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.
 * "--openssl-config"
 * "--use-bundled-ca"
 * "--use-openssl-ca",
-* "--force-fips"
+* "-强制-菲普斯"
 * "--enable-fips"
 
 These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
