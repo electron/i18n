@@ -20,8 +20,8 @@ menu.append(new MenuItem({
   label: 'Electron',
   submenu: [{
     role: 'help',
-    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
-    click: () => { console.log('Electron rocks!') }
+    accelerator: process.platform === 'darwin' ? "Alt+Cmd+I"："Alt+Shift+I"，
+    单击：（）=> {控制台.log（"电子岩石！"） }
   }]
 }))
 
@@ -96,7 +96,7 @@ After launching the Electron application, if you open the terminal that you ran 
 
 #### 使用第三方库
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. 以下是在渲染进程中 `mousetrap` 的使用示例：
+如果您不想进行手动快捷方式解析，有些库会 高级密钥检测，例如 [鼠标陷阱][]。 以下是在渲染进程中 `mousetrap` 的使用示例：
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
@@ -129,6 +129,6 @@ Mousetrap.bind('up up down down left right left right b a enter', () => {
 [globalShortcut]: ../api/global-shortcut.md
 [`accelerator`]: ../api/accelerator.md
 [BrowserWindow]: ../api/browser-window.md
-[mousetrap]: https://github.com/ccampbell/mousetrap
+[鼠标陷阱]: https://github.com/ccampbell/mousetrap
 [dom-events]: https://developer.mozilla.org/en-US/docs/Web/Events
 [addEventListener-api]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
