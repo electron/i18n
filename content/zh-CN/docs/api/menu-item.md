@@ -47,15 +47,15 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 `role ` 属性可以具有以下值:
 
-* `undo`
+* `undo - 撤销。`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
 * `redo`
-* `cut`
-* `copy`
-* `paste`
+* `cut -  剪切。`
+* `copy - 复制。`
+* `paste - 粘贴。`
 * `pasteAndMatchStyle`
-* `selectAll`
-* `delete`
+* `selectAll - 全选。`
+* `delete -删除`
 * ` minimize ` - 最小化当前窗口。
 * `close` - 关闭当前窗口.
 * `quit` - 退出程序
