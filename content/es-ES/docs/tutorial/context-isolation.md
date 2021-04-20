@@ -53,7 +53,7 @@ Debería leer la documentación de `contextBridge` enlazada arriba para entender
 Solo activar `contextIsolation` y usar `contextBridge` no significa automáticamente que todo lo que haga sea seguro.  Por ejemplo, este código es **inseguro**.
 
 ```javascript
-// ❌ Código incorrecto
+// ❌ Bad code
 contextBridge.exposeInMainWorld('myAPI', {
   send: ipcRenderer.send
 })
@@ -62,7 +62,7 @@ contextBridge.exposeInMainWorld('myAPI', {
 Expone directamente una poderosa API sin ningún tipo de filtrado de argumentos. Esto permitiría a cualquier sitio web enviar mensajes IPC arbitrarios que no desea ser posible. La forma correcta de exponer las APIs basadas en IPC sería proporcionar un método por mensaje IPPC.
 
 ```javascript
-// ✅ Código correcto
+// ✅ Good code
 contextBridge.exposeInMainWorld('myAPI', {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
