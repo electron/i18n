@@ -36,7 +36,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Fichier représenté pour BrowserWindows sur macOS](tutorial/represented-file.md)
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu Offscreen](tutorial/offscreen-rendering.md)
-  * [Dark Mode](tutorial/dark-mode.md)
+  * [Mode foncé](tutorial/dark-mode.md)
   * [Intégrer le Web dans Electron](tutorial/web-embeds.md)
 * [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -120,7 +120,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [nativeTheme](api/native-theme.md)
+* [nativeTheme (nativeTheme)](api/native-theme.md)
 * [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
@@ -135,7 +135,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 ### Modules pour le processus de rendu (Page Web) :
 
-* [contextBridge](api/context-bridge.md)
+* [contexteBridge](api/context-bridge.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [webFrame](api/web-frame.md)
 
