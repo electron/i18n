@@ -10,13 +10,13 @@ Para criar uma frameless window, você precisa definir `frame` como `false` nas 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ width: 800, height: 600, frame: false })
+const win = novo BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
 ### Alternativas no macOS
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Você pode fazê-lo, especificando a opção `titleBarStyle`:
+Há uma maneira alternativa de especificar uma janela sem cromado. Em vez de definir `frame` para `false` que desativa tanto a barra de título quanto os controles de janela, você pode querer ter a barra de título escondida e seu conteúdo estender-se ao tamanho total da janela, ainda preservar os controles de janela ("semáforos") para ações de janela padrão. Você pode fazê-lo, especificando a opção `titleBarStyle`:
 
 #### `hidden`
 
@@ -24,7 +24,7 @@ Resultando em uma janela com a barra do título escondida e o conteúdo ocupando
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hidden' })
+const win = novo BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -34,17 +34,17 @@ Resulta em uma barra de título escondida com uma aparência alternativa, onde o
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = novo BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Usa botões personalizados desenhados perto e miniaturize que exibem ao pairar no canto superior esquerdo da janela. O botão fullscreen não está disponível devido a restrições de janelas sem moldura, pois interface com as máscaras de janela macOS da Apple. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. Esta opção só é aplicável para janelas sem moldura.
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = novo BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -54,16 +54,19 @@ Definindo a opção `transparent` como `true` você também pode fazer a framele
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = new BrowserWindow({ transparent: true, frame: false })
+const win = novo BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
 ### Limitações
 
 * Você não pode clicar através da área transparente. Nós iremos introduzir uma API para definir a forma da janela para solucionar isto, veja [nosso issue no Github](https://github.com/electron/electron/issues/1335) para mais detalhes.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
+* Janelas transparentes não são resizáveis. A configuração `resizable` para `true` pode fazer com que uma janela transparente pare de funcionar em algumas plataformas.
 * O filtro `blur` apenas se aplica a página web, logo, não há uma maneira de aplicar o efeito de borrado ao conteúdo abaixo da janela (ou seja, outras aplicações abertas no sistema do usuário).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
+* The window will not be transparent when DevTools is opened.
+* On Windows operating systems,
+  * transparent windows will not work when DWM is disabled.
+  * transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on [this pull request](https://github.com/electron/electron/pull/28207).
 * On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac, the native window shadow will not be shown on a transparent window.
 
