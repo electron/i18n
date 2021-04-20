@@ -386,7 +386,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
     * `verificationResult` String - Chromium からの認証結果。
     * `errorCode` Integer - エラーコード。
   * `callback` Function
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h). 証明書エラーコードの他に、以下の特殊コードを取ることがあります。
+    * `verificationResult` Integer - [こちら](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) の証明書エラーコードのうち一つの値を取ります。 証明書エラーコードの他に、以下の特殊コードを取ることがあります。
       * `0` - 成功を示し、証明書の透明性の検証を無効にします。
       * `-2` - 失敗を示します。
       * `-3` - Chromium からの認証結果を使用します。
