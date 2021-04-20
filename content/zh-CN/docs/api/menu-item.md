@@ -6,12 +6,12 @@
 
 有关示例, 请参见 [` Menu `](menu.md)。
 
-### `new MenuItem(可选)`
+### `new MenuItem(options)`
 
 * `选项` 对象
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
-    * `menuItem` 菜单项
-    * `browserWindow` [BrowserWindow](browser-window.md) | undefined - This will not be defined if no window is open.
+  * `click` 函数(可选) - 单击菜单项时，将用 `click(menuItem, browserWindow, event)` 调用。
+    * `menuItem` MenuItem
+    * `browserWindow` [BrowserWindow](browser-window.md) |未定义 - 如果没有打开窗口，则无法定义此定义。
     * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `shareMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. 参见 [roles](#roles)
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
@@ -47,9 +47,9 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 `role ` 属性可以具有以下值:
 
-* `撤消`
+* `undo`
 * `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
-* `重做`
+* `redo`
 * `cut`
 * `copy`
 * `paste`
@@ -128,7 +128,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.role`
 
-`String`（可选） 指出菜单项的角色 Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+`String`（可选） 指出菜单项的角色 可为 `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` 或 `windowMenu`
 
 #### `menuItem.accelerator`
 
