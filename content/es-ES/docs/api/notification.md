@@ -35,12 +35,12 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
   * `silent` Boolean (opcional) - Si se emite o no un sonido de notificación del sistema operativo cuando aparece la notificación.
   * `icon` (String | [NativeImage](native-image.md)) (opcional) - Icono para usar en la notificación.
   * `hasReply` Boolean (opcional) _macOS_ - Si se agrega o no una opción de respuesta insertada en la notificación.
-  * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `timeoutType` String (opcional) _Linux_ _Windows_ - La duración del tiempo de espera de la notificación. Puede ser 'default' o 'never'.
   * `replyPlaceholder` String (opcional) _macOS_ - El marcador de posición para escribir en el campo insertado de entrada de respuesta.
   * `sound` String (opcional) _macOS_ - El nombre del archivo de sonido que se reproduce cuando se muestra la notificación.
-  * `urgency` String (optional) _Linux_ - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+  * `urgency` String (opcional) _Linux_ - El nivel de urgencia de la notificación. Puede ser 'normal', 'critical', o 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (opcional) _macOS_ - Las acciones que se añaden a la notificación. Por favor lea las acciones disponibles y limitaciones en la documentación de `NotificationAction`.
-  * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `closeButtonText` String (opcional) _macOS_ - Un título personalizado para el botón cerrar de una alerta. Una cadena vacía hará que se utilice el texto localizado predeterminado.
   * `toastXml` String (opcional) _Windows_ - Una descripción personalizada de la notificación en Windows sustituyendo todas las propiedades anteriores. Ofrece una personalización completa del diseño y el comportamiento de la notificación.
 
 ### Eventos de Instancia
@@ -150,13 +150,13 @@ Una propiedad `Boolean` que representa si al notificación tiene a una acción d
 
 #### `notification.urgency` _Linux_
 
-A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+A `String` property representing the urgency level of the notification. Puede ser 'normal', 'critical', o 'low'.
 
 Por defecto es 'low' - vea [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) para más información.
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+A `String` property representing the type of timeout duration for the notification. Puede ser 'default' o 'never'.
 
 If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
