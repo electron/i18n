@@ -9,3 +9,5 @@
 * `items` JumpListItem[] (任意) - `type` が `tasks` もしくは `custom` の場合は [`JumpListItem`](jump-list-item.md) オブジェクトの配列を設定し、それ以外は省略しなければなりません。
 
 **注:** `JumpListCategory` オブジェクトに `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティは設定されている一方で `type` プロパティが省略された場合、`type` は `custom` と見做されます。
+
+**注:** ジャンプリストのアイテムの `description` プロパティは最大長は 260 文字です。 この制限を超えると、アイテムはジャンプリストに追加されず、表示されません。
