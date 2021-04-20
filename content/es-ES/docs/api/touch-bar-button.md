@@ -35,7 +35,7 @@ A `String` hex code representing the button's current background color. Changing
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+Un `NativeImage` que representa el icono del botón actual. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.iconPosition`
 
