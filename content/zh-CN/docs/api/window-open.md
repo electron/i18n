@@ -31,7 +31,7 @@ A subset of `WebPreferences` can be set directly, unnested, from the features st
 window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIntegration=no')
 ```
 
-**注意：**
+**说明：**
 
 * 如果在父窗口中禁用了 Node integration, 则在打开的 `window ` 中将始终被禁用。
 * 如果在父窗口中启用了上下文隔离, 则在打开的 ` window ` 中将始终被启用。
