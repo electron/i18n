@@ -1,6 +1,6 @@
 # Build Instructions
 
-Suivez les instructions ci-dessous pour construire **Electron lui-même**, afin de créer des binaires Electron personnalisés. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
+Suivez les instructions ci-dessous pour compiler **Electron**, afin de créer une version compilée personnalisée d'Electron. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Platform prerequisites
 
