@@ -91,7 +91,7 @@ Define a `url` e inicializa a atualização automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Devoluções `String` - A URL de alimentação de atualização atual.
 
 ### `autoUpdater.checkForUpdates()`
 
