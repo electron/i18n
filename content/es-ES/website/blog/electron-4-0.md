@@ -1,7 +1,7 @@
 ---
 title: Electron 4.0.0
 author: BinaryMuse
-date: '20-12-2018'
+date: '2018-12-20'
 ---
 
 El equipo de Electron está encantado de anunciar que la versión estable de Electron 4 ya está disponible! Puedes instalarlo desde [electronjs.org](https://electronjs.org/) o desde npm via `npm install electron@latest`. La versión está llena de actualizaciones, correcciones y nuevas características, y no podemos esperar a ver lo que construyes con ellas. ¡Lea más para obtener más información sobre esta versión, y por favor comparta cualquier comentario que tenga mientras explora!
@@ -66,7 +66,7 @@ browserWin.webContents.on('remote-get-global', function (event, requestedGlobalN
 
 Para obtener más información, consulte la siguiente documentación:
 
-* [`remoto.require`](https://electronjs.org/docs/api/remote#remoterequiremodule)
+* [`remote.require`](https://electronjs.org/docs/api/remote#remoterequiremodule)
 * [`remote.getGlobal`](https://electronjs.org/docs/api/remote#remotegetglobalname)
 * [`app`](https://electronjs.org/docs/api/app)
 * [`Contenido web`](https://electronjs.org/docs/api/web-contents)
