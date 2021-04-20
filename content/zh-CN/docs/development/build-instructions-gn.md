@@ -1,6 +1,6 @@
 # 构建指南
 
-请遵循以下指南来构建Electron。
+Follow the guidelines below for building **Electron itself**, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## 平台要求
 
@@ -148,7 +148,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
-| Host        | Target        | 状态                   |
+| Host        | 目标            | 状态                   |
 | ----------- | ------------- | -------------------- |
 | Windows x64 | Windows arm64 | 实验功能                 |
 | Windows x64 | Windows x86   | Automatically tested |
@@ -235,6 +235,8 @@ $ gclient sync -f
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
 
 If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
+
+[application-distribution]: ../tutorial/application-distribution.md
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 
