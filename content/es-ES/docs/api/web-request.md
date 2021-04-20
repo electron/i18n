@@ -19,7 +19,7 @@ Un ejemplo de añadir encabezados `User-Agent` a las solicitudes:
 ```javascript
 const { session } = require('electron')
 
-// Modificar el user agent para todas las consultas de las siguientes urls.
+// Modify the user agent for all requests to the following urls.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
