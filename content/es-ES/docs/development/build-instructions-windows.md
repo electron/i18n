@@ -1,6 +1,6 @@
 # Instrucciones para compilación (Windows)
 
-Siga las indicaciones a continuación para compilar Electron en Windows.
+Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Prerequisitos
 
@@ -46,7 +46,7 @@ El resto de los pasos son exactamente los mismos.
 Para generar un project de Visual Studio, puede pasar el parametro `--ide=vs2017` a `gn gen`:
 
 ```powershell
-$ gn gen out/Debug --ide=vs2017
+$ gn gen out/Testing --ide=vs2017
 ```
 
 ## Problemas
@@ -94,3 +94,5 @@ Asegúrese de haber instalado `pywin32` con `pip install pywin32`.
 ### Los scripts de compilacion se bloquean haste que se presione una tecla
 
 Este error es una "característica" del intérprete de comandos de Windows. Ocurre cuando se pulsa dentro de la ventana prompt con `QuickEdit` habilitado y está destinado a permitir seleccionar y copiar el texto de la salida fácilmente. Dado que cada click accidental pausará el proceso de compilación, puede que quiera desactivar esta característica en la propiedades del símbolo del sistema.
+
+[application-distribution]: ../tutorial/application-distribution.md
