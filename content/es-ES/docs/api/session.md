@@ -1,4 +1,4 @@
-# Sesión
+# session
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
@@ -20,7 +20,7 @@ console.log(ses.getUserAgent())
 
 ## Métodos
 
-El módulo `sesión` tiene los siguientes métodos:
+El módulo `session` tiene los siguientes métodos:
 
 ### `session.fromPartition(partition[, options])`
 
@@ -487,11 +487,11 @@ Configura dinámicamente cada vez que se envíen credenciales para HTTP NTLM o n
 
 ```javascript
 const { session } = require('electron')
-// considera cualquier url que termine con `example.com`, `foobar.com`, `baz`
-// para autenticación integrada.
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// considera todas las Urls para autenticación integrada.
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
@@ -575,7 +575,7 @@ Sets whether to enable the builtin spell checker.
 
 Returns `Boolean` - Whether the builtin spell checker is enabled.
 
-#### `ses.setSpellCheckerLanguages(idiomas)`
+#### `ses.setSpellCheckerLanguages(languages)`
 
 * `languages` String[] - Un array de códigos de idiomas para habilitar corrector ortográfico.
 
@@ -603,7 +603,7 @@ Si los archivos presentes en `hunspell_dictionaries.zip` están disponible en `h
 
 Devuelve `Promise<String[]>` - Un array de todas las palabras en el diccionario personalizado de la aplicación. Resolves when the full dictionary is loaded from disk.
 
-#### `ses.addWordToSpellCheckerDictionary(palabra)`
+#### `ses.addWordToSpellCheckerDictionary(word)`
 
 * `word` String - La palabra que desea agregar al diccionario
 
@@ -640,11 +640,11 @@ const path = require('path')
 app.on('ready', async () => {
   await session.defaultSession.loadExtension(
     path.join(__dirname, 'react-devtools'),
-    // allowFileAccess es necesario para cargar la extensión  devtools en las URLs  file://.
+    // allowFileAccess is required to load the devtools extension on file:// URLs.
     { allowFileAccess: true }
   )
-  // Tenga en cuenta que para usar la extensión  React DevTools, necesitaras
-  // descargar y descomprimir una copia de la extensión.
+  // Note that in order to use the React DevTools extension, you'll need to
+  // download and unzip a copy of the extension.
 })
 ```
 
