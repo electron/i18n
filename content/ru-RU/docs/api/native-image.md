@@ -224,7 +224,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 Возвращает `Buffer` - [Buffer][buffer], который содержит сырые данные растровых пикселей изображения.
 
-The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
+Разница между `getBitmap()` и `toBitmap()` заключается в том, что `getBitmap()` не данные биткарты, поэтому вам придется использовать возвращенный буфер немедленно в текущего цикла событий; в противном случае данные могут быть изменены или уничтожены.
 
 #### `image.getNativeHandle()` _macOS_
 
