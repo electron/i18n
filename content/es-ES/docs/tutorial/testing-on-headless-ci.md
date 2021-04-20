@@ -9,9 +9,9 @@ Primero, instala [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Es un framebuffer v
 Entonces, crea una pantalla virtual Xvfb y exporta una variable de entorno llamada DISPLAY que apunta a ella. Chromium en electron buscará automáticamente por `$DISPLAY`, así que su aplicación no requerirá más configuraciones. Este paso puede ser automatizado con Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): prepara tus pruebas de comandos con `xvfb-maybe` y la pequeña herramienta automáticamente configurará Xvfb, si es requerido por el sistema actual. En Windows o macOS, no hará nada.
 
 ```sh
-## En Windows o macOS, esto invoca electron-mocha
-## En Linux, si estamos en un entorno sin cabeza, esto será equivalente
-## a xvfb-run electron-mocha ./test/*.js
+## On Windows or macOS, this invokes electron-mocha
+## On Linux, if we are in a headless environment, this will be equivalent
+## to xvfb-run electron-mocha ./test/*.js
 xvfb-maybe electron-mocha ./test/*.js
 ```
 
