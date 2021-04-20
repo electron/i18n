@@ -70,7 +70,7 @@ The `Tray` module emits the following events:
 Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Retângulo](structures/rectangle.md) - Os limites do ícone da bandeja.
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the tray icon is clicked.
@@ -80,7 +80,7 @@ Emitted when the tray icon is clicked.
 Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Retângulo](structures/rectangle.md) - Os limites do ícone da bandeja.
 
 Emitted when the tray icon is right clicked.
 
@@ -89,7 +89,7 @@ Emitted when the tray icon is right clicked.
 Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Retângulo](structures/rectangle.md) - Os limites do ícone da bandeja.
 
 Emitted when the tray icon is double clicked.
 
