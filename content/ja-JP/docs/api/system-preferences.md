@@ -119,6 +119,8 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
   * `userInfo` Record<String, unknown>
   * `object` String
 
+戻り値 `Number` - この登録のID。
+
 `subscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` を使用します。 これは `NSWorkspaceDidActivateApplicationNotification` といったイベントに必要です。
 
 ### `systemPreferences.unsubscribeNotification(id)` _macOS_
