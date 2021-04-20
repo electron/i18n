@@ -1,6 +1,6 @@
 # 构建步骤（Linux）
 
-遵循下面的准则在 Linux 上创建 Electron 。
+Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## 前提条件
 
@@ -111,3 +111,5 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 ### 使用 `clang` 之外的其它编译器
 
 Electron 不支持除 `clang`之外的其他编译器构建
+
+[application-distribution]: ../tutorial/application-distribution.md
