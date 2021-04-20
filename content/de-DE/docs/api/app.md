@@ -747,6 +747,8 @@ If `categories` is `null` the previously set custom Jump List (if any) will be r
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+
 Hier ist ein einfaches Beispiel, wie man eine eigene Jump List anlegt:
 
 ```javascript
@@ -979,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Hinweis:** Der Unity-Launcher erfordert das Vorhandensein einer `.desktop`-Datei, um zu funktionieren, für weitere Informationen lesen Sie bitte die [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1181,7 +1183,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Hinweis:** Der Unity-Launcher erfordert das Vorhandensein einer `.desktop`-Datei, um zu funktionieren, für weitere Informationen lesen Sie bitte die [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
