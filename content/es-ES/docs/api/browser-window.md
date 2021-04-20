@@ -5,16 +5,16 @@
 Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
-// En el proceso principal.
-const { BrowserWindow } = require('electron')
+// In the main process.
+const { BrowserWindow } = require (' Electron ')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
+const Win = New BrowserWindow ({ width: 800, height: 600 })
 
-// Load a remote URL
-win.loadURL('https://github.com')
+//cargar una URL remota
+Win. loadURL (' https://github.com ')
 
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+//o cargar un archivo HTML local
+Win. loadURL (' File://${__dirname}/app/index.html ')
 ```
 
 ## Ventana sin borde
@@ -173,7 +173,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Por defecto es `false`.
     * `nodeIntegrationInWorker` Boolean (opcional) - Si la integración de nodos está habilitada en los trabajadores de la web. Por defecto es `false`. Se pueden encontrar más detalles en [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (opcional) - Opcion experimental para habilitar soporte Node.js en sub-frames como iframes y ventas hijos. Todos tus preloads cargarán por cada iframe, puedes usar `process.isMainFrame` para determinar si estás en el marco principal o no.
-    * `preload` String (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](process.md#event-loaded).
+    * `preload` String (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](context-bridge.md#exposing-node-global-symbols).
     * `sandbox` Boolean (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](sandbox-option.md).
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Por defecto es `false`.
     * `session` [Session](session.md#class-session) (opcional) - Configura la sesión usada por la página. En lugar de pasar directamente el objeto de la sesión, se puede optar por utilizar la opción de `partition`, la cual acepta una cadena de partición. Cuando se proporcionen `session` y `partition`, se preferirá `session`. Default es la sesión por defecto.
@@ -263,13 +263,13 @@ Generalmente se desea utilizar el controlador `beforeunload` para decidir si la 
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log("No quiero cerrarme")
+  console.log('I do not want to be closed')
 
-  // A diferencia de los navegadores habituales en donde un cuadro de mensaje le aparecece al usuario,
-  // devolviendo un valor non-void que cancelará silenciosamente el cierre.
-  // Se recomienda usar el cuadro de diálogo API para dejar que el usuario confirme el cierre de la
-  //aplicación.
-  e.returnValue = false // equivalente a `return false` pero no es recomendado
+  // Unlike usual browsers that a message box will be prompted to users, returning
+  // a non-void value will silently cancel the close.
+  // It is recommended to use the dialog API to let the user confirm closing the
+  // application.
+  e.returnValue = false // equivalent to `return false` but not recommended
 }
 ```
 
