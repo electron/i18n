@@ -1,6 +1,6 @@
 # Build Instructions
 
-Follow the guidelines below for building Electron.
+Follow the guidelines below for building **Electron itself**, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Platform prerequisites
 
@@ -19,7 +19,7 @@ Check the build prerequisites for your platform before proceeding
 You'll need to install [`depot_tools`][depot-tools], the toolset used for fetching Chromium and its dependencies.
 
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  Cela indique au `depot_tools` d’utiliser votre version locale de Visual Studio (par défaut, `depot_tools` essaiera de télécharger une version interne de Google uniquement accessible à ses utilisateurs).
 
 ### Mise en place du cache git
 
@@ -178,7 +178,7 @@ Next, run `gn gen` as above with `target_cpu="arm64"`.
 
 ## Tests
 
-To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
+Pour exécuter les tests, vous devez d’abord construire les modules de test par rapport à la même version de nœud.js qui a été construit dans le cadre du processus de construction. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
 $ ninja -C out/Testing third_party/electron_node:headers
@@ -232,9 +232,11 @@ $ cd electron
 $ gclient sync -f
 ```
 
-### I'm being asked for a username/password for chromium-internal.googlesource.com
+### On me demande de saisir mes nom d'utilisateur et mot de passe pour chromium-internal.googlesource.com
 
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Si vous voyez une invite pour `nom d'utilisateur pour 'https://chrome-internal.googlesource. om':` lorsque vous exécutez `gclient sync` sous Windows, c'est probablement parce que la variable d'environnement `DEPOT_TOOLS_WIN_TOOLCHAIN` n'est pas définie à 0. Ouvrez `Control Panel` → `System and Security` → `System` → `Advanced system settings` et ajoutez une variable système `DEPOT_TOOLS_WIN_TOOLCHAIN` avec comme valeur `0`.  Cela indique au `depot_tools` d’utiliser votre version locale de Visual Studio (par défaut, `depot_tools` essaiera de télécharger une version interne de Google uniquement accessible à ses utilisateurs).
+
+[application-distribution]: ../tutorial/application-distribution.md
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 
