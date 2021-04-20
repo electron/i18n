@@ -52,7 +52,7 @@ The following methods are available on instances of `ServiceWorkers`:
 
 Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
 
-#### `serviceWorkers.getFromVersionID(versionId)`
+#### `serviceWorserviceWorkers.getFromVersionID(versionId)`
 
 * `versionId` Number
 
