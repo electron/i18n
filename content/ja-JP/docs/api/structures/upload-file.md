@@ -1,6 +1,6 @@
 # UploadFile オブジェクト
 
-* `type` String - `file`。
+* `type` 'file' - `file`。
 * `filePath` String - アップロードするファイルのパス。
 * `offset` Integer - `0` が初期値。
 * `length` Integer - `offset` から読み取るバイト数。 既定値は `0` です。
