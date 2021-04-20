@@ -6,40 +6,40 @@ Aquí un ejemplo muy breve de que es y como funciona un MessagePort:
 
 ```js
 // renderer.js ///////////////////////////////////////////////////////////////
-// MessagePorts son creados en pares. Un par conectado de message ports es 
-// llamado un canal.
+// MessagePorts are created in pairs. A connected pair of message ports is
+// called a channel.
 const channel = new MessageChannel()
 
-// La única diferencia entre port1 y port2 está en como los usas. Mensajes
-// enviado al port1 será recibido por el port2 y viceversa.
+// The only difference between port1 and port2 is in how you use them. Messages
+// sent to port1 will be received by port2 and vice-versa.
 const port1 = channel.port1
 const port2 = channel.port2
 
-// Está bien enviar un mensaje en el canal antes de que el otro extremo haya registrado 
-// un listener. Los mensajes se pondrán en cola hasta que se registre un oyente.
+// It's OK to send a message on the channel before the other end has registered
+// a listener. Messages will be queued until a listener is registered.
 port2.postMessage({ answer: 42 })
 
-// Aquí enviamos el otro extremo del canal, port1, al main process. Es
-// además posible enviar MessagePorts a otros frames, o a Web Workers, etc.
+// Here we send the other end of the channel, port1, to the main process. It's
+// also possible to send MessagePorts to other frames, or to Web Workers, etc.
 ipcRenderer.postMessage('port', null, [port1])
 ```
 
 ```js
 // main.js ///////////////////////////////////////////////////////////////////
-// En el main process, recibimos el port.
+// In the main process, we receive the port.
 ipcMain.on('port', (event) => {
-  // Cuando recibimos un  MessagePort en el main process, este se convierte en  un
+  // When we receive a MessagePort in the main process, it becomes a
   // MessagePortMain.
   const port = event.ports[0]
 
-  // MessagePortMain usa la API  Node.js-style events, en lugar de la  
-  // API web-style events. Así .on('message', ...) en lugar de .onmessage = ...
+  // MessagePortMain uses the Node.js-style events API, rather than the
+  // web-style events API. So .on('message', ...) instead of .onmessage = ...
   port.on('message', (event) => {
-    // data es { answer: 42 }
+    // data is { answer: 42 }
     const data = event.data
   })
 
-  // MessagePortMain pone en cola los mensajes hasta que el método .start() haya sido llamado.
+  // MessagePortMain queues messages until the .start() method has been called.
   port.start()
 })
 ```
@@ -72,35 +72,35 @@ En este ejemplo, tu aplicación tiene un worker process implementado como una ve
 const { BrowserWindow, app, ipcMain, MessageChannelMain } = require('electron')
 
 app.whenReady().then(async () => {
-  // El worker process es una BrowserWindow oculta , así que tendrá acceso 
-  // a un completo contexto  Blink  (incluyendo p. ej. <canvas>, audio, fetch(), etc.)
+  // The worker process is a hidden BrowserWindow, so that it will have access
+  // to a full Blink context (including e.g. <canvas>, audio, fetch(), etc.)
   const worker = new BrowserWindow({
     show: false,
     webPreferences: { nodeIntegration: true }
   })
   await worker.loadFile('worker.html')
 
-  // La ventana principal enviará trabajo al  worker process y  recibe resultados
-  // sobre un  MessagePort.
+  // The main window will send work to the worker process and receive results
+  // over a MessagePort.
   const mainWindow = new BrowserWindow({
     webPreferences: { nodeIntegration: true }
   })
   mainWindow.loadFile('app.html')
 
-  // No podemos usar aquí ipcMain.handle(), porque la repuesta necesita transferir un 
+  // We can't use ipcMain.handle() here, because the reply needs to transfer a
   // MessagePort.
   ipcMain.on('request-worker-channel', (event) => {
-    // Por razones de seguridad, vamos a asegurarnos que sólo los frames que esperamos puedan
-    // acceder al worker.
+    // For security reasons, let's make sure only the frames we expect can
+    // access the worker.
     if (event.senderFrame === mainWindow.webContents.mainFrame) {
-      // Crea un nuevo canal ...
+      // Create a new channel ...
       const { port1, port2 } = new MessageChannelMain()
-      // ... envia un extremo al  worker ...
+      // ... send one end to the worker ...
       worker.webContents.postMessage('new-client', null, [port1])
-      // ... y el otro extremo al  main window.
+      // ... and the other end to the main window.
       event.senderFrame.postMessage('provide-worker-channel', null, [port2])
-      // Ahora el  main window y el  worker pueden comunicarse entre si
-      // sin pasar a través del main process!
+      // Now the main window and the worker can communicate with each other
+      // without going through the main process!
     }
   })
 })
@@ -112,17 +112,17 @@ app.whenReady().then(async () => {
 const { ipcRenderer } = require('electron')
 
 function doWork(input) {
-  // Algo intensivo para el cpu.
+  // Something cpu-intensive.
   return input * 2
 }
 
-// Podríamos obtener varios clientes, por ejemplo, si hay varias ventanas,
-// o si se recarga el main window.
+// We might get multiple clients, for instance if there are multiple windows,
+// or if the main window reloads.
 ipcRenderer.on('new-client', (event) => {
   const [ port ] = event.ports
   port.onmessage = (event) => {
-    // Los datos del evento puede ser cualquier objeto serializable (y el evento podría incluso 
-    // llevar otro  MessagePorts con él!)
+    // The event data can be any serializable object (and the event could even
+    // carry other MessagePorts with it!)
     const result = doWork(event.data)
     port.postMessage(result)
   }
@@ -135,18 +135,18 @@ ipcRenderer.on('new-client', (event) => {
 <script>
 const { ipcRenderer } = require('electron')
 
-// Solicitamos que el main process nos envié un canal que podamos usar 
-// para comunicarnos con el worker.
+// We request that the main process sends us a channel we can use to
+// communicate with the worker.
 ipcRenderer.send('request-worker-channel')
 
 ipcRenderer.once('provide-worker-channel', (event) => {
-  // Una vez que recibimos la repuesta, podemos tomar el puerto...
+  // Once we receive the reply, we can take the port...
   const [ port ] = event.ports
-  // ... registra un manejador para recibir resultados ...
+  // ... register a handler to receive results ...
   port.onmessage = (event) => {
     console.log('received result:', event.data)
   }
-  // ... y empieza a enviar funciona!
+  // ... and start sending it work!
   port.postMessage(21)
 })
 </script>
@@ -160,18 +160,19 @@ Los métodos IPC incorporados de Electron sólo soportan dos modos: dispara-y-ol
 // renderer.js ///////////////////////////////////////////////////////////////
 
 function makeStreamingRequest (element, callback) {
-  // MessageChannels livianos--es barato crear uno nuevo por cada solicitud.
+  // MessageChannels are lightweight--it's cheap to create a new one for each
+  // request.
   const { port1, port2 } = new MessageChannel()
 
-  // Enviamos un extremo del por al  main process ...
+  // We send one end of the port to the main process ...
   ipcRenderer.postMessage(
     'give-me-a-stream',
     { element, count: 10 },
     [port2]
   )
 
-  // ... y nos aferramos al otro extremo. El  main process enviará mensajes
-  // a su extremo del puerto, y lo cerrará cuando haya finalizado.
+  // ... and we hang on to the other end. The main process will send messages
+  // to its end of the port, and close it when it's finished.
   port1.onmessage = (event) => {
     callback(event.data)
   }
@@ -181,29 +182,29 @@ function makeStreamingRequest (element, callback) {
 }
 
 makeStreamingRequest(42, (data) => {
-  console.log('obtuve datos de respuesta:', event.data)
+  console.log('got response data:', event.data)
 })
-// Veremos "obtuve datos de respuesta: 42" 10 veces.
+// We will see "got response data: 42" 10 times.
 ```
 
 ```js
 // main.js ///////////////////////////////////////////////////////////////////
 
 ipcMain.on('give-me-a-stream', (event, msg) => {
-  // El renderer nos ha enviado un MessagePort que quiere que enviemos nuestra
-  // respuesta sobre.
+  // The renderer has sent us a MessagePort that it wants us to send our
+  // response over.
   const [replyPort] = event.ports
 
-  // Aquí enviamos los mensajes sincrónicamente, pero podríamos almacenar fácilmente
-  // el puerto y enviar mensajes de forma  asincróna.
+  // Here we send the messages synchronously, but we could just as easily store
+  // the port somewhere and send messages asynchronously.
   for (let i = 0; i < msg.count; i++) {
     replyPort.postMessage(msg.element)
   }
 
-  // Cerramos el puerto cuando terminamos para indicar al otro extremo que
-  // ya no enviaremos más mensajes. Esto no es estrictamente necesario--si nosotros
-  // no cerramos explícitamente el puerto, eventualmente sería recogido
-  // por el recolecto de basura, el cual además debería lanzar el evento  'close' en el renderer.
+  // We close the port when we're done to indicate to the other end that we
+  // won't be sending any more messages. This isn't strictly necessary--if we
+  // didn't explicitly close the port, it would eventually be garbage
+  // collected, which would also trigger the 'close' event in the renderer.
   replyPort.close()
 })
 ```
@@ -218,7 +219,7 @@ const { BrowserWindow, app, MessageChannelMain } = require('electron')
 const path = require('path')
 
 app.whenReady().then(async () => {
-  // Crear un  BrowserWindow con contextIsolation activado.
+  // Create a BrowserWindow with contextIsolation enabled.
   const bw = new BrowserWindow({
     webPreferences: {
       contextIsolation: true,
@@ -227,22 +228,23 @@ app.whenReady().then(async () => {
   })
   bw.loadURL('index.html')
 
-  // Estaremos enviando un extremo al  mundo principal  de
-  // al contexto de la página aislada.
+  // We'll be sending one end of this channel to the main world of the
+  // context-isolated page.
   const { port1, port2 } = new MessageChannelMain()
 
-  // Está bien enviar un mensaje en el canal antes de que el otro extremo tenga 
-  // registrado un listener. Los mensajes serán puestos en cola hasta que se registre un oyente.
+  // It's OK to send a message on the channel before the other end has
+  // registered a listener. Messages will be queued until a listener is
+  // registered.
   port2.postMessage({ test: 21 })
 
-  // Además podemos recibir mensajes desde el mundo principal del  renderer.
+  // We can also receive messages from the main world of the renderer.
   port2.on('message', (event) => {
     console.log('from renderer main world:', event.data)
   })
   port2.start()
 
-  // El script de precarga recibirá este mensaje  IPC y transferirá el puerto 
-  // al mundo principal.
+  // The preload script will receive this IPC message and transfer the port
+  // over to the main world.
   bw.webContents.postMessage('main-world-port', null, [port1])
 })
 ```
@@ -251,17 +253,17 @@ app.whenReady().then(async () => {
 // preload.js ////////////////////////////////////////////////////////////////
 const { ipcRenderer } = require('electron')
 
-// Necesitamos esperar a que el mundo principal este listo para recibir el mensaje antes 
-// de enviar el puerto. Creamos esta promesa en la pre-carga así que esta garantizado 
-// para registrar el oyente de carga antes de que se dispare el evento de carga.
+// We need to wait until the main world is ready to receive the message before
+// sending the port. We create this promise in the preload so it's guaranteed
+// to register the onload listener before the load event is fired.
 const windowLoaded = new Promise(resolve => {
   window.onload = resolve
 })
 
 ipcRenderer.on('main-world-port', async (event) => {
   await windowLoaded
-  // Usamos un  window.postMessage normal para transferir el puerto desde el mundo aislado
-  // al mundo principal.
+  // We use regular window.postMessage to transfer the port from the isolated
+  // world to the main world.
   window.postMessage('main-world-port', '*', event.ports)
 })
 ```
@@ -270,11 +272,12 @@ ipcRenderer.on('main-world-port', async (event) => {
 <!-- index.html ------------------------------------------------------------->
 <script>
 window.onmessage = (event) => {
-  // event.source === window quiere decir que el mensaje viene del script de 
-  // precarga, a diferencia de un  <iframe> u otro origen.
+  // event.source === window means the message is coming from the preload
+  // script, as opposed to from an <iframe> or other source.
   if (event.source === window && event.data === 'main-world-port') {
     const [ port ] = event.ports
-    // Una vez que tenemos el puerto, podemos comunicarnos directamente con el man process.
+    // Once we have the port, we can communicate directly with the main
+    // process.
     port.onmessage = (event) => {
       console.log('from main process:', event.data)
       port.postMessage(event.data * 2)
