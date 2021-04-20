@@ -15,7 +15,7 @@ La siguiente es una lista no completa de por qué debería considerar usar el m�
 
 Los componentes API (incluyendo clases, métodos, propiedades y nombres de eventos) son similares a esos usados en Node.js.
 
-Ejemlo de uso:
+Ejemplo de uso:
 
 ```javascript
 const { app } = require('electron')
@@ -36,7 +36,7 @@ app.whenReady().then(() => {
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+La API `net` puede ser utilizada solo después que la aplicación emita el evento `ready`. Intentar usar el módulo antes del evento `ready` lanzará un error.
 
 ## Métodos
 
