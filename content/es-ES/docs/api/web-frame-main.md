@@ -102,11 +102,11 @@ Los objetos `MessagePortMain` transferidos estarán disponible en el renderer pr
 Por ejemplo:
 
 ```js
-// Proceso Principal
+// Main process
 const { port1, port2 } = new MessageChannelMain()
 webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
 
-// Proceso Renderer 
+// Renderer process
 ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
   // ...
