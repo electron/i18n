@@ -759,7 +759,7 @@ Le mode bac à sable mixte est désormais activé par défaut.
 
 ### Obsolète: `Tray.setHighlightMode`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+Sous macOS Catalina, notre ancienne implémentation de Tray est interrompue. Le substitut natif d'Apple ne prend pas en charge la modification du comportement de mise en évidence.
 
 ```js
 // Deprecated
