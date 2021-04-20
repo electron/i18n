@@ -26,7 +26,6 @@ keyboard_modal:
   open_new_tab: 在新标签页打开选定的搜索结果
 docs:
   title: Electron 文档
-  description: 在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或查看 <a href="/docs/faq"> 常见问题 </a>。
   guides: "指南：开始使用 Electron"
   api_reference: API 参考
   api_structures: API 结构
@@ -39,7 +38,6 @@ docs:
   propose_change: 改进此文档
   version_history: 版本历史
   translate: 翻译此文档
-  view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
   view_more_details: 查看更多语言
@@ -164,7 +162,6 @@ clipboard:
 fiddle_launch_button:
   launch: 启动
   launch_in_fiddle: 在Fiddle中启动
-or: 或
 pages:
   '/':
     title: Electron | 使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序。
@@ -175,9 +172,6 @@ pages:
   '/docs':
     title: ' 文档 '
     description: 最新的 Electron 的指南和 API 参考文档
-  '/docs/all':
-    title: 所有的 Electron 的文档
-    description: 所有 Electron 的指南和 API 文档在一个单独的可搜索的页面。
   '/docs/api':
     title: API
     description: 最新的 Electron 的指南和 API 参考文档
