@@ -141,7 +141,7 @@ An `Integer` representing the id of the frame's internal FrameTreeNode instance.
 
 #### `frame.name` _Readonly_
 
-A `String` representing the frame name.
+Un `String` représentant le nom du cadre.
 
 #### `frame.osProcessId` _Readonly_
 
