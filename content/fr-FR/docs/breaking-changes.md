@@ -467,7 +467,7 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-However, it is recommended to avoid using the `remote` module altogether.
+Cependant, il est recommandé d'éviter complètement d'utiliser le module `distant`.
 
 ```js
 // main
@@ -606,7 +606,7 @@ webFrame.setIsolatedWorldInfo(
 
 ### Supprimé: `propriété marquée` sur `getBlinkMemoryInfo`
 
-This property was removed in Chromium 77, and as such is no longer available.
+Cette propriété a été supprimée dans Chromium 77 et n'est donc plus disponible.
 
 ### Comportement modifié : l'attribut `webkitdirectory` pour `<input type="file"/>` liste maintenant le contenu du répertoire
 
@@ -755,7 +755,7 @@ const idleTime = powerMonitor.getSystemIdleTime()
 app.enableMixedSandbox()
 ```
 
-Mixed-sandbox mode is now enabled by default.
+Le mode bac à sable mixte est désormais activé par défaut.
 
 ### Obsolète: `Tray.setHighlightMode`
 
