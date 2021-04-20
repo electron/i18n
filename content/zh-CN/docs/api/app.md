@@ -1,6 +1,6 @@
 # app
 
-> 控制你的应用程序的事件生命周期。
+> 控制你的应用程序的生命周期事件。
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -294,7 +294,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
-### Event: 'gpu-info-update'
+### 事件: 'gpu-info-update'
 
 Emitted whenever there is a GPU info update.
 
@@ -321,7 +321,7 @@ Emitted whenever there is a GPU info update.
 
 **已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
 
-### Event: 'render-process-gone'
+### 事件: 'render-process-gone'
 
 返回:
 
@@ -340,7 +340,7 @@ Emitted whenever there is a GPU info update.
 
 Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
 
-### Event: 'child-process-gone'
+### 事件: 'child-process-gone'
 
 返回:
 
@@ -420,7 +420,7 @@ app.on('session-created', (session) => {
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
-### Event: 'remote-require' _Deprecated_
+### 事件： "remote-require" _弃用_
 
 返回:
 
@@ -430,7 +430,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-global' _Deprecated_
+### 事件： "remote-get-global" _弃用_
 
 返回:
 
@@ -440,7 +440,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-builtin' _Deprecated_
+### 事件： "remote-get-builtin" _弃用_
 
 返回:
 
@@ -450,7 +450,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getBuiltin()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-current-window' _Deprecated_
+### 事件： "remote-get-current-window" _弃用_
 
 返回:
 
@@ -459,7 +459,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 在 `webContents` 的渲染器进程中调用 `remote.getCurrentWindow()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-current-web-contents' _Deprecated_
+### 事件： "remote-get-current-web-contents" _弃用_
 
 返回:
 
@@ -747,6 +747,8 @@ Adds `tasks` to the [Tasks][tasks] category of the Jump List on Windows.
 
 **注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
+**注意：** 跳列表项目 `description` 属性的最大长度为 260 个字符。 超过这个限制，当前项将不会被添加到跳转列表，也不会被展示。
+
 下面是创建自定义跳转列表的一个非常简单的示例:
 
 ```javascript
@@ -813,7 +815,7 @@ app.setJumpList([
 
 此方法的返回值表示你的应用程序实例是否成功取得了锁。  如果它取得锁失败，你可以假设另一个应用实例已经取得了锁并且仍旧在运行，并立即退出。
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading.  如果当它返回 `false`如果你的程序没有取得锁，它应该立刻退出，并且将参数发送给那个已经取到锁的进程。
+I.e. 如果当前进程是应用程序的主要实例，则此方法返回`true`，同时你的应用会继续运行。  如果当它返回 `false`如果你的程序没有取得锁，它应该立刻退出，并且将参数发送给那个已经取到锁的进程。
 
 在 macOS 上, 当用户尝试在 Finder 中打开您的应用程序的第二个实例时, 系统会通过发出 ` open-file ` 和 ` open-url ` 事件来自动强制执行单个实例,。 但是当用户在命令行中启动应用程序时, 系统的单实例机制将被绕过, 您必须手动调用此方法来确保单实例。
 
@@ -851,7 +853,7 @@ if (!gotTheLock) {
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+释放所有由 `requestSingleInstanceLock` 创建的锁。 该方法将允许应用程序的多个实例再次并行运行。
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
@@ -859,7 +861,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-创建一个 ` NSUserActivity ` 并将其设置为当前活动。 The activity is eligible for [Handoff][handoff] to another device afterward.
+创建一个 ` NSUserActivity ` 并将其设置为当前活动。 该活动之后可以[Handoff][handoff]到另一个设备。
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -871,7 +873,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.resignCurrentActivity()` _macOS_
 
-Marks the current [Handoff][handoff] user activity as inactive without invalidating it.
+将当前 [Handoff][handoff] 用户活动标记为非活动，但不使其失效。
 
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
@@ -890,9 +892,9 @@ Marks the current [Handoff][handoff] user activity as inactive without invalidat
 
 * `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
 
-Sets the activation policy for a given app.
+为给定应用设置激活策略。
 
-Activation policy types:
+激活策略类型：
 
 * 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
 * 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
@@ -916,27 +918,27 @@ Activation policy types:
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
+默认情况下, 如果 GPU 进程频繁崩溃, Chromium 会禁用 3D API (例如 WebGL) 直到在每个域的基础上重新启动。 这个函数会禁用该行为。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
+返回 [`ProcessMetric[]`](structures/process-metric.md): 包含所有与应用相关的进程的内存和CPU的使用统计的 `ProcessMetric` 对象的数组。
 
 ### `app.getGPUFeatureStatus()`
 
 返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**注意：** 此信息仅在 `gpu-info-update` 事件触发后才可用。
 
 ### `app.getGPUInfo(infoType)`
 
 * `infoType` String - Can be `basic` or `complete`.
 
-Returns `Promise<unknown>`
+返回 ` Promise<unknown>`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
+对于` infoType `等于` complete `： Promise 将包含所有GPU信息的` Object `正如 [ chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc)。 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
 
 对于` infoType `等于` basic `： Promise 至少包含当请求`complete`时的属性`Object`。 下面是一个基础响应示例：
 
@@ -975,11 +977,11 @@ For `infoType` equal to `complete`: Promise is fulfilled with `Object` containin
 
 返回 ` Boolean `-是否成功调用。
 
-Sets the counter badge for current app. Setting the count to `0` will hide the badge.
+为当前应用设置计数器角标。 将计数设置为 `0` 将隐藏角标。
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+在 macOS 上，它会在dock 图标上显示。 在 Linux 上，它只适用于 Unity 启动器。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ][unity-requirement]。
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1022,7 +1024,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. 默认值为 `true`。
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). 设置应用程序的登录项设置。
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 例如：
+如果需要在使用[Squirrel][Squirrel-Windows]的 Windows 上使用 Electron 的 `autoUpdater` ，你需要将启动路径设置为 Update.exe，并传递指定应用程序名称的参数。 例如：
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1052,11 +1054,11 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意：** 渲染访问权限树可能会严重影响您应用的性能。 默认情况下不应启用该功能。
 
 ### `app.showAboutPanel()`
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+显示应用程序的"关于"面板选项。 这些选项可以被 `app.setAboutPanelOptions(可选)` 所覆盖。
 
 ### `app.setAboutPanelOptions(options)`
 
@@ -1070,9 +1072,9 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on macOS. 更多详细信息, 请查阅 [ Apple 文档 ][about-panel-options]。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+设置 "关于" 面板选项。 这将覆盖应用程序在 macOS 上的 `.plist` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ][about-panel-options]。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
-If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
+如果您没有设置 `credits` 但仍希望在应用中显示它们，AppKit 将在 NSBundle 类的main方法返回的捆绑包中按顺序查找名为"Credits.html", "Credits.rtf"和"Credits.rtfd"的文件。 先找到的文件将被使用，如果未找到，则信息区域将留空。 有关更多信息，请参阅 Apple [文档](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) 。
 
 ### `app.isEmojiPanelSupported()`
 
@@ -1082,7 +1084,7 @@ If you do not set `credits` but still wish to surface them in your app, AppKit w
 
 打开系统自身的emjio选取器。
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` _mas_
+### `app.startAccessingSecurityScopedResource(bookmarkData)` _macOS_
 
 * `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
@@ -1101,13 +1103,13 @@ stopAccessingSecurityScopedResource()
 
 ### `app.enableSandbox()`
 
-在应用程序上启用完全沙盒模式。 This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+在应用程序上启用完全沙盒模式。 这意味着所有渲染器都将以沙盒的方式运行，无论 WebPreence 中 `sandbox` 标志的值是什么。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.isInApplicationsFolder()` _macOS_
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+返回 `Boolean` - 应用程序当前是否从系统应用程序文件夹运行。 与 `app.moveToApplicationsFolder()`一起使用
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
@@ -1115,13 +1117,13 @@ Returns `Boolean` - Whether the application is currently running from the system
   * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+返回 `Boolean` - 移动是否成功。 请注意，如果移动成功，您的应用程序将退出并重新启动。
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+默认情况下不会显示确认对话框。 如果您希望允许用户确认操作，您可以使用[`dialog`](dialog.md) API 进行确认。
 
-**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 The message in the error should be informative and tell you exactly what went wrong.
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是翔实的，并告诉你到底是哪里出了问题。
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior.  i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+默认情况下，如果应用程序目录中存在与被移动的应用同名的应用，并且 _未_ 运行，则已有应用将被丢弃，被移动的应用将顶替其位置。 如果它 _正在_ 运行，预先存在的运行应用程序将承担焦点，以前活动的应用程序将退出自己。 此行为可以通过提供可选的冲突处理器来更改，处理器返回的 boolean 将决定移动冲突是否通过默认行为得到解决。  即：返回 `false` 将确保不采取进一步行动，返回 `true` 将导致默认行为同时方法继续执行。
 
 例如：
 
@@ -1140,87 +1142,87 @@ app.moveToApplicationsFolder({
 })
 ```
 
-Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
+这意味着，如果应用已经存在于用户目录中，如果用户选择 '继续移动'，则该功能将继续其默认行为，现有应用将被丢弃，当前应用将移动到其位置。
 
 ### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
-Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+返回 `Boolean` - 是否启用 `Secure Keyboard Entry` 。
 
-By default this API will return `false`.
+默认情况下，此 API 将返回 `false`。
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
 * `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
 
-Set the `Secure Keyboard Entry` is enabled in your application.
+在应用中启用 `Secure Keyboard Entry` 。
 
-By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+通过使用此 API，可以防止密码和其他敏感信息等重要信息被其他进程截获。
 
-See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+有关更多详细信息，请参阅[ apple 文档 ](https://developer.apple.com/library/archive/technotes/tn2150/_index.html)。
 
-**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+**注意：** 仅在需要时启用 `Secure Keyboard Entry` ，并在不再需要时禁用。
 
 ## Properties
 
 ### `app.accessibilitySupportEnabled` _macOS_ _Windows_
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+`Boolean`属性 - 如果开启了Chrome的辅助功能，则返回 `true`，否则返回`false`。 如果使用了辅助功能（例如屏幕阅读），该 API 将返回 `true`。 手动将此属性设置为 `true` 可启用 Chrome 的辅助功能支持，允许开发人员在应用程序设置中向用户开放无障碍切换。
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 默认为禁用
+有关详细信息，请参阅[ chromium 的无障碍文档 ](https://www.chromium.org/developers/design-documents/accessibility)。 默认为禁用
 
 此 API 必须在 `ready` 事件触发后调用
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**注意：** 渲染访问权限树可能会严重影响您应用的性能。 默认情况下不应启用该功能。
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+`Menu | null` 属性，如果设置 [`Menu`](menu.md) ，则返回，否则返回 `null` 。 用户可以传递 [Menu](menu.md) 来给此属性赋值。
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+返回当前应用角标计数的 `Integer` 属性。 将计数设置为 `0` 将隐藏角标。
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+在 macOS 上，为该属性设置任何非零整数，会显示在dock 图标上。 在 Linux 上，这个属性只适用于 Unity 启动器。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ][unity-requirement]。
 
-**Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
+**注意：** 在 macOS 上，为了使该属性生效，您需要确保您的应用程序具有显示通知的权限。
 
-### `app.commandLine` _Readonly_
+### `app.commandLine` _只读_
 
-A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+[`CommandLine`](./command-line.md) 对象，允许您读取和操作 Chromium 使用的命令行参数。
 
-### `app.dock` _macOS_ _Readonly_
+### `app.dock` _macOS_ _只读_
 
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+[`Dock`](./dock.md) `| undefined` 对象，允许您在 macOS 上的用户dock中对应用图标进行操作。
 
-### `app.isPackaged` _Readonly_
+### `app.isPackaged` _只读_
 
 返回一个`Boolean`值，如果应用已经打包，返回`true` ，否则返回`false` 。 对于大多数应用程序，此属性可用于区分开发和生产环境。
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+`String` 属性，指明当前应用程序的名称，即应用程序 `package.json` 文件中的名称。
 
 Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+`String` Electron 用于全局回退的用户代理字符串。
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level.  It is useful for ensuring that your entire app has the same user agent.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+当用户代理在`webContents` 或 `session` 级别没有被设置时，将使用此用户代理。  有助于确保您的整个应用程序具有相同的用户代理。  在应用初始化中尽早设置为自定义值，以确保使用的是您覆盖的值。
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
+`Boolean` 为`true`时禁止Electron每次导航时都重新启动渲染器进程。  此属性的默认值为 `true`。
 
-The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+目的是让这些覆盖在默认情况下不可用，此属性未来将被删除。  此属性会影响您可以在渲染进程中使用哪些本地模块。  有关 Electron 重新启动渲染进程以及在渲染进程中使用本地模块的未来设计，请查看此[跟踪问题](https://github.com/electron/electron/issues/18397)。
 
-### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+### `app.runningUnderRosettaTranslation` _macOS_ _只读_
 
-A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
+`Boolean` ，为 `true` 表明该应用程序目前正在运行在[转译环境](https://en.wikipedia.org/wiki/Rosetta_(software))下。
 
-You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+您可以使用此属性来提示用户下载应用程序的 arm64 版本，当用户错误地在转译环境下运行 x64 版本。
 
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
