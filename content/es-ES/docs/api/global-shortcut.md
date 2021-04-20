@@ -21,15 +21,15 @@ app.whenReady().then(() => {
     console.log('registration failed')
   }
 
-  // Revisa si un atajo está registrado.
+  // Check whether a shortcut is registered.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Desregistra un atajo.
+  // Unregister a shortcut.
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Desregistra todos los atajos.
+  // Unregister all shortcuts.
   globalShortcut.unregisterAll()
 })
 ```
@@ -41,7 +41,7 @@ El módulo `globalShortcut` tiene los siguientes métodos:
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Función
+* `callback` Function
 
 Devuelve `Boolean` - Si el acceso fue registrado con éxito.
 
