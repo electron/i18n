@@ -19,7 +19,7 @@ Las siguientes propiedades están disponibles en instancias de `etiqueta de barr
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Un `String` que representa el texto actual de la etiqueta. Changing this value immediately updates the label in the touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
