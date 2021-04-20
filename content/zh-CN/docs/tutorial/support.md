@@ -58,7 +58,7 @@
 
 ### macOS
 
-对 macOS 仅提供64位版本，并且只支持 macOS 10.10 (Yosemite) 以及更高版本。
+对 macOS 仅提供64位版本，并且只支持 macOS 10.11 (El Capitan) 以及更高版本。
 
 Electron 11.0.0 已原生支持 Apple Silicon (`arm64`) 设备。
 
