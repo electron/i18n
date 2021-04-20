@@ -149,7 +149,7 @@ Note that when the execution of script fails, the returned promise will not reje
 * `info` Object
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+  * `name` String (opcional) - Nome para mundo isolado. Useful in devtools.
 
 Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
