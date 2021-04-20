@@ -29,7 +29,7 @@ __Limitaciones de la plataforma:__
 * En distribuciones de Linux que sólo tienen soporte de indicador de aplicación, tienes que instalar `libappindicator1` para que funcione el icono.
 * El indicador de aplicación sólo se muestra cuando tiene un menú contextual.
 * Cuando se utiliza el indicador de aplicación en Linux, el evento `click` es ignorado.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. Por ejemplo:
+* En Linux para que los cambios hechos a los `MenuItem` individuales hagan efecto, tienes que llamar otra vez a `setContextMenu`. Por ejemplo:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -57,7 +57,7 @@ Si se quiere mantener los mismos comportamientos en todas las plataformas, no se
 ### `new Tray(image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
-* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
+* `guid` String (opcional) _Windows_ - Asigna un GUID al icono de la bandeja. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 Crea un nuevo icono de bandeja asociado con la `image`.
 
@@ -243,9 +243,9 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
-  * `noSound` Boolean (opcional) - No reproducir el sonido asociado. Por defecto es `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
-  * `respectQuietTime` Boolean (opcional) - No mostrar el globo de notificación si el usuario actual esta en "tiempo de silencio". Por defecto es `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
+  * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Mapea a [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `noSound` Boolean (opcional) - No reproducir el sonido asociado. Por defecto es `false`. Mapea a [`NIIF_NOSOUND`][NIIF_NOSOUND].
+  * `respectQuietTime` Boolean (opcional) - No mostrar el globo de notificación si el usuario actual esta en "tiempo de silencio". Por defecto es `false`. Mapea a [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
 Muestra un globo de la bandeja.
 
