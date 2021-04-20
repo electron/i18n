@@ -1,6 +1,6 @@
 # 使用 Node 原生模块
 
-Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)][abi] from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
+原生Node.js模块由Electron支持，但由于Electron具有与给定Node.js不同的 [应用二进制界面 （ABI）][abi].js二进制（由于使用铬的 BoringSL 而不是 OpenSSL 等 差异），您使用的原生 模块需要为Electron重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
 ```sh
 Error: The module '/path/to/native/module.node'
