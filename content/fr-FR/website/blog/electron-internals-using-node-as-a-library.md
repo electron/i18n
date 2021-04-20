@@ -4,7 +4,7 @@ author: zcbenz
 date: '2016-08-08'
 ---
 
-This is the second post in an ongoing series explaining the internals of Electron. Consultez le [premier post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) sur l'intégration de la boucle d'événement si vous ne l'avez pas déjà fait.
+Il s’agit du deuxième post d’une série en cours expliquant les internes Electron. Consultez le [premier post](https://electronjs.org/blog/2016/07/28/electron-internals-node-integration) sur l'intégration de la boucle d'événement si vous ne l'avez pas déjà fait.
 
 La plupart des gens utilisent [Node](https://nodejs.org) pour les applications côté serveur, mais à cause du riche ensemble d'API de Node et de la communauté florissante, il est aussi idéal pour une bibliothèque embarquée. Ce message explique comment Node est utilisé comme une bibliothèque dans Electron.
 
