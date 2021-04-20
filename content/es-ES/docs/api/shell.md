@@ -47,7 +47,7 @@ Abre el protocolo URL externo dado de manera predeterminada en el escritorio. (P
 
 ### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
 
-* `fullPath` Cadena
+* `fullPath` String
 * `deleteOnFail` Boolean (opcional) - Si eliminar o no eliminar unilateralmente el elemento si la papelera está desactivada o no es soportada en el volumen. _macOS_
 
 Devuelve `Boolean` - Si el elemento fue movido con éxito a la papelera o de lo contrario fue eliminado.
