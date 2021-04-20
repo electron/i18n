@@ -10,16 +10,16 @@ Iframes en Electron se comportan como iframes en los navegadores regulares. An `
 
 ### WebViews
 
-> Nota importante: [no se recomienda el uso de WebViews](../api/webview-tag.md#warning), ya que esta etiqueta genera cambios dramáticos en la arquitectura que podrían afectar a la estabilidad de tu aplicación. Consider switching to alternatives, like `iframe` and Electron's `BrowserView`, or an architecture that avoids embedded content by design.
+> Nota importante: [no se recomienda el uso de WebViews](../api/webview-tag.md#warning), ya que esta etiqueta genera cambios dramáticos en la arquitectura que podrían afectar a la estabilidad de tu aplicación. Considere cambiar a alternativas, como `iframe` y  `BrowserView` de Electron, o una  arquitectura que evite el contenido incrustado por diseño.
 
-[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. To use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+[WebViews](../api/webview-tag.md) son basados en las WebViews de Chromium y no están soportados explícitamente por Electron. No garantizamos que la API WebView permanezca disponible en versiones futuro de Electron. Para usar `<webview>` etiquetas, necesitaras establecer `webviewTag` a `true` en el `webPreferences` de tu `BrowserWindow`.
 
-WebView is a custom element (`<webview>`) that will only work inside Electron. Están implementadas como un "iframe fuera de proceso". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that provide you with greater control over the content.
+WebView es un elemento personalizado (`<webview>`) que sólo funcionara dentro de Electron. Están implementadas como un "iframe fuera de proceso". Esto quiere decir que toda la comunicación con el `<webview>` se hace de forma asíncrona usando IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that provide you with greater control over the content.
 
 Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third-party content and handling various events.
 
 ### BrowserViews
 
-[BrowserViews](../api/browser-view.md) are not a part of the DOM - instead, they are created in and controlled by your Main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and their position is not controlled by the DOM or CSS. Instead, it is controlled by setting the bounds in the Main process.
+[BrowserViews](../api/browser-view.md) are not a part of the DOM - instead, they are created in and controlled by your Main process. Son simplemente otra capa de contenido web sobre su ventana existente. Esto quiere decir que están completamente separados de tu propio contenido `BrowserWindow` y su posición no es controlada por el DOM o CSS. En su lugar, es controlado estableciendo limites en el Main process.
 
-`BrowserViews` offer the greatest control over their contents, since they implement the `webContents` similarly to how the `BrowserWindow` does it. However, as `BrowserViews` are not a part of your DOM, but are rather overlaid on top of them, you will have to manage their position manually.
+`BrowserViews` ofrece el mayor control sobre sus contenidos, ya que implementan el `webContents` de forma similar a como `BrowserWindow` lo hace. Sin embargo, como `BrowserViews` no son parte de tu DOM, sino que están superpuestos sobre ellos, tendrá que administrar su posición manualmente.
