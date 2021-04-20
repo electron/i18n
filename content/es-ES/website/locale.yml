@@ -26,7 +26,6 @@ keyboard_modal:
   open_new_tab: Abrir el resultado obtenido en una nueva pestaña
 docs:
   title: Documentación de Electron
-  description: Ver todos los <a href="/docs/all">documentos en una sola página</a> o consultar las <a href="/docs/faq">preguntas frecuentes</a>.
   guides: "Guías: Empezando con Electron"
   api_reference: Referencia de la API
   api_structures: Estructuras del API
@@ -39,7 +38,6 @@ docs:
   propose_change: Mejora este documento
   version_history: Historial de versiones
   translate: Traducir este documento
-  view_all_docs: Todos los documentos en una página
 languages:
   choose_language: Elige el idioma del sitio
   view_more_details: Ver más detalles del idioma
@@ -164,7 +162,6 @@ clipboard:
 fiddle_launch_button:
   launch: Iniciar
   launch_in_fiddle: Lanzar en Fiddle
-or: o
 pages:
   '/':
     title: Electron | Crea aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.
@@ -175,9 +172,6 @@ pages:
   '/docs':
     title: Documentación
     description: Guías y documentación de referencia de la API para la ultima versión de Electron
-  '/docs/all':
-    title: '¡Toda la documentación de Electron!'
-    description: Todas las guías de Electron y la documentación de la API en una única página de fácil búsqueda.
   '/docs/api':
     title: API
     description: Guías y documentación de referencia de la API para la última versión de Electron
