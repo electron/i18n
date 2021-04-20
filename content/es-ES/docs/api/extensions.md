@@ -28,19 +28,19 @@ We support the following extensions APIs, with some caveats. Other APIs may addi
 
 ### `chrome.devtools.inspectedWindow`
 
-All features of this API are supported.
+Todas las características de esta API son compatibles.
 
 ### `chrome.devtools.network`
 
-All features of this API are supported.
+Todas las características de esta API son compatibles.
 
 ### `chrome.devtools.panels`
 
-All features of this API are supported.
+Todas las características de esta API son compatibles.
 
 ### `chrome.extension`
 
-The following properties of `chrome.extension` are supported:
+Se admiten las siguientes propiedades de `chrome.extension` :
 
 - `chrome.extension.lastError`
 
@@ -65,7 +65,7 @@ Los siguientes métodos de `chrome.runtime` son soportados:
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
 
-The following events of `chrome.runtime` are supported:
+Los siguientes eventos de `chrome.runtime` están soportados:
 
 - `chrome.runtime.onStartup`
 - `chrome.runtime.onInstalled`
@@ -76,7 +76,7 @@ The following events of `chrome.runtime` are supported:
 
 ### `chrome.storage`
 
-Only `chrome.storage.local` is supported; `chrome.storage.sync` and `chrome.storage.managed` are not.
+Solo `chrome.storage.local` está soportado; `chrome.storage.sync` y `chrome.storage.managed` no lo están.
 
 ### `chrome.tabs`
 
@@ -101,7 +101,7 @@ The following methods of `chrome.management` are supported:
 
 ### `chrome.webRequest`
 
-All features of this API are supported.
+Todas las características de esta API son compatibles.
 
 > **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
 
