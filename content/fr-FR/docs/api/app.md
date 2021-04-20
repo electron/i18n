@@ -744,6 +744,8 @@ Si `cetagories` est `null`, la JumpList personnalisée précédemment définie (
 
 **Remarque :** Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows n'autorisera pas l'ajout d'un élément supprimé dans une catégorie personnalisée avant le **prochain** appel réussi à `app.setJumpList(categories)`. Toute tentative de réajouter un élément supprimé à une catégorie personnalisée plus tôt, cela entraînera l'omission de toute la catégorie personnalisée dans la JumpList. La liste des éléments supprimés peut être obtenue à l'aide de `app.getJumpListSettings()`.
 
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+
 Voici un exemple très simple de la création d'une JumpList personnalisé :
 
 ```javascript
@@ -856,7 +858,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `userInfo` n'importe quel - état spécifique à l'application à stocker pour utilisation par un autre appareil.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Créée un `NSUserActivity` et le défini en tant qu'activité courante. The activity is eligible for [Handoff][handoff] to another device afterward.
+Créée un `NSUserActivity` et le défini en tant qu'activité courante. Après cela, l'activité devient éligible à la fonction [Handoff][handoff] sur l'autre périphérique.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -974,9 +976,9 @@ Returns `Boolean` - Si l'appel a réussi.
 
 Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+Sur macOS, il s'affiche sur l'icône du dock. Sous Linux, il ne fonctionne que pour le lanceur Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1019,7 +1021,7 @@ Retourne `Object`:
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Par défaut, `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Configurer les paramètres de l'application lors de l'ouverture de session.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Par exemple :
+Pour fonctionner avec `autoUpdater` d'Electron sur Windows, qui utilise [Squirrel][Squirrel-Windows], vous aurez besoin de configurer le chemin de démarrage de Update.exe et de lui passer les arguments qui définissent le nom de votre application. Par exemple :
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1178,7 +1180,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
