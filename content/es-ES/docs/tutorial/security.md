@@ -71,15 +71,20 @@ Cualquier recurso no incluido con tu aplicación debería ser cargado usando un 
 ### ¿Cómo?
 
 ```js
-// Malo
+// Bad
 browserWindow.loadURL('http://example.com')
 
-// Bueno
+// Good
 browserWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Malo --><script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css"><!-- Bueno --><script crossorigin src="https://example.com/react.js"></script>
+```html
+<!-- Bad -->
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
+
+<!-- Good -->
+<script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -98,7 +103,7 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 ### ¿Cómo?
 
 ```js
-// Incorrecto
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -110,7 +115,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Correcto
+// Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
@@ -205,11 +210,16 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow()
 ```
 
-```html<!-- Malo --><webview disablewebsecurity src="page.html"></webview><!-- Bueno --><webview src="page.html"></webview>
+```html
+<!-- Bad -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- Good -->
+<webview src="page.html"></webview>
 ```
 
 ## 6) Definir una política de seguridad de contenido
@@ -223,10 +233,10 @@ CSP permite que el servidor dando contenido pueda restringir y controlar los rec
 El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
 ```plaintext
-// Incorrecto
+// Bad
 Content-Security-Policy: '*'
 
-// Correcto
+// Good
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
@@ -270,7 +280,7 @@ Cargando contenido sobre `HTTPS` se asegura la autenticidad y la integridad de l
 ### ¿Cómo?
 
 ```js
-// Malo
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -279,7 +289,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -298,7 +308,7 @@ Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciend
 ### ¿Cómo?
 
 ```js
-// Incorrecto
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -307,7 +317,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -324,7 +334,7 @@ En general, probablemente hay buenas razones si una función no fue habilitada p
 ### ¿Cómo?
 
 ```js
-// Incoreccto
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -333,7 +343,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Good
 const mainWindow = new BrowserWindow()
 ```
 
@@ -349,7 +359,12 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 
 ### ¿Cómo?
 
-```html<!-- Malo --><webview allowpopups src="page.html"></webview><!-- Bueno --><webview src="page.html"></webview>
+```html
+<!-- Bad -->
+<webview allowpopups src="page.html"></webview>
+
+<!-- Good -->
+<webview src="page.html"></webview>
 ```
 
 ## 11) Verificar las opciones de WebView antes de la creación
@@ -371,14 +386,14 @@ Antes que la etiqueta [`<webview>`][webview-tag] sea adjuntada, Electron va a di
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Elimine los scripts de precarga si no se utilizan o verifique que su ubicación sea legítima.
+    // Strip away preload scripts if unused or verify their location is legitimate
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Dishabilite la integración Node.js
+    // Disable Node.js integration
     webPreferences.nodeIntegration = false
 
-    // Verifique la URL que se está cargando
+    // Verify URL being loaded
     if (!params.src.startsWith('https://example.com/')) {
       event.preventDefault()
     }
@@ -464,13 +479,13 @@ El uso indebido de [`openExternal`][open-external] puede ser apalancado para com
 ### ¿Cómo?
 
 ```js
-// Incorrecto
+//  Bad
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 
 ```js
-//  Correcto
+//  Good
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
