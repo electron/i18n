@@ -62,7 +62,7 @@ Retourne `Integer` - Temps d'inactivité en secondes
 
 Calculer le temps d'inactivité du système en secondes.
 
-### `powerMonitor.isOnBatteryPower()`
+### `powerMonitor.isOnBatteryPower ()`
 
 Returns `Boolean` - Whether the system is on battery power.
 
