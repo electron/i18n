@@ -1,4 +1,4 @@
-# nativeTheme
+# nativoTheme
 
 > Read and respond to changes in Chromium's native color theme.
 
@@ -20,7 +20,7 @@ The `nativeTheme` module has the following properties:
 
 A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is being instructed to show a dark-style UI.  If you want to modify this value you should use `themeSource` below.
 
-### `nativeTheme.themeSource`
+### `nativeTheme.themeFonte`
 
 A `String` property that can be `system`, `light` or `dark`.  Ela é usada para sobrepor e substituir o valor que o Chromium escolheu para usar internamente.
 
