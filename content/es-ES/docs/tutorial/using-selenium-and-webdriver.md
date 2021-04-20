@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// Una prueba simple para verificar una ventana visible es abriendo con un titulo
+// A simple test to verify a visible window is opened with a title
 const Application = require('spectron').Application
 const assert = require('assert')
 
@@ -24,19 +24,19 @@ const myApp = new Application({
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
   try {
-    // Revisa si la ventana es visible
+    // Check if the window is visible
     const isVisible = await app.browserWindow.isVisible()
-    // Verifica si la ventana esta visible
+    // Verify the window is visible
     assert.strictEqual(isVisible, true)
     // Get the window's title
     const title = await app.client.getTitle()
     // Verify the window's title
     assert.strictEqual(title, 'My App')
   } catch (error) {
-    // Registra cualquier fallo
-    console.error('Prueba fallida', error.message)
+    // Log any failures
+    console.error('Test failed', error.message)
   }
-  // Para la aplicación
+  // Stop the application
   await app.stop()
 }
 
@@ -74,11 +74,11 @@ El uso de `selenium-webdriver` con Electron es el mismo con upstream, excepto qu
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // El "9515" es el puerto abierto por chrome driver.
+  // The "9515" is the port opened by chrome driver.
   .usingServer('http://localhost:9515')
   .withCapabilities({
     'goog:chromeOptions': {
-      // Aquí va  la dirección de tu binario Electron.
+      // Here is the path to your Electron binary.
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -108,8 +108,8 @@ Primero usted necesita descargar el `chromedriver` binario, y ejecutarlo:
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) en puerto 9515
-Solo conexiones locales son permitidas.
+Starting ChromeDriver (v2.10.291558) on port 9515
+Only local connections are allowed.
 ```
 
 Recuerde el puerto número `9515`, que usaremos más adelante
@@ -125,26 +125,26 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost como un servidor de chrome driver
-  port: 9515, // "9515" es el puerto abierto por chrome driver.
+  host: 'localhost', // Use localhost as chrome driver server
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Ruta a tu binario de Electron.
-      args: [/* cli arguments */] // Opcional, quizás 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
 
-const client = webdriverio. emote(options)
+const client = webdriverio.remote(options)
 
-cliente
+client
   .init()
-  . rl('http://google.com')
+  .url('http://google.com')
   .setValue('#q', 'webdriverio')
   .click('#btnG')
-  .getTitle(). hen((title) => {
-    console.log('Título era: ' + title)
+  .getTitle().then((title) => {
+    console.log('Title was: ' + title)
   })
   .end()
 ```
