@@ -5,7 +5,7 @@
 Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
-const { systemPreferences } = requiere('electron')
+const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
@@ -101,9 +101,9 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
-* `evento` Cadena
-* `callback` Función
-  * `evento` Cadena
+* `event` String
+* `callback` Function
+  * `event` String
   * Registro `userInfo`<String, unknown>
   * String `object`
 
@@ -119,23 +119,25 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
   * Registro `userInfo`<String, unknown>
   * String `object`
 
+Devuelve `Number` - El ID de la suscripción
+
 Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` _macOS_
 
-* `id` Íntegro
+* `id` Integer
 
 Remueve el subscriptor con el `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
-* `id` Íntegro
+* `id` Integer
 
 Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` _macOS_
 
-* `id` Íntegro
+* `id` Integer
 
 Igual que `unsubscribeNotification`, pero remueve el subscriptor desde `NSWorkspace.sharedWorkspace.notificationCenter`.
 
@@ -164,7 +166,7 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
-* `llave` Cadena
+* `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` Cadena
 
@@ -178,7 +180,7 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.removeUserDefault(key)` _macOS_
 
-* `llave` Cadena
+* `key` String
 
 Elimina el `key` en `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
@@ -202,10 +204,10 @@ if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
 const win = new BrowserWindow(browserOptions)
 
 // Navigate.
-si (browserOptions.transparent) {
+if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
- // No hay transparencia, así que cargamos un retroceso que usa estilos básicos.
+  // No transparency, so we load a fallback that uses basic styles.
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
@@ -216,9 +218,9 @@ Devuelve `Cadena` - El sistema actual de usuarios amplía el acento del color de
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
-const rojo = color.substr(0, 2) // "aa"
-const verde = color.substr(2, 2) // "bb"
-const azul = color.substr(4, 2) // "cc"
+const red = color.substr(0, 2) // "aa"
+const green = color.substr(2, 2) // "bb"
+const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
@@ -293,7 +295,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-background` - El fondo de una ventana.
     * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs][windows-colors] and the [macOS docs][macos-colors] for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Vea el [Windows docs][windows-colors] y el [macOS docs][macos-colors] para más detalles.
 
 Los siguientes colores solo están disponibles en macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, y `unemphasized-selected-text`.
 
@@ -314,17 +316,17 @@ Devuelve `String` - El sistema de color estándar formateado como `#RRGGBBAA`.
 
 Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _Obsoleto_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
 
 Returns `Boolean` - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondo oscuro) está activo. De otra manera `false`.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+**Obsoleto:** Debería usar la nueva API [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly).
 
 ### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
 Devuelve `Boolean` - `true` si un tema de alto contraste está activo, si no `false`.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
+**Deprecated:** Use la nueva API de [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly).
 
 ### `systemPreferences.getEffectiveAppearance()` _macOS_
 
@@ -332,7 +334,7 @@ Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
 Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-### `systemPreferences.getAppLevelAppearance()` _macOS_ _Obsoleto_
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
 
 Devuelve`String` | `null` - Puede ser `dark`, `light` o `unknown`.
 
