@@ -1,6 +1,6 @@
 # Инструкции по сборке (Linux)
 
-Следуйте рекомендациям ниже для сборки Electron под Linux.
+Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Требования
 
@@ -111,3 +111,5 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 ### Использование других компиляторов вместо `clang`
 
 Создание Electron с компиляторами, отличными от `clang` не поддерживается.
+
+[application-distribution]: ../tutorial/application-distribution.md
