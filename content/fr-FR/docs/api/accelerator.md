@@ -12,10 +12,10 @@ Exemples:
 Les raccourcis sont enregistrés avec le module [`globalShortcut`](global-shortcut.md) en utilisant la méthode [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), c.-à-d.
 
 ```javascript
-const { app, globalShortcut } = require('electron')
+const { app, globalShortcut } = require ('electron')
 
-app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+app.whenReady().then()) => {
+  // Enregistrez un auditeur raccourci 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Lance le code ici quand les touches Y et Command/Control sont pressés en même temps.
   })
