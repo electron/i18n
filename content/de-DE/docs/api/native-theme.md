@@ -1,4 +1,4 @@
-# nativeTheme
+# nativeThema
 
 > Read and respond to changes in Chromium's native color theme.
 
