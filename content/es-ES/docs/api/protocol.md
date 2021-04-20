@@ -250,7 +250,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 * `handler` Function
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Función
-    * `response` [ProtocolResponse](structures/protocol-response.md)
+    * `response` [Respuesta de Protocolo](structures/protocol-response.md)
 
 Returns `Boolean` - Whether the protocol was successfully intercepted
 
