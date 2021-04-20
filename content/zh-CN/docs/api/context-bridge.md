@@ -32,7 +32,7 @@ The "Main World" is the JavaScript context that your main renderer code runs in.
 
 ### Isolated World
 
-When `contextIsolation` is enabled in your `webPreferences`, your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
+当你在`webPreferences`属性中启用`contextIsolation` (Electron 12.0.0 及以上版本默认启用)，你的`预加载`脚本将运行在一个“被隔离的环境”中。  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
 
 ## 方法
 
@@ -101,3 +101,19 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `Symbol`                                                                                                       | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                   |
 
 If the type you care about is not in the above table, it is probably not supported.
+
+### 暴露Node Global Symbols
+
+`contextBridge` 可以被预加载脚本用来让您的渲染器访问Node API。 上面所述的支持类型表也适用于您通过 `contextBridge`暴露的Node API。 请注意许多Node的API授权访问本地系统资源。 请非常谨慎地暴露全局变量和api给不受信任的远程内容。
+
+```javascript
+const { contextBridge } = require('electron')
+const crypto = require('crypto')
+contextBridge.exposeInMainWorld('nodeCrypto', {
+  sha256sum (data) {
+    const hash = crypto.createHash('sha256')
+    hash.update(data)
+    return hash.digest('hex')
+  }
+})
+```
