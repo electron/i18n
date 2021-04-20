@@ -20,7 +20,7 @@ $ code electron-quick-start
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Depurar el Proceso Principal",
+      "name": "Debug Main Process",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
