@@ -120,7 +120,7 @@ Die `index.html` Seite sieht wie folgt aus:
 
 #### Define a preload script
 
-Your preload script acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -178,7 +178,7 @@ Standardmäßig wird der `npm start` Befehl das Hauptskript mit Node.js ausführ
 #### Anwendung ausführen
 
 ```sh
-npm Anfang
+npm start
 ```
 
 Deine laufende Electron-App sollte wie folgt aussehen:
