@@ -1020,7 +1020,9 @@ Ignore application menu shortcuts while this web contents is focused.
   * `details` Object
     * `url`Fiche-La _version_resolue du URL envoyee a`fenetre.ouverte{}`. par ex. ouvrir une fenetre avec`fenetre.ouverte ('foo')`va generer une chose comme`https://the-origin/the/current/path/foo`.
     * `Nommarge`Fiche-Nom de fenetre fourni a `window.open=fenetre.ouverte()`
-    * `traits`Fiche-Une liste de traits de fenetre separee par comas, a ete fournie a`window.open()`. Va donner `{action: 'deny'} | {action: 'permettre', surpasserOptionsduNavigateurFenetreBrowser?: OptionsConstructeurNavigateursFenetre}`- - `refuser` va supprimer la creation dans la fenetre nouvelle. `permettre`va permettre la creation d'une fenetre nouvelle. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+    * `traits`Fiche-Une liste de traits de fenetre separee par comas, a ete fournie a`window.open()`.
+
+  Va donner `{action: 'deny'} | {action: 'permettre', surpasserOptionsduNavigateurFenetreBrowser?: OptionsConstructeurNavigateursFenetre}`- - `refuser` va supprimer la creation dans la fenetre nouvelle. `permettre`va permettre la creation d'une fenetre nouvelle. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
 
 Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
@@ -1591,7 +1593,7 @@ Begin subscribing for presentation events and captured frames, the `callback` wi
 
 The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` par défaut à `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1662,7 +1664,7 @@ Returns `Integer` - If *offscreen rendering* is enabled returns the current fram
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+Planifie une repeindre complète de la fenêtre dans qui se trouve ce contenu Web.
 
 If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
