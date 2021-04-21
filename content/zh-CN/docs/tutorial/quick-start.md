@@ -284,7 +284,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-若要从渲染进程调用主进程，请使用 IPC 模块：
+若要从渲染进程呼叫主进程，请使用 IPC 模块：
 
 ```js
 // In the Main process
