@@ -1,6 +1,6 @@
 # 构建步骤（Windows）
 
-Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
+Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
 ## 前提条件
 
