@@ -156,7 +156,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
 
 If you test other combinations and find them to work, please update this document :)
 
-See the GN reference for allowable values of [`target_os`][target_os values] and [`target_cpu`][target_cpu values].
+有关 [`target_os`][target_os values] 和 [`target_cpu`][target_cpu values] 的有效值，请查看参考 GN。
 
 #### Windows on Arm (experimental)
 
