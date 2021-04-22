@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-The `ShareMenu` class creates [Share Menu][share-menu] on macOS, which can be used to share information from the current context to apps, social media accounts, and other services.
+`ShareMenu` 类用于创建macOS的[Share Menu][share-menu]专用菜单 ，这可以将当前消息分享给其他应用、社交媒体账号等。
 
 For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
 
