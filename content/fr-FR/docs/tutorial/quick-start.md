@@ -95,7 +95,7 @@ app.on('window-all-closed', () => {
 
 #### Créer une page web
 
-Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
+Ceci est la page Web que vous voulez afficher une fois l'application initialisée. Cette page web représente le processus de Rendu. Vous pouvez créer plusieurs fenêtres de navigateur, où chaque fenêtre utilise son propre moteur de rendu indépendant. Vous pouvez éventuellement accorder l'accès à des API Node.js supplémentaires en les exposant depuis votre script preload.js.
 
 La page `index.html` ressemble à ceci:
 
