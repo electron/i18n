@@ -1,6 +1,6 @@
 # 构建指南
 
-按照下面的指南构建 **Electron 本身**，以此创建自定义 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
+按照下面的步骤构建 **Electron**，来生成自定义的 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
 ## 平台要求
 
