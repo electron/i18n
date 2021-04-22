@@ -6,7 +6,7 @@
 
 `ShareMenu` 类用于创建macOS的[Share Menu][share-menu]专用菜单 ，这可以将当前消息分享给其他应用、社交媒体账号等。
 
-For including the share menu as a submenu of other menus, please use the `shareMenu` role of [`MenuItem`](menu-item.md).
+若要将共享菜单放在其他菜单下，使用[`MenuItem`](menu-item.md)当中的`shareMenu` 。
 
 ### `new ShareMenu(sharingItem)`
 
@@ -16,7 +16,7 @@ Creates a new share menu.
 
 ### 实例方法
 
-The `shareMenu` object has the following instance methods:
+` shareMenu` 对象具有以下实例方法:
 
 #### `shareMenu.popup([options])`
 
