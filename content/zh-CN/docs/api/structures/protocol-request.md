@@ -1,4 +1,4 @@
-# ProtocolRequest Object
+# ProtocolRequest 对象
 
 * `url` String
 * `referrer` String
