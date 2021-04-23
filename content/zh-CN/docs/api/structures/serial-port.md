@@ -1,8 +1,8 @@
-# SerialPort Object
+# SerialPort 对象
 
-* `portId` String - Unique identifier for the port.
-* `portName` String - Name of the port.
-* `displayName` String - A string suitable for display to the user for describing this device.
+* `portId` String - 端口唯一标识符。
+* `portName` String - 端口名称。
+* `displayName` String - 适合向用户显示用于描述此设备的字符串。
 * `vendorId` String - Optional USB vendor ID.
 * `productId` String - Optional USB product ID.
 * `serialNumber` String - The USB device serial number.
