@@ -1,5 +1,5 @@
-# SharingItem Object
+# SharingItem 对象
 
-* `texts` String[] (optional) - An array of text to share.
-* `filePaths` String[] (optional) - An array of files to share.
-* `urls` String[] (optional) - An array of URLs to share.
+* `texts` String[] (可选) - 要共享的文本数组。
+* `filePaths` String[] (可选) - 要共享的文件数组。
+* `urls` String[] (可选) - 要共享的URL数组。
