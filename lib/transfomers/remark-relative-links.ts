@@ -23,6 +23,7 @@ export function fixRelativeLinks(doc: IDocFile) {
     visit<Href>(tree, hasRelativeUrl, (node) => {
       const dir = path.dirname(doc.href)
       switch (node.type) {
+        case 'definition':
         case 'link':
           node.url = convertToUrlSlash(
             path.resolve(dir, node.url.replace(/\.md/, ''))
