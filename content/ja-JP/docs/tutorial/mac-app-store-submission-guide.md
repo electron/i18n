@@ -10,7 +10,7 @@ Mac App Store にアプリを提出する簡単な方法をご紹介します。
 
 ### 証明書の取得
 
-Mac App Store にアプリを提出するには、Appleからまず証明書を取得する必要があります。 詳しくは、[こちらのガイド][nwjs-guide]をご覧ください。
+Mac App Store にアプリを提出するには、まず Apple から証明書を取得する必要があります。 詳しくは、[こちらのガイド][nwjs-guide]をご覧ください。
 
 ### チーム ID の取得
 
@@ -32,7 +32,7 @@ Mac App Store にアプリを提出するには、Appleからまず証明書を�
 </plist>
 ```
 
-それから、3つの資格ファイルを準備する必要があります。
+それから、3 つの資格ファイルを準備する必要があります。
 
 `child.plist`:
 
@@ -138,20 +138,20 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 これらのステップを終えれば、[アプリをレビュー登録][submit-for-review] できます。
 
-## MAS Buildの制限
+## MAS ビルドの制限
 
-アプリのサンドボックスですべての要件を満たすために、MASビルドで次のモジュールを無効にしてください。
+アプリのサンドボックス化ですべての要件を満たすために、MAS ビルドで以下のモジュールを無効にしてください。
 
 * `crashReporter`
 * `autoUpdater`
 
-次の挙動を変更してください。
+そして、以下の挙動が変化します。
 
 * ビデオキャプチャーはいくつかのマシンで動作しないかもしれません。
 * 一部のアクセシビリティ機能が動作しないことがあります。
 * アプリはDNSの変更を認識しません。
 
-サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は [App Sandboxing][app-sandboxing] を参照してください。
+サンドボックス化の利用により、アプリがアクセスできるリソースは厳密に制限されます。詳細は [アプリのサンドボックス化][app-sandboxing] をご参照ください。
 
 ### 追加のエンタイトルメント
 
@@ -193,7 +193,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 詳細は [Enabling User-Selected File Access ドキュメント][user-selected] を参照してください。
 
-## Electronが使用する暗号化アルゴリズム
+## Electron が使用する暗号化アルゴリズム
 
 アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 詳細は [暗号輸出コンプライアンスドキュメント][export-compliance] を参照してください。
 
