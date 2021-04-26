@@ -1,4 +1,4 @@
-# Electronサポート
+# Electron サポート
 
 ## サポートを探す
 
