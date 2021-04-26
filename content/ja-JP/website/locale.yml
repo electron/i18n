@@ -26,9 +26,9 @@ keyboard_modal:
   open_new_tab: 選択した検索結果を新しいタブで開く
 docs:
   title: Electron ドキュメント
-  guides: "ガイド: Electronで始める"
+  guides: "ガイド: Electron のはじめかた"
   api_reference: API リファレンス
-  api_structures: API構造
+  api_structures: API の構造体
   advanced: 発展的なドキュメント
   detailed: 詳細
   custom_dom: カスタム DOM 要素
@@ -47,7 +47,7 @@ community:
   title: コミュニティ
   description: Electron に関する活動を行う人々のための情報
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
+    get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a> を読みながら、はじめての Electron アプリを構築しましょう。"
     updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
     localized_docs: "<a href='/languages'><b>翻訳されたドキュメント</b></a>: <a href='/languages'>言語ページ</a>からアクセスできます。"
     help: "<a href='https://discord.gg/electron'>Discord サーバー</a>、<a href='https://discuss.atom.io/c/electron'>Discuss</a>、<a href='https://stackoverflow.com/questions/tagged/electron'>スタック・オーバーフロー</a> などで <b>ヘルプとフィードバック</b> を受けられます。"
@@ -89,40 +89,40 @@ electron_is_good:
   description: あらゆる業界の何千もの組織が、Electron を使用してクロスプラットフォームソフトウェアを構築しています。
 electron_is_easy:
   title: 想像以上に簡単です
-  description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
+  description: ウェブサイトを構築するかのように、デスクトップアプリを構築できます。Electron は、JavaScript、HTML、CSS などのウェブ技術でネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
 web_technologies:
-  title: Web技術
-  description: Electron は ChromiumとNode.jsを利用しているため、HTML, CSS, JavaScriptを利用してアプリを開発することができます。
+  title: ウェブ技術
+  description: Electron は Chromium と Node.js を利用しているため、HTML、CSS、JavaScript でアプリ開発ができます。
 open_source:
   title: オープンソース
-  description: Electron は GitHubおよび活発なボランティアのコミュニティによってメンテナンスされるオープンソースプロジェクトです。
+  description: Electron は GitHub と活発な貢献者コミュニティがメンテナンスするオープンソースプロジェクトです。
 cross_platform:
   title: クロスプラットフォーム
-  description: Mac, Windows, Linuxに対応。Electronアプリは3つのプラットフォームでビルド・動作します。
+  description: Electron アプリは Mac、Windows、Linux に対応しており、3 つのプラットフォームでビルド・動作します。
 benefits:
   hard_parts_made_easy: 面倒な処理はおまかせください
   automatic_updates: 自動更新
   native_menus_and_notifications: ネイティブなメニューと通知
   crash_reporting: クラッシュレポート
   debugging_and_profiling: デバッグ と プロファイリング
-  windows_installers: Windows用インストーラー
+  windows_installers: Windows 用インストーラー
 get_started:
   title: 始めましょう！
-  description: Electronでの開発を始めるには、こちらの情報をチェックしてください。Electronを用いたWebアプリのパッケージ化、APIへのアクセス、インストーラの作成方法などが解説されています。
+  description: Electron での開発を始めるには、下記の情報をご確認ください。Electron でのウェブアプリのパッケージ、API へのアクセス、インストーラーの作成方法などを解説しています。
 explore:
-  title: ElectronのAPIに触れる
-  description: "<a href='https://github.com/electron/electron-api-demos'>デモアプリケーション</a>では、Electron API の重要な機能をインタラクティブに体験できます。Electron で実現できることを Tips 付きのサンプルコードと共にご覧いただけますので、アプリ開発にお役立てください。"
+  title: Electron API の探検
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API デモアプリ</a> では、Electron API の重要な機能をインタラクティブに体験できます。Electron で実現できることをヒント付きのサンプルコードと共にご覧いただけますので、アプリ構築にお役立てください。"
   fiddle_title: Electron Fiddle の強力な実験機能を試しましょう
   see_more_info: 詳細
 download: ダウンロード
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
-  title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> アプリで実際に動く Electron を見てみましょう"
-  description: 親切なコメント文とともに、最低限の機能だけが実装された Electron アプリをお試しください
-  clone: Quick Start リポジトリを clone する
+  title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>クイックスタート</a> アプリを起動して Electron が動くところを見てみましょう。"
+  description: 丁寧に注記を載せた、最小限の Electron アプリです。
+  clone: クイックスタートリポジトリをクローンする
   go_into_repo: リポジトリに移動
-  install_deps: 依存ライブラリをインストールし、実行
+  install_deps: 依存関係をインストールして実行
   dive_deeper: さらに詳細な情報が必要であれば<a href='/docs'>ドキュメント</a>を参照することもできます。
 need_help:
   title: お困りですか？
@@ -277,6 +277,6 @@ governance:
     see_charter: より詳しくは <a href="https://github.com/electron/governance/tree/master/charter/README.md">憲章</a> を参照してください。
   code_of_conduct: Electron の組織とその中のすべてのリポジトリは、この <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">行動規範</a> を遵守しています。
   license: Electron は <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a> でライセンスされています。
-  repository: ガバナンス構造の詳細については、<a href="https://github.com/electron/governance">Governance Repository</a> を確認してください。
+  repository: ガバナンス構造の詳細については、<a href="https://github.com/electron/governance">ガバナンスリポジトリ</a> を確認してください。
 _404:
   page_not_found: ページが見つかりません。
