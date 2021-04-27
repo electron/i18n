@@ -119,9 +119,9 @@ Um das gesamte Fenster ziehbar zu machen, können Sie `-webkit-app-region: drag`
 Und beachten Sie, dass, wenn Sie das ganze Fenster ziehbar gemacht haben, müssen Sie auch Schaltflächen als nicht ziehbar markieren, sonst wäre es für Benutzer unmöglich, auf sie zu klicken:
 
 ```css
-Schaltfläche -
+button {
   -webkit-app-region: no-drag;
-
+}
 ```
 
 Wenn Sie nur eine benutzerdefinierte Titelleiste als ziehbar festlegen, müssen Sie auch alle Schaltflächen in der Titelleiste nicht ziehbar machen.
@@ -131,10 +131,10 @@ Wenn Sie nur eine benutzerdefinierte Titelleiste als ziehbar festlegen, müssen 
 In einem rahmenlosen Fenster kann das Ziehen mit der Auswahl von Text in Konflikt stehen. Wenn Sie beispielsweise die Titelleiste ziehen, können Sie versehentlich den Text auf der Titelleiste auswählen. Um dies zu verhindern, müssen Sie die Textauswahl in einem ziehbaren Bereich wie folgt deaktivieren:
 
 ```css
-.titlebar -
-  -webkit-user-select: keine;
-  -webkit-app-region: ziehen;
-
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
 ```
 
 ## Kontextmenü
