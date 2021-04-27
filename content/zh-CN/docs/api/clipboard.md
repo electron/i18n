@@ -181,7 +181,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _实验功能_
 
 * `format` String
 * `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _实验功能_
 
 * `format` String
 
 返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _实验功能_
 
 * `format` String
 
@@ -220,7 +220,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _实验功能_
 
 * `format` String
 * `buffer` Buffer
@@ -242,7 +242,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * ` html ` String（可选）
   * `image` [NativeImage](native-image.md) (可选)
   * `rtf` String (可选)
-  * `bookmark` String (optional) - The title of the URL at `text`.
+  * ` bookmark ` String (可选)- URL 的标题 `text`。
 * `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 将 ` data ` 写入剪贴板。
