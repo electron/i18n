@@ -87,18 +87,18 @@ Das Ignorieren von Mausnachrichten macht die Webseite für die Mausbewegung unwi
 ```javascript
 const { ipcRenderer } = require('electron')
 const el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', ()
-
-{ forward: true }
-  > el.addEventListener('mouseleave', () => '
+el.addEventListener('mouseenter', () => {
+  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
+})
+el.addEventListener('mouseleave', () => {
   ipcRenderer.send('set-ignore-mouse-events', false)
+})
 
-{ ipcMain } 
-')
-
-/ args) =>
-  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(... args)
-)
+// Main process
+const { ipcMain } = require('electron')
+ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
+  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
+})
 ```
 
 Dadurch wird die Webseite beim Überklicken `el`durchklickt und kehrt zu normalen außerhalb zurück.
