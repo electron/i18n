@@ -113,7 +113,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 返回 `Number | null` -从纪元开始的毫秒数，如果信息不可用则返回`null`
 
-指示应用程序的创建时间。 时间表示为自时代以来的毫秒数。 如果无法获得进程创建时间，则返回为空。
+指示应用程序的创建时间。 新时代（1970-01-01 00:00:00 UTC）以来的毫秒数表示的时间。 如果无法获得进程创建时间，则返回为空。
 
 ### `process.getCPUUsage()`
 
