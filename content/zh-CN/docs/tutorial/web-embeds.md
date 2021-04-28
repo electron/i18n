@@ -2,11 +2,11 @@
 
 ## 概览
 
-If you want to embed (third-party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide explains the differences and capabilities of each option.
+有三种方式可以让你在Electron的</code>BrowserWindow</code>里集成（第三方）web内容，`<iframe>`, `<webview>` 和 `BrowserViews</0> 每个功能都略有不同，适用于不同的情况。 为了帮助您在这些选择之间进行选择，本指南将解释他们之间的差异和功能。</p>
 
-### Iframe
+<h3 spaces-before="0">Iframe</h3>
 
-Iframe 在 Electron 中的行为与普通浏览器中类似。 An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the number of capabilities of a site in an `<iframe>` tag, it is recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+<p spaces-before="0">Iframe 在 Electron 中的行为与普通浏览器中类似。 在宿主页面的<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">内容安全策略</a>允许范围内，一个<code><iframe>`元素能在页面上显示外部网页。 To limit the number of capabilities of a site in an `<iframe>` tag, it is recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
 
 ### WebView
 
