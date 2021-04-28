@@ -94,7 +94,5 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     └── uploaders/ - Uploads various release-related files during release.
 ```
 
-* **tools** - Scripts de ayuda utilizados por los archivos GN.
-  * Los Scripts puestos aquí nunca deberían ser invocados directamente por los usuarios, a diferencia de los de `script`.
 * **typings** - Tipos de TypeScript para el código interno de Electron.
 * **vendor** - Código fuente para algunas dependencias de terceros.
