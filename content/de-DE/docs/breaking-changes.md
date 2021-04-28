@@ -1,6 +1,6 @@
 # Breaking Changes
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](tutorial/electron-versioning.md#semver) before the change is made.
+Breaking-Änderungen werden hier dokumentiert, und Veraltungswarnungen werden js-Code nach Möglichkeit hinzugefügt, mindestens [eine Hauptversion](tutorial/electron-versioning.md#semver), bevor die Änderung vorgenommen wird.
 
 ### Typen von Bruchänderungen
 
@@ -12,26 +12,26 @@ Dieses Dokument verwendet die folgende Konvention um die Änderungen zu kategori
 * **Veraltet:** Eine API wurde als veraltet markiert. Die API wird weiterhin funktionieren, sendet aber eine Deprecation-Warnung aus und wird in einer zukünftigen Version entfernt.
 * **Entfernt:** Eine API oder Funktion wurde entfernt und wird von Electron nicht mehr unterstützt.
 
-## Planned Breaking API Changes (14.0)
+## Geplante Bruch-API-Änderungen (14.0)
 
-### API Changed: `window.(open)`
+### API geändert: `window.(offen)`
 
-The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+Der optionale Parameter `FrameName` legt nicht mehr den Titel des Fensters fest. Dies folgt nun der Spezifikation, die in der [nativen Dokumentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) unter dem zugehörigen Parameter `windowName` beschrieben wird.
 
-If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+Wenn Sie diesen Parameter verwenden, um den Titel eines Fensters festzulegen, können Sie stattdessen [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle) verwenden.
 
-### Removed: `worldSafeExecuteJavaScript`
+### Entfernt: `worldSafeExecuteJavaScript`
 
-In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+In Electron 14 wird `worldSafeExecuteJavaScript` entfernt.  Es gibt keine Alternative, bitte stelle sicher, dass dein Code mit dieser Eigenschaft funktioniert.  Es wurde standardmäßig aktiviert, da Electron
 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+Sie werden von dieser Änderung betroffen sein, wenn Sie entweder `webFrame.executeJavaScript` oder `webFrame.executeJavaScriptInIsolatedWorld` verwenden. Sie müssen sicherstellen, dass die von einer dieser Methoden zurückgegebenen Werte von der [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) unterstützt werden, da diese Methoden denselben Wert verwenden, der die Semantik übergeht.
 
 ## Geplante Bruch-API-Änderungen (13.0)
 
-### API Changed: `session.setPermissionCheckHandler(handler)`
+### API geändert: `session.setPermissionCheckHandler(handler)`
 
-The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+Die `Handler` Methoden ersten Parameters waren zuvor immer ein `webContents`, es kann jetzt manchmal `null` sein.  Sie sollten die `requestingOrigin`, `einbettenOrigin` und `securityOrigin` Eigenschaften verwenden, um auf die Berechtigungsprüfung korrekt zu reagieren.  Da der `Webcontent` `null sein kann` nicht mehr auf ihn angewiesen werden.
 
 ```js
 // Old code
@@ -62,7 +62,7 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Removed: `BrowserWindow` extension APIs
+### Entfernt: `BrowserWindow` Erweiterungs-APIs
 
 The deprecated extension APIs have been removed:
 
