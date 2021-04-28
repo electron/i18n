@@ -135,7 +135,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 
 ### Module für den Renderer-Prozess (Webseite):
 
-* [contextBridge](api/context-bridge.md)
+* [kontextBridge](api/context-bridge.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [webFrame](api/web-frame.md)
 
