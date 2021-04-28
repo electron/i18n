@@ -1,4 +1,4 @@
-# contextBridge
+# kontextBridge
 
 > Create a safe, bi-directional, synchronous bridge across isolated contexts
 
