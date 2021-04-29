@@ -95,4 +95,4 @@ script/ - L'ensemble de tous les scripts que Electron exécute pour une variét�
 ```
 
 * **typings** - Types TypeScript pour le code interne d'Electron.
-* **vendor** - Source code for some third party dependencies.
+* **vendor** - Code source pour certaines dépendances tierces.
