@@ -2,27 +2,27 @@
 
 ## Обзор
 
-Индикатор прогресса позволяет окну предоставлять информацию о прогрессе пользователю без необходимости переключения на само окно.
+Progress bar позволяет окну предоставлять информацию о прогрессе пользователю без необходимости переключения на само окно.
 
-On Windows, you can use a taskbar button to display a progress bar.
+В Windows вы можете использовать кнопку панели задач для отображения progress bar.
 
 ![Windows Progress Bar][1]
 
-On macOS, the progress bar will be displayed as a part of the dock icon.
+На macOS progress bar будет отображаться как часть dock icon.
 
 ![macOS Progress Bar][2]
 
-On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
+На Linux графический интерфейс Unity также имеет аналогичную функцию, которая вам указать планку прогресса в пусковой установке.
 
 ![Linux Progress Bar][3]
 
-> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
+> ПРИМЕЧАНИЕ: на Windows, каждое окно может иметь свой собственный планку прогресса, в то время как на macOS и Linux (Unity) может быть только одна планка прогресса для приложения.
 
 ----
 
-All three cases are covered by the same API - the [`setProgressBar()`][setprogressbar] method available on an instance of `BrowserWindow`. To indicate your progress, call this method with a number between `0` and `1`. For example, if you have a long-running task that is currently at 63% towards completion, you would call it as `setProgressBar(0.63)`.
+Все три случая охватываются одним и тем же API - [`setProgressBar()`][setprogressbar] методом, доступным на экземпляре `BrowserWindow`. Чтобы указать свой прогресс, позвоните в этот метод с номером между `0` и `1`. Например, если у вас есть давняя задача, которая в настоящее время 63% к завершению, вы назвали бы ее как `setProgressBar(0.63)`.
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar, whereas setting it to values greater than `1` (e.g. `2`) will switch the progress bar to indeterminate mode (Windows-only -- it will clamp to 100% otherwise). In this mode, a progress bar remains active but does not show an actual percentage. Use this mode for situations when you do not know how long an operation will take to complete.
+Параметр задает отрицательные значения (напр. `-1`) удалит прогресс бар, а значения больше, чем `1` (e.. `2`) переключит индикатор прогресса на режим неопределённого (только для Windows--- в противном случае он будет хватать на 100%). В этом режиме планка прогресса остается активной, но не показывает процент. Используйте этот режим для ситуаций, когда вы не знаете сколько времени займет операция.
 
 Просмотрите [документацию по API для большего количества опций и режимов][setprogressbar].
 
@@ -41,7 +41,7 @@ After launching the Electron application, you should see the bar in the dock (ma
 
 ![macOS dock progress bar](../images/dock-progress-bar.png)
 
-For macOS, the progress bar will also be indicated for your application when using [Mission Control](https://support.apple.com/en-us/HT204100):
+Для macOS планка прогресса также будет указана для вашей приложения использовании [Mission Control](https://support.apple.com/en-us/HT204100):
 
 ![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
 
