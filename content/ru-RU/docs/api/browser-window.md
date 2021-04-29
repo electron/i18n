@@ -23,7 +23,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Изящный показ окон
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+При загрузке страницы пользователи могут видеть, что страница загружается постепенно, что не очень хорошо для нативного приложения. Чтобы окно загружалось без ступенчатой загрузки, есть два решения для разных ситуаций.
 
 ## Использование `ready-to-show` события
 
