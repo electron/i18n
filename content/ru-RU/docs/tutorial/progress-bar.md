@@ -2,7 +2,7 @@
 
 ## Обзор
 
-A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
+Индикатор прогресса позволяет окну предоставлять информацию о прогрессе пользователю без необходимости переключения на само окно.
 
 On Windows, you can use a taskbar button to display a progress bar.
 
