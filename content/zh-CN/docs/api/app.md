@@ -30,7 +30,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-当 Electron 完成初始化时，发出一次。 On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. You can also call `app.isReady()` to check if this event has already fired and `app.whenReady()` to get a Promise that is fulfilled when Electron is initialized.
+当 Electron 完成初始化时，发出一次。 在 macOS 上，如果从通知中心启动， `launchInfo` 内含有用于打开应用程序的 `NSUserNotification` 或来自 [`UNNotificationResponse`](structures/notification-response.md) 的 `userInfo` 信息。 你也可以通过调用 `app.isReady()` 来检查该事件是否已被触发，以及通过 `app.whenReady()` 得到一个当Electron已初始化后fulfill 的 Promise。
 
 ### 事件: 'window-all-closed'
 
@@ -44,7 +44,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-在程序关闭窗口前发信号。 Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+在程序关闭窗口前发信号。 调用 `event.preventDefault()` 将阻止终止应用程序的默认行为。
 
 **注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
@@ -56,7 +56,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+当所有窗口被关闭后触发，同时应用程序将退出。 调用 `event.preventDefault()` 将阻止终止应用程序的默认行为。
 
 关于 ` window-all-closed` 和 ` will-quit ` 事件之间的差异, 请参见 `window-all-closed ` 事件的说明。
 
@@ -93,7 +93,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 * `event` Event
 * `url` String
 
-当用户想要在应用中打开一个 URL 时发出。 Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+当用户想要在应用中打开一个 URL 时发出。 你的应用程序的 ` Info. plist ` 文件必须在 ` CFBundleURLTypes ` 这个key中定义 url scheme, 并将 ` NSPrincipalClass ` 设置为 ` AtomApplication `。
 
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -120,7 +120,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
+* `userInfo` unknown - 包含另一个设备上activity存储的应用特定状态。
 
 当来自不同设备的活动通过 [Handoff][handoff] 想要恢复时触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -151,7 +151,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* ` userInfo ` unknown - 包含activity存储的应用特定状态。
 
 当来自不同设备的活动通过 [Handoff][handoff] 成功恢复后触发。
 
@@ -161,7 +161,7 @@ Emitted when all windows have been closed and the application will quit. Calling
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* ` userInfo ` unknown - 包含activity存储的应用特定状态。
 
 当 [Handoff][handoff] 即将通过另一个设备恢复时触发。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. 否则，操作会失败，并且触发 `continue-activity-error`
 
