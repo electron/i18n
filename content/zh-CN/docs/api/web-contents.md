@@ -328,7 +328,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 当渲染进程崩溃或被结束时触发
 
-**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 并不总是因为崩溃而触发。  当你换用child-process-gone事件时，原事件的 `killed` 布尔值可以被 `reason === 'killed'` 取代。
 
 #### 事件: 'render-process-gone'
 
@@ -336,9 +336,9 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  可选值：
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
+  * `reason` String - 渲染进程消失的原因。  可选值：
+    * `clean-exit` - 以零为退出代码退出的进程
+    * `abnormal-exit` - 以非零退出代码退出的进程
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
@@ -474,8 +474,8 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (可选)
+  * `password` String (可选)
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
