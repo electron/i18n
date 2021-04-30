@@ -331,9 +331,9 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
   * `reason` String - 渲染进程消失的原因。  可选值：
     * `clean-exit` - 以零为退出代码退出的进程
     * `abnormal-exit` - 以非零退出代码退出的进程
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `killed` - 进程发送一个SIGTERM，否则是被外部杀死的。
+    * `crashed` - 进程崩溃
+    * `oom` - 进程内存不足
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
   * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
@@ -357,9 +357,9 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
   * `reason` String - The reason the child process is gone. 可选值：
     * `clean-exit` - 以零为退出代码退出的进程
     * `abnormal-exit` - 以非零退出代码退出的进程
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+    * `killed` - 进程发送一个SIGTERM，否则是被外部杀死的。
+    * `crashed` - 进程崩溃
+    * `oom` - 进程内存不足
     * `launch-failed` - Process never successfully launched
     * `integrity-failure` - Windows code integrity checks failed
   * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
