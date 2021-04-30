@@ -342,11 +342,11 @@ win.webContents.on('will-prevent-unload', (event) => {
     * `killed` - 进程发送一个SIGTERM，否则是被外部杀死的。
     * `crashed` - 进程崩溃
     * `oom` - 进程内存不足
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+    * `launch-failed` - 进程从未成功启动
+    * `integrity-failure` - 窗口代码完整性检查失败
+  * `exitCode` Integer - 进程的退出代码，除非在 `reason` 是 `launch-failed` 的情况下， `exitCode` 将是一个平台特定的启动失败错误代码。
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+渲染器进程意外消失时触发。  这种情况通常因为进程崩溃或被杀死。
 
 #### 事件: 'unresponsive'
 
@@ -711,7 +711,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. 调用 `event.preventDefault()` 将使它返回空的sources。
 
 #### 事件： "remote-require" _弃用_
 
