@@ -8,6 +8,6 @@
 * ` name `字符串（可选的）--如果 `type` 是 `custom` 则必须设置, 否则应省略它。
 * ` items`JumpListItem [] (可选)-如果 ` type ` 是 ` tasks ` 或 ` custom `, 则 [` JumpListItem `](jump-list-item.md) 对象的数组, 否则应省略它。
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+**注意：** 如果一个 `JumpListCategory` 对象既没有设置 `type` 属性，也没有设置 `name` 属性，则假设其 `type` 是 `tasks`。 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
 
 **注意：** 跳列表项目 `description` 属性的最大长度为 260 个字符。 超过这个限制，当前项将不会被添加到跳转列表，也不会被展示。
