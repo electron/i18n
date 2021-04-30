@@ -56,8 +56,8 @@ const request = net.request({
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (可选)
+  * `password` String (可选)
 
 当身份验证代理请求用户认证时触发
 
