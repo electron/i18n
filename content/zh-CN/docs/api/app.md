@@ -163,7 +163,7 @@ app.on('window-all-closed', () => {
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `][activity-type]。
 * ` userInfo ` unknown - 包含activity存储的应用特定状态。
 
-当 [Handoff][handoff] 即将通过另一个设备恢复时触发。 If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. 否则，操作会失败，并且触发 `continue-activity-error`
+当 [Handoff][handoff] 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态，你应该立即调用 ` event.preventDefault() `, 构造新的 ` userInfo ` 字典，并及时调用 ` app.updateCurrentActiviy() `。 否则，操作会失败，并且触发 `continue-activity-error`
 
 ### 事件: 'new-window-for-tab' _macOS_
 
@@ -171,7 +171,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+当用户点击原生的macOS新标签按钮时触发。 只有在当前 `BrowserWindow` 有 `tabbingIdentifier` 时，新建tab按钮才可见。
 
 ### 事件: 'browser-window-blur'
 
@@ -276,8 +276,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (可选)
+  * `password` String (可选)
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
@@ -292,11 +292,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+当 `callback` 在缺少用户名和密码的时候被调用，身份验证请求将被取消，同时将返回身份验证错误到页面。
 
 ### 事件: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+每当有 GPU 信息更新时触发。
 
 ### 事件: 'gpu-process-crashed' _已废弃_
 
@@ -307,7 +307,7 @@ Emitted whenever there is a GPU info update.
 
 当gpu进程崩溃或关闭（杀死）时触发
 
-**已废弃：**这个事件被包含更多子进程退出信息原因的`child-process-gone`事件取代了。 It isn't always because it crashed. The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：**这个事件被包含更多子进程退出信息原因的`child-process-gone`事件取代了。 并不总是因为崩溃而触发。 当你换用child-process-gone事件时，原事件的 `killed` 布尔值可以被 `reason === 'killed'` 取代。
 
 ### 事件: 'renderer-process-crashed' _已废弃_
 
@@ -319,7 +319,7 @@ Emitted whenever there is a GPU info update.
 
 当渲染器进程`webContents`崩溃或关闭（杀死）时触发。
 
-**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 并不总是因为崩溃而触发。  当你换用child-process-gone事件时，原事件的 `killed` 布尔值可以被 `reason === 'killed'` 取代。
 
 ### 事件: 'render-process-gone'
 
@@ -328,9 +328,9 @@ Emitted whenever there is a GPU info update.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  可选值：
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
+  * `reason` String - 渲染进程消失的原因。  可选值：
+    * `clean-exit` - 以零为退出代码退出的进程
+    * `abnormal-exit` - 以非零退出代码退出的进程
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
@@ -355,8 +355,8 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
     * `Pepper Plugin Broker`
     * `Unknown`
   * `reason` String - The reason the child process is gone. 可选值：
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `clean-exit` - 以零为退出代码退出的进程
+    * `abnormal-exit` - 以非零退出代码退出的进程
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
     * `crashed` - Process crashed
     * `oom` - Process ran out of memory
