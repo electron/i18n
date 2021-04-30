@@ -84,7 +84,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `message` String (可选) _ macOS _-显示在输入框上方的消息。
   * `securityScopedBookmarks` Boolean (可选) _macOS_ _mas_ - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+返回 `Promise<Object>` - resolve包含以下内容的object：
 
 * `canceled` Boolean - whether or not the dialog was canceled.
 * ` filePaths ` String[] - 用户选择的文件路径的数组. 如果对话框被取消，这将是一个空的数组。
@@ -164,7 +164,7 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
     * `dontAddToRecent` _Windows_ - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (可选) _macOS_ _mas_ - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+返回 `Promise<Object>` - resolve包含以下内容的object：
 
 * `canceled` Boolean - whether or not the dialog was canceled.
 * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
