@@ -64,8 +64,8 @@ app.whenReady().then(() => {
 y preload.js:
 
 ```js
-// Este archivo se carga cada vez que se crea un contexto de javascript. Corre en un
-// ámbito privado que puede acceder a un subconjunto de APIs de rendererizado de Electron. Without
+// This file is loaded whenever a javascript context is created. It runs in a
+// private scope that can access a subset of Electron renderer APIs. Without
 // contextIsolation enabled, it's possible to accidentally leak privileged
 // globals like ipcRenderer to web content.
 const { ipcRenderer } = require('electron')
@@ -101,13 +101,13 @@ Actualmente la function `require` proveída en el ambiente de precargado expone 
   - `ipcRenderer`
   - `NativeImage`
   - `webFrame`
-- `eventos`
-- `contadores`
+- `events`
+- `timers`
 - `url`
 
 More may be added as needed to expose more Electron APIs in the sandbox.
 
-## Rendering untrusted content
+## Procesando contenido no confiable
 
 Rendering untrusted content in Electron is still somewhat uncharted territory, though some apps are finding success (e.g. Beaker Browser). Our goal is to get as close to Chrome as we can in terms of the security of sandboxed content, but ultimately we will always be behind due to a few fundamental issues:
 

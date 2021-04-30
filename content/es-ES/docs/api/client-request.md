@@ -86,11 +86,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Evento: "terminado"
+#### Evento: "Finish"
 
 Emitido justo antes de que el último paquete de los datos de la `solicitud` haya sido escrito en el objeto `solicitud`.
 
-#### Evento: "abortar"
+#### Evento: "abort"
 
 Emitido cuando la `request` es abortada. El evento `abort` no será lanzado si la `request` ya está cerrada.
 
@@ -106,7 +106,7 @@ Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamen
 
 Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El evento `cerrar` indica que ningún otro evento será emitido en los objetos `solicitud` o `respuesta`.
 
-#### Evento: "redirigir"
+#### Evento: "redirect"
 
 Devuelve:
 

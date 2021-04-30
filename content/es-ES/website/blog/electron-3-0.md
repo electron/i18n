@@ -1,7 +1,7 @@
 ---
 title: Electron 3.0.0
 author: codebytere
-date: '18-09-2018'
+date: '2018-09-18'
 ---
 
 El equipo de Electron está encantado de anunciar que la primera versión estable de Electron 3 está ahora disponible en [electronjs. rg](https://electronjs.org/) y a través de `npm install electron@latest`! Está lleno de actualizaciones, correcciones y nuevas características, y no podemos esperar a ver lo que construyes con ellas. A continuación se detallan los detalles de esta versión, y le damos la bienvenida a sus comentarios mientras explora.

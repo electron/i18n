@@ -1,6 +1,6 @@
 # ビルド手順 (Linux)
 
-Linux 版 Electron のビルドについては、以下のガイドラインに従ってください。
+カスタム Electron バイナリの作成にあたって Linux で **Electron そのもの** をビルドするには、以下のガイドラインに従ってください。 アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
 
 ## 必要な環境
 
@@ -111,3 +111,5 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 ### `clang`以外のコンパイラの使用
 
 `clang`以外のコンパイラを用いたElectronのビルドはサポートされていません。
+
+[application-distribution]: ../tutorial/application-distribution.md

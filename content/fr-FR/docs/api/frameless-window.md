@@ -63,7 +63,10 @@ win.show()
 * Vous ne pouvez pas cliquer à travers la zone transparente. Nous allons introduire une API pour définir la forme de fenêtre pour résoudre ce problème, voir [notre problème](https://github.com/electron/electron/issues/1335) pour plus de détails.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * Le filtre `flur` ne s'applique qu'à la page web, donc il n'y a aucun moyen d'appliquer l'effet de flou au contenu en dessous de la fenêtre (i. . d'autres applications s'ouvrent sur le système de l'utilisateur).
-* Sur les systèmes d'exploitation Windows, les fenêtres transparentes ne fonctionneront pas lorsque DWM est désactivé.
+* The window will not be transparent when DevTools is opened.
+* On Windows operating systems,
+  * transparent windows will not work when DWM is disabled.
+  * transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on [this pull request](https://github.com/electron/electron/pull/28207).
 * Sous Linux, les utilisateurs doivent mettre `--enable-transparent-visuals --disable-gpu` dans la ligne de commande pour désactiver le GPU et permettre à ARGB de rendre une fenêtre transparente, ceci est causé par un bogue amont que [canal alpha ne fonctionne pas sur certains pilotes NVidia](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) sur Linux.
 * Sur Mac, l'ombre native de la fenêtre ne sera pas affichée sur une fenêtre transparente.
 

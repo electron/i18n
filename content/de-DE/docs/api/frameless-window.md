@@ -50,7 +50,7 @@ win.show()
 
 ## Transparent window
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+Wenn Sie die Option `transparent` auf `true`setzen, können Sie auch das rahmenlose Fenster transparent machen:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -60,16 +60,19 @@ win.show()
 
 ### Einschränkungen
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
+* Sie können nicht durch den transparenten Bereich klicken. Wir werden eine -API einführen, um fenster-Form festzulegen, um dieses Problem zu lösen, siehe [unser Problem](https://github.com/electron/electron/issues/1335) für Details.
+* Transparente Fenster können nicht in der Geänderten Datei geändert werden. Wenn Sie `resizable` auf `true` festlegen, kann ein transparentes Fenster auf einigen Plattformen nicht mehr funktionieren.
+* Der `blur` Filter gilt nur für die Webseite, so dass es keine Möglichkeit gibt, Unschärfeeffekt auf den Inhalt unterhalb des Fensters anzuwenden (d. h. andere Anwendungen, die auf system des Benutzers geöffnet sind).
+* The window will not be transparent when DevTools is opened.
+* On Windows operating systems,
+  * transparent windows will not work when DWM is disabled.
+  * transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on [this pull request](https://github.com/electron/electron/pull/28207).
 * On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac, the native window shadow will not be shown on a transparent window.
 
-## Click-through window
+## Click-Through-Fenster
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] API:
+Um ein Klickfenster zu erstellen, d. h. das Fenster dazu zu bringen, alle Ereignisse zu ignorieren, können Sie die [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] API aufrufen:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -77,9 +80,9 @@ const win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### Weiterleitung
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+Das Ignorieren von Mausnachrichten macht die Webseite für die Mausbewegung unwissend, was bedeutet, dass , dass Mausbewegungsereignisse nicht emittiert werden. Unter Windows-Betriebssystemen kann ein optionaler Parameter verwendet werden, um Mausverschiebungsnachrichten an die Webseite weiterzuleiten, , sodass Ereignisse wie `mouseleave` ausgegeben werden können:
 
 ```javascript
 const { ipcRenderer } = require('electron')
@@ -98,22 +101,22 @@ ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+Dadurch wird die Webseite beim Überklicken `el`durchklickt und kehrt zu normalen außerhalb zurück.
 
-## Draggable region
+## Draggable Region
 
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+Standardmäßig ist das rahmenlose Fenster nicht ziehbar. Apps müssen `-webkit-app-region: drag` in CSS angeben, um Electron mitzuteilen, welche Regionen (wie die Standardtitelleiste des Betriebssystems) ziehbar sind, und Apps können auch `-webkit-app-region: no-drag` verwenden, um den nicht ziehbaren Bereich aus dem ziehbaren Bereich auszuschließen. Beachten Sie, dass derzeit nur rechteckige Shapes unterstützt werden.
 
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+Hinweis: `-webkit-app-region: drag` ist bekannt, dass Probleme auftreten, während die Entwicklertools geöffnet sind. Weitere Informationen, einschließlich einer Problemumgehung, finden Sie in dieser [GitHub-Ausgabe](https://github.com/electron/electron/issues/3647) .
 
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+Um das gesamte Fenster ziehbar zu machen, können Sie `-webkit-app-region: drag` als `body`-Stil hinzufügen:
 
 ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+Und beachten Sie, dass, wenn Sie das ganze Fenster ziehbar gemacht haben, müssen Sie auch Schaltflächen als nicht ziehbar markieren, sonst wäre es für Benutzer unmöglich, auf sie zu klicken:
 
 ```css
 button {
@@ -121,11 +124,11 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Wenn Sie nur eine benutzerdefinierte Titelleiste als ziehbar festlegen, müssen Sie auch alle Schaltflächen in der Titelleiste nicht ziehbar machen.
 
-## Text selection
+## Textauswahl
 
-In a frameless window the dragging behavior may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+In einem rahmenlosen Fenster kann das Ziehen mit der Auswahl von Text in Konflikt stehen. Wenn Sie beispielsweise die Titelleiste ziehen, können Sie versehentlich den Text auf der Titelleiste auswählen. Um dies zu verhindern, müssen Sie die Textauswahl in einem ziehbaren Bereich wie folgt deaktivieren:
 
 ```css
 .titlebar {
@@ -134,8 +137,8 @@ In a frameless window the dragging behavior may conflict with selecting text. Fo
 }
 ```
 
-## Context menu
+## Kontextmenü
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+Auf einigen Plattformen wird der ziehbare Bereich als Nicht-Client-Frame behandelt, so dass , wenn Sie mit der rechten Maustaste darauf klicken, ein Systemmenü erscheint. Damit sich das Kontextmenü auf allen Plattformen korrekt verhält , sollten Sie niemals ein benutzerdefiniertes Kontextmenü auf ziehbaren Bereichen verwenden.
 
 [ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options

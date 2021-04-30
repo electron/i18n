@@ -747,6 +747,8 @@ This method returns a promise that contains the application name, icon and path 
 
 **Примечание:** Пользователи могут удалять элементы из пользовательских категорий, но Windows не будет позволять возвращать удаленный элемент в пользовательскую категорию до **следующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в пользовательскую категорию перед тем, как метод выполнится, приведёт к исключению всей категории из списка переходов. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
+
 Вот очень простой способ, как создать пользовательский список переходов:
 
 ```javascript
@@ -859,7 +861,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `userInfo` any- специфичное, для приложения, состояние для использования другими устройствами.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Создает `NSUserActivity` и задает её в качестве текущей активности. The activity is eligible for [Handoff][handoff] to another device afterward.
+Создает `NSUserActivity` и задает её в качестве текущей активности. Активность позже имеет право для [Handoff][handoff] на другом устройстве.
 
 ### `app.getCurrentActivityType()` _macOS_
 
@@ -979,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 На macOS отображается на иконке в Dock. На Linux работает только для лаунчера Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1022,7 +1024,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Defaults to `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Установите приложению параметры при входе в систему.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Например:
+Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel][Squirrel-Windows], вы можете задать путь запуска Update.exe и передавать аргументы, которые указывают на имя приложения. Например:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1181,7 +1183,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration][unity-requirement].
 
 **Примечание:** На macOS, вы должны убедиться, что ваше приложение имеет разрешение на отображение уведомлений.
 

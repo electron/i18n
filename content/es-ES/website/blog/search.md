@@ -4,7 +4,7 @@ author:
   - echjordan
   - vanessayuenn
   - zeke
-date: '21-06-2018'
+date: '2018-06-21'
 ---
 
 El sitio web de Electron tiene un nuevo motor de búsqueda que ofrece resultados instantáneos para documentos API, tutoriales, paquetes npm relacionados con Electron, y más.

@@ -85,7 +85,7 @@ The following methods of `chrome.tabs` are supported:
 - `chrome.tabs.sendMessage`
 - `chrome.tabs.executeScript`
 
-> **Note:** In Chrome, passing `-1` as a tab ID signifies the "currently active tab". Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
+> **Note:** Chrome, passer `-1` un identifiant d’onglet signifie le « onglet actif ». Since Electron has no such concept, passing `-1` as a tab ID is not supported and will raise an error.
 
 ### `chrome.management`
 

@@ -1,6 +1,6 @@
 # Инструкции по сборке (Windows)
 
-Следуйте рекомендациям ниже для сборки Electron под Windows.
+Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Требования
 
@@ -94,3 +94,5 @@ This can happen during build, when Debugging Tools for Windows has been installe
 ### Строить сценарии повесить до Keypress
 
 Эта ошибка является "функцией" командной строки Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Puisque chaque clic accidentel met en pause le processus de construction, vous pouvez désactiver cette fonctionnalité dans les propriétés de l'invite de commande.
+
+[application-distribution]: ../tutorial/application-distribution.md

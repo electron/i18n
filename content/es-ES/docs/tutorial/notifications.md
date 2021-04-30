@@ -21,12 +21,12 @@ Asumiendo que tiene una aplicación Electron funcional de la [Guía de inicio r�
 y añadir el archivo `rendererer.js`:
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const myNotification = new Notification('Título', {
+const myNotification = new Notification('Title', {
   body: 'Notification from the Renderer process'
 })
 
 myNotification.onclick = () => {
-  console.log('Notificación pulsada')
+  console.log('Notification clicked')
 }
 ```
 

@@ -39,18 +39,6 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 
 Electron が内部初期化スクリプトをロードし、ウェブページまたはメインスクリプトのロードを開始したときに発生します。
 
-Node integration がオフになっているときに、削除された Node のグローバルシンボルをグローバルスコープに追加するために、プリロードスクリプトによって使用できます。
-
-```javascript
-// preload.js
-const _setImmediate = setImmediate
-const _clearImmediate = clearImmediate
-process.once('loaded', () => {
-  global.setImmediate = _setImmediate
-  global.clearImmediate = _clearImmediate
-})
-```
-
 ## プロパティ
 
 ### `process.defaultApp` _読み出し専用_
@@ -123,7 +111,7 @@ Electron のバージョン文字列を表す `String`。
 
 ### `process.getCreationTime()`
 
-戻り値 `Number | null` - 発生からのミリ秒数です。情報が利用できない場合は `null` を返します。
+`Number | null`を返します。 - 発生からのミリ秒数、もし情報がない場合は`null`を返します。
 
 アプリケーションの作成時間を示します。 時間はエポックからのミリ秒数として表されます。 プロセスの作成時間を取得できない場合は null を返します。
 

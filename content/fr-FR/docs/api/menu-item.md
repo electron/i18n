@@ -66,7 +66,7 @@ La propriété `role` peut avoir les valeurs suivantes :
 * `resetZoom` - Réinitialise le niveau de zoom de la page ciblée à la taille d'origine.
 * `zoomIn` - Zoom sur la page ciblée par 10%.
 * `zoomOut` - Zoom arrière de la page ciblée de 10%.
-* `toggleSpellChecker` - Enable/disable builtin spell checker.
+* `toggleSpellChecker` - Activer/désactiver le pocheur de sorts intégré.
 * `fileMenu` - Menu par défaut entier "Fichier" (Close / Quitter)
 * `editMenu` - Tout le menu "Edit" par défaut (Annuler, Copier, etc.).
 * `viewMenu` - Menu "Affichage" par défaut (Recharger, Activer/désactiver les outils de développement, etc.)

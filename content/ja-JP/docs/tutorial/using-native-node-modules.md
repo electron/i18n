@@ -14,7 +14,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ネイティブモジュールをインストールするにはいくつかの異なる方法があります。
 
-### モジュールをインストールしてElectronをリビルド
+### モジュールをインストールして Electron をリビルド
 
 他の Node プロジェクト同様にモジュールをインストールしてから、[`electron-rebuild`][electron-rebuild] パッケージで Electron 向けにモジュールを再ビルドします。 このモジュールは自動で Electron のバージョンを取得でき、ヘッダのダウンロードやアプリ向けにネイティブモジュールを再ビルドする手動の手順を処理できます。 [Electron Forge][electron-forge] を使用している場合、このツールは開発モードでも頒布物の作成でも自動で使用されます。
 

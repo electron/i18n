@@ -40,8 +40,8 @@ $ npm run build && npm test
 Puede hacer que la prueba en suite corra más rápido al aislar la prueba específica o bloquear su trabajo actual en la característica [prueba exclusiva](https://mochajs.org/#exclusive-tests) de Mocha. Agregar `.only` a cualquier `describe` o `it` función llama:
 
 ```js
-describe.only('alguna característica', () => {
-  // ... solo pruebas se ejecutarán en este bloque
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
 })
 ```
 

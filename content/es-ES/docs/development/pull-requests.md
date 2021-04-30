@@ -77,9 +77,9 @@ Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un títul
 
 Ejemplos de mensajes de confirmación con prefijos semánticos:
 
-* `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
-* `feat: agregar método app.isPackaged()`
-* `docs: app.isDefaultProtocolClient está disponible en Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Prefijos usuales:
 
@@ -158,7 +158,7 @@ the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Guía de colaboradores: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 

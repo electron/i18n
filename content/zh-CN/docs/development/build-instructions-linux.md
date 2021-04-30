@@ -1,6 +1,6 @@
 # 构建步骤（Linux）
 
-遵循下面的准则在 Linux 上创建 Electron 。
+按照下面的指南在Linux下构建 **Electron 本身**，以此创建自定义 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
 ## 前提条件
 
@@ -111,3 +111,5 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 ### 使用 `clang` 之外的其它编译器
 
 Electron 不支持除 `clang`之外的其他编译器构建
+
+[application-distribution]: ../tutorial/application-distribution.md

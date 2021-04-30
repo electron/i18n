@@ -1,6 +1,6 @@
 # Instrucciones de Compilación
 
-Siga los pasos que se mencionan abajo para compilar Electron.
+Follow the guidelines below for building **Electron itself**, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Pre-requisitos de la Plataforma
 
@@ -27,7 +27,7 @@ Si planeas hacer checkout de Electron más de una vez (por ejemplo, para tener m
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# Esto usará alrededor de 16G.
+# This will use about 16G.
 ```
 
 ## Obteniendo el código
@@ -154,14 +154,14 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
 
 Si prueba otras combinaciones y las encuentra para funcionar, por favor actualice este documento :)
 
-Vea la referencia de GN para valores permitidos de [`target_os`][target_os values]y [`target_cpu`][target_cpu values].
+See the GN reference for allowable values of [`target_os`][target_os values] and [`target_cpu`][target_cpu values].
 
 #### Windows en Arm (experimental)
 
 Para compilar de forma cruzada para Windows en Arm, [follow Chromium's guide](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio) para obtener las dependencias necesarias, SDK y librerias, luego construir con `ELECTRON_BUILDING_WOA=1` en su entorno antes de ejecutar `gclient sync`.
 
 ```bat
-estalecer ELECTRON_BUILDING_WOA=1
+set ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
@@ -216,9 +216,9 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 Si `gclient sync` es interrumpido el arbol de git puede quedar en mal estado, lo que conduce a un mensaje críptico cuando se ejecuta `gclient sync` en el futuro:
 
 ```plaintext
-2> Conflicto mietras se hace rebase de esta rama.
-2> Corrija el conflicto y ejecute gclient de nuevo.
-2> Consulte man git-rebase para más detalles.
+2> Conflict while rebasing this branch.
+2> Fix the conflict and run gclient again.
+2> See man git-rebase for details.
 ```
 
 Si no hay conflictos de git o rebases en `src/electron`, puede necesitar abortar un `git am` en `src`:
@@ -233,6 +233,8 @@ $ gclient sync -f
 ### Se me está pidiendo un nombre de usuario/contraseña para chromium-internal.googlesource.com
 
 Si ve un prompt para `Username for 'https://chrome-internal.googlesource.com':` cuando corre `gclient sync` en Windows, es probable que la variable de entorno `DEPOT_TOOLS_WIN_TOOLCHAIN` no esta establecida a 0. Abra `Control Panel` → `System and Security` → `System` → `Advanced system settings` y agregue un variable de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` con valor `0`.  Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
+
+[application-distribution]: ../tutorial/application-distribution.md
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 

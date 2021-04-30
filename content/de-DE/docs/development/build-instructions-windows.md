@@ -1,6 +1,6 @@
 # Build Anweisungen (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Vorrausetzungen
 
@@ -33,7 +33,7 @@ Siehe [Build Instruktionen: GN](build-instructions-gn.md)
 
 ## 32-Bit-Build
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+Um für das 32-Bit-Ziel zu bauen, müssen Sie `target_cpu = "x86"` als GN- arg übergeben. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
@@ -94,3 +94,5 @@ Make sure you have installed `pywin32` with `pip install pywin32`.
 ### Build Scripts Hang Until Keypress
 
 This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+
+[application-distribution]: ../tutorial/application-distribution.md

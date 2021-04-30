@@ -336,7 +336,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  取りうる値:
+  * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
     * `clean-exit` - ゼロの終了コードでプロセスが終了した
     * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
     * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
@@ -1020,7 +1020,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   * `details` Object
     * `url` String - `window.open()` に渡されて _解決された_ URL。 例えば `window.open('foo')` でウインドウを開くと、これは `https://the-origin/the/current/path/foo` のようになります。
     * `frameName` String - `window.open()` で指定されたウインドウ名
-    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。 戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
+    * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。
+
+  戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
 
 レンダラーから `window.open()` が呼び出されたときに、ウィンドウの作成前に呼び出されます。 詳細や `did-create-window` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
 
@@ -1222,7 +1224,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
   * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
   * `collate` Boolean (任意) - ウェブページを校合するかどうか。
   * `copies` Number (任意) - 印刷するウェブページの版数。
-  * `pageRanges` Object[]  (optional) - The page range to print. macOS では 1 つの範囲のみが許可されています。
+  * `pageRanges` Object[]  (任意) - 印刷するページ範囲。 macOS では 1 つの範囲のみが許可されています。
     * `from` Number - 印刷する最初のページのインデックス (0 始まり)。
     * `to` Number - 印刷する最後のページのインデックス (これを含む) (0 始まり)。
   * `duplexMode` String (任意) - 印刷されるウェブページの両面モードを設定します。 `simplex`、`shortEdge`、`longEdge` のいずれかにできます。

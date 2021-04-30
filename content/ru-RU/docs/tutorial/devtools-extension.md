@@ -24,7 +24,7 @@ Using the [React Developer Tools][react-devtools] as an example:
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * в macOS это `~/Library/Application Support/Google/Chrome/Default/Extensions`.</ul></li>
-1 Передайте местоположение расширения в [`ses.loadExtension`][load-extension] API. For React Developer Tools `v4.9.0`, it looks something like:
+1 Передайте местоположение расширения в [`ses.loadExtension`][load-extension] API. Для React Developer Tools `v4.9.0`, это выглядит как:
 
    ```javascript
     const { app, session } = require('electron')

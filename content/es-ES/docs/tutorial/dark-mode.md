@@ -1,4 +1,4 @@
-# Dark Mode
+# Modo oscuro
 
 ## Descripción general
 
@@ -52,7 +52,7 @@ Add the following lines to the `index.html` file:
 </html>
 ```
 
-Next, add [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) that listen for `click` events on the toggle buttons. Because the `nativeTheme` module only exposed in the Main process, you need to set up each listener's callback to use IPC to send messages to and handle responses from the Main process:
+A continuación, agrega [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) que escuchen los eventos de `click` en los botones de alternancia. Because the `nativeTheme` module only exposed in the Main process, you need to set up each listener's callback to use IPC to send messages to and handle responses from the Main process:
 
 * when the "Toggle Dark Mode" button is clicked, we send the `dark-mode:toggle` message (event) to tell the Main process to trigger a theme change, and update the "Current Theme Source" label in the UI based on the response from the Main process.
 * when the "Reset to System Theme" button is clicked, we send the `dark-mode:system` message (event) to tell the Main process to use the system color scheme, and update the "Current Theme Source" label to `System`.
@@ -139,9 +139,9 @@ Create a `styles.css` file and add the following lines:
 }
 ```
 
-After launching the Electron application, you can change modes or reset the theme to system default by clicking corresponding buttons:
+Después de iniciar la aplicación de electrones, puedes cambiar los modos o restablecer el tema de al predeterminado del sistema haciendo clic en los botones correspondientes:
 
-![Dark Mode](../images/dark_mode.gif)
+![Modo oscuro](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/

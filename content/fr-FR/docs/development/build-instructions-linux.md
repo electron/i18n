@@ -1,6 +1,6 @@
 # Instructions de compilation (Linux)
 
-Suivez les indications ci-dessous pour compiler Electron sur Windows.
+Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Sujets Avancés
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+The default building configuration is targeted for major desktop Linux distributions. Pour créer une distribution ou un périphérique spécifique, les informations informations peuvent vous aider.
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 
@@ -111,3 +111,5 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 ### Utiliser un compilateur autre que `clang`
 
 La construction d'électrons avec des compilateurs autres que `clang` n'est pas prise en charge.
+
+[application-distribution]: ../tutorial/application-distribution.md

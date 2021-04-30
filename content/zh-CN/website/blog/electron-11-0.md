@@ -9,7 +9,7 @@ Electron 11.0.0 已发布！ It includes upgrades to Chromium `87`, V8 `8.7`, an
 
 ---
 
-Electron 团队很高兴发布了 Electron 11.0.0.0！ 您可以通过 `npm 安装electron@later` 或者从我们的 [发布网站](https://electronjs.org/releases/stable) 下载它。 The release is packed with upgrades, fixes, and new support for Apple's M1 hardware.
+Electron 团队很高兴发布了 Electron 11.0.0.0！ 您可以通过 `npm 安装electron@later` 或者从我们的 [发布网站](https://electronjs.org/releases/stable) 下载它。 新版本包括内容更新及问题修复，提供对Apple M1的硬件支持。
 
 我们不能等待看到你与他们建立了什么关系！ 继续阅读此版本的详细信息，请分享您拥有的任何反馈！
 
@@ -37,7 +37,7 @@ See the [11.0.0 release notes](https://github.com/electron/electron/releases/tag
 
 ## 重大更改
 
-* Removed experimental APIs: `BrowserView.{fromId, fromWebContents, getAllViews}` and the `id` property of `BrowserView`. [#23578](https://github.com/electron/electron/pull/23578)
+* 移除实验性API: `BrowserView.{fromId, fromWebContents, getAllViews}`和`BrowserView`的`id`属性. [#23578](https://github.com/electron/electron/pull/23578)
 
 有关这些和未来更改的更多信息可在 [计划打破更改](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) 页面找到。
 
@@ -57,12 +57,12 @@ Electron 8.x.y has reached end-of-support as per the project's [support policy](
 
 关于 Electron 的预定中断更改的信息， [请参阅我们计划的打破更改。](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
 
-### Continued Work for Deprecation of `remote` Module
-We started work to remove the `remote` module in [Electron 9](https://www.electronjs.org/blog/electron-9-0). We plan to remove the `remote` module itself in Electron 14.
+### 未来将弃用 `remote` 模块
+我们已经着手移除[Electron 9](https://www.electronjs.org/blog/electron-9-0)中的 `remote` 模块， 计划在Electron 14中完成。
 
-Read and follow [this issue](https://github.com/electron/electron/issues/21408) for full plans and details for deprecation.
+要想知道有关移除计划的全部细节，请阅读并关注 [这里](https://github.com/electron/electron/issues/21408)。
 
 ### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
 From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12.
 
-Read and follow [this issue](https://github.com/electron/electron/issues/18397) for full details, including the proposed timeline.
+要想知道其他细节或时间相关的问题，请阅读并关注 [这里](https://github.com/electron/electron/issues/18397)。

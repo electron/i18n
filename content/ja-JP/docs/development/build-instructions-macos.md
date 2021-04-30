@@ -1,6 +1,6 @@
 # ビルド手順 (macOS)
 
-macOS 版 Electron のビルドについては、以下のガイドラインに従ってください。
+カスタム Electron バイナリの作成にあたって macOS で **Electron そのもの** をビルドするには、以下のガイドラインに従ってください。 アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
 
 ## 必要な環境
 
@@ -42,3 +42,5 @@ Electron を開発していて独自の Electron ビルドを再配布する予�
 ## Electron のビルド
 
 [ビルド指示: GN](build-instructions-gn.md)を参照してください。
+
+[application-distribution]: ../tutorial/application-distribution.md

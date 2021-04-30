@@ -119,6 +119,8 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
   * `userInfo` Record<String, unknown>
   * `object` String
 
+Returns `Number` - The ID of this subscription
+
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` _macOS_
@@ -255,7 +257,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `menubar` - The background color for the menu bar when menus appear as flat menus.
     * `menu-text` - Text in menus.
     * `scrollbar` - Scroll bar gray area.
-    * `window` - Window background.
+    * `window` - Fensterhintergrund.
     * `window-frame` - Window frame.
     * `window-text` - Text in windows.
   * On **macOS**

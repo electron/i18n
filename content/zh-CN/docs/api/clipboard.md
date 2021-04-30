@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-在 Linux 上，还有一个 `selection`粘贴板 。 To manipulate it you need to pass `selection` to each method:
+在 Linux 上，还有一个 `selection` 粘贴板 。 想要操作该剪切板，你需要为每个函数传递 `selection` 参数。
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,11 +17,11 @@ console.log(clipboard.readText('selection'))
 
 ` clipboard ` 对象具有以下方法:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+** 注意: **被标记为实验性的 api 将来可能被删除。
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 返回 ` String `- 剪贴板中的纯文本内容。
 
@@ -38,7 +38,7 @@ console.log(text)
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 将 ` text ` 作为纯文本写入剪贴板。
 
@@ -51,7 +51,7 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 返回 ` String `- 剪贴板中的HTML内容。
 
@@ -68,7 +68,7 @@ console.log(html)
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 将 ` markup ` 写入剪贴板。
 
@@ -80,20 +80,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 返回 [` NativeImage `](native-image.md)- 剪贴板中的图像内容。
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 将 ` image ` 写入剪贴板。
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 返回 ` String `- 剪贴板中的RTF内容。
 
@@ -110,7 +110,7 @@ console.log(rtf)
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 向剪贴板中写入 RTF 格式的 `text`.
 
@@ -134,11 +134,11 @@ clipboard.writeRTF(rtf)
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 将书签的 ` title ` 和 ` url ` 写入剪贴板。
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**注意**：Windows上的大多数应用程序不支持粘贴书签，因此你可以使用 `clipboard.write` 将书签和后备文本写入剪贴板。
 
 ```js
 const { clipboard } = require('electron')
@@ -163,13 +163,13 @@ Writes the `text` into the find pasteboard (the pasteboard that holds informatio
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 清除剪贴板内容。
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 返回 ` String [] `- 剪贴板 ` type ` 所支持的格式的数组。
 
@@ -181,10 +181,10 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _实验功能_
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 返回 ` Boolean `, 剪贴板是否支持指定的 ` format `。
 
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _实验功能_
 
 * `format` String
 
 返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _实验功能_
 
 * `format` String
 
@@ -220,11 +220,11 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _实验功能_
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 将 `buffer ` 作为 ` format ` 类型写入剪贴板。
 
@@ -242,8 +242,8 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * ` html ` String（可选）
   * `image` [NativeImage](native-image.md) (可选)
   * `rtf` String (可选)
-  * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+  * ` bookmark ` String (可选)- URL 的标题 `text`。
+* `type` String (optional) -可以是 `selection` 或 `clipboard`; 默认为 'clipboard'. `selection` 仅在 Linux 中可用。
 
 将 ` data ` 写入剪贴板。
 

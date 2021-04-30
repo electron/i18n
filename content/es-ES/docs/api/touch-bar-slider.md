@@ -20,16 +20,16 @@ Las siguientes propiedades está disponibles en instancias de `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+Un `String` que representa el texto actual del deslizador. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+Un `Number` que representa el valor actual del deslizador. Changing this value immediately updates the slider in the touch bar.
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+Un `Number` que representa el valor mínimo actual del deslizador. Cambiar este valor inmediatamente actualiza el deslizador en el touch bar.
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+Un `Number` que representa el valor máximo actual del deslizador. Cambiar este valor inmediatamente actualiza el deslizador en el touch bar.

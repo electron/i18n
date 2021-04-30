@@ -10,7 +10,7 @@
 * `url` String (optional) - Download the `url` and pipe the result as response body. This is only used for URL responses.
 * `referrer` String (optional) - The `referrer` URL. This is only used for file and URL responses.
 * `method` String (optional) - The HTTP `method`. This is only used for file and URL responses.
-* `session` Session (optional) - The session used for requesting URL, by default the HTTP request will reuse the current session. Setting `session` to `null` would use a random independent session. This is only used for URL responses.
+* `session` Session (optional) - The session used for requesting URL, by default the HTTP request will reuse the current session. Wenn Sie `session` auf `null` festlegen, wird eine zufällige unabhängige Sitzung verwendet. This is only used for URL responses.
 * `uploadData` [ProtocolResponseUploadData](protocol-response-upload-data.md) (optional) - The data used as upload data. This is only used for URL responses when `method` is `"POST"`.
 
 [net-error]: https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h

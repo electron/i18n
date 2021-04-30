@@ -8,7 +8,7 @@
 
 如果通过 `npm` 安装失败，您可以尝试直接从 [electron/electron/releases](https://github.com/electron/electron/releases) 直接下载 Electron。
 
-## Electron 会在什么时候升级到最新版本的 Node.js？
+## Electron 会在什么时候升级到最新版本的 Chrome？
 
 通常来说，在稳定版的 Chrome 发布后一到两周内，我们会更新 Electron 内的 Chrome 版本。 这个只是个估计且不能保证，取决于与升级所涉及的工作量。
 
@@ -24,13 +24,13 @@ Node.js 的新特性通常是由新版本的 V8 带来的。由于 Electron 使�
 
 ## 如何在两个网页间共享数据？
 
-在两个网页（渲染进程）间共享数据最简单的方法是使用浏览器中已经实现的 HTML5 API。 Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+在两个网页（渲染进程）间共享数据最简单的方法是使用浏览器中已经实现的 HTML5 API。 其中比较好的方案是 [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
 或者，您可以使用 Electron 提供的原始版 IPC 。 在主进程和渲染器进程之间共享数据， 您可以使用 [`ipcMain`](api/ipc-main.md) 和 [`ipcRenderer`](api/ipc-renderer.md) 模块。 若要直接在网页之间进行沟通，您可以发送一个 [`MessagePort`][message-port] 可能通过主进程 使用 [`ipcRendererer。 ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). 随后在邮件端口上的通信是直接的，不会绕过主进程 。
 
-## 几分钟后我的应用托盘消失了。
+## 几分钟后我应用的 Tray 消失了。
 
-当用来存储托盘的变量得到 垃圾收集时，就会发生这种情况。
+当用来存储 Tray 的变量被垃圾回收时，就会发生这种情况。
 
 你可以参考以下两篇文章来了解为什么会遇到这个问题：
 
@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. 即使您没有看到不同的情况，您的一些用户可能也会看到。 最好始终以这种方式确定背景，除非你有理由不这样做。
+效果仅可见于（一些） LCD 屏幕。 即使您没有看到不同的情况，您的一些用户可能也会看到。 最好始终以这种方式确定背景，除非你有理由不这样做。
 
 注意到，仅设置 CSS 背景并不具有预期的效果。
 

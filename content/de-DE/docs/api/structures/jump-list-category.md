@@ -9,3 +9,5 @@
 * `items` JumpListItem[] (optional) - Array von [`JumpListItem`](jump-list-item.md) Objekten, wenn der Typ <1>Tasks</1> oder <1>custom</1> ist, andernfalls sollte er weggelassen werden.
 
 **Anmerkung:** Wenn eine `JumpListCategory`Objekt nie den Typ ` nie den <code>Namen ` hat Die eingestellte Funktion von seinem Typ ` ist dann als <code>tasks`wahrgenommen. Wenn die Eigenschaft `name` gesetzt ist, aber die Eigenschaft `type` weggelassen wird, dann wird angenommen, dass die Eigenschaft `type` `custom` ist.
+
+**Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.

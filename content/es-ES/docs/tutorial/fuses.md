@@ -16,9 +16,9 @@ Hemos hecho un módulo práctico `@electron/fuses` para hacer que voltear estos 
 
 ```js
 require('@electron/fuses').flipFuses(
-  // Ruta a electron
+  // Path to electron
   require('electron'),
-  // Fusible a cambiar
+  // Fuses to flip
   {
     runAsNode: false
   }

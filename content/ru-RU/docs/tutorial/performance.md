@@ -92,16 +92,16 @@ const fooParser = require('foo-parser')
 class Parser {
   constructor () {
     this.files = fs.readdirSync('.')
-  }
+  -
 
-  getParsedFiles () {
-    return fooParser.parse(this.files)
-  }
-}
+  получаютParsedFiles ()
+    возврат fooParser.parse (this.files)
 
-const parser = new Parser()
 
-module.exports = { parser }
+
+const parser - новый Parser ()
+
+ { parser }модуль.
 ```
 
 В приведенном выше примере мы выполняем большую работу, которая выполняется как только после загрузки файла. Нужно ли нам сразу разобрать файлы? Можем ли мы сделать это позже, когда вызывается `getParsedFiles()`?

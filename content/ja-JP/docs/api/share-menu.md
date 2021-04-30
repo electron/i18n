@@ -20,7 +20,7 @@
 
 #### `shareMenu.popup([options])`
 
-* `options` PopupOptions (optional)
+* `options` PopupOptions (任意)
   * `browserWindow` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
   * `x` Number (任意) - 既定ではマウスカーソルの現在位置です。 `y` が宣言されている場合は宣言する必要があります。
   * `y` Number (任意) - 既定ではマウスカーソルの現在位置です。 `x` が宣言されている場合は宣言する必要があります。

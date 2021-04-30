@@ -69,7 +69,7 @@ The `role` property can have following values:
 * `toggleSpellChecker` - Enable/disable builtin spell checker.
 * `fileMenu` - Whole default "File" menu (Close / Quit)
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `viewMenu` - Gesamtes Standardmenü "Ansicht" (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 The following additional roles are available on _macOS_:

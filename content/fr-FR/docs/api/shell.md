@@ -38,7 +38,7 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 * `url` String - 2081 caractères max. sur Windows.
 * `options` Object (optional)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `activate` Boolean (facultatif) _macOS_ - `true` pour mettre l’application ouverte au premier plan. The default is `true`.
   * `workingDirectory` String (optional) _Windows_ - Le dossier de travail.
 
 Retourne `Promise<void>`

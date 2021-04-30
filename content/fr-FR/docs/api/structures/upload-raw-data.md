@@ -1,4 +1,4 @@
 # Objet UploadRawData
 
-* `type` String - `rawData`.
+* `type` 'rawData' - `rawData`.
 * `bytes` Buffer - Données à télécharger.

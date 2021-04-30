@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. Una imagen vacía será usada cuando se pase `null`.
 
 Por ejemplo, cuando se crea una bandeja o se configura un icono de la ventana, se puede pasar una ruta de archivo de imagen como un `String`:
 
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## Formatos Soportados
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+Actualmente los formatos de imágenes `PNG` y `JPEG` están soportados. `PNG` es recomendado por su soporte de transparencia y compresión sin pérdida.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
+En Windows, puedes leer iconos `ICO` desde rutas de archivos. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * Ícono pequeño
   * 16x16 (100% DPI scale)
@@ -88,7 +88,7 @@ El caso mas común es usar imágenes de plantillas para el icono de una barra de
 
 **Nota:** La imagen de plantilla sólo es soportada en macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. Por ejemplo:
+Para marcar una imagen como plantilla, su nombre de archivo debe terminar con la palabra `Template`. Por ejemplo:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`

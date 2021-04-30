@@ -1,6 +1,6 @@
 # 构建步骤（macOS）
 
-遵循下面的引导，在 macOS 上构建 Electron.
+按照下面的指南在macOS下构建 **Electron 本身**，以此创建自定义 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
 ## 前提条件
 
@@ -42,3 +42,5 @@ Official Electron builds are built with [Xcode 12.2](https://download.developer.
 ## 构建Electron
 
 参照[Build Instructions: GN](build-instructions-gn.md)
+
+[application-distribution]: ../tutorial/application-distribution.md

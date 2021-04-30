@@ -35,20 +35,20 @@ Regardons un exemple de configuration comportant tous les champs obligatoires. T
 
 ```json
 {
-  "name": "mon-app",
-  "version": "0.0. ",
+  "name": "my-app",
+  "version": "0.0.1",
   "config": {
     "forge": {
       "packagerConfig": {
         "osxSign": {
-          "identity": "Application ID du développeur: Felix Rieseberg (LT94ZKYDCJ)",
-          "durcis-runtime": vrai,
-          « droits » : « droits ». liste",
-          "droits hérités": "droits acquis. list",
+          "identity": "Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)",
+          "hardened-runtime": true,
+          "entitlements": "entitlements.plist",
+          "entitlements-inherit": "entitlements.plist",
           "signature-flags": "library"
         },
         "osxNotarize": {
-          "appleId": "felix@felix. un",
+          "appleId": "felix@felix.fun",
           "appleIdPassword": "my-apple-id-password",
         }
       }

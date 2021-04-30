@@ -1,6 +1,6 @@
 # Firma de código
 
-La firma de código es una tecnología de seguridad que usas para certificar que una aplicación fue creada por ti.
+La firma de código es una tecnología de seguridad que utiliza para certificar que una aplicación fue creada por usted.
 
 En macOS el sistema puede detectar cualquier cambio en la aplicación, tanto si el cambio es introducido accidentalmente como por código malicioso.
 
@@ -35,7 +35,7 @@ Echemos un vistazo a una configuración de ejemplo con todos los campos requerid
 
 ```json
 {
-  "name": "mi-app",
+  "name": "my-app",
   "version": "0.0.1",
   "config": {
     "forge": {
@@ -49,7 +49,7 @@ Echemos un vistazo a una configuración de ejemplo con todos los campos requerid
         },
         "osxNotarize": {
           "appleId": "felix@felix.fun",
-          "appleIdPassword": "mi-clave-apple-id",
+          "appleIdPassword": "my-apple-id-password",
         }
       }
     }
@@ -79,7 +79,7 @@ Para ver todo esto en acción, consulta el código fuente de Electron Fiddle, [e
 Si planeas acceder al micrófono o cámara dentro de tu aplicación usando las API de Electron, también necesitarás añadir los siguientes derechos:
 
 ```xml
-<key>com.apple.security.device.audio</key>
+<key>com.apple.security.device.audio-input</key>
 <true/>
 <key>com.apple.security.device.camera</key>
 <true/>
@@ -95,7 +95,7 @@ const microphone = systemPreferences.askForMediaAccess('microphone')
 
 Tu aplicación puede fallar. Consulte la sección de Acceso a Recursos en [Runtime Endurecido](https://developer.apple.com/documentation/security/hardened_runtime) para más información y derechos que pueda necesitar.
 
-## `Electron-builder`
+## `electron-builder`
 
 Electron Builder viene con una solución personalizada para la firma de su aplicación. Usted puede encontar [its documentation here](https://www.electron.build/code-signing).
 
@@ -113,12 +113,12 @@ packager({
   osxSign: {
     identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
     'hardened-runtime': true,
-    entidades: 'entitlements. lista',
-    'entitlements-inherit': 'entitlements. lista',
+    entitlements: 'entitlements.plist',
+    'entitlements-inherit': 'entitlements.plist',
     'signature-flags': 'library'
   },
   osxNotarize: {
-    appleId: 'felix@felix. un',
+    appleId: 'felix@felix.fun',
     appleIdPassword: 'my-apple-id-password'
   }
 })

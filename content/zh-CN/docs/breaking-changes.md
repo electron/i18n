@@ -1032,7 +1032,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-### `网络控制`
+### `webContents`
 
 ```js
 // 弃用
@@ -1125,7 +1125,7 @@ nativeImage.toJPEG()
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
-### `网络控制`
+### `webContents`
 
 ```js
 // 移除

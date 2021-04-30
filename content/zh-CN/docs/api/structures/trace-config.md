@@ -1,16 +1,16 @@
 # TraceConfig 对象
 
-* `recording_mode` String (optional) - Can be `record-until-full`, `record-continuously`, `record-as-much-as-possible` or `trace-to-console`. Defaults to `record-until-full`.
-* `trace_buffer_size_in_kb` number (optional) - maximum size of the trace recording buffer in kilobytes. Defaults to 100MB.
-* `trace_buffer_size_in_events` number (optional) - maximum size of the trace recording buffer in events.
-* `enable_argument_filter` boolean (可选) - 如果为true，则筛选结果（事件数据）是根据手动设置的列表（不包括任何PII）来进行条件帅选。 See [the implementation in Chromium][trace_event_args_whitelist.cc] for specifics.
-* `included_categories` String[] (optional) - a list of tracing categories to include. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories][] for the list of categories.
-* `excluded_categories` String[] (optional) - a list of tracing categories to exclude. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories][] for the list of categories.
-* `included_process_ids` number[] (optional) - a list of process IDs to include in the trace. If not specified, trace all processes.
-* `histogram_names` String[] (optional) - a list of [histogram][] names to report with the trace.
-* `memory_dump_config` Record<String, any> (optional) - if the `disabled-by-default-memory-infra` category is enabled, this contains optional additional configuration for data collection. See the [Chromium memory-infra docs][memory-infra docs] for more information.
+* `recording_mode` String (可选) - 值可以是 `record-until-full`， `record-continuously`， `record-as-much-as-possible` 或 `trace-to-console`。 默认值为`record-until-full`。
+* `trace_buffer_size_in_kb` number (可选) - 追踪记录缓冲区的最大容量，以kb为单位。 默认大小为 100MB。
+* `trace_buffer_size_in_events` number (可选) - 追踪记录缓冲区的最大事件数量。
+* `enable_argument_filter` boolean (可选) - 如果为true，则筛选结果（事件数据）是根据手动设置的列表（不包括任何PII）来进行条件帅选。 详细信息，请参阅[ Chromium 中的实现][trace_event_args_whitelist.cc]。
+* `included_categories` String[] (可选) - 要包含的追踪类别列表。 可以包含 glob-like 匹配模式，在类别名末尾使用 `*`。 类别列表请查看[tracing categories][]。
+* `excluded_categories` String[] (可选) - 要排除的追踪类别列表。 可以包含 glob-like 匹配模式，在类别名末尾使用 `*`。 类别列表请查看[tracing categories][]。
+* `included_process_ids` number[] (可选) - 追踪时要包含的进程 ID 列表。 如果不指定，则追踪所有进程。
+* `histogram_names` String[] (可选) - 与追踪一同报告的[直方图][] 的名称列表。
+* `memory_dump_config` Record<String, any> (可选) - 如果启用了`disabled-by-default-memory-infra` 类别，则包含用于数据收集的可选附加配置。 更多信息请查看 [Chromium memory-infra 文档][memory-infra docs]。
 
-An example TraceConfig that roughly matches what Chrome DevTools records:
+一个和 Chrome DevTools 记录大致相同的Trace示例配置：
 
 ```js
 {
@@ -34,4 +34,4 @@ An example TraceConfig that roughly matches what Chrome DevTools records:
 [tracing categories]: https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h
 [memory-infra docs]: https://chromium.googlesource.com/chromium/src/+/master/docs/memory-infra/memory_infra_startup_tracing.md#the-advanced-way
 [trace_event_args_whitelist.cc]: https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc
-[histogram]: https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md
+[直方图]: https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md

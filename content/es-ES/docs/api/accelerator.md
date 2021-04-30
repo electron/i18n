@@ -6,10 +6,10 @@ Los Atajos son strings que pueden contener múltiples modificadores y un único 
 
 Ejemplos:
 
-* `CommandOControl+A`
-* `CommandOControl+Shift+Z`
+* `CommandOrControl+A`
+* `CommandOrControl+Shift+Z`
 
-Los atajos son registrados con el módulo e [`globalShortcut`](global-shortcut.md) usando el método [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ejemplo.
+Los atajos son registrados con el módulo [`globalShortcut`](global-shortcut.md) usando el método [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback):
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -17,14 +17,14 @@ const { app, globalShortcut } = require('electron')
 app.whenReady().then(() => {
   // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Hacer algo cuando se presiona tanto Tecla Command o Control + Y.
+    // Do stuff when Y and either Command/Control is pressed.
   })
 })
 ```
 
 ## Nota sobre plataformas
 
-En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se utilizar `CommandOrControl` que representa `Command` para macOS y `Control` para Linux y Windows para definir algunos Aceleradores.
+En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se utilizar `CommandOrControl` que representa `Command` para macOS y `Control` para Linux y Windows para definir algunos Atajos.
 
 Usa `Alt` en lugar de `Opción`. La clave `Opción` sólo existe en macOS, mientras que la clave `Alt` está disponible en todas las plataformas.
 
@@ -34,14 +34,14 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 
 * `Command` (o `Cmd` resumido)
 * `Control` (o `Ctrl` resumido)
-* `ComandoOControl` (o `CmdOrCtrl` resumido)
+* `CommandOrControl` (o `CmdOrCtrl` resumido)
 * `Alt`
-* `Opción`
-* `Alt derecha`
+* `Option`
+* `AltGr`
 * `Shift`
 * `Super`
 
-## Códigos claves disponibles
+## Códigos de tecla disponibles
 
 * `0` a `9`
 * `A` a `Z`
@@ -54,8 +54,8 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `Numlock`
 * `Bloqueo de desplazamiento`
 * `Retroceso`
-* `Delete`
-* `Insert`
+* `Suprimir`
+* `Insertar`
 * `Return` (o `Enter` como alias)
 * `Arriba`, `Abajo`, `Izquierda` y `Derecha`
 * `Home` y `End`

@@ -1,4 +1,4 @@
-# Atajos del teclado
+# Atajos de teclado
 
 ## Descripción general
 
@@ -10,7 +10,7 @@ Esta característica le permite configurar atajos de teclado loca y global para 
 
 Los atajos de teclado locales son activadas sólo cuando la aplicación está enfocada. Para configurar un atajo de teclado local, necesitas especificar una propiedad [`accelerator`][] al crear un [MenuItem][] dentro de módulo [Menu][].
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/local'
 const { Menu, MenuItem } = require('electron')
@@ -40,7 +40,7 @@ If you click `Help` or press the defined accelerator and then open the terminal 
 
 To configure a global keyboard shortcut, you need to use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/global'
 const { app, globalShortcut } = require('electron')
@@ -74,7 +74,7 @@ El [`Evento antes de la entrada`](../api/web-contents.md#event-before-input-even
 
 ##### Ejemplo
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/interception-from-main'
 const { app, BrowserWindow } = require('electron')
@@ -103,23 +103,24 @@ Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinaciones
+// combinations
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// mapea combinaciones múltiples al mismo callback
+// map multiple combinations to the same callback
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // retorna falso para prevenir comportamientos predeterminados y detiene el evento del bubbling
+  // return false to prevent default behavior and stop event from bubbling
   return false
 })
 
-
 // gmail style sequences
 Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })!
+Mousetrap.bind('* a', () => { console.log('select all') })
+
+// konami code!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
-  console.log('código konami')
+  console.log('konami code')
 })
 ```
 

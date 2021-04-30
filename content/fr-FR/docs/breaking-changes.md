@@ -22,7 +22,7 @@ Si vous utilisiez ce paramètre pour définir le titre d’une fenêtre, vous po
 
 ### Removed: `worldSafeExecuteJavaScript`
 
-In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  There is no alternative, please ensure your code works with this property enabled.  Il a été activé par défaut depuis Electron
 12.
 
 You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
@@ -73,7 +73,7 @@ Les API d’extension dépréciées ont été supprimées :
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Utilisez plutôt les API de session :
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
@@ -142,7 +142,7 @@ Chromium a supprimé le support pour Flash, et nous devons donc suivre. Voir la 
 
 ### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
-In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+Dans Electron 12, `worldSafeExecuteJavaScript` sera activé par défaut.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Veuillez noter que définir cette option sur `false` est **non sécurisé**.
 
 This option will be removed in Electron 14 so please migrate your code to support the default value.
 
@@ -158,7 +158,7 @@ Pour plus de détails, voir : https://github.com/electron/electron/issues/23506
 
 ### Removed: `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+La méthode `crashReporter.getCrashesDirectory` a été supprimée. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
 // Removed in Electron 12
@@ -178,9 +178,9 @@ The following `crashReporter` methods are no longer available in the renderer pr
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-They should be called only from the main process.
+Ils ne doivent être appelés qu'à partir du processus principal.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de détails.
 
 ### Par défaut modifié : `crashReporter.start({ compress: true })`
 
@@ -263,7 +263,7 @@ The only non-deprecated methods remaining in the `crashReporter` module in the r
 
 All above methods remain non-deprecated when called from the main process.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de détails.
 
 ### Obsolète : `crashReporter.start({ compress: false })`
 
@@ -293,7 +293,7 @@ Nous [vous recommandons de vous éloigner du module distant](https://medium.com/
 
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Les API sont désormais synchrones et le rappel facultatif n'est plus nécessaire.
 
 ```javascript
 // Deprecated
@@ -322,7 +322,7 @@ protocol.unregisterProtocol(scheme)
 
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Les API sont désormais synchrones et le rappel facultatif n'est plus nécessaire.
 
 ```javascript
 // Deprecated
@@ -366,7 +366,7 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Utilisez plutôt les API de session :
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
@@ -457,7 +457,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsolète: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+This API is implemented using the `remote` module, which has both performance and security implications. Par conséquent, son utilisation doit être explicite.
 
 ```js
 // Deprecated
@@ -467,7 +467,7 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-However, it is recommended to avoid using the `remote` module altogether.
+Cependant, il est recommandé d'éviter complètement d'utiliser le module `distant`.
 
 ```js
 // main
@@ -606,7 +606,7 @@ webFrame.setIsolatedWorldInfo(
 
 ### Supprimé: `propriété marquée` sur `getBlinkMemoryInfo`
 
-This property was removed in Chromium 77, and as such is no longer available.
+Cette propriété a été supprimée dans Chromium 77 et n'est donc plus disponible.
 
 ### Comportement modifié : l'attribut `webkitdirectory` pour `<input type="file"/>` liste maintenant le contenu du répertoire
 
@@ -755,11 +755,11 @@ const idleTime = powerMonitor.getSystemIdleTime()
 app.enableMixedSandbox()
 ```
 
-Mixed-sandbox mode is now enabled by default.
+Le mode bac à sable mixte est désormais activé par défaut.
 
 ### Obsolète: `Tray.setHighlightMode`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+Sous macOS Catalina, notre ancienne implémentation de Tray est interrompue. Le substitut natif d'Apple ne prend pas en charge la modification du comportement de mise en évidence.
 
 ```js
 // Deprecated

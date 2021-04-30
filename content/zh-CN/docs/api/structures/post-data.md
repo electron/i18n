@@ -1,12 +1,12 @@
-# PostData Object
+# PostData 对象
 
-* `type` String - One of the following:
-  * `rawData` - The data is available as a `Buffer`, in the `rawData` field.
-  * `file` - The object represents a file. The `filePath`, `offset`, `length` and `modificationTime` fields will be used to describe the file.
-  * `blob` - The object represents a `Blob`. The `blobUUID` field will be used to describe the `Blob`.
-* `bytes` String (optional) - The raw bytes of the post data in a `Buffer`. Required for the `rawData` type.
-* `filePath` String (optional) - The path of the file being uploaded. Required for the `file` type.
-* `blobUUID` String (optional) - The `UUID` of the `Blob` being uploaded. Required for the `blob` type.
-* `offset` Integer (optional) - The offset from the beginning of the file being uploaded, in bytes. Only valid for `file` types.
-* `length` Integer (optional) - The length of the file being uploaded, in bytes. If set to `-1`, the whole file will be uploaded. Only valid for `file` types.
-* `modificationTime` Double (optional) - The modification time of the file represented by a double, which is the number of seconds since the `UNIX Epoch` (Jan 1, 1970). Only valid for `file` types.
+* `type` String - 下列之一:
+  * `rawData` - 数据作为 `Buffer` 放在 `rawData` 字段中。
+  * `file` - 当前对象代表一个文件。 `filePath`、 `offset`、 `length` 和 `modificationTime` 字段将用于描述该文件。
+  * `blob` - 当前对象为 `Blob`。 `blobUUID` 字段将用于描述 `Blob`。
+* `bytes` String (可选) - 发送数据中的原始字节`Buffer`。 需要`rawData` 类型。
+* `file` String (可选) - 上传文件的路径。 需要`file` 类型。
+* `blobUUID` String (可选) - 正在上传的 `Blob` 的 `UUID`。 需要 `blob` 类型。
+* `offset` Integer (可选) - 从要上传的文件开头的字节偏移量。 只对 `file` 类型有效。
+* `length` Integer (可选) - 要上传的文件字节长度。 如果设置为 `-1`, 则整个文件将被上传。 只对 `file` 类型有效。
+* `modificationTime` Double (可选) - 文件的修改时间，以double类型表示，即自 `UNIX Epoch` (1970 年 1 月 1 日) 以来的秒数。 只对 `file` 类型有效。

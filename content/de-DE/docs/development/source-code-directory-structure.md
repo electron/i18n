@@ -60,7 +60,7 @@ Electron
 |   |   |   └── x/ - X11 specific source code.
 |   |   ├── api/ - The implementation of the main process APIs.
 |   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
+|   |   Mac/ - Mac-spezifischer Objektiv-C-Quellcode.
 |   |   └── resources/ - Icons, platform-dependent files, etc.
 |   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - The implementation of renderer process APIs.
@@ -94,7 +94,5 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
     └── uploaders/ - Uploads various release-related files during release.
 ```
 
-* **tools** - Helper scripts used by GN files.
-  * Scripts put here should never be invoked by users directly, unlike those in `script`.
 * **typings** - TypeScript typings for Electron's internal code.
 * **vendor** - Source code for some third party dependencies.

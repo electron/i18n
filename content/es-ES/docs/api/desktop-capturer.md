@@ -7,7 +7,7 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 En el siguiente ejemplo se muestra cómo capturar vídeo desde una ventana de escritorio cuyo título es `Electron`:
 
 ```javascript
-// En el proceso de renderizado.
+// In the renderer process.
 const { desktopCapturer } = require('electron')
 
 desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {

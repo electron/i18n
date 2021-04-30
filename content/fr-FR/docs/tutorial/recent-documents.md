@@ -18,7 +18,7 @@ To add a file to recent documents, you need to use the [app.addRecentDocument][a
 
 ### Ajouter un élément aux documents récents
 
-Commencer avec une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `main.js`:
+Pour commencer avec une application fonctionnelle, dans le [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `main.js`:
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app } = require('electron')

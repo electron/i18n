@@ -1,4 +1,4 @@
-# 网络控制
+# webContents
 
 > 渲染以及控制 web 页面
 
@@ -258,7 +258,7 @@ This event cannot be prevented, if you want to prevent redirects you should chec
 
 Emitted when a main frame navigation is done.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 Use `did-navigate-in-page` event for this purpose.
 
 #### Event: 'did-frame-navigate'
 
@@ -274,7 +274,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Emitted when any frame navigation is done.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 Use `did-navigate-in-page` event for this purpose.
 
 #### Event: 'did-navigate-in-page'
 
@@ -328,25 +328,25 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 当渲染进程崩溃或被结束时触发
 
-**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 It isn't always because it crashed.  The `killed` boolean can be replaced by checking `reason === 'killed'` when you switch to that event.
+**已废弃：** 此事件被包含更多关于渲染过程为何消失的信息的 `render-process-gone` 事件替代了 并不总是因为崩溃而触发。  当你换用child-process-gone事件时，原事件的 `killed` 布尔值可以被 `reason === 'killed'` 取代。
 
-#### Event: 'render-process-gone'
+#### 事件: 'render-process-gone'
 
 返回:
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  可选值：
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+  * `reason` String - 渲染进程消失的原因。  可选值：
+    * `clean-exit` - 以零为退出代码退出的进程
+    * `abnormal-exit` - 以非零退出代码退出的进程
+    * `killed` - 进程发送一个SIGTERM，否则是被外部杀死的。
+    * `crashed` - 进程崩溃
+    * `oom` - 进程内存不足
+    * `launch-failed` - 进程从未成功启动
+    * `integrity-failure` - 窗口代码完整性检查失败
+  * `exitCode` Integer - 进程的退出代码，除非在 `reason` 是 `launch-failed` 的情况下， `exitCode` 将是一个平台特定的启动失败错误代码。
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+渲染器进程意外消失时触发。  这种情况通常因为进程崩溃或被杀死。
 
 #### 事件: 'unresponsive'
 
@@ -474,8 +474,8 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (可选)
+  * `password` String (可选)
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
@@ -570,7 +570,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
     * `hasAudio` Boolean - Whether the media element has audio.
     * `isLooping` Boolean - Whether the media element is looping.
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+    * `canToggleControls` 布尔 - 媒体元素的控制是否 可切换。
     * `canRotate` Boolean - Whether the media element can be rotated.
   * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
     * `canUndo` Boolean - Whether the renderer believes it can undo.
@@ -711,9 +711,9 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. 调用 `event.preventDefault()` 将使它返回空的sources。
 
-#### Event: 'remote-require' _Deprecated_
+#### 事件： "remote-require" _弃用_
 
 返回:
 
@@ -722,7 +722,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Emitted when `remote.require()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-global' _Deprecated_
+#### 事件： "remote-get-global" _弃用_
 
 返回:
 
@@ -731,7 +731,7 @@ Emitted when `remote.require()` is called in the renderer process. 调用 `event
 
 Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-builtin' _Deprecated_
+#### 事件： "remote-get-builtin" _弃用_
 
 返回:
 
@@ -740,7 +740,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `eve
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-current-window' _Deprecated_
+#### 事件： "remote-get-current-window" _弃用_
 
 返回:
 
@@ -748,7 +748,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `ev
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-current-web-contents' _Deprecated_
+#### 事件： "remote-get-current-web-contents" _弃用_
 
 返回:
 
@@ -1020,7 +1020,9 @@ Ignore application menu shortcuts while this web contents is focused.
   * `details` Object
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
-    * `features` String - Comma separated list of window features provided to `window.open()`. Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
+    * `features` String - Comma separated list of window features provided to `window.open()`.
+
+  Returns `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancels the creation of the new window. `allow` will allow the new window to be created. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
 
 Called before creating a window when `window.open()` is called from the renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
@@ -1694,7 +1696,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+采取V8堆快照，并保存到 `filePath`。
 
 #### `contents.getBackgroundThrottling()`
 

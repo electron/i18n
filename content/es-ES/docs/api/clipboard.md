@@ -9,8 +9,8 @@ En Linux, además hay un portapapeles `selection`. Para manipularlo necesitas pa
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Ejemplo de cadena', 'selección')
-console.log(clipboard.readText ('selección'))
+clipboard.writeText('Example String', 'selection')
+console.log(clipboard.readText('selection'))
 ```
 
 ## Métodos

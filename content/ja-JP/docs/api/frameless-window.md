@@ -63,7 +63,10 @@ win.show()
 * 透明な領域越しにクリックすることはできません。 これを解決するためにウインドウ形状を設定するAPIを紹介しようと思います。詳細は、[我々の課題](https://github.com/electron/electron/issues/1335)を参照して下さい。
 * 透明なウィンドウは、サイズを変更できません。 `resizable` を `true` に設定すると、いくつかのプラットフォームでは透明なウインドウが機能しなくなることがあります。
 * `blur` フィルターはWebページにしか適用されないため、ウインドウの下にあるコンテンツ (すなわち、ユーザーのシステムで開かれた他のアプリケーション) にぼかし効果を適用する方法はありません。
-* Windowsオペレーティングシステムでは、DWMが無効なとき、透明なウインドウは機能しません。
+* デベロッパー ツールが開かれているとウインドウは透過しません。
+* Windows オペレーティングシステムの場合、
+  * DWM が無効だと透過ウインドウが動作しません。
+  * Windows システムメニューの利用やタイトルバーのダブルクリックでは、透過ウインドウを最大化できません。 背景にある理由は [このプルリクエスト](https://github.com/electron/electron/pull/28207) に記載してあります。
 * Linux では、GPU を無効にして透明なウインドウを作成するための ARGB を許可するため、ユーザーがコマンドラインに `--enable-transparent-visuals --disable-gpu` を指定しなければなりません。これは、Linux における [いくつかの NVidia ドライバーでアルファチャンネルが機能しない](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) という上流のバグによるものです。
 * Mac では、ネイティブウインドウの影は透明なウインドウには表示されません。
 
@@ -82,20 +85,20 @@ win.setIgnoreMouseEvents(true)
 マウスのメッセージを無視すると、Webページでマウスの移動が検出されなくなり、マウスの移動イベントが発生しません。 Windowsオペレーティングシステムでは、`mouseleave` のようなイベントを発生させられるよう、マウスの移動メッセージをWebページに転送するのに、オプションパラメーターが使用されます。
 
 ```javascript
-const { ipcRenderer } = require('electron')
-const el = document.getElementById('clickThroughElement')
-el.addEventListener('mouseenter', () => {
-  ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
-})
-el.addEventListener('mouseleave', () => {
-  ipcRenderer.send('set-ignore-mouse-events', false)
-})
+コンスタント { ipcRenderer } = 必須 ('電子)
+は、を必要とします ('電子'
+) 必須です。 () => {
+  ipcRenderer.send ('set-ignore-mouse-events', true, { forward: true })
+)
+el.addEventListener('mouseleave', () ) =>
 
-// Main process
-const { ipcMain } = require('electron')
-ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
-  BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)
-})
+  {
+
+// メイン プロセス
+のは、必須 { ipcMain } ('''電子)
+イベント=> {
+  ブラウザウィンドウ.から Web コンテンツ (イベント.送信者). 設定無視マウスイベント(..args)
+} )
 ```
 
 これにより、`el` の上のとき、Webページはクリックスルーになり、その外側では、通常に戻ります。

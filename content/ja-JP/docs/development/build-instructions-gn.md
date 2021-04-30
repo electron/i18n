@@ -1,6 +1,6 @@
 # ビルド手順
 
-Electron のビルドについては、以下のガイドラインに従ってください。
+カスタム Electron バイナリの作成にあたって **Electron そのもの** をビルドするには、以下のガイドラインに従ってください。 アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
 
 ## プラットフォーム要件
 
@@ -154,7 +154,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
 
-[`target_os`][target_os values] と [`target_cpu`][target_cpu values] に指定できる値については GN リファレンスをご参照ください。
+[`target_os`][target_os values] と [`target_cpu`][target_cpu values] の許可されている値については、 GN リファレンスを参照してください。
 
 #### Arm 上で Windows (実験的)
 
@@ -233,6 +233,8 @@ $ gclient sync -f
 ### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
 
 Windows 上で `gclient sync` を実行しているときに `Username for 'https://chrome-internal.googlesource.com':` のプロンプトが表示された場合、おそらく `DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数が 0 に設定されていないからです。 `コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。  これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
+
+[application-distribution]: ../tutorial/application-distribution.md
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 

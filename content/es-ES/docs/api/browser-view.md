@@ -9,7 +9,7 @@ Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro
 ### Ejemplo
 
 ```javascript
-// En el proceso principal.
+// In the main process.
 const { BrowserView, BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })

@@ -1,6 +1,6 @@
 # Объект UploadFile
 
-* `type` String - `file`.
+* `type` 'file' - `file`.
 * `filePath` String - путь к файлу, который будет отправлен.
 * `offset` Integer - по умолчанию `0`.
 * `length` Integer - число байт для чтения от `offset`. По умолчанию `0`.

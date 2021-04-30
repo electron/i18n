@@ -17,7 +17,7 @@ También es posible enviar mensajes desde el proceso principal al proceso de ren
 Ejemplo de envío y manejo de mensajes entre el proceso de renderizado y el principal:
 
 ```javascript
-// En el proceso principal.
+// In main process.
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
@@ -31,7 +31,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```
 
 ```javascript
-// En el proceso de renderizado (página web).
+// In renderer process (web page).
 const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 

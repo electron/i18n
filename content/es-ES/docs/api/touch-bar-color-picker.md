@@ -18,7 +18,7 @@ Las siguientes propiedades están disponibles en instancias de `Seleccionador de
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Un `String[]` array que representa los colores disponibles del selector de color para seleccionar. Changing this value immediately updates the color picker in the touch bar.
 
 #### `touchBarColorPicker.selectedColor`
 

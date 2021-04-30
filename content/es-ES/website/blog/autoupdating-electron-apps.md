@@ -1,7 +1,7 @@
 ---
 title: Actualización automática más fácil para aplicaciones de código abierto
 author: zeke
-date: '01-05-2018'
+date: '2018-05-01'
 ---
 
 Hoy estamos lanzando un código abierto gratis, alojado [webservice de actualizaciones](https://github.com/electron/update.electronjs.org) y compañero [paquete npm](https://github.com/electron/update-electron-app) para habilitar actualizaciones automáticas fáciles para aplicaciones de código abierto de Electron. Este es un paso hacia empoderar a los desarrolladores de aplicaciones para pensar menos sobre despliegue y más sobre el desarrollo de experiencias de alta calidad para sus usuarios.

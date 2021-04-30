@@ -34,7 +34,7 @@ Será afectado por este cambio si usted utliza `webFrame.executeJavaScript` o `w
 El primer parámetro de los métodos `handler` anteriormente siempre era un `webContents`, ahora puede ser a veces `null`.  Debe usar las propiedades `requestingOrigin`, `embeddingOrigin` y `securityOrigin` para responder correctamente a la verificación de permiso.  Como el `webContents` puede ser `null` ya no se puede confiar en él.
 
 ```js
-// Código viejo
+// Old code
 session.setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
     return true
@@ -42,7 +42,7 @@ session.setPermissionCheckHandler((webContents, permission) => {
   return false
 })
 
-// Reemplazar con
+// Replace with
 session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
   if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
     return true
@@ -56,9 +56,9 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 Se ha eliminado la API síncrona `shell.moveItemToTrash()` obsoleta. Utilice en su lugar `shell.trashItem()`.
 
 ```js
-// Eliminado en Electron 13
+// Removed in Electron 13
 shell.moveItemToTrash(path)
-// Reemplazar con 
+// Replace with
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -80,26 +80,26 @@ En su lugar use las APIs de session:
 * `ses.getAllExtensions()`
 
 ```js
-// Eliminado en Electron 13
+// Removed in Electron 13
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Reemplazar con 
+// Replace with
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Eliminado en Electron 13
+// Removed in Electron 13
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Reemplazar con
+// Replace with
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Eliminado en Electron 13
+// Removed in Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Reemplazar con
+// Replace with
 session.defaultSession.getAllExtensions()
 ```
 
@@ -193,15 +193,15 @@ Si su servidor de gestión de fallos no soporta cargas comprimidas, puedes desac
 El módulo `remote` está obsoleto en Electron 12 y sera eliminado en Electron 14. Es reemplazado por el módulo [`@electron/remote`](https://github.com/electron/remote).
 
 ```js
-// Obsoleto en Electron 12:
+// Deprecated in Electron 12:
 const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// Reemplazar con:
+// Replace with:
 const { BrowserWindow } = require('@electron/remote')
 
-// En el proceso principal:
+// In the main process:
 require('@electron/remote/main').initialize()
 ```
 
@@ -210,9 +210,9 @@ require('@electron/remote/main').initialize()
 El síncrono `shell.moveItemToTrash()` ha sido reemplazado por el nuevo asíncrono `shell.trashItem()`.
 
 ```js
-// Obsoleto en Electron 12
+// Deprecated in Electron 12
 shell.moveItemToTrash(path)
-// Reemplazar con
+// Replace with
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -231,9 +231,9 @@ For more detailed information, see [#23578](https://github.com/electron/electron
 El argumento `companyName` para `crashReporter.start()`, que era previamente requerido, ahora es opcional, y aún más, está desaprobado. Para obtener el mismo comportamiento de una forma no desaprobada, pude pasar un valor `companyName` en `globalExtra`.
 
 ```js
-// Desaprobado en Electron 10
+// Deprecated in Electron 10
 crashReporter.start({ companyName: 'Umbrella Corporation' })
-// Reemplazar con 
+// Replace with
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
@@ -242,9 +242,9 @@ crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 El método `crashReporter.getCrashesDirectory` ha sido desaprobado. Uso debe ser reemplazado por `app.getPath('crashDumps')`.
 
 ```js
-// Obsoleto en Electron 10
+// Deprecated in Electron 10
 crashReporter.getCrashesDirectory()
-// Reemplazar con
+// Replace with
 app.getPath('crashDumps')
 ```
 
@@ -316,7 +316,7 @@ protocol.unregisterProtocol(scheme)
 
 ### `protocol.interceptStringProtocol`
 
-### `protocol.interceptBufferProtocol`
+### `protocol.interceptStringProtocol`
 
 ### `protocol.interceptHttpProtocol`
 
@@ -373,26 +373,26 @@ En su lugar use las APIs de session:
 * `ses.getAllExtensions()`
 
 ```js
-// Obsoleto en Electron 9
+// Deprecated in Electron 9
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Reemplazar con
+// Replace with
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Obsoleto en Electron 9
+// Deprecated in Electron 9
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Reemplazar con
+// Replace with
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Obsoleto en Electron 9
+// Deprecated in Electron 9
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Reemplazar con
+// Replace with
 session.defaultSession.getAllExtensions()
 ```
 
@@ -401,9 +401,9 @@ session.defaultSession.getAllExtensions()
 Esta API, que fue obsoleta en Electron 8.0, se ha eliminado.
 
 ```js
-// Eliminado en Electron 9.0
+// Removed in Electron 9.0
 webview.getWebContents()
-// Reemplazar con
+// Replace with
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
@@ -509,11 +509,11 @@ The following `systemPreferences` events have been deprecated:
 Use the new `updated` event on the `nativeTheme` module instead.
 
 ```js
-// Obsoleto
+// Deprecated
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Reemplazar con
+// Replace with
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
@@ -532,20 +532,12 @@ Use the following `nativeTheme` properties instead:
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Obsoleto
-systemPreferences.isDarkMode()
-// Reemplazar con
-nativeTheme.shouldUseDarkColors
+// Deprecated
+systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
+systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Obsoleto
-systemPreferences.isInvertedColorScheme()
-// Reemplazar con
-nativeTheme.shouldUseInvertedColorScheme
-
-// Obsoleto
-systemPreferences.isHighContrastColorScheme()
-// Reemplazar con
-nativeTheme.shouldUseHighContrastColors
+// Replace with
+nativeTheme.on('updated', () => { /* ... */ })
 ```
 
 ## Cambios planeados en la API(7.0)
@@ -581,9 +573,9 @@ const idleState = powerMonitor.getSystemIdleState(threshold)
 ### API cambiada: `powerMonitor.querySystemIdleTime` ahora es `powerMonitor.getSystemIdleTime`
 
 ```js
-// Eliminado en Electron 7.0
+// Removed in Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Reemplazar con API sincrónica
+// Replace with synchronous API
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
@@ -602,6 +594,7 @@ webFrame.setIsolatedWorldInfo(
     name: 'human_readable_name',
     csp: 'content_security_policy'
   })
+
 ```
 
 ### Eliminado: `marcó la propiedad` en `getBlinkMemoryInfo`
@@ -691,60 +684,60 @@ Estas funciones ahora tienen dos formas, sincrónicas y asíncronas basadas en p
 ### API cambiada: `win.setMenu(null)` ahora es `win.removeMenu()`
 
 ```js
-// Deprecado
+// Deprecated
 win.setMenu(null)
-// Reemplazar con 
+// Replace with
 win.removeMenu()
 ```
 
 ### API cambiada: `electron.screen` en el proceso de renderizado debe ser accedido a través de `remoto`
 
 ```js
-// Deprecado
+// Deprecated
 require('electron').screen
-// Reemplazar con 
+// Replace with
 require('electron').remote.screen
 ```
 
 ### API cambiada: `require()`ing node builtins in sandboamed renderers ya no carga implícitamente la versión `remote`
 
 ```js
-// Deprecado
+// Deprecated
 require('child_process')
-// Reemplazar con
+// Replace with
 require('electron').remote.require('child_process')
 
-// Deprecado
+// Deprecated
 require('fs')
-// Reemplazar con
+// Replace with
 require('electron').remote.require('fs')
 
-// Deprecado
+// Deprecated
 require('os')
-// Reemplazar con
+// Replace with
 require('electron').remote.require('os')
 
-// Deprecado
+// Deprecated
 require('path')
-// Reemplazar con
+// Replace with
 require('electron').remote.require('path')
 ```
 
 ### Desaprobado: `powerMonitor.querySystemIdleState` reemplazado por `powerMonitor.getSystemIdleState`
 
 ```js
-// Obsoleto
-powerMonitor.querySystemIdleState(umbral, callback)
-// Reemplazar con API sincrónica
-const idleState = powerMonitor.getSystemIdleState(aplano)
+// Deprecated
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
 ### Desaprobado: `powerMonitor.querySystemIdleTime` reemplazado por `powerMonitor.getSystemIdleTime`
 
 ```js
-// Obsoleto
+// Deprecated
 powerMonitor.querySystemIdleTime(callback)
-// Reemplazar con API sincrónica
+// Replace with synchronous API
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
@@ -762,9 +755,9 @@ El modo Mixed-sandox ahora está activado por defecto.
 Bajo macOS Catalina nuestra implementación Tray se rompe. El sustituto nativo de Apple no soporta cambiar el comportamiento de resaltado.
 
 ```js
-// Deprecado
+// Deprecated
 tray.setHighlightMode(mode)
-// API sera eliminada en V7.0 sin reemplazo.
+// API will be removed in v7.0 without replacement.
 ```
 
 ## Cambios planeados en la API(5.0)
@@ -775,8 +768,8 @@ Los siguientes valores por defectos de opción `webPreferences` están obsoletos
 
 | Propiedad          | Valor obsoleto                       | El valor por defecto nuevo |
 | ------------------ | ------------------------------------ | -------------------------- |
-| `contextIsolation` | `false`                              | `cierto`                   |
-| `nodeIntegration`  | `cierto`                             | `false`                    |
+| `contextIsolation` | `false`                              | `true`                     |
+| `nodeIntegration`  | `true`                               | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
 Por ejemplo. Re-enabling the webviewTag
@@ -838,21 +831,21 @@ webFrame.setSpellCheckProvider('en-US', {
 `webContents.getZoomLevel` y `webContents.getZoomFactor` ya no toman parámetros callback, en su lugar devuelven directamente sus valores numéricos.
 
 ```js
-// Obsoleto
+// Deprecated
 webContents.getZoomLevel((level) => {
   console.log(level)
 })
-// Reemplazar con
+// Replace with
 const level = webContents.getZoomLevel()
 console.log(level)
 ```
 
 ```js
-// Obsoleto
+// Deprecated
 webContents.getZoomFactor((factor) => {
   console.log(factor)
 })
-// Reemplazar con
+// Replace with
 const factor = webContents.getZoomFactor()
 console.log(factor)
 ```
@@ -878,18 +871,18 @@ app.on('second-instance', (event, argv, cwd) => {
 ### `app.releaseSingleInstance`
 
 ```js
-// Obsoleto
+// Deprecated
 app.releaseSingleInstance()
-// Reemplazar con
+// Replace with
 app.releaseSingleInstanceLock()
 ```
 
 ### `app.getGPUInfo`
 
 ```js
-app.getGPUInfo('completo')
-// Ahora se comporta lo mismo con `basic` en macOS
-app.getGPUInfo('básico')
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
 ```
 
 ### `win_delay_load_hook`
@@ -903,33 +896,33 @@ La siguiente lista incluye cambios efectuados en la API 3.0 de Electrón.
 ### `app`
 
 ```js
-// Obsoleto
+// Deprecated
 app.getAppMemoryInfo()
-// Remplazar con
+// Replace with
 app.getAppMetrics()
 
-// Obsoleto
+// Deprecated
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Propiedad Obsoleta
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ### `BrowserWindow`
 
 ```js
-// Obsoleto
+// Deprecated
 const optionsA = { webPreferences: { blinkFeatures: '' } }
 const windowA = new BrowserWindow(optionsA)
-// Reemplazar con
+// Replace with
 const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 const windowB = new BrowserWindow(optionsB)
 
-// Obsoleto
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Reemplazar con
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -940,37 +933,37 @@ window.on('app-command', (e, cmd) => {
 ### `clipboard`
 
 ```js
-// Obsoleto
+// Deprecated
 clipboard.readRtf()
-// Reemplazar con
+// Replace with
 clipboard.readRTF()
 
-// Obsoleto
+// Deprecated
 clipboard.writeRtf()
-// Reemplazar con
+// Replace with
 clipboard.writeRTF()
 
-// Obsoleto
+// Deprecated
 clipboard.readHtml()
-// Reemplazar con
+// Replace with
 clipboard.readHTML()
 
-// Obsoleto
+// Deprecated
 clipboard.writeHtml()
-// Reemplazar con
+// Replace with
 clipboard.writeHTML()
 ```
 
 ### `crashReporter`
 
 ```js
-// Obsoleto
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Reemplazar con
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -981,9 +974,9 @@ crashReporter.start({
 ### `NativeImage`
 
 ```js
-// Obsoleto
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// Reemplazar con
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -992,27 +985,27 @@ nativeImage.createFromBuffer(buffer, {
 ### `process`
 
 ```js
-// Obsoleto
+// Deprecated
 const info = process.getProcessMemoryInfo()
 ```
 
 ### `screen`
 
 ```js
-// Obsoleto
+// Deprecated
 screen.getMenuBarHeight()
-// Reemplazar con
+// Replace with
 screen.getPrimaryDisplay().workArea
 ```
 
-### `Sesión`
+### `session`
 
 ```js
-// Deprecado
+// Deprecated
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Reemplazar con
+// Replace with
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -1021,56 +1014,56 @@ ses.setCertificateVerifyProc((request, callback) => {
 ### `Tray`
 
 ```js
-// Obsoleto
+// Deprecated
 tray.setHighlightMode(true)
-// Reemplazar con
+// Replace with
 tray.setHighlightMode('on')
 
-// Obsoleto
+// Deprecated
 tray.setHighlightMode(false)
-// Reemplazar con
+// Replace with
 tray.setHighlightMode('off')
 ```
 
 ### `webContents`
 
 ```js
-// Obsoleto
+// Deprecated
 webContents.openDevTools({ detach: true })
-// Reemplazar con
+// Replace with
 webContents.openDevTools({ mode: 'detach' })
 
-// Eliminado
+// Removed
 webContents.setSize(options)
-// No hay reemplazo para esto en la API
+// There is no replacement for this API
 ```
 
 ### `webFrame`
 
 ```js
-// Obsoleto
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// Reemplazar con
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Obsoleto
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Reemplazar con
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ### `<webview>`
 
 ```js
-// Eliminado
+// Removed
 webview.setAttribute('disableguestresize', '')
-// No hay reemplazo para esto en la API
+// There is no replacement for this API
 
-// Eliminado
+// Removed
 webview.setAttribute('guestinstance', instanceId)
-// No hay reemplazo para esto en la API
+// There is no replacement for this API
 
-// Los eventos de tecldo ya no funcionan en la etiqueta de webview
+// Keyboard listeners no longer work on webview tag
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
@@ -1090,10 +1083,10 @@ La siguiente lista incluye cambios efectuados en la API 2.0 de Electrón.
 ### `BrowserWindow`
 
 ```js
-// Obsoleto
+// Deprecated
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Reemplazar con
+// Replace with
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
@@ -1101,23 +1094,23 @@ const windowB = new BrowserWindow(optionsB)
 ### `menu`
 
 ```js
-// Obsoleto
+// Removed
 menu.popup(browserWindow, 100, 200, 2)
-// Reemplazar con
+// Replaced with
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ### `NativeImage`
 
 ```js
-// Obsoleto
+// Removed
 nativeImage.toPng()
-// Reemplazar con
+// Replaced with
 nativeImage.toPNG()
 
-// Obsoleto
+// Removed
 nativeImage.toJpeg()
-// Reemplazar con
+// Replaced with
 nativeImage.toJPEG()
 ```
 
@@ -1128,27 +1121,27 @@ nativeImage.toJPEG()
 ### `webContents`
 
 ```js
-// Obsoleto
+// Removed
 webContents.setZoomLevelLimits(1, 2)
-// Reemplazar con
+// Replaced with
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `webFrame`
 
 ```js
-// Obsoleto
+// Removed
 webFrame.setZoomLevelLimits(1, 2)
-// Reemplazar con
+// Replaced with
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `<webview>`
 
 ```js
-// Obsoleto
+// Removed
 webview.setZoomLevelLimits(1, 2)
-// Reemplazar con
+// Replaced with
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 

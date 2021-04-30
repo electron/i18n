@@ -58,7 +58,7 @@
 
 ### macOS
 
-Только 64-битные файлы предоставляются для macOS, и минимальная поддерживаемая версия macOS — macOS 10.10 (Yosemite).
+对 macOS 仅提供64位版本，并且只支持 macOS 10.11 (El Capitan) 以及更高版本。.
 
 Native support for Apple Silicon (`arm64`) devices was added in Electron 11.0.0.
 

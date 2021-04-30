@@ -32,7 +32,7 @@ Ejemplo:
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Las opciones no respaldadas son:
+Las opciones no soportadas son:
 
 ```sh
 --use-bundled-ca

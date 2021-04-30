@@ -1,4 +1,4 @@
 # UploadRawData オブジェクト
 
-* `type` String - `rawData`。
+* `type` 'rawData' - `rawData`。
 * `bytes` Buffer - アップロードされるデータ。

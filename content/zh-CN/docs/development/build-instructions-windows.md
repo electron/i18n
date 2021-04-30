@@ -1,6 +1,6 @@
 # 构建步骤（Windows）
 
-遵循下面的步骤, 在 Windows 平台上构建 Electron。
+按照下面的指南在Windows下构建 **Electron 本身**，以此创建自定义 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
 ## 前提条件
 
@@ -94,3 +94,5 @@ This can happen during build, when Debugging Tools for Windows has been installe
 ### 构建脚本挂起, 直到某个按键按下才有响应
 
 这个bug 是 Windows 命令提示符的一个"功能" It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. 由于每次意外点击都会暂停构建过程，您可能需要在命令的属性中禁用此 功能。
+
+[application-distribution]: ../tutorial/application-distribution.md

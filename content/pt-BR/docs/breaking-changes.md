@@ -590,12 +590,12 @@ const idleTime = powerMonitor.getSystemIdleTime()
 ### API alterada: `webFrame.setIsolatedWorldInfo` substitui métodos separados
 
 ```js
-// Removed in Electron 7.0
-webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
-webFrame.setIsolatedWorldHumanReadableName(worldId, name)
-webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
-webFrame.setIsolatedWorldInfo(
+Removido no Electron 7.0
+webFrame.setIsolatedWorldContentSecurityPolicy (worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName (worldId, nome)
+webFrame.setIsolatedWorldSecurityOrigin (worldId, securityOrigin)
+// Substituir por
+webFrame.setIsolatedWorldInfo (
   worldId,
   {
     securityOrigin: 'some_origin',

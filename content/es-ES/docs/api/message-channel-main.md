@@ -30,11 +30,11 @@ ipcRenderer.on('port', (e) => {
 
 #### `channel.port1`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Una propiedad [`MessagePortMain`](message-port-main.md).
 
 #### `channel.port2`
 
-A [`MessagePortMain`](message-port-main.md) property.
+Una propiedad [`MessagePortMain`](message-port-main.md).
 
 [`MessageChannel`]: https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel
 [Channel Messaging API]: https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API

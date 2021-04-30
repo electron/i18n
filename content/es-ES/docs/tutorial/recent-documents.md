@@ -59,7 +59,7 @@ Puede añadir elementos de menú para acceder y borrar documentos recientes agre
   "submenu":[
     {
       "label":"Open Recent",
-      "role":"recientdocuments",
+      "role":"recentdocuments",
       "submenu":[
         {
           "label":"Clear Recent",

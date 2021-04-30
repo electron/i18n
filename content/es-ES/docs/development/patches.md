@@ -22,16 +22,17 @@ Todos los parches a los proyectos upstream en Electron están contenidos en el d
 patches
 ├── config.json   <-- this describes which patchset directory is applied to what project
 ├── chromium
-│   ├── .patches
-│   ├── accelerator.patch
-│   ├── add_contentgpuclient_precreatemessageloop_callback.patch
+│   ├── .patches
+│   ├── accelerator.patch
+│   ├── add_contentgpuclient_precreatemessageloop_callback.patch
 │   ⋮
 ├── node
-│   ├── .patches
-│   ├── add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
-│   ├── build_add_gn_build_files.patch
-│   ⋮
+│   ├── .patches
+│   ├── add_openssl_is_boringssl_guard_to_oaep_hash_check.patch
+│   ├── build_add_gn_build_files.patch
+│   ⋮
 ⋮
+
 ```
 
 Para ayudar a manejar estos conjuntos de parches, proporcionamos dos herramientas: `git-import-patches` y `git-export-patches`. `git-import-patches` importa un conjunto de archivos de parche en un repositorio git aplicando cada parche en el orden correcto y creando un commit para cada parche. `git-export-patches` hace el reverso; exporta una serie de commits git en un repositorio a un conjunto de ficheros en un directorio y un arvhivo `.patches` adjunto.

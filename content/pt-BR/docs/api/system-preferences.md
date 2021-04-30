@@ -119,6 +119,8 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
   * `userInfo` Record<String, unknown>
   * `object` String
 
+Returns `Number` - The ID of this subscription
+
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` _macOS_

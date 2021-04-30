@@ -26,7 +26,7 @@ Idioma de descripción de la interfaz. Escribe firmas de funciones y tipos de da
 
 ### IPC
 
-El IPC significa la comunicación entre procesos. Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
+El IPC significa la comunicación entre procesos. Electron utiliza IPC para enviar los mensajes JSON serializados entre los procesos [main][] y [renderer][].
 
 ### libchromiumcontent
 
@@ -36,7 +36,7 @@ Una biblioteca compartida que incluye el [módulo de contenido de Chromium][] y 
 
 ### proceso principal
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. Controla la vida de la aplicación, de abierto a cerrado. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. The main process is responsible for creating each new renderer process in the app. La API completa de Node está integrada.
 
 El archivo de proceso principal de cada aplicación se especifica en la propiedad `main` en `package.json`. Así es como `electron` sabe qué archivo ejecutar al inicio.
 
@@ -46,7 +46,7 @@ Véase también: [proceso](#process), [proceso de renderizado](#renderer-process
 
 ### MAC
 
-Acrónimo para la App Store de Apple. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
+Acrónimo para la App Store de Apple. Para más detalles sobre el envío de su aplicación al MAS, consulte la [Guía de envíos de Mac App Store][].
 
 ### Mojo
 
@@ -80,7 +80,7 @@ Véase también: [proceso principal](#main-process), [proceso de renderizado](#r
 
 ### proceso de renderizado
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. También se pueden ocultar.
+El renderer process es una ventana de navegador en tu aplicación. Unlike the main process, there can be multiple of these and each is run in a separate process. También se pueden ocultar.
 
 En los navegadores normales, las páginas web generalmente se ejecutan en espacio aislado y no se les permite el acceso a recursos nativos. Los usuarios de la Electron, sin embargo, tienen el poder de utilizar Node.js APIs en las páginas web permitiendo interacciones inferiores de nivel de sistema operativo.
 
@@ -117,7 +117,7 @@ Los números de versión de V8 siempre corresponden a los de Google Chrome. Chro
 [autoUpdater]: api/auto-updater.md
 [módulo de contenido de Chromium]: https://www.chromium.org/developers/content-module
 [electron-builder]: https://github.com/electron-userland/electron-builder
-[Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
+[Guía de envíos de Mac App Store]: tutorial/mac-app-store-submission-guide.md
 [main]: #main-process
 [renderer]: #renderer-process
 [Usando Módulos de Nodo Nativos]: tutorial/using-native-node-modules.md

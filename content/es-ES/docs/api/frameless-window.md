@@ -63,7 +63,10 @@ win.show()
 * No se puede hacer clic a través del área transparente. Vamos a introducir una API para configurar la forma de la ventana para solucionar esto. Consulte [our issue](https://github.com/electron/electron/issues/1335) para mas detalles.
 * Las ventanas transparentes no son redimencionables. Establecer `resizable` a `true` puede hacer que una ventana transparente deje de funcionar en algunas plataformas.
 * El filtro `blur` solo aplica a la página web, por lo que no hay manera de aplicar el efecto blur al contenido debajo de la ventana (por ejemplo, otras aplicaciones abiertas en el sistema del usuario).
-* En los sistemas operativos Windows, las ventanas transparentes no funcionarán cuando DWM está deshabilitado.
+* La ventana no será transparente cuando DevTools este abierta.
+* On Windows operating systems,
+  * transparent windows will not work when DWM is disabled.
+  * transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on [this pull request](https://github.com/electron/electron/pull/28207).
 * En Linux, los usuarios tienen que poner `--enable-transparent-visuals --disable-gpu` en la línea de comandos para deshabilitar el GPU y permitir ARGB para hacer transparente la ventana, esto es causado por un bug ascendente donde [el canal alfa no funciona en algunos controladores NVidia](https://bugs.chromium.org/p/chromium/issues/detail?id=369209) en Linux.
 * En Mac, la sombra nativa no se mostrará en una ventana transparente.
 

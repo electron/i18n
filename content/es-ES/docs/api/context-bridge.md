@@ -32,7 +32,7 @@ El "Main World" es el contexto de JavaScript que corre tu código renderer princ
 
 ### Mundo aislado
 
-Cuando `contextIsolation` está activado en tu `webPreferences`, tus scripts `preload` se ejecutan en un "Mundo Aislado".  Puede leer más sobre aislamiento del contexto y que afecta en los documentos [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
+Cuando `contextIsolation` está activado en tu `webPreferences` (este es el comportamiento por defecto desde Electron 12.0.0), tus scripts `preload` corren en un "Mundo aislado".  Puede leer más sobre aislamiento del contexto y que afecta en los documentos [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
 
 ## Métodos
 
@@ -101,3 +101,19 @@ Dado que los parámetros, errores y valores de retorno son **copiados** cuando s
 | `Símbolo`                                                                                                      | N/A         | ❌                     | ❌                          | Los Symbols no pueden ser copiados a través de contextos así que son eliminados                                                                                                                                                                   |
 
 Si el tipo que te interesa no está en la tabla anterior, probablemente no esté soportado.
+
+### Exponer Global Symbols de Node
+
+El `contextBridge` puede ser utilizado por el script de precarga para dar acceso al renderizador a las APIs de Node. La tabla de tipos soportados descrita anteriormente aplica también a las APIs de Node que expongas a través de `contextBridge`. Tenga en cuenta que muchas APIs de Nodo conceden acceso a los recursos del sistema local. Se muy cauteloso sobre que APIs y globales expones a contenido remoto que no es de confianza.
+
+```javascript
+const { contextBridge } = require('electron')
+const crypto = require('crypto')
+contextBridge.exposeInMainWorld('nodeCrypto', {
+  sha256sum (data) {
+    const hash = crypto.createHash('sha256')
+    hash.update(data)
+    return hash.digest('hex')
+  }
+})
+```

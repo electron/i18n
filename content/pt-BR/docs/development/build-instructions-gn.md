@@ -1,6 +1,6 @@
 # Instruções de Compilação
 
-Siga as instruções abaixo para compilar o Electron.
+Follow the guidelines below for building **Electron itself**, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Pré-requisitos da plataforma
 
@@ -148,7 +148,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
-| Host        | Target        | Status                  |
+| Host        | Objetivo      | Status                  |
 | ----------- | ------------- | ----------------------- |
 | Windows x64 | Windows arm64 | Experimental            |
 | Windows x64 | Windows x86   | Testado automaticamente |
@@ -232,9 +232,11 @@ $ cd electron
 $ gclient sync -f
 ```
 
-### I'm being asked for a username/password for chromium-internal.googlesource.com
+### Estão me Solicitando um nome de Usuário/Senha para o chromium-interno.googlesource.com
 
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Se você ver um prompt solicitando o `Usuário em 'https://chrome-internal.googlesource.com':` ao executar o `gclient sync` no Windows, Provavelmente é porque a variável de ambiente `DEPOT_TOOLS_WIN_TOOLCHAIN` não está definida como 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+
+[application-distribution]: ../tutorial/application-distribution.md
 
 [depot-tools]: https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up
 

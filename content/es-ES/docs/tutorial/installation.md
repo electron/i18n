@@ -3,7 +3,7 @@
 To install prebuilt Electron binaries, use [`npm`][npm]. El método preferido es instalar Electron como una dependencia de desarrollo en tu aplicación :
 
 ```sh
-npm install electron -save-dev
+npm install electron --save-dev
 ```
 
 Por favor, echa un vistazo a [Electron versioning doc][versioning] para información de como manejar version de Electron en tus apps.
@@ -34,8 +34,8 @@ npm install --platform=win32 electron
 
 Si necesita utilizar un proxy HTTP, necesita establecer la variable `ELECTRON_GET_USE_PROXY` a cualquier valor además de variables de entorno adicionales dependiendo de la versión del nodo del sistema host:
 
-* [Nodo 10 o superior][proxy-env-10]
-* [Antes del Nodo 10][proxy-env]
+* [Node 10 o superior][proxy-env-10]
+* [Anterior a Node 10][proxy-env]
 
 ## Espejos y cachés personalizados
 
@@ -60,7 +60,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 Por defecto, `ELECTRON_CUSTOM_DIR` se establece en `v$VERSION`. Para cambiar el formato, use el marcador de posición `{{ version }}`. Por ejemplo, `version-{{ version }}` se resuelve a `version-5.0.`, `{{ version }}` se resuelve a `5.0.`, y `v{{ version }}` es equivalente al valor predeterminado. Como un ejemplo más concreto, para usar el espejo no CDN de China:
 
 ```shell
-ELECTRON_MIROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 

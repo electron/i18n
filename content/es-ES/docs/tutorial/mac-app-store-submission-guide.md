@@ -70,10 +70,10 @@ Luego, necesita preparar 3 archivos con los derechos.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//ES" "http://www.apple.com/DTDs/PropertyList-1.0. td">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security. pp-sandbox</key>
+    <key>com.apple.security.app-sandbox</key>
     <true/>
   </dict>
 </plist>
@@ -90,12 +90,12 @@ Y luego firme u aplicación con el siguiente script:
 APP="YourApp"
 # The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
-# La ruta a la localización donde quiere poner el paquete firmado.
+# The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# El nombre de los certificados que ha solicitado.
+# The name of certificates you requested.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# La ruta a los archivos plist.
+# The path of your plist files.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"

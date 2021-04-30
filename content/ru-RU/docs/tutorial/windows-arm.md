@@ -14,7 +14,7 @@
 
 ### Индивидуальный код архитектуры
 
-Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
+Много Windows-специфический код содержит, если ... еще логика, которая выбирает между архитектурами x64 или x86.
 
 ```js
 if (process.arch === 'x64') {

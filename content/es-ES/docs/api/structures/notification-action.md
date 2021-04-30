@@ -1,13 +1,13 @@
 # Objeto NotificationAction
 
-* `tipo` String - El tipo de acción, puede ser `botón`.
+* `type` String - El tipo de acción, puede ser `button`.
 * `text` String (opcional) La etiqueta de la acción en cuestión.
 
 ## Soporte de Plataforma / Acción
 
-| Tipo de Acción | Soporte de Plataforma | Uso de `texto`              | `texto` Predeterminado                                                                                                      | Limitaciones                                                                                                                                                                                                                                                                                                                |
-| -------------- | --------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`       | macOS                 | Die Bezeichnung des Buttons | "Show" (o un texto localizado por defecto en el sistema, si es el primero de dicho `button`, de lo contrario retorna vacío) | Solo el primer elemento es usado. Si se proporcionan múltiples, aquellos más allá del primero se enumerarán como acciones adicionales (que se muestran cuando el mouse está activo sobre el botón de acción). Cualquier acción de este tipo también es incompatible con `hasReply` y será ignorada si `hasReply` es `true`. |
+| Tipo de Acción | Plataformas soportadas | Uso de `text`                    | `text` predeterminado                                                                                                       | Limitaciones                                                                                                                                                                                                                                                                                                                |
+| -------------- | ---------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`       | macOS                  | Usado como la etiqueta del botón | "Show" (o un texto localizado por defecto en el sistema, si es el primero de dicho `button`, de lo contrario retorna vacío) | Solo el primer elemento es usado. Si se proporcionan múltiples, aquellos más allá del primero se enumerarán como acciones adicionales (que se muestran cuando el mouse está activo sobre el botón de acción). Cualquier acción de este tipo también es incompatible con `hasReply` y será ignorada si `hasReply` es `true`. |
 
 ### Soporte de botón en macOS
 

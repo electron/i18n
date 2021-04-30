@@ -9,11 +9,11 @@
 * `colorSpace` String -  représente un espace de couleurs (objet en trois dimensions contenant toutes les combinaisons de couleurs réalisables) servant aux conversions colorimétriques
 * `colorDepth` Number - Quantité de bits par pixel.
 * `depthPerComponent` Number - Quantité de bits par composant de couleur.
-* `displayFrequency` Number - The display refresh rate.
+* `displayFrequency` - Le taux de rafraîchissement de l’affichage.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - `true` pour un display interne et `false` pour un display externe.
 
-L’objet `Display` représente un affichage physique connecté au système. Un faux `Display` existe peut-être sur un système sans en-tête, ou un `Display` peut correspondre à un écran virtuel distant.
+L’objet `Display` représente un affichage physique connecté au système. Un faux `Display` existe peut-être sur un système sans affichage physique, ou un `Display` peut correspondre à un écran virtuel distant.
