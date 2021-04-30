@@ -129,7 +129,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [Protocolo](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
-* [Enlace ancla XPath: /ul[9]/li[23]/a Archivo: README. md](api/share-menu.md)
+* [ShareMenu](api/share-menu.md)
 * [systemPreferences](api/system-preferences.md)
 * [Barra táctil](api/touch-bar.md)
 * [Tray](api/tray.md)
