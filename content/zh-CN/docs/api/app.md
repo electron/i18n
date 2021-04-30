@@ -660,9 +660,9 @@ app.exit(0)
 
 返回 ` Boolean `-是否成功调用。
 
-Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+将当前可执行文件的设置为协议(也就是 URI scheme) 的默认处理程序。 该方法允许你将应用更深入地集成到操作系统中。 一旦注册了，所有 `your-protocol://` 开头的链接将使用当前可执行文件打开。 整个链接，包括协议部分，将作为参数传递给你的应用程序。
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge][electron-forge], [Electron Packager][electron-packager], or by editing `info.plist` with a text editor. 有关详细信息，请参阅 [Apple's documentation][CFBundleURLTypes]
+** 注意: **在 macOS 上，您只能注册已添加到应用程序的 `info.plist` 中的协议，这个列表在运行时不能修改。 然而，你可以在构建时通过 [Electron Forge][electron-forge], [Electron Packager][electron-packager], 或通过文本编辑器编辑`info.plist`文件的方式修改。 有关详细信息，请参阅 [Apple's documentation][CFBundleURLTypes]
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications.  In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
@@ -743,7 +743,7 @@ Adds `tasks` to the [Tasks][tasks] category of the Jump List on Windows.
 
 如果 `categories` 的值为 `null`， 之前设定的自定义跳转列表(如果存在) 将被替换为标准的应用跳转列表(由windows生成)
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
+**注意：** 如果一个 `JumpListCategory` 对象既没有设置 `type` 属性，也没有设置 `name` 属性，则假设其 `type` 是 `tasks`。 如果设置了 `name` 属性，省略了 `type` 属性，那么 `type` 默认为 `custom`.
 
 **注意:** 用户可以从自定义类别中移除项目， **after** 调用 `app.setJumpList(categories)` 方法之前， Windows不允许删除的项目添加回自定义类别。 尝试提前将删除的项目重新添加 到自定义类别中，将导致整个自定义类别被隐藏。 删除的项目可以使用 `app.getJumpListSettings()` 获取。
 
@@ -858,8 +858,8 @@ if (!gotTheLock) {
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` any - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `userInfo` any - 存储供其他设备使用的特定应用状态。
+* `webpageURL` String (可选) - 如果在返回的设备上没有安装合适的应用，要在浏览器中加载的网页。 协议必须是 `http` 或 `https`。
 
 创建一个 ` NSUserActivity ` 并将其设置为当前活动。 该活动之后可以[Handoff][handoff]到另一个设备。
 
@@ -878,7 +878,7 @@ if (!gotTheLock) {
 ### `app.updateCurrentActivity(type, userInfo)` _macOS_
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `][activity-type]。
-* `userInfo` any - App-specific state to store for use by another device.
+* `userInfo` any - 存储供其他设备使用的特定应用状态。
 
 当其类型与 ` type ` 匹配时更新当前活动, 将项目从 ` 用户信息 ` 合并到其当前 ` 用户信息 ` 字典中。
 
@@ -890,15 +890,15 @@ if (!gotTheLock) {
 
 ### `app.setActivationPolicy(policy)` _macOS_
 
-* `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
+* `policy` String - 可以是'regular', 'accessory', 或 'prohibited'。
 
 为给定应用设置激活策略。
 
 激活策略类型：
 
-* 'regular' - The application is an ordinary app that appears in the Dock and may have a user interface.
-* 'accessory' - The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be activated programmatically or by clicking on one of its windows.
-* 'prohibited' - The application doesn’t appear in the Dock and may not create windows or be activated.
+* 'regulatory ' - 应用程序以普通应用出现在 Dock 中，可能有一个用户界面。
+* 'accessory' - 应用程序不会出现在 Dock 中，没有菜单栏， 但它可能会被程序或在点击其某个窗口时激活。
+* 'prohibited' - 应用程序不会出现在 Dock 中，可能无法创建窗口或被激活。
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -934,7 +934,7 @@ if (!gotTheLock) {
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - 可以是 `basic` 或 `complete`。
 
 返回 ` Promise<unknown>`
 
@@ -973,7 +973,7 @@ if (!gotTheLock) {
 
 ### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
+* `count` Integer (可选) - 如果传入值，则将角标设置为所传入值，否则，在 macOS 上显示一个普通的白点(例如：通知数量未知)。 在 Linux 上，如果没有传入值，角标将不会显示。
 
 返回 ` Boolean `-是否成功调用。
 
@@ -994,35 +994,35 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
 * `options` Object (可选)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (可选) _Windows_ - 要比较的可执行路径。 默认为 `process.execPath`。
+  * `args` String[] (可选) _Windows_ - 要比较的命令行参数。 默认为空数组。
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置相同的参数已确保正确的设置。
 
 返回 ` Object `:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. 这表示应用程序在启动时不应打开任何窗口。 This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. 这表示程序应该还原上次关闭时打开的窗口。 This setting is not available on [MAS builds][mas-builds].
-* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
+* `openAsHidden` Boolean _macOS_ - 当应用程序设置为在登录时隐藏打开为`true`。 此设置在 [MAS 构建][mas-builds] 上不可用。
+* `wasOpenedAtLogin` Boolean _macOS_ - 当应用程序在登录时自动运行为`true`。 此设置在 [MAS 构建][mas-builds] 上不可用。
+* `wasOpenedAsHidden` Boolean _macOS_ - 当应用程序作为一个隐藏的登录项运行时为 `true` 。 这表示应用程序在启动时不应打开任何窗口。 此设置在 [MAS 构建][mas-builds] 上不可用。
+* `restoreState` Boolean _macOS_ - `true` 如果应用程序作为登录项打开， 应该还原上一个会话状态。 这表示程序应该还原上次关闭时打开的窗口。 此设置在 [MAS 构建][mas-builds] 上不可用。
+* `executableWillLaunchAtLogin` Boolean _Windows_ - `true` 应用程序被设置为在登录时打开，并且其启动项未停用。 该属性与 `openAtLogin` 不同，因为它忽略了 `args` 选项，如果给定的可执行程序在登录时启动并带有 **任意** 参数，此属性将为true。
 * `launchItems` Object[] _Windows_
-  * `name` String _Windows_ - name value of a registry entry.
-  * `path` String _Windows_ - The executable to an app that corresponds to a registry entry.
-  * `args` String[] _Windows_ - the command-line arguments to pass to the executable.
-  * `scope` String _Windows_ - one of `user` or `machine`. Indicates whether the registry entry is under `HKEY_CURRENT USER` or `HKEY_LOCAL_MACHINE`.
-  * `enabled` Boolean _Windows_ - `true` if the app registry key is startup approved and therefore shows as `enabled` in Task Manager and Windows settings.
+  * `name` String _Windows_ - 注册表项的名称值。
+  * `path` String _Windows_ - 与注册表条目相对应的应用可执行程序。
+  * `args` String[] _Windows_ - 传递到可执行文件的命令行参数。
+  * `scope` String _Windows_ - `user` 或 `machine`之一。 指示注册表条目是否处于 `HKEY_CURRENT USER` 或 `HKEY_LOCAL_MACHINE`下。
+  * `enabled` Boolean _Windows_ - `true` 如果应用注册表项已获得启动批准，此时在任务管理器和 Windows 设置中显示为 `enabled` 。
 
 ### `app.setLoginItemSettings(settings)` _macOS_ _Windows_
 
 * `settings` Object
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. 默认值为 `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 This setting is not available on [MAS builds][mas-builds].
-  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
-  * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. 默认值为 `true`。
-  * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). 设置应用程序的登录项设置。
+  * `openAtLogin` Boolean (可选) - `true` 登录时打开应用程序， `false` 将应用从登录启动项中删除。 默认值为 `false`.
+  * `openAsHidden` Boolean (可选) _macOS_ - `true` 以隐藏方式打开应用程序。 默认为`false`。 用户可以从系统首选项中编辑此设置, 以便在打开应用程序时检查 `app.getLoginItemSettings().wasOpenedAsHidden` 以了解当前值。 此设置在 [MAS 构建][mas-builds] 上不可用。
+  * `path` String (可选) _Windows_ - 登录时运行的可执行文件。 默认为 `process.execPath`。
+  * `args` String[] (可选) _Windows_ - 传递给可执行文件的控制台参数。 默认为空数组。 注意用引号包裹路径。
+  * `enabled` Boolean (可选) _Windows_ - `true` 将更改已启用的启动注册表项，并在任务管理器和 Windows 设置中 `启用 / 禁用` 应用程序。 默认值为 `true`。
+  * `name` String (可选) _Windows_ - 要写入注册表的值名称。 默认为应用的 AppUserModelId()。 设置应用程序的登录项设置。
 
 如果需要在使用[Squirrel][Squirrel-Windows]的 Windows 上使用 Electron 的 `autoUpdater` ，你需要将启动路径设置为 Update.exe，并传递指定应用程序名称的参数。 例如：
 
@@ -1066,11 +1066,11 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
-  * `version` String (optional) _macOS_ - The app's build version number.
-  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
-  * `authors` String[] (optional) _Linux_ - List of app authors.
-  * `website` String (optional) _Linux_ - The app's website.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `version` String (可选) _macOS_ - 应用程序版本号
+  * `credits` String (可选) _macOS_ _Windows_ - 信用信息。
+  * `authors` String[] (可选) _Linux_ - 应用程序作者列表。
+  * `website` String (可选) _Linux_ - 应用程序的网站。
+  * `iconPath` String (可选) _Linux_ _Windows_ - 以JPEG 或 PNG 文件格式为应用程序图标路径。 在 Linux 上，将显示为 64x64 像素，同时保留纵横比。
 
 设置 "关于" 面板选项。 这将覆盖应用程序在 macOS 上的 `.plist` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ][about-panel-options]。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
@@ -1114,8 +1114,8 @@ stopAccessingSecurityScopedResource()
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
 * `options` Object (可选)
-  * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
-    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
+  * `conflictHandler` Function<Boolean> (可选) - 处理移动失败的潜在冲突。
+    * `conflictType` String - 处理器遇到移动冲突的类型； 可以是 `exists` 或 `existsAndRunning`, `exists` 意味着应用程序目录中存在相同名称的应用， `existsAndRunning` 表示存在并且正在运行。
 
 返回 `Boolean` - 移动是否成功。 请注意，如果移动成功，您的应用程序将退出并重新启动。
 
@@ -1152,7 +1152,7 @@ app.moveToApplicationsFolder({
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+* `enabled` Boolean - 启用或禁用 `Secure Keyboard Entry`
 
 在应用中启用 `Secure Keyboard Entry` 。
 
