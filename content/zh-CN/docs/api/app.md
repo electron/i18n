@@ -664,9 +664,9 @@ app.exit(0)
 
 ** 注意: **在 macOS 上，您只能注册已添加到应用程序的 `info.plist` 中的协议，这个列表在运行时不能修改。 然而，你可以在构建时通过 [Electron Forge][electron-forge], [Electron Packager][electron-packager], 或通过文本编辑器编辑`info.plist`文件的方式修改。 有关详细信息，请参阅 [Apple's documentation][CFBundleURLTypes]
 
-**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications.  In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
+**注意：** 在 Windows Store 环境下(当打包为 `appx`)，此 API 对所有调用都返回 `true`，但它设置的注册表项将无法通过其他应用程序访问。  为了注册你的 Windows Store 应用程序作为默认的协议处理程序，你必须 [在你的清单中声明协议](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol)。
 
-The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
+API 在内部使用 Windows 注册表和 `LSSetDefaultHandlerForURLScheme`。
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -676,7 +676,7 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 
 返回 ` Boolean `-是否成功调用。
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+此方法检查当前可执行程序是否是协议(也就是URI scheme) 的默认处理程序。 如果是，则会将应用移除默认处理器。
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
@@ -688,33 +688,33 @@ Returns `Boolean` - Whether the current executable is the default handler for a 
 
 ** 注意: **在macOS上, 您可以使用此方法检查应用程序是否已注册为协议的默认协议处理程序。 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation][LSCopyDefaultHandlerForURLScheme]
 
-The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+API 在内部使用 Windows 注册表和 `LSCopyDefaultHandlerForURLScheme`。
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - 要检查的协议名称的 URL。 不同于家族中的其他方法，该方法接收至少包含 `://` (例如：`https://`)的完整URL。
 
-Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+返回 `String` - 处理协议的应用程序名称，或如果没有处理程序的空 字符串。 例如，如果Electron 是这个URL的默认 处理程序，那么在 Windows 和 Mac 上，这个返回值可以是 `Electron`。 然而，不要依赖于无法保证保持不变的精确格式。 Linux 上期望不同格式，可能带有 `.desktop` 后缀。
 
-This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
+此方法返回URL协议(也就是URI scheme) 的默认处理器的应用程序名称。
 
 ### `app.getApplicationInfoForProtocol(url)` _macOS_ _Windows_
 
-* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - 要检查的协议名称的 URL。 不同于家族中的其他方法，该方法接收至少包含 `://` (例如：`https://`)的完整URL。
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+返回 `Promise<Object>` - resolve包含以下内容的object：
 
-* `icon` NativeImage - the display icon of the app handling the protocol.
-* `path` String  - installation path of the app handling the protocol.
-* `name` String - display name of the app handling the protocol.
+* `icon` NativeImage - 处理协议的应用程序的显示图标。
+* `path` String - 处理协议的应用程序的安装路径。
+* `name` String - 处理协议的应用程序的显示名称。
 
-This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
+此方法返回包含应用程序名称，图标和默认协议处理器路径(也就是URI scheme) 的Promise。
 
 ### `app.setUserTasks(tasks)` _Windows_
 
 * `tasks` [Task[]](structures/task.md) - 由 `Task` 对象组成的数组
 
-Adds `tasks` to the [Tasks][tasks] category of the Jump List on Windows.
+Windows上添加 `tasks` 到 Jump List的 [Tasks][tasks] 类别。
 
 `tasks` 是 [`Task`](structures/task.md) 对象组成的数组
 
@@ -727,17 +727,17 @@ Adds `tasks` to the [Tasks][tasks] category of the Jump List on Windows.
 返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs][JumpListBeginListMSDN]).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - 用户已明确从Jump List自定义类别中删除的项对应的 `JumpListItem` 对象数组。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
 
 ### `app.setJumpList(categories)` _Windows_
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - `JumpListCategory` 对象数组。
 
 设置或删除应用程序的自定义跳转列表，并返回以下字符串之一：
 
 * `ok` - 没有出现错误
 * `error` - 发生一个或多个错误，启用运行日志记录找出可能的原因。
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+* `invalidSeparatorError` - 已尝试在跳转列表中向自定义类别添加分隔符。 分隔符只允许在标准 `Tasks` 类别下出现。
 * `fileTypeRegistrationError` -尝试向自定义跳转列表添加一个文件链接，但是该应用未注册处理该应用类型
 * `customCategoryAccessDeniedError` - 由于用户隐私或策略组设置，自定义类别无法添加到跳转列表。
 
