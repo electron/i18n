@@ -334,11 +334,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
     * `killed` - 进程发送一个SIGTERM，否则是被外部杀死的。
     * `crashed` - 进程崩溃
     * `oom` - 进程内存不足
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Integer - The exit code of the process, unless `reason` is `launch-failed`, in which case `exitCode` will be a platform-specific launch failure error code.
+    * `launch-failed` - 进程从未成功启动
+    * `integrity-failure` - 窗口代码完整性检查失败
+  * `exitCode` Integer - 进程的退出代码，除非在 `reason` 是 `launch-failed` 的情况下， `exitCode` 将是一个平台特定的启动失败错误代码。
 
-Emitted when the renderer process unexpectedly disappears.  This is normally because it was crashed or killed.
+渲染器进程意外消失时触发。  这种情况通常因为进程崩溃或被杀死。
 
 ### 事件: 'child-process-gone'
 
@@ -346,7 +346,7 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 
 * `event` Event
 * `details` Object
-  * `type` String - Process type. One of the following values:
+  * `type` String - 进程类型。 以下值之一：
     * `Utility`
     * `Zygote`
     * `Sandbox helper`
@@ -354,19 +354,19 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
     * `Pepper Plugin`
     * `Pepper Plugin Broker`
     * `Unknown`
-  * `reason` String - The reason the child process is gone. 可选值：
+  * `reason` String - 子进程消失的原因。 可选值：
     * `clean-exit` - 以零为退出代码退出的进程
     * `abnormal-exit` - 以非零退出代码退出的进程
     * `killed` - 进程发送一个SIGTERM，否则是被外部杀死的。
     * `crashed` - 进程崩溃
     * `oom` - 进程内存不足
-    * `launch-failed` - Process never successfully launched
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
-  * `serviceName` String (optional) - The non-localized name of the process.
-  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+    * `launch-failed` - 进程从未成功启动
+    * `integrity-failure` - 窗口代码完整性检查失败
+  * `exitCode` Number - 进程的退出代码 (例如，在posix上，来自waitpid的状态；在Windows上则来自 GetExitCodeProcess)。
+  * `serviceName` String (可选) - 进程的非本地化名称。
+  * `name` String (可选) - 进程的名称。 功能性示例： `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, 等等。
 
-Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
+子进程意外消失时触发。 这种情况通常因为进程崩溃或被杀死。 子进程不包括渲染器进程。
 
 ### 事件: "accessibility-support-changed" _ macOS _ _ Windows _
 
@@ -405,7 +405,7 @@ app.on('session-created', (session) => {
 
 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
-**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+**注意：** 如果第二个实例是由不同于第一个实例的用户启动的。 `argv` 数组不包含参数。
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
@@ -418,7 +418,7 @@ app.on('session-created', (session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+在 `webContents` 的渲染器进程中调用 `desktopCapturer.getSources()` 时触发。 调用 `event.preventDefault()` 将使它返回空的sources。
 
 ### 事件： "remote-require" _弃用_
 
@@ -484,7 +484,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 * `exitCode` Integer (可选)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+使用 `exitCode` 立即退出。 `exitCode` 默认为0。
 
 所有窗口都将立即被关闭，而不询问用户，而且 `before-quit` 和 `will-quit` 事件也不会被触发。
 
@@ -513,7 +513,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false` See also `app.whenReady()`.
+返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false` 另见 `app.whenReady()`。
 
 ### `app.whenReady()`
 
@@ -522,11 +522,11 @@ app.exit(0)
 ### `app.focus([options])`
 
 * `options` Object (可选)
-  * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
+  * `steal` Boolean _macOS_ - 使接收器成为激活的应用程序，即使另一个应用程序当前处于激活状态。
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+在 Linux 上，使第一个可见窗口获得焦点。 在 macOS上，将应用程序变成激活的app。 在 Windows上，使应用程序的第一个窗口获得焦点。
 
-You should seek to use the `steal` option as sparingly as possible.
+你应该尽可能少地使用 `steal` 选项。
 
 ### `app.hide()` _macOS_
 
@@ -534,15 +534,15 @@ You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+显示隐藏后的应用程序窗口。 不会使它们自动获得焦点。
 
 ### `app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (可选) - 日志存放的自定义路径。 必须是绝对路径。
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+设置或创建一个您的应用程序日志目录，然后可以通过 `app.getPath()` 或 `app.setPath(pathName, newPath)` 进行操作。
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
+调用 `app.setAppLogsPath()` 却没有指定 `path` 参数将导致此目录在 _macOS_ 下被设置为 `~/Library/Logs/YourAppName`；在 _Linux_ 和_Windows_ 下将被设置到 `userData` 目录中。
 
 ### `app.getAppPath()`
 
@@ -550,9 +550,9 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name:
+* `name` String - 你可以通过这些名称请求下列路径：
   * `home` 用户的 home 文件夹（主目录）
-  * `appData` Per-user application data directory, which by default points to:
+  * `appData` 每个用户的应用程序数据目录，默认情况下指向：
     * `%APPDATA%` Windows 中
     * `$XDG_CONFIG_HOME` or `~/.config` Linux 中
     * `~/Library/Application Support` macOS 中
@@ -567,13 +567,13 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `music` 用户音乐目录的路径
   * `pictures` 用户图片目录的路径
   * `videos` 用户视频目录的路径
-  * `recent` Directory for the user's recent files (Windows only).
+  * `recent` 用户最近文件的目录 (仅限 Windows)。
   * ` logs `应用程序的日志文件夹
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` 崩溃转储文件存储的目录。
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+返回 `String` - 一个与 `name`相关的特殊目录或文件的路径。 失败会抛出一个`Error`。
 
-If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
+如果 `app.getPath('logs')` 被调用前没有先调用 `app.setAppLogsPath()` ，将创建一个相当于调用 `app.setAppLogsPath()` 却没有 `path` 参数的默认日志目录。
 
 ### `app.getFileIcon(path[, options])`
 
@@ -600,7 +600,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 * `name` String
 * `path` String
 
-重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 如果路径指向一个不存在的目录，则抛出一个 `Error`。 在这种情况下，目录应该以 `fs.mkdirSync` 或类似的方式创建。
 
 `name` 参数只能使用 `app.getPath` 定义过的 name
 
@@ -614,7 +614,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 返回 ` String `-当前应用程序的名称, 它是应用程序的 ` package. json ` 文件中的名称。
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+根据 npm 的命名规则, 通常 `package.json` 中的 `name` 字段是一个短的小写字符串。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.setName(name)`
 
@@ -622,11 +622,11 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 设置当前应用程序的名字
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**注意：** 此函数会覆盖Electron内部使用的名称；它不会影响操作系统使用的名称。
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+返回 `String` - 当前应用程序区域设置。 可能的返回值记录在[这里](locales.md)。
 
 要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)找到。
 
@@ -636,7 +636,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+返回 `String` - 用户操作系统区域设置的双字母 [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国家代码。 该值取自本地操作系统 API。
 
 **注意：** 当无法检测本地国家代码时，它返回空字符串。
 
@@ -646,7 +646,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 将此 `path` 添加到最近打开的文件列表中
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+此列表由操作系统管理。 在Windows上，您可以从任务栏访问此列表，在macOS上，您可以从dock菜单访问。
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
 
@@ -654,9 +654,9 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - 协议的名称, 不包含 `://`。 For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
+* `protocol` String - 协议的名称, 不包含 `://`。 例如，如果你希望应用处理 `electron://` 链接，请以`electron` 为参数调用此方法。
+* `path` String (可选) _Windows_ - Electron可执行文件路径。 默认为 `process.execPath`
+* `args` String[] (可选) _Windows_ - 传递给可执行文件的参数。 默认为空数组。
 
 返回 ` Boolean `-是否成功调用。
 
@@ -1204,7 +1204,7 @@ app.moveToApplicationsFolder({
 
 `String` 属性，指明当前应用程序的名称，即应用程序 `package.json` 文件中的名称。
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+根据 npm 的命名规则, 通常 `package.json` 中的 `name` 字段是一个短的小写字符串。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.userAgentFallback`
 
