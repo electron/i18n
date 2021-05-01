@@ -1,3 +1,5 @@
+# Barra táctil
+
 ## Clase: TouchBar
 
 > Crea los diseños de la barra táctil para aplicaciones nativas de macOS
