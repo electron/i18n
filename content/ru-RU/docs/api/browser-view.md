@@ -1,10 +1,12 @@
+# BrowserView
+
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+
 ## Класс: BrowserView
 
 > Создание и управление видами.
 
 Процесс: [Основной](../glossary.md#main-process)
-
-`BrowserView` может использоваться для встраивания дополнительного веб-контента в [`BrowserWindow`](browser-window.md). Это как дочернее окно, за исключением того, что оно позиционируется относительно его владельца окна. Он предназначен для того, чтобы быть альтернативой тега `webview`.
 
 ### Пример
 
