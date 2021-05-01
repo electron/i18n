@@ -8,6 +8,8 @@ Pour plus d'informations sur l'utilisation de la messagerie de canal, consultez 
 
 ## Classe: MessagePortMain
 
+> Port interface for channel messaging in the main process.
+
 Processus : [Main](../glossary.md#main-process)
 
 ### Méthodes d’instance
