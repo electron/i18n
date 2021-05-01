@@ -626,7 +626,7 @@ Sobrescreve o atual nome da aplicação.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Returns `String` - The current application locale, fetched using Chromium's `l10n_util` library. Possible return values are documented [here](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
 Para definir a localidade, você vai querer usar um switch de linha de comando na inicialização do aplicativo, que pode ser encontrado [aqui](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
