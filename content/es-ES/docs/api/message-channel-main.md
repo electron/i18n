@@ -6,23 +6,23 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Clase: MessageChannelMain
 
-> Channel interface for channel messaging in the main process.
+> Interfaz para la mensajería de canales del proceso principal.
 
 Proceso: [Main](../glossary.md#main-process)
 
 Ejemplo:
 
 ```js
-// Main process
+// Proceso principal
 const { MessageChannelMain } = require('electron')
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 
-// Renderer process
+// Proceso de renderizado
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('port', (e) => {
-  // e.ports is a list of ports sent along with this message
+  // e.ports es una lista de puertos enviados junto con este mensaje
   e.ports[0].on('message', (messageEvent) => {
     console.log(messageEvent.data)
   })
