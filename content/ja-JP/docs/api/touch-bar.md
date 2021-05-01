@@ -1,3 +1,5 @@
+# TouchBar
+
 ## クラス: TouchBar
 
 > ネイティブ macOS アプリ向けに、TouchBar レイアウトを作成します
