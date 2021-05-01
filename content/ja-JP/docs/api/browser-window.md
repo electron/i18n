@@ -1100,7 +1100,7 @@ Windows 10 ユーザーは [PC をタブレットとして使用できる](https
 
 #### `win.getMediaSourceId()`
 
-戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。 For example "window:1324:0".
+戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。 例えば "window:1324:0" 。
 
 より正確には、フォーマットは ` window:id:other_id` です。ここでの `id` は、Windows では `HWND`、macOS では `CGWindowID` (`uint64_t`)、Linux では `Window` (`unsigned long`) です。 `other_id` は、同じトップレベルウィンドウ内のウェブコンテンツ (タブ) を識別するために使用されます。
 
