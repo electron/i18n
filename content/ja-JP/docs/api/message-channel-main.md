@@ -6,12 +6,15 @@
 
 ## Class: MessageChannelMain
 
+> Channel interface for channel messaging in the main process.
+
 プロセス: [Main](../glossary.md#main-process)
 
 サンプル:
 
 ```js
 // Main process
+const { MessageChannelMain } = require('electron')
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
