@@ -626,7 +626,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale, fetched using Chromium's `l10n_util` library. 取りうる戻り値については [こちら](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc) にドキュメントがあります。
+戻り値 `String` - 現在のアプリケーションのロケールで、Chromium の `l10n_util` ライブラリを用いて取得されます。 取りうる戻り値については [こちら](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc) にドキュメントがあります。
 
 ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md) を参照してください。
 
