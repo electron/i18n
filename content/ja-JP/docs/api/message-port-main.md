@@ -8,6 +8,8 @@
 
 ## Class: MessagePortMain
 
+> Port interface for channel messaging in the main process.
+
 プロセス: [Main](../glossary.md#main-process)
 
 ### インスタンスメソッド
