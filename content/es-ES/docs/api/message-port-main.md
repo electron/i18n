@@ -8,6 +8,8 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Clase: MessagePortMain
 
+> Port interface for channel messaging in the main process.
+
 Proceso: [Main](../glossary.md#main-process)
 
 ### Métodos de Instancia

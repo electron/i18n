@@ -6,12 +6,15 @@ Pour plus d'informations sur l'utilisation de la messagerie de canal, consultez 
 
 ## Class: MessageChannelMain
 
+> Channel interface for channel messaging in the main process.
+
 Processus : [Main](../glossary.md#main-process)
 
 Exemple :
 
 ```js
 // Main process
+const { MessageChannelMain } = require('electron')
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })

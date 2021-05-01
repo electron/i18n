@@ -626,7 +626,7 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-返回 `String` - 当前应用程序区域设置。 可能的返回值记录在[这里](locales.md)。
+Returns `String` - The current application locale, fetched using Chromium's `l10n_util` library. 可能的返回值记录在[这里](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc)。
 
 要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)找到。
 

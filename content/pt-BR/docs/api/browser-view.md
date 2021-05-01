@@ -1,12 +1,18 @@
-## Class: BrowserView
-
-> Cria e controla views.
-
-Processo: [Main](../glossary.md#main-process)
+# BrowserView
 
 Uma `BrowserView` pode ser usado para transformar um conteúdo web em
 
 BrowserWindow`. Ela é como uma janela filha, exceto que ela está posicionada em relação à janela a que pertence. Isso quer dizer que ela pretende ser uma alternativa à tag <code>webview`.</p> 
+
+
+
+## Class: BrowserView
+
+
+
+> Cria e controla views.
+
+Processo: [Main](../glossary.md#main-process)
 
 
 

@@ -6,12 +6,15 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
+> Channel interface for channel messaging in the main process.
+
 进程：[主进程](../glossary.md#main-process)
 
 示例:
 
 ```js
 // Main process
+const { MessageChannelMain } = require('electron')
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })

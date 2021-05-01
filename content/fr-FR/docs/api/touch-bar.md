@@ -1,3 +1,5 @@
+# TouchBar
+
 ## Classe : TouchBar
 
 > Créer une disposition TouchBar pour les applications natives macOS
