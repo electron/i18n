@@ -347,13 +347,13 @@ Retourne :
 * `event` Événement
 * `details` Object
   * `type` String - Type de processus. Une des valeurs suivantes:
-    * `Utility`
+    * `Utilitaire`
     * `Zygote`
-    * `Sandbox helper`
+    * `Assistant bac à sable`
     * `GPU`
-    * `Pepper Plugin`
-    * `Pepper Plugin Broker`
-    * `Unknown`
+    * `Plugin Pepper`
+    * `Broker de plugin Pepper`
+    * `Inconnu`
   * `reason` String - The reason the child process is gone. Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
@@ -623,7 +623,7 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Retourne `String` - La locale de l'application actuelle. Les valeurs de retour possibles sont documentées [ici](locales.md).
+Returns `String` - The current application locale, fetched using Chromium's `l10n_util` library. Les valeurs de retour possibles sont documentées [ici](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
 Pour définir la localisation, utilisez un paramètre de ligne de commande au démarrage de l'application, que vous trouverez [ici](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
@@ -991,18 +991,18 @@ Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
 * `options` Object (optional)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (optional) _Windows_ - The executable path to compare against. Par défaut `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Par défaut, un tableau vide.
 
 Si vous avez fourni des options `path` et `args` à `app.setLoginItemSettings`, vous devez passer les mêmes arguments ici pour que `openAtLogin` soit défini correctement.
 
 Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` si l'application est configurée pour démarrer à l'ouverture de session.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. This setting is not available on [MAS builds][mas-builds].
+* `openAsHidden` Boolean _macOS_ - `true` si l'application est configurée pour s'ouvrir comme cachée à l'ouverture de session. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` si l'application est automatiquement ouverte à l'ouverture de session. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` si l'application est ouverte comme un programme caché à l'ouverture de session. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` si l'application est ouverte comme un programme qui devrait restaurer l'état de la session précédente à l'ouverture de session. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1015,9 +1015,9 @@ Retourne `Object`:
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Par défaut, `faux`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. This setting is not available on [MAS builds][mas-builds].
-  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `openAsHidden` Boolean (facultatif) _macOS_ - `true` pour ouvrir l’application comme cachée. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+  * `path` String (optional) _Windows_ - The executable to launch at login. Par défaut `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Par défaut, un tableau vide. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Par défaut, `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Configurer les paramètres de l'application lors de l'ouverture de session.
 
@@ -1063,7 +1063,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
   * `version` String (facultatif) _macOS_ - Le numéro de version de l'application.
-  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `crédits` String (facultatif) _macOS_ _Windows_ - Crédits.
   * `auteurs` String[] (facultatif) _Linux_ - Liste des auteurs d'applications.
   * `site web` String (facultatif) _Linux_ - Le site web de l'application.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
