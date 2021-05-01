@@ -623,7 +623,7 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale, fetched using Chromium's `l10n_util` library. Les valeurs de retour possibles sont documentées [ici](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
+Renvoie `String` - Les paramètres régionaux actuels de l'application, récupérés à l'aide de la librairie `l10n_util` de Chromium. Les valeurs de retour possibles sont documentées [ici](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
 Pour définir la localisation, utilisez un paramètre de ligne de commande au démarrage de l'application, que vous trouverez [ici](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
