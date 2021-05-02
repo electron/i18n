@@ -142,7 +142,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Veamos un ejemplo:
 
 ```yaml
 name: myApp
