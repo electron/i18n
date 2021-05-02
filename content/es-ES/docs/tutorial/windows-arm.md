@@ -1,6 +1,6 @@
 # Ventanas 10 en brazo
 
-Si tu aplicación se ejecuta con Electron 6.0.8 o posterior, ahora puedes construirla para Windows 10 en Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+Si tu aplicación se ejecuta con Electron 6.0.8 o posterior, ahora puedes construirla para Windows 10 en Arm. Esto aumenta considerablemente el rendimiento, pero necesitará recopilar cualquier módulo nativo usado en tu app. It may also require small fixups to your build and packaging scripts.
 
 ## Ejecutar una aplicación básica
 

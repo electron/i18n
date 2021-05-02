@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Clase: MessagePortMain
 
-> Port interface for channel messaging in the main process.
+> Interfaz del puerto para la mensajería de canales del proceso principal.
 
 Proceso: [Main](../glossary.md#main-process)
 

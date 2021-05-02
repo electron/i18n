@@ -8,7 +8,7 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessagePortMain
 
-> Port interface for channel messaging in the main process.
+> 主进程中用于通道消息传递的端口接口。
 
 进程：[主进程](../glossary.md#main-process)
 

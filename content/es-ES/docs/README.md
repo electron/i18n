@@ -55,7 +55,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
   * [Habilitando manualmente Características de Accesibilidad](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Pruebas y depuración](tutorial/application-debugging.md)
   * [Depuración del proceso principal](tutorial/debugging-main-process.md)
-  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Depurando con Visual Studio Code](tutorial/debugging-vscode.md)
   * [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensión de Chrome DevTools](tutorial/devtools-extension.md)
