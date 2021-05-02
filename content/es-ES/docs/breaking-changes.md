@@ -105,13 +105,13 @@ session.defaultSession.getAllExtensions()
 
 ### Eliminado: métodos en `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Los métodos siguientes de `systemPreferences` han quedado obsoletos:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+En su lugar, usa las siguientes propiedades `nativeTheme`:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
@@ -519,13 +519,13 @@ nativeTheme.on('updated', () => { /* ... */ })
 
 ### Deprecated: methods in `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Los métodos siguientes de `systemPreferences` han quedado obsoletos:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+En su lugar, usa las siguientes propiedades `nativeTheme`:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
