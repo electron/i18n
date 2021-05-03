@@ -8,13 +8,15 @@ npm install electron --save-dev
 
 查看[versioning doc][versioning]获取如何在你的应用中管理Electron的相关信息。
 
-## 全局安装
+## Running Electron ad-hoc
 
-您还可以在 `$PATH ` 中全局安装 ` electron ` 命令:
+If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
 
 ```sh
-npm install electron -g
+npx electron .
 ```
+
+The above command will run the current working directory with Electron. Note that any dependencies in your app will not be installed.
 
 ## 自定义
 
@@ -45,7 +47,7 @@ npm install --platform=win32 electron
 
 #### 镜像
 
-您可以使用环境变量来覆盖基本 URL，查找 Electron 二进制文件的路径以及二进制文件名。 `@electron/get` 使用的URL组成如下：
+您可以使用环境变量来覆盖基本 URL，查找 Electron 二进制文件的路径以及二进制文件名。 The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -78,7 +80,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 您也可以通过提供一个 `electron_config_cache` 环境变量来覆盖本地缓存位置。
 
-缓存包含版本的官方zip文件以及校验和，存储为 个文本文件。 典型的缓存看起来像这样：
+The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -109,7 +111,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 当在CI环境中 测试另一个组件的时候，这可能是不必要的。
 
-为了防止在安装所有 npm 依赖关系时下载二进制文件，您可以设置环境变量 `ELECTRON_SKIP_BINARY_DOWNLOAD`。 如：
+为了防止在安装所有 npm 依赖关系时下载二进制文件，您可以设置环境变量 `ELECTRON_SKIP_BINARY_DOWNLOAD`。 例如:
 
 ```sh
 ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
@@ -141,6 +143,7 @@ npm install --verbose electron
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md
+[npx]: https://docs.npmjs.com/cli/v7/commands/npx
 [releases]: https://github.com/electron/electron/releases
 [proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
 [proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
