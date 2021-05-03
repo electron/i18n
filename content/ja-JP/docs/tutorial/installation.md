@@ -8,15 +8,15 @@ npm install electron --save-dev
 
 アプリ内で Electron のバージョンを管理する方法については、[Electron のバージョン管理][versioning] を参照して下さい。
 
-## Running Electron ad-hoc
+## Electron の臨時実行
 
-If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
+もし急用かつローカルプロジェクト内で `npm install` を使用すべきでない場合は、以下のように [`npm` にバンドルされている `npx` コマンドランナー][npx] を使った Electron の臨時実行もできます。
 
 ```sh
 npx electron .
 ```
 
-The above command will run the current working directory with Electron. Note that any dependencies in your app will not be installed.
+上記のコマンドは、Electron で現在のワーキングディレクトリを実行します。 注意としてアプリ内の依存関係がインストールされることはありません。
 
 ## カスタマイズ
 
