@@ -8,13 +8,15 @@ npm install electron --save-dev
 
 アプリ内で Electron のバージョンを管理する方法については、[Electron のバージョン管理][versioning] を参照して下さい。
 
-## グローバルインストール
+## Running Electron ad-hoc
 
-`$PATH` に `electron` コマンドをグローバルインストールするには、以下も実行します。
+If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
 
 ```sh
-npm install electron -g
+npx electron .
 ```
+
+The above command will run the current working directory with Electron. Note that any dependencies in your app will not be installed.
 
 ## カスタマイズ
 
@@ -137,10 +139,11 @@ sudo npm install electron --unsafe-perm=true
 npm install --verbose electron
 ```
 
-強制的に再ダウンロードする必要がある場合は、`force_no_cache`環境変数を`true`に設定してください。
+強制的に再ダウンロードする必要がある場合は、`force_no_cache` 環境変数を `true` に設定してください。
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md
+[npx]: https://docs.npmjs.com/cli/v7/commands/npx
 [releases]: https://github.com/electron/electron/releases
 [proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
 [proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
