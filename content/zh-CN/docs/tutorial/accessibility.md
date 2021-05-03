@@ -1,6 +1,6 @@
 # 辅助功能
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
+为程序制作辅助功能是很重要的。在这里，我们很高兴地向你们介绍[Devtron][devtron]和[Spectron][spectron]。这两个新功能有机会使开发者们让他们的应用程序更加可用。
 
 ---
 
