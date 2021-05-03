@@ -8,7 +8,7 @@ Electron - это фреймворк, который позволяет созд
 
 ### Требования
 
-Before proceeding with Electron you need to install [Node.js][node-download]. Мы рекомендуем вам установить последнюю версию `LTS` или `Current` версию.
+Перед продолжением с Electron необходимо установить [Node.js][node-download]. Мы рекомендуем вам установить последнюю версию `LTS` или `Current` версию.
 
 > Пожалуйста, установите Node.js с помощью предварительно собранных инсталляторов для вашей платформы. Вы можете столкнуться с проблемами несовместимости с различными инструментами разработки.
 
@@ -87,15 +87,15 @@ app.on('window-all-closed', () => {
 ##### Что происходит в коде выше?
 
 1. Строка 1: Для начала, вы импортируете `app` и `BrowserWindow` модули из `Electron` для управления событиями жизненного цикла вашего приложения, а также создания и управления окнами браузера.
-2. Line 2: Second, you import the `path` package which provides utility functions for file paths.
-3. Line 4: After that, you define a function that creates a [new browser window](../api/browser-window.md#new-browserwindowoptions) with a preload script, loads `index.html` file into this window (line 13, we will discuss the file later).
+2. Строка 2: Во-вторых, вы импортируете `path` пакет, который предоставляет полезные функции для файловых путей.
+3. Строка 4: После этого вы определяете функцию, которая создает [новое окно браузера](../api/browser-window.md#new-browserwindowoptions) со сценарием предварительной загрузки, загружает файл `index.html` в это окно (строка 13, мы обсудим файл позже).
 4. Line 16: Вы создаете новое окно браузера, вызвав функцию `createWindow` после инициализации приложения Electron [](../api/app.md#appwhenready).
-5. Line 18: You add a new listener that creates a new browser window only if when the application has no visible windows after being activated. Например, после запуска заявки в первый раз или повторного запуска уже запущенного приложения.
-6. Line 25: You add a new listener that tries to quit the application when it no longer has any open windows. Этот слушатель не входит в macOS из-за поведения [системы управления окном](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
+5. Строка 18: Вы добавляете новый обработчик события, который создает новое окно браузера только тогда, когда приложение не имеет видимых окон после активации. Например, после запуска заявки в первый раз или повторного запуска уже запущенного приложения.
+6. Строка 25: Вы добавляете новый обработчик события, который пытается выйти из приложения, когда у него больше нет открытых окон. Этот слушатель не входит в macOS из-за поведения [системы управления окном](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac).
 
 #### Создать веб-страницу
 
-Это веб-страница, которую вы хотите отобразить после инициализации приложения. Эта веб-страница представляет процесс рендерера. Вы можете создать несколько окон браузера, где каждое окно использует свой собственный рендер. You can optionally grant access to additional Node.js APIs by exposing them from your preload script.
+Это веб-страница, которую вы хотите отобразить после инициализации приложения. Эта веб-страница представляет процесс рендерера. Вы можете создать несколько окон браузера, где каждое окно использует свой собственный рендер. Вы можете предоставить доступ к дополнительному API Node.js, используя их в скрипте предварительной загрузки.
 
 Страница `index.html` выглядит следующим образом:
 
