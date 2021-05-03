@@ -1,22 +1,22 @@
-# Electron 和 NW.js 之间的技术差异 类似于NW.js，Electron提供了一个使用Web技术开发桌面应用程序的平台。它们都可以让开发者很便利地使用HTML、JavaScript以及Node.js进行开发。表面上，它们俩非常相似。、 然而，两个项目间依旧存在着一些本质的差异，这使得Electron是一个完全独立且不同于NW.js的项目。 1）应用程序的入口 NW.js中，应用程序的主入口是一个HTML网页。NW.js将会使用一个浏览器窗口打开给定的入口点（HTML网页）。 在Electron中，入口点是一个Javascript脚本文件。我们需要通过Javascript代码手动创建一个浏览器窗口并加载一个HTML文件，而不是直接提供一个URL的方法。当然我们也可以去监听窗口的事件来决定什么时候退出应用程序。 Electron的工作机制更像是Node.js的运行时。而且Electron的API实际上更为底层，所以我们可以使用它进行相应的浏览器测试并替代PhantomJS。 2）Node集成 在NW.js中，在Web页面中集成Node需要通过给Chromium打补丁的方式才能运行。而Electron采取了通过在集成libuv loop——不同的操作系统平台（Windows、Linux、MacOS）的消息循环来避免魔改Chromium。 3）Javascript上下文
+# Electron 和 NW.js 之间的技术差异
 
-类似于NW.js，Electron提供了一个使用Web技术开发桌面应用程序的平台。 两个平台都允许开发者使用 HTML、JavaScript 和 Node.js。 On the surface, they seem very similar.
+类似于 NW.js，Electron 提供了一个使用 Web 技术开发桌面应用程序的平台。 两个平台都允许开发者使用 HTML、JavaScript 和 Node.js。 表面上，它们似乎非常相似。
 
-There are however fundamental differences between the two projects that make Electron a completely separate product from NW.js.
+但是这两个项目也有本质上的区别，使得 Electron 和 NW.js 成为两个相互独立的产品。
 
-## 1) Entry of Application
+## 1) 应用程序的入口
 
-In NW.js, the main entry point of an application can be an HTML web page. In that case, NW.js will open the given entry point in a browser window.
+在 NW.js 中，应用程序的主入口是一个HTML网页。 在这种情况下，NW.js 将在浏览器窗口中打开给定的入口点。
 
-In Electron, the entry point is always a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+在 Electron 中，入口点是一个 JavaScript 脚本。 我们需要通过 Javascript 代码手动创建一个浏览器窗口并加载一个 HTML 文件，而不是直接提供一个 URL 的方法。 你还可以监听窗口事件，决定何时让应用退出。
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](https://phantomjs.org/).
+Electron 的工作方式更像 Node.js 的运行时。 而且 Electron 的 API 实际上更为底层，所以我们可以使用它进行相应的浏览器测试并替代 PhantomJS。
 
-## 2) Node Integration
+## 2) Node 集成
 
 In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the `libuv` loop with each platform's message loop to avoid hacking Chromium. 你可以查看 [`node_bindings`][node-bindings] 来了解这是如何完成的。
 
-## 3) JavaScript Contexts
+## 3) Javascript 上下文
 
 If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
 
@@ -24,7 +24,7 @@ By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/
 
 注意: 自从 0.13 以来，NW.js 选择性支持多上下文。
 
-## 4) Legacy Support
+## 4) 旧版支持
 
 NW.js still offers a "legacy release" that supports Windows XP. It doesn't receive security updates.
 
@@ -32,7 +32,7 @@ Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't rele
 
 However, we understand that requirements outside our wildest imagination may exist, so if you're looking for something like Electron that runs on Windows XP, the NW.js legacy release might be the right fit for you.
 
-## 5) Features
+## 5) 功能
 
 There are numerous differences in the amount of supported features. Electron has a bigger community, more production apps using it, and [a large amount of userland modules available on npm][electron-modules].
 
