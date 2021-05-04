@@ -10,13 +10,13 @@ npm install electron --save-dev
 
 ## 运行 Electron ad-hoc
 
-If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
+如果你不想在本地工程上使用 `npm install` 同时又没用其它选择时，你也可以使用 `npm` 捆绑的 [`npx`][npx] 命令来运行 Electron ad-hoc：
 
 ```sh
 npx electron .
 ```
 
-The above command will run the current working directory with Electron. Note that any dependencies in your app will not be installed.
+上面的命令会在当前工作目录下运行Electron。 需要注意的是，你的应用中的任何依赖将不会被安装。
 
 ## 自定义
 
@@ -47,7 +47,7 @@ npm install --platform=win32 electron
 
 #### 镜像
 
-您可以使用环境变量来覆盖基本 URL，查找 Electron 二进制文件的路径以及二进制文件名。 The URL used by `@electron/get` is composed as follows:
+您可以使用环境变量来覆盖基本 URL，查找 Electron 二进制文件的路径以及二进制文件名。 `electron/get` 使用的网址组成如下：
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
