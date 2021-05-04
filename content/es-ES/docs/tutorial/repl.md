@@ -1,6 +1,6 @@
 # REPL
 
-[Read-Eval-Print-Loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
+[ قراءة-تقييم-طباعة-حلقة ](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (REPL) هي بيئة برمجة كمبيوتر تفاعلية بسيطة تتطلب مستخدمًا واحدًا المدخلات (أي التعبيرات الفردية) ، وتقييمها ، وإرجاع النتيجة إلى المستخدم.
 
 ## Proceso principal
 
