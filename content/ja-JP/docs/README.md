@@ -60,6 +60,7 @@
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [デベロッパー ツール拡張](tutorial/devtools-extension.md)
   * [カスタムドライバを使った自動テスト](tutorial/automated-testing-with-a-custom-driver.md)
+  * [REPL](tutorial/repl.md)
 * [配布方法](tutorial/application-distribution.md)
   * [サポートされているプラットフォーム](tutorial/support.md#supported-platforms)
   * [コード署名](tutorial/code-signing.md)
