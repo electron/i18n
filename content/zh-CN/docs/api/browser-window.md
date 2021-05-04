@@ -206,24 +206,24 @@ child.once('ready-to-show', () => {
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认为 `true`。 `预加载`脚本所运行的上下文环境只能访问其自身专用的`文档`和全局`窗口`，其自身一系列内置的JavaScript (`Array`, `Object`, `JSON`, 等等) 也是如此，这些对于已加载的内容都是不可见的。 Electron API 将只在`预加载`脚本中可用，在已加载页面中不可用。 这个选项应被用于加载可能不被信任的远程内容时来确保加载的内容无法篡改`预加载`脚本和任何正在使用的Electron api。  该选项使用的是与[Chrome内容脚本][chrome-content-scripts]相同的技术。  你可以在开发者工具Console选项卡内顶部组合框中选择 'Electron Isolated Context'条目来访问这个上下文。
     * `worldSafeExecuteJavaScript` Boolean (可选) - 如果为true，从`webFrame.executeJavaScript` 返回的值将被特殊处理，以确保使用 `contextIsolation` 时，JS中的值安全地在两个世界之间传递。 默认值为 `true`。 _已废弃_
-    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. ** 注意: **此选项目前是实验性的。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. 除了 `nodeIntegrationInSubFrames` 为true时，其它情况下node integration将永远禁用。 ** 注意: **此选项目前是实验性的。
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. 默认值为 `false`.
+    * `additionalArguments` String[] (可选) - 一个将被附加到当前应用程序的渲染器进程中`process.argv`的字符串列表 。  可用于将少量的数据传递到渲染器进程预加载脚本中。
+    * `safeDialogs` Boolean (可选) - 是否启用浏览器样式的持续对话框保护。 默认值为 `false`.
     * `safeDialogsMessage` String (可选) - 当持续对话框保护被触发时显示的消息。 如果没有定义，那么将使用缺省的消息。注意：当前缺省消息是英文，并没有本地化。
-    * `disableDialogs` Boolean (optional) - Whether to disable dialogs completely. Overrides `safeDialogs`. 默认值为 `false`.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. 默认值为 `false`.
-    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
-    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
-    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. 默认值为 `true`。
-    * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). 默认值为 `true`。
-    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
-      * `none` - Disables code caching
-      * `code` - Heuristic based code caching
-      * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
-      * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
-    * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. 默认值为 `false`.
+    * `disableDialogs` Boolean (可选) - 是否完全禁用对话框。 覆盖 `safeDialogs`。 默认值为 `false`.
+    * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转。 默认值为 `false`.
+    * `autoplayPolicy` String (可选) - 窗口中内容要使用的自动播放策略，值可以是 `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`。 默认为 `no-user-gesture-required`。
+    * `disableHtmlFullscreenWindowResize` Boolean (可选) - 是否阻止窗口在进入 HTML 全屏时调整大小。 默认值为 `false`.
+    * `accessibleTitle` String (可选) - 仅提供给如屏幕读取器等辅助工具的替代标题字符串。 此字符串不直接对用户可见。
+    * `spellcheck` Boolean (可选) - 是否启用内置拼写检查器。 默认值为 `true`。
+    * `enableWebSQL` Boolean (可选) - 是否启用 [WebSQL api](https://www.w3.org/TR/webdatabase/)。 默认值为 `true`。
+    * `v8CacheOptions` String (可选) - 强制 blink 使用 v8 代码缓存策略。 可接受的值为：
+      * `none` - 禁用代码缓存
+      * `code` - 基于启发式代码缓存
+      * `bypassHeatCheck` - 绕过启发式代码缓存，但使用懒编译。
+      * `bypassHeatCheckAndEagerCompile` - 与上面相同，除了编译是及时的。 默认策略是 `code`。
+    * `enablePreferredSizeMode` Boolean (可选) - 是否启用首选大小模式。 首选大小是包含文档布局所需的最小大小--无需滚动。 启用该属性将导致在首选大小发生变化时，在`WebContents` 上触发 `preferred-size-changed` 事件。 默认值为 `false`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -249,7 +249,7 @@ child.once('ready-to-show', () => {
 * `title` String
 * `explicitSet` Boolean
 
-文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题 `explicitSet` is false when title is synthesized from file URL.
+文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题 当标题合成自文件 URL 中时， `explicitSet` 的值为false。
 
 #### 事件： 'close'
 
@@ -333,11 +333,11 @@ _**注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('bef
 返回:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [Rectangle](structures/rectangle.md) - 将要调整到的窗口尺寸。
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+调整窗口大小前触发。 调用 `event.preventDefault()` 将阻止窗口大小调整。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+请注意，该事件仅在手动调整窗口大小时触发。 通过 `setBounds`/`setSize` 调整窗口大小不会触发此事件。
 
 #### 事件: 'resize'
 
@@ -349,26 +349,26 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 这通常在手动调整窗口大小后触发。 在 macOS 系统上，使用`setBounds`/`setSize`调整窗口大小并将`animate`参数设置为`true`也会在调整大小完成后触发此事件。
 
-#### Event: 'will-move' _macOS_ _Windows_
+#### 事件: 'will-move' _macOS_ _Windows_
 
 返回:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [Rectangle](structures/rectangle.md) - 窗口将要被移动到的位置。
 
-Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
+窗口移动前触发。 在Windows上，调用 `event.preventDefault()` 将阻止窗口移动。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+请注意，该事件仅在手动调整窗口大小时触发。 通过 `setBounds`/`setSize` 调整窗口大小不会触发此事件。
 
 #### 事件: 'move'
 
 窗口移动到新位置时触发
 
-#### Event: 'moved' _macOS_ _Windows_
+#### 事件: 'moved' _macOS_ _Windows_
 
 当窗口移动到新位置时触发一次
 
-__Note__: On macOS this event is an alias of `move`.
+__注意__: 在 macOS 上，此事件是` move `的别名。
 
 #### 事件: 'enter-full-screen'
 
@@ -386,7 +386,7 @@ __Note__: On macOS this event is an alias of `move`.
 
 窗口离开由HTML API触发的全屏状态时触发
 
-#### Event: 'always-on-top-changed'
+#### 事件: 'always-on-top-changed'
 
 返回:
 
@@ -417,7 +417,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explicitly supported on Linux:
+以下应用命令在 Linux 上有明确地支持：
 
 * `browser-backward`
 * `browser-forward`
@@ -441,7 +441,7 @@ The following app commands are explicitly supported on Linux:
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+三指滑动时触发。 可能的方向是 `up`, `right`, `down`, `left`。
 
 The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
 
@@ -702,7 +702,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. 此字符串不直接对用户可见。
 
 ### 实例方法
 
