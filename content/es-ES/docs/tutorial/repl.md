@@ -4,14 +4,14 @@
 
 ## Proceso principal
 
-Electron exposes the [Node.js `repl` module](https://nodejs.org/dist/latest/docs/api/repl.html) through the `--interactive` CLI flag. Assuming you have `electron` installed as a local project dependency, you should be able to access the REPL with the following command:
+Electron expone el módulo [Node.js `repl`](https://nodejs.org/dist/latest/docs/api/repl.html) a través de la bandera de CLI `--interactiva`. Assuming you have `electron` installed as a local project dependency, you should be able to access the REPL with the following command:
 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
 
-**Note:** `electron --interactive` is not available on Windows (see [electron/electron#5776](https://github.com/electron/electron/pull/5776) for more details).
+**Nota:** `electron --interactive` no está disponible para Windows (consulta [electron/electron#5776](https://github.com/electron/electron/pull/5776) para más detalles).
 
-## Renderer process
+## Proceso de renderizado
 
-You can use the DevTools Console tab to get a REPL for any renderer process. To learn more, read [the Chrome documentation](https://developer.chrome.com/docs/devtools/console/).
+You can use the DevTools Console tab to get a REPL for any renderer process. Para obtener más información, consulta la [documentación de Chrome](https://developer.chrome.com/docs/devtools/console/).
