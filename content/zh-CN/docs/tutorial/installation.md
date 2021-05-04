@@ -8,7 +8,7 @@ npm install electron --save-dev
 
 查看[versioning doc][versioning]获取如何在你的应用中管理Electron的相关信息。
 
-## Running Electron ad-hoc
+## 运行 Electron ad-hoc
 
 If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
 
