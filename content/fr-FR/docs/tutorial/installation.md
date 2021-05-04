@@ -16,7 +16,7 @@ If you're in a pinch and would prefer to not use `npm install` in your local pro
 npx electron .
 ```
 
-The above command will run the current working directory with Electron. Note that any dependencies in your app will not be installed.
+La commande ci-dessus exécutera le répertoire de travail actuel avec Electron. Note that any dependencies in your app will not be installed.
 
 ## Personnalisation
 
