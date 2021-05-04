@@ -328,9 +328,9 @@ Retourne :
 
 Émis lorsque le processus renderer crash ou est interrompu.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**Deprecated:** Cet événement est remplacé par l'événement `render-process-gone` qui contient plus d'informations à propos de la raison du plantage du processus enfant. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-#### Event: 'render-process-gone'
+#### Événement : 'render-process-gone'
 
 Retourne :
 
@@ -342,11 +342,11 @@ Retourne :
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Le processus ne s'est pas lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
   * `Codedesortie`Numero integre-Le code de sortie du proces, sauf `si <code>la raison est <code>lancer a echoue,`ou <0>le codeSortie </code>sera une plateforme specifique, de code envoye errone.
 
-Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
+Émis lorsque le processus de rendu plante de manière inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
 #### Événement : 'unresponsive'
 
@@ -713,7 +713,7 @@ Retourne :
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
-#### Event: 'remote-require' _Deprecated_
+#### Événement: 'remote-require' _Deprecated_
 
 Retourne :
 
@@ -722,7 +722,7 @@ Retourne :
 
 Emitted when `remote.require()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-global' _Deprecated_
+#### Événement: 'remote-get-global' _Deprecated_
 
 Retourne :
 
@@ -731,7 +731,7 @@ Retourne :
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-builtin' _Deprecated_
+#### Événement: 'remote-get-builtin' _Deprecated_
 
 Retourne :
 
@@ -740,7 +740,7 @@ Retourne :
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-current-window' _Deprecated_
+#### Événement: 'remote-get-current-window' _Deprecated_
 
 Retourne :
 
@@ -748,7 +748,7 @@ Retourne :
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-current-web-contents' _Deprecated_
+#### Événement: 'remote-get-current-web-contents' _Deprecated_
 
 Retourne :
 

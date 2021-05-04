@@ -8,13 +8,15 @@ npm install electron --save-dev
 
 Смотри [документацию к версиям Electron][versioning], чтобы узнать, как управлять версиями Electron в приложении.
 
-## Глобальная установка
+## Running Electron ad-hoc
 
-Ты можешь установить команду `electron` в переменной окружения `$PATH`:
+If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
 
 ```sh
-npm install electron -g
+npx electron .
 ```
+
+The above command will run the current working directory with Electron. Note that any dependencies in your app will not be installed.
 
 ## Настройка
 
@@ -32,7 +34,7 @@ npm install --platform=win32 electron
 
 ## Полномочия
 
-Если вам нужно использовать HTTP-прокси, необходимо установить переменную `ELECTRON_GET_USE_PROXY` в любое значение , плюс дополнительные переменные окружения в зависимости от версии узла вашей системы:
+If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
 
 * [Узел 10 и выше][proxy-env-10]
 * [До узла 10][proxy-env]
@@ -45,30 +47,30 @@ During installation, the `electron` module will call out to [`@electron/get`][el
 
 #### Зеркало
 
-Можно использовать переменную окружения, чтобы переопределить базовый URL, по которому ищутся бинарники или имена файлов. URL-адрес, используемый `@electron/get` составлен следующим образом:
+Можно использовать переменную окружения, чтобы переопределить базовый URL, по которому ищутся бинарники или имена файлов. The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-Например, использовать зеркало CDN в Китае:
+For instance, to use the China CDN mirror:
 
 ```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-По умолчанию, `ELECTRON_CUSTOM_DIR` установлен в `v$VERSION` Чтобы изменить формат, используйте плейсхолдер `{{ version }}`. Например, `версия -{{ version }}` преобразуется в `версию-5.0.`, `{{ version }}` решит `5.0.`и `v{{ version }}` эквивалентны по умолчанию. В качестве более конкретного примера использовать не-CDN в Китае зеркало:
+By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-Вышеприведенная конфигурация будет загружена с URL-адресов, таких как `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Кеш
 
-Кроме того, можно заменить локальный кеш. `@electron/get` кэширует загруженных бинарных файлов в локальном каталоге, чтобы не стрессовать по сети. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
+Кроме того, можно заменить локальный кеш. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
 
 * Linux: `$XDG_CACHE_HOME` или `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -76,9 +78,9 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 В старом Electron возможно использование папки `~/.electron`.
 
-Вы также можете переопределить местоположение локального кэша, указав переменную окружения `electron_config_cache` .
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
-Кэш содержит официальный zip-файл версии и контрольную сумму, хранящуюся как текстовый файл. Типичный кэш может выглядеть следующим образом:
+The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -105,11 +107,11 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 ## Пропустить загрузку бинарных файлов
 
-При установке `Электрона` пакета NPM автоматически загружается двоичный файл электрона.
+When installing the `electron` NPM package, it automatically downloads the electron binary.
 
-Иногда это может быть ненужным, например, в среде CI при тестировании другого компонента.
+This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
 
-Чтобы предотвратить загрузку бинарного файла при установке всех зависимостей npm, вы можете установить переменную окружения `ELECTRON_SKIP_BINARY_DOWNLOAD`. Например:
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
 
 ```sh
 ELECTRON_SKIP_BINARY_DESCRIPTION
@@ -121,11 +123,11 @@ ELECTRON_SKIP_BINARY_DESCRIPTION
 
 В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Такие ошибки, как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшее решение - попытаться переключить сеть, или немного подождать, и попытаться установить снова.
 
-You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
+Также вы можете попытаться скачать Electron непосредственно из [релизов][releases], если установка через `npm` терпит неудачу.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
+Если установка завершается с ошибкой `EACCESS`, нужно [поправить права npm][npm-permissions].
 
-If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
+Если ошибки не пропадают, можно использовать аргумент [unsafe-perm][unsafe-perm]:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
@@ -141,6 +143,7 @@ npm install --verbose electron
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md
+[npx]: https://docs.npmjs.com/cli/v7/commands/npx
 [releases]: https://github.com/electron/electron/releases
 [proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
 [proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config

@@ -106,13 +106,13 @@ Retourne :
 
 Émis lorsque l'application est activée. Différentes actions peuvent déclencher cet événement, comme le lancement de l’application pour la première fois, essayer de relancer l’application lorsqu’elle est déjà en cours d’exécution, ou en cliquant sur l'icône du dock de l’application ou de l’icône de la barre des tâches.
 
-### Event: 'did-become-active' _macOS_
+### Événement : 'did-become-active' _macOS_
 
 Retourne :
 
 * `event` Événement
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+Émis lorsque l'application est activée. Contrairement à l'événement `activate`, l'événement `did-become-active` est émit à chaque fois que l'application devient active, et pas seulement sur l'icône du Dock de l'application ou quand l'application est relancée.
 
 ### Événement : 'continue-activity' _macOS_
 
@@ -298,7 +298,7 @@ Si `callback` est appelé sans nom d'utilisateur ou mot de passe, la demande d'a
 
 Émis chaque fois qu'il y a une mise à jour d'informations GPU.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### Événement : 'gpu-process-crashed' _Deprecated_
 
 Retourne :
 
@@ -307,9 +307,9 @@ Retourne :
 
 Émis lorsque le processus GPU plante ou est tué.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. Ceci n'est pas toujours causé par un plantage. Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**Deprecated:** Cet événement est remplacé par l'événement `child-process-gone` qui contient plus d'informations à propos de la raison du plantage du processus enfant. Ceci n'est pas toujours causé par un plantage. Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Événement : 'renderer-process-crashed' _Deprecated_
 
 Retourne :
 
@@ -319,9 +319,9 @@ Retourne :
 
 Émis lorsque le processus de rendu de `webContents` plante ou est tué.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**Deprecated:** Cet événement est remplacé par l'événement `render-process-gone` qui contient plus d'informations à propos de la raison du plantage du processus enfant. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-### Event: 'render-process-gone'
+### Événement : 'render-process-gone'
 
 Retourne :
 
@@ -334,13 +334,13 @@ Retourne :
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Le processus ne s'est pas lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
   * `Codedesortie`Numero integre-Le code de sortie du proces, sauf `si <code>la raison est <code>lancer a echoue,`ou <0>le codeSortie </code>sera une plateforme specifique, de code envoye errone.
 
-Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
+Émis lorsque le processus de rendu plante de manière inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
-### Event: 'child-process-gone'
+### Événement : 'child-process-gone'
 
 Retourne :
 
@@ -360,13 +360,13 @@ Retourne :
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Le processus ne s'est pas lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
   * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
   * `serviceName` String (optional) - The non-localized name of the process.
   * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. C'est normalement dans les cas où il s'est planté ou qu'il a été tué. It does not include renderer processes.
+Émis lorsque le processus enfant plante de manière inattendue. C'est normalement dans les cas où il s'est planté ou qu'il a été tué. Cela n'inclut pas le processus de rendu.
 
 ### Événement : 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -405,7 +405,7 @@ Cet événement sera émis dans l'instance principale de votre application quand
 
 `argv` est un tableau des arguments de la ligne de commande de la seconde instance, et `workingDirectory` est son répertoire de travail actuel. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
-**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+**Note:** Si la seconde instance a été lancée par un utilisateur différent du premier, le tableau `argv` ne va pas inclure les arguments.
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
@@ -420,7 +420,7 @@ Retourne :
 
 Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
-### Event: 'remote-require' _Deprecated_
+### Événement: 'remote-require' _Deprecated_
 
 Retourne :
 
@@ -430,7 +430,7 @@ Retourne :
 
 Émis lorsque `remote.require()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-global' _Deprecated_
+### Événement: 'remote-get-global' _Deprecated_
 
 Retourne :
 
@@ -440,7 +440,7 @@ Retourne :
 
 Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-builtin' _Deprecated_
+### Événement: 'remote-get-builtin' _Deprecated_
 
 Retourne :
 
@@ -450,7 +450,7 @@ Retourne :
 
 Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-window' _Deprecated_
+### Événement: 'remote-get-current-window' _Deprecated_
 
 Retourne :
 
@@ -459,7 +459,7 @@ Retourne :
 
 Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents' _Deprecated_
+### Événement: 'remote-get-current-web-contents' _Deprecated_
 
 Retourne :
 
@@ -510,7 +510,7 @@ const { app } = require('electron') app.relaunch({ args: process.argv.slice(1).c
 
 ### `app.isReady()`
 
-Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon. See also `app.whenReady()`.
+Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon. Voir également `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -564,9 +564,9 @@ Retourne `String` - Répertoire courant de l'application.
   * `music` Dossier de musique de l’utilisateur.
   * `pictures` Dossier des images de l’utilisateur.
   * `videos` Dossier des vidéos de l’utilisateur.
-  * `recent` Directory for the user's recent files (Windows only).
+  * `recent` Dossier des fichiers récents de l'utilisateur (Windows seulement).
   * `logs` Répertoire du dossier de log de votre application.
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` Dossier où les rapports d'incidents sont stockés.
 
 Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. On failure, an `Error` is thrown.
 

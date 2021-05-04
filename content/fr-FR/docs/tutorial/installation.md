@@ -8,13 +8,15 @@ npm install electron --save-dev
 
 Voir la [documentation du versionnage][versioning] pour plus d'informations sur la façon de gérer différentes versions d'Electron dans vos applications.
 
-## Installation global
+## Running Electron ad-hoc
 
-Vous pouvez également installer la commande `electron` globalement dans votre `$PATH` :
+If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
 
 ```sh
-npm install electron -g
+npx electron .
 ```
+
+La commande ci-dessus exécutera le répertoire de travail actuel avec Electron. Note that any dependencies in your app will not be installed.
 
 ## Personnalisation
 
@@ -32,7 +34,7 @@ npm install --platform=win32 electron
 
 ## Les proxys
 
-Si vous devez utiliser un proxy HTTP, vous devez définir la variable `ELECTRON_GET_USE_PROXY` à n'importe quelle valeur plus des variables d'environnement supplémentaires en fonction de la version de Node de votre système hôte:
+If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
 
 * [Node 10 et plus][proxy-env-10]
 * [Avant Node 10][proxy-env]
@@ -45,30 +47,30 @@ Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de 
 
 #### Miroir
 
-Vous pouvez utiliser des variables d’environnement pour substituer l’URL de base, le chemin d’accès où chercher les binaires d'Electron, et le nom du fichier binaire. L'URL utilisée par `@electron/get` est composée comme suit:
+Vous pouvez utiliser des variables d’environnement pour substituer l’URL de base, le chemin d’accès où chercher les binaires d'Electron, et le nom du fichier binaire. The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-Par exemple, pour utiliser le miroir CDN de la Chine :
+For instance, to use the China CDN mirror:
 
 ```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-Par défaut, `ELECTRON_CUSTOM_DIR` est défini à `v$VERSION`. Pour changer le format, utilisez le marqueur `{{ version }}`. Par exemple, `version-{{ version }}` résout à `version-5.0.`, `{{ version }}` se résout à `5.0.`, et `v{{ version }}` est équivalent à la valeur par défaut. Comme exemple plus concret, utiliser le miroir chinois non-CDN :
+By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-La configuration ci-dessus sera téléchargée à partir d'URL telles que `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
 
-Egalement vous pouvez, surcharger le cache local. `@electron/get` mettra en cache les binaires téléchargés dans un répertoire local pour ne pas mettre votre réseau en évidence. Vous pouvez utiliser ce répertoire de cache pour fournir des binaires personnalisés d'Electron ou pour éviter d'utiliser le réseau.
+Egalement vous pouvez, surcharger le cache local. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Vous pouvez utiliser ce répertoire de cache pour fournir des binaires personnalisés d'Electron ou pour éviter d'utiliser le réseau.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -76,9 +78,9 @@ Egalement vous pouvez, surcharger le cache local. `@electron/get` mettra en cach
 
 Sur les environnements qui utilisent des versions plus anciennes d’électron, vous pourriez trouver le cache aussi dans `~/.electron`.
 
-Vous pouvez également remplacer l'emplacement local du cache en fournissant une variable d'environnement `electron_config_cache` .
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
-Le cache contient le fichier zip officiel de la version ainsi qu'une somme de contrôle, stockée comme un fichier texte. Une cache typique peut ressembler à ceci :
+The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
 ── httpsgithub.comelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -109,7 +111,7 @@ Lorsque vous installer le packet `electron`, npm va automatiquement télécharge
 
 Ceci peut poser problème avec l'utilisation d'une CI par exemple, où on voudrait éviter de télécharger les binaires à chaque fois que la CI lance un build.
 
-Pour empêcher le binaire d'être téléchargé lorsque vous installez toutes les dépendances npm, vous pouvez définir la variable d'environnement `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ex. :
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. Par ex.:
 
 ```sh
 format@@0 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
@@ -121,11 +123,11 @@ Lorsque vous exécutez `npm install electron`, certains utilisateurs rencontrent
 
 Dans la plupart des cas, ces erreurs sont le résultat d'un problème de réseau et non un soucis avec le packet npm `electron`. Les erreurs comme `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` et `ETIMEDOUT` sont toutes des indications d'un problème de réseau. La meilleure solution est d'essayer en changeant de réseau ou juste d'attendre un peu et de réessayer l'installation.
 
-You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
+Vous pouvez également essayer de télécharger Electron directement depuis [electron/electron/releases][releases] si l'installation via `npm` ne marche pas.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
+Si l'installation échoue avec une erreur `EACCESS`, vous devez peut-être [réparer les droits npm][npm-permissions].
 
-If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
+Si l'erreur ci-dessus persiste, le paramètre [unsafe-perm][unsafe-perm] devrait être définit à true :
 
 ```sh
 sudo npm install electron --unsafe-perm=true
@@ -141,6 +143,7 @@ Si vous devez forcer le re-téléchargement de l'asset et du fichier SHASUM, met
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md
+[npx]: https://docs.npmjs.com/cli/v7/commands/npx
 [releases]: https://github.com/electron/electron/releases
 [proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
 [proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
