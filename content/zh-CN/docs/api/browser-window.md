@@ -23,7 +23,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## 优雅地显示窗口
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+当直接在窗口中加载一个页面时，用户可能会看到页面一点点加载，这对原生应用来说体验不是很好。 要使窗口显示时没有视觉闪烁，对于不同情况有两种解决方案。
 
 ## 使用`ready-to-show`事件
 
@@ -39,7 +39,7 @@ win.once('ready-to-show', () => {
 
 这个事件通常在 `did-finish-load` 事件之后发出，但是页面有许多远程资源时，它可能会在 `did-finish-load`之前发出事件。
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
+请注意，使用此事件意味着渲染器会被认为是"可见的"并绘制，即使 `show` 是false。  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
 ## 设置 `backgroundColor`
 
@@ -121,51 +121,51 @@ child.once('ready-to-show', () => {
   * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
   * `center` Boolean (可选) - 窗口是否在屏幕居中.
   * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`
-  * `minHeight` Integer (optional) - Window's minimum height. 默认值为 `0`
+  * `minHeight` Integer(可选) - 窗口的最小高度。 默认值为 `0`
   * `maxWidth `Integer(可选)-窗口的最大宽度。 默认值不限
-  * `maxHeight` Integer (optional) - Window's maximum height. 默认值不限
-  * `resizable` Boolean (optional) - Whether window is resizable. 默认值为 `true`。
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. 默认值为 `true`。
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. 默认值为 `true`。
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. 默认值为 `true`。
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. 默认值为 `true`。
+  * `maxHeight `Integer (可选) - 窗口的最大高度。 默认值不限
+  * `resizable` Boolean (可选) - 窗口大小是否可调整。 默认值为 `true`。
+  * `movable` Boolean (可选) - 窗口是否可以移动. 该属性在Linux上未实现。 默认值为 `true`。
+  * `minimizable` Boolean (可选) - 窗口是否可最小化。 该属性在Linux上未实现。 默认值为 `true`。
+  * `maximizable` Boolean (可选) - 窗口是否可最大化。 该属性在Linux上未实现。 默认值为 `true`。
+  * `closable` Boolean (可选) - 窗口是否可关闭。 该属性在Linux上未实现。 默认值为 `true`。
   * ` focusable ` Boolean (可选) - 窗口是否可以聚焦. 默认值为 `true`。 在 Windows 中设置 `focusable: false` 也意味着设置了`skipTaskbar: true`. 在 Linux 中设置 `focusable: false` 时窗口停止与 wm 交互, 并且窗口将始终置顶。
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. 默认值为 `false`.
+  * `alwaysOnTop` Boolean (可选) - 窗口是否永远在别的窗口的上面。 默认值为 `false`.
   * ` fullscreen ` Boolean (可选) - 窗口是否全屏. 当明确设置为 `false` 时，在 macOS 上全屏的按钮将被隐藏或禁用. 默认值为 `false`.
   * ` fullscreenable ` Boolean (可选) - 窗口是否可以进入全屏状态. 在 macOS上, 最大化/缩放按钮是否可用 默认值为 `true`。
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. 默认值为 `false`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - Whether the window is in kiosk mode. 默认值为 `false`.
+  * `simpleFullscreen` Boolean (可选) - 在 macOS 上使用 pre-Lion 全屏。 默认值为 `false`.
+  * `skipTaskbar` Boolean (可选) - 是否在任务栏中显示窗口。 默认值为 `false`。
+  * `kiosk` Boolean (可选) - 窗口是否进入kiosk模式。 默认值为 `false`.
   * `title`String(可选) - 默认窗口标题 默认为`"Electron"`。 如果由`loadURL()`加载的HTML文件中含有标签`<title>`，此属性将被忽略。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 窗口的图标. 在 Windows 上推荐使用 `ICO` 图标来获得最佳的视觉效果, 默认使用可执行文件的图标.
-  * `show` Boolean (optional) - Whether window should be shown when created. 默认值为 `true`。
+  * `show` Boolean (可选) - 窗口是否在创建时显示。 默认值为 `true`。
   * `paintWhenInitiallyHidden`Boolean(可选) - 当`show`为`false`并且渲染器刚刚被创建时，它是否应激活。  为了让`document.visibilityState` 在`show: false`的情况下第一次加载时正确地工作，你应该把这个设置成`false`.  设置为 `false` 将会导致`ready-to-show` 事件不触发。  默认值为 `true`。
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). 默认值为 `true`。
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. 默认值为 `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. 默认值为 `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. 默认值为 `false`.
+  * `frame` Boolean (可选) - 设置为 `false` 时可以创建一个[无边框窗口](frameless-window.md)。 默认值为 `true`。
+  * `parent` BrowserWindow (可选) - 指定父窗口 默认值为 `null`.
+  * `momodalable` Boolean (可选) - 当前是否为模态窗口。 只有当窗口是子窗口时才起作用。 默认值为 `false`.
+  * `acceptFirstMouse` Boolean (可选) - 是否允许单击页面来激活窗口。 默认值为 `false`。
+  * `disableAutoHideCursor` Boolean (可选) - 是否在打字时隐藏光标。 默认值为 `false`.
+  * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏，除非按了`Alt`键。 默认值为 `false`.
   * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小使之大于屏幕的尺寸. 仅适用于 macOS，因为其它操作系统默认允许 大于屏幕的窗口。 默认值为 `false`.
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
   * `hasShadow` Boolean (可选) - 窗口是否有阴影. 默认值为 `true`。
   * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。 目前仅支持Windows 和 macos
   * `darkTheme` Boolean (optional) - 强制窗口使用深色主题，只在部分GTK+3桌面环境下有效。 默认值为 `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
+  * `transparent` Boolean (可选) - 使窗口 [透明](frameless-window.md#transparent-window)。 默认值为 `false`. 在Windows上，仅在无边框窗口下起作用。
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 更多信息见下文
-  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. 可能的值有
-    * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 This is the default.
+  * `visualEffectState` String (optional) - 指定material外观应如何反映macOS上的窗口活动状态。 必须与 `vibrancy` 属性一起使用。 可能的值有
+    * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 默认为该值。
     * `active` - 后台应一直显示为激活状态。
     * `inactive` - 后台应一直显示为非激活状态。
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. 可能的值有
+  * `titleBarStyle` String (可选) - 窗口标题栏样式。 默认值为 `default`. 可能的值有
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
     * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
     * `customButtonsOnHover` Boolean (可选) - 在macOS的无框窗口上绘制自定义的关闭与最小化按钮. 除非鼠标悬停到窗口的左上角, 否则这些按钮不会显示出来. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. ** 注意: **此选项目前是实验性的。
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. 默认值为 `false`.
+  * `trafficLightPosition` [Point](structures/point.md) (可选) - 自定义traffic light buttons位置。 仅与设置为 `hidden` 的 `titleBarStyle` 一起使用。
+  * `fullscreenWindowTitle` Boolean (可选) - 在 macOS 全屏模式时，为所有带 `titleBarStyle` 选项的标题栏显示标题。 默认值为 `false`.
   * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
-  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`.  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. 可选值为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` 或 `under-page`。  Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. 如果为 ` true `, 窗口将放大到网页的本身宽度, ` false ` 将使其缩放到屏幕的宽度。 这也会影响直接调用 ` maximize() ` 时的行为。 默认值为 `false`.
   * `tabbingIdentifier` String (可选) - 选项组卡的名称，在macOS 10.12+上可使窗口在原生选项卡中打开. 具有相同标识符的窗口将被组合在一起。 这还会在窗口的标签栏中添加一个原生的新选项卡按钮, 并允许 ` app ` 和窗口接收 ` new-window-for-tab` 事件。
   * `webPreferences` Object (optional) - Settings of web page's features.
@@ -310,7 +310,7 @@ _**注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('bef
 
 当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false.  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
+请注意，使用此事件意味着渲染器会被认为是"可见的"并绘制，即使 `show` 是false。  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
 #### 事件: 'maximize'
 
