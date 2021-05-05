@@ -794,7 +794,7 @@ Menu.setApplicationMenu(menu)
 
 进入或离开简单的全屏模式。
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
+简单全屏模式模拟了 Lion (10.7) 之前的macOS版本中的原生全屏行为。
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -938,17 +938,17 @@ console.log(win.getBounds())
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+设置用户是否可以手动调整窗口大小。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+返回 `Boolean` - 用户是否可以手动调整窗口大小。
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+设置用户是否可以移动窗口。 在Linux上不起作用。
 
 #### `win.isMovable()` _macOS_ _Windows_
 
@@ -960,11 +960,11 @@ Sets whether the window can be moved by user. On Linux does nothing.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+设置用户是否可以手动将窗口最小化。 在Linux上不起作用。
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+返回 `Boolean` - 用户是否可以手动最小化窗口。
 
 在 Linux 上总是返回 ` true `。
 
@@ -972,7 +972,7 @@ Returns `Boolean` - Whether the window can be manually minimized by the user.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+设置用户是否可以手动最大化窗口。 在Linux上不起作用。
 
 #### `win.isMaximizable()` _macOS_ _Windows_
 
@@ -984,17 +984,17 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+设置最大化/缩放窗口按钮是切换全屏模式还是最大化窗口。
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+返回 `Boolean` - 最大化/缩放窗口按钮是切换全屏模式还是最大化窗口。
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+设置用户是否可以手动关闭窗口。 在Linux上不起作用。
 
 #### `win.isClosable()` _macOS_ _Windows_
 
@@ -1005,7 +1005,7 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs][window-levels] for more details.
+* `level` String (可选) _macOS_ _Windows_ - 值包括 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`和 ~~`dock`~~(已弃用)。 The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs][window-levels] for more details.
 * `relativeLevel` Integer (可选) _macOS_ - 设置此窗口相对于给定 `级别`的层数。. 默认值为`0`. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
