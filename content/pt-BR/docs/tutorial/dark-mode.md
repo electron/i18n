@@ -2,9 +2,9 @@
 
 ## Visão Geral
 
-### Automatically update the native interfaces
+### Atualiza automaticamente as interfaces nativas
 
-"Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. The default behavior is to opt into this automatic theming from the OS.
+"Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. O comportamento padrão é optar por esse tema automático do sistema operacional.
 
 ### Automatically update your own interfaces
 
