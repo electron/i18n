@@ -12,4 +12,4 @@
 * `dismissonclick` - 当按钮被点击时，缩略图窗口立即关闭。
 * `nobackground` - 不可以画按钮边框，只能使用图片背景。
 * `hidden` - 该按钮对用户不可见。
-* `noninteractive` - 按钮已启用，但不交互；不绘制按钮按下的状态。 This value is intended for instances where the button is used in a notification.
+* `noninteractive` - 按钮已启用，但不交互；不绘制按钮按下的状态。 此值用于在通知中使用按钮的实例。
