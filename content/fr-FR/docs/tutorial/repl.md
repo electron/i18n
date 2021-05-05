@@ -12,6 +12,6 @@ Electron exposes the [Node.js `repl` module](https://nodejs.org/dist/latest/docs
 
 **Note:** `electron --interactive` is not available on Windows (see [electron/electron#5776](https://github.com/electron/electron/pull/5776) for more details).
 
-## Renderer process
+## Processus de rendu
 
-You can use the DevTools Console tab to get a REPL for any renderer process. To learn more, read [the Chrome documentation](https://developer.chrome.com/docs/devtools/console/).
+You can use the DevTools Console tab to get a REPL for any renderer process. Pour en savoir plus, lisez [la documentation Chrome](https://developer.chrome.com/docs/devtools/console/).
