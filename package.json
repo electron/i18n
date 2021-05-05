@@ -14,7 +14,7 @@
     "@octokit/rest": "^18.0.3",
     "@types/cheerio": "^0.22.11",
     "@types/lodash": "^4.14.134",
-    "@types/node": "^14.0.1",
+    "@types/node": "^15.0.1",
     "@types/rimraf": "^3.0.0",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
