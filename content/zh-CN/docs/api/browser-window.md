@@ -1304,7 +1304,7 @@ win.loadURL('http://localhost:8000/post', {
 * `dismissonclick` - 当按钮被点击时，缩略图窗口立即关闭。
 * `nobackground` - 不可以画按钮边框，只能使用图片背景。
 * `hidden` - 该按钮对用户不可见。
-* `noninteractive` - 按钮已启用，但不交互；不绘制按钮按下的状态。 This value is intended for instances where the button is used in a notification.
+* `noninteractive` - 按钮已启用，但不交互；不绘制按钮按下的状态。 此值用于在通知中使用按钮的实例。
 
 #### `win.setThumbnailClip(region)` _Windows_
 
@@ -1323,13 +1323,13 @@ win.loadURL('http://localhost:8000/post', {
 * `选项` 对象
   * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
   * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 默认值为 `0`
+  * `appIconIndex` Integer (可选) - `appIconPath`中的图标索引。 未设置 `appIconPath` 时忽略。 默认值为 `0`
   * `relaunchCommand` String (可选) - 窗口的 [重新启动命令](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (可选) - 窗口的[重新启动显示名称](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
 设置窗口任务栏按钮的属性。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注意：**必须始终同时设置 `relaunchCommand` 和 `relaunchDisplayName`。 如果其中一个属性没有设置，那么这两个属性都不会使用。
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1353,9 +1353,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+设置窗口菜单栏是否自动隐藏。 一旦设置，菜单栏将只在用户单击 `Alt` 键时显示。
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+如果菜单栏已经可见, 调用 `setAutoHideMenuBar(true)`时不会立刻隐藏。
 
 #### `win.isMenuBarAutoHide()`
 
@@ -1365,7 +1365,7 @@ If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hid
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+设置菜单栏是否可见。 如果菜单栏自动隐藏，用户仍然可以通过单击 `Alt` 键来唤出菜单栏。
 
 #### `win.isMenuBarVisible()`
 
@@ -1403,7 +1403,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 防止窗口内容被其他应用捕获
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. 在 Windows 上，它以参数为 `WDA_EXCLUDEFROMCAPTURE` 调用 SetWindowDisplayAffinity 。 对于 Windows 10 2004以上版，本窗口将完全从抓取中移除，在低版本 Windows 上其行为就像是 `WDA_MONITOR` 捕捉了黑色窗口。
+在 macOS 上，它将 NSWindow 的 sharingType 设置为 NSWindowSharingNone。 在 Windows 上，它以参数为 `WDA_EXCLUDEFROMCAPTURE` 调用 SetWindowDisplayAffinity 。 对于 Windows 10 2004以上版，本窗口将完全从抓取中移除，在低版本 Windows 上其行为就像是 `WDA_MONITOR` 捕捉了黑色窗口。
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
@@ -1411,7 +1411,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. 在 Windows 
 
 设置窗口是否可聚焦
 
-On macOS it does not remove the focus from the window.
+在 macOS 上，该方法不会从窗口中移除焦点。
 
 #### `win.setParentWindow(parent)`
 
@@ -1461,21 +1461,21 @@ On macOS it does not remove the focus from the window.
 
 #### `win.setVibrancy(type)` _macOS_
 
-* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. 更多详细信息，请查阅 [macOS documentation][vibrancy-docs]
+* `type` String | null - 可以是 `appearance-based`，`light`，`dark`，`titlebar`，`selection`，`menu`，`popover`，`sidebar`，`medium-light`，`ultra-dark`，`header`，`sheet`，`window`，`hud`，`fullscreen-ui`，`tooltip`，`content`，`under-window` 或 `under-page`。 更多详细信息，请查阅 [macOS documentation][vibrancy-docs]
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+在浏览器窗口中添加一个动态特效。 传递 `null` 或空字符串将会移除窗口上的动态效果。
 
-Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+请注意， `appearance-based`，`light`，`dark`，`medium-light` 和 `ultra-dark` 已被弃用，并将在即将推出的 macOS 版本中被移除。
 
 #### `win.setTrafficLightPosition(position)` _macOS_
 
 * `position` [Point](structures/point.md)
 
-Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+自定义 traffic light 按钮的位置。 仅在 `titleBarStyle` 设置为 `hidden` 时使用。
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+返回 `Point` - traffic light按钮的当前位置。 仅在 `titleBarStyle` 设置为 `hidden` 时使用。
 
 #### `win.setTouchBar(touchBar)` _macOS_
 
@@ -1487,17 +1487,17 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 #### `win.setBrowserView(browserView)` _实验_
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - 将 `browserView` 附加到 `win`。 如果已经附加了其他 `BrowserView`，那么它们将会被从此窗口中移除。
 
 #### `win.getBrowserView()` _实验功能_
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
+返回 `BrowserView | null` - 附加到 `win` 的 `BrowserView` 。 如果未附加，则返回 `null`。 如果附加了多个 `BrowserView`，则抛出错误。
 
 #### `win.addBrowserView(browserView)` _实验_
 
 * `browserView` [BrowserView](browser-view.md)
 
-Replacement API for setBrowserView supporting work with multi browser views.
+替代 setBrowserView 的API，支持多个browserView一起使用。
 
 #### `win.removeBrowserView(browserView)` _实验_
 
@@ -1507,11 +1507,11 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 * `browserView` [BrowserView](browser-view.md)
 
-Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
+提高 `browserView` 于其它附加到 `win` 的 `BrowserView` 之上 。 如果 `browserView` 未附加到 `win`，则抛出错误。
 
 #### `win.getBrowserViews()` _实验功能_
 
-Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
+返回 `BrowserView[]` - 所有通过 `addBrowserView` 或 `setBrowserView` 附加的BrowserView数组。
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
 
