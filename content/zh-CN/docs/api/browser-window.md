@@ -635,55 +635,55 @@ win.loadURL('https://github.com')
 
 #### `win.documentEdited` _macOS_
 
-A `Boolean` property that specifies whether the window’s document has been edited.
+一个 `Boolean` 属性指明窗口文档是否已被编辑。
 
-The icon in title bar will become gray when set to `true`.
+当设置为 `true` 时，标题栏的图标将变灰。
 
 #### `win.representedFilename` _macOS_
 
-A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+一个 `String` 属性，用于确定窗口代表的文件的路径名，文件的图标将显示在窗口的标题栏中。
 
 #### `win.title`
 
-A `String` property that determines the title of the native window.
+一个 `String` 属性，用于确定原生窗口的标题。
 
-**Note:** The title of the web page can be different from the title of the native window.
+**注意：** 网页的标题可以与原生窗口的标题不同。
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+一个 `Boolean` 属性，用于决定窗口是否可被用户手动最小化。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+在 Linux 上，setter 不会进行任何操作，尽管 getter 返回的是 `true`。
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+一个 `Boolean` 属性，用于决定窗口是否可被用户手动最大化。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+在 Linux 上，setter 不会进行任何操作，尽管 getter 返回的是 `true`。
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+一个 `Boolean` 属性，决定最大化/缩放窗口按钮是切换全屏模式还是最大化窗口。
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+一个 `Boolean` 属性，用于决定窗口是否可被用户手动调整大小。
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+一个 `Boolean` 属性，用于决定窗口是否可被用户手动关闭。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+在 Linux 上，setter 不会进行任何操作，尽管 getter 返回的是 `true`。
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+一个 `Boolean` 属性，用于决定窗口是否可被用户移动。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+在 Linux 上，setter 不会进行任何操作，尽管 getter 返回的是 `true`。
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. 默认值为 `false`
+一个 `Boolean` 属性，用于决定窗口是否从应用程序的 Windows 菜单排除。 默认值为 `false`
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -702,7 +702,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. 此字符串不直接对用户可见。
+一个 `String` 属性，定义一个仅为如屏幕阅读器等辅助工具提供的替代标题 。 此字符串不直接对用户可见。
 
 ### 实例方法
 
@@ -716,7 +716,7 @@ A `String` property that defines an alternative title provided only to accessibi
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+尝试关闭窗口。 该方法与用户手动单击窗口的关闭按钮效果相同。 但网页可能会取消这个关闭操作。 查看 [关闭事件](#event-close)。
 
 #### `win.focus()`
 
@@ -756,7 +756,7 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+最大化窗口。 如果窗口尚未显示，该方法也会将其显示 (但不会聚焦)。
 
 #### `win.unmaximize()`
 
@@ -768,7 +768,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+最小化窗口。 在某些平台上, 最小化的窗口将显示在Dock中。
 
 #### `win.restore()`
 
@@ -807,12 +807,11 @@ Simple fullscreen mode emulates the native fullscreen behavior found in versions
 #### `win.setAspectRatio(aspectRatio[, extraSize])`
 
 * ` aspectRatio ` Float- 为内容视图保持的宽高比.
-* `extraSize` [Size](structures/size.md) (optional) _macOS_ - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (可选) _macOS_ - 保持宽高比时不包括的额外大小。
 
 这将使窗口保持长宽比。 额外的大小允许开发人员有空间 (以像素为单位), 不包括在纵横比计算中。 此 API 已经考虑了窗口大小和内容大小之间的差异。
 
-想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
-{ width: 40, height: 50 }. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 在全部内部窗口中，加上任何额外的宽度和高度 。
+想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持播放器本身16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以使用 16/9 和 { width: 40, height: 50 } 的参数调用这个函数。 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 在全部内部窗口中，加上任何额外的宽度和高度 。
 
 当窗口使用类似于 `win.setSize` 这样的 API 调整窗口时，宽高比不会被采用。
 
@@ -820,7 +819,7 @@ Simple fullscreen mode emulates the native fullscreen behavior found in versions
 
 * `backgroundColor` String - 十六进制的窗口背景色，如 `#66CD00`、`#FFF`和`#80FFFFFF`。 (如果`transparent`是`true`的话，也支持alpha 通道。) 默认值为 `#FFF`（白色）。
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+设置窗口的背景颜色。 请参阅 [设置`背景颜色`](#setting-backgroundcolor)。
 
 #### `win.previewFile(path[, displayName])` _macOS_
 
@@ -838,7 +837,7 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (可选) _macOS_
 
-重置窗口，并且移动窗口到指定的位置. Any properties that are not supplied will default to their current values.
+重置窗口，并且移动窗口到指定的位置. 任何未提供的属性将默认为其当前值。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -856,11 +855,11 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
+返回 [`Rectangle`](structures/rectangle.md) - 窗口的 `bounds` 作为 `Object`。
 
 #### `win.getBackgroundColor()`
 
-Returns `String` - Gets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+返回 `String` - 获取窗口的背景颜色。 请参阅 [设置`背景颜色`](#setting-backgroundcolor)。
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -871,7 +870,7 @@ Returns `String` - Gets the background color of the window. See [Setting `backgr
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
+返回 [`Rectangle`](structures/rectangle.md) - 窗口客户端区域的 `bounds` `对象`。
 
 #### `win.getNormalBounds()`
 
@@ -887,7 +886,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 #### `win.isEnabled()`
 
-Returns `Boolean` - whether the window is enabled.
+返回 `Boolean` - 窗口是否启用。
 
 #### `win.setSize(width, height[, animate])`
 
@@ -895,7 +894,7 @@ Returns `Boolean` - whether the window is enabled.
 * `height` Integer
 * `animate` Boolean (可选) _macOS_
 
-调整窗口的`width`和 `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+调整窗口的`width`和 `height`. 如果 `width` 或 `height` 低于任何设定的最小尺寸约束，窗口将对齐到约束的最小尺寸。
 
 #### `win.getSize()`
 
