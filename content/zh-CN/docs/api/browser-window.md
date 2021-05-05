@@ -1176,9 +1176,9 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (可选)
   * `baseURLForDataURL` String (可选) - 要由数据URL加载的文件基本URL(末尾带有路径分隔符)。 仅当指定的`url`是数据url并且需要加载其他文件时，才需要此选项。
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+返回 `Promise<void>` - 当页面完成加载后 promise 将会resolve (见 [`did-finish-load`](web-contents.md#event-did-finish-load))，如果页面加载失败，则 reject (见 [`did-fail-load`](web-contents.md#event-did-fail-load))。
 
-Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
+与 [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options) 相同。
 
 `url` 可以是远程地址 (例如 `http://`),也可以是 `file://` 协议的本地HTML文件的路径.
 
@@ -1210,13 +1210,13 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (可选)
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (可选) - 传递给 `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+返回 `Promise<void>` - 当页面完成加载后 promise 将会resolve (见 [`did-finish-load`](web-contents.md#event-did-finish-load))，如果页面加载失败，则 reject (见 [`did-fail-load`](web-contents.md#event-did-fail-load))。
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
+与 `webContents.loadFile`相同， `filePath` 应该是一个与你的应用程序的根路径相关的HTML文件路径。  有关更多信息，请参阅`webContents` 文档。
 
 #### `win.reload()`
 
@@ -1226,23 +1226,23 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+将 `menu` 设置为窗口的菜单栏。
 
 #### `win.removeMenu()` _Linux_ _Windows_
 
-Remove the window's menu bar.
+删除窗口的菜单栏。
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
 * `options` Object (可选)
-  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String _Windows_ - 进度条的状态。 可以是 `none`， `normal`， `indeterminate`， `error` 或 `paused`。
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+设置进度条的进度值。 有效范围为 [0, 1.0]。
 
 当进度小于0时不显示进度; 当进度大于0时显示结果不确定.
 
-在 Linux 平台上，只支持 Unity 桌面模式, 你需要在 `package.json` 中为 `desktopName` 指定 `*.desktop` 的文件名. By default, it will assume `{app.name}.desktop`.
+在 Linux 平台上，只支持 Unity 桌面模式, 你需要在 `package.json` 中为 `desktopName` 指定 `*.desktop` 的文件名. 默认情况下，将取 `{app.name}.desktop`。
 
 在 Windows 上, 可以传递模式。 可以接受的值为`none`, `normal`, `indeterminate`, `error`和 `paused`. 如果没有设置模式 (但值在有效范围内) 的情况下调用 ` setProgressBar `, 默认值为` normal `。
 
@@ -1257,7 +1257,7 @@ Sets progress value in progress bar. Valid range is [0, 1.0].
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow.
+设置窗口是否有阴影。
 
 #### `win.hasShadow()`
 
@@ -1267,15 +1267,15 @@ Sets whether the window should have a shadow.
 
 * `opacity` Number - 介于0.0 ( 完全透明 ) 和1.0 ( 完全不透明 ) 之间
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+设置窗口的不透明度。 在Linux上不起作用。 超出界限的数值被限制在[0, 1] 范围内。
 
 #### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
+返回 `Number` - 介于0.0 (完全透明) 和1.0 (完全不透明) 之间。 在Linux上，始终返回1。
 
 #### `win.setShape(rects)` _Windows_ _Linux_ _实验性_
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - 在窗口上设置形状。 通过传入空列表将窗口恢复为矩形。
 
 对窗口形状的设置决定了窗口内系统允许绘制与用户交互的区域. 在给定的区域外, 没有像素会被绘制, 且没有鼠标事件会被登记. 在该区域外的鼠标事件将不会被该窗口接收, 而是落至该窗口后方的任意窗口.
 
@@ -1295,16 +1295,16 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
   * `icon` [NativeImage](native-image.md) - 在缩图工具栏上显示的图标.
   * `click` Function
   * `tooltip` String (可选) - 按钮的提示文本.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (可选) - 控制按钮的特定状态和行为。 默认情况下，值为 `['enabled']`。
 
 `flags` 属性是一个数组，包含以下`String`类型的值:
 
 * `enabled` - 该按钮处于活动状态并可供用户使用.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - 按钮已禁用。 会以一种视觉状态表示它不会响应用户操作的形式显示。
 * `dismissonclick` - 当按钮被点击时，缩略图窗口立即关闭。
 * `nobackground` - 不可以画按钮边框，只能使用图片背景。
 * `hidden` - 该按钮对用户不可见。
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - 按钮已启用，但不交互；不绘制按钮按下的状态。 This value is intended for instances where the button is used in a notification.
 
 #### `win.setThumbnailClip(region)` _Windows_
 
