@@ -443,7 +443,7 @@ win.on('app-command', (e, cmd) => {
 
 三指滑动时触发。 可能的方向是 `up`, `right`, `down`, `left`。
 
-The method underlying this event is built to handle older macOS-style trackpad swiping, where the content on the screen doesn't move with the swipe. Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+此事件的基本方法是用来处理旧的macOS风格的触摸板滑动，屏幕内容不会随着滑动而移动。 Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
 
 #### Event: 'rotate-gesture' _macOS_
 
