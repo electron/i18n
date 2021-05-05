@@ -60,6 +60,7 @@
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
   * [Автоматическое тестирование с помощью собственного драйвера](tutorial/automated-testing-with-a-custom-driver.md)
+  * [REPL](tutorial/repl.md)
 * [Распространение](tutorial/application-distribution.md)
   * [Поддерживаемые платформы](tutorial/support.md#supported-platforms)
   * [Цифровая подпись](tutorial/code-signing.md)

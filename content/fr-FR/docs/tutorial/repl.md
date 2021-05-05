@@ -1,23 +1,17 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL) est un environnement de programmation informatique simple et interactif qui prend une entrée utilisateur unique (c'est-à-dire des expressions uniques), les évalue et retourne le résultat à l’utilisateur.
+[Read-Eval-Print-Loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
 
-Le module `repl` fournit une implémentation de REPL qui est accessibles via :
+## Main process
 
-* En supposant que vous avez `electron` ou `electron-prebuilt` installé comme une dépendance local à votre projet :
+Electron exposes the [Node.js `repl` module](https://nodejs.org/dist/latest/docs/api/repl.html) through the `--interactive` CLI flag. Assuming you have `electron` installed as a local project dependency, you should be able to access the REPL with the following command:
 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
 
-* En supposant que vous avez `electron` ou `electron-prebuild` installé en global :
+**Note:** `electron --interactive` is not available on Windows (see [electron/electron#5776](https://github.com/electron/electron/pull/5776) for more details).
 
-  ```sh
-  electron --interactive
-  ```
+## Processus de rendu
 
-Cela ne crée qu'un REPL pour le processus principal. Vous pouvez utiliser l'onglet Console des outils de développement pour obtenir une REPL pour les processus de rendu.
-
-**Remarque :** `electron --interactive` n’est pas disponible sous Windows.
-
-Plus d’informations se trouvent dans les [docs de Node.js REPL](https://nodejs.org/dist/latest/docs/api/repl.html).
+You can use the DevTools Console tab to get a REPL for any renderer process. Pour en savoir plus, lisez [la documentation Chrome](https://developer.chrome.com/docs/devtools/console/).

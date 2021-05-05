@@ -60,6 +60,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extension DevTools](tutorial/devtools-extension.md)
   * [Test automatisé avec un driver personnalisé](tutorial/automated-testing-with-a-custom-driver.md)
+  * [REPL](tutorial/repl.md)
 * [Distribution](tutorial/application-distribution.md)
   * [Plateformes supportées](tutorial/support.md#supported-platforms)
   * [Signature de code](tutorial/code-signing.md)

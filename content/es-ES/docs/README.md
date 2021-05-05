@@ -60,6 +60,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
   * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensión de Chrome DevTools](tutorial/devtools-extension.md)
   * [Prueba Automática con un controlador personalizado](tutorial/automated-testing-with-a-custom-driver.md)
+  * [REPL](tutorial/repl.md)
 * [Distribución](tutorial/application-distribution.md)
   * [Plataformas soportadas](tutorial/support.md#supported-platforms)
   * [Firma de código](tutorial/code-signing.md)

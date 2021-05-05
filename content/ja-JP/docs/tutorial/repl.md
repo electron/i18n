@@ -1,23 +1,17 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL, レプル) は、単一のユーザー入力 (すなわち単一の式) を受け取り、それらを評価して、結果をユーザーに返す、単純な対話型評価環境です。
+[Read-Eval-Print-Loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (REPL, レプル) はシンプルな対話型コンピュータープログラミング環境で、単一のユーザー入力 (すなわち単一の式) を受け取り、それらを評価して結果をユーザーへ返します。
 
-`repl`モジュールは、以下を使用してアクセスできるREPL実装を提供します。
+## メインプロセス
 
-* ローカルプロジェクトの依存関係として`electron`または`electron-prebuilt`がインストールされている場合:
+Electron は `--interactive` CLI フラグに応じてその [Node.js `repl` モジュール](https://nodejs.org/dist/latest/docs/api/repl.html) を公開します。 ローカルプロジェクトの依存関係として `electron` がインストールされていれば、以下のコマンドで REPL にアクセスできるはずです。
 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
 
-* グローバルに`electron`または`electron-prebuilt`がインストールされている場合:
+**注意:** `electron --interactive` は Windows では利用できません (詳細は [electron/electron#5776](https://github.com/electron/electron/pull/5776) をご参照ください)。
 
-  ```sh
-  electron --interactive
-  ```
+## レンダラープロセス
 
-これはメインプロセス向けの REPL を作成するだけです。 デベロッパー ツールの Console タブを使用すれば、レンダラープロセスの REPL ができます。
-
-**Note:** `electron --interactive` はWindowsでは利用できません。
-
-詳細については、 [Node.js の REPL ドキュメント](https://nodejs.org/dist/latest/docs/api/repl.html)をご覧ください。
+デベロッパー ツールの Console タブを使用すれば、あらゆるレンダラープロセスで REPL ができます。 より詳しく学びたい方は、[Chrome ドキュメント](https://developer.chrome.com/docs/devtools/console/) をご覧ください。

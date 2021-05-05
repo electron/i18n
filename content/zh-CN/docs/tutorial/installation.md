@@ -80,7 +80,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 您也可以通过提供一个 `electron_config_cache` 环境变量来覆盖本地缓存位置。
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+缓存中包含了以文本文件形式存储的带有校验和的版本官方zip文件。 典型的缓存可能看起来像这样：
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
