@@ -1005,10 +1005,10 @@ console.log(win.getBounds())
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (可选) _macOS_ _Windows_ - 值包括 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`和 ~~`dock`~~(已弃用)。 The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs][window-levels] for more details.
+* `level` String (可选) _macOS_ _Windows_ - 值包括 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`和 ~~`dock`~~(已弃用)。 当 `flag` 属性为true时，默认值为 `floating` 。 当flag为false时，`level` 会重置为 `normal`。 请注意，包括从 `floating` 到 `status` ，窗口会被置于 macOS 上的 Dock 下方和 Windows 上的任务栏下方。 从 `pop-up-menu` 到更高级别，窗口显示在 macOS 上的Dock上方和 Windows 上的任务栏上方。 更多信息，请查阅 [macOS 文档][window-levels]。
 * `relativeLevel` Integer (可选) _macOS_ - 设置此窗口相对于给定 `级别`的层数。. 默认值为`0`. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+设置窗口是否应始终显示在其他窗口的前面。 设置后，窗口仍然是一个正常窗口，而不是一个无法获取焦点的工具框窗口。
 
 #### `win.isAlwaysOnTop()`
 
@@ -1016,9 +1016,9 @@ Sets whether the window should show always on top of other windows. After settin
 
 #### `win.moveAbove(mediaSourceId)`
 
-* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+* `mediaSourceId` String - DesktopCapturerSource格式的窗口 id 。 例如 "window:1869:0"。
 
-Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+将窗口按z轴顺序移动到源窗口前面。 如果 `mediaSourceId` 不是window类型，或者如果窗口不存在，则此方法会抛出一个错误。
 
 #### `win.moveTop()`
 
@@ -1050,14 +1050,14 @@ Moves window above the source window in the sense of z-order. If the `mediaSourc
 
 返回 ` String `-原生窗口的标题。
 
-**Note:** The title of the web page can be different from the title of the native window.
+**注意：** 网页的标题可以与原生窗口的标题不同。
 
 #### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
 
 * `offsetY` Float
 * `offsetX` Float (可选)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. 例如：
+改变macOS上sheet组件的附着点。 默认情况下，sheet贴在窗口边框正下方，但你可能需要在 HTML 渲染工具栏下方显示它们。 例如：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1083,7 +1083,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Enters or leaves kiosk mode.
+进入或离开 kiosk 模式。
 
 #### `win.isKiosk()`
 
@@ -1099,9 +1099,9 @@ Enters or leaves kiosk mode.
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. 例如 "window:1324:0"。
+返回 `String` - DesktopCapturerSource的id格式的窗口 id 。 例如 "window:1324:0"。
 
-More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
+更确切地说，格式是 `window:id:other_id`。在Windows上 `id` 是 `HWND` 类型；在macOS上是 `CGWindowID` (`uint64_t`)；在Linux上是 `Window` (`unsigned long`)。 `other_id` 用于识别同一顶层窗口内的Web 内容 (选项卡)。
 
 #### `win.getNativeWindowHandle()`
 
@@ -1113,10 +1113,10 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 * `message` Integer
 * `callback` Function
-  * `wParam` any - The `wParam` provided to the WndProc
-  * `lParam` any - The `lParam` provided to the WndProc
+  * `wParam` any - 提供给 WndProc的 `wParam` 值。
+  * `lParam` any - 提供给 WndProc的 `lParam` 值。
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+钩住窗口消息。 当消息到达 WndProc 时调用`callback` 。
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 
@@ -1162,19 +1162,19 @@ Hooks a windows message. The `callback` is called when the message is received i
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+返回 `Promise<NativeImage>` - 完成后返回一个[NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page. If the page is not visible, `rect` may be empty.
+在 `rect`内捕获页面的快照。 省略 `rect` 将捕获整个可见页面。 如果页面不可见， `rect` 可能是空的。
 
 #### `win.loadURL(url[, options])`
 
 * `url` String
 * `options` Object (可选)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - HTTP 引用 url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (可选)
+  * `baseURLForDataURL` String (可选) - 要由数据URL加载的文件基本URL(末尾带有路径分隔符)。 仅当指定的`url`是数据url并且需要加载其他文件时，才需要此选项。
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
