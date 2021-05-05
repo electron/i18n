@@ -22,13 +22,13 @@
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
+在 Windows 上, 你必须将应用程序安装在用户的计算机上才能使用`autoUpdater`, 所以推荐使用 [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] 或者 [grunt-electron-installer][installer] 模块来生成Windows安装程序。
 
-When using [electron-winstaller][installer-lib] or [electron-forge][electron-forge-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). 还建议使用 [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) 来创建应用程序的桌面快捷方式。
+当使用 [electron-winstaller][installer-lib] 或 [electron-forge][electron-forge-lib] 时，请确保不要在[第一次运行](https://github.com/electron/windows-installer#handling-squirrel-events)你的应用程序时进行更新操作(也可查看这个 [issue获取更多信息](https://github.com/electron/electron/issues/7155))。 还建议使用 [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) 来创建应用程序的桌面快捷方式。
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
+使用Squirrel生成的安装程序将以 `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` 的格式创建一个带有 [Application User Model ID][app-user-model-id] 的快捷图标，例子是 `com.squirrel.slack.Slack` 和 `com.squirrel.code.Code`。 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
 
-与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
+与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读 [Squirrel.Windows][squirrel-windows]的文档来获得更多关于 Squirrel.Windows 是如何工作的信息。
 
 ## 事件
 

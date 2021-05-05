@@ -124,7 +124,7 @@ Rückgabewert:
 
 Wird während [Handoff][handoff] ausgelöst, wenn eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
-Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Eine Benutzeraktivität kann nur in einer App fortgesetzt werden, die die gleiche Entwicklerteam-ID als die Quell-App der Aktivität hat und den Typ der Aktivität unterstützt. Unterstützte Aktivitätstypen sind spezifiziert in `Info.plist` unter dem `NSUserActivityTypes` Schlüssel.
 
 ### Event: 'will-continue-activity' _macOS_
 
@@ -163,7 +163,7 @@ Rückgabewert:
 * `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
 
-Wird ausgelöst wenn [Handoff][handoff] auf einem anderen Gerät fortgesetzt wird. Wenn Sie den zu übertragenden Status aktualisieren müssen, sollten Sie `event.preventDefault()` sofort aufrufen, ein neues `userInfo-Wörterbuch` erstellen und `app.updateCurrentActivity()` zeitnah aufrufen. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Wird ausgelöst wenn [Handoff][handoff] auf einem anderen Gerät fortgesetzt wird. Wenn Sie den zu übertragenden Status aktualisieren müssen, sollten Sie `event.preventDefault()` sofort aufrufen, ein neues `userInfo-Wörterbuch` erstellen und `app.updateCurrentActivity()` zeitnah aufrufen. Andernfalls wird die Operation fehlschlagen und `Continue-Activity-error` wird aufgerufen.
 
 ### Event: 'new-window-for-tab' _macOS_
 
@@ -180,7 +180,7 @@ Rückgabewert:
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Wird ausgegeben, wenn ein [ browserWindow ](browser-window.md) ausgeblendet wird.
 
 ### Event: 'browser-window-focus'
 
@@ -557,7 +557,7 @@ Returns `String` - The current application directory.
     * `$XDG_CONFIG_HOME` oder `~/.config` in Linux
     * `~/Library/Application Support` in macOS
   * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-  * `cache`
+  * `Cache`
   * `temp` Temporäres Verzeichnis.
   * `exe` Die aktuell ausführbare Datei.
   * `module` Die `libchromiumcontent` Bibliothek.
@@ -626,7 +626,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Returns `String` - The current application locale, fetched using Chromium's `l10n_util` library. Possible return values are documented [here](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 

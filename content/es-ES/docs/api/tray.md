@@ -1,3 +1,5 @@
+# Tray
+
 ## Clase: Tray
 
 > Añadir los iconos y menús contextuales al área de notificación del sistema.

@@ -6,17 +6,20 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 ## Class: MessageChannelMain
 
+> 主进程中用于通道消息传递的通道接口。
+
 进程：[主进程](../glossary.md#main-process)
 
 示例:
 
 ```js
-// Main process
+// 主进程
+const { MessageChannelMain } = require('electron')
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 
-// Renderer process
+// 渲染器进程
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('port', (e) => {
   // e.ports is a list of ports sent along with this message

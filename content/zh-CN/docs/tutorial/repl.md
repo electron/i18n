@@ -1,23 +1,17 @@
 # 交互式解释器 (REPL)
 
-读取(Read)-运算(Eval)-输出(Print)-循环(Loop) (REPL) 是很简单的, 交互式的计算机编程环境，它采用单个用户输入，运算并返回结果给用户。
+[读取(Read)-运算(Eval)-输出(Print)-循环(Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (REPL) 是一个简单的, 交互式的计算机编程环境，它采用单个用户输入(即单个表达式)，运算并返回结果给用户。
 
-在这里 `repl` 模块提供了一个 REPL 的实现, 可以这样使用:
+## 主进程
 
-* 如果你的 `electron` 或 `electron-prebuilt` 已经安装为本地项目依赖项:
+Electron 通过 `--interactive` 命令行参数将 [Node.js `repl` 模块](https://nodejs.org/dist/latest/docs/api/repl.html)暴露出去。 假设你已将 `electron` 安装为本地项目依赖，则应能够使用下面的命令访问 REPL：
 
   ```sh
   ./node_modules/.bin/electron --interactive
   ```
 
-* 如果你的 `electron` 或 `electron-prebuilt` 已经为全局方式安装:
+**注意：** `electron --interactive` 在 Windows 上不可用(详情请参阅[electron/electron#5776](https://github.com/electron/electron/pull/5776))。
 
-  ```sh
-  electron --interactive
-  ```
+## 渲染器进程
 
-这只能为主要进程创建一个REPL。 你可以使用开发工具的 控制台来获取渲染器流程的 REPL。
-
-**注意:** `electron --interactive` 在 Windows 上不可用.
-
-更多的内容可以在这里找到 [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+你可以使用开发者工具Console选项卡获取任意渲染器进程的REPL。 要了解更多，请阅读 [Chrome 文档](https://developer.chrome.com/docs/devtools/console/)。

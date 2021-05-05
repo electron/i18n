@@ -4,13 +4,13 @@
 * `type` String - Type de processus. Une des valeurs suivantes:
   * `Browser`
   * `Tab`
-  * `Utility`
+  * `Utilitaire`
   * `Zygote`
-  * `Sandbox helper`
+  * `Assistant bac à sable`
   * `GPU`
-  * `Pepper Plugin`
-  * `Pepper Plugin Broker`
-  * `Unknown`
+  * `Plugin Pepper`
+  * `Broker de plugin Pepper`
+  * `Inconnu`
 * `serviceName` String (optional) - The non-localized name of the process.
 * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 * `cpu` [CPUUsage](cpu-usage.md) - Usage CPU du processus.

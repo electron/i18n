@@ -60,6 +60,7 @@
   * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [开发工具扩展程序](tutorial/devtools-extension.md)
   * [使用自定义驱动程序进行自动化测试](tutorial/automated-testing-with-a-custom-driver.md)
+  * [交互式解释器 (REPL)](tutorial/repl.md)
 * [分发](tutorial/application-distribution.md)
   * [支持平台](tutorial/support.md#supported-platforms)
   * [代码签名](tutorial/code-signing.md)

@@ -626,7 +626,7 @@ app.exit(0)
 
 ### `app.getLocale()`
 
-返回 `String` - 当前应用程序区域设置。 可能的返回值记录在[这里](locales.md)。
+返回 `String` - 当前应用程序区域，使用Chromium的 `l10n_util` 库获取。 可能的返回值记录在[这里](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc)。
 
 要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)找到。
 
@@ -684,7 +684,7 @@ API 在内部使用 Windows 注册表和 `LSSetDefaultHandlerForURLScheme`。
 * ` path `String (可选) _ Windows _-默认为 ` process.execPath `
 * `args` String[] (可选) _Windows_ - 默认为空数组
 
-Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
+返回 `Boolean` - 当前可执行程序是否是协议(也就是URI scheme) 的默认处理程序。
 
 ** 注意: **在macOS上, 您可以使用此方法检查应用程序是否已注册为协议的默认协议处理程序。 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation][LSCopyDefaultHandlerForURLScheme]
 

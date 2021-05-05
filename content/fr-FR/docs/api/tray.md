@@ -1,3 +1,5 @@
+# Tray
+
 ## Classe : Tray
 
 > Ajoute des icônes et des menus contextuels à la zone de notification du système.

@@ -106,13 +106,13 @@ Retourne :
 
 Émis lorsque l'application est activée. Différentes actions peuvent déclencher cet événement, comme le lancement de l’application pour la première fois, essayer de relancer l’application lorsqu’elle est déjà en cours d’exécution, ou en cliquant sur l'icône du dock de l’application ou de l’icône de la barre des tâches.
 
-### Event: 'did-become-active' _macOS_
+### Événement : 'did-become-active' _macOS_
 
 Retourne :
 
 * `event` Événement
 
-Emitted when mac application become active. Difference from `activate` event is that `did-become-active` is emitted every time the app becomes active, not only when Dock icon is clicked or application is re-launched.
+Émis lorsque l'application est activée. Contrairement à l'événement `activate`, l'événement `did-become-active` est émit à chaque fois que l'application devient active, et pas seulement sur l'icône du Dock de l'application ou quand l'application est relancée.
 
 ### Événement : 'continue-activity' _macOS_
 
@@ -298,7 +298,7 @@ Si `callback` est appelé sans nom d'utilisateur ou mot de passe, la demande d'a
 
 Émis chaque fois qu'il y a une mise à jour d'informations GPU.
 
-### Event: 'gpu-process-crashed' _Deprecated_
+### Événement : 'gpu-process-crashed' _Deprecated_
 
 Retourne :
 
@@ -307,9 +307,9 @@ Retourne :
 
 Émis lorsque le processus GPU plante ou est tué.
 
-**Deprecated:** This event is superceded by the `child-process-gone` event which contains more information about why the child process disappeared. Ceci n'est pas toujours causé par un plantage. Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**Deprecated:** Cet événement est remplacé par l'événement `child-process-gone` qui contient plus d'informations à propos de la raison du plantage du processus enfant. Ceci n'est pas toujours causé par un plantage. Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-### Event: 'renderer-process-crashed' _Deprecated_
+### Événement : 'renderer-process-crashed' _Deprecated_
 
 Retourne :
 
@@ -319,9 +319,9 @@ Retourne :
 
 Émis lorsque le processus de rendu de `webContents` plante ou est tué.
 
-**Deprecated:** This event is superceded by the `render-process-gone` event which contains more information about why the render process disappeared. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
+**Deprecated:** Cet événement est remplacé par l'événement `render-process-gone` qui contient plus d'informations à propos de la raison du plantage du processus enfant. Ceci n'est pas toujours causé par un plantage.  Le booléen `killed` peut être remplacé par la vérification de `reason === 'killed'` lorsque vous passez à l'utilisation de cet événement.
 
-### Event: 'render-process-gone'
+### Événement : 'render-process-gone'
 
 Retourne :
 
@@ -334,39 +334,39 @@ Retourne :
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Le processus ne s'est pas lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
   * `Codedesortie`Numero integre-Le code de sortie du proces, sauf `si <code>la raison est <code>lancer a echoue,`ou <0>le codeSortie </code>sera une plateforme specifique, de code envoye errone.
 
-Emitted when the renderer process unexpectedly disappears.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
+Émis lorsque le processus de rendu plante de manière inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
-### Event: 'child-process-gone'
+### Événement : 'child-process-gone'
 
 Retourne :
 
 * `event` Événement
 * `details` Object
   * `type` String - Type de processus. Une des valeurs suivantes:
-    * `Utility`
+    * `Utilitaire`
     * `Zygote`
-    * `Sandbox helper`
+    * `Assistant bac à sable`
     * `GPU`
-    * `Pepper Plugin`
-    * `Pepper Plugin Broker`
-    * `Unknown`
+    * `Plugin Pepper`
+    * `Broker de plugin Pepper`
+    * `Inconnu`
   * `reason` String - The reason the child process is gone. Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
     * `crashed` - Processus s'est planté
     * `oom` - Le processus est tombé à cours de mémoire
-    * `launch-failed` - Process never successfully launched
+    * `launch-failed` - Le processus ne s'est pas lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
   * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
   * `serviceName` String (optional) - The non-localized name of the process.
   * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. C'est normalement dans les cas où il s'est planté ou qu'il a été tué. It does not include renderer processes.
+Émis lorsque le processus enfant plante de manière inattendue. C'est normalement dans les cas où il s'est planté ou qu'il a été tué. Cela n'inclut pas le processus de rendu.
 
 ### Événement : 'accessibility-support-changed' _macOS_ _Windows_
 
@@ -405,7 +405,7 @@ Cet événement sera émis dans l'instance principale de votre application quand
 
 `argv` est un tableau des arguments de la ligne de commande de la seconde instance, et `workingDirectory` est son répertoire de travail actuel. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
-**Note:** If the second instance is started by a different user than the first, the `argv` array will not include the arguments.
+**Note:** Si la seconde instance a été lancée par un utilisateur différent du premier, le tableau `argv` ne va pas inclure les arguments.
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
@@ -420,7 +420,7 @@ Retourne :
 
 Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
-### Event: 'remote-require' _Deprecated_
+### Événement: 'remote-require' _Deprecated_
 
 Retourne :
 
@@ -430,7 +430,7 @@ Retourne :
 
 Émis lorsque `remote.require()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-global' _Deprecated_
+### Événement: 'remote-get-global' _Deprecated_
 
 Retourne :
 
@@ -440,7 +440,7 @@ Retourne :
 
 Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-builtin' _Deprecated_
+### Événement: 'remote-get-builtin' _Deprecated_
 
 Retourne :
 
@@ -450,7 +450,7 @@ Retourne :
 
 Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-window' _Deprecated_
+### Événement: 'remote-get-current-window' _Deprecated_
 
 Retourne :
 
@@ -459,7 +459,7 @@ Retourne :
 
 Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents' _Deprecated_
+### Événement: 'remote-get-current-web-contents' _Deprecated_
 
 Retourne :
 
@@ -510,7 +510,7 @@ const { app } = require('electron') app.relaunch({ args: process.argv.slice(1).c
 
 ### `app.isReady()`
 
-Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon. See also `app.whenReady()`.
+Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon. Voir également `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -564,9 +564,9 @@ Retourne `String` - Répertoire courant de l'application.
   * `music` Dossier de musique de l’utilisateur.
   * `pictures` Dossier des images de l’utilisateur.
   * `videos` Dossier des vidéos de l’utilisateur.
-  * `recent` Directory for the user's recent files (Windows only).
+  * `recent` Dossier des fichiers récents de l'utilisateur (Windows seulement).
   * `logs` Répertoire du dossier de log de votre application.
-  * `crashDumps` Directory where crash dumps are stored.
+  * `crashDumps` Dossier où les rapports d'incidents sont stockés.
 
 Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. On failure, an `Error` is thrown.
 
@@ -623,7 +623,7 @@ Remplace le nom de l'application actuelle.
 
 ### `app.getLocale()`
 
-Retourne `String` - La locale de l'application actuelle. Les valeurs de retour possibles sont documentées [ici](locales.md).
+Renvoie `String` - Les paramètres régionaux actuels de l'application, récupérés à l'aide de la librairie `l10n_util` de Chromium. Les valeurs de retour possibles sont documentées [ici](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
 Pour définir la localisation, utilisez un paramètre de ligne de commande au démarrage de l'application, que vous trouverez [ici](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
@@ -991,18 +991,18 @@ Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
 * `options` Object (optional)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (optional) _Windows_ - The executable path to compare against. Par défaut `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Par défaut, un tableau vide.
 
 Si vous avez fourni des options `path` et `args` à `app.setLoginItemSettings`, vous devez passer les mêmes arguments ici pour que `openAtLogin` soit défini correctement.
 
 Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` si l'application est configurée pour démarrer à l'ouverture de session.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. This setting is not available on [MAS builds][mas-builds].
+* `openAsHidden` Boolean _macOS_ - `true` si l'application est configurée pour s'ouvrir comme cachée à l'ouverture de session. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` si l'application est automatiquement ouverte à l'ouverture de session. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` si l'application est ouverte comme un programme caché à l'ouverture de session. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` si l'application est ouverte comme un programme qui devrait restaurer l'état de la session précédente à l'ouverture de session. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1015,9 +1015,9 @@ Retourne `Object`:
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Par défaut, `faux`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. This setting is not available on [MAS builds][mas-builds].
-  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `openAsHidden` Boolean (facultatif) _macOS_ - `true` pour ouvrir l’application comme cachée. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+  * `path` String (optional) _Windows_ - The executable to launch at login. Par défaut `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Par défaut, un tableau vide. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Par défaut, `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Configurer les paramètres de l'application lors de l'ouverture de session.
 
@@ -1063,7 +1063,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
   * `version` String (facultatif) _macOS_ - Le numéro de version de l'application.
-  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `crédits` String (facultatif) _macOS_ _Windows_ - Crédits.
   * `auteurs` String[] (facultatif) _Linux_ - Liste des auteurs d'applications.
   * `site web` String (facultatif) _Linux_ - Le site web de l'application.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.

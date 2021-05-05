@@ -534,11 +534,11 @@ You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.show()` _macOS_
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Показывает окна приложения после того, как они были скрыты. Автоматической фокусировки на них не происходит.
 
 ### `app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (опционально) - пользовательский путь для Ваших логов. Должен быть абсолютным.
 
 Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
@@ -626,7 +626,7 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Returns `String` - The current application locale, fetched using Chromium's `l10n_util` library. Possible return values are documented [here](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
 Для установки языка вам потребуется использовать переключатель командной строки во время запуска приложения, который можно найти [здесь](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
@@ -995,17 +995,17 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 * `options` Object (опционально)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. По умолчанию пустой массив.
 
 Если Вы предоставили параметры `path` и `args` в `app.setLoginItemSettings`, тогда Вам необходимо передать те же аргументы сюда, чтобы `openAtLogin` установилось корректно.
 
 Возвращает `Object`:
 
 * `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Это означает, что приложению не следует открывать любое окно при запуске. This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. This setting is not available on [MAS builds][mas-builds].
+* `openAsHidden` Boolean _macOS_ - `true`, если приложение должно запускаться скрытым при входе в систему. Эта настройка недоступна в [сборках MAS][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true`, если приложение было открыто автоматически при входе в систему. Эта настройка недоступна в [сборках MAS][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true`, если приложение было запущено в качестве скрытого элемента, при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1018,9 +1018,9 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. This setting is not available on [MAS builds][mas-builds].
+  * `openAsHidden` Boolean (опционально) _macOS_ - `true` - открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. Эта настройка недоступна в [сборках MAS][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. По умолчанию пустой массив. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Defaults to `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Установите приложению параметры при входе в систему.
 

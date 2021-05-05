@@ -8,13 +8,15 @@ npm install electron --save-dev
 
 Por favor, echa un vistazo a [Electron versioning doc][versioning] para información de como manejar version de Electron en tus apps.
 
-## Instalación Global
+## Running Electron ad-hoc
 
-Puedes también instalar el comando `electron` globalmente en tu `$PATH`:
+If you're in a pinch and would prefer to not use `npm install` in your local project, you can also run Electron ad-hoc using the [`npx`][npx] command runner bundled with `npm`:
 
 ```sh
-npm install electron -g
+npx electron .
 ```
+
+The above command will run the current working directory with Electron. Note that any dependencies in your app will not be installed.
 
 ## Personalización
 
@@ -32,7 +34,7 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-Si necesita utilizar un proxy HTTP, necesita establecer la variable `ELECTRON_GET_USE_PROXY` a cualquier valor además de variables de entorno adicionales dependiendo de la versión del nodo del sistema host:
+If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
 
 * [Node 10 o superior][proxy-env-10]
 * [Anterior a Node 10][proxy-env]
@@ -45,26 +47,26 @@ Si no puede acceder a GitHub o necesita proporcionar una compilación personaliz
 
 #### Espejo
 
-Puede usar variables de entorno para anular la URL base, la ruta en la cual buscar binarios de Electron y el nombre del archivo binario. La URL utilizada por `@electron/get` se compone de la siguiente manera:
+Puede usar variables de entorno para anular la URL base, la ruta en la cual buscar binarios de Electron y el nombre del archivo binario. The URL used by `@electron/get` is composed as follows:
 
 ```javascript
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-Por ejemplo, para utilizar el espejo CDN de China:
+For instance, to use the China CDN mirror:
 
 ```shell
 ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
-Por defecto, `ELECTRON_CUSTOM_DIR` se establece en `v$VERSION`. Para cambiar el formato, use el marcador de posición `{{ version }}`. Por ejemplo, `version-{{ version }}` se resuelve a `version-5.0.`, `{{ version }}` se resuelve a `5.0.`, y `v{{ version }}` es equivalente al valor predeterminado. Como un ejemplo más concreto, para usar el espejo no CDN de China:
+By default, `ELECTRON_CUSTOM_DIR` is set to `v$VERSION`. To change the format, use the `{{ version }}` placeholder. For example, `version-{{ version }}` resolves to `version-5.0.0`, `{{ version }}` resolves to `5.0.0`, and `v{{ version }}` is equivalent to the default. As a more concrete example, to use the China non-CDN mirror:
 
 ```shell
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-La configuración anterior descargará de URLs como `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Caché
 
@@ -76,9 +78,9 @@ Alternativamente, puede anular la memoria caché local. `@electron-get` almacena
 
 En entornos que han estado usando versiones anteriores de Electron, también podrás encontrar la caché en `~/.electron`.
 
-También puede sobrescribir la ubicación de la caché local proporcionando una variable de entorno `electron_config_cache` .
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
-La caché contiene el archivo zip oficial de la versión, así como una suma de comprobación, almacenada como un archivo de texto. Un caché típico podría verse así:
+The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
 ├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
@@ -109,7 +111,7 @@ Cuando instale el paquete `electron` NPM, automáticamente descarga el archivo b
 
 Esto puede ser innecesario, por ejemplo en un entorno CI, cuando se prueba otro componente.
 
-Para evitar que el binario se descargue cuando instale todas las dependencias de npm, puede establecer la variable de entorno `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ej.:
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. Por ejemplo.:
 
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
@@ -121,11 +123,11 @@ Cuando ejecutamos `npm install electron`, ocasionalmente algunos usuarios encuen
 
 En casi todos los casos, estos errores son resultados de problemas en la red y no de problemas con el paquete npm de `electron`. Errores como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` y `ETIMEDOUT` son indicadores de dichos problemas de red. La mejor solución es tratar de cambiar las redes, o esperar un poco e instalar de nuevo.
 
-You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
+También puede intentar descargar Electron directamente de [electron/electron/releases][releases] si la ruta de instalación `npm` está fallando.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
+Si la instalación falla con un error `EACCESS` puede que se necesite los [fix your npm permissions][npm-permissions].
 
-If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
+Si el error de arriba persiste, puede ser que la marca [unsafe-perm][unsafe-perm] necesite sea establecido a true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
@@ -141,6 +143,7 @@ Si necesita forzar que se vuelvan a descargar el recurso y el archivo SHASUM, fi
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md
+[npx]: https://docs.npmjs.com/cli/v7/commands/npx
 [releases]: https://github.com/electron/electron/releases
 [proxy-env-10]: https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables
 [proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config

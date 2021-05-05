@@ -6,20 +6,23 @@
 
 ## Class: MessageChannelMain
 
+> メインプロセス内でチャンネルメッセージングをするためのチャンネルインターフェイスです。
+
 プロセス: [Main](../glossary.md#main-process)
 
 サンプル:
 
 ```js
-// Main process
+// メインプロセス
+const { MessageChannelMain } = require('electron')
 const { port1, port2 } = new MessageChannelMain()
 w.webContents.postMessage('port', null, [port2])
 port1.postMessage({ some: 'message' })
 
-// Renderer process
+// レンダラープロセス
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('port', (e) => {
-  // e.ports is a list of ports sent along with this message
+  // e.ports はこのメッセージに付加されるポートのリストです
   e.ports[0].on('message', (messageEvent) => {
     console.log(messageEvent.data)
   })

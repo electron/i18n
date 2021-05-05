@@ -1,3 +1,5 @@
+# Menu
+
 ## Class: Menu
 
 > Cria menus de aplicativo e menus de contexto nativos.
