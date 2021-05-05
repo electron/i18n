@@ -443,16 +443,16 @@ win.on('app-command', (e, cmd) => {
 
 三指滑动时触发。 可能的方向是 `up`, `right`, `down`, `left`。
 
-此事件的基本方法是用来处理旧的macOS风格的触摸板滑动，屏幕内容不会随着滑动而移动。 Most macOS trackpads are not configured to allow this kind of swiping anymore, so in order for it to emit properly the 'Swipe between pages' preference in `System Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three fingers'.
+此事件的基本方法是用来处理旧的macOS风格的触摸板滑动，屏幕内容不会随着滑动而移动。 大多数macOS触摸板都不再允许配置这样的滑动，因此为了正确地触发该事件，需将`System Preferences > Trackpad > More Gestures`中'Swipe between pages'首选项设置为'Swipe with two or three fingers'。
 
-#### Event: 'rotate-gesture' _macOS_
+#### 事件: 'rotate-gesture' _macOS_
 
 返回:
 
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+在触控板旋转手势上触发。 持续触发直到旋转手势结束。 每次触发的 `rotation` 值是自上次触发以来旋转的角度。 旋转手势最后一次触发的事件值永远是`0`。 逆时针旋转值为正值，顺时针旋转值为负值。
 
 #### 事件: 'sheet-begin' _macOS_
 
@@ -466,16 +466,16 @@ Emitted on trackpad rotation gesture. Continually emitted until rotation gesture
 
 当点击了系统的新标签按钮时触发
 
-#### Event: 'system-context-menu' _Windows_
+#### 事件: 'system-context-menu' _Windows_
 
 返回:
 
 * `event` Event
-* `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
+* `point` [Point](structures/point.md) - 上下文菜单触发时的屏幕坐标。
 
-Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
+当系统上下文菜单在窗口上触发时发出， 通常只在用户右键点击你窗口的非客户端区域时触发。  非客户端区域指的是窗口标题栏或无边框窗口中被你声明为 `-webkit-app-region: drag` 的任意区域。
 
-Calling `event.preventDefault()` will prevent the menu from being displayed.
+调用 `event.preventDefault()` 将阻止菜单显示。
 
 ### 静态方法
 
@@ -493,21 +493,21 @@ Calling `event.preventDefault()` will prevent the menu from being displayed.
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+返回 `BrowserWindow | null` - 返回拥有给定 `webContents`的窗口，否则如果内容不属于一个窗口，返回`null`。
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+返回 `BrowserWindow | null` - 拥有给定 `browserView` 的窗口。 如果给定的视图没有附加到任何窗口，返回 `null`。
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow | null` - The window with the given `id`.
+返回 `BrowserWindow | null` - 带有给定 `id` 的窗口。
 
-#### `BrowserWindow.addExtension(path)` _Deprecated_
+#### `BrowserWindow.addExtension(path)` _已废弃_
 
 * `path` String
 
@@ -517,9 +517,9 @@ Returns `BrowserWindow | null` - The window with the given `id`.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**注意：** 此方法已废弃。 使用[`ses.loadExtension(path)`](session.md#sesloadextensionpath-options)替代。
 
-#### `BrowserWindow.removeExtension(name)` _Deprecated_
+#### `BrowserWindow.removeExtension(name)` _已废弃_
 
 * `name` String
 
@@ -527,17 +527,17 @@ Returns `BrowserWindow | null` - The window with the given `id`.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**注意：** 此方法已废弃。 使用[`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid)替代。
 
-#### `BrowserWindow.getExtensions()` _Deprecated_
+#### `BrowserWindow.getExtensions()` _已废弃_
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+返回 `Record<String, ExtensionInfo>` - 键是扩展名，每个值都是一个包含 `name` 和 `version` 属性的对象。
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**注意：** 此方法已废弃。 使用[`ses.getAllExtensions()`](session.md#sesgetallextensions)替代。
 
-#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
+#### `BrowserWindow.addDevToolsExtension(path)` _已废弃_
 
 * `path` String
 
@@ -549,9 +549,9 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**注意：** 此方法已废弃。 使用[`ses.loadExtension(path)`](session.md#sesloadextensionpath-options)替代。
 
-#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
+#### `BrowserWindow.removeDevToolsExtension(name)` _已废弃_
 
 * `name` String
 
@@ -559,11 +559,11 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**注意：** 此方法已废弃。 使用[`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid)替代。
 
-#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
+#### `BrowserWindow.getDevToolsExtensions()` _已废弃_
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+返回 `Record<string, ExtensionInfo>` - 键是扩展名，每个值都是一个包含 `name` 和 `version` 属性的对象。
 
 要检查是否安装了 DevTools 扩展，您可以运行以下内容:
 
@@ -576,7 +576,7 @@ console.log(installed)
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**注意：** 此方法已废弃。 使用[`ses.getAllExtensions()`](session.md#sesgetallextensions)替代。
 
 ### 实例属性
 
@@ -584,54 +584,54 @@ console.log(installed)
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// In this example `win` is our instance
+// 本例中 `win` 是我们的实例
 const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents` _只读_
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+此窗口拥有的 `WebContents` 对象。 所有与网页相关的事件和操作都将通过它完成。
 
 有关它的方法和事件, 请参见 [`webContents` documentation](web-contents.md)
 
 #### `win.id` _只读_
 
-A `Integer` property representing the unique ID of the window. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+一个 `Integer` 属性代表了窗口的唯一ID。 每个ID在整个Electron应用程序的所有 `BrowserWindow` 实例中都是唯一的。
 
 #### `win.autoHideMenuBar`
 
-A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+一个 `Boolean` 属性决定窗口菜单栏是否自动隐藏。 一旦设置，菜单栏将只在用户单击 `Alt` 键时显示。
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+如果菜单栏已经可见，将该属性设置为 `true` 将不会使其立刻隐藏。
 
 #### `win.simpleFullScreen`
 
-A `Boolean` property that determines whether the window is in simple (pre-Lion) fullscreen mode.
+一个 `Boolean` 属性，用于决定窗口是否处于简单(pre-Lion) 全屏模式。
 
 #### `win.fullScreen`
 
-A `Boolean` property that determines whether the window is in fullscreen mode.
+一个 `Boolean` 属性，用于决定窗口是否处于全屏模式。
 
 #### `win.visibleOnAllWorkspaces`
 
-A `Boolean` property that determines whether the window is visible on all workspaces.
+一个 `Boolean` 属性，用于决定窗口是否在所有工作区中可见。
 
-**Note:** Always returns false on Windows.
+**注意：** 在 Windows 上始终返回 false。
 
 #### `win.shadow`
 
-A `Boolean` property that determines whether the window has a shadow.
+一个 `Boolean` 属性，用于决定窗口是否显示阴影。
 
 #### `win.menuBarVisible` _Windows_ _Linux_
 
-A `Boolean` property that determines whether the menu bar should be visible.
+一个 `Boolean` 属性，用于决定菜单栏是否可见。
 
-**Note:** If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+**注意：** 如果菜单栏自动隐藏，用户仍然可以通过单击 `Alt` 键来唤出菜单栏。
 
 #### `win.kiosk`
 
-A `Boolean` property that determines whether the window is in kiosk mode.
+一个 `Boolean` 属性，用于决定窗口是否处于kiosk模式。
 
 #### `win.documentEdited` _macOS_
 
