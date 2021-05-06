@@ -794,7 +794,7 @@ Menu.setApplicationMenu(menu)
 
 进入或离开简单的全屏模式。
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
+简单全屏模式模拟了 Lion (10.7) 之前的macOS版本中的原生全屏行为。
 
 #### `win.isSimpleFullScreen()` _macOS_
 
@@ -938,17 +938,17 @@ console.log(win.getBounds())
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by the user.
+设置用户是否可以手动调整窗口大小。
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by the user.
+返回 `Boolean` - 用户是否可以手动调整窗口大小。
 
 #### `win.setMovable(movable)` _macOS_ _Windows_
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+设置用户是否可以移动窗口。 在Linux上不起作用。
 
 #### `win.isMovable()` _macOS_ _Windows_
 
@@ -960,11 +960,11 @@ Sets whether the window can be moved by user. On Linux does nothing.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+设置用户是否可以手动将窗口最小化。 在Linux上不起作用。
 
 #### `win.isMinimizable()` _macOS_ _Windows_
 
-Returns `Boolean` - Whether the window can be manually minimized by the user.
+返回 `Boolean` - 用户是否可以手动最小化窗口。
 
 在 Linux 上总是返回 ` true `。
 
@@ -972,7 +972,7 @@ Returns `Boolean` - Whether the window can be manually minimized by the user.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+设置用户是否可以手动最大化窗口。 在Linux上不起作用。
 
 #### `win.isMaximizable()` _macOS_ _Windows_
 
@@ -984,17 +984,17 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+设置最大化/缩放窗口按钮是切换全屏模式还是最大化窗口。
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+返回 `Boolean` - 最大化/缩放窗口按钮是切换全屏模式还是最大化窗口。
 
 #### `win.setClosable(closable)` _macOS_ _Windows_
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+设置用户是否可以手动关闭窗口。 在Linux上不起作用。
 
 #### `win.isClosable()` _macOS_ _Windows_
 
@@ -1005,10 +1005,10 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) _macOS_ _Windows_ - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs][window-levels] for more details.
+* `level` String (可选) _macOS_ _Windows_ - 值包括 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`和 ~~`dock`~~(已弃用)。 当 `flag` 属性为true时，默认值为 `floating` 。 当flag为false时，`level` 会重置为 `normal`。 请注意，包括从 `floating` 到 `status` ，窗口会被置于 macOS 上的 Dock 下方和 Windows 上的任务栏下方。 从 `pop-up-menu` 到更高级别，窗口显示在 macOS 上的Dock上方和 Windows 上的任务栏上方。 更多信息，请查阅 [macOS 文档][window-levels]。
 * `relativeLevel` Integer (可选) _macOS_ - 设置此窗口相对于给定 `级别`的层数。. 默认值为`0`. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+设置窗口是否应始终显示在其他窗口的前面。 设置后，窗口仍然是一个正常窗口，而不是一个无法获取焦点的工具框窗口。
 
 #### `win.isAlwaysOnTop()`
 
@@ -1016,9 +1016,9 @@ Sets whether the window should show always on top of other windows. After settin
 
 #### `win.moveAbove(mediaSourceId)`
 
-* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+* `mediaSourceId` String - DesktopCapturerSource格式的窗口 id 。 例如 "window:1869:0"。
 
-Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+将窗口按z轴顺序移动到源窗口前面。 如果 `mediaSourceId` 不是window类型，或者如果窗口不存在，则此方法会抛出一个错误。
 
 #### `win.moveTop()`
 
@@ -1050,14 +1050,14 @@ Moves window above the source window in the sense of z-order. If the `mediaSourc
 
 返回 ` String `-原生窗口的标题。
 
-**Note:** The title of the web page can be different from the title of the native window.
+**注意：** 网页的标题可以与原生窗口的标题不同。
 
 #### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
 
 * `offsetY` Float
 * `offsetX` Float (可选)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. 例如：
+改变macOS上sheet组件的附着点。 默认情况下，sheet贴在窗口边框正下方，但你可能需要在 HTML 渲染工具栏下方显示它们。 例如：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1083,7 +1083,7 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Enters or leaves kiosk mode.
+进入或离开 kiosk 模式。
 
 #### `win.isKiosk()`
 
@@ -1099,9 +1099,9 @@ Enters or leaves kiosk mode.
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. 例如 "window:1324:0"。
+返回 `String` - DesktopCapturerSource的id格式的窗口 id 。 例如 "window:1324:0"。
 
-More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
+更确切地说，格式是 `window:id:other_id`。在Windows上 `id` 是 `HWND` 类型；在macOS上是 `CGWindowID` (`uint64_t`)；在Linux上是 `Window` (`unsigned long`)。 `other_id` 用于识别同一顶层窗口内的Web 内容 (选项卡)。
 
 #### `win.getNativeWindowHandle()`
 
@@ -1113,10 +1113,10 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 * `message` Integer
 * `callback` Function
-  * `wParam` any - The `wParam` provided to the WndProc
-  * `lParam` any - The `lParam` provided to the WndProc
+  * `wParam` any - 提供给 WndProc的 `wParam` 值。
+  * `lParam` any - 提供给 WndProc的 `lParam` 值。
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+钩住窗口消息。 当消息到达 WndProc 时调用`callback` 。
 
 #### `win.isWindowMessageHooked(message)` _Windows_
 
@@ -1162,23 +1162,23 @@ Hooks a windows message. The `callback` is called when the message is received i
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+返回 `Promise<NativeImage>` - 完成后返回一个[NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page. If the page is not visible, `rect` may be empty.
+在 `rect`内捕获页面的快照。 省略 `rect` 将捕获整个可见页面。 如果页面不可见， `rect` 可能是空的。
 
 #### `win.loadURL(url[, options])`
 
 * `url` String
 * `options` Object (可选)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - HTTP 引用 url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (可选)
+  * `baseURLForDataURL` String (可选) - 要由数据URL加载的文件基本URL(末尾带有路径分隔符)。 仅当指定的`url`是数据url并且需要加载其他文件时，才需要此选项。
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+返回 `Promise<void>` - 当页面完成加载后 promise 将会resolve (见 [`did-finish-load`](web-contents.md#event-did-finish-load))，如果页面加载失败，则 reject (见 [`did-fail-load`](web-contents.md#event-did-fail-load))。
 
-Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
+与 [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options) 相同。
 
 `url` 可以是远程地址 (例如 `http://`),也可以是 `file://` 协议的本地HTML文件的路径.
 
@@ -1210,13 +1210,13 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (可选)
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (可选) - 传递给 `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+返回 `Promise<void>` - 当页面完成加载后 promise 将会resolve (见 [`did-finish-load`](web-contents.md#event-did-finish-load))，如果页面加载失败，则 reject (见 [`did-fail-load`](web-contents.md#event-did-fail-load))。
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
+与 `webContents.loadFile`相同， `filePath` 应该是一个与你的应用程序的根路径相关的HTML文件路径。  有关更多信息，请参阅`webContents` 文档。
 
 #### `win.reload()`
 
@@ -1226,23 +1226,23 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+将 `menu` 设置为窗口的菜单栏。
 
 #### `win.removeMenu()` _Linux_ _Windows_
 
-Remove the window's menu bar.
+删除窗口的菜单栏。
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
 * `options` Object (可选)
-  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String _Windows_ - 进度条的状态。 可以是 `none`， `normal`， `indeterminate`， `error` 或 `paused`。
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+设置进度条的进度值。 有效范围为 [0, 1.0]。
 
 当进度小于0时不显示进度; 当进度大于0时显示结果不确定.
 
-在 Linux 平台上，只支持 Unity 桌面模式, 你需要在 `package.json` 中为 `desktopName` 指定 `*.desktop` 的文件名. By default, it will assume `{app.name}.desktop`.
+在 Linux 平台上，只支持 Unity 桌面模式, 你需要在 `package.json` 中为 `desktopName` 指定 `*.desktop` 的文件名. 默认情况下，将取 `{app.name}.desktop`。
 
 在 Windows 上, 可以传递模式。 可以接受的值为`none`, `normal`, `indeterminate`, `error`和 `paused`. 如果没有设置模式 (但值在有效范围内) 的情况下调用 ` setProgressBar `, 默认值为` normal `。
 
@@ -1257,7 +1257,7 @@ Sets progress value in progress bar. Valid range is [0, 1.0].
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow.
+设置窗口是否有阴影。
 
 #### `win.hasShadow()`
 
@@ -1267,15 +1267,15 @@ Sets whether the window should have a shadow.
 
 * `opacity` Number - 介于0.0 ( 完全透明 ) 和1.0 ( 完全不透明 ) 之间
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+设置窗口的不透明度。 在Linux上不起作用。 超出界限的数值被限制在[0, 1] 范围内。
 
 #### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
+返回 `Number` - 介于0.0 (完全透明) 和1.0 (完全不透明) 之间。 在Linux上，始终返回1。
 
 #### `win.setShape(rects)` _Windows_ _Linux_ _实验性_
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - 在窗口上设置形状。 通过传入空列表将窗口恢复为矩形。
 
 对窗口形状的设置决定了窗口内系统允许绘制与用户交互的区域. 在给定的区域外, 没有像素会被绘制, 且没有鼠标事件会被登记. 在该区域外的鼠标事件将不会被该窗口接收, 而是落至该窗口后方的任意窗口.
 
@@ -1295,16 +1295,16 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
   * `icon` [NativeImage](native-image.md) - 在缩图工具栏上显示的图标.
   * `click` Function
   * `tooltip` String (可选) - 按钮的提示文本.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (可选) - 控制按钮的特定状态和行为。 默认情况下，值为 `['enabled']`。
 
 `flags` 属性是一个数组，包含以下`String`类型的值:
 
 * `enabled` - 该按钮处于活动状态并可供用户使用.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `disabled` - 按钮已禁用。 会以一种视觉状态表示它不会响应用户操作的形式显示。
 * `dismissonclick` - 当按钮被点击时，缩略图窗口立即关闭。
 * `nobackground` - 不可以画按钮边框，只能使用图片背景。
 * `hidden` - 该按钮对用户不可见。
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - 按钮已启用，但不交互；不绘制按钮按下的状态。 此值用于在通知中使用按钮的实例。
 
 #### `win.setThumbnailClip(region)` _Windows_
 
@@ -1323,13 +1323,13 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 * `选项` 对象
   * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
   * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. 默认值为 `0`
+  * `appIconIndex` Integer (可选) - `appIconPath`中的图标索引。 未设置 `appIconPath` 时忽略。 默认值为 `0`
   * `relaunchCommand` String (可选) - 窗口的 [重新启动命令](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (可选) - 窗口的[重新启动显示名称](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
 设置窗口任务栏按钮的属性。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注意：**必须始终同时设置 `relaunchCommand` 和 `relaunchDisplayName`。 如果其中一个属性没有设置，那么这两个属性都不会使用。
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1353,9 +1353,9 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+设置窗口菜单栏是否自动隐藏。 一旦设置，菜单栏将只在用户单击 `Alt` 键时显示。
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+如果菜单栏已经可见, 调用 `setAutoHideMenuBar(true)`时不会立刻隐藏。
 
 #### `win.isMenuBarAutoHide()`
 
@@ -1365,7 +1365,7 @@ If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hid
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+设置菜单栏是否可见。 如果菜单栏自动隐藏，用户仍然可以通过单击 `Alt` 键来唤出菜单栏。
 
 #### `win.isMenuBarVisible()`
 
@@ -1403,7 +1403,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 防止窗口内容被其他应用捕获
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. 在 Windows 上，它以参数为 `WDA_EXCLUDEFROMCAPTURE` 调用 SetWindowDisplayAffinity 。 对于 Windows 10 2004以上版，本窗口将完全从抓取中移除，在低版本 Windows 上其行为就像是 `WDA_MONITOR` 捕捉了黑色窗口。
+在 macOS 上，它将 NSWindow 的 sharingType 设置为 NSWindowSharingNone。 在 Windows 上，它以参数为 `WDA_EXCLUDEFROMCAPTURE` 调用 SetWindowDisplayAffinity 。 对于 Windows 10 2004以上版，本窗口将完全从抓取中移除，在低版本 Windows 上其行为就像是 `WDA_MONITOR` 捕捉了黑色窗口。
 
 #### `win.setFocusable(focusable)` _macOS_ _Windows_
 
@@ -1411,7 +1411,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. 在 Windows 
 
 设置窗口是否可聚焦
 
-On macOS it does not remove the focus from the window.
+在 macOS 上，该方法不会从窗口中移除焦点。
 
 #### `win.setParentWindow(parent)`
 
@@ -1461,21 +1461,21 @@ On macOS it does not remove the focus from the window.
 
 #### `win.setVibrancy(type)` _macOS_
 
-* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. 更多详细信息，请查阅 [macOS documentation][vibrancy-docs]
+* `type` String | null - 可以是 `appearance-based`，`light`，`dark`，`titlebar`，`selection`，`menu`，`popover`，`sidebar`，`medium-light`，`ultra-dark`，`header`，`sheet`，`window`，`hud`，`fullscreen-ui`，`tooltip`，`content`，`under-window` 或 `under-page`。 更多详细信息，请查阅 [macOS documentation][vibrancy-docs]
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+在浏览器窗口中添加一个动态特效。 传递 `null` 或空字符串将会移除窗口上的动态效果。
 
-Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+请注意， `appearance-based`，`light`，`dark`，`medium-light` 和 `ultra-dark` 已被弃用，并将在即将推出的 macOS 版本中被移除。
 
 #### `win.setTrafficLightPosition(position)` _macOS_
 
 * `position` [Point](structures/point.md)
 
-Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+自定义 traffic light 按钮的位置。 仅在 `titleBarStyle` 设置为 `hidden` 时使用。
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+返回 `Point` - traffic light按钮的当前位置。 仅在 `titleBarStyle` 设置为 `hidden` 时使用。
 
 #### `win.setTouchBar(touchBar)` _macOS_
 
@@ -1487,17 +1487,17 @@ Returns `Point` - The current position for the traffic light buttons. Can only b
 
 #### `win.setBrowserView(browserView)` _实验_
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - 将 `browserView` 附加到 `win`。 如果已经附加了其他 `BrowserView`，那么它们将会被从此窗口中移除。
 
 #### `win.getBrowserView()` _实验功能_
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
+返回 `BrowserView | null` - 附加到 `win` 的 `BrowserView` 。 如果未附加，则返回 `null`。 如果附加了多个 `BrowserView`，则抛出错误。
 
 #### `win.addBrowserView(browserView)` _实验_
 
 * `browserView` [BrowserView](browser-view.md)
 
-Replacement API for setBrowserView supporting work with multi browser views.
+替代 setBrowserView 的API，支持多个browserView一起使用。
 
 #### `win.removeBrowserView(browserView)` _实验_
 
@@ -1507,11 +1507,11 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 * `browserView` [BrowserView](browser-view.md)
 
-Raises `browserView` above other `BrowserView`s attached to `win`. Throws an error if `browserView` is not attached to `win`.
+提高 `browserView` 于其它附加到 `win` 的 `BrowserView` 之上 。 如果 `browserView` 未附加到 `win`，则抛出错误。
 
 #### `win.getBrowserViews()` _实验功能_
 
-Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
+返回 `BrowserView[]` - 所有通过 `addBrowserView` 或 `setBrowserView` 附加的BrowserView数组。
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
 
