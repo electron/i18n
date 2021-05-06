@@ -71,7 +71,22 @@ Vous pouvez ajouter des éléments de menu pour accéder et effacer les document
 }
 ```
 
-![Élément de menu Documents récents macOS][6]
+Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+
+```javascript
+const { app, Menu } = require('electron')
+
+const template = [
+  // Menu template here
+]
+const menu = Menu.buildFromTemplate(template)
+
+app.whenReady().then(() => {
+  Menu.setApplicationMenu(menu)
+})
+```
+
+![macOS Recent Documents menu item][6]
 
 Lorsqu’un fichier est demandé dans le menu documents récents, l’événement `open-file` du module `app` sera émit.
 
