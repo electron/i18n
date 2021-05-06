@@ -71,13 +71,13 @@ Windows でこの機能を使用する際にアプリケーションが書類の
 }
 ```
 
-Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+以下のようにアプリケーションメニューを [`'ready'`](../api/app.md#event-ready) イベントより後に追加し、それより前では追加しないようにしてください。さもなくばメニューアイテムは無効になります。
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const template = [
-  // Menu template here
+  // メニューテンプレートをこちらに
 ]
 const menu = Menu.buildFromTemplate(template)
 
@@ -86,7 +86,7 @@ app.whenReady().then(() => {
 })
 ```
 
-![macOS Recent Documents menu item][6]
+![macOS 最近使った書類のメニューアイテム][6]
 
 最近使った書類メニューからファイルが要求されると、それに対して `app` モジュールの `open-file` イベントが発生します。
 
