@@ -8,8 +8,8 @@
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+* `options` (Object | String) - 如果 `options` 是字符串，则将其解释为请求 URL。 如果是对象，它应该通过以下属性完全指定HTTP请求：
+  * `method` String (可选) - HTTP 请求方法。 Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. The `session` option supersedes `partition`. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
