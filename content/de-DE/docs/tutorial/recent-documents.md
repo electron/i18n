@@ -71,7 +71,22 @@ Sie können Menüeinträge zum Zugriff und Löschen von Dokumenten hinzufügen, 
 }
 ```
 
-![macOS Letzte Dokumente Menüpunkt][6]
+Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+
+```javascript
+const { app, Menu } = require('electron')
+
+const template = [
+  // Menu template here
+]
+const menu = Menu.buildFromTemplate(template)
+
+app.whenReady().then(() => {
+  Menu.setApplicationMenu(menu)
+})
+```
+
+![macOS Recent Documents menu item][6]
 
 Sobald eine Datei vom Menu der zuletzt hinzugefügten Dateien angefordert wird, so wird dafür das `open-file`-Event des `app`-Moduls ausgeworfen.
 
