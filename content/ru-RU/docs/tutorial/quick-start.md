@@ -306,7 +306,7 @@ ipcRenderer.invoke('perform-action', ...args)
 
 ##### Node.js API
 
-> ПРИМЕЧАНИЕ: Чтобы получить доступ к API Node.js из процесса рендера, необходимо установить настройки `nodeIntegration: true` и `contextIsolation: false`.  Please note that access to the Node.js API in any renderer that loads remote content is not recommended for [security reasons](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
+> ПРИМЕЧАНИЕ: Чтобы получить доступ к API Node.js из процесса рендера, необходимо установить настройки `nodeIntegration: true` и `contextIsolation: false`.  Обратите внимание, что доступ к API Node.js в любом renderer процессе, который загружает удаленный контент, не рекомендуется по [соображениям безопасности](../tutorial/security.md#2-do-not-enable-nodejs-integration-for-remote-content).
 
 Electron предоставляет полный доступ к Node.js API и его модулям как в основных процессах, так и в процессах Renderer. Например, вы можете прочитать все файлы из корневого каталога:
 
