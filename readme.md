@@ -19,8 +19,8 @@ The following languages are currently being translated:
 <!-- start language-table -->
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
-- [Français (French)](https://crowdin.com/project/electron/fr)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
+- [Français (French)](https://crowdin.com/project/electron/fr)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
