@@ -9,19 +9,19 @@
 ### `new ClientRequest(options)`
 
 * `options` (Object | String) - 如果 `options` 是字符串，则将其解释为请求 URL。 如果是对象，它应该通过以下属性完全指定HTTP请求：
-  * `method` String (可选) - HTTP 请求方法。 Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
+  * `method` String (可选) - HTTP 请求方法。 默认为GET方法。
+  * `url` String (可选) - 请求URL。 必须以绝对路径形式提供，并将协议指定为http或https。
   * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.
-  * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. The `session` option supersedes `partition`. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
-  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. 默认值为 `false`.
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
+  * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session` 选项取代了 `partition`。 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
+  * `credentials` String (可选) - 可以是 `include` 或 `omit`。 是否随此请求发送 [凭据](https://fetch.spec.whatwg.org/#credentials)。 如果设置为 `include`，将使用与请求相关的会话凭据。 如果设置为 `omit`，则不会随请求发送凭据(并且不会在 401响应的事件中触发 `'login'` 事件)。 这与同名的 [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) 选项的行为相同。 如果未指定此选项，则会发送来自会话的身份验证数据，同时不发送cookie(除非 设置了`useSessionCookies`)。
+  * `useSessionCookies` Boolean (可选) - 是否从提供的会话与请求一起发送cookie。 如果指定了 `credentials` ，则此选项没有效果。 默认值为 `false`.
+  * `protocol` String (可选) - 可以是 `http:` 或 `https:`。 协议方案的形式为“scheme:”。 默认为 'http:'。
   * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'.
   * `hostname` String (可选) - 服务器主机名.
   * `port` Integer (可选) - 服务器侦听的端口号.
   * `path` String (可选) - 请求URL的路径部分.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  默认值为 `follow`.
-  * `origin` String (optional) - The origin URL of the request.
+  * `redirect` String (可选) - 可以是 `follow`， `error` 或 `manual`。 当前请求的重定向模式。 当模式为 `error` 时，任何重定向都会被中止。 当模式为 `manual` 时，重定向会被取消，除非 [`request.followRedirect`](#requestfollowredirect) 在[`redirect`](#event-redirect) 事件期间同步调用。  默认值为 `follow`.
+  * `origin` String (可选) - 请求的源 URL。
 
 `options` 属性，如 `protocol`, `host`, `hostname`, `port` 和 `path`，在 [URL](https://nodejs.org/api/url.html) 模块中会严格遵循 Node.js 的模式
 
@@ -92,7 +92,7 @@ request.on('login', (authInfo, callback) => {
 
 #### 事件: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+在 `request` 被中止时触发。 如果 `request` 已经关闭， `abort` 事件将不会被触发。
 
 #### 事件: 'error'
 
@@ -115,7 +115,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+当服务器返回重定向响应时触发(例如，301 页面永久性移走)。 调用 [`request.followRirect`](#requestfollowredirect) 将继续重定向。  如果该事件被处理，[`request.followRedirect`](#requestfollowredirect) 必须**同步**调用，否则请求将被取消。
 
 ### 实例属性
 
@@ -130,38 +130,38 @@ Emitted when the server returns a redirect response (e.g. 301 Moved Permanently)
 #### `request.setHeader(name, value)`
 
 * `name` String - 额外的 HTTP 头名称.
-* `value` String - An extra HTTP header value.
+* `value` String - 额外的 HTTP 头部值。
 
-添加一个额外的 HTTP 头。 The header name will be issued as-is without lowercasing. 它只能在第一次写入之前调用。 在第一次写入后调用此方法将引发错误。 如果传递的值不是 ` String `, 则会调用 ` toString () ` 方法来获取最终值。
+添加一个额外的 HTTP 头。 头名称将按原样发布，不会转为小写。 它只能在第一次写入之前调用。 在第一次写入后调用此方法将引发错误。 如果传递的值不是 ` String `, 则会调用 ` toString () ` 方法来获取最终值。
 
-Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+某些头部受应用程序设置的限制。 这些头部如下所列。 有关受限头部的更多信息，可以在 [Chromium的头部工具](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22) 中找到。
 
 * `Content-Length`
 * `Host`
-* `Trailer` or `Te`
+* `Trailer` 或 `Te`
 * `Upgrade`
 * `Cookie2`
 * `Keep-Alive`
 * `Transfer-Encoding`
 
-Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
+此外，也不允许将 `Connection` 头部设置为 `upgrade`。
 
 #### `request.getHeader(name)`
 
 * `name` String - 指定一个额外的头名称.
 
-Returns `String` - The value of a previously set extra header name.
+返回 `String` - 以前设置的额外头部名称的值。
 
 #### `request.removeHeader(name)`
 
 * `name` String - 指定一个额外的头名称.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+移除先前设置的额外头部名称。 此方法只能在首次写入前调用。 尝试在第一次写入后调用将抛出一个错误。
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
+* `chunk` (String | Buffer) - 请求主体的数据块。 如果是字符串，则使用指定的编码将其转换为Buffer。
+* `encoding` String (可选) - 用于将字符串块转换为Buffer对象。 默认为“utf-8”。
 * ` callback ` Function (可选)-在写操作结束后调用。
 
 ` callback ` 实质上是为了保持与 Node.js API 的相似性而引入的虚拟函数。 在将 ` chunk ` 内容传递到 Chromium 网络层之后, 在下一个 tick 中异步调用。 与 Node.js 实现相反, 不保证 ` chunk ` 内容在调用 ` callback ` 之前已经被刷新。
@@ -174,7 +174,7 @@ Removes a previously set extra header name. This method can be called only befor
 * `encoding` String (可选)
 * `callback` Function (可选)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+发送请求数据的剩下部分。 不允许进行后续的写入或结束操作。 `finish` 事件在结束操作后发出。
 
 #### `request.abort()`
 
@@ -182,16 +182,16 @@ Sends the last chunk of the request data. Subsequent write or end operations wil
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+继续任何待处理的重定向。 只能在 `'redirect'` 事件期间调用。
 
 #### `request.getUploadProgress()`
 
 返回 ` Object `:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - The number of bytes that have been uploaded so far
-* `total` Integer - The number of bytes that will be uploaded this request
+* `active` Boolean - 请求当前是否处于活动状态。 如果为 false，将不会设置其他属性。
+* `started` Boolean - 上传是否已经开始。 如果值为false，`current` 和 `total` 将被设置为 0。
+* `current` Integer - 到目前为止已上传的字节数
+* `total` Integer - 本次请求总共要上传的字节数
 
 您可以使用此方法获取使用 `POST` 请求的文件上传或其他数据传输的进度
 
