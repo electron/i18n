@@ -1,6 +1,6 @@
 # Tiempos de lanzamientos de Electron
 
-* Las fechas `-beta.1` y `stable` son nuestras fechas de lanzamiento sólidas.
+* The `-beta.1` and `stable` dates are our solid release dates.
 * Nos esforzamos por liberar versiones beta semanalmente, sin embargo a menudo liberamos mas betas que las programadas.
 * Todas las fechas son nuestras metas pero puede haber razones para ajustar el plazo de la versión estable, tales como errores de seguridad.
 * Echa un vistazo a [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) para información acerca de publicación de nuestras fechas de lanzamiento.
