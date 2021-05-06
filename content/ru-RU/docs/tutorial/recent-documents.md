@@ -71,9 +71,24 @@ app.clearRecentDocuments()
 }
 ```
 
+Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+
+```javascript
+const { app, Menu } = require('electron')
+
+const template = [
+  // Menu template here
+]
+const menu = Menu.buildFromTemplate(template)
+
+app.whenReady().then(() => {
+  Menu.setApplicationMenu(menu)
+})
+```
+
 ![Элемент меню macOS последних документов][6]
 
-Когда файл запрашивается из меню последних документов, будет эмулировано событие `open-file` из `приложения` для него.
+When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
 [1]: https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png
 [2]: https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png
