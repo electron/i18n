@@ -120,7 +120,7 @@ app.on('window-all-closed', () => {
 
 #### Define a preload script
 
-Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. In this example we will use the preload script to read version information from the `process` object and update the web page with that info.
+Ваш скрипт preload (в нашем случае файл `preload.js`) действует как мост между Node.js и вашей веб-страницей. It allows you to expose specific APIs and behaviors to your web page rather than insecurely exposing the entire Node.js API. В этом примере мы будем использовать скрипт предварительной загрузки для чтения информации о версии с `process` объекта и обновления веб-страницы с этой информацией.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
@@ -137,10 +137,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 ##### What's going on above?
 
-1. On line 1: First you define an event listener that tells you when the web page has loaded
-2. On line 2: Second you define a utility function used to set the text of the placeholders in the `index.html`
-3. On line 7: Next you loop through the list of components whose version you want to display
-4. On line 8: Finally, you call `replaceText` to look up the version placeholders in `index.html` and set their text value to the values from `process.versions`
+1. В строке 1: сначала вы определяете обработчика событий, который сообщает, когда веб-страница загружена
+2. В строке 2: вы определяете функцию, используемую для замены плейсхолдеров в `index.html`
+3. В строке 7: Далее вы переходите к списку компонентов, версию которых вы хотите отобразить
+4. На строке 8: Наконец, вы вызываете `replaceText` для поиска и замены плейсхолдеров в `index.html` и задайте значения из объекта `process.versions`
 
 #### Изменить файл package.json
 
@@ -158,7 +158,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 > ПРИМЕЧАНИЕ: Если поле `main` опущено, Electron попытается загрузить `index.js` файл из каталога, содержащего `package.json`.
 
-> NOTE: The `author` and `description` fields are required for packaging, otherwise error will occur when running `npm run make`.
+> ПРИМЕЧАНИЕ: `author` и `description` необходимы для упаковки, в противном случае произойдет ошибка при запуске `npm run make`.
 
 По умолчанию, старт `npm` запустит основной скрипт с помощью Node.js. Чтобы запустить скрипт с Electron, необходимо изменить его следующим образом:
 
