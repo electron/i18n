@@ -12,7 +12,7 @@ __应用 dock 菜单__
 
 ![macOS Dock 菜单][2]
 
-To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
+要将文件添加到最近的文档，您需要使用[app.addRecentDocument][addrecentdocument] API。
 
 ## 示例
 
@@ -71,7 +71,22 @@ app.clearRecentDocuments()
 }
 ```
 
-![macOS 最近文档菜单项][6]
+Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+
+```javascript
+const { app, Menu } = require('electron')
+
+const template = [
+  // Menu template here
+]
+const menu = Menu.buildFromTemplate(template)
+
+app.whenReady().then(() => {
+  Menu.setApplicationMenu(menu)
+})
+```
+
+![macOS Recent Documents menu item][6]
 
 从 "最近文档" 菜单中请求文件时, 将为其发出 ` app ` 模块的 ` open-file ` 事件。
 
