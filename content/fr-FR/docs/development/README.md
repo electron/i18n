@@ -10,7 +10,7 @@ Ces guides sont destinés aux personnes travaillant sur le projet Electron lui-m
 * [Hiérarchie du Code Source](source-code-directory-structure.md)
 * [Style de Codage](coding-style.md)
 * [Utilisation du clang-format pour du code C++](clang-format.md)
-* [Using clang-tidy on C++ Code](clang-tidy.md)
+* [Utilisation de clang-tidy sur du code C ++](clang-tidy.md)
 * [Aperçu du Système de Build](build-system-overview.md)
 * [Instructions de Build (macOS)](build-instructions-macos.md)
 * [Instructions de Build (Windows)](build-instructions-windows.md)
