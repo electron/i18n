@@ -8,4 +8,4 @@
   * `allowServiceWorkers` Boolean (可选) - 默认为false
   * `supportFetchAPI` Boolean (可选) - 默认为false
   * `corsEnabled` Boolean (可选) - 默认为false
-  * `standard` Boolean (可选) -默认为false
+  * `stream` Boolean (可选) - 默认为 false.
