@@ -14,7 +14,7 @@ Electron 的工作方式更像 Node.js 的运行时。 而且 Electron 的 API �
 
 ## 2) Node 集成
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the `libuv` loop with each platform's message loop to avoid hacking Chromium. 你可以查看 [`node_bindings`][node-bindings] 来了解这是如何完成的。
+在 NW.js 中，网页中的 Node 集成需要通过给 Chromium 打补丁来实现。但在 Electron 中，我们选择了另一种方式：通过各个平台的消息循环与 libuv 的循环集成，避免了直接在 Chromium 上做改动。 你可以查看 [`node_bindings`][node-bindings] 来了解这是如何完成的。
 
 ## 3) Javascript 上下文
 
