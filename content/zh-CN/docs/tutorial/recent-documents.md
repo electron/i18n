@@ -71,13 +71,13 @@ app.clearRecentDocuments()
 }
 ```
 
-Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+请确保在 [`'ready'`](../api/app.md#event-ready)事件后添加应用菜单而不是之前，否则菜单项将被禁用：
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const template = [
-  // Menu template here
+  // 这里是菜单模版
 ]
 const menu = Menu.buildFromTemplate(template)
 
@@ -86,7 +86,7 @@ app.whenReady().then(() => {
 })
 ```
 
-![macOS Recent Documents menu item][6]
+![macOS 最近文档菜单项][6]
 
 从 "最近文档" 菜单中请求文件时, 将为其发出 ` app ` 模块的 ` open-file ` 事件。
 
