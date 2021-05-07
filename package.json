@@ -47,7 +47,7 @@
     "simple-statistics": "^7.0.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5",
-    "unist-util-visit": "^2.0.1",
+    "unist-util-visit": "^3.0.1",
     "walk-sync": "^2.0.2"
   },
   "scripts": {
