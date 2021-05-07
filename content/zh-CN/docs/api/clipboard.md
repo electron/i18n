@@ -151,15 +151,15 @@ clipboard.writeBookmark({
 
 ### `clipboard.readFindText()` _macOS_
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+返回 `String` - "查找粘贴板"上的文本，这是保存有关活动应用程序查找面板当前状态信息的粘贴板。
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+此方法从渲染进程调用时使用同步 IPC。 每当激活应用程序时, 都会从查找粘贴板中重新读取缓存值。
 
 ### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+将 `text` 作为纯文本写入查找粘贴板(粘贴板上有关于当前应用程序查找面板状态的信息)。 此方法从渲染进程调用时使用同步 IPC。
 
 ### `clipboard.clear([type])`
 
