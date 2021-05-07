@@ -71,7 +71,22 @@ Você pode adicionar itens de menu para acessar e limpar documentos recentes adi
 }
 ```
 
-![Item de menu recentes do macOS Documents][6]
+Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+
+```javascript
+const { app, Menu } = require('electron')
+
+const template = [
+  // Menu template here
+]
+const menu = Menu.buildFromTemplate(template)
+
+app.whenReady().then(() => {
+  Menu.setApplicationMenu(menu)
+})
+```
+
+![macOS Recent Documents menu item][6]
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 

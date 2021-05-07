@@ -71,7 +71,22 @@ Windows でこの機能を使用する際にアプリケーションが書類の
 }
 ```
 
-![macOS 最近使ったドキュメントメニュー項目][6]
+以下のようにアプリケーションメニューを [`'ready'`](../api/app.md#event-ready) イベントより後に追加し、それより前では追加しないようにしてください。さもなくばメニューアイテムは無効になります。
+
+```javascript
+const { app, Menu } = require('electron')
+
+const template = [
+  // メニューテンプレートをこちらに
+]
+const menu = Menu.buildFromTemplate(template)
+
+app.whenReady().then(() => {
+  Menu.setApplicationMenu(menu)
+})
+```
+
+![macOS 最近使った書類のメニューアイテム][6]
 
 最近使った書類メニューからファイルが要求されると、それに対して `app` モジュールの `open-file` イベントが発生します。
 

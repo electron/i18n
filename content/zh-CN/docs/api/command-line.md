@@ -1,4 +1,4 @@
-## Class: CommandLine
+## 类: CommandLine
 
 > 操作Chromium读取的应用程序的命令行参数
 
@@ -11,7 +11,7 @@ const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
+关于你可以使用哪些参数，请查阅[命令行参数](./command-line-switches.md)文档。
 
 ### 实例方法
 
@@ -28,7 +28,7 @@ For more information on what kinds of flags and switches you can use, check out 
 
 * ` value `String - 要追加到命令行的参数
 
-在Chromium的命令行中附加一个参数。 The argument will be quoted correctly. 无论附加顺序如何，切换将在参数之前进行。
+在Chromium的命令行中附加一个参数。 参数会被正确引用。 无论附加顺序如何，切换将在参数之前进行。
 
 如果你正在追加一个参数，如`--switch=value`, 请考虑使用`appendSwitch('switch', 'value')`
 

@@ -71,7 +71,22 @@ Puede añadir elementos de menú para acceder y borrar documentos recientes agre
 }
 ```
 
-![elemento de menú de documentos recientes de macOS][6]
+Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+
+```javascript
+const { app, Menu } = require('electron')
+
+const template = [
+  // Menu template here
+]
+const menu = Menu.buildFromTemplate(template)
+
+app.whenReady().then(() => {
+  Menu.setApplicationMenu(menu)
+})
+```
+
+![macOS Recent Documents menu item][6]
 
 Cuando se solicita un archivo del menú de documentos recientes, el evento `archivo abierto` de `aplicación` se emitirá para él.
 
