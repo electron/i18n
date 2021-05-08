@@ -2,7 +2,7 @@
 
 ## 警告
 
-Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基づきつつ、劇的に変更されています。 これはレンダリング、ナビゲーション、イベントルーティングを含む `webview` の安定性に影響しています。 We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, [Electron's `BrowserView`](browser-view.md), or an architecture that avoids embedded content altogether.
+Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基づきつつ、劇的に変更されています。 これはレンダリング、ナビゲーション、イベントルーティングを含む `webview` の安定性に影響しています。 私たちは `webview` タグを使用せずに、`iframe` や [Electron の `BrowserView`](browser-view.md)、または埋め込みコンテンツを完全に避けるアーキテクチャにするといった代替案の検討を推奨しています。
 
 ## 有効にする
 
