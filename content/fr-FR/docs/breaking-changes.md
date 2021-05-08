@@ -156,7 +156,7 @@ En conséquence `require()` ne peut pas être utilisé dans le processus de rend
 
 Pour plus de détails, voir : https://github.com/electron/electron/issues/23506
 
-### Removed: `crashReporter.getCrashesDirectory()`
+### Supprimé : `crashReporter.getCrashesDirectory()`
 
 La méthode `crashReporter.getCrashesDirectory` a été supprimée. Usage should be replaced by `app.getPath('crashDumps')`.
 
