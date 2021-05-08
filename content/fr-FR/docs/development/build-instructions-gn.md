@@ -100,7 +100,7 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
 
-For the testing configuration:
+Pour la configuration de test :
 
 ```sh
 $ ninja -C out/Testing electron
@@ -154,7 +154,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
 | Windows x64 | Windows x86   | Automatically tested |
 | Linux x64   | Linux x86     | Automatically tested |
 
-If you test other combinations and find them to work, please update this document :)
+Si vous testez d'autres combinaisons et trouvez qu'elles fonctionnent, veuillez mettre à jour ce document :)
 
 See the GN reference for allowable values of [`target_os`][target_os values] and [`target_cpu`][target_cpu values].
 
@@ -184,7 +184,7 @@ Pour exécuter les tests, vous devez d’abord construire les modules de test pa
 $ ninja -C out/Testing third_party/electron_node:headers
 ```
 
-You can now [run the tests](testing.md#unit-tests).
+Vous pouvez maintenant [exécuter les tests](testing.md#unit-tests).
 
 If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
 
