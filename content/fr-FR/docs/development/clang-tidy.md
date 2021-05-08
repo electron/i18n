@@ -1,4 +1,4 @@
-# Using clang-tidy on C++ Code
+# Utilisation de clang-tidy sur du code C ++
 
 [`clang-tidy`](https://clang.llvm.org/extra/clang-tidy/) is a tool to automatically check C/C++/Objective-C code for style violations, programming errors, and best practices.
 

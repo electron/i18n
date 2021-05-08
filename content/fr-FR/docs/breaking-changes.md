@@ -357,7 +357,7 @@ Pour des informations plus détaillées, voir [#18397](https://github.com/electr
 
 ### Deprecated: `BrowserWindow` extension APIs
 
-The following extension APIs have been deprecated:
+Les API d'extension suivantes sont obsolètes :
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`

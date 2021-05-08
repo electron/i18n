@@ -4,10 +4,10 @@ Electron CI on Windows uses AppVeyor, which in turn uses Azure VM images to run.
 
 Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
 
-Example Use Case:
+Exemple de cas d'utilisation :
     * Nous avons besoin `VS15.9` et nous avons `VS15.7` installés; cela nous obligerait à mettre à jour une image Azure.
 
-1. Identify the image you wish to modify.
+1. Identifiez l'image que vous souhaitez modifier.
     * Dans [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), l’image est identifiée par la propriété *image*.
         * Les noms utilisés correspondent aux *« images »* définies pour un nuage de build, par exemple le nuage libcc-20 [](https://windows-ci.electronjs.org/build-clouds/8).
     * Trouvez l’image que vous souhaitez modifier dans le nuage de build et notez les</strong> de chemin VHD Blob de **pour cette image, qui est la valeur de cette clé correspondante.

@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of setting up Electron to automatically submit crash reports to a remote server:
+以下是一个设置Electron自动提交崩溃日志到远程服务器的示例：
 
 ```javascript
 const { crashReporter } = require('electron')
@@ -23,31 +23,31 @@ crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Crash reports are stored temporarily before being uploaded in a directory underneath the app's user data directory (called 'Crashpad' on Windows and Mac, or 'Crash Reports' on Linux). You can override this directory by calling `app.setPath('crashDumps', '/path/to/crashes')` before starting the crash reporter.
+崩溃报告在上传之前会临时存储在应用程序的用户数据目录下 (在Windows和Mac上称为“Crashpad”，在Linux上称为“Crash reports”)。 在启动崩溃报告器之前，你可以通过调用 `app.setPath('crashDumps', '/path/to/crashes')` 来覆盖该目录。
 
-On Windows and macOS, Electron uses [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) to monitor and report crashes. On Linux, Electron uses [breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/). This is an implementation detail driven by Chromium, and it may change in future. In particular, crashpad is newer and will likely eventually replace breakpad on all platforms.
+在 Windows 和 macOS 上，Electron 使用 [crashpad](https://chromium.googlesource.com/crashpad/crashpad/+/master/README.md) 来监视和报告崩溃情况。 在 Linux上，Electron 使用[breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/master/)。 这个实现细节是由Chromium驱动的，将来可能会发生变化。 尤其，crashpad是新出的，可能最终会取代所有平台的breakpad。
 
-### Note about Node child processes on Linux
+### 关于Linux上的Node子进程的说明
 
-If you are using the Node.js `child_process` module and want to report crashes from those processes on Linux, there is an extra step you will need to take to properly initialize the crash reporter in the child process. This is not necessary on Mac or Windows, as those platforms use Crashpad, which automatically monitors child processes.
+如果你在Linux上使用的是Node.js的 `child_process` 模块，并且想要在这些进程中报告崩溃信息，那么需要采取额外的步骤来在子进程中正确初始化崩溃报告器。 在 Mac 或 Windows 上就没有这个问题，因为这两个平台使用的Crashpad会自动监视子进程。
 
-Since `require('electron')` is not available in Node child processes, the following APIs are available on the `process` object in Node child processes. Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
+由于Node的子进程中无法使用 `require('electron')` ，那么在Node的子进程中的 `process` 对象中的以下 API 是可用的。 Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
 
 #### `process.crashReporter.start(options)`
 
-See [`crashReporter.start()`](#crashreporterstartoptions).
+见 [`crashReporter.start()`](#crashreporterstartoptions)。
 
 #### `process.crashReporter.getParameters()`
 
-See [`crashReporter.getParameters()`](#crashreportergetparameters).
+见 [`crashReporter.getParameters()`](#crashreportergetparameters)。
 
 #### `process.crashReporter.addExtraParameter(key, value)`
 
-See [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value).
+见 [`crashReporter.addExtraParameter(key, value)`](#crashreporteraddextraparameterkey-value)。
 
 #### `process.crashReporter.removeExtraParameter(key)`
 
-See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey).
+见 [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparameterkey)。
 
 ## 方法
 

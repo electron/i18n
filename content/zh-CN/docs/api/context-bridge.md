@@ -1,10 +1,10 @@
 # contextBridge
 
-> Create a safe, bi-directional, synchronous bridge across isolated contexts
+> 在隔离的上下文中创建一个安全的、双向的、同步的桥梁。
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-An example of exposing an API to a renderer from an isolated preload script is given below:
+如下，是一个从隔离的预加载脚本将 API 暴露给渲染器的示例：
 
 ```javascript
 // Preload (Isolated World)
@@ -28,30 +28,30 @@ window.electron.doThing()
 
 ### Main World
 
-The "Main World" is the JavaScript context that your main renderer code runs in. By default, the page you load in your renderer executes code in this world.
+"Main World"是主渲染器代码运行的 JavaScript 上下文。 默认情况下，你在渲染器中加载的页面在此环境中执行代码。
 
 ### Isolated World
 
-当你在`webPreferences`属性中启用`contextIsolation` (Electron 12.0.0 及以上版本默认启用)，你的`预加载`脚本将运行在一个“被隔离的环境”中。  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
+当你在`webPreferences`属性中启用`contextIsolation` (Electron 12.0.0 及以上版本默认启用)，你的`预加载`脚本将运行在一个“被隔离的环境”中。  您可以在[Security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) 文档中阅读更多关于上下文隔离及其影响的信息。
 
 ## 方法
 
-The `contextBridge` module has the following methods:
+`contextBridge`模块有以下方法:
 
-### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
+### `contextBridge.exposeInMainWorld(apiKey, api)` _实验功能_
 
-* `apiKey` String - The key to inject the API onto `window` with.  The API will be accessible on `window[apiKey]`.
-* `api` any - Your API, more information on what this API can be and how it works is available below.
+* `apiKey` String - 将 API 注入到 `窗口` 的键。  API 将可通过 `window[apiKey]` 访问。
+* `api` any - 你的 API可以是什么样的以及它是如何工作的相关信息如下。
 
 ## 用法
 
 ### API
 
-The `api` provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be a `Function`, `String`, `Number`, `Array`, `Boolean`, or an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
+提供给 [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) 的 `api` 必须是一个 `Function`， `String`， `Number`， `Array`， `Boolean`；或一个键为字符串，值为一个 `Function`， `String`， `Number`， `Array`， `Boolean`的对象；或其他符合相同条件的嵌套对象。
 
-`Function` values are proxied to the other context and all other values are **copied** and **frozen**. Any data / primitives sent in the API become immutable and updates on either side of the bridge do not result in an update on the other side.
+`Function` 类型的值被代理到其他上下文中，所有其他类型的值都会被 **复制** 并 **冻结**。 在 API 中发送的任何数据 /原始数据将不可改变，在桥接器其中一侧的更新不会导致另一侧的更新。
 
-An example of a complex API is shown below:
+复杂 API 的示例如下：
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -81,26 +81,26 @@ contextBridge.exposeInMainWorld(
 
 ### API Functions
 
-`Function` values that you bind through the `contextBridge` are proxied through Electron to ensure that contexts remain isolated.  This results in some key limitations that we've outlined below.
+你通过 `contextBridge` 绑定的 `Function` 值会被 Electron 代理，以确保保持上下文隔离。  这导致了我们在下面概述的一些键的限制。
 
-#### Parameter / Error / Return Type support
+#### 参数 / 错误 / 返回类型支持
 
-Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  A table of type support has been included below for completeness:
+因为当参数、错误和返回值在桥接器上发送时会被 **复制** ，所以只有某些类型可以使用。 从上层来看，如果你想要使用的类型可以序列化并反序列化为同一个对象，这个类型可以使用。  为确保完整性，下面列出了一份类型支持表：
 
-| 类型                                                                                                             | Complexity | Parameter Support | Return Value Support | 局限性                                                                                                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `字符串`                                                                                                          | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
-| `Number`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
-| `Boolean`                                                                                                      | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                            |
-| `Object - 过滤器对象，包含过滤参数`                                                                                        | Complex    | ✅                 | ✅                    | Keys must be supported using only "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Sending custom classes will copy values but not the prototype. |
-| `Array`                                                                                                        | Complex    | ✅                 | ✅                    | Same limitations as the `Object` type                                                                                                                                                                          |
-| `Error`                                                                                                        | Complex    | ✅                 | ✅                    | Errors that are thrown are also copied, this can result in the message and stack trace of the error changing slightly due to being thrown in a different context                                               |
-| `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                              |
-| `Function - 回调函数`                                                                                              | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                           |
-| [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                    | See the linked document on cloneable types                                                                                                                                                                     |
-| `Symbol`                                                                                                       | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                   |
+| 类型                                                                                                             | 复杂度 | 有入参 | 有返回值 | 局限性                                                                            |
+| -------------------------------------------------------------------------------------------------------------- | --- | --- | ---- | ------------------------------------------------------------------------------ |
+| `字符串`                                                                                                          | 简单  | ✅   | ✅    | N/A                                                                            |
+| `Number`                                                                                                       | 简单  | ✅   | ✅    | N/A                                                                            |
+| `Boolean`                                                                                                      | 简单  | ✅   | ✅    | N/A                                                                            |
+| `Object - 过滤器对象，包含过滤参数`                                                                                        | 复杂  | ✅   | ✅    | 键仅支持使用此表中的“简单”的类型。  值必须在此表中支持的值。  修改prototype将被丢弃。  发送自定义类将复制值，但不会包含prototype。 |
+| `Array`                                                                                                        | 复杂  | ✅   | ✅    | 与 `Object` 类型相同的限制                                                             |
+| `Error`                                                                                                        | 复杂  | ✅   | ✅    | 所抛出的错误也会被复制，这可能导致消息和堆栈跟踪的错误略有变化，由于在不同的上下文中抛出                                   |
+| `Promise`                                                                                                      | 复杂  | ✅   | ✅    | 只有当 promise 是返回值或确切参数时，它们才会被代理。  嵌套在数组或对象中的Promise将被丢弃。                        |
+| `Function - 回调函数`                                                                                              | 复杂  | ✅   | ✅    | 修改prototype将被丢弃。  发送类或构造函数将不起作用。                                               |
+| [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | 简单  | ✅   | ✅    | 点击链接查看可克隆类型的文档                                                                 |
+| `Symbol`                                                                                                       | N/A | ❌   | ❌    | Symbol不能跨上下文复制，因此会丢弃它们                                                         |
 
-If the type you care about is not in the above table, it is probably not supported.
+如果您关心的类型不在上表中，可能是因为不支持该类型。
 
 ### 暴露Node Global Symbols
 
