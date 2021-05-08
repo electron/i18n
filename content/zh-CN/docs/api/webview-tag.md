@@ -2,7 +2,7 @@
 
 ## 警告
 
-Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webview]，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, [Electron's `BrowserView`](browser-view.md), or an architecture that avoids embedded content altogether.
+Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webview]，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` ，[Electron的 `BrowserView`](browser-view.md) 或完全避免嵌入内容的架构。
 
 ## Enabling
 
