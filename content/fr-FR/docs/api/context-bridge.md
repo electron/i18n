@@ -49,9 +49,9 @@ Le module `contextBridge` possède les méthodes suivantes :
 
 L' `api` fourni à [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) peut être du type `Function`, `String`, `Number`, `Array`, `Boolean` ou un objet dont les clés sont des chaînes de caractères et les valeurs du type `Function`, `String`, `Number`, `Array`, `Boolean` ou un autre objet imbriqué qui remplit les mêmes conditions.
 
-`Function` values are proxied to the other context and all other values are **copied** and **frozen**. Any data / primitives sent in the API become immutable and updates on either side of the bridge do not result in an update on the other side.
+`Function` values are proxied to the other context and all other values are **copied** and **frozen**. Toutes les données ou primitives envoyées par l'API deviennent immuables et les mises à jour de chaque côté du pont de connexion ne donnent pas lieu à une mise à jour de l'autre côté.
 
-An example of a complex API is shown below:
+Exemple d’API complexe:
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -81,11 +81,11 @@ contextBridge.exposeInMainWorld(
 
 ### API Functions
 
-`Function` values that you bind through the `contextBridge` are proxied through Electron to ensure that contexts remain isolated.  This results in some key limitations that we've outlined below.
+Les valeurs `Function` que vous liez à travers le `contextBridge` sont servies par l'intermédiaire d'Electron pour s'assurer que les contextes restent isolés.  Ceci entraîne certaines limitations clés décrites ci-dessous.
 
-#### Parameter / Error / Return Type support
+#### Prise en charge des paramètres, erreurs et type de retour
 
-Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  A table of type support has been included below for completeness:
+Étant donné que les paramètres, erreurs et valeurs de retour sont **copiés** lors de leur transmission par le pont, seuls certains types peuvent être utilisés. Mais si le type que vous voulez utiliser peut être sérialisé et désérialisé dans le même objet cela fonctionnera.  Une table des types supportés est incluse en complément:
 
 | Type                                                                                                           | Complexity | Parameter Support | Return Value Support | Limitations                                                                                                                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
