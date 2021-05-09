@@ -1,6 +1,6 @@
 # Objeto IpcMainEvent extiende de `Event`
 
-* `processId` Integer - The internal ID of the renderer process that sent this message
+* `processId` Entero - El ID interno del proceso de renderizado que envió este mensaje
 * `frameId` Integer - El ID de frame renderer que enviá este mensaje
 * `returnValue` any - Configura este al valor a ser devuelto en un mensaje sincrónico
 * `sender` WebContents - Devuelve el `webContents` que enviá el mensaje
