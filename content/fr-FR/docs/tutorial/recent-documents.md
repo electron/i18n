@@ -30,9 +30,9 @@ Après avoir lancé l'application Electron, faites un clic droit sur l'icône de
 
 ![Document récent](../images/recent-documents.png)
 
-### Effacer la liste des documents récents
+### Effacement de la liste des documents récents
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
+Pour effacer la liste des documents récents, vous devez utiliser l'API [app.clearRecentDocuments][clearrecentdocuments] dans le fichier `main.js`:
 
 ```javascript
 const { app } = require('electron')
@@ -42,7 +42,7 @@ app.clearRecentDocuments()
 
 ## Informations complémentaires
 
-### Remarques Windows
+### Remarques pour Windows
 
 Pour utiliser cette fonctionnalité sur Windows, votre application doit être enregistrée en tant que gestionnaire du type de fichier du document, sinon le fichier n'apparaîtra pas dans JumpList même après l'avoir ajouté. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application][app-registration].
 
@@ -71,13 +71,13 @@ Vous pouvez ajouter des éléments de menu pour accéder et effacer les document
 }
 ```
 
-Make sure the application menu is added after the [`'ready'`](../api/app.md#event-ready) event and not before, or the menu item will be disabled:
+Assurez-vous que le menu de l'application soit ajouté après l'événement [`'ready'`](../api/app.md#event-ready) et pas avant, ou l'élément de menu sera désactivé :
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const template = [
-  // Menu template here
+  // Modèle de Menu 
 ]
 const menu = Menu.buildFromTemplate(template)
 

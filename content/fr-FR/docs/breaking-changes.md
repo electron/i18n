@@ -20,7 +20,7 @@ Le paramètre `frameName` ne définira plus le titre de la fenêtre. Cela fait m
 
 Si vous utilisiez ce paramètre pour définir le titre d’une fenêtre, vous pouvez plutôt utiliser [win.setTitle (titre)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
 
-### Removed: `worldSafeExecuteJavaScript`
+### Supprimé : `worldSafeExecuteJavaScript`
 
 Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  There is no alternative, please ensure your code works with this property enabled.  Il a été activé par défaut depuis Electron
 12.
@@ -156,7 +156,7 @@ En conséquence `require()` ne peut pas être utilisé dans le processus de rend
 
 Pour plus de détails, voir : https://github.com/electron/electron/issues/23506
 
-### Removed: `crashReporter.getCrashesDirectory()`
+### Supprimé : `crashReporter.getCrashesDirectory()`
 
 La méthode `crashReporter.getCrashesDirectory` a été supprimée. Usage should be replaced by `app.getPath('crashDumps')`.
 
@@ -816,7 +816,7 @@ webFrame.setIsolatedWorldInfo(
 
 ### API modifiée : `webFrame.setSpellCheckProvider` prend maintenant un callback asynchrone
 
-The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+Le rappel `spellCheck` est désormais asynchrone et le paramètre `autoCorrectWord` a été supprimé.
 
 ```js
 // Deprecated
