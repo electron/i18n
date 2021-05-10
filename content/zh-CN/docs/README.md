@@ -12,7 +12,7 @@
 
 ### 快速入门
 
-* [快速启动指南](tutorial/quick-start.md)
+* [快速入门指南](tutorial/quick-start.md)
   * [前提条件](tutorial/quick-start.md#prerequisites)
   * [创建基本应用程序](tutorial/quick-start.md#create-a-basic-application)
   * [运行您的应用程序](tutorial/quick-start.md#run-your-application)
