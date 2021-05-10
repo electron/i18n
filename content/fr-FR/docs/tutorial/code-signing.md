@@ -4,9 +4,9 @@ La signature de code est une technologie de sécurité que vous utilisez pour ce
 
 Sur macOS le système peut détecter tout changement apporté à l'application, qu'il s'agisse d'une modification introduite accidentellement ou par du code malicieux.
 
-Sous Windows, le système assigne un niveau de confiance à votre certificat de signature de code que si vous ne l'avez pas, ou si votre niveau de confiance est faible, fera apparaître des dialogues de sécurité lorsque les utilisateurs commencent à utiliser votre application.  Le niveau de confiance construit au fil du temps, il est donc préférable de commencer à signer le code le plus tôt possible.
+Sous Windows, le système assigne un niveau de confiance à votre certificat de signature de code, les utilisateurs seront avisés par des affichages de sécurité au démarrage de votre application si vous n'en possédez pas ou si votre niveau de confiance est faible .  Le niveau de confiance s'établit au fil du temps, il est donc préférable de signer le code le plus tôt possible.
 
-Bien qu'il reste possible de distribuer des applications non signées, cela n'est pas recommandé. Windows et macOS empêcheront par défaut le téléchargement ou l'exécution d'applications non signées. À partir de macOS Catalina (version 10.15), les utilisateurs doivent passer par plusieurs étapes manuelles pour ouvrir des applications non signées.
+Bien qu'il soit possible de distribuer des applications non signées, cela n'est pas recommandé. Windows et macOS empêcheront par défaut le téléchargement ou l'exécution d'applications non signées. À partir de macOS Catalina (version 10.15), les utilisateurs doivent passer par plusieurs étapes manuelles pour ouvrir des applications non signées.
 
 ![Avertissement pour macOS Catalina Gatekeeper : L'application ne peut pas être ouverte car le développeur
 ne peut pas être vérifié](../images/gatekeeper.png)
@@ -147,10 +147,10 @@ See the [Mac App Store Guide][].
 
 # Signature des versions Windows
 
-Avant de signer les versions de Windows, vous devez faire ce qui suit :
+Avant de signer les versions pour Windows, vous devez faire ce qui suit :
 
 1. Obtenir un certificat de signature de code d'authentification Windows (frais annuels)
-2. Installez Visual Studio pour obtenir l'utilitaire de signature (la [Community Edition gratuite](https://visualstudio.microsoft.com/vs/community/) est suffisante)
+2. Installez Visual Studio pour obtenir l'utilitaire de signature ( [Community Edition ](https://visualstudio.microsoft.com/vs/community/) qui est gratuite est suffisante)
 
 Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il peut valoir la peine que vous compariez. Les revendeurs populaires comprennent :
 
@@ -161,16 +161,16 @@ Vous pouvez obtenir un certificat de signature de code auprès de nombreux reven
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
 
-* [`electron-winstaller`][] va générer un installateur pour les fenêtres et le signer pour vous
-* [`electron-forge`][] peut signer les installateurs qu'il génère à travers les cibles Squirrel.Windows ou MSI.
-* [`electron-builder`][] can sign some of its windows targets
+* [`electron-winstaller`][] génére un installateur pour Windowq et le signe pour vous
+* [`electron-forge`][] peut signer les installateurs qu'il génère à travers des cibles Squirrel.Windows ou MSI.
+* [`électron-builder`][] peut signer certaines de ses cibles Windows
 
 ## Windows Store
 
-See the [Windows Store Guide][].
+Consultez le [Guide Windows Store][].
 
 [Programme de Développeurs Apple]: https://developer.apple.com/programs/
-[`electron-builder`]: https://github.com/electron-userland/electron-builder
+[`électron-builder`]: https://github.com/electron-userland/electron-builder
 [`electron-forge`]: https://github.com/electron-userland/electron-forge
 [`electron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
 [`electron-packager`]: https://github.com/electron/electron-packager
@@ -179,4 +179,4 @@ See the [Windows Store Guide][].
 [Xcode]: https://developer.apple.com/xcode
 [des certificats de signature]: https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates
 [Mac App Store Guide]: mac-app-store-submission-guide.md
-[Windows Store Guide]: windows-store-guide.md
+[Guide Windows Store]: windows-store-guide.md
