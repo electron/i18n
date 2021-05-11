@@ -22,10 +22,10 @@ Si vous utilisiez ce paramètre pour définir le titre d’une fenêtre, vous po
 
 ### Supprimé : `worldSafeExecuteJavaScript`
 
-Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  There is no alternative, please ensure your code works with this property enabled.  Il a été activé par défaut depuis Electron
+Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée.  Il a été activé par défaut depuis Electron
 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+Vous serez affecté par ce changement si vous utilisez `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
 
 ## Changements majeurs prévus de l'API (13.0)
 
@@ -142,7 +142,7 @@ Chromium a supprimé le support pour Flash, et nous devons donc suivre. Voir la 
 
 ### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
-Dans Electron 12, `worldSafeExecuteJavaScript` sera activé par défaut.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Veuillez noter que définir cette option sur `false` est **non sécurisé**.
+Dans Electron 12, `worldSafeExecuteJavaScript` sera activé par défaut.  Restaurer le comportement précédent, `worldSafeExecuteJavaScript: false` doit être spécifié dans WebPreferences. Veuillez noter que définir cette option sur `false` est **non sécurisé**.
 
 This option will be removed in Electron 14 so please migrate your code to support the default value.
 
@@ -167,7 +167,7 @@ crashReporter.getCrashesDirectory()
 app.getPath('crashDumps')
 ```
 
-### Removed: `crashReporter` methods in the renderer process
+### Supprimé : méthodes `crashReporter` dans le processus de rendu
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
@@ -237,9 +237,9 @@ crashReporter.start({ companyName: 'Umbrella Corporation' })
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' }})
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### Déprécié : `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+La méthode `crashReporter.getCrashesDirectory` a été dépréciée. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
 // Deprecated in Electron 10
@@ -248,7 +248,7 @@ crashReporter.getCrashesDirectory()
 app.getPath('crashDumps')
 ```
 
-### Deprecated: `crashReporter` methods in the renderer process
+### Déprécié : méthodes `crashReporter` dans le processus de rendu
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
@@ -261,7 +261,7 @@ Calling the following `crashReporter` methods from the renderer process is depre
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
-All above methods remain non-deprecated when called from the main process.
+Toutes les méthodes ci-dessus restent non dépréciées lorsqu'elles sont appelées à partir du processus principal.
 
 Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de détails.
 
@@ -331,11 +331,11 @@ protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+Le protocole enregistré ou intercepté n'a pas d'effet sur la page en cours jusqu'à ce que la navigation se produise.
 
 ### `protocol.isProtocolHandled`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+Cette API est dépréciée et les utilisateurs doivent utiliser `protocol.isProtocolRegistered` et `protocol.isProtocolIntercepted` à la place.
 
 ```javascript
 // Deprecated
@@ -440,10 +440,10 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* `NaN`, `Infinity` et `-Infinity` seront désormais correctement sérialisés à la place d'être converti en `null`.
+* Les objets contenant des références cycliques seront désormais correctement sérialisés, au lieu d'être converti en `null`.
+* Les valeurs `Set`, `Map`, `Error` et `RegExp` seront correctement sérialisées, au lieu d'être converti en `{}`.
+* Les valeurs `BigInt` seront correctement sérialisées, au lieu d'être converties en `null`.
 * Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
 * `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
 * Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
@@ -457,7 +457,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsolète: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Par conséquent, son utilisation doit être explicite.
+Cette API est implémentée à l'aide du module `remote`, qui a à la fois des performances et les implications en matière de sécurité. Par conséquent, son utilisation doit être explicite.
 
 ```js
 // Deprecated
@@ -497,7 +497,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Obsolète : `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La fonction émettra un avertissement dans Electron 8.x, et cessent d'exister dans Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Événements obsolètes dans `systemPreferences`
 
