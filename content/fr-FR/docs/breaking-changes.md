@@ -440,10 +440,10 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 // => throws Error("() => {} could not be cloned.")
 ```
 
-* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
-* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
-* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
-* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* `NaN`, `Infinity` et `-Infinity` seront désormais correctement sérialisés à la place d'être converti en `null`.
+* Les objets contenant des références cycliques seront désormais correctement sérialisés, au lieu d'être converti en `null`.
+* Les valeurs `Set`, `Map`, `Error` et `RegExp` seront correctement sérialisées, au lieu d'être converti en `{}`.
+* Les valeurs `BigInt` seront correctement sérialisées, au lieu d'être converties en `null`.
 * Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
 * `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
 * Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
@@ -457,7 +457,7 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 
 ### Obsolète: `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Par conséquent, son utilisation doit être explicite.
+Cette API est implémentée à l'aide du module `remote`, qui a à la fois des performances et les implications en matière de sécurité. Par conséquent, son utilisation doit être explicite.
 
 ```js
 // Deprecated
@@ -497,7 +497,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### Obsolète : `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. La fonction émettra un avertissement dans Electron 8.x, et cessent d'exister dans Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Événements obsolètes dans `systemPreferences`
 
