@@ -18,15 +18,15 @@ Exemple de cas d'utilisation :
 
 Get the Azure storage account key
     * Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor.
-        * Example, for `appveyorlibccbuilds` **nom du compte de stockage de disque** que vous recherchez `appveyorlibccbuilds` dans la liste des comptes de stockage @ Comptes de stockage < domicile
+        * Exemple, pour `appveyorlibccbuilds` **nom du compte de stockage de disque** que vous recherchez `appveyorlibccbuilds` dans la liste des comptes de stockage @ Comptes de stockage < domicile
             * Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
 
 3
 
-Get the full virtual machine image URI from Azure
+Obtenir l'URI complet de l'image de la machine virtuelle à partir d'Azure
     * Accédez aux < de stockage < `$ACCT_NAME` < Blobs < Images
         * In the following list, look for the VHD path name you got from Appveyor and then click on it.
-            * Copy the whole URL from the top of the subsequent window.
+            * Copiez l'URL entière depuis le haut de la fenêtre suivante.
 
 4
 
@@ -69,7 +69,7 @@ Using Microsoft Remote Desktop, click `Connect` to connect to the VM.
 
 8
 
-Modify the VM as required.
+Modifier la VM si nécessaire.
 
 9
 
