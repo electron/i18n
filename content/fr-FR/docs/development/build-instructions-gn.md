@@ -16,10 +16,10 @@ Check the build prerequisites for your platform before proceeding
 
 ## GN prerequisites
 
-You'll need to install [`depot_tools`][depot-tools], the toolset used for fetching Chromium and its dependencies.
+Vous devrez installer [`depot_tools`][depot-tools], l'ensemble d'outils utilisé pour récupérer Chromium et ses dépendances.
 
-Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`.  Cela indique au `depot_tools` d’utiliser votre version locale de Visual Studio (par défaut, `depot_tools` essaiera de télécharger une version interne de Google uniquement accessible à ses utilisateurs).
+De plus, sous Windows, vous devrez définir la variable d'environnement `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Pour ce faire, ouvrez `Panneau de configuration` → `Système et
+Sécurité` → `Système` → `Paramètres système avancés` et ajouter une variable système `DEPOT_TOOLS_WIN_TOOLCHAIN` avec la valeur `0`.  Cela indique au `depot_tools` d’utiliser votre version locale de Visual Studio (par défaut, `depot_tools` essaiera de télécharger une version interne de Google uniquement accessible à ses utilisateurs).
 
 ### Mise en place du cache git
 
@@ -31,7 +31,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # This will use about 16G.
 ```
 
-## Getting the code
+## Obtenir le code
 
 ```sh
 $ mkdir electron && cd electron
