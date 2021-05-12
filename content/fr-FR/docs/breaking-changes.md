@@ -144,7 +144,7 @@ Chromium a supprimé le support pour Flash, et nous devons donc suivre. Voir la 
 
 Dans Electron 12, `worldSafeExecuteJavaScript` sera activé par défaut.  Restaurer le comportement précédent, `worldSafeExecuteJavaScript: false` doit être spécifié dans WebPreferences. Veuillez noter que définir cette option sur `false` est **non sécurisé**.
 
-This option will be removed in Electron 14 so please migrate your code to support the default value.
+Cette option sera supprimée dans Electron 14, veuillez donc migrer votre code pour prendre en charge la valeur par défaut.
 
 ### Par défaut modifié : `contextIsolation` par défaut à `true`
 
@@ -161,9 +161,9 @@ Pour plus de détails, voir : https://github.com/electron/electron/issues/23506
 La méthode `crashReporter.getCrashesDirectory` a été supprimée. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
-// Removed in Electron 12
+// Supprimé dans Electron 12
 crashReporter.getCrashesDirectory()
-// Replace with
+// Remplacé par
 app.getPath('crashDumps')
 ```
 
