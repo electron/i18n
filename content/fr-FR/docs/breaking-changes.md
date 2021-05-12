@@ -250,7 +250,7 @@ app.getPath('crashDumps')
 
 ### Déprécié : méthodes `crashReporter` dans le processus de rendu
 
-Calling the following `crashReporter` methods from the renderer process is deprecated:
+L'appel des méthodes `crashReporter` suivantes à partir du processus de rendu est déprécié :
 
 * `crashReporter.start`
 * `crashReporter.getLastCrashReport`
