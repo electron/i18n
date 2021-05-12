@@ -42,9 +42,9 @@ const视图=新的浏览器视图（）
 #### `view.setAutoResize(options)` _实验功能_
 
 * `选项` 对象
-  * `width` 布尔（可选） - 如果 `true`，视图的宽度将随着窗户 一起增长和缩小。 默认值为 `false`
+  * `width` Boolean（可选） - 如果 `true`，视图的宽度将随着窗户 一起增长和缩小。 默认值为 `false`
   * `height` 布尔（可选） - 如果 `true`，视图的高度将增长和缩小 与窗口。 默认值为 `false`
-  * `horizontal` 布尔（可选） - 如果 `true`，视图的x位置和宽度将增长 和收缩与窗口的比例。 默认值为 `false`
+  * `horizontal` Boolean（可选） - 如果 `true`，视图的x位置和宽度将增长 和收缩与窗口的比例。 默认值为 `false`
   * `vertical` 布尔（可选） - 如果 `true`，视图的y位置和高度将增长 和收缩比例与窗口。 默认值为 `false`
 
 #### `view.setBounds(bounds)` _实验功能_
