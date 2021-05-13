@@ -62,7 +62,7 @@ Pour améliorer la sécurité dans l'API `distante` , de nouveaux événements d
 
 BrowserWindow prend maintenant en charge la gestion de plusieurs BrowserViews dans la même BrowserWindow.
 
-## Breaking Changes
+## Changements de rupture
 
 ### Par défaut pour les applications empaquetées
 
