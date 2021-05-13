@@ -28,7 +28,7 @@ La façon la plus simple d’obtenir des certificats de signature est d’utilis
 1. Ouvrir Xcode et dans les préférences ouvrir "Comptes" ;
 2. Connectez-vous avec votre compte Apple ;
 3. Sélectionnez une équipe et cliquez sur "Gérer les certificats" ;
-4. In the lower-left corner of the signing certificates sheet, click the Add button (+), and add following certificates:
+4. Dans le coin inférieur gauche de la feuille de certificats de signature, cliquez sur le bouton Ajouter (+) et ajoutez les certificats suivants :
    * "Apple Development"
    * "Apple Distribution"
 
@@ -36,15 +36,15 @@ The "Apple Development" certificate is used to sign apps for development and tes
 
 Apps signed with the "Apple Development" certificate cannot be submitted to Mac App Store. For that purpose, apps must be signed with the "Apple Distribution" certificate instead. But note that apps signed with the "Apple Distribution" certificate cannot run directly, they must be re-signed by Apple to be able to run, which will only be possible after being downloaded from the Mac App Store.
 
-#### Other certificates
+#### Autres certificats
 
-You may notice that there are also other kinds of certificates.
+Vous remarquerez peut-être qu'il existe également d'autres types de certificats.
 
 The "Developer ID Application" certificate is used to sign apps before distributing them outside the Mac App Store.
 
 The "Developer ID Installer" and "Mac Installer Distribution" certificates are used to sign the Mac Installer Package instead of the app itself. Most Electron apps do not use Mac Installer Package so they are generally not needed.
 
-The full list of certificate types can be found [here](https://help.apple.com/xcode/mac/current/#/dev80c6204ec).
+La liste complète des types de certificats peut être trouvée [ici](https://help.apple.com/xcode/mac/current/#/dev80c6204ec).
 
 Apps signed with "Apple Development" and "Apple Distribution" certificates can only run under [App Sandbox][app-sandboxing], so they must use the MAS build of Electron. However, the "Developer ID Application" certificate does not have this restrictions, so apps signed with it can use either the normal build or the MAS build of Electron.
 
@@ -83,9 +83,9 @@ When signing the app with `electron-osx-sign`, it will automatically add the nec
 </plist>
 ```
 
-#### Extra steps without `electron-osx-sign`
+#### Étapes supplémentaires sans `electron-osx-sign`
 
-If you are signing your app without using `electron-osx-sign`, you must ensure the app bundle's entitlements have at least following keys:
+Si vous signez votre application sans utiliser `electron-osx-sign`, vous devez vous assurer les droits du bundle d'applications ont au moins les clés suivantes :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -178,7 +178,7 @@ The Application Loader should be used to upload the signed app to iTunes Connect
 
 If you are seeing errors like private APIs uses, you should check if the app is using the MAS build of Electron.
 
-### Submit for review
+### Soumettre pour vérification
 
 After uploading, you should [submit your app for review][submit-for-review].
 
@@ -197,11 +197,11 @@ et les comportements suivants ont été modifiés :
 
 De plus, en raison de l'utilisation de l'app sandboxing, les ressources étant accessibles par l'application sont strictement limitées. Vous pouvez lire [App Sandboxing][app-sandboxing] pour plus d'informations.
 
-### Additional entitlements
+### Droits supplémentaires
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your app's entitlements file. Otherwise, the App Sandbox may prevent you from using them.
 
-#### Network access
+#### Accès réseau
 
 Activez les connexions sortantes du réseau pour permettre votre application de se connecter à un serveur :
 
