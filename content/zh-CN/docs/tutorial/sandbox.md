@@ -1,18 +1,18 @@
-# Process Sandboxing
+# 进程沙盒化
 
-One key security feature in Chromium is that processes can be executed within a sandbox. The sandbox limits the harm that malicious code can cause by limiting access to most system resources — sandboxed processes can only freely use CPU cycles and memory. In order to perform operations requiring additional privilege, sandboxed processes use dedicated communication channels to delegate tasks to more privileged processes.
+Chromium的一个关键安全特性是，进程可以在沙盒中执行。 沙盒通过限制对大多数系统资源的访问来减少恶意代码可能造成的伤害 — 沙盒化的进程只能自由使用CPU周期和内存。 为了执行需要额外权限的操作，沙盒处的进程通过专用通信渠道将任务下放给更大权限的进程。
 
-In Chromium, sandboxing is applied to most processes other than the main process. This includes renderer processes, as well as utility processes such as the audio service, the GPU service and the network service.
+在Chromium中，沙盒化应用于主进程以外的大多数进程。 其中包括渲染器进程，以及功能性进程，如音频服务、GPU 服务和网络服务。
 
-See Chromium's [Sandbox design document][sandbox] for more information.
+查阅Chromium的 [沙箱设计文档][sandbox] 了解更多信息。
 
-## Electron's sandboxing policies
+## Electron沙盒化策略
 
-Electron comes with a mixed sandbox environment, meaning sandboxed processes can run alongside privileged ones. By default, renderer processes are not sandboxed, but utility processes are. Note that as in Chromium, the main (browser) process is privileged and cannot be sandboxed.
+Electron带有一个混合的沙盒环境，意味着沙盒化进程可以和有权限的进程一起运行。 默认情况下，渲染器进程未被沙盒化，但功能性进程是被沙盒化的。 注意，就像在Chromium中一样，主 (浏览器) 进程是有特权的且无法被沙盒化。
 
-Historically, this mixed sandbox approach was established because having Node.js available in the renderer is an extremely powerful tool for app developers. Unfortunately, this feature is also an equally massive security vulnerability.
+从历史上看，这种混合沙盒方法之所以成立，是因为在渲染器中提供Node.js对于应用开发人员来说是一个非常强大的工具。 不幸的是，这一特性同时也是一个巨大的安全漏洞。
 
-Theoretically, unsandboxed renderers are not a problem for desktop applications that only display trusted code, but they make Electron less secure than Chromium for displaying untrusted web content. However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
+从理论上讲，对于只显示可信代码的桌面应用程序来说，未沙盒化的渲染器不是问题，但它们使Electron在显示不受信任的 Web 内容时的安全性低于Chromium。 However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
 
 <!--TODO: update this guide when #28466 is either solved or closed -->
 Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. See [#28466][issue-28466]) for details.
