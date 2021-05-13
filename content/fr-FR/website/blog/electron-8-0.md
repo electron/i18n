@@ -30,7 +30,7 @@ L'équipe d'Electron est heureuse d'annoncer la sortie d'Electron 8.0.0 ! Vous p
 
 Voir les [notes de version 8.0.0](https://github.com/electron/electron/releases/tag/v8.0.0) pour une liste complète des nouvelles fonctionnalités et des changements.
 
-## Breaking Changes
+## Changements de rupture
 
 * Afficher le nom du module dans l'avertissement de dépréciation pour les modules contextuels. [#21952](https://github.com/electron/electron/pull/21952)
     * Ceci est un travail continu pour une future exigence que les modules natifs de Node chargés dans le processus de rendu soient soit [N-API](https://nodejs.org/api/n-api.html) ou [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). L'info complète et le calendrier proposé sont détaillés dans [ce problème](https://github.com/electron/electron/issues/18397).
