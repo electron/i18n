@@ -36,7 +36,7 @@ La team Electron est excitée d'annoncer la sortie de Electron 12.0.0 ! Vous pou
 
 See the [12.0.0 release notes](https://github.com/electron/electron/releases/tag/v12.0.0) for a full list of new features and changes.
 
-## Breaking Changes
+## Changements de rupture
 
 * Deprecated the `remote` module. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
     * If you are currently using the `remote` module, we've written [a guide to migrating to `@electron/remote` here.](https://github.com/electron/remote#migrating-from-remote)
