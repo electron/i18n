@@ -1,21 +1,21 @@
 # Guia para Mac App Store
 
-This guide provides information on:
+Este guia fornece informações sobre:
 
-* How to sign Electron apps on macOS;
-* How to submit Electron apps to Mac App Store (MAS);
-* The limitations of the MAS build.
+* Como assinar aplicativos Electron no macOS;
+* Como enviar aplicativos Electron para a Mac App Store (MAS);
+* As limitações de construção do MAS.
 
 ## Requisitos
 
-To sign Electron apps, the following tools must be installed first:
+Para assinar os aplicativos Electron, as seguintes ferramentas devem ser instaladas primeiro:
 
-* Xcode 11 or above.
-* The [electron-osx-sign][electron-osx-sign] npm module.
+* Xcode 11 ou superior.
+* O módulo npm [electron-osx-sign][electron-osx-sign].
 
-You also have to register an Apple Developer account and join the [Apple Developer Program][developer-program].
+Você também tem que registrar uma conta do Apple Developer e participar do [Apple Developer Program][developer-program].
 
-## Sign Electron apps
+## Assinar aplicativos Electron
 
 Electron apps can be distributed through Mac App Store or outside it. Each way requires different ways of signing and testing. This guide focuses on distribution via Mac App Store, but will also mention other methods.
 
