@@ -3,48 +3,48 @@
 このガイドでは以下の情報を提供しています。
 
 * macOS で Electron アプリを署名する方法;
-* How to submit Electron apps to Mac App Store (MAS);
-* The limitations of the MAS build.
+* Mac App Store (MAS) に Electron アプリを提出する方法;
+* MAS ビルドの制限。
 
 ## 要件
 
-To sign Electron apps, the following tools must be installed first:
+Electron アプリを署名するには、まず以下のツールをインストールする必要があります。
 
-* Xcode 11 or above.
-* The [electron-osx-sign][electron-osx-sign] npm module.
+* Xcode 11 以降。
+* [electron-osx-sign][electron-osx-sign] npm モジュール。
 
-You also have to register an Apple Developer account and join the [Apple Developer Program][developer-program].
+また、Apple Developer アカウントを登録し [Apple Developer Program][developer-program] に参加する必要があります。
 
-## Sign Electron apps
+## Electron アプリを署名する
 
-Electron apps can be distributed through Mac App Store or outside it. Each way requires different ways of signing and testing. This guide focuses on distribution via Mac App Store, but will also mention other methods.
+Electron アプリは Mac App Store や外部サイトで頒布できます。 それぞれの方法ごとに、署名やテストの方法が異なります。 このガイドでは Mac App Store での頒布を中心に説明しますが、その他の方法についても言及します。
 
-The following steps describe how to get the certificates from Apple, how to sign Electron apps, and how to test them.
+以下の手順で、Apple から証明書を取得する方法、Electron アプリに署名する方法、テストする方法を説明します。
 
-### Get certificates
+### 証明書の取得
 
-The simplest way to get signing certificates is to use Xcode:
+最も簡単に署名証明書を取得するには、Xcode を使用して以下のようします。
 
-1. Open Xcode and open "Accounts" preferences;
-2. Sign in with your Apple account;
-3. Select a team and click "Manage Certificates";
-4. In the lower-left corner of the signing certificates sheet, click the Add button (+), and add following certificates:
+1. Xcode を開いて設定の "Accounts" を開きます。
+2. Apple アカウントでサインインします。
+3. チームを選択して "Manage Certificates" をクリックします。
+4. 署名証明書シートの左下にある追加ボタン (+) をクリックし、以下の証明書を追加します。
    * "Apple Development"
    * "Apple Distribution"
 
-The "Apple Development" certificate is used to sign apps for development and testing, on machines that have been registered on Apple Developer website. The method of registration will be described in [Prepare provisioning profile](#prepare-provisioning-profile).
+"Apple Development" 証明書は、Apple Developer ウェブサイトで登録したマシン上で、開発およびテスト用のアプリに署名するために使用します。 登録方法については、[プロビジョニングプロファイルの準備](#prepare-provisioning-profile) で説明します。
 
-Apps signed with the "Apple Development" certificate cannot be submitted to Mac App Store. For that purpose, apps must be signed with the "Apple Distribution" certificate instead. But note that apps signed with the "Apple Distribution" certificate cannot run directly, they must be re-signed by Apple to be able to run, which will only be possible after being downloaded from the Mac App Store.
+"Apple Development" 証明書で署名したアプリは Mac App Store に提出できません。 このためには、代わりに "Apple Distribution" 証明書でアプリに署名する必要があります。 ただし注意として、"Apple Distribution" 証明書で署名したアプリはそのまま実行できません。実行できるようにするには Apple が再署名する必要がありますが、これは Mac App Store からダウンロードした後でのみ可能になります。
 
-#### Other certificates
+#### その他の証明書
 
-You may notice that there are also other kinds of certificates.
+証明書の種類が他にもあることにお気づきでしょう。
 
-The "Developer ID Application" certificate is used to sign apps before distributing them outside the Mac App Store.
+"Developer ID Application" 証明書は、アプリを Mac App Store 以外で頒布する前の署名に使用します。
 
-The "Developer ID Installer" and "Mac Installer Distribution" certificates are used to sign the Mac Installer Package instead of the app itself. Most Electron apps do not use Mac Installer Package so they are generally not needed.
+"Developer ID Installer" および "Mac Installer Distribution" の証明書は、アプリ自体ではなく "Mac Installer Package" の署名に使用します。 ほとんどの Electron アプリは Mac Installer Package を使用しないので、通常は必要ありません。
 
-The full list of certificate types can be found [here](https://help.apple.com/xcode/mac/current/#/dev80c6204ec).
+証明書の種類の完全なリストは [こちら](https://help.apple.com/xcode/mac/current/#/dev80c6204ec) で見られます。
 
 Apps signed with "Apple Development" and "Apple Distribution" certificates can only run under [App Sandbox][app-sandboxing], so they must use the MAS build of Electron. However, the "Developer ID Application" certificate does not have this restrictions, so apps signed with it can use either the normal build or the MAS build of Electron.
 
