@@ -19,18 +19,18 @@ Electron には混合サンドボックス環境があります。これは、�
 
 ## Electron でのサンドボックスの動作
 
-Sandboxed processes in Electron behave _mostly_ in the same way as Chromium's do, but Electron has a few additional concepts to consider because it interfaces with Node.js.
+Electron のサンドボックス化したプロセスは _ほぼ_ Chromium と同じように動作しますが、Electron は Node.js とのインターフェイスであるために更に考慮すべき概念がいくつかあります。
 
-### Renderer processes
+### レンダラープロセス
 
-When renderer processes in Electron are sandboxed, they behave in the same way as a regular Chrome renderer would. A sandboxed renderer won't have a Node.js environment initialized.
+Electron のレンダラープロセスをサンドボックス化すると、通常の Chrome レンダラーと同じように動作します。 サンドボックス化したレンダラーは Node.js 環境が初期化されません。
 
 <!-- TODO(erickzhao): when we have a solid guide for IPC, link it here -->
-Therefore, when the sandbox is enabled, renderer processes can only perform privileged tasks (such as interacting with the filesystem, making changes to the system, or spawning subprocesses) by delegating these tasks to the main process via inter-process communication (IPC).
+そのため、サンドボックスを有効にすると、レンダラープロセスはプロセス間通信 (IPC) を介したメインプロセスへのタスクの委譲によってのみ、特権的なタスク (ファイルシステムとのやりとり、システムへの変更、サブプロセスの生成など) を実行できます。
 
-### Preload scripts
+### プリロードスクリプト
 
-In order to allow renderer processes to communicate with the main process, preload scripts attached to sandboxed renderers will still have a polyfilled subset of Node.js APIs available. A `require` function similar to Node's `require` module is exposed, but can only import a subset of Electron and Node's built-in modules:
+レンダラープロセスがメインプロセスと通信できるようにするため、サンドボックス化したレンダラーにアタッチされるプリロードスクリプトでは Node.js API をポリフィルしたサブセットを利用できるようになっています。 A `require` function similar to Node's `require` module is exposed, but can only import a subset of Electron and Node's built-in modules:
 
 * `electron` (only renderer process modules)
 * [`イベント`](https://nodejs.org/api/events.html)
