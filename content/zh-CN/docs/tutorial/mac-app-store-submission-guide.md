@@ -1,10 +1,10 @@
 # Mac App Store 应用程序提交指南
 
-This guide provides information on:
+本指南提供以下相关资讯：
 
-* How to sign Electron apps on macOS;
-* How to submit Electron apps to Mac App Store (MAS);
-* The limitations of the MAS build.
+* 如何在 macOS 上为 Electron 应用签名；
+* 如何在 Mac App Store (MAS) 上提交 Electron 应用；
+* 对于 MAS 构建版本的局限性。
 
 ## 要求
 
