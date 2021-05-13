@@ -12,7 +12,7 @@ Electron带有一个混合的沙盒环境，意味着沙盒化进程可以和有
 
 从历史上看，这种混合沙盒方法之所以成立，是因为在渲染器中提供Node.js对于应用开发人员来说是一个非常强大的工具。 不幸的是，这一特性同时也是一个巨大的安全漏洞。
 
-从理论上讲，对于只显示可信代码的桌面应用程序来说，未沙盒化的渲染器不是问题，但它们使Electron在显示不受信任的 Web 内容时的安全性低于Chromium。 However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
+从理论上讲，对于只显示可信代码的桌面应用程序来说，未沙盒化的渲染器不是问题，但它们使Electron在显示不受信任的 Web 内容时的安全性低于Chromium。 然而，即使据称可信的代码也可能是危险的 — 在远程加载的网站上有无数恶意行为者可以使用的攻击途径。稍微举几个例子：从跨站脚本到内容注入再到中间人攻击。 因此，我们建议在大多数非常谨慎的情况下启用渲染器沙盒化。
 
 <!--TODO: update this guide when #28466 is either solved or closed -->
 Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. See [#28466][issue-28466]) for details.
