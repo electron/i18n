@@ -1,8 +1,8 @@
 # プロセスのサンドボックス化
 
-One key security feature in Chromium is that processes can be executed within a sandbox. The sandbox limits the harm that malicious code can cause by limiting access to most system resources — sandboxed processes can only freely use CPU cycles and memory. In order to perform operations requiring additional privilege, sandboxed processes use dedicated communication channels to delegate tasks to more privileged processes.
+Chromium の重要なセキュリティ機能の一つは、プロセスをサンドボックス内で実行できることです。 サンドボックスは、ほとんどのシステムリソースへのアクセスを制限することで悪意のあるコードが引き起こす被害を制限します。サンドボックスのプロセスは、CPU サイクルとメモリのみを自由に使用できます。 サンドボックス化したプロセスで追加の特権を必要とする操作を実行するには、専用の通信チャンネルを使用してより特権のあるプロセスにタスクを委譲します。
 
-In Chromium, sandboxing is applied to most processes other than the main process. This includes renderer processes, as well as utility processes such as the audio service, the GPU service and the network service.
+Chromium では、メインプロセス以外のほとんどのプロセスにサンドボックス化が適用されます。 これにはレンダラープロセスのほか、オーディオサービス、GPU サービス、ネットワークサービスなどのユーティリティプロセスも含まれます。
 
 See Chromium's [Sandbox design document][sandbox] for more information.
 
