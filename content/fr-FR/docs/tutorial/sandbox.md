@@ -1,16 +1,16 @@
-# Process Sandboxing
+# Mise en bac à sable de processus
 
-L'une des principales fonctionnalités de sécurité de Chromium est que les processus peuvent être exécutés dans un bac à sable. The sandbox limits the harm that malicious code can cause by limiting access to most system resources — sandboxed processes can only freely use CPU cycles and memory. In order to perform operations requiring additional privilege, sandboxed processes use dedicated communication channels to delegate tasks to more privileged processes.
+L'une des principales fonctionnalités de sécurité de Chromium est que les processus peuvent être exécutés dans un bac à sable. The sandbox limits the harm that malicious code can cause by limiting access to most system resources — sandboxed processes can only freely use CPU cycles and memory. Afin d’effectuer des opérations nécessitant un privilège supplémentaire, les processus mis en bac à sable utilisent des canaux de communication dédiés pour déléguer des tâches à des processus plus privilégiés.
 
-In Chromium, sandboxing is applied to most processes other than the main process. Cela inclut les processus de rendu, ainsi que les processus utilitaires tels que le service audio, le service GPU et le service réseau.
+Dans Chromium, le bac à sable est appliqué à la plupart des processus autres que le processus principal. Cela inclut les processus de rendu, ainsi que les processus utilitaires tels que le service audio, le service GPU et le service réseau.
 
-See Chromium's [Sandbox design document][sandbox] for more information.
+Reportez-vous au document [Conception du bac à sable][sandbox] pour plus d'informations.
 
-## Electron's sandboxing policies
+## Politiques du bac à sable d’Electron
 
-Electron comes with a mixed sandbox environment, meaning sandboxed processes can run alongside privileged ones. By default, renderer processes are not sandboxed, but utility processes are. Note that as in Chromium, the main (browser) process is privileged and cannot be sandboxed.
+Electron est livré avec un environnement de bac à sable mixte, ce qui signifie que les processus s'y exécutant peuvent fonctionner aux côtés de processus privilégiés. Par défaut, les processus de rendu ne sont pas en bac à sable mais les processus utilitaires le sont. Notez que dans Chromium le processus principal (navigateur) est privilégié et ne peut pas être mis en bac à sable.
 
-Historically, this mixed sandbox approach was established because having Node.js available in the renderer is an extremely powerful tool for app developers. Unfortunately, this feature is also an equally massive security vulnerability.
+Historiquement, cette approche du bac à sable mixte a été établie car la disponibilité de Node.js dans le moteur de rendu est un outil extrêmement puissant pour les développeurs d'applications. Malheureusement cette fonctionnalité est également une vulnérabilité de sécurité tout aussi massive.
 
 Theoretically, unsandboxed renderers are not a problem for desktop applications that only display trusted code, but they make Electron less secure than Chromium for displaying untrusted web content. However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
 
