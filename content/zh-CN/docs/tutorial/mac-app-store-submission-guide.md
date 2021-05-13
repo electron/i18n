@@ -1,40 +1,110 @@
 # Mac App Store 应用程序提交指南
 
-从 v0.34.0 开始，Electron 允许将封装应用提交Mac App Store (MAS)。 本指南提供以下信息：如何提交您的应用程序和 MAS 构建的 限制。
+This guide provides information on:
 
-**注意：**提交一个应用到Mac应用商店需要加入[Apple Develpoer Program][developer-program]，这需要花钱。
+* How to sign Electron apps on macOS;
+* How to submit Electron apps to Mac App Store (MAS);
+* The limitations of the MAS build.
 
-## 如何提交你的应用
+## 要求
 
-下面步骤介绍了一个简单的提交应用到商店方法。 然而，这些步骤不能保证你的应用被 Apple 接受；你仍然需要阅读 Apple 的 [Submitting Your App][submitting-your-app] 关于如何满足 Mac App Store 要求的向导。
+To sign Electron apps, the following tools must be installed first:
 
-### 获得证书
+* Xcode 11 or above.
+* The [electron-osx-sign][electron-osx-sign] npm module.
 
-为了提交应用到商店，首先需要从 Apple 获得一个证书 可以参照 [现有的指南][nwjs-guide]。
+You also have to register an Apple Developer account and join the [Apple Developer Program][developer-program].
 
-### 获得 Team ID
+## Sign Electron apps
 
-在软件签名之前，你需要知道开发者账户的 Team ID 查看 Team ID，登录[ Apple Developer Center](https://developer.apple.com/account/) 并点击侧边栏的 Membership。 你可以在团队名称下面的 Membership Information 部分查看到 Team ID。
+Electron apps can be distributed through Mac App Store or outside it. Each way requires different ways of signing and testing. This guide focuses on distribution via Mac App Store, but will also mention other methods.
 
-### 软件签名
+The following steps describe how to get the certificates from Apple, how to sign Electron apps, and how to test them.
 
-获得证书之后，你可以使用 [应用部署](application-distribution.md) 打包你的应用，之后进行提交。
+### Get certificates
 
-首先, 你必须向`Info.plist`中添加一个`ElectronTeamID`键作为你团队的ID:
+The simplest way to get signing certificates is to use Xcode:
+
+1. Open Xcode and open "Accounts" preferences;
+2. Sign in with your Apple account;
+3. Select a team and click "Manage Certificates";
+4. In the lower-left corner of the signing certificates sheet, click the Add button (+), and add following certificates:
+   * "Apple Development"
+   * "Apple Distribution"
+
+The "Apple Development" certificate is used to sign apps for development and testing, on machines that have been registered on Apple Developer website. The method of registration will be described in [Prepare provisioning profile](#prepare-provisioning-profile).
+
+Apps signed with the "Apple Development" certificate cannot be submitted to Mac App Store. For that purpose, apps must be signed with the "Apple Distribution" certificate instead. But note that apps signed with the "Apple Distribution" certificate cannot run directly, they must be re-signed by Apple to be able to run, which will only be possible after being downloaded from the Mac App Store.
+
+#### Other certificates
+
+You may notice that there are also other kinds of certificates.
+
+The "Developer ID Application" certificate is used to sign apps before distributing them outside the Mac App Store.
+
+The "Developer ID Installer" and "Mac Installer Distribution" certificates are used to sign the Mac Installer Package instead of the app itself. Most Electron apps do not use Mac Installer Package so they are generally not needed.
+
+The full list of certificate types can be found [here](https://help.apple.com/xcode/mac/current/#/dev80c6204ec).
+
+Apps signed with "Apple Development" and "Apple Distribution" certificates can only run under [App Sandbox][app-sandboxing], so they must use the MAS build of Electron. However, the "Developer ID Application" certificate does not have this restrictions, so apps signed with it can use either the normal build or the MAS build of Electron.
+
+#### Legacy certificate names
+
+Apple has been changing the names of certificates during past years, you might encounter them when reading old documentations, and some utilities are still using one of the old names.
+
+* The "Apple Distribution" certificate was also named as "3rd Party Mac Developer Application" and "Mac App Distribution".
+* The "Apple Development" certificate was also named as "Mac Developer" and "Development".
+
+### Prepare provisioning profile
+
+If you want to test your app on your local machine before submitting your app to the Mac App Store, you have to sign the app with the "Apple Development" certificate with the provisioning profile embedded in the app bundle.
+
+To [create a provisioning profile](https://help.apple.com/developer-account/#/devf2eb157f8), you can follow the below steps:
+
+1. Open the "Certificates, Identifiers & Profiles" page on the [Apple Developer](https://developer.apple.com/account) website.
+2. Add a new App ID for your app in the "Identifiers" page.
+3. Register your local machine in the "Devices" page. You can find your machine's "Device ID" in the "Hardware" page of the "System Information" app.
+4. Register a new Provisioning Profile in the "Profiles" page, and download it to `/path/to/yourapp.provisionprofile`.
+
+### Enable Apple's App Sandbox
+
+Apps submitted to the Mac App Store must run under Apple's [App Sandbox][app-sandboxing], and only the MAS build of Electron can run with the App Sandbox. The standard darwin build of Electron will fail to launch when run under App Sandbox.
+
+When signing the app with `electron-osx-sign`, it will automatically add the necessary entitlements to your app's entitlements, but if you are using custom entitlements, you must ensure App Sandbox capacity is added:
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-  ...
-  <key>ElectronTeamID</key>
-  <string>TEAM_ID</string>
-</dict>
+  <dict>
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+  </dict>
 </plist>
 ```
 
-之后，你需要准备2个授权文件。
+#### Extra steps without `electron-osx-sign`
 
-`child.plist`:
+If you are signing your app without using `electron-osx-sign`, you must ensure the app bundle's entitlements have at least following keys:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+    <key>com.apple.security.application-groups</key>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
+  </dict>
+</plist>
+```
+
+The `TEAM_ID` should be replaced with your Apple Developer account's Team ID, and the `your.bundle.id` should be replaced with the App ID of the app.
+
+And the following entitlements must be added to the binaries and helpers in the app's bundle:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -49,94 +119,68 @@
 </plist>
 ```
 
-`parent.plist`:
+And the app bundle's `Info.plist` must include `ElectronTeamID` key, which has your Apple Developer account's Team ID as its value:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www. ple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>com.apple.security. pp-sandbox</key>
-    <true/>
-    <key>com.apple.security。 pplication-groups</key>
-    <array>
-      <string>TEAM_ID。 our.bundle.id</string>
-    </array>
-  </dict>
+<dict>
+  ...
+  <key>ElectronTeamID</key>
+  <string>TEAM_ID</string>
+</dict>
 </plist>
 ```
 
-`loginhelper.plist`:
+When using `electron-osx-sign` the `ElectronTeamID` key will be added automatically by extracting the Team ID from the certificate's name. You may need to manually add this key if `electron-osx-sign` could not find the correct Team ID.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple/DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0。 td">
-<plist version="1.0">
-  <dict>
-    <key>com.apple.security. pp-sandbox</key>
-    <true/>
-  </dict>
-</plist>
+### Sign apps for development
+
+To sign an app that can run on your development machine, you must sign it with the "Apple Development" certificate and pass the provisioning profile to `electron-osx-sign`.
+
+```bash
+electron-osx-sign YourApp.app --identity='Apple Development' --provisioning-profile=/path/to/yourapp.provisionprofile
 ```
 
-请注意上述 `TEAM_ID` 对应开发者账户的 Team ID，`your.bundle.id` 对应软件打包时使用的 Bundle ID。
+If you are signing without `electron-osx-sign`, you must place the provisioning profile to `YourApp.app/Contents/embedded.provisionprofile`.
 
-然后使用下面的脚本签名你的应用：
+The signed app can only run on the machines that registered by the provisioning profile, and this is the only way to test the signed app before submitting to Mac App Store.
 
-```sh
-#!/bin/bash
+### Sign apps for submitting to the Mac App Store
 
-# Name of your app.
-APP="YourApp"
-# The path of your app to sign.
-APP_PATH="/path/to/YourApp.app"
-# 生成安装包路径
-RESULT_PATH="~/Desktop/$APP.pkg"
-# 开发者应用签名证书
-APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
-INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# 授权文件路径
-CHILD_PLIST="/path/to/child.plist"
-PARENT_PLIST="/path/to/parent.plist"
-LOGINHELPER_PLIST="/path/to/loginhelper.plist"
+To sign an app that will be submitted to Mac App Store, you must sign it with the "Apple Distribution" certificate. Note that apps signed with this certificate will not run anywhere, unless it is downloaded from Mac App Store.
 
-FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
-
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
-codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
-
-productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
+```bash
+electron-osx-sign YourApp.app --identity='Apple Distribution'
 ```
 
-如果你刚接触 macOS 下的应用沙箱，应当仔细阅读 Apple 的 [Enabling App Sandbox][enable-app-sandbox] 了解一些基本概念，然后在 entitlements 文件内添加你的应用需要的权限。
+### Sign apps for distribution outside the Mac App Store
 
-除了手动给你的应用签名，你也可以选择使用 [electron-osx-sign][electron-osx-sign] 模块来做这件事。
+If you don't plan to submit the app to Mac App Store, you can sign it the "Developer ID Application" certificate. In this way there is no requirement on App Sandbox, and you should use the normal darwin build of Electron if you don't use App Sandbox.
 
-#### 原生模块签名
-
-您的应用中使用的本地模块也需要签名。 如果使用 electron-osx-sign, 请务必在 参数列表中包含内建二进制文件的路径：
-
-```sh
-electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+```bash
+electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekeeper-assess
 ```
 
-还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用的 [electron-packager][electron-packager] 是8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 参数以忽略这些文件。 版本8.1.0以及之后的版本默认忽略这些文件.
+By passing `--no-gatekeeper-assess`, the `electron-osx-sign` will skip the macOS GateKeeper check as your app usually has not been notarized yet by this step.
 
-### 上传你的应用
+<!-- TODO(zcbenz): Add a chapter about App Notarization -->
+This guide does not cover [App Notarization][app-notarization], but you might want to do it otherwise Apple may prevent users from using your app outside Mac App Store.
 
-在给你的应用签名之后，你可以使用 Application Loader 上传到 iTunes Connect 进行处理。请确保在上传之前你已经进行了 [created a record][create-record] 操作。
+## Submit Apps to the Mac App Store
 
-### 检查并提交你的应用
+After signing the app with the "Apple Distribution" certificate, you can continue to submit it to Mac App Store.
 
-在这些步骤之后，你可以 [提交你的应用程序进行审核][submit-for-review]。
+However, this guide do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
+
+### Upload
+
+The Application Loader should be used to upload the signed app to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
+
+If you are seeing errors like private APIs uses, you should check if the app is using the MAS build of Electron.
+
+### Submit for review
+
+After uploading, you should [submit your app for review][submit-for-review].
 
 ## MAS 构建限制
 
@@ -153,11 +197,11 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 此外，由于应用沙盒的使用，应用程序可以访问的资源受到严格限制；您可以阅读 [应用沙盒][app-sandboxing] ，了解更多信息。
 
-### 附加授权
+### Additional entitlements
 
-根据应用使用的 Electron API，你可能需要添加附加授权 在 `parent.plist` 文件，在 Mac App Store 发布应用程序的时候能够使用这些API。
+Depending on which Electron APIs your app uses, you may need to add additional entitlements to your app's entitlements file. Otherwise, the App Sandbox may prevent you from using them.
 
-#### 网络访问
+#### Network access
 
 启用传出的网络连接，允许你的应用程序连接到服务器：
 
@@ -178,7 +222,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.users selected.read-only</key>
+<key>com.apple.security.files.user-selected.read-only</key>
 <true/>
 ```
 
@@ -187,7 +231,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 #### dialog.showSaveDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.write</key>
+<key>com.apple.security.files.user-selected.read-write</key>
 <true/>
 ```
 
@@ -224,14 +268,13 @@ Electron 使用下列加密算法：
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
 [developer-program]: https://developer.apple.com/support/compare-memberships/
-[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
-[nwjs-guide]: https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
-[enable-app-sandbox]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html
-[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
-[electron-osx-sign]: https://github.com/electron-userland/electron-osx-sign
-[electron-packager]: https://github.com/electron/electron-packager
-[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
+[electron-osx-sign]: https://github.com/electron/electron-osx-sign
 [app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[app-notarization]: https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution
+[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
+[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
+[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
 [export-compliance]: https://help.apple.com/app-store-connect/#/devc3f64248f
 [user-selected]: https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6
 [network-access]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9
