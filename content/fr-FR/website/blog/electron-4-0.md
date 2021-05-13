@@ -86,7 +86,7 @@ win.webContents.setBackgroundThrottling (enableBackgroundThrottling)
 
 Voir [la documentation `setBackgroundThrottling`](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) pour plus d'informations.
 
-## Breaking Changes
+## Changements de rupture
 
 ### Plus de support pour macOS 10.9
 
