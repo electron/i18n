@@ -1,8 +1,8 @@
 # Mac App Store への公開ガイド
 
-This guide provides information on:
+このガイドでは以下の情報を提供しています。
 
-* How to sign Electron apps on macOS;
+* macOS で Electron アプリを署名する方法;
 * How to submit Electron apps to Mac App Store (MAS);
 * The limitations of the MAS build.
 
