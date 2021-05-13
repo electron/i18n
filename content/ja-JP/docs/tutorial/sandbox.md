@@ -4,20 +4,20 @@ Chromium の重要なセキュリティ機能の一つは、プロセスをサ�
 
 Chromium では、メインプロセス以外のほとんどのプロセスにサンドボックス化が適用されます。 これにはレンダラープロセスのほか、オーディオサービス、GPU サービス、ネットワークサービスなどのユーティリティプロセスも含まれます。
 
-See Chromium's [Sandbox design document][sandbox] for more information.
+詳しい情報は Chromium の [サンドボックスデザインのドキュメント][sandbox] をご参照ください。
 
-## Electron's sandboxing policies
+## Electron のサンドボックス化ポリシー
 
-Electron comes with a mixed sandbox environment, meaning sandboxed processes can run alongside privileged ones. By default, renderer processes are not sandboxed, but utility processes are. Note that as in Chromium, the main (browser) process is privileged and cannot be sandboxed.
+Electron には混合サンドボックス環境があります。これは、サンドボックス化したプロセスと特権プロセスを横並びに実行するというものです。 デフォルトでは、レンダラープロセスはサンドボックスではなく、ユーティリティプロセスです。 注意として、Chromium と同様にメイン (ブラウザ) プロセスは特権プロセスであり、サンドボックス化できません。
 
-Historically, this mixed sandbox approach was established because having Node.js available in the renderer is an extremely powerful tool for app developers. Unfortunately, this feature is also an equally massive security vulnerability.
+歴史的には、アプリ開発者にとってレンダラーでの Node.js の利用は非常に強力なツールであるため、このような混合サンドボックス方式が確立されました。 あいにく、この機能は甚大なセキュリティ上の脆弱性でもあります。
 
-Theoretically, unsandboxed renderers are not a problem for desktop applications that only display trusted code, but they make Electron less secure than Chromium for displaying untrusted web content. However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
+理論的には、信頼されるコードだけを表示するデスクトップアプリケーションでは非サンドボックス化レンダラーは問題になりません。しかし、信頼されないウェブコンテンツを表示する場合の Electron は、Chromium よりも堅牢性が低くなります。 クロスサイトスクリプティング、コンテンツインジェクション、遠隔で読み込んだウェブサイトへの中間者攻撃など、悪意のある人間が利用できる攻撃手段は無数にあります。 念のため、大多数の状況ではレンダラーのサンドボックスの有効化を推奨します。
 
 <!--TODO: update this guide when #28466 is either solved or closed -->
-Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. See [#28466][issue-28466]) for details.
+なお Issue トラッカーではレンダラーのサンドボックス化をデフォルトで有効にするための議論が活発に行われています。 詳しくは [#28466][issue-28466]) を参照してください。
 
-## Sandbox behaviour in Electron
+## Electron でのサンドボックスの動作
 
 Sandboxed processes in Electron behave _mostly_ in the same way as Chromium's do, but Electron has a few additional concepts to consider because it interfaces with Node.js.
 
