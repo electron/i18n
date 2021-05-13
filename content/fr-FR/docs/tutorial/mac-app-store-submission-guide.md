@@ -1,33 +1,33 @@
 # Guide de Soumission Mac App Store
 
-This guide provides information on:
+Ce guide fournit des informations sur :
 
-* How to sign Electron apps on macOS;
-* How to submit Electron apps to Mac App Store (MAS);
-* The limitations of the MAS build.
+* Comment signer des applications Electron sur macOS ;
+* Comment soumettre des applications Electron sur le Mac App Store (MAS) ;
+* Les limitations de la compilation pour le MAS.
 
 ## Spécifications requises
 
-To sign Electron apps, the following tools must be installed first:
+Pour signer des applications Electron, les outils suivants doivent d'abord être installés :
 
-* Xcode 11 or above.
-* The [electron-osx-sign][electron-osx-sign] npm module.
+* Xcode 11 ou plus.
+* Le module npm [electron-osx-sign][electron-osx-sign].
 
-You also have to register an Apple Developer account and join the [Apple Developer Program][developer-program].
+Vous devez également créer un compte Apple Developer et rejoindre le [Apple Developper Program][developer-program].
 
-## Sign Electron apps
+## Signer des applications Electron
 
-Electron apps can be distributed through Mac App Store or outside it. Each way requires different ways of signing and testing. This guide focuses on distribution via Mac App Store, but will also mention other methods.
+Les applications Electron peuvent être distribuées via le Mac App Store ou en dehors de celui-ci. Chaque moyen de distribution nécessite différentes façons de signer et de tester. Ce guide se concentre sur la distribution via le Mac App Store, mais mentionnera également d'autres méthodes.
 
-The following steps describe how to get the certificates from Apple, how to sign Electron apps, and how to test them.
+Les étapes suivantes décrivent comment obtenir les certificats d'Apple, comment signer des applications Electron, et comment les tester.
 
-### Get certificates
+### Obtenir des certificats
 
-The simplest way to get signing certificates is to use Xcode:
+La façon la plus simple d’obtenir des certificats de signature est d’utiliser Xcode :
 
-1. Open Xcode and open "Accounts" preferences;
-2. Sign in with your Apple account;
-3. Select a team and click "Manage Certificates";
+1. Ouvrir Xcode et dans les préférences ouvrir "Comptes" ;
+2. Connectez-vous avec votre compte Apple ;
+3. Sélectionnez une équipe et cliquez sur "Gérer les certificats" ;
 4. In the lower-left corner of the signing certificates sheet, click the Add button (+), and add following certificates:
    * "Apple Development"
    * "Apple Distribution"
