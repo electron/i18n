@@ -51,6 +51,7 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
   * [Estratégias de Performance](tutorial/performance.md)
   * [Estratégias de segurança](tutorial/security.md)
+  * [Process Sandboxing](tutorial/sandbox.md)
 * [Acessibilidade](tutorial/accessibility.md)
   * [Habilitar manualmente Recursos de Acessibilidade](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Teste e Depuração](tutorial/application-debugging.md)
