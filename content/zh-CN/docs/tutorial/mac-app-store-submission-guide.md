@@ -8,14 +8,14 @@
 
 ## 要求
 
-To sign Electron apps, the following tools must be installed first:
+要为 Electron 应用签名，则必须首先安装下列应用：
 
-* Xcode 11 or above.
-* The [electron-osx-sign][electron-osx-sign] npm module.
+* Xcode 11 或更高版本。
+* [electron-osx-sign][electron-osx-sign] npm 模块.
 
-You also have to register an Apple Developer account and join the [Apple Developer Program][developer-program].
+您还必须注册一个苹果开发者帐户，并加入 [苹果开发者计划][developer-program]。
 
-## Sign Electron apps
+## 为 Electron 应用签名
 
 Electron apps can be distributed through Mac App Store or outside it. Each way requires different ways of signing and testing. This guide focuses on distribution via Mac App Store, but will also mention other methods.
 
