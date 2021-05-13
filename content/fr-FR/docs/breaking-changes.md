@@ -1,4 +1,4 @@
-# Breaking Changes
+# Changements de rupture
 
 Les changements cassants seront documentés ici, et des avertissements de dépréciations ajoutés au code JS quand possible, au moins [une version majeur](tutorial/electron-versioning.md#semver) avant que le changement soit fait.
 
@@ -25,7 +25,7 @@ Si vous utilisiez ce paramètre pour définir le titre d’une fenêtre, vous po
 Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée.  Il a été activé par défaut depuis Electron
 12.
 
-Vous serez affecté par ce changement si vous utilisez `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+Vous serez affecté par ce changement si vous utilisez `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. Changements de rupture.
 
 ## Changements majeurs prévus de l'API (13.0)
 
@@ -140,7 +140,7 @@ nativeTheme.shouldUseHighContrastColors
 
 Chromium a supprimé le support pour Flash, et nous devons donc suivre. Voir la feuille de route Flash [de Chromium](https://www.chromium.org/flash-roadmap) pour plus de détails.
 
-### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+### Changements de rupture`true`
 
 Dans Electron 12, `worldSafeExecuteJavaScript` sera activé par défaut.  Restaurer le comportement précédent, `worldSafeExecuteJavaScript: false` doit être spécifié dans WebPreferences. Veuillez noter que définir cette option sur `false` est **non sécurisé**.
 

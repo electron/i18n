@@ -6,7 +6,7 @@ Electron est un framework qui vous permet de créer des applications de bureau a
 
 Généralement, vous créez une application de bureau pour un système d'exploitation (OS) en utilisant les frameworks natifs de chaque système d'exploitation. Electron permet d'écrire votre application une fois en utilisant des technologies que vous connaissez déjà.
 
-### Prerequisites
+### Prérequis
 
 Avant de continuer avec Electron, vous devez installer [Node.js][node-download]. Nous vous recommandons d'installer soit la dernière version `LTS` ou `actuelle` disponible.
 

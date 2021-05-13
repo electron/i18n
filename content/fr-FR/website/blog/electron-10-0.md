@@ -38,7 +38,7 @@ Nous avons hâte de voir ce que vous construisez avec eux ! Continuer à lire po
 
 Voir les [notes de version 10.0.0](https://github.com/electron/electron/releases/tag/v10.0.0) pour une liste complète des nouvelles fonctionnalités et des changements.
 
-## Breaking Changes
+## Changements de rupture
 
 * La valeur par défaut de `enableRemoteModule` a été changée en `false`. [#22091](https://github.com/electron/electron/pull/22091)
     * Ceci fait partie de nos plans pour déprécier le module `distant` et le déplacer vers le site utilisateur. Vous pouvez lire et suivre [ce problème](https://github.com/electron/electron/issues/21408) qui détaille nos raisons pour cela et inclut un calendrier proposé pour la dépréciation.

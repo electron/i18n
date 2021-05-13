@@ -51,6 +51,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
   * [Uso de Módulos Nativos de Node.js](tutorial/using-native-node-modules.md)
   * [Estrategias de rendimiento](tutorial/performance.md)
   * [Estrategias de seguridad](tutorial/security.md)
+  * [Process Sandboxing](tutorial/sandbox.md)
 * [Accesibilidad](tutorial/accessibility.md)
   * [Habilitando manualmente Características de Accesibilidad](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Pruebas y depuración](tutorial/application-debugging.md)
