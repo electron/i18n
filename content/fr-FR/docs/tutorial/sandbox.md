@@ -12,47 +12,47 @@ Electron est livré avec un environnement de bac à sable mixte, ce qui signifie
 
 Historiquement, cette approche du bac à sable mixte a été établie car la disponibilité de Node.js dans le moteur de rendu est un outil extrêmement puissant pour les développeurs d'applications. Malheureusement cette fonctionnalité est également une vulnérabilité de sécurité tout aussi massive.
 
-Theoretically, unsandboxed renderers are not a problem for desktop applications that only display trusted code, but they make Electron less secure than Chromium for displaying untrusted web content. However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
+Théoriquement les rendus hors bac à sable ne sont pas un problème pour les applications de bureau qui affichent uniquement du code de confiance mais ils rendent Electron moins sûr que Chromium pour afficher du contenu Web non fiable. Cependant même du code prétendument fiable peut être dangereux - il existe d’innombrables vecteurs d’attaque utilisables par des acteurs malveillants, du script cross-site à l’injection de contenu aux attaques "man-in-the-middle" sur des sites Web distants chargés pour n’en nommer que quelques-uns. Pour cette raison, nous recommandons d'être très prudent et d’activer le bac à sable pour les rendus dans la grande majorité des cas.
 
 <!--TODO: update this guide when #28466 is either solved or closed -->
-Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. Voir [#28466][issue-28466]) pour plus de détails.
+Notez qu'il y a une discussion active dans le gestionnaire de tickets au sujet de l'activation par défaut de la mise en bac à sable des rendus . Voir [#28466][issue-28466]) pour plus de détails.
 
-## Sandbox behaviour in Electron
+## Comportement du bac à sable dans Electron
 
-Sandboxed processes in Electron behave _mostly_ in the same way as Chromium's do, but Electron has a few additional concepts to consider because it interfaces with Node.js.
+Dans Electron les processus mis en bac à sable se comportent principalement de la même manière qu'avec Chromium mais il y a quelques concepts supplémentaires à considérer puisque Electron s’interface avec Node.js.
 
 ### Processus de rendu
 
-When renderer processes in Electron are sandboxed, they behave in the same way as a regular Chrome renderer would. A sandboxed renderer won't have a Node.js environment initialized.
+Lorsque les processus de rendu dans Electron sont en bac à sable, ils se comportent de la même manière qu'un moteur de rendu Chrome régulier le ferait. Un moteur de rendu en bac à sable n'aura pas d'environnement Node.js initialisé.
 
 <!-- TODO(erickzhao): when we have a solid guide for IPC, link it here -->
-Therefore, when the sandbox is enabled, renderer processes can only perform privileged tasks (such as interacting with the filesystem, making changes to the system, or spawning subprocesses) by delegating these tasks to the main process via inter-process communication (IPC).
+Par conséquent, lorsque le bac à sable est activé, les processus de rendu ne peuvent effectuer des tâches privilégiées (telles que l’interaction avec le système de fichiers, apporter des modifications au système ou engendrer des sous-processus) qu'en déléguant ces tâches au processus principal par la communication inter-processus (IPC).
 
-### Précharger les scripts
+### Scripts de preload
 
-In order to allow renderer processes to communicate with the main process, preload scripts attached to sandboxed renderers will still have a polyfilled subset of Node.js APIs available. A `require` function similar to Node's `require` module is exposed, but can only import a subset of Electron and Node's built-in modules:
+Afin de permettre aux processus de rendu de communiquer avec le processus principal, les scripts de préchargement attachés aux rendus en bac à sable auront toujours un sous-ensemble polyfill de l'API Node.js disponible. Une fonction `require` similaire au module `require` de Node module est exposée mais ne peut importer qu'un sous-ensemble des modules intégrés d'Electron et de Node :
 
 * `electron` (uniquement les modules de processus de rendu)
 * [`événements`](https://nodejs.org/api/events.html)
 * [`timers`](https://nodejs.org/api/timers.html)
 * [`url`](https://nodejs.org/api/url.html)
 
-In addition, the preload script also polyfills certain Node.js primitives as globals:
+En outre, le script de préchargement simule également certaines primitives Node.js en tant que globales :
 
-* [`Tampon`](https://nodejs.org/api/Buffer.html)
+* [`Buffer`](https://nodejs.org/api/Buffer.html)
 * [`processus (process)`](../api/process.md)
-* [`clearImmediate`](https://nodejs.org/api/timers.html#timers_clearimmediate_immediate)
-* [`setImmediate`](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args)
+* [`clearImmédite`](https://nodejs.org/api/timers.html#timers_clearimmediate_immediate)
+* [`setImmédite`](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args)
 
-Because the `require` function is a polyfill with limited functionality, you will not be able to use [CommonJS modules][commonjs] to separate your preload script into multiple files. If you need to split your preload code, use a bundler such as [webpack][webpack] or [Parcel][parcel].
+Étant donné que la fonction `require` est un polyfill avec des fonctionnalités limitées, vous ne serez pas en mesure d’utiliser [modules CommonJS][commonjs] pour séparer votre script de préchargement en plusieurs fichiers . Si vous avez besoin de diviser votre code de préchargement, utilisez un groupeur de module tel que [webpack][webpack] ou [Parcel][parcel].
 
-Note that because the environment presented to the `preload` script is substantially more privileged than that of a sandboxed renderer, it is still possible to leak privileged APIs to untrusted code running in the renderer process unless [`contextIsolation`][contextIsolation] is enabled.
+Notez que parce que l’environnement présenté au script `preload` est sensiblement plus privilégié que celui d’un rendu en bac à sable, il est toujours possible de créer une fuite des API privilégiées vers du code non sécurisé en cours d’exécution dans le processus de rendu à moins que [`contextIsolation`][contextIsolation] ne soit activé.
 
-## Configuring the sandbox
+## Configuration du bac à sable
 
-### Enabling the sandbox for a single process
+### Activation du bac à sable pour un processus unique
 
-In Electron, renderer sandboxing can be enabled on a per-process basis with the `sandbox: true` preference in the [`BrowserWindow`][browser-window] constructor.
+Dans Electron, la mise en bac à sable d'un rendu peut être activé par processus avec la préférence `sandbox: true` dans le constructeur de la [`BrowserWindow`][browser-window].
 
 ```js
 // main.js
@@ -66,29 +66,29 @@ app.whenReady().then(() => {
 })
 ```
 
-### Enabling the sandbox globally
+### Activation globale du bac à sable
 
-If you want to force sandboxing for all renderers, you can also use the [`app.enableSandbox`][enable-sandbox] API. Note that this API has to be called before the app's `ready` event.
+Si vous souhaitez activer de force le bac à sable pour tous les rendus, vous pouvez également utiliser l' [`app.enableSandbox`][enable-sandbox] API. Notez que cette API doit être appelée avant l'événement `ready` de l’application.
 
 ```js
 // main.js
 app.enableSandbox()
 app.whenReady().then(() => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // inutile de passer `sandbox: true` puisque `app.enableSandbox()` a été appelé.
   const win = new BrowserWindow()
   win.loadURL('https://google.com')
 })
 ```
 
-### Disabling Chromium's sandbox (testing only)
+### Désactivation du bac à sable de Chromium (pour test uniquement)
 
-You can also disable Chromium's sandbox entirely with the [`--no-sandbox`][no-sandbox] CLI flag, which will disable the sandbox for all processes (including utility processes). We highly recommend that you only use this flag for testing purposes, and **never** in production.
+Vous pouvez également désactiver entièrement le bac à sable de Chromium avec le drapeau CLI [`--no-sandbox`][no-sandbox] , qui le désactivera pour tous les processus (y compris les processus utilitaires). Nous vous recommandons fortement d'utiliser ce drapeau uniquement à des fins de test, et **jamais** en production.
 
-Note that the `sandbox: true` option will still disable the renderer's Node.js environment.
+Notez que l'option `sandbox : true` désactivera toujours l'environnement Node.js du moteur de rendu .
 
-## Une note sur le rendu du contenu non fiable
+## Une note sur le rendu de contenu non fiable
 
-Rendre du contenu non fiable dans Electron est encore un territoire quelque peu inexploré, bien que certaines applications réussissent (par exemple [Beaker Browser][beaker]). Our goal is to get as close to Chrome as we can in terms of the security of sandboxed content, but ultimately we will always be behind due to a few fundamental issues:
+Le rendu de contenu non fiable dans Electron est encore un territoire quelque peu inconnu, bien que certaines applications trouvent le succès (par exemple. [Beaker Browser][beaker]). Notre objectif est de nous rapprocher le plus possible de Chrome en termes de sécurité des contenus en bac à sable, mais en fin de compte, nous serons toujours à la traîne en raison de quelques problèmes fondamentaux :
 
 1. We do not have the dedicated resources or expertise that Chromium has to apply to the security of its product. We do our best to make use of what we have, to inherit everything we can from Chromium, and to respond quickly to security issues, but Electron cannot be as secure as Chromium without the resources that Chromium is able to dedicate.
 2. Some security features in Chrome (such as Safe Browsing and Certificate Transparency) require a centralized authority and dedicated servers, both of which run counter to the goals of the Electron project. As such, we disable those features in Electron, at the cost of the associated security they would otherwise bring.
