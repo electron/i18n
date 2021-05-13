@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
-## Prerequisites
+## Prérequis
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
