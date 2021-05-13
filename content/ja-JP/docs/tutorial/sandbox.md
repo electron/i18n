@@ -30,29 +30,29 @@ Electron のレンダラープロセスをサンドボックス化すると、�
 
 ### プリロードスクリプト
 
-レンダラープロセスがメインプロセスと通信できるようにするため、サンドボックス化したレンダラーにアタッチされるプリロードスクリプトでは Node.js API をポリフィルしたサブセットを利用できるようになっています。 A `require` function similar to Node's `require` module is exposed, but can only import a subset of Electron and Node's built-in modules:
+レンダラープロセスがメインプロセスと通信できるようにするため、サンドボックス化したレンダラーにアタッチされるプリロードスクリプトでは Node.js API をポリフィルしたサブセットを利用できるようになっています。 Node の `require` に似た `require` 関数のモジュールを公開してありますが、これは以下 Electron や Node の組み込みモジュールのサブセットしかインポートできません。
 
-* `electron` (only renderer process modules)
+* `electron` (レンダラープロセスのモジュールのみ)
 * [`イベント`](https://nodejs.org/api/events.html)
 * [`timers`](https://nodejs.org/api/timers.html)
 * [`url`](https://nodejs.org/api/url.html)
 
-In addition, the preload script also polyfills certain Node.js primitives as globals:
+加えて、プリロードスクリプトは以下の Node.js プリミティブもグローバルとしてポリフィルします。
 
 * [`Buffer`](https://nodejs.org/api/Buffer.html)
 * [`process`](../api/process.md)
 * [`clearImmediate`](https://nodejs.org/api/timers.html#timers_clearimmediate_immediate)
 * [`setImmediate`](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args)
 
-Because the `require` function is a polyfill with limited functionality, you will not be able to use [CommonJS modules][commonjs] to separate your preload script into multiple files. If you need to split your preload code, use a bundler such as [webpack][webpack] or [Parcel][parcel].
+`require` 関数は機能を限定したポリフィルであるため、[CommonJS モジュール][commonjs] を利用したプリロードスクリプトの複数ファイル分割ができません。 プリロードコードを分割する必要がある場合は、[webpack][webpack] や [Parcel][parcel] のようなバンドラーを使用してください。
 
-Note that because the environment presented to the `preload` script is substantially more privileged than that of a sandboxed renderer, it is still possible to leak privileged APIs to untrusted code running in the renderer process unless [`contextIsolation`][contextIsolation] is enabled.
+注意として、`preload` スクリプトへ提示される環境はサンドボックス化したレンダラーの環境よりも大幅に特権的です。[`contextIsolation`][contextIsolation] が有効でなければ、レンダラープロセスで実行しれている信頼されないコードに特権的な API をリークするおそれがあります。
 
-## Configuring the sandbox
+## サンドボックスの設定
 
-### Enabling the sandbox for a single process
+### 単一のプロセスでサンドボックスを有効にする
 
-In Electron, renderer sandboxing can be enabled on a per-process basis with the `sandbox: true` preference in the [`BrowserWindow`][browser-window] constructor.
+Electron では、[`BrowserWindow`][browser-window] コンストラクタで `sandbox: true` を設定することでレンダラープロセスごとにサンドボックスを有効化できます。
 
 ```js
 // main.js
@@ -66,29 +66,29 @@ app.whenReady().then(() => {
 })
 ```
 
-### Enabling the sandbox globally
+### アプリ全体でサンドボックスを有効にする
 
-If you want to force sandboxing for all renderers, you can also use the [`app.enableSandbox`][enable-sandbox] API. Note that this API has to be called before the app's `ready` event.
+すべてのレンダラーにサンドボックスを強制したい場合は、[`app.enableSandbox`][enable-sandbox] API も利用できます。 注意として、この API は app の `ready` イベントより前に呼ぶ必要があります。
 
 ```js
 // main.js
 app.enableSandbox()
 app.whenReady().then(() => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // app.enableSandbox() を呼んだので `sandbox: true` の指定は不要です。
   const win = new BrowserWindow()
   win.loadURL('https://google.com')
 })
 ```
 
-### Disabling Chromium's sandbox (testing only)
+### Chromium のサンドボックスを無効にする (テストのみ)
 
-You can also disable Chromium's sandbox entirely with the [`--no-sandbox`][no-sandbox] CLI flag, which will disable the sandbox for all processes (including utility processes). We highly recommend that you only use this flag for testing purposes, and **never** in production.
+[`--no-sandbox`][no-sandbox] CLI フラグで Chromium のサンドボックスを完全に無効化することもできます。これは、(ユーティリティプロセスを含む) すべてのプロセスのサンドボックスを無効化します。 このフラグはテスト目的でのみ使用し、本番環境では **絶対に** 使用しないことを強く推奨します。
 
-Note that the `sandbox: true` option will still disable the renderer's Node.js environment.
+注意として、この状況で `sandbox: true` オプションを指定してもレンダラーの Node.js 環境は無効になります。
 
-## A note on rendering untrusted content
+## 信頼されないコンテンツの描画に関する注意
 
-Rendering untrusted content in Electron is still somewhat uncharted territory, though some apps are finding success (e.g. [Beaker Browser][beaker]). Our goal is to get as close to Chrome as we can in terms of the security of sandboxed content, but ultimately we will always be behind due to a few fundamental issues:
+信頼されないコンテンツを Electron で描画することはまだ未知の領域ですが、いくつかのアプリケーションは成功を収めています (例: [Beaker Browser][beaker])。 私たちの目標はサンドボックス化したコンテンツのセキュリティに関して Chrome にできるだけ近づくことですが、突き詰めるといくつかの基本的な問題のためにいつも後れを取ることになります。
 
 1. 私たちには Chromium 製品に適したセキュリティのリソースやノウハウがありません。 今あるものを活かして Chromium からできることはすべて継承し、セキュリティ上の問題にも迅速に対応できるようにしていますが、Electron は Chromium のようにリソースを割くことができず、Chromium のようなセキュリティは確保できません。
 2. Chrome のセキュリティ機能 (セーフブラウジングや証明書の透過性など) の中には、中央集権化と専用サーバが必要なものがありますが、どちらも Electron プロジェクトの目的に反しています。 そのため、セキュリティ関連のコストが発生しないように、Electron では機能を無効にしています。
