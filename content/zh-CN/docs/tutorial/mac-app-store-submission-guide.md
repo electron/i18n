@@ -17,43 +17,43 @@
 
 ## 为 Electron 应用签名
 
-Electron apps can be distributed through Mac App Store or outside it. Each way requires different ways of signing and testing. This guide focuses on distribution via Mac App Store, but will also mention other methods.
+Electron应用可以通过 Mac 应用商店或其外部进行发布。 每种方式都需要不同的签名和测试方法。 本指南侧重于通过 Mac 应用商店进行发布，也会提及其他方法。
 
-The following steps describe how to get the certificates from Apple, how to sign Electron apps, and how to test them.
+以下步骤描述了如何从 Apple 获得证书，如何对Electron应用程序进行签名以及如何测试它们。
 
-### Get certificates
+### 获取证书
 
-The simplest way to get signing certificates is to use Xcode:
+获得签名证书的最简单方法是使用 Xcode：
 
-1. Open Xcode and open "Accounts" preferences;
-2. Sign in with your Apple account;
-3. Select a team and click "Manage Certificates";
-4. In the lower-left corner of the signing certificates sheet, click the Add button (+), and add following certificates:
+1. 打开Xcode并打开“帐户”首选项；
+2. 使用您的 Apple 帐户登录;
+3. 选择一个团队并单击"管理证书";
+4. 在签名证书表的左下角，单击添加按钮 (+)，并添加以下证书：
    * "Apple Development"
    * "Apple Distribution"
 
-The "Apple Development" certificate is used to sign apps for development and testing, on machines that have been registered on Apple Developer website. The method of registration will be described in [Prepare provisioning profile](#prepare-provisioning-profile).
+“Apple Development”证书用于在Apple Developer网站上注册的计算机上签署用于开发和测试的应用程序。 注册方法会在[准备配置文件](#prepare-provisioning-profile)中描述。
 
-Apps signed with the "Apple Development" certificate cannot be submitted to Mac App Store. For that purpose, apps must be signed with the "Apple Distribution" certificate instead. But note that apps signed with the "Apple Distribution" certificate cannot run directly, they must be re-signed by Apple to be able to run, which will only be possible after being downloaded from the Mac App Store.
+带有"Apple Development"证书签名的应用无法提交到Mac 应用商店。 为此，应用程序必须使用"Apple Distribution"证书进行签名。 但请注意，使用"Apple Distribution"证书签名的应用程序不能直接运行，它们必须由 Apple 重新签名才能运行，也就是只有从 Mac 应用商店下载后才能运行。
 
-#### Other certificates
+#### 其它证书
 
-You may notice that there are also other kinds of certificates.
+您可以注意到还有其他类型的证书。
 
-The "Developer ID Application" certificate is used to sign apps before distributing them outside the Mac App Store.
+"Developer ID Application"证书用于将应用发布到Mac 应用商店以外的地方之前签名。
 
-The "Developer ID Installer" and "Mac Installer Distribution" certificates are used to sign the Mac Installer Package instead of the app itself. Most Electron apps do not use Mac Installer Package so they are generally not needed.
+"Deceloper ID Installer"和"Mac Installer Distribution"证书用于签署 Mac 安装程序包，而不是应用程序本身。 大多数Electron应用不使用Mac Installer Package，因此通常不需要它们。
 
-The full list of certificate types can be found [here](https://help.apple.com/xcode/mac/current/#/dev80c6204ec).
+完整的证书类型列表可以在[这里](https://help.apple.com/xcode/mac/current/#/dev80c6204ec)找到。
 
-Apps signed with "Apple Development" and "Apple Distribution" certificates can only run under [App Sandbox][app-sandboxing], so they must use the MAS build of Electron. However, the "Developer ID Application" certificate does not have this restrictions, so apps signed with it can use either the normal build or the MAS build of Electron.
+使用 "Apple Development" 和 "Apple Distribution" 证书签名的应用程序只能在 [App Sandbox][app-sandboxing]下运行， 所以他们必须使用Electron 的 MAS 构建。 然而，“Developer ID Application”证书没有这个限制，因此，用其签名的应用既可以使用普通构建也可以使用 Electron 的 MAS 构建。
 
-#### Legacy certificate names
+#### 传统证书名称
 
-Apple has been changing the names of certificates during past years, you might encounter them when reading old documentations, and some utilities are still using one of the old names.
+Apple在过去几年中一直在更改证书的名称，您可能会在阅读旧文档时遇到这些证书，并且一些工具仍然在使用旧名称。
 
-* The "Apple Distribution" certificate was also named as "3rd Party Mac Developer Application" and "Mac App Distribution".
-* The "Apple Development" certificate was also named as "Mac Developer" and "Development".
+* “Apple Distribution”证书也叫做“3rd Party Mac Developer Application”和“Mac App Distribution”。
+* “Apple Development”证书也叫做“Mac Developer”和“Development”。
 
 ### Prepare provisioning profile
 
