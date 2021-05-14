@@ -70,4 +70,4 @@ Bien que le correcteur orthographique lui-même n'envoie pas de types, mots ou s
 myWindow.session.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')
 ```
 
-Check out the docs for [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) for more information on where to get the dictionary files from and how you need to host them.
+Consultez la documentation de [`session.setSpellCheckerDictionaryDownloadURL`](../api/session.md#sessetspellcheckerdictionarydownloadurlurl) pour plus d'informations sur l'endroit où obtenir les fichiers de dictionnaire et comment vous devez les héberger.
