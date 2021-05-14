@@ -66,11 +66,11 @@ Chrome 49 a ajouté deux nouveaux événements `fenêtre` </code> qui vous perme
 
 ```js
 window.addEventListener('unhandledrejection', function (event) {
-  console.log('A rejected promise was unhandled', event.promise, event.reason)
+  console.log('Une promesse rejetée n'a pas été gérée', event.promise, event.reason)
 })
 
-window.addEventListener('rejectionhandled', function (event) {
-  console.log('A rejected promise was handled', event.promise, event.reason)
+window.addEventListener('rejectionhandled', function (événement) {
+  console.log('Une promesse rejetée a été gérée', event.promise, event.reason)
 })
 ```
 
