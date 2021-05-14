@@ -16,7 +16,7 @@ Par [Widevine](https://www.widevine.com/):
 > 
 > Widevine recommande que nos intégrations basées sur le navigateur (vendeurs et applications basées sur le navigateur) ajoutent la prise en charge de VMP.
 
-To enable video playback with this new restriction, [castLabs](https://castlabs.com/open-source/downstream/) has created a [fork](https://github.com/castlabs/electron-releases) that has implemented the necessary changes to enable Widevine to be played in an Electron application if one has obtained the necessary licenses from widevine.
+Pour activer la lecture vidéo avec cette nouvelle restriction, [castLabs](https://castlabs.com/open-source/downstream/) a créé un [fork](https://github.com/castlabs/electron-releases) qui a implémenté les modifications nécessaires pour permettre la lecture de Widevine dans une application Electron si on a obtenu les licences nécessaires de widevine.
 
 ## Obtention de la bibliothèque
 
