@@ -131,7 +131,7 @@ Apple在过去几年中一直在更改证书的名称，您可能会在阅读旧
 </plist>
 ```
 
-当使用 `electron-osx-signing` 时， `ElectronTeamID` 键将通过从证书名称提取团队 ID 自动添加。 You may need to manually add this key if `electron-osx-sign` could not find the correct Team ID.
+当使用 `electron-osx-signing` 时， `ElectronTeamID` 键将通过从证书名称提取团队 ID 自动添加。 如果`electron-osx-sign`找不到正确的团队 ID，则可能需要你手动添加此键 。
 
 ### Sign apps for development
 
