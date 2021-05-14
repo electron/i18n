@@ -46,24 +46,24 @@ Electron アプリは Mac App Store や外部サイトで頒布できます。 �
 
 証明書の種類の完全なリストは [こちら](https://help.apple.com/xcode/mac/current/#/dev80c6204ec) で見られます。
 
-Apps signed with "Apple Development" and "Apple Distribution" certificates can only run under [App Sandbox][app-sandboxing], so they must use the MAS build of Electron. However, the "Developer ID Application" certificate does not have this restrictions, so apps signed with it can use either the normal build or the MAS build of Electron.
+"Apple Development" および "Apple Distribution" 証明書で署名されたアプリは [App Sandbox][app-sandboxing] 下でしか実行できないため、Electron の MAS ビルドを使用する必要があります。 しかし、"Developer ID Application" 証明書にはこの制限がないため、この証明書で署名されたアプリは Electron の通常ビルドと MAS ビルドのどちらでも使用できます。
 
-#### Legacy certificate names
+#### 従来の証明書の名称
 
-Apple has been changing the names of certificates during past years, you might encounter them when reading old documentations, and some utilities are still using one of the old names.
+Apple は過去数年の間に証明書の名称を変更しており、古いドキュメントを読んでいると古い名称が出てくるかもしれません。一部のユーティリティも未だに古い名称を使用していることがあります。
 
-* The "Apple Distribution" certificate was also named as "3rd Party Mac Developer Application" and "Mac App Distribution".
-* The "Apple Development" certificate was also named as "Mac Developer" and "Development".
+* "Apple Distribution" 証明書は、"3rd Party Mac Developer Application" や "Mac App Distribution" という名称でもありました。
+* "Apple Development" 証明書は、"Mac Developer" や "Development" という名称でもありました。
 
-### Prepare provisioning profile
+### プロビジョニングプロファイルの準備
 
-If you want to test your app on your local machine before submitting your app to the Mac App Store, you have to sign the app with the "Apple Development" certificate with the provisioning profile embedded in the app bundle.
+Mac App Store へアプリを提出する前にローカルマシンでアプリをテストしたい場合は、アプリバンドルに埋め込まれたプロビジョニングプロファイル付きの "Apple Development" 証明書でアプリを署名する必要があります。
 
-To [create a provisioning profile](https://help.apple.com/developer-account/#/devf2eb157f8), you can follow the below steps:
+[プロビジョニングプロファイルの作成](https://help.apple.com/developer-account/#/devf2eb157f8) は、以下の手順を踏むとできます。
 
-1. Open the "Certificates, Identifiers & Profiles" page on the [Apple Developer](https://developer.apple.com/account) website.
-2. Add a new App ID for your app in the "Identifiers" page.
-3. Register your local machine in the "Devices" page. You can find your machine's "Device ID" in the "Hardware" page of the "System Information" app.
+1. [Apple Developer](https://developer.apple.com/account) のウェブサイトで "Certificates, Identifiers & Profiles" のページを開きます。
+2. "Identifiers" のページ内でアプリの App ID を新規追加します。
+3. "Devices" のページでローカルのマシンを登録します。 You can find your machine's "Device ID" in the "Hardware" page of the "System Information" app.
 4. Register a new Provisioning Profile in the "Profiles" page, and download it to `/path/to/yourapp.provisionprofile`.
 
 ### Enable Apple's App Sandbox
