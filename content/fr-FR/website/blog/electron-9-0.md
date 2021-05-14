@@ -68,7 +68,7 @@ Les API suivantes sont maintenant obsolètes ou supprimées :
 
 ## Fin du support pour 6.x.y
 
-Electron 6.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
+Electron 6.x.y a atteint la fin du support conformément au projet [politique d'assistance](https://electronjs.org/docs/tutorial/support#supported-versions). Nous encourageons les développeurs et les applications à mettre à jour vers une version plus récente d'Electron.
 
 ## Ce qui suit
 
