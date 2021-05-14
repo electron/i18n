@@ -10,7 +10,7 @@ Les iframes d'Electron se comportent comme des iframes dans les navigateurs ordi
 
 ### WebViews
 
-> Important Note: [we do not recommend you to use WebViews](../api/webview-tag.md#warning), as this tag undergoes dramatic architectural changes that may affect stability of your application. Envisagez de basculer vers les alternatives,`iframe` ,  Electron's `BrowserView` ou une architecture évitant par sa conception d'embarquer du contenu.
+> Note importante : [nous vous déconseillons d'utiliser WebViews](../api/webview-tag.md#warning), car cette balise subit des changements architecturaux dramatiques qui peuvent affecter la stabilité de votre application. Envisagez de basculer vers les alternatives,`iframe` ,  Electron's `BrowserView` ou une architecture évitant par sa conception d'embarquer du contenu.
 
 [Les WebViews](../api/webview-tag.md) sont basées sur les WebViews de Chromium et ne sont pas explicitement supportés par Electron. Nous ne garantissons pas que l'API WebView restera disponible dans les futures versions d'Electron. Pour utiliser les balises `<webview>` , vous devrez définir `webviewTag` à `true` dans les `webPreferences` de votre `BrowserWindow`.
 

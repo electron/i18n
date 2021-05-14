@@ -51,7 +51,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Utilisation des Modules Natifs de Node.js](tutorial/using-native-node-modules.md)
   * [Stratégies de performance](tutorial/performance.md)
   * [Stratégies de sécurité](tutorial/security.md)
-  * [Process Sandboxing](tutorial/sandbox.md)
+  * [Mise en bac à sable de processus](tutorial/sandbox.md)
 * [Accessibilité](tutorial/accessibility.md)
   * [Activation manuelle des fonctionnalités d’accessibilité](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Test et débogage](tutorial/application-debugging.md)

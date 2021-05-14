@@ -51,7 +51,7 @@
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
   * [性能策略](tutorial/performance.md)
   * [安全策略](tutorial/security.md)
-  * [Process Sandboxing](tutorial/sandbox.md)
+  * [进程沙盒化](tutorial/sandbox.md)
 * [辅助功能](tutorial/accessibility.md)
   * [手动启用辅助功能](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [测试和调试](tutorial/application-debugging.md)

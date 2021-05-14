@@ -1,40 +1,76 @@
 # Mac App Store への公開ガイド
 
-v0.34.0 から、Electron のパッケージしたアプリを Mac App Store (MAS) に登録できるようになります。 このガイドでは、MASビルド用の制限とアプリを登録する方法についての情報を提供します。
+このガイドでは以下の情報を提供しています。
 
-**注意:** Mac App Store にアプリを登録するには、[Apple Developer Program][developer-program] に登録する必要があります。これには費用がかかります。
+* macOS で Electron アプリを署名する方法;
+* Mac App Store (MAS) に Electron アプリを提出する方法;
+* MAS ビルドの制限。
 
-## アプリを登録する方法
+## 要件
 
-Mac App Store にアプリを提出する簡単な方法をご紹介します。 これらの手順は、アプリがAppleによって承認することを保証しているわけではありません。Mac App Storeの登録要件を満たすために、Appleの[アプリを登録するには][submitting-your-app]ガイドも読んでおく必要があります。
+Electron アプリを署名するには、まず以下のツールをインストールする必要があります。
+
+* Xcode 11 以降。
+* [electron-osx-sign][electron-osx-sign] npm モジュール。
+
+また、Apple Developer アカウントを登録し [Apple Developer Program][developer-program] に参加する必要があります。
+
+## Electron アプリを署名する
+
+Electron アプリは Mac App Store や外部サイトで頒布できます。 それぞれの方法ごとに、署名やテストの方法が異なります。 このガイドでは Mac App Store での頒布を中心に説明しますが、その他の方法についても言及します。
+
+以下の手順で、Apple から証明書を取得する方法、Electron アプリに署名する方法、テストする方法を説明します。
 
 ### 証明書の取得
 
-Mac App Store にアプリを提出するには、まず Apple から証明書を取得する必要があります。 詳しくは、[こちらのガイド][nwjs-guide]をご覧ください。
+最も簡単に署名証明書を取得するには、Xcode を使用して以下のようします。
 
-### チーム ID の取得
+1. Xcode を開いて設定の "Accounts" を開きます。
+2. Apple アカウントでサインインします。
+3. チームを選択して "Manage Certificates" をクリックします。
+4. 署名証明書シートの左下にある追加ボタン (+) をクリックし、以下の証明書を追加します。
+   * "Apple Development"
+   * "Apple Distribution"
 
-アプリに署名する前にアカウントのチーム ID を知っておく必要があります。 チーム ID を知るには、[Apple Developer Center](https://developer.apple.com/account/)にサインインし、サイドバーでMembershipをクリックします。 チーム IDは、Team nameの、Membership Information セクションに表示されます。
+"Apple Development" 証明書は、Apple Developer ウェブサイトで登録したマシン上で、開発およびテスト用のアプリに署名するために使用します。 登録方法については、[プロビジョニングプロファイルの準備](#prepare-provisioning-profile) で説明します。
 
-### アプリの署名
+"Apple Development" 証明書で署名したアプリは Mac App Store に提出できません。 このためには、代わりに "Apple Distribution" 証明書でアプリに署名する必要があります。 ただし注意として、"Apple Distribution" 証明書で署名したアプリはそのまま実行できません。実行できるようにするには Apple が再署名する必要がありますが、これは Mac App Store からダウンロードした後でのみ可能になります。
 
-準備作業を終えた後は、[アプリケーションの配布](application-distribution.md)に従って、アプリをパッケージ化して、アプリの署名に進みます。
+#### その他の証明書
 
-まず、アプリの `Info.plist` に、チーム ID を値として持つ `ElectronTeamID` キーを以下のように追加する必要があります。
+証明書の種類が他にもあることにお気づきでしょう。
 
-```xml
-<plist version="1.0">
-<dict>
-  ...
-  <key>ElectronTeamID</key>
-  <string>TEAM_ID</string>
-</dict>
-</plist>
-```
+"Developer ID Application" 証明書は、アプリを Mac App Store 以外で頒布する前の署名に使用します。
 
-それから、3 つの資格ファイルを準備する必要があります。
+"Developer ID Installer" および "Mac Installer Distribution" の証明書は、アプリ自体ではなく "Mac Installer Package" の署名に使用します。 ほとんどの Electron アプリは Mac Installer Package を使用しないので、通常は必要ありません。
 
-`child.plist`:
+証明書の種類の完全なリストは [こちら](https://help.apple.com/xcode/mac/current/#/dev80c6204ec) で見られます。
+
+Apps signed with "Apple Development" and "Apple Distribution" certificates can only run under [App Sandbox][app-sandboxing], so they must use the MAS build of Electron. However, the "Developer ID Application" certificate does not have this restrictions, so apps signed with it can use either the normal build or the MAS build of Electron.
+
+#### Legacy certificate names
+
+Apple has been changing the names of certificates during past years, you might encounter them when reading old documentations, and some utilities are still using one of the old names.
+
+* The "Apple Distribution" certificate was also named as "3rd Party Mac Developer Application" and "Mac App Distribution".
+* The "Apple Development" certificate was also named as "Mac Developer" and "Development".
+
+### Prepare provisioning profile
+
+If you want to test your app on your local machine before submitting your app to the Mac App Store, you have to sign the app with the "Apple Development" certificate with the provisioning profile embedded in the app bundle.
+
+To [create a provisioning profile](https://help.apple.com/developer-account/#/devf2eb157f8), you can follow the below steps:
+
+1. Open the "Certificates, Identifiers & Profiles" page on the [Apple Developer](https://developer.apple.com/account) website.
+2. Add a new App ID for your app in the "Identifiers" page.
+3. Register your local machine in the "Devices" page. You can find your machine's "Device ID" in the "Hardware" page of the "System Information" app.
+4. Register a new Provisioning Profile in the "Profiles" page, and download it to `/path/to/yourapp.provisionprofile`.
+
+### Enable Apple's App Sandbox
+
+Apps submitted to the Mac App Store must run under Apple's [App Sandbox][app-sandboxing], and only the MAS build of Electron can run with the App Sandbox. The standard darwin build of Electron will fail to launch when run under App Sandbox.
+
+When signing the app with `electron-osx-sign`, it will automatically add the necessary entitlements to your app's entitlements, but if you are using custom entitlements, you must ensure App Sandbox capacity is added:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -43,13 +79,13 @@ Mac App Store にアプリを提出するには、まず Apple から証明書�
   <dict>
     <key>com.apple.security.app-sandbox</key>
     <true/>
-    <key>com.apple.security.inherit</key>
-    <true/>
   </dict>
 </plist>
 ```
 
-`parent.plist`:
+#### Extra steps without `electron-osx-sign`
+
+If you are signing your app without using `electron-osx-sign`, you must ensure the app bundle's entitlements have at least following keys:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -66,7 +102,9 @@ Mac App Store にアプリを提出するには、まず Apple から証明書�
 </plist>
 ```
 
-`loginhelper.plist`:
+The `TEAM_ID` should be replaced with your Apple Developer account's Team ID, and the `your.bundle.id` should be replaced with the App ID of the app.
+
+And the following entitlements must be added to the binaries and helpers in the app's bundle:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -75,68 +113,74 @@ Mac App Store にアプリを提出するには、まず Apple から証明書�
   <dict>
     <key>com.apple.security.app-sandbox</key>
     <true/>
+    <key>com.apple.security.inherit</key>
+    <true/>
   </dict>
 </plist>
 ```
 
-`TEAM_ID` をあなたのチーム ID に置き換えて、`your.bundle.id` をアプリのバンドル ID に置き換えてください。
+And the app bundle's `Info.plist` must include `ElectronTeamID` key, which has your Apple Developer account's Team ID as its value:
 
-そして、次のスクリプトでアプリを署名します。
-
-```sh
-#!/bin/bash
-
-# アプリの名前。
-APP="YourApp"
-# 署名するアプリのパス。
-APP_PATH="/path/to/YourApp.app"
-# 署名付きパッケージを配置する場所へのパス。
-RESULT_PATH="~/Desktop/$APP.pkg"
-# リクエストした証明書の名前
-APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
-INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# plist ファイルのパス。
-CHILD_PLIST="/path/to/child.plist"
-PARENT_PLIST="/path/to/parent.plist"
-LOGINHELPER_PLIST="/path/to/loginhelper.plist"
-
-FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
-
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
-codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
-
-productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
+```xml
+<plist version="1.0">
+<dict>
+  ...
+  <key>ElectronTeamID</key>
+  <string>TEAM_ID</string>
+</dict>
+</plist>
 ```
 
-macOS で初めてアプリをサンドボックス化するのであれば、Apple の [Enabling App Sandbox][enable-app-sandbox] を通読し、基本的な考え方を確認してから、権利ファイル (entitlement file) にアプリで必要なパーミッションキーを追加しましょう。
+When using `electron-osx-sign` the `ElectronTeamID` key will be added automatically by extracting the Team ID from the certificate's name. You may need to manually add this key if `electron-osx-sign` could not find the correct Team ID.
 
-署名を手動で行う代わりに、[electron-osx-sign][electron-osx-sign] モジュールを使用することも出来ます。
+### Sign apps for development
 
-#### ネイティブ モジュールに署名
+To sign an app that can run on your development machine, you must sign it with the "Apple Development" certificate and pass the provisioning profile to `electron-osx-sign`.
 
-アプリで使用されているネイティブモジュールも署名する必要があります。 electron-osx-sign を使用している場合は、必ず引数リストに構築済みバイナリへのパスを含めてください。
-
-```sh
-electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+```bash
+electron-osx-sign YourApp.app --identity='Apple Development' --provisioning-profile=/path/to/yourapp.provisionprofile
 ```
 
-また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 バージョン 8.1.0 より前の [electron-packager][electron-packager] を使用している場合は、ビルド手順に `--ignore=.+\.o$` を追加してこれらのファイルを無視してください。 バージョン 8.1.0 以降ではこれらのファイルはデフォルトで無視されます。
+If you are signing without `electron-osx-sign`, you must place the provisioning profile to `YourApp.app/Contents/embedded.provisionprofile`.
 
-### App をアップロード
+The signed app can only run on the machines that registered by the provisioning profile, and this is the only way to test the signed app before submitting to Mac App Store.
 
-アプリに署名後、iTunes Connect にアップロードするために Application Loader を使用できます。アップロードする前に [レコードを作成していること][create-record] を確認してください。
+### Sign apps for submitting to the Mac App Store
 
-### アプリケーションを審査に提出
+To sign an app that will be submitted to Mac App Store, you must sign it with the "Apple Distribution" certificate. Note that apps signed with this certificate will not run anywhere, unless it is downloaded from Mac App Store.
 
-これらのステップを終えれば、[アプリをレビュー登録][submit-for-review] できます。
+```bash
+electron-osx-sign YourApp.app --identity='Apple Distribution'
+```
+
+### Sign apps for distribution outside the Mac App Store
+
+If you don't plan to submit the app to Mac App Store, you can sign it the "Developer ID Application" certificate. In this way there is no requirement on App Sandbox, and you should use the normal darwin build of Electron if you don't use App Sandbox.
+
+```bash
+electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekeeper-assess
+```
+
+By passing `--no-gatekeeper-assess`, the `electron-osx-sign` will skip the macOS GateKeeper check as your app usually has not been notarized yet by this step.
+
+<!-- TODO(zcbenz): Add a chapter about App Notarization -->
+This guide does not cover [App Notarization][app-notarization], but you might want to do it otherwise Apple may prevent users from using your app outside Mac App Store.
+
+## Submit Apps to the Mac App Store
+
+After signing the app with the "Apple Distribution" certificate, you can continue to submit it to Mac App Store.
+
+However, this guide do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
+
+### Upload
+
+The Application Loader should be used to upload the signed app to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
+
+If you are seeing errors like private APIs uses, you should check if the app is using the MAS build of Electron.
+
+### Submit for review
+
+After uploading, you should [submit your app for review][submit-for-review].
 
 ## MAS ビルドの制限
 
@@ -151,13 +195,13 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * 一部のアクセシビリティ機能が動作しないことがあります。
 * アプリはDNSの変更を認識しません。
 
-サンドボックス化の利用により、アプリがアクセスできるリソースは厳密に制限されます。詳細は [アプリのサンドボックス化][app-sandboxing] をご参照ください。
+サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は [App Sandboxing][app-sandboxing] を参照してください。
 
-### 追加のエンタイトルメント
+### Additional entitlements
 
-アプリで使用する Electron API に応じて、アプリの Mac App Store ビルドからこれらの API を使用できるようにするために、追加のエンタイトルメントを `parent.plist` ファイルに追加する必要があります。
+Depending on which Electron APIs your app uses, you may need to add additional entitlements to your app's entitlements file. Otherwise, the App Sandbox may prevent you from using them.
 
-#### ネットワークアクセス
+#### Network access
 
 アプリがサーバーに接続できるように、以下のように発信ネットワーク接続を有効にします。
 
@@ -224,14 +268,13 @@ Electron は次の暗号アルゴリズムを使用しています:
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
 [developer-program]: https://developer.apple.com/support/compare-memberships/
-[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
-[nwjs-guide]: https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
-[enable-app-sandbox]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html
-[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
-[electron-osx-sign]: https://github.com/electron-userland/electron-osx-sign
-[electron-packager]: https://github.com/electron/electron-packager
-[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
+[electron-osx-sign]: https://github.com/electron/electron-osx-sign
 [app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[app-sandboxing]: https://developer.apple.com/app-sandboxing/
+[app-notarization]: https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution
+[submitting-your-app]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html
+[create-record]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html
+[submit-for-review]: https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html
 [export-compliance]: https://help.apple.com/app-store-connect/#/devc3f64248f
 [user-selected]: https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6
 [network-access]: https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9

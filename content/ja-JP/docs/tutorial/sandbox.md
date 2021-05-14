@@ -1,58 +1,58 @@
-# Process Sandboxing
+# プロセスのサンドボックス化
 
-One key security feature in Chromium is that processes can be executed within a sandbox. The sandbox limits the harm that malicious code can cause by limiting access to most system resources — sandboxed processes can only freely use CPU cycles and memory. In order to perform operations requiring additional privilege, sandboxed processes use dedicated communication channels to delegate tasks to more privileged processes.
+Chromium の重要なセキュリティ機能の一つは、プロセスをサンドボックス内で実行できることです。 サンドボックスは、ほとんどのシステムリソースへのアクセスを制限することで悪意のあるコードが引き起こす被害を制限します。サンドボックスのプロセスは、CPU サイクルとメモリのみを自由に使用できます。 サンドボックス化したプロセスで追加の特権を必要とする操作を実行するには、専用の通信チャンネルを使用してより特権のあるプロセスにタスクを委譲します。
 
-In Chromium, sandboxing is applied to most processes other than the main process. This includes renderer processes, as well as utility processes such as the audio service, the GPU service and the network service.
+Chromium では、メインプロセス以外のほとんどのプロセスにサンドボックス化が適用されます。 これにはレンダラープロセスのほか、オーディオサービス、GPU サービス、ネットワークサービスなどのユーティリティプロセスも含まれます。
 
-See Chromium's [Sandbox design document][sandbox] for more information.
+詳しい情報は Chromium の [サンドボックスデザインのドキュメント][sandbox] をご参照ください。
 
-## Electron's sandboxing policies
+## Electron のサンドボックス化ポリシー
 
-Electron comes with a mixed sandbox environment, meaning sandboxed processes can run alongside privileged ones. By default, renderer processes are not sandboxed, but utility processes are. Note that as in Chromium, the main (browser) process is privileged and cannot be sandboxed.
+Electron には混合サンドボックス環境があります。これは、サンドボックス化したプロセスと特権プロセスを横並びに実行するというものです。 デフォルトでは、レンダラープロセスはサンドボックスではなく、ユーティリティプロセスです。 注意として、Chromium と同様にメイン (ブラウザ) プロセスは特権プロセスであり、サンドボックス化できません。
 
-Historically, this mixed sandbox approach was established because having Node.js available in the renderer is an extremely powerful tool for app developers. Unfortunately, this feature is also an equally massive security vulnerability.
+歴史的には、アプリ開発者にとってレンダラーでの Node.js の利用は非常に強力なツールであるため、このような混合サンドボックス方式が確立されました。 あいにく、この機能は甚大なセキュリティ上の脆弱性でもあります。
 
-Theoretically, unsandboxed renderers are not a problem for desktop applications that only display trusted code, but they make Electron less secure than Chromium for displaying untrusted web content. However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
+理論的には、信頼されるコードだけを表示するデスクトップアプリケーションでは非サンドボックス化レンダラーは問題になりません。しかし、信頼されないウェブコンテンツを表示する場合の Electron は、Chromium よりも堅牢性が低くなります。 クロスサイトスクリプティング、コンテンツインジェクション、遠隔で読み込んだウェブサイトへの中間者攻撃など、悪意のある人間が利用できる攻撃手段は無数にあります。 念のため、大多数の状況ではレンダラーのサンドボックスの有効化を推奨します。
 
 <!--TODO: update this guide when #28466 is either solved or closed -->
-Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. See [#28466][issue-28466]) for details.
+なお Issue トラッカーではレンダラーのサンドボックス化をデフォルトで有効にするための議論が活発に行われています。 詳しくは [#28466][issue-28466]) を参照してください。
 
-## Sandbox behaviour in Electron
+## Electron でのサンドボックスの動作
 
-Sandboxed processes in Electron behave _mostly_ in the same way as Chromium's do, but Electron has a few additional concepts to consider because it interfaces with Node.js.
+Electron のサンドボックス化したプロセスは _ほぼ_ Chromium と同じように動作しますが、Electron は Node.js とのインターフェイスであるために更に考慮すべき概念がいくつかあります。
 
-### Renderer processes
+### レンダラープロセス
 
-When renderer processes in Electron are sandboxed, they behave in the same way as a regular Chrome renderer would. A sandboxed renderer won't have a Node.js environment initialized.
+Electron のレンダラープロセスをサンドボックス化すると、通常の Chrome レンダラーと同じように動作します。 サンドボックス化したレンダラーは Node.js 環境が初期化されません。
 
 <!-- TODO(erickzhao): when we have a solid guide for IPC, link it here -->
-Therefore, when the sandbox is enabled, renderer processes can only perform privileged tasks (such as interacting with the filesystem, making changes to the system, or spawning subprocesses) by delegating these tasks to the main process via inter-process communication (IPC).
+そのため、サンドボックスを有効にすると、レンダラープロセスはプロセス間通信 (IPC) を介したメインプロセスへのタスクの委譲によってのみ、特権的なタスク (ファイルシステムとのやりとり、システムへの変更、サブプロセスの生成など) を実行できます。
 
-### Preload scripts
+### プリロードスクリプト
 
-In order to allow renderer processes to communicate with the main process, preload scripts attached to sandboxed renderers will still have a polyfilled subset of Node.js APIs available. A `require` function similar to Node's `require` module is exposed, but can only import a subset of Electron and Node's built-in modules:
+レンダラープロセスがメインプロセスと通信できるようにするため、サンドボックス化したレンダラーにアタッチされるプリロードスクリプトでは Node.js API をポリフィルしたサブセットを利用できるようになっています。 Node の `require` に似た `require` 関数のモジュールを公開してありますが、これは以下 Electron や Node の組み込みモジュールのサブセットしかインポートできません。
 
-* `electron` (only renderer process modules)
+* `electron` (レンダラープロセスのモジュールのみ)
 * [`イベント`](https://nodejs.org/api/events.html)
 * [`timers`](https://nodejs.org/api/timers.html)
 * [`url`](https://nodejs.org/api/url.html)
 
-In addition, the preload script also polyfills certain Node.js primitives as globals:
+加えて、プリロードスクリプトは以下の Node.js プリミティブもグローバルとしてポリフィルします。
 
 * [`Buffer`](https://nodejs.org/api/Buffer.html)
 * [`process`](../api/process.md)
 * [`clearImmediate`](https://nodejs.org/api/timers.html#timers_clearimmediate_immediate)
 * [`setImmediate`](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args)
 
-Because the `require` function is a polyfill with limited functionality, you will not be able to use [CommonJS modules][commonjs] to separate your preload script into multiple files. If you need to split your preload code, use a bundler such as [webpack][webpack] or [Parcel][parcel].
+`require` 関数は機能を限定したポリフィルであるため、[CommonJS モジュール][commonjs] を利用したプリロードスクリプトの複数ファイル分割ができません。 プリロードコードを分割する必要がある場合は、[webpack][webpack] や [Parcel][parcel] のようなバンドラーを使用してください。
 
-Note that because the environment presented to the `preload` script is substantially more privileged than that of a sandboxed renderer, it is still possible to leak privileged APIs to untrusted code running in the renderer process unless [`contextIsolation`][contextIsolation] is enabled.
+注意として、`preload` スクリプトへ提示される環境はサンドボックス化したレンダラーの環境よりも大幅に特権的です。[`contextIsolation`][contextIsolation] が有効でなければ、レンダラープロセスで実行しれている信頼されないコードに特権的な API をリークするおそれがあります。
 
-## Configuring the sandbox
+## サンドボックスの設定
 
-### Enabling the sandbox for a single process
+### 単一のプロセスでサンドボックスを有効にする
 
-In Electron, renderer sandboxing can be enabled on a per-process basis with the `sandbox: true` preference in the [`BrowserWindow`][browser-window] constructor.
+Electron では、[`BrowserWindow`][browser-window] コンストラクタで `sandbox: true` を設定することでレンダラープロセスごとにサンドボックスを有効化できます。
 
 ```js
 // main.js
@@ -66,29 +66,29 @@ app.whenReady().then(() => {
 })
 ```
 
-### Enabling the sandbox globally
+### アプリ全体でサンドボックスを有効にする
 
-If you want to force sandboxing for all renderers, you can also use the [`app.enableSandbox`][enable-sandbox] API. Note that this API has to be called before the app's `ready` event.
+すべてのレンダラーにサンドボックスを強制したい場合は、[`app.enableSandbox`][enable-sandbox] API も利用できます。 注意として、この API は app の `ready` イベントより前に呼ぶ必要があります。
 
 ```js
 // main.js
 app.enableSandbox()
 app.whenReady().then(() => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // app.enableSandbox() を呼んだので `sandbox: true` の指定は不要です。
   const win = new BrowserWindow()
   win.loadURL('https://google.com')
 })
 ```
 
-### Disabling Chromium's sandbox (testing only)
+### Chromium のサンドボックスを無効にする (テストのみ)
 
-You can also disable Chromium's sandbox entirely with the [`--no-sandbox`][no-sandbox] CLI flag, which will disable the sandbox for all processes (including utility processes). We highly recommend that you only use this flag for testing purposes, and **never** in production.
+[`--no-sandbox`][no-sandbox] CLI フラグで Chromium のサンドボックスを完全に無効化することもできます。これは、(ユーティリティプロセスを含む) すべてのプロセスのサンドボックスを無効化します。 このフラグはテスト目的でのみ使用し、本番環境では **絶対に** 使用しないことを強く推奨します。
 
-Note that the `sandbox: true` option will still disable the renderer's Node.js environment.
+注意として、この状況で `sandbox: true` オプションを指定してもレンダラーの Node.js 環境は無効になります。
 
-## A note on rendering untrusted content
+## 信頼されないコンテンツの描画に関する注意
 
-Rendering untrusted content in Electron is still somewhat uncharted territory, though some apps are finding success (e.g. [Beaker Browser][beaker]). Our goal is to get as close to Chrome as we can in terms of the security of sandboxed content, but ultimately we will always be behind due to a few fundamental issues:
+信頼されないコンテンツを Electron で描画することはまだ未知の領域ですが、いくつかのアプリケーションは成功を収めています (例: [Beaker Browser][beaker])。 私たちの目標はサンドボックス化したコンテンツのセキュリティに関して Chrome にできるだけ近づくことですが、突き詰めるといくつかの基本的な問題のためにいつも後れを取ることになります。
 
 1. 私たちには Chromium 製品に適したセキュリティのリソースやノウハウがありません。 今あるものを活かして Chromium からできることはすべて継承し、セキュリティ上の問題にも迅速に対応できるようにしていますが、Electron は Chromium のようにリソースを割くことができず、Chromium のようなセキュリティは確保できません。
 2. Chrome のセキュリティ機能 (セーフブラウジングや証明書の透過性など) の中には、中央集権化と専用サーバが必要なものがありますが、どちらも Electron プロジェクトの目的に反しています。 そのため、セキュリティ関連のコストが発生しないように、Electron では機能を無効にしています。

@@ -24,7 +24,7 @@ Les nouvelles fonctionnalités de Node.js sont généralement ajoutées dans les
 
 ## Comment partager les données entre les pages web ?
 
-Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d'utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
+Pour partager des données entre les pages web (les processus de rendu), le moyen le plus simple est d'utiliser les APIs HTML5 qui sont déjà disponibles dans les navigateurs. Les bons candidats sont [API Storage][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage] et [IndexedDB][indexed-db].
 
 Vous pouvez également utiliser les primitives IPC fournies par Electron. Pour partager des données entre le processus principal et le moteur de rendu, vous pouvez utiliser les modules [`ipcMain`](api/ipc-main.md) et [`ipcRenderer`](api/ipc-renderer.md). Pour communiquer directement entre les pages web, vous pouvez envoyer un [`Port Messagerie`][message-port] de l'une à l'autre, éventuellement via le processus principal en utilisant [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). La communication ultérieure sur les ports de message est directe et ne détache pas à travers le processus principal.
 
@@ -117,7 +117,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) Écrans LCD. Même si vous ne voyez pas de différence, certains de vos utilisateurs peuvent le faire. Il est préférable de toujours définir le contexte de cette manière, à moins que vous n'ayez des raisons de ne pas le faire.
+L'effet n'est visible que sur (certains?) Écrans LCD. Même si vous ne voyez pas de différence, certains de vos utilisateurs peuvent le faire. Il est préférable de toujours définir le contexte de cette manière, à moins que vous n'ayez des raisons de ne pas le faire.
 
 Veuillez noter que simplement paramétrer la couleur de fond avec le CSS ne donnera pas l'effet souhaité.
 
