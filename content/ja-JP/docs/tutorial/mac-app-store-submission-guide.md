@@ -161,26 +161,26 @@ Mac App Store への申請の予定がない場合は、"Developer ID Applicatio
 electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekeeper-assess
 ```
 
-By passing `--no-gatekeeper-assess`, the `electron-osx-sign` will skip the macOS GateKeeper check as your app usually has not been notarized yet by this step.
+`--no-gatekeeper-assess` を指定すると、`electron-osx-sign` は macOS の GateKeeper の確認を飛ばします。通常この段階ではアプリはまだ公証されていません。
 
 <!-- TODO(zcbenz): Add a chapter about App Notarization -->
-This guide does not cover [App Notarization][app-notarization], but you might want to do it otherwise Apple may prevent users from using your app outside Mac App Store.
+このガイドでは、[App Notarization][app-notarization] については説明しません。しかし App Notarization を行っておかないと、ユーザーが Mac App Store 以外からのアプリを使用できないように Apple が阻害する可能性があるので、行っておいた方がよいでしょう。
 
-## Submit Apps to the Mac App Store
+## Mac App Store に提出する
 
-After signing the app with the "Apple Distribution" certificate, you can continue to submit it to Mac App Store.
+"Apple Distribution" 証明書でアプリを署名すれば、Mac App Store に提出できます。
 
-However, this guide do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
+このガイドは、Apple がアプリを承認することを保証していません。Mac App Store の登録要件を満たすには、Apple の [アプリの提出][submitting-your-app] のガイドも読んでおくべきでしょう。
 
-### Upload
+### アップロードする
 
-The Application Loader should be used to upload the signed app to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
+手続きのために、Application Loader を使用して署名したアプリを iTunes Connect にアップロードする必要があります。アップロードする前に [レコードを作成した][create-record] ことを確認するようにしてください。
 
-If you are seeing errors like private APIs uses, you should check if the app is using the MAS build of Electron.
+非公開 API の利用といったエラーが出る場合は、アプリが Electron の MAS ビルドを使用しているかどうかを確認するとよいでしょう。
 
-### Submit for review
+### 審査に提出する
 
-After uploading, you should [submit your app for review][submit-for-review].
+アップロードした後は、[アプリを審査に提出][submit-for-review] しましょう。
 
 ## MAS ビルドの制限
 
@@ -197,11 +197,11 @@ After uploading, you should [submit your app for review][submit-for-review].
 
 サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は [App Sandboxing][app-sandboxing] を参照してください。
 
-### Additional entitlements
+### 追加のエンタイトルメント
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your app's entitlements file. Otherwise, the App Sandbox may prevent you from using them.
+アプリが使用する Electron API に応じて、アプリの entitlements ファイルに追加のエンタイトルメントが必要です。 さもなくば、App Sandbox がその使用を阻害することがあります。
 
-#### Network access
+#### ネットワークアクセス
 
 アプリがサーバーに接続できるように、以下のように発信ネットワーク接続を有効にします。
 
