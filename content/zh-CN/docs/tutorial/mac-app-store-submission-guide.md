@@ -55,22 +55,22 @@ Apple在过去几年中一直在更改证书的名称，您可能会在阅读旧
 * “Apple Distribution”证书也叫做“3rd Party Mac Developer Application”和“Mac App Distribution”。
 * “Apple Development”证书也叫做“Mac Developer”和“Development”。
 
-### Prepare provisioning profile
+### 准备配置配置文件
 
-If you want to test your app on your local machine before submitting your app to the Mac App Store, you have to sign the app with the "Apple Development" certificate with the provisioning profile embedded in the app bundle.
+如果您想在将应用提交给Mac App Store之前在本地机器上测试您的应用， 您必须使用"Apple Development"证书签名该应用，并在程序包中嵌入配置文件。
 
-To [create a provisioning profile](https://help.apple.com/developer-account/#/devf2eb157f8), you can follow the below steps:
+要 [创建一个配置文件](https://help.apple.com/developer-account/#/devf2eb157f8)，您可以按照以下步骤：
 
-1. Open the "Certificates, Identifiers & Profiles" page on the [Apple Developer](https://developer.apple.com/account) website.
-2. Add a new App ID for your app in the "Identifiers" page.
-3. Register your local machine in the "Devices" page. You can find your machine's "Device ID" in the "Hardware" page of the "System Information" app.
-4. Register a new Provisioning Profile in the "Profiles" page, and download it to `/path/to/yourapp.provisionprofile`.
+1. 在 [Apple Developer](https://developer.apple.com/account) 网站上打开"证书、标识符 & 配置文件"页面。
+2. 在“标识符”页面为您的应用添加一个新的App ID。
+3. 在"设备"页面中注册本地计算机。 您可以在"系统信息"应用的"硬件"页面中找到机器的"设备 ID"。
+4. 在“Profiles”页面注册一个新的配置文件，然后下载到 `/path/to/yourapp.provisionfile`。
 
-### Enable Apple's App Sandbox
+### 启用Apple的应用沙箱
 
-Apps submitted to the Mac App Store must run under Apple's [App Sandbox][app-sandboxing], and only the MAS build of Electron can run with the App Sandbox. The standard darwin build of Electron will fail to launch when run under App Sandbox.
+提交到 Mac App Store 的应用程序必须在 Apple [App Sandbox][app-sandboxing]下运行， 并且只有Electron的 MAS 构建可以使用App Sandbox 运行。 在 App Sandbox 下运行时，Electron 的标准 darwin 构建将无法启动。
 
-When signing the app with `electron-osx-sign`, it will automatically add the necessary entitlements to your app's entitlements, but if you are using custom entitlements, you must ensure App Sandbox capacity is added:
+使用 `electron-osx-signe`签名时，它将会自动将必要的权限添加到您应用的所需权利中， 但如果您正在使用自定义所需权利，您必须确保App Sandbox capacity已经添加：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -83,9 +83,9 @@ When signing the app with `electron-osx-sign`, it will automatically add the nec
 </plist>
 ```
 
-#### Extra steps without `electron-osx-sign`
+#### 不使用 `electron-osx-sign`的额外步骤
 
-If you are signing your app without using `electron-osx-sign`, you must ensure the app bundle's entitlements have at least following keys:
+如果您的应用没有使用 `electron-osx-signe` 进行签名，您必须确保应用包的权限至少有以下键：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -102,9 +102,9 @@ If you are signing your app without using `electron-osx-sign`, you must ensure t
 </plist>
 ```
 
-The `TEAM_ID` should be replaced with your Apple Developer account's Team ID, and the `your.bundle.id` should be replaced with the App ID of the app.
+`TEAM_ID` 应替换为 Apple 开发者帐户的Team ID，`your.bundle.id` 应替换为应用的App ID。
 
-And the following entitlements must be added to the binaries and helpers in the app's bundle:
+以下权限必须添加到应用程序包的二进制程序和助手中：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -119,7 +119,7 @@ And the following entitlements must be added to the binaries and helpers in the 
 </plist>
 ```
 
-And the app bundle's `Info.plist` must include `ElectronTeamID` key, which has your Apple Developer account's Team ID as its value:
+应用程序包的 `Info.plist` 必须包含 `ElectronTeamID` 键，其值为你的 Apple 开发者团队ID：
 
 ```xml
 <plist version="1.0">
@@ -131,7 +131,7 @@ And the app bundle's `Info.plist` must include `ElectronTeamID` key, which has y
 </plist>
 ```
 
-When using `electron-osx-sign` the `ElectronTeamID` key will be added automatically by extracting the Team ID from the certificate's name. You may need to manually add this key if `electron-osx-sign` could not find the correct Team ID.
+当使用 `electron-osx-signing` 时， `ElectronTeamID` 键将通过从证书名称提取团队 ID 自动添加。 如果`electron-osx-sign`找不到正确的团队 ID，则可能需要你手动添加此键 。
 
 ### Sign apps for development
 

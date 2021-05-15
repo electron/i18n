@@ -46,31 +46,31 @@ Electron アプリは Mac App Store や外部サイトで頒布できます。 �
 
 証明書の種類の完全なリストは [こちら](https://help.apple.com/xcode/mac/current/#/dev80c6204ec) で見られます。
 
-Apps signed with "Apple Development" and "Apple Distribution" certificates can only run under [App Sandbox][app-sandboxing], so they must use the MAS build of Electron. However, the "Developer ID Application" certificate does not have this restrictions, so apps signed with it can use either the normal build or the MAS build of Electron.
+"Apple Development" および "Apple Distribution" 証明書で署名されたアプリは [App Sandbox][app-sandboxing] 下でしか実行できないため、Electron の MAS ビルドを使用する必要があります。 しかし、"Developer ID Application" 証明書にはこの制限がないため、この証明書で署名されたアプリは Electron の通常ビルドと MAS ビルドのどちらでも使用できます。
 
-#### Legacy certificate names
+#### 従来の証明書の名称
 
-Apple has been changing the names of certificates during past years, you might encounter them when reading old documentations, and some utilities are still using one of the old names.
+Apple は過去数年の間に証明書の名称を変更しており、古いドキュメントを読んでいると古い名称が出てくるかもしれません。一部のユーティリティも未だに古い名称を使用していることがあります。
 
-* The "Apple Distribution" certificate was also named as "3rd Party Mac Developer Application" and "Mac App Distribution".
-* The "Apple Development" certificate was also named as "Mac Developer" and "Development".
+* "Apple Distribution" 証明書は、"3rd Party Mac Developer Application" や "Mac App Distribution" という名称でもありました。
+* "Apple Development" 証明書は、"Mac Developer" や "Development" という名称でもありました。
 
-### Prepare provisioning profile
+### プロビジョニングプロファイルの準備
 
-If you want to test your app on your local machine before submitting your app to the Mac App Store, you have to sign the app with the "Apple Development" certificate with the provisioning profile embedded in the app bundle.
+Mac App Store へアプリを提出する前にローカルマシンでアプリをテストしたい場合は、アプリバンドルに埋め込まれたプロビジョニングプロファイル付きの "Apple Development" 証明書でアプリを署名する必要があります。
 
-To [create a provisioning profile](https://help.apple.com/developer-account/#/devf2eb157f8), you can follow the below steps:
+[プロビジョニングプロファイルの作成](https://help.apple.com/developer-account/#/devf2eb157f8) は、以下の手順を踏むとできます。
 
-1. Open the "Certificates, Identifiers & Profiles" page on the [Apple Developer](https://developer.apple.com/account) website.
-2. Add a new App ID for your app in the "Identifiers" page.
-3. Register your local machine in the "Devices" page. You can find your machine's "Device ID" in the "Hardware" page of the "System Information" app.
-4. Register a new Provisioning Profile in the "Profiles" page, and download it to `/path/to/yourapp.provisionprofile`.
+1. [Apple Developer](https://developer.apple.com/account) のウェブサイトで "Certificates, Identifiers & Profiles" のページを開きます。
+2. "Identifiers" のページ内でアプリの App ID を新規追加します。
+3. "Devices" のページでローカルのマシンを登録します。 お使いのマシンの "デバイス ID" は、"システム情報" アプリの "ハードウェア" のページで確認できます。
+4. "Profiles" のページで新しいプロビジョニングプロファイルを登録し、`/path/to/yourapp.provisionprofile` へダウンロードします。
 
-### Enable Apple's App Sandbox
+### Apple のアプリサンドボックスを有効にする
 
-Apps submitted to the Mac App Store must run under Apple's [App Sandbox][app-sandboxing], and only the MAS build of Electron can run with the App Sandbox. The standard darwin build of Electron will fail to launch when run under App Sandbox.
+Mac App Store に提出したアプリは Apple の [App Sandbox][app-sandboxing] 下で実行する必要があり、Electron の MAS ビルドだけが App Sandbox で実行できます。 Electron の標準の darwin ビルドでは、App Sandbox で実行すると起動に失敗します。
 
-When signing the app with `electron-osx-sign`, it will automatically add the necessary entitlements to your app's entitlements, but if you are using custom entitlements, you must ensure App Sandbox capacity is added:
+`electron-osx-sign` でアプリを署名すると、必要なエンタイトルメントが自動追加されます。しかしカスタムエンタイトルメントを使用している場合は、App Sandbox の資格が追加されていることを確認する必要があります。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -83,9 +83,9 @@ When signing the app with `electron-osx-sign`, it will automatically add the nec
 </plist>
 ```
 
-#### Extra steps without `electron-osx-sign`
+#### `electron-osx-sign` を使わない場合のさらなる手順
 
-If you are signing your app without using `electron-osx-sign`, you must ensure the app bundle's entitlements have at least following keys:
+`electron-osx-sign` を使わずにアプリを署名する場合、アプリバンドルのエンタイトルメントが少なくとも以下のキーを持っていることを確認する必要があります。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -102,9 +102,9 @@ If you are signing your app without using `electron-osx-sign`, you must ensure t
 </plist>
 ```
 
-The `TEAM_ID` should be replaced with your Apple Developer account's Team ID, and the `your.bundle.id` should be replaced with the App ID of the app.
+`TEAM_ID` は Apple Developer アカウントの Team ID に、`your.bundle.id` はアプリの App ID に置き換えてください。
 
-And the following entitlements must be added to the binaries and helpers in the app's bundle:
+また、アプリのバンドル内のバイナリやヘルパーに以下のエンタイトルメントを追加する必要があります。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -119,7 +119,7 @@ And the following entitlements must be added to the binaries and helpers in the 
 </plist>
 ```
 
-And the app bundle's `Info.plist` must include `ElectronTeamID` key, which has your Apple Developer account's Team ID as its value:
+そしてアプリバンドルの `Info.plist` には、`ElectronTeamID` キーに Apple Developer アカウントの Team ID を値として含める必要があります。
 
 ```xml
 <plist version="1.0">
@@ -131,56 +131,56 @@ And the app bundle's `Info.plist` must include `ElectronTeamID` key, which has y
 </plist>
 ```
 
-When using `electron-osx-sign` the `ElectronTeamID` key will be added automatically by extracting the Team ID from the certificate's name. You may need to manually add this key if `electron-osx-sign` could not find the correct Team ID.
+`electron-osx-sign` を使用する場合は、証明書の名前から Team ID を抽出することで `ElectronTeamID` キーが自動追加されます。 `electron-osx-sign` が正しい Team ID を見つけられなかった場合は、このキーを手動で追加する必要があるでしょう。
 
-### Sign apps for development
+### 開発用にアプリを署名する
 
-To sign an app that can run on your development machine, you must sign it with the "Apple Development" certificate and pass the provisioning profile to `electron-osx-sign`.
+開発マシン上で実行できるようにアプリを署名するには、"Apple Development" 証明書で署名し、そのプロビジョニングプロファイルを `electron-osx-sign` に渡す必要があります。
 
 ```bash
 electron-osx-sign YourApp.app --identity='Apple Development' --provisioning-profile=/path/to/yourapp.provisionprofile
 ```
 
-If you are signing without `electron-osx-sign`, you must place the provisioning profile to `YourApp.app/Contents/embedded.provisionprofile`.
+`electron-osx-sign` を使わずに署名する場合は、プロビジョニングプロファイルを `YourApp.app/Contents/embedded.provisionprofile` に配置する必要があります。
 
-The signed app can only run on the machines that registered by the provisioning profile, and this is the only way to test the signed app before submitting to Mac App Store.
+署名したアプリはプロビジョニングプロファイルによって登録されたマシン上でのみ実行可能です。これが Mac App Store に提出する前に署名したアプリをテストする唯一の方法です。
 
-### Sign apps for submitting to the Mac App Store
+### Mac App Store へ提出するためにアプリを署名する
 
-To sign an app that will be submitted to Mac App Store, you must sign it with the "Apple Distribution" certificate. Note that apps signed with this certificate will not run anywhere, unless it is downloaded from Mac App Store.
+Mac App Store へ提出するアプリを署名するには、"Apple Distribution" 証明書で署名する必要があります。 注意として、この証明書で署名されたアプリは、Mac App Store からダウンロードしない限りどのマシンでも実行できません。
 
 ```bash
 electron-osx-sign YourApp.app --identity='Apple Distribution'
 ```
 
-### Sign apps for distribution outside the Mac App Store
+### Mac App Store 以外で頒布するアプリケーションの署名
 
-If you don't plan to submit the app to Mac App Store, you can sign it the "Developer ID Application" certificate. In this way there is no requirement on App Sandbox, and you should use the normal darwin build of Electron if you don't use App Sandbox.
+Mac App Store への申請の予定がない場合は、"Developer ID Application" 証明書で署名できます。 この方法では App Sandbox 上の要件はありません。App Sandbox を使用しない場合は、Electron の通常の darwin ビルドを使用してください。
 
 ```bash
 electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekeeper-assess
 ```
 
-By passing `--no-gatekeeper-assess`, the `electron-osx-sign` will skip the macOS GateKeeper check as your app usually has not been notarized yet by this step.
+`--no-gatekeeper-assess` を指定すると、`electron-osx-sign` は macOS の GateKeeper の確認を飛ばします。通常この段階ではアプリはまだ公証されていません。
 
 <!-- TODO(zcbenz): Add a chapter about App Notarization -->
-This guide does not cover [App Notarization][app-notarization], but you might want to do it otherwise Apple may prevent users from using your app outside Mac App Store.
+このガイドでは、[App Notarization][app-notarization] については説明しません。しかし App Notarization を行っておかないと、ユーザーが Mac App Store 以外からのアプリを使用できないように Apple が阻害する可能性があるので、行っておいた方がよいでしょう。
 
-## Submit Apps to the Mac App Store
+## Mac App Store に提出する
 
-After signing the app with the "Apple Distribution" certificate, you can continue to submit it to Mac App Store.
+"Apple Distribution" 証明書でアプリを署名すれば、Mac App Store に提出できます。
 
-However, this guide do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App][submitting-your-app] guide on how to meet the Mac App Store requirements.
+このガイドは、Apple がアプリを承認することを保証していません。Mac App Store の登録要件を満たすには、Apple の [アプリの提出][submitting-your-app] のガイドも読んでおくべきでしょう。
 
-### Upload
+### アップロードする
 
-The Application Loader should be used to upload the signed app to iTunes Connect for processing, making sure you have [created a record][create-record] before uploading.
+手続きのために、Application Loader を使用して署名したアプリを iTunes Connect にアップロードする必要があります。アップロードする前に [レコードを作成した][create-record] ことを確認するようにしてください。
 
-If you are seeing errors like private APIs uses, you should check if the app is using the MAS build of Electron.
+非公開 API の利用といったエラーが出る場合は、アプリが Electron の MAS ビルドを使用しているかどうかを確認するとよいでしょう。
 
-### Submit for review
+### 審査に提出する
 
-After uploading, you should [submit your app for review][submit-for-review].
+アップロードした後は、[アプリを審査に提出][submit-for-review] しましょう。
 
 ## MAS ビルドの制限
 
@@ -197,11 +197,11 @@ After uploading, you should [submit your app for review][submit-for-review].
 
 サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は [App Sandboxing][app-sandboxing] を参照してください。
 
-### Additional entitlements
+### 追加のエンタイトルメント
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your app's entitlements file. Otherwise, the App Sandbox may prevent you from using them.
+アプリが使用する Electron API に応じて、アプリの entitlements ファイルに追加のエンタイトルメントが必要です。 さもなくば、App Sandbox がその使用を阻害することがあります。
 
-#### Network access
+#### ネットワークアクセス
 
 アプリがサーバーに接続できるように、以下のように発信ネットワーク接続を有効にします。
 

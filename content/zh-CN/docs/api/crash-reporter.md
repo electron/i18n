@@ -31,7 +31,7 @@ crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 
 如果你在Linux上使用的是Node.js的 `child_process` 模块，并且想要在这些进程中报告崩溃信息，那么需要采取额外的步骤来在子进程中正确初始化崩溃报告器。 在 Mac 或 Windows 上就没有这个问题，因为这两个平台使用的Crashpad会自动监视子进程。
 
-由于Node的子进程中无法使用 `require('electron')` ，那么在Node的子进程中的 `process` 对象中的以下 API 是可用的。 Note that, on Linux, each Node child process has its own separate instance of the breakpad crash reporter. This is dissimilar to renderer child processes, which have a "stub" breakpad reporter which returns information to the main process for reporting.
+由于Node的子进程中无法使用 `require('electron')` ，那么在Node的子进程中的 `process` 对象中的以下 API 是可用的。 请注意，在Linux上，每个Node子进程的 breakpad 崩溃报告器都有自己独立的实例。 这与渲染器子进程不同，其具有"存根" breakpad 报告器，将信息返回到主进程进行报告。
 
 #### `process.crashReporter.start(options)`
 
@@ -57,13 +57,13 @@ crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 
 * `选项` 对象
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
-  * `productName` String (optional) - Defaults to `app.name`.
-  * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. 默认值为 `true`。
-  * `ignoreSystemCrashHandler` Boolean (optional) - If true, crashes generated in the main process will not be forwarded to the system crash handler. 默认值为 `false`.
-  * `rateLimit` Boolean (optional) _macOS_ _Windows_ - If true, limit the number of crashes uploaded to 1/hour. 默认值为 `false`.
-  * `compress` Boolean (optional) - If true, crash reports will be compressed and uploaded with `Content-Encoding: gzip`. 默认值为 `true`。
-  * `extra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with crash reports that are generated in the main process. Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
+  * `productName` String (可选) - 默认为 `app.name`.
+  * `companyName` String (可选) _已废弃_ - 已废弃别名为`{ globalExtra: { _companyName: ... } }`。
+  * `uploadToServer` Boolean (可选) - 是否将崩溃报告发送给服务器。 如果为 false，崩溃报告将被收集并存储在崩溃目录中，但不会上传。 默认值为 `true`。
+  * `ignoreSystemCrashHandler` Boolean (可选) - 如果为true，在主进程中生成的崩溃将不会转发给系统崩溃处理器。 默认值为 `false`.
+  * `rateLimit` Boolean (可选) _macOS_ _Windows_ - 如果为true，将上传的崩溃次数限制到 1次/小时。 默认值为 `false`.
+  * `compress` Boolean (可选) - 如果为true，崩溃报告将压缩并上传，使用带有 `Content-Encoding: gzip` 的头部。 默认值为 `true`。
+  * `extra` Record<String, String> (可选) - 将随主进程生成的崩溃报告一起发送的额外字符串键/值注解。 Only string values are supported. Crashes generated in child processes will not contain these extra parameters to crash reports generated from child processes, call [`addExtraParameter`](#crashreporteraddextraparameterkey-value) from the child process.
   * `globalExtra` Record<String, String> (optional) - Extra string key/value annotations that will be sent along with any crash reports generated in any process. These annotations cannot be changed once the crash reporter has been started. If a key is present in both the global extra parameters and the process-specific extra parameters, then the global one will take precedence. By default, `productName` and the app version are included, as well as the Electron version.
 
 This method must be called before using any other `crashReporter` APIs. Once initialized this way, the crashpad handler collects crashes from all subsequently created processes. The crash reporter cannot be disabled once started.

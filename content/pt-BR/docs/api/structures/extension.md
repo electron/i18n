@@ -1,4 +1,4 @@
-# Objeto Extension
+# Extensão Object
 
 * `id` String
 * `manifest` any - Cópia dos [dados do manifesto da extensão](https://developer.chrome.com/extensions/manifest).
