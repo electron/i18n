@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-The following example shows how to check if the `--disable-gpu` flag is set.
+L'exemple suivant montre comment vérifier si l'indicateur `--disable-gpu` est défini.
 
 ```javascript
 const { app } = require('electron')
