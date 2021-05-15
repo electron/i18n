@@ -120,7 +120,7 @@ A página `index.html` parece com a seguinte:
 
 #### Defina um script de pré-carregamento
 
-Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Isso lhe permite expor APIs e comportamentos específicos para a sua página web, em vez de expor de forma insegura toda a API do Node.js. Neste exemplo, usaremos o script de pré-carregamento para ler informações da versão do objeto `process` e atualizar a página web com essa informação.
+Seu script de pré-carga (no nosso caso, o arquivo `preload.js`) atua como uma ponte entre Node.js e sua página web. Isso lhe permite expor APIs e comportamentos específicos para a sua página web, em vez de expor de forma insegura toda a API do Node.js. Neste exemplo, usaremos o script de pré-carregamento para ler informações da versão do objeto `process` e atualizar a página web com essa informação.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {
