@@ -1,6 +1,6 @@
 # Usando Módulos Nativos do Node
 
-Native Node.js modules are supported by Electron, but since Electron has a different [application binary interface (ABI)][abi] from a given Node.js binary (due to differences such as using Chromium's BoringSSL instead of OpenSSL), the native modules you use will need to be recompiled for Electron. Caso contrário, você receberá a seguinte classe de erro quando você tentar executar seu aplicativo:
+Módulos Node,js nativos são suportados pelo Electron, mas, como Electron tem uma [interface binária de aplicação (ABI)][abi] diferente da interface do Node.js (devido a diferenças como o uso do BoringSSL do Chromium ao invés do OpenSSL), os módulos nativos que você usar precisam ser recompilados para Electron. Caso contrário, você receberá a seguinte classe de erro quando você tentar executar seu aplicativo:
 
 ```sh
 Erro: O módulo '/path/to/native/module.node'
@@ -18,7 +18,7 @@ Existem várias maneiras diferentes de instalar módulos nativos:
 
 You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`][electron-rebuild] package. Este módulo pode determinar automaticamente a versão do Electron e lidar com os passos manuais de baixar cabeçalhos e reconstruir módulos nativos para sua aplicação. If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
 
-For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
+Por exemplo, para instalar a ferramenta standalone `electron-rebuild` e então reconstruir módulos com ela via linha de comando:
 
 ```sh
 npm install --save-dev electron-rebuild
@@ -30,7 +30,7 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools such as [Electron Packager][electron-packager], consult the project's README.
+Para mais informações sobre uso e integração com outras ferramentas como [Electron Packager][electron-packager], consulte o README do projeto.
 
 ### Usando `npm`
 
