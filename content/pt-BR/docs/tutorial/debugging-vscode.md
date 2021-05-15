@@ -1,8 +1,8 @@
 # Debugging in VSCode
 
-This guide goes over how to set up VSCode debugging for both your own Electron project as well as the native Electron codebase.
+Este guia trata de como configurar a depuração usando VSCode tanto para seu próprio projeto no Electron como para código nativo do Electron.
 
-## Debugging your Electron app
+## Depurando seu app Electron
 
 ### Processo principal
 
