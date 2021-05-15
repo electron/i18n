@@ -8,7 +8,7 @@ Normalmente, você cria um aplicativo desktop para um sistema operacional (OS) u
 
 ### Pré-requisitos
 
-Before proceeding with Electron you need to install [Node.js][node-download]. Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
+Antes de prosseguir com o Electron você precisa instalar o [Node.js][node-download]. Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
 
 > Por favor, instale o Node.js usando instaladores específicos para sua plataforma. Caso contrário, você pode encontrar problemas de incompatibilidade com ferramentas de desenvolvimento diferentes.
 
