@@ -4,7 +4,7 @@ Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-
 
 > **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
 
-## Loading extensions
+## Chargement des extensions
 
 Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath-options):
 
@@ -18,45 +18,45 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 Loaded extensions will not be automatically remembered across exits; if you do not call `loadExtension` when the app runs, the extension will not be loaded.
 
-Note that loading extensions is only supported in persistent sessions. Attempting to load an extension into an in-memory session will throw an error.
+Notez que le chargement d'extensions n'est pris en charge que dans les sessions persistantes. Tenter de charger une extension dans une session en mémoire générera une erreur.
 
 See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
 
 ## Supported Extensions APIs
 
-We support the following extensions APIs, with some caveats. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
+Nous prenons en charge les API d'extensions suivantes, avec quelques mises en garde. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
 
 ### `chrome.devtools.inspectedWindow`
 
-All features of this API are supported.
+Toutes les fonctionnalités de cette API sont prises en charge.
 
 ### `chrome.devtools.network`
 
-All features of this API are supported.
+Toutes les fonctionnalités de cette API sont prises en charge.
 
 ### `chrome.devtools.panels`
 
-All features of this API are supported.
+Toutes les fonctionnalités de cette API sont prises en charge.
 
 ### `chrome.extension`
 
-The following properties of `chrome.extension` are supported:
+Les propriétés suivantes de `chrome.extension` sont prises en charge :
 
 - `chrome.extension.lastError`
 
-The following methods of `chrome.extension` are supported:
+Les méthodes suivantes de `chrome.extension` sont prises en charge :
 
 - `chrome.extension.getURL`
 - `chrome.extension.getBackgroundPage`
 
 ### `chrome.runtime`
 
-The following properties of `chrome.runtime` are supported:
+Les propriétés suivantes de `chrome.runtime` sont prises en charge :
 
 - `chrome.runtime.lastError`
 - `chrome.runtime.id`
 
-The following methods of `chrome.runtime` are supported:
+Les méthodes suivantes de `chrome.runtime` sont prises en charge :
 
 - `chrome.runtime.getBackgroundPage`
 - `chrome.runtime.getManifest`
@@ -65,7 +65,7 @@ The following methods of `chrome.runtime` are supported:
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
 
-The following events of `chrome.runtime` are supported:
+Les événements suivants de `chrome.runtime` sont pris en charge :
 
 - `chrome.runtime.onStartup`
 - `chrome.runtime.onInstalled`
@@ -80,7 +80,7 @@ Only `chrome.storage.local` is supported; `chrome.storage.sync` and `chrome.stor
 
 ### `chrome.tabs`
 
-The following methods of `chrome.tabs` are supported:
+Les méthodes suivantes de `chrome.tabs` sont prises en charge :
 
 - `chrome.tabs.sendMessage`
 - `chrome.tabs.executeScript`
@@ -89,7 +89,7 @@ The following methods of `chrome.tabs` are supported:
 
 ### `chrome.management`
 
-The following methods of `chrome.management` are supported:
+Les méthodes suivantes de `chrome.management` sont prises en charge :
 
 - `chrome.management.getAll`
 - `chrome.management.get`
@@ -101,8 +101,8 @@ The following methods of `chrome.management` are supported:
 
 ### `chrome.webRequest`
 
-All features of this API are supported.
+Toutes les fonctionnalités de cette API sont prises en charge.
 
-> **NOTE:** Electron's [`webRequest`](web-request.md) module takes precedence over `chrome.webRequest` if there are conflicting handlers.
+> **REMARQUE :** Le module [`webRequest`](web-request.md) d’Electron est prioritaire sur `chrome.webRequest` en cas de conflit de gestionnaires.
 
 [chrome-extensions-api-index]: https://developer.chrome.com/extensions/api_index
