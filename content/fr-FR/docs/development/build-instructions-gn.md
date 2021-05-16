@@ -126,7 +126,7 @@ $ ./out/Testing/electron
 
 ### Livraison
 
-On linux, first strip the debugging and symbol information:
+Sous Linux, supprimez d'abord les informations de débogage et de symbole :
 
 ```sh
 electron/script/strip-binaries.py -d out/Release
