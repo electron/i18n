@@ -8,7 +8,7 @@ Normalmente, você cria um aplicativo desktop para um sistema operacional (OS) u
 
 ### Pré-requisitos
 
-Before proceeding with Electron you need to install [Node.js][node-download]. Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
+Antes de prosseguir com o Electron você precisa instalar o [Node.js][node-download]. Recomendamos que você instale a versão `LTS` mais recente ou a versão `atual` disponível.
 
 > Por favor, instale o Node.js usando instaladores específicos para sua plataforma. Caso contrário, você pode encontrar problemas de incompatibilidade com ferramentas de desenvolvimento diferentes.
 
@@ -120,7 +120,7 @@ A página `index.html` parece com a seguinte:
 
 #### Defina um script de pré-carregamento
 
-Your preload script (in our case, the `preload.js` file) acts as a bridge between Node.js and your web page. Isso lhe permite expor APIs e comportamentos específicos para a sua página web, em vez de expor de forma insegura toda a API do Node.js. Neste exemplo, usaremos o script de pré-carregamento para ler informações da versão do objeto `process` e atualizar a página web com essa informação.
+Seu script de pré-carga (no nosso caso, o arquivo `preload.js`) atua como uma ponte entre Node.js e sua página web. Isso lhe permite expor APIs e comportamentos específicos para a sua página web, em vez de expor de forma insegura toda a API do Node.js. Neste exemplo, usaremos o script de pré-carregamento para ler informações da versão do objeto `process` e atualizar a página web com essa informação.
 
 ```javascript fiddle='docs/fiddles/quick-start'
 window.addEventListener('DOMContentLoaded', () => {

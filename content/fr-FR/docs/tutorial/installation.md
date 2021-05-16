@@ -66,7 +66,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ELECTRON_CUSTOM_DIR="{{ version }}"
 ```
 
-The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
+La configuration ci-dessus sera téléchargée à partir d'URL telles que `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
 #### Cache
 

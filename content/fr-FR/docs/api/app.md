@@ -970,7 +970,7 @@ Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moin
 
 ### `app.setBadgeCount([count])` _Linux_ _macOS_
 
-* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). On Linux, if a value is not provided the badge will not display.
+* `count` Integer (optional) - If a value is provided, set the badge to the provided value otherwise, on macOS, display a plain white dot (e.g. unknown number of notifications). Sous Linux, si aucune valeur n'est fournie, le badge ne s'affichera pas.
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -1066,7 +1066,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `crédits` String (facultatif) _macOS_ _Windows_ - Crédits.
   * `auteurs` String[] (facultatif) _Linux_ - Liste des auteurs d'applications.
   * `site web` String (facultatif) _Linux_ - Le site web de l'application.
-  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. Sous Linux, sera affiché en 64x64 pixels tout en conservant le ratio.
 
 Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on macOS. Voir [la documentation Apple][about-panel-options] pour de plus amples informations. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
 
