@@ -46,7 +46,7 @@ Voir aussi : [processus](#process), [processus de rendu](#renderer-process)
 
 ### MAS
 
-Acronyme pour le Mac App Store d'Apple. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide][].
+Acronyme pour le Mac App Store d'Apple. Pour plus de détails sur la soumission de votre application au MAS, consultez le [Guide de soumission du Mac App Store][].
 
 ### Mojo
 
@@ -80,7 +80,7 @@ Voir aussi : [processus principal](#main-process), [processus de rendu](#render
 
 ### processus de rendu (renderer process)
 
-Le processus de rendu est une fenêtre de navigateur dans votre application. Unlike the main process, there can be multiple of these and each is run in a separate process. Ils peuvent également être cachés.
+Le processus de rendu est une fenêtre de navigateur dans votre application. Contrairement au processus principal, il peut y en avoir plusieurs et chacun est exécuté dans un processus distinct. Ils peuvent également être cachés.
 
 Dans un navigateur normal, les pages web sont habituellement exécuté dans un environnement sandbox et ne sont pas autorisé à accéder aux ressources natives. Cependant, les utilisateurs d'Electron peuvent utiliser l'API Node.js dans les pages web, ce qui permet des interactions bas niveau avec le système d'exploitation.
 
@@ -117,7 +117,7 @@ Les numéros de version de V8 correspondent toujours à ceux de Google Chrome. C
 [autoUpdater]: api/auto-updater.md
 [module Chromium Content]: https://www.chromium.org/developers/content-module
 [electron-builder]: https://github.com/electron-userland/electron-builder
-[Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
+[Guide de soumission du Mac App Store]: tutorial/mac-app-store-submission-guide.md
 [main]: #main-process
 [principal]: #main-process
 [renderer]: #renderer-process
