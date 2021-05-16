@@ -34,8 +34,8 @@ Copy the image using the [Copy Master Image PowerShell script](https://github.co
     * It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
     * Use the storage account name, key, and URI obtained from Azure to run this script.
         * See Step 3 for URI & when prompted, press enter to use same storage account as destination.
-        * Use default destination container name `(images)`
-        * Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp.
+        * Utiliser le nom du conteneur de destination par défaut `(images)`
+        * En outre, lorsque vous nommez la copie, utilisez un nom qui indique ce que la nouvelle image contiendra (si cela a changé) et un horodatage.
             * Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
     * Go into Azure and get the URI for the newly created image as described in a previous step
 
@@ -44,7 +44,7 @@ Copy the image using the [Copy Master Image PowerShell script](https://github.co
 Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
     * From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
     * You will need the credential information available in the AppVeyor build cloud definition.
-        * This includes:
+        * Ceci comprend :
             * Client ID
             * Client Secret
             * Tenant ID
