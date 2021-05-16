@@ -125,10 +125,10 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
   * `resizable` Boolean (optional) - Whether window is resizable. La valeur par défaut est `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. La valeur par défaut est `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. La valeur par défaut est `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. La valeur par défaut est `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. La valeur par défaut est `true`.
+  * `movable` Boolean (optional) - Whether window is movable. Ceci n'est pas implémenté sur Linux. La valeur par défaut est `true`.
+  * `minimizable` Boolean (optional) - Whether window is minimizable. Ceci n'est pas implémenté sous Linux. La valeur par défaut est `true`.
+  * `maximizable` Boolean (optional) - Whether window is maximizable. Ceci n'est pas implémenté sous Linux. La valeur par défaut est `true`.
+  * `closable` Boolean (optional) - Whether window is closable. Ceci n'est pas implémenté sur Linux. La valeur par défaut est `true`.
   * `focusable` Boolean (facultatif) - Si la fenêtre peut avoir le focus. La valeur par défaut est `true`. Sur Windows, mettre `focusable: false` implique également le réglage `skipTaskbar: true`. Sur Linux, mettre `focusable: false` fait que la fenêtre arrête d'interragir avec wm, par conséquent la fenêtre restera toujours au dessus dans tous les espaces de travail.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Par défaut la valeur est `false`.
   * `fullscreen` Boolean (facultatif) - Est-ce que la fenêtre doit s'afficher en plein écran. Quand explicitement mit a `false`, le bouton plein écran sera caché ou désactivé sur macOS. Par défaut la valeur est `false`.
