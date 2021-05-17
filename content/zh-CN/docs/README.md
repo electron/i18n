@@ -20,7 +20,7 @@
 
 ### 学习基础知识
 
-* [电子的工艺模型](tutorial/quick-start.md#application-architecture)
+* [Electron 的工艺模型](tutorial/quick-start.md#application-architecture)
   * [主进程和渲染器进程](tutorial/quick-start.md#main-and-renderer-processes)
   * [Electron API](tutorial/quick-start.md#electron-api)
   * [Node.js API](tutorial/quick-start.md#nodejs-api)
