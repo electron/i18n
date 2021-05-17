@@ -2,21 +2,21 @@
 
 ## 概览
 
-A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
+进度条使窗口能够向用户提供其进度信息，而无需被切换到前台。
 
-On Windows, you can use a taskbar button to display a progress bar.
+在Windows环境下，进度条被显示在任务栏按钮上。
 
 ![Windows Progress Bar][1]
 
-On macOS, the progress bar will be displayed as a part of the dock icon.
+在MacOS环境下，进度条将被显示在dock栏图标上
 
 ![macOS Progress Bar][2]
 
-On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
+在Linux系统中，Unity桌面也有相似的特性，能在Launcher上显示进度条。
 
 ![Linux Progress Bar][3]
 
-> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
+> 注意：在 Windows 上，每个窗口都可以有自己的进度条，而在 macOS 和 Linux（unity桌面）上，同一个应用程序只能有一个进度条。
 
 ----
 
