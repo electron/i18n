@@ -36,7 +36,7 @@ Une bibliothèque partagée qui inclut le [module Chromium Content][] et toutes 
 
 ### main process (processus principal)
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. Il gère également les éléments natifs tels que le Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. Il contrôle la vie de l'application, de l'ouverture à la fermeture. Il gère également les éléments natifs tels que le Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Le fichier de processus principal de chaque application est spécifié dans la propriété `principale` dans `package.json`. Voici comment `electron .` sait quel fichier exécuter au démarrage.
 
