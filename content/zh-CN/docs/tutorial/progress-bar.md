@@ -2,27 +2,27 @@
 
 ## 概览
 
-A progress bar enables a window to provide progress information to the user without the need of switching to the window itself.
+进度条使窗口能够向用户提供其进度信息，而无需被切换到前台。
 
-On Windows, you can use a taskbar button to display a progress bar.
+在Windows环境下，进度条被显示在任务栏按钮上。
 
-![Windows Progress Bar][1]
+![Windows 进度条][1]
 
-On macOS, the progress bar will be displayed as a part of the dock icon.
+在MacOS环境下，进度条将被显示在dock栏图标上
 
-![macOS Progress Bar][2]
+![macOS 进度条][2]
 
-On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
+在Linux系统中，Unity桌面也有相似的特性，能在Launcher上显示进度条。
 
-![Linux Progress Bar][3]
+![Linux 进度条][3]
 
-> NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
+> 注意：在 Windows 上，每个窗口都可以有自己的进度条，而在 macOS 和 Linux（unity桌面）上，同一个应用程序只能有一个进度条。
 
 ----
 
-All three cases are covered by the same API - the [`setProgressBar()`][setprogressbar] method available on an instance of `BrowserWindow`. To indicate your progress, call this method with a number between `0` and `1`. For example, if you have a long-running task that is currently at 63% towards completion, you would call it as `setProgressBar(0.63)`.
+这三种环境中的进度条功能由同一个API实现：`BrowserWindow`实例下的[`setProgressBar()`][setprogressbar]方法。 此方法以介于 `0` 和 `1` 之间的小数表示进度。 例如，如果有一个耗时很长的任务，它当前的进度是63%，那么你可以用`setProgressBar(0.63)`来显示这一进度。
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar, whereas setting it to values greater than `1` (e.g. `2`) will switch the progress bar to indeterminate mode (Windows-only -- it will clamp to 100% otherwise). In this mode, a progress bar remains active but does not show an actual percentage. Use this mode for situations when you do not know how long an operation will take to complete.
+将参数设置为负值（如`-1`）来移除进度条。而将参数设定为`1`以上的值（如`2`）将会使进度条处于“不确定”状态（仅适用于Windows，其他平台会直接显示为100%） 在此模式下，进度条保持活动，但并不显示实际百分比。 当不知道一项操作的具体进度时，这一模式将是较为实用的。
 
 参见 [API documentation for more options and modes][setprogressbar]。
 
@@ -37,13 +37,13 @@ const win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-After launching the Electron application, you should see the bar in the dock (macOS) or taskbar (Windows, Unity), indicating the progress percentage you just defined.
+启动 Electron 应用程序后，您应该在 dock (macOS) 或任务栏 (Windows, Unity) 中看到此栏，它显示刚刚定义的进度百分比。
 
-![macOS dock progress bar](../images/dock-progress-bar.png)
+![macOS dock 进度条](../images/dock-progress-bar.png)
 
-For macOS, the progress bar will also be indicated for your application when using [Mission Control](https://support.apple.com/en-us/HT204100):
+对于macOS，当使用 [Mission Control](https://support.apple.com/en-us/HT204100) 时，应用程序也会显示进度条
 
-![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
+![macOS Mission Control 进度条](../images/mission-control-progress-bar.png)
 
 [1]: https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png
 [2]: ../images/macos-progress-bar.png
