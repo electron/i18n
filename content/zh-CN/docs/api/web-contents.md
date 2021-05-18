@@ -1147,7 +1147,7 @@ Returns `Promise<void>`
 * `text` String - 要搜索的内容，必须非空。
 * `options` Object (可选)
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
-  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. 默认值为 `false`.
+  * `findNext` Boolean (可选) - 是否使用此请求开始一个新的文本查找会话。 对于初始请求应该为 `true` ，对后续请求为 `false` 。 默认值为 `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
