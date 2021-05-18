@@ -1147,7 +1147,7 @@ Insère le `text` à l'élément ciblé.
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (optional)
   * `forward` Boolean (facultatif) - Rechercher soit en avant soit en arrière, la valeur par défaut est `true`.
-  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Par défaut, `faux`.
+  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Doit être `true` pour les requêtes initiales et `false` pour les requêtes de suivi. Par défaut, `faux`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
