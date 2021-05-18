@@ -1204,7 +1204,7 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+Retorna [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
@@ -1213,7 +1213,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por padrão é `true`.
-  * `margins` Object (optional)
+  * Objeto `margins` (opcional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -1227,7 +1227,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Pode ser `simplex`, `shortEdge` ou `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
