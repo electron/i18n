@@ -157,7 +157,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. Este es el valor predeterminado.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Los valores posibles son:
+  * `titleBarStyle` String (optional) - The style of window title bar. Por defecto es `default`. Los valores posibles son:
     * `default` - Es la barra de título gris opaca estándar de Mac.
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
@@ -174,7 +174,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `nodeIntegrationInWorker` Boolean (opcional) - Si la integración de nodos está habilitada en los trabajadores de la web. Por defecto es `false`. Se pueden encontrar más detalles en [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (opcional) - Opcion experimental para habilitar soporte Node.js en sub-frames como iframes y ventas hijos. Todos tus preloads cargarán por cada iframe, puedes usar `process.isMainFrame` para determinar si estás en el marco principal o no.
     * `preload` String (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](context-bridge.md#exposing-node-global-symbols).
-    * `sandbox` Boolean (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](sandbox-option.md).
+    * `sandbox` Boolean (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](../tutorial/sandbox.md).
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Por defecto es `false`.
     * `session` [Session](session.md#class-session) (opcional) - Configura la sesión usada por la página. En lugar de pasar directamente el objeto de la sesión, se puede optar por utilizar la opción de `partition`, la cual acepta una cadena de partición. Cuando se proporcionen `session` y `partition`, se preferirá `session`. Default es la sesión por defecto.
     * `partition` Cadena (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Default es la sesión por defecto.
@@ -369,7 +369,7 @@ Aparece cuando la ventana se mueve a una nueva posición.
 
 Aparece solo una vez cuando la ventana se mueve a una nueva posición.
 
-__Note__: On macOS this event is an alias of `move`.
+__Note__: En macOS este evento es un alias de `move`.
 
 #### Evento: "enter-full-screen"
 
@@ -528,7 +528,7 @@ Elimina una extensión de Chrome por su nombre.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**Nota:** Este método esta obsoleto. En su lugar, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
 #### `BrowserWindow.getExtensions()` _Deprecated_
 
@@ -536,7 +536,7 @@ Devuelve `Record<String, ExtensionInfo>` - Las llaves son nombres de extensiones
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Nota:** Este método esta obsoleto. En su lugar, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
@@ -560,7 +560,7 @@ Elimina una extensión de Devtools mediante su nombre.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
+**Nota:** Este método esta obsoleto. En su lugar, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
 #### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
 
@@ -577,7 +577,7 @@ console.log(installed)
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
-**Nota:** Este método esta obsoleto. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Nota:** Este método esta obsoleto. En su lugar, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Propiedades de Instancia
 
@@ -598,7 +598,7 @@ Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eve
 
 #### `win.id` _Readonly_
 
-Una propiedad `Integer` representando el identificador único de la ventana. Each ID is unique among all `BrowserWindow` instances of the entire Electron application.
+Una propiedad `Integer` representando el identificador único de la ventana. Cada ID es único entre todas las instancias `BrowserWindow` de toda la aplicación Electron.
 
 #### `win.autoHideMenuBar`
 
