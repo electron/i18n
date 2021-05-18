@@ -71,7 +71,7 @@ app.whenReady().then(() => {
 
 这个开关不能用于`app.commandLine.appendSwitch`, 因为它在用户应用程序加载之前就被解析了, 但是你可以设置`ELECTRON_ENABLE_LOGGING`环境变量来达到同样的效果.
 
-## --force-fieldtrials=`trials`
+### --force-fieldtrials=`trials`
 
 试用特性将强制启用或禁用。
 
@@ -126,7 +126,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ### --no-sandbox
 
-禁用现在默认启用的Chromium 沙盒。 应该只在测试时使用。
+Disables the Chromium [sandbox](https://www.chromium.org/developers/design-documents/sandbox). Forces renderer process and Chromium helper processes to run un-sandboxed. 应该只在测试时使用。
 
 ### --proxy-bypass-list=`hosts`
 
