@@ -441,7 +441,7 @@ Returns `Promise<void>`
 * `text` String - 要搜索的内容，必须非空。
 * `options` Object (可选)
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. 默认值为 `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -464,7 +464,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 默认值为 `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 默认值为 `true`。
-  * `margins` Object (optional)
+  * `margins` Object (可选)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -478,7 +478,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `pageRanges` Object[] (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. 可以是 `simplex`、`shortEdge` 或 `longEdge`。
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 返回:
 
-* `result` Object
+* `result` 对象
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
