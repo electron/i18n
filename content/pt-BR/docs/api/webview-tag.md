@@ -441,7 +441,7 @@ Inserts `text` to the focused element.
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -463,7 +463,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por padrão é `true`.
   * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 Retorna:
 
-* `result` Object
+* Objeto `resultado`
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
