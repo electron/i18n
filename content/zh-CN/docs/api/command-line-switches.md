@@ -126,7 +126,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ### --no-sandbox
 
-Disables the Chromium [sandbox](https://www.chromium.org/developers/design-documents/sandbox). Forces renderer process and Chromium helper processes to run un-sandboxed. 应该只在测试时使用。
+禁用 Chromium [沙箱](https://www.chromium.org/developers/design-documents/sandbox)。 强制渲染器进程和Chromium助手进程以非沙盒化运行。 应该只在测试时使用。
 
 ### --proxy-bypass-list=`hosts`
 
