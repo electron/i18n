@@ -24,7 +24,7 @@ The `WebFrame` class has the following instance methods:
 
 Modifie le facteur de zoom en utilisant le facteur spécifié. Le Zoom factor est égal à la valeur du zoom exprimée en pourcent divisée par 100, donc 300% = 3.0.
 
-The factor must be greater than 0.0.
+Le rapport doit être supérieur à 0.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -100,7 +100,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+Injecte du CSS dans la page Web actuelle et renvoie une clé unique pour la feuille de style insérée .
 
 ### `webFrame.removeInsertedCSS(key)`
 

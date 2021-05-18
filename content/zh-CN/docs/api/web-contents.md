@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
+` webContents ` 是一个 [EventEmitter][event-emitter]。 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -415,7 +415,7 @@ win.webContents.on('before-input-event', (event, input) => {
 返回:
 
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - 可以是 `in` 或 `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -486,7 +486,7 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
 返回:
 
 * `event` Event
-* `result` Object
+* `result` 对象
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
@@ -981,7 +981,7 @@ contents.on('did-finish-load', async () => {
 #### `contents.executeJavaScript(code[, userGesture])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` 布尔型(可选) - 默认为`false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
@@ -1002,7 +1002,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` 布尔型(可选) - 默认为`false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
@@ -1147,7 +1147,7 @@ Returns `Promise<void>`
 * `text` String - 要搜索的内容，必须非空。
 * `options` Object (可选)
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `findNext` Boolean (可选) - 是否使用此请求开始一个新的文本查找会话。 对于初始请求应该为 `true` ，对后续请求为 `false` 。 默认值为 `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -1213,7 +1213,7 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. 默认值为 `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. 默认值为 `true`。
-  * `margins` Object (optional)
+  * `margins` Object (可选)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -1227,7 +1227,7 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
   * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. 可以是 `simplex`、`shortEdge` 或 `longEdge`。
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
@@ -1560,7 +1560,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
+* `parameters` 对象
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1601,7 +1601,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
+* `item` 对象
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
@@ -1694,7 +1694,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 * `filePath` String - Path to the output file.
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+返回 `Promise<void>` - 指明快捷方式是否被成功创建。
 
 采取V8堆快照，并保存到 `filePath`。
 
@@ -1740,25 +1740,25 @@ An `Integer` property that sets the frame rate of the web contents to the specif
 
 Only applicable if *offscreen rendering* is enabled.
 
-#### `contents.id` _Readonly_
+#### `contents.id` _只读_
 
-`Integer`类型，代表WebContents的唯一标识（unique ID）。 Each ID is unique among all `WebContents` instances of the entire Electron application.
+`Integer`类型，代表WebContents的唯一标识（unique ID）。 每个ID在整个Electron应用程序的所有 `WebContents` 实例中都是唯一的。
 
-#### `contents.session` _Readonly_
+#### `contents.session` _只读_
 
 A [`Session`](session.md) used by this webContents.
 
-#### `contents.hostWebContents` _Readonly_
+#### `contents.hostWebContents` _只读_
 
 A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
-#### `contents.devToolsWebContents` _Readonly_
+#### `contents.devToolsWebContents` _只读_
 
 A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
 **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
-#### `contents.debugger` _Readonly_
+#### `contents.debugger` _只读_
 
 A [`Debugger`](debugger.md) instance for this webContents.
 
@@ -1766,7 +1766,7 @@ A [`Debugger`](debugger.md) instance for this webContents.
 
 A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
-#### `contents.mainFrame` _Readonly_
+#### `contents.mainFrame` _只读_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 

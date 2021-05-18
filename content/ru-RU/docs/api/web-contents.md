@@ -4,7 +4,7 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
+`webContents` является [EventEmitter][event-emitter]'ом. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -57,8 +57,8 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 * `event` Event
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* Строка `errorDescription`
+* Строка `validatedURL`
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -71,8 +71,8 @@ This event is like `did-finish-load` but emitted when the load failed. The full 
 
 * `event` Event
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* Строка `errorDescription`
+* Строка `validatedURL`
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -415,7 +415,7 @@ win.webContents.on('before-input-event', (event, input) => {
 Возвращает:
 
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - Может быть `in` или `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -486,7 +486,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Возвращает:
 
 * `event` Event
-* `result` Object
+* Объект `result`
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -671,7 +671,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 * `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
-* `sourceId` String
+* Строка `sourceId`
 
 Emitted when the associated window logs a console message.
 
@@ -680,7 +680,7 @@ Emitted when the associated window logs a console message.
 Возвращает:
 
 * `event` Event
-* `preloadPath` String
+* Строка `preloadPath`
 * `error` Error
 
 Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
@@ -1147,7 +1147,7 @@ Executes the editing command `replaceMisspelling` in web page.
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (опционально)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -1204,7 +1204,7 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+Возвращает [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
@@ -1213,7 +1213,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. По умолчанию - `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. По умолчанию - `true`.
-  * `margins` Object (optional)
+  * `margins` Object (опционально)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -1560,7 +1560,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
+* Объект `parameters`
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1601,7 +1601,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
+* Объект `item`
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
@@ -1694,7 +1694,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 * `filePath` String - Путь к выходному файлу.
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+Возвращает `Promise<void>`, который указывает успешно ли создан снимок.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 

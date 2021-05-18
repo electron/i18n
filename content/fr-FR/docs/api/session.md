@@ -103,7 +103,7 @@ Retourne :
 * `event` Événement
 * `extension` [Extension](structures/extension.md)
 
-Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
+Emitted after an extension is unloaded. Cela se produit lorsque `Session.removeExtension` est appelée.
 
 #### Event: 'extension-ready'
 
@@ -124,7 +124,7 @@ Retourne :
 
 Émis lorsqu'un processus de rendu demande de préconnexion à une URL, généralement à cause de un hint[ressource ](https://w3c.github.io/resource-hints/).
 
-#### Event: 'spellcheck-dictionary-initialized'
+#### Événement : 'spellcheck-dictionary-initialized'
 
 Retourne :
 
@@ -133,7 +133,7 @@ Retourne :
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
 
-#### Event: 'spellcheck-dictionary-download-begin'
+#### Événement : 'spellcheck-dictionary-download-begin'
 
 Retourne :
 
@@ -142,7 +142,7 @@ Retourne :
 
 Emitted when a hunspell dictionary file starts downloading
 
-#### Event: 'spellcheck-dictionary-download-success'
+#### Événement : 'spellcheck-dictionary-download-success'
 
 Retourne :
 
@@ -151,7 +151,7 @@ Retourne :
 
 Emitted when a hunspell dictionary file has been successfully downloaded
 
-#### Event: 'spellcheck-dictionary-download-failure'
+#### Événement : 'spellcheck-dictionary-download-failure'
 
 Retourne :
 
@@ -160,7 +160,7 @@ Retourne :
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-#### Event: 'select-serial-port' _Experimental_
+#### Événement : 'select-serial-port' _Expérimental_
 
 Retourne :
 
@@ -172,7 +172,7 @@ Retourne :
 
 Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
 
-Because this is an experimental feature it is disabled by default.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
+Parce qu'il s'agit d'une fonctionnalité expérimentale, elle est désactivée par défaut.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -202,7 +202,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### Event: 'serial-port-added' _Experimental_
+#### Événement : 'serial-port-added' _Expérimental_
 
 Retourne :
 
@@ -210,9 +210,9 @@ Retourne :
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  Par exemple, cet événement se déclenchera lorsqu'un nouveau périphérique USB est branché.
 
-#### Event: 'serial-port-removed' _Experimental_
+#### Événement : 'serial-port-removed' _Expérimental_
 
 Retourne :
 
@@ -220,7 +220,7 @@ Retourne :
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
+Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  Par exemple, cet événement se déclenchera lorsqu'un périphérique USB est débranché.
 
 ### Méthodes d’instance
 
@@ -240,8 +240,8 @@ Efface le cache HTTP de la session.
 
 * `options` Object (optional)
   * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. If not specified, clear all storage types.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. If not specified, clear all quotas.
+  * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. Si ce n'est pas spécifié, effacez tous les types de stockage.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. S'il n'est pas spécifié, effacez tous les quotas.
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
 
@@ -255,8 +255,8 @@ Writes any unwritten DOMStorage data to disk.
   * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
     * `direct` In direct mode all connections are created directly, without any proxy involved.
     * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
-    * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. This is the default mode if `pacScript` is specified.
-    * `fixed_servers` In fixed_servers mode the proxy configuration is specified in `proxyRules`. This is the default mode if `proxyRules` is specified.
+    * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. C'est le mode par défaut si `pacScript` est spécifié.
+    * `fixed_servers` En mode fixed_servers, la configuration du proxy est spécifiée dans `proxyRules`. Il s'agit du mode par défaut si `proxyRules` est spécifié.
     * `system` In system mode the proxy configuration is taken from the operating system. Note that the system mode is different from setting no proxy configuration. In the latter case, Electron falls back to the system settings only if no command-line options influence the proxy configuration.
   * `pacScript` String (optional) - The URL associated with the PAC file.
   * `proxyRules` String (optional) - Rules indicating which proxies to use.
@@ -328,7 +328,7 @@ Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.forceReloadProxyConfig()`
 
-Returns `Promise<void>` - Resolves when the all internal states of proxy service is reset and the latest proxy configuration is reapplied if it's already available. The pac script will be fetched from `pacScript` again if the proxy mode is `pac_script`.
+Returns `Promise<void>` - Resolves when the all internal states of proxy service is reset and the latest proxy configuration is reapplied if it's already available. Le script pac sera à nouveau extrait de `pacScript` si le mode proxy est `pac_script`.
 
 #### `ses.setDownloadPath(path)`
 

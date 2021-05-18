@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
+`webContents` ist ein [EventEmitter][event-emitter]. Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -415,7 +415,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 Rückgabewert:
 
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - Kann `in` oder `out` sein.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -486,7 +486,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Rückgabewert:
 
 * `event` Event
-* `result` Object
+* `result` Objekt
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -1148,7 +1148,7 @@ Füge `text` in das fokusierte Element ein.
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -1455,7 +1455,7 @@ Opens the developer tools for the shared worker context.
 
 #### `contents.inspectSharedWorkerById(workerId)`
 
-* `workerId` String
+* `workerId` Zeichenkette
 
 Inspects the shared worker based on its ID.
 
@@ -1561,7 +1561,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
+* `parameters` Objekt
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1602,7 +1602,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
+* `item` Objekt
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 

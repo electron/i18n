@@ -711,7 +711,7 @@ Devuelve:
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
+Emitido cuando `desktopCapturer.getSources()` se llama en el proceso de renderizado. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
 
 #### Evento: 'remote-require' _Obsoleto_
 
@@ -969,7 +969,7 @@ contents.on('did-finish-load', () => {
 
 Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
-Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. La hoja de estilos se identifica por su clave, el cual es devuelto desde `contents.insertCSS(css)`.
 
 ```js
 contents.on('did-finish-load', async () => {
@@ -1147,7 +1147,7 @@ Inserta `texto` en el elemento enfocado.
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
 * `options` Object (opcional)
   * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
-  * `findNext` Boolean (opcional) - Si la operación es la primera solicitud o un seguimiento, por defecto a `false`.
+  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Por defecto es `false`.
   * `matchCase` Boolean (opcional) - Si la busqueda debe ser sensible a mayúsculas, por defecto es `false`.
 
 Devuelve `Integer` - El id de la solicitud usado para la solicitud.
@@ -1183,7 +1183,7 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
 
 #### `contents.isBeingCaptured()`
 
-Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+Devuelve `Boolean` - Si esta página está siendo capturada. Devuelve true cuando el recuento de capturadores es mas grande que 0.
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
@@ -1213,7 +1213,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por defecto es `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por defecto es `true`.
-  * `margins` Object (optional)
+  * `margins` Object (opcional)
     * `marginType` String (opcional) - Puede ser `default`, `none`, `printableArea`, o `custom`. Si `custom` es elegido, además necesitar especificar `top`, `bottom`, `left`, y `right`.
     * `top` Number (opcional) - El margen superior de la página web impresa, en píxeles.
     * `bottom` Number (opcional) - El margen inferior de la página web impresa, en píxeles.
@@ -1227,7 +1227,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Puede ser `simplex`, `shortEdge`, o `longEdge`.
   * `dpi` Record<string, number> (opcional)
     * `horizontal` Number (opcional) - El dpi horizontal.
     * `vertical` Number (opcional) - El dpi vertical.
@@ -1326,7 +1326,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Agrega la ruta especificada al workspace de DevTools. Debe ser usado después de la creación de DevTools:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1471,7 +1471,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al renderer process a través de `channel` junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al renderer process a través de `channel` junto con los argumentos. Los argumentos serán serializados con el [Structured CloneAlgorithm][SCA], al igual que [`postMessage`][], así que las cadenas del prototipo no estarán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
@@ -1512,13 +1512,13 @@ app.whenReady().then(() => {
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al frame especifico en un renderer process a través de `channel`, junto con los argumentos. Los argumentos serán serializados con el [Structured CloneAlgorithm][SCA], al igual que [`postMessage`][], así que las cadenas del prototipo no estarán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Por ejemplo.
+Si quieres obtener el `frameId` de un renderer context dado deberías usar el valor `webFrame.routingId`.  Por ejemplo.
 
 ```js
 // In a renderer process
@@ -1560,7 +1560,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
+* Objeto `parameters`
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - El tipo de la pantalla de escritorio.
     * `mobile` - El tipo de la pantalla móvil.
@@ -1601,7 +1601,7 @@ Finalizar suscripción para eventos de presentación de marcos.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
+* Objeto `item`
   * `file` String[] | String - La ruta(s) al arhivo(s) siendo arrastrado.
   * `icon` [NativeImage](native-image.md) | String - La imagen no debe estar vacía en on macOS.
 
@@ -1656,7 +1656,7 @@ Devuelve `Boolean` - Si *offscreen rendering* está habilitado devuelve lo que e
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Sólo se aceptan valores entre 1 y 240.
+Si *offscreen rendering* está activada establece el radio del frame al número especificado. Sólo se aceptan valores entre 1 y 240.
 
 #### `contents.getFrameRate()`
 
@@ -1680,7 +1680,7 @@ Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
   * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+La configuración de política de manejo WebRTC IP, le permite controlar cuales IPs son expuestas a través de WebRTC. Vea [BrowserLeaks](https://browserleaks.com/webrtc) para más detalles.
 
 #### `contents.getOSProcessId()`
 
@@ -1706,7 +1706,7 @@ Devuelve `Boolean` - si este contenido web acelerará o no animaciones y tempori
 
 * `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. Esto también afecta a la API de visibilidad de la página.
+Controla si este WebContents acelerará o no las animaciones y los temporizadores cuando la página pasa a segundo plano. Esto también afecta a la API de visibilidad de la página.
 
 #### `contents.getType()`
 
@@ -1736,9 +1736,9 @@ El factor de zoom es el porcentaje de zoom dividido por 100, así que 300% = 3.0
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Sólo se aceptan valores entre 1 y 240.
+Una propiedad `Integer` que establece el ratio del frame del contenido web al número especificado. Sólo se aceptan valores entre 1 y 240.
 
-Only applicable if *offscreen rendering* is enabled.
+Solo aplicable si *offscreen rendering* está habilitado.
 
 #### `contents.id` _Readonly_
 

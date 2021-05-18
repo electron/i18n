@@ -441,7 +441,7 @@ webview.addEventListener('dom-ready', () => {
 * `text` String - 検索するコンテンツ。空にしてはいけません。
 * `options` Object (任意)
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
-  * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
+  * `findNext` Boolean (任意) - この要求で新規テキスト検索セッションを開始するかどうか。 最初の要求では `true` に、二度目以降の要求では `false` にする必要があります。 省略値は `false` 。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。

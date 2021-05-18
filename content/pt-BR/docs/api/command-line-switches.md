@@ -71,11 +71,11 @@ Prints Chromium's logging into console.
 
 This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
 
-## --force-fieldtrials=`trials`
+### --force-fieldtrials=`trials`
 
 Field trials to be forcefully enabled or disabled.
 
-For example: `WebRTC-Audio-Red-For-Opus/Enabled/`
+Por exemplo: `WebRTC-Audio-Red-For-Opus/Enabled/`
 
 ### --host-rules=`rules`
 
@@ -126,7 +126,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 ### --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Disables the Chromium [sandbox](https://www.chromium.org/developers/design-documents/sandbox). Forces renderer process and Chromium helper processes to run un-sandboxed. Should only be used for testing.
 
 ### --proxy-bypass-list=`hosts`
 
@@ -195,7 +195,7 @@ Aliased to `--debug-port=[host:]port`.
 
 ### --inspect[=[host:]port]
 
-Activate inspector on `host:port`. Default is `127.0.0.1:9229`.
+Activate inspector on `host:port`. Por padrão é `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 
