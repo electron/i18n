@@ -464,7 +464,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. По умолчанию - `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. По умолчанию - `true`.
-  * `margins` Object (optional)
+  * `margins` Object (опционально)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -600,8 +600,8 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 Возвращает:
 
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* Строка `errorDescription`
+* Строка `validatedURL`
 * `isMainFrame` Boolean
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
@@ -658,7 +658,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 * `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
-* `sourceId` String
+* Строка `sourceId`
 
 Fired when the guest window logs a console message.
 
@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 Возвращает:
 
-* `result` Object
+* Объект `result`
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
