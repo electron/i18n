@@ -126,7 +126,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 ### --no-sandbox
 
-Disables the Chromium [sandbox](https://www.chromium.org/developers/design-documents/sandbox). Forces renderer process and Chromium helper processes to run un-sandboxed. Should only be used for testing.
+Désactive le [bac à sable](https://www.chromium.org/developers/design-documents/sandbox) Chromium. Force le processus de rendu et les processus d'assistance Chromium à s'exécuter sans bac à sable. Ne doit être utilisé que pour les tests.
 
 ### --proxy-bypass-list=`hosts`
 
