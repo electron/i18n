@@ -441,7 +441,7 @@ Füge `text` in das fokusierte Element ein.
 * `text` String - Content to be searched, must not be empty.
 * `options` Object (optional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+  * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 Rückgabewert:
 
-* `result` Object
+* `result` Objekt
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
