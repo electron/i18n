@@ -68,7 +68,7 @@ Returns `WebFrameMain | undefined` - A frame with the given process and routing 
 #### `frame.executeJavaScript(code[, userGesture])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `userGesture` 布尔型(可选) - 默认为`false`.
 
 Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
