@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new TouchBarPopover(options)`
 
-* `options` Object
+* Objet `options`
   * `label` String (facultatif) - Texte du bouton popover.
   * `icon` [NativeImage](native-image.md) (facultatif) - Icône du bouton popover.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
