@@ -2,9 +2,9 @@
 
 ## 概要
 
-### Automatically update the native interfaces
+### ネイティブインターフェースの自動更新
 
-"Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. The default behavior is to opt into this automatic theming from the OS.
+"ネイティブインターフェース" は、ファイルピッカー、ウィンドウの境界線、ダイアログ、コンテキストメニューなどの、アプリではなく OS 由来の UI のことです。 The default behavior is to opt into this automatic theming from the OS.
 
 ### Automatically update your own interfaces
 
