@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new TouchBarLabel(options)`
 
-* `options` Object
+* Objet `options`
   * `label` String (facultatif) - Texte à afficher.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String (facultatif) - Couleur hexadécimal du texte, c.-à-d. `#ABCDEF`.
