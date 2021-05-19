@@ -219,7 +219,7 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 Retourne `Promise<Object>` - résout avec une promesse contenant les propriétés suivantes :
 
 * `response` Number - The index of the clicked button.
-* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Sinon `false`.
 
 Shows a message box.
 
