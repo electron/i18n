@@ -122,7 +122,7 @@ Permet que les événements réseau net log soient sauvés et les écrit dans `p
 
 ### --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+N'utilisez pas de serveur proxy et établissez toujours des connexions directes. Overrides any other proxy server flags that are passed.
 
 ### --no-sandbox
 
@@ -189,7 +189,7 @@ Aliased to `--debug-brk=[host:]port`.
 
 ### --inspect-port=[host:]port
 
-Set the `host:port` to be used when the inspector is activated. Utile lors de l’activation de l’inspecteur en envoyant le signal SIGUSR1. Default host is `127.0.0.1`.
+Set the `host:port` to be used when the inspector is activated. Utile lors de l’activation de l’inspecteur en envoyant le signal SIGUSR1. L'hôte par défaut est `127.0.0.1`.
 
 Aliased to `--debug-port=[host:]port`.
 

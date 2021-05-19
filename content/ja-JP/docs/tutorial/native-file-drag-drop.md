@@ -8,27 +8,46 @@
 
 ## サンプル
 
-[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `index.html` ファイルに以下の行を追加します。
+An example demonstrating how you can create a file on the fly to be dragged out of the window.
 
-```html
-<a href="#" id="drag"></a>
-<script src="renderer.js"></script> をドラッグ
+### Preload.js
+
+In `preload.js` use the [`contextBridge`][] to inject a method `window.electron.startDrag(...)` that will send an IPC message to the main process.
+
+```js
+const { contextBridge, ipcRenderer } = require('electron')
+const path = require('path')
+
+contextBridge.exposeInMainWorld('electron', {
+  startDrag: (fileName) => {
+    ipcRenderer.send('ondragstart', path.join(process.cwd(), fileName))
+  }
+})
 ```
 
-そして、 `renderer.js` ファイルに次の行を追加します。
+### Index.html
+
+Add a draggable element to `index.html`, and reference your renderer script:
+
+```html
+<div style="border:2px solid black;border-radius:3px;padding:5px;display:inline-block" draggable="true" id="drag">Drag me</div>
+<script src="renderer.js"></script>
+```
+
+### Renderer.js
+
+In `renderer.js` set up the renderer process to handle drag events by calling the method you added via the [`contextBridge`][] above.
 
 ```javascript
-const { ipcRenderer } = require('electron')
-
 document.getElementById('drag').ondragstart = (event) => {
   event.preventDefault()
-  ipcRenderer.send('ondragstart', '/absolute/path/to/the/item')
+  window.electron.startDrag('drag-and-drop.md')
 }
 ```
 
-上記のコードはレンダラープロセスに `ondragstart` イベント を処理し、情報をメインプロセスに転送するように指示します。
+### Main.js
 
-メインプロセス (`main.js` ファイル) で、以下のように受信したイベントへドラッグしているファイルのパスとアイコンを追加します。
+In the Main process (`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
 
 ```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
@@ -43,4 +62,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 
 Electron アプリケーションを起動したら、BrowserWindow 上の アイテムをデスクトップへドラッグ & ドロップしてみてください。 このガイドでは、そのアイテムはプロジェクトのルートにある Markdown ファイルとなっています。
 
-![ドラッグ＆ドロップ](../images/drag-and-drop.gif)
+![Drag and drop](../images/drag-and-drop.gif)
+
+[`contextBridge`]: ../api/context-bridge.md

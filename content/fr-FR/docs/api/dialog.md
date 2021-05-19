@@ -18,7 +18,7 @@ Le module `dialog` dispose des méthodes suivantes :
 ### `dialog.showOpenDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* Objet `options`
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -66,7 +66,7 @@ dialog.showOpenDialogSync(mainWindow, {
 ### `dialog.showOpenDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* Objet `options`
   * `title` String (facultatif)
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -123,7 +123,7 @@ dialog.showOpenDialog(mainWindow, {
 ### `dialog.showSaveDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* Objet `options`
   * `title` String (facultatif)
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -148,7 +148,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* Objet `options`
   * `title` String (facultatif)
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
@@ -179,7 +179,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* Objet `options`
   * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -202,7 +202,7 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* Objet `options`
   * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -219,7 +219,7 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 Retourne `Promise<Object>` - résout avec une promesse contenant les propriétés suivantes :
 
 * `response` Number - The index of the clicked button.
-* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+* `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Sinon `false`.
 
 Shows a message box.
 
@@ -237,7 +237,7 @@ Cette API peut être appelée en toute sécurité avant l'évènement `prêt` qu
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
-* `options` Object
+* Objet `options`
   * `certificat` [certificat](structures/certificate.md) - Le certificat de confiance/importation.
   * `message` String - Le message à afficher à l'utilisateur.
 

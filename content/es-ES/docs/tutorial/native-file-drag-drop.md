@@ -8,27 +8,46 @@ Para implementar esta característica en tu aplicación, necesitas llamar a [`we
 
 ## Ejemplo
 
-Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-start.md), agregue las siguientes líneas al archivo `index.html`:
+An example demonstrating how you can create a file on the fly to be dragged out of the window.
+
+### Preload.js
+
+In `preload.js` use the [`contextBridge`][] to inject a method `window.electron.startDrag(...)` that will send an IPC message to the main process.
+
+```js
+const { contextBridge, ipcRenderer } = require('electron')
+const path = require('path')
+
+contextBridge.exposeInMainWorld('electron', {
+  startDrag: (fileName) => {
+    ipcRenderer.send('ondragstart', path.join(process.cwd(), fileName))
+  }
+})
+```
+
+### Index.html
+
+Add a draggable element to `index.html`, and reference your renderer script:
 
 ```html
-<a href="#" id="drag">Drag me</a>
+<div style="border:2px solid black;border-radius:3px;padding:5px;display:inline-block" draggable="true" id="drag">Drag me</div>
 <script src="renderer.js"></script>
 ```
 
-y añadir las siguientes líneas al archivo `renderer.js`:
+### Renderer.js
+
+In `renderer.js` set up the renderer process to handle drag events by calling the method you added via the [`contextBridge`][] above.
 
 ```javascript
-const { ipcRenderer } = require('electron')
-
 document.getElementById('drag').ondragstart = (event) => {
   event.preventDefault()
-  ipcRenderer.send('ondragstart', '/absolute/path/to/the/item')
+  window.electron.startDrag('drag-and-drop.md')
 }
 ```
 
-El código anterior indica al proceso de Renderer que maneje el evento `ondragstart` y reenvíe la información al proceso Principal.
+### Main.js
 
-En el proceso principal(`main. s` archivo), expande el evento recibido con una ruta al archivo que está siendo arrastrado y un icono:
+In the Main process (`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
 
 ```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
@@ -41,6 +60,8 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-Después de lanzar la aplicación Electron, intente arrastrar y soltar el elemento desde el BrowserWindow a su escritorio. En esta guía, el elemento es un archivo Markdown ubicado en la raíz del proyecto:
+Después de lanzar la aplicación Electron, intente arrastrar y soltar el elemento desde el BrowserWindow a su escritorio. In this guide, the item is a Markdown file located in the root of the project:
 
-![Arrastre y suelte](../images/drag-and-drop.gif)
+![Drag and drop](../images/drag-and-drop.gif)
+
+[`contextBridge`]: ../api/context-bridge.md

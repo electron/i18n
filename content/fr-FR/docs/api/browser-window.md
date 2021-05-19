@@ -149,15 +149,15 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `enableLargerThanScreen` Booléen (facultatif) - Permet à la fenêtre d'être redimensionnée plus grande que l'écran. Seulement pertinent pour macOS, car les autres systèmes d'exploitation autorisent par défaut des fenêtres plus grandes qu'écran par défaut. Par défaut la valeur est `false`.
   * `BackgroundColor` String (facultatif) - Couleur d'arrière-plan de la fenêtre en valeur hexadécimale, comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (alpha au format #AARRGGBB est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. La valeur par défaut est `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). Ceci n'est implémenté que sur Windows et macOS.
   * `darkTheme` Boolean (optionnel) - Force l'utilisation du thème sombre pour la fenêtre, fonctionne uniquement sur certains environnements de bureau GTK+3. Par défaut la valeur est `false`.
   * `transparent` Boolean (facultatif) - Rend la fenêtre [transparente](frameless-window.md#transparent-window). Par défaut la valeur est `false`. Sous Windows, ne fonctionne pas à moins que la fenêtre ne soit sans cadres.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Les valeurs possibles sont :
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Par défaut la valeur est `default`. Possible values are:
+  * `titleBarStyle` String (optional) - The style of window title bar. Par défaut la valeur est `default`. Les valeurs possibles sont :
     * `default` - Résultats dans la barre de titre standard de Mac opaque gris.
     * `Caché` - Résultats dans une barre de titre cachée et une fenêtre de contenu en pleine taille, encore la barre de titre a toujours les contrôles standards de la fenêtre ("feux de circulation") dans en haut à gauche.
     * `hiddenInset` - Résultats dans une barre de titre cachée avec un look alternatif où les boutons du feu de circulation sont légèrement plus insérables à partir du bord de la fenêtre.
@@ -218,7 +218,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
     * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. La valeur par défaut est `true`.
     * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). La valeur par défaut est `true`.
-    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Les valeurs acceptées sont
       * `none` - Disables code caching
       * `code` - Heuristic based code caching
       * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
@@ -227,7 +227,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 
 Lorsque l'on définie une taille minimum ou maximum pour la fenêtre avec `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, cela contraint les utilisateurs uniquement. Cela ne vous empêche pas de passer une taille qui ne suit pas les contraintes de tailles à `setBounds`/`setSize` ou au constructeur de `BrowserWindow`.
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+The possible values and behaviors of the `type` option are platform dependent. Les valeurs possibles sont :
 
 * Sur Linux, les types possible sont `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * On macOS, possible types are `desktop`, `textured`.
@@ -343,13 +343,13 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis après que la fenêtre soit redimensionnée.
 
-#### Event: 'resized' _macOS_ _Windows_
+#### Événement : 'resized' _macOS_ _Windows_
 
 Emitted once when the window has finished being resized.
 
 This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
 
-#### Event: 'will-move' _macOS_ _Windows_
+#### Événement : 'will-move' _macOS_ _Windows_
 
 Retourne :
 
@@ -364,7 +364,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-#### Event: 'moved' _macOS_ _Windows_
+#### Événement : 'moved' _macOS_ _Windows_
 
 Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
@@ -466,7 +466,7 @@ Retourne :
 
 Émis lorsque le bouton natif du nouvel onglet est cliqué.
 
-#### Event: 'system-context-menu' _Windows_
+#### Événement : 'system-context-menu' _Windows_
 
 Retourne :
 
@@ -507,7 +507,7 @@ Retourne `BrowserWindow | null` - La fenêtre qui possède le `browserView`. If 
 
 Retourne `BrowserWindow | null` - La fenêtre avec l'`id` donné.
 
-#### `BrowserWindow.addExtension(path)` _Deprecated_
+#### `BrowserWindow.addExtension(path)` _Déprécié_
 
 * `path` String
 
@@ -517,7 +517,7 @@ La méthode ne retourne pas non plus si le manifeste de l'extension est manquant
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Note:** This method is deprecated. À la place, utilisez [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -529,13 +529,13 @@ Supprime une extension Chrome avec le nom donné.
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
-#### `BrowserWindow.getExtensions()` _Deprecated_
+#### `BrowserWindow.getExtensions()` _Déprécié_
 
 Retourne `Enregistrement<String, ExtensionInfo>` - Les clés sont les noms des extensions et chaque valeur est un Objet contenant les propriétés `name` et `version` .
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Note:** This method is deprecated. À la place, utilisez [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
@@ -549,7 +549,7 @@ La méthode ne retourne pas non plus si le manifeste de l'extension est manquant
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Note:** This method is deprecated. À la place, utilisez [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -576,7 +576,7 @@ console.log(installed)
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Note:** This method is deprecated. À la place, utilisez [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Propriétés d'instance
 
@@ -1174,7 +1174,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (facultatif) - Une URL de référence HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optionnel)
   * `baseURLForDataURL` String (facultatif) - URL de base (avec séparateur de chemin de pointe) pour que les fichiers soient chargés par l'URL de données. Ceci n'est nécessaire que si l'`url` spécifiée est une URL de données et a besoin de charger d'autres fichiers.
 
 Retourne `Promise<void>` - la promesse se résoudra lorsque la page aura terminé le chargement (voir [`did-finish-load`](web-contents.md#event-did-finish-load)), et rejette si la page ne parvient pas à se charger (voir [`did-fail-load`](web-contents.md#event-did-fail-load)).
@@ -1239,7 +1239,7 @@ Retirez la barre de menu de la fenêtre.
 * `options` Object (optional)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Sets progress value in progress bar. La plage valide est [0, 1.0].
 
 Supprimer la barre de progression lorsque la progression < 0 ; Passer en mode indéterminé lorsque la progression > 1.
 
@@ -1268,7 +1268,7 @@ Retourne `Boolean` - Si la fenêtre a une ombre.
 
 * `opacité` Nombre - entre 0.0 (entièrement transparent) et 1.0 (entièrement opaque)
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+Définit l'opacité de la fenêtre. Sur Linux, n'a aucun effet. Out of bound number values are clamped to the [0, 1] range.
 
 #### `win.getOpacity()`
 
@@ -1321,7 +1321,7 @@ Définit l'infobulle qui s'affiche en survolant la vignette de la fenêtre dans 
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` Object
+* Objet `options`
   * `appId` String (facultatif) - Fenêtre [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Elle doit être définie, sinon les autres options n'auront aucun effet.
   * `appIconPath` String (facultatif) - Fenêtre [Icône de relance](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. La valeur par defaut en est ``.
@@ -1330,7 +1330,7 @@ Définit l'infobulle qui s'affiche en survolant la vignette de la fenêtre dans 
 
 Définit les propriétés du bouton de la barre des tâches de la fenêtre.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. Si l'une de ces propriétés n'est pas définie, aucune ne sera utilisée.
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1354,7 +1354,7 @@ Cela ne peut pas être appelé lorsque `titleBarStyle` est défini à `customBut
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Définit si la barre de menus de la fenêtre doit se cacher automatiquement. Once set the menu bar will only show when users press the single `Alt` key.
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 

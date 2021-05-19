@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new TouchBarSpacer(options)`
 
-* `options` Object
+* Objet `options`
   * `size` String (optional) - Size of spacer, possible values are:
     * `small` - petit espacement entre les éléments. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
     * `large` - grand espacement entre les éléments. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.

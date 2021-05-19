@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ### `new TouchBarScrubber(options)`
 
-* `options` Object
+* Objet `options`
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Un tableau d'éléments à placer dans ce scrubber.
   * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.

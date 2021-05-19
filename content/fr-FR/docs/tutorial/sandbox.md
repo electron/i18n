@@ -95,7 +95,7 @@ Le rendu de contenu non fiable dans Electron est encore un territoire quelque pe
 3. There is only one Chromium, whereas there are many thousands of apps built on Electron, all of which behave slightly differently. Accounting for those differences can yield a huge possibility space, and make it challenging to ensure the security of the platform in unusual use cases.
 4. We can't push security updates to users directly, so we rely on app vendors to upgrade the version of Electron underlying their app in order for security updates to reach users.
 
-While we make our best effort to backport Chromium security fixes to older versions of Electron, we do not make a guarantee that every fix will be backported. Your best chance at staying secure is to be on the latest stable version of Electron.
+While we make our best effort to backport Chromium security fixes to older versions of Electron, we do not make a guarantee that every fix will be backported. Votre meilleure chance de rester en sécurité est d'être sur la dernière version stable d'Electron.
 
 [sandbox]: https://chromium.googlesource.com/chromium/src/+/master/docs/design/sandbox.md
 [issue-28466]: https://github.com/electron/electron/issues/28466

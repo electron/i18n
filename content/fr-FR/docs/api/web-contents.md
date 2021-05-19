@@ -174,7 +174,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Retourne :
 * `window` BrowserWindow
-* `details` Object
+* Objet `details`
     * `url` String - URL for the created window.
     * `frameName` String - Name given to the created window in the `window.open()` call.
     * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -335,7 +335,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `details` Object
+* Objet `details`
   * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
@@ -465,9 +465,9 @@ L'utilisation est pareil que [l'événement `select-client-certificate` de `app`
 Retourne :
 
 * `event` Événement
-* `authenticationResponseDetails` Object
+* Objet `authenticationResponseDetails`
   * `url` URL
-* `authInfo` Object
+* Objet `authInfo`
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -776,7 +776,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optionnel)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
@@ -1017,7 +1017,7 @@ Ignore application menu shortcuts while this web contents is focused.
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` Object
+  * Objet `details`
     * `url`Fiche-La _version_resolue du URL envoyee a`fenetre.ouverte{}`. par ex. ouvrir une fenetre avec`fenetre.ouverte ('foo')`va generer une chose comme`https://the-origin/the/current/path/foo`.
     * `Nommarge`Fiche-Nom de fenetre fourni a `window.open=fenetre.ouverte()`
     * `traits`Fiche-Une liste de traits de fenetre separee par comas, a ete fournie a`window.open()`.
@@ -1262,7 +1262,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `options` Object
+* Objet `options`
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.

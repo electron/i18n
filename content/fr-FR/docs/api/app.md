@@ -267,9 +267,9 @@ Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` Object
+* Objet `authenticationResponseDetails`
   * `url` URL
-* `authInfo` Object
+* Objet `authInfo`
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -327,7 +327,7 @@ Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `details` Object
+* Objet `details`
   * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
@@ -345,7 +345,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `details` Object
+* Objet `details`
   * `type` String - Type de processus. Une des valeurs suivantes:
     * `Utilitaire`
     * `Zygote`
@@ -856,7 +856,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`][activity-type].
 * `userInfo` n'importe quel - état spécifique à l'application à stocker pour utilisation par un autre appareil.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. Le schéma doit être `http` ou `https`.
 
 Créée un `NSUserActivity` et le défini en tant qu'activité courante. Après cela, l'activité devient éligible à la fonction [Handoff][handoff] sur l'autre périphérique.
 
@@ -899,7 +899,7 @@ Activation policy types:
 
 ### `app.importCertificate(options, callback)` _Linux_
 
-* `options` Object
+* Objet `options`
   * `certificate` String - Chemin pour le fichier pkcs12.
   * `password` String - La Passphrase pour le certificat.
 * `callback` Function
@@ -915,7 +915,7 @@ Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. Cette fonction désactive ce comportement.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
@@ -1050,7 +1050,7 @@ Active manuellement le support de l'accessibilité de Chrome, permettant de mett
 
 Cette API doit être appelée après l'émission de l'événement `ready` .
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. Il ne doit pas être activé par défaut.
 
 ### `app.showAboutPanel()`
 
@@ -1058,7 +1058,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 ### `app.setAboutPanelOptions(options)`
 
-* `options` Object
+* Objet `options`
   * `applicationName` String (optional) - Nom de l'application.
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
@@ -1144,7 +1144,7 @@ Cela signifierait que si une application existe déjà dans le répertoire de l'
 
 Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
 
-By default this API will return `false`.
+Par défaut cette API retournera `false`.
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
@@ -1168,7 +1168,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 Cette API doit être appelée après l'émission de l'événement `ready` .
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. Il ne doit pas être activé par défaut.
 
 ### `app.applicationMenu`
 

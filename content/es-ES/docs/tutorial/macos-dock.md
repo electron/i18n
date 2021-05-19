@@ -1,6 +1,4 @@
-# macOS Dock
-
-## Descripción general
+# Configuring the macOS Dock
 
 Electron tiene APIs para configurar el icono de la aplicación en el Dock de macOS. Solo existe una API macOS para crear menú de dock personalizado, pero Electron además usa el icono de app dock como el punto de entrada para características multiplataforma como [recent documents][recent-documents] y [application progress][progress-bar].
 
@@ -17,7 +15,16 @@ Para configurar tu menú de acoplamiento personalizado, necesitas usar la [`app.
 Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-start.md), actualice el archivo `main.js` con las siguientes líneas:
 
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
-const { app, Menu } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+  })
+
+  win.loadFile('index.html')
+}
 
 const dockMenu = Menu.buildFromTemplate([
   {
@@ -34,8 +41,23 @@ const dockMenu = Menu.buildFromTemplate([
 ])
 
 app.whenReady().then(() => {
-  app.dock.setMenu(dockMenu)
+  if (process.platform === 'darwin') {
+    app.dock.setMenu(dockMenu)
+  }
+}).then(createWindow)
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
 })
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
+
 ```
 
 Después de lanzar la aplicación Electron haga clic derecho en el icono de la aplicación. Debería ver el menú personalizado que acaba de definir:

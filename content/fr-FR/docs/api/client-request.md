@@ -49,7 +49,7 @@ Retourne :
 
 Retourne :
 
-* `authInfo` Object
+* Objet `authInfo`
   * `isProxy` Boolean
   * `scheme` String
   * `host` String

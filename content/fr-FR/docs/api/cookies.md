@@ -64,7 +64,7 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
 
 #### `cookies.get(filter)`
 
-* `filter` Object
+* Objet `filter`
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (facultatif) - Filtre les cookies par nom.
   * `domain` String (facultatif) - Récupère les cookies dont les domaines correspondent ou sont des sous-domaines de `domains`.
@@ -78,7 +78,7 @@ Envoie une demande pour obtenir tous les cookies correspondant à `filter`, et r
 
 #### `cookies.set(détails)`
 
-* `details` Object
+* Objet `details`
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.

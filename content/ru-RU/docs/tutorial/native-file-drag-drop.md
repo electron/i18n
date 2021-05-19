@@ -8,27 +8,46 @@
 
 ## Пример
 
-Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), добавьте следующие строки в файл `index.html`:
+An example demonstrating how you can create a file on the fly to be dragged out of the window.
+
+### Preload.js
+
+In `preload.js` use the [`contextBridge`][] to inject a method `window.electron.startDrag(...)` that will send an IPC message to the main process.
+
+```js
+const { contextBridge, ipcRenderer } = require('electron')
+const path = require('path')
+
+contextBridge.exposeInMainWorld('electron', {
+  startDrag: (fileName) => {
+    ipcRenderer.send('ondragstart', path.join(process.cwd(), fileName))
+  }
+})
+```
+
+### Index.html
+
+Add a draggable element to `index.html`, and reference your renderer script:
 
 ```html
-<a href="#" id="drag">Перетащите меня</a>
+<div style="border:2px solid black;border-radius:3px;padding:5px;display:inline-block" draggable="true" id="drag">Drag me</div>
 <script src="renderer.js"></script>
 ```
 
-и добавьте следующие строки в файл `renderer.js`:
+### Renderer.js
+
+In `renderer.js` set up the renderer process to handle drag events by calling the method you added via the [`contextBridge`][] above.
 
 ```javascript
-const { ipcRenderer } = require('electron')
-
 document.getElementById('drag').ondragstart = (event) => {
   event.preventDefault()
-  ipcRenderer.send('ondragstart', '/absolute/path/the/item')
-
+  window.electron.startDrag('drag-and-drop.md')
+}
 ```
 
-Код выше инструктирует процесс Renderer для обработки события `ondragstart` и передачи информации Главному процессу.
+### Main.js
 
-В главном процессе(`главное. s` файл), развернуть полученное событие с путем, который является перетаскиванием и значком:
+In the Main process (`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
 
 ```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
@@ -41,6 +60,8 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 ```
 
-After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. В этом руководстве элемент является Markdown файлом, расположенным в корне проекта:
+After launching the Electron application, try dragging and dropping the item from the BrowserWindow onto your desktop. In this guide, the item is a Markdown file located in the root of the project:
 
-![Перетаскивание](../images/drag-and-drop.gif)
+![Drag and drop](../images/drag-and-drop.gif)
+
+[`contextBridge`]: ../api/context-bridge.md

@@ -338,7 +338,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object
+* Objet `options`
   * `offline` Boolean (optional) - Whether to emulate network outage. Par défaut, est faux.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -360,7 +360,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` Object
+* Objet `options`
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. 1 par défaut.
 
@@ -539,7 +539,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object
+* Objet `options`
   * `path` String - Chemin d'accès absolu pour le téléchargement.
   * `urlChain` String[] - Chaîne de caractère complète de l'URL du téléchargement.
   * `type` String (facultatif)
