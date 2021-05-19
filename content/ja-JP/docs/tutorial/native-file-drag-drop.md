@@ -8,11 +8,11 @@
 
 ## サンプル
 
-An example demonstrating how you can create a file on the fly to be dragged out of the window.
+この例では、実行時にファイルを作成し、ウィンドウ外へとドラッグできるようにする方法を示します。
 
 ### Preload.js
 
-In `preload.js` use the [`contextBridge`][] to inject a method `window.electron.startDrag(...)` that will send an IPC message to the main process.
+`preload.js` では、[`contextBridge`][] を使用してメインプロセスに IPC メッセージを送信するメソッド `window.electron.startDrag(...)` を注入します。
 
 ```js
 const { contextBridge, ipcRenderer } = require('electron')
@@ -27,7 +27,7 @@ contextBridge.exposeInMainWorld('electron', {
 
 ### Index.html
 
-Add a draggable element to `index.html`, and reference your renderer script:
+`index.html` にドラッグ可能な要素を追加し、レンダラースクリプトを読むようにします。
 
 ```html
 <div style="border:2px solid black;border-radius:3px;padding:5px;display:inline-block" draggable="true" id="drag">Drag me</div>
@@ -36,7 +36,7 @@ Add a draggable element to `index.html`, and reference your renderer script:
 
 ### Renderer.js
 
-In `renderer.js` set up the renderer process to handle drag events by calling the method you added via the [`contextBridge`][] above.
+`renderer.js` ではレンダラープロセスを設定します。上記の [`contextBridge`][] で追加したメソッドを呼び出す形で、ドラッグイベントを処理します。
 
 ```javascript
 document.getElementById('drag').ondragstart = (event) => {
@@ -47,7 +47,7 @@ document.getElementById('drag').ondragstart = (event) => {
 
 ### Main.js
 
-In the Main process (`main.js` file), expand the received event with a path to the file that is being dragged and an icon:
+メインプロセス (`main.js`ファイル) で受信したイベントを、以下のようにドラッグされたファイルのパスとアイコンへと展開します。
 
 ```javascript fiddle='docs/fiddles/features/drag-and-drop'
 const { ipcMain } = require('electron')
@@ -62,6 +62,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
 
 Electron アプリケーションを起動したら、BrowserWindow 上の アイテムをデスクトップへドラッグ & ドロップしてみてください。 このガイドでは、そのアイテムはプロジェクトのルートにある Markdown ファイルとなっています。
 
-![Drag and drop](../images/drag-and-drop.gif)
+![ドラッグアンドドロップ](../images/drag-and-drop.gif)
 
 [`contextBridge`]: ../api/context-bridge.md
