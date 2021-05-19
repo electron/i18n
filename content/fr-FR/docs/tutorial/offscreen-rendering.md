@@ -4,7 +4,7 @@
 
 Le Rendu hors-écran vous permet de récupérer le contenu d’une `BrowserWindow` dans un fichier bitmap, donc il pourra être restitué n’importe où, par exemple une texture dans une scène 3D. Le rendu hors-écran d'Electron utilise une approche comparable au projet [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-*Notes*:
+*Notes* :
 
 * Il y a deux modes de rendu qui peuvent être utilisés (voir la section ci-dessous) et seule la zone modifiée est concernée par l'événement `paint` pour plus d'efficacité.
 * Vous pouvez stopper/reprendre le rendu ainsi que définir la fréquence d'affichage de l’image.
