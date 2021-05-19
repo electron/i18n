@@ -4,17 +4,17 @@
 
 ### ネイティブインターフェースの自動更新
 
-"ネイティブインターフェース" は、ファイルピッカー、ウィンドウの境界線、ダイアログ、コンテキストメニューなどの、アプリではなく OS 由来の UI のことです。 The default behavior is to opt into this automatic theming from the OS.
+"ネイティブインターフェース" は、ファイルピッカー、ウィンドウの境界線、ダイアログ、コンテキストメニューなどの、アプリではなく OS 由来の UI のことです。 デフォルトでは OS からこの自動テーマ設定をオプトインする動作です。
 
-### Automatically update your own interfaces
+### 自作インターフェイスの自動更新
 
-If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by using the [prefer-color-scheme] CSS media query.
+アプリに独自のダークモードがある場合は、システムのダークモード設定と同期してオンとオフを切り替える必要があります。 これは、[prefer-color-scheme] CSS メディアクエリを使用することで可能です。
 
-### Manually update your own interfaces
+### 自作インターフェイスの手動更新
 
-If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](../api/native-theme.md#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
+ライト/ダークモードを手動で切り替えたい場合は、`nativeTheme` モジュールの [themeSource](../api/native-theme.md#nativethemethemesource) プロパティで希望するモードを設定するとできます。 このプロパティの値はレンダラープロセスに伝播します。 `prefers-color-scheme` に関連する CSS ルールは、それに応じて更新されます。
 
-## macOS settings
+## macOS での設定
 
 macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード][system-wide-dark-mode] を全ての macOS コンピュータに導入しました。 あなたの Electron アプリにダークモードがある場合、[`nativeTheme` API](../api/native-theme.md) を使用してシステム全体のダークモード設定に従うようにできます。
 
@@ -24,15 +24,15 @@ Electron &gt; 8.0.0 を使用中でオプトアウトしたい場合は、`Info.
 
 ## サンプル
 
-This example demonstrates an Electron application that derives its theme colors from the `nativeTheme`. Additionally, it provides theme toggle and reset controls using IPC channels.
+ここでは、`nativeTheme` から派生したテーマカラーになる Electron アプリケーションの例を示します。 加えて、IPC チャンネルを利用したテーマの切り替えとリセットの制御もできます。
 
 ```javascript fiddle='docs/fiddles/features/macos-dark-mode'
 
 ```
 
-### How does this work?
+### これはどのように動作しているのでしょうか？
 
-Starting with the `index.html` file:
+`index.html` ファイルから見ていきましょう。
 
 ```html title='index.html'
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ Starting with the `index.html` file:
 </html>
 ```
 
-And the `style.css` file:
+そして `style.css` ファイルです。
 
 ```css title='style.css'
 @media (prefers-color-scheme: dark) {
@@ -68,9 +68,9 @@ And the `style.css` file:
 }
 ```
 
-The example renders an HTML page with a couple elements. The `<strong id="theme-source">` element shows which theme is currently selected, and the two `<button>` elements are the controls. The CSS file uses the [`prefers-color-scheme`][prefers-color-scheme] media query to set the `<body>` element background and text colors.
+この例では、一対の要素を持つ HTML ページを描画しています。 `<strong id="theme-source">` 要素は現在選択されているテーマを示すもので、2 つの `<button>` 要素は制御用です。 CSS ファイルでは、[`prefers-color-scheme`][prefers-color-scheme] のメディアクエリを使用して `<body>` 要素の背景色とテキスト色を設定しています。
 
-The `preload.js` script adds a new API to the `window` object called `darkMode`. This API exposes two IPC channels to the renderer process, `'dark-mode:toggle'` and `'dark-mode:system'`. It also assigns two methods, `toggle` and `system`, which pass messages from the renderer to the main process.
+`preload.js` スクリプトで、`window` オブジェクトに `darkMode` という新しい API を追加します。 この API は、`'dark-mode:toggle'` と `'dark-mode:system'` の 2 つの IPC チャンネルをレンダラープロセスへ公開します。 また、レンダラープロセスからのメッセージをメインプロセスに渡すため、`toggle` と `system` の 2 つのメソッドも代入しています。
 
 ```js title='preload.js'
 const { contextBridge, ipcRenderer } = require('electron')
@@ -81,9 +81,9 @@ contextBridge.exposeInMainWorld('darkMode', {
 })
 ```
 
-Now the renderer process can communicate with the main process securely and perform the necessary mutations to the `nativeTheme` object.
+これで、レンダラープロセスはメインプロセスと安全に通信し、`nativeTheme` オブジェクトに必要な変更操作ができます。
 
-The `renderer.js` file is responsible for controlling the `<button>` functionality.
+`renderer.js` ファイルは、`<button>` の機能を制御する役割を担います。
 
 ```js title='renderer.js'
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
@@ -97,7 +97,7 @@ document.getElementById('reset-to-system').addEventListener('click', async () =>
 })
 ```
 
-Using `addEventListener`, the `renderer.js` file adds `'click'` [event listeners][event-listeners] to each button element. Each event listener handler makes calls to the respective `window.darkMode` API methods.
+`addEventListener` を使って、`renderer.js` ファイルで `'click'` [イベントリスナー][event-listeners] を各ボタン要素に追加します。 各イベントリスナーハンドラーには、それぞれの `window.darkMode` API メソッドの呼び出しをさせます。
 
 Finally, the `main.js` file represents the main process and contains the actual `nativeTheme` API.
 
