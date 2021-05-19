@@ -5,10 +5,10 @@
 ## 标题
 
 * 每个页面顶部必须有一个 `#` 级标题。
-* 同一页面中的各章节必须有 `##` 级标题。
-* 各小节需要根据其嵌套层级增加 `#` 的数量。
-* 页面标题中的所有单词首字母都必须大写，除了 “of” 和 “and” 之类的连接词。
-* 章节名只有第一个单词首字母必须大写。
+* Chapters in the same page must have `##`-level headings.
+* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
+* The page's title must follow [APA title case][title-case].
+* All chapters must follow [APA sentence case][sentence-case].
 
 举一个`Quick Start`的例子:
 
@@ -42,11 +42,16 @@
 
 ## Markdown 规则
 
+This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
+
+There are a few style guidelines that aren't covered by the linter rules:
+
+<!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * 在代码块中使用`bash`而不是`cmd`（由于语法高亮问题）.
-* 行长度应该控制在80列内.
+* Keep line lengths between 80 and 100 characters if possible for readability purposes.
 * 列表嵌套不超出2级 (由于 Markdown 渲染问题).
 * 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* 对于无序列表，请使用星号而不是破折号
+* 对于无序列表，请使用星号而不是破折号.
 
 ## 用词选择
 
@@ -57,13 +62,13 @@
 
 以下规则仅适用于 API 的文档。
 
-### 页面标题
+### Title and description
 
-每个页面必须使用由 `require（'electron'）` 返回的实际对象名称作为标题，例如` BrowserWindow`，`autoUpdater` 和 `session`。
+Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
 
-在页面下方标题必须是以`>`开头的单行描述。
+Directly under the page title, add a one-line description of the module as a markdown quote (beginning with `>`).
 
-举一个 `session` 的例子:
+Using the `session` module as an example:
 
 ```markdown
 # session
@@ -93,14 +98,14 @@
 
 * API 类或作为模块一部分的类必须在 `## Class: TheClassName` 章节中列出.
 * 一个页面可以有多个类.
-* 构造函数必须用 `###` 级标题列出.
-* [静态方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) 必须在 `### Static Methods` 章节中列出.
-* [实例方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) 必须在 `### Instance Methods` 章节中列出.
-* 所有具有返回值的方法必须以“返回 `[TYPE]` - 返回描述”
-  * 如果该方法返回一个 `Object`，则可以使用冒号后跟换行符，然后使用与函数参数相同样式的属性的无序列表来指定其结构.
+* Constructors must be listed with `###`-level headings.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
+  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * 实例事件必须在 `### Instance Events` 章节中列出.
 * 实例属性必须列在 `### 实例属性` 章节下。
-  * 实例属性必须以 "A [Property Type] ..." 开始描述.
+  * Instance Properties must start with "A [Property Type] ..."
 
 这里用 `Session` 和 `Cookies` 类作为例子:
 
@@ -136,7 +141,7 @@
 #### `cookies.get(filter, callback)`
 ```
 
-### 方法
+### Methods and their arguments
 
 方法章节必须采用以下形式：
 
@@ -149,36 +154,41 @@
 ...
 ```
 
-标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的方法。
+#### Heading level
+
+The heading can be `###` or `####`-levels depending on whether the method belongs to a module or a class.
+
+#### Function signature
 
 对于模块， `objectName` 是模块的名称。 对于类，它必须是类实例的名称，而且不能与模块名称相同。
 
 例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
-可选参数由围绕可选参数的方括号 `[]` 表示，并且如果此可选参数跟随另一个参数，则需要逗号：
+Optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-```sh
+```markdown
 required[, optional]
 ```
 
-下面的方法是有关每个参数的更多详细信息。 参数类型是由常见类型表示的：
+#### Argument descriptions
 
-* [`字符串`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object - 过滤器对象，包含过滤参数`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* 或自定义类型, 就像 Electron 的 [`WebContent`](api/web-contents.md)
+More detailed information on each of the arguments is noted in an unordered list below the method. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
+
+If the argument is of type `Array`, use `[]` shorthand with the type of value inside the array (for example,`any[]` or `String[]`).
+
+If the argument is of type `Promise`, parametrize the type with what the promise resolves to (for example, `Promise<void>` or `Promise<String>`).
+
+If an argument can be of multiple types, separate the types with `|`.
+
+`Function` 类型参数的描述应该清楚描述它是如何被调用的，并列出将被传递给它的参数的类型.
+
+#### Platform-specific functionality
 
 如果参数或方法对某些平台是唯一的，那么这些平台将使用数据类型后面的空格分隔的斜体列表来表示。 值可以是 `macOS`，`Windows` 或 `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - 进行动画处理的事情.
 ```
-
-`Array` 类型的参数, 必须在指定数组下面的描述中描述可能包含的元素.
-
-`Function` 类型参数的描述应该清楚描述它是如何被调用的，并列出将被传递给它的参数的类型.
 
 ### 事件
 
@@ -194,7 +204,7 @@ Returns:
 ...
 ```
 
-标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的事件。
+The heading can be `###` or `####`-levels depending on whether the event belongs to a module or a class.
 
 事件的参数遵循与方法相同的规则.
 
@@ -208,8 +218,12 @@ Returns:
 ...
 ```
 
-标题可以是 `###` 级别或 `####` 级别，具体取决于它是模块还是类的属性。
+The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
 
-## 文档翻译
+## Documentation translations
 
 请参见 [ electron/i18n ](https://github.com/electron/i18n#readme)
+
+[title-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case
+[sentence-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/sentence-case
+[markdownlint]: https://github.com/DavidAnson/markdownlint
