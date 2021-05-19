@@ -6,7 +6,7 @@ On macOS, you can set a represented file for any window in your application. The
 
 ![Fichier représenté][1]
 
-> NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
+> NOTE : La capture d'écran ci-dessus est un exemple où cette fonctionnalité est utilisée pour indiquer le fichier actuellement ouvert dans l'éditeur de texte Atom.
 
 You can also set the edited state for a window so that the file icon can indicate whether the document in this window has been modified.
 
