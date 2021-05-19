@@ -42,13 +42,13 @@ Dans le cas de références de l'API, il existe des exceptions à cette règle.
 
 ## Règles pour le markdown
 
-This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
+Ce dépôt utilise le paquet [`markdownlint`][markdownlint] pour imposer un style cohérent au Markdown. Pour les règles exactes, voir le fichier `.markdownlint.json` dans le dossier racine .
 
-There are a few style guidelines that aren't covered by the linter rules:
+Quelques règles de style non couvertes par les règles de linter :
 
 <!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * Utilisez `sh` au lieu de `cmd` dans les blocs de code (en raison de l'outil de coloration syntaxique).
-* Keep line lengths between 80 and 100 characters if possible for readability purposes.
+* Les lignes doivent être si possible limitées entre 80 et 100 caractères pour des raisons de lisibilité .
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](https://www.npmjs.com/package/standard-markdown).
 * Pour les listes non ordonnées, utilisez des astérisques plutôt que des tirets.
@@ -64,11 +64,11 @@ Les règles suivantes s'appliquent uniquement à la documentation des APIs.
 
 ### Titre et description
 
-Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
+La doc API de chaque module doit utiliser le nom réel de l'objet retourné par `require('electron')` comme titre (tel que `BrowserWindow`, `autoUpdater` ou `session`).
 
-Directly under the page title, add a one-line description of the module as a markdown quote (beginning with `>`).
+Directement sous le titre de la page, ajouter une ligne de description du module comme une citation markdown (commençant par `>`).
 
-Using the `session` module as an example:
+En prenant `session` comme exemple :
 
 ```markdown
 # session
@@ -98,8 +98,8 @@ En prenant `autoUpdater` comme exemple :
 
 * Les classes de l'API ou les classes faisant partie des modules doivent être listées sous un chapitre `## Class: TheClassName`.
 * Une page peut avoir plusieurs classes.
-* Constructors must be listed with `###`-level headings.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* Les constructeurs doivent être listés avec un titre de niveau `###`.
+* Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listées sous un chapitre `### Méthodes Statiques`.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
