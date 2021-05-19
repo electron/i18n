@@ -2,13 +2,13 @@
 
 Это руководство для написания Electron документации.
 
-## Названия
+## Headings
 
 * Каждая страница должна иметь один заголовок `#` в верхней части.
-* Главы на одной странице должны иметь `##` - уровень названий.
-* В подзаголовках необходимо увеличить количество `#` в названии согласно их вложенной глубине.
-* Все слова в названии страницы должны быть заглавными, за исключением союзов как «из» и «и».
-* Только первое слово название главы должны быть заглавными.
+* Chapters in the same page must have `##`-level headings.
+* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
+* The page's title must follow [APA title case][title-case].
+* All chapters must follow [APA sentence case][sentence-case].
 
 Используйте `Быстрый старт` как пример:
 
@@ -42,11 +42,16 @@
 
 ## Markdown правила
 
+This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
+
+There are a few style guidelines that aren't covered by the linter rules:
+
+<!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * Используйте `sh` вместо `cmd` в блоках кода (из-за синтаксической подсветки).
-* Строки должны быть ограничены в 80 столбцов.
+* Keep line lengths between 80 and 100 characters if possible for readability purposes.
 * Не делать вложенные списки более чем 2 уровня (из-за markdown отображения).
 * Все блоки кода `js` и `javascript` проверяются линтером по [standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* For unordered lists, use asterisks instead of dashes
+* For unordered lists, use asterisks instead of dashes.
 
 ## Выбор слов
 
@@ -57,13 +62,13 @@
 
 Следующие правила применяются только к документации по API.
 
-### Название страницы
+### Title and description
 
-Каждая страница должна использовать имя фактического объекта, возвращенное `require('electron')` как название, такие как `BrowserWindow`, `autoUpdater` и `session`.
+Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
 
-Под названием страницы должно быть однострочное описание, начинающееся с `>`.
+Directly under the page title, add a one-line description of the module as a markdown quote (beginning with `>`).
 
-Используйте `session` как пример:
+Using the `session` module as an example:
 
 ```markdown
 # session
@@ -93,14 +98,14 @@
 
 * Классы API или классы, которые являются частью модулей должны быть перечислены под главой `## Класс: НазваниеКласса`.
 * Одна страница может иметь несколько классов.
-* Конструкторы должны быть перечислены с `###`-уровнем названия.
-* [Статические методы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) должны быть перечислены под главой `### Статические методы`.
-* [Методы экземпляра](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) должны быть перечислены под главой `### Методы экземпляра`.
-* Все методы, имеющие значение возврата, должны начинать описание с "Возвращает `[TYPE]` - Возвращающее описание"
-  * Если метод возвращает `Object`, его структуру можно указать с помощью двоеточия, следующие строки в виде неупорядоченного списка свойств в том же стиле параметров функции.
+* Constructors must be listed with `###`-level headings.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
+  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * События экземпляров, должны быть перечислены под главой `### События экземпляра`.
 * Свойства экземпляра должны быть перечислены в разделе `### Свойства экземпляра`.
-  * Свойства экземпляра должно начинаться с "[Тип Свойства] ..."
+  * Instance Properties must start with "A [Property Type] ..."
 
 Используйте классы `Session` и `Cookies` в качестве примера:
 
@@ -136,7 +141,7 @@
 #### `cookies.get(filter, callback)`
 ```
 
-### Методы
+### Methods and their arguments
 
 Методы главы должны быть в следующем виде:
 
@@ -149,36 +154,41 @@
 ...
 ```
 
-Название может быть`###` или`####`-уровня в зависимости от того, является ли этот метод модуля или класса.
+#### Heading level
 
-Для модулей `objectName` является именем модуля. Для классов оно должно быть именем экземпляра класса, и не должно совпадать с именем модуля .
+The heading can be `###` or `####`-levels depending on whether the method belongs to a module or a class.
+
+#### Function signature
+
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Например, методы класса `Session` под модулем `session` должны использовать `ses` как `objectName`.
 
-Необязательные аргументы нотированы в квадратные скобки `[]`, окружают необязательный аргумент также запятая, если за необязательным аргументом следует еще один аргумент:
+Optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-```sh
+```markdown
 required[, optional]
 ```
 
-Ниже приведена более подробная информация по каждому из аргументов. Тип аргумента обозначается либо обычными типами:
+#### Argument descriptions
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Или пользовательский тип, например [`WebContent`](api/web-contents.md) Electron'а
+More detailed information on each of the arguments is noted in an unordered list below the method. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
+
+If the argument is of type `Array`, use `[]` shorthand with the type of value inside the array (for example,`any[]` or `String[]`).
+
+If the argument is of type `Promise`, parametrize the type with what the promise resolves to (for example, `Promise<void>` or `Promise<String>`).
+
+If an argument can be of multiple types, separate the types with `|`.
+
+Описание аргументов типа `Function` должно дать понять, как это может быть вызвано и перечислить типы параметров, которые будут переданы ему.
+
+#### Platform-specific functionality
 
 Если аргумент или метод является уникальным для определенных платформ, эти платформы обозначаются списком, разделенных пробелами, после типа данных. Значения могут быть `macOS`, `Windows` или `Linux`.
 
 ```markdown
 * `animate` Boolean (по усмотрению) _macOS_ _Windows_ - анимировать вещь.
 ```
-
-Аргументы типа `Array` должны указывать, какие элементы может включать массив в описание ниже.
-
-Описание аргументов типа `Function` должно дать понять, как это может быть вызвано и перечислить типы параметров, которые будут переданы ему.
 
 ### События
 
@@ -194,7 +204,7 @@ required[, optional]
 ...
 ```
 
-Название может быть `###` или `####`-уровня в зависимости от того, является ли это событие модуля или класса.
+The heading can be `###` or `####`-levels depending on whether the event belongs to a module or a class.
 
 Аргументы события следуют тем же правилам методов.
 
@@ -208,8 +218,12 @@ required[, optional]
 ...
 ```
 
-Название может быть `###` или `####`-уровня в зависимости от того, является ли это свойство модуля или класса.
+The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
 
-## Переводы документации
+## Documentation translations
 
 См. [electron/i18n](https://github.com/electron/i18n#readme)
+
+[title-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case
+[sentence-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/sentence-case
+[markdownlint]: https://github.com/DavidAnson/markdownlint
