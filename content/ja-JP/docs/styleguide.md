@@ -2,13 +2,13 @@
 
 Electronのドキュメント（英語）を書くためのガイドラインです。
 
-## タイトル
+## ヘッディング
 
 * 各ページは最上部に1つの`#`レベルのタイトルが必要です。
-* 同じページの章には、`##`レベルのタイトルが必要です。
-* サブチャプターのタイトルは、ネストする深さに応じて  `#`  の数を増やす必要があります。
-* ページのタイトルは全ての単語の頭文字を大文字にする（capitalizeする）必要があります。ただし、 of や and といった接続詞は例外です。
-* 章のタイトルにおいては、最初の単語の頭文字だけを大文字にします。
+* Chapters in the same page must have `##`-level headings.
+* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
+* The page's title must follow [APA title case][title-case].
+* All chapters must follow [APA sentence case][sentence-case].
 
 `Quick Start（クイックスタート）` を例にすると、以下のようになります。
 
@@ -42,11 +42,16 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 ## Markdown のルール
 
+This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
+
+There are a few style guidelines that aren't covered by the linter rules:
+
+<!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * コードブロックでは `cmd` の代わりに `sh` を使用します (構文ハイライトのため)。
-* 行は 80 列で折り返す必要があります。
+* Keep line lengths between 80 and 100 characters if possible for readability purposes.
 * 2 階層以上にネストしたリストは使用できません (Markdown レンダラーのため)。
 * すべての `js` と `javascript` コードブロックは、[standard-markdown](https://www.npmjs.com/package/standard-markdown) によって整形されます。
-* 順序無しリストには、ダッシュではなくアスタリスクを使用します。
+* For unordered lists, use asterisks instead of dashes.
 
 ## 使用する言葉
 
@@ -57,13 +62,13 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 以下のルールは、API のドキュメントにのみ適用されます。
 
-### ページのタイトル
+### Title and description
 
-各ページは `require('electron')` によって返される実際のオブジェクト名をタイトルに使用しなければなりません。`BrowserWindow` や `autoUpdater` や `session` のようにします。
+Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
 
-ページタイトルの下は、`>` で始まる一行の説明でなければなりません。
+Directly under the page title, add a one-line description of the module as a markdown quote (beginning with `>`).
 
-`session` を例にすると、このようになります。
+Using the `session` module as an example:
 
 ```markdown
 # session
@@ -93,14 +98,14 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 * API のクラスやモジュールの一部の API クラスは `## Class: クラス名` の章の下に列挙しなければなりません。
 * 1 ページに複数のクラスがあってもかまいません。
-* Constructors は `###` 階層のタイトルで列挙されなければなりません。
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の下に列挙しなければなりません。
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の下にリストアップしなければなりません。
-* すべての戻り値があるメソッドの説明は、"戻り値 `[TYPE]` - 戻り値の説明" というように書き始めます。
-  * メソッドが `Object` を返す場合、その構造を記述します。コロンとそれに続く改行、そして関数の引数と同じスタイルでプロパティの順不同リストにします。
+* Constructors must be listed with `###`-level headings.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
+  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events は `### Instance Events` の章の下に列挙しなければなりません。
 * Instance Properties は `### Instance Properties` の章の下に列挙しなければなりません。
-  * Instance Properties は "A [プロパティの型] ..." で始まらなければなりません。
+  * Instance Properties must start with "A [Property Type] ..."
 
 `Session` と `Cookies` クラスを例にすると、以下のようにします。
 
@@ -136,7 +141,7 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 #### `cookies.get(filter, callback)`
 ```
 
-### メソッド
+### Methods and their arguments
 
 メソッドの章はつぎの形式でなければなません。
 
@@ -149,36 +154,41 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 ...
 ```
 
-タイトルが `###` 階層か `####` 階層かは、メソッドがモジュール内かクラス内かに依存しています。
+#### Heading level
+
+The heading can be `###` or `####`-levels depending on whether the method belongs to a module or a class.
+
+#### Function signature
 
 モジュールでは、`objectName` がモジュールの名前です。 クラスでは、クラスのインスタンスの名前にするべきで、モジュールの名前と同じではいけません。
 
 例として、`session` モジュール下の `Session` クラスのメソッドは `ses` を `objectName` として使用しなければなりません。
 
-任意の引数は、引数とその後に別の引数が続く場合に必要なコンマを囲む角括弧 `[]` で示されます。
+Optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-```sh
+```markdown
 必須[, 任意]
 ```
 
-メソッドの下は、それぞれの引数に関する詳細情報です。 引数の型は次のいずれかの一般的な型によって表記されます。
+#### Argument descriptions
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Electron の [`WebContent`](api/web-contents.md) のようなカスタム型
+More detailed information on each of the arguments is noted in an unordered list below the method. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
+
+If the argument is of type `Array`, use `[]` shorthand with the type of value inside the array (for example,`any[]` or `String[]`).
+
+If the argument is of type `Promise`, parametrize the type with what the promise resolves to (for example, `Promise<void>` or `Promise<String>`).
+
+If an argument can be of multiple types, separate the types with `|`.
+
+`Function` 型引数の説明は、それがどのように呼ばれるのかを明確にし、それに渡される引数の型を列挙しなければなりません。
+
+#### Platform-specific functionality
 
 引数またはメソッドが特定のプラットフォーム固有のものである場合、そのプラットフォームはデータ型に続くスペース区切りのイタリック体リストを用いて示されます。 値は `macOS`、`Windows`、`Linux` にできます。
 
 ```markdown
 * `animate` Boolean (任意) _macOS_ _Windows_ - ものをアニメーションします。
 ```
-
-`Array` 型引数は、その下の説明で含められる要素を規定する必要があります。
-
-`Function` 型引数の説明は、それがどのように呼ばれるのかを明確にし、それに渡される引数の型を列挙しなければなりません。
 
 ### イベント
 
@@ -194,7 +204,7 @@ Returns:
 ...
 ```
 
-タイトルが `###` 階層か `####` 階層かは、イベントがモジュール内かクラス内かに依存しています。
+The heading can be `###` or `####`-levels depending on whether the event belongs to a module or a class.
 
 イベントの引数についてはメソッドと同じルールに従います。
 
@@ -208,8 +218,12 @@ Returns:
 ...
 ```
 
-タイトルが `###` 階層か `####` 階層かは、プロパティがモジュール内かクラス内かに依存しています。
+The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
 
-## ドキュメントの翻訳
+## Documentation translations
 
 [electron/i18n](https://github.com/electron/i18n#readme) を参照してください
+
+[title-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case
+[sentence-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/sentence-case
+[markdownlint]: https://github.com/DavidAnson/markdownlint
