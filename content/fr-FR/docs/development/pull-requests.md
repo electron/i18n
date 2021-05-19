@@ -182,13 +182,13 @@ Feel free to post a comment in the pull request to ping reviewers if you are awa
 
 All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Ces demandes sont destinées à être utiles, mais les peuvent parfois être considérées comme abruptes ou inutiles, surtout si elles n’incluent pas de suggestions concrètes sur *la façon dont* les modifier.
 
-Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. Cela dit, il devrait s’attendre à ce que les examinateurs fournissent des commentaires utiles.
+Essayez de ne pas vous décourager. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. Cela dit, il devrait s’attendre à ce que les examinateurs fournissent des commentaires utiles.
 
 ### Étape 11 : Approbation
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-Congratulations and thanks for your contribution!
+Félicitations et merci pour votre contribution !
 
 ### Tests en intégration continue
 
