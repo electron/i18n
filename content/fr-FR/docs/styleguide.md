@@ -62,7 +62,7 @@ There are a few style guidelines that aren't covered by the linter rules:
 
 Les règles suivantes s'appliquent uniquement à la documentation des APIs.
 
-### Title and description
+### Titre et description
 
 Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
 
@@ -141,7 +141,7 @@ En prenant les classes `Session` et `Cookies` comme exemple :
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods and their arguments
+### Méthodes et leurs arguments
 
 Le chapitre sur les méthodes doit respecter la forme suivante :
 
@@ -220,7 +220,7 @@ Le chapitre des propriétés doit être sous la forme suivante :
 
 The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
 
-## Documentation translations
+## Traductions de la documentation
 
 Voir [electron/i18n](https://github.com/electron/i18n#readme)
 
