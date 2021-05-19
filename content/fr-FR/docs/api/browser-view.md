@@ -41,7 +41,7 @@ Les objets créés avec `new BrowserView` ont les méthodes d’instance suivant
 
 #### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object
+* Objet `options`
   * `width` Boolean (facultatif) - Si `true`, la largeur de la vue augmentera et rétrécira ensemble avec la fenêtre. `false` par défaut.
   * `height` Boolean (facultatif) - Si `true`, la hauteur de la vue augmentera et rétrécira avec la fenêtre. `false` par défaut.
   * `horizontal` Boolean (facultatif) - Si `true`, la position x et la largeur de la vue se développeront et rétréciront proportionnellement avec la fenêtre. `false` par défaut.
