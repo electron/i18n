@@ -364,7 +364,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-#### Event: 'moved' _macOS_ _Windows_
+#### Événement : 'moved' _macOS_ _Windows_
 
 Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
@@ -466,7 +466,7 @@ Retourne :
 
 Émis lorsque le bouton natif du nouvel onglet est cliqué.
 
-#### Event: 'system-context-menu' _Windows_
+#### Événement : 'system-context-menu' _Windows_
 
 Retourne :
 
@@ -507,7 +507,7 @@ Retourne `BrowserWindow | null` - La fenêtre qui possède le `browserView`. If 
 
 Retourne `BrowserWindow | null` - La fenêtre avec l'`id` donné.
 
-#### `BrowserWindow.addExtension(path)` _Deprecated_
+#### `BrowserWindow.addExtension(path)` _Déprécié_
 
 * `path` String
 
@@ -517,7 +517,7 @@ La méthode ne retourne pas non plus si le manifeste de l'extension est manquant
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Note:** This method is deprecated. À la place, utilisez [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeExtension(name)` _Deprecated_
 
@@ -529,13 +529,13 @@ Supprime une extension Chrome avec le nom donné.
 
 **Note:** This method is deprecated. Instead, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
 
-#### `BrowserWindow.getExtensions()` _Deprecated_
+#### `BrowserWindow.getExtensions()` _Déprécié_
 
 Retourne `Enregistrement<String, ExtensionInfo>` - Les clés sont les noms des extensions et chaque valeur est un Objet contenant les propriétés `name` et `version` .
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Note:** This method is deprecated. À la place, utilisez [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 #### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
 
@@ -549,7 +549,7 @@ La méthode ne retourne pas non plus si le manifeste de l'extension est manquant
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
+**Note:** This method is deprecated. À la place, utilisez [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
 
 #### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
 
@@ -576,7 +576,7 @@ console.log(installed)
 
 **Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
-**Note:** This method is deprecated. Instead, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
+**Note:** This method is deprecated. À la place, utilisez [`ses.getAllExtensions()`](session.md#sesgetallextensions).
 
 ### Propriétés d'instance
 
@@ -1174,7 +1174,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (facultatif) - Une URL de référence HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optionnel)
   * `baseURLForDataURL` String (facultatif) - URL de base (avec séparateur de chemin de pointe) pour que les fichiers soient chargés par l'URL de données. Ceci n'est nécessaire que si l'`url` spécifiée est une URL de données et a besoin de charger d'autres fichiers.
 
 Retourne `Promise<void>` - la promesse se résoudra lorsque la page aura terminé le chargement (voir [`did-finish-load`](web-contents.md#event-did-finish-load)), et rejette si la page ne parvient pas à se charger (voir [`did-fail-load`](web-contents.md#event-did-fail-load)).
@@ -1239,7 +1239,7 @@ Retirez la barre de menu de la fenêtre.
 * `options` Object (optional)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Sets progress value in progress bar. La plage valide est [0, 1.0].
 
 Supprimer la barre de progression lorsque la progression < 0 ; Passer en mode indéterminé lorsque la progression > 1.
 
@@ -1268,7 +1268,7 @@ Retourne `Boolean` - Si la fenêtre a une ombre.
 
 * `opacité` Nombre - entre 0.0 (entièrement transparent) et 1.0 (entièrement opaque)
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+Définit l'opacité de la fenêtre. Sur Linux, n'a aucun effet. Out of bound number values are clamped to the [0, 1] range.
 
 #### `win.getOpacity()`
 
@@ -1330,7 +1330,7 @@ Définit l'infobulle qui s'affiche en survolant la vignette de la fenêtre dans 
 
 Définit les propriétés du bouton de la barre des tâches de la fenêtre.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. Si l'une de ces propriétés n'est pas définie, aucune ne sera utilisée.
 
 #### `win.showDefinitionForSelection()` _macOS_
 
@@ -1354,7 +1354,7 @@ Cela ne peut pas être appelé lorsque `titleBarStyle` est défini à `customBut
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Définit si la barre de menus de la fenêtre doit se cacher automatiquement. Once set the menu bar will only show when users press the single `Alt` key.
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
