@@ -240,7 +240,7 @@ Retourne un `Boolean` - Si oui ou non les événènements de double clic seront 
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object
+* Objet `options`
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
