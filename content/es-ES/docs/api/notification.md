@@ -98,7 +98,7 @@ Devuelve:
 * `event` Event
 * `error` String - El error encontrado durante la ejecución del método `show()`.
 
-Emitted when an error is encountered while creating and showing the native notification.
+Se emite cuando un error ocurre mientras se esta creando y mostrando una notificación nativa.
 
 ### Métodos de Instancia
 
@@ -106,9 +106,9 @@ Los objetos creados con `new Notification` tienen los siguientes métodos de ins
 
 #### `notification.show()`
 
-Muestra inmediatamente la notificación al usuario, por favor tenga en cuenta, esto quiere decir que a diferencia de la implementación de notificación de HTML5, iniciando una `new Notification` no se mostrará inmediatamente al usuario, usted necesita llamar este método antes que el sistema operativo lo muestre.
+Muestra inmediatamente la notificación al usuario, por favor tenga en cuenta, esto quiere decir que a diferencia de la implementación de notificación de HTML5, iniciando una `new Notificación` no se mostrará inmediatamente al usuario, usted necesita llamar este método antes que el sistema operativo lo muestre.
 
-Si la notificación ha sido mostrada con anterioridad, este método descartará la notificación previa y creará una nueva con propieades idénticas.
+Si la notificación ha sido mostrada con anterioridad, este método descartará la notificación previa y creará una nueva con propiedades idénticas.
 
 #### `notification.close()`
 
@@ -150,15 +150,15 @@ Una propiedad `Boolean` que representa si al notificación tiene a una acción d
 
 #### `notification.urgency` _Linux_
 
-A `String` property representing the urgency level of the notification. Puede ser 'normal', 'critical', o 'low'.
+Un propiedad `String` que representa el nivel de prioridad de la notificación. Puede ser 'normal', 'critical', o 'low'.
 
 Por defecto es 'low' - vea [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) para más información.
 
 #### `notification.timeoutType` _Linux_ _Windows_
 
-A `String` property representing the type of timeout duration for the notification. Puede ser 'default' o 'never'.
+Una propiedad `String` que representa el tipo de tiempo de espera para la notificación. Puede ser 'default' o 'never'.
 
-If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
+Si `timeoutType` es especificado como 'never', la notificación nunca expirará. Se queda abierta hasta que se cierra por el llamado de la API o del usuario.
 
 #### `notification.actions`
 
@@ -170,7 +170,7 @@ Una propiedad `String` que representa el Toast XML de la notificación.
 
 ### Reproducción de Sonidos
 
-En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
+En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Cualquier sonido por defecto (en Preferencias del sistema > Sonido) pueden ser usados en adición a los sonidos personalizados del sistema. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
