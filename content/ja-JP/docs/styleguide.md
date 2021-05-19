@@ -156,33 +156,33 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 #### 見出しレベル
 
-The heading can be `###` or `####`-levels depending on whether the method belongs to a module or a class.
+見出しは、メソッドがモジュールに属するかクラスに属するかに応じて、`###` か `####` レベルになります。
 
-#### Function signature
+#### 関数シグネチャ
 
 モジュールでは、`objectName` がモジュールの名前です。 クラスでは、クラスのインスタンスの名前にするべきで、モジュールの名前と同じではいけません。
 
 例として、`session` モジュール下の `Session` クラスのメソッドは `ses` を `objectName` として使用しなければなりません。
 
-Optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+任意の引数は、角括弧 `[]` で囲んで表記し、この任意の引数が他の引数に続く場合はカンマが必要です。
 
 ```markdown
 必須[, 任意]
 ```
 
-#### Argument descriptions
+#### 引数の説明
 
-More detailed information on each of the arguments is noted in an unordered list below the method. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
+各引数の詳細は、そのメソッドの下に順序なしリストで記載します。 引数の種類は、JavaScript のプリミティブ (例: `String`、`Promise`、`Object`)、Electron の [`Cookie`](api/structures/cookie.md) のようなカスタム API の構造体、またはワイルドカードである `any` のいずれかで表記してください。
 
-If the argument is of type `Array`, use `[]` shorthand with the type of value inside the array (for example,`any[]` or `String[]`).
+引数の型が `Array` の場合は、配列内の値の型に `[]` の省略形を使用してください (例えば、`any[]` や `String[]`)。
 
-If the argument is of type `Promise`, parametrize the type with what the promise resolves to (for example, `Promise<void>` or `Promise<String>`).
+引数が `Promise` 型の場合、Promise が何に解決するかを型引数にします (例えば、`Promise<void>` や `Promise<String>`)。
 
-If an argument can be of multiple types, separate the types with `|`.
+引数が複数の型を取りうる場合は、`|` で型を区切ります。
 
 `Function` 型引数の説明は、それがどのように呼ばれるのかを明確にし、それに渡される引数の型を列挙しなければなりません。
 
-#### Platform-specific functionality
+#### プラットフォーム固有の引数
 
 引数またはメソッドが特定のプラットフォーム固有のものである場合、そのプラットフォームはデータ型に続くスペース区切りのイタリック体リストを用いて示されます。 値は `macOS`、`Windows`、`Linux` にできます。
 
@@ -204,7 +204,7 @@ Returns:
 ...
 ```
 
-The heading can be `###` or `####`-levels depending on whether the event belongs to a module or a class.
+見出しは、イベントがモジュールに属するかクラスに属するかに応じて、`###` か `####` レベルになります。
 
 イベントの引数についてはメソッドと同じルールに従います。
 
@@ -218,9 +218,9 @@ The heading can be `###` or `####`-levels depending on whether the event belongs
 ...
 ```
 
-The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
+見出しは、プロパティがモジュールに属するかクラスに属するかに応じて、`###` か `####` レベルになります。
 
-## Documentation translations
+## ドキュメントの翻訳
 
 [electron/i18n](https://github.com/electron/i18n#readme) を参照してください
 
