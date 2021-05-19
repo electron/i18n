@@ -2,13 +2,13 @@
 
 Ce sont les lignes directrices pour la rédaction de la documentation d'Electron.
 
-## Headings
+## Titres
 
 * Chaque page doit avoir un seul titre de niveau `#` au début de la page.
-* Chapters in the same page must have `##`-level headings.
-* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
-* The page's title must follow [APA title case][title-case].
-* All chapters must follow [APA sentence case][sentence-case].
+* Les chapitres d'une même page doivent avoir leur titre au niveau `##`.
+* Les sous-chapitres doivent voir le nombre de `#` de leur titre qui augmentent selon leur niveau d'imbrication.
+* Le titre de la page doit suivre [la casse de titre APA][title-case].
+* Tous les chapitres doivent suivre les [règles de phrase APA][sentence-case].
 
 Utilisez `Démarrage Rapide` comme exemple :
 
