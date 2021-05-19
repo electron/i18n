@@ -20,7 +20,7 @@ Le module `clipboard` dispose des méthodes suivantes :
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Retourne `String` - Le contenu du presse-papiers en tant que texte brut.
 
@@ -37,7 +37,7 @@ console.log(text)
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Écrit le `text` dans le presse-papiers au format texte brut.
 
@@ -50,7 +50,7 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Retourne `String` - Le contenu du presse-papiers en tant que balisage.
 
@@ -67,7 +67,7 @@ console.log(html)
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Écrit le `markup` dans le presse-papiers.
 
@@ -79,20 +79,20 @@ clipboard.writeHTML('<b>Bonjour</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Retourne [`NativeImage`](native-image.md) - Le contenu de l'image du presse-papiers.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Écrit l'`image` dans le presse-papiers.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Retourne `String` - Le contenu presse-papiers en RTF.
 
@@ -109,7 +109,7 @@ console.log(rtf)
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Écrit le `text` dans le presse-papiers en RTF.
 
@@ -133,7 +133,7 @@ Retourne un objet contenant les clés `title` et `url` représentant le marque-p
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Écrit le `title` et `url` dans le presse-papiers comme marque-page.
 
@@ -162,13 +162,13 @@ Cette méthode utilise un IPC synchronisé lorsqu'il est appelé depuis le proce
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Efface le contenu du presse-papiers.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Retourne `String[]` - Un tableau de format pris en charge pour le `type` du presse-papiers.
 
@@ -183,7 +183,7 @@ console.log(formats)
 ### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Retourne `Boolean` - Si le presse-papiers prend en charge le `format` spécifié.
 
@@ -195,13 +195,13 @@ console.log(hasFormat)
 // 'true' ou 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _Expérimental_
 
 * `format` String
 
 Retourne `String` - Lit le type de `format` depuis le presse-papiers.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _Expérimental_
 
 * `format` String
 
@@ -223,7 +223,7 @@ console.log(buffer.equals(out))
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Écrit le `buffer` dans le presse-papiers comme `format`.
 
@@ -236,13 +236,13 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object
+* Objet `data`
   * `text` String (facultatif)
   * `html` String (facultatif)
   * `image` [NativeImage](native-image.md) (facultatif)
   * `rtf` String (facultatif)
   * `marque-page` String (facultatif) - Le titre de l'URL à `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` n'est disponible que sur Linux.
 
 Écrit `data` dans le presse-papiers.
 
