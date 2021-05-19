@@ -167,7 +167,7 @@ set ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 ```
 
-Or (if using PowerShell):
+Ou (si vous utilisez PowerShell) :
 
 ```powershell
 $env:ELECTRON_BUILDING_WOA=1
