@@ -23,7 +23,7 @@ Para crear una ventana sin usar chrome, o una vertana transparente de cualquier 
 
 ## Mostrar ventana con elegancia
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Cuando se carga una pagina en la ventana directamente, los usuarios pueden ver la carga de la pagina de forma incremental, lo que no es una buena experiencia para una aplicación nativa. To make the window display without visual flash, there are two solutions for different situations.
 
 ## Usando el evento `ready-to-show`
 
@@ -150,10 +150,10 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `backgroundColor` String (opcional) - El color de fondo de la Ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alfa en formato #AARRGGBB es soportado si `transparent` es establecido a `true`). Por defecto es `#FFF` (blanco).
   * `hasShadow` Boolean (opcional) - Si la ventana debería tener una sombra. Por defecto es `true`.
   * `opacity` Number (opcional) - Establece la opacidad inicial de la ventana, entre 0.0 (totalmente transparente) y 1.0 (totalmente opaco). Esto sólo está implementado en Windows y macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Por defecto es `false`.
+  * `darkTheme` Boolean (opcional) - Fuerza el uso del tema obscuro en la ventana, solo funciona en algunos entornos de escritorio GTK+3. Por defecto es `false`.
   * `transparent` Boolean (opcional) - Hace la ventana [tranparente](frameless-window.md#transparent-window). Por defecto es `false`. En Windows, no funciona a menos que la ventana sea sin marco.
   * `type` String (opcional) - El tipo de ventana, por defecto es una ventana normal. Vea más sobre esto a continuación.
-  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Los valores posibles son:
+  * `visualEffectState` String (opcional) - Especifica como la apariencia del material debe reflejar el estado de actividad de la ventana en macOS. Must be used with the `vibrancy` property. Los valores posibles son:
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. Este es el valor predeterminado.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
