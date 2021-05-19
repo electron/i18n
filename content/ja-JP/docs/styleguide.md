@@ -5,10 +5,10 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 ## ヘッディング
 
 * 各ページは最上部に1つの`#`レベルのタイトルが必要です。
-* Chapters in the same page must have `##`-level headings.
-* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
-* The page's title must follow [APA title case][title-case].
-* All chapters must follow [APA sentence case][sentence-case].
+* 同じページの章には、`##` レベルの見出しが必要です。
+* 節の見出しは、ネストする深さに応じて増やした `#` が必要です。
+* ページのタイトルは [APA タイトルケース][title-case] に従う必要があります。
+* すべての章のタイトルは [APA タイトルケース][sentence-case] に従う必要があります。
 
 `Quick Start（クイックスタート）` を例にすると、以下のようになります。
 
@@ -42,16 +42,16 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 ## Markdown のルール
 
-This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
+このリポジトリでは、一貫した Markdown スタイルにするために [`markdownlint`][markdownlint] パッケージを使用しています。 正確なルールについては、ルートフォルダ内の `.markdownlint.json` ファイルをご参照ください。
 
-There are a few style guidelines that aren't covered by the linter rules:
+リンターのルールではカバーしきれないような、いくつかのスタイルガイドラインを以下に示します。
 
 <!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * コードブロックでは `cmd` の代わりに `sh` を使用します (構文ハイライトのため)。
-* Keep line lengths between 80 and 100 characters if possible for readability purposes.
+* 可読性を考慮し、行の長さはできるだけ 80 から 100 文字にしてください。
 * 2 階層以上にネストしたリストは使用できません (Markdown レンダラーのため)。
 * すべての `js` と `javascript` コードブロックは、[standard-markdown](https://www.npmjs.com/package/standard-markdown) によって整形されます。
-* For unordered lists, use asterisks instead of dashes.
+* 順序無しリストには、ダッシュではなくアスタリスクを使用してください。
 
 ## 使用する言葉
 
@@ -62,13 +62,13 @@ There are a few style guidelines that aren't covered by the linter rules:
 
 以下のルールは、API のドキュメントにのみ適用されます。
 
-### Title and description
+### タイトルと説明
 
-Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
+各モジュールの API ドキュメントでは、`require('electron')` が返す実際のオブジェクト名をタイトルとして使用しなければなりません (`BrowserWindow`、`autoUpdater`、`session` など)。
 
-Directly under the page title, add a one-line description of the module as a markdown quote (beginning with `>`).
+ページタイトル直下に、モジュールの説明を 1 行で Markdown の引用文として (`>` 始まりで) 追加します。
 
-Using the `session` module as an example:
+`session` モジュールを例にすると、以下のようにします。
 
 ```markdown
 # session
@@ -98,14 +98,14 @@ Using the `session` module as an example:
 
 * API のクラスやモジュールの一部の API クラスは `## Class: クラス名` の章の下に列挙しなければなりません。
 * 1 ページに複数のクラスがあってもかまいません。
-* Constructors must be listed with `###`-level headings.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
+* コンストラクタは `###` 階層のタイトルで列挙する必要があります。
+* [静的メソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の配下に列挙しなければなりません。
+* [インスタンスメソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の配下に列挙しなければなりません。
+* すべての戻り値があるメソッドの説明は、"Returns `[型]` - [戻り値の説明]" というように書き始めてください。
+  * メソッドが `Object` を返す場合、その構造を記述します。コロンとそれに続く改行、そして関数の引数と同じスタイルでプロパティの順序なしリストにします。
 * Instance Events は `### Instance Events` の章の下に列挙しなければなりません。
 * Instance Properties は `### Instance Properties` の章の下に列挙しなければなりません。
-  * Instance Properties must start with "A [Property Type] ..."
+  * インスタンスプロパティは "A [プロパティの型] ..." で始まる必要があります。
 
 `Session` と `Cookies` クラスを例にすると、以下のようにします。
 
@@ -141,7 +141,7 @@ Using the `session` module as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods and their arguments
+### メソッドとその引数
 
 メソッドの章はつぎの形式でなければなません。
 
@@ -154,7 +154,7 @@ Using the `session` module as an example:
 ...
 ```
 
-#### Heading level
+#### 見出しレベル
 
 The heading can be `###` or `####`-levels depending on whether the method belongs to a module or a class.
 
