@@ -1,6 +1,4 @@
-# macOS ドック
-
-## 概要
+# Configuring the macOS Dock
 
 Electron には macOS Dock 内のアプリアイコンを設定する API があります。 カスタム Dock メニューを作成するための macOS 専用 API は存在しますが、Electron は [最近使った書類][recent-documents] や [アプリケーションのプログレス][progress-bar] などのクロスプラットフォーム機能のエントリポイントにアプリの Dock アイコンを使用します。
 
@@ -17,25 +15,49 @@ __ターミナルアプリのDockメニュー__
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
-const { app, Menu } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+  })
+
+  win.loadFile('index.html')
+}
 
 const dockMenu = Menu.buildFromTemplate([
   {
-    label: '新規ウインドウ',
+    label: 'New Window',
     click () { console.log('New Window') }
   }, {
-    label: '設定から新規ウインドウ',
+    label: 'New Window with Settings',
     submenu: [
       { label: 'Basic' },
       { label: 'Pro' }
     ]
   },
-  { label: '新規コマンド...' }
+  { label: 'New Command...' }
 ])
 
 app.whenReady().then(() => {
-  app.dock.setMenu(dockMenu)
+  if (process.platform === 'darwin') {
+    app.dock.setMenu(dockMenu)
+  }
+}).then(createWindow)
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
 })
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
+
 ```
 
 Electron アプリケーションを起動した後、アプリケーションアイコンを右クリックします。 先ほど定義したカスタムメニューが表示されます。
