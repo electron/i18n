@@ -99,7 +99,7 @@ document.getElementById('reset-to-system').addEventListener('click', async () =>
 
 `addEventListener` を使って、`renderer.js` ファイルで `'click'` [イベントリスナー][event-listeners] を各ボタン要素に追加します。 各イベントリスナーハンドラーには、それぞれの `window.darkMode` API メソッドの呼び出しをさせます。
 
-Finally, the `main.js` file represents the main process and contains the actual `nativeTheme` API.
+最後に、`main.js` ファイルでメインプロセスを記述し、実際の `nativeTheme` の API を入れます。
 
 ```js
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
@@ -147,13 +147,13 @@ app.on('window-all-closed', () => {
 })
 ```
 
-The `ipcMain.handle` methods are how the main process responds to the click events from the buttons on the HTML page.
+`ipcMain.handle` メソッドは、HTML ページ上のボタンからのクリックイベントに対して、メインプロセスが応答する手段となります。
 
-The `'dark-mode:toggle'` IPC channel handler method checks the `shouldUseDarkColors` boolean property, sets the corresponding `themeSource`, and then returns the current `shouldUseDarkColors` property. Looking back on the renderer process event listener for this IPC channel, the return value from this handler is utilized to assign the correct text to the `<strong id='theme-source'>` element.
+`'dark-mode:toggle'` IPC チャンネルハンドラーのメソッドは、`shouldUseDarkColors` 真偽値型プロパティを確認して対応する `themeSource` を設定し、現在の `shouldUseDarkColors` プロパティを返します。 この IPC チャンネルに対応するレンダラープロセスのイベントリスナーへと戻って見てみると、このハンドラーの戻り値を利用して `<strong id='theme-source'>` 要素に正しいテキストを代入しています。
 
-The `'dark-mode:system'` IPC channel handler method assigns the string `'system'` to the `themeSource` and returns nothing. This also corresponds with the relative renderer process event listener as the method is awaited with no return value expected.
+`'dark-mode:system'` IPC チャンネルハンドラーのメソッドは、文字列`'system'` を `themeSource` に割り当てるだけで何も返しません。 これは対応するレンダラープロセスのイベントリスナーにも言えることで、このメソッドは戻り値が期待できない状態で待機しています。
 
-Run the example using Electron Fiddle and then click the "Toggle Dark Mode" button; the app should start alternating between a light and dark background color.
+Electron Fiddle を使ってサンプルを実行してみましょう。"Toggle Dark Mode" ボタンをクリックすると、アプリの背景色が明るくなったり暗くなったりするでしょう。
 
 ![ダークモード](../images/dark_mode.gif)
 
