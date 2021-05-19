@@ -149,15 +149,15 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `enableLargerThanScreen` Booléen (facultatif) - Permet à la fenêtre d'être redimensionnée plus grande que l'écran. Seulement pertinent pour macOS, car les autres systèmes d'exploitation autorisent par défaut des fenêtres plus grandes qu'écran par défaut. Par défaut la valeur est `false`.
   * `BackgroundColor` String (facultatif) - Couleur d'arrière-plan de la fenêtre en valeur hexadécimale, comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (alpha au format #AARRGGBB est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. La valeur par défaut est `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). Ceci n'est implémenté que sur Windows et macOS.
   * `darkTheme` Boolean (optionnel) - Force l'utilisation du thème sombre pour la fenêtre, fonctionne uniquement sur certains environnements de bureau GTK+3. Par défaut la valeur est `false`.
   * `transparent` Boolean (facultatif) - Rend la fenêtre [transparente](frameless-window.md#transparent-window). Par défaut la valeur est `false`. Sous Windows, ne fonctionne pas à moins que la fenêtre ne soit sans cadres.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Possible values are:
+  * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Les valeurs possibles sont :
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Par défaut la valeur est `default`. Possible values are:
+  * `titleBarStyle` String (optional) - The style of window title bar. Par défaut la valeur est `default`. Les valeurs possibles sont :
     * `default` - Résultats dans la barre de titre standard de Mac opaque gris.
     * `Caché` - Résultats dans une barre de titre cachée et une fenêtre de contenu en pleine taille, encore la barre de titre a toujours les contrôles standards de la fenêtre ("feux de circulation") dans en haut à gauche.
     * `hiddenInset` - Résultats dans une barre de titre cachée avec un look alternatif où les boutons du feu de circulation sont légèrement plus insérables à partir du bord de la fenêtre.
@@ -218,7 +218,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
     * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. La valeur par défaut est `true`.
     * `enableWebSQL` Boolean (optional) - Whether to enable the [WebSQL api](https://www.w3.org/TR/webdatabase/). La valeur par défaut est `true`.
-    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Accepted values are
+    * `v8CacheOptions` String (optional) - Enforces the v8 code caching policy used by blink. Les valeurs acceptées sont
       * `none` - Disables code caching
       * `code` - Heuristic based code caching
       * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
@@ -227,7 +227,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 
 Lorsque l'on définie une taille minimum ou maximum pour la fenêtre avec `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, cela contraint les utilisateurs uniquement. Cela ne vous empêche pas de passer une taille qui ne suit pas les contraintes de tailles à `setBounds`/`setSize` ou au constructeur de `BrowserWindow`.
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+The possible values and behaviors of the `type` option are platform dependent. Les valeurs possibles sont :
 
 * Sur Linux, les types possible sont `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * On macOS, possible types are `desktop`, `textured`.
@@ -343,13 +343,13 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis après que la fenêtre soit redimensionnée.
 
-#### Event: 'resized' _macOS_ _Windows_
+#### Événement : 'resized' _macOS_ _Windows_
 
 Emitted once when the window has finished being resized.
 
 This is usually emitted when the window has been resized manually. On macOS, resizing the window with `setBounds`/`setSize` and setting the `animate` parameter to `true` will also emit this event once resizing has finished.
 
-#### Event: 'will-move' _macOS_ _Windows_
+#### Événement : 'will-move' _macOS_ _Windows_
 
 Retourne :
 
@@ -1321,7 +1321,7 @@ Définit l'infobulle qui s'affiche en survolant la vignette de la fenêtre dans 
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` Object
+* Objet `options`
   * `appId` String (facultatif) - Fenêtre [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Elle doit être définie, sinon les autres options n'auront aucun effet.
   * `appIconPath` String (facultatif) - Fenêtre [Icône de relance](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. La valeur par defaut en est ``.
