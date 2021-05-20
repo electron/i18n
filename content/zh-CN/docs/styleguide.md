@@ -5,10 +5,10 @@
 ## 标题
 
 * 每个页面顶部必须有一个 `#` 级标题。
-* Chapters in the same page must have `##`-level headings.
-* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
-* The page's title must follow [APA title case][title-case].
-* All chapters must follow [APA sentence case][sentence-case].
+* 同一页面中的各章节必须有 `##` 级标题。
+* 各小节需要根据其嵌套层级在头部增加 `#` 的数量。
+* 页面标题必须按照 [APA 标题大小写][title-case]。
+* 所有章节都必须遵循 [APA语句大小写][sentence-case]。
 
 举一个`Quick Start`的例子:
 
