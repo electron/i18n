@@ -68,9 +68,9 @@ If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequ
 }
 ```
 
-The example renders an HTML page with a couple elements. The `<strong id="theme-source">` element shows which theme is currently selected, and the two `<button>` elements are the controls. The CSS file uses the [`prefers-color-scheme`][prefers-color-scheme] media query to set the `<body>` element background and text colors.
+该示例渲染一个包含几个元素的 HTML 页面。 `<strong id="theme-source">` 元素显示当前选中的主题，两个 `<button>` 元素是 控件。 CSS 文件使用 [`prefers-color-scheme`][prefers-color-scheme] 媒体查询 设置 `<body>` 元素背景和文本颜色。
 
-The `preload.js` script adds a new API to the `window` object called `darkMode`. This API exposes two IPC channels to the renderer process, `'dark-mode:toggle'` and `'dark-mode:system'`. It also assigns two methods, `toggle` and `system`, which pass messages from the renderer to the main process.
+`preload.js` 脚本在 `window`对象中添加了一个新的 API叫做 `深色模式`。 此 API 暴露两个IPC 通道到渲染器进程，分别为 `'dark-mode:toggle'` 和 `'dark-mode:system'`。 它还分配了两个方法， `toggle` 和 `system`，它们将渲染器中的信息传递到 主进程。
 
 ```js title='preload.js'
 const { contextBridge, ipcRenderer } = require('electron')
@@ -81,9 +81,9 @@ contextBridge.exposeInMainWorld('darkMode', {
 })
 ```
 
-Now the renderer process can communicate with the main process securely and perform the necessary mutations to the `nativeTheme` object.
+现在，渲染器进程可以安全地与主进程通信，并对`nativeTheme` 对象执行必要的变更。
 
-The `renderer.js` file is responsible for controlling the `<button>` functionality.
+`renderer.js` 文件负责控制 `<button>` 功能。
 
 ```js title='renderer.js'
 document.getElementById('toggle-dark-mode').addEventListener('click', async () => {
@@ -97,9 +97,9 @@ document.getElementById('reset-to-system').addEventListener('click', async () =>
 })
 ```
 
-Using `addEventListener`, the `renderer.js` file adds `'click'` [event listeners][event-listeners] to each button element. Each event listener handler makes calls to the respective `window.darkMode` API methods.
+使用 `addEventListener`， `renderer.js` 文件将`'click'` [事件监听器][event-listeners]添加到每个按钮元素上。 每个事件监听处理器都会调用到相关的 `window.darkmode` API 方法。
 
-Finally, the `main.js` file represents the main process and contains the actual `nativeTheme` API.
+最后， `main.js` 文件代表了主进程并包含实际的 `nativeTheme` API。
 
 ```js
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
@@ -147,13 +147,13 @@ app.on('window-all-closed', () => {
 })
 ```
 
-The `ipcMain.handle` methods are how the main process responds to the click events from the buttons on the HTML page.
+`ipcMain.handle` 方法表明主进程如何响应来自 HTML 页面上 按钮的点击事件。
 
-The `'dark-mode:toggle'` IPC channel handler method checks the `shouldUseDarkColors` boolean property, sets the corresponding `themeSource`, and then returns the current `shouldUseDarkColors` property. Looking back on the renderer process event listener for this IPC channel, the return value from this handler is utilized to assign the correct text to the `<strong id='theme-source'>` element.
+`'dark-mode:toggle'` IPC 通道处理器方法检查 `shouldUseDarkColors` boolean属性 设置对应的 `themeSource`, 然后返回当前的 `shouldUseDarkColors` 属性。 回顾此 IPC 通道的渲染器进程事件监听器，此处理器的返回值为 `<strong id='theme-source'>` 元素指定正确的文本。
 
-The `'dark-mode:system'` IPC channel handler method assigns the string `'system'` to the `themeSource` and returns nothing. This also corresponds with the relative renderer process event listener as the method is awaited with no return value expected.
+`'dark-mode:system'` IPC 通道处理器方法将字符串 `'system'` 赋值到 `themeSource` 同时无返回值。 这也对应于相应的渲染器进程事件监听器，因为方法正在等待，且不需要返回值。
 
-Run the example using Electron Fiddle and then click the "Toggle Dark Mode" button; the app should start alternating between a light and dark background color.
+使用Electron Fiddle运行示例，然后点击“切换深色模式”按钮； 应用程序应该开始在亮色和黑色背景颜色之间交替。
 
 ![暗黑模式](../images/dark_mode.gif)
 
