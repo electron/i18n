@@ -16,7 +16,6 @@ interface IAdditionalNode extends Node {
   }
 }
 
-
 // remark transformer for 'code' blocks to
 // embed fiddle urls as html attributes
 export const fiddleUrls = () => (tree: Node) => {
@@ -29,7 +28,7 @@ export const fiddleUrls = () => (tree: Node) => {
     if (langMatch && metaMatch) {
       // Valid format for the meta is fiddle='folder|<option>|<option>' where |<option> is optional.
       // However, nothing but the folder is supported by this plugin.
-      const [folder, ..._] = metaMatch[1].split("|");
+      const [folder, ..._] = metaMatch[1].split('|')
 
       // retrieve and remove url from language definition
       const url = `electron/${electronLatestStableTag}/${folder}`
