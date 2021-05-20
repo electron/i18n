@@ -12,7 +12,7 @@
 
 ## 构建工具
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. 如果您希望手动设置环境，则说明如下。
+[Electron的构建工具](https://github.com/electron/build-tools) 自动化了很多配置不同的从源代码编译Electron的设置和构建目标。 如果您希望手动设置环境，则说明如下。
 
 ## 前置知识
 
@@ -83,10 +83,10 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 
 这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
 
-To see the list of available build configuration options, run `gn args
-out/Testing --list`.
+要查看可用的构建配置选项的列表，运行 `gn args
+out/Testing--list`。
 
-**For generating Testing build config of Electron:**
+**用于生成测试Electron的构建配置：**
 
 ```sh
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
