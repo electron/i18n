@@ -8,7 +8,7 @@
 
 ### Automatically update your own interfaces
 
-If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. You can do this by using the [prefer-color-scheme] CSS media query.
+If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. 您可以通过使用[prefer-color-scheme] CSS 媒体查询来做到这一点。
 
 ### Manually update your own interfaces
 
@@ -24,15 +24,15 @@ If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequ
 
 ## 示例
 
-This example demonstrates an Electron application that derives its theme colors from the `nativeTheme`. Additionally, it provides theme toggle and reset controls using IPC channels.
+此示例演示了Electron 应用程序从`nativeTheme`中获取主题颜色。 此外，它还使用 IPC 通道提供主题切换和重置控制。
 
 ```javascript fiddle='docs/fiddles/features/macos-dark-mode'
 
 ```
 
-### How does this work?
+### 它是如何工作的呢？
 
-Starting with the `index.html` file:
+从 `index.html` 文件开始：
 
 ```html title='index.html'
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ Starting with the `index.html` file:
 </html>
 ```
 
-And the `style.css` file:
+以及 `style.css` 文件：
 
 ```css title='style.css'
 @media (prefers-color-scheme: dark) {
