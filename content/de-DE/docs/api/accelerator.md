@@ -28,7 +28,7 @@ Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandO
 
 Verwenden Sie `Alt` anstelle von `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` in allen Betriebssystemen verfügbar ist.
 
-`Super` wird unter Windows und Linux auf die`Windows`-Taste und unter macOS auf die `Cmd` gemappt.
+The `Super` (or `Meta`) key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
 ## Verfügbare Modifikatoren
 
@@ -40,6 +40,7 @@ Verwenden Sie `Alt` anstelle von `Option`. `Option` existiert nur unter macOS, w
 * `AltGr`
 * `Shift`
 * `Super`
+* `Meta`
 
 ## Verfügbare Tastencodes
 
