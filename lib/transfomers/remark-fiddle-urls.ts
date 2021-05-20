@@ -16,6 +16,7 @@ interface IAdditionalNode extends Node {
   }
 }
 
+
 // remark transformer for 'code' blocks to
 // embed fiddle urls as html attributes
 export const fiddleUrls = () => (tree: Node) => {
@@ -26,8 +27,12 @@ export const fiddleUrls = () => (tree: Node) => {
     const metaMatch = node.meta.match(metaRegex)
 
     if (langMatch && metaMatch) {
+      // Valid format for the meta is fiddle='folder|<option>|<option>' where |<option> is optional.
+      // However, nothing but the folder is supported by this plugin.
+      const [folder, ..._] = metaMatch[1].split("|");
+
       // retrieve and remove url from language definition
-      const url = `electron/${electronLatestStableTag}/${metaMatch[1]}`
+      const url = `electron/${electronLatestStableTag}/${folder}`
 
       // save url in data-fiddle-url html attribute
       node.data = node.data || {}
