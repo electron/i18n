@@ -28,8 +28,8 @@
   * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of  the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-  * `after` String[] (optional) - Inserts this item after the item with the specified label. 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
+  * `after` String[] (可选) - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
@@ -66,11 +66,11 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `resetzoom` - 将主页的缩放级别重置为初始大小.
 * `zoomin` - 主页面放大 10%.
 * `zoomout` -主页面缩小 10%.
-* `toggleSpellChecker` - Enable/disable builtin spell checker.
-* `fileMenu` - Whole default "File" menu (Close / Quit)
+* `toggleSpellChecker` - 启用/禁用内置拼写检查器。
+* `fileMenu` - 默认的“文件”菜单（关闭/退出）
 * `editMenu`-默认的 "编辑" 菜单 (包括撤消、复制等)
-* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
+* `viewMenu` - 默认的“视图”菜单（包括重新加载、开发者工具等）
+* `windowMenu` - 默认的“窗口”菜单（包括最小化、缩放等）
 
 The following additional roles are available on _macOS_:
 
