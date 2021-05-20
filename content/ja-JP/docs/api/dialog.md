@@ -124,7 +124,7 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object
-  * `title` String (任意)
+  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (任意) - 既定で使用される絶対ディレクトリパス、絶対ファイルパスもしくはファイル名。
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
@@ -149,7 +149,7 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (任意)
 * `options` Object
-  * `title` String (任意)
+  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (任意) - 既定で使用される絶対ディレクトリパス、絶対ファイルパスもしくはファイル名。
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
