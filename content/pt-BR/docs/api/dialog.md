@@ -124,14 +124,14 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object
-  * `title` String (opcional)
+  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
   * `message` String (opcional) _macOS_ - Mensagem a ser exibida acima de campos de texto.
   * `nameFieldLabel` String (opcional) _macOS_ - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
   * `showsTagField` Boolean (opcional) _macOS_ - apresenta a tag do campo de entrada, por padrão `true`.
-  * `properties` String[] (optional)
+  * `properties` String[] (Opcional)
     * `showHiddenFiles` - Mostra arquivos escondidos no dialog.
     * `createDirectory` _macOS_ - Allow creating new directories from dialog.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -149,14 +149,14 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object
-  * `title` String (opcional)
+  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
   * `message` String (opcional) _macOS_ - Mensagem a ser exibida acima de campos de texto.
   * `nameFieldLabel` String (opcional) _macOS_ - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
-  * `properties` String[] (optional)
+  * `properties` String[] (Opcional)
     * `showHiddenFiles` - Mostra arquivos escondidos no dialog.
     * `createDirectory` _macOS_ - Allow creating new directories from dialog.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -256,7 +256,7 @@ No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
 | Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
 | ---------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |   Sucesso   | `['LONGBOOKMARKSTRING']`       |
 | macOS mas  | True                            |    Error    | `['']` (array of empty string) |
 | macOS mas  | False                           |     NA      | `[]` (empty array)             |
 | non mas    | any                             |     NA      | `[]` (empty array)             |
