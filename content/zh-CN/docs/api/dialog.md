@@ -124,14 +124,14 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` 对象
-  * `title` String (可选) - 对话框窗口的标题
+  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `message` String (可选) _ macOS _-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) _ macOS _ - 文件名输入框对应的自定义标签名。
   * ` showsTagField ` Boolean (可选) _ macOS _-显示标记输入框, 默认为 ` true `。
-  * `properties` String[] (optional)
+  * `properties` String[] (可选)
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
     * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
@@ -149,14 +149,14 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` 对象
-  * `title` String (可选) - 对话框窗口的标题
+  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `message` String (可选) _ macOS _-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) _ macOS _ - 文件名输入框对应的自定义标签名。
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
-  * `properties` String[] (optional)
+  * `properties` String[] (可选)
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
     * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
@@ -256,7 +256,7 @@ Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 
 | Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
 | ---------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |     成功      | `['LONGBOOKMARKSTRING']`       |
 | macOS mas  | True                            |    Error    | `['']` (array of empty string) |
 | macOS mas  | False                           |     NA      | `[]` (empty array)             |
 | non mas    | any                             |     NA      | `[]` (empty array)             |
