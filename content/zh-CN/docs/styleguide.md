@@ -42,13 +42,13 @@
 
 ## Markdown 规则
 
-This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
+这个仓库使用 [`markdownline`][markdownlint] 软件包来实行前后一致的 Markdown 风格。 有关确切规则，请参阅根文件夹中的 `.markdownlint.json` 文件。
 
-There are a few style guidelines that aren't covered by the linter rules:
+有几个样式准则不在 linter 规则范围之内：
 
 <!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * 在代码块中使用`bash`而不是`cmd`（由于语法高亮问题）.
-* Keep line lengths between 80 and 100 characters if possible for readability purposes.
+* 为了可读性，如果可能，保持一行长度在80到100个字符之间。
 * 列表嵌套不超出2级 (由于 Markdown 渲染问题).
 * 所有的` js` 和` javascript `代码块均被标记为[ standard-markdown](https://www.npmjs.com/package/standard-markdown).
 * 对于无序列表，请使用星号而不是破折号.
@@ -62,13 +62,13 @@ There are a few style guidelines that aren't covered by the linter rules:
 
 以下规则仅适用于 API 的文档。
 
-### Title and description
+### 标题和描述
 
-Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
+每个模块的API文档必须使用由 `require('electron')` 返回的实际对象名称作为标题。(例如` BrowserWindow``autoUpdater` 和 `session`)。
 
-Directly under the page title, add a one-line description of the module as a markdown quote (beginning with `>`).
+直接在页面标题下方，添加一行模块描述作为Markdown 引用(以 `>` 开头)。
 
-Using the `session` module as an example:
+以使用 `session` 模块作为例子:
 
 ```markdown
 # session
@@ -98,14 +98,14 @@ Using the `session` module as an example:
 
 * API 类或作为模块一部分的类必须在 `## Class: TheClassName` 章节中列出.
 * 一个页面可以有多个类.
-* Constructors must be listed with `###`-level headings.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
+* 构造函数必须用 `###` 级标题列出。
+* [静态方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) 必须在 `### Static Methods` 章节中列出。
+* [实例方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) 必须在 `### Instance Methods` 章节中列出。
+* 所有具有返回值的方法都必须以“Returns `[TYPE]` - [Return description]”开始
+  * 如果该方法返回一个 `Object`，其结构可以使用冒号后跟换行符的方式，然后使用与函数参数相同样式的无序属性列表。
 * 实例事件必须在 `### Instance Events` 章节中列出.
 * 实例属性必须列在 `### 实例属性` 章节下。
-  * Instance Properties must start with "A [Property Type] ..."
+  * 实例属性必须以 "[属性类型] ..." 开头。
 
 这里用 `Session` 和 `Cookies` 类作为例子:
 
@@ -141,7 +141,7 @@ Using the `session` module as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods and their arguments
+### 方法及其参数
 
 方法章节必须采用以下形式：
 
@@ -154,35 +154,35 @@ Using the `session` module as an example:
 ...
 ```
 
-#### Heading level
+#### 标题级别
 
-The heading can be `###` or `####`-levels depending on whether the method belongs to a module or a class.
+标题可以是 `###` 级别或 `####` 级别，具体取决于该方法是属于模块还是类。
 
-#### Function signature
+#### 函数签名
 
 对于模块， `objectName` 是模块的名称。 对于类，它必须是类实例的名称，而且不能与模块名称相同。
 
 例如，`session` 模块下的 `Session` 类的方法必须使用 `ses` 作为 `objectName` 。
 
-Optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+可选参数使用方括号 `[]` 表示，并且多个参数之间以逗号分隔：
 
 ```markdown
 required[, optional]
 ```
 
-#### Argument descriptions
+#### 参数描述
 
-More detailed information on each of the arguments is noted in an unordered list below the method. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
+关于每个参数的更详细信息将在方法下面的无序列表中列出。 参数类型是由 JavaScript 原始类型(例如: `String`, `Promise`, 或 `Object`)；自定义 API 结构，像Electron的 [`Cookie`](api/structures/cookie.md)；或通配符 `any` 注明。
 
-If the argument is of type `Array`, use `[]` shorthand with the type of value inside the array (for example,`any[]` or `String[]`).
+如果参数是 `Array` 类型，请使用带有数组内值类型的 `[]` 缩写 (例如，`any[]` 或 `String[]`)。
 
-If the argument is of type `Promise`, parametrize the type with what the promise resolves to (for example, `Promise<void>` or `Promise<String>`).
+如果参数类型为 `Promise`, 则将promise resolve时的类型作为参数(例如 `Promise<void>` 或 `Promise<String>`)。
 
-If an argument can be of multiple types, separate the types with `|`.
+如果参数可以是多种类型，则将类型通过 `|`分开。
 
 `Function` 类型参数的描述应该清楚描述它是如何被调用的，并列出将被传递给它的参数的类型.
 
-#### Platform-specific functionality
+#### 平台特定功能
 
 如果参数或方法对某些平台是唯一的，那么这些平台将使用数据类型后面的空格分隔的斜体列表来表示。 值可以是 `macOS`，`Windows` 或 `Linux`.
 
@@ -204,7 +204,7 @@ Returns:
 ...
 ```
 
-The heading can be `###` or `####`-levels depending on whether the event belongs to a module or a class.
+标题可以是 `###` 级别或 `####` 级别，具体取决于该事件是属于模块还是类。
 
 事件的参数遵循与方法相同的规则.
 
@@ -218,9 +218,9 @@ The heading can be `###` or `####`-levels depending on whether the event belongs
 ...
 ```
 
-The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
+标题可以是 `###` 级别或 `####` 级别，具体取决于该属性属于模块还是类。
 
-## Documentation translations
+## 文档翻译
 
 请参见 [ electron/i18n ](https://github.com/electron/i18n#readme)
 
