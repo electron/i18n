@@ -10,9 +10,9 @@
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## 构建工具
 
-[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. 如果您希望手动设置环境，则说明如下。
 
 ## 前置知识
 
@@ -193,9 +193,9 @@ $ npm run test -- \
   --enable-logging -g 'BrowserWindow module'
 ```
 
-## Sharing the git cache between multiple machines
+## 在多个计算机之间共享 git 缓存
 
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+可以将gclient git 缓存与其他机器共享，导出为 SMB 在linux上共享。 但每次只能有一个进程或机器可以使用缓存。 The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
 
 On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
 
