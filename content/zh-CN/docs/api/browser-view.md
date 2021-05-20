@@ -12,14 +12,14 @@
 
 ```javascript
 // 在主进程中.
-康斯特 { BrowserView, BrowserWindow } =要求（'电子'）
+const { BrowserView, BrowserWindow } = require('electron')
 
-const赢=新的浏览器窗口（{ width: 800, height: 600 }）
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-const视图=新的浏览器视图（）
-赢
-。 y： 0， 宽度： 300， 高度： 300 [）
-视图. web 康滕茨. loadurl （'https：/ / 电子. org'）
+const view = new BrowserView()
+win.setBrowserView(view)
+view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([可选])` _实验功能_
