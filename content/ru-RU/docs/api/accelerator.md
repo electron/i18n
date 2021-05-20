@@ -28,7 +28,7 @@ app.whenReady().then(() => {
 
 Используйте `Alt` вместо `опции`. Клавиша `Option` существует только на macOS, в то время как клавиша `Alt` доступна на всех платформах.
 
-Клавиша `Super` сопоставляется с клавишей `Windows` в Windows и Linux и `Cmd` на macOS.
+The `Super` (or `Meta`) key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
 ## Доступные модификаторы
 
@@ -40,6 +40,7 @@ app.whenReady().then(() => {
 * `AltGr`
 * `Shift`
 * `Super`
+* `Meta`
 
 ## Доступные коды клавиш
 

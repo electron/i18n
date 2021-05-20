@@ -28,7 +28,7 @@ Sur Linux et Windows, la touche `Command` n'a aucun effet, donc utilisez `Comman
 
 Utilisez `Alt` au lieu de `Option`. Utilisez Alt au lieu de Option. La touche `Option` n’existe que sur macOS, tandis que la touche `Alt` est disponible sur toutes les plateformes.
 
-La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `Cmd` sur macOS.
+The `Super` (or `Meta`) key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
 ## Modificateurs disponibles
 
@@ -40,6 +40,7 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `AltGr`
 * `Shift`
 * `Super`
+* `Meta`
 
 ## Touches disponibles
 

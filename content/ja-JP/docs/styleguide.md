@@ -2,13 +2,13 @@
 
 Electronのドキュメント（英語）を書くためのガイドラインです。
 
-## タイトル
+## ヘッディング
 
 * 各ページは最上部に1つの`#`レベルのタイトルが必要です。
-* 同じページの章には、`##`レベルのタイトルが必要です。
-* サブチャプターのタイトルは、ネストする深さに応じて  `#`  の数を増やす必要があります。
-* ページのタイトルは全ての単語の頭文字を大文字にする（capitalizeする）必要があります。ただし、 of や and といった接続詞は例外です。
-* 章のタイトルにおいては、最初の単語の頭文字だけを大文字にします。
+* 同じページの章には、`##` レベルの見出しが必要です。
+* 節の見出しは、ネストする深さに応じて増やした `#` が必要です。
+* ページのタイトルは [APA タイトルケース][title-case] に従う必要があります。
+* すべての章のタイトルは [APA タイトルケース][sentence-case] に従う必要があります。
 
 `Quick Start（クイックスタート）` を例にすると、以下のようになります。
 
@@ -42,11 +42,16 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 ## Markdown のルール
 
+このリポジトリでは、一貫した Markdown スタイルにするために [`markdownlint`][markdownlint] パッケージを使用しています。 正確なルールについては、ルートフォルダ内の `.markdownlint.json` ファイルをご参照ください。
+
+リンターのルールではカバーしきれないような、いくつかのスタイルガイドラインを以下に示します。
+
+<!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * コードブロックでは `cmd` の代わりに `sh` を使用します (構文ハイライトのため)。
-* 行は 80 列で折り返す必要があります。
+* 可読性を考慮し、行の長さはできるだけ 80 から 100 文字にしてください。
 * 2 階層以上にネストしたリストは使用できません (Markdown レンダラーのため)。
 * すべての `js` と `javascript` コードブロックは、[standard-markdown](https://www.npmjs.com/package/standard-markdown) によって整形されます。
-* 順序無しリストには、ダッシュではなくアスタリスクを使用します。
+* 順序無しリストには、ダッシュではなくアスタリスクを使用してください。
 
 ## 使用する言葉
 
@@ -57,13 +62,13 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 以下のルールは、API のドキュメントにのみ適用されます。
 
-### ページのタイトル
+### タイトルと説明
 
-各ページは `require('electron')` によって返される実際のオブジェクト名をタイトルに使用しなければなりません。`BrowserWindow` や `autoUpdater` や `session` のようにします。
+各モジュールの API ドキュメントでは、`require('electron')` が返す実際のオブジェクト名をタイトルとして使用しなければなりません (`BrowserWindow`、`autoUpdater`、`session` など)。
 
-ページタイトルの下は、`>` で始まる一行の説明でなければなりません。
+ページタイトル直下に、モジュールの説明を 1 行で Markdown の引用文として (`>` 始まりで) 追加します。
 
-`session` を例にすると、このようになります。
+`session` モジュールを例にすると、以下のようにします。
 
 ```markdown
 # session
@@ -93,14 +98,14 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 * API のクラスやモジュールの一部の API クラスは `## Class: クラス名` の章の下に列挙しなければなりません。
 * 1 ページに複数のクラスがあってもかまいません。
-* Constructors は `###` 階層のタイトルで列挙されなければなりません。
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の下に列挙しなければなりません。
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の下にリストアップしなければなりません。
-* すべての戻り値があるメソッドの説明は、"戻り値 `[TYPE]` - 戻り値の説明" というように書き始めます。
-  * メソッドが `Object` を返す場合、その構造を記述します。コロンとそれに続く改行、そして関数の引数と同じスタイルでプロパティの順不同リストにします。
+* コンストラクタは `###` 階層のタイトルで列挙する必要があります。
+* [静的メソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の配下に列挙しなければなりません。
+* [インスタンスメソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の配下に列挙しなければなりません。
+* すべての戻り値があるメソッドの説明は、"Returns `[型]` - [戻り値の説明]" というように書き始めてください。
+  * メソッドが `Object` を返す場合、その構造を記述します。コロンとそれに続く改行、そして関数の引数と同じスタイルでプロパティの順序なしリストにします。
 * Instance Events は `### Instance Events` の章の下に列挙しなければなりません。
 * Instance Properties は `### Instance Properties` の章の下に列挙しなければなりません。
-  * Instance Properties は "A [プロパティの型] ..." で始まらなければなりません。
+  * インスタンスプロパティは "A [プロパティの型] ..." で始まる必要があります。
 
 `Session` と `Cookies` クラスを例にすると、以下のようにします。
 
@@ -136,7 +141,7 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 #### `cookies.get(filter, callback)`
 ```
 
-### メソッド
+### メソッドとその引数
 
 メソッドの章はつぎの形式でなければなません。
 
@@ -149,36 +154,41 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 ...
 ```
 
-タイトルが `###` 階層か `####` 階層かは、メソッドがモジュール内かクラス内かに依存しています。
+#### 見出しレベル
+
+見出しは、メソッドがモジュールに属するかクラスに属するかに応じて、`###` か `####` レベルになります。
+
+#### 関数シグネチャ
 
 モジュールでは、`objectName` がモジュールの名前です。 クラスでは、クラスのインスタンスの名前にするべきで、モジュールの名前と同じではいけません。
 
 例として、`session` モジュール下の `Session` クラスのメソッドは `ses` を `objectName` として使用しなければなりません。
 
-任意の引数は、引数とその後に別の引数が続く場合に必要なコンマを囲む角括弧 `[]` で示されます。
+任意の引数は、角括弧 `[]` で囲んで表記し、この任意の引数が他の引数に続く場合はカンマが必要です。
 
-```sh
+```markdown
 必須[, 任意]
 ```
 
-メソッドの下は、それぞれの引数に関する詳細情報です。 引数の型は次のいずれかの一般的な型によって表記されます。
+#### 引数の説明
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Electron の [`WebContent`](api/web-contents.md) のようなカスタム型
+各引数の詳細は、そのメソッドの下に順序なしリストで記載します。 引数の種類は、JavaScript のプリミティブ (例: `String`、`Promise`、`Object`)、Electron の [`Cookie`](api/structures/cookie.md) のようなカスタム API の構造体、またはワイルドカードである `any` のいずれかで表記してください。
+
+引数の型が `Array` の場合は、配列内の値の型に `[]` の省略形を使用してください (例えば、`any[]` や `String[]`)。
+
+引数が `Promise` 型の場合、Promise が何に解決するかを型引数にします (例えば、`Promise<void>` や `Promise<String>`)。
+
+引数が複数の型を取りうる場合は、`|` で型を区切ります。
+
+`Function` 型引数の説明は、それがどのように呼ばれるのかを明確にし、それに渡される引数の型を列挙しなければなりません。
+
+#### プラットフォーム固有の引数
 
 引数またはメソッドが特定のプラットフォーム固有のものである場合、そのプラットフォームはデータ型に続くスペース区切りのイタリック体リストを用いて示されます。 値は `macOS`、`Windows`、`Linux` にできます。
 
 ```markdown
 * `animate` Boolean (任意) _macOS_ _Windows_ - ものをアニメーションします。
 ```
-
-`Array` 型引数は、その下の説明で含められる要素を規定する必要があります。
-
-`Function` 型引数の説明は、それがどのように呼ばれるのかを明確にし、それに渡される引数の型を列挙しなければなりません。
 
 ### イベント
 
@@ -194,7 +204,7 @@ Returns:
 ...
 ```
 
-タイトルが `###` 階層か `####` 階層かは、イベントがモジュール内かクラス内かに依存しています。
+見出しは、イベントがモジュールに属するかクラスに属するかに応じて、`###` か `####` レベルになります。
 
 イベントの引数についてはメソッドと同じルールに従います。
 
@@ -208,8 +218,12 @@ Returns:
 ...
 ```
 
-タイトルが `###` 階層か `####` 階層かは、プロパティがモジュール内かクラス内かに依存しています。
+見出しは、プロパティがモジュールに属するかクラスに属するかに応じて、`###` か `####` レベルになります。
 
 ## ドキュメントの翻訳
 
 [electron/i18n](https://github.com/electron/i18n#readme) を参照してください
+
+[title-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case
+[sentence-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/sentence-case
+[markdownlint]: https://github.com/DavidAnson/markdownlint

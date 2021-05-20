@@ -12,7 +12,7 @@ __Menu application du dock :__
 
 ![Dock de macOS][2]
 
-To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
+Pour ajouter un fichier à des documents récents, vous devez utiliser l'API [app.addRecentDocument][addrecentdocument].
 
 ## Exemple
 

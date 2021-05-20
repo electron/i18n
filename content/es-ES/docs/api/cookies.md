@@ -48,7 +48,7 @@ Devuelve:
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
-* `cause` String - The cause of the change with one of the following values:
+* `cause` String - La causa del cambio con uno de los siguientes valores:
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
   * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
   * `expired` - La cookie se eliminó automáticamente debido a que expiró.

@@ -124,14 +124,14 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
 * Objet `options`
-  * `title` String (facultatif)
+  * `title` String (optional) - The dialog title. Ne peut pas être affiché sur certains environnements de bureau _Linux_.
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) _macOS_ - Affiche le champ de texte. `true` par défaut.
-  * `properties` String[] (optional)
+  * `properties` String[] (optionnelle)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
@@ -149,14 +149,14 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 
 * `browserWindow` [BrowserWindow](browser-window.md) (facultatif)
 * Objet `options`
-  * `title` String (facultatif)
+  * `title` String (optional) - The dialog title. Ne peut pas être affiché sur certains environnements de bureau _Linux_.
   * `defaultPath` String (facultatif) - Chemin d'accès absolu, le chemin d'accès absolu du fichier, ou le nom du fichier à utiliser par défaut.
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) _macOS_ - Affiche le champ de texte, par défaut à `true`.
-  * `properties` String[] (optional)
+  * `properties` String[] (optionnelle)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.

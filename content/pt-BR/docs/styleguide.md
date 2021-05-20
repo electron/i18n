@@ -5,10 +5,10 @@ Estas são as diretrizes para escrever a documentação do Electron.
 ## Títulos
 
 * Cada página deve ter um único `#` no nível de título na parte superior.
-* Capítulos na mesma página devem ter `##` títulos de nível.
-* Subcapítulos precisam de aumentar o número de `#` no título de acordo com sua profundidade de aninhamento.
-* Todas as palavras no títulos da página devem estar em letras maiúsculas, exceto conjunções como "de" e "e".
-* Somente a primeira palavra de um capítulo deve estar em letra maiúscula.
+* Chapters in the same page must have `##`-level headings.
+* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
+* The page's title must follow [APA title case][title-case].
+* All chapters must follow [APA sentence case][sentence-case].
 
 Usado o `Inicio Rápido` como exemplo:
 
@@ -42,11 +42,16 @@ Para referencias à API, existem exceções a está regra.
 
 ## Funcionalidades Markdown
 
+This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
+
+There are a few style guidelines that aren't covered by the linter rules:
+
+<!--TODO(erickzhao): make sure this matches with the lint:markdownlint task-->
 * Use `sh` ao invés de `cmd` nos blocos de código (devido ao destaque de sintaxe).
-* Linhas devem ser quebradas em 80 colunas.
+* Keep line lengths between 80 and 100 characters if possible for readability purposes.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](https://www.npmjs.com/package/standard-markdown).
-* For unordered lists, use asterisks instead of dashes
+* For unordered lists, use asterisks instead of dashes.
 
 ## Picking words
 
@@ -57,13 +62,13 @@ Para referencias à API, existem exceções a está regra.
 
 The following rules only apply to the documentation of APIs.
 
-### Título da página
+### Title and description
 
-Cada página deve usar o nome do objeto real retornado por `require('electron')` como título, tais como `BrowserWindow`, `AutoUpdater`, e `session`.
+Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
 
-Under the page title must be a one-line description starting with `>`.
+Directly under the page title, add a one-line description of the module as a markdown quote (beginning with `>`).
 
-Usando `session` como exemplo:
+Using the `session` module as an example:
 
 ```markdown
 # session
@@ -93,14 +98,14 @@ Using `autoUpdater` as an example:
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Métodos estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) devem ser listados sob um capítulo `### Métodos estáticos`.
+* Constructors must be listed with `###`-level headings.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* Todos os métodos que têm um valor de retorno devem começar sua descrição com "Retorna `[TYPE]` - Descrição do retorno"
+* All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
 * As Propriedades da Instância devem ser listadas abaixo de um `### Propriedades de Instância` capítulo.
-  * Propriedades da instância devem começar com "A [Tipo de Propriedade]..."
+  * Instance Properties must start with "A [Property Type] ..."
 
 Usando as classes `Session` e `Cookies` como exemplo:
 
@@ -136,7 +141,7 @@ Usando as classes `Session` e `Cookies` como exemplo:
 #### `cookies.get(filter, callback)`
 ```
 
-### Métodos
+### Methods and their arguments
 
 O capítulo de métodos deve estar no seguinte formato:
 
@@ -149,36 +154,41 @@ O capítulo de métodos deve estar no seguinte formato:
 ...
 ```
 
-O título pode ser `###` ou `###`-levels dependendo do caso de ser um método de um módulo ou de uma classe.
+#### Heading level
 
-Para módulos, o `objectName` é o nome do módulo. Para classes, deve ser o nome da instância da classe, e não deve ser o mesmo que o nome do módulo .
+The heading can be `###` or `####`-levels depending on whether the method belongs to a module or a class.
+
+#### Function signature
+
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Por exemplo, os métodos da classe `Session` sob o módulo `session` usa `ses` como `objectName`.
 
-Os argumentos opcionais são indicados por colchetes `[]` em torno do argumento opcional, bem como da vírgula necessária se este argumento opcional seguir outro argumento:
+Optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-```sh
+```markdown
 obrigatório[, opcional]
 ```
 
-Abaixo do método, há informações mais detalhadas sobre cada um dos argumentos. O tipo de argumento é anotado por qualquer um dos tipos comuns:
+#### Argument descriptions
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Número`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Booleano`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Ou um tipo customizado como o [`WebContent`](api/web-contents.md) do Electron
+More detailed information on each of the arguments is noted in an unordered list below the method. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
+
+If the argument is of type `Array`, use `[]` shorthand with the type of value inside the array (for example,`any[]` or `String[]`).
+
+If the argument is of type `Promise`, parametrize the type with what the promise resolves to (for example, `Promise<void>` or `Promise<String>`).
+
+If an argument can be of multiple types, separate the types with `|`.
+
+The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+
+#### Platform-specific functionality
 
 Se um argumento ou um método for exclusivo para determinadas plataformas, essas plataformas são denotadas usando uma lista itálica delimitada pelo espaço seguindo o tipo de dados. Os valores podem ser `macOS`, `Windows` ou `Linux`.
 
 ```markdown
 * 'animar' Boolean (opcional) _macOS_ _Windows_ - Animar a coisa.
 ```
-
-Os argumentos do tipo `Array` devem especificar quais elementos a array pode incluir na descrição abaixo.
-
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
 ### Eventos
 
@@ -194,7 +204,7 @@ Retorno:
 ...
 ```
 
-O título pode ser `###` ou `####`-níveis, dependendo se se trata de um evento de módulo ou classe.
+The heading can be `###` or `####`-levels depending on whether the event belongs to a module or a class.
 
 Os argumentos de um evento seguem as mesmas regras e métodos.
 
@@ -208,8 +218,12 @@ O capítulo de propriedades deve estar no seguinte formulário:
 ...
 ```
 
-O título pode ser `###` ou `####`-níveis, dependendo se é uma propriedade de um módulo ou uma classe.
+The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
 
-## Traduções da documentação
+## Documentation translations
 
 Veja [electron/i18n](https://github.com/electron/i18n#readme)
+
+[title-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/title-case
+[sentence-case]: https://apastyle.apa.org/style-grammar-guidelines/capitalization/sentence-case
+[markdownlint]: https://github.com/DavidAnson/markdownlint
