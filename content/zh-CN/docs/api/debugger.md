@@ -48,10 +48,10 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `event` Event
 * `method` String - 方法名.
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-* `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
+* `params` any - 远程调试协议中的 parameters 属性定义的事件参数。
+* `sessionId` String - 附加调试会话的唯一标识符， 与从 `debugger.sendCommand` 中发送的值相同。
 
-Emitted whenever the debugging target issues an instrumentation event.
+当正在调试的目标发出条件检测事件时触发。
 
 ### 实例方法
 
@@ -71,7 +71,7 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol][rdp].
+* `method` String - 方法名称，应该是 [远程调试协议][rdp]中定义的方法之一。
 * `commandParams` any (optional) - JSON object with request parameters.
 * `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
 
