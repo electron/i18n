@@ -331,14 +331,14 @@ Devuelve:
   * `reason` String - La razón por la que finalizo el proceso.  Posibles valores:
     * `clean-exit` -El proceso ha finalizado con un exit code de cero
     * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `killed` - El proceso a enviado un SIGTERM o se a finalizado externamente
     * `crashed` - El proceso crasheo
-    * `oom` - Process ran out of memory
+    * `oom` - El proceso se quedo sin memoria
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - las verificaciones de integridad de código de Windows fallaron
   * `exitCode` Integer - El código de salida del proceso, a menos que `reason` sea `launch-failed`, en cuyo caso `exitCode` será un código de error de ejecución especifico de la plataforma.
 
-Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
+Emitido cuando el renderer process desaparece inesperadamente.  Esto se debe comúnmente porque se crasheo o cerro.
 
 ### Evento: 'child-process-gone'
 
@@ -354,19 +354,19 @@ Devuelve:
     * `Plugin Pepper`
     * `Broker de Plugin de Pepper`
     * `Desconocido`
-  * `reason` String - The reason the child process is gone. Posibles valores:
+  * `reason` String - La razón por la que se cerro el proceso hijo. Posibles valores:
     * `clean-exit` -El proceso ha finalizado con un exit code de cero
     * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `killed` - El proceso a enviado un SIGTERM o se a finalizado externamente
     * `crashed` - El proceso crasheo
-    * `oom` - Process ran out of memory
+    * `oom` - El proceso se quedo sin memoria
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+    * `integrity-failure` - las verificaciones de integridad de código de Windows fallaron
+  * `exitCode` Number - El exit code del proceso (por ejemplo, estado de waitpid si esta en posix, de GetExitCodeProcess en Windows).
   * `serviceName` String (opcional) - El nombre no localizado del proceso.
-  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+  * `name` String (opcional) - El nombre del proceso. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
+Emitted when the child process unexpectedly disappears. Esto se debe comúnmente porque se crasheo o cerro. It does not include renderer processes.
 
 ### Evento: 'accessibility-support-changed' _macOS_ _Windows_
 
