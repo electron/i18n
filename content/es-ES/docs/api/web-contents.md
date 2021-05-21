@@ -175,11 +175,11 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 Devuelve:
 * `window` Navegador Windows
 * `details` Object
-    * `url` String - URL for the created window.
-    * `frameName` String - Name given to the created window in the `window.open()` call.
-    * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. Se fusionan en una precedencia creciente: opciones heredadas desde el padre, opciones analizadas de la cadena `features` de `window.open()`, y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
-    * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
-    * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+    * `url` String - URL de la ventana creada.
+    * `frameName` String - Nombre dado a la ventana creada en la llamada de `window.open()`.
+    * `options` BrowserWindowConstructorOptions - Las opciones utilizadas para crear el BrowserWindow. Se fusionan en una precedencia creciente: opciones heredadas desde el padre, opciones analizadas de la cadena `features` de `window.open()`, y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Las opciones no reconocidas no están filtradas.
+    * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) _Deprecated_
+    * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
     * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. Si no hay datos para enviar, el valor será `null`. Only defined when the window is being created by a form that set `target=_blank`.
     * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
@@ -213,7 +213,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
+Emitido cuando cualquier frame (incluyendo el principal) comienza la navegación. `isInPlace` will be `true` for in-page navigations.
 
 #### Evento: 'will-redirect'
 
