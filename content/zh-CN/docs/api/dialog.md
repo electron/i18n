@@ -254,12 +254,12 @@ dialog.showOpenDialog(mainWindow, {
 
 `showOpenDialog`、 `showOpenDialogSync`、 `showSaveDialog`和 `showSaveDialogSync` 将返回一个 `bookmarks` 数组。
 
-| Build Type | securityScopedBookmarks boolean | 返回类型  | 返回值                      |
-| ---------- | ------------------------------- |:-----:| ------------------------ |
-| macOS mas  | True                            |  成功   | `['LONGBOOKMARKSTRING']` |
-| macOS mas  | True                            | Error | `['']` (空字符串数组)          |
-| macOS mas  | False                           |  NA   | `[]` (空数组)               |
-| non mas    | any                             |  NA   | `[]` (空数组)               |
+| 构建类型      | securityScopedBookmarks boolean | 返回类型  | 返回值                      |
+| --------- | ------------------------------- |:-----:| ------------------------ |
+| macOS mas | True                            |  成功   | `['LONGBOOKMARKSTRING']` |
+| macOS mas | True                            | Error | `['']` (空字符串数组)          |
+| macOS mas | False                           |  NA   | `[]` (空数组)               |
+| non mas   | any                             |  NA   | `[]` (空数组)               |
 
 ## 工作表
 
