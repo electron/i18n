@@ -92,10 +92,10 @@ Le rendu de contenu non fiable dans Electron est encore un territoire quelque pe
 
 1. We do not have the dedicated resources or expertise that Chromium has to apply to the security of its product. We do our best to make use of what we have, to inherit everything we can from Chromium, and to respond quickly to security issues, but Electron cannot be as secure as Chromium without the resources that Chromium is able to dedicate.
 2. Some security features in Chrome (such as Safe Browsing and Certificate Transparency) require a centralized authority and dedicated servers, both of which run counter to the goals of the Electron project. As such, we disable those features in Electron, at the cost of the associated security they would otherwise bring.
-3. There is only one Chromium, whereas there are many thousands of apps built on Electron, all of which behave slightly differently. Accounting for those differences can yield a huge possibility space, and make it challenging to ensure the security of the platform in unusual use cases.
+3. Il n'y a qu'un seul Chromium, alors qu'il y a plusieurs milliers d'applications créées sur Electron, qui se comportent tous légèrement différemment. Accounting for those differences can yield a huge possibility space, and make it challenging to ensure the security of the platform in unusual use cases.
 4. We can't push security updates to users directly, so we rely on app vendors to upgrade the version of Electron underlying their app in order for security updates to reach users.
 
-While we make our best effort to backport Chromium security fixes to older versions of Electron, we do not make a guarantee that every fix will be backported. Votre meilleure chance de rester en sécurité est d'être sur la dernière version stable d'Electron.
+Alors que nous faisons de notre mieux pour rétroporter les correctifs de sécurité Chromium vers d'anciennes versions d'Electron, nous ne garantissons pas que chaque correctif sera rétroporté. Votre meilleure chance de rester en sécurité est d'être sur la dernière version stable d'Electron.
 
 [sandbox]: https://chromium.googlesource.com/chromium/src/+/master/docs/design/sandbox.md
 [issue-28466]: https://github.com/electron/electron/issues/28466

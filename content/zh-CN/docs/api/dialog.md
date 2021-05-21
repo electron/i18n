@@ -124,7 +124,7 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` 对象
-  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
+  * `title` String (可选) - 对话框标题。 无法在一些 _Linux_ 桌面环境中显示。
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
@@ -149,7 +149,7 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` 对象
-  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
+  * `title` String (可选) - 对话框标题。 无法在一些 _Linux_ 桌面环境中显示。
   * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)

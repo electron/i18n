@@ -28,7 +28,7 @@
 
 使用 `Alt`按键替代 `Option`按键。 使用 Alt 键代替Option. `Option` 键只在 macOS 系统上存在, 而 `Alt` 键在任何系统上都有效.
 
-The `Super` (or `Meta`) key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super` (或 `Meta`) 键对应Windows 和 Linux 系统上的 `Windows` 键，但在 macOS 里为 `Cmd` 键.
 
 ## 可用的功能键
 

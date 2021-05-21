@@ -1,6 +1,6 @@
 ## 类: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> 备用的 Chrome 远程调试接口。
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -40,7 +40,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `event` Event
 * `reason` String - 分离调试器的原因
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+调试会话终止时激活 发生在对应的` webContents ` 关闭或者调用 devtools 时,。
 
 #### Event: 'message'
 

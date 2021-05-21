@@ -28,7 +28,7 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 
 `Option` ではなく `Alt` を使用してください。 `Option` キーは macOS にしか存在しませんが、`Alt` キーは全てのプラットフォームで利用可能です。
 
-The `Super` (or `Meta`) key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super` (または `Meta`) キーは、WindowsとLinuxの場合は `Windows` キー、macOSの場合は `Cmd` にマッピングされます。
 
 ## 利用可能な修飾キー
 

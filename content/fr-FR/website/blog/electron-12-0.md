@@ -68,7 +68,7 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 * `extensions` API changes:
     * Added support for some `chrome.management` APIs. [#25098](https://github.com/electron/electron/pull/25098)
 * `MenuItem` API changes:
-    * Added support for showing macOS share menu. [#25629](https://github.com/electron/electron/pull/25629)
+    * Ajout de la prise en charge de l'affichage du menu de partage macOS. [#25629](https://github.com/electron/electron/pull/25629)
 * `net` API changes:
     * Added a new `credentials` option for `net.request()`. [#25284](https://github.com/electron/electron/pull/25284)
     * Added `net.online` for detecting whether there is currently internet connection. [#21004](https://github.com/electron/electron/pull/21004)
