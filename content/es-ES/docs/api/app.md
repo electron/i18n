@@ -30,7 +30,7 @@ Devuelve:
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Se emite una vez, cuando Electron ha terminado de iniciarse. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
+Se emite una vez, cuando Electron ha terminado de iniciarse. En macOS `launchInfo` almacena el `userInfo` de `NSUserNotification` o la información de [`UNNotificationResponse`](structures/notification-response.md) que fue usado para abrir la aplicación, si este fue lanzado desde el Centro de Notificaciones. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
 
 ### Evento: 'window-all-closed'
 
@@ -328,11 +328,11 @@ Devuelve:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Posibles valores:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
+  * `reason` String - La razón por la que finalizo el proceso.  Posibles valores:
+    * `clean-exit` -El proceso ha finalizado con un exit code de cero
+    * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
+    * `crashed` - El proceso crasheo
     * `oom` - Process ran out of memory
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
@@ -355,10 +355,10 @@ Devuelve:
     * `Broker de Plugin de Pepper`
     * `Desconocido`
   * `reason` String - The reason the child process is gone. Posibles valores:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
+    * `clean-exit` -El proceso ha finalizado con un exit code de cero
+    * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
+    * `crashed` - El proceso crasheo
     * `oom` - Process ran out of memory
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
