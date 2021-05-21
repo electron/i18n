@@ -5,10 +5,10 @@ Estas son las directrices para escribir documentación de Electron.
 ## Encabezados
 
 * Cada página debe tener un solo título de nivel `#` al principio.
-* Chapters in the same page must have `##`-level headings.
-* Sub-chapters need to increase the number of `#` in the heading according to their nesting depth.
-* The page's title must follow [APA title case][title-case].
-* All chapters must follow [APA sentence case][sentence-case].
+* Los capítulos en la misma pagina deben tener títulos de nivel `##`.
+* Los sub-capítulos necesitan incrementar el numero de `#` en el encabezado de acuerdo al su profundidad de anidamiento.
+* El titulo de la pagina debe seguir el [Estilo APA][title-case].
+* Todos los capítulos deben seguir el [Estilo APA ][sentence-case].
 
 Usando `Quick Start` como ejemplo:
 
@@ -62,7 +62,7 @@ There are a few style guidelines that aren't covered by the linter rules:
 
 Las siguientes reglas sólo se aplican a la documentación de APIs.
 
-### Title and description
+### Titulo y descripción
 
 Each module's API doc must use the actual object name returned by `require('electron')` as its title (such as `BrowserWindow`, `autoUpdater`, and `session`).
 
