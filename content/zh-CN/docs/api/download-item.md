@@ -58,7 +58,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String - 可以是 `completed`, `cancelled` 或 `interrupted`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+当下载处于终止态时触发。 包括下载完成，取消下载 (通过 `downloadItem.cancel()`)，以及无法恢复的中断下载。
 
 状态可以是以下之一：
 
@@ -74,21 +74,21 @@ Emitted when the download is in a terminal state. This includes a completed down
 
 * `path` String - 设置下载项目的保存文件路径。
 
-该API仅能在`will-download` 方法的回调中使用。 If `path` doesn't exist, Electron will try to make the directory recursively. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+该API仅能在`will-download` 方法的回调中使用。 如果 `path` 不存在，Electron 将尝试递归创建目录。 如果用户没有通过这个API设置保存路径，Electron 将使用默认方式决定保存路径；通常弹出保存对话框。
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+返回`String` - 下载项的保存路径。 该值为通过 `downloadItem.setSavePath(path)` 设置的路径或通过显示的保存对话框选择的路径。
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
-* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+* `options` SaveDialogOptions - 设置保存文件对话框选项。 这个对象与 [`dialog.showSaveDialog()`](dialog.md) 的 `options` 参数有相同属性。
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. 该API仅能在`will-download` 方法的回调中使用。
+此 API 允许用户为下载项默认打开的保存对话框设置自定义选项。 该API仅能在`will-download` 方法的回调中使用。
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+返回 `SaveDialogOptions` - 返回之前通过 `downloadItem.setSaveDialogOptions(options)` 设置的对象。
 
 #### `downloadItem.pause()`
 
@@ -102,7 +102,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 恢复已暂停的下载。
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
+**注意：** 为了支持断点续传，必须要从支持范围请求的服务器下载，并且提供`Last-Modified` 和 `ETag`的头部值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
 #### `downloadItem.canResume()`
 
@@ -114,7 +114,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+返回`String` - 下载项的源URL。
 
 #### `downloadItem.getMimeType()`
 
@@ -128,7 +128,7 @@ Returns `String` - The origin URL where the item is downloaded from.
 
 返回`String` - 下载项目的文件名。
 
-**Note:** The file name is not always the same as the actual one saved in local disk. 如果用户在提示的下载保存对话框中更改文件名称，保存的文件的实际名称将会不同。
+**注意：** 文件名并不总是和实际保存到本地磁盘中的文件名相同。 如果用户在提示的下载保存对话框中更改文件名称，保存的文件的实际名称将会不同。
 
 #### `downloadItem.getTotalBytes()`
 
@@ -146,13 +146,13 @@ Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+返回 `String` - 当前状态。 可以是 `progressing`、 `completed`、 `cancelled` 或 `interrupted`。
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**注意：** 以下方法尤其对于当会话重启后恢复 `取消了的` 项目非常有用。
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+返回 `String[]` - 项目的完整URL链，包括任何重定向。
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -170,8 +170,8 @@ Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.savePath`
 
-A `String` property that determines the save file path of the download item.
+一个 `String` 属性，决定了下载项的保存文件路径。
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+该属性仅在会话的 `will-download` 回调函数中可用。 如果用户未通过属性设置保存路径，Electron将使用默认方式决定保存路径；通常为弹出保存对话框。
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
