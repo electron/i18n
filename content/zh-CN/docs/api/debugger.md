@@ -72,8 +72,8 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 #### `debugger.sendCommand(method[, commandParams, sessionId])`
 
 * `method` String - 方法名称，应该是 [远程调试协议][rdp]中定义的方法之一。
-* `commandParams` any (optional) - JSON object with request parameters.
-* `sessionId` String (optional) - send command to the target with associated debugging session id. The initial value can be obtained by sending [Target.attachToTarget][attachToTarget] message.
+* `commandParams` any (可选) - 具有请求参数的 JSON 对象。
+* `sessionId` String (可选) - 发送带有调试会话id的命令给目标。 初始值可以通过发送 [Target.attachToTarget][attachToTarget] 消息来获得。
 
 返回 `Promise<any>` - 一个 promise，远程调试协议中的命令描述的“returns”属性定义的响应，或者显示命令失败的错误消息。
 
