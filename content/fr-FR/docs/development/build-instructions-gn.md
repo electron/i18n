@@ -40,7 +40,7 @@ $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> Au lieu de `https://github.com/electron/electron`, vous pouvez utiliser votre propre fork ici (quelque chose comme `https://github.com/<username>/electron`).
 
 ### A note on pulling/pushing
 
