@@ -336,11 +336,11 @@ Devuelve:
 
 * `event` Event
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Posibles valores:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
+  * `reason` String - La razón por la que finalizo el proceso.  Posibles valores:
+    * `clean-exit` -El proceso ha finalizado con un exit code de cero
+    * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
     * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
+    * `crashed` - El proceso crasheo
     * `oom` - Process ran out of memory
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
     * `integrity-failure` - Windows code integrity checks failed
