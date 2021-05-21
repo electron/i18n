@@ -28,7 +28,7 @@ En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se util
 
 Usa `Alt` en lugar de `Opción`. La clave `Opción` sólo existe en macOS, mientras que la clave `Alt` está disponible en todas las plataformas.
 
-The `Super` (or `Meta`) key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+La clave `Super` (o `Meta`) esta asignada a la tecla `Windows` en Windows y linux, `Cmd` en macOS.
 
 ## Modificadores disponibles
 
