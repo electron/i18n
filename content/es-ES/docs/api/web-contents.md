@@ -339,14 +339,14 @@ Devuelve:
   * `reason` String - La razón por la que finalizo el proceso.  Posibles valores:
     * `clean-exit` -El proceso ha finalizado con un exit code de cero
     * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
+    * `killed` - El proceso a enviado un SIGTERM o se a finalizado externamente
     * `crashed` - El proceso crasheo
-    * `oom` - Process ran out of memory
+    * `oom` - El proceso se quedo sin memoria
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - las verificaciones de integridad de código de Windows fallaron
   * `exitCode` Integer - El código de salida del proceso, a menos que `reason` sea `launch-failed`, en cuyo caso `exitCode` será un código de error de ejecución especifico de la plataforma.
 
-Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
+Emitido cuando el renderer process desaparece inesperadamente.  Esto se debe comúnmente porque se crasheo o cerro.
 
 #### Evento: "unresponsive"
 
