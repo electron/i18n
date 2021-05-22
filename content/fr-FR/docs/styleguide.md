@@ -170,9 +170,9 @@ Optional arguments are notated by square brackets `[]` surrounding the optional 
 required[, optional]
 ```
 
-#### Argument descriptions
+#### Descriptions des arguments
 
-More detailed information on each of the arguments is noted in an unordered list below the method. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
+Des informations plus détaillées sur chacun des arguments sont notées dans une liste non ordonnée en dessous de la méthode. The type of argument is notated by either JavaScript primitives (e.g. `String`, `Promise`, or `Object`), a custom API structure like Electron's [`Cookie`](api/structures/cookie.md), or the wildcard `any`.
 
 If the argument is of type `Array`, use `[]` shorthand with the type of value inside the array (for example,`any[]` or `String[]`).
 

@@ -28,7 +28,7 @@ Electron 的生态系统有利于配置和自由，所以有多种方法让您�
 
 ## `electron-forge`
 
-如果您正在使用 Electron 的最喜欢的构建工具，让您的应用程序签名 并经过公证需要对您的配置进行一些添加。 [Forge](https://electronforge.io) 是官方的 Electron 工具的 集合，使用 [`电子包装器`][] [`electron-osx-signe`][] [`electronon-recentarization`][] under the lature.
+如果您正在使用 Electron 的最喜欢的构建工具，让您的应用程序签名 并经过公证需要对您的配置进行一些添加。 [Forge](https://electronforge.io) 是官方的 Electron 工具的 集合，在hood下使用 [`electron-packager`][] [`electron-osx-sign`][] [`electron-notarize`][] 。
 
 让我们看看一个所有必需字段的示例配置。 并不是所有都是必需的：工具非常聪明足以自动找到合适的 `identity`, 例如，但我们建议你明白无误。
 
@@ -171,10 +171,11 @@ See the [Mac App Store Guide][].
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
 [`electron-forge`]: https://github.com/electron-userland/electron-forge
+[`electron-osx-sign`]: https://github.com/electron-userland/electron-osx-sign
 [`electron-osx-signe`]: https://github.com/electron-userland/electron-osx-sign
-[`电子包装器`]: https://github.com/electron/electron-packager
+[`electron-packager`]: https://github.com/electron/electron-packager
 [`electron-packer`]: https://github.com/electron/electron-packager
-[`electronon-recentarization`]: https://github.com/electron/electron-notarize
+[`electron-notarize`]: https://github.com/electron/electron-notarize
 [`electron-公证`]: https://github.com/electron/electron-notarize
 [`electron-winstaller`]: https://github.com/electron/windows-installer
 [Xcode]: https://developer.apple.com/xcode

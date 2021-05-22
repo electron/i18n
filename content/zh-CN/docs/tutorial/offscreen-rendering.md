@@ -2,27 +2,27 @@
 
 ## 概览
 
-Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap, so it can be rendered anywhere, for example, on texture in a 3D scene. The offscreen rendering in Electron uses a similar approach to that of the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+离屏渲染允许你以位图的方式来获取 `BrowserWindow` 中的内容，所以它可以在任何地方被渲染，例如在3D场景中的纹理。 Electron中的离屏渲染使用与 [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) 项目类似的方法。
 
 *注意*：
 
-* There are two rendering modes that can be used (see the section below) and only the dirty area is passed to the `paint` event to be more efficient.
+* 有两种渲染模式可以使用（见下），只有未渲染区域传递到 `绘图` 事件才能提高效率。
 * 您可以停止/继续渲染并设置帧速率。
-* The maximum frame rate is 240 because greater values bring only performance losses with no benefits.
-* When nothing is happening on a webpage, no frames are generated.
-* An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+* 最高帧速率为 240，因为更高的值只会带来性能上的损失而没有任何收益。
+* 当网页上没有发生任何情况时，不会生成帧。
+* 屏幕窗口始终创建为 [无边框窗口](../api/frameless-window.md).
 
 ### 渲染模式
 
 #### GPU加速
 
-GPU加速渲染意味着使用GPU用于合成。 Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. 这种模式的优点是支持WebGL和3D CSS动画.
+GPU加速渲染意味着使用GPU用于合成。 这也就意味着帧必须从GPU拷贝过来，从而需求更多的资源，因此这会比软件输出设备更慢。 这种模式的优点是支持WebGL和3D CSS动画.
 
 #### 软件输出设备
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
+此模式使用软件输出设备在 CPU 中渲染，因此帧 生成的速度要快得多。 因此，此模式优先于 GPU 加速模式。
 
-To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
+要启用此模式，必须通过调用 [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API 来禁用GPU加速。
 
 ## 示例
 

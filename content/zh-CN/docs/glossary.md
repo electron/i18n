@@ -26,7 +26,7 @@ C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部�
 
 ### IPC
 
-IPC 代表进程间交流。 Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
+IPC 代表进程间交流。 Electron 使用 IPC 来在[main(主进程)][]和[renderer(渲染进程)][]之间传递序列化后的 JSON 信息。
 
 ### libchromiumcontent
 
@@ -119,9 +119,8 @@ V8的版本号总是与 Google Chrome 的版本号相对应。 Chrome 59 包括V
 [electron-builder ]: https://github.com/electron-userland/electron-builder
 [electron-builder]: https://github.com/electron-userland/electron-builder
 [Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
-[main]: #main-process
 [main(主进程)]: #main-process
-[renderer]: #renderer-process
+[renderer(渲染进程)]: #renderer-process
 [rendere(渲染进程)]: #renderer-process
 [Using Native Node Modules]: tutorial/using-native-node-modules.md
 [ V8 ]: #v8

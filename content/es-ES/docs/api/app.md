@@ -30,7 +30,7 @@ Devuelve:
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Se emite una vez, cuando Electron ha terminado de iniciarse. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
+Se emite una vez, cuando Electron ha terminado de iniciarse. En macOS `launchInfo` almacena el `userInfo` de `NSUserNotification` o la información de [`UNNotificationResponse`](structures/notification-response.md) que fue usado para abrir la aplicación, si este fue lanzado desde el Centro de Notificaciones. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
 
 ### Evento: 'window-all-closed'
 
@@ -328,17 +328,17 @@ Devuelve:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
-  * `reason` String - The reason the render process is gone.  Posibles valores:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+  * `reason` String - La razón por la que finalizo el proceso.  Posibles valores:
+    * `clean-exit` -El proceso ha finalizado con un exit code de cero
+    * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
+    * `killed` - El proceso a enviado un SIGTERM o se a finalizado externamente
+    * `crashed` - El proceso crasheo
+    * `oom` - El proceso se quedo sin memoria
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` - Windows code integrity checks failed
+    * `integrity-failure` - las verificaciones de integridad de código de Windows fallaron
   * `exitCode` Integer - El código de salida del proceso, a menos que `reason` sea `launch-failed`, en cuyo caso `exitCode` será un código de error de ejecución especifico de la plataforma.
 
-Emitido cuando el renderer process desaparece inesperadamente.  This is normally because it was crashed or killed.
+Emitido cuando el renderer process desaparece inesperadamente.  Esto se debe comúnmente porque se crasheo o cerro.
 
 ### Evento: 'child-process-gone'
 
@@ -354,19 +354,19 @@ Devuelve:
     * `Plugin Pepper`
     * `Broker de Plugin de Pepper`
     * `Desconocido`
-  * `reason` String - The reason the child process is gone. Posibles valores:
-    * `clean-exit` - Process exited with an exit code of zero
-    * `abnormal-exit` - Process exited with a non-zero exit code
-    * `killed` - Process was sent a SIGTERM or otherwise killed externally
-    * `crashed` - Process crashed
-    * `oom` - Process ran out of memory
+  * `reason` String - La razón por la que se cerro el proceso hijo. Posibles valores:
+    * `clean-exit` -El proceso ha finalizado con un exit code de cero
+    * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
+    * `killed` - El proceso a enviado un SIGTERM o se a finalizado externamente
+    * `crashed` - El proceso crasheo
+    * `oom` - El proceso se quedo sin memoria
     * `launch-failed` - El proceso nunca se ha ejecutado correctamente
-    * `integrity-failure` - Windows code integrity checks failed
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+    * `integrity-failure` - las verificaciones de integridad de código de Windows fallaron
+  * `exitCode` Number - El exit code del proceso (por ejemplo, estado de waitpid si esta en posix, de GetExitCodeProcess en Windows).
   * `serviceName` String (opcional) - El nombre no localizado del proceso.
-  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+  * `name` String (opcional) - El nombre del proceso. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. This is normally because it was crashed or killed. It does not include renderer processes.
+Emitted when the child process unexpectedly disappears. Esto se debe comúnmente porque se crasheo o cerro. It does not include renderer processes.
 
 ### Evento: 'accessibility-support-changed' _macOS_ _Windows_
 

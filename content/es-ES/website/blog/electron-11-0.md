@@ -5,11 +5,11 @@ author:
 date: '2020-11-17'
 ---
 
-¡Electron 11.0.0 ha sido liberado! It includes upgrades to Chromium `87`, V8 `8.7`, and Node.js `12.18.3`. We've added support for Apple silicon, and general improvements. ¡Lea a continuación para más detalles!
+¡Electron 11.0.0 ha sido liberado! Incluye actualizaciones a Chromium `87`, V8 `8.7`, y Node.js `12.18.3`. Añadimos soporte para Apple silicon, y mejoras generales. ¡Lea a continuación para más detalles!
 
 ---
 
-El equipo de Electron esta emocionado de anunciar el lanzamiento de Electron 11.0.0! Puedes instalarlo con npm a través de `npm install electron@latest` o descargarlo desde nuestra [página web de lanzamientos](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new support for Apple's M1 hardware.
+El equipo de Electron esta emocionado de anunciar el lanzamiento de Electron 11.0.0! Puedes instalarlo con npm a través de `npm install electron@latest` o descargarlo desde nuestra [página web de lanzamientos](https://electronjs.org/releases/stable). La versión está llena de actualizaciones, correcciones y nuevo soporte para el hardware de Apple's M1.
 
 ¡No podemos esperar a ver lo que construyes con ellos! ¡Sigue leyendo para obtener más detalles sobre esta versión, y por favor comparte tus comentarios!
 
@@ -49,7 +49,7 @@ Puede encontrar más información sobre estos y futuros cambios en la página [C
 
 ## Fin de soporte para 8.x.y
 
-Electron 8.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Se anima a los desarrolladores y aplicaciones a actualizar a una nueva versión de Electron.
+Electron 8.x.y ha alcanzado el fin de soporte según la [política de soporte ](https://electronjs.org/docs/tutorial/support#supported-versions) del proyecto. Se anima a los desarrolladores y aplicaciones a actualizar a una nueva versión de Electron.
 
 ## Lo siguiente
 

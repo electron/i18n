@@ -12,7 +12,7 @@ Electron带有一个混合的沙盒环境，意味着沙盒化进程可以和有
 
 从历史上看，这种混合沙盒方法之所以成立，是因为在渲染器中提供Node.js对于应用开发人员来说是一个非常强大的工具。 不幸的是，这一特性同时也是一个巨大的安全漏洞。
 
-从理论上讲，对于只显示可信代码的桌面应用程序来说，未沙盒化的渲染器不是问题，但它们使Electron在显示不受信任的 Web 内容时的安全性低于Chromium。 然而，即使据称可信的代码也可能是危险的 — 在远程加载的网站上有无数恶意行为者可以使用的攻击途径。稍微举几个例子：从跨站脚本到内容注入再到中间人攻击。 因此，我们建议在大多数非常谨慎的情况下启用渲染器沙盒化。
+从理论上讲，对于只显示可信代码的桌面应用程序来说，未沙盒化的渲染器不是问题，但它们使 Electron 在显示不受信任的 Web 内容时的安全性低于 Chromium。 然而，即使据称可信的代码也可能是危险的 — 在远程加载的网站上有无数恶意行为者可以使用的攻击途径。稍微举几个例子：从跨站脚本到内容注入再到中间人攻击。 因此，我们建议在大多数非常谨慎的情况下启用渲染器沙盒化。
 
 <!--TODO: update this guide when #28466 is either solved or closed -->
 Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. See [#28466][issue-28466]) for details.
@@ -48,7 +48,7 @@ Because the `require` function is a polyfill with limited functionality, you wil
 
 Note that because the environment presented to the `preload` script is substantially more privileged than that of a sandboxed renderer, it is still possible to leak privileged APIs to untrusted code running in the renderer process unless [`contextIsolation`][contextIsolation] is enabled.
 
-## Configuring the sandbox
+## 配置沙盒
 
 ### Enabling the sandbox for a single process
 
@@ -66,7 +66,7 @@ app.whenReady().then(() => {
 })
 ```
 
-### Enabling the sandbox globally
+### 全局启用沙盒
 
 If you want to force sandboxing for all renderers, you can also use the [`app.enableSandbox`][enable-sandbox] API. Note that this API has to be called before the app's `ready` event.
 
@@ -80,7 +80,7 @@ app.whenReady().then(() => {
 })
 ```
 
-### Disabling Chromium's sandbox (testing only)
+### 禁用 Chromium 的沙盒（仅测试）
 
 You can also disable Chromium's sandbox entirely with the [`--no-sandbox`][no-sandbox] CLI flag, which will disable the sandbox for all processes (including utility processes). We highly recommend that you only use this flag for testing purposes, and **never** in production.
 
