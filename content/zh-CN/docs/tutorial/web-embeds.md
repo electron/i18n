@@ -16,7 +16,7 @@
 
 
 
-> 重要提示： [我们不建议您使用 WebView](../api/webview-tag.md#warning)， 因为这个标签会发生剧烈的建筑变化，可能会影响您应用程序的稳定性 。 考虑切换到其他选择，如 `iframe` 和Electron的 `BrowserView`，或避免嵌入式内容 设计的架构。
+> 重要提示： [我们不建议您使用 WebView](../api/webview-tag.md#warning)，因为这个标签会发生剧烈的结构变化，可能会影响您应用程序的稳定性。 考虑切换到其他选择，如 `iframe` 和Electron的 `BrowserView`，或避免嵌入式内容 设计的架构。
 
 [WebViews](../api/webview-tag.md)基于 Chromium 的 WebView，不被 Electron 明确支持。 我们不能保证WebView API 在未来版本的 Electron 中仍然可用。 这就是为什么如果您想要使用`<webview>`标签，您需要在`BrowserWindow` 的 `webPreferences` 中设置 `webviewTag` 为 `true`。
 
