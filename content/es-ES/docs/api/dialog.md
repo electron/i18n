@@ -124,7 +124,7 @@ dialog.showOpenDialog(mainWindow, {
 
 * `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `options` Object
-  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
+  * `title` Cadena (opcional) - Título del diálogo. No puede mostrarse en algunos entornos de escritorio de _Linux_.
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
@@ -149,7 +149,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 
 * `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `options` Object
-  * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
+  * `title` Cadena (opcional) - Título del diálogo. No puede mostrarse en algunos entornos de escritorio de _Linux_.
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
