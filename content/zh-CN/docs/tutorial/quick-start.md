@@ -2,9 +2,9 @@
 
 ## 快速入门
 
-Electron 是一个能让你使用 JavaScript, HTML 和 CSS 来创建桌面应用程序的框架。 这些应用程序可以打包后在 macOS、Windows 和 Linux 上直接运行，或者通过 Mac App Store 或微软商店进行分发。
+电子是一个框架，使您能够创建带有 JavaScript、HTML 和 CSS 的桌面应用程序。 然后，这些应用程序可以打包到 macOS、Windows 或 Linux 上直接运行，或通过 Mac 应用商店或微软商店分发。
 
-通常，你可以使用操作系统 (OS) 特定的本地应用程序框架来创建一个桌面应用程序。 Electron 可以使用你了解的技术来编写应用程序。
+Por lo general, usted crea una aplicación de escritorio para un sistema operativo (SO) usando los frameworks específicos de aplicaciones nativas de cada sistema operativo. Electron では、既知の技術で一度書くだけでアプリケーションを作成できます。
 
 ### 前提条件
 
@@ -88,7 +88,7 @@ app.on('window-all-closed', () => {
 
 1. 第 1 行：为了管理应用程序的生命周期事件以及创建和控制浏览器窗口，您从 `electron` 包导入了 `app` 和 `BrowserWindow` 模块 。
 2. 第2行: 导入 `path` 包，该包为操作文件路径提供了实用的功能。
-3. 第 4 行：在此之后，你定义一个方法用来创建一个带有预加载脚本的[新的浏览器窗口](../api/browser-window.md#new-browserwindowoptions)，并加载`index.html`文件进入该窗口 (第 13 行，我们将在后面探讨这个文件)。
+3. Строка 4: После этого вы определяете функцию, которая создает [новое окно браузера](../api/browser-window.md#new-browserwindowoptions) со сценарием предварительной загрузки, загружает файл `index.html` в это окно (строка 13, мы обсудим файл позже).
 4. 第 16 行：你通过调用 ` createWindow `方法，在 electron app 第一次[被初始化](../api/app.md#appwhenready)时创建了一个新的窗口。
 5. 第 18 行：您添加一个新的侦听器，只有当应用程序激活后没有可见窗口时，才能创建新的浏览器窗口。 例如，在首次启动应用程序后或重启运行中的应用程序。
 6. 第 25 行：您添加了一个新的侦听器，当应用程序不再有任何打开窗口时试图退出。 由于操作系统的 [窗口管理行为](https://support.apple.com/en-ca/guide/mac-help/mchlp2469/mac) ，此监听器在 macOS 上是禁止操作的。
@@ -97,7 +97,7 @@ app.on('window-all-closed', () => {
 
 这是应用程序初始化后您想要显示的页面。 此网页代表渲染过程。 您可以创建多个浏览器窗口，每个窗口都使用自己的独立渲染进程。 你可以选择性地从您的预加载脚本中公开额外的 Node.js API 来授予对它们访问权限。
 
-`index.html` 页面如下所示：
+A página `index.html` parece com a seguinte:
 
 ```html fiddle='docs/fiddles/quick-start'
 <!DOCTYPE html>
