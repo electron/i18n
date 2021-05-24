@@ -64,7 +64,7 @@ Electron アプリケーションを起動した後、定義されたキーの�
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/web-apis|focus=renderer.js'
 function handleKeyPress(event) {
-  // You can put code here to handle the keypress.
+  // キー押下のハンドリングはここにコードを書くとできます。
   document.getElementById("last-keypress").innerText = event.key;
   console.log(`You pressed ${event.key}`);
 }
@@ -72,7 +72,7 @@ function handleKeyPress(event) {
 window.addEventListener('keyup', handleKeyPress, true);
 ```
 
-> Note:  the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+> 注意: 第 3 引数の `true` は、このリスナーが他のリスナーよりも必ず優先してキー押下を受け取ることを示しています。そのため、このリスナー内で `stopPropagation()` を呼び出さないでください。
 
 #### メインプロセス内でのイベントの受け取り
 
