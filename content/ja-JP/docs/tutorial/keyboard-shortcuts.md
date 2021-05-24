@@ -62,17 +62,21 @@ Electron アプリケーションを起動した後、定義されたキーの�
 
 [BrowserWindow][] 内でキーボードショートカットを扱いたい場合は、[addEventListener() API][addEventListener-api] を使用して `keyup` と `keydown` の [DOM イベント][dom-events] をレンダラープロセス内でリッスンすることでできます。
 
-```js
-window.addEventListener('keyup', doSomething, true)
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/web-apis|focus=renderer.js'
+function handleKeyPress(event) {
+  // You can put code here to handle the keypress.
+  document.getElementById("last-keypress").innerText = event.key;
+  console.log(`You pressed ${event.key}`);
+}
+
+window.addEventListener('keyup', handleKeyPress, true);
 ```
 
-第 3 引数の `true` に注意してください。これにより、このリスナーが他のリスナーより常に先にキー押下を受け取ります。そのため、ここで `stopPropagation()` を呼び出さないでください。
+> Note:  the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
 
 #### メインプロセス内でのイベントの受け取り
 
 [`before-input-event`](../api/web-contents.md#event-before-input-event) イベントは `keydown` イベントと `keyup` イベントをディスパッチするより前に発生します。 メニューに表示されないカスタムショートカットをキャッチして処理するため使用することができます。
-
-##### サンプル
 
 [クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
 
@@ -80,7 +84,7 @@ window.addEventListener('keyup', doSomething, true)
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {
-  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+  const win = new BrowserWindow({ width: 800, height: 600 })
 
   win.loadFile('index.html')
   win.webContents.on('before-input-event', (event, input) => {
