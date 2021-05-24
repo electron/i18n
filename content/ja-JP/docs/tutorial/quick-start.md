@@ -74,23 +74,23 @@ $ npm install --save-dev electron
 npm start
 ```
 
-> 注: このスクリプトは、Electron をプロジェクトのルートフォルダで実行するように指示しています。 At this stage, your app will immediately throw an error telling you that it cannot find an app to run.
+> 注: このスクリプトは、Electron をプロジェクトのルートフォルダで実行するように指示しています。 今の段階のアプリでは、実行するアプリが見つからないというエラーが出ます。
 
-### Run the main process
+### メインプロセスを実行する
 
-The entry point of any Electron application is its `main` script. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
+Electron アプリケーションのエントリポイントは、`main` スクリプトです。 このスクリプトは、**メインプロセス** を制御します。メインプロセスは完全な Node.js 環境で実行され、アプリのライフサイクルの制御、ネイティブインターフェースの表示、特権的操作の実行、レンダラープロセスの管理などを行います (詳細は後述)。
 
-During execution, Electron will look for this script in the [`main`][package-json-main] field of the app's `package.json` config, which you should have configured during the [app scaffolding](#scaffold-the-project) step.
+実行時、Electron はこのスクリプトをアプリの `package.json` の設定にある [`main`][package-json-main] フィールドから探します。これは [プロジェクトの雛形を作る](#scaffold-the-project) ステップで設定してあるはずです。
 
-To initialize the `main` script, create an empty file named `main.js` in the root folder of your project.
+`main` スクリプトを書き始めるにあたって、プロジェクトのルートフォルダに `main.js` という空のファイルを作成します。
 
-> Note: If you run the `start` script again at this point, your app will no longer throw any errors! However, it won't do anything yet because we haven't added any code into `main.js`.
+> 注: この時点で `start` スクリプトを再度実行すると、アプリはエラーを出さなくなります。 しかし、`main.js` にコードを追加していないためまだ何もしません。
 
 ### ウェブページの作成
 
-Before we can create a window for our application, we need to create the content that will be loaded into it. In Electron, each window displays web contents that can be loaded from either from a local HTML file or a remote URL.
+アプリケーションのウインドウを作成する前に、ウインドウが読み込むコンテンツを作成する必要があります。 Electron では、各ウインドウにローカルの HTML ファイルやリモート URL から読み込んだウェブコンテンツを表示します。
 
-For this tutorial, you will be doing the former. Create an `index.html` file in the root folder of your project:
+このチュートリアルでは、前者を行います。 プロジェクトのルートフォルダに以下の `index.html` ファイルを作成しましょう。
 
 ```html
 <!DOCTYPE html>
@@ -111,22 +111,22 @@ For this tutorial, you will be doing the former. Create an `index.html` file in 
 </html>
 ```
 
-> Note: Looking at this HTML document, you can observe that the version numbers are missing from the body text. We'll manually insert them later using JavaScript.
+> 注: この HTML ドキュメントを見ると、バージョン番号が本文から抜けていることがわかります。 これは JavaScript で後から手動挿入します。
 
-### Opening your web page in a browser window
+### ブラウザウインドウでウェブページを開く
 
-Now that you have a web page, load it into an application window. To do so, you'll need two Electron modules:
+ウェブページができたので、これをアプリケーションウインドウに読み込ませます。 そのためには、以下 2 つの Electron モジュールが必要です。
 
-* The [`app`][app] module, which controls your application's event lifecycle.
-* The [`BrowserWindow`][browser-window] module, which creates and manages application windows.
+* アプリケーションのイベントライフサイクルを制御する、[`app`][app] モジュール。
+* アプリケーションウインドウを作成し管理する [`BrowserWindow`][browser-window] モジュール。
 
-Because the main process runs Node.js, you can import these as [CommonJS][commonjs] modules at the top of your file:
+メインプロセスは Node.js で動作するので、これらを [CommonJS][commonjs] モジュールとしてファイル先頭でインポートします。
 
 ```js
 const { app, BrowserWindow } = require('electron')
 ```
 
-Then, add a `createWindow()` function that loads `index.html` into a new `BrowserWindow` instance.
+次に、`createWindow()` 関数を追加し、そこで `index.html` を新規作成した `BrowserWindow` インスタンスに読み込ませます。
 
 ```js
 function createWindow () {
@@ -139,9 +139,9 @@ function createWindow () {
 }
 ```
 
-Next, call this `createWindow()` function to open your window.
+次に、この `createWindow()` 関数を呼び出してウインドウを開きます。
 
-In Electron, browser windows can only be created after the `app` module's [`ready`][app-ready] event is fired. You can wait for this event by using the [`app.whenReady()`][app-when-ready] API. Call `createWindow()` after `whenReady()` resolves its Promise.
+Electron では、`app` モジュールの [`ready`][app-ready] イベントの発生以降のみ、ブラウザウインドウを作成できます。 このイベントは、[`app.whenReady()`][app-when-ready] API を使用することで待てます。 `whenReady()` が Promise を解決した後、それが `createWindow()` を呼び出します。
 
 ```js
 app.whenReady().then(() => {
@@ -149,19 +149,19 @@ app.whenReady().then(() => {
 })
 ```
 
-> Note: At this point, your Electron application should successfully open a window that displays your web page!
+> 注: この時点で、Electron アプリケーションはウェブページを表示するウィンドウを開くことに成功しているはずです。
 
-### Manage your window's lifecycle
+### ウインドウのライフサイクルを管理する
 
-Although you can now open a browser window, you'll need some additional boilerplate code to make it feel more native to each platform. Application windows behave differently on each OS, and Electron puts the responsibility on developers to implement these conventions in their app.
+ブラウザウインドウを開くことができるようになりましたが、各プラットフォームでよりネイティブな感じを出すためには、いくつか追加の雛形コードが必要です。 アプリケーションウィンドウは OS ごとに異なる動作をしますが、Electron はこれらの規則をアプリに実装する責任を開発者負担にしています。
 
-In general, you can use the `process` global's [`platform`][node-platform] attribute to run code specifically for certain operating systems.
+一般的には、`process` グローバルの [`platform`][node-platform] 属性を使用して、特定のオペレーティングシステム専用のコードを実行できます。
 
-#### Quit the app when all windows are closed (Windows & Linux)
+#### 全ウインドウを閉じた時にアプリを終了する (Windows & Linux)
 
-On Windows and Linux, exiting all windows generally quits an application entirely.
+一般的に Windows や Linux では、すべてのウィンドウを終了するとアプリケーションが完全に終了します。
 
-To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
+これを実装するには、`app` モジュールの [`'window-all-closed'`][window-all-closed] イベントをリッスンします。このイベントが発生し、ユーザーが macOS (`darwin`) でない場合に [`app.quit()`][app-quit] を呼び出すようにします。
 
 ```js
 app.on('window-all-closed', function () {
@@ -169,13 +169,13 @@ app.on('window-all-closed', function () {
 })
 ```
 
-#### Open a window if none are open (macOS)
+#### 開いたウインドウがない場合にウインドウを開く (macOS)
 
-Whereas Linux and Windows apps quit when they have no windows open, macOS apps generally continue running even without any windows open, and activating the app when no windows are available should open a new one.
+Linux や Windows のアプリはウインドウを開いていないと終了してしまいますが、macOS のアプリは一般的にウインドウを開いていなくても起動し続け、ウインドウがないときにアプリをアクティブにすると新規ウインドウが開きます。
 
-To implement this feature, listen for the `app` module's [`activate`][activate] event, and call your existing `createWindow()` method if no browser windows are open.
+この機能を実装するには、`app` モジュールの [`activate`][activate] イベントをリッスンします。ブラウザのウインドウが開いていなければ、既存の `createWindow()` メソッドを呼び出します。
 
-Because windows cannot be created before the `ready` event, you should only listen for `activate` events after your app is initialized. Do this by attaching your event listener from within your existing `whenReady()` callback.
+`ready` イベントの前ではウインドウを作成できないので、アプリが初期化された後に `activate` イベントだけをリッスンする必要があります。 そのためには、既存の `whenReady()` コールバックの中で、イベントリスナーをアタッチします。
 
 ```js
 app.whenReady().then(() => {
@@ -187,19 +187,19 @@ app.whenReady().then(() => {
 })
 ```
 
-> Note: At this point, your window controls should be fully functional!
+> 注: この時点で、ウインドウのコントロールが完全に機能しているはずです。
 
-### Access Node.js from the renderer with a preload script
+### プリロードスクリプトを使ってレンダラーから Node.js にアクセスする
 
-Now, the last thing to do is print out the version numbers for Electron and its dependencies onto your web page.
+さて、最後にやるべきことは Electron とその依存関係のバージョン番号をウェブページに出力することです。
 
-Accessing this information is trivial to do in the main process through Node's global `process` object. However, you can't just edit the DOM from the main process because it has no access to the renderer's `document` context. They're in entirely different processes!
+この情報へアクセスするには、Node のグローバルである `process` オブジェクトを介してメインプロセスで行うのが簡単です。 しかし、メインプロセスはレンダラーの `document` コンテキストにアクセスできないため、メインプロセスから DOM を編集できません。 これらは全く別のプロセスだからです！
 
-> Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
+> 注: Electron のプロセスについてもっと詳しく知りたい方は、[プロセスモデル][] のドキュメントをご覧ください。
 
-This is where attaching a **preload** script to your renderer comes in handy. A preload script runs before the renderer process is loaded, and has access to both renderer globals (e.g. `window` and `document`) and a Node.js environment.
+そこで、**プリロード** スクリプトをレンダラーにアタッチすると便利です。 プリロードスクリプトは、レンダラープロセスが読み込まれる前に実行され、レンダラーのグローバル (`window` や `document` など) と Node.js 環境の両方にアクセスできます。
 
-Create a new script named `preload.js` as such:
+`preload.js` という名前の新規スクリプトを以下のように作成します。
 
 ```js
 window.addEventListener('DOMContentLoaded', () => {
@@ -214,15 +214,15 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-The above code accesses the Node.js `process.versions` object and runs a basic `replaceText` helper function to insert the version numbers into the HTML document.
+上記のコードでは、Node.js の `process.versions` オブジェクトにアクセスし、基本的な `replaceText` ヘルパー関数を実行して HTML ドキュメントにバージョン番号を挿入しています。
 
-To attach this script to your renderer process, pass in the path to your preload script to the `webPreferences.preload` option in your existing `BrowserWindow` constructor.
+このスクリプトをレンダラープロセスにアタッチするには、既存の `BrowserWindow` コンストラクタの `webPreferences.preload` 引数にプリロードスクリプトへのパスを渡します。
 
 ```js
-// include the Node.js 'path' module at the top of your file
+// ファイルの先頭で Node.js の 'path' モジュールをインクルードします
 const path = require('path')
 
-// modify your existing createWindow() function
+// 既存の createWindow() 関数を修正します
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
@@ -235,43 +235,43 @@ function createWindow () {
 // ...
 ```
 
-There are two Node.js concepts that are used here:
+ここでは、以下 2 つの Node.js のコンセプトが使われています。
 
-* The [`__dirname`][dirname] string points to the path of the currently executing script (in this case, your project's root folder).
-* The [`path.join`][path-join] API joins multiple path segments together, creating a combined path string that works across all platforms.
+* [`__dirname`][dirname] 文字列は、現在実行中のスクリプトのパス (ここではプロジェクトのルートフォルダ) を指しています。
+* [`path.join`][path-join] API は、複数のパス断片を結合し、すべてのプラットフォームで動作する結合パス文字列を作成します。
 
-We use a path relative to the currently executing JavaScript file so that your relative path will work in both development and packaged mode.
+現在実行中の JavaScript ファイルからの相対パスを使用しているので、開発モードとパッケージモードの両方で相対パスが機能します。
 
-### Bonus: Add functionality to your web contents
+### おまけ: ウェブコンテンツに機能を追加する
 
-At this point, you might be wondering how to add more functionality to your application.
+この時点で、アプリケーションに機能を追加するにはどうしたらよいかと思われるかもしれません。
 
-For any interactions with your web contents, you want to add scripts to your renderer process. Because the renderer runs in a normal web environment, you can add a `<script>` tag right before your `index.html` file's closing `</body>` tag to include any arbitrary scripts you want:
+ウェブコンテンツとやり取りする場合は、レンダラープロセスにスクリプトを追加する必要があります。 なぜならレンダラは通常のウェブ環境で動作するので、`<script>` タグを `index.html` ファイルの最後の `</body>` タグの直前に追加して任意のスクリプトをインクルードできます。
 
 ```html
 <script src="./renderer.js"></script>
 ```
 
-The code contained in `renderer.js` can then use the same JavaScript APIs and tooling you use for typical front-end development, such as using [`webpack`][webpack] to bundle and minify your code or [React][react] to manage your user interfaces.
+`renderer.js` にインクルードするコードは、[`webpack`][webpack] を使用してコードをバンドルして最小化したり、[React][react] を使用してユーザーインターフェースを管理するなど、一般的なフロントエンド開発で使用するのと同じ JavaScript API やツールを利用できます。
 
-### Recap
+### まとめ
 
-After following the above steps, you should have a fully functional Electron application that looks like this:
+以上の手順により、以下のような完全な機能の Electron のアプリケーションが完成しました。
 
-![Simplest Electron app](../images/simplest-electron-app.png)
+![シンプルな Electron アプリ](../images/simplest-electron-app.png)
 
 <!--TODO(erickzhao): Remove the individual code blocks for static website -->
-The full code is available below:
+コード全体は以下のとおりです。
 
 ```js
 // main.js
 
-// Modules to control application life and create native browser window
+// アプリケーションの寿命の制御と、ネイティブなブラウザウインドウを作成するモジュール
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 function createWindow () {
-  // Create the browser window.
+  // ブラウザウインドウを作成します。
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -280,43 +280,43 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // そしてアプリの index.html を読み込みます。
   mainWindow.loadFile('index.html')
 
-  // Open the DevTools.
+  // デベロッパー ツールを開きます。
   // mainWindow.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// このメソッドは、Electron の初期化が完了し、
+// ブラウザウインドウの作成準備ができたときに呼ばれます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.whenReady().then(() => {
   createWindow()
 
   app.on('activate', function () {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
+    // macOS では、Dock アイコンのクリック時に他に開いているウインドウがない
+    // 場合、アプリ内にウインドウを再作成するのが一般的です。
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// macOS を除き、全ウインドウが閉じられたときに終了します。 ユーザーが
+// Cmd + Q で明示的に終了するまで、アプリケーションとそのメニューバーを
+// アクティブにするのが一般的です。
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. 
+// このファイルでは、アプリ内のとある他のメインプロセスコードを
+// インクルードできます。 
 // 別々のファイルに分割してここで require することもできます。
 ```
 
 ```js
 // preload.js
 
-// All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
+// Node.js の全 API は、プリロードプロセスで利用可能です。
+// Chrome 拡張機能と同じサンドボックスも持っています。
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector, text) => {
     const element = document.getElementById(selector)
@@ -345,34 +345,25 @@ window.addEventListener('DOMContentLoaded', () => {
     <h1>Hello World!</h1>
     We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+    and Electron <span id="electron-version"></span>.<!-- このプロセスで他ファイルを require して実行することもできます --><script src="./renderer.js"></script>
   </body>
 </html>
 ```
 ```fiddle docs/fiddles/quickstart
 ```
 
-To summarize all the steps we've done:
+これまでのステップを以下にまとめます。
 
-* We bootstrapped a Node.js application and added Electron as a dependency.
-* We created a `main.js` script that runs our main process, which controls our app
-  and runs in a Node.js environment. In this script, we used Electron's `app` and
-  `BrowserWindow` modules to create a browser window that displays web content
-  in a separate process (the renderer).
+* Node.js アプリケーションを立ち上げ、Electron を依存関係に追加しました。
+* アプリ制御を担うメインプロセスを実行する `main.js` スクリプトを作成し、Node.js 環境で動作させました。 このスクリプトでは、Electron の `app` と `BrowserWindow` モジュールを使って、ウェブコンテンツを別のプロセス (レンダラー) で表示するブラウザウインドウを作成しました。
 
-* In order to access certain Node.js functionality in the renderer, we attached
-  a preload script to our `BrowserWindow` constructor.
+* レンダラーで特定の Node.js の機能にアクセスするために、`BrowserWindow` のコンストラクタでプリロードスクリプトをアタッチしました。
 
-## Package and distribute your application
+## アプリケーションのパッケージと頒布
 
-The fastest way to distribute your newly created app is using
-[Electron Forge](https://www.electronforge.io).
+できたてのアプリを頒布する最速手段は [Electron Forge](https://www.electronforge.io) を利用する方法です。
 
-1. Add Electron Forge as a development dependency of your app, and use its `import` command to set up
-Forge's scaffolding:
+1. アプリの開発用依存関係に Electron Forge を追加し、その `import` コマンドで Forge のセットアップをします。
 
     ```sh npm2yarn
     npm install --save-dev @electron-forge/cli
@@ -390,7 +381,7 @@ Forge's scaffolding:
     Thanks for using "electron-forge"!!!
     ```
 
-1. Create a distributable using Forge's `make` command:
+1. 以下のように Forge の `make` コマンドで頒布形式を作成します。
 
     ```sh npm2yarn
     npm run make
@@ -408,10 +399,10 @@ Forge's scaffolding:
     ✔ Making for target: zip - On platform: darwin - For arch: x64
     ```
 
-    Electron Forge creates the `out` folder where your package will be located:
+    Electron Forge は、`out` フォルダを作成してそこにパッケージを配置します。
 
     ```plain
-    // Example for macOS
+    // macOS 版の例
     out/
     ├── out/make/zip/darwin/x64/my-electron-app-darwin-x64-1.0.0.zip
     ├── ...
@@ -438,7 +429,7 @@ Forge's scaffolding:
 
 [activate]: ../api/app.md#event-activate-macos
 
-[Process Model]: ./process-model.md
+[プロセスモデル]: ./process-model.md
 [dirname]: https://nodejs.org/api/modules.html#modules_dirname
 [path-join]: https://nodejs.org/api/path.html#path_path_join_paths
 
