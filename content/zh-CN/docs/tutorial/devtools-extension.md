@@ -1,6 +1,6 @@
-# 开发工具扩展程序
+# 开发者工具扩展
 
-Electron支持 [Chrome DevTools 扩展程序][devtools-extension]，可增强调试流行 web 框架的能力。
+Electron supports [Chrome DevTools extensions][devtools-extension], which can be used to extend the ability of Chrome's developer tools for debugging popular web frameworks.
 
 ## 使用工具加载 DevTools 扩展
 
