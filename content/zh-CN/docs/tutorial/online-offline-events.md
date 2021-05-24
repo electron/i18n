@@ -13,73 +13,29 @@
 
 ## 示例
 
-### 渲染进程中的事件探测
+Starting with an HTML file `index.html`, this example will demonstrate how the `navigator.onLine` API can be used to build a connection status indicator.
 
-从 [Quick Start Guide](quick-start.md) 中的应用开始，根据以下内容更新 `main.js`。
-
-```javascript
-const { app, BrowserWindow } = require('electron')
-
-let onlineStatusWindow
-
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
+```html title="index.html"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body>
+    <h1>Connection status: <strong id='status'></strong></h1>
+    <script src="renderer.js"></script>
+</body>
+</html>
 ```
 
-在 `index.html` 文件中，闭合`</body>`标签前添加以下内容：
+In order to mutate the DOM, create a `renderer.js` file that adds event listeners to the `'online'` and `'offline'` `window` events. The event handler sets the content of the `<strong id='status'>` element depending on the result of `navigator.onLine`.
 
-```html
-<script src="renderer.js"></script>
-```
-
-并添加 `renderer.js` 文件：
-
-```javascript fiddle='docs/fiddles/features/online-detection/renderer'
-const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
-
-window.addEventListener('online', alertOnlineStatus)
-window.addEventListener('offline', alertOnlineStatus)
-
-alertOnlineStatus()
-```
-
-启动 Electron 应用程序后，您应该能看到通知：
-
-![在线/离线事件探测](../images/online-event-detection.png)
-
-### 主进程中的事件探测
-
-在某些情况下，您可能还希望响应主进程中的在线/离线事件探测 但是，主进程没有 `navigator` 对象，无法直接检测这些事件。 在这种情况下，你需要使用 Electron's interprocess communication (IPC) 将事件转发到主进程。
-
-从 [Quick Start Guide](quick-start.md) 中的应用开始，根据以下内容更新 `main.js`。
-
-```javascript
-const { app, BrowserWindow, ipcMain } = require('electron')
-let onlineStatusWindow
-
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
-
-ipcMain.on('online-status-changed', (event, status) => {
-  console.log(status)
-})
-```
-
-在 `index.html` 文件中，闭合`</body>`标签前添加以下内容：
-
-```html
-<script src="renderer.js"></script>
-```
-
-并添加 `renderer.js` 文件：
-
-```javascript fiddle='docs/fiddles/features/online-detection/main'
-const { ipcRenderer } = require('electron')
-const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+```js title='renderer.js'
+function updateOnlineStatus () {
+  document.getElementById('status').innerHTML = navigator.onLine ? 'online' : 'offline'
+}
 
 window.addEventListener('online', updateOnlineStatus)
 window.addEventListener('offline', updateOnlineStatus)
@@ -87,13 +43,39 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-启动 Electron 应用程序后，您应该在控制台看到以下通知：
+Finally, create a `main.js` file for main process that creates the window.
 
-```sh
-npm start
+```js title='main.js'
+const { app, BrowserWindow } = require('electron')
 
-> electron@1.0.0 start /electron
-> electron .
+function createWindow () {
+  const onlineStatusWindow = new BrowserWindow({
+    width: 400,
+    height: 100
+  })
 
-online
+  onlineStatusWindow.loadFile('index.html')
+}
+
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
 ```
+
+启动 Electron 应用程序后，您应该能看到通知：
+
+![Connection status](../images/connection-status.png)
+
+> Note: If you need to communicate the connection status to the main process, use the [IPC renderer](../api/ipc-renderer.md) API.
