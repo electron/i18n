@@ -14,7 +14,7 @@
 
 Эти инструменты позаботятся о всех шагах, которые вам нужно предпринять, чтобы получить распространяемое приложение Electron, такие как сборка вашего приложения, ребрендинг выполнения и установка нужных иконок.
 
-Вы можете проверить пример того, как упаковывать ваше приложение с помощью `electron-forge` в нашей [Инструкции Быстрого Старта](quick-start.md#package-and-distribute-the-application).
+You can check the example of how to package your app with `electron-forge` in the [Quick Start guide](quick-start.md#package-and-distribute-your-application).
 
 ## Ручное распространение
 
