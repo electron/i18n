@@ -14,7 +14,7 @@ Vous pouvez utiliser les outils suivants pour distribuer votre application :
 
 Ces outils se chargeront des différentes opérations nécessaires à l'obtention d'une application Electron distribuable telles que l'empaquetage, le renommage de l'exécutable et l'initialisation des icones.
 
-You can check the example of how to package your app with `electron-forge` in the [Quick Start guide](quick-start.md#package-and-distribute-your-application).
+Vous pouvez consulter un exemple de la façon d’empaquetage d'une application avec `electron-forge` dans le guide [de démarrage rapide](quick-start.md#package-and-distribute-your-application).
 
 ## Répartition manuelle
 
