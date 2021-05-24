@@ -14,7 +14,7 @@ Electron アプリを配布するには、パッケージ化してアイコン�
 
 これらのツールは、あなたの Electron アプリケーションを配布可能にするにあたって必要な全手順を網羅しています。この手順には、アプリケーションのパッケージング、実行ファイルのリブランド、正しいアイコンの設定が含まれます。
 
-[クイックスタートガイド](quick-start.md#package-and-distribute-the-application) にて `electron-forge` でアプリのパッケージ方法のサンプルを確認できます。
+You can check the example of how to package your app with `electron-forge` in the [Quick Start guide](quick-start.md#package-and-distribute-your-application).
 
 ## マニュアル配布
 
