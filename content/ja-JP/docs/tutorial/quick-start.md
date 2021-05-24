@@ -58,7 +58,7 @@ $ npm install --save-dev electron
 
 > 注意: Electron のインストールで問題が発生した場合は、[発展的なインストール][advanced-installation] のガイドをご参照ください。
 
-Finally, you want to be able to execute Electron. In the [`scripts`][package-scripts] field of your `package.json` config, add a `start` command like so:
+最後に、Electron を実行できるようにしたいと思います。 `package.json` の設定の [`scripts`][package-scripts] フィールドに、以下のような `start` コマンドを追加します。
 
 ```json
 {
@@ -68,13 +68,13 @@ Finally, you want to be able to execute Electron. In the [`scripts`][package-scr
 }
 ```
 
-This `start` command will let you open your app in development mode.
+この `start` コマンドにより、アプリを開発モードで開けます。
 
 ```sh npm2yarn
 npm start
 ```
 
-> Note: This script tells Electron to run on your project's root folder. At this stage, your app will immediately throw an error telling you that it cannot find an app to run.
+> 注: このスクリプトは、Electron をプロジェクトのルートフォルダで実行するように指示しています。 At this stage, your app will immediately throw an error telling you that it cannot find an app to run.
 
 ### Run the main process
 
