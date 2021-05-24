@@ -13,7 +13,7 @@
 
 ## サンプル
 
-Starting with an HTML file `index.html`, this example will demonstrate how the `navigator.onLine` API can be used to build a connection status indicator.
+このサンプルでは、HTML ファイル `index.html` から始めて、`navigator.onLine` API を用いた接続状態インジケータの構築方法を示します。
 
 ```html title="index.html"
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ Starting with an HTML file `index.html`, this example will demonstrate how the `
 </html>
 ```
 
-In order to mutate the DOM, create a `renderer.js` file that adds event listeners to the `'online'` and `'offline'` `window` events. The event handler sets the content of the `<strong id='status'>` element depending on the result of `navigator.onLine`.
+DOM を変更するために、`renderer.js`ファイルを作成して、そこで `window` の `'online'` と `'offline'` の イベントにイベントリスナーを追加します。 イベントハンドラーでは、`navigator.onLine` の結果に応じて `<strong id='status'>` 要素の内容を設定します。
 
 ```js title='renderer.js'
 function updateOnlineStatus () {
@@ -43,7 +43,7 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-Finally, create a `main.js` file for main process that creates the window.
+最後に、メインプロセス用の `main.js` ファイルを作成し、そこでウインドウを作成します。
 
 ```js title='main.js'
 const { app, BrowserWindow } = require('electron')
@@ -76,6 +76,6 @@ app.on('window-all-closed', () => {
 
 Electron アプリケーションを起動すると、通知が表示されます。
 
-![Connection status](../images/connection-status.png)
+![接続状態](../images/connection-status.png)
 
-> Note: If you need to communicate the connection status to the main process, use the [IPC renderer](../api/ipc-renderer.md) API.
+> 注意: メインプロセスに接続状態を伝える必要がある場合は、[IPC レンダラー](../api/ipc-renderer.md) API を使用してください。
