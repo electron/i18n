@@ -1,16 +1,16 @@
 # クイック スタート
 
-This guide will step you through the process of creating a barebones Hello World app in Electron, similar to [`electron/electron-quick-start`][quick-start].
+このガイドでは、要点を抑えた Hello World アプリとして、[`electron/electron-quick-start`][quick-start] と同じものを Electron で作成する手順を説明します。
 
-By the end of this tutorial, your app will open a browser window that displays a web page with information about which Chromium, Node.js, and Electron versions are running.
+このチュートリアルを終えると、ブラウザウインドウを開いて Chromium、Node.js、Electron それぞれの実行バージョン情報のウェブページを表示できるアプリが完成します。
 
 ## 必要な環境
 
-To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
+Electron を使用するには、 [Node.js][node-download] をインストールする必要があります。 利用可能な最新の `LTS` バージョンのインストールを推奨します。
 
 > お使いのプラットフォーム向けのビルド済みインストーラを使用して、Node.js をインストールするようにしてください。 さもなくば、他の開発ツールと互換性の問題が発生することがあります。
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+Node.js が正しくインストールされたかどうかを確認するため、お使いのターミナルクライアントで以下のコマンドを入力してください。
 
 ```sh
 node -v
@@ -19,25 +19,25 @@ npm -v
 
 このコマンドで、Node.js と npm のバージョンが表示されている必要があります。
 
-**Note:** Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
+**注意:** Electron は Node.js をバイナリに組み込んでいるため、コードを実行している Node.js のバージョンとシステムが実行しているバージョンは関係ありません。
 
-## Create your application
+## アプリケーションを作成する
 
-### Scaffold the project
+### プロジェクトの雛形を作る
 
-Electron apps follow the same general structure as other Node.js projects. Start by creating a folder and initializing an npm package.
+Electron アプリは、他の Node.js プロジェクトと同様の一般的な構造に従います。 まず、フォルダを作成し npm パッケージを初期化します。
 
 ```sh npm2yarn
 mkdir my-electron-app && cd my-electron-app
 npm init
 ```
 
-The interactive `init` command will prompt you to set some fields in your config. There are a few rules to follow for the purposes of this tutorial:
+このインタラクティブな `init` コマンドでは、設定でいくつかフィールドの入力を促されます。 このチュートリアルの目的上、以下のルールに従ってください。
 
-* `entry point` should be `main.js`.
-* `author` and `description` can be any value, but are necessary for [app packaging](#package-and-distribute-your-application).
+* `entry point` は `main.js` でなければなりません。
+* `author` と `description` はどのような値でも構いませんが、[アプリのパッケージ化](#package-and-distribute-your-application) で必要になります。
 
-Your `package.json` file should look something like this:
+`package.json` ファイルは、以下のようになっていなければなりません。
 
 ```json
 {
@@ -50,13 +50,13 @@ Your `package.json` file should look something like this:
 }
 ```
 
-Then, install the `electron` package into your app's `devDependencies`.
+そして、アプリの `devDependencies` に `electron` パッケージインストールします。
 
 ```sh npm2yarn
 $ npm install --save-dev electron
 ```
 
-> Note: If you're encountering any issues with installing Electron, please refer to the [Advanced Installation][advanced-installation] guide.
+> 注意: Electron のインストールで問題が発生した場合は、[発展的なインストール][advanced-installation] のガイドをご参照ください。
 
 Finally, you want to be able to execute Electron. In the [`scripts`][package-scripts] field of your `package.json` config, add a `start` command like so:
 
