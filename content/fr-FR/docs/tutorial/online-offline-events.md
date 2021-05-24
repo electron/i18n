@@ -13,7 +13,7 @@ Puisque de nombreux cas retournent `true`, vous devriez traiter avec précaution
 
 ## Exemple
 
-Starting with an HTML file `index.html`, this example will demonstrate how the `navigator.onLine` API can be used to build a connection status indicator.
+En partant d'un fichier HTML `index.html`, cet exemple démontrera comment l'API `navigator.onLine` peut être utilisée pour construire un indicateur d'état de connexion.
 
 ```html title="index.html"
 <!DOCTYPE html>
