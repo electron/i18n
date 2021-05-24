@@ -45,6 +45,6 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, navigate to your application's working folder, where you'll find the rendered image.
+この Electron アプリケーションを起動したら、アプリケーションを開いたフォルダを見てみましょう。描画された画像があるはずです。
 
 [disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration
