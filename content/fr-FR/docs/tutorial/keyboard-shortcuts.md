@@ -64,7 +64,7 @@ Si vous voulez gérer les raccourcis clavier dans une [BrowserWindow][], vous po
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/web-apis|focus=renderer.js'
 function handleKeyPress(event) {
-  // You can put code here to handle the keypress.
+  // Vous pouvez mettre ici du code de gestion des touches.
   document.getElementById("last-keypress").innerText = event.key;
   console.log(`You pressed ${event.key}`);
 }
