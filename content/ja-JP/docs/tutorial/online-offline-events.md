@@ -13,73 +13,29 @@
 
 ## サンプル
 
-### レンダラープロセスでのイベント検知
+Starting with an HTML file `index.html`, this example will demonstrate how the `navigator.onLine` API can be used to build a connection status indicator.
 
-[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
-
-```javascript
-const { app, BrowserWindow } = require('electron')
-
-let onlineStatusWindow
-
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
+```html title="index.html"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body>
+    <h1>Connection status: <strong id='status'></strong></h1>
+    <script src="renderer.js"></script>
+</body>
+</html>
 ```
 
-`index.html` ファイル内の、`</body>` タグを閉じている直前に以下の行を追加します。
+In order to mutate the DOM, create a `renderer.js` file that adds event listeners to the `'online'` and `'offline'` `window` events. The event handler sets the content of the `<strong id='status'>` element depending on the result of `navigator.onLine`.
 
-```html
-<script src="renderer.js"></script>
-```
-
-`renderer.js` ファイルを追加します。
-
-```javascript fiddle='docs/fiddles/features/online-detection/renderer'
-const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
-
-window.addEventListener('online', alertOnlineStatus)
-window.addEventListener('offline', alertOnlineStatus)
-
-alertOnlineStatus()
-```
-
-Electron アプリケーションを起動すると、通知が表示されます。
-
-![オンライン/オフラインイベントの検知](../images/online-event-detection.png)
-
-### メインプロセスでのイベント検知
-
-メインプロセスでも同様にオンライン/オフラインイベントに対応したい場面があるかもしれません。 ただし、メインプロセスには `navigator` オブジェクトがないため、これらのイベントを直接検出できません。 この場合、Electron のプロセス間通信 (IPC) ユーティリティを使用して、イベントをメインプロセスに転送する必要があります。
-
-[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
-
-```javascript
-const { app, BrowserWindow, ipcMain } = require('electron')
-let onlineStatusWindow
-
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
-
-ipcMain.on('online-status-changed', (event, status) => {
-  console.log(status)
-})
-```
-
-`index.html` ファイル内の、`</body>` タグを閉じている直前に以下の行を追加します。
-
-```html
-<script src="renderer.js"></script>
-```
-
-`renderer.js` ファイルを追加します。
-
-```javascript fiddle='docs/fiddles/features/online-detection/main'
-const { ipcRenderer } = require('electron')
-const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+```js title='renderer.js'
+function updateOnlineStatus () {
+  document.getElementById('status').innerHTML = navigator.onLine ? 'online' : 'offline'
+}
 
 window.addEventListener('online', updateOnlineStatus)
 window.addEventListener('offline', updateOnlineStatus)
@@ -87,13 +43,39 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-Electron アプリケーションを起動すると、コンソールに通知が表示されます。
+Finally, create a `main.js` file for main process that creates the window.
 
-```sh
-npm start
+```js title='main.js'
+const { app, BrowserWindow } = require('electron')
 
-> electron@1.0.0 start /electron
-> electron .
+function createWindow () {
+  const onlineStatusWindow = new BrowserWindow({
+    width: 400,
+    height: 100
+  })
 
-online
+  onlineStatusWindow.loadFile('index.html')
+}
+
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
 ```
+
+Electron アプリケーションを起動すると、通知が表示されます。
+
+![Connection status](../images/connection-status.png)
+
+> Note: If you need to communicate the connection status to the main process, use the [IPC renderer](../api/ipc-renderer.md) API.
