@@ -15,7 +15,7 @@ nav:
   userland: Entorno
   governance: Gobernanza
 keyboard_modal:
-  title: Atajos del teclado
+  title: Atajos de teclado
   key: Clave
   action: Acción
   focus_search: Enfoca en la barra de búsqueda
