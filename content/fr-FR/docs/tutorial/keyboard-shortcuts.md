@@ -72,7 +72,7 @@ function handleKeyPress(event) {
 window.addEventListener('keyup', handleKeyPress, true);
 ```
 
-> Note:  the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+> Note: le troisième paramètre `true` signifie que l'écouteur recevra toujours les actions des touches avant les autres écouteurs d'événement afin qu'ils ne puissent pas appeler eux-même `stopPropagation()`.
 
 #### Interception des événements dans le processus principal
 
