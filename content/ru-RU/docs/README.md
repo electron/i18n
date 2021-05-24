@@ -10,20 +10,14 @@
 
 ## Руководство
 
-### Быстрый старт
+### Getting started
 
-* [Краткое руководство по запуску](tutorial/quick-start.md)
-  * [Требования](tutorial/quick-start.md#prerequisites)
-  * [Создать базовое приложение](tutorial/quick-start.md#create-a-basic-application)
-  * [Запустите приложение](tutorial/quick-start.md#run-your-application)
-  * [Пакет и распространение приложения](tutorial/quick-start.md#package-and-distribute-the-application)
+* [Introduction](tutorial/introduction.md)
+* [Руководство для начинающих](tutorial/quick-start.md)
+* [Process Model](tutorial/process-model.md)
 
 ### Изучение основ
 
-* [Electron's Process Model](tutorial/quick-start.md#application-architecture)
-  * [Main и Renderer процессы](tutorial/quick-start.md#main-and-renderer-processes)
-  * [Electron API](tutorial/quick-start.md#electron-api)
-  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Добавление функционала в Ваше приложение
   * [Notification (Оповещения)](tutorial/notifications.md)
   * [Recent Documents](tutorial/recent-documents.md)
@@ -37,7 +31,7 @@
   * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
   * [Dark Mode](tutorial/dark-mode.md)
-  * [Веб-встраивание в Electron](tutorial/web-embeds.md)
+  * [Встраивание веб в Electron](tutorial/web-embeds.md)
 * [Макеты и CLI](tutorial/boilerplates-and-clis.md)
   * [Макеты против CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
