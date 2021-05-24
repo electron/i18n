@@ -10,20 +10,14 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
 
 ## Guides et tutoriels
 
-### Démarrage rapide
+### Getting started
 
-* [Guide de démarrage rapide](tutorial/quick-start.md)
-  * [Prérequis](tutorial/quick-start.md#prerequisites)
-  * [Créer une application élémentaire](tutorial/quick-start.md#create-a-basic-application)
-  * [Exécuter votre application](tutorial/quick-start.md#run-your-application)
-  * [Préparer l'application pour la distribuer](tutorial/quick-start.md#package-and-distribute-the-application)
+* [Introduction](tutorial/introduction.md)
+* [Démarrage Rapide](tutorial/quick-start.md)
+* [Process Model](tutorial/process-model.md)
 
 ### Apprendre les bases
 
-* [Modèle des processus d'Electron](tutorial/quick-start.md#application-architecture)
-  * [Processus Principal et de Rendu](tutorial/quick-start.md#main-and-renderer-processes)
-  * [Electron API](tutorial/quick-start.md#electron-api)
-  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Ajouter des fonctionnalités à votre App
   * [Notifications](tutorial/notifications.md)
   * [Documents récents](tutorial/recent-documents.md)
@@ -37,7 +31,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu Offscreen](tutorial/offscreen-rendering.md)
   * [Mode foncé](tutorial/dark-mode.md)
-  * [Intégrer le Web dans Electron](tutorial/web-embeds.md)
+  * [Les web embeds dans Electron](tutorial/web-embeds.md)
 * [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
