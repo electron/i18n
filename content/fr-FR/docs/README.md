@@ -10,7 +10,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
 
 ## Guides et tutoriels
 
-### Getting started
+### Premiers Pas
 
 * [Introduction](tutorial/introduction.md)
 * [Démarrage Rapide](tutorial/quick-start.md)
