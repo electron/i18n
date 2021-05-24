@@ -10,20 +10,14 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
 
 ## Guías y tutoriales
 
-### Inicio rápido
+### Empezar
 
-* [Guía de inicio rápido](tutorial/quick-start.md)
-  * [Prerequisitos](tutorial/quick-start.md#prerequisites)
-  * [Crear una aplicación básica](tutorial/quick-start.md#create-a-basic-application)
-  * [Ejecuta tu aplicación](tutorial/quick-start.md#run-your-application)
-  * [Paquete y distribución de la aplicación](tutorial/quick-start.md#package-and-distribute-the-application)
+* [Introducción](tutorial/introduction.md)
+* [Inicio Rápido](tutorial/quick-start.md)
+* [Process Model](tutorial/process-model.md)
 
 ### Aprender lo básico
 
-* [Modelo de proceso de Electron](tutorial/quick-start.md#application-architecture)
-  * [Proceso Principal y Proceso Visualizador](tutorial/quick-start.md#main-and-renderer-processes)
-  * [Electron API](tutorial/quick-start.md#electron-api)
-  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Agregar características a su aplicación
   * [Notificaciones](tutorial/notifications.md)
   * [Documentos recientes](tutorial/recent-documents.md)
@@ -31,8 +25,8 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
   * [Menú Dock personalizado](tutorial/macos-dock.md)
   * [Barra de tareas de Windows personalizado](tutorial/windows-taskbar.md)
   * [Acciones de escritorio Linux personalizado](tutorial/linux-desktop-actions.md)
-  * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
-  * [Offline/Online erkennung](tutorial/online-offline-events.md)
+  * [Atajos de teclado](tutorial/keyboard-shortcuts.md)
+  * [Detección Offline y Online](tutorial/online-offline-events.md)
   * [Archivo representado por macOS BrowserWindows](tutorial/represented-file.md)
   * [Función nativa arrastrar & soltar archivo](tutorial/native-file-drag-drop.md)
   * [Renderización fuera de pantalla](tutorial/offscreen-rendering.md)
@@ -41,7 +35,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
 * [Plantillas y CLIs](tutorial/boilerplates-and-clis.md)
   * [Plantillas vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [Electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Otras Herramientas y Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
