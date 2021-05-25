@@ -21,18 +21,18 @@ The commands should print the versions of Node.js and npm accordingly.
 
 **Note:** Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
 
-## Create your application
+## Créer votre application
 
 ### Scaffold the project
 
-Electron apps follow the same general structure as other Node.js projects. Start by creating a folder and initializing an npm package.
+Les applications Electron suivent la même structure générale que les autres projets Node.js. Commencez par créer un dossier et initialiser un package npm.
 
 ```sh npm2yarn
 mkdir my-electron-app && cd my-electron-app
 npm init
 ```
 
-The interactive `init` command will prompt you to set some fields in your config. There are a few rules to follow for the purposes of this tutorial:
+The interactive `init` command will prompt you to set some fields in your config. Il y a quelques règles à suivre pour les besoins de ce didacticiel :
 
 * `entry point` should be `main.js`.
 * `author` and `description` can be any value, but are necessary for [app packaging](#package-and-distribute-your-application).
@@ -86,9 +86,9 @@ To initialize the `main` script, create an empty file named `main.js` in the roo
 
 > Note: If you run the `start` script again at this point, your app will no longer throw any errors! However, it won't do anything yet because we haven't added any code into `main.js`.
 
-### Create a web page
+### Créer une page Web
 
-Before we can create a window for our application, we need to create the content that will be loaded into it. In Electron, each window displays web contents that can be loaded from either from a local HTML file or a remote URL.
+Avant de pouvoir créer une fenêtre pour notre application, nous devons créer le contenu qui sera chargé dedans. Dans Electron, chaque fenêtre affiche le contenu Web qui peut être chargé à partir d'un fichier HTML local ou d'une URL distante.
 
 For this tutorial, you will be doing the former. Create an `index.html` file in the root folder of your project:
 
