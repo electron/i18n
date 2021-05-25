@@ -58,12 +58,12 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 以下の API の呼び出し元スタックログを有効にします (イベントのフィルタリング)。
 
-- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-- `remote.require()` / `remote-require`
-- `remote.getGlobal()` / `remote-get-builtin`
-- `remote.getBuiltin()` / `remote-get-global`
-- `remote.getCurrentWindow()` / `remote-get-current-window`
-- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
+* `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
+* `remote.require()` / `remote-require`
+* `remote.getGlobal()` / `remote-get-builtin`
+* `remote.getBuiltin()` / `remote-get-global`
+* `remote.getCurrentWindow()` / `remote-get-current-window`
+* `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
 ### --enable-logging
 
