@@ -223,7 +223,7 @@ require('@electron/remote/main').initialize()
 
 ### 非推奨: `shell.moveItemToTrash()`
 
-The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
+同期的な `shell.moveItemToTrash()` は、新しく非同期的な `shell.trashItem()` に置き換えられました。
 
 ```js
 // Electron 12 では非推奨
@@ -571,9 +571,9 @@ nativeTheme.shouldUseHighContrastC
 
 これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。  両方とも近い将来サポートされますが、切り替えることを推奨します。
 
-Deprecated: https://atom.io/download/electron
+非推奨: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+こちらに置換: https://electronjs.org/headers
 
 ### API 変更: `session.clearAuthCache()` が引数を受け取らないように
 
@@ -595,7 +595,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
+### API 変更: `powerMonitor.querySystemIdleTime` は `powerMonitor.getSystemIdleTime` に
 
 ```js
 // Electron 7.0 で削除
@@ -1108,10 +1108,10 @@ webview.onkeyup = () => { /* handler */ }
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置換
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
