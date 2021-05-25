@@ -36,7 +36,7 @@ When `contextIsolation` is enabled in your `webPreferences` (this is the default
 
 ## Methoden
 
-The `contextBridge` module has the following methods:
+Das Modul `contextBridge` verfügt über die folgenden Methoden:
 
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
@@ -98,6 +98,7 @@ Because parameters, errors and return values are **copied** when they are sent o
 | `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                                                                              |
 | `Funktion`                                                                                                     | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                           |
 | [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                    | See the linked document on cloneable types                                                                                                                                                                     |
+| `Element`                                                                                                      | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending custom elements will not work.                                                                                                                                   |
 | `Symbol`                                                                                                       | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                                   |
 
 If the type you care about is not in the above table, it is probably not supported.
