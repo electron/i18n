@@ -19,13 +19,13 @@ Electron は、JavaScript、HTML、CSS によるデスクトップアプリケ�
 
 \[Electron Fiddle\]\[fiddle\] は Electron で書かれたサンドボックスアプリで、Electron のメンテナがサポートしています。 Electron の API を試したり開発中の機能を試作するための学習ツールとして、インストールを強く推奨します。
 
-Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
+また、Fiddle はドキュメントとうまく統合してあります。 チュートリアルのサンプルを見ていると、コードブロックの下に "Electron Fiddle で開く" ボタンが表示されていることがよくあります。 Fiddle がインストールされている場合、このボタンを押すと `fiddle.electronjs.org` のリンクが開き、コピーペーストせずとも自動的に Fiddle にサンプルがロードされます。
 
 ## ヘルプチャンネル
 
-Are you getting stuck anywhere? Here are a few links to places to look:
+どこかで行き詰まってしまいましたか? こちらに、ご覧いただきたいリンクがいくつかあります。
 
-* If you need help with developing your app, our \[community Discord server\]\[discord\] is a great place to get advice from other Electron app developers.
-* If you suspect you're running into a bug with the `electron` package, please check the \[GitHub issue tracker\]\[issue-tracker\] to see if any existing issues match your problem. If not, feel free to fill out our bug report template and submit a new issue.
+* アプリ開発で助けを求めたい場合、\[コミュニティ Discord サーバー\]\[discord\] で他の Electron アプリ開発者からアドバイスを受けることができます。
+* `electron` パッケージのバグが疑われる場合は、\[GitHub Issue トラッカー\]\[issue-tracker\] で既存の Issue とあなたの Issue に合致するものがないかご確認ください。 もし無ければ、バグレポートのテンプレートに記入し、新しい Issue をご提出ください。
 
 [chromium](https://www.chromium.org/) [node](https://nodejs.org/) [mdn-guide](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web) [node-guide](https://nodejs.dev/learn) [comic](https://www.google.com/googlebooks/chrome/) [fiddle](https://electronjs.org/fiddle) [issue-tracker](https://github.com/electron/electron/issues) [discord](https://discord.gg/electron)
