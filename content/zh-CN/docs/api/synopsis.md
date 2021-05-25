@@ -6,7 +6,7 @@ Node. js 的所有 [ 内置模块 ](https://nodejs.org/api/) 都在Electron中�
 
 Electron 还为开发原生桌面应用程序提供了一些额外的内置模块。 某些模块仅在主进程中可用, 有些仅在渲染进程 (web 页) 中可用, 而有些在这两个进程中都可以使用。
 
-基本规则是: 如果一个模块是 [ GUI ][gui] 或底层系统相关的, 那么它应该只在主进程中可用。 你需要熟悉 [主进程和渲染进程](../tutorial/quick-start.md#main-and-renderer-processes) 的概念，才能更好的使用这些模块。
+基本规则是: 如果一个模块是 [ GUI ][gui] 或底层系统相关的, 那么它应该只在主进程中可用。 You need to be familiar with the concept of main process vs. renderer process scripts to be able to use those modules.
 
 主进程脚本就像一个普通的Node.js脚本：
 
@@ -34,8 +34,6 @@ app.whenReady().then(() => {
 </html>
 ```
 
-要运行你的app, 请阅读 [ Run your app ](../tutorial/quick-start.md#run-your-application)。
-
 ## 解构赋值
 
 从0.37开始，可以使用 [destructuring assignment][destructuring-assignment] (es6解构赋值)来使内置模块更容易使用。
@@ -51,7 +49,7 @@ app.whenReady().then(() => {
 })
 ```
 
-如果您需要整个 ` electron ` 模块, 则可以`require`它, 然后使用 destructuring 从 ` electron ` 访问各个模块。
+如果您需要整个 ` electron ` 模块, 则可以`require`它, 然后使用解构（destructuring）从 <0> electron <0> 访问各个模块。
 
 ```javascript
 const electron = require('electron')
