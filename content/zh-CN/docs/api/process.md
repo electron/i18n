@@ -10,28 +10,31 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 在沙盒化的渲染进程中， `process` 对象只包含了API的一个子集:
 
-- `crash()`
-- `hang()`
-- `getCreationTime()`
-- `getHeapStatistics()`
-- `getBlinkMemoryInfo()`
-- `getProcessMemoryInfo()`
-- `getSystemMemoryInfo()`
-- `getSystemVersion()`
-- `getCPUUsage()`
-- `getIOCounters()`
-- `argv`
-- `execPath`
-- `env`
-- `pid`
-- `arch`
-- `platform`
-- `沙盒化`
-- `type`
-- `version`
-- `versions`
-- `mas`
-- `windowsStore`
+* `crash()`
+* `hang()`
+* `getCreationTime()`
+* `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `getSystemVersion()`
+* `getCPUUsage()`
+* `getIOCounters()`
+* `uptime()`
+* `argv`
+* `execPath`
+* `env`
+* `pid`
+* `arch`
+* `platform`
+* `沙盒化`
+* `contextIsolated`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
+* `contextId`
 
 ## 事件
 
@@ -41,15 +44,15 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ## Properties
 
-### `process.defaultApp` _Readonly_
+### `process.defaultApp` _只读_
 
 一 `Boolean`。 当应用程序启动时被作为参数传递给默认应用，这个属性在主进程中是`true`，否则是`undefined`。
 
-### `process.isMainFrame` _Readonly_
+### `process.isMainFrame` _只读_
 
 `Boolean`，若当前渲染器上下文是 渲染器"主"框架时为`true`。 如果你想得到当前框架的ID，你应该使用 `webFrame.routingId`。
 
-### `process.mas` _Readonly_
+### `process.mas` _只读_
 
 一 `Boolean`。 为Mac App Store 构建，该属性是 `true`，为其他构建则为`undefined`。
 
@@ -61,13 +64,17 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 `Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
-### `process.resourcesPath` _Readonly_
+### `process.resourcesPath` _只读_
 
 ` String ` 类型， 表示资源目录的路径。
 
-### `process.sandboxed` _Readonly_
+### `process.sandboxed` _只读_
 
 一 `Boolean`。 当渲染器进程被沙盒化时，该属性是 `true`，否则是 `undefined`。
+
+### `process.contextIsolated` _只读_
+
+一个`Boolean`类型的值指明当前渲染上下文是否启用了`contextIsolation`。 这在主进程中是`undefined`的。
 
 ### `process.throwDeprecation`
 
@@ -81,7 +88,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
-### `process.type` _Readonly_
+### `process.type` _只读_
 
 `String` 代表当前进程的类型，可以是：
 
@@ -89,17 +96,21 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 * `renderer` - A renderer process
 * `worker` - In a web worker
 
-### `process.versions.chrome` _Readonly_
+### `process.versions.chrome` _只读_
 
 ` string `，一个表示 Chrome 版本的字符串。
 
-### `process.versions.electron` _Readonly_
+### `process.versions.electron` _只读_
 
 ` string `，一个表示 Electron 版本的字符串。
 
-### `process.windowsStore` _Readonly_
+### `process.windowsStore` _只读_
 
 一 `Boolean`。 如果应用以 Windows 商店应用(appx) 运行，该属性为`true`，否则为 `undefined`。
+
+### `process.contextId` _只读_
+
+一个`字符串` (可选) 代表当前JavaScript 上下文中的全局唯一ID。 每个对话框都有自己的 JavaScript 上下文。 当上下文隔离被启用，被隔离的环境中也有单独的JavaScript上下文。 该属性仅在渲染进程中可用。
 
 ## 方法
 
