@@ -88,6 +88,8 @@ app.whenReady().then(() => {
 
 Текущее абсолютное положение указателя мыши.
 
+**Note:** The return value is a DIP point, not a screen physical point.
+
 ### `screen.getPrimaryDisplay()`
 
 Возвращает [`Display`](structures/display.md) - Основной дисплей.
