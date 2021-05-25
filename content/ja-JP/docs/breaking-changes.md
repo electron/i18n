@@ -134,17 +134,17 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
-### Deprecated: WebContents `new-window` event
+### 非推奨: WebContents `new-window` イベント
 
-The `new-window` event of WebContents has been deprecated. これは [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler) に置き換えられます。
+WebContents の `new-window` イベントは非推奨となりました。 これは [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler) に置き換えられます。
 
 ```js
-// Deprecated in Electron 13
+// Electron 13 で非推奨
 webContents.on('new-window', (event) => {
   event.preventDefault()
 })
 
-// Replace with
+// こちらに置換
 webContents.setWindowOpenHandler((details) => {
   return { action: 'deny' }
 })
@@ -152,9 +152,9 @@ webContents.setWindowOpenHandler((details) => {
 
 ## 予定されている破壊的なAPIの変更 (12.0)
 
-### Removed: Pepper Flash support
+### 削除: Pepper Flash サポート
 
-Chromium has removed support for Flash, and so we must follow suit. 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
+Chromium が Flash のサポートを削除したため、私たちもこれに従わなければなりません。 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
 
 ### 省略値変更: `worldSafeExecuteJavaScript` の省略値を `true` に
 
@@ -166,11 +166,11 @@ Electron 12 からは `worldSafeExecuteJavaScript` が既定で有効です。  
 
 Electron 12 からは `contextIsolation` が既定で有効です。  以前の動作に戻すには、WebPreferences で `contextIsolation: false` を指定する必要があります。
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+アプリケーションのセキュリティのために、[contextIsolation の有効化を推奨します](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content)。
 
 これは、`nodeIntegration` が `true` かつ `contextIsolation` が `false` でない限り、`require()` がレンダラープロセスで使用できなくなるということでもあります。
 
-For more details see: https://github.com/electron/electron/issues/23506
+詳細はこちら: https://github.com/electron/electron/issues/23506
 
 ### 削除: `crashReporter.getCrashesDirectory()`
 
@@ -198,15 +198,15 @@ app.getPath('crashDumps')
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
-### Default Changed: `crashReporter.start({ compress: true })`
+### 既定値の変更: `crashReporter.start({ compress: true })`
 
-The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. つまり、クラッシュのダンプは `Content-Encoding: gzip` ヘッダで、本文が圧縮されてクラッシュ収集サーバーにアップロードされます。
+`crashReporter.start` の `compress` オプションの既定値が `false` から `true` へ変更されました。 つまり、クラッシュのダンプは `Content-Encoding: gzip` ヘッダで、本文が圧縮されてクラッシュ収集サーバーにアップロードされます。
 
 クラッシュ収集サーバーが圧縮形式のペイロードをサポートしていない場合、クラッシュレポーターのオプションで `{ compress: false }` を指定すれば圧縮をオフにできます。
 
-### Deprecated: `remote` module
+### 非推奨: `remote` モジュール
 
-The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+`remote` モジュールは Electron 12 で非推奨となり、Electron 14 で削除される予定です。 これは [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
 
 ```js
 // Electron 12では非推奨:
@@ -214,10 +214,10 @@ const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// Replace with:
+// こちらに置換:
 const { BrowserWindow } = require('@electron/remote')
 
-// In the main process:
+// メインプロセスでは:
 require('@electron/remote/main').initialize()
 ```
 
