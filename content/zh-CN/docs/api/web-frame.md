@@ -51,8 +51,8 @@ Returns `Number` - The current zoom level.
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
-webFrame.setVisualZoomLevelLimits(1, 3)
-```
+> webFrame.setVisualZoomLevelLimits(1, 3)
+> ```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
