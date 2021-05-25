@@ -10,28 +10,31 @@ El objeto `process` de Electron es heredado del [objeto `process` de Node.js](ht
 
 En el procesor renderer en sandbox el objeto `process` sólo contiene un subconjunto de las APIs:
 
-- `crash()`
-- `hang()`
-- `getCreationTime()`
-- `getHeapStatistics()`
-- `getBlinkMemoryInfo()`
-- `getProcessMemoryInfo()`
-- `getSystemMemoryInfo()`
-- `getSystemVersion()`
-- `getCPUUsage()`
-- `getIOCounters()`
-- `argv`
-- `execPath`
-- `env`
-- `pid`
-- `arch`
-- `platform`
-- `sandboxed`
-- `tipo`
-- `version`
-- `versions`
-- `mas`
-- `windowsStore`
+* `crash()`
+* `hang()`
+* `getCreationTime()`
+* `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `getSystemVersion()`
+* `getCPUUsage()`
+* `getIOCounters()`
+* `uptime()`
+* `argv`
+* `execPath`
+* `env`
+* `pid`
+* `arch`
+* `platform`
+* `sandboxed`
+* `contextIsolated`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
+* `contextId`
 
 ## Eventos
 
@@ -69,9 +72,13 @@ Un `string` que representa la ruta de acceso al directorio de recursos.
 
 Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _SoloLectura_
+
+Un `Boolean` que indica si el renderer context acutal tiene el `contextIsolation` activado. Es `undefined` en el main process.
+
 ### `proceso.desechoDegradación`
 
-Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
 ### `proceso.ubicarDegradación`
 
@@ -81,7 +88,7 @@ Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen
 
 Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la línea de comando `--trace-warnings`.
 
-### `process.type` _Readonly_
+### `process.type` _Solo lectura_
 
 Un `String` que representa el tipo de proceso actual, puede ser:
 
@@ -89,17 +96,21 @@ Un `String` que representa el tipo de proceso actual, puede ser:
 * `renderer` - Un renderer process
 * `worker` - En un web worker
 
-### `process.versions.chrome` _Readonly_
+### `process.versions.chrome` _Solo lectura_
 
 Una `cadena` representando la versión de cadena de Chrome.
 
-### `process.versions.electron` _Readonly_
+### `process.versions.electron` _Solo lectura_
 
 Una `cadena` representando la versión de cadena de Electron.
 
-### `process.windowsStore` _Readonly_
+### `process.windowsStore` _Solo lectura_
 
 Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _SoloLectura_
+
+Un `String` (opcional) que representa un único global ID del contexto JavaScript actual. Cada frame tiene su propio contexto JavaScript. Cuando el contextIsolation está activado, el isolated world además tiene un contexto JavaScript separado. Esta propiedad solo está disponible en el renderer process.
 
 ## Métodos
 
