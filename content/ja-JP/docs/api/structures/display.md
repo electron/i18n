@@ -10,9 +10,9 @@
 * `colorDepth` Number - ピクセルあたりのビット数。
 * `depthPerComponent` Number - 色コンポーネントあたりのビット数。
 * `displayFrequency` Number - 表示リフレッシュレート。
-* `bounds` [Rectangle](rectangle.md)
+* `bounds` [Rectangle](rectangle.md) - DIP ポイント単位のディスプレイの領域。
 * `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
+* `workArea` [Rectangle](rectangle.md) - DIP ポイント単位のディスプレイの動作領域。
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - 内部ディスプレイの場合は `true` で外部ディスプレイの場合は `false`
 
