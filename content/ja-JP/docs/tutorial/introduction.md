@@ -10,14 +10,14 @@ Electron は、JavaScript、HTML、CSS によるデスクトップアプリケ�
 
 このドキュメントは、読者が Node.js と一般的なウェブ開発の両方に精通していることを前提にしています。 これらの分野のいずれかに精通しておきたい方は、以下のリソースをお勧めします。
 
-* \[Getting started with the Web (MDN)\]\[mdn-guide\]
+* \[ウェブ入門 (MDN)\]\[mdn-guide\]
 * \[Introduction to Node.js\]\[node-guide\]
 
-Moreover, you'll have a better time understanding how Electron works if you get acquainted with Chromium's process model. You can get a brief overview of Chrome architecture with the \[Chrome comic\]\[comic\], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
+また、Chromium のプロセスモデルを知っていると Electron の仕組みをより理解しやすくなります。 2008 年の Chrome 発表と同時に公開された \[Chrome 漫画\]\[comic\] には、Chrome のアーキテクチャの概要が載っています。 その公開から 10 年以上経っていますが、この漫画で紹介された基本原理は Electron の理解に役立ちます。
 
-## Running examples with Electron Fiddle
+## Electron Fiddle でサンプルを動かす
 
-\[Electron Fiddle\]\[fiddle\] is a sandbox app written with Electron and supported by Electron's maintainers. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+\[Electron Fiddle\]\[fiddle\] は Electron で書かれたサンドボックスアプリで、Electron のメンテナがサポートしています。 Electron の API を試したり開発中の機能を試作するための学習ツールとして、インストールを強く推奨します。
 
 Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
 
