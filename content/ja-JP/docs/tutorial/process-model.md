@@ -77,15 +77,15 @@ Electron のメインプロセスのモジュール一覧は、API ドキュメ�
 
 > 注意: 開発を容易にするために、レンダラープロセスを完全な Node.js 環境で生成できます。 歴史的には、これがデフォルトでしたが、セキュリティ上の理由からこの機能は無効になりました。
 
-At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
+ここで、レンダラープロセスのユーザーインターフェイスが Node.js や Electron のネイティブデスクトップ機能にアクセスできずメインプロセスからのみできるのであれば、どのように協調して動作するのかと疑問に思うでしょう。 実際、Electron のコンテンツスクリプトを直接インポートする方法はありません。
 
 ## プリロードスクリプト
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> Preload scripts contain code that executes in a renderer process before its web content begins loading. These scripts runs within the renderer context, but are granted more privileges by having access to Node.js APIs.
+change the statements here. --> プリロードスクリプトは、ウェブコンテンツの読み込み開始前にレンダラープロセス内で実行されるコードです。 これらのスクリプトはレンダラーのコンテキスト内で実行されますが、Node.js の API にアクセスできるようにより多くの権限が与えられています。
 
-A preload script can be attached to the main process in the `BrowserWindow` constructor's `webPreferences` option.
+プリロードスクリプトは、`BrowserWindow` コンストラクタの `webPreferences` オプションでメインプロセスからアタッチできます。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
