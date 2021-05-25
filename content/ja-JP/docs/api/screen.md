@@ -88,6 +88,8 @@ app.whenReady().then(() => {
 
 マウスポインタの現在の絶対位置。
 
+**注:** 戻り値は DIP ポイント単位です。画面の物理ポイント単位ではありません。
+
 ### `screen.getPrimaryDisplay()`
 
 戻り値 [`Display`](structures/display.md) - 主要なディスプレイ。
