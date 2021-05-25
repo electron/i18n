@@ -1,6 +1,6 @@
 # Objekt Nach dem Text
 
-* `Daren`Pfeil[PostDaten](./post-data.md)-Die Post Daten um der neuen Fenster gesendet zu werden.
+* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - The post data to be sent to the new window.
 * `Inhalt Typ`Zeile- Das`Etikett von Inhalt Typ fuer die Daten verwendet. Eine
 <code>Anwendung/x-www-Forme-mit Urlcode`oder`vielteilig`/Form-von Daten. Entspricht dem `enctype` Attribut des übermittelten HTML-Formulares.
 * `Grenze`Zeile (optional)-Die verwendete Grenze um diese Nachricht zu teilen. Anwendbar nur wenn`Inhalt Typ <code>vielteilig/Form-Daten`ist.
