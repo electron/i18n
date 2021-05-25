@@ -24,8 +24,8 @@ win.loadURL('https://github.com')
 
 **Remarque :** Le module distant peut être désactivé pour des raisons de sécurité dans les contextes suivants :
 
-- [`BrowserWindow`](browser-window.md) - en définissant l'option `enableRemoteModule` à `false`.
-- [`<webview>`](webview-tag.md)`</0> - en définissant l'attribut <2>enableremotemodule</2> à <2>false</2>.</li>
+* [`BrowserWindow`](browser-window.md) - en définissant l'option `enableRemoteModule` à `false`.
+* [`<webview>`](webview-tag.md)`</0> - en définissant l'attribut <2>enableremotemodule</2> à <2>false</2>.</li>
 </ul>
 
 <h2 spaces-before="0">Objet remote</h2>

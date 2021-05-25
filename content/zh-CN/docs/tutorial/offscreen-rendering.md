@@ -26,8 +26,6 @@ GPU加速渲染意味着使用GPU用于合成。 这也就意味着帧必须从G
 
 ## 示例
 
-从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
-
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
 const fs = require('fs')
@@ -47,6 +45,6 @@ app.whenReady().then(() => {
 })
 ```
 
-启动 Electron 应用程序后，导航到应用程序文件夹。
+After launching the Electron application, navigate to your application's working folder, where you'll find the rendered image.
 
 [disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration

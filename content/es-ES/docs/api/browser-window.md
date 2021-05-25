@@ -161,11 +161,12 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `default` - Es la barra de título gris opaca estándar de Mac.
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
-    * `customButtonsOnHover` Boolean (opcional) - Dibuja un botón cierre y minimizar personalizado en macOS en ventanas sin marcos. Estos botones no se mostrarán a menos que se encuentren en la esquina superior izquierda de la ventana. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. **Nota:** Actualmente esta opción es experimental.
-  * `trafficLightPosition` [Point](structures/point.md) (opcional) - Establezca un valor personalizado para la posición de los botones del semáforo. Sólo puede ser usado con `titleBarStyle` configurado en `hidden`
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Por defecto es `false`.
+    * `customButtonsOnHover` - Resulta en una barra de titulo oculta y en una ventana de contenido de tamaño completo, los botones del semáforo se mostrarán al pasar el cursor sobre la parte superior izquierda de la ventana.  **Note:** Esta opción es experimental actualmente.
+  * `trafficLightPosition` [Point](structures/point.md) (opcional) - Establece una posición para los botones del semáforo en ventanas sin marco.
+  * `roundedCorners` Boolean (opcional) - Si la ventana sin marco debería tener o no esquinas redondeadas macOS. Por defecto es `true`.
+  * `fullscreenWindowTitle` Boolean (opcional) _Obsoleto_ - Muestra el título en la barra de título en el modo de pantalla completa en macOS para `hiddenInset` titleBarStyle. Por defecto es `false`.
   * `thickFrame` Boolean (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
-  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`.  Por favor, tenga en cuenta que usar `frame: false` en una combinación con un valor de vibración requiere que uses también un `titleBarStyle` no predeterrminado. Además note que `appearance-based`, `light`, `dark`, `medium-light`, y `ultra-dark` han sido marcados como obsoletos y serán eliminados en una próxima versión de macOS.
+  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, o `under-page`. Please note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` are deprecated and have been removed in macOS Catalina (10.15).
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. Si es `true`, la ventana crecerá al ancho recomendado de la página web cuando se haga zoom. `false` hará que haga zoom hasta el ancho de la pantalla. Esto también afectará el comportamiento cuando se llama directamente `maximize()`. Por defecto es `false`.
   * `tabbingIdentifier` String (opcional) - Crea una pestaña del nombre del grupo. Permite abrir la ventana como una pestaña nativa en macOC 10.12+. Las ventanas con el mismo identificador de pestaña se agruparán juntos. Esto también añade un nuevo botón de pestañas nativo a la barra de pestañas de la ventana y permite que la `app` y la ventana reciban el evento `new-window-for-tab`.
   * `webPreferences` Object (optional) - Settings of web page's features.
@@ -204,8 +205,8 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `defaultEncoding` String (opcional) - Por defecto es `ISO-8859-1`.
     * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. Esto también afecta a [Page Visibility API](#page-visibility). Por defecto es `true`.
     * `offscreen` Boolean(optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
-    * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  Esta opción utiliza la misa técnica usada por [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. Por defecto es `true`. _Deprecated_
+    * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  Esta opción utiliza la misa técnica usada por [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
     * `nativeWindowOpen` Boolean (opcional) - Si se usa el nativo `window.open()`. Por defecto es `false`. Las ventanas hijas siempre tienen la integración con node desabilidata a menos que `nodeIntegrationInSubFrames` es true. **Note:** Esta opción es experimental actualmente.
     * `webviewTag` Boolean (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto es `false`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
@@ -508,77 +509,6 @@ Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. Si
 
 Devuelve `BrowserWindow | null` -La ventana con la `id` especificada.
 
-#### `BrowserWindow.addExtension(path)` _Deprecated_
-
-* `path` String
-
-Añade una extensión de Chrome ubicada en `path`, y devuelve el nombre de la extensión.
-
-El método no devolverá nada si el manifiesto de la extensión falta o está incompleta.
-
-**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
-
-**Nota:** Este método esta obsoleto. En su lugar, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
-
-#### `BrowserWindow.removeExtension(name)` _Deprecated_
-
-* `name` String
-
-Elimina una extensión de Chrome por su nombre.
-
-**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
-
-**Nota:** Este método esta obsoleto. En su lugar, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
-
-#### `BrowserWindow.getExtensions()` _Deprecated_
-
-Devuelve `Record<String, ExtensionInfo>` - Las llaves son nombres de extensiones y cada valor es una Objeto conteniendo las propiedades `name` y `version`.
-
-**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
-
-**Nota:** Este método esta obsoleto. En su lugar, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
-
-#### `BrowserWindow.addDevToolsExtension(path)` _Deprecated_
-
-* `path` String
-
-Añade una extensión de DevTools ubicada en `path`, y devuelve el nombre de la extensión.
-
-La extensión será recordada, por lo tanto sólo se necesitará llamar a la API una vez. Esta API no es para uso de la programación. Si se intenta añadir una extensión que ya ha sido cargada, este método no devolverá nada y en su lugar aparecerá una advertencia en la consola.
-
-El método no devolverá nada si el manifiesto de la extensión falta o está incompleta.
-
-**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
-
-**Nota:** Este método esta obsoleto. En su lugar, use [`ses.loadExtension(path)`](session.md#sesloadextensionpath-options).
-
-#### `BrowserWindow.removeDevToolsExtension(name)` _Deprecated_
-
-* `name` String
-
-Elimina una extensión de Devtools mediante su nombre.
-
-**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
-
-**Nota:** Este método esta obsoleto. En su lugar, use [`ses.removeExtension(extension_id)`](session.md#sesremoveextensionextensionid).
-
-#### `BrowserWindow.getDevToolsExtensions()` _Deprecated_
-
-Devuelve `Record<string, ExtensionInfo>` - Las llaves son nombres de extensiones y cada valor es una Objeto conteniendo las propiedades `name` y `version`.
-
-Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
-
-```javascript
-const { BrowserWindow } = require('electron')
-
-const installed = 'devtron' in BrowserWindow.getDevToolsExtensions()
-console.log(installed)
-```
-
-**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
-
-**Nota:** Este método esta obsoleto. En su lugar, use [`ses.getAllExtensions()`](session.md#sesgetallextensions).
-
 ### Propiedades de Instancia
 
 Los objetos creados con `new BrowserWindow` tienen las siguientes propiedades:
@@ -590,13 +520,13 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` _Readonly_
+#### `win.webContents` _SoloLectura_
 
 Un objeto `WebContents` que esta ventana posse. Toda página web relacionada eventos y operaciones se realizarán a través de ella.
 
 Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eventos.
 
-#### `win.id` _Readonly_
+#### `win.id` _SoloLectura_
 
 Una propiedad `Integer` representando el identificador único de la ventana. Cada ID es único entre todas las instancias `BrowserWindow` de toda la aplicación Electron.
 
@@ -604,7 +534,7 @@ Una propiedad `Integer` representando el identificador único de la ventana. Cad
 
 Una propiedad `Boolean` que determina si la barra de menú de la ventana debe ocultarse automáticamente. Una vez activada, la barra de menú sólo se mostrará cuando los usuarios presionen la tecla `Alt`.
 
-Si la barra de menú ya está visible, estableciendo esta propiedad a `true` no la ocultara inmediatamente.
+Si el menu bar ya está visible, estableciendo esta propiedad a `true` no lo ocultará inmediatamente.
 
 #### `win.simpleFullScreen`
 
@@ -837,7 +767,7 @@ Cierra el panel actual de [Quick Look][quick-look].
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (opcional) _macOS_
+* `animate` Booleano (opcional) _macOS_
 
 Redimensiona y mueve la ventana a los límites proporcionados. Cualquier propiedad que no se proporcione tendrá sus valores actuales por defecto.
 
@@ -866,7 +796,7 @@ Returns `String` - Gets the background color of the window. Ver [Setting `backgr
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (opcional) _macOS_
+* `animate` Booleano (opcional) _macOS_
 
 Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página web) hasta los límites proporcionados.
 
@@ -894,7 +824,7 @@ Devuelce `Boolean` -si la ventana está activada.
 
 * `width` Integer
 * `alto` Integer
-* `animate` Boolean (opcional) _macOS_
+* `animate` Booleano (opcional) _macOS_
 
 Cambia el tamaño de la ventana a `width` y `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -906,7 +836,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura de la ventana.
 
 * `width` Integer
 * `alto` Integer
-* `animate` Boolean (opcional) _macOS_
+* `animate` Booleano (opcional) _macOS_
 
 Cambia el área del cliente de la ventana (por ejemplo, la página web) a la `width` y `height`.
 
@@ -1034,7 +964,7 @@ Mueve la ventana al centro de la pantalla.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (opcional) _macOS_
+* `animate` Booleano (opcional) _macOS_
 
 Mueve la ventana a `x` y `y`.
 
@@ -1138,7 +1068,7 @@ Desancla todos los mensajes de la ventana.
 
 #### `win.setRepresentedFilename(filename)` _macOS_
 
-* `filename` Cadena
+* `filename` String
 
 Establece el nombre de la ruta del archivo que la ventana representa, y el icono del archivo se mostrará en la barra de título de la ventana.
 
@@ -1175,7 +1105,7 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una URL de referencia HTTP.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
   * `baseURLForDataURL` String (opcional) - URL base (con separador de ruta final) para archivos a ser cargados por el data URL. Esto solo es necesario si la `url` especificada es una data URL y necesita cargar otros archivos.
 
 Devuelve `Promise<void>` - la promesa sera resolvida cuando la página haya finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y será rechazada si la pagina falla al cargar (mira [`did-fail-load`](web-contents.md#event-did-fail-load)).
@@ -1238,13 +1168,13 @@ Eliminar la barra de menú de la ventana.
 
 * `progress` Double
 * `options` Object (opcional)
-  * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String _Windows_ - Mode for the progress bar. Puede ser `none`, `normal`, `indeterminate`, `error` o `paused`.
 
 Establece el valor del progreso en el progress bar. Rango valido es [0, 1.0].
 
 Elimina la barra de progreso cuando el progreso es < 0; cambia a modo indeterminado cuando el progreso es >1.
 
-En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto asumirá `{app.name}.desktop`.
+En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto, será asumido `{app.name}.desktop`.
 
 En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, `indeterminate`, `error`, y `paused`. Si se llama a`setProgressBar` sin establecer un modo (pero con un valor dentro del rango válido), se asumirá el modo `normal`.
 
@@ -1293,9 +1223,9 @@ El número de botones en la barra de herramientas de la vista previa no debe ser
 
 Los `buttons` es un arreglo de objetos `Button`:
 
-* `Button` Object
+* Objeto `Button`
   * `icon` [NativeImage](native-image.md) - El icono que muestra la barra de herramientas de la vista previa.
-  * `click` Función
+  * `click` Function
   * `tooltip` String (opcional): el texto de la información sobre el botón.
   * `flags` String[] (opcional) - Controla los estados y comportamientos específicos del botón. Por defecto, es `['enabled']`.
 
@@ -1349,8 +1279,6 @@ Cambia el icono de la ventana.
 
 Establece si los botones de luz del tráfico de ventana deben estar visibles.
 
-Esto no puede llamarse cuando `titleBarStyle` está configurado para ser `customButtonsOnHover`.
-
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
@@ -1377,7 +1305,8 @@ Devuelve `Boolean` - Si la barra de menú es visible o no.
 
 * `visible` Boolean
 * `options` Object (opcional)
-  * `visibleOnFullScreen` Boolean (opcional) _macOS_ - Establece si la ventana debe ser visible encima de la ventanas de pantalla completas
+  * `visibleOnFullScreen` Boolean (opcional) _macOS_ - Establece si la ventana debe ser visible encima de la ventanas de pantalla completas.
+  * `skipTransformProcessType` Boolean (opcional) _macOS_ - Llamando a setVisibleOnAllWorkspaces por defecto transformará el tipo de proceso entre UIElementApplication y ForegroundApplication para asegurar el comportamiento correcto. Sin embargo, esto ocultará la ventana y el dock por un tiempo corto cada vez que es llamado. Si su ventana ya es de tipo UIElementApplication, puede saltarse esta tranformación pasando true a skipTransformProcessType.
 
 Establece si la ventana debe ser visible o no en todos los espacios de trabajo.
 
@@ -1473,11 +1402,11 @@ Note que `appearance-based`, `light`, `dark`, `medium-light`, y `ultra-dark` han
 
 * `position` [Punto](structures/point.md)
 
-Set a custom position for the traffic light buttons. Sólo puede ser usado con `titleBarStyle` configurado en `hidden`.
+Establece una posición personalizada para los botones del semáforo en la ventana sin marco.
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+Devuelve `Point` - La posición personalizada para los botones del semáforo en la ventana sin marco.
 
 #### `win.setTouchBar(touchBar)` _macOS_
 

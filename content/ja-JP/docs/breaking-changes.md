@@ -134,11 +134,27 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
+### Deprecated: WebContents `new-window` event
+
+The `new-window` event of WebContents has been deprecated. これは [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler) に置き換えられます。
+
+```js
+// Deprecated in Electron 13
+webContents.on('new-window', (event) => {
+  event.preventDefault()
+})
+
+// Replace with
+webContents.setWindowOpenHandler((details) => {
+  return { action: 'deny' }
+})
+```
+
 ## 予定されている破壊的なAPIの変更 (12.0)
 
-### 削除: Pepper(ペッパー)フラッシュ対応
+### Removed: Pepper Flash support
 
-ChromiumはFlashのサポートを削除しましたので、それに続く必要があります。 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
+Chromium has removed support for Flash, and so we must follow suit. 詳細については、Chromium の [Flash Roadmap](https://www.chromium.org/flash-roadmap) を参照してください。
 
 ### 省略値変更: `worldSafeExecuteJavaScript` の省略値を `true` に
 
@@ -148,13 +164,13 @@ Electron 12 からは `worldSafeExecuteJavaScript` が既定で有効です。  
 
 ### 省略値変更: `contextIsolation` の省略値を `true` に
 
-Electron 12 では、 `contextIsolation` がデフォルトで有効になります。  以前の動作を復元するには、 、 `contextIsolation: false` をWebPreferencesで指定する必要があります。
+Electron 12 からは `contextIsolation` が既定で有効です。  以前の動作に戻すには、WebPreferences で `contextIsolation: false` を指定する必要があります。
 
-[アプリケーションのセキュリティのためにコンテキスト分離を有効にする](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) をお勧めします。
+We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
 
 これは、`nodeIntegration` が `true` かつ `contextIsolation` が `false` でない限り、`require()` がレンダラープロセスで使用できなくなるということでもあります。
 
-詳細は以下をご覧ください: https://github.com/electron/electron/issues/23506
+For more details see: https://github.com/electron/electron/issues/23506
 
 ### 削除: `crashReporter.getCrashesDirectory()`
 
@@ -182,15 +198,15 @@ app.getPath('crashDumps')
 
 詳しくは [#23265](https://github.com/electron/electron/pull/23265) を参照してください。
 
-### デフォルトの変更: `crashReporter.start({ compress: true })`
+### Default Changed: `crashReporter.start({ compress: true })`
 
-`compress` オプションの `crashReporter.start` のデフォルト値が `false` から `true` に変更されました。 つまり、クラッシュのダンプは `Content-Encoding: gzip` ヘッダで、本文が圧縮されてクラッシュ収集サーバーにアップロードされます。
+The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. つまり、クラッシュのダンプは `Content-Encoding: gzip` ヘッダで、本文が圧縮されてクラッシュ収集サーバーにアップロードされます。
 
 クラッシュ収集サーバーが圧縮形式のペイロードをサポートしていない場合、クラッシュレポーターのオプションで `{ compress: false }` を指定すれば圧縮をオフにできます。
 
-### 非推奨: `リモート` モジュール
+### Deprecated: `remote` module
 
-`リモート` モジュールは Electron 12 で非推奨で、 Electron 14 で削除されます。 [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
+The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
 
 ```js
 // Electron 12では非推奨:
@@ -198,16 +214,16 @@ const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// 置換:
+// Replace with:
 const { BrowserWindow } = require('@electron/remote')
 
-// メインプロセスで:
+// In the main process:
 require('@electron/remote/main').initialize()
 ```
 
 ### 非推奨: `shell.moveItemToTrash()`
 
-同期 `shell.moveItemToTrash()` が新しい 非同期 `shell.trashItem()` に置き換えられました。
+The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
 
 ```js
 // Electron 12 では非推奨
@@ -555,9 +571,9 @@ nativeTheme.shouldUseHighContrastC
 
 これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。  両方とも近い将来サポートされますが、切り替えることを推奨します。
 
-非推奨: https://atom.io/download/electron
+Deprecated: https://atom.io/download/electron
 
-こちらに置換: https://electronjs.org/headers
+Replace with: https://electronjs.org/headers
 
 ### API 変更: `session.clearAuthCache()` が引数を受け取らないように
 
@@ -579,7 +595,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API 変更: `powerMonitor.querySystemIdleTime` が `powerMonitor.getSystemIdleTime` になりました
+### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
 
 ```js
 // Electron 7.0 で削除
@@ -1092,10 +1108,10 @@ webview.onkeyup = () => { /* handler */ }
 ### `BrowserWindow`
 
 ```js
-// 非推奨
+// Deprecated
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// 置換
+// Replace with
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
@@ -1156,9 +1172,9 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ### 重複する ARM アセット
 
-どの Electron リリースにも、`electron-v1.7.3-linux-arm.zip` や `electron-v1.7.3-linux-armv7l.zip` のような少しファイル名が異なる2つの同一な ARM ビルドが含まれます。 サポートされている ARM バージョンをユーザに明確にし、将来作成される armv6l および arm64 アセットらと明確にするために、`v7l` という接頭子を持つアセットが追加されました。
+どの Electron リリースにも、`electron-v1.7.3-linux-arm.zip` や `electron-v1.7.3-linux-armv7l.zip` のような少しファイル名が異なる 2 つの同様な ARM ビルドが含まれます。 サポートされている ARM バージョンをユーザに明確にし、将来作成される armv6l および arm64 アセットらと明確にするために、`v7l` という接頭子を持つアセットが追加されました。
 
-_接頭子が付いていない_ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
+_接頭子が付いていない_ ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
 
 詳細は、[6986](https://github.com/electron/electron/pull/6986) と [7189](https://github.com/electron/electron/pull/7189) を参照してください。
 

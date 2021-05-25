@@ -2,8 +2,8 @@
 
 レンダラー内での信頼されたもしくは信頼されていないコンテンツからのウインドウ作成を制御する方法がいくつかあります。 ウインドウはレンダラーから以下の 2 つの方法で作成できます。
 
-- `target=_blank` が付加された、リンクのクリックやフォームの送信
-- JavaScript での `window.open()` 呼び出し
+* `target=_blank` が付加された、リンクのクリックやフォームの送信
+* JavaScript での `window.open()` 呼び出し
 
 サンドボックス化されていないレンダラーや `nativeWindowOpen` が false (既定値) の場合、[`BrowserWindowProxy`](browser-window-proxy.md) という `BrowserWindow` の軽いラッパーが作成されます。
 

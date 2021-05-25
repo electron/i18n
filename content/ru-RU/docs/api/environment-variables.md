@@ -59,11 +59,11 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 По умолчанию, новый сгенерированный ключ API Google не может делать запросы геолокации. Чтобы включить веб-сервис геолокации для вашего проекта требуется [библиотека API](https://console.cloud.google.com/apis/library).
 
-N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
+Обратите внимание. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Отключает поддержку ASAR. Данная переменная поддерживается только в дочерних процессах, которые установили переменную окружения `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
@@ -89,7 +89,7 @@ These flags are disabled owing to the fact that Electron uses BoringSSL instead 
 
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. Default is `gio`.
+Set the trash implementation on Linux. По умолчанию - `gio`.
 
 Параметры:
 
@@ -105,6 +105,23 @@ Set the trash implementation on Linux. Default is `gio`.
 ### `ELECTRON_ENABLE_LOGGING`
 
 Выводит логи Chrome в консоль.
+
+### `ELECTRON_DEBUG_DRAG_REGIONS`
+
+Adds coloration to draggable regions on [`BrowserView`](./browser-view.md)s on macOS - draggable regions will be colored green and non-draggable regions will be colored red to aid debugging.
+
+### `ELECTRON_DEBUG_NOTIFICATIONS`
+
+Adds extra logs to [`Notification`](./notification.md) lifecycles on macOS to aid in debugging. Extra logging will be displayed when new Notifications are created or activated. They will also be displayed when common actions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
+
+Sample output:
+
+```sh
+Notification created (com.github.Electron:notification:EAF7B87C-A113-43D7-8E76-F88EC9D73D44)
+Notification displayed (com.github.Electron:notification:EAF7B87C-A113-43D7-8E76-F88EC9D73D44)
+Notification activated (com.github.Electron:notification:EAF7B87C-A113-43D7-8E76-F88EC9D73D44)
+Notification replied to (com.github.Electron:notification:EAF7B87C-A113-43D7-8E76-F88EC9D73D44)
+```
 
 ### `ELECTRON_LOG_ASAR_READS`
 
@@ -124,7 +141,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Использование:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing

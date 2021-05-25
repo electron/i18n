@@ -10,9 +10,9 @@
 * `colorDepth` Number - количество битов на пиксель.
 * `depthPerComponent` Number - количество битов на цветовой компонент.
 * `displayFrequency` Number - The display refresh rate.
-* `bounds` [Rectangle](rectangle.md)
+* `bounds` [Rectangle](rectangle.md) - the bounds of the display in DIP points.
 * `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
+* `workArea` [Rectangle](rectangle.md) - the work area of the display in DIP points.
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - `true` для внутреннего дисплея и `false` для внешнего дисплея
 

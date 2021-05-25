@@ -10,20 +10,14 @@
 
 ## ガイドとチュートリアル
 
-### クイックスタート
+### はじめましょう
 
-* [クイックスタートガイド](tutorial/quick-start.md)
-  * [必要な環境](tutorial/quick-start.md#prerequisites)
-  * [基本的なアプリケーションを作成](tutorial/quick-start.md#create-a-basic-application)
-  * [アプリケーションの実行](tutorial/quick-start.md#run-your-application)
-  * [アプリケーションのパッケージと配布](tutorial/quick-start.md#package-and-distribute-the-application)
+* [はじめに](tutorial/introduction.md)
+* [クイック スタート](tutorial/quick-start.md)
+* [プロセスモデル](tutorial/process-model.md)
 
 ### 基本を学ぶ
 
-* [Electron のプロセスモデル](tutorial/quick-start.md#application-architecture)
-  * [メインプロセスとレンダラープロセス](tutorial/quick-start.md#main-and-renderer-processes)
-  * [Electron API](tutorial/quick-start.md#electron-api)
-  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * アプリに機能を追加する
   * [通知](tutorial/notifications.md)
   * [最近使った書類](tutorial/recent-documents.md)

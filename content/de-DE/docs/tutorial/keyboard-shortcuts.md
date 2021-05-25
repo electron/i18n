@@ -62,17 +62,21 @@ After launching the Electron application, if you press the defined key combinati
 
 If you want to handle keyboard shortcuts within a [BrowserWindow][], you can listen for the `keyup` and `keydown` [DOM events][dom-events] inside the renderer process using the [addEventListener() API][addEventListener-api].
 
-```js
-window.addEventListener('keyup', doSomething, true)
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/web-apis|focus=renderer.js'
+function handleKeyPress(event) {
+  // You can put code here to handle the keypress.
+  document.getElementById("last-keypress").innerText = event.key;
+  console.log(`You pressed ${event.key}`);
+}
+
+window.addEventListener('keyup', handleKeyPress, true);
 ```
 
-Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+> Note:  the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
 
 #### Intercepting events in the main process
 
-Das [`vor dem Input-Event`](../api/web-contents.md#event-before-input-event) Ereignis wird vor dem Versenden von `Tastendruck` und `Tastendruck` Ereignisse auf der Seite abgesendet. Es kann verwendet werden, um benutzerdefinierte Verknüpfungen zu fangen und zu verwalten, die im Menü nicht sichtbar sind.
-
-##### Beispiel
+The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -80,7 +84,7 @@ Starting with a working application from the [Quick Start Guide](quick-start.md)
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {
-  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+  const win = new BrowserWindow({ width: 800, height: 600 })
 
   win.loadFile('index.html')
   win.webContents.on('before-input-event', (event, input) => {

@@ -50,7 +50,7 @@ console.log(systemPreferences.isDarkMode())
 
 返回`Boolean`，表示系统是否处于Dark模式
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
+**已废弃：** 请使用新的 [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API。
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
@@ -109,7 +109,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 返回 `Number` - 该订阅的 ID
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. 这对事件 `NSUserDefaultsDidChangeNotification` 是必需的。
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
@@ -261,7 +261,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-frame` - 窗口框.
     * `window-text` - 窗口的文字。
   * On **macOS**
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _已废弃_
     * `control-background` - The background of a large interface element, such as a browser or table.
     * `control` - The surface of a control.
     * `control-text` -The text of a control that isn’t disabled.
@@ -380,7 +380,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` _Windows_ _macOS_
 
-* `mediaType` String - Can be `microphone`, `camera` or `screen`.
+* `mediaType` String - 可以是 `microphone`, `camera` 或 `screen`.
 
 返回 `String` - 值可以是 `not-determined`， `granted`， `denied`， `restricted` 或 `unknown`。
 
@@ -394,7 +394,7 @@ Windows 10的全局设置控制了所有win32 应用程序对 `麦克风` 和 `�
 
 Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it _must_ be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
-**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](../tutorial/application-distribution.md#macos) for more information about how to set these in the context of Electron.
 
 This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
 
@@ -412,15 +412,15 @@ Returns an object with system animation settings.
 
 ### `systemPreferences.appLevelAppearance` _macOS_
 
-A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
+一个类型为`String`的属性，此属性可能的值为：`dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
 Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
 
 This property is only available on macOS 10.14 Mojave or newer.
 
-### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
+### `systemPreferences.effectiveAppearance` _macOS_ _只读_
 
-A `String` property that can be `dark`, `light` or `unknown`.
+一个类型为`String`的属性，此属性可能的值为：`dark`, `light` or `unknown`.
 
 Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 

@@ -38,7 +38,7 @@ If you click `Help` or press the defined accelerator and then open the terminal 
 
 ### Accesos directos globales
 
-To configure a global keyboard shortcut, you need to use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
+Para configurar un atajo de teclado global, necesita usar el módulo [globalShortcut][] para detecta los eventos del teclado cuando la aplicación no tiene el focus del teclado.
 
 Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
@@ -60,19 +60,23 @@ After launching the Electron application, if you press the defined key combinati
 
 #### Usando APIs web
 
-If you want to handle keyboard shortcuts within a [BrowserWindow][], you can listen for the `keyup` and `keydown` [DOM events][dom-events] inside the renderer process using the [addEventListener() API][addEventListener-api].
+Si quieres manejar los atajos de teclado dentro de un [BrowserWindow][], puedes escuchar por los [Eventos DOM][dom-events] `keyup` y `keydown` dentro del renderer process usando la [API addEventListener()][addEventListener-api].
 
-```js
-window.addEventListener('keyup', doSomething, true)
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/web-apis|focus=renderer.js'
+function handleKeyPress(event) {
+  // You can put code here to handle the keypress.
+  document.getElementById("last-keypress").innerText = event.key;
+  console.log(`You pressed ${event.key}`);
+}
+
+window.addEventListener('keyup', handleKeyPress, true);
 ```
 
-Note the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+> Note:  the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
 
 #### Interceptando eventos en el main process
 
 El [`Evento antes de la entrada`](../api/web-contents.md#event-before-input-event) es emitido antes de enviar los eventos `flecha hacia arriba` y `flecha hacia abajo` en la página. Puede ser usado para capturar y manejar accesos directos personalizados que no son visibles en el menú.
-
-##### Ejemplo
 
 Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick-start.md), actualiza el archivo `main.js` con las siguiente lineas:
 
@@ -80,7 +84,7 @@ Comenzando con una aplicación funcionando desde [Guía de Inicio Rápido](quick
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {
-  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+  const win = new BrowserWindow({ width: 800, height: 600 })
 
   win.loadFile('index.html')
   win.webContents.on('before-input-event', (event, input) => {
@@ -96,7 +100,7 @@ After launching the Electron application, if you open the terminal that you ran 
 
 #### Usando librerías de terceros
 
-If you don't want to do manual shortcut parsing, there are libraries that do advanced key detection, such as [mousetrap][]. A continuación se muestran ejemplos de uso de `mousetrap` corriendo en el Renderer process:
+Si no quiere hacer el análisis manual de los atajos hay librerías que hacen detección de teclas avanzadas, como [mousetrap][]. A continuación se muestran ejemplos de uso de `mousetrap` corriendo en el Renderer process:
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })

@@ -10,28 +10,31 @@
 
 В песочнице графический объект `process` содержит только подмножество API:
 
-- `crash() - Падение`
-- `hang() - Зависание`
-- `getCreationTime() - Время создания`
-- `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
-- `getBlinkMemoryInfo() - Информация о памяти Blink`
-- `getProcessMemoryInfo() - Сведения о памяти процесса`
-- `getSystemMemoryInfo() - Информация о системной памяти`
-- `getSystemVersion() - Версия системы`
-- `getCPUUsage() - Использование процессора`
-- `getIOCounters() - Счетчики IO`
-- `argv`
-- `execPath`
-- `env`
-- `pid`
-- `arch`
-- `platform`
-- `sandboxed - Запущена ли песочница`
-- `type`
-- `версия`
-- `versions - Список с версиями и их зависимостями`
-- `mas - Является ли сборкой Mac App Store`
-- `windowsStore - Является ли приложением Windows Store (appx)`
+* `crash() - Падение`
+* `hang() - Зависание`
+* `getCreationTime() - Время создания`
+* `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
+* `getBlinkMemoryInfo() - Информация о памяти Blink`
+* `getProcessMemoryInfo() - Сведения о памяти процесса`
+* `getSystemMemoryInfo() - Информация о системной памяти`
+* `getSystemVersion() - Версия системы`
+* `getCPUUsage() - Использование процессора`
+* `getIOCounters() - Счетчики IO`
+* `uptime()`
+* `argv`
+* `execPath`
+* `env`
+* `pid`
+* `arch`
+* `platform`
+* `sandboxed - Запущена ли песочница`
+* `contextIsolated`
+* `тип`
+* `версия`
+* `versions - Список с версиями и их зависимостями`
+* `mas - Является ли сборкой Mac App Store`
+* `windowsStore - Является ли приложением Windows Store (appx)`
+* `contextId`
 
 ## События
 
@@ -69,6 +72,10 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 А `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _Только чтение_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+
 ### `process.throwDeprecation`
 
 `Boolean`, определяет, будут ли предупреждения об устаревании выдаваться как исключения. Установка значения `true` приведет к выдаче ошибок при устаревании. Это свойство используется вместо флага командной строки `--throw-deprecation`.
@@ -100,6 +107,10 @@ A `String` representing the current process's type, can be:
 ### `process.windowsStore` _Только чтение_
 
 А `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Только чтение_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## Методы
 
@@ -188,16 +199,16 @@ console.log(version)
 
 * `filePath` String - Путь к выходному файлу.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+Возвращает `Boolean`, который указывает успешно ли создан снимок.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Вызывает зависание основного потока текущего процесса.
 
 ### `process.setFdLimit(maxDescriptors)` _macOS_ _Linux_
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Устанавливает мягкое ограничение дескрипторов файлов до `maxDescriptors` или жесткое ограничение операционной системы, в зависимости от того, какое значение ниже для текущего процесса.

@@ -18,7 +18,7 @@ Forge viene con [a ready-to-use template](https://electronforge.io/templates) us
 
 Puede encontrar información y documentación en [electronforge.io](https://electronforge.io/).
 
-## Electron-builder
+## electron-builder
 
 Una " solución completa para empaquetar y construir una aplicación Electron lista para su distribución" que se centra en una experiencia integrada. [`electron-builder`](https://github.com/electron-userland/electron-builder) añade una única dependencia enfocada en la simplicidad y gestiona todos los requisitos internamente.
 

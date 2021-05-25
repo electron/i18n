@@ -1,6 +1,6 @@
 # Objet PostCorps
 
-* `donnees` Fleche[PostData](./post-data.md)> - Les données post à envoyer à la nouvelle fenêtre.
+* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - The post data to be sent to the new window.
 * `Typecontenu` Fiche - Le titre `typecontenu` utilisé pour les données. Une des applications `application/x-www-form-urlencoded` ou ` forme-donnees multipart/`. Correspond à l'attribut `enctype` du formulaire HTML soumis.
 * `boundary` String (facultatif) - La limite utilisée pour séparer plusieurs parties du message. Uniquement valide lorsque `contentType` est `multipart/form-data`.
 

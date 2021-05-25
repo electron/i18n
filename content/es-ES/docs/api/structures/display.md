@@ -10,9 +10,9 @@
 * `colorDepth` Number - El numero de bits por pixel.
 * `depthPerComponent` Number - El numero de bits por componente de color.
 * `displayFrequency` Number - La tasa de actualización de la pantalla.
-* `bounds` [Rectangle](rectangle.md)
+* `bounds` [Rectangle](rectangle.md) - los límites de la pantalla en puntos DIP.
 * `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
+* `workArea` [Rectangle](rectangle.md) - el área de trabajo de la pantalla en puntos DIP.
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - `true` para un pantalla interna y `false` para una pantalla externa
 

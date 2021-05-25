@@ -24,8 +24,8 @@ win.loadURL('https://github.com')
 
 **Примечание:** Модуль remote можно отключить по соображениям безопасности в следующих контекстах:
 
-- [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
-- [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
+* [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
+* [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
 
 ## Удаленные объекты
 

@@ -26,8 +26,6 @@ GPU アクセラレーションレンダリングとは、GPU が構成に使用
 
 ## サンプル
 
-[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
-
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
 const fs = require('fs')
@@ -47,6 +45,6 @@ app.whenReady().then(() => {
 })
 ```
 
-この Electron アプリケーションを起動したら、アプリケーションを開いたフォルダを見てみましょう。
+この Electron アプリケーションを起動したら、アプリケーションを開いたフォルダを見てみましょう。描画された画像があるはずです。
 
 [disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration

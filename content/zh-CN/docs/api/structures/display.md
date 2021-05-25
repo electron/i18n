@@ -10,9 +10,9 @@
 * `colorDepth` 数字 - 表示Display对象对应于色彩空间的比特深度
 * `深度` 数字 - 每个颜色组件的比例数。
 * `displayFrequency` Number - 显示刷新率。
-* ` bounds`[ 矩形 ](rectangle.md)
+* `bounds` [Rectangle](rectangle.md) - the bounds of the display in DIP points.
 * ` size `[ 尺寸](size.md)
-* ` workArea `[ 矩形 ](rectangle.md)
+* `workArea` [Rectangle](rectangle.md) - the work area of the display in DIP points.
 * ` workAreaSize `[尺寸 ](size.md)
 * `internal` 布尔值 - `true` for an internal display and `false` for an external display
 

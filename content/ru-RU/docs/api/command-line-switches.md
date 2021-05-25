@@ -58,12 +58,12 @@ Disables NTLM v2 for posix platforms, no effect elsewhere.
 
 Enables caller stack logging for the following APIs (filtering events):
 
-- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-- `remote.require()` / `remote-require`
-- `remote.getGlobal()` / `remote-get-builtin`
-- `remote.getBuiltin()` / `remote-get-global`
-- `remote.getCurrentWindow()` / `remote-get-current-window`
-- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
+* `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
+* `remote.require()` / `remote-require`
+* `remote.getGlobal()` / `remote-get-builtin`
+* `remote.getBuiltin()` / `remote-get-global`
+* `remote.getCurrentWindow()` / `remote-get-current-window`
+* `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
 ### --enable-logging
 

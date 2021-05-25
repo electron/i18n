@@ -13,73 +13,29 @@
 
 ## サンプル
 
-### レンダラープロセスでのイベント検知
+このサンプルでは、HTML ファイル `index.html` から始めて、`navigator.onLine` API を用いた接続状態インジケータの構築方法を示します。
 
-[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
-
-```javascript
-const { app, BrowserWindow } = require('electron')
-
-let onlineStatusWindow
-
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
+```html title="index.html"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body>
+    <h1>Connection status: <strong id='status'></strong></h1>
+    <script src="renderer.js"></script>
+</body>
+</html>
 ```
 
-`index.html` ファイル内の、`</body>` タグを閉じている直前に以下の行を追加します。
+DOM を変更するために、`renderer.js`ファイルを作成して、そこで `window` の `'online'` と `'offline'` の イベントにイベントリスナーを追加します。 イベントハンドラーでは、`navigator.onLine` の結果に応じて `<strong id='status'>` 要素の内容を設定します。
 
-```html
-<script src="renderer.js"></script>
-```
-
-`renderer.js` ファイルを追加します。
-
-```javascript fiddle='docs/fiddles/features/online-detection/renderer'
-const alertOnlineStatus = () => { window.alert(navigator.onLine ? 'online' : 'offline') }
-
-window.addEventListener('online', alertOnlineStatus)
-window.addEventListener('offline', alertOnlineStatus)
-
-alertOnlineStatus()
-```
-
-Electron アプリケーションを起動すると、通知が表示されます。
-
-![オンライン/オフラインイベントの検知](../images/online-event-detection.png)
-
-### メインプロセスでのイベント検知
-
-メインプロセスでも同様にオンライン/オフラインイベントに対応したい場面があるかもしれません。 ただし、メインプロセスには `navigator` オブジェクトがないため、これらのイベントを直接検出できません。 この場合、Electron のプロセス間通信 (IPC) ユーティリティを使用して、イベントをメインプロセスに転送する必要があります。
-
-[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `main.js` ファイルを以下の行の通りに更新します。
-
-```javascript
-const { app, BrowserWindow, ipcMain } = require('electron')
-let onlineStatusWindow
-
-app.whenReady().then(() => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/index.html`)
-})
-
-ipcMain.on('online-status-changed', (event, status) => {
-  console.log(status)
-})
-```
-
-`index.html` ファイル内の、`</body>` タグを閉じている直前に以下の行を追加します。
-
-```html
-<script src="renderer.js"></script>
-```
-
-`renderer.js` ファイルを追加します。
-
-```javascript fiddle='docs/fiddles/features/online-detection/main'
-const { ipcRenderer } = require('electron')
-const updateOnlineStatus = () => { ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline') }
+```js title='renderer.js'
+function updateOnlineStatus () {
+  document.getElementById('status').innerHTML = navigator.onLine ? 'online' : 'offline'
+}
 
 window.addEventListener('online', updateOnlineStatus)
 window.addEventListener('offline', updateOnlineStatus)
@@ -87,13 +43,39 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-Electron アプリケーションを起動すると、コンソールに通知が表示されます。
+最後に、メインプロセス用の `main.js` ファイルを作成し、そこでウインドウを作成します。
 
-```sh
-npm start
+```js title='main.js'
+const { app, BrowserWindow } = require('electron')
 
-> electron@1.0.0 start /electron
-> electron .
+function createWindow () {
+  const onlineStatusWindow = new BrowserWindow({
+    width: 400,
+    height: 100
+  })
 
-online
+  onlineStatusWindow.loadFile('index.html')
+}
+
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
 ```
+
+Electron アプリケーションを起動すると、通知が表示されます。
+
+![接続状態](../images/connection-status.png)
+
+> 注意: メインプロセスに接続状態を伝える必要がある場合は、[IPC レンダラー](../api/ipc-renderer.md) API を使用してください。

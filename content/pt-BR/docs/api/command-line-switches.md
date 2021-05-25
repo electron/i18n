@@ -58,12 +58,12 @@ Força o máximo de espaço em disco a ser usado pelo cache de disco, em bytes.
 
 Enables caller stack logging for the following APIs (filtering events):
 
-- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-- `remote.require()` / `remote-require`
-- `remote.getGlobal()` / `remote-get-builtin`
-- `remote.getBuiltin()` / `remote-get-global`
-- `remote.getCurrentWindow()` / `remote-get-current-window`
-- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
+* `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
+* `remote.require()` / `remote-require`
+* `remote.getGlobal()` / `remote-get-builtin`
+* `remote.getBuiltin()` / `remote-get-global`
+* `remote.getCurrentWindow()` / `remote-get-current-window`
+* `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
 ### --enable-logging
 

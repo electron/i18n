@@ -56,7 +56,7 @@ See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparamet
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
+  * `submitURL` String (optional) - URL that crash reports will be sent to as POST. Required unless `uploadToServer` is `false`.
   * `productName` String (опционально) - Значение по умолчанию - `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. По умолчанию - `true`.

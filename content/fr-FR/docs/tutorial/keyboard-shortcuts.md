@@ -62,17 +62,21 @@ Après avoir lancé l'application Electron, si vous appuyez sur la combinaison d
 
 Si vous voulez gérer les raccourcis clavier dans une [BrowserWindow][], vous pouvez écouter les `keyup` et `keydown` [DOM events][dom-events] dans le processus de rendu en utilisant l'API [addEventListener()][addEventListener-api].
 
-```js
-window.addEventListener('keyup', doSomething, true)
+```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/web-apis|focus=renderer.js'
+function handleKeyPress(event) {
+  // Vous pouvez mettre ici du code de gestion des touches.
+  document.getElementById("last-keypress").innerText = event.key;
+  console.log(`You pressed ${event.key}`);
+}
+
+window.addEventListener('keyup', handleKeyPress, true);
 ```
 
-Notez que le troisième paramètre `true` indique que le listener sera toujours prévenu des différentes touches enfoncées avant les autres listeners d'événement, afin que celles ci ne puissent pas être masquées par `stopPropagation()`.
+> Note: le troisième paramètre `true` signifie que l'écouteur recevra toujours les actions des touches avant les autres écouteurs d'événement afin qu'ils ne puissent pas appeler eux-même `stopPropagation()`.
 
 #### Interception des événements dans le processus principal
 
 L’événement [`before-input-event`](../api/web-contents.md#event-before-input-event) est émis avant d’envoyer les événements `keydown` et `keyup` dans la page. Il peut être utilisé pour intercepter et gérer des raccourcis personnalisés qui ne sont pas visibles dans le menu.
-
-##### Exemple
 
 Commençons avec une application fonctionnelle issue du [Quick Start Guide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
@@ -80,7 +84,7 @@ Commençons avec une application fonctionnelle issue du [Quick Start Guide](quic
 const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(() => {
-  const win = new BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } })
+  const win = new BrowserWindow({ width: 800, height: 600 })
 
   win.loadFile('index.html')
   win.webContents.on('before-input-event', (event, input) => {

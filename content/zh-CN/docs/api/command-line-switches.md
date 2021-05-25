@@ -58,12 +58,12 @@ app.whenReady().then(() => {
 
 开启以下API 的调用堆栈日志记录(过滤事件)：
 
-- `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-- `remote.require()` / `remote-require`
-- `remote.getGlobal()` / `remote-get-builtin`
-- `remote.getBuiltin()` / `remote-get-global`
-- `remote.getCurrentWindow()` / `remote-get-current-window`
-- `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
+* `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
+* `remote.require()` / `remote-require`
+* `remote.getGlobal()` / `remote-get-builtin`
+* `remote.getBuiltin()` / `remote-get-global`
+* `remote.getCurrentWindow()` / `remote-get-current-window`
+* `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
 ### --enable-logging
 

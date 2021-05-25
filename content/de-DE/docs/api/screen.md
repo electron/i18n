@@ -6,7 +6,7 @@ Prozess: [Main](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
-`screen` is an [EventEmitter][event-emitter].
+`screen` ist ein [EventEmitter][event-emitter].
 
 **Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
@@ -48,7 +48,7 @@ app.whenReady().then(() => {
 
 ## Ereignisse
 
-The `screen` module emits the following events:
+Das `screen` Modul sendet folgende Ereignisse aus:
 
 ### Event: 'display-added'
 
@@ -80,13 +80,15 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ## Methoden
 
-The `screen` module has the following methods:
+Das `screen` Modul hat folgende Methoden:
 
 ### `screen.getCursorScreenPoint()`
 
 Returns [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
+
+**Note:** The return value is a DIP point, not a screen physical point.
 
 ### `screen.getPrimaryDisplay()`
 

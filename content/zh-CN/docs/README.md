@@ -10,20 +10,14 @@
 
 ## 指南和教程
 
-### 快速入门
+### 入门指南
 
-* [快速入门指南](tutorial/quick-start.md)
-  * [前提条件](tutorial/quick-start.md#prerequisites)
-  * [创建基本应用程序](tutorial/quick-start.md#create-a-basic-application)
-  * [运行您的应用程序](tutorial/quick-start.md#run-your-application)
-  * [打包并分发应用程序](tutorial/quick-start.md#package-and-distribute-the-application)
+* [简介](tutorial/introduction.md)
+* [快速入门](tutorial/quick-start.md)
+* [Process Model](tutorial/process-model.md)
 
 ### 学习基础知识
 
-* [Electron 的工艺模型](tutorial/quick-start.md#application-architecture)
-  * [主进程和渲染器进程](tutorial/quick-start.md#main-and-renderer-processes)
-  * [Electron API](tutorial/quick-start.md#electron-api)
-  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * 为你的应用添加功能
   * [通知（Notifications）](tutorial/notifications.md)
   * [最近文档（Recent Documents）](tutorial/recent-documents.md)
@@ -37,7 +31,7 @@
   * [原生文件拖放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
   * [暗黑模式](tutorial/dark-mode.md)
-  * [在 Electron 中嵌入网页](tutorial/web-embeds.md)
+  * [语言](tutorial/web-embeds.md)
 * [模板和命令行界面](tutorial/boilerplates-and-clis.md)
   * [模板与命令行界面](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)

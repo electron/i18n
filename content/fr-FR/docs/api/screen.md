@@ -88,6 +88,8 @@ Retourne [`Point`](structures/point.md)
 
 La position absolue du pointeur de la souris.
 
+**Note:** The return value is a DIP point, not a screen physical point.
+
 ### `screen.getPrimaryDisplay()`
 
 Retourne [`Display`](structures/display.md) - L'écran principal.

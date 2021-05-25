@@ -56,7 +56,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
+  * `submitURL` String (opcional) - URL a la que serán enviados los reportes de fallos como POST. Requerido a menos que `uploadToServer` sea `false`.
   * `productName` String (opcional) - Por defecto `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (octional) - Si los reportes de fallos deberían ser enviados a un servidor. Si es false, los reportes de fallos serán recolectados y almacenados en un directorio de fallas, pero no serán subidos. Por defecto es `true`.

@@ -1,6 +1,6 @@
 # Objeto PostBody
 
-* `data<` Array<[PostData](./post-data.md)> - Los datos a enviar a la nueva ventana.
+* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - The post data to be sent to the new window.
 * `contentType` String - La cabecera `content-type` usada para los datos. Uno de `aplicacion/x-wwww-form-urlencoded` o `mulipart/form-data`. Corresponde al atributo `enctype` del formulario HTML enviado.
 * `boundary` String (opcional) - El límite utilizado para separar varias partes del mensaje. Solo es válido cuando `contentType` es `multipart/form-data`.
 

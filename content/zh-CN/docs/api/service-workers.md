@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
+通过`Session`的`serviceWorkers`属性来访问`ServiceWorkers`的实例
 
 例如：
 
@@ -44,9 +44,19 @@ The following events are available on instances of `ServiceWorkers`:
 
 Emitted when a service worker logs something to the console.
 
+#### Event: 'registration-completed'
+
+返回:
+
+* `event` Event
+* `details` Object - Information about the registered service worker
+  * `scope` String - The base URL that a service worker is registered for
+
+Emitted when a service worker has been registered. Can occur after a call to [`navigator.serviceWorker.register('/sw.js')`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) successfully resolves or when a Chrome extension is loaded.
+
 ### 实例方法
 
-The following methods are available on instances of `ServiceWorkers`:
+在`ServiceWorkers`实例对象中，有以下方法:
 
 #### `serviceWorkers.getAllRunning()`
 

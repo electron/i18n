@@ -14,7 +14,7 @@ Puedes usar las siguientes herramientas para distribuir tu aplicación:
 
 Estas herramientas se encargaran de todo los pasos necesarios para crear una aplicación de Electron distribuible, como empaquetar tu aplicación, cambiar el nombre del ejecutable y configurar los iconos correctos.
 
-En la [Guía de Inicio Rápido](quick-start.md#package-and-distribute-the-application) puedes ver un ejemplo de como empaquetar tu aplicación con `electron-forge`.
+You can check the example of how to package your app with `electron-forge` in the [Quick Start guide](quick-start.md#package-and-distribute-your-application).
 
 ## Proceso manual
 

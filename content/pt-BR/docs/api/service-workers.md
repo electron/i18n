@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Instances of the `ServiceWorkers` class are accessed by using `serviceWorkers` property of a `Session`.
+Instâncias da classe `ServiceWorkers` são acessadas através da propriedade `serviceWorkers` de uma `Sessão`.
 
 Como por exemplo:
 
@@ -27,7 +27,7 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 ### Eventos de instância
 
-The following events are available on instances of `ServiceWorkers`:
+Os seguintes eventos estão disponíveis em instâncias de `ServiceWorkers`:
 
 #### Event: 'console-message'
 
@@ -43,6 +43,16 @@ Retorna:
   * `lineNumber` Number - The line number of the source that triggered this console message
 
 Emitted when a service worker logs something to the console.
+
+#### Event: 'registration-completed'
+
+Retorna:
+
+* `event` Event
+* `details` Object - Information about the registered service worker
+  * `scope` String - The base URL that a service worker is registered for
+
+Emitted when a service worker has been registered. Can occur after a call to [`navigator.serviceWorker.register('/sw.js')`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) successfully resolves or when a Chrome extension is loaded.
 
 ### Métodos de Instância
 

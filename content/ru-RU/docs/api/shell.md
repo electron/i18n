@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 ### `shell.showItemInFolder(fullPath)`
 
-* `fullPath` String
+* Строка `fullPath`
 
 Show the given file in a file manager. If possible, select the file.
 
@@ -45,17 +45,6 @@ Open the given file in the desktop's default manner.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-### `shell.moveItemToTrash(fullPath[, deleteOnFail])` _Deprecated_
-
-* `fullPath` String
-* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. _macOS_
-
-Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
-
-> NOTE: This method is deprecated. Use `shell.trashItem` instead.
-
-Move the given file to trash and returns a boolean status for the operation.
-
 ### `shell.trashItem(path)`
 
 * `path` String - path to the item to be moved to the trash.
@@ -70,7 +59,7 @@ Play the beep sound.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
-* `shortcutPath` String
+* Строка `shortcutPath`
 * `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
@@ -83,9 +72,9 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` _Windows_
 
-* `shortcutPath` String
+* Строка `shortcutPath`
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Возвращает [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 

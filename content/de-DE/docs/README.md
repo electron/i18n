@@ -10,20 +10,14 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 
 ## Leitfäden und Tutorials
 
-### Schnellstart
+### Erste Schritte
 
-* [Schnellstart-Anleitung](tutorial/quick-start.md)
-  * [Vorrausetzungen](tutorial/quick-start.md#prerequisites)
-  * [Erstelle eine Basisanwendung](tutorial/quick-start.md#create-a-basic-application)
-  * [Anwendung ausführen](tutorial/quick-start.md#run-your-application)
-  * [Paket und verteilen Sie die Anwendung](tutorial/quick-start.md#package-and-distribute-the-application)
+* [Einführung](tutorial/introduction.md)
+* [Schnellstart](tutorial/quick-start.md)
+* [Process Model](tutorial/process-model.md)
 
 ### Grundlagen lernen
 
-* [Elektronen-Prozessmodell](tutorial/quick-start.md#application-architecture)
-  * [Main und Render Prozesse](tutorial/quick-start.md#main-and-renderer-processes)
-  * [Electron API](tutorial/quick-start.md#electron-api)
-  * [Node.js API](tutorial/quick-start.md#nodejs-api)
 * Features zu deiner App hinzufügen
   * [Benachrichtigungen](tutorial/notifications.md)
   * [Kürzliche Dokumente](tutorial/recent-documents.md)
@@ -32,12 +26,12 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [Benutzerdefinierte Windows Taskleiste](tutorial/windows-taskbar.md)
   * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
-  * [Offline/Online erkennung](tutorial/online-offline-events.md)
+  * [Offline/Online Erkennung](tutorial/online-offline-events.md)
   * [Repräsentierte Datei für macOS BrowserWindows](tutorial/represented-file.md)
   * [Native Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Dark-Modus](tutorial/dark-mode.md)
-  * [Einbindung von Webseiten in Electron](tutorial/web-embeds.md)
+  * [Webbetten in Electron](tutorial/web-embeds.md)
 * [Boilerplates und CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)

@@ -10,28 +10,31 @@ L'objet `process` d'Electron une extension de l'[objet `process` de Node.js](htt
 
 Dans les moteurs de rendu en bac à sable, l'objet `process` ne contient qu'un sous-ensemble des APIs :
 
-- `crash()`
-- `hang()`
-- `getCreationTime()`
-- `getHeapStatistics()`
-- `getBlinkMemoryInfo()`
-- `getProcessMemoryInfo()`
-- `getSystemMemoryInfo()`
-- `getSystemVersion()`
-- `getCPUUsage()`
-- `getIOCounters()`
-- `argv`
-- `execPath`
-- `env`
-- `pid`
-- `arc`
-- `plateforme`
-- `bac à sable`
-- `type`
-- `version`
-- `versions`
-- `mas`
-- `windowsStore`
+* `crash()`
+* `hang()`
+* `getCreationTime()`
+* `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `getSystemVersion()`
+* `getCPUUsage()`
+* `getIOCounters()`
+* `uptime()`
+* `argv`
+* `execPath`
+* `env`
+* `pid`
+* `arc`
+* `plateforme`
+* `bac à sable`
+* `contextIsolated`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
+* `contextId`
 
 ## Événements
 
@@ -69,6 +72,10 @@ Une `String` représentant le chemin vers le répertoire des ressources.
 
 Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _Lecture seule_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+
 ### `process.throwDeprecation`
 
 Un `Booléen` qui contrôle si oui ou non les avertissements de dépréciation seront lancés sous forme d'exceptions . En définissant cette valeur à `true` lancera des erreurs pour les dépréciations. Cette propriété est utilisée à la place du drapeau de ligne de commande `--throw-deprecation`.
@@ -100,6 +107,10 @@ Un `String` représentant la version d'Electron.
 ### `process.windowsStore` _Readonly_
 
 Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+
+### `process.contextId` _Lecture seule_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
 
 ## Méthodes
 

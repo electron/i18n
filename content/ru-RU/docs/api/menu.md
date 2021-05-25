@@ -20,7 +20,9 @@
 
 Устанавливает `меню` в качестве меню приложения на macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. Указанный символ в названии кнопки будет подчеркнут. Символ `&` не отображается в названии кнопки.
+Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. The indicated character in the button label then gets an underline, and the `&` character is not displayed on the button label.
+
+In order to escape the `&` character in an item name, add a proceeding `&`. For example, `&&File` would result in `&File` displayed on the button label.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -28,7 +30,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Возвращает `Menu | null` - меню приложения, если установлено, иначе `null`.
+Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
 
 **Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
@@ -36,7 +38,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 * `action` String
 
-Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Чаще всего вы будет использовать свойство [`role`](menu-item.md#roles) экземпляра [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
@@ -297,7 +299,7 @@ macOS представляет стандартные действия для н
 * `beforeGroupContaining` - представляет средства для одного контекстного меню, чтобы объявить размещение их содержащей группы перед содержащей группы элемента с указанным названием.
 * `afterGroupContaining` - представляет средства для одного контекстного меню, чтобы объявить размещение их содержащей группы после содержащей группы элемента с указанным названием.
 
-По умолчанию, элементы будут вставлены в том порядке, в котором они существуют в шаблоне, если не используется одно из указанных ключевых слов позиционирования.
+По умолчанию, элементы будут вставлены в том порядке, в котором они существуют в шаблоне, если не используется ни один из указанных ключевых слов позиционирования.
 
 ### Примеры
 
