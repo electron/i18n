@@ -10,28 +10,31 @@ O objeto `process` do Electron estende do [objeto `process` do Node.js](https://
 
 In sandboxed renderers the `process` object contains only a subset of the APIs:
 
-- `crash()`
-- `hang()`
-- `getCreationTime()`
-- `getHeapStatistics()`
-- `getBlinkMemoryInfo()`
-- `getProcessMemoryInfo()`
-- `getSystemMemoryInfo()`
-- `getSystemVersion()`
-- `getCPUUsage()`
-- `getIOCounters()`
-- `argv`
-- `execPath`
-- `env`
-- `pid`
-- `arch`
-- `plataforma`
-- `sandboxed`
-- `tipo`
-- `versão`
-- `versions`
-- `mas`
-- `windowsStore`
+* `crash()`
+* `hang()`
+* `getCreationTime()`
+* `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `getSystemVersion()`
+* `getCPUUsage()`
+* `getIOCounters()`
+* `uptime()`
+* `argv`
+* `execPath`
+* `env`
+* `pid`
+* `arch`
+* `plataforma`
+* `sandboxed`
+* `contextIsolated`
+* `tipo`
+* `versão`
+* `versions`
+* `mas`
+* `windowsStore`
+* `contextId`
 
 ## Eventos
 
@@ -69,6 +72,10 @@ Uma `String` que representa o caminho para o diretório de recursos.
 
 Um `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
+### `process.contextIsolated` _Readonly_
+
+A `Boolean` that indicates whether the current renderer context has `contextIsolation` enabled. It is `undefined` in the main process.
+
 ### `process.throwDeprecation`
 
 A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
@@ -101,9 +108,13 @@ A `String` representing Electron's version string.
 
 Um `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
+### `process.contextId` _Readonly_
+
+A `String` (optional) representing a globally unique ID of the current JavaScript context. Each frame has its own JavaScript context. When contextIsolation is enabled, the isolated world also has a separate JavaScript context. This property is only available in the renderer process.
+
 ## Métodos
 
-The `process` object has the following methods:
+O objeto `process` tem os seguintes métodos:
 
 ### `process.crash()`
 
@@ -117,11 +128,11 @@ Indicates the creation time of the application. O tempo é representado como nú
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Retorna [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` _Windows_ _Linux_
 
-Returns [`IOCounters`](structures/io-counters.md)
+Retorna [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
