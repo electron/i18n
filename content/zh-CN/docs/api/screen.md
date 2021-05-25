@@ -88,6 +88,8 @@ app.whenReady().then(() => {
 
 当前鼠标的绝对位置。
 
+**Note:** The return value is a DIP point, not a screen physical point.
+
 ### `screen.getPrimaryDisplay()`
 
 返回主窗口[`Display`](structures/display.md)
