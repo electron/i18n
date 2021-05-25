@@ -14,7 +14,7 @@
 
 * [はじめに](tutorial/introduction.md)
 * [クイック スタート](tutorial/quick-start.md)
-* [Process Model](tutorial/process-model.md)
+* [プロセスモデル](tutorial/process-model.md)
 
 ### 基本を学ぶ
 
