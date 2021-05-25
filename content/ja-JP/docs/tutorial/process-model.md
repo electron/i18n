@@ -10,13 +10,13 @@ Electron は Chromium のマルチプロセスアーキテクチャを継承し�
 
 ## マルチプロセスモデル
 
-この問題を解決するため、Chrome チームは各タブがそれぞれのプロセスで描画するようにすると決め、ウェブページ上のバグや悪意のあるコードがアプリ全体に与える影響を制限することにしました。 A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
+この問題を解決するため、Chrome チームは各タブがそれぞれのプロセスで描画するようにすると決め、ウェブページ上のバグや悪意のあるコードがアプリ全体に与える影響を制限することにしました。 単一のブラウザプロセスはこれらのプロセスを制御し、アプリケーションのライフサイクル全体を制御します。 このモデルを視覚化したのが、[Chrome 漫画本][] の以下の図です。
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
-Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Electron アプリケーションも非常によく似た構造をしています。 Electron アプリ開発者の場合、メインとレンダラーの 2 種類のプロセスを制御します。 これらは、上述の Chrome 独自のブラウザプロセスとレンダラープロセスと似ています。
 
-## The main process
+## メインプロセス
 
 Each Electron app has a single main process, which acts as the application's entry point. The main process runs in a Node.js environment, meaning it has the ability to `require` modules and use all of Node.js APIs.
 
@@ -135,7 +135,7 @@ This feature is incredibly useful for two main purposes:
 
 [クイックスタートアプリ]: ./quick-start.md
 
-[Chrome Comic]: https://www.google.com/googlebooks/chrome/
+[Chrome 漫画本]: https://www.google.com/googlebooks/chrome/
 
 [browser-window]: ../api/browser-window.md
 [web-embed]: ./web-embeds.md
