@@ -24,8 +24,8 @@ win.loadURL('https://github.com')
 
 **注意:** セキュリティ上の理由からリモートモジュールを無効にするには以下のようにしてできます。
 
-- [`BrowserWindow`](browser-window.md) - `enableRemoteModule` オプションを `false` にセットする。
-- [`<webview>`](webview-tag.md) - `enableremotemodule` 属性を `false` にセットする。
+* [`BrowserWindow`](browser-window.md) - `enableRemoteModule` オプションを `false` にセットする。
+* [`<webview>`](webview-tag.md) - `enableremotemodule` 属性を `false` にセットする。
 
 ## リモートオブジェクト
 
