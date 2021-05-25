@@ -1,6 +1,6 @@
 # PostBody 对象
 
-* `data` Array<[PostData](./post-data.md)> - 要发送到新窗口的 post 数据。
+* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - The post data to be sent to the new window.
 * `contentType` String - 数据的 `content-type` 头部。 `application/x-www-form-urlencoded` 或 `multipart/form-data`之一。 相当于提交的 HTML 表单的 `enctype` 属性。
 * `boundary` String (可选) - 用于消息中分离多个部分的边界。 仅当 `contentType` 是 `multipart/form-data` 时有效。
 
