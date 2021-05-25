@@ -10,9 +10,9 @@
 * `colorDepth` Number - Quantité de bits par pixel.
 * `depthPerComponent` Number - Quantité de bits par composant de couleur.
 * `displayFrequency` - Le taux de rafraîchissement de l’affichage.
-* `bounds` [Rectangle](rectangle.md)
+* `bounds` [Rectangle](rectangle.md) - the bounds of the display in DIP points.
 * `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
+* `workArea` [Rectangle](rectangle.md) - the work area of the display in DIP points.
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - `true` pour un display interne et `false` pour un display externe.
 
