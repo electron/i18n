@@ -75,7 +75,7 @@ Electron のメインプロセスのモジュール一覧は、API ドキュメ�
 
 さらにこれは、レンダラーが `require` やその他 Node.js の API に直接アクセスできないことも意味します。 NPM モジュールをレンダラーに直接組み込むには、ウェブの場合と同じバンドラーツールチェイン (例えば、`webpack` や `parcel` など) を使用する必要があります。
 
-> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historically, this used to be the default, but this feature was disabled for security reasons.
+> 注意: 開発を容易にするために、レンダラープロセスを完全な Node.js 環境で生成できます。 歴史的には、これがデフォルトでしたが、セキュリティ上の理由からこの機能は無効になりました。
 
 At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
 
