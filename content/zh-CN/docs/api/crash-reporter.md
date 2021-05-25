@@ -56,7 +56,7 @@ crashReporter.start({ submitURL: 'https://your-domain.com/url-to-submit' })
 ### `crashReporter.start(options)`
 
 * `选项` 对象
-  * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
+  * `submitURL` String (可选) - 崩溃报告将以POST的方式发送给这个URL。 必填 除非`uploadToServer`是`false`
   * `productName` String (可选) - 默认为 `app.name`.
   * `companyName` String (可选) _已废弃_ - 已废弃别名为`{ globalExtra: { _companyName: ... } }`。
   * `uploadToServer` Boolean (可选) - 是否将崩溃报告发送给服务器。 如果为 false，崩溃报告将被收集并存储在崩溃目录中，但不会上传。 默认值为 `true`。
