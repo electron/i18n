@@ -51,12 +51,12 @@ See [`crashReporter.removeExtraParameter(key)`](#crashreporterremoveextraparamet
 
 ## Métodos
 
-The `crashReporter` module has the following methods:
+O módulo `crashReporter` tem os seguintes métodos:
 
 ### `crashReporter.start(options)`
 
 * `options` Object
-  * `submitURL` String - URL that crash reports will be sent to as POST.
+  * `submitURL` String (optional) - URL that crash reports will be sent to as POST. Required unless `uploadToServer` is `false`.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. If false, crash reports will be collected and stored in the crashes directory, but not uploaded. Por padrão é `true`.
@@ -86,7 +86,7 @@ Returns [`CrashReport`](structures/crash-report.md) - The date and ID of the las
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+Retorna [`CrashReport[]`](structures/crash-report.md):
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
