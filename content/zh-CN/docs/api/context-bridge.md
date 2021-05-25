@@ -98,6 +98,7 @@ contextBridge.exposeInMainWorld(
 | `Promise`                                                                                                      | 复杂  | ✅   | ✅    | 只有当 promise 是返回值或确切参数时，它们才会被代理。  嵌套在数组或对象中的Promise将被丢弃。                        |
 | `Function - 回调函数`                                                                                              | 复杂  | ✅   | ✅    | 修改prototype将被丢弃。  发送类或构造函数将不起作用。                                               |
 | [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | 简单  | ✅   | ✅    | 点击链接查看可克隆类型的文档                                                                 |
+| `Element`                                                                                                      | 复杂  | ✅   | ✅    | 修改prototype将被丢弃。  发送自定义元素将不生效。                                                 |
 | `Symbol`                                                                                                       | N/A | ❌   | ❌    | Symbol不能跨上下文复制，因此会丢弃它们                                                         |
 
 如果您关心的类型不在上表中，可能是因为不支持该类型。
