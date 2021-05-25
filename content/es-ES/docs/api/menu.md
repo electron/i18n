@@ -20,7 +20,9 @@ La clase `Menu` tiene los siguientes métodos estáticos:
 
 Establece `menu` como el menú de la aplicación en macOS. En Windows y Linux el `menu` será establecido como el menú superior de la ventana.
 
-Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
+Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón entonces aparecerá subrayado, y el carácter `&` no se mostrará en la etiqueta del botón.
+
+Para poder saltar el carácter `&` en el nombre de un objeto, usa un `&` procedural. Por ejemplo, `&&Archivo` abrirá `&Archivo` en la etiqueta del botón.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
@@ -81,7 +83,7 @@ Anexa el `menuItem` al menú.
 
 * `id` Cadena
 
-Returns `MenuItem | null` the item with the specified `id`
+Devuelve `MenuItem | null` el item con el `id` especificado
 
 #### `menu.insert(pos, menuItem)`
 
