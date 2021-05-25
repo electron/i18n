@@ -91,8 +91,8 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 拡張機能が読み込まれた後に発生します。 これは、拡張機能が "有効な" 拡張機能のセットに追加されるたびに発生します。 これは以下のものが含まれます。
 
-- `Session.loadExtension` から拡張機能が読み込まれるとき。
-- 拡張機能が再読み込みされるとき。
+* `Session.loadExtension` から拡張機能が読み込まれるとき。
+* 拡張機能が再読み込みされるとき。
   * クラッシュによって。
   * 拡張機能が要求したことで ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload))。
 
@@ -188,15 +188,15 @@ app.whenReady().then(() => {
       enableBlinkFeatures: 'Serial'
     }
   })
-  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
+  win.webContents.session.on('select-serial-port', (event, portList, webContents, callback) => {
     event.preventDefault()
     const selectedPort = portList.find((device) => {
-      return device.vendorId === 0x2341 && device.productId === 0x0043
+      return device.vendorId === '9025' && device.productId === '67'
     })
     if (!selectedPort) {
       callback('')
     } else {
-      callback(result1.portId)
+      callback(selectedPort.portId)
     }
   })
 })
@@ -427,6 +427,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `pointerLock` - 入力方法としてマウスの動きを直接解釈するよう要求する。 詳細は[こちら ](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) をクリックしてください。
     * `fullscreen` - アプリがフルスクリーンモードになるよう要求する。
     * `openExternal` - 外部アプリケーションでリンクを開くように要求する。
+    * `unknown` - 認識されない認可リクエスト
   * `callback` Function
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
@@ -435,7 +436,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
     * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
-`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
+`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。  注意として、完全な認可処理にするには `setPermissionCheckHandler` も実装しなければなりません。 ほとんどのウェブ API は権限の確認を行い、確認が拒否されている場合は認可のリクエストを行います。
 
 ```javascript
 const { session } = require('electron')
@@ -451,25 +452,27 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function\<Boolean> | null
-  * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
+  * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  権限を確認しているのがクロスオリジンのサブフレームの場合、このハンドラには `null` の webContents が渡されます。  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
   * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`、`notifications`、`geolocation`、`media`、`mediaKeySystem`、`midi`、`pointerLock`、`fullscreen`、`openExternal`、`serial` です。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
-    * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
-    * `mediaType` String - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
-    * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
+    * `embeddingOrigin` String (任意) - 権限の確認をしたフレームのオリジン。  権限の確認を行うクロスオリジンのサブフレームでのみ設定されます。
+    * `securityOrigin` String (任意) - `media` の確認でのセキュリティオリジン。
+    * `mediaType` String (任意) - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
+    * `requestingUrl` String (任意) - リクエストしているフレームが読み込んだ最後の URL.  権限の確認を行うクロスオリジンのサブフレームでは提供されません。
     * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
-`session` の、権限のチェックに応答するために使用できるハンドラを設定します。 `true`を返すと権限を許可し、`false` を返すとそれを拒否します。 ハンドラをクリアするには、` setPermissionCheckHandler(null)` を呼びます。
+`session` の、権限のチェックに応答するために使用できるハンドラを設定します。 `true`を返すと権限を許可し、`false` を返すとそれを拒否します。  注意として、完全な認可処理にするには `setPermissionRequestHandler` も実装しなければなりません。 ほとんどのウェブ API は権限の確認を行い、確認が拒否されている場合は認可のリクエストを行います。 ハンドラをクリアするには、` setPermissionCheckHandler(null)` を呼びます。
 
 ```javascript
 const { session } = require('electron')
-session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
-  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return false // 拒否
+const url = require('url')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'some-host' && permission === 'notifications') {
+    return true // 認可
   }
 
-  return true
+  return false // 拒否
 })
 ```
 
@@ -676,11 +679,15 @@ app.on('ready', async () => {
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
+#### `ses.getStoragePath()`
+
+A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
+
 ### インスタンスプロパティ
 
 `Session` のインスタンスには以下のプロパティがあります。
 
-#### `ses.availableSpellCheckerLanguages` _読み出し専用_
+#### `ses.availableSpellCheckerLanguages` _Readonly_
 
 この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanguages` API に提供すると、エラーが発生します。
 
@@ -688,19 +695,23 @@ app.on('ready', async () => {
 
 `Boolean` 型で、組み込みスペルチェッカーが有効かどうかを示します。
 
-#### `ses.cookies` _読み出し専用_
+#### `ses.storagePath` _Readonly_
+
+A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
+
+#### `ses.cookies` _Readonly_
 
 このセッションの [`Cookies`](cookies.md) オブジェクト。
 
-#### `ses.serviceWorkers` _読み出し専用_
+#### `ses.serviceWorkers` _Readonly_
 
 このセッションの [`ServiceWorkers`](service-workers.md) オブジェクト。
 
-#### `ses.webRequest` _読み出し専用_
+#### `ses.webRequest` _Readonly_
 
 このセッションの [`WebRequest`](web-request.md) オブジェクト。
 
-#### `ses.protocol` _読み出し専用_
+#### `ses.protocol` _Readonly_
 
 このセッションの [`Protocol`](protocol.md) オブジェクト。
 
@@ -719,7 +730,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### `ses.netLog` _読み出し専用_
+#### `ses.netLog` _Readonly_
 
 このセッションの [`NetLog`](net-log.md) オブジェクト。
 
