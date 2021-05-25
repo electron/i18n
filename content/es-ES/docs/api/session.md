@@ -91,8 +91,8 @@ Devuelve:
 
 Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. Esto incluye:
 
-- Extensions being loaded from `Session.loadExtension`.
-- Extensions being reloaded:
+* Extensions being loaded from `Session.loadExtension`.
+* Extensions being reloaded:
   * from a crash.
   * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
 
@@ -188,15 +188,15 @@ app.whenReady().then(() => {
       enableBlinkFeatures: 'Serial'
     }
   })
-  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
+  win.webContents.session.on('select-serial-port', (event, portList, webContents, callback) => {
     event.preventDefault()
     const selectedPort = portList.find((device) => {
-      return device.vendorId === 0x2341 && device.productId === 0x0043
+      return device.vendorId === '9025' && device.productId === '67'
     })
     if (!selectedPort) {
       callback('')
     } else {
-      callback(result1.portId)
+      callback(selectedPort.portId)
     }
   })
 })
@@ -251,7 +251,7 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 
 #### `ses.setProxy(config)`
 
-* `config` Object
+* Objeto `config`
   * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
     * `direct` In direct mode all connections are created directly, without any proxy involved.
     * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
@@ -382,7 +382,7 @@ Disables any network emulation already active for the `session`. Resets to the o
   * Objeto `request`
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `validatedCertificate` [Certificate](structures/certificate.md)
+    * `validatedCertificate` [certificate](structures/certificate.md)
     * `verificationResult` String - Resultado de la verificación de chromium.
     * `errorCode` Integer - Código de error.
   * `callback` Función
@@ -427,6 +427,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `pointerLock` - Request to directly interpret mouse movements as an input method. Pulse [aquí](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) para saber más.
     * `fullscreen` - Request for the app to enter fullscreen mode.
     * `openExternal` - Request to open links in external applications.
+    * `unknown` - Una solicitud de premiso no reconocida
   * `callback` Función
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Some properties are only available on certain permission types.
@@ -435,7 +436,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
-Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.
+Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.  Por favor, tenga en cuenta que debe implementar también `setPermissionCheckHandler` para obtener el manejo completo de los permisos. La mayoría de las APIs web hacen una verificación de permiso y luego hacen una solicitud de permiso si la verificación es denegada.
 
 ```javascript
 const { session } = require('electron')
@@ -450,26 +451,28 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function\<Boolean> | null
-  * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
+* `handler` Función\<Boolean> | null
+  * `webContents` ([WebContents](web-contents.md) | null) - WebContents verificando el permiso.  Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.  Los subframes de origen cruzado que hacen chequeos de permisos pasarán un contenido web `null` a este manejador.  Debería usar `embeddingOrigin` y `requestingOrigin` para determinar que origen se encuentra en el marco propietario y en el marco solicitante respectivamente.
   * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
   * `requestingOrigin` String - La URL de origen para la comprobación de permisos
   * `details` Object - Some properties are only available on certain permission types.
-    * `securityOrigin` String - The security origin of the `media` check.
-    * `mediaType` String - El tipo de acceso a los medios que se solicita, puede ser `video`, `audio` o `unknown`
-    * `requestingUrl` String - La ultima URL que el frame solicitante cargo
+    * `embeddingOrigin` String (opcional) - El origen del marco que incrusta el marco que hizo la verificación de permisos.  Sólo se establece cross-origin submarcos haciendo comprobaciones de permisos.
+    * `securityOrigin` String (opcional) - El origen de seguridad de la comprobación `media`.
+    * `mediaType` String (opcional) - El tipo de acceso a los medios que se solicita puede ser `video`, `audio` o `unknown`
+    * `requestingUrl` String (opcional) - La última URL que representa el marco cargado.  Esto no es proveído para cross-origin submarcos haciendo comprobaciones de permiso.
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
-Establece el manejador que puede ser usado para responder a las comprobaciones para `session`. Retornando `true` permitirá el permiso y `false` lo rechará. Para borrar el manejador, llame `setPermissionCheckHandler(null)`.
+Establece el manejador que puede ser usado para responder a las comprobaciones para `session`. Retornando `true` permitirá el permiso y `false` lo rechará.  Por favor, tenga en cuenta que debe implementar también `setPermissionRequestHandler` para obtener el manejo completo de los permisos. La mayoría de las APIs web hacen una verificación de permiso y luego hacen una solicitud de permiso si la verificación es denegada. Para borrar el manejador, llame `setPermissionCheckHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
-session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
-  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return false // denied
+const url = require('url')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'some-host' && permission === 'notifications') {
+    return true // concedido
   }
 
-  return true
+  return false // denegado
 })
 ```
 
@@ -516,9 +519,9 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 
 #### `ses.setSSLConfig(config)`
 
-* `config` Object
-  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
-  * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
+* Objeto `config`
+  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Por defecto a `tls1`.
+  * `maxVersion` String (opcional) - Puede ser `tls1.2` o `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Por defecto es `tls1.3`.
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
 Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
@@ -676,6 +679,10 @@ Devuelve `Extension[]` - Una lista de todas las extensiones cargadas.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
+#### `ses.getStoragePath()`
+
+A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
+
 ### Propiedades de Instancia
 
 Las siguientes propiedades están disponibles en instancias de `Sesión`:
@@ -687,6 +694,10 @@ Un array `String[]` que consiste en todos los idiomas conocidos disponibles para
 #### `ses.spellCheckerEnabled`
 
 A `Boolean` indicating whether builtin spell checker is enabled.
+
+#### `ses.storagePath` _Readonly_
+
+A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
 
 #### `ses.cookies` _Readonly_
 
