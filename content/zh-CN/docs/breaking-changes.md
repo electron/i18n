@@ -134,11 +134,27 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
+### Deprecated: WebContents `new-window` event
+
+The `new-window` event of WebContents has been deprecated. It is replaced by [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+
+```js
+// Deprecated in Electron 13
+webContents.on('new-window', (event) => {
+  event.preventDefault()
+})
+
+// Replace with
+webContents.setWindowOpenHandler((details) => {
+  return { action: 'deny' }
+})
+```
+
 ## 计划重写的 API (12.0)
 
-### 已删除：Pepper Flash 支持
+### Removed: Pepper Flash support
 
-Chromium已经取消了对Flash的支持，因此我们必须效仿。 更多 详情请参阅 Chromium的 [Flash Roadmap](https://www.chromium.org/flash-roadmap)
+Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
 
 ### 默认更改： `worldSafeExecuteJavaScript` 默认为 `true`
 
@@ -146,17 +162,17 @@ Chromium已经取消了对Flash的支持，因此我们必须效仿。 更多 �
 
 This option will be removed in Electron 14 so please migrate your code to support the default value.
 
-### 默认更改： `上下文隔离` 默认为 `true`
+### 默认更改： `contextIsolation` 默认为 `true`
 
-在 Electron 12, `上下文隔离` 默认情况下将被启用。  若要恢复 上一个行为， `上下文孤立：false` 必须在 Web 首选项中指定。
+在 Electron 12, `contextIsolation` 将默认启用。  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
 
 We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
 
 Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
-详情见：https://github.com/electron/electron/issues/23506
+For more details see: https://github.com/electron/electron/issues/23506
 
-### Removed: `crashReporter.getCrashesDirectory()`
+### 已移除： `crashReporter.getCrashesDirectory()`
 
 The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
 
@@ -182,32 +198,32 @@ They should be called only from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
-### 默认更改： `crashReporter.start({ compress: true })`
+### Default Changed: `crashReporter.start({ compress: true })`
 
-`压缩` 选项的默认值为 `crashReporter.start` 已将 从 `false` 更改为 `true` 这意味着崩溃转储将被上传到 崩溃摄取服务器与 `Content-Encoding: gzip` head, 和正文 将被压缩。
+The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
-### 废弃： `远程` 模块
+### Deprecated: `remote` module
 
-`远程` 模块在 Electron 12 中被废弃，并将在 Electron 14 中被删除。 由 [`@electronic /远程`](https://github.com/electron/remote) 模块替代。
+The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
 
 ```js
-// Electron 12废弃：
-const { BrowserWindow } = require('electron').远程
+// Deprecated in Electron 12:
+const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// 替换为：
+// Replace with:
 const { BrowserWindow } = require('@electron/remote')
 
-// 在主进程中：
+// In the main process:
 require('@electron/remote/main').initialize()
 ```
 
-### 已废弃： `shell.moveItemToTrash()`
+### Deprecated: `shell.moveItemToTrash()`
 
-同步 `shell.moveItemToTrash()` 已被新的 异步 `shell.trashItem()` 替换。
+The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
 
 ```js
 // Deprecated in Electron 12
@@ -265,29 +281,29 @@ All above methods remain non-deprecated when called from the main process.
 
 See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
-### 已废弃： `crashReporter.start({ compress: false })`
+### Deprecated: `crashReporter.start({ compress: false })`
 
-设置 `{ compress: false }` 在 `crashReporter.start` 已废弃。 几乎 所有崩溃摄取服务器都支持 gzip 压缩。 此选项将在未来版本的 Electron 中删除 。
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
 
-### 移除：浏览器窗口关联性
+### Removed: Browser Window Affinity
 
-在构建新的 `Browserwindow` 时， `相关` 选项将被删除 作为我们计划的一部分，以更密切地与 Chromium 的安全进程模型匹配。 性能和可维护性。
+The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
 
-详情见 [#18397](https://github.com/electron/electron/issues/18397)。
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
-### 默认更改： `启用远程模块` 默认为 `false`
+### 默认更改： `enableRemoteModule` 默认为 `false`
 
-在 Electron 9，使用远程模块但不通过 `启用远程模块` Web首选项开始发出警告。 在 Electron 10, 远程模块现在默认被禁用。 若要使用远程 模块， `启用远程模块：true` 必须在 Web 首选项中指定：
+In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
 
 ```js
-const w = new BrowserWindow(format@@
+const w = new BrowserWindow({
   webPreferences: {
     enableRemoteModule: true
   }
 })
 ```
 
-我们 [推荐离开远程 模块](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
+We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ### `protocol.unregisterProtocol`
 
@@ -347,13 +363,13 @@ const isIntercepted = protocol.isProtocolIntercepted(scheme)
 
 ## 计划破解API更改(9.0)
 
-### 默认更改：默认禁用在渲染器进程中加载不了解上下文的本地模块
+### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
-在 Electron 9 中，我们不允许在渲染器进程 中加载不具上下文意义的本机模块。  这是为了提高Electron的安全性、性能和维护性 作为一个项目。
+As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
 
-如果这影响到您，您可以临时将 `app.allowRenderProcessReuse` 设置为 `false` 设置为旧的行为。  在Electron 11之前，此标志将只是一个选项，因此 您应该计划更新您的原生模块以便了解上下文情况。
+If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
 
-详情见 [#18397](https://github.com/electron/electron/issues/18397)。
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Deprecated: `BrowserWindow` extension APIs
 
@@ -396,35 +412,35 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
-### 已移除： `<webview>.getWebContents()`
+### Removed: `<webview>.getWebContents()`
 
-此API在 Electron 8.0中被废弃，现已删除。
+This API, which was deprecated in Electron 8.0, is now removed.
 
 ```js
-// 在 Electron 9.0
+// Removed in Electron 9.0
 webview.getWebContents()
-// 替换为
+// Replace with
 const { remote } = require('electron')
-remote.webContents.from(webview.getWebContentsId())
+remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-### 已删除： `webFrame.setLayoutZoomLevelLimits()`
+### 已移除： `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### 行为改变：现在在 IPC 上发送非JS 对象给异常。
+### Behavior Changed: Sending non-JS objects over IPC now throws an exception
 
-在 Electron 8.0 中，IPC 被更改为使用结构性克隆算法， 显著提高性能。 To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. 特别是DOM对象 (例如， `元素`, `位置` 和 `DOMMatrix`), 节点 s 由 C++ 类支持的对象(例如， `进程)。 nv`, 一些成员 `串流`, 和 Electron 对象由 C++ 类支持 (例如) `Webcontent`, `BrowserWindow` and `WebFrame`() 不是 序列化的结构克隆。 每当调用旧算法时，都会打印 弃置警告。
+In Electron 8.0, IPC was changed to use the Structured Clone Algorithm, bringing significant performance improvements. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
 
-在 Electron 9中。 , 旧的序列化算法已被删除, 发送 这种不可序列化的对象现在会抛出一个“对象无法被克隆” 错误。
+In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
 
-### API 更改： `shell.openitem` 现在是 `shell.openPath`
+### API Changed: `shell.openItem` is now `shell.openPath`
 
-`shell.openitem` API 已被异步 `shell.openPath` API替换。 您可以在这里查看 API 的原始建议和理由 [](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md)。
+The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
 
 ## 计划重写的 API (8.0)
 
-### 行为改变：通过 IPC 发送的值现在被结构化的克隆算法序列化
+### Behavior Changed: Values sent over IPC are now serialized with Structured Clone Algorithm
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm][SCA], the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
@@ -455,7 +471,7 @@ Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 
 Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
 
-### 已废弃： `<webview>.getWebContents()`
+### Deprecated: `<webview>.getWebContents()`
 
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
@@ -495,7 +511,7 @@ const { ipcRenderer } = require('electron')
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ```
 
-### 已废弃： `webFrame.setLayoutZoomLevelLimits()`
+### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
@@ -550,15 +566,15 @@ nativeTheme.shouldUseHighContrastColors
 
 ## 计划重写的 API (7.0)
 
-### 已弃用: Atom.io 节点头URL
+### Deprecated: Atom.io Node Headers URL
 
 这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-过时的: https://atom.io/download/electron
+Deprecated: https://atom.io/download/electron
 
-替换为: https://electronjs.org/headers
+Replace with: https://electronjs.org/headers
 
-### API 更改： `session.clearAuthCache()` 不再接受选项
+### API Changed: `session.clearAuthCache()` no longer accepts options
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
@@ -569,25 +585,25 @@ session.clearAuthCache({ type: 'password' })
 session.clearAuthCache()
 ```
 
-### API 更改： `powerMonitor.querySystemIdleState` 现在是 `powerMonitor.getSystemIdleState`
+### API Changed: `powerMonitor.querySystemIdleState` is now `powerMonitor.getSystemIdleState`
 
 ```js
-// 在 Electron 7.0
-powerMonitor.querySystemIdleState(阈值，回调)
-// 替换为同步 API
-contst idleState = powerMonitor.getSystemIdleState(阈值)
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API 更改： `powerMonitor.querySystemIdletime` 现在是 `powerMonitor.getSystemIdletime`
+### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
 
 ```js
-// 在 Electron 7.0
+// Removed in Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// 替换为同步API
+// Replace with synchronous API
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### API 更改： `webFramework.setatedWorldInfo` 替换单独的方法
+### API Changed: `webFrame.setIsolatedWorldInfo` replaces separate methods
 
 ```js
 // Removed in Electron 7.0
@@ -604,17 +620,17 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### 已移除： `在 <code>getBlinkMemoryInfo 中标记` 属性</code>
+### Removed: `marked` property on `getBlinkMemoryInfo`
 
 This property was removed in Chromium 77, and as such is no longer available.
 
-### 行为改变： `webkitdirectory` 属性 `<input type="file"/>` 现在列出目录内容
+### Behavior Changed: `webkitdirectory` attribute for `<input type="file"/>` now lists directory contents
 
-HTML 文件输入上的 `webkitdirectory` 属性允许他们选择文件夹。 Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
+The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
 
-在 Electron 7 中， `FileList` 现在是包含在 文件夹中的所有文件的列表， 类似于Chrome、Firefox和边缘 ([链接到 MDN 文档](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory))。
+As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-作为示例，在这个结构中占用一个文件夹：
+As an illustration, take a folder with this structure:
 
 ```console
 folder
@@ -623,13 +639,13 @@ folder
 └── file3
 ```
 
-在 Electron <=6, 这将返回一个 `文件列表` 带有一个 `文件` 对象：
+In Electron <=6, this would return a `FileList` with a `File` object for:
 
 ```console
 path/to/folder
 ```
 
-在 Electron 7 中，现在返回一个 `FileList` 带有 `文件` 对象：
+In Electron 7, this now returns a `FileList` with a `File` object for:
 
 ```console
 /path/to/folder/file3
@@ -637,7 +653,7 @@ path/to/folder
 /path/to/folder/file1
 ```
 
-请注意， `webkitdirectory` 不再显示选中文件夹的路径。 If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Changed: Callback-based versions of promisified APIs
 
@@ -688,7 +704,7 @@ These functions now only return Promises:
 
 ## 计划重写的 API (6.0)
 
-### API 更改： `win.setMenu(null)` 现在是 `win.remenu()`
+### API Changed: `win.setMenu(null)` is now `win.removeMenu()`
 
 ```js
 // 不推荐
@@ -697,7 +713,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-### API 更改： `电子.screen` 渲染过程中应通过 `远程` 访问
+### API Changed: `electron.screen` in the renderer process should be accessed via `remote`
 
 ```js
 // 不推荐
@@ -706,7 +722,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-### API 更改： `需要`在沙盒渲染器中生成节点。不再含蓄地加载 `远程` 版本
+### API Changed: `require()`ing node builtins in sandboxed renderers no longer implicitly loads the `remote` version
 
 ```js
 // 不推荐
@@ -730,25 +746,25 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-### 已废弃： `powerMonitor.querySystemIdleState` 已替换为 `powerMonitor.getSystemIdleState`
+### Deprecated: `powerMonitor.querySystemIdleState` replaced with `powerMonitor.getSystemIdleState`
 
 ```js
-// 已弃用
-powerMonitor.querySystemIdleState(阈值，回调)
-// 替换为同步 API
-const idleState = powerMonitor.getSystemIdleState(阈值)
+// Deprecated
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### 已废弃： `powerMonitor.querySystemIdleTime` 被替换为 `powerMonitor.getSystemIdleTime`
+### Deprecated: `powerMonitor.querySystemIdleTime` replaced with `powerMonitor.getSystemIdleTime`
 
 ```js
-// 已弃用
+// Deprecated
 powerMonitor.querySystemIdleTime(callback)
-// 用同步API替换
+// Replace with synchronous API
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### 已废弃： `app.enableMixedSandbox()` 不再需要
+### Deprecated: `app.enableMixedSandbox()` is no longer needed
 
 ```js
 // Deprecated
@@ -757,7 +773,7 @@ app.enableMixedSandbox()
 
 Mixed-sandbox mode is now enabled by default.
 
-### 已废弃： `Tray.setHighlightmode`
+### Deprecated: `Tray.setHighlightMode`
 
 Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
 
@@ -769,7 +785,7 @@ tray.setHighlightMode(mode)
 
 ## 计划重写的 API (5.0)
 
-### 默认更改： `节点集成` and `webviewTag` 默认为 false， `上下文隔离` 默认为 true
+### Default Changed: `nodeIntegration` and `webviewTag` default to false, `contextIsolation` defaults to true
 
 不推荐使用以下 `webPreferences` 选项默认值，以支持下面列出的新默认值。
 
@@ -789,15 +805,15 @@ const w = new BrowserWindow({
 })
 ```
 
-### 行为改变： `节点集成` 在子窗口通过 `本地窗口打开`
+### Behavior Changed: `nodeIntegration` in child windows opened via `nativeWindowOpen`
 
-使用 `原生窗口打开` 选项打开的子窗口将总是禁用 Node.js 集成，除非 `nodeIntegrationInSubFrames` 是 `true`
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true`.
 
-### API 更改：在应用程序准备就绪之前必须完成注册特权计划
+### API Changed: Registering privileged schemes must now be done before app ready
 
-渲染进程 API `webFramework.registerURLSchemeAss特权` and `webFrame.registerURLSchemeAsBypassingCSP` 以及浏览器进程 API `protocol.registerStandardSchemes` 已被删除。 新的 API `protocol.registerSchemeasviliged` 已被添加，并用于注册具有必要权限的自定义 scheme。 自定义 scheme 需要在 app 触发 ready 事件之前注册。
+Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. 新的 API `protocol.registerSchemeasviliged` 已被添加，并用于注册具有必要权限的自定义 scheme。 自定义 scheme 需要在 app 触发 ready 事件之前注册。
 
-### 已废弃： `webFramework.setIsolatedWorld*` 替换为 `webFrame.setIsolatedWorldInfo`
+### Deprecated: `webFrame.setIsolatedWorld*` replaced with `webFrame.setIsolatedWorldInfo`
 
 ```js
 // 弃用
@@ -814,7 +830,7 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### API 更改： `webFrame.setSpellCheckProvider` 现在需要异步回调
+### API Changed: `webFrame.setSpellCheckProvider` now takes an asynchronous callback
 
 The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
 
@@ -940,31 +956,31 @@ window.on('app-command', (e, cmd) => {
 ### `剪贴板`
 
 ```js
-// 弃用
+// 过时的
 clipboard.readRtf()
 // 替换为
 clipboard.readRTF()
 
-// 弃用
+// 过时的
 clipboard.writeRtf()
 // 替换为
 clipboard.writeRTF()
 
-// 弃用
+// 过时的
 clipboard.readHtml()
 // 替换为
 clipboard.readHTML()
 
-// 弃用
+// 过时的
 clipboard.writeHtml()
-// 替换为
+//替换为
 clipboard.writeHTML()
 ```
 
 ### `crashReporter`
 
 ```js
-// 弃用
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -1021,12 +1037,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ### `Tray`
 
 ```js
-// 弃用
+// 过时的
 tray.setHighlightMode(true)
 // 替换为
 tray.setHighlightMode('on')
 
-// 弃用
+// 过时的
 tray.setHighlightMode(false)
 // 替换为
 tray.setHighlightMode('off')
@@ -1090,10 +1106,10 @@ webview.onkeyup = () => { /* handler */ }
 ### `BrowserWindow`
 
 ```js
-// 已废弃的
+// Deprecated
 const optionsA = { titleBarStyle: 'hidden-inset' }
-const window A = new BrowserWindow(optionsA)
-// 替换为
+const windowA = new BrowserWindow(optionsA)
+// Replace with
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
@@ -1137,7 +1153,7 @@ webContents.setVisualZoomLevelLimits(1, 2)
 ### `webFrame`
 
 ```js
-// 移除
+// 被废弃
 webFrame.setZoomLevelLimits(1, 2)
 // 替换为
 webFrame.setVisualZoomLevelLimits(1, 2)
