@@ -18,13 +18,13 @@ Electron アプリケーションも非常によく似た構造をしていま�
 
 ## メインプロセス
 
-Each Electron app has a single main process, which acts as the application's entry point. The main process runs in a Node.js environment, meaning it has the ability to `require` modules and use all of Node.js APIs.
+各 Electron アプリにつき一つのメインプロセスがあります。これはアプリケーションのエントリポイントとして機能します。 メインプロセスは Node.js 環境で動作します。つまり、モジュールを `require` したり Node.js のすべての API を利用したりできます。
 
-### Window management
+### ウインドウの管理
 
-The main process' primary purpose is to create and manage application windows with the [`BrowserWindow`][browser-window] module.
+メインプロセスの主な目的は、[`BrowserWindow`][browser-window] モジュールを使ってアプリケーションウインドウを作成し管理することです。
 
-Each instance of the `BrowserWindow` class creates an application window that loads a web page in a separate renderer process. You can interact with this web content from the main process using the window's [`webContents`][web-contents] object.
+`BrowserWindow` クラスの各インスタンスは、アプリケーションウインドウを作成し、その分かれたレンダラープロセス内でウェブページを読み込みます。 メインプロセスからは、ウインドウの [`webContents`][web-contents] オブジェクトでこのウェブコンテンツを操作できます。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -36,44 +36,44 @@ const contents = win.webContents
 console.log(contents)
 ```
 
-> Note: A renderer process is also created for [web embeds][web-embed] such as the `BrowserView` module. The `webContents` object is also accessible for embedded web content.
+> 注意: `BrowserView` モジュールなどの [ウェブ埋め込み][web-embed] 用のレンダラープロセスが作成されることもあります。 `webContents` オブジェクトは、埋め込みウェブコンテンツにもアクセスできます。
 
-Because the `BrowserWindow` module is an [`EventEmitter`][event-emitter], you can also add handlers for various user events (for example, minimizing or maximizing your window).
+`BrowserWindow` モジュールは [`EventEmitter`][event-emitter] を継承しているため、様々なユーザーイベント (例えば、ウインドウの最小化や最大化) ハンドラの追加もできます。
 
-When a `BrowserWindow` instance is destroyed, its corresponding renderer process gets terminated as well.
+`BrowserWindow` インスタンスが破棄されると、対応するレンダラープロセスも終了します。
 
-### Application lifecycle
+### アプリケーションのライフサイクル
 
-The main process also controls your application's lifecycle through Electron's [`app`][app] module. This module provides a large set of events and methods that you can use to add custom application behaviour (for instance, programatically quitting your application, modifying the application dock, or showing an About panel).
+メインプロセスは、Electron の [`app`][app] モジュールを介してアプリケーションのライフサイクルも制御します。 このモジュールには、アプリケーションの動作をカスタマイズするためのイベントやメソッドが多数用意されています (例えば、プログラム側でアプリケーションを終了したり、アプリケーションの Dock を変更したり、アプリについてのパネルを表示したりできます)。
 
-As a practical example, the app shown in the [quick start guide][quick-start-lifecycle] uses `app` APIs to create a more native application window experience.
+実例として、[クイックスタートガイド][quick-start-lifecycle] で紹介されているアプリでは `app` の API でよりネイティブなアプリケーションウインドウの体験を実現しています。
 
 ```js title='main.js'
-// quitting the app when no windows are open on macOS
+// macOS 以外でウインドウが開かれていない時にアプリを終了する
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 ```
 
-### Native APIs
+### ネイテイブ API
 
-To extend Electron's features beyond being a Chromium wrapper for web contents, the main process also adds custom APIs to interact with the user's operating system. Electron exposes various modules that control native desktop functionality, such as menus, dialogs, and tray icons.
+ウェブコンテンツ用の Chromium ラッパーだけでなく Electron の機能を拡張するため、メインプロセスではユーザーのオペレーティングシステムと対話するカスタム API も追加しています。 Electron は、メニュー、ダイアログ、tray アイコンなど、ネイティブなデスクトップ機能を制御する様々なモジュールを公開しています。
 
-For a full list of Electron's main process modules, check out our API documentation.
+Electron のメインプロセスのモジュール一覧は、API ドキュメントをご覧ください。
 
-## The renderer process
+## レンダラープロセス
 
-Each Electron app spawns a separate renderer process for each open `BrowserWindow` (and each web embed). As its name implies, a renderer is responsible for *rendering* web content. For all intents and purposes, code ran in renderer processes should behave according to web standards (insofar as Chromium does, at least).
+各 Electron アプリは、開いている `BrowserWindow` (及び各ウェブ埋め込み) ごとに個別のレンダラープロセスを生成します。 その名の通り、レンダラーはウェブコンテンツの *レンダリング* を担います。 あらゆる意図と目的において、レンダラープロセスで実行するコードは (少なくとも Chromium がそうである限り) ウェブ標準に従って動作しなければなりません。
 
-Therefore, all user interfaces and app functionality within a single browser window should be written with the same tools and paradigms that you use on the web.
+そのため、あるブラウザウインドウ内のすべてのユーザーインターフェイスとアプリの機能は、ウェブの場合と同じツールとパラダイムで記述する必要があります。
 
-Although explaining every web spec is out of scope for this guide, the bare minimum to understand is:
+全ウェブ仕様の説明はこのガイドの範疇の外ですが、最低限理解しておくべきことは以下の通りでしょう。
 
-* An HTML file is your entry point for the renderer process.
-* UI styling is added through Cascading Style Sheets (CSS).
-* Executable JavaScript code can be added through `<script>` elements.
+* HTML ファイルがレンダラープロセスのエントリーポイントです。
+* UI のスタイル付けは Cascading Style Sheets (CSS) で追加します。
+* 実行する JavaScript コードは `<script>` 要素で追加できます。
 
-Moreover, this also means that the renderer has no direct access to `require` or other Node.js APIs. In order to directly include NPM modules in the renderer, you must use the same bundler toolchains (for example, `webpack` or `parcel`) that you use on the web.
+さらにこれは、レンダラーが `require` やその他 Node.js の API に直接アクセスできないことも意味します。 NPM モジュールをレンダラーに直接組み込むには、ウェブの場合と同じバンドラーツールチェイン (例えば、`webpack` や `parcel` など) を使用する必要があります。
 
 > Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historically, this used to be the default, but this feature was disabled for security reasons.
 
