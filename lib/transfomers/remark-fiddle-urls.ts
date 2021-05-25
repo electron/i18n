@@ -25,7 +25,6 @@ export const fiddleUrls = () => (tree: Node) => {
 
     // Remove empty code blocks or blocks with newer ```fiddle format
     if (node.lang === 'fiddle' || node.value === '') {
-      console.log(node)
       remove(tree, node)
     }
 
