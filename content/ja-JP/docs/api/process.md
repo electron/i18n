@@ -10,28 +10,31 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 
 サンドボックス化されたレンダラーでは、`process` オブジェクトには以下に示す一部の API のみが含まれます。
 
-- `crash()`
-- `hang()`
-- `getCreationTime()`
-- `getHeapStatistics()`
-- `getBlinkMemoryInfo()`
-- `getProcessMemoryInfo()`
-- `getSystemMemoryInfo()`
-- `getSystemVersion()`
-- `getCPUUsage()`
-- `getIOCounters()`
-- `argv`
-- `execPath`
-- `env`
-- `pid`
-- `arch`
-- `platform`
-- `sandboxed`
-- `type`
-- `version`
-- `versions`
-- `mas`
-- `windowsStore`
+* `crash()`
+* `hang()`
+* `getCreationTime()`
+* `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `getSystemVersion()`
+* `getCPUUsage()`
+* `getIOCounters()`
+* `uptime()`
+* `argv`
+* `execPath`
+* `env`
+* `pid`
+* `arch`
+* `platform`
+* `sandboxed`
+* `contextIsolated`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
+* `contextId`
 
 ## イベント
 
@@ -69,6 +72,10 @@ Electron が内部初期化スクリプトをロードし、ウェブページ�
 
 `Boolean`。 レンダラープロセスがサンドボックス化されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
+### `process.contextIsolated` _読み出し専用_
+
+`Boolean` 型で、現在のレンダラーコンテキストで `contextIsolation` が有効かどうかを示します。 これはメインプロセスでは `undefined` です。
+
 ### `process.throwDeprecation`
 
 非推奨の警告が例外としてスローされるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のエラーがスローされます。 `--throw-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
@@ -101,6 +108,10 @@ Electron のバージョン文字列を表す `String`。
 
 `Boolean`。 アプリが Windows Store アプリ (appx) として実行されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
+### `process.contextId` _読み出し専用_
+
+`String` 型 (任意) で、現在の JavaScript コンテキストにおけるグローバルな一意の ID を表します。 各フレームにはそれぞれ JavaScript コンテキストがあります。 contextIsolation が有効な場合、隔離ワールドにも個別の JavaScript コンテキストがあります。 このプロパティはレンダラープロセスでのみ利用可能です。
+
 ## メソッド
 
 `process` オブジェクトには以下のメソッドがあります。
@@ -111,7 +122,7 @@ Electron のバージョン文字列を表す `String`。
 
 ### `process.getCreationTime()`
 
-`Number | null`を返します。 - 発生からのミリ秒数、もし情報がない場合は`null`を返します。
+戻り値 `Number | null` - 発生からのミリ秒数です。情報が利用できない場合は `null` を返します。
 
 アプリケーションの作成時間を示します。 時間はエポックからのミリ秒数として表されます。 プロセスの作成時間を取得できない場合は null を返します。
 
