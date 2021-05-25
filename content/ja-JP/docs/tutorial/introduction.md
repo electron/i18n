@@ -8,7 +8,7 @@ Electron は、JavaScript、HTML、CSS によるデスクトップアプリケ�
 
 ## 必要な環境
 
-These docs operate under the assumption that the reader is familiar with both Node.js and general web development. If you need to get more comfortable with either of these areas, we recommend the following resources:
+このドキュメントは、読者が Node.js と一般的なウェブ開発の両方に精通していることを前提にしています。 これらの分野のいずれかに精通しておきたい方は、以下のリソースをお勧めします。
 
 * \[Getting started with the Web (MDN)\]\[mdn-guide\]
 * \[Introduction to Node.js\]\[node-guide\]
