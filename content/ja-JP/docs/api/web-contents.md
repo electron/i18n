@@ -173,15 +173,16 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 #### イベント: 'did-create-window'
 
 戻り値:
+
 * `window` BrowserWindow
 * `details` Object
-    * `url` String - 作成したウインドウの URL。
-    * `frameName` String - `window.open()` の呼び出しで作成したウインドウに指定した名前。
-    * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 これはマージされたもので、親ウインドウから継承したオプション、`window.open()` の `features` 文字列から解析したオプション、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で指定したオプションの順で優先されます。 認識できないオプションが取り除かれることはありません。
-    * `additionalFeatures` String[] - 非標準の機能 (この機能は Chromium や Electron によって処理されません) _非推奨_
-    * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 リファラのポリシーに応じた `Referer` ヘッダーが送信されるとは限りません。
-    * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信される POST データと、設定される適切なヘッダです。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
-    * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできます。
+  * `url` String - 作成したウインドウの URL。
+  * `frameName` String - `window.open()` の呼び出しで作成したウインドウに指定した名前。
+  * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 これはマージされたもので、親ウインドウから継承したオプション、`window.open()` の `features` 文字列から解析したオプション、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で指定したオプションの順で優先されます。 認識できないオプションが取り除かれることはありません。
+  * `additionalFeatures` String[] - 非標準の機能 (この機能は Chromium や Electron によって処理されません) _非推奨_
+  * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 リファラのポリシーに応じた `Referer` ヘッダーが送信されるとは限りません。
+  * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信される POST データと、設定される適切なヘッダです。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
+  * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできます。
 
 レンダラーで `window.open` を使用したウィンドウの作成に成功した _後_ に発生します。 [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) からウインドウの作成がキャンセルされた場合には発生しません。
 
@@ -557,12 +558,18 @@ win.webContents.on('before-input-event', (event, input) => {
   * `hasImageContents` Boolean - 空でないコンテンツ画像の上でコンテキストメニューが呼び出されたかどうか。
   * `isEditable` Boolean - コンテキストが編集可能かどうか。
   * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
-  * `titleText` String - コンテキストが呼び出されたときの選択要素の、タイトルまたは alt テキスト。
+  * `titleText` String - コンテキストメニューが呼び出された選択範囲のタイトルテキスト。
+  * `altText` String - コンテキストメニューが呼び出された選択範囲の代替テキスト。
+  * `suggestedFilename` String - コンテキストメニューの 'リンク先を名前を付けて保存' オプションでファイルを保存する際に使用されるファイル名の候補。
+  * `selectionRect` [Rectangle](structures/rectangle.md) - 選択範囲の document 空間における座標を表す矩形。
+  * `selectionStartOffset` Number - 選択テキストの開始位置。
+  * `referrerPolicy` [Referrer](structures/referrer.md) - メニューが呼び出されるフレームのリファラポリシー。
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
   * `dictionarySuggestions` String[] - ユーザに `misspelledWord` の置き換えを示す推測した単語の配列。  単語のスペルミスがあり、スペルチェッカーが有効な場合にのみ利用できます。
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
-  * `menuSourceType` String - コンテキストメニューを呼び出した入力ソース。 `none`、`mouse`、`keyboard`、`touch`、`touchMenu` のいずれかです。
+  * `spellcheckEnabled` Boolean - そのコンテキストが編集可能な場合に、スペルチェックが有効かどうか。
+  * `menuSourceType` String - コンテキストメニューを呼び出した入力ソース。 `none`, `mouse`, `keyboard`, `touch`, `touchMenu`, `longPress`, `longTap`, `touchHandle`, `stylus`, `adjustSelection`, `adjustSelectionReset` のいずれかになります。
   * `mediaFlags` Object - コンテキストメニューが呼び出されたメディア要素のフラグ。
     * `inError` Boolean - メディア要素がクラッシュしたかどうか。
     * `isPaused` Boolean - メディア要素が一時停止されているかどうか。
@@ -571,15 +578,21 @@ win.webContents.on('before-input-event', (event, input) => {
     * `isLooping` Boolean - メディア要素をループしているかどうか。
     * `isControlsVisible` Boolean - メディア要素のコントロールが見えるかどうか。
     * `canToggleControls` Boolean - メディア要素のコントロールがトグル切り替えできるかどうか。
+    * `canPrint` Boolean - そのメディア要素が印刷できるかどうか。
+    * `canSave` Boolean - そのメディア要素がダウンロードできるかどうか。
+    * `canShowPictureInPicture` Boolean - そのメディア要素がピクチャインピクチャ表示できるかどうか。
+    * `isShowingPictureInPicture` Boolean - そのメディア要素をピクチャインピクチャ表示しているかどうか。
     * `canRotate` Boolean - メディア要素を回転できるかどうか。
+    * `canLoop` Boolean - そのメディア要素をループ再生できるかどうか。
   * `editFlags` Object - これらのフラグは、レンダラーが対応するアクションを実行できると信頼しているかどうかを示します。
     * `canUndo` Boolean - レンダラーが、undo できると信頼しているかどうか。
     * `canUndo` Boolean - レンダラーが、redo できると信頼しているかどうか。
     * `canCut` Boolean - レンダラーが、カットできると信頼しているかどうか。
-    * `canCopy` Boolean - レンダラーが、コピーできると信頼しているかどうか。
+    * `canCopy` Boolean - レンダラーがコピーできると信頼しているかどうか。
     * `canPaste` Boolean - レンダラーが、ペーストできると信頼しているかどうか。
     * `canDelete` Boolean - レンダラーが、削除できると信頼しているかどうか。
     * `canSelectAll` Boolean - レンダラーが、全選択できると信頼しているかどうか。
+    * `canEditRichly` Boolean - レンダラーがテキストをリッチ編集できると信頼しているかどうか。
 
 処理が必要な新しいコンテキストメニューがあるときに発行されます。
 
@@ -776,7 +789,7 @@ win.loadURL('http://github.com')
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (任意)
+  * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
@@ -1021,6 +1034,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
     * `url` String - `window.open()` に渡されて _解決された_ URL。 例えば `window.open('foo')` でウインドウを開くと、これは `https://the-origin/the/current/path/foo` のようになります。
     * `frameName` String - `window.open()` で指定されたウインドウ名
     * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` or `other`.
+    * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
+    * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
   戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
 
@@ -1185,18 +1201,20 @@ console.log(requestId)
 
 Returns `Boolean` - このページがキャプチャされているかどうか。 キャプチャーの数が 0 より大きい場合は true を返します。
 
-#### `contents.incrementCapturerCount([size, stayHidden])`
+#### `contents.incrementCapturerCount([size, stayHidden, stayAwake])`
 
 * `size` [Size](structures/size.md) (任意) - キャプチャの優先サイズ。
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
+* `stayAwake` Boolean (optional) -  Keep the system awake instead of allowing it to sleep.
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
 
 これは Page Visibility API にも影響を与えます。
 
-#### `contents.decrementCapturerCount([stayHidden])`
+#### `contents.decrementCapturerCount([stayHidden, stayAwake])`
 
 * `stayHidden` Boolean (任意) -  ページを表示状態にせず非表示のままにします。
+* `stayAwake` Boolean (optional) -  Keep the system awake instead of allowing it to sleep.
 
 キャプチャ回数は 1 ずつ減少します。 ブラウザウィンドウが隠されるまたはオクルージョンされるか、キャプチャーカウントが 0 になると、ページは非表示状態やオクルージョン状態にセットされます。 代わりに非表示のキャプチャ回数を減らしたい場合は、`stayHidden` を true に設定してください。
 
