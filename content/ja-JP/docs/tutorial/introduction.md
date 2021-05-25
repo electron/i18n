@@ -1,10 +1,10 @@
 # はじめに
 
-Welcome to the Electron documentation! If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
+Electron ドキュメントへようこそ！ 初めて Electron アプリを開発する方は、このはじめにを読んで基本的な知識を身につけてください。 そうでない方は、ガイドや API ドキュメントもご利用ください！
 
-## What is Electron?
+## Electron とは何ですか?
 
-Electron is a framework for building desktop applications using JavaScript, HTML, and CSS. By embedding \[Chromium\]\[chromium\] and \[Node.js\]\[node\] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
+Electron は、JavaScript、HTML、CSS によるデスクトップアプリケーションを構築するフレームワークです。 Electron は \[Chromium\]\[chromium\] と \[Node.js\]\[node\] をバイナリに組み込むことで、単一の JavaScript コードベースを維持しつつ、ネイテイブ開発経験無しでも Windows、macOS、Linux で動作するクロスプラットフォームアプリを作成できます。
 
 ## 必要な環境
 
