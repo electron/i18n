@@ -1,4 +1,5 @@
 import * as visit from 'unist-util-visit'
+import * as remove from 'unist-util-remove'
 import { electronLatestStableTag } from '../../package.json'
 import { Node } from 'unist'
 
@@ -21,6 +22,12 @@ interface IAdditionalNode extends Node {
 export const fiddleUrls = () => (tree: Node) => {
   visit(tree, 'code', (node: IAdditionalNode) => {
     if (!node.lang || !node.meta) return
+
+    // Remove empty code blocks or blocks with newer ```fiddle format
+    if (node.lang === 'fiddle' || node.value === '') {
+      console.log(node)
+      remove(tree, node)
+    }
 
     const langMatch = node.lang.match(langRegex)
     const metaMatch = node.meta.match(metaRegex)
