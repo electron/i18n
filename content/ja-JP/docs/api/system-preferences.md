@@ -394,7 +394,7 @@ Windows 10 には、すべての win32 アプリケーションの `microphone` 
 
 戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 すでにアクセスを要求して拒否された場合、設定パネルを通して変更_しなければなりません_。警告はポップアップせずに Promise は現在のアクセス状態で解決します。
 
-**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
+**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](../tutorial/application-distribution.md#macos) を参照してください。
 
 このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。
 
