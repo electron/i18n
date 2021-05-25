@@ -91,8 +91,8 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. This includes:
 
-- Extensions being loaded from `Session.loadExtension`.
-- Extensions being reloaded:
+* Extensions being loaded from `Session.loadExtension`.
+* Extensions being reloaded:
   * from a crash.
   * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
 
@@ -188,15 +188,15 @@ app.whenReady().then(() => {
       enableBlinkFeatures: 'Serial'
     }
   })
-  win.webContents.session.on('select-serial-port', (event, portList, callback) => {
+  win.webContents.session.on('select-serial-port', (event, portList, webContents, callback) => {
     event.preventDefault()
     const selectedPort = portList.find((device) => {
-      return device.vendorId === 0x2341 && device.productId === 0x0043
+      return device.vendorId === '9025' && device.productId === '67'
     })
     if (!selectedPort) {
       callback('')
     } else {
-      callback(result1.portId)
+      callback(selectedPort.portId)
     }
   })
 })
@@ -382,7 +382,7 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `request` Object
     * `hostname` String
     * `certificate` [证书](structures/certificate.md)
-    * `validatedCertificate` [Certificate](structures/certificate.md)
+    * `validatedCertificate` [证书](structures/certificate.md)
     * `verificationResult` String - chromium证书验证结果
     * `errorCode` Integer - 错误代码
   * `callback` Function
@@ -427,6 +427,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `pointerLock` - Request to directly interpret mouse movements as an input method. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API) to know more.
     * `fullscreen` - Request for the app to enter fullscreen mode.
     * `openExternal` - Request to open links in external applications.
+    * `unknown` - An unrecognized permission request
   * `callback` Function
     * `permissionGranted` Boolean - 允许或拒绝该权限.
   * `details` Object - Some properties are only available on certain permission types.
@@ -435,7 +436,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
+设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。  Please note that you must also implement `setPermissionCheckHandler` to get complete permission handling. Most web APIs do a permission check and then make a permission request if the check is denied.
 
 ```javascript
 const { session } = require('electron')
@@ -450,26 +451,28 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function\<Boolean> | null
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+* `handler` 函数\<Boolean> | null
+  * `webContents` ([WebContents](web-contents.md) | null) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.  Cross origin sub frames making permission checks will pass a `null` webContents to this handler.  You should use `embeddingOrigin` and `requestingOrigin` to determine what origin the owning frame and the requesting frame are on respectively.
   * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Some properties are only available on certain permission types.
-    * `securityOrigin` String - The security origin of the `media` check.
-    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
-    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `embeddingOrigin` String (optional) - The origin of the frame embedding the frame that made the permission check.  Only set for cross-origin sub frames making permission checks.
+    * `securityOrigin` String (optional) - The security origin of the `media` check.
+    * `mediaType` String (optional) - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String (optional) - The last URL the requesting frame loaded.  This is not provided for cross-origin sub frames making permission checks.
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it.  Please note that you must also implement `setPermissionRequestHandler` to get complete permission handling. Most web APIs do a permission check and then make a permission request if the check is denied. To clear the handler, call `setPermissionCheckHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
-session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
-  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return false // denied
+const url = require('url')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin).hostname === 'some-host' && permission === 'notifications') {
+    return true // granted
   }
 
-  return true
+  return false // denied
 })
 ```
 
@@ -516,8 +519,8 @@ Returns `Boolean` - Whether or not this session is a persistent one. The default
 #### `ses.setSSLConfig(config)`
 
 * `config` Object
-  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
-  * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
+  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. 默认为`tls1`。
+  * `maxVersion` String (可选) - 可以是 `tls1.2` 或 `tls1.3`。 The maximum SSL version to allow when connecting to remote servers. 默认值为 `tls1.3`。
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
 Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
@@ -675,6 +678,10 @@ Returns `Extension[]` - A list of all loaded extensions.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
+#### `ses.getStoragePath()`
+
+A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
+
 ### 实例属性
 
 以下属性在` Session </ 0>实例上可用：</p>
@@ -686,6 +693,10 @@ A `String[]` array which consists of all the known available spell checker langu
 #### `ses.spellCheckerEnabled`
 
 A `Boolean` indicating whether builtin spell checker is enabled.
+
+#### `ses.storagePath` _Readonly_
+
+A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
 
 #### `ses.cookies` _Readonly_
 
