@@ -72,6 +72,5 @@
   "electronLatestStableTag": "v13.0.0",
   "engines": {
     "node": ">=10"
-  },
-  "dependencies": {}
+  }
 }
