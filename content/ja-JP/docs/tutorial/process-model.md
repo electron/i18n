@@ -2,15 +2,15 @@
 
 Electron は Chromium のマルチプロセスアーキテクチャを継承しており、フレームワークのアーキテクチャは最新のウェブブラウザに酷似しています。 このガイドでは、最小限の [クイックスタートアプリ][] で適用した、Electron の概念的な知識を解説します。
 
-## Why not a single process?
+## なぜシングルプロセスではないのでしょうか?
 
-Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+ウェブブラウザは非常に複雑なアプリケーションです。 ウェブコンテンツを表示するという主な機能のほかに、複数のウィンドウ (またはタブ) を管理したり、サードパーティの拡張機能を読み込んだりするなど、多くの副次的な役割を担っています。
 
-In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
+以前のブラウザでは、これらの機能を単一のプロセスで実現していました。 このやり方は開いているタブごとのオーバーヘッドを減らしますが、1 つのウェブサイトがクラッシュしたりハングアップしたりすると、ブラウザ全体に影響が及びます。
 
-## The multi-process model
+## マルチプロセスモデル
 
-To solve this problem, the Chrome team decided that each tab would render in its own process, limiting the harm that buggy or malicious code on a web page could cause to the app as a whole. A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
+この問題を解決するため、Chrome チームは各タブがそれぞれのプロセスで描画するようにすると決め、ウェブページ上のバグや悪意のあるコードがアプリ全体に与える影響を制限することにしました。 A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
