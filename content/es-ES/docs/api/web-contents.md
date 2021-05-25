@@ -173,15 +173,16 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 #### Evento: 'did-create-window'
 
 Devuelve:
+
 * `window` Navegador Windows
 * `details` Object
-    * `url` String - URL de la ventana creada.
-    * `frameName` String - Nombre dado a la ventana creada en la llamada de `window.open()`.
-    * `options` BrowserWindowConstructorOptions - Las opciones utilizadas para crear el BrowserWindow. Se fusionan en una precedencia creciente: opciones heredadas desde el padre, opciones analizadas de la cadena `features` de `window.open()`, y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Las opciones no reconocidas no están filtradas.
-    * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) _Deprecated_
-    * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
-    * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. Si no hay datos para enviar, el valor será `null`. Only defined when the window is being created by a form that set `target=_blank`.
-    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+  * `url` String - URL de la ventana creada.
+  * `frameName` String - Nombre dado a la ventana creada en la llamada `window.open()`.
+  * `options` BrowserWindowConstructorOptions - Las opciones utilizadas para crear el BrowserWindow. Se fusionan en una precedencia creciente: opciones heredadas desde el padre, opciones analizadas de la cadena `features` de `window.open()`, y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Las opciones no reconocidas no están filtradas.
+  * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) _Deprecated_
+  * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
+  * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. Si no hay datos para enviar, el valor será `null`. Only defined when the window is being created by a form that set `target=_blank`.
+  * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
 Emitted _after_ successful creation of a window via `window.open` in the renderer. No emitido si la creación de la ventana es cancelada desde [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
 
@@ -557,12 +558,18 @@ Devuelve:
   * `<0>tieneImagenContenido` Boolean - si el menú del contexto fue invocado en una imagen la cual tiene contenido no vacío.
   * `esEditable` Boolean - Si el contexto es editable.
   * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
-  * `tituloTexto` String - Título o texto alt de la selección la cual el contexto fue invocado.
+  * `titleText` String - Ttexto del título de la selección en la que se invocó el menú contextual.
+  * `altText` String - Texto alternativo de la selección en la que se invocó el menú contextual.
+  * `suggestedFilename` String - Nombre de archivo sugerido para ser usado cuando se guarde el archivo a través de la opción 'Guarde Enlace Como' del menú contextual.
+  * `selectionRect` [Rectángulo](structures/rectangle.md) - Rectángulo que representa las coordenadas en el espacio del documento de la selección.
+  * `SelectionStartOffset` Number - Posición inicial del texto de selección.
+  * `referrerPolicy` [Referrer](structures/referrer.md) - La política de referencia del frame en el cual el menú es invocado.
   * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
   * `dictionarySuggestions` String[] - Un array de palabras sugeridas para mostrar al usuario para remplazar el `misspelledWord`.  Solo disponible si hay una palabra mal escrita y el corrector está habilitado.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+  * `spellcheckEnabled` Boolean - Si el contexto es editable, si el corrector ortográfico está habilitado o no.
+  * `menuSourceType` String - Input source that invoked the context menu. Puede ser `none`, `mouse`, `keyboard`, `touch`, `touchMenu`, `longPress`, `longTap`, `touchHandle`, `stylus`, `adjustSelection`, o `adjustSelectionReset`.
   * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
     * `enError` Boolean - Si el elemento multimedia se ha dañado.
     * `estáPausado` Boolean - Si el elemento multimedia está pausado.
@@ -571,15 +578,21 @@ Devuelve:
     * `estáLooping` Boolean - Si el elemento multimedia está enredado.
     * `esControlVisible` Boolean - Si los controles del elemento multimedia son visibles.
     * `puedeToggleControles` Boolean - Si los controles de los elementos multimedia son toggleable.
+    * `canPrint` Boolean - Si el elemento multimedia puede ser impreso.
+    * `canSave` Boolean - Si el elemento multimedia puede ser descargado o no.
+    * `canShowPictureInPicture` Boolean - Si el elemento multimedia puede ser mostrado en picture-in-picture.
+    * `isShowingPictureInPicture` Boolean - Si el elemento multimedia está siendo actualmente mostrado en picture-in-picture.
     * `puedeRotar` Boolean - Si el elemento multimedia puede ser rotado.
+    * `canLoop` Boolean - Si el elemento multimedia puede hacer un loop.
   * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
     * `canUndo` Boolean - Si cree que el procesador puede deshacer.
     * `canRedo` Boolean - Si cree que el procesador pueda rehacer.
     * `canCut` Boolean - Si cree que el procesador puede cortar.
-    * `canCopy` Boolean - Si cree que el procesador puede copiar
+    * `canCopy` Boolean - Si cree que el procesador puede copiar.
     * `canPaste` Boolean - Si cree que el procesador puede pegar.
     * `canDelete` Boolean - Si cree que el procesador puede borrar.
     * `canSelectAll` Boolean - Si cree que el procesador puede seleccionar todo.
+    * `canEditRichly` Boolean - Si el renderer cree que puede editar texto de forma enriquecedora.
 
 Emitido cuando hay un nuevo menú de contexto que debe ser manejado.
 
@@ -776,7 +789,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP de referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md)) (optional)
+  * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Devuelve `Promise<void>` - la promesa se resolverá cuando la página ha finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y rechaza si la página falla al cargar (mira[`did-fail-load`](web-contents.md#event-did-fail-load)). Un manejador de rechazo noop ya esta adjunto, el cual evita errores de rechazo no controlados.
@@ -1021,6 +1034,9 @@ Ignora los accesos directos del menú de la aplicación mientras se enfoca los c
     * `url` String - La versión _resuelta_ de la URL pasada a `window.open()`. por ejemplo una ventana con `window.open('foo')` producirá algo como `https://the-origin/the/current/path/foo`.
     * `frameName` String - Nombre de la ventana proporcionado en `window.open()`
     * `features` String - Lista separada por coma de la características de ventana proporcionada a `window.open()`.
+    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` or `other`.
+    * `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
+    * `postBody` [PostBody](structures/post-body.md) (opcional) - Los datos que serán enviados a la nueva ventana, junto con las cabeceras apropiadas que se establecerán. Si no hay datos para enviar, el valor será `null`. Solo se define cuando la ventana está siendo creada por un formulario que establece `target=_blank`.
 
   Devuelve `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancela la creación de la nueva ventana. `allow` permitirá la que se cree la nueva ventana. Especificando `overrideBrowserWindowOptions` permite la personalización de la ventana creada. Devolver un valor no reconocido como un null, undefined o un objeto sin una 'action' reconocida resultará en un error de consola tiene el mismo efecto que devolver `{action: 'deny'}`.
 
@@ -1076,8 +1092,8 @@ Establecer el nivel de máximo y mínimo pizca de zoom.
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
 > ```js
-contents.setVisualZoomLevelLimits(1, 3)
-```
+> contents.setVisualZoomLevelLimits(1, 3)
+> ```
 
 #### `contents.undo()`
 
@@ -1185,18 +1201,20 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
 
 Devuelve `Boolean` - Si esta página está siendo capturada. Devuelve true cuando el recuento de capturadores es mas grande que 0.
 
-#### `contents.incrementCapturerCount([size, stayHidden])`
+#### `contents.incrementCapturerCount([size, stayHidden, stayAwake])`
 
 * `size` [Tamaño](structures/size.md) (opcional) - El tamaño preferido para el capturador.
 * `stayHidden` Boolean (opcional) - Mantiene la página oculta en lugar de visible.
+* `stayAwake` Boolean (optional) -  Keep the system awake instead of allowing it to sleep.
 
 Incrementa el contador de captura en uno. La página es considerada visible cuando su ventana de navegador está oculta y el recuento del capturador no es cero. Si le gustaría que la página permanezca oculta, debería asegurarse que `stayHidden` está establecido a true.
 
 Esto también afecta a la API de visibilidad de la página.
 
-#### `contents.decrementCapturerCount([stayHidden])`
+#### `contents.decrementCapturerCount([stayHidden, stayAwake])`
 
 * `stayHidden` Boolean (opcional) - Mantiene la página en estado oculto en lugar de visible.
+* `stayAwake` Boolean (optional) -  Keep the system awake instead of allowing it to sleep.
 
 Disminuye el recuento del capturador en uno. La página se establecerá en el estado oculto u ocluido cuando la ventana del navegador esté oculta u ocluida y el recuento del capturador llegue a cero. Si quiere disminuir el contador del caputador en su lugar debería establecer `stayHidden` a true.
 
