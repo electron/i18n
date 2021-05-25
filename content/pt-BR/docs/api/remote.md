@@ -24,8 +24,8 @@ win.loadURL('https://github.com')
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
 
-- [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-- [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Remote Objects
 
@@ -103,7 +103,7 @@ console.log(app)
 
 ## Métodos
 
-The `remote` module has the following methods:
+O módulo `remote` tem os seguintes métodos:
 
 ### `remote.getCurrentWindow()`
 
