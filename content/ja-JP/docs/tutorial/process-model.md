@@ -12,7 +12,7 @@ Electron は Chromium のマルチプロセスアーキテクチャを継承し�
 
 この問題を解決するため、Chrome チームは各タブがそれぞれのプロセスで描画するようにすると決め、ウェブページ上のバグや悪意のあるコードがアプリ全体に与える影響を制限することにしました。 単一のブラウザプロセスはこれらのプロセスを制御し、アプリケーションのライフサイクル全体を制御します。 このモデルを視覚化したのが、[Chrome 漫画本][] の以下の図です。
 
-![Chrome's multi-process architecture](../images/chrome-processes.png)
+![Chrome のマルチプロセスアーキテクチャ](../images/chrome-processes.png)
 
 Electron アプリケーションも非常によく似た構造をしています。 Electron アプリ開発者の場合、メインとレンダラーの 2 種類のプロセスを制御します。 これらは、上述の Chrome 独自のブラウザプロセスとレンダラープロセスと似ています。
 
@@ -96,9 +96,9 @@ const win = new BrowserWindow({
 //...
 ```
 
-Because the preload script shares a global [`Window`][window-mdn] interface with the renderers and can access Node.js APIs, it serves to enhance your renderer by exposing arbitrary APIs in the `window` global that your web contents can then consume.
+プリロードスクリプトは、グローバルな [`Window` ][window-mdn] インターフェイスをレンダラーと共有し Node.js の API にアクセスすることができます。そのため、`window` グローバルに任意の API を公開してウェブコンテンツが利用できるようにすることで、レンダラーを強化する役割を果たしています。
 
-Although preload scripts share a `window` global with the renderer they're attached to, you cannot directly attach any variables from the preload script to `window` because of the [`contextIsolation`][context-isolation] default.
+プリロードスクリプトはアタッチされているレンダラーと `window` グローバルを共有しますが、[`contextIsolation`][context-isolation] のデフォルト値によりプリロードスクリプトの変数は `window` に直接アタッチできません。
 
 ```js title='preload.js'
 window.myAPI = {
@@ -111,9 +111,9 @@ console.log(window.myAPI)
 // => undefined
 ```
 
-Context Isolation means that preload scripts are isolated from the renderer's main world to avoid leaking any privileged APIs into your web content's code.
+コンテキスト分離 (contextIsolation) とは、プリロードスクリプトをレンダラーのメインワールドから分離し、特権的 API がウェブコンテンツのコードへ漏れないようにすることです。
 
-Instead, use the [`contextBridge`][context-bridge] module to accomplish this securely:
+これを代わりに安全に実現するには、以下のように [`contextBridge`][context-bridge] モジュールを使用します。
 
 ```js title='preload.js'
 const { contextBridge } = require('electron')
@@ -128,10 +128,10 @@ console.log(window.myAPI)
 // => { desktop: true }
 ```
 
-This feature is incredibly useful for two main purposes:
+この機能は、主に以下に挙げる 2 つの目的において非常に便利です。
 
-* By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
-* If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
+* [`ipcRenderer`][ipcRenderer] ヘルパーをレンダラーに公開することで、プロセス間通信 (IPC) を利用してレンダラーからメインプロセスのタスクを作動できます (その逆も可能)。
+* リモート URL でホストされている既存ウェブアプリの Electron のラッパーを開発している場合、レンダラーの `window` グローバルにカスタムプロパティを追加することで、ウェブクライアント側でデスクトップ専用のロジックを利用できます。
 
 [クイックスタートアプリ]: ./quick-start.md
 
