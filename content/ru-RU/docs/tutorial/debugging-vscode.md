@@ -40,9 +40,9 @@ $ code electron-quick-start
 
 Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## Отладка кода Electron
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+Если вы хотите собрать Electron из исходного кода и модифицировать его, данный раздел поможет тестировать ваши изменения.
 
 For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
 
