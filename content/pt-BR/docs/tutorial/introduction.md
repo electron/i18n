@@ -1,19 +1,19 @@
 # Introdução
 
-Welcome to the Electron documentation! If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
+Bem vindo a documentação do Electron If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
 
-## What is Electron?
+## O que é o Electron?
 
-Electron is a framework for building desktop applications using JavaScript, HTML, and CSS. By embedding \[Chromium\]\[chromium\] and \[Node.js\]\[node\] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
+Electron é um framework que te permite criar aplicações desktop com JavaScript, HTML e CSS. Incorporando \[Chromium\]\[chromium\] e \[Node.js\]\[node\] no seu binário, Electron permite que você mantenha uma base de código para JavaScript e crie aplicações multiplataforma que funcionam no Windows macOS, e Linux — sem necessidade de experiência de desenvolvimento nativo .
 
 ## Pré-requisitos
 
-These docs operate under the assumption that the reader is familiar with both Node.js and general web development. If you need to get more comfortable with either of these areas, we recommend the following resources:
+Estes documentos operam sob a suposição de que o leitor está familiarizado com Node.js e desenvolvimento web geral. Se você precisar se sentir mais confortável com qualquer uma dessas áreas, recomendamos os seguintes recursos:
 
-* \[Getting started with the Web (MDN)\]\[mdn-guide\]
-* \[Introduction to Node.js\]\[node-guide\]
+* \[Começando com a Web (MDN)\]\[mdn-guide\]
+* \[Introdução a Node.js\]\[node-guide\]
 
-Moreover, you'll have a better time understanding how Electron works if you get acquainted with Chromium's process model. You can get a brief overview of Chrome architecture with the \[Chrome comic\]\[comic\], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
+Além disso, você terá um tempo melhor para entender como o Electron funciona se você tiver conhecido o modelo de processo do Chromium. Você pode obter uma breve visão geral da arquitetura do Chrome com o \[Chrome comic\]\[comic\], que foi lançado ao lado do lançamento do Chrome, em 2008. Embora já tenha mais de uma década desde então, os princípios fundamentais introduzidos na Google Comic permanecem úteis para entender a Electron.
 
 ## Running examples with Electron Fiddle
 
