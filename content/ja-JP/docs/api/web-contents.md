@@ -789,7 +789,7 @@ win.loadURL('http://github.com')
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
+  * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
@@ -1034,7 +1034,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
     * `url` String - `window.open()` に渡されて _解決された_ URL。 例えば `window.open('foo')` でウインドウを開くと、これは `https://the-origin/the/current/path/foo` のようになります。
     * `frameName` String - `window.open()` で指定されたウインドウ名
     * `features` String - `window.open()` で指定されたウインドウ機能のカンマ区切りリスト。
-    * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` or `other`.
+    * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` のいずれかにできます。
     * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
     * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
@@ -1092,8 +1092,8 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 > **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
 > ```js
-contents.setVisualZoomLevelLimits(1, 3)
-```
+> contents.setVisualZoomLevelLimits(1, 3)
+> ```
 
 #### `contents.undo()`
 
@@ -1205,7 +1205,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 
 * `size` [Size](structures/size.md) (任意) - キャプチャの優先サイズ。
 * `stayHidden` Boolean (任意) -  ページを表示せずに非表示のままにします。
-* `stayAwake` Boolean (optional) -  Keep the system awake instead of allowing it to sleep.
+* `stayAwake` Boolean (任意) -  システムをスリープさせずに、起きたままにします。
 
 キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
 
@@ -1214,7 +1214,7 @@ Returns `Boolean` - このページがキャプチャされているかどうか
 #### `contents.decrementCapturerCount([stayHidden, stayAwake])`
 
 * `stayHidden` Boolean (任意) -  ページを表示状態にせず非表示のままにします。
-* `stayAwake` Boolean (optional) -  Keep the system awake instead of allowing it to sleep.
+* `stayAwake` Boolean (任意) -  システムをスリープさせずに、起きたままにします。
 
 キャプチャ回数は 1 ずつ減少します。 ブラウザウィンドウが隠されるまたはオクルージョンされるか、キャプチャーカウントが 0 になると、ページは非表示状態やオクルージョン状態にセットされます。 代わりに非表示のキャプチャ回数を減らしたい場合は、`stayHidden` を true に設定してください。
 
