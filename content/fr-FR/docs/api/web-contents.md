@@ -1092,8 +1092,8 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 > **NOTE**: Le zoom visuel est désactivé par défaut dans Electron. To re-enable it, call:
 > 
 > ```js
-contents.setVisualZoomLevelLimits(1, 3)
-```
+> contents.setVisualZoomLevelLimits(1, 3)
+> ```
 
 #### `contents.undo()`
 
