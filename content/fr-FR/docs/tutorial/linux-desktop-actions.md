@@ -8,7 +8,7 @@ On many Linux environments, you can add custom entries to the system launcher by
 
 > NOTE: The screenshot above is an example of launcher shortcuts in Audacious audio player
 
-To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
+To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. Un exemple du fichier `.desktop` peut ressembler à ceci :
 
 ```plaintext
 Actions=PlayPause;Next;Previous
@@ -29,7 +29,7 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-The preferred way for Unity to instruct your application on what to do is using parameters. You can find them in your application in the global variable `process.argv`.
+The preferred way for Unity to instruct your application on what to do is using parameters. Vous pouvez les trouver dans votre application dans la variable globale `process.argv`.
 
 [3]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png
 
