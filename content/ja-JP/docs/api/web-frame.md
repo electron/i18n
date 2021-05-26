@@ -52,8 +52,8 @@ webFrame.setZoomFactor(2)
 > **注意**: Electron ではデフォルトで視覚ズームは無効化されています。 再び有効にする場合は以下を呼び出します。
 > 
 > ```js
-webFrame.setVisualZoomLevelLimits(1, 3)
-```
+> webFrame.setVisualZoomLevelLimits(1, 3)
+> ```
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
