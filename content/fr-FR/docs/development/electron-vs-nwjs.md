@@ -1,14 +1,14 @@
-# Technical Differences Between Electron and NW.js
+# Différences techniques entre Electron et NW.js
 
-Comme [NW.js][nwjs], Electron fournit une plate-forme pour développer des applications de bureau avec des technologies web. Both platforms enable developers to utilize HTML, JavaScript, and Node.js. On the surface, they seem very similar.
+Comme [NW.js][nwjs], Electron fournit une plate-forme pour développer des applications de bureau avec des technologies web. Les deux plates-formes permettent aux développeurs d'utiliser du HTML, JavaScript et Node.js. En surface, ils semblent très similaires.
 
-There are however fundamental differences between the two projects that make Electron a completely separate product from NW.js.
+Il existe cependant des différences fondamentales entre les deux projets qui font d'Electron un produit complètement distinct de NW.js.
 
 ## 1) Entry of Application
 
-In NW.js, the main entry point of an application can be an HTML web page. In that case, NW.js will open the given entry point in a browser window.
+Dans NW.js, le point d'entrée principal d'une application peut être une page Web HTML. Dans dans ce cas, NW.js ouvrira le point d'entrée donné dans une fenêtre de navigateur.
 
-In Electron, the entry point is always a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+Dans Electron, le point d'entrée est toujours un script JavaScript. Au lieu de fournir un URL directement, vous créez manuellement une fenêtre de navigateur et chargez un fichier HTML en utilisant l'API. You also need to listen to window events to decide when to quit the application.
 
 Electron works more like the Node.js runtime. Les API d’Electron sont de niveau inférieur, vous pouvez l’utiliser pour les tests de navigateur à la place de [PhantomJS](https://phantomjs.org/).
 
