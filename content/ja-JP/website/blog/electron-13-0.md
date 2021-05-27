@@ -7,7 +7,7 @@ author:
 date: '2021-05-25'
 ---
 
-Electron 13.0.0 がリリースされました! It includes upgrades to Chromium `91` and V8 `9.1`. We've added several API updates, bug fixes, and general improvements. 詳細は以下をご覧ください!
+Electron 13.0.0 がリリースされました! これには Chromium `91` とV8 `9.1` へのアップグレードが含まれています。 いくつかの API の更新、バグ修正、及び一般的な改善を行いました。 詳細は以下をご覧ください!
 
 ---
 
@@ -29,24 +29,24 @@ Electron チームは、Electron 13.0.0 のリリース発表にワクワクし�
 
 ### 注目の機能
 
-* Added `process.contextIsolated` property that indicates whether the current renderer context has `contextIsolation` enabled. [#28252](https://github.com/electron/electron/pull/28252)
-* Added new `session.storagePath` API to get the path on disk for session-specific data. [#28866](https://github.com/electron/electron/pull/28866)
-* Deprecated the `new-window` event of `WebContents`. It is replaced by `webContents.setWindowOpenHandler()`
-* Added `process.contextId` used by `@electron/remote`. [#28251](https://github.com/electron/electron/pull/28251)
+* `process.contextIsolated` プロパティを追加しました。これは現在のレンダラーコンテキストで `contextIsolation` が有効かどうかを示します。 [#28252](https://github.com/electron/electron/pull/28252)
+* セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。 [#28866](https://github.com/electron/electron/pull/28866)
+* `WebContents` の `new-window` イベントを非推奨にしました。 これは `webContents.setWindowOpenHandler()` に置き換えられます。
+* `@electron/remote` で使用されている `process.contextId` を追加しました。 [#28251](https://github.com/electron/electron/pull/28251)
 
 新機能と変更の完全なリストは、[13.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v13.0.0) を参照してください。
 
 ## 破壊的変更
 
-* `window.open()` parameter frameName is no longer set as window title. [#27481](https://github.com/electron/electron/pull/27481)
-* Changed `session.setPermissionCheckHandler(handler)` to allow for `handler`'s first parameter, `webContents` to be `null`. [#19903](https://github.com/electron/electron/pull/19903)
+* `window.open()` の引数 frameName はウインドウタイトルとして設定されなくなりました。 [#27481](https://github.com/electron/electron/pull/27481)
+* `session.setPermissionCheckHandler(handler)` で、`handler` の第一引数である `webContents` が `null` になることがあるように変更しました。 [#19903](https://github.com/electron/electron/pull/19903)
 
 これらの変更と将来の変更の詳細については、[予定されている破壊的な変更](https://github.com/electron/electron/electron/blob/master/docs/breaking-changes.md) のページを参照してください。
 
 ## API の変更
 
-* Added `roundedCorners` option for `BrowserWindow`. [#27572](https://github.com/electron/electron/pull/27572)
-* Added new `session.storagePath` API to get the path on disk for session-specific data.[28866](https://github.com/electron/electron/pull/28866)
+* `BrowserWindow` に `roundedCorners` オプションを追加しました。 [#27572](https://github.com/electron/electron/pull/27572)
+* セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。[28866](https://github.com/electron/electron/pull/28866)
 * Added support for passing DOM elements over the context bridge. [#26776](https://github.com/electron/electron/pull/26776)
 * Added `process.uptime()` to sandboxed renderers. [#26684](https://github.com/electron/electron/pull/26684)
 * Added missing fields to the parameters emitted as part of the `context-menu`event.[#26788](https://github.com/electron/electron/pull/26788)
@@ -57,7 +57,7 @@ Electron チームは、Electron 13.0.0 のリリース発表にワクワクし�
 
 以下の API は削除されたか非推奨になりました。
 
-* Deprecated the `new-window` event of `WebContents`. It is replaced by `webContents.setWindowOpenHandler()`
+* `WebContents` の `new-window` イベントを非推奨にしました。 これは `webContents.setWindowOpenHandler()` に置き換えられます。
 * 非推奨だった `shell.moveItemToTrash()` を削除しました. [#26723](https://github.com/electron/electron/pull/26723)
 * Removed the following deprecated `BrowserWindow` extension APIs:
 
