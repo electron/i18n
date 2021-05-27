@@ -136,7 +136,7 @@ nativeTheme.shouldUseHighContrastColors
 
 ### Obsolète : événement WebContents `new-window`
 
-The `new-window` event of WebContents has been deprecated. Il est remplacé par [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+L'événement `new-window` de WebContents est déprécié. Il est remplacé par [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
 // Deprecated in Electron 13
@@ -200,7 +200,7 @@ Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de dét
 
 ### Default Changed: `crashReporter.start({ compress: true })`
 
-The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+La valeur par défaut de l'option `compress` en `crashReporter.start` a changé de `false` à `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
@@ -258,9 +258,9 @@ crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' }})
 La méthode `crashReporter.getCrashesDirectory` a été dépréciée. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
-// Deprecated in Electron 10
+// Déprécié dans Electron 10
 crashReporter.getCrashesDirectory()
-// Replace with
+// Remplacé par
 app.getPath('crashDumps')
 ```
 
@@ -405,10 +405,10 @@ session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Deprecated in Electron 9
+// Déprécié dans Electron 9
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Remplacé par
 session.defaultSession.getAllExtensions()
 ```
 
@@ -476,9 +476,9 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 Cette API est implémentée à l'aide du module `remote`, qui a à la fois des performances et les implications en matière de sécurité. Par conséquent, son utilisation doit être explicite.
 
 ```js
-// Deprecated
+// Déprécié
 webview.getWebContents()
-// Replace with
+// Remplacé par
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
@@ -511,7 +511,7 @@ const { ipcRenderer } = require('electron')
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ```
 
-### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
+### Déprécié : `webFrame.setLayoutZoomLevelLimits()`
 
 Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. La fonction émettra un avertissement dans Electron 8.x, et cessent d'exister dans Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 

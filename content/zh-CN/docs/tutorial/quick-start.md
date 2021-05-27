@@ -6,7 +6,7 @@ By the end of this tutorial, your app will open a browser window that displays a
 
 ## 前提条件
 
-To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
+在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 We recommend that you use the latest `LTS` version available.
 
 > 请使用为你平台预构建的 Node.js 安装器来进行安装， 否则，您可能会遇到与不同开发工具不兼容的问题。
 
@@ -25,7 +25,7 @@ npm -v
 
 ### Scaffold the project
 
-Electron apps follow the same general structure as other Node.js projects. Start by creating a folder and initializing an npm package.
+Electron 应用程序遵循与其他 Node.js 项目相同的结构。 首先创建一个文件夹并初始化 npm 包。
 
 ```sh npm2yarn
 mkdir my-electron-app && cd my-electron-app
@@ -37,7 +37,7 @@ The interactive `init` command will prompt you to set some fields in your config
 * `entry point` should be `main.js`.
 * `author` and `description` can be any value, but are necessary for [app packaging](#package-and-distribute-your-application).
 
-Your `package.json` file should look something like this:
+你的 `package.json` 文件应该像这样：
 
 ```json
 {
@@ -50,7 +50,7 @@ Your `package.json` file should look something like this:
 }
 ```
 
-Then, install the `electron` package into your app's `devDependencies`.
+然后，将 `electron` 包安装到应用的开发依赖中。
 
 ```sh npm2yarn
 $ npm install --save-dev electron

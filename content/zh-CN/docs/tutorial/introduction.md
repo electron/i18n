@@ -2,9 +2,9 @@
 
 Welcome to the Electron documentation! If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
 
-## What is Electron?
+## Electron是什么？
 
-Electron is a framework for building desktop applications using JavaScript, HTML, and CSS. By embedding \[Chromium\]\[chromium\] and \[Node.js\]\[node\] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
+Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 By embedding \[Chromium\]\[chromium\] and \[Node.js\]\[node\] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
 
 ## 前提条件
 
