@@ -47,11 +47,11 @@ Electron チームは、Electron 13.0.0 のリリース発表にワクワクし�
 
 * `BrowserWindow` に `roundedCorners` オプションを追加しました。 [#27572](https://github.com/electron/electron/pull/27572)
 * セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。[28866](https://github.com/electron/electron/pull/28866)
-* Added support for passing DOM elements over the context bridge. [#26776](https://github.com/electron/electron/pull/26776)
-* Added `process.uptime()` to sandboxed renderers. [#26684](https://github.com/electron/electron/pull/26684)
-* Added missing fields to the parameters emitted as part of the `context-menu`event.[#26788](https://github.com/electron/electron/pull/26788)
-* Added support for registering Manifest V3 extension service workers.
-* Added ‘registration-completed’ event to ServiceWorkers. [#27562](https://github.com/electron/electron/pull/27562)
+* コンテキストブリッジで DOM 要素を渡す機能を追加しました。 [#26776](https://github.com/electron/electron/pull/26776)
+* サンドボックス化したレンダラーに `process.uptime()` を追加しました。 [#26684](https://github.com/electron/electron/pull/26684)
+* `context-menu` イベントの一部として発生する引数に不足していたフィールドを追加しました。[#26788](https://github.com/electron/electron/pull/26788)
+* Manifest V3 拡張機能のサービスワーカーの登録に対応しました。
+* ServiceWorker に 'registration-completed' イベントを追加しました。 [#27562](https://github.com/electron/electron/pull/27562)
 
 ### 削除/非推奨となった変更
 
@@ -59,7 +59,7 @@ Electron チームは、Electron 13.0.0 のリリース発表にワクワクし�
 
 * `WebContents` の `new-window` イベントを非推奨にしました。 これは `webContents.setWindowOpenHandler()` に置き換えられます。
 * 非推奨だった `shell.moveItemToTrash()` を削除しました. [#26723](https://github.com/electron/electron/pull/26723)
-* Removed the following deprecated `BrowserWindow` extension APIs:
+* 非推奨となっていた以下の `BrowserWindow` 拡張機能 API を削除しました。
 
     * `BrowserWindow.addExtension(path)`
     * `BrowserWindow.addDevToolsExtension(path)`
@@ -68,7 +68,7 @@ Electron チームは、Electron 13.0.0 のリリース発表にワクワクし�
     * `BrowserWindow.getExtensions()`
     * `BrowserWindow.getDevToolsExtensions()`
 
-    Use the `session` APIs instead:
+    代わりに以下の `session` API を使用してください。
 
     * `ses.loadExtension(path)`
     * `ses.removeExtension(extension_id)`
