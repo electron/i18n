@@ -20,11 +20,11 @@ Loaded extensions will not be automatically remembered across exits; if you do n
 
 注意，仅能在持久 session 中加载扩展。 尝试将扩展加载到内存 session 中会出现错误。
 
-See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
+有关加载、卸载和查询活动扩展的更多信息，请查阅 [`session`](session.md) 文档。
 
-## Supported Extensions APIs
+## 支持的扩展 API
 
-We support the following extensions APIs, with some caveats. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
+我们支持以下扩展 API，并需要注意一些警告。 Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
 
 ### `chrome.devtools.inspectedWindow`
 
