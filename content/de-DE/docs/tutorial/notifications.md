@@ -45,18 +45,17 @@ Beginnend mit einer funktionierenden Anwendung aus dem [Quick Start Guide](quick
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
+const NOTIFICATION_TITLE = 'Basic Notification'
+const NOTIFICATION_BODY = 'Notification from the Main process'
+
 function showNotification () {
-  const notification = {
-    title: 'Basic Notification',
-    body: 'Notification from the Main process'
-  }
-  new Notification(notification).show()
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-Nach dem Start der Electron-Anwendung sollten Sie die Benachrichtigung sehen:
+After launching the Electron application, you should see the system notification:
 
 ![Benachrichtigung im Hauptprozess](../images/notification-main.png)
 
@@ -67,7 +66,7 @@ Während Code und Benutzererfahrung innerhalb der Betriebssysteme ähnlich sind,
 ### Windows
 
 * On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. Dies kann während der Entwicklung überkill sein. Das Hinzufügen von `node_modules\electron\dist\electron.exe` in Ihr Startmenü führt auch den Trick aus. Navigieren Sie zur Datei im Explorer, mit der rechten Maustaste und dem 'Pin to Start Menu'. Sie müssen dann die Zeile `app.setAppUserModelId(process.execPath)` zu Ihrem Hauptprozess hinzufügen, um Benachrichtigungen zu sehen.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
+* Unter Windows 8.1 und Windows 8 muss eine Verknüpfung zu Ihrer App mit einer [Anwendungsbenutzer Model ID][app-user-model-id] auf dem Startbildschirm installiert sein. Note, however, that it does not need to be pinned to the Start screen.
 * Unter Windows 7 funktionieren Benachrichtigungen über eine benutzerdefinierte Implementierung, die visuell der nativen auf neueren Systemen ähnelt.
 
 Electron versucht die Arbeit um die Application User Model ID zu automatisieren. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Darüber hinaus wird Electron erkennen, dass Squirrel verwendet wurde und wird automatisch `app.setAppUserModelId()` mit dem korrekten Wert aufrufen. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
@@ -113,6 +112,7 @@ Notifications are sent using `libnotify` which can show notifications on any des
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 
 [notification-spec]: https://developer.gnome.org/notification-spec/
+[app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [set-app-user-model-id]: ../api/app.md#appsetappusermodelidid-windows
 [squirrel-events]: https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events
