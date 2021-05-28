@@ -1,6 +1,6 @@
 # 快速入门
 
-This guide will step you through the process of creating a barebones Hello World app in Electron, similar to [`electron/electron-quick-start`][quick-start].
+本指南将会通过使用Electron创建一个极简的 Hello World 应用一步步的带你了解，该应用与[`electron/electron-quick-start`][quick-start]类似。
 
 By the end of this tutorial, your app will open a browser window that displays a web page with information about which Chromium, Node.js, and Electron versions are running.
 
