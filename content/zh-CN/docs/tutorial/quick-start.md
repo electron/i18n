@@ -6,11 +6,11 @@
 
 ## 前提条件
 
-在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 We recommend that you use the latest `LTS` version available.
+在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 我们建议您使用最新的LTS版本。
 
 > 请使用为你平台预构建的 Node.js 安装器来进行安装， 否则，您可能会遇到与不同开发工具不兼容的问题。
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+要检查 Node.js 是否正确安装，请在您的终端输入以下命令：
 
 ```sh
 node -v
@@ -21,9 +21,9 @@ npm -v
 
 **Note:** Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
 
-## Create your application
+## 创建你的应用程序
 
-### Scaffold the project
+### 使用脚手架创建
 
 Electron 应用程序遵循与其他 Node.js 项目相同的结构。 首先创建一个文件夹并初始化 npm 包。
 
