@@ -1,12 +1,12 @@
-# Chrome Extension Support
+# Chrome 扩展支持
 
-Electron supports a subset of the [Chrome Extensions API][chrome-extensions-api-index], primarily to support DevTools extensions and Chromium-internal extensions, but it also happens to support some other extension capabilities.
+Electron 支持 [Chrome 扩展API][chrome-extensions-api-index]的子集， 主要是支持 DevTools 扩展和 Chromium-internal 扩展，但它同时也支持一些其他扩展能。
 
 > **Note:** Electron does not support arbitrary Chrome extensions from the store, and it is a **non-goal** of the Electron project to be perfectly compatible with Chrome's implementation of Extensions.
 
-## Loading extensions
+## 加载扩展
 
-Electron only supports loading unpacked extensions (i.e., `.crx` files do not work). Extensions are installed per-`session`. To load an extension, call [`ses.loadExtension`](session.md#sesloadextensionpath-options):
+Electron 只支持加载未打包的扩展 (即不能使用 `.crx` 文件)。 插件会被安装到每一个`会话`。 要加载扩展，请调用 [`ses.loadextension`](session.md#sesloadextensionpath-options)：
 
 ```js
 const { session } = require('electron')
@@ -18,13 +18,13 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 Loaded extensions will not be automatically remembered across exits; if you do not call `loadExtension` when the app runs, the extension will not be loaded.
 
-Note that loading extensions is only supported in persistent sessions. Attempting to load an extension into an in-memory session will throw an error.
+注意，仅能在持久 session 中加载扩展。 尝试将扩展加载到内存 session 中会出现错误。
 
-See the [`session`](session.md) documentation for more information about loading, unloading, and querying active extensions.
+有关加载、卸载和查询活动扩展的更多信息，请查阅 [`session`](session.md) 文档。
 
-## Supported Extensions APIs
+## 支持的扩展 API
 
-We support the following extensions APIs, with some caveats. Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
+我们支持以下扩展 API，并需要注意一些警告。 Other APIs may additionally be supported, but support for any APIs not listed here is provisional and may be removed.
 
 ### `chrome.devtools.inspectedWindow`
 

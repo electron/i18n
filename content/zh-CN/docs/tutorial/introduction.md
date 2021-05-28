@@ -1,23 +1,23 @@
 # 简介
 
-Welcome to the Electron documentation! If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
+欢迎来到electron文档中心。 如果你第一次开发electron应用，可以阅读入门部分了解开发基础， 此外，你也可以直接浏览API文档
 
 ## Electron是什么？
 
-Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 By embedding \[Chromium\]\[chromium\] and \[Node.js\]\[node\] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
+Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 它将[Chromium]和[Node.js]嵌入到二进制文件中，Electron允许您维护一个JavaScript代码库，并创建在Windows、macOS和Linux上工作的跨平台应用程序—它无需任何本地应用开发经验
 
 ## 前提条件
 
-These docs operate under the assumption that the reader is familiar with both Node.js and general web development. If you need to get more comfortable with either of these areas, we recommend the following resources:
+熟悉该文档之前，需要你有Node.js和web开发经验。 如果您需要了解这两个方面的开发知识，我们推荐您使用以下学习资源：
 
-* \[Getting started with the Web (MDN)\]\[mdn-guide\]
-* \[Introduction to Node.js\]\[node-guide\]
+* mozilla MDN web开发入门
+* Node.js官网指南
 
-Moreover, you'll have a better time understanding how Electron works if you get acquainted with Chromium's process model. You can get a brief overview of Chrome architecture with the \[Chrome comic\]\[comic\], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
+此外，如果您熟悉Chromium进程模型，您将更好了解 Electron 的工作原理。 你可以通过[Chrome comic]简要地了解Chrome架构，它是在2008年Chrome发布时发布的。 尽管Chrome发布十多年了，【Chrome comic】漫画中介绍的核心原理仍然有助于理解Electron。
 
-## Running examples with Electron Fiddle
+## Electron Fiddle运行实例
 
-\[Electron Fiddle\]\[fiddle\] is a sandbox app written with Electron and supported by Electron's maintainers. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+[Electron Fiddle]是一个用Electron编写的沙盒应用程序，由Electron的维护人员支持。 我们强烈建议将其作为一个学习工具来安装，以便在开发过程中对Electron的api进行实验或对特性进行原型化。
 
 Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
 

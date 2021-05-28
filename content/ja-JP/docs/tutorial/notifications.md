@@ -45,18 +45,17 @@ Electron アプリケーションを起動すると、通知が表示されま�
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
+const NOTIFICATION_TITLE = 'Basic Notification'
+const NOTIFICATION_BODY = 'Notification from the Main process'
+
 function showNotification () {
-  const notification = {
-    title: 'Basic Notification',
-    body: 'Notification from the Main process'
-  }
-  new Notification(notification).show()
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-Electron アプリケーションを起動すると、通知が表示されます。
+Electron アプリケーションを起動すると、以下のようなシステム通知が表示されるでしょう。
 
 ![メインプロセスでの通知](../images/notification-main.png)
 

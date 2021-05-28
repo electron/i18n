@@ -44,18 +44,17 @@ Começando com um aplicativo de trabalho do [Guia de Início Rápido](quick-star
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
+const NOTIFICATION_TITLE = 'Basic Notification'
+const NOTIFICATION_BODY = 'Notification from the Main process'
+
 function showNotification () {
-  const notification = {
-    title: 'Basic Notification',
-    body: 'Notification from the Main process'
-  }
-  new Notification(notification).show()
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-Após iniciar o aplicativo Electron, você verá a notificação:
+After launching the Electron application, you should see the system notification:
 
 ![Notificação no processo principal](../images/notification-main.png)
 
