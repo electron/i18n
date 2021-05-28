@@ -1,5 +1,5 @@
 ---
-title: 苹果硅支持
+title: Apple 芯片支持
 author: Marshall OfSound
 date: '2020-10-15'
 ---
@@ -46,4 +46,4 @@ Rosetta 2 是苹果最近一次对他们的 [Rosetta](https://en.wikipedia.org/w
 
 * 您的应用的性能将大大降低。 Electron / V8 为 JavaScript 使用 [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) 编译，因为Rosetta 是如何工作的。 您将有效地运行两次JIT (一次在 V8 中，一次在 Rosetta)。
 * 您失去了苹果Silicon新技术的好处，例如内存页面大小的增加。
-* Did we mention that the performance will be **significantly** degraded?
+* 我们是否提到性能将**显著** 降级？
