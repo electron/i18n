@@ -349,7 +349,7 @@ window.addEventListener('DOMContentLoaded', () => {
   </body>
 </html>
 ```
-```fiddle docs/fiddles/quickstart
+```fiddle docs/fiddles/quick-start
 ```
 
 これまでのステップを以下にまとめます。
