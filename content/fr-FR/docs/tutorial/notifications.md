@@ -55,7 +55,7 @@ function showNotification () {
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the system notification:
+Après avoir lancé l'application Electron, vous devriez voir la notification système :
 
 ![Notification dans le processus principal](../images/notification-main.png)
 
