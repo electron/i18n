@@ -9,10 +9,10 @@
 * `colorSpace` String -  представляет пространство цвета (трехмерный объект, который содержит все реализуемые цветовые комбинации) с целью преобразования цвета
 * `colorDepth` Number - количество битов на пиксель.
 * `depthPerComponent` Number - количество битов на цветовой компонент.
-* `displayFrequency` Number - The display refresh rate.
-* `bounds` [Rectangle](rectangle.md) - the bounds of the display in DIP points.
+* `displayFrequency` Number - частота обновления дисплея.
+* `bounds` [Rectangle](rectangle.md) - границы display в DIP points.
 * `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md) - the work area of the display in DIP points.
+* `workArea` [Rectangle](rectangle.md) - рабочая область display в DIP points.
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - `true` для внутреннего дисплея и `false` для внешнего дисплея
 
