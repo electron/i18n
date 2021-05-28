@@ -45,18 +45,17 @@ Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-s
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
+const NOTIFICATION_TITLE = 'Basic Notification'
+const NOTIFICATION_BODY = 'Notification from the Main process'
+
 function showNotification () {
-  const notification = {
-    title: 'Basic Notification',
-    body: 'Notification from the Main process'
-  }
-  new Notification(notification).show()
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-Después de lanzar la aplicación Electron deberías ver la notificación:
+After launching the Electron application, you should see the system notification:
 
 ![Notificación en el proceso principal](../images/notification-main.png)
 
@@ -70,7 +69,7 @@ Si bien el código y la experiencia del usuario en los sistemas operativos son s
 * En Windows 8.1 y Windows 8, un acceso directo para tu aplicación con un [Application User Model ID][app-user-model-id] debe ser instalado en el Start screen. Sin embargo, tenga en cuenta que no es necesario fijarlo a la pantalla de Inicio.
 * En Windows 7, las notificaciones funcionan a través de una implementación personalizada que se asemeja visualmente a la nativa en los sistemas más nuevos.
 
-Electron intenta automatizar el trabajo en torno de la Application User Model ID. Cuando Electron es usado junto con el framework de instalación y actualización Squirrel [shortcuts will automatically be set correctly][squirrel-events]. Además, Electron detectará que Squirrel fue usada y automáticamente llamará a `app.setAppUserModelId()` con el valor correcto. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
+Electron intenta automatizar el trabajo en torno de la Application User Model ID. Cuando Electron es usado junto con el framework de instalación y actualización Squirrel [shortcuts will automatically be set correctly][squirrel-events]. Además, Electron detectará que Squirrel fue usada y automáticamente llamará a `app.setAppUserModelId()` con el valor correcto. Durante el desarrollo, puede tener que llamar por ti mismo a [`app.setAppUserModelId()`][set-app-user-model-id].
 
 Además, en Windows 8, la longitud máxima para el cuerpo de la notificación es de 250 caracteres, y el equipo de Windows recomienda que las notificaciones se mantengan en 200 caracteres. Dicho eso, esa limitación se eliminó en Windows 10, y el equipo de Windows les pidió a los desarrolladores que fuesen razonables. Intentar enviar cantidades gigantescas de texto a la API (miles de caracteres) puede provocar inestabilidad.
 
