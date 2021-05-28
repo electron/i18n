@@ -15,9 +15,9 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
 
 此外，如果您熟悉Chromium进程模型，您将更好了解 Electron 的工作原理。 你可以通过[Chrome comic]简要地了解Chrome架构，它是在2008年Chrome发布时发布的。 尽管Chrome发布十多年了，【Chrome comic】漫画中介绍的核心原理仍然有助于理解Electron。
 
-## Running examples with Electron Fiddle
+## Electron Fiddle运行实例
 
-\[Electron Fiddle\]\[fiddle\] is a sandbox app written with Electron and supported by Electron's maintainers. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+[Electron Fiddle]是一个用Electron编写的沙盒应用程序，由Electron的维护人员支持。 我们强烈建议将其作为一个学习工具来安装，以便在开发过程中对Electron的api进行实验或对特性进行原型化。
 
 Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
 
