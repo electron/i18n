@@ -10,11 +10,11 @@ Electron继承其来自Chromium的多进程架构，这使得框架在结构上�
 
 ## 多进程模型
 
-为了解决这个问题，Chrome团队决定让每个标签在自己的进程中渲染， 从而限制网页上的有误或恶意代码可能会导致对整个应用造成的伤害。 然后单个浏览器进程控制这些进程，以及整个应用程序的生命周期。 This diagram below from the [Chrome Comic][] visualizes this model:
+为了解决这个问题，Chrome团队决定让每个标签在自己的进程中渲染， 从而限制网页上的有误或恶意代码可能会导致对整个应用造成的伤害。 然后单个浏览器进程控制这些进程，以及整个应用程序的生命周期。 下面是来自 [Chrome 漫画][]的图表可视化此模型：
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
-Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Electron 应用程序的结构非常相似。 作为应用开发者，您控制着两种类型的进程：主进程和渲染器。 这些类似于上面概述的Chrome自己的浏览器和其渲染器进程。
 
 ## 主要进程
 
@@ -135,7 +135,7 @@ This feature is incredibly useful for two main purposes:
 
 [快速启动应用]: ./quick-start.md
 
-[Chrome Comic]: https://www.google.com/googlebooks/chrome/
+[Chrome 漫画]: https://www.google.com/googlebooks/chrome/
 
 [browser-window]: ../api/browser-window.md
 [web-embed]: ./web-embeds.md
