@@ -1,26 +1,26 @@
-# Process Model
+# 进程模型
 
-Electron inherits its multi-process architecture from Chromium, which makes the framework architecturally very similar to a modern web browser. In this guide, we'll expound on the conceptual knowledge of Electron that we applied in the minimal [quick start app][].
+Electron继承其来自Chromium的多进程架构，这使得框架在结构上与现代网络浏览器非常相似。 在本指南中，我们会阐述我们在最小的 [快速启动应用][] 中运用的 Electron 的概念知识。
 
-## Why not a single process?
+## 为什么不是一个单一的进程？
 
-Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+网络浏览器是极其复杂的应用程序。 除了显示网页内容的主要能力之外，他们还有许多次要的责任，例如管理多个窗口 (或标签) 和加载第三方扩展。
 
-In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
+在早期，浏览器通常使用单个进程来处理所有这些功能。 虽然这种模式意味着您打开的每个选项卡的开销更少，但这也意味着一个网站崩溃或无响应会影响整个浏览器。
 
-## The multi-process model
+## 多进程模型
 
-To solve this problem, the Chrome team decided that each tab would render in its own process, limiting the harm that buggy or malicious code on a web page could cause to the app as a whole. A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
+为了解决这个问题，Chrome团队决定让每个标签在自己的进程中渲染， 从而限制网页上的有误或恶意代码可能会导致对整个应用造成的伤害。 然后单个浏览器进程控制这些进程，以及整个应用程序的生命周期。 This diagram below from the [Chrome Comic][] visualizes this model:
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
 Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
 
-## The main process
+## 主要进程
 
 Each Electron app has a single main process, which acts as the application's entry point. The main process runs in a Node.js environment, meaning it has the ability to `require` modules and use all of Node.js APIs.
 
-### Window management
+### 窗口管理
 
 The main process' primary purpose is to create and manage application windows with the [`BrowserWindow`][browser-window] module.
 
@@ -42,7 +42,7 @@ Because the `BrowserWindow` module is an [`EventEmitter`][event-emitter], you ca
 
 When a `BrowserWindow` instance is destroyed, its corresponding renderer process gets terminated as well.
 
-### Application lifecycle
+### 应用程序生命周期
 
 The main process also controls your application's lifecycle through Electron's [`app`][app] module. This module provides a large set of events and methods that you can use to add custom application behaviour (for instance, programatically quitting your application, modifying the application dock, or showing an About panel).
 
@@ -55,13 +55,13 @@ app.on('window-all-closed', function () {
 })
 ```
 
-### Native APIs
+### 原生 API
 
 To extend Electron's features beyond being a Chromium wrapper for web contents, the main process also adds custom APIs to interact with the user's operating system. Electron exposes various modules that control native desktop functionality, such as menus, dialogs, and tray icons.
 
 For a full list of Electron's main process modules, check out our API documentation.
 
-## The renderer process
+## 渲染器进程
 
 Each Electron app spawns a separate renderer process for each open `BrowserWindow` (and each web embed). As its name implies, a renderer is responsible for *rendering* web content. For all intents and purposes, code ran in renderer processes should behave according to web standards (insofar as Chromium does, at least).
 
@@ -133,7 +133,7 @@ This feature is incredibly useful for two main purposes:
 * By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
 * If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
 
-[quick start app]: ./quick-start.md
+[快速启动应用]: ./quick-start.md
 
 [Chrome Comic]: https://www.google.com/googlebooks/chrome/
 
