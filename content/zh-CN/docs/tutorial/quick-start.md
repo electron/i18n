@@ -2,7 +2,7 @@
 
 本指南将会通过使用Electron创建一个极简的 Hello World 应用一步步的带你了解，该应用与[`electron/electron-quick-start`][quick-start]类似。
 
-By the end of this tutorial, your app will open a browser window that displays a web page with information about which Chromium, Node.js, and Electron versions are running.
+通过这个教程，你的app将会打开一个浏览器窗口，来展示包含当前正在运行的 Chromium, Node.js, and Electronweb等版本信息的web界面
 
 ## 前提条件
 
@@ -227,7 +227,9 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    preload: path.join(__dirname, 'preload.js')
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   })
 
   win.loadFile('index.html')
