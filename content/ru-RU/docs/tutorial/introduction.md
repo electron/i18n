@@ -4,16 +4,16 @@
 
 ## Что такое Electron?
 
-Electron это фреймворк для разработки десктопных приложений с использованием HTML, CSS и JavaScript. Благодаря включению Chromium и Node.js Electron позволяет вам поддерживать одну кодовую базу JavaScript и создавать кроссплатформенные приложения, работающие на Windows, Linux и macOS. Никакого опыта в разработке нативных приложений не требуется.
+Electron это фреймворк для разработки десктопных приложений с использованием HTML, CSS и JavaScript. Благодаря включению Chromium и Node.js, Electron позволяет вам поддерживать одну кодовую базу JavaScript и создавать кроссплатформенные приложения, работающие на Windows, Linux и macOS. Никакого опыта в разработке нативных приложений не требуется.
 
 ## Требования
 
-These docs operate under the assumption that the reader is familiar with both Node.js and general web development. If you need to get more comfortable with either of these areas, we recommend the following resources:
+Данная документация опирается на предположение о том, что читатель знаком как с Node.js, так и с веб-разработкой в общем виде. If you need to get more comfortable with either of these areas, we recommend the following resources:
 
 * \[Getting started with the Web (MDN)\]\[mdn-guide\]
 * \[Introduction to Node.js\]\[node-guide\]
 
-Moreover, you'll have a better time understanding how Electron works if you get acquainted with Chromium's process model. You can get a brief overview of Chrome architecture with the \[Chrome comic\]\[comic\], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
+Более того, вы будете лучше понимать, как работает Electron, если вы ознакомитесь с моделью процессов Chromium. You can get a brief overview of Chrome architecture with the \[Chrome comic\]\[comic\], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
 
 ## Running examples with Electron Fiddle
 
