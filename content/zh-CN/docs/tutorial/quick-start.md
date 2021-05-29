@@ -219,22 +219,22 @@ The above code accesses the Node.js `process.versions` object and runs a basic `
 To attach this script to your renderer process, pass in the path to your preload script to the `webPreferences.preload` option in your existing `BrowserWindow` constructor.
 
 ```js
-// include the Node.js 'path' module at the top of your file
-const path = require('path')
+包括节点.js"路径"模块在您的文件顶部
+const路径=要求（路径）
 
-// modify your existing createWindow() function
-function createWindow () {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+//修改您现有的创建窗口功能
+功能创建窗口（）{
+  最缺点赢=新的浏览器窗口（{
+    宽度：800，
+    高度：600，
+    webPreence：{
+      预加载：路径。加入（__dirname，'预加载.js'）
     }
-  })
+  }）
 
-  win.loadFile('index.html')
+  赢。loadFile（"指数.html"）
 }
-// ...
+//...
 ```
 
 There are two Node.js concepts that are used here:
