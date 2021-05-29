@@ -371,7 +371,7 @@ Si cela vous affecte, vous pouvez définir temporairement `app.allowRendererProc
 
 Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
-### Deprecated: `BrowserWindow` extension APIs
+### Déprécié : API d'extension `BrowserWindow`
 
 Les API d'extension suivantes sont obsolètes :
 
@@ -570,18 +570,18 @@ nativeTheme.shouldUseHighContrastColors
 
 Il s’agit de l’URL spécifiée comme `disturl` dans un fichier `.npmrc` ou le flag `--dist-url` en ligne de commande lors de la compilation des modules natifs de Node.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Deprecated: https://atom.io/download/electron
+Déprécié : https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+Remplacer par : https://electronjs.org/headers
 
 ### API Changed: `session.clearAuthCache()` no longer accepts options
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Deprecated
+// Déprécié
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// Remplacer par
 session.clearAuthCache()
 ```
 
@@ -716,9 +716,9 @@ win.removeMenu()
 ### API Changed: `electron.screen` in the renderer process should be accessed via `remote`
 
 ```js
-// Deprecated
+// Déprécié
 require('electron').screen
-// Replace with
+// Remplacé par
 require('electron').remote.screen
 ```
 
@@ -746,7 +746,7 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-### Deprecated: `powerMonitor.querySystemIdleState` replaced with `powerMonitor.getSystemIdleState`
+### Déprécié : `powerMonitor.querySystemIdleState` remplacé par `powerMonitor.getSystemIdleState`
 
 ```js
 // Deprecated
