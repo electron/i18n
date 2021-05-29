@@ -28,7 +28,7 @@ When renderer processes in Electron are sandboxed, they behave in the same way a
 <!-- TODO(erickzhao): when we have a solid guide for IPC, link it here -->
 Therefore, when the sandbox is enabled, renderer processes can only perform privileged tasks (such as interacting with the filesystem, making changes to the system, or spawning subprocesses) by delegating these tasks to the main process via inter-process communication (IPC).
 
-### Preload scripts
+### 预加载脚本
 
 In order to allow renderer processes to communicate with the main process, preload scripts attached to sandboxed renderers will still have a polyfilled subset of Node.js APIs available. A `require` function similar to Node's `require` module is exposed, but can only import a subset of Electron and Node's built-in modules:
 
