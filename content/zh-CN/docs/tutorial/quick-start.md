@@ -19,7 +19,7 @@ npm -v
 
 这两个命令应输出了 Node.js 和 npm 的版本信息。
 
-**Note:** Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
+**注意** 因为 Electron 将 Node.js 嵌入到其二进制文件中，你应用运行时的 Node.js 版本与你系统中运行的 Node.js 版本无关。
 
 ## 创建你的应用程序
 
@@ -34,8 +34,8 @@ npm init
 
 The interactive `init` command will prompt you to set some fields in your config. There are a few rules to follow for the purposes of this tutorial:
 
-* `entry point` should be `main.js`.
-* `author` and `description` can be any value, but are necessary for [app packaging](#package-and-distribute-your-application).
+* `entry point` 应为 `main.js`.
+* `author` 与 `description` 可为任意值，但对于[应用打包](#package-and-distribute-your-application)是必填项。
 
 你的 `package.json` 文件应该像这样：
 
