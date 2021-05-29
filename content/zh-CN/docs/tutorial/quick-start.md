@@ -6,11 +6,11 @@
 
 ## 前提条件
 
-在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 We recommend that you use the latest `LTS` version available.
+在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 我们建议您使用最新的LTS版本。
 
 > 请使用为你平台预构建的 Node.js 安装器来进行安装， 否则，您可能会遇到与不同开发工具不兼容的问题。
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+要检查 Node.js 是否正确安装，请在您的终端输入以下命令：
 
 ```sh
 node -v
@@ -19,11 +19,11 @@ npm -v
 
 这两个命令应输出了 Node.js 和 npm 的版本信息。
 
-**Note:** Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
+**注意** 因为 Electron 将 Node.js 嵌入到其二进制文件中，你应用运行时的 Node.js 版本与你系统中运行的 Node.js 版本无关。
 
-## Create your application
+## 创建你的应用程序
 
-### Scaffold the project
+### 使用脚手架创建
 
 Electron 应用程序遵循与其他 Node.js 项目相同的结构。 首先创建一个文件夹并初始化 npm 包。
 
@@ -34,8 +34,8 @@ npm init
 
 The interactive `init` command will prompt you to set some fields in your config. There are a few rules to follow for the purposes of this tutorial:
 
-* `entry point` should be `main.js`.
-* `author` and `description` can be any value, but are necessary for [app packaging](#package-and-distribute-your-application).
+* `entry point` 应为 `main.js`.
+* `author` 与 `description` 可为任意值，但对于[应用打包](#package-and-distribute-your-application)是必填项。
 
 你的 `package.json` 文件应该像这样：
 

@@ -18,11 +18,11 @@ Electron 应用程序的结构非常相似。 作为应用开发者，您控制�
 
 ## 主要进程
 
-Each Electron app has a single main process, which acts as the application's entry point. The main process runs in a Node.js environment, meaning it has the ability to `require` modules and use all of Node.js APIs.
+每个Electron应用都有一个单一的主流程，作为应用程序的入口点。 主过程在Node.js环境中运行，这意味着它具有 `require` （请求）模块和使用所有 Node.js API 的能力。
 
 ### 窗口管理
 
-The main process' primary purpose is to create and manage application windows with the [`BrowserWindow`][browser-window] module.
+主进程的主要目的是使用 [`BrowserWindow`][browser-window] 模块创建和管理应用程序窗口。
 
 Each instance of the `BrowserWindow` class creates an application window that loads a web page in a separate renderer process. You can interact with this web content from the main process using the window's [`webContents`][web-contents] object.
 
@@ -79,13 +79,13 @@ Moreover, this also means that the renderer has no direct access to `require` or
 
 At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
 
-## Preload scripts
+## 预加载脚本
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> Preload scripts contain code that executes in a renderer process before its web content begins loading. These scripts runs within the renderer context, but are granted more privileges by having access to Node.js APIs.
+change the statements here. --> 预加载脚本包含在网络内容开始加载之前在渲染器进程中执行的代码。 这些脚本在渲染器上下文中运行，但拥有更多权限，因为它们能够访问Node.js API。
 
-A preload script can be attached to the main process in the `BrowserWindow` constructor's `webPreferences` option.
+预加载脚本可以在 `BrowserWindow` 构造方法中的 ` webPreferences ` 选项里被附加到主进程。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -96,7 +96,7 @@ const win = new BrowserWindow({
 //...
 ```
 
-Because the preload script shares a global [`Window`][window-mdn] interface with the renderers and can access Node.js APIs, it serves to enhance your renderer by exposing arbitrary APIs in the `window` global that your web contents can then consume.
+由于预加载脚本与渲染器共享同一个全局 [`Window`][window-mdn] 接口，并且可以访问 Node.js API，因此它通过在 `window` 全局中暴露任意您的网络内容可以随后使用的 API 来增强渲染器。
 
 Although preload scripts share a `window` global with the renderer they're attached to, you cannot directly attach any variables from the preload script to `window` because of the [`contextIsolation`][context-isolation] default.
 

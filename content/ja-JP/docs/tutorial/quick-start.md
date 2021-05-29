@@ -219,16 +219,16 @@ window.addEventListener('DOMContentLoaded', () => {
 このスクリプトをレンダラープロセスにアタッチするには、既存の `BrowserWindow` コンストラクタの `webPreferences.preload` 引数にプリロードスクリプトへのパスを渡します。
 
 ```js
-// include the Node.js 'path' module at the top of your file
+// ファイルの先頭で Node.js の 'path' モジュールをインクルードします
 const path = require('path')
 
-// modify your existing createWindow() function
+// 既存の createWindow() 関数を修正します
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+        preload: path.join(__dirname, 'preload.js')
     }
   })
 

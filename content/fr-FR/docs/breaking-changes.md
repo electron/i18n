@@ -371,7 +371,7 @@ Si cela vous affecte, vous pouvez définir temporairement `app.allowRendererProc
 
 Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
-### Deprecated: `BrowserWindow` extension APIs
+### Déprécié : API d'extension `BrowserWindow`
 
 Les API d'extension suivantes sont obsolètes :
 
@@ -471,7 +471,7 @@ Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 
 Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
 
-### Deprecated: `<webview>.getWebContents()`
+### Déprécié : `<webview>.getWebContents()`
 
 Cette API est implémentée à l'aide du module `remote`, qui a à la fois des performances et les implications en matière de sécurité. Par conséquent, son utilisation doit être explicite.
 
@@ -570,18 +570,18 @@ nativeTheme.shouldUseHighContrastColors
 
 Il s’agit de l’URL spécifiée comme `disturl` dans un fichier `.npmrc` ou le flag `--dist-url` en ligne de commande lors de la compilation des modules natifs de Node.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Deprecated: https://atom.io/download/electron
+Déprécié : https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+Remplacer par : https://electronjs.org/headers
 
 ### API Changed: `session.clearAuthCache()` no longer accepts options
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Deprecated
+// Déprécié
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// Remplacer par
 session.clearAuthCache()
 ```
 
@@ -716,9 +716,9 @@ win.removeMenu()
 ### API Changed: `electron.screen` in the renderer process should be accessed via `remote`
 
 ```js
-// Deprecated
+// Déprécié
 require('electron').screen
-// Replace with
+// Remplacé par
 require('electron').remote.screen
 ```
 
@@ -746,7 +746,7 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-### Deprecated: `powerMonitor.querySystemIdleState` replaced with `powerMonitor.getSystemIdleState`
+### Déprécié : `powerMonitor.querySystemIdleState` remplacé par `powerMonitor.getSystemIdleState`
 
 ```js
 // Deprecated
@@ -755,7 +755,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### Deprecated: `powerMonitor.querySystemIdleTime` replaced with `powerMonitor.getSystemIdleTime`
+### Déprécié : `powerMonitor.querySystemIdleTime` remplacé par `powerMonitor.getSystemIdleTime`
 
 ```js
 // Deprecated
@@ -764,10 +764,10 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### Deprecated: `app.enableMixedSandbox()` is no longer needed
+### Déprécié : `app.enableMixedSandbox()` n'est plus nécessaire
 
 ```js
-// Deprecated
+// Déprécié
 app.enableMixedSandbox()
 ```
 
@@ -778,9 +778,9 @@ Le mode bac à sable mixte est désormais activé par défaut.
 Sous macOS Catalina, notre ancienne implémentation de Tray est interrompue. Le substitut natif d'Apple ne prend pas en charge la modification du comportement de mise en évidence.
 
 ```js
-// Deprecated
+// Déprécié
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// L'API sera supprimée dans la v7.0 sans remplacement.
 ```
 
 ## Changements majeurs prévus de l'API (5.0)
@@ -813,7 +813,7 @@ Les fenêtres enfants ouvertes avec l'option `nativeWindowOpen` auront toujours 
 
 Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Les schémas personnalisés doivent être enregistrés avant que l'application soit prête.
 
-### Deprecated: `webFrame.setIsolatedWorld*` replaced with `webFrame.setIsolatedWorldInfo`
+### Déprécié : `webFrame.setIsolatedWorld*` remplacé par `webFrame.setIsolatedWorldInfo`
 
 ```js
 // Deprecated
