@@ -31,7 +31,7 @@ La team Electron est excitée d'annoncer la sortie de Electron 13.0.0 ! Vous pou
 
 * Ajout de la propriété `process.contextIsolated` qui indique si le contexte de rendu actuel a `contextIsolation` activé. [#28252](https://github.com/electron/electron/pull/28252)
 * Added new `session.storagePath` API to get the path on disk for session-specific data. [#28866](https://github.com/electron/electron/pull/28866)
-* Deprecated the `new-window` event of `WebContents`. Il est remplacé par `webContents.setWindowOpenHandler()`
+* Déprécié l'événement `new-window` de `WebContents`. Il est remplacé par `webContents.setWindowOpenHandler()`
 * Ajout de `process.contextId` utilisé par `@electron/remote`. [#28251](https://github.com/electron/electron/pull/28251)
 
 Voir les notes de version 13.0.0[](https://github.com/electron/electron/releases/tag/v13.0.0) pour une liste complète des nouvelles fonctionnalités et des modifications.
@@ -55,9 +55,9 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 
 ### Removed/Deprecated Changes
 
-The following APIs have been removed or are now deprecated:
+Les API suivantes ont été supprimées ou sont désormais dépréciées :
 
-* Deprecated the `new-window` event of `WebContents`. Il est remplacé par `webContents.setWindowOpenHandler()`
+* Déprécié l'événement `new-window` de `WebContents`. Il est remplacé par `webContents.setWindowOpenHandler()`
 * Suppression de `shell.moveItemToTrash()` qui était déprécié. [#26723](https://github.com/electron/electron/pull/26723)
 * Suppression des API d'extension `BrowserWindow` dépréciées suivantes: :
 
