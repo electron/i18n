@@ -44,7 +44,7 @@ console.log(contents)
 
 ### 应用程序生命周期
 
-主进程还通过 Electron 的 [`app`][app] 模块来控制您的应用程序的生命周期。 This module provides a large set of events and methods that you can use to add custom application behaviour (for instance, programatically quitting your application, modifying the application dock, or showing an About panel).
+主进程还通过 Electron 的 [`app`][app] 模块来控制您的应用程序的生命周期。 该模块提供了一系列的事件和函数，您可以使用它来添加或修饰应用程序窗口的行为（例如退出进程，窗口贴边或最小化以及展示“关于”菜单）
 
 作为一个实际例子。 在 [快速入门指南][quick-start-lifecycle]中显示的应用程序使用 `app` API 来创建更原生的应用程序窗口体验。
 
