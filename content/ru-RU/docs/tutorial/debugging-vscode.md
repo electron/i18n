@@ -91,7 +91,7 @@ $ code electron-quick-start
   * `Testing`: Если вы используете стандартные настройки [Electron Build Tools](https://github.com/electron/build-tools) или полностью следуете [инструкции по сборке](https://www.electronjs.org/docs/development/build-instructions-gn#building).
   * `Release`: Если вы собирали release-версию, а не testing.
   * `your-directory-name`: Если вы изменили его во время сборки, оно будет таким, каким вы его указали.
-* Массив `array` должен содержать строки `your-electron-project-path`, которые являются абсолютными путями до каждой директории или `main.js` файла проекта, который вы хотели бы протестировать. В данном примере в нём должен быть путь до `electron-quick-start`.
+* Массив `args` должен содержать строки `your-electron-project-path`, которые являются абсолютными путями до каждой директории или `main.js` файла проекта, который вы хотели бы протестировать. В данном примере в нём должен быть путь до `electron-quick-start`.
 
 #### 3. Отладка
 

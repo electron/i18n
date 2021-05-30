@@ -1,6 +1,6 @@
 # BrowserView
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Eine `Browseransicht` kann verwendet werden, um zusätzliche Webinhalte in ein [`BrowserWindow`](browser-window.md) einzubetten. Es ist wie ein untergeordnetes Fenster, mit der Ausnahme, dass es relativ zu dem übergeordneten Fenster positioniert ist. Es ist als Alternative zum `Webview` Tag gedacht.
 
 ## Klasse: BrowserView
 

@@ -1,16 +1,16 @@
 # Início Rápido
 
-This guide will step you through the process of creating a barebones Hello World app in Electron, similar to [`electron/electron-quick-start`][quick-start].
+Este guia guiará você através do processo de criação de um aplicativo barebones Hello World no Electron, similar a [`electron/electron-quick-start`][quick-start].
 
-By the end of this tutorial, your app will open a browser window that displays a web page with information about which Chromium, Node.js, and Electron versions are running.
+Ao final deste tutorial, sua aplicação abrirá uma janela do navegador que exibe uma página com informações sobre qual Chromium, Node.js, e versões do Electron estão sendo executadas.
 
 ## Pré-requisitos
 
-To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
+Para usar o Electron, você precisa instalar o [Node.js][node-download]. Recomendamos que você use a versão mais recente disponível do `LTS`.
 
 > Por favor, instale o Node.js usando instaladores específicos para sua plataforma. Caso contrário, você pode encontrar problemas de incompatibilidade com ferramentas de desenvolvimento diferentes.
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+Para verificar se o Node.js foi instalado corretamente, digite os seguintes comandos em seu terminal de comando:
 
 ```sh
 node -v
@@ -19,25 +19,25 @@ npm -v
 
 Os comandos devem imprimir as versões do Node.js e npm, respectivamente.
 
-**Note:** Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
+** Observação: ** como o Electron incorpora Node.js em seu binário, a versão do Node.js em execução seu código não está relacionado à versão em execução em seu sistema.
 
-## Create your application
+## Crie seu aplicativo
 
 ### Scaffold the project
 
-Electron apps follow the same general structure as other Node.js projects. Start by creating a folder and initializing an npm package.
+Aplicativos Electron seguem a mesma estrutura geral que outros projetos Node.js. Comece criando uma pasta e inicializando um pacote npm.
 
 ```sh npm2yarn
 mkdir my-electron-app && cd my-electron-app
 npm init
 ```
 
-The interactive `init` command will prompt you to set some fields in your config. There are a few rules to follow for the purposes of this tutorial:
+O comando interativo `init` solicitará que você defina alguns campos em sua configuração. Existem algumas regras a seguir para os propósitos deste tutorial:
 
-* `entry point` should be `main.js`.
-* `author` and `description` can be any value, but are necessary for [app packaging](#package-and-distribute-your-application).
+* `entry point` deve ser `main.js`.
+* `author` e `description` podem ser de qualquer valor, mas são necessários para o [pacote do aplicativos](#package-and-distribute-your-application).
 
-Your `package.json` file should look something like this:
+Seu arquivo `package.json` deve ser parecido com isto:
 
 ```json
 {
@@ -50,15 +50,15 @@ Your `package.json` file should look something like this:
 }
 ```
 
-Then, install the `electron` package into your app's `devDependencies`.
+Em seguida, instale o pacote `electron` nas `devDependencies` do seu aplicativo.
 
 ```sh npm2yarn
 $ npm install --save-dev electron
 ```
 
-> Note: If you're encountering any issues with installing Electron, please refer to the [Advanced Installation][advanced-installation] guide.
+> Nota: Se você estiver encontrando algum problema com a instalação do Electron, por favor consulte o guia de [Instalação avançada][advanced-installation].
 
-Finally, you want to be able to execute Electron. In the [`scripts`][package-scripts] field of your `package.json` config, add a `start` command like so:
+Finalmente, você deve ser capaz de executar o Electron. No campo [`scripts`][package-scripts] de sua `package.json` config, adicione um comando `start` assim:
 
 ```json
 {
@@ -68,15 +68,15 @@ Finally, you want to be able to execute Electron. In the [`scripts`][package-scr
 }
 ```
 
-This `start` command will let you open your app in development mode.
+Este comando `start` permitirá que você abra seu aplicativo em modo de desenvolvimento.
 
 ```sh npm2yarn
 npm start
 ```
 
-> Note: This script tells Electron to run on your project's root folder. At this stage, your app will immediately throw an error telling you that it cannot find an app to run.
+> Nota: Este script diz ao Electron para ser executado na pasta raiz do seu projeto. Neste estágio, o seu aplicativo lançará imediatamente um erro informando que ele não consegue encontrar um aplicativo para executar.
 
-### Run the main process
+### Execute o processo principal
 
 The entry point of any Electron application is its `main` script. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
 

@@ -12,7 +12,7 @@ Electron继承其来自Chromium的多进程架构，这使得框架在结构上�
 
 为了解决这个问题，Chrome团队决定让每个标签在自己的进程中渲染， 从而限制网页上的有误或恶意代码可能会导致对整个应用造成的伤害。 然后单个浏览器进程控制这些进程，以及整个应用程序的生命周期。 下面是来自 [Chrome 漫画][]的图表可视化此模型：
 
-![Chrome's multi-process architecture](../images/chrome-processes.png)
+![Chrome的多进程架构](../images/chrome-processes.png)
 
 Electron 应用程序的结构非常相似。 作为应用开发者，您控制着两种类型的进程：主进程和渲染器。 这些类似于上面概述的Chrome自己的浏览器和其渲染器进程。
 
@@ -24,7 +24,7 @@ Electron 应用程序的结构非常相似。 作为应用开发者，您控制�
 
 主进程的主要目的是使用 [`BrowserWindow`][browser-window] 模块创建和管理应用程序窗口。
 
-Each instance of the `BrowserWindow` class creates an application window that loads a web page in a separate renderer process. You can interact with this web content from the main process using the window's [`webContents`][web-contents] object.
+`BrowserWindow` 类的每个实例创建一个应用程序窗口，其在单独的渲染器进程中加载网页。 您可以使用窗口的 [`webContent`][web-contents] 对象，从主进程中与这个网页内容 交互。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -36,20 +36,20 @@ const contents = win.webContents
 console.log(contents)
 ```
 
-> Note: A renderer process is also created for [web embeds][web-embed] such as the `BrowserView` module. The `webContents` object is also accessible for embedded web content.
+> 注意：渲染器进程还为 [web embeds][web-embed] 而被创建，例如 `BrowserView` 模块。 嵌入式网页内容也可访问 `webContents` 对象。
 
-Because the `BrowserWindow` module is an [`EventEmitter`][event-emitter], you can also add handlers for various user events (for example, minimizing or maximizing your window).
+由于 `BrowserWindow` 模块是一个 [`EventEmitter`][event-emitter]，您还可以 为各种用户事件（例如，最小化或最大化窗口）添加处理程序。
 
-When a `BrowserWindow` instance is destroyed, its corresponding renderer process gets terminated as well.
+当一个 `BrowserWindow` 实例被销毁时，对应的渲染器进程也会被终止。
 
 ### 应用程序生命周期
 
-The main process also controls your application's lifecycle through Electron's [`app`][app] module. This module provides a large set of events and methods that you can use to add custom application behaviour (for instance, programatically quitting your application, modifying the application dock, or showing an About panel).
+主进程还通过 Electron 的 [`app`][app] 模块来控制您的应用程序的生命周期。 该模块提供了一系列的事件和函数，您可以使用它来添加或修饰应用程序窗口的行为（例如退出进程，窗口贴边或最小化以及展示“关于”菜单）。
 
-As a practical example, the app shown in the [quick start guide][quick-start-lifecycle] uses `app` APIs to create a more native application window experience.
+作为一个实际例子。 在 [快速入门指南][quick-start-lifecycle]中显示的应用程序使用 `app` API 来创建更原生的应用程序窗口体验。
 
 ```js title='main.js'
-// quitting the app when no windows are open on macOS
+// macOS 无窗口打开时退出应用
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -57,27 +57,27 @@ app.on('window-all-closed', function () {
 
 ### 原生 API
 
-To extend Electron's features beyond being a Chromium wrapper for web contents, the main process also adds custom APIs to interact with the user's operating system. Electron exposes various modules that control native desktop functionality, such as menus, dialogs, and tray icons.
+为了使Electron的功能不仅仅限于对wed内容的包装，主进程也可以根据用户的操作系统添加大量的APIs。 Electron有着多种控制普通桌面应用的函数模，例如菜单，对话框以及托盘气泡图标。
 
-For a full list of Electron's main process modules, check out our API documentation.
+关于于Electron主流程模块的完整列表，请参阅我们的 API 文档。
 
 ## 渲染器进程
 
-Each Electron app spawns a separate renderer process for each open `BrowserWindow` (and each web embed). As its name implies, a renderer is responsible for *rendering* web content. For all intents and purposes, code ran in renderer processes should behave according to web standards (insofar as Chromium does, at least).
+每个Electron应用程序都会为每个打开的 `浏览窗口` （包括每个网页嵌入）生成一个单独的渲染进程。 顾名思义，一个渲染器负责*渲染* 网络内容。 出于某些目的，渲染器进程中运行的代码应该按照网页标准行事（至少就Chromium而言是如此）。
 
-Therefore, all user interfaces and app functionality within a single browser window should be written with the same tools and paradigms that you use on the web.
+因此，单个浏览器窗口中，所有的用户界面和应用程序函数都应与web规范相同。
 
-Although explaining every web spec is out of scope for this guide, the bare minimum to understand is:
+虽然解释每一个 web 规范都超出了本指南的范围，但至少要知道：
 
-* An HTML file is your entry point for the renderer process.
-* UI styling is added through Cascading Style Sheets (CSS).
-* Executable JavaScript code can be added through `<script>` elements.
+* 以一个html文件作为窗体的渲染入口。
+* 使用css对其添加样式。
+* JavaScript 代码应通过 `<script>` 元素添加。
 
-Moreover, this also means that the renderer has no direct access to `require` or other Node.js APIs. In order to directly include NPM modules in the renderer, you must use the same bundler toolchains (for example, `webpack` or `parcel`) that you use on the web.
+此外，这也意味着渲染器无权直接访问 `需要`或其他 Node.js API。 为了在渲染器中直接包含npm模块，你必须使用与wed开发相同的模块打包器（例如`webpack<code>或<0>parcel`）
 
-> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historically, this used to be the default, but this feature was disabled for security reasons.
+> 注意：渲染器过程可以生成一个完整的Node.js环境以便于开发。 这过去是默认的，但由于安全原因，此功能被禁用。
 
-At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
+此刻，您可能会想知道您用户界面的渲染进程如何与Node.js和Electron的原生桌面函数交互，如果这些功能只能从主进程中访问。 事实上，没有直接导入Electron的脚本的方法。
 
 ## 预加载脚本
 
@@ -98,7 +98,7 @@ const win = new BrowserWindow({
 
 由于预加载脚本与渲染器共享同一个全局 [`Window`][window-mdn] 接口，并且可以访问 Node.js API，因此它通过在 `window` 全局中暴露任意您的网络内容可以随后使用的 API 来增强渲染器。
 
-Although preload scripts share a `window` global with the renderer they're attached to, you cannot directly attach any variables from the preload script to `window` because of the [`contextIsolation`][context-isolation] default.
+虽然预加载脚本与渲染器共享一个 `全局窗口` ，但您不能直接从预加载脚本中附加任何变量到其他 `窗口` ，因为 [`contextIsolation`][context-isolation] 默认不行。
 
 ```js title='preload.js'
 window.myAPI = {
@@ -111,9 +111,9 @@ console.log(window.myAPI)
 // => undefined
 ```
 
-Context Isolation means that preload scripts are isolated from the renderer's main world to avoid leaking any privileged APIs into your web content's code.
+上下文隔离意味着预加载脚本与渲染器的主世界隔离，以避免将任何特权的 API 泄漏到您的网页内容代码中。
 
-Instead, use the [`contextBridge`][context-bridge] module to accomplish this securely:
+相反，使用 [`contextBridge`][context-bridge] 模块以安全地实现：
 
 ```js title='preload.js'
 const { contextBridge } = require('electron')
@@ -128,10 +128,10 @@ console.log(window.myAPI)
 // => { desktop: true }
 ```
 
-This feature is incredibly useful for two main purposes:
+此功能对于两个主要目的非常有用：
 
-* By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
-* If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
+* 通过将 [`ipcRenderer`][ipcRenderer] 帮手模块暴露在渲染器中，您可以使用 过程间通信 （IPC） 从渲染器触发主进程任务（反之亦然）。
+* 如果您正在为远程 URL 上托管的现有网页应用开发 Electron 包装，则可以在渲染器的 `window` 全局上添加自定义属性，以用于网页客户端侧的桌面逻辑。
 
 [快速启动应用]: ./quick-start.md
 

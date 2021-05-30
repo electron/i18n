@@ -51,7 +51,7 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 })
 ```
 
-### Supprimé: `shell.moveItemToTrash()`
+### Supprimé : `shell.moveItemToTrash()`
 
 L'API `shell.moveItemToTrash()` dépréciée a été supprimée. Utilisez le shell.trashItem() `asynchrone` à la place.
 

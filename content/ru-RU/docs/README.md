@@ -12,7 +12,7 @@
 
 ### Getting started
 
-* [Introduction](tutorial/introduction.md)
+* [Введение](tutorial/introduction.md)
 * [Руководство для начинающих](tutorial/quick-start.md)
 * [Process Model](tutorial/process-model.md)
 
