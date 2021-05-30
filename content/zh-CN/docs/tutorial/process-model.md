@@ -44,7 +44,7 @@ console.log(contents)
 
 ### 应用程序生命周期
 
-主进程还通过 Electron 的 [`app`][app] 模块来控制您的应用程序的生命周期。 该模块提供了一系列的事件和函数，您可以使用它来添加或修饰应用程序窗口的行为（例如退出进程，窗口贴边或最小化以及展示“关于”菜单）
+主进程还通过 Electron 的 [`app`][app] 模块来控制您的应用程序的生命周期。 该模块提供了一系列的事件和函数，您可以使用它来添加或修饰应用程序窗口的行为（例如退出进程，窗口贴边或最小化以及展示“关于”菜单）。
 
 作为一个实际例子。 在 [快速入门指南][quick-start-lifecycle]中显示的应用程序使用 `app` API 来创建更原生的应用程序窗口体验。
 
@@ -57,27 +57,27 @@ app.on('window-all-closed', function () {
 
 ### 原生 API
 
-To extend Electron's features beyond being a Chromium wrapper for web contents, the main process also adds custom APIs to interact with the user's operating system. Electron exposes various modules that control native desktop functionality, such as menus, dialogs, and tray icons.
+为了使Electron的功能不仅仅限于对wed内容的包装，主进程也可以根据用户的操作系统添加大量的APIs。 Electron有着多种控制普通桌面应用的函数模，例如菜单，对话框以及托盘气泡图标。
 
-For a full list of Electron's main process modules, check out our API documentation.
+关于于Electron主流程模块的完整列表，请参阅我们的 API 文档。
 
 ## 渲染器进程
 
-Each Electron app spawns a separate renderer process for each open `BrowserWindow` (and each web embed). As its name implies, a renderer is responsible for *rendering* web content. For all intents and purposes, code ran in renderer processes should behave according to web standards (insofar as Chromium does, at least).
+每个Electron应用程序都会为每个打开的 `浏览窗口` （包括每个网页嵌入）生成一个单独的渲染进程。 顾名思义，一个渲染器负责*渲染* 网络内容。 出于某些目的，渲染器进程中运行的代码应该按照网页标准行事（至少就Chromium而言是如此）。
 
-Therefore, all user interfaces and app functionality within a single browser window should be written with the same tools and paradigms that you use on the web.
+因此，单个浏览器窗口中，所有的用户界面和应用程序函数都应与web规范相同。
 
-Although explaining every web spec is out of scope for this guide, the bare minimum to understand is:
+虽然解释每一个 web 规范都超出了本指南的范围，但至少要知道：
 
-* An HTML file is your entry point for the renderer process.
-* UI styling is added through Cascading Style Sheets (CSS).
-* Executable JavaScript code can be added through `<script>` elements.
+* 以一个html文件作为窗体的渲染入口。
+* 使用css对其添加样式。
+* JavaScript 代码应通过 `<script>` 元素添加。
 
-Moreover, this also means that the renderer has no direct access to `require` or other Node.js APIs. In order to directly include NPM modules in the renderer, you must use the same bundler toolchains (for example, `webpack` or `parcel`) that you use on the web.
+此外，这也意味着渲染器无权直接访问 `需要`或其他 Node.js API。 为了在渲染器中直接包含npm模块，你必须使用与wed开发相同的模块打包器（例如`webpack<code>或<0>parcel`）
 
-> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historically, this used to be the default, but this feature was disabled for security reasons.
+> 注意：渲染器过程可以生成一个完整的Node.js环境以便于开发。 这过去是默认的，但由于安全原因，此功能被禁用。
 
-At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
+此刻，您可能会想知道您用户界面的渲染进程如何与Node.js和Electron的原生桌面函数交互，如果这些功能只能从主进程中访问。 事实上，没有直接导入Electron的脚本的方法。
 
 ## 预加载脚本
 
