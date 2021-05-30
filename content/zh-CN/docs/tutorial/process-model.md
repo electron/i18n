@@ -98,7 +98,7 @@ const win = new BrowserWindow({
 
 由于预加载脚本与渲染器共享同一个全局 [`Window`][window-mdn] 接口，并且可以访问 Node.js API，因此它通过在 `window` 全局中暴露任意您的网络内容可以随后使用的 API 来增强渲染器。
 
-Although preload scripts share a `window` global with the renderer they're attached to, you cannot directly attach any variables from the preload script to `window` because of the [`contextIsolation`][context-isolation] default.
+虽然预加载脚本与渲染器共享一个 `全局窗口` ，但您不能直接从预加载脚本中附加任何变量到其他 `窗口` ，因为 [`contextIsolation`][context-isolation] 默认不行。
 
 ```js title='preload.js'
 window.myAPI = {
