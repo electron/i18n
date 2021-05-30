@@ -1,12 +1,12 @@
 # Início Rápido
 
-This guide will step you through the process of creating a barebones Hello World app in Electron, similar to [`electron/electron-quick-start`][quick-start].
+Este guia guiará você através do processo de criação de um aplicativo barebones Hello World no Electron, similar a [`electron/electron-quick-start`][quick-start].
 
-By the end of this tutorial, your app will open a browser window that displays a web page with information about which Chromium, Node.js, and Electron versions are running.
+Ao final deste tutorial, sua aplicação abrirá uma janela do navegador que exibe uma página com informações sobre qual Chromium, Node.js, e versões do Electron estão sendo executadas.
 
 ## Pré-requisitos
 
-To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
+Para usar o Electron, você precisa instalar o [Node.js][node-download]. Recomendamos que você use a versão mais recente disponível do `LTS`.
 
 > Por favor, instale o Node.js usando instaladores específicos para sua plataforma. Caso contrário, você pode encontrar problemas de incompatibilidade com ferramentas de desenvolvimento diferentes.
 
