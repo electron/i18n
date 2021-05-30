@@ -138,21 +138,21 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `kiosk` Boolean (optional) - Gibt an, ob der Benutzer eingeschränkte Rechte besitzt (Kiosk-Modus). Standard ist `false`.
   * `Titel` String (optional) - der Standardfenstertitel. Standard ist `"Electron"`. Wenn der HTML-Tag `<title>` in der von `loadUrl()` geladenen HTML-Datei festgelegt ist, dann wird dieser Wert ignoriert.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. Es empfiehlt sich, unter Windows ein `ICO` Icon zu verwenden, um die besten visuellen Effekte zu erreichen. Das Icon des ausführbaren Programmes wird verwendet, wenn dieser Wert nicht definiert wird.
-  * `show` Boolean (optional) - Whether window should be shown when created. Standard ist `true`.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created.  In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`.  Setting this to `false` will cause the `ready-to-show` event to not fire.  Standard ist `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Standard ist `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Standard ist `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Standard ist `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Standard ist `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Standard ist `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Standard ist `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Standard ist `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Standard ist `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Standard ist `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Standard ist `false`. On Windows, does not work unless the window is frameless.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
+  * `show` Boolean (optional) - Gibt an ob das Fenster angezeigt wird, sobald es erstellt wurde. Standard ist `true`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Gibt an, ob der Renderer aktiv sein soll, wenn `show` `false` ist und das Fenster gerade erstellt wurde.  Damit `document.visibilityState` beim ersten Laden mit `show: false` korrekt funktioniert, sollten Sie diesen Wert auf `false`setzen.  Wenn Sie diese Einstellung auf `false` festlegen, wird das `ready-to-show` -Ereignis nicht ausgelöst.  Standard ist `true`.
+  * `frame` Boolean (optional) - Geben Sie `false` an, um ein [Frameless Window](frameless-window.md)zu erstellen. Standard ist `true`.
+  * `parent` BrowserWindow (optional) - Geben Sie das übergeordnete Fenster an. Standard ist `null`.
+  * `modal` Boolean (optional) - Gibt an, ob es das Fenster ein modales Fenster sein soll. Diese Funktion funktioniert nur, wenn das Fenster ein untergeordnetes Fenster ist. Standard ist `false`.
+  * `acceptFirstMouse` Boolean (optional) - Gibt an, ob die Webansicht ein einzelnes Maus-Down-Ereignis akzeptiert, das gleichzeitig das Fenster aktiviert. Standard ist `false`.
+  * `disableAutoHideCursor` Boolean (optional) - Ob der Cursor ausgeblendet werden soll, wenn der Benutzer tippt. Standard ist `false`.
+  * `autoHideMenuBar` Boolean (optional) - Blendet die Menüleiste automatisch aus, es sei denn, die `Alt` Taste wird gedrückt. Standard ist `false`.
+  * `enableLargerThanScreen` Boolean (optional) - Dieser Wert gibt an, ob das Fenster größer als der Bildschirm sein kann. Nur relevant für macOS, da andere Betriebssysteme standardmäßig Fenster erlauben, die größer als der Bildschirm sind. Standard ist `false`.
+  * `backgroundColor` String (optional) - Die Hintergrundfarbe des Fensters als hexadezimaler Wert, wie zum Beispiel `#66CD00` oder `#FFF` oder `#80FFFFFF` (alpha im #AARRGGBB Format wird unterstützt, wenn `transparent` auf `true` gesetzt ist). Der Standardwert ist `#FFF` (weiß).
+  * `hasShadow` Boolean (optional) - Gibt an, ob das Fenster einen Schatten haben soll. Standard ist `true`.
+  * `opacity` Zahl (optional) - Setzt die anfängliche Deckkraft des Fensters zwischen 0,0 (vollständig transparent) und 1,0 (vollständig undurchsichtig). Dies ist nur unter Windows und macOS implementiert.
+  * `darkTheme` Boolean (optional) - Erzwingt ein dunkles Farbschema. Funktioniert nur mit manchen GTK+3 Desktopumgebungen. Standard ist `false`.
+  * `transparent` Boolean (optional) - Macht das Fenster [transparent](frameless-window.md#transparent-window). Standard ist `false`. Unter Windows funktioniert es nur, wenn das Fenster rahmenlos ist.
+  * `type` String (optional) - Der Fenstertyp. Standard ist ein normales Fenster. Mehr dazu kann weiter unten gelesen werden.
   * `visualEffectState` String (optional) - Specify how the material appearance should reflect window activity state on macOS. Must be used with the `vibrancy` property. Mögliche Werte sind:
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
@@ -749,7 +749,7 @@ The aspect ratio is not respected when window is resized programmingly with APIs
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Der Standardwert ist `#FFF` (weiß).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
