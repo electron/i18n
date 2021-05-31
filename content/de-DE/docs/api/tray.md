@@ -280,7 +280,7 @@ Legt das Kontextmenü für dieses Symbol fest.
 
 #### `tray.getBounds()` _macOS_ _Windows_
 
-Returns [`Rectangle`](structures/rectangle.md)
+Gibt [`Rectangle`](structures/rectangle.md) zurück
 
 The `bounds` of this tray icon as `Object`.
 
