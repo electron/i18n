@@ -6,7 +6,7 @@ Electron tiene APIs para configurar el icono de la aplicación en la barra de ta
 
 ## JumpList
 
-Windows permite a las aplicaciones definir un menú contextual personalizado que aparece cuando los usuarios hacen clic con el botón derecho en el ícono de las aplicaciones en la barra de tareas. Ese menú contextual se llama `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
+Windows permite a las aplicaciones definir un menú contextual personalizado que aparece cuando los usuarios hacen clic con el botón derecho en el ícono de las aplicaciones en la barra de tareas. Ese menú contextual se llama `JumpList`. Especificas acciones personalizadas en la categoría `Tasks` de JumpList, como se menciona en [MSDN][msdn-jumplist]:
 
 > Las aplicaciones definen tareas basadas tanto en las características del programa como en las cosas claves que se espera que haga un usuario con ellas. Las tareas deben estar libres de contexto, en que la aplicación no necesita ejecutarse para que funcione. También deberían ser las acciones estadísticamente más comunes que un usuario normal llevaría a cabo en una aplicación, como redactar un mensaje de correo electrónico o abrir el calendario en un programa de correo, crear un nuevo documento en un procesador de texto, iniciar una aplicación en un determinado modo, o ejecuta uno de sus subcomandos. Una aplicación no debe saturar el menú con características avanzadas que los usuarios estándar no necesitarán o acciones únicas como el registro. No utilice tareas para artículos promocionales como actualizaciones u ofertas especiales.
 > 
@@ -18,7 +18,7 @@ Windows permite a las aplicaciones definir un menú contextual personalizado que
 
 A diferencia del dock menú en macOS el cual es un menú real, user tasks en Windows funcionan como atajos de aplicación. Por ejemplo, cuando un usuario pulsa en un task, el programa será ejecutado con argumentos especificados.
 
-To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API.
+Para establecer las tareas de usuario en tu aplicación, puedes usar la API [app.setUserTasks][setusertaskstasks].
 
 #### Ejemplos
 
@@ -55,7 +55,7 @@ app.setUserTasks([])
 
 ### Barra de tareas de Thumbnail
 
-On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar layout of an application window. It provides users with a way to access a particular window's command without restoring or activating the window.
+En Windows puedes añadir una miniatura a la barra de tareas con botones específicos a un layout de barra de tareas de una ventana de aplicacion. Provee a los usuarios con una manera de acceder a un comando de ventana en particular sin restaurar o activar la ventana.
 
 Como se cita desde [MSDN][msdn-thumbnail]:
 
@@ -67,7 +67,7 @@ Como se cita desde [MSDN][msdn-thumbnail]:
 
 > NOTA: La captura de pantalla anterior es un ejemplo de thumbnail toolbar del Media Player de  Windows
 
-To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons][setthumbarbuttons]
+Para establecer la miniatura de la barra de tareas en tu aplicación, tienes que usar [BrowserWindow.setThumbarButtons][setthumbarbuttons]
 
 #### Ejemplos
 
