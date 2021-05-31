@@ -32,7 +32,7 @@ mkdir my-electron-app && cd my-electron-app
 npm init
 ```
 
-The interactive `init` command will prompt you to set some fields in your config. There are a few rules to follow for the purposes of this tutorial:
+`init`初始化命令会提示您在项目初始化配置中设置一些值 为本教程的目的，有几条规则需要遵循：
 
 * `entry point` 应为 `main.js`.
 * `author` 与 `description` 可为任意值，但对于[应用打包](#package-and-distribute-your-application)是必填项。
@@ -56,9 +56,9 @@ The interactive `init` command will prompt you to set some fields in your config
 $ npm install --save-dev electron
 ```
 
-> Note: If you're encountering any issues with installing Electron, please refer to the [Advanced Installation][advanced-installation] guide.
+> 注意：如果您在安装 Electron 时遇到任何问题，请 参见 [高级安装][advanced-installation] 指南。
 
-Finally, you want to be able to execute Electron. In the [`scripts`][package-scripts] field of your `package.json` config, add a `start` command like so:
+最后，您希望能够执行 Electron 如下所示，在您的 [`package.json`][package-scripts]配置文件中的`scripts`字段下增加一条`start`命令：
 
 ```json
 {
@@ -74,19 +74,19 @@ Finally, you want to be able to execute Electron. In the [`scripts`][package-scr
 npm start
 ```
 
-> Note: This script tells Electron to run on your project's root folder. At this stage, your app will immediately throw an error telling you that it cannot find an app to run.
+> 注意：此脚本将告诉 Electron 在您项目根目录运行 此时，您的应用将立即抛出一个错误提示您它无法找到要运行的应用
 
-### Run the main process
+### 运行主进程
 
-The entry point of any Electron application is its `main` script. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
+任何 Electron 应用程序的入口都是 `main` 文件。 这个文件控制了**主进程**，它运行在一个完整的Node.js环境中，负责控制您应用的生命周期，显示原生界面，执行特殊操作并管理渲染器进程(稍后详细介绍)。
 
-During execution, Electron will look for this script in the [`main`][package-json-main] field of the app's `package.json` config, which you should have configured during the [app scaffolding](#scaffold-the-project) step.
+执行期间，Electron 将依据应用中 `package.json`配置下[`main`][package-json-main]字段中配置的值查找此文件，您应该已在[应用脚手架](#scaffold-the-project)步骤中配置。
 
-To initialize the `main` script, create an empty file named `main.js` in the root folder of your project.
+要初始化这个`main`文件，需要在您项目的根目录下创建一个名为`main.js`的空文件。
 
-> Note: If you run the `start` script again at this point, your app will no longer throw any errors! However, it won't do anything yet because we haven't added any code into `main.js`.
+> 注意：如果您此时再次运行`start`命令，您的应用将不再抛出任何错误！ 然而，它不会做任何事因为我们还没有在`main.js`中添加任何代码。
 
-### Create a web page
+### 创建页面
 
 Before we can create a window for our application, we need to create the content that will be loaded into it. In Electron, each window displays web contents that can be loaded from either from a local HTML file or a remote URL.
 
@@ -113,7 +113,7 @@ For this tutorial, you will be doing the former. Create an `index.html` file in 
 
 > Note: Looking at this HTML document, you can observe that the version numbers are missing from the body text. We'll manually insert them later using JavaScript.
 
-### Opening your web page in a browser window
+### 在窗口中打开您的页面
 
 Now that you have a web page, load it into an application window. To do so, you'll need two Electron modules:
 
@@ -151,7 +151,7 @@ app.whenReady().then(() => {
 
 > Note: At this point, your Electron application should successfully open a window that displays your web page!
 
-### Manage your window's lifecycle
+### 管理窗口的生命周期
 
 Although you can now open a browser window, you'll need some additional boilerplate code to make it feel more native to each platform. Application windows behave differently on each OS, and Electron puts the responsibility on developers to implement these conventions in their app.
 
@@ -219,22 +219,22 @@ The above code accesses the Node.js `process.versions` object and runs a basic `
 To attach this script to your renderer process, pass in the path to your preload script to the `webPreferences.preload` option in your existing `BrowserWindow` constructor.
 
 ```js
-包括节点.js"路径"模块在您的文件顶部
-const路径=要求（路径）
+// 在文件头部引入 Node.js 中的 path 模块
+const path = require('path')
 
-//修改您现有的创建窗口功能
-功能创建窗口（）{
-  最缺点赢=新的浏览器窗口（{
-    宽度：800，
-    高度：600，
-    webPreence：{
-      预加载：路径。加入（__dirname，'预加载.js'）
+// 修改现有的 createWindow() 函数
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
     }
-  }）
+  })
 
-  赢。loadFile（"指数.html"）
+  win.loadFile('index.html')
 }
-//...
+// ...
 ```
 
 There are two Node.js concepts that are used here:
