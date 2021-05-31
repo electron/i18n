@@ -22,7 +22,7 @@ Vous pouvez exécuter `npm run lint` pour montrer tous les problèmes de style d
 
 ## C++ et Python
 
-Pour C++ et Python, nous suivons le [Style de codage](https://www.chromium.org/developers/coding-style) de Chromium. Vous pouvez utiliser [clang-format](clang-format.md) pour formatter le code C++ automatiquement. Il y a aussi un script `script/cpplint.py` pour vérifier si tous les fichiers sont conformes.
+Pour C++ et Python, nous suivons le [Style de codage](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/styleguide/styleguide.md) de Chromium. Vous pouvez utiliser [clang-format](clang-format.md) pour formatter le code C++ automatiquement. Il y a aussi un script `script/cpplint.py` pour vérifier si tous les fichiers sont conformes.
 
 La version de Python que nous utilisons est Python 2.7.
 
