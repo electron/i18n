@@ -88,9 +88,9 @@ npm start
 
 ### 创建页面
 
-Before we can create a window for our application, we need to create the content that will be loaded into it. In Electron, each window displays web contents that can be loaded from either from a local HTML file or a remote URL.
+在可以为我们的应用创建窗口前，我们需要先创建加载进该窗口的内容。 在 Electron 中，每个窗口中无论是本地的HTML文件还是远程URL都可以被加载显示。
 
-For this tutorial, you will be doing the former. Create an `index.html` file in the root folder of your project:
+此教程中，您将采用本地HTML的方式。 在您的项目根目录下创建一个名为`index.html`的文件：
 
 ```html
 <!DOCTYPE html>
@@ -111,22 +111,22 @@ For this tutorial, you will be doing the former. Create an `index.html` file in 
 </html>
 ```
 
-> Note: Looking at this HTML document, you can observe that the version numbers are missing from the body text. We'll manually insert them later using JavaScript.
+> 注意：在这个HTML文本中，您会发现主体文本中丢失了版本编号。 稍后我们将使用 JavaScript 动态插入它们。
 
 ### 在窗口中打开您的页面
 
-Now that you have a web page, load it into an application window. To do so, you'll need two Electron modules:
+现在您有了一个页面，将它加载进应用窗口中。 要做到这一点，你需要 两个Electron模块：
 
-* The [`app`][app] module, which controls your application's event lifecycle.
-* The [`BrowserWindow`][browser-window] module, which creates and manages application windows.
+* [`app`][app] 模块，它控制应用程序的事件生命周期。
+* [`BrowserWindow`][browser-window] 模块，它创建和管理应用程序 窗口。
 
-Because the main process runs Node.js, you can import these as [CommonJS][commonjs] modules at the top of your file:
+因为主进程运行着Node.js，您可以在文件头部将他们导入作为[公共JS][commonjs]模块：
 
 ```js
 const { app, BrowserWindow } = require('electron')
 ```
 
-Then, add a `createWindow()` function that loads `index.html` into a new `BrowserWindow` instance.
+然后，添加一个`createWindow()`方法来将`index.html`加载进一个新的`BrowserWindow`实例。
 
 ```js
 function createWindow () {
@@ -139,9 +139,9 @@ function createWindow () {
 }
 ```
 
-Next, call this `createWindow()` function to open your window.
+接着，调用`createWindow()`函数来打开您的窗口。
 
-In Electron, browser windows can only be created after the `app` module's [`ready`][app-ready] event is fired. You can wait for this event by using the [`app.whenReady()`][app-when-ready] API. Call `createWindow()` after `whenReady()` resolves its Promise.
+在 Electron 中，只有在 `app` 模块的 [`ready`][app-ready] 事件被激发后才能创建浏览器窗口。 您可以通过使用 [`app.whenReady()`][app-when-ready] API来监听此事件。 在`whenReady()`成功后调用`createWindow()`。
 
 ```js
 app.whenReady().then(() => {
@@ -149,7 +149,7 @@ app.whenReady().then(() => {
 })
 ```
 
-> Note: At this point, your Electron application should successfully open a window that displays your web page!
+> 注意：此时，您的电子应用程序应当成功 打开显示您页面的窗口！
 
 ### 管理窗口的生命周期
 
