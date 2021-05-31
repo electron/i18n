@@ -68,7 +68,7 @@ Finally, you want to be able to execute Electron. In the [`scripts`][package-scr
 }
 ```
 
-This `start` command will let you open your app in development mode.
+`start`命令能让您在开发模式下打开您的应用
 
 ```sh npm2yarn
 npm start
