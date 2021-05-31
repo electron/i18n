@@ -116,7 +116,7 @@
 * [MenuItem](api/menu-item.md)
 * [MessageChannelMain](api/message-channel-main.md)
 * [MessagePortMain](api/message-port-main.md)
-* [网络](api/net.md)
+* [net](api/net.md)
 * [netLog](api/net-log.md)
 * [本地主题](api/native-theme.md)
 * [通知](api/notification.md)
