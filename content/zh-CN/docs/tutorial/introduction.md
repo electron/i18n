@@ -1,23 +1,23 @@
 # 简介
 
-Welcome to the Electron documentation! If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
+欢迎来到electron文档中心。 如果你第一次开发electron应用，可以阅读入门部分了解开发基础， 此外，你也可以直接浏览API文档
 
-## What is Electron?
+## Electron是什么？
 
-Electron is a framework for building desktop applications using JavaScript, HTML, and CSS. By embedding \[Chromium\]\[chromium\] and \[Node.js\]\[node\] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
+Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 By embedding [Chromium][chromium] and [Node.js][node] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
 
 ## 前提条件
 
-These docs operate under the assumption that the reader is familiar with both Node.js and general web development. If you need to get more comfortable with either of these areas, we recommend the following resources:
+熟悉该文档之前，需要你有Node.js和web开发经验。 如果您需要了解这两个方面的开发知识，我们推荐您使用以下学习资源：
 
-* \[Getting started with the Web (MDN)\]\[mdn-guide\]
-* \[Introduction to Node.js\]\[node-guide\]
+* [Getting started with the Web (MDN)][mdn-guide]
+* [Introduction to Node.js][node-guide]
 
-Moreover, you'll have a better time understanding how Electron works if you get acquainted with Chromium's process model. You can get a brief overview of Chrome architecture with the \[Chrome comic\]\[comic\], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
+此外，如果您熟悉Chromium进程模型，您将更好了解 Electron 的工作原理。 You can get a brief overview of Chrome architecture with the [Chrome comic][comic], which was released alongside Chrome's launch back in 2008. 尽管Chrome发布十多年了，【Chrome comic】漫画中介绍的核心原理仍然有助于理解Electron。
 
-## Running examples with Electron Fiddle
+## Electron Fiddle运行实例
 
-\[Electron Fiddle\]\[fiddle\] is a sandbox app written with Electron and supported by Electron's maintainers. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+[Electron Fiddle][fiddle] is a sandbox app written with Electron and supported by Electron's maintainers. 我们强烈建议将其作为一个学习工具来安装，以便在开发过程中对Electron的api进行实验或对特性进行原型化。
 
 Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
 
@@ -25,7 +25,14 @@ Fiddle also integrates nicely with our documentation. When browsing through exam
 
 Are you getting stuck anywhere? Here are a few links to places to look:
 
-* If you need help with developing your app, our \[community Discord server\]\[discord\] is a great place to get advice from other Electron app developers.
-* If you suspect you're running into a bug with the `electron` package, please check the \[GitHub issue tracker\]\[issue-tracker\] to see if any existing issues match your problem. If not, feel free to fill out our bug report template and submit a new issue.
+* If you need help with developing your app, our [community Discord server][discord] is a great place to get advice from other Electron app developers.
+* If you suspect you're running into a bug with the `electron` package, please check the [GitHub issue tracker][issue-tracker] to see if any existing issues match your problem. If not, feel free to fill out our bug report template and submit a new issue.
 
-[chromium](https://www.chromium.org/) [node](https://nodejs.org/) [mdn-guide](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web) [node-guide](https://nodejs.dev/learn) [comic](https://www.google.com/googlebooks/chrome/) [fiddle](https://electronjs.org/fiddle) [issue-tracker](https://github.com/electron/electron/issues) [discord](https://discord.gg/electron)
+[chromium]: https://www.chromium.org/
+[node]: https://nodejs.org/
+[mdn-guide]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
+[node-guide]: https://nodejs.dev/learn
+[comic]: https://www.google.com/googlebooks/chrome/
+[fiddle]: https://electronjs.org/fiddle
+[issue-tracker]: https://github.com/electron/electron/issues
+[discord]: https://discord.gg/electron

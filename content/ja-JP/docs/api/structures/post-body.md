@@ -1,6 +1,6 @@
 # PostBody オブジェクト
 
-* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - The post data to be sent to the new window.
+* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - 新規ウインドウに送信する POST データ。
 * `contentType` String - データに使用する `content-type` ヘッダー。 `application/x-www-form-urlencoded` と `multipart/form-data` のどちらかにできます。 送信される HTML フォームの `enctype` 属性に相当します。
 * `boundary` String (任意) - メッセージを複数部分へ分ける際に使用する境界。 `contentType` が `multipart/form-data` の場合のみ有効です。
 

@@ -100,7 +100,14 @@
   <td>2021-03-04</td>
   <td>2021-05-25</td>
   <td>M91</td>
-  <td>v14.x</td>
+  <td>v14.16</td>
+</tr>
+<tr>
+  <td>14.0.0</td>
+  <td>2021-05-27</td>
+  <td>2021-08-31</td>
+  <td>M93</td>
+  <td>TBD</td>
 </tr>
 </tbody>
 </table>

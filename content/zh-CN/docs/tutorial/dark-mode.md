@@ -4,13 +4,13 @@
 
 ### 自动更新原生界面
 
-"Native interfaces" include the file picker, window border, dialogs, context menus, and more - anything where the UI comes from your operating system and not from your app. The default behavior is to opt into this automatic theming from the OS.
+"本地界面"包括文件选择器、窗口边框、对话框、上下文 菜单等 - 任何UI来自操作系统而非应用的界面。 默认行为是从操作系统选择自动主题。
 
-### Automatically update your own interfaces
+### 自动更新您自己的界面
 
-If your app has its own dark mode, you should toggle it on and off in sync with the system's dark mode setting. 您可以通过使用[prefer-color-scheme] CSS 媒体查询来做到这一点。
+如果您的应用有自己的黑暗模式，您应该在与系统黑暗模式设置同步时切换。 您可以通过使用[prefer-color-scheme] CSS 媒体查询来做到这一点。
 
-### Manually update your own interfaces
+### 手动更新您自己的界面
 
 If you want to manually switch between light/dark modes, you can do this by setting the desired mode in the [themeSource](../api/native-theme.md#nativethemethemesource) property of the `nativeTheme` module. This property's value will be propagated to your Renderer process. Any CSS rules related to `prefers-color-scheme` will be updated accordingly.
 

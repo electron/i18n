@@ -2,29 +2,29 @@
 
 Electron は Chromium のマルチプロセスアーキテクチャを継承しており、フレームワークのアーキテクチャは最新のウェブブラウザに酷似しています。 このガイドでは、最小限の [クイックスタートアプリ][] で適用した、Electron の概念的な知識を解説します。
 
-## Why not a single process?
+## なぜシングルプロセスではないのでしょうか?
 
-Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+ウェブブラウザは非常に複雑なアプリケーションです。 ウェブコンテンツを表示するという主な機能のほかに、複数のウィンドウ (またはタブ) を管理したり、サードパーティの拡張機能を読み込んだりするなど、多くの副次的な役割を担っています。
 
-In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
+以前のブラウザでは、これらの機能を単一のプロセスで実現していました。 このやり方は開いているタブごとのオーバーヘッドを減らしますが、1 つのウェブサイトがクラッシュしたりハングアップしたりすると、ブラウザ全体に影響が及びます。
 
-## The multi-process model
+## マルチプロセスモデル
 
-To solve this problem, the Chrome team decided that each tab would render in its own process, limiting the harm that buggy or malicious code on a web page could cause to the app as a whole. A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
+この問題を解決するため、Chrome チームは各タブがそれぞれのプロセスで描画するようにすると決め、ウェブページ上のバグや悪意のあるコードがアプリ全体に与える影響を制限することにしました。 単一のブラウザプロセスはこれらのプロセスを制御し、アプリケーションのライフサイクル全体を制御します。 このモデルを視覚化したのが、[Chrome 漫画本][] の以下の図です。
 
-![Chrome's multi-process architecture](../images/chrome-processes.png)
+![Chrome のマルチプロセスアーキテクチャ](../images/chrome-processes.png)
 
-Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Electron アプリケーションも非常によく似た構造をしています。 Electron アプリ開発者の場合、メインとレンダラーの 2 種類のプロセスを制御します。 これらは、上述の Chrome 独自のブラウザプロセスとレンダラープロセスと似ています。
 
-## The main process
+## メインプロセス
 
-Each Electron app has a single main process, which acts as the application's entry point. The main process runs in a Node.js environment, meaning it has the ability to `require` modules and use all of Node.js APIs.
+各 Electron アプリにつき一つのメインプロセスがあります。これはアプリケーションのエントリポイントとして機能します。 メインプロセスは Node.js 環境で動作します。つまり、モジュールを `require` したり Node.js のすべての API を利用したりできます。
 
-### Window management
+### ウインドウの管理
 
-The main process' primary purpose is to create and manage application windows with the [`BrowserWindow`][browser-window] module.
+メインプロセスの主な目的は、[`BrowserWindow`][browser-window] モジュールを使ってアプリケーションウインドウを作成し管理することです。
 
-Each instance of the `BrowserWindow` class creates an application window that loads a web page in a separate renderer process. You can interact with this web content from the main process using the window's [`webContents`][web-contents] object.
+`BrowserWindow` クラスの各インスタンスは、アプリケーションウインドウを作成し、その分かれたレンダラープロセス内でウェブページを読み込みます。 メインプロセスからは、ウインドウの [`webContents`][web-contents] オブジェクトでこのウェブコンテンツを操作できます。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -36,56 +36,56 @@ const contents = win.webContents
 console.log(contents)
 ```
 
-> Note: A renderer process is also created for [web embeds][web-embed] such as the `BrowserView` module. The `webContents` object is also accessible for embedded web content.
+> 注意: `BrowserView` モジュールなどの [ウェブ埋め込み][web-embed] 用のレンダラープロセスが作成されることもあります。 `webContents` オブジェクトは、埋め込みウェブコンテンツにもアクセスできます。
 
-Because the `BrowserWindow` module is an [`EventEmitter`][event-emitter], you can also add handlers for various user events (for example, minimizing or maximizing your window).
+`BrowserWindow` モジュールは [`EventEmitter`][event-emitter] を継承しているため、様々なユーザーイベント (例えば、ウインドウの最小化や最大化) ハンドラの追加もできます。
 
-When a `BrowserWindow` instance is destroyed, its corresponding renderer process gets terminated as well.
+`BrowserWindow` インスタンスが破棄されると、対応するレンダラープロセスも終了します。
 
-### Application lifecycle
+### アプリケーションのライフサイクル
 
-The main process also controls your application's lifecycle through Electron's [`app`][app] module. This module provides a large set of events and methods that you can use to add custom application behaviour (for instance, programatically quitting your application, modifying the application dock, or showing an About panel).
+メインプロセスは、Electron の [`app`][app] モジュールを介してアプリケーションのライフサイクルも制御します。 このモジュールには、アプリケーションの動作をカスタマイズするためのイベントやメソッドが多数用意されています (例えば、プログラム側でアプリケーションを終了したり、アプリケーションの Dock を変更したり、アプリについてのパネルを表示したりできます)。
 
-As a practical example, the app shown in the [quick start guide][quick-start-lifecycle] uses `app` APIs to create a more native application window experience.
+実例として、[クイックスタートガイド][quick-start-lifecycle] で紹介されているアプリでは `app` の API でよりネイティブなアプリケーションウインドウの体験を実現しています。
 
 ```js title='main.js'
-// quitting the app when no windows are open on macOS
+// macOS 以外でウインドウが開かれていない時にアプリを終了する
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 ```
 
-### Native APIs
+### ネイテイブ API
 
-To extend Electron's features beyond being a Chromium wrapper for web contents, the main process also adds custom APIs to interact with the user's operating system. Electron exposes various modules that control native desktop functionality, such as menus, dialogs, and tray icons.
+ウェブコンテンツ用の Chromium ラッパーだけでなく Electron の機能を拡張するため、メインプロセスではユーザーのオペレーティングシステムと対話するカスタム API も追加しています。 Electron は、メニュー、ダイアログ、tray アイコンなど、ネイティブなデスクトップ機能を制御する様々なモジュールを公開しています。
 
-For a full list of Electron's main process modules, check out our API documentation.
+Electron のメインプロセスのモジュール一覧は、API ドキュメントをご覧ください。
 
-## The renderer process
+## レンダラープロセス
 
-Each Electron app spawns a separate renderer process for each open `BrowserWindow` (and each web embed). As its name implies, a renderer is responsible for *rendering* web content. For all intents and purposes, code ran in renderer processes should behave according to web standards (insofar as Chromium does, at least).
+各 Electron アプリは、開いている `BrowserWindow` (及び各ウェブ埋め込み) ごとに個別のレンダラープロセスを生成します。 その名の通り、レンダラーはウェブコンテンツの *レンダリング* を担います。 あらゆる意図と目的において、レンダラープロセスで実行するコードは (少なくとも Chromium がそうである限り) ウェブ標準に従って動作しなければなりません。
 
-Therefore, all user interfaces and app functionality within a single browser window should be written with the same tools and paradigms that you use on the web.
+そのため、あるブラウザウインドウ内のすべてのユーザーインターフェイスとアプリの機能は、ウェブの場合と同じツールとパラダイムで記述する必要があります。
 
-Although explaining every web spec is out of scope for this guide, the bare minimum to understand is:
+全ウェブ仕様の説明はこのガイドの範疇の外ですが、最低限理解しておくべきことは以下の通りでしょう。
 
-* An HTML file is your entry point for the renderer process.
-* UI styling is added through Cascading Style Sheets (CSS).
-* Executable JavaScript code can be added through `<script>` elements.
+* HTML ファイルがレンダラープロセスのエントリーポイントです。
+* UI のスタイル付けは Cascading Style Sheets (CSS) で追加します。
+* 実行する JavaScript コードは `<script>` 要素で追加できます。
 
-Moreover, this also means that the renderer has no direct access to `require` or other Node.js APIs. In order to directly include NPM modules in the renderer, you must use the same bundler toolchains (for example, `webpack` or `parcel`) that you use on the web.
+さらにこれは、レンダラーが `require` やその他 Node.js の API に直接アクセスできないことも意味します。 NPM モジュールをレンダラーに直接組み込むには、ウェブの場合と同じバンドラーツールチェイン (例えば、`webpack` や `parcel` など) を使用する必要があります。
 
-> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historically, this used to be the default, but this feature was disabled for security reasons.
+> 注意: 開発を容易にするために、レンダラープロセスを完全な Node.js 環境で生成できます。 歴史的には、これがデフォルトでしたが、セキュリティ上の理由からこの機能は無効になりました。
 
-At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
+ここで、レンダラープロセスのユーザーインターフェイスが Node.js や Electron のネイティブデスクトップ機能にアクセスできずメインプロセスからのみできるのであれば、どのように協調して動作するのかと疑問に思うでしょう。 実際、Electron のコンテンツスクリプトを直接インポートする方法はありません。
 
 ## プリロードスクリプト
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> Preload scripts contain code that executes in a renderer process before its web content begins loading. These scripts runs within the renderer context, but are granted more privileges by having access to Node.js APIs.
+change the statements here. --> プリロードスクリプトは、ウェブコンテンツの読み込み開始前にレンダラープロセス内で実行されるコードです。 これらのスクリプトはレンダラーのコンテキスト内で実行されますが、Node.js の API にアクセスできるようにより多くの権限が与えられています。
 
-A preload script can be attached to the main process in the `BrowserWindow` constructor's `webPreferences` option.
+プリロードスクリプトは、`BrowserWindow` コンストラクタの `webPreferences` オプションでメインプロセスからアタッチできます。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -96,9 +96,9 @@ const win = new BrowserWindow({
 //...
 ```
 
-Because the preload script shares a global [`Window`][window-mdn] interface with the renderers and can access Node.js APIs, it serves to enhance your renderer by exposing arbitrary APIs in the `window` global that your web contents can then consume.
+プリロードスクリプトは、グローバルな [`Window` ][window-mdn] インターフェイスをレンダラーと共有し Node.js の API にアクセスすることができます。そのため、`window` グローバルに任意の API を公開してウェブコンテンツが利用できるようにすることで、レンダラーを強化する役割を果たしています。
 
-Although preload scripts share a `window` global with the renderer they're attached to, you cannot directly attach any variables from the preload script to `window` because of the [`contextIsolation`][context-isolation] default.
+プリロードスクリプトはアタッチされているレンダラーと `window` グローバルを共有しますが、[`contextIsolation`][context-isolation] のデフォルト値によりプリロードスクリプトの変数は `window` に直接アタッチできません。
 
 ```js title='preload.js'
 window.myAPI = {
@@ -111,9 +111,9 @@ console.log(window.myAPI)
 // => undefined
 ```
 
-Context Isolation means that preload scripts are isolated from the renderer's main world to avoid leaking any privileged APIs into your web content's code.
+コンテキスト分離 (contextIsolation) とは、プリロードスクリプトをレンダラーのメインワールドから分離し、特権的 API がウェブコンテンツのコードへ漏れないようにすることです。
 
-Instead, use the [`contextBridge`][context-bridge] module to accomplish this securely:
+これを代わりに安全に実現するには、以下のように [`contextBridge`][context-bridge] モジュールを使用します。
 
 ```js title='preload.js'
 const { contextBridge } = require('electron')
@@ -128,14 +128,14 @@ console.log(window.myAPI)
 // => { desktop: true }
 ```
 
-This feature is incredibly useful for two main purposes:
+この機能は、主に以下に挙げる 2 つの目的において非常に便利です。
 
-* By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
-* If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
+* [`ipcRenderer`][ipcRenderer] ヘルパーをレンダラーに公開することで、プロセス間通信 (IPC) を利用してレンダラーからメインプロセスのタスクを作動できます (その逆も可能)。
+* リモート URL でホストされている既存ウェブアプリの Electron のラッパーを開発している場合、レンダラーの `window` グローバルにカスタムプロパティを追加することで、ウェブクライアント側でデスクトップ専用のロジックを利用できます。
 
 [クイックスタートアプリ]: ./quick-start.md
 
-[Chrome Comic]: https://www.google.com/googlebooks/chrome/
+[Chrome 漫画本]: https://www.google.com/googlebooks/chrome/
 
 [browser-window]: ../api/browser-window.md
 [web-embed]: ./web-embeds.md

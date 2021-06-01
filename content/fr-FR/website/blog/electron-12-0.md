@@ -38,7 +38,7 @@ See the [12.0.0 release notes](https://github.com/electron/electron/releases/tag
 
 ## Changements de rupture
 
-* Deprecated the `remote` module. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
+* Déprécié le module `remote`. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
     * If you are currently using the `remote` module, we've written [a guide to migrating to `@electron/remote` here.](https://github.com/electron/remote#migrating-from-remote)
 * Changed the default value of `contextIsolation` to `true`. [#27949](https://github.com/electron/electron/pull/27949)
 * Changed the default value of `worldSafeExecuteJavaScript` to `true`. [#27502](https://github.com/electron/electron/pull/27502)
@@ -96,10 +96,10 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 
 ### Removed/Deprecated Changes
 
-The following APIs have been removed or are now deprecated:
+Les API suivantes ont été supprimées ou sont désormais dépréciées :
 
-* Deprecated the `remote` module. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
-* Removed deprecated `crashReporter` APIs. [#26709](https://github.com/electron/electron/pull/26709)
+* Déprécié le module `remote`. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
+* Suppression des API `crashReporter` dépréciées. [#26709](https://github.com/electron/electron/pull/26709)
 * Removed links to the Electron website from the default 'Help' menu in packaged apps. [#25831](https://github.com/electron/electron/pull/25831)
 
 ## End of Support for 9.x.y

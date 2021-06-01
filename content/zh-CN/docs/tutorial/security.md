@@ -355,11 +355,11 @@ _Electron的默认值即是建议值。_
 
 通过渲染进程创建的WebView是不开启Node.js集成的，且也不能由自身开启。 但是，WebView可以通过其`webPreferences`属性创建一个独立的渲染进程。
 
-It is a good idea to control the creation of new [`<webview>`][webview-tag] tags from the main process and to verify that their webPreferences do not disable security features.
+通过控制主进程中创建新的[`<webview>`][webview-tag]，并确认其webPreferences没有禁用安全相关特性是个不错的办法。
 
 ### 为什么？
 
-从 `<webview>` 生活在DOM中 即使是节点也可以通过运行在您的 网站上的脚本创建它们。 s 集成被禁用。
+由于 `<webview>` 存在在DOM中，因此即使Node继承被禁用，它也可以通过运行在您的 网站上的脚本创建它们。
 
 Electron 可以让开发者关闭各种控制渲染进程的安全特性。 通常情况下，开发者并不需要关闭他们中的任何一种 - 因此你不应该允许创建不同配置的[`<webview>`][webview-tag]标签
 
@@ -399,7 +399,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ### 怎么做？
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`][will-navigate] handler. 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
+如果您的应用不需要导航，您可以在 [`will-navigate`][will-navigate] 处理器中调用 `event.preventDefault()`。 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
 
 我们建议您使用 Node的 URL 解析器。 简单的字符串比较有时会出错 - `startsWith('https://example.com')`测试会让`https://example.com.attacker.com`通过.
 

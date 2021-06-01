@@ -51,7 +51,7 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 })
 ```
 
-### Supprimé: `shell.moveItemToTrash()`
+### Supprimé : `shell.moveItemToTrash()`
 
 L'API `shell.moveItemToTrash()` dépréciée a été supprimée. Utilisez le shell.trashItem() `asynchrone` à la place.
 
@@ -136,7 +136,7 @@ nativeTheme.shouldUseHighContrastColors
 
 ### Obsolète : événement WebContents `new-window`
 
-The `new-window` event of WebContents has been deprecated. Il est remplacé par [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+L'événement `new-window` de WebContents est déprécié. Il est remplacé par [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
 // Deprecated in Electron 13
@@ -200,7 +200,7 @@ Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de dét
 
 ### Default Changed: `crashReporter.start({ compress: true })`
 
-The default value of the `compress` option to `crashReporter.start` has changed from `false` to `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+La valeur par défaut de l'option `compress` en `crashReporter.start` a changé de `false` à `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
@@ -258,9 +258,9 @@ crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' }})
 La méthode `crashReporter.getCrashesDirectory` a été dépréciée. Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
-// Deprecated in Electron 10
+// Déprécié dans Electron 10
 crashReporter.getCrashesDirectory()
-// Replace with
+// Remplacé par
 app.getPath('crashDumps')
 ```
 
@@ -371,7 +371,7 @@ Si cela vous affecte, vous pouvez définir temporairement `app.allowRendererProc
 
 Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
-### Deprecated: `BrowserWindow` extension APIs
+### Déprécié : API d'extension `BrowserWindow`
 
 Les API d'extension suivantes sont obsolètes :
 
@@ -405,10 +405,10 @@ session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Deprecated in Electron 9
+// Déprécié dans Electron 9
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Remplacé par
 session.defaultSession.getAllExtensions()
 ```
 
@@ -471,14 +471,14 @@ Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 
 Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
 
-### Deprecated: `<webview>.getWebContents()`
+### Déprécié : `<webview>.getWebContents()`
 
 Cette API est implémentée à l'aide du module `remote`, qui a à la fois des performances et les implications en matière de sécurité. Par conséquent, son utilisation doit être explicite.
 
 ```js
-// Deprecated
+// Déprécié
 webview.getWebContents()
-// Replace with
+// Remplacé par
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
@@ -511,7 +511,7 @@ const { ipcRenderer } = require('electron')
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 ```
 
-### Deprecated: `webFrame.setLayoutZoomLevelLimits()`
+### Déprécié : `webFrame.setLayoutZoomLevelLimits()`
 
 Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. La fonction émettra un avertissement dans Electron 8.x, et cessent d'exister dans Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
@@ -570,18 +570,18 @@ nativeTheme.shouldUseHighContrastColors
 
 Il s’agit de l’URL spécifiée comme `disturl` dans un fichier `.npmrc` ou le flag `--dist-url` en ligne de commande lors de la compilation des modules natifs de Node.  Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Deprecated: https://atom.io/download/electron
+Déprécié : https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+Remplacer par : https://electronjs.org/headers
 
 ### API Changed: `session.clearAuthCache()` no longer accepts options
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Deprecated
+// Déprécié
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// Remplacer par
 session.clearAuthCache()
 ```
 
@@ -716,9 +716,9 @@ win.removeMenu()
 ### API Changed: `electron.screen` in the renderer process should be accessed via `remote`
 
 ```js
-// Deprecated
+// Déprécié
 require('electron').screen
-// Replace with
+// Remplacé par
 require('electron').remote.screen
 ```
 
@@ -746,7 +746,7 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-### Deprecated: `powerMonitor.querySystemIdleState` replaced with `powerMonitor.getSystemIdleState`
+### Déprécié : `powerMonitor.querySystemIdleState` remplacé par `powerMonitor.getSystemIdleState`
 
 ```js
 // Deprecated
@@ -755,7 +755,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### Deprecated: `powerMonitor.querySystemIdleTime` replaced with `powerMonitor.getSystemIdleTime`
+### Déprécié : `powerMonitor.querySystemIdleTime` remplacé par `powerMonitor.getSystemIdleTime`
 
 ```js
 // Deprecated
@@ -764,10 +764,10 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = powerMonitor.getSystemIdleTime()
 ```
 
-### Deprecated: `app.enableMixedSandbox()` is no longer needed
+### Déprécié : `app.enableMixedSandbox()` n'est plus nécessaire
 
 ```js
-// Deprecated
+// Déprécié
 app.enableMixedSandbox()
 ```
 
@@ -778,9 +778,9 @@ Le mode bac à sable mixte est désormais activé par défaut.
 Sous macOS Catalina, notre ancienne implémentation de Tray est interrompue. Le substitut natif d'Apple ne prend pas en charge la modification du comportement de mise en évidence.
 
 ```js
-// Deprecated
+// Déprécié
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// L'API sera supprimée dans la v7.0 sans remplacement.
 ```
 
 ## Changements majeurs prévus de l'API (5.0)
@@ -813,7 +813,7 @@ Les fenêtres enfants ouvertes avec l'option `nativeWindowOpen` auront toujours 
 
 Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Les schémas personnalisés doivent être enregistrés avant que l'application soit prête.
 
-### Deprecated: `webFrame.setIsolatedWorld*` replaced with `webFrame.setIsolatedWorldInfo`
+### Déprécié : `webFrame.setIsolatedWorld*` remplacé par `webFrame.setIsolatedWorldInfo`
 
 ```js
 // Deprecated

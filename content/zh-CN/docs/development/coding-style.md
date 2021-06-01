@@ -22,7 +22,7 @@
 
 ## C + + 和 Python
 
-对于 C++ 和 Python, 我们遵循 Chromium 的[编码风格](https://www.chromium.org/developers/coding-style). 你可以使用 [clang-format](clang-format.md) 来自动格式化 C++ 代码. 你可以使用 `script/cpplint.py` 来检验文件是否符合要求。
+对于 C++ 和 Python, 我们遵循 Chromium 的[编码风格](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/styleguide/styleguide.md). 你可以使用 [clang-format](clang-format.md) 来自动格式化 C++ 代码. 你可以使用 `script/cpplint.py` 来检验文件是否符合要求。
 
 我们现在使用的 Python 版本是 Python 2.7。
 

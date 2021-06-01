@@ -22,7 +22,7 @@
 
 ## C++ и Python
 
-Для C++ и Python мы следуем [стилю кодирования](https://www.chromium.org/developers/coding-style) Chromium. Для автоматического форматирования кода на C++ вы можете использовать [clang-format](clang-format.md). Есть также скрипт `script/cpplint.py`, позволяющий проверить, что все файлы соответствуют стилю.
+Для C++ и Python мы следуем [стилю кодирования](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/styleguide/styleguide.md) Chromium. Для автоматического форматирования кода на C++ вы можете использовать [clang-format](clang-format.md). Есть также скрипт `script/cpplint.py`, позволяющий проверить, что все файлы соответствуют стилю.
 
 Версией Python, которую мы используем в настоящее время, является Python 2.7.
 

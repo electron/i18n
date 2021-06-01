@@ -261,7 +261,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `window-frame` - Cadre de fenêtres.
     * `window-text` - Texte dans windows.
   * On **macOS**
-    * `alternate-selected-control-text` - Le texte sur une surface sélectionnée dans une liste ou un tableau. _deprecated_
+    * `alternate-selected-control-text` - Le texte sur une surface sélectionnée dans une liste ou un tableau. _déprécié_
     * `control-background` - L'arrière-plan d'un élément de grande interface, tel qu'un navigateur ou un tableau.
     * `control` - La surface d'un contrôle.
     * `control-text` -Le texte d'un contrôle qui n'est pas désactivé.
@@ -316,13 +316,13 @@ Returns `String` - The standard system color formatted as `#RRGGBBAA`.
 
 Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for  more details.
 
-### `systemPreferences.isInvertedColorScheme()` _Windows_ _Deprecated_
+### `systemPreferences.isInvertedColorScheme()` _Windows_ _Déprécié_
 
 Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
 
 **Déprécié :** Doit utiliser le nouveau [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
 
-### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
+### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Déprécié_
 
 Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
@@ -334,7 +334,7 @@ Returns `String` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-### `systemPreferences.getAppLevelAppearance()` _macOS_ _Deprecated_
+### `systemPreferences.getAppLevelAppearance()` _macOS_ _Déprécié_
 
 Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 

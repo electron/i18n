@@ -45,18 +45,17 @@ myNotification.onclick = () => {
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
 
-function showNotification ()
-  const notification = {
-    title: 'Basic Notification',
-    body: 'Notification from the Main process'
-  }
-  new Notification(notification).show()
+const NOTIFICATION_TITLE = 'Basic Notification'
+const NOTIFICATION_BODY = 'Notification from the Main process'
+
+function showNotification () {
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-启动 Electron 应用程序后，您应该能看到通知：
+After launching the Electron application, you should see the system notification:
 
 ![主进程中的通知](../images/notification-main.png)
 
@@ -66,7 +65,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 ### Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start Menu. 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
+* 在 Windows 10 上，您的应用程序的快捷方式必须安装到启动菜单中，包含一个 [Application User Model ID][app-user-model-id]. 这可能会在开发过程中被过度杀死，因此将 `node_modules\electron\dist\electron.exe` 添加到您的开始菜单中也做到了 的技巧。 在Explorer, 右键单击和“Pin 开始菜单”中导航到文件。 然后您需要添加 `app.setAppUserModelId(process.execPath)` 到主进程才能看到通知。
 * 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）][app-user-model-id] 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 

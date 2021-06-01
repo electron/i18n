@@ -681,13 +681,13 @@ app.on('ready', async () => {
 
 #### `ses.getStoragePath()`
 
-A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
+`String | null` 型で、このセッションのデータが保存されているディスクのファイルシステムの絶対パスを示します。  インメモリセッションの場合、これは `null` を返します。
 
 ### インスタンスプロパティ
 
 `Session` のインスタンスには以下のプロパティがあります。
 
-#### `ses.availableSpellCheckerLanguages` _Readonly_
+#### `ses.availableSpellCheckerLanguages` _読み出し専用_
 
 この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。  この配列にない言語コードを `setSpellCheckerLanguages` API に提供すると、エラーが発生します。
 
@@ -695,23 +695,23 @@ A `String | null` indicating the absolute file system path where data for this s
 
 `Boolean` 型で、組み込みスペルチェッカーが有効かどうかを示します。
 
-#### `ses.storagePath` _Readonly_
+#### `ses.storagePath` _読み出し専用_
 
-A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
+`String | null` 型で、このセッションのデータが保存されているディスクのファイルシステムの絶対パスを示します。  インメモリセッションの場合、これは `null` を返します。
 
-#### `ses.cookies` _Readonly_
+#### `ses.cookies` _読み出し専用_
 
 このセッションの [`Cookies`](cookies.md) オブジェクト。
 
-#### `ses.serviceWorkers` _Readonly_
+#### `ses.serviceWorkers` _読み出し専用_
 
 このセッションの [`ServiceWorkers`](service-workers.md) オブジェクト。
 
-#### `ses.webRequest` _Readonly_
+#### `ses.webRequest` _読み出し専用_
 
 このセッションの [`WebRequest`](web-request.md) オブジェクト。
 
-#### `ses.protocol` _Readonly_
+#### `ses.protocol` _読み出し専用_
 
 このセッションの [`Protocol`](protocol.md) オブジェクト。
 
@@ -730,7 +730,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### `ses.netLog` _Readonly_
+#### `ses.netLog` _読み出し専用_
 
 このセッションの [`NetLog`](net-log.md) オブジェクト。
 

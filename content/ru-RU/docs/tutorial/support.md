@@ -12,7 +12,6 @@
   * Sharing ideas with other Electron app developers
   * And more!
 * [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` канал на Freenode
 * `#electron` канал на [Atom Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(Русский)*
 * [`electron-br`](https://electron-br.slack.com) *(Бразильский Португальский)*
@@ -40,9 +39,9 @@
 
 ### Поддерживаемые версии
 
+* 13.x.y
 * 12.x.y
 * 11.x.y
-* 10.x.y
 
 ### Конец жизни
 

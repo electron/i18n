@@ -12,7 +12,6 @@ Si busca ayuda con la programación, respuestas a preguntas o conversaciones con
   * Compartir ideas con otros programados de aplicaciones Electron
   * Y más!
 * Categoría [`electron`](https://discuss.atom.io/c/electron) en los foros de Atom
-* Canal `#atom-shell` en Freenode
 * `#electron` canal en [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(Ruso)*
 * [`electron-br`](https://electron-br.slack.com) *(Portugués Brasileño)*
@@ -40,9 +39,9 @@ Cuando se cambia o elimina una API de una manera que rompe la funcionalidad exis
 
 ### Versiones soportadas actualmente
 
+* 13.x.y
 * 12.x.y
 * 11.x.y
-* 10.x.y
 
 ### Fin de vida
 

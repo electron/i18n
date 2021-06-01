@@ -47,6 +47,7 @@
     "simple-statistics": "^7.0.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5",
+    "unist-util-remove": "^2.1.0",
     "unist-util-visit": "^2.0.1",
     "walk-sync": "^2.0.2"
   },
@@ -68,7 +69,7 @@
     "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v13.0.0",
+  "electronLatestStableTag": "v13.0.1",
   "engines": {
     "node": ">=10"
   }

@@ -227,7 +227,9 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    preload: path.join(__dirname, 'preload.js')
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   })
 
   win.loadFile('index.html')
@@ -352,7 +354,7 @@ window.addEventListener('DOMContentLoaded', () => {
   </body>
 </html>
 ```
-```fiddle docs/fiddles/quickstart
+```fiddle docs/fiddles/quick-start
 ```
 
 To summarize all the steps we've done:

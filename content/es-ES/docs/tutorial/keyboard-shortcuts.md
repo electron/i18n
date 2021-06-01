@@ -34,7 +34,7 @@ Después de lanzar la aplicación Electron, deberías ver el menú de la aplicac
 
 ![Menú con un atajo local](../images/local-shortcut.png)
 
-If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
+Si haces click en `Help` o presionas el acelerador definido y luego abres la terminal con la que corriste tu Aplicación, veras el mensaje que fue generado después de llamar al evento del `click`: "Electron rocks!".
 
 ### Accesos directos globales
 
@@ -54,7 +54,7 @@ app.whenReady().then(() => {
 
 > NOTA: En el código anterior, la combinación `CommandOrControl` usa `Command` en macOS y `Control` en Windows/Linux.
 
-After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
+Después de lanzar la aplicación Electron, si presionas la combinación de teclas definida y luego abres la terminar desde la que corriste tu aplicación de Electron, ¡verás como Electron ama los atajos de teclado globales!
 
 ### Accesos directos en una ventana de buscador
 
@@ -96,7 +96,7 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+Después de correr tu aplicación, abres la terminal con la que corriste tu aplicación y presionas la combinación de teclas `Ctrl+I`, veras como ese atajo del teclado fue satisfactoriamente interceptado.
 
 #### Usando librerías de terceros
 

@@ -125,7 +125,7 @@ Retourne :
 
 Émis lorsque la page reçoit l’url du favicon.
 
-#### Event: 'new-window' _Deprecated_
+#### Événement : 'new-window' _Déprécié_
 
 Retourne :
 
@@ -320,7 +320,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed' _Deprecated_
+#### Événement : 'crash' _Déprécié_
 
 Retourne :
 
@@ -1092,8 +1092,8 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 > **NOTE**: Le zoom visuel est désactivé par défaut dans Electron. To re-enable it, call:
 > 
 > ```js
-contents.setVisualZoomLevelLimits(1, 3)
-```
+> contents.setVisualZoomLevelLimits(1, 3)
+> ```
 
 #### `contents.undo()`
 

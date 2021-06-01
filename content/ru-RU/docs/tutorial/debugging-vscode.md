@@ -36,15 +36,15 @@ $ code electron-quick-start
 
 #### 3. Отладка
 
-Установите некоторые точки останова в `main.js`и начните отладку в [Виде отладки](https://code.visualstudio.com/docs/editor/debugging). Вы должны иметь возможность попасть в точки останова.
+Установите некоторые точки останова в `main.js`и начните отладку в [Debug View](https://code.visualstudio.com/docs/editor/debugging). Вы должны иметь возможность попасть в точки останова.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Это заранее настроенный проект, который вы можете скачать и непосредственно отладить в VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## Отладка кода Electron
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+Если вы хотите собрать Electron из исходного кода и модифицировать его, данный раздел поможет тестировать ваши изменения.
 
-For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
+Для тех, кто не знает, где получить или как собрать его, [Electron Build Tools](https://github.com/electron/build-tools) автоматизирует и объясняет большую часть этого процесса. Если вы хотите самостоятельно настроить окружение, вы можете использовать эти [инструкции по сборке](https://www.electronjs.org/docs/development/build-instructions-gn).
 
 ### Windows (C++)
 
@@ -83,15 +83,15 @@ $ code electron-quick-start
 }
 ```
 
-**Примечание о настройке**
+**Примечания к настройке**
 
-* `cppvsdbg` требует включённого [built-in C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
-* `${workspaceFolder}` is the full path to Chromium's `src` directory.
-* `ваше исполняемое местоположение` будет одним из следующих в зависимости от нескольких элементов:
-  * `Testing`: If you are using the default settings of [Electron's Build-Tools](https://github.com/electron/build-tools) or the default instructions when [building from source](https://www.electronjs.org/docs/development/build-instructions-gn#building).
-  * `Release`: If you built a Release build rather than a Testing build.
-  * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
-* The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. В этом примере должен быть ваш путь к `electron-quick-start`.
+* `cppvsdbg` требует включённого [встроенного расширения C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+* `${workspaceFolder}` – это полный путь к каталогу `src` Chromium.
+* `your-executable-location` будет одним из следующих, в зависимости от нескольких пунктов:
+  * `Testing`: Если вы используете стандартные настройки [Electron Build Tools](https://github.com/electron/build-tools) или полностью следуете [инструкции по сборке](https://www.electronjs.org/docs/development/build-instructions-gn#building).
+  * `Release`: Если вы собирали release-версию, а не testing.
+  * `your-directory-name`: Если вы изменили его во время сборки, оно будет таким, каким вы его указали.
+* Массив `args` должен содержать строки `your-electron-project-path`, которые являются абсолютными путями до каждой директории или `main.js` файла проекта, который вы хотели бы протестировать. В данном примере в нём должен быть путь до `electron-quick-start`.
 
 #### 3. Отладка
 
