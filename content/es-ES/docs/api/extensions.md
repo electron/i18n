@@ -51,7 +51,7 @@ Los siguientes métodos de `chrome.extension` son soportados:
 
 ### `chrome.runtime`
 
-The following properties of `chrome.runtime` are supported:
+Las siguientes propiedades de `chrome.runtime` son soportadas:
 
 - `chrome.runtime.lastError`
 - `chrome.runtime.id`

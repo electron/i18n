@@ -236,7 +236,7 @@ shell.trashItem(path).then(/* ... */)
 
 ### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
 
-The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` have now been removed. Additionally, the `id` property of `BrowserView` has also been removed.
+Las APIs experimentales `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` fueron removidas. Adicionalmente, la propiedad `id` de `BrowserView` también ha sido removida.
 
 For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 

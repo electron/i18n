@@ -153,15 +153,15 @@ app.whenReady().then(() => {
 
 ### 管理窗口的生命周期
 
-Although you can now open a browser window, you'll need some additional boilerplate code to make it feel more native to each platform. Application windows behave differently on each OS, and Electron puts the responsibility on developers to implement these conventions in their app.
+虽然你现在可以打开一个浏览器窗口，但你还需要一些额外的模板代码使其看起来更像是各平台原生的。 应用程序窗口在每个OS下有不同的行为，Electron将在app中实现这些约定的责任交给开发者们。
 
-In general, you can use the `process` global's [`platform`][node-platform] attribute to run code specifically for certain operating systems.
+一般而言，你可以使用 `进程` 全局的 [`platform`][node-platform] 属性来专门为某些操作系统运行代码。
 
-#### Quit the app when all windows are closed (Windows & Linux)
+#### 关闭所有窗口时退出应用 (Windows & Linux)
 
-On Windows and Linux, exiting all windows generally quits an application entirely.
+在Windows和Linux上，关闭所有窗口通常会完全退出一个应用程序。
 
-To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
+为了实现这一点，监听 `app` 模块的 [`'window-all-closed'`][window-all-closed] 事件，并在用户不是在 macOS (`darwin`) 上运行时调用 [`app.quit()`][app-quit]
 
 ```js
 app.on('window-all-closed', function () {
@@ -169,13 +169,13 @@ app.on('window-all-closed', function () {
 })
 ```
 
-#### Open a window if none are open (macOS)
+#### 如果没有窗口打开则打开一个窗口 (macOS)
 
-Whereas Linux and Windows apps quit when they have no windows open, macOS apps generally continue running even without any windows open, and activating the app when no windows are available should open a new one.
+当 Linux 和 Windows 应用在没有窗口打开时退出了，macOS 应用通常即使在没有打开任何窗口的情况下也继续运行，并且在没有窗口可用的情况下激活应用时会打开新的窗口。
 
-To implement this feature, listen for the `app` module's [`activate`][activate] event, and call your existing `createWindow()` method if no browser windows are open.
+为了实现这一特性，监听 `app` 模块的 [`activate`][activate] 事件，并在没有浏览器窗口打开的情况下调用你仅存的 `createWindow()` 方法。
 
-Because windows cannot be created before the `ready` event, you should only listen for `activate` events after your app is initialized. Do this by attaching your event listener from within your existing `whenReady()` callback.
+因为窗口无法在 `ready` 事件前创建，你应当在你的应用初始化后仅监听 `activate` 事件。 通过在您现有的 `whenReady()` 回调中附上您的事件监听器来完成这个操作。
 
 ```js
 app.whenReady().then(() => {
@@ -187,19 +187,19 @@ app.whenReady().then(() => {
 })
 ```
 
-> Note: At this point, your window controls should be fully functional!
+> 注意：此时，您的窗口控件应功能齐全！
 
-### Access Node.js from the renderer with a preload script
+### 通过预加载脚本从渲染器访问Node.js。
 
-Now, the last thing to do is print out the version numbers for Electron and its dependencies onto your web page.
+现在，最后要做的是输出Electron的版本号和它的依赖项到你的web页面上。
 
-Accessing this information is trivial to do in the main process through Node's global `process` object. However, you can't just edit the DOM from the main process because it has no access to the renderer's `document` context. They're in entirely different processes!
+在主进程通过Node的全局 `process` 对象访问这个信息是微不足道的。 然而，你不能直接在主进程中编辑DOM，因为它无法访问渲染器 `文档` 上下文。 它们存在于完全不同的进程！
 
-> Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
+> 注意：如果您需要更深入地查看Electron进程，请参阅 [进程模型][] 文档。
 
-This is where attaching a **preload** script to your renderer comes in handy. A preload script runs before the renderer process is loaded, and has access to both renderer globals (e.g. `window` and `document`) and a Node.js environment.
+这是将 **预加载** 脚本连接到渲染器时派上用场的地方。 预加载脚本在渲染器进程加载之前加载，并有权访问两个 渲染器全局 (例如 `window` 和 `document`) 和 Node.js 环境。
 
-Create a new script named `preload.js` as such:
+创建一个名为 `preload.js` 的新脚本如下：
 
 ```js
 window.addEventListener('DOMContentLoaded', () => {
@@ -214,9 +214,9 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-The above code accesses the Node.js `process.versions` object and runs a basic `replaceText` helper function to insert the version numbers into the HTML document.
+上面的代码访问 Node.js `process.versions` 对象，并运行一个基本的 `replaceText` 辅助函数将版本号插入到 HTML 文档中。
 
-To attach this script to your renderer process, pass in the path to your preload script to the `webPreferences.preload` option in your existing `BrowserWindow` constructor.
+要将此脚本附加到渲染器流程，请在你现有的 `BrowserWindow` 构造器中将路径中的预加载脚本传入 `webPreferences.preload` 选项。
 
 ```js
 // 在文件头部引入 Node.js 中的 path 模块
@@ -237,24 +237,24 @@ function createWindow () {
 // ...
 ```
 
-There are two Node.js concepts that are used here:
+这里使用了两个Node.js概念：
 
-* The [`__dirname`][dirname] string points to the path of the currently executing script (in this case, your project's root folder).
-* The [`path.join`][path-join] API joins multiple path segments together, creating a combined path string that works across all platforms.
+* [`__dirname`][dirname] 字符串指向当前正在执行脚本的路径 (本例中，你的项目的根文件夹)。
+* [`path.join`][path-join] API 将多个路径段联结在一起，创建一个跨平台的组合路径字符串。
 
-We use a path relative to the currently executing JavaScript file so that your relative path will work in both development and packaged mode.
+我们使用一个相对当前正在执行JavaScript文件的路径，这样您的相对路径将在开发模式和打包模式中都将有效。
 
-### Bonus: Add functionality to your web contents
+### 额外：将功能添加到您的网页内容
 
-At this point, you might be wondering how to add more functionality to your application.
+此刻，您可能想知道如何为您的应用程序添加更多功能。
 
-For any interactions with your web contents, you want to add scripts to your renderer process. Because the renderer runs in a normal web environment, you can add a `<script>` tag right before your `index.html` file's closing `</body>` tag to include any arbitrary scripts you want:
+对于与您的网页内容的任何交互，您想要将脚本添加到您的渲染器进程中。 由于渲染器运行在正常的 Web 环境中，因此您可以在 `index.html` 文件关闭 `</body>` 标签之前添加一个 `<script>` 标签，来包括您想要的任意脚本：
 
 ```html
 <script src="./renderer.js"></script>
 ```
 
-The code contained in `renderer.js` can then use the same JavaScript APIs and tooling you use for typical front-end development, such as using [`webpack`][webpack] to bundle and minify your code or [React][react] to manage your user interfaces.
+`renderer.js` 中包含的代码接下来可以使用与前端开发相同的 JavaScript API 和工具，例如使用 [`webpack`][webpack] 打包并最小化您的代码或 [React][react] 来管理您的用户界面。
 
 ### Recap
 
@@ -439,7 +439,7 @@ Forge's scaffolding:
 
 [activate]: ../api/app.md#event-activate-macos
 
-[Process Model]: ./process-model.md
+[进程模型]: ./process-model.md
 [dirname]: https://nodejs.org/api/modules.html#modules_dirname
 [path-join]: https://nodejs.org/api/path.html#path_path_join_paths
 
