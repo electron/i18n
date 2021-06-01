@@ -22,7 +22,7 @@ Here are some guidelines to keep in mind as a translator:
 - Don't open pull requests to translate Electron; instead, do all translations on  [Crowdin](https://crowdin.com/project/electron).
 - Do not translate JavaScript keywords like `String`, `Event`, `Array`, `Class`, etc.
 - Do not translate Electron classes, method names, event names, etc.
-- If you find an error in the source English docs, open a pull request on the [electron/electron](https://github.com/electron/electron/tree/master/docs) repository.
+- If you find an error in the source English docs, open a pull request on the [electron/electron](https://github.com/electron/electron/tree/main/docs) repository.
 - If you've been working as a translator and want to have more influence over the approved translations in your language, let us know and we'll make you a proofreader.
 
 Electron's localization effort uses Crowdin, an awesome platform for 
@@ -43,7 +43,7 @@ more before applying. When contacting us, please include a link to your existing
 
 There are two different "glossaries" in the Electron world:
 
-### 1. [The Electron Glossary](https://github.com/electron/electron/blob/master/docs/glossary.md)
+### 1. [The Electron Glossary](https://github.com/electron/electron/blob/main/docs/glossary.md)
 
 The Electron Glossary is a **hand-written** markdown file. It defines terms 
 that are common in Electron development, like "ASAR", "IPC", "V8", etc. 
@@ -105,7 +105,7 @@ Electron's documentation and website are authored in English.
 
 The source content in this repo is collected from a few places:
 
-- Markdown files from the [electron](https://github.com/electron/electron/tree/master/docs) repo.
+- Markdown files from the [electron](https://github.com/electron/electron/tree/main/docs) repo.
 - YAML files from the [electronjs.org](https://github.com/electron/electronjs.org/blob/master/data/locale.yml) repo
 - Electron's [structured API docs](https://electronjs.org/blog/api-docs-json-schema).
 
