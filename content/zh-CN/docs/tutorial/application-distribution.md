@@ -14,7 +14,7 @@
 
 这些工具将自动进行所有的步骤，例如，打包您的应用程序，重组可执行文件，并设置正确的图标。
 
-You can check the example of how to package your app with `electron-forge` in the [Quick Start guide](quick-start.md#package-and-distribute-your-application).
+您可以查看 [快速上手指南](quick-start.md#package-and-distribute-your-application) 中如何用 `electron-forge` 打包您的应用程序的例子。
 
 ## 手动发布
 
