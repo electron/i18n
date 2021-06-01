@@ -13,7 +13,7 @@
 
 ## 示例
 
-Starting with an HTML file `index.html`, this example will demonstrate how the `navigator.onLine` API can be used to build a connection status indicator.
+从HTML文件 `index.html` 开始，这个例子会演示 `navigator.onLine` API 是如何被用来构建一个连接状态指示器的。
 
 ```html title="index.html"
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ Starting with an HTML file `index.html`, this example will demonstrate how the `
 </html>
 ```
 
-In order to mutate the DOM, create a `renderer.js` file that adds event listeners to the `'online'` and `'offline'` `window` events. The event handler sets the content of the `<strong id='status'>` element depending on the result of `navigator.onLine`.
+为了操作DOM，创建一个 `renderer.js` 文件，添加事件监听器到 `'online'` 和 `'offline'` `窗口` 中. 事件处理器设置基于 `navigator.onLine` 的结果到 `<strong id='status'>` element 的内容中。
 
 ```js title='renderer.js'
 function updateOnlineStatus () {
@@ -43,7 +43,7 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 ```
 
-Finally, create a `main.js` file for main process that creates the window.
+最后，创建一个 `main.js` 文件用来给主进程创建窗口。
 
 ```js title='main.js'
 const { app, BrowserWindow } = require('electron')
@@ -76,6 +76,6 @@ app.on('window-all-closed', () => {
 
 启动 Electron 应用程序后，您应该能看到通知：
 
-![Connection status](../images/connection-status.png)
+![连接状态](../images/connection-status.png)
 
-> Note: If you need to communicate the connection status to the main process, use the [IPC renderer](../api/ipc-renderer.md) API.
+> 注意：如果你需要将连接状态发送给主流程，请使用 [IPC 渲染器](../api/ipc-renderer.md) API。
