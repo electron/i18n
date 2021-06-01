@@ -153,15 +153,15 @@ app.whenReady().then(() => {
 
 ### 管理窗口的生命周期
 
-Although you can now open a browser window, you'll need some additional boilerplate code to make it feel more native to each platform. Application windows behave differently on each OS, and Electron puts the responsibility on developers to implement these conventions in their app.
+虽然你现在可以打开一个浏览器窗口，但你还需要一些额外的模板代码使其看起来更像是各平台原生的。 应用程序窗口在每个OS下有不同的行为，Electron将在app中实现这些约定的责任交给开发者们。
 
-In general, you can use the `process` global's [`platform`][node-platform] attribute to run code specifically for certain operating systems.
+一般而言，你可以使用 `进程` 全局的 [`platform`][node-platform] 属性来专门为某些操作系统运行代码。
 
-#### Quit the app when all windows are closed (Windows & Linux)
+#### 关闭所有窗口时退出应用 (Windows & Linux)
 
-On Windows and Linux, exiting all windows generally quits an application entirely.
+在Windows和Linux上，关闭所有窗口通常会完全退出一个应用程序。
 
-To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
+为了实现这一点，监听 `app` 模块的 [`'window-all-closed'`][window-all-closed] 事件，并在用户不是在 macOS (`darwin`) 上运行时调用 [`app.quit()`][app-quit]
 
 ```js
 app.on('window-all-closed', function () {
@@ -169,7 +169,7 @@ app.on('window-all-closed', function () {
 })
 ```
 
-#### Open a window if none are open (macOS)
+#### 如果没有窗口打开则打开一个窗口 (macOS)
 
 Whereas Linux and Windows apps quit when they have no windows open, macOS apps generally continue running even without any windows open, and activating the app when no windows are available should open a new one.
 
