@@ -82,9 +82,9 @@ After launching the Electron application, if you press the defined key combinati
 
 ```javascript fiddle='docs/fiddles/features/keyboard-shortcuts/web-apis|focus=renderer.js'
 function handleKeyPress(event) {
-  // You can put code here to handle the keypress.
+  // 你可以把处理按键按下事件的代码放在这里。
   document.getElementById("last-keypress").innerText = event.key;
-  console.log(`You pressed ${event.key}`);
+  console.log(`你按下了 ${event.key}`);
 }
 
 window.addEventListener('keyup', handleKeyPress, true);
@@ -93,7 +93,7 @@ window.addEventListener('keyup', handleKeyPress, true);
 
 
 
-> Note:  the third parameter `true` indicates that the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+> 注意：第三个参数 `true` 表明了当前监听器会持续在其它监听器之前接收按键按下事件，因此无法在其它监听器中调用 `stopPropagation()`。
 
 
 
@@ -122,7 +122,7 @@ app.whenReady().then(() => {
 ```
 
 
-After launching the Electron application, if you open the terminal that you ran your Electron application from and press `Ctrl+I` key combination, you will see that this key combination was successfully intercepted.
+在运行Electron应用程序之后，如果你打开你运行Electron应用的终端并按下 `Ctrl+I` 组合键，你会发现刚才按下的组合键被成功拦截了。
 
 
 
