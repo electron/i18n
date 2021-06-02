@@ -214,15 +214,15 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-Le code ci-dessus accède au processus `process.versions` et exécute une fonction d'aide de `replaceText` de base pour insérer les numéros de version dans le document HTML.
+Le code ci-dessus accède à l'objet `process.versions` de Node.js et exécute une fonction d'aide de `replaceText` de base pour insérer les numéros de version dans le document HTML.
 
 To attach this script to your renderer process, pass in the path to your preload script to the `webPreferences.preload` option in your existing `BrowserWindow` constructor.
 
 ```js
-// include the Node.js 'path' module at the top of your file
+// inclus le module 'path' tout en haut du fichier
 const path = require('path')
 
-// modify your existing createWindow() function
+// modifier votre fonction createWindow()
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
