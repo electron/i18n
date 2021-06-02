@@ -195,7 +195,7 @@ Maintenant, la dernière chose à faire est d'afficher les numéros de version p
 
 L’accès à ces informations est trivial à faire dans le main process via l’objet global `process` de Node. Cependant, vous ne pouvez pas simplement modifier le DOM à partir du processus principal car il n'a pas accès au contexte du `document` du moteur de rendu. Ils sont dans des processus entièrement différents!
 
-> Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
+> Remarque : Si vous avez besoin d’un examen plus approfondi des processus Electron, consultez le document [Process Model][].
 
 C'est là que l'attachement d'un script **preload** à votre moteur de rendu est pratique. Un script de préchargement s'exécute avant que le processus de rendu soit chargé, et a accès aux deux renderer globals (e. `window` et `document`) et environnement Node.js.
 
@@ -216,7 +216,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 Le code ci-dessus accède à l'objet `process.versions` de Node.js et exécute une fonction d'aide de `replaceText` de base pour insérer les numéros de version dans le document HTML.
 
-To attach this script to your renderer process, pass in the path to your preload script to the `webPreferences.preload` option in your existing `BrowserWindow` constructor.
+Pour attacher ce script à votre processus de rendu, passez le chemin d’accès à votre script de préchargement à l’option `webPreferences.preload` dans votre constructeur `BrowserWindow` existant.
 
 ```js
 // inclus le module 'path' tout en haut du fichier
@@ -237,18 +237,18 @@ function createWindow () {
 // ...
 ```
 
-There are two Node.js concepts that are used here:
+Il y a deux concepts Node.js qui sont utilisés ici :
 
-* The [`__dirname`][dirname] string points to the path of the currently executing script (in this case, your project's root folder).
-* The [`path.join`][path-join] API joins multiple path segments together, creating a combined path string that works across all platforms.
+* La chaîne de caractères [`__dirname`][dirname] pointe vers le chemin du script en cours d'exécution (dans ce cas, le dossier racine de votre projet).
+* L'API [`path.join`][path-join] relie plusieurs segments de chemin ensemble, créant un chemin sous forme d'une chaîne de caractères combinée qui fonctionne sur toutes les plateformes.
 
-We use a path relative to the currently executing JavaScript file so that your relative path will work in both development and packaged mode.
+Nous utilisons un chemin relatif au fichier JavaScript en cours d'exécution afin que votre chemin relatif fonctionne en mode développement et en mode packaged.
 
-### Bonus: Add functionality to your web contents
+### Bonus : Ajoutez des fonctionnalités à vos contenus web
 
-At this point, you might be wondering how to add more functionality to your application.
+À ce stade, vous pourriez vous demander comment ajouter plus de fonctionnalités à votre application.
 
-For any interactions with your web contents, you want to add scripts to your renderer process. Because the renderer runs in a normal web environment, you can add a `<script>` tag right before your `index.html` file's closing `</body>` tag to include any arbitrary scripts you want:
+Pour toute interaction avec votre contenu web, vous souhaitez ajouter des scripts à votre processus de rendu. Because the renderer runs in a normal web environment, you can add a `<script>` tag right before your `index.html` file's closing `</body>` tag to include any arbitrary scripts you want:
 
 ```html
 <script src="./renderer.js"></script>
