@@ -193,13 +193,13 @@ app.whenReady().then(() => {
 
 Maintenant, la dernière chose à faire est d'afficher les numéros de version pour Electron et ses dépendances sur votre page web.
 
-L’accès à ces informations est trivial à faire dans le main process via l’objet global `process` de Node. However, you can't just edit the DOM from the main process because it has no access to the renderer's `document` context. They're in entirely different processes!
+L’accès à ces informations est trivial à faire dans le main process via l’objet global `process` de Node. Cependant, vous ne pouvez pas simplement modifier le DOM à partir du processus principal car il n'a pas accès au contexte du `document` du moteur de rendu. Ils sont dans des processus entièrement différents!
 
 > Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
 
-This is where attaching a **preload** script to your renderer comes in handy. A preload script runs before the renderer process is loaded, and has access to both renderer globals (e.g. `window` and `document`) and a Node.js environment.
+C'est là que l'attachement d'un script **preload** à votre moteur de rendu est pratique. Un script de préchargement s'exécute avant que le processus de rendu soit chargé, et a accès aux deux renderer globals (e. `window` et `document`) et environnement Node.js.
 
-Create a new script named `preload.js` as such:
+Créer un nouveau script nommé `preload.js` :
 
 ```js
 window.addEventListener('DOMContentLoaded', () => {
@@ -208,13 +208,13 @@ window.addEventListener('DOMContentLoaded', () => {
     if (element) element.innerText = text
   }
 
-  for (const dependency of ['chrome', 'node', 'electron']) {
+  for (const type of ['chrome', 'node', 'electron']) {
     replaceText(`${dependency}-version`, process.versions[dependency])
   }
 })
 ```
 
-The above code accesses the Node.js `process.versions` object and runs a basic `replaceText` helper function to insert the version numbers into the HTML document.
+Le code ci-dessus accède au processus `process.versions` et exécute une fonction d'aide de `replaceText` de base pour insérer les numéros de version dans le document HTML.
 
 To attach this script to your renderer process, pass in the path to your preload script to the `webPreferences.preload` option in your existing `BrowserWindow` constructor.
 
@@ -324,7 +324,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (element) element.innerText = text
   }
 
-  for (const dependency of ['chrome', 'node', 'electron']) {
+  for (const type of ['chrome', 'node', 'electron']) {
     replaceText(`${dependency}-version`, process.versions[dependency])
   }
 })
