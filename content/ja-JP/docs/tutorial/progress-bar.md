@@ -22,13 +22,13 @@ Linux では、Unity のグラフィカルインターフェイスにも同様�
 
 [`setProgressBar()`][setprogressbar] メソッドは、`BrowserWindow` のインスタンスから利用できます。 進捗状況を示すには、`0` から `1` の間の数でこのメソッドを呼び出します。 例えば、現在完了までの進捗率が 63% に達している長期のタスクがある場合、`setProgressBar(0.63)` のように呼び出します。
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar. Setting it to a value greater than `1` will indicate an indeterminate progress bar in Windows or clamp to 100% in other operating systems. An indeterminate progress bar remains active but does not show an actual percentage, and is used for situations when you do not know how long an operation will take to complete.
+引数を負の値 (例: `-1`) にすると、プログレスバーが取り除かれます。 `1` より大きい値にすると、Windows では不定のプログレスバーが表示され、他のオペレーティングシステムでは 100% に切り詰められます。 不定のプログレスバーはアクティブな状態を維持しますが、実際のパーセンテージは表示されません。これは、操作が完了するまでの時間がわからない場合に使用します。
 
 [より多くのオプションやモードについては API ドキュメント][setprogressbar] を参照してください。
 
 ## サンプル
 
-In this example, we add a progress bar to the main window that increments over time using Node.js timers.
+この例では、Node.js のタイマーを使って時間経過で増えるプログレスバーをメインウインドウに追加しています。
 
 ```javascript fiddle='docs/fiddles/features/progress-bar'
 const { app, BrowserWindow } = require('electron')
@@ -48,11 +48,11 @@ function createWindow () {
 
   let c = 0
   progressInterval = setInterval(() => {
-    // update progress bar to next value
-    // values between 0 and 1 will show progress, >1 will show indeterminate or stick at 100%
+    // プログレスバーを次の値へと更新する
+    // 0 から 1 の値は進捗状況を示し、1 より大きい値は不定または 100% で留まります。
     win.setProgressBar(c)
 
-    // increment or reset progress bar
+    // プログレスバーの増加またはリセット
     if (c < 2) c += INCREMENT
     else c = 0
   }, INTERVAL_DELAY)
@@ -60,7 +60,7 @@ function createWindow () {
 
 app.whenReady().then(createWindow)
 
-// before the app is terminated, clear both timers
+// アプリが終了される前に、両方のタイマーを消去
 app.on('before-quit', () => {
   clearInterval(progressInterval)
 })
@@ -78,7 +78,7 @@ app.on('activate', () => {
 })
 ```
 
-After launching the Electron application, the dock (macOS) or taskbar (Windows, Unity) should show a progress bar that starts at zero and progresses through 100% to completion. It should then show indeterminate (Windows) or pin to 100% (other operating systems) briefly and then loop.
+Electron アプリケーションを起動すると、Dock (macOS) またはタスクバー (Windows、Unity) にプログレスバーが表示され、0 から始まり 100% で完了します。 その後、不定の表示 (Windows) や 100% で留まった表示 (他のオペレーティングシステム) が短時間表示され、ループします。
 
 ![macOS Dock プログレスバー](../images/dock-progress-bar.png)
 
