@@ -10,8 +10,8 @@ Electron is a framework for building desktop applications using JavaScript, HTML
 
 These docs operate under the assumption that the reader is familiar with both Node.js and general web development. If you need to get more comfortable with either of these areas, we recommend the following resources:
 
-* [Getting started with the Web (MDN)][mdn-guide]
-* [Introduction to Node.js][node-guide]
+* [Comenzando con la Web (MDN)][mdn-guide]
+* [Introducción a Node.js][node-guide]
 
 Moreover, you'll have a better time understanding how Electron works if you get acquainted with Chromium's process model. You can get a brief overview of Chrome architecture with the [Chrome comic][comic], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
 

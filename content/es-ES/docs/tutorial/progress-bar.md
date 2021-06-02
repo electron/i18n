@@ -22,22 +22,63 @@ En Linux, la interfaz gráfica Unity además tiene una característica similar q
 
 Los tres casos son cubiertos por la misma API - el método [`setProgressBar()`][setprogressbar] disponible en una instancia de `BrowserWindow`. Para indicar tu progreso, invoca este método con un número entre `0` y `1`. Por ejemplo, si tiene una tarea de larga ejecución que actualmente esta al 63% para completar, debería llamarlo como `setProgressBar(0.63)`.
 
-Estableciendo el parámetro a valores negativos (p.ej. `-1`) eliminara el progress bar, mientras que estableciendo valores mas grandes que `1` (p.ej. `2`) cambiará el progress bar al modo indeterminado (Solo Windows -- de lo contrario se ajustará al 100%). En este modo un progress bar permanece activo pero no muestra un porcentaje real. Use este modo para situaciones cuando no sabe cuanto tiempo tomará una tarea en completarse.
+Setting the parameter to negative values (e.g. `-1`) will remove the progress bar. Setting it to a value greater than `1` will indicate an indeterminate progress bar in Windows or clamp to 100% in other operating systems. An indeterminate progress bar remains active but does not show an actual percentage, and is used for situations when you do not know how long an operation will take to complete.
 
 Ver el [API documentation for more options and modes][setprogressbar].
 
 ## Ejemplo
 
-Comenzando con una aplicación funcional de la [Guía de inicio rápido](quick-start.md), agregue las siguientes líneas al archivo `main.js`:
+In this example, we add a progress bar to the main window that increments over time using Node.js timers.
 
 ```javascript fiddle='docs/fiddles/features/progress-bar'
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { app, BrowserWindow } = require('electron')
 
-win.setProgressBar(0.5)
+let progressInterval
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+
+  win.loadFile('index.html')
+
+  const INCREMENT = 0.03
+  const INTERVAL_DELAY = 100 // ms
+
+  let c = 0
+  progressInterval = setInterval(() => {
+    // update progress bar to next value
+    // values between 0 and 1 will show progress, >1 will show indeterminate or stick at 100%
+    win.setProgressBar(c)
+
+    // increment or reset progress bar
+    if (c < 2) c += INCREMENT
+    else c = 0
+  }, INTERVAL_DELAY)
+}
+
+app.whenReady().then(createWindow)
+
+// before the app is terminated, clear both timers
+app.on('before-quit', () => {
+  clearInterval(progressInterval)
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
 ```
 
-Después de lanzar la aplicación Electron, debería ver la barra en el dock (macOS) o taskbar (Windows, Unity), indicando el porcentaje de progreso que acaba de definir.
+After launching the Electron application, the dock (macOS) or taskbar (Windows, Unity) should show a progress bar that starts at zero and progresses through 100% to completion. It should then show indeterminate (Windows) or pin to 100% (other operating systems) briefly and then loop.
 
 ![macOS dock progress bar](../images/dock-progress-bar.png)
 
