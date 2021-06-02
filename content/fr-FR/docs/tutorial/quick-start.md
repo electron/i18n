@@ -155,13 +155,13 @@ app.whenReady().then(() => {
 
 Bien que vous puissiez maintenant ouvrir une fenêtre de navigateur, vous aurez besoin de code boilerplate supplémentaire pour le rendre plus natif de chaque plate-forme. Les fenêtres d’application se comportent différemment sur chaque système d’exploitation et Electron met la responsabilité sur les développeurs d’implémenter ces conventions dans leur application.
 
-In general, you can use the `process` global's [`platform`][node-platform] attribute to run code specifically for certain operating systems.
+En général, vous pouvez utiliser l'attribut [`platform`][node-platform] de la variable globale `process` pour exécuter du code spécifiquement pour certains systèmes d’exploitation.
 
-#### Quit the app when all windows are closed (Windows & Linux)
+#### Quitter l'application lorsque toutes les fenêtres sont fermées (Windows & Linux)
 
-On Windows and Linux, exiting all windows generally quits an application entirely.
+Sur Windows et Linux, quitter toutes les fenêtres quitte généralement une application entièrement.
 
-To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
+Pour implémenter cela, écoutez l’événement [`'window-all-closed'`][window-all-closed] du module `app` et appelez [`app.quit()`][app-quit] si l’utilisateur n’est pas sur macOS (`darwin`).
 
 ```js
 app.on('window-all-closed', function () {
@@ -169,13 +169,13 @@ app.on('window-all-closed', function () {
 })
 ```
 
-#### Open a window if none are open (macOS)
+#### Ouvrir une fenêtre si aucune n’est ouverte (macOS)
 
-Whereas Linux and Windows apps quit when they have no windows open, macOS apps generally continue running even without any windows open, and activating the app when no windows are available should open a new one.
+Alors que les applications Linux et Windows se ferment lorsqu’elles n’ont pas de fenêtres ouvertes, les applications macOS continuent généralement de s’exécuter même sans aucune fenêtre ouverte et activer l'application lorsqu’aucune fenêtre n’est disponible devrait en ouvrir une nouvelle.
 
-To implement this feature, listen for the `app` module's [`activate`][activate] event, and call your existing `createWindow()` method if no browser windows are open.
+Pour implémenter cette fonctionnalité, écoutez l'événement [`activate`][activate] du module `app` et appelez votre méthode existante `createWindow()` si aucune fenêtre de navigateur n'est ouverte.
 
-Because windows cannot be created before the `ready` event, you should only listen for `activate` events after your app is initialized. Do this by attaching your event listener from within your existing `whenReady()` callback.
+Étant donné que les fenêtres ne peuvent pas être créées avant l’événement `ready` , vous ne devriez écouter l'événement `activate` qu’après l’initialisation de votre application. Pour ce faire, attachez votre event listener à partir de votre callback `whenReady()` existant.
 
 ```js
 app.whenReady().then(() => {
@@ -187,13 +187,13 @@ app.whenReady().then(() => {
 })
 ```
 
-> Note: At this point, your window controls should be fully functional!
+> Remarque: À ce stade, vos contrôles de fenêtre doivent être entièrement fonctionnels!
 
-### Access Node.js from the renderer with a preload script
+### Accéder à Node.js depuis le moteur de rendu avec un script de préchargement
 
-Now, the last thing to do is print out the version numbers for Electron and its dependencies onto your web page.
+Maintenant, la dernière chose à faire est d'afficher les numéros de version pour Electron et ses dépendances sur votre page web.
 
-Accessing this information is trivial to do in the main process through Node's global `process` object. However, you can't just edit the DOM from the main process because it has no access to the renderer's `document` context. They're in entirely different processes!
+L’accès à ces informations est trivial à faire dans le main process via l’objet global `process` de Node. However, you can't just edit the DOM from the main process because it has no access to the renderer's `document` context. They're in entirely different processes!
 
 > Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
 
