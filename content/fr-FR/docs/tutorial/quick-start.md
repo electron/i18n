@@ -268,12 +268,12 @@ The full code is available below:
 ```js
 // main.js
 
-// Modules to control application life and create native browser window
+// Modules pour controler la vie de l'application et créer une fenêtre de navigation native
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 function createWindow () {
-  // Create the browser window.
+  // Créer la fenêtre de navigation.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -282,10 +282,10 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // et charger l'index.html de l'application.
   mainWindow.loadFile('index.html')
 
-  // Open the DevTools.
+  // Ouvrir les outils de développement.
   // mainWindow.webContents.openDevTools()
 }
 
