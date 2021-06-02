@@ -23,7 +23,7 @@ describe('i18n.docs', () => {
   })
 
   it('sets githubUrl on every doc', () => {
-    const base = 'https://github.com/electron/electron/tree/master'
+    const base = 'https://github.com/electron/electron/tree/main'
     const docs = i18n.docs['en-US']
     docs['/docs/api/accelerator'].githubUrl.should.equal(
       `${base}/docs/api/accelerator.md`

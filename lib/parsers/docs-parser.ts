@@ -24,8 +24,9 @@ export async function parseFile(file: Entry, ids: Record<string, string>) {
   const href = `/docs/${category}/${slug}`.replace('//', '/')
 
   // build a reference to the source
-  const githubUrl = `https://github.com/electron/electron/tree/master${href}.md`
+  const githubUrl = `https://github.com/electron/electron/tree/main${href}.md`
 
+  // CrowdIn has this branch set to `master`
   const crowdinFileId = ids[`[electron.i18n] master/content/en-US${href}.md`]
 
   // convenience booleans for use in templates
