@@ -1,6 +1,6 @@
-# Opening windows from the renderer
+# 从渲染进程打开窗口
 
-There are several ways to control how windows are created from trusted or untrusted content within a renderer. Windows can be created from the renderer in two ways:
+There are several ways to control how windows are created from trusted or untrusted content within a renderer. 可以通过两种方式从渲染进程创建窗口：
 
 * clicking on links or submitting forms adorned with `target=_blank`
 * JavaScript calling `window.open()`
