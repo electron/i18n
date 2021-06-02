@@ -22,22 +22,63 @@
 
 这三种环境中的进度条功能由同一个API实现：`BrowserWindow`实例下的[`setProgressBar()`][setprogressbar]方法。 此方法以介于 `0` 和 `1` 之间的小数表示进度。 例如，如果有一个耗时很长的任务，它当前的进度是63%，那么你可以用`setProgressBar(0.63)`来显示这一进度。
 
-将参数设置为负值（如`-1`）来移除进度条。而将参数设定为`1`以上的值（如`2`）将会使进度条处于“不确定”状态（仅适用于Windows，其他平台会直接显示为100%） 在此模式下，进度条保持活动，但并不显示实际百分比。 当不知道一项操作的具体进度时，这一模式将是较为实用的。
+Setting the parameter to negative values (e.g. `-1`) will remove the progress bar. Setting it to a value greater than `1` will indicate an indeterminate progress bar in Windows or clamp to 100% in other operating systems. An indeterminate progress bar remains active but does not show an actual percentage, and is used for situations when you do not know how long an operation will take to complete.
 
 参见 [API documentation for more options and modes][setprogressbar]。
 
 ## 示例
 
-从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
+In this example, we add a progress bar to the main window that increments over time using Node.js timers.
 
 ```javascript fiddle='docs/fiddles/features/progress-bar'
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { app, BrowserWindow } = require('electron')
 
-win.setProgressBar(0.5)
+let progressInterval
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+
+  win.loadFile('index.html')
+
+  const INCREMENT = 0.03
+  const INTERVAL_DELAY = 100 // ms
+
+  let c = 0
+  progressInterval = setInterval(() => {
+    // update progress bar to next value
+    // values between 0 and 1 will show progress, >1 will show indeterminate or stick at 100%
+    win.setProgressBar(c)
+
+    // increment or reset progress bar
+    if (c < 2) c += INCREMENT
+    else c = 0
+  }, INTERVAL_DELAY)
+}
+
+app.whenReady().then(createWindow)
+
+// before the app is terminated, clear both timers
+app.on('before-quit', () => {
+  clearInterval(progressInterval)
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
 ```
 
-启动 Electron 应用程序后，您应该在 dock (macOS) 或任务栏 (Windows, Unity) 中看到此栏，它显示刚刚定义的进度百分比。
+After launching the Electron application, the dock (macOS) or taskbar (Windows, Unity) should show a progress bar that starts at zero and progresses through 100% to completion. It should then show indeterminate (Windows) or pin to 100% (other operating systems) briefly and then loop.
 
 ![macOS dock 进度条](../images/dock-progress-bar.png)
 

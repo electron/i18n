@@ -22,22 +22,63 @@ Linux では、Unity のグラフィカルインターフェイスにも同様�
 
 [`setProgressBar()`][setprogressbar] メソッドは、`BrowserWindow` のインスタンスから利用できます。 進捗状況を示すには、`0` から `1` の間の数でこのメソッドを呼び出します。 例えば、現在完了までの進捗率が 63% に達している長期のタスクがある場合、`setProgressBar(0.63)` のように呼び出します。
 
-パラメータを負の値 (例えば `-1`) に設定するとプログレスバーは削除されますが、`1`より大きい値 (例えば `2`) に設定するとプログレスバーは不定モード (Windows のみ -- これ以外は 100% に切り捨てられます) に切り替わります。 このモードではプログレスバーはアクティブなままですが、実際のパーセンテージが表示されません。 このモードは、操作完了までの時間がわからない場合に使用します。
+引数を負の値 (例: `-1`) にすると、プログレスバーが取り除かれます。 `1` より大きい値にすると、Windows では不定のプログレスバーが表示され、他のオペレーティングシステムでは 100% に切り詰められます。 不定のプログレスバーはアクティブな状態を維持しますが、実際のパーセンテージは表示されません。これは、操作が完了するまでの時間がわからない場合に使用します。
 
 [より多くのオプションやモードについては API ドキュメント][setprogressbar] を参照してください。
 
 ## サンプル
 
-[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
+この例では、Node.js のタイマーを使って時間経過で増えるプログレスバーをメインウインドウに追加しています。
 
 ```javascript fiddle='docs/fiddles/features/progress-bar'
-const { BrowserWindow } = require('electron')
-const win = new BrowserWindow()
+const { app, BrowserWindow } = require('electron')
 
-win.setProgressBar(0.5)
+let progressInterval
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+
+  win.loadFile('index.html')
+
+  const INCREMENT = 0.03
+  const INTERVAL_DELAY = 100 // ms
+
+  let c = 0
+  progressInterval = setInterval(() => {
+    // プログレスバーを次の値へと更新する
+    // 0 から 1 の値は進捗状況を示し、1 より大きい値は不定または 100% で留まります。
+    win.setProgressBar(c)
+
+    // プログレスバーの増加またはリセット
+    if (c < 2) c += INCREMENT
+    else c = 0
+  }, INTERVAL_DELAY)
+}
+
+app.whenReady().then(createWindow)
+
+// アプリが終了される前に、両方のタイマーを消去
+app.on('before-quit', () => {
+  clearInterval(progressInterval)
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
 ```
 
-Electron アプリケーションを起動すると、Dock (macOS) またはタスクバー (Windows、Unity) にバーが表示され、設定した進捗率が表示されます。
+Electron アプリケーションを起動すると、Dock (macOS) またはタスクバー (Windows、Unity) にプログレスバーが表示され、0 から始まり 100% で完了します。 その後、不定の表示 (Windows) や 100% で留まった表示 (他のオペレーティングシステム) が短時間表示され、ループします。
 
 ![macOS Dock プログレスバー](../images/dock-progress-bar.png)
 
