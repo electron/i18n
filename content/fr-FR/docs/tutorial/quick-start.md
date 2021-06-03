@@ -23,7 +23,7 @@ Les commandes devraient imprimer respectivement les versions de Node.js et npm.
 
 ## Créer votre application
 
-### Échafaudage du projet
+### Initialisation du projet
 
 Les applications Electron suivent la même structure générale que les autres projets Node.js. Commencez par créer un dossier et initialiser un package npm.
 
@@ -80,7 +80,7 @@ npm start
 
 Le point d’entrée de toute application Electron est son script `main`. Ce script contrôle le **processus principal**, qui s'exécute dans un environnement Node.js et est responsable de contrôler le cycle de vie de votre application, d'afficher les interfaces natives, d'effectuer des opérations privilégiées et de gérer les processus de rendu (plus d'information à ce sujet par la suite).
 
-Pendant l’exécution, Electron va chercher ce script dans le champ [`main`][package-json-main] du fichier de configuration `package.json` de l’application que vous devriez avoir configuré lors de l’étape [Échafaudage du projet](#scaffold-the-project).
+Pendant l’exécution, Electron va chercher ce script dans le champ [`main`][package-json-main] du fichier de configuration `package.json` de l’application que vous devriez avoir configuré lors de l’étape [Initialisation du projet](#scaffold-the-project).
 
 Pour initialiser le script `main`, créez un fichier vide nommé `main.js` dans le dossier racine de votre projet.
 
@@ -169,13 +169,13 @@ app.on('window-all-closed', function () {
 })
 ```
 
-#### Ouvrir une fenêtre si aucune n’est ouverte (macOS)
+#### Ouvrir une fenêtre si aucune n'est ouverte (macOS)
 
-Alors que les applications Linux et Windows se ferment lorsqu’elles n’ont pas de fenêtres ouvertes, les applications macOS continuent généralement de s’exécuter même sans aucune fenêtre ouverte et activer l'application lorsqu’aucune fenêtre n’est disponible devrait en ouvrir une nouvelle.
+Alors que les applications Linux et Windows se ferment lorsqu'elles n'ont pas de fenêtres ouvertes, les applications macOS continuent généralement de s'exécuter même sans aucune fenêtre ouverte et activer l'application lorsqu'aucune fenêtre n'est disponible devrait en ouvrir une nouvelle.
 
 Pour implémenter cette fonctionnalité, écoutez l'événement [`activate`][activate] du module `app` et appelez votre méthode existante `createWindow()` si aucune fenêtre de navigateur n'est ouverte.
 
-Étant donné que les fenêtres ne peuvent pas être créées avant l’événement `ready` , vous ne devriez écouter l'événement `activate` qu’après l’initialisation de votre application. Pour ce faire, attachez votre event listener à partir de votre callback `whenReady()` existant.
+Étant donné que les fenêtres ne peuvent pas être créées avant l'événement `ready` , vous ne devriez écouter l'événement `activate` qu'après l'initialisation de votre application. Pour ce faire, attachez votre event listener à partir de votre callback `whenReady()` existant.
 
 ```js
 app.whenReady().then(() => {
