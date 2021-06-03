@@ -76,7 +76,7 @@ A `String` representing the visible URL. Writing to this attribute initiates top
 
 Assigning `src` its own value will reload the current page.
 
-` src ` 属性还可以接受数据 url, 如 ` data:text/plain, Hellp,world! `。
+` src ` 属性还可以接受数据 URL, 如 ` data:text/plain, Hello, world! `。
 
 ### `nodeintegration`
 

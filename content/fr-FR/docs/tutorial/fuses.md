@@ -51,4 +51,4 @@ Quelque part dans le binaire Electron, il y a une séquence d'octets qui ressemb
 
 Pour actionner un fuse, vous devez trouver sa position dans le fuse wire et le mettre à "0" ou "1" selon l'état que vous désirez.
 
-Vous pouvez voir le schéma actuel [ici](https://github.com/electron/electron/blob/master/build/fuses/fuses.json).
+Vous pouvez voir le schéma actuel [ici](https://github.com/electron/electron/blob/master/build/fuses/fuses.json5).

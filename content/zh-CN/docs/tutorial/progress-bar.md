@@ -22,13 +22,13 @@
 
 这三种环境中的进度条功能由同一个API实现：`BrowserWindow`实例下的[`setProgressBar()`][setprogressbar]方法。 此方法以介于 `0` 和 `1` 之间的小数表示进度。 例如，如果有一个耗时很长的任务，它当前的进度是63%，那么你可以用`setProgressBar(0.63)`来显示这一进度。
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar. Setting it to a value greater than `1` will indicate an indeterminate progress bar in Windows or clamp to 100% in other operating systems. An indeterminate progress bar remains active but does not show an actual percentage, and is used for situations when you do not know how long an operation will take to complete.
+将参数设置为负值 (例如， `-1`) 将删除progress bar。 设定值大于 `1` 在 Windows 中将表示一个不确定的进度条 ，或在其他操作系统中显示为 100%。 一个不确定的progress bar 仍然处于活动状态，但不显示实际百分比， 并且用于当 您不知道一个操作需要多长时间才能完成的情况。
 
 参见 [API documentation for more options and modes][setprogressbar]。
 
 ## 示例
 
-In this example, we add a progress bar to the main window that increments over time using Node.js timers.
+在此示例中，我们将进度栏添加到main window中，该窗口会使用node.js的计时器实现随着时间的推移而进度增长。
 
 ```javascript fiddle='docs/fiddles/features/progress-bar'
 const { app, BrowserWindow } = require('electron')
@@ -78,7 +78,7 @@ app.on('activate', () => {
 })
 ```
 
-After launching the Electron application, the dock (macOS) or taskbar (Windows, Unity) should show a progress bar that starts at zero and progresses through 100% to completion. It should then show indeterminate (Windows) or pin to 100% (other operating systems) briefly and then loop.
+启动 Electron 应用程序后，Dock (macOS) 或 taskbar (Windows, Unity) 应该显示一个进度条, 从零开始, 到100%到完成。 应该显示不确定的 (Windows) 或短暂的固定到100% (其他操作系统) 并然后循环。
 
 ![macOS dock 进度条](../images/dock-progress-bar.png)
 
