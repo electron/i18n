@@ -40,4 +40,4 @@ Contributors are encouraged to solve issues collaboratively and help one another
 
 ## Résolution d'un rapport de bug
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+La plupart des issues sont résolus en ouvrant une pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
