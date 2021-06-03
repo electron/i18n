@@ -51,4 +51,4 @@ Electron バイナリのどこかに、以下のようなバイト列があり�
 
 Fuse を反転させるには、Fuse Wire の位置を見つけ、状態に応じて "0" または "1" に変更します。
 
-現在のスキーマは [こちら](https://github.com/electron/electron/blob/master/build/fuses/fuses.json) で閲覧できます。
+現在のスキーマは [こちら](https://github.com/electron/electron/blob/master/build/fuses/fuses.json5) で閲覧できます。
