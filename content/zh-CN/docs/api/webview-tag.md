@@ -4,9 +4,9 @@
 
 Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webview]，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` ，[Electron的 `BrowserView`](browser-view.md) 或完全避免嵌入内容的架构。
 
-## Enabling
+## 启用
 
-By default the `webview` tag is disabled in Electron >= 5.  在构造 `BrowserWindow` 时，需要通过设置 `webviewTag` webPreferences选项来启用标签。 更多信息请参看 [BrowserWindows 的构造器文档](browser-window.md)。
+默认情况下，Electron >= 5禁用 `webview` 标签。  在构造 `BrowserWindow` 时，需要通过设置 `webviewTag` webPreferences选项来启用标签。 更多信息请参看 [BrowserWindows 的构造器文档](browser-window.md)。
 
 ## 概览
 
@@ -14,9 +14,9 @@ By default the `webview` tag is disabled in Electron >= 5.  在构造 `BrowserWi
 
 进程: [渲染进程](../glossary.md#renderer-process)
 
-Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. 应用中的嵌入页面可以控制外来内容的布局和重绘。
+使用 `webview` 标签将'guest'内容 (例如网页) 嵌入到您的 Electron 应用中。 Guest 内容包含在 `webview` 容器内。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
-Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
+与 `iframe`不同， `webview` 独立于您的应用程序运行。 它拥有和你的页面不一样的权限并且所嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
 
 ## 示例
 
@@ -60,7 +60,7 @@ So the behavior of `webview` is very similar to a cross-domain `iframe`, as exam
 
 ## CSS 样式说明
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+请注意，`webview` 标签的样式使用 `display:flex;` 来确保 ` iframe `在传统和 flex 布局一起使用的情况下填充其 `webview` 容器的全部高度和宽度。 除非指定内联布局的 `display:inline-flex;` ，否则请不要 覆盖默认 `display:flex;` CSS属性。
 
 ## 标签属性
 
@@ -72,9 +72,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 <webview src="https://www.github.com/"></webview>
 ```
 
-A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
+表示可见网址的 `String` 。 Writing to this attribute initiates top-level navigation.
 
-Assigning `src` its own value will reload the current page.
+更改 `src` 的值将重新加载当前页面。
 
 ` src ` 属性还可以接受数据 URL, 如 ` data:text/plain, Hello, world! `。
 
@@ -171,7 +171,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
+`String` 是一个由逗号分割的字符串列表，其中指定了要设置在 webview 上的 Web 首选项。 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
 
 该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `0` 解析为 `false`。
 
@@ -337,19 +337,19 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+打开 guest 页面的 DevTools 窗口。
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+关闭 guest 页面的 DevTools 窗口。
 
 ### `<webview>.isDevToolsOpened()`
 
-Returns `Boolean` - Whether guest page has a DevTools window attached.
+返回 `Boolean` - guest 页面是否打开了 Devtools。
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Whether DevTools window of guest page is focused.
+返回 `Boolean` - guest 页面的 DevTools 窗口是否聚焦。
 
 ### `<webview>.inspectElement(x, y)`
 
@@ -694,7 +694,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### 事件: 'new-window'
 
 返回:
 
@@ -796,7 +796,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### 事件: 'crashed'
 
 Fired when the renderer process is crashed.
 
