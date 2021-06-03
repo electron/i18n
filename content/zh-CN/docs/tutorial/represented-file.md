@@ -1,16 +1,16 @@
-# 针对 macOS系统 BrowserWindows的展示文件
+# macOS BrowserWindows 的代表文件
 
 ## 概览
 
-在 macOS 上，您可以为应用程序中的任何窗口设置一个代表文件。 The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
+在 macOS 上，您可以为应用程序中的任何窗口设置一个代表文件。 代表文件的图标将显示在标题栏中，当用户 `Command-单击` 或 `Control-单击`，一个带有文件路径的弹出窗口将会显示。
 
 ![展示文件（Represented File）][1]
 
-> NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
+> 注意：上面的屏幕截图是一个示例，其中此功能用于指示 Atom 文本编辑器中当前打开的文件。
 
-You can also set the edited state for a window so that the file icon can indicate whether the document in this window has been modified.
+您还可以设置窗口的编辑状态，以便文件图标可以指示该窗口中的文档是否已修改。
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs.
+要设置窗口的代表文件，您可以使用 [BrowserWindow.setRepresentedFilename][setrepresentedfilename] 和 [BrowserWindow.setDocumentEdited][setdocumentedited] API。
 
 ## 示例
 
@@ -27,7 +27,7 @@ app.whenReady().then(() => {
 })
 ```
 
-After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
+启动 Electron 应用程序后，在按下 `Command` 或 `Control` 键时单击标题。 您应该能看到您刚定义的文件的弹出窗口：
 
 ![Represented file](../images/represented-file.png)
 
