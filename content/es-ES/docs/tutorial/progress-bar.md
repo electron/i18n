@@ -22,7 +22,7 @@ En Linux, la interfaz gráfica Unity además tiene una característica similar q
 
 Los tres casos son cubiertos por la misma API - el método [`setProgressBar()`][setprogressbar] disponible en una instancia de `BrowserWindow`. Para indicar tu progreso, invoca este método con un número entre `0` y `1`. Por ejemplo, si tiene una tarea de larga ejecución que actualmente esta al 63% para completar, debería llamarlo como `setProgressBar(0.63)`.
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar. Setting it to a value greater than `1` will indicate an indeterminate progress bar in Windows or clamp to 100% in other operating systems. An indeterminate progress bar remains active but does not show an actual percentage, and is used for situations when you do not know how long an operation will take to complete.
+Setting the parameter to negative values (e.g. `-1`) will remove the progress bar. Setting it to a value greater than `1` will indicate an indeterminate progress bar in Windows or clamp to 100% in other operating systems. Una barra de progreso indeterminada permanece activa pero no muestra un porcentaje real, y se utiliza para situaciones cuando no sabe cuánto tardará una operación en completarse.
 
 Ver el [API documentation for more options and modes][setprogressbar].
 
@@ -78,7 +78,7 @@ app.on('activate', () => {
 })
 ```
 
-After launching the Electron application, the dock (macOS) or taskbar (Windows, Unity) should show a progress bar that starts at zero and progresses through 100% to completion. It should then show indeterminate (Windows) or pin to 100% (other operating systems) briefly and then loop.
+Después de lanzar la aplicación Electron, el Dock (macOS) o la barra de tareas (Windows, Unity) deben mostrar una barra de progreso que comience en cero y progrese hasta el 100% hasta completarse. Luego debe mostrar indeterminado (Windows) o anclar a 100% (otros sistemas operativos) brevemente y luego bucle.
 
 ![macOS dock progress bar](../images/dock-progress-bar.png)
 
