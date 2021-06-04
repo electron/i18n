@@ -25,7 +25,6 @@ Electron は、当初 Chromium/Node.js イベントループ統合とネイテ�
 :zap: :blue_heart: :electric_plug:
 
 [atom]: https://atom.io
-[docs]: https://github.com/electron/electron/tree/master/docs#readme
+[docs]: https://github.com/electron/electron/tree/main/docs#readme
 [electron]: https://electronjs.org
 [electron]: https://electronjs.org
-
