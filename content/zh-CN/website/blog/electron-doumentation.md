@@ -10,7 +10,7 @@ date: '2015-06-04'
 
 您可以访问 [/docs](https://electronjs.org/docs) 查看哪些版本可用，或 [/docs/all](https://electronjs.org/docs/all) 在一个页面查看最新版本的文档( `cmd` + `f` 搜索)。
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/main/docs), where the docs are fetched from. 我们为每次次发布获取它们，并将它们添加到 [Electron 站点资源库](http://github.com/electron/electronjs.org)， 由 [Jekyll](http://jekyllrb.com) 编写。
+如果您想要为文档内容做出贡献， 您可以在 [Electron 仓库](https://github.com/electron/electron/tree/main/docs)中获取文档。 我们为每次次发布获取它们，并将它们添加到 [Electron 站点资源库](http://github.com/electron/electronjs.org)， 由 [Jekyll](http://jekyllrb.com) 编写。
 
 如果你有兴趣了解更多关于我们如何从一个仓库将文档拉到另一个仓库的信息，继续阅读下文。 否则，享受 [文档](https://electronjs.org/latest)！
 
