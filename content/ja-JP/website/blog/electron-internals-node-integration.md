@@ -49,5 +49,5 @@ libuv にバックエンドファイル記述子の概念が導入されまし�
 [node-gui]: https://github.com/zcbenz/node-gui
 [node-qt]: https://github.com/arturadib/node-qt
 [multi-process]: http://dev.chromium.org/developers/design-documents/multi-process-architecture
-[node-bindings]: https://github.com/electron/electron/tree/master/atom/common
+[node-bindings]: https://github.com/electron/electron/tree/main/atom/common
 [node-bindings-updated]: https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc
