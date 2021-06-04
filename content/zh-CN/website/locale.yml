@@ -210,7 +210,7 @@ pages:
   '/donors':
     title: 捐赠者
   '/blacklivesmatter':
-    title: Black Lives Matter
+    title: 黑人的命也是命
 landing:
   get_started: 入门
   fiddle:
