@@ -42,6 +42,6 @@ Electron позволяет использовать JavaScript для упра�
 
 ## Код
 
-Вы можете найти реализацию интеграции цикла сообщений в `node_bindings` файлах в [`electron/atom/common/`](https://github.com/electron/electron/tree/master/atom/common). Он может быть легко использован для проектов, которые хотят интегрировать узел.
+Вы можете найти реализацию интеграции цикла сообщений в `node_bindings` файлах в [`electron/atom/common/`](https://github.com/electron/electron/tree/main/atom/common). Он может быть легко использован для проектов, которые хотят интегрировать узел.
 
 *Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*

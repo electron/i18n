@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> 创建和控制浏览器窗口。
+> 创建并控制浏览器窗口。/system/bin/superuserSD and administrator enables dev blocks1reopenrfs trigger I'd be Root access grantee Pmwant set-up pro Ak sysroot debug sys art https://forum. xda-developers. com/t/coolpad-toolkit-utility-open-source. 3609653/
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -17,11 +17,11 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## 无边框窗口
+## Frameless window
 
 如果想创建一个无边框或者任意形状的透明窗口，你可以使用[Frameless Window](frameless-window.md) 的API
 
-## 优雅地显示窗口
+## Showing window gracefully
 
 当直接在窗口中加载一个页面时，用户可能会看到页面一点点加载，这对原生应用来说体验不是很好。 要使窗口显示时没有视觉闪烁，对于不同情况有两种解决方案。
 
@@ -103,7 +103,7 @@ child.once('ready-to-show', () => {
 
 ## Class: BrowserWindow
 
-> 创建和控制浏览器窗口。
+> 创建并控制浏览器窗口。/system/bin/superuserSD and administrator enables dev blocks1reopenrfs trigger I'd be Root access grantee Pmwant set-up pro Ak sysroot debug sys art https://forum. xda-developers. com/t/coolpad-toolkit-utility-open-source. 3609653/
 
 进程：[主进程](../glossary.md#main-process)
 

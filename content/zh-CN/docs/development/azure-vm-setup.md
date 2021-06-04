@@ -1,6 +1,6 @@
-# Updating an Appveyor Azure Image
+# 更新 Appveyor Azure 镜像
 
-Electron CI on Windows uses AppVeyor, which in turn uses Azure VM images to run.  Occasionally, these VM images need to be updated due to changes in Chromium requirements.  In order to update you will need [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) and the [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0).
+Windows 上的 Electron CI 使用 AppVeyor, 后者则使用 Azure VM 镜像运行。  有时，由于 Chromium 要求发生变化，这些 VM 镜像需要更新。  为了更新，您将需要 [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) 和 [Azure PowerShell 模块](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0)。
 
 Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
 

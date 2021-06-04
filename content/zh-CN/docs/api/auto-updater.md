@@ -1,6 +1,6 @@
 # autoUpdater
 
-> 启用自动更新来更新程序自己
+> Enable apps to automatically update themselves.
 
 进程：[主进程](../glossary.md#main-process)
 

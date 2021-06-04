@@ -18,11 +18,12 @@ Em dois anos, a Electron cresceu imenso. Agora isso inclui atualizações autom�
 
 Até agora, desenvolvedores individuais, startups iniciais e grandes empresas criaram aplicativos no Electron. Criaram uma enorme variedade de aplicativos &mdash; incluindo aplicativos de bate-papo, exploradores de banco de dados, designers de mapas, ferramentas de design colaborativo e aplicativos de prototipagem móveis.
 
-Confira o novo [eletrônico. rg](https://electronjs.org) para ver mais dos aplicativos que as pessoas construíram no Electron ou dê uma olhada na [documentação](https://github.com/electron/electron/tree/master/docs#readme) para saber mais sobre o que mais você pode fazer.
+Check out the new [electronjs.org][electron] to see more of the apps people have built on Electron or take a look at the [docs][docs] to learn more about what else you can make.
 
 Se você já começou, adoraríamos conversar com você sobre os apps que você está criando no Electron. E-mail [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) para nos dizer mais. Você também pode seguir a nova conta do Twitter [@ElectronJS](https://twitter.com/electronjs) para permanecer conectado ao projeto.
 
 :zap: :blue_heart: :electric_plug:
 
+[docs]: https://github.com/electron/electron/tree/main/docs#readme
 [electron]: https://electronjs.org
-
+[electron]: https://electronjs.org

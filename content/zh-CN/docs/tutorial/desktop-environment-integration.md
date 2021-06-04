@@ -8,7 +8,7 @@
 
 参考 [通知文档](notifications.md).
 
-## 最近文档（Recent Documents）
+## 最近文档
 
 参考 [Recent Documents 文档](recent-documents.md).
 

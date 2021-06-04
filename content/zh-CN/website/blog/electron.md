@@ -18,11 +18,12 @@ Electron 是我们原先为 [Atom 编辑器](https://atom.io) 构建的跨平台
 
 迄今为止，个人开发者、早期启动者和大公司已经在 Electron 上构建了应用。 他们创建了大量应用 &mdash; ，包括聊天应用、数据库探索者、地图设计者、协作设计工具和移动原型应用。
 
-看看新的 [electronjs. rg](https://electronjs.org) 查看更多人们在 Electron 上构建的应用，或查看 [文档](https://github.com/electron/electron/tree/master/docs#readme) 以了解更多关于您可以做什么的信息。
+可以在 [electronjs. rg][electron] 查看更多开发者们基于Electron 构建的应用，或查看 [文档][docs] 以了解更多关于您可以做什么的信息。
 
 如果您已经开始了，我们很乐意与您聊天，了解您在 Electron 上正在开发的应用程序。 电子邮件 [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) 告诉我们更多。 您也可以关注新的 [@ElectronJS](https://twitter.com/electronjs) Twitter 帐户以保持与项目的连接。
 
 :zap: :blue_heart: :electric_plug:
 
+[docs]: https://github.com/electron/electron/tree/main/docs#readme
 [electron]: https://electronjs.org
-
+[electron]: https://electronjs.org

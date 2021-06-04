@@ -22,13 +22,13 @@ Sur Linux, l’interface graphique Unity dispose également d’une fonctionnali
 
 Les trois cas sont couverts par la même API - la méthode [`setProgressBar()`][setprogressbar] disponible sur une instance de `BrowserWindows`. Pour indiquer l'état de la progression vous devez appeler cette méthode avec un nombre entre `0` et `1`. Par exemple: Si vous avez une tâche qui dure relativement longtemps et qui est en est actuellement à 63% avant sa finalisation, vous l'appelleriez avec `setProgressBar(0.63)`.
 
-Setting the parameter to negative values (e.g. `-1`) will remove the progress bar. Setting it to a value greater than `1` will indicate an indeterminate progress bar in Windows or clamp to 100% in other operating systems. An indeterminate progress bar remains active but does not show an actual percentage, and is used for situations when you do not know how long an operation will take to complete.
+Si le paramètre à une valeur négative (par exemple `-1`) cela supprimera la barre de progression. . Une valeur supérieure à `1` indiquera sous Windows une barre de progression indéfinie et la verrouillera à 100% avec les autres systèmes d'exploitation. Une barre de progression indéterminée reste active mais n’affiche pas de pourcentage réel et est utilisée pour les situations où on ne sait pas combien de temps une opération prendra pour se terminer.
 
 Voir la [documentation API pour plus d'options et de modes][setprogressbar].
 
 ## Exemple
 
-In this example, we add a progress bar to the main window that increments over time using Node.js timers.
+Dans cet exemple, nous ajoutons une barre de progression à la fenêtre principale qui s’incrémente au fil du temps à l’aide des timers de Node.js.
 
 ```javascript fiddle='docs/fiddles/features/progress-bar'
 const { app, BrowserWindow } = require('electron')
@@ -78,7 +78,7 @@ app.on('activate', () => {
 })
 ```
 
-After launching the Electron application, the dock (macOS) or taskbar (Windows, Unity) should show a progress bar that starts at zero and progresses through 100% to completion. It should then show indeterminate (Windows) or pin to 100% (other operating systems) briefly and then loop.
+Après le lancement de l’application Electron, le dock (macOS) ou la barre des tâches (Windows, Unity) affichera une barre de progression qui commence à zéro et progresse jusqu’à 100 % à la fin. Cela devrait alors s'afficher brièvement en indéterminé (Windows) ou vérouillé à 100% (autres systèmes d'exploitation), puis boucler.
 
 ![Barre de progression du dock macOS](../images/dock-progress-bar.png)
 

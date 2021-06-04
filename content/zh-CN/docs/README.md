@@ -20,14 +20,14 @@
 
 * 为你的应用添加功能
   * [通知（Notifications）](tutorial/notifications.md)
-  * [最近文档（Recent Documents）](tutorial/recent-documents.md)
+  * [最近文档](tutorial/recent-documents.md)
   * [应用程序进程](tutorial/progress-bar.md)
   * [自定义 Dock 菜单](tutorial/macos-dock.md)
   * [自定义 Windows 任务栏](tutorial/windows-taskbar.md)
   * [自定义 Linux 桌面动作](tutorial/linux-desktop-actions.md)
   * [键盘快捷键](tutorial/keyboard-shortcuts.md)
   * [离线/在线 侦测](tutorial/online-offline-events.md)
-  * [针对 macOS系统 BrowserWindows的展示文件](tutorial/represented-file.md)
+  * [macOS BrowserWindows 的代表文件](tutorial/represented-file.md)
   * [原生文件拖放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
   * [暗黑模式](tutorial/dark-mode.md)

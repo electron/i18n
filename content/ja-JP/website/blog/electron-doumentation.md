@@ -10,7 +10,7 @@ date: '2015-06-04'
 
 [/docs](https://electronjs.org/docs) で利用可能なバージョンを確認するか、 [/docs/all](https://electronjs.org/docs/all) で最新バージョンのドキュメントを 1 ページに表示できます ( `cmd` + `f` 検索しやすい) 。
 
-あなたがドキュメントの内容に貢献したい場合、ドキュメントの取得元である [Electron リポジトリ](https://github.com/electron/electron/tree/master/docs) で行えます。 マイナーリリースのたびに取得して [Jekyll](http://jekyllrb.com) で作られた [Electron サイトリポジトリ](http://github.com/electron/electronjs.org) へ追加します。
+ドキュメントの内容に貢献したい方は、ドキュメントの取得元である [Electron リポジトリ](https://github.com/electron/electron/tree/main/docs) でどうぞ。 マイナーリリースのたびに取得して [Jekyll](http://jekyllrb.com) で作られた [Electron サイトリポジトリ](http://github.com/electron/electronjs.org) へ追加します。
 
 どのようにリポジトリから他のリポジトリへドキュメントを移動しているかについて興味があれば、続きを読んでください。 そうでない場合は、 [ドキュメント](https://electronjs.org/latest) をお楽しみください!
 
@@ -108,4 +108,3 @@ redirect_to: /docs/{{ site.data.releases[0].version }}
 ```
 
 これらの技術的な小話を楽しんでいただけたことを願います! ドキュメントサイトで Jekyll を使用することについての詳しい情報に興味がありましたら、 GitHub ドキュメントチームがどのように公開しているか [GitHub's docs on Jekyll](https://github.com/blog/1939-how-github-uses-github-to-document-github) をご覧ください。
-

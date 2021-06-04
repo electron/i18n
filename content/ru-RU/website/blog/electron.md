@@ -18,11 +18,12 @@ Electron - это кросс-платформенная оболочка при�
 
 На данный момент индивидуальные разработчики, стартапы ранних стадий и крупные компании создали приложения на Electron. They've created a huge range of apps &mdash; including chat apps, database explorers, map designers, collaborative design tools, and mobile prototyping apps.
 
-Проверьте новые электроники [. rg](https://electronjs.org) , чтобы увидеть больше приложений, которые люди создали на Electron, или взглянуть на [документацию](https://github.com/electron/electron/tree/master/docs#readme) , чтобы узнать больше о том, что еще вы можете сделать.
+Check out the new [electronjs.org][electron] to see more of the apps people have built on Electron or take a look at the [docs][docs] to learn more about what else you can make.
 
 Если вы уже начали работать, мы будем рады общаться с вами о приложениях, которые вы создаете на Electron. Напишите [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) , чтобы рассказать нам больше. Вы также можете следить за новой учетной записью [@ElectronJS](https://twitter.com/electronjs) Twitter, чтобы оставаться на связи с проектом.
 
 :zap: :blue_heart: :electric_plug:
 
+[docs]: https://github.com/electron/electron/tree/main/docs#readme
 [electron]: https://electronjs.org
-
+[electron]: https://electronjs.org
