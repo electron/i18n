@@ -10,7 +10,7 @@ date: '2015-06-04'
 
 Вы можете посетить [/docs](https://electronjs.org/docs) , чтобы увидеть, какие версии доступны или [/docs/all](https://electronjs.org/docs/all) для просмотра последней версии документации на одной странице (красиво для `cmd` + `f` поисков).
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/main/docs), where the docs are fetched from. Мы получаем их для каждого мелкого релиза и добавляем их в [репозиторий сайта Electron](http://github.com/electron/electronjs.org), который сделан с помощью [Jekyll](http://jekyllrb.com).
+Если вы хотите внести свой вклад в наполнение документации, вы можете сделать это в [репозитории Electron](https://github.com/electron/electron/tree/main/docs), из которого загружены документы. Мы получаем их для каждого мелкого релиза и добавляем их в [репозиторий сайта Electron](http://github.com/electron/electronjs.org), который сделан с помощью [Jekyll](http://jekyllrb.com).
 
 Если вы хотите узнать больше о том, как мы тянем документы из одного репозитория к другому продолжить чтение ниже. В противном случае, наслаждайтесь [документацией](https://electronjs.org/latest)!
 
