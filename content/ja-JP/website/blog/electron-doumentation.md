@@ -10,7 +10,7 @@ date: '2015-06-04'
 
 [/docs](https://electronjs.org/docs) で利用可能なバージョンを確認するか、 [/docs/all](https://electronjs.org/docs/all) で最新バージョンのドキュメントを 1 ページに表示できます ( `cmd` + `f` 検索しやすい) 。
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/main/docs), where the docs are fetched from. マイナーリリースのたびに取得して [Jekyll](http://jekyllrb.com) で作られた [Electron サイトリポジトリ](http://github.com/electron/electronjs.org) へ追加します。
+ドキュメントの内容に貢献したい方は、ドキュメントの取得元である [Electron リポジトリ](https://github.com/electron/electron/tree/main/docs) でどうぞ。 マイナーリリースのたびに取得して [Jekyll](http://jekyllrb.com) で作られた [Electron サイトリポジトリ](http://github.com/electron/electronjs.org) へ追加します。
 
 どのようにリポジトリから他のリポジトリへドキュメントを移動しているかについて興味があれば、続きを読んでください。 そうでない場合は、 [ドキュメント](https://electronjs.org/latest) をお楽しみください!
 
