@@ -42,7 +42,7 @@ Electron 允许使用 JavaScript 控制主进程和渲染器 进程，这意味�
 
 ## 代码
 
-You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`][node-bindings]. It can be easily reused for projects that want to integrate Node.
+您可以在 [ `electron/atom/common/` ][node-bindings]目录下`node_bindings` 文件中找到消息循环集成的实现方式。 It can be easily reused for projects that want to integrate Node.
 
 *Update: Implementation moved to [`electron/shell/common/node_bindings.cc`](https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc).*
 
