@@ -20,7 +20,7 @@ Processus : [Main](../glossary.md#main-process)
   * `hostname` String (facultatif) - Le nom d'hôte du serveur.
   * `port` Integer (facultatif) - Le numéro de port d'écoute du serveur.
   * `path` String (facultatif) - La partie chemin de l'URL de la requête.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Par défaut, `follow`.
+  * `redirect` String (facultatif) -Peut être `follow`, `error` ou `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Par défaut, `follow`.
   * `origin` String (optional) - The origin URL of the request.
 
 `options` propriétés telles que `protocole`, `host`, `hostname`, `port` et `path` suivent strictement le modèle Node.js comme décrit dans le module [URL](https://nodejs.org/api/url.html).
@@ -43,7 +43,7 @@ const request = net.request({
 
 Retourne :
 
-* `réponse` IncomingMessage - Un objet représentant le message de réponse HTTP.
+* `response` [IncomingMessage](incoming-message.md) - An object representing the HTTP response message.
 
 #### Événement : 'login'
 
