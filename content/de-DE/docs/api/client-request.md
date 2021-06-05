@@ -13,9 +13,9 @@ Prozess: [Main](../glossary.md#main-process)
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. The `session` option supersedes `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
+  * `credentials` String (optional) - Kann `include` oder `omit` sein. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Standard ist `false`.
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
+  * `protocol` String (optional) - Kann `http:` oder `https:` sein. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
   * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung aus Hostnamen und der Port Nummer 'hostname:port'.
   * `hostname` String (optional) - Der Server Host Name.
   * `port` Integer (optional) - Die Port Nummer des Servers.
@@ -43,7 +43,7 @@ const request = net.request({
 
 Rückgabewert:
 
-* `response` Eingehende Nachricht - Ein Objekt, welches die HTTP Antwort Nachricht repräsentiert.
+* `response` [IncomingMessage](incoming-message.md) - An object representing the HTTP response message.
 
 #### Event: 'login'
 
@@ -138,7 +138,7 @@ Certain headers are restricted from being set by apps. These headers are listed 
 
 * `Content-Length`
 * `Host`
-* `Trailer` or `Te`
+* `Trailer` oder `Te`
 * `Upgrade`
 * `Cookie2`
 * `Keep-Alive`
@@ -150,7 +150,7 @@ Additionally, setting the `Connection` header to the value `upgrade` is also dis
 
 * `name` String - Spezifiziert einen extra Header Namen.
 
-Returns `String` - The value of a previously set extra header name.
+Gibt ein `String` wieder - Den wert des davor gesetzten extra Header Namen.
 
 #### `request.removeHeader(name)`
 
