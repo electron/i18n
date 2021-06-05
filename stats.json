@@ -3,40 +3,40 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "13420",
-    "translated": "10624",
+    "translated": "10632",
     "approved": "2469",
     "words": "143088",
-    "words_translated": "111878",
+    "words_translated": "111949",
     "words_approved": "22643",
     "translated_progress": 78,
     "approved_progress": 15,
-    "qa_issues": 897
+    "qa_issues": 900
   },
   {
     "name": "French",
     "code": "fr",
     "phrases": "13420",
-    "translated": "10396",
+    "translated": "10403",
     "approved": "2517",
     "words": "143088",
-    "words_translated": "106709",
+    "words_translated": "106785",
     "words_approved": "22340",
     "translated_progress": 74,
     "approved_progress": 15,
-    "qa_issues": 3122
+    "qa_issues": 3121
   },
   {
     "name": "German",
     "code": "de",
     "phrases": "13420",
-    "translated": "6623",
+    "translated": "6620",
     "approved": "989",
     "words": "143088",
-    "words_translated": "65451",
+    "words_translated": "65378",
     "words_approved": "5350",
     "translated_progress": 45,
     "approved_progress": 3,
-    "qa_issues": 2713
+    "qa_issues": 2711
   },
   {
     "name": "Japanese",
@@ -55,39 +55,39 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "13420",
-    "translated": "6484",
+    "translated": "6481",
     "approved": "1006",
     "words": "143088",
-    "words_translated": "68583",
+    "words_translated": "68510",
     "words_approved": "7842",
     "translated_progress": 47,
     "approved_progress": 5,
-    "qa_issues": 1856
+    "qa_issues": 1854
   },
   {
     "name": "Russian",
     "code": "ru",
     "phrases": "13420",
-    "translated": "8958",
+    "translated": "8957",
     "approved": "3242",
     "words": "143088",
-    "words_translated": "91263",
+    "words_translated": "91231",
     "words_approved": "27362",
     "translated_progress": 63,
     "approved_progress": 19,
-    "qa_issues": 2471
+    "qa_issues": 2470
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "13420",
-    "translated": "11863",
+    "translated": "11860",
     "approved": "4094",
     "words": "143088",
-    "words_translated": "122641",
+    "words_translated": "122568",
     "words_approved": "35158",
     "translated_progress": 85,
     "approved_progress": 24,
-    "qa_issues": 3491
+    "qa_issues": 3489
   }
 ]
