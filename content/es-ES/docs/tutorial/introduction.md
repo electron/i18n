@@ -13,20 +13,20 @@ Estos documentos funcionan bajo el supuesto de que el lector está familiarizado
 * [Comenzando con la Web (MDN)][mdn-guide]
 * [Introducción a Node.js][node-guide]
 
-Además, tendrá un mejor momento para comprender cómo funciona Electron si obtiene familiarizado con el modelo de proceso de Chromium. You can get a brief overview of Chrome architecture with the [Chrome comic][comic], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
+Además, tendrá un mejor momento para comprender cómo funciona Electron si obtiene familiarizado con el modelo de proceso de Chromium. Puede obtener una breve descripción general de Arquitectura de Chrome con el [ cómic de Chrome ][comic], que se lanzó junto Lanzamiento de Chrome en 2008. Aunque ha pasado más de una década desde entonces, el Los principios básicos introducidos en el cómic siguen siendo útiles para comprender a Electron.
 
-## Running examples with Electron Fiddle
+## Ejecución de ejemplos con Electron Fiddle
 
-[Electron Fiddle][fiddle] is a sandbox app written with Electron and supported by Electron's maintainers. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+[Electron Fiddle][fiddle] es una sandbox app escrita con Electron y apoyado por Mantenedores de Electron. Recomendamos encarecidamente instalarlo como herramienta de aprendizaje para Experimente con las API de Electron o para crear prototipos de funciones durante el desarrollo.
 
-Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
+Fiddle también se integra muy bien con nuestra documentación. Al navegar a través de ejemplos en nuestros tutoriales, verá con frecuencia un botón "Abrir en Electron Fiddle" debajo un bloque de código. Si tiene Fiddle instalado, este botón abrirá un link a `fiddle.electronjs.org` esto cargará automáticamente el ejemplo en Fiddle, no es necesario copiar y pegar.
 
 ## Obtener ayuda
 
-Are you getting stuck anywhere? Here are a few links to places to look:
+¿Te quedas atascado en alguna parte? Aquí hay algunos enlaces a lugares para buscar:
 
-* If you need help with developing your app, our [community Discord server][discord] is a great place to get advice from other Electron app developers.
-* If you suspect you're running into a bug with the `electron` package, please check the [GitHub issue tracker][issue-tracker] to see if any existing issues match your problem. If not, feel free to fill out our bug report template and submit a new issue.
+* Si necesitas ayuda para desarrollar tu aplicación, nuestro [servidor de Discord comunitario][discord] es un gran lugar para obtener consejos de otros desarrolladores de aplicaciones de Electron.
+* Si sospechas que tienes un error con el paquete `electron`. por favor revisa el [GitHub issue tracker][issue-tracker] para ver si algún problema existente coincide con tu problema. Si no, no dudes en rellenar nuestra plantilla de informe de errores y enviar un nuevo problema.
 
 [chromium]: https://www.chromium.org/
 [node]: https://nodejs.org/
