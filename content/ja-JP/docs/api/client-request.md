@@ -43,7 +43,7 @@ const request = net.request({
 
 戻り値:
 
-* `response` IncomingMessage - HTTPレスポンスメッセージを表すオブジェクト。
+* `response` [IncomingMessage](incoming-message.md) - HTTP レスポンスメッセージを表すオブジェクト。
 
 #### イベント: 'login'
 

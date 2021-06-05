@@ -10,7 +10,7 @@ Cette semaine, nous avons donné à la documentation d'Electron une maison sur [
 
 Vous pouvez visiter [/docs](https://electronjs.org/docs) pour voir quelles versions sont disponibles ou [/docs/all](https://electronjs.org/docs/all) pour voir la dernière version de docs sur une seule page (sympa pour `cmd` + `f` recherche).
 
-If you'd like to contribute to the docs content, you can do so in the [Electron repository](https://github.com/electron/electron/tree/main/docs), where the docs are fetched from. Nous les récupérons pour chaque version mineure et nous les ajoutons au [dépôt du site Electron](http://github.com/electron/electronjs.org), qui est faite avec [Jekyll](http://jekyllrb.com).
+Si vous souhaitez contribuer au contenu de la documentation, vous pouvez le faire dans le [dépôt Electron](https://github.com/electron/electron/tree/main/docs), d'où la documentation est récupérée. Nous les récupérons pour chaque version mineure et nous les ajoutons au [dépôt du site Electron](http://github.com/electron/electronjs.org), qui est faite avec [Jekyll](http://jekyllrb.com).
 
 Si vous êtes intéressé à en savoir plus sur la façon dont nous tirons les documents d'un dépôt vers un autre, continuez à lire ci-dessous. Sinon, profitez des [docs](https://electronjs.org/latest)!
 

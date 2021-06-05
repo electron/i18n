@@ -18,7 +18,7 @@ En deux ans, Electron a connu une croissance considérable. Il inclut maintenant
 
 Jusqu’à présent, les développeurs individuels, les startups de début et les grandes entreprises ont construit des applications sur Electron. Ils ont créé une vaste gamme d'applications &mdash; incluant des applications de chat, des explorateurs de bases de données, des concepteurs de cartes, des outils de conception collaborative et des applications de prototypage mobile.
 
-Check out the new [electronjs.org][electron] to see more of the apps people have built on Electron or take a look at the [docs][docs] to learn more about what else you can make.
+Jetez un coup d'oeil au nouveau [electronjs.org][electron] pour voir plus d'applications que les gens ont construites sur Electron ou jetez un coup d'œil à la [documentations][docs] pour en savoir plus sur ce que vous pouvez faire d'autre.
 
 Si vous avez déjà commencé, nous aimerions discuter avec vous des applications que vous construisez sur Electron. Envoyez un e-mail à [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) pour nous en dire plus. Vous pouvez également suivre le nouveau compte Twitter [@ElectronJS](https://twitter.com/electronjs) pour rester connecté au projet.
 
