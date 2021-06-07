@@ -18,13 +18,13 @@ Electron 应用程序的结构非常相似。 作为应用开发者，您控制�
 
 ## 主进程
 
-每个Electron应用都有一个单一的主流程，作为应用程序的入口点。 主过程在 Node.js 环境中运行，这意味着它具有 `require` 模块和使用所有 Node.js API 的能力。
+每个 Electron 应用都有一个单一的主进程，作为应用程序的入口点。 主进程在 Node.js 环境中运行，这意味着它具有 `require` 模块和使用所有 Node.js API 的能力。
 
 ### 窗口管理
 
 主进程的主要目的是使用 [`BrowserWindow`][browser-window] 模块创建和管理应用程序窗口。
 
-`BrowserWindow` 类的每个实例创建一个应用程序窗口，且在单独的渲染器进程中加载一个网页。 您可从主进程用 window 的 [`webContent`][web-contents] 对象与网页内容进行交互 。
+`BrowserWindow` 类的每个实例创建一个应用程序窗口，且在单独的渲染器进程中加载一个网页。 您可从主进程用 window 的 [`webContent`][web-contents] 对象与网页内容进行交互。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -38,18 +38,18 @@ console.log(contents)
 
 > 注意：渲染器进程也是为了 [web embeds][web-embed] 而被创建，例如 `BrowserView` 模块。 嵌入式网页内容也可访问 `webContents` 对象。
 
-由于 `BrowserWindow` 模块是一个 [`EventEmitter`][event-emitter]，您还可以 为各种用户事件（例如，最小化或最大化窗口）添加处理程序。
+由于 `BrowserWindow` 模块是一个 [`EventEmitter`][event-emitter]， 所以您也可以为各种用户事件 ( 例如，最小化 或 最大化您的窗口 ) 添加处理程序。
 
-当一个 `BrowserWindow` 实例被销毁时，对应的渲染器进程也会被终止。
+当一个 `BrowserWindow` 实例被销毁时，与其相应的渲染器进程也会被终止。
 
 ### 应用程序生命周期
 
-主进程还通过 Electron 的 [`app`][app] 模块来控制您的应用程序的生命周期。 该模块提供了一系列的事件和函数，您可以使用它来添加或修饰应用程序窗口的行为（例如退出进程，窗口贴边或最小化以及展示“关于”菜单）。
+主进程還能通过 Electron 的 [`app`][app] 模块来控制您应用程序的生命周期。 该模块提供了一整套的事件和方法，讓您可用來添加自訂義的應用程式行為 ( 例如：以編成方式 退出您的應用程序、修改程序塢 或 顯示關於面板 ) 。
 
-作为一个实际例子。 在 [快速入门指南][quick-start-lifecycle]中显示的应用程序使用 `app` API 来创建更原生的应用程序窗口体验。
+作為一个实际的例子，这个展示于 [快速入门指南][quick-start-lifecycle] 中的 app，用 `app` API 创建了一个更原生的应用程序窗口体验。
 
 ```js title='main.js'
-// macOS 无窗口打开时退出应用
+// 當 macOS 无窗口打开时退出应用
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -63,17 +63,17 @@ app.on('window-all-closed', function () {
 
 ## 渲染器进程
 
-每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个 web 嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* web 内容。 所以實際上，运行於渲染器进程中的代码是必須遵照网页标准的 ( 至少就目前使用的 Chromium 而言是如此 ）。
+每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个网页嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* 网页内容。 所以實際上，运行於渲染器进程中的代码是必須遵照网页标准的 (至少就目前使用的 Chromium 而言是如此) 。
 
 因此，一个浏览器窗口中的所有的用户界面和应用功能，都应与您在 web 开发上使用相同的工具和规范来攥写。
 
 虽然解释每一个 web 规范超出了本指南的范围，但您最起码要知道的是：
 
 * 以一个 HTML 文件作为渲染器进程的入口点。
-* 使用层叠样式表 ( Cascading Style Sheets, CSS ) 对 UI 添加样式。
+* 使用层叠样式表 (Cascading Style Sheets, CSS) 对 UI 添加样式。
 * 通過 `<script>` 元素可添加可執行的 JavaScript 代码。
 
-此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发時相同的打包工具（ 例如 `webpack` 或 `parcel` ）
+此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发時相同的打包工具 (例如 `webpack` 或 `parcel`)
 
 > 注意：渲染器进程可以生成一个完整的 Node.js 环境以便于开发。 在過去這是默認的，但如今此功能已基於安全理由而被禁用。
 
@@ -111,7 +111,7 @@ console.log(window.myAPI)
 // => undefined
 ```
 
-語境隔離 ( Context Isolation ) 意味著预加载脚本與渲染器的主要運行環境是隔離開來的， 以避免泄漏任何具特权的 API 到您的 web 内容代码中。
+語境隔離（Context Isolation）意味著预加载脚本與渲染器的主要運行環境是隔離開來的，以避免泄漏任何具特权的 API 到您的 web 内容代码中。
 
 取而代之，我們將使用 [`contextBridge`][context-bridge] 模块來安全地實現交互：
 
@@ -128,10 +128,10 @@ console.log(window.myAPI)
 // => { desktop: true }
 ```
 
-此功能对于两个主要目的非常有用：
+此功能对两个主要目的來說非常有用：
 
-* 通过将 [`ipcRenderer`][ipcRenderer] 帮手模块暴露在渲染器中，您可以使用 过程间通信 （IPC） 从渲染器触发主进程任务（反之亦然）。
-* 如果您正在为远程 URL 上托管的现有网页应用开发 Electron 包装，则可以在渲染器的 `window` 全局上添加自定义属性，以用于网页客户端侧的桌面逻辑。
+* 通过暴露 [`ipcRenderer`][ipcRenderer] 帮手模块于渲染器中，您可以使用 进程间通讯 ( inter-process communication, IPC ) 来从渲染器触发主进程任务 ( 反之亦然 ) 。
+* 如果您正在为远程 URL 上托管的现有网页应用开发 Electron 封裝，则您可在渲染器的 `window` 全局變數上添加自定义的属性，好在网页客户端用上僅適用於桌面端的設計逻辑 。
 
 [快速启动应用]: ./quick-start.md
 
