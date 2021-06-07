@@ -12,31 +12,28 @@
 
 ### レンダラープロセスで通知を表示する
 
-[クイックスタートガイド](quick-start.md) の作業用 Electron アプリケーションにおいて、`index.html` ファイルの `</body>` タグを閉じている所の前に以下の行を追加してください。
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-`renderer.js` ファイルを追加します。
+...and add the `renderer.js` file:
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const myNotification = new Notification('Title', {
-  body: 'Notification from the Renderer process'
-})
+const NOTIFICATION_TITLE = 'Title'
+const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
+const CLICK_MESSAGE = 'Notification clicked'
 
-myNotification.onclick = () => {
-  console.log('Notification clicked')
-}
+new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
+  .onclick = () => console.log(CLICK_MESSAGE)
 ```
 
 Electron アプリケーションを起動すると、通知が表示されます。
 
 ![レンダラープロセスでの通知](../images/notification-renderer.png)
 
-コンソールを開いてから通知をクリックすると、`onclick` イベントをトリガーした後に生成されたメッセージが表示されます。
-
-![通知の onclick メッセージ](../images/message-notification-renderer.png)
+Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
 
 ### メインプロセスで通知を表示する
 
@@ -57,7 +54,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 Electron アプリケーションを起動すると、以下のようなシステム通知が表示されるでしょう。
 
-![メインプロセスでの通知](../images/notification-main.png)
+![Notification in the Main process](../images/notification-main.png)
 
 ## 追加情報
 
@@ -69,13 +66,13 @@ Electron アプリケーションを起動すると、以下のようなシス�
 * Windows 8.1 と Windows 8 では、スタート画面に [アプリケーションユーザーモデル ID][app-user-model-id] でアプリへのショートカットをインストールしなければなりません。 注釈: ただし、スタート画面にピン留めする必要はありません。
 * Windows 7 では、通知はカスタム実装を介して動作します。これは新しいシステムのネイティブのものと似た見た目になります。
 
-Electron はアプリケーションユーザーモデル ID の作業を自動化しようとしています。 Electron をインストール&アップデートフレームワーク Squirrel と共に使用すると、[ショートカットが自動的に正しく設定されます][squirrel-events]。 さらに、Electron は Squirrel が使用されたことを検出し、正しい値を指定して自動的に `app.setAppUserModelId()` を呼び出します。 開発中では、[`app.setAppUserModelId()`][set-app-user-model-id] を自身で呼び出す必要があります。
+Electronは、アプリケーションユーザーモデル ID の作業を自動化しようとしています。 Electron をインストール&アップデートフレームワーク Squirrel と共に使用すると、[ショートカットが自動的に正しく設定されます][squirrel-events]。 さらに、Electron は Squirrel が使用されたことを検出し、正しい値を指定して自動的に `app.setAppUserModelId()` を呼び出します。 開発中では、[`app.setAppUserModelId()`][set-app-user-model-id] を自身で呼び出す必要があります。
 
-さらに、Windows 8 では通知本文の最大長が 250 文字です。Windows チームは通知を 200 文字までにすることを推奨しています。 しかし、Windows 10 ではその制限が取り払われ、Windows チームは開発者に合理的な配慮を求めることにしています。 巨大な量のテキスト (数千文字) を API に送信しようとすると、不安定になる可能性があります。
+さらに、Windows 8では、通知本体の最大長は250文字で、Windowsチームは通知を200文字にすることを推奨しています。 この制限は Windows 10では削除されており、これは Windows チームは合理的にするために開発者の意見を聞いているということです。 巨大な量のテキスト (数千文字) を API に送信しようとすると、不安定になる可能性があります。
 
 #### 高度な通知
 
-最近のバージョンの Windows では、カスタムテンプレート、イメージ、その他の柔軟な要素を使用した高度な通知が可能です。 これらの通知を (メインプロセスやレンダラープロセスから) 送信するには、[electron-windows-notification](https://github.com/felixrieseberg/electron-windows-notifications) ユーザーランドモジュールを使用します。これは、`ToastNotification` と `TileNotification` オブジェクトを送るネイティブ Node アドオンです。
+Windows の以降のバージョンでは、カスタムテンプレート、イメージ、その他の柔軟な要素を使用した高度な通知が可能です。 これらの通知を (メインプロセスかレンダラープロセスから) 送信するには、`ToastNotification` と `TileNotification` オブジェクトを送るネイティブ Node アドオンを使用する、[electron-windows-notification](https://github.com/felixrieseberg/electron-windows-notifications) ユーザーランドモジュールを使用します。
 
 ボタンを含む通知は `electron-windows-notifications` で機能しますが、返信を処理するには [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) を使用する必要があります。これにより、必要な COM コンポーネントを登録し、入力したユーザーデータを使用して Electron アプリを呼び出すことができます。
 
@@ -89,7 +86,7 @@ Electron はアプリケーションユーザーモデル ID の作業を自動�
 
 macOS 上での通知は簡単ですが、[通知に関する Apple のヒューマンインタフェースガイドライン][apple-notification-guidelines] を理解しておく必要があります。
 
-注意として、通知サイズは 256 バイトまでに制限されており、それを超えると切り捨てられます。
+通知サイズは256バイトに制限されており、その制限を超えると切り捨てられることに注意してください。
 
 #### 高度な通知
 
