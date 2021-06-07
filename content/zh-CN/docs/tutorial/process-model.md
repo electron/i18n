@@ -63,29 +63,29 @@ app.on('window-all-closed', function () {
 
 ## 渲染器进程
 
-每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个 web 嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* web 内容。 出于某些目的，渲染器进程中运行的代码应该按照网页标准行事（至少就Chromium而言是如此）。
+每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个 web 嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* web 内容。 所以實際上，运行於渲染器进程中的代码是必須遵照网页标准的 ( 至少就目前使用的 Chromium 而言是如此 ）。
 
-因此，单个浏览器窗口中，所有的用户界面和应用程序函数都应与web规范相同。
+因此，一个浏览器窗口中的所有的用户界面和应用功能，都应与您在 web 开发上使用相同的工具和规范来攥写。
 
-虽然解释每一个 web 规范都超出了本指南的范围，但至少要知道：
+虽然解释每一个 web 规范超出了本指南的范围，但您最起码要知道的是：
 
-* 以一个html文件作为窗体的渲染入口。
-* 使用css对其添加样式。
-* JavaScript 代码应通过 `<script>` 元素添加。
+* 以一个 HTML 文件作为渲染器进程的入口点。
+* 使用层叠样式表 ( Cascading Style Sheets, CSS ) 对 UI 添加样式。
+* 通過 `<script>` 元素可添加可執行的 JavaScript 代码。
 
-此外，这也意味着渲染器无权直接访问 `需要`或其他 Node.js API。 为了在渲染器中直接包含npm模块，你必须使用与web开发相同的模块打包器（例如`webpack<code>或<0>parcel`）
+此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发時相同的打包工具（ 例如 `webpack` 或 `parcel` ）
 
-> 注意：渲染器过程可以生成一个完整的Node.js环境以便于开发。 这过去是默认的，但由于安全原因，此功能被禁用。
+> 注意：渲染器进程可以生成一个完整的 Node.js 环境以便于开发。 在過去這是默認的，但如今此功能已基於安全理由而被禁用。
 
-此刻，您可能会想知道您用户界面的渲染进程如何与Node.js和Electron的原生桌面函数交互，如果这些功能只能从主进程中访问。 事实上，没有直接导入Electron的脚本的方法。
+此刻，您也许会好奇，您在渲染器进程中的用户介面该如何与 Node.js 和 Electron 的原生桌面功能进行交互，如果这些功能都仅适用于主进程的话。 而事实上，確實没有直接导入 Electron 內容脚本的方法。
 
 ## 预加载脚本
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> 预加载（preload）脚本包含了执行于渲染器进程中，先于 web 内容开始加载，的代码 。 这些脚本虽运行于渲染器的环境中，却因能访问 Node.js API 而拥有了更多的权限。
+change the statements here. --> 预加载（preload）脚本包含了那些执行于渲染器进程中，且先于 web 内容开始加载的代码 。 这些脚本虽运行于渲染器的环境中，却因能访问 Node.js API 而拥有了更多的权限。
 
-预加载脚本可以在 `BrowserWindow` 构造方法中的 ` webPreferences ` 选项里被附加到主进程。
+预加载脚本可以在 `BrowserWindow` 构造方法中的 `webPreferences` 选项里被附加到主进程。
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -98,7 +98,7 @@ const win = new BrowserWindow({
 
 由于预加载脚本与渲染器共享同一个全局 [`Window`][window-mdn] 接口，并且可以访问 Node.js API，因此它通过在 `window` 全局中暴露任意您的网络内容可以随后使用的 API 来增强渲染器。
 
-虽然预加载脚本与渲染器共享一个 `全局窗口` ，但您不能直接从预加载脚本中附加任何变量到其他 `窗口` ，因为 [`contextIsolation`][context-isolation] 默认不行。
+虽然预加载脚本与其所附加的渲染器在全局共享着一个 `window` 变数，但您并不能从中直接附加任何变数到 `window` 之中，因为 [`contextIsolation`][context-isolation] 是默认的。
 
 ```js title='preload.js'
 window.myAPI = {
@@ -111,9 +111,9 @@ console.log(window.myAPI)
 // => undefined
 ```
 
-上下文隔离意味着预加载脚本与渲染器的主世界隔离，以避免将任何特权的 API 泄漏到您的网页内容代码中。
+語境隔離 ( Context Isolation ) 意味著预加载脚本與渲染器的主要運行環境是隔離開來的， 以避免泄漏任何具特权的 API 到您的 web 内容代码中。
 
-相反，使用 [`contextBridge`][context-bridge] 模块以安全地实现：
+取而代之，我們將使用 [`contextBridge`][context-bridge] 模块來安全地實現交互：
 
 ```js title='preload.js'
 const { contextBridge } = require('electron')
