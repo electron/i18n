@@ -14,7 +14,7 @@ __Menu application du dock :__
 
 ## Exemple
 
-### Supprimez les documents récents
+### Gestiçon des documents récents
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app, BrowserWindow } = require('electron')
@@ -53,13 +53,13 @@ app.on('activate', () => {
 
 #### Ajout d'un document récent
 
-Pour ajouter un fichier aux documents récents, utilisez l'API [app.addRecentDocument][addrecentdocument] .
+Utilisez l'API [app.addRecentDocument][addrecentdocument] pour ajouter un fichier aux documents récents .
 
 Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet. Vous devriez voir `recently-used.md` ajouté à la liste des fichiers récents :
 
 ![Document récent](../images/recent-documents.png)
 
-#### Effacer la liste des documents récents
+#### Effacement de la liste des documents récents
 
 Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée une fois que toutes les fenêtres ont été fermées.
 
