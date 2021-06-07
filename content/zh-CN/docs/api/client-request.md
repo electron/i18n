@@ -43,7 +43,7 @@ const request = net.request({
 
 返回:
 
-* `response` 收到的消息 - 表示HTTP响应消息的对象。
+* `response` [收到的消息](incoming-message.md) - 表示HTTP响应消息的对象。
 
 #### 事件: "login"
 

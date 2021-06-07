@@ -12,47 +12,70 @@ __Dock меню приложения:__
 
 ![macOS панель меню][2]
 
-To add a file to recent documents, you need to use the [app.addRecentDocument][addrecentdocument] API.
-
 ## Пример
 
-### Добавить элемент в последние документы
-
-Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), добавьте следующие строки в файл `main.js`:
+### Managing recent documents
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
-const { app } = require('electron')
+const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require('path')
 
-app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+
+  win.loadFile('index.html')
+}
+
+const fileName = 'recently-used.md'
+fs.writeFile(fileName, 'Lorem Ipsum', () => {
+  app.addRecentDocument(path.join(__dirname, fileName))
+})
+
+app.whenReady().then(createWindow)
+
+app.on('window-all-closed', () => {
+  app.clearRecentDocuments()
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
 ```
 
-После запуска приложения Electron щелкните правой кнопкой мыши на значке приложения. Вы должны увидеть добавленный предмет. В этом руководстве элемент является файлом Markdown , находящимся в корне проекта:
+#### Adding a recent document
+
+To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
+
+После запуска приложения Electron щелкните правой кнопкой мыши на значке приложения. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
 
 ![Недавний документ](../images/recent-documents.png)
 
-### Очистить список последних документов
+#### Clearing the list of recent documents
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
-
-```javascript
-const { app } = require('electron')
-
-app.clearRecentDocuments()
-```
+To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
 
 ## Дополнительная информация
 
 ### Windows примечания
 
-Чтобы использовать эту функцию в Windows, ваше приложение должно быть зарегистрировано как обработчик типа файла документа, иначе файл не будет отображаться в JumpList даже после его добавления. Вы можете найти все о регистрации вашего приложения в [Application Registration][app-registration].
+To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration][app-registration].
 
 Когда пользователь щелкает файл из JumpList, новый экземпляр приложения будет запущен с добавленного пути файла, как аргумент командной строки.
 
 ### macOS примечания
 
-#### Добавить список последних документов в меню приложения
+#### Add the Recent Documents list to the application menu
 
-Вы можете добавить пункты меню для доступа к недавним документам и очистить их, добавив следующий код в шаблон меню:
+You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
 
 ```json
 {
@@ -63,7 +86,7 @@ app.clearRecentDocuments()
       "submenu":[
         {
           "label":"Clear Recent",
-          "роль":"clearrecentdocuments"
+          "role":"clearrecentdocuments"
         }
       ]
     }
