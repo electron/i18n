@@ -13,9 +13,9 @@ Proceso: [Main](../glossary.md#main-process)
   * `url` String (opcional) - La URL de la solicitud. Debe ser proporcionada de forma absoluta con el esquema del protocolo especificado como http o https.
   * `session` Session (opcional) - La instancia de [`Session`](session.md) con la cual la solicitud esta asociada.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. The `session` option supersedes `partition`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
+  * `credentials` String (opcional) - Puede ser `include` o `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
   * `useSessionCookies` Boolean (opcional) - Si enviar cookies con esta solicitud desde la sesión poporcionada. If `credentials` is specified, this option has no effect. Por defecto es `false`.
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Por defecto 'http:'.
+  * `protocol` String (opcional) - Puede ser `http:` o `https:`. The protocol scheme in the form 'scheme:'. Por defecto 'http:'.
   * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
@@ -43,7 +43,7 @@ const request = net.request({
 
 Devuelve:
 
-* `respuesta` IncomingMessage - Un objeto representando el mensaje de respuesta de HTTP.
+* `response` [IncomingMessage](incoming-message.md) - An object representing the HTTP response message.
 
 #### Evento:'login'
 

@@ -13,14 +13,14 @@
   * `url` String (опционально) - URL запроса. Необходимо предоставить в абсолютной форме с протокольной схемой, указанной как http или https.
   * `session` Session (опционально) – экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
   * `partition` String (опционально) – название [`раздела`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. The `session` option supersedes `partition`. Поэтому, если параметр `session` явно указан, то `partition` игнорируется.
-  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
+  * `credentials` String (опционально) - Может быть `include` или `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. По умолчанию - `false`.
-  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. По умолчанию 'http:'.
+  * `protocol` String (опционально) - Может быть `http:` или `https:`. The protocol scheme in the form 'scheme:'. По умолчанию 'http:'.
   * `host` String (опционально) - объединенное с номером порта доменное имя сервера 'доменное_имя:порт'.
   * `hostname` String (опционально) – доменное имя сервера.
   * `port` Integer (опционально) – номер порта сервера.
   * `path` String (опционально) - часть пути запроса URL.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  По умолчанию - `follow`.
+  * `redirect` String (необязательный) - Позиция иконки, может иметь значения `follow`, `error` или `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  По умолчанию - `follow`.
   * `origin` String (optional) - The origin URL of the request.
 
 Свойства `options`, такие как `protocol`, `host`, `hostname`, `port` и `path`, строго следуют модели Node.js, которая описана в модуле [URL](https://nodejs.org/api/url.html).
@@ -43,7 +43,7 @@ const request = net.request({
 
 Возвращает:
 
-* `response` IncomingMessage - объект, представляющий ответ HTTP.
+* `response` [IncomingMessage](incoming-message.md) - Объект, представляющий ответ HTTP.
 
 #### Событие: 'login'
 

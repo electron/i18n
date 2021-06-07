@@ -12,58 +12,81 @@ __Menu application du dock :__
 
 ![Dock de macOS][2]
 
-Pour ajouter un fichier à des documents récents, vous devez utiliser l'API [app.addRecentDocument][addrecentdocument].
-
 ## Exemple
 
-### Ajouter un élément aux documents récents
-
-Pour commencer avec une application fonctionnelle, dans le [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `main.js`:
+### Supprimez les documents récents
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
-const { app } = require('electron')
+const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require('path')
 
-app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+
+  win.loadFile('index.html')
+}
+
+const fileName = 'recently-used.md'
+fs.writeFile(fileName, 'Lorem Ipsum', () => {
+  app.addRecentDocument(path.join(__dirname, fileName))
+})
+
+app.whenReady().then(createWindow)
+
+app.on('window-all-closed', () => {
+  app.clearRecentDocuments()
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
 ```
 
-Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. Vous devriez voir l'article que vous venez d'ajouter. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet :
+#### Ajout d'un document récent
+
+To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
+
+Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet. Vous devriez voir `recently-used.md` ajouté à la liste des fichiers récents :
 
 ![Document récent](../images/recent-documents.png)
 
-### Effacement de la liste des documents récents
+#### Effacer la liste des documents récents
 
-Pour effacer la liste des documents récents, vous devez utiliser l'API [app.clearRecentDocuments][clearrecentdocuments] dans le fichier `main.js`:
-
-```javascript
-const { app } = require('electron')
-
-app.clearRecentDocuments()
-```
+Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée une fois toutes les fenêtres fermé.
 
 ## Informations complémentaires
 
-### Remarques pour Windows
+### Remarques Windows
 
-Pour utiliser cette fonctionnalité sur Windows, votre application doit être enregistrée en tant que gestionnaire du type de fichier du document, sinon le fichier n'apparaîtra pas dans JumpList même après l'avoir ajouté. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application][app-registration].
+To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application][app-registration].
 
 Lorsqu’un utilisateur clique sur un fichier à partir de la JumpList, cela démarre une nouvelle instance de votre application avec le chemin d’accès du fichier ajouté comme un argument de ligne de commande.
 
 ### Remarques macOS
 
-#### Ajouter la liste Documents récents au menu de l'application
+#### Ajouter la liste des Documents récents au menu de l'application
 
-Vous pouvez ajouter des éléments de menu pour accéder et effacer les documents récents en ajoutant le snippet suivant à votre modèle de menu:
+You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
 
 ```json
 {
-  "sous-menu":[
+  "submenu":[
     {
-      "label":"Ouvrir récent",
-      "rôle":"documents récents",
-      "sous-menu":[
+      "label":"Open Recent",
+      "role":"recentdocuments",
+      "submenu":[
         {
-          "label":"Effacer les récents",
-          "rôle":"clearrecentdocuments"
+          "label":"Clear Recent",
+          "role":"clearrecentdocuments"
         }
       ]
     }

@@ -12,34 +12,32 @@ Para mostrar notificações no processo principal, precisa usar o módulo [Notif
 
 ### Mostrar notificações no processo de Renderização
 
-Assumindo que você tem um aplicativo Electron funcional do [Guia de início Rápido](quick-start.md), adicione a seguinte linha ao índice `. tml` arquivo antes do fechamento `</body>` etiqueta:
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-e adicione o arquivo</code> de renderização do `renderers:</p>
+...and add the `renderer.js` file:
 
-<pre><code class="javascript fiddle='docs/fiddles/features/notifications/renderer'">const myNotification = new Notification('Título', {
-  body: 'Notification from the Renderer process'
-})
+```javascript fiddle='docs/fiddles/features/notifications/renderer'
+const NOTIFICATION_TITLE = 'Title'
+const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
+const CLICK_MESSAGE = 'Notification clicked'
 
-myNotification.onclick = () => {
-  console.log('Notificação clicada')
-}
-`</pre>
+new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
+  .onclick = () => console.log(CLICK_MESSAGE)
+```
 
 Após iniciar o aplicativo Electron, você verá a notificação:
 
 ![Notificação no processo de renderização](../images/notification-renderer.png)
 
-Se você abrir o Console e clicar na notificação, você verá a mensagem gerada depois de acionar o evento `onclick`:
-
-![Mensagem Onclick para a notificação](../images/message-notification-renderer.png)
+Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
 
 ### Mostrar notificações no processo principal
 
-Começando com um aplicativo de trabalho do [Guia de Início Rápido](quick-start.md), atualize o arquivo `main.js` com as seguintes linhas:
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
@@ -56,7 +54,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 After launching the Electron application, you should see the system notification:
 
-![Notificação no processo principal](../images/notification-main.png)
+![Notification in the Main process](../images/notification-main.png)
 
 ## Informação Adicional
 
@@ -76,13 +74,13 @@ Além disso, no Windows 8, o comprimento máximo para o corpo da notificação �
 
 Versões posteriores do Windows permitem notificações avançadas, com os modelos personalizados, imagens e outros elementos flexíveis. Para enviar essas notificações(tanto do processo principal, quanto do processo de renderização), use o módulo de userland [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), que usa addons nativos Node parar enviar `ToastNotification` e objetos `TileNotification`.
 
-Enquanto as notificações incluindo botões trabalham com `o electron-windows-notifics`, manipular respostas requer o uso de [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), que ajuda a registrar os componentes COM necessários e chamar o seu aplicativo Electron com os dados de usuário inseridos.
+While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
 #### Modo Silêncio/ Apresentação
 
-Para detectar se você tem permissão para enviar uma notificação, use o módulo userland [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-Isso permite que você determine antes do tempo se o Windows irá ou não silenciosamente lançar a notificação fora.
+This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
 ### macOS
 

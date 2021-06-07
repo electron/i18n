@@ -43,7 +43,7 @@ const request = net.request({
 
 Retorna:
 
-* `response` IncomingMessage - Um objeto representando a resposta HTTP.
+* `response` [IncomingMessage](incoming-message.md) - An object representing the HTTP response message.
 
 #### Evento: 'login'
 
@@ -138,7 +138,7 @@ Certain headers are restricted from being set by apps. These headers are listed 
 
 * `Content-Length`
 * `Host`
-* `Trailer` or `Te`
+* `Trailer` ou `Te`
 * `Upgrade`
 * `Cookie2`
 * `Keep-Alive`
@@ -171,7 +171,7 @@ Adds a chunk of data to the request body. The first write operation may cause th
 #### `request.end([chunk][, encoding][, callback])`
 
 * `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
+* `encoding` String (opcional)
 * `callback` Function (optional)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
