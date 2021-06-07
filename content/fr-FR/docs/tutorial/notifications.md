@@ -54,7 +54,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 Après avoir lancé l'application Electron, vous devriez voir la notification système :
 
-![Notification in the Main process](../images/notification-main.png)
+![Notification dans le processus principal](../images/notification-main.png)
 
 ## Informations complémentaires
 
@@ -78,9 +78,9 @@ While notifications including buttons work with `electron-windows-notifications`
 
 #### Ne pas déranger / Mode présentation
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Pour détecter si vous êtes autorisé ou non à envoyer une notification, utilisez le module userland [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Cela permet de déterminer en avance ou non si Windows retire silencieusement la notification.
 
 ### macOS
 
