@@ -30,7 +30,7 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [Representação de Arquivo para o macOS BrowserWindows](tutorial/represented-file.md)
   * [Drag & Drop de Arquivos Nativo (Arrastar e Soltar)](tutorial/native-file-drag-drop.md)
   * [Renderização fora da tela](tutorial/offscreen-rendering.md)
-  * [Modo Escuro](tutorial/dark-mode.md)
+  * [Modo escuro](tutorial/dark-mode.md)
   * [Incorporações da Web no Electron](tutorial/web-embeds.md)
 * [Boilerplates e CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)

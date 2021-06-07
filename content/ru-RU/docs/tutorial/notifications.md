@@ -12,35 +12,32 @@
 
 ### Показывать уведомления в процессе рендерера
 
-Предположим, что у вас есть работающее приложение Electron из [Быстрое начальное руководство](quick-start.md), добавьте следующую строку к индексу `. tml` файл перед закрытием `</body>` тег:
+Starting with a working application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-и добавьте файл `renderer.js`:
+...and add the `renderer.js` file:
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const myNotification = new Notification('Title', {
-  body: 'Notification from the Renderer process'
-})
+const NOTIFICATION_TITLE = 'Title'
+const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
+const CLICK_MESSAGE = 'Notification clicked'
 
-myNotification.onclick = () => {
-  console.log('Notification clicked')
-
+new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
+  .onclick = () => console.log(CLICK_MESSAGE)
 ```
 
 После запуска приложения Electron вы должны увидеть уведомление:
 
 ![Уведомление в процессе рендерера](../images/notification-renderer.png)
 
-Если вы откроете консоль и нажмите на уведомление, вы увидите сообщение , которое было сгенерировано после запуска `onclick` события:
-
-![Onclick сообщение для уведомления](../images/message-notification-renderer.png)
+Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
 
 ### Показывать уведомления в главном процессе
 
-Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), обновите файл `main.js` следующими строками:
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
@@ -57,7 +54,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 After launching the Electron application, you should see the system notification:
 
-![Уведомление в главном процессе](../images/notification-main.png)
+![Notification in the Main process](../images/notification-main.png)
 
 ## Дополнительная информация
 
@@ -69,37 +66,37 @@ After launching the Electron application, you should see the system notification
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID][app-user-model-id] must be installed to the Start screen. Обратите внимание, однако, что его не нужно прикреплять к стартовому экрану.
 * В Windows 7 уведомления работают с пользовательской реализацией, которая наглядно напоминает родной для более новых систем.
 
-Electron пытается автоматизировать работу вокруг ID модели приложения. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
+Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly][squirrel-events]. Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][set-app-user-model-id] yourself.
 
-Кроме того, в Windows 8 максимальная длина тела уведомления составляет 250 символов, в команде Windows рекомендуется хранить уведомления от до 200 символов. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Попытка отправить гигантские количества текста на API (тысячи символов) может привести к нестабильности.
+Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
 
 #### Advanced Notifications
 
-Позже версии Windows позволяют получать расширенные уведомления с пользовательскими шаблонами, изображениями и другими гибкими элементами. Для отправки этих уведомлений (от основного процесса или процесса визуализации), используйте модуль пользовательского доступа [Электрон-уведомления](https://github.com/felixrieseberg/electron-windows-notifications), который использует родные дополнения для отправки `ToastNotification` и `TileNotification` объектов.
+Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
 While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
 #### Тихие часы / Режим презентации
 
-Чтобы определить, разрешено ли вам отправлять уведомление, используйте пользовательский модуль [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
-Это позволит вам заранее определить, будет ли Windows выбрасывать уведомления без звука.
+This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
 ### macOS
 
 Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications][apple-notification-guidelines].
 
-Обратите внимание, что размер уведомлений ограничен 256 байтами и будет сокращен , если вы превысите этот лимит.
+Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
 #### Advanced Notifications
 
-Поздние версии macOS позволяют получать уведомления с полем ввода, позволяя пользователю быстро ответить на уведомление. In order to send notifications with an input field, use the userland module [node-mac-notifier][node-mac-notifier].
+Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier][node-mac-notifier].
 
 #### Не беспокоить/состояние сеанса
 
 To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state][electron-notification-state].
 
-Это позволит Вам заранее определить отображаются ли уведомления или нет.
+This will allow you to detect ahead of time whether or not the notification will be displayed.
 
 ### Linux
 

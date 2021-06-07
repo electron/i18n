@@ -73,7 +73,7 @@ app.on('window-all-closed', function () {
 * 使用css对其添加样式。
 * JavaScript 代码应通过 `<script>` 元素添加。
 
-此外，这也意味着渲染器无权直接访问 `需要`或其他 Node.js API。 为了在渲染器中直接包含npm模块，你必须使用与wed开发相同的模块打包器（例如`webpack<code>或<0>parcel`）
+此外，这也意味着渲染器无权直接访问 `需要`或其他 Node.js API。 为了在渲染器中直接包含npm模块，你必须使用与web开发相同的模块打包器（例如`webpack<code>或<0>parcel`）
 
 > 注意：渲染器过程可以生成一个完整的Node.js环境以便于开发。 这过去是默认的，但由于安全原因，此功能被禁用。
 
