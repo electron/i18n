@@ -14,7 +14,7 @@ __应用 dock 菜单__
 
 ## 示例
 
-### Managing recent documents
+### 管理最近的文档
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app, BrowserWindow } = require('electron')
@@ -34,46 +34,31 @@ const fileName = 'recently-used.md'
 fs.writeFile(fileName, 'Lorem Ipsum', () => {
   app.addRecentDocument(path.join(__dirname, fileName))
 })
-
-app.whenReady().then(createWindow)
-
-app.on('window-all-closed', () => {
-  app.clearRecentDocuments()
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow()
-  }
-})
 ```
 
-#### Adding a recent document
+#### 添加最近的文档
 
-To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
+若要增加一个文件到最近文件列表，你可以使用[app.addRecentDocument][addrecentdocument] API.
 
-启动 Electron 应用程序后，右键点击应用程序图标。 In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
+启动 Electron 应用程序后，右键点击应用程序图标。 在本指南中，本项是位于项目根目录下的 Markdown 文件： 您应该可以看到添加到最近文件列表中的 `recently-used.md` ：
 
-![Recent document](../images/recent-documents.png)
+![最近的文档](../images/recent-documents.png)
 
-#### Clearing the list of recent documents
+#### 清除最近文档列表
 
-To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
+若要清空最近文件列表，你可以使用[app.clearRecentDocuments][clearrecentdocuments] API. 在此指南中，一旦所有窗口都关闭，文件列表就会被清除。
 
 ## 补充资料
 
 ### Windows 注意事项
 
-若要在 Windows 上使用此功能，您的应用程序必须注册为这类文件的处理程序。 否则，文件将不会在跳转列表中出现。 You can find everything on registering your application in [Application Registration][app-registration].
+若要在 Windows 上使用此功能，您的应用程序必须注册为这类文件的处理程序。 否则，文件将不会在跳转列表中出现。 你可以在 [Application Registration][app-registration] 里找到所有关于注册事宜的说明。
 
 当用户点击“跳转列表”上的一个文件时，系统会启动一个新的应用程序的实例 ，而文件的路径将作为一个命令行参数被传入这个实例。
 
 ### macOS 注意事项
 
-#### Add the Recent Documents list to the application menu
+#### 将"最近文档列表"添加到应用程序菜单
 
 您可以添加菜单项以访问和清除最近的文档，方法是在菜单模板中添加以下代码片段：
 
