@@ -37,7 +37,7 @@ De plus, si vous cliquez sur la notification, le DOM se mettra à jour pour affi
 
 ### Afficher les notifications dans le processus principal
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
+À partir d’une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
 ```javascript fiddle='docs/fiddles/features/notifications/main'
 const { Notification } = require('electron')
@@ -74,13 +74,13 @@ En outre, dans Windows 8, la longueur maximale pour le corps de notification est
 
 Les versions ultérieures de Windows permettent aux notifications enrichies, avec des modèles personnalisés, des images et autres éléments. Pour envoyer ces notifications (depuis processus principal ou le processus de rendu), utilisez le "userland" module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), qui utilise un addons natif de Node pour envoyer des objets `ToastNotification` et `TileNotification`.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Bien que les notifications incluant des boutons fonctionnent avec `electron-windows-notifications`, la gestion des réponses nécessite l'utilisation de [`electron-windows-interactive-notification`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), qui aide à l'enregistrement des composants COM requis et fait l'appel à votre application Electron avec les données saisies par l'utilisateur.
 
 #### Ne pas déranger / Mode présentation
 
-Pour détecter si vous êtes autorisé ou non à envoyer une notification, utilisez le module userland [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Utilisez le module userland [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) afin de détecter si vous êtes autorisé à envoyer une notification, .
 
-Cela permet de déterminer en avance ou non si Windows retire silencieusement la notification.
+Cela permet de déterminer à l'avance si Windows supprimera silencieusement la notification.
 
 ### macOS
 
