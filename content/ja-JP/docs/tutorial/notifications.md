@@ -12,13 +12,13 @@
 
 ### レンダラープロセスで通知を表示する
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+[クイックスタートガイド](quick-start.md) の作業用アプリケーションから始めることにして、 `index.html` ファイルの `</body>` タグを閉じる手前に以下の行を追加します。
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-...and add the `renderer.js` file:
+…そして `renderer.js` ファイルを追加します。
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const NOTIFICATION_TITLE = 'Title'
