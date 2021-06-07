@@ -12,18 +12,18 @@ Pour afficher les notifications dans le processus principal, vous devez utiliser
 
 ### Afficher les notifications dans le processus de rendu
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+En partant d'une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `index.html` avant la balise de fermeture `</body>` :
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-...and add the `renderer.js` file:
+... et ajoutez le fichier `renderer.js` :
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const NOTIFICATION_TITLE = 'Title'
-const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
-const CLICK_MESSAGE = 'Notification clicked'
+const NOTIFICATION_TITLE = 'Titre'
+const NOTIFICATION_BODY = 'Notification du Processus de rendu. Cliquez pour écrire dans la console.'
+const CLICK_MESSAGE = 'Notification cliquée'
 
 new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
   .onclick = () => console.log(CLICK_MESSAGE)
@@ -33,7 +33,7 @@ Après avoir lancé l'application Electron, vous devriez voir la notification :
 
 ![Notification dans le processus de rendu](../images/notification-renderer.png)
 
-Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
+De plus, si vous cliquez sur la notification, le DOM se mettra à jour pour afficher "Notification cliquée!".
 
 ### Afficher les notifications dans le processus principal
 
