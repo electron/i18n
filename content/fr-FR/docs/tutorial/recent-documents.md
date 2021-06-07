@@ -53,7 +53,7 @@ app.on('activate', () => {
 
 #### Ajout d'un document récent
 
-To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
+Pour ajouter un fichier aux documents récents, utilisez l'API [app.addRecentDocument][addrecentdocument] .
 
 Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet. Vous devriez voir `recently-used.md` ajouté à la liste des fichiers récents :
 
@@ -61,13 +61,13 @@ Après avoir lancé l'application Electron, faites un clic droit sur l'icône de
 
 #### Effacer la liste des documents récents
 
-Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée une fois toutes les fenêtres fermé.
+Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée une fois que toutes les fenêtres ont été fermées.
 
 ## Informations complémentaires
 
 ### Remarques Windows
 
-To use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application][app-registration].
+Pour utiliser cette fonctionnalité sur Windows, votre application doit être enregistrée en tant que gestionnaire/responsable du type de fichier du document, sinon le fichier n’apparaîtra pas dans la JumpList même après l'avoir ajouté. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application][app-registration].
 
 Lorsqu’un utilisateur clique sur un fichier à partir de la JumpList, cela démarre une nouvelle instance de votre application avec le chemin d’accès du fichier ajouté comme un argument de ligne de commande.
 
@@ -75,17 +75,17 @@ Lorsqu’un utilisateur clique sur un fichier à partir de la JumpList, cela dé
 
 #### Ajouter la liste des Documents récents au menu de l'application
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
+Vous pouvez ajouter des éléments de menu pour accéder et effacer les documents récents en ajoutant le code suivant à votre template de menu :
 
 ```json
 {
   "submenu":[
     {
-      "label":"Open Recent",
+      "label":"Ouvrir récent",
       "role":"recentdocuments",
       "submenu":[
         {
-          "label":"Clear Recent",
+          "label":"Effacer récent",
           "role":"clearrecentdocuments"
         }
       ]
@@ -109,7 +109,7 @@ app.whenReady().then(() => {
 })
 ```
 
-![macOS Recent Documents menu item][6]
+![élément de menu Documents récents macOS][6]
 
 Lorsqu’un fichier est demandé dans le menu documents récents, l’événement `open-file` du module `app` sera émit.
 
