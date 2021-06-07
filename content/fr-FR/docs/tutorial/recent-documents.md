@@ -61,7 +61,7 @@ Après avoir lancé l'application Electron, faites un clic droit sur l'icône de
 
 #### Effacement de la liste des documents récents
 
-Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée une fois que toutes les fenêtres ont été fermées.
+Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée lorsque toutes les fenêtres ont été fermées.
 
 ## Informations complémentaires
 
@@ -75,7 +75,7 @@ Lorsqu’un utilisateur clique sur un fichier à partir de la JumpList, cela dé
 
 #### Ajouter la liste des Documents récents au menu de l'application
 
-Vous pouvez ajouter des éléments de menu pour accéder et effacer les documents récents en ajoutant le code suivant à votre template de menu :
+Vous pouvez ajouter des éléments de menu pour accéder et supprimer les documents récents en ajoutant le code suivant à votre template de menu :
 
 ```json
 {
