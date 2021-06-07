@@ -14,7 +14,7 @@ __Menu application du dock :__
 
 ## Exemple
 
-### Managing recent documents
+### Supprimez les documents récents
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app, BrowserWindow } = require('electron')
@@ -51,17 +51,17 @@ app.on('activate', () => {
 })
 ```
 
-#### Adding a recent document
+#### Ajout d'un document récent
 
 To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
 
-Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
+Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet. Vous devriez voir `recently-used.md` ajouté à la liste des fichiers récents :
 
-![Recent document](../images/recent-documents.png)
+![Document récent](../images/recent-documents.png)
 
-#### Clearing the list of recent documents
+#### Effacer la liste des documents récents
 
-To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
+Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée une fois toutes les fenêtres fermé.
 
 ## Informations complémentaires
 
@@ -73,7 +73,7 @@ Lorsqu’un utilisateur clique sur un fichier à partir de la JumpList, cela dé
 
 ### Remarques macOS
 
-#### Add the Recent Documents list to the application menu
+#### Ajouter la liste des Documents récents au menu de l'application
 
 You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
 
