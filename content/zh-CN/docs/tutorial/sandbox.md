@@ -17,13 +17,13 @@ Electron带有一个混合的沙盒环境，意味着沙盒化进程可以和有
 <!--TODO: update this guide when #28466 is either solved or closed -->
 Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. See [#28466][issue-28466]) for details.
 
-## Sandbox behaviour in Electron
+## Electron 中的沙盒行为
 
-Sandboxed processes in Electron behave _mostly_ in the same way as Chromium's do, but Electron has a few additional concepts to consider because it interfaces with Node.js.
+在 Electron 中沙盒进程 _大部分地_ 表现都与 Chromium 差不多， 但因为介面是 Node.js 的关系 Electron 有一些额外的概念需要考虑。
 
-### Renderer processes
+### 渲染器进程
 
-When renderer processes in Electron are sandboxed, they behave in the same way as a regular Chrome renderer would. A sandboxed renderer won't have a Node.js environment initialized.
+当 Electron 中的渲染器进程被沙盒化时，它们的行为与常规 Chrome 渲染器一样。 一个沙盒化的渲染器不会有一个 Node.js 环境。
 
 <!-- TODO(erickzhao): when we have a solid guide for IPC, link it here -->
 Therefore, when the sandbox is enabled, renderer processes can only perform privileged tasks (such as interacting with the filesystem, making changes to the system, or spawning subprocesses) by delegating these tasks to the main process via inter-process communication (IPC).
