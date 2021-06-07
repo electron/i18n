@@ -12,28 +12,27 @@
 
 ### 在渲染进程中显示通知
 
-Starting with a working application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
+从 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `index.html` 文件：
 
 ```html
 <script src="renderer.js"></script>
 ```
 
-...and add the `renderer.js` file:
+并添加 `renderer.js` 文件：
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
 const NOTIFICATION_TITLE = 'Title'
 const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
 const CLICK_MESSAGE = 'Notification clicked'
 
-new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
-  .onclick = () => console.log(CLICK_MESSAGE)
+new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY }).onclick = () => console.log(CLICK_MESSAGE)
 ```
 
 启动 Electron 应用程序后，您应该能看到通知：
 
 ![渲染进程中的通知](../images/notification-renderer.png)
 
-Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
+此外，如果您点击通知，DOM将更新以显示“Notification clicked!”
 
 ### 在主进程中显示通知
 
@@ -52,7 +51,7 @@ function showNotification () {
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the system notification:
+启动 Electron 应用程序后，您应该能看到系统通知：
 
 ![主进程中的通知](../images/notification-main.png)
 
