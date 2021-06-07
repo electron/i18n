@@ -12,45 +12,68 @@ __应用 dock 菜单__
 
 ![macOS Dock 菜单][2]
 
-要将文件添加到最近的文档，您需要使用[app.addRecentDocument][addrecentdocument] API。
-
 ## 示例
 
-### 将一个项目添加到最近文档
-
-从起 [Quick Start Guide](quick-start.md) 示例的应用程序开始，将以下行添加到 `main.js` 文件：
+### Managing recent documents
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
-const { app } = require('electron')
+const { app, BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require('path')
 
-app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+
+  win.loadFile('index.html')
+}
+
+const fileName = 'recently-used.md'
+fs.writeFile(fileName, 'Lorem Ipsum', () => {
+  app.addRecentDocument(path.join(__dirname, fileName))
+})
+
+app.whenReady().then(createWindow)
+
+app.on('window-all-closed', () => {
+  app.clearRecentDocuments()
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
 ```
 
-启动 Electron 应用程序后，右键点击应用程序图标。 您应该看到您刚刚添加的项目。 在本指南中，项目是位于项目根目录下的 Markdown 文件：
+#### Adding a recent document
 
-![最近文档](../images/recent-documents.png)
+To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
 
-### 清除最近文档列表
+启动 Electron 应用程序后，右键点击应用程序图标。 In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
 
-To clear the list of recent documents, you need to use [app.clearRecentDocuments][clearrecentdocuments] API in the `main.js` file:
+![Recent document](../images/recent-documents.png)
 
-```javascript
-const { app } = require('electron')
+#### Clearing the list of recent documents
 
-app.clearRecentDocuments()
-```
+To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
 
 ## 补充资料
 
 ### Windows 注意事项
 
-若要在 Windows 上使用此功能，您的应用程序必须注册为这类文件的处理程序。 否则，文件将不会在跳转列表中出现。 你可以在 [Application Registration][app-registration] 里找到所有关于注册事宜的说明。
+若要在 Windows 上使用此功能，您的应用程序必须注册为这类文件的处理程序。 否则，文件将不会在跳转列表中出现。 You can find everything on registering your application in [Application Registration][app-registration].
 
 当用户点击“跳转列表”上的一个文件时，系统会启动一个新的应用程序的实例 ，而文件的路径将作为一个命令行参数被传入这个实例。
 
 ### macOS 注意事项
 
-#### 将最近文档列表添加到应用程序菜单
+#### Add the Recent Documents list to the application menu
 
 您可以添加菜单项以访问和清除最近的文档，方法是在菜单模板中添加以下代码片段：
 
