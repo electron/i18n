@@ -36,7 +36,7 @@ const contents = win.webContents
 console.log(contents)
 ```
 
-> 注意：渲染器进程也是为了 [web embeds][web-embed] 而被创建，例如 `BrowserView` 模块。 嵌入式网页内容也可访问 `webContents` 对象。
+> 注意：渲染器进程也是为 [web embeds][web-embed] 而被创建的，例如 `BrowserView` 模块。 嵌入式网页内容也可访问 `webContents` 对象。
 
 由于 `BrowserWindow` 模块是一个 [`EventEmitter`][event-emitter]， 所以您也可以为各种用户事件 ( 例如，最小化 或 最大化您的窗口 ) 添加处理程序。
 
@@ -57,7 +57,7 @@ app.on('window-all-closed', function () {
 
 ### 原生 API
 
-为了使 Electron 的功能不仅仅限于对 web 内容的包装，主进程也添加了自定义的 API 来与用户的作业系统进行交互。 Electron 有着多种控制原生桌面功能的模块，例如菜单、对话框以及托盘图标。
+为了使 Electron 的功能不仅仅限于对网页内容的封装，主进程也添加了自定义的 API 来与用户的作业系统进行交互。 Electron 有着多种控制原生桌面功能的模块，例如菜单、对话框以及托盘图标。
 
 关于 Electron 主进程模块的完整列表，请参阅我们的 API 文档。
 
@@ -65,9 +65,9 @@ app.on('window-all-closed', function () {
 
 每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个网页嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* 网页内容。 所以實際上，运行於渲染器进程中的代码是必須遵照网页标准的 (至少就目前使用的 Chromium 而言是如此) 。
 
-因此，一个浏览器窗口中的所有的用户界面和应用功能，都应与您在 web 开发上使用相同的工具和规范来攥写。
+因此，一个浏览器窗口中的所有的用户界面和应用功能，都应与您在网页开发上使用相同的工具和规范来进行攥写。
 
-虽然解释每一个 web 规范超出了本指南的范围，但您最起码要知道的是：
+虽然解释每一个网页规范超出了本指南的范围，但您最起码要知道的是：
 
 * 以一个 HTML 文件作为渲染器进程的入口点。
 * 使用层叠样式表 (Cascading Style Sheets, CSS) 对 UI 添加样式。
@@ -83,7 +83,7 @@ app.on('window-all-closed', function () {
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> 预加载（preload）脚本包含了那些执行于渲染器进程中，且先于 web 内容开始加载的代码 。 这些脚本虽运行于渲染器的环境中，却因能访问 Node.js API 而拥有了更多的权限。
+change the statements here. --> 预加载（preload）脚本包含了那些执行于渲染器进程中，且先于网页内容开始加载的代码 。 这些脚本虽运行于渲染器的环境中，却因能访问 Node.js API 而拥有了更多的权限。
 
 预加载脚本可以在 `BrowserWindow` 构造方法中的 `webPreferences` 选项里被附加到主进程。
 
@@ -111,7 +111,7 @@ console.log(window.myAPI)
 // => undefined
 ```
 
-語境隔離（Context Isolation）意味著预加载脚本與渲染器的主要運行環境是隔離開來的，以避免泄漏任何具特权的 API 到您的 web 内容代码中。
+语境隔离（Context Isolation）意味着预加载脚本与渲染器的主要运行环境是隔离开来的，以避免泄漏任何具特权的 API 到您的网页内容代码中。
 
 取而代之，我們將使用 [`contextBridge`][context-bridge] 模块來安全地實現交互：
 
@@ -131,7 +131,7 @@ console.log(window.myAPI)
 此功能对两个主要目的來說非常有用：
 
 * 通过暴露 [`ipcRenderer`][ipcRenderer] 帮手模块于渲染器中，您可以使用 进程间通讯 ( inter-process communication, IPC ) 来从渲染器触发主进程任务 ( 反之亦然 ) 。
-* 如果您正在为远程 URL 上托管的现有网页应用开发 Electron 封裝，则您可在渲染器的 `window` 全局變數上添加自定义的属性，好在网页客户端用上僅適用於桌面端的設計逻辑 。
+* 如果您正在为远程 URL 上托管的现有 web 应用开发 Electron 封裝，则您可在渲染器的 `window` 全局變數上添加自定义的属性，好在 web 客户端用上僅適用於桌面應用的設計逻辑 。
 
 [快速启动应用]: ./quick-start.md
 
