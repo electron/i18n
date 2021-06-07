@@ -26,7 +26,7 @@ Note that there is an active discussion in the issue tracker to enable renderer 
 当 Electron 中的渲染器进程被沙盒化时，它们的行为与常规 Chrome 渲染器一样。 一个沙盒化的渲染器不会有一个 Node.js 环境。
 
 <!-- TODO(erickzhao): when we have a solid guide for IPC, link it here -->
-Therefore, when the sandbox is enabled, renderer processes can only perform privileged tasks (such as interacting with the filesystem, making changes to the system, or spawning subprocesses) by delegating these tasks to the main process via inter-process communication (IPC).
+因此，在沙盒中，渲染器进程只能透过 进程间通讯 ( inter-process communication, IPC ) 委派任务给主进程的方式， 来执行需权限的任务 ( 例如：操作档案系统，改变作业系统 或 生成子进程 ) 。
 
 ### 预加载脚本
 
