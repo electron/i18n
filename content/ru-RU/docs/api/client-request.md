@@ -43,7 +43,7 @@ const request = net.request({
 
 Возвращает:
 
-* `response` [IncomingMessage](incoming-message.md) - An object representing the HTTP response message.
+* `response` [IncomingMessage](incoming-message.md) - Объект, представляющий ответ HTTP.
 
 #### Событие: 'login'
 
