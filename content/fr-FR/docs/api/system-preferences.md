@@ -309,8 +309,8 @@ The following colors are only available on macOS 10.14: `find-highlight`, `selec
   * `orange`
   * `rose`
   * `violet`
-  * `red`
-  * `yellow`
+  * `rouge`
+  * `jaune`
 
 Returns `String` - The standard system color formatted as `#RRGGBBAA`.
 
