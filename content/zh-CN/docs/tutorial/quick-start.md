@@ -256,7 +256,7 @@ function createWindow () {
 
 `renderer.js` 中包含的代码接下来可以使用与前端开发相同的 JavaScript API 和工具，例如使用 [`webpack`][webpack] 打包并最小化您的代码或 [React][react] 来管理您的用户界面。
 
-### Recap
+### 回顾
 
 After following the above steps, you should have a fully functional Electron application that looks like this:
 

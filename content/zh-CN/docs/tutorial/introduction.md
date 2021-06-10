@@ -17,7 +17,7 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
 
 ## Electron Fiddle运行实例
 
-[Electron Fiddle][fiddle] is a sandbox app written with Electron and supported by Electron's maintainers. 我们强烈建议将其作为一个学习工具来安装，以便在开发过程中对Electron的api进行实验或对特性进行原型化。
+[Electron Fiddle][fiddle]是由Electron开发并由其维护者支持的沙盒程序。 我们强烈建议将其作为一个学习工具来安装，以便在开发过程中对Electron的api进行实验或对特性进行原型化。
 
 Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
 

@@ -128,7 +128,7 @@ console.log(window.myAPI)
 // => { desktop: true }
 ```
 
-This feature is incredibly useful for two main purposes:
+Cette fonctionnalité est incroyablement utile pour deux objectifs principaux :
 
 * By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
 * If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
