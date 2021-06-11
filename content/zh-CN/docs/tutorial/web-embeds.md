@@ -4,11 +4,11 @@
 
 有三种方式可以让你在Electron的</code>BrowserWindow</code>里集成（第三方）web内容，`<iframe>`, `<webview>` 和 `BrowserViews</0> 每个功能都略有不同，适用于不同的情况。 为了帮助您在这些选择之间进行选择，本指南将解释他们之间的差异和功能。</p>
 
-<h3 spaces-before="0">Iframe</h3>
+<h3 spaces-before="0">Iframes</h3>
 
-<p spaces-before="0">Iframe 在 Electron 中的行为与普通浏览器中类似。 在宿主页面的<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a>允许范围内，一个<code><iframe>`元素能在页面上显示外部网页。 为了限制 `<iframe>` 标签中站点的功能，建议使用</a> 的
+<p spaces-before="0">Iframe 在 Electron 中的行为与普通浏览器中类似。 在宿主页面的<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a>允许范围内，一个<code><iframe>`元素能在页面上显示外部网页。 为了限制iframe标签中站点的功能，建议使用</a>的
 
-`sandbox` 属性 ，并且仅允许您想要支持的功能。</p> 
+`sandbox` 属性，并且仅允许您想要支持的功能。</p> 
 
 
 

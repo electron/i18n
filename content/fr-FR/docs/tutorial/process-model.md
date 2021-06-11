@@ -14,7 +14,7 @@ To solve this problem, the Chrome team decided that each tab would render in its
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
-Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Les applications Electron sont structurées de manière très similaire. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
 
 ## The main process
 
@@ -75,7 +75,7 @@ Although explaining every web spec is out of scope for this guide, the bare mini
 
 Moreover, this also means that the renderer has no direct access to `require` or other Node.js APIs. In order to directly include NPM modules in the renderer, you must use the same bundler toolchains (for example, `webpack` or `parcel`) that you use on the web.
 
-> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historically, this used to be the default, but this feature was disabled for security reasons.
+> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historiquement, c'était la valeur par défaut, mais cette fonctionnalité a été désactivée pour des raisons de sécurité.
 
 At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
 
@@ -128,7 +128,7 @@ console.log(window.myAPI)
 // => { desktop: true }
 ```
 
-This feature is incredibly useful for two main purposes:
+Cette fonctionnalité est incroyablement utile pour deux objectifs principaux :
 
 * By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
 * If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
