@@ -23,7 +23,7 @@ Fiddle also integrates nicely with our documentation. When browsing through exam
 
 ## Pour obtenir de l'aide
 
-Are you getting stuck anywhere? Here are a few links to places to look:
+Are you getting stuck anywhere? Voici quelques liens vers des endroits où chercher :
 
 * Si vous avez besoin d'aide pour développer votre application, notre [serveur communautaire Discord][discord] est un excellent endroit pour obtenir des conseils d'autres développeurs d'applications Electron.
 * If you suspect you're running into a bug with the `electron` package, please check the [GitHub issue tracker][issue-tracker] to see if any existing issues match your problem. If not, feel free to fill out our bug report template and submit a new issue.
