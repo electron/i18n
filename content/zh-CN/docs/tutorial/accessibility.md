@@ -6,7 +6,7 @@
 
 Electron 应用中有关辅助功能的开发和网站是相似的，因为两者最终使用的都是HTML. 然而, 对于Electron应用, 你不能使用在线的辅助功能审查者, 因为你的应用没有一个URL可以提供给审查者.
 
-These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. 详见各工具的文档.
+一些功能将会提供一些审查工具给你的Electron 应用。 You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. 详见各工具的文档.
 
 ## Spectron
 
