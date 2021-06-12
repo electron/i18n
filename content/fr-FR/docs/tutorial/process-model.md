@@ -4,7 +4,7 @@ Electron inherits its multi-process architecture from Chromium, which makes the 
 
 ## Why not a single process?
 
-Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+Les navigateurs Web sont des applications incroyablement compliquées. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
 
 In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
 
