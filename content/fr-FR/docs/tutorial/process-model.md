@@ -4,7 +4,7 @@ Electron inherits its multi-process architecture from Chromium, which makes the 
 
 ## Why not a single process?
 
-Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+Les navigateurs Web sont des applications incroyablement compliquées. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
 
 In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
 
@@ -14,7 +14,7 @@ To solve this problem, the Chrome team decided that each tab would render in its
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
-Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Les applications Electron sont structurées de manière très similaire. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
 
 ## The main process
 
@@ -75,7 +75,7 @@ Although explaining every web spec is out of scope for this guide, the bare mini
 
 Moreover, this also means that the renderer has no direct access to `require` or other Node.js APIs. In order to directly include NPM modules in the renderer, you must use the same bundler toolchains (for example, `webpack` or `parcel`) that you use on the web.
 
-> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historically, this used to be the default, but this feature was disabled for security reasons.
+> Note: Renderer processes can be spawned with a full Node.js environment for ease of development. Historiquement, c'était la valeur par défaut, mais cette fonctionnalité a été désactivée pour des raisons de sécurité.
 
 At this point, you might be wondering how your renderer process user interfaces can interact with Node.js and Electron's native desktop functionality if these features are only accessible from the main process. In fact, there is no direct way to import Electron's content scripts.
 
