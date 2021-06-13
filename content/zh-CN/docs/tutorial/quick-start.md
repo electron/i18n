@@ -367,13 +367,11 @@ To summarize all the steps we've done:
 * In order to access certain Node.js functionality in the renderer, we attached
   a preload script to our `BrowserWindow` constructor.
 
-## Package and distribute your application
+## 打包并分发您的应用程序
 
-The fastest way to distribute your newly created app is using
-[Electron Forge](https://www.electronforge.io).
+最快捷的打包方式是使用 [Electron Forge](https://www.electronforge.io)。
 
-1. Add Electron Forge as a development dependency of your app, and use its `import` command to set up
-Forge's scaffolding:
+1. 将 Electron Forge 添加到您应用的开发依赖中，并使用其"import"命令设置 Forge 的脚手架：
 
     ```sh npm2yarn
     npm install --save-dev @electron-forge/cli
@@ -391,7 +389,7 @@ Forge's scaffolding:
     Thanks for using "electron-forge"!!!
     ```
 
-1. Create a distributable using Forge's `make` command:
+1. 使用 Forge 的 `make` 命令来创建可分发的应用程序：
 
     ```sh npm2yarn
     npm run make
