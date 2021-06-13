@@ -103,7 +103,7 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
-### Removed: methods in `systemPreferences`
+### Eliminado: métodos en `systemPreferences`
 
 The following `systemPreferences` methods have been deprecated:
 
