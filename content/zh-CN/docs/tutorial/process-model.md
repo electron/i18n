@@ -83,7 +83,7 @@ app.on('window-all-closed', function () {
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> 预加载（preload）脚本包含了那些执行于渲染器进程中，且先于网页内容开始加载的代码 。 这些脚本虽运行于渲染器的环境中，却因能访问 Node.js API 而拥有了更多的权限。
+change the statements here. --> 预加载（preload）脚本包含了那些执行于渲染器进程中，且先于网页内容开始加载的代码 。 These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
 
 预加载脚本可以在 `BrowserWindow` 构造方法中的 `webPreferences` 选项里被附加到主进程。
 
