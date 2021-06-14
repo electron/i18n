@@ -430,13 +430,13 @@ Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoo
 
 ### Comportement modifié : l’envoi d’objets non-JS au travers d' IPC déclenche maintenant une exception
 
-Dans Electron 8.0, l'IPC a été modifié pour utiliser l'algorithme Structured Clone , apportant des améliorations significatives des performances. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
+Dans Electron 8.0, l'IPC a été modifié pour utiliser l'algorithme Structured Clone , apportant des améliorations significatives des performances. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Chaque fois que l'ancien algorithme était invoqué, un un avertissement de dépréciation a été imprimé.
 
 In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
 
-### API Changed: `shell.openItem` is now `shell.openPath`
+### API modifiée : `shell.openItem` est désormais `shell.openPath`
 
-The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. Vous pouvez voir la proposition initiale de l'API et le raisonnement [ici](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+L'API `shell.openItem` a été remplacée par une API `shell.openPath` asynchrone. Vous pouvez voir la proposition initiale de l'API et le raisonnement [ici](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
 
 ## Changements majeurs prévus de l'API (8.0)
 
@@ -574,7 +574,7 @@ Déprécié : https://atom.io/download/electron
 
 Remplacer par : https://electronjs.org/headers
 
-### API Changed: `session.clearAuthCache()` no longer accepts options
+### API modifiée : `session.clearAuthCache()` n'accepte plus les options
 
 The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
@@ -585,7 +585,7 @@ session.clearAuthCache({ type: 'password' })
 session.clearAuthCache()
 ```
 
-### API Changed: `powerMonitor.querySystemIdleState` is now `powerMonitor.getSystemIdleState`
+### API modifiée : `powerMonitor.querySystemIdleState` est désormais `powerMonitor.getSystemIdleState`
 
 ```js
 // Removed in Electron 7.0
@@ -594,7 +594,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
+### API modifiée : `powerMonitor.querySystemIdleTime` est désormais `powerMonitor.getSystemIdleTime`
 
 ```js
 // Removed in Electron 7.0
@@ -704,7 +704,7 @@ Ces fonctions ont maintenant deux formes, synchrone et asynchrone basées sur Pr
 
 ## Changements majeurs prévus de l'API (6.0)
 
-### API Changed: `win.setMenu(null)` is now `win.removeMenu()`
+### API modifiée : `win.setMenu(null)` est désormais `win.removeMenu()`
 
 ```js
 // Déprécié
@@ -713,7 +713,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-### API Changed: `electron.screen` in the renderer process should be accessed via `remote`
+### API modifiée : `electron.screen` dans le processus de rendu doit être accédé via `remote`
 
 ```js
 // Déprécié
@@ -830,7 +830,7 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### API Changed: `webFrame.setSpellCheckProvider` now takes an asynchronous callback
+### API modifiée : `webFrame.setSpellCheckProvider` prend désormais un rappel asynchrone
 
 Le rappel `spellCheck` est désormais asynchrone et le paramètre `autoCorrectWord` a été supprimé.
 

@@ -126,14 +126,14 @@ function createWindow () {
   })
 
   ipcMain.handle('dark-mode:system', () => {
-    nativeTheme.themeSouce = 'system'
+    nativeTheme.themeSource = 'system'
   })
 }
 
 app.whenReady().then(() => {
   createWindow()
 
-  app.on('activate', () => {
+  app.on('activate' , () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
     }

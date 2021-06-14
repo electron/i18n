@@ -38,7 +38,7 @@ En la versión Electron 10, también hicimos un cambio en nuestras notas de publ
 
 Vea las [notas de lanzamiento 10.0.0](https://github.com/electron/electron/releases/tag/v10.0.0) para una lista completa de nuevas características y cambios.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 * Cambió el valor predeterminado de `enableRemoteModule` a `false`. [#22091](https://github.com/electron/electron/pull/22091)
     * Esto es parte de nuestros planes para desaprobar el módulo `remoto` y moverlo a tierra de usuario. Puede leer y seguir [este problema](https://github.com/electron/electron/issues/21408) que detalla nuestras razones para esto e incluye una línea temporal propuesta para la desaprobación.
