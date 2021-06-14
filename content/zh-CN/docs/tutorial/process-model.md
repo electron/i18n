@@ -44,12 +44,12 @@ console.log(contents)
 
 ### 应用程序生命周期
 
-主进程還能通过 Electron 的 [`app`][app] 模块来控制您应用程序的生命周期。 该模块提供了一整套的事件和方法，讓您可用來添加自訂義的應用程式行為 ( 例如：以編成方式 退出您的應用程序、修改程序塢 或 顯示關於面板 ) 。
+主进程还能通过 Electron 的 [`app`][app] 模块来控制您应用程序的生命周期。 该模块提供了一整套的事件和方法，可以使你添加自定义的应用程序行为 ( 例如：以编程方式退出您的应用程序、修改程序坞或显示关于面板 ) 。
 
-作為一个实际的例子，这个展示于 [快速入门指南][quick-start-lifecycle] 中的 app，用 `app` API 创建了一个更原生的应用程序窗口体验。
+这是一个实际的例子，这个app来源于[快速入门指南][quick-start-lifecycle]，用 `app` API 创建了一个更原生的应用程序窗口体验。
 
 ```js title='main.js'
-// 當 macOS 无窗口打开时退出应用
+// 当 macOS 无窗口打开时退出应用
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -63,7 +63,7 @@ app.on('window-all-closed', function () {
 
 ## 渲染器进程
 
-每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个网页嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* 网页内容。 所以實際上，运行於渲染器进程中的代码是必須遵照网页标准的 (至少就目前使用的 Chromium 而言是如此) 。
+每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个网页嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* 网页内容。 所以实际上，运行于渲染器进程中的代码是须遵照网页标准的 (至少就目前使用的 Chromium 而言是如此) 。
 
 因此，一个浏览器窗口中的所有的用户界面和应用功能，都应与您在网页开发上使用相同的工具和规范来进行攥写。
 
@@ -71,7 +71,7 @@ app.on('window-all-closed', function () {
 
 * 以一个 HTML 文件作为渲染器进程的入口点。
 * 使用层叠样式表 (Cascading Style Sheets, CSS) 对 UI 添加样式。
-* 通過 `<script>` 元素可添加可執行的 JavaScript 代码。
+* 通过 `<script>` 元素可添加可执行的 JavaScript 代码。
 
 此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发時相同的打包工具 (例如 `webpack` 或 `parcel`)
 
