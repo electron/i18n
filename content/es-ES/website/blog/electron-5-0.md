@@ -62,7 +62,7 @@ Para mejorar la seguridad en la API `` remota, se han añadido nuevos eventos re
 
 BrowserWindow ahora soporta la administración de múltiples BrowserViews dentro del mismo BrowserWindow.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 ### Por defecto para aplicaciones empaquetadas
 

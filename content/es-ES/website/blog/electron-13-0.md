@@ -36,7 +36,7 @@ El equipo de Electron esta emocionado de anunciar el lanzamiento de Electron 13.
 
 Vea la [notas de lanzamiento 13.0.0](https://github.com/electron/electron/releases/tag/v13.0.0) para la lista completa de nuevas características y cambios.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 * `window.open()` parameter frameName is no longer set as window title. [#27481](https://github.com/electron/electron/pull/27481)
 * Changed `session.setPermissionCheckHandler(handler)` to allow for `handler`'s first parameter, `webContents` to be `null`. [#19903](https://github.com/electron/electron/pull/19903)

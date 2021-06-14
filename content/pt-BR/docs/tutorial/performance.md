@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Executando esse comando temos um arquivo `.cpuprofile` e um arquivo `.heapprofile` no diretório em que você executou. Ambos os arquivos podem ser analisados usando a Ferramenta de Desenvolvedor do Chrome, usando as seções `Performance` e `Memory` respectivamente.
 
-![performance-cpu-prof][]
+![Performance CPU Profile][4]
 
-![performance-heap-prof][]
+![Performance Heap Memory Profile][5]
 
 Nesse exemplo, na máquina do autor, nós vimos que o `request` levou quase meio segundo, enquanto o `node-fetch` levou drasticamente menos memória e menos que 50ms.
 
@@ -239,9 +239,10 @@ Tem vários compressores de JavaScript lá fora e nós sabemos que melhor que ir
 
 A partir da escrita deste artigo, as escolhas populares incluem [Webpack][webpack], [Parcel][parcel], e [rollup.js][rollup].
 
+[4]: ../images/performance-cpu-prof.png
+[5]: ../images/performance-heap-prof.png
+
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers

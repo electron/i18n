@@ -73,7 +73,7 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
     * Added a new `credentials` option for `net.request()`. [#25284](https://github.com/electron/electron/pull/25284)
     * Added `net.online` for detecting whether there is currently internet connection. [#21004](https://github.com/electron/electron/pull/21004)
 * `powerMonitor` API changes:
-    * Added `powerMonitor.onBatteryPower`. [#26494](https://github.com/electron/electron/pull/26494)
+    * Ajout de `powerMonitor.onBatteryPower`. [#26494](https://github.com/electron/electron/pull/26494)
     * Added fast user switching event to powerMonitor on macOS. [#25321](https://github.com/electron/electron/pull/25321)
 * `session` API change :
     * Added `allowFileAccess` option to `ses.loadExtension()` API. [#27702](https://github.com/electron/electron/pull/27702)

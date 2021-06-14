@@ -1,6 +1,6 @@
 # Краткий обзор
 
-> Как использовать Node.js и Electron API.
+> Как использовать API Node.js и Electron.
 
 Все [встроенные модули Node.js](https://nodejs.org/api/) доступны в Electron и сторонних модулях (включая [нативные модули](../tutorial/using-native-node-modules.md)).
 

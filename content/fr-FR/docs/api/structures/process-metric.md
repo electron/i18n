@@ -22,4 +22,4 @@
   * `low`
   * `medium`
   * `high`
-  * `unknown`
+  * `inconnu`

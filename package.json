@@ -37,7 +37,7 @@
     "make-dir": "^3.0.0",
     "make-promises-safe": "^5.0.0",
     "match-words": "^1.0.0",
-    "mocha": "^8.0.1",
+    "mocha": "^9.0.0",
     "npm-run-all": "^4.1.2",
     "prettier": "^2.0.0",
     "require-yaml": "^0.0.1",
@@ -49,7 +49,7 @@
     "typescript": "^4.0.5",
     "unist-util-remove": "^2.1.0",
     "unist-util-visit": "^2.0.1",
-    "walk-sync": "^2.0.2"
+    "walk-sync": "^3.0.0"
   },
   "scripts": {
     "collect": "ts-node script/collect.ts",
@@ -69,7 +69,7 @@
     "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v13.1.1",
+  "electronLatestStableTag": "v13.1.2",
   "engines": {
     "node": ">=10"
   }

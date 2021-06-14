@@ -14,7 +14,7 @@ __アプリケーションの Dock メニュー:__
 
 ## サンプル
 
-### Managing recent documents
+### 最近開いた書類の管理
 
 ```javascript fiddle='docs/fiddles/features/recent-documents'
 const { app, BrowserWindow } = require('electron')
@@ -51,31 +51,31 @@ app.on('activate', () => {
 })
 ```
 
-#### Adding a recent document
+#### 最近開いた書類の追加
 
-To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
+最近開いた書類にファイルを追加するには、[app.addRecentDocument][addrecentdocument] API を使用します。
 
-Electron アプリケーションを起動した後、アプリケーションアイコンを右クリックします。 In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
+Electron アプリケーションを起動した後、アプリケーションアイコンを右クリックします。 このガイドでは、そのアイテムはプロジェクトのルートにある Markdown ファイルとなっています。 最近開いたファイルのリストに `recently-used.md` が追加されているはずです。
 
 ![最近使った書類](../images/recent-documents.png)
 
-#### Clearing the list of recent documents
+#### 最近開いた書類の消去
 
-To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
+最近開いた書類のリストを消去するには、[app.clearRecentDocuments][clearrecentdocuments] API を使用します。 このガイドでは、すべてのウインドウを閉じた時点でその書類のリストは消去されます。
 
 ## 追加情報
 
 ### Windows での注意
 
-Windows でこの機能を使用する際にアプリケーションが書類のファイルタイプのハンドラとして登録されていない場合、ファイルを追加してもジャンプリストに表示されません。 You can find everything on registering your application in [Application Registration][app-registration].
+Windows でこの機能を使用する際にアプリケーションが書類のファイルタイプのハンドラとして登録されていない場合、ファイルを追加してもジャンプリストに表示されません。 アプリケーションの登録については、[Application Registration][app-registration] にすべて記載されています。
 
 ユーザーがジャンプリストからファイルをクリックすると、アプリケーションの新しいインスタンスが、ファイルのパスがコマンドライン引数として追加されて起動されます。
 
 ### macOS での注意
 
-#### Add the Recent Documents list to the application menu
+#### アプリケーションメニューに最近開いた書類を追加する
 
-You can add menu items to access and clear recent documents by adding the following code snippet to your menu template:
+以下のコードスニペットをメニューテンプレートに追加することで、最近開いた書類にアクセスしたり消去したりするメニュー項目を追加できます。
 
 ```json
 {

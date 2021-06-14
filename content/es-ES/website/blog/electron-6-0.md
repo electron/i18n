@@ -78,7 +78,7 @@ La gente usando `electron-osx-sign` para codiseñar su aplicación Electron no d
 
 Para empaquetar tu aplicación correctamente con estos nuevos ayudantes, necesitas usar `electron-packager@14.0.4` o superior.  Si estás usando `electron-builder` deberías seguir [este problema](https://github.com/electron-userland/electron-builder/issues/4104) para rastrear el soporte para estos nuevos ayudantes.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
  * Esta versión comienza a sentar las bases para un futuro requisito de que los módulos nativos de Node cargados en el proceso de renderizador sean [N-API](https://nodejs.org/api/n-api.html) o [Contexto Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Las razones de este cambio son un rendimiento más rápido, una seguridad más fuerte y una menor carga de trabajo de mantenimiento. Lea todos los detalles incluyendo la línea temporal propuesta en [este asunto](https://github.com/electron/electron/issues/18397). Se espera que este cambio se complete en Electron v11.
 

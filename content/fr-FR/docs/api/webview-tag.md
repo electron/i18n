@@ -92,7 +92,7 @@ Un `Boolean`. Lorsque cet attribut est présent, la page hébergée dans la `web
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. Cette option est désactivée par défaut dans la page invité.
 
 ### `enableremotemodule`
 
@@ -108,7 +108,7 @@ Un `Boolean`. When this attribute is `false` the guest page in `webview` will no
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-Un `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+Un `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Les plugins sont désactivés par défaut.
 
 ### `preload`
 
@@ -144,7 +144,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-Un `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+Un `Boolean`. When this attribute is present the guest page will have web security disabled. La sécurité Web est activée par défaut.
 
 ### `partition`
 
@@ -163,7 +163,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-Un `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+Un `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Les popups sont désactivés par défaut.
 
 ### `webpreferences`
 
@@ -274,7 +274,7 @@ Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+Efface l'historique de navigation.
 
 ### `<webview>.goBack()`
 
@@ -557,7 +557,7 @@ Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de
 
 Returns `Number` - the current zoom factor.
 
-### `<webview>.getZoomLevel()`
+### `<webview>.getZoomFactor()`
 
 Returns `Number` - the current zoom level.
 

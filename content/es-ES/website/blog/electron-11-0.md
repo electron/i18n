@@ -35,7 +35,7 @@ El equipo de Electron esta emocionado de anunciar el lanzamiento de Electron 11.
 
 See the [11.0.0 release notes](https://github.com/electron/electron/releases/tag/v11.0.0) for a full list of new features and changes.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 * Removed experimental APIs: `BrowserView.{fromId, fromWebContents, getAllViews}` and the `id` property of `BrowserView`. [#23578](https://github.com/electron/electron/pull/23578)
 

@@ -903,7 +903,7 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+Efface l'historique de navigation.
 
 #### `contents.goBack()`
 
