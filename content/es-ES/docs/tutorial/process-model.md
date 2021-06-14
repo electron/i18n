@@ -83,7 +83,7 @@ At this point, you might be wondering how your renderer process user interfaces 
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> Preload scripts contain code that executes in a renderer process before its web content begins loading. These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+change the statements here. --> Preload scripts contain code that executes in a renderer process before its web content begins loading. Estos scripts se ejecutan dentro del contexto del renderizador, pero tienen más privilegios al poder acceder a las APIs de Node.js.
 
 A preload script can be attached to the main process in the `BrowserWindow` constructor's `webPreferences` option.
 
