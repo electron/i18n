@@ -44,12 +44,12 @@ console.log(contents)
 
 ### 应用程序生命周期
 
-主进程還能通过 Electron 的 [`app`][app] 模块来控制您应用程序的生命周期。 该模块提供了一整套的事件和方法，讓您可用來添加自訂義的應用程式行為 ( 例如：以編成方式 退出您的應用程序、修改程序塢 或 顯示關於面板 ) 。
+主进程还能通过 Electron 的 [`app`][app] 模块来控制您应用程序的生命周期。 该模块提供了一整套的事件和方法，可以使你添加自定义的应用程序行为 ( 例如：以编程方式退出您的应用程序、修改程序坞或显示关于面板) 。
 
-作為一个实际的例子，这个展示于 [快速入门指南][quick-start-lifecycle] 中的 app，用 `app` API 创建了一个更原生的应用程序窗口体验。
+这是一个实际的例子，这个app来源于[快速入门指南][quick-start-lifecycle]，用 `app` API 创建了一个更原生的应用程序窗口体验。
 
 ```js title='main.js'
-// 當 macOS 无窗口打开时退出应用
+// 当 macOS 无窗口打开时退出应用
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -63,7 +63,7 @@ app.on('window-all-closed', function () {
 
 ## 渲染器进程
 
-每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个网页嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* 网页内容。 所以實際上，运行於渲染器进程中的代码是必須遵照网页标准的 (至少就目前使用的 Chromium 而言是如此) 。
+每个 Electron 应用都会为每个打开的 `BrowserWindow` ( 与每个网页嵌入 ) 生成一个单独的渲染器进程。 洽如其名，渲染器负责 *渲染* 网页内容。 所以实际上，运行于渲染器进程中的代码是必須遵照网页标准的 (至少就目前使用的 Chromium 而言是如此) 。
 
 因此，一个浏览器窗口中的所有的用户界面和应用功能，都应与您在网页开发上使用相同的工具和规范来进行攥写。
 
@@ -71,13 +71,13 @@ app.on('window-all-closed', function () {
 
 * 以一个 HTML 文件作为渲染器进程的入口点。
 * 使用层叠样式表 (Cascading Style Sheets, CSS) 对 UI 添加样式。
-* 通過 `<script>` 元素可添加可執行的 JavaScript 代码。
+* 通过 `<script>` 元素可添加可执行的 JavaScript 代码。
 
-此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发時相同的打包工具 (例如 `webpack` 或 `parcel`)
+此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发时相同的打包工具 (例如 `webpack` 或 `parcel`)
 
-> 注意：渲染器进程可以生成一个完整的 Node.js 环境以便于开发。 在過去這是默認的，但如今此功能已基於安全理由而被禁用。
+> 注意：渲染器进程可以生成一个完整的 Node.js 环境以便于开发。 在过去這是默认的，但如今此功能已基于安全理由而被禁用。
 
-此刻，您也许会好奇，您在渲染器进程中的用户介面该如何与 Node.js 和 Electron 的原生桌面功能进行交互，如果这些功能都仅适用于主进程的话。 而事实上，確實没有直接导入 Electron 內容脚本的方法。
+此刻，您也许会好奇，您在渲染器进程中的用户介面该如何与 Node.js 和 Electron 的原生桌面功能进行交互，如果这些功能都仅适用于主进程的话。 而事实上，确实没有直接导入 Electron 內容脚本的方法。
 
 ## 预加载脚本
 
@@ -113,7 +113,7 @@ console.log(window.myAPI)
 
 语境隔离（Context Isolation）意味着预加载脚本与渲染器的主要运行环境是隔离开来的，以避免泄漏任何具特权的 API 到您的网页内容代码中。
 
-取而代之，我們將使用 [`contextBridge`][context-bridge] 模块來安全地實現交互：
+取而代之，我们将使用 [`contextBridge`][context-bridge] 模块来安全地实现交互：
 
 ```js title='preload.js'
 const { contextBridge } = require('electron')
@@ -131,7 +131,7 @@ console.log(window.myAPI)
 此功能对两个主要目的來說非常有用：
 
 * 通过暴露 [`ipcRenderer`][ipcRenderer] 帮手模块于渲染器中，您可以使用 进程间通讯 ( inter-process communication, IPC ) 来从渲染器触发主进程任务 ( 反之亦然 ) 。
-* 如果您正在为远程 URL 上托管的现有 web 应用开发 Electron 封裝，则您可在渲染器的 `window` 全局變數上添加自定义的属性，好在 web 客户端用上僅適用於桌面應用的設計逻辑 。
+* 如果您正在为远程 URL 上托管的现有 web 应用开发 Electron 封裝，则您可在渲染器的 `window` 全局变量上添加自定义的属性，好在 web 客户端用上仅适用于桌面应用的设计逻辑 。
 
 [快速启动应用]: ./quick-start.md
 
