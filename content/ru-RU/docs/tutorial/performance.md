@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Выполнение этой команды приводит к появлению файла `.cpuprofile` и файла `.heapprofile` в папке, в которой вы его запустили. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
 
-![performance-cpu-prof][]
+![Performance CPU Profile][4]
 
-![performance-heap-prof][]
+![Performance Heap Memory Profile][5]
 
 В этом примере на машине автора мы увидели, что загрузка `запроса` заняла почти половину секунды, в то время как `node-fetch` занимал значительно меньше памяти и менее 50 мс.
 
@@ -240,9 +240,10 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 
 As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
 
+[4]: ../images/performance-cpu-prof.png
+[5]: ../images/performance-heap-prof.png
+
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers

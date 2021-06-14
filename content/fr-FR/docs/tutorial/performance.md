@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 L'exécution de cette commande aboutit à un fichier `.cpuprofile` et un fichier `.heapprofile` dans le répertoire dans lequel vous l'avez exécuté. Les deux fichiers peuvent être analysés en utilisant les outils de développement Chrome, en utilisant respectivement les onglets `Performance` et `Mémoire` .
 
-![performance-cpu-prof][]
+![Profil de performance de CPU][4]
 
-![performance-heap-prof][]
+![Profil de performance de la mémoire du tas][5]
 
 Dans cet exemple, sur la machine de l'auteur, nous avons vu que le chargement du module Request `` a pris près d'une demi-seconde, alors que `node-fetch` a pris beaucoup moins de mémoire et moins de 50ms.
 
@@ -239,9 +239,10 @@ Il y a de nombreux bundles JavaScript là-bas et nous savons mieux que de irrite
 
 As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
 
+[4]: ../images/performance-cpu-prof.png
+[5]: ../images/performance-heap-prof.png
+
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers

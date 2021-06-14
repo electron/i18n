@@ -27,7 +27,7 @@ El equipo de Electron está encantado de anunciar el lanzamiento de Electron 7.0
 
 Vea las [notas de lanzamiento 7.0.0](https://github.com/electron/electron/releases/tag/v7.0.0) para una lista más larga de cambios.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 Puede encontrar más información sobre estos y futuros cambios en la página [Cambios de rotación planificados](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md).
 

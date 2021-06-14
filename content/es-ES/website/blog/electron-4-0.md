@@ -87,7 +87,7 @@ Win. webContents. Setbackgroundestrangulamiento (Enablebackgroundestrangulamient
 
 Vea [la documentación de `setBackgroundThrottling`](https://electronjs.org/docs/api/web-contents#contentssetbackgroundthrottlingallowed) para más información.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 ### No hay más soporte para macOS 10.9
 

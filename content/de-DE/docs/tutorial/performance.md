@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Das Ausführen dieses Befehls resultiert in einer `.cpuprofile` Datei und einer `.heappro-Datei` Datei in dem Verzeichnis, in dem Sie es ausgeführt haben. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
 
-![performance-cpu-prof][]
+![Performance CPU Profile][4]
 
-![performance-heap-prof][]
+![Performance Heap Memory Profile][5]
 
 In diesem Beispiel haben wir auf dem Computer des Autors gesehen, dass das Laden der `-Anfrage` fast eine halbe Sekunde gedauert hat, wobei `Knotenabruf` drastisch weniger Arbeitsspeicher benötigt hat und weniger als 50ms.
 
@@ -239,9 +239,10 @@ Es gibt eine Vielzahl von JavaScript-Paketen und wir wissen es besser, als die G
 
 As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
 
+[4]: ../images/performance-cpu-prof.png
+[5]: ../images/performance-heap-prof.png
+
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
