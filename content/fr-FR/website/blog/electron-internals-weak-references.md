@@ -138,7 +138,7 @@ remote.require = function (name) {
 }
 ```
 
-Note that the `remoteObjectCache` stores objects as weak references, so there is no need to delete the key when the object is garbage collected.
+Notez que le `remoteObjectCache` conserve des objets comme des références faibles, il n’est donc pas nécessaire de supprimer la clé lorsque l’objet est collecté par le garbage collector.
 
 ## Code natif
 
