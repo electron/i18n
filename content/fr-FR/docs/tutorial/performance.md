@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 L'exécution de cette commande aboutit à un fichier `.cpuprofile` et un fichier `.heapprofile` dans le répertoire dans lequel vous l'avez exécuté. Les deux fichiers peuvent être analysés en utilisant les outils de développement Chrome, en utilisant respectivement les onglets `Performance` et `Mémoire` .
 
-![Performance CPU Profile][4]
+![Profil de performance de CPU][4]
 
-![Performance Heap Memory Profile][5]
+![Profil de performance de la mémoire du tas][5]
 
 Dans cet exemple, sur la machine de l'auteur, nous avons vu que le chargement du module Request `` a pris près d'une demi-seconde, alors que `node-fetch` a pris beaucoup moins de mémoire et moins de 50ms.
 
