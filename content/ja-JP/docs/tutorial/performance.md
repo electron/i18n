@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 このコマンドを実行すると、実行したディレクトリに `.cpuprofile` ファイルと `.heapprofile` ファイルが作成されます。 両方のファイルは、Chrome デベロッパーツールを使用して、それぞれ `Performance` および `Memory` タブを使用して分析できます。
 
-![performance-cpu-prof][]
+![Performance CPU Profile][4]
 
-![performance-heap-prof][]
+![Performance Heap Memory Profile][5]
 
 この例では、著者のマシンで `request` のロードに約 0.5 秒かかったのに対し、`node-fetch` のメモリ消費は劇的に少なく、50ms 未満でした。
 
@@ -239,9 +239,10 @@ Electron アプリを作成するとき、フォントをダウンロードし�
 
 この記事を書いている時点での一般的な選択肢には、[Webpack][webpack]、[Parcel][parcel]、および [rollup.js][rollup] があります。
 
+[4]: ../images/performance-cpu-prof.png
+[5]: ../images/performance-heap-prof.png
+
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
