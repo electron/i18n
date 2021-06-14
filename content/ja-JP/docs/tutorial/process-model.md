@@ -83,7 +83,7 @@ Electron のメインプロセスのモジュール一覧は、API ドキュメ�
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> プリロードスクリプトは、ウェブコンテンツの読み込み開始前にレンダラープロセス内で実行されるコードです。 These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+change the statements here. --> プリロードスクリプトは、ウェブコンテンツの読み込み開始前にレンダラープロセス内で実行されるコードです。 これらのスクリプトはレンダラーのコンテキスト内で実行されますが、Node.js の API にアクセスできるようにより多くの権限が与えられています。
 
 プリロードスクリプトは、`BrowserWindow` コンストラクタの `webPreferences` オプションでメインプロセスからアタッチできます。
 
