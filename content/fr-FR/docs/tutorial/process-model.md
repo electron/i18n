@@ -1,12 +1,12 @@
 # Process Model
 
-Electron inherits its multi-process architecture from Chromium, which makes the framework architecturally very similar to a modern web browser. In this guide, we'll expound on the conceptual knowledge of Electron that we applied in the minimal [quick start app][].
+Electron hérite de son architecture multi-processus de Chromium, ce qui rend le framework architecturalement très similaire à un navigateur web moderne. Dans ce guide, nous allons expliquer sur la connaissance conceptuelle d'Electron que nous avons appliquée dans l'application minimale [de démarrage rapide][].
 
-## Why not a single process?
+## Pourquoi pas un seul processus?
 
-Les navigateurs Web sont des applications incroyablement compliquées. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
 
-In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
+In the earlier days, browsers usually used a single process for all of this functionality. Bien que ce modèle signifiait moins de frais pour chaque onglet, vous aviez ouverts, cela signifiait également qu'un site Web plantait ou suspendait affecterait l'ensemble du navigateur.
 
 ## The multi-process model
 
@@ -133,7 +133,7 @@ Cette fonctionnalité est incroyablement utile pour deux objectifs principaux :
 * By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
 * If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
 
-[quick start app]: ./quick-start.md
+[de démarrage rapide]: ./quick-start.md
 
 [Chrome Comic]: https://www.google.com/googlebooks/chrome/
 
