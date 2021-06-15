@@ -14,7 +14,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
 
 * [Introduction](tutorial/introduction.md)
 * [Démarrage Rapide](tutorial/quick-start.md)
-* [Process Model](tutorial/process-model.md)
+* [Modèle de processus](tutorial/process-model.md)
 
 ### Apprendre les bases
 
