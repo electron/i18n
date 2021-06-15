@@ -1,20 +1,20 @@
-# Process Model
+# Modèle de processus
 
-Electron hérite de son architecture multi-processus de Chromium, ce qui rend le framework architecturalement très similaire à un navigateur web moderne. Dans ce guide, nous allons expliquer sur la connaissance conceptuelle d'Electron que nous avons appliquée dans l'application minimale [de démarrage rapide][].
+Electron hérite de son architecture multi-processus de Chromium, ce qui rend le framework architecturalement très similaire à un navigateur web moderne. Dans ce guide, nous allons exposer connaissances conceptuelles d’Electron que nous avons appliquées dans l’application de démarrage rapide minimale [][].
 
-## Pourquoi pas un seul processus?
+## Why not a single process?
 
 Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
 
-In the earlier days, browsers usually used a single process for all of this functionality. Bien que ce modèle signifiait moins de frais pour chaque onglet, vous aviez ouverts, cela signifiait également qu'un site Web plantait ou suspendait affecterait l'ensemble du navigateur.
+Dans les jours précédents, les navigateurs ont généralement utilisé un processus unique pour toutes ces fonctionnalités . Bien que ce modèle signifiait moins de frais pour chaque onglet, vous aviez ouverts, cela signifiait également qu'un site Web plantait ou suspendait affecterait l'ensemble du navigateur.
 
-## The multi-process model
+## Le modèle multi-processus
 
-To solve this problem, the Chrome team decided that each tab would render in its own process, limiting the harm that buggy or malicious code on a web page could cause to the app as a whole. A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
+Pour résoudre ce problème, l'équipe de Chrome a décidé que chaque onglet serait rendu dans son propre processus , limiter les dommages que le code bogué ou malveillant sur une page web pourrait causer à l'application dans son ensemble. Un seul processus de navigateur contrôle ensuite ces processus, ainsi que que le cycle de vie de l'application dans son ensemble. Ce diagramme ci-dessous de la [Bd Chrome][] visualise ce modèle :
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
-Les applications Electron sont structurées de manière très similaire. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Electron applications are structured very similarly. En tant que développeur d'applications, vous contrôlez deux types de processus : principal et moteur de rendu. These are analogous to Chrome's own browser and renderer processes outlined above.
 
 ## The main process
 
@@ -133,9 +133,11 @@ Cette fonctionnalité est incroyablement utile pour deux objectifs principaux :
 * By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
 * If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
 
-[de démarrage rapide]: ./quick-start.md
+[1]: ./quick-start.md
 
-[Chrome Comic]: https://www.google.com/googlebooks/chrome/
+[2]: ./quick-start.md
+
+[Bd Chrome]: https://www.google.com/googlebooks/chrome/
 
 [browser-window]: ../api/browser-window.md
 [web-embed]: ./web-embeds.md
