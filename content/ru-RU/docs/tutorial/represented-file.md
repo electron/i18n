@@ -14,20 +14,38 @@ You can also set the edited state for a window so that the file icon can indicat
 
 ## Пример
 
-Начиная с рабочего приложения из [Quick Start Guide](quick-start.md), добавьте следующие строки в файл `main.js`:
-
 ```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
+const os = require('os');
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+}
 
 app.whenReady().then(() => {
   const win = new BrowserWindow()
 
-  win.setRepresentedFilename('/etc/passwd')
+  win.setRepresentedFilename(os.homedir())
   win.setDocumentEdited(true)
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
 })
 ```
 
-After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the file you just defined:
+After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the represented file at the top. In this guide, this is the current user's home directory:
 
 ![Represented file](../images/represented-file.png)
 
