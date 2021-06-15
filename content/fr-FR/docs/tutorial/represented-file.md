@@ -45,9 +45,9 @@ app.on('activate', () => {
 })
 ```
 
-After launching the Electron application, click on the title with `Command` or `Control` key pressed. You should see a popup with the represented file at the top. In this guide, this is the current user's home directory:
+Après avoir lancé l'application Electron, cliquez sur le titre avec la touche `Command` ou `Control` pressée. Vous devriez voir une popup avec le fichier représenté en haut. Dans ce guide, il s'agit du répertoire home de l'utilisateur actuel:
 
-![Represented file](../images/represented-file.png)
+![Fichier représenté](../images/represented-file.png)
 
 [1]: https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png
 [setrepresentedfilename]: ../api/browser-window.md#winsetrepresentedfilenamefilename-macos
