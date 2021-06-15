@@ -14,7 +14,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
 
 * [Introducción](tutorial/introduction.md)
 * [Inicio Rápido](tutorial/quick-start.md)
-* [Process Model](tutorial/process-model.md)
+* [Modelo de proceso](tutorial/process-model.md)
 
 ### Aprender lo básico
 
