@@ -178,7 +178,7 @@ If the argument is of type `Array`, use `[]` shorthand with the type of value in
 
 If the argument is of type `Promise`, parametrize the type with what the promise resolves to (for example, `Promise<void>` or `Promise<String>`).
 
-If an argument can be of multiple types, separate the types with `|`.
+Si un argument peut être de plusieurs types, séparez les types par `|`.
 
 La description des arguments de type `Function` devrait clairement expliquer comment il peut être appelé et lister les types des paramètres qui lui seront transmis.
 
@@ -204,7 +204,7 @@ Returns:
 ...
 ```
 
-The heading can be `###` or `####`-levels depending on whether the event belongs to a module or a class.
+L'en-tête peut être de niveau `###` ou `####` selon que l'événement appartient à un module ou à une classe.
 
 Les arguments d'un événement suivent les mêmes règles que les méthodes.
 
@@ -218,7 +218,7 @@ Le chapitre des propriétés doit être sous la forme suivante :
 ...
 ```
 
-The heading can be `###` or `####`-levels depending on whether the property belongs to a module or a class.
+L'en-tête peut être de niveau `###` ou `####` selon que la propriété appartient à un module ou à une classe.
 
 ## Traductions de la documentation
 
