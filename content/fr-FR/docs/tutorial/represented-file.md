@@ -45,7 +45,7 @@ app.on('activate', () => {
 })
 ```
 
-Après avoir lancé l'application Electron, cliquez sur le titre avec la touche `Command` ou `Control` pressée. Vous devriez voir une popup avec le fichier représenté en haut. Dans ce guide, il s'agit du répertoire home de l'utilisateur actuel:
+Après avoir lancé l'application Electron, cliquez sur le titre en pressant sur la touche `Command` ou `Control`. Vous devriez voir une popup avec le fichier représenté en haut. En ce qui concerne ce guide, il s'agit du répertoire home de l'utilisateur actuel:
 
 ![Fichier représenté](../images/represented-file.png)
 
