@@ -45,7 +45,7 @@ app.on('activate', () => {
 })
 ```
 
-Electron アプリケーションを起動した後、`Command` または `Control` キーを押した状態でタイトルをクリックします。 You should see a popup with the represented file at the top. In this guide, this is the current user's home directory:
+Electron アプリケーションを起動した後、`Command` または `Control` キーを押した状態でタイトルをクリックします。 すると、ウインドウが表すファイルのポップアップが上部に表示されるはずです。 このガイドでは、これはユーザのホームディレクトリです。
 
 ![表示中のファイル](../images/represented-file.png)
 
