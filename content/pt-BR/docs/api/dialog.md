@@ -15,9 +15,9 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] 
 
 O módulo `dialog` possúi os seguintes métodos:
 
-### `dialog.showOpenDialogSync([browserWindow, ]options)`
+### `dialog.showOpenDialogSync([browserWindow, ]options[, callback)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md))
 * `options` Object
   * `title` String (opcional)
   * `defaultPath` String (opcional)
@@ -65,7 +65,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 ### `dialog.showOpenDialog([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md))
 * `options` Object
   * `title` String (opcional)
   * `defaultPath` String (opcional)
@@ -122,7 +122,7 @@ dialog.showOpenDialog(mainWindow, {
 
 ### `dialog.showSaveDialogSync([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md))
 * `options` Object
   * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
@@ -147,7 +147,7 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
 
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md))
 * `options` Object
   * `title` String (optional) - The dialog title. Cannot be displayed on some _Linux_ desktop environments.
   * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
@@ -178,7 +178,7 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md))
 * `options` Object
   * `message` String - Conteúdo da caixa de mensagem.
   * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
@@ -201,7 +201,7 @@ O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md))
 * `options` Object
   * `message` String - Conteúdo da caixa de mensagem.
   * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
@@ -236,7 +236,7 @@ Esse API pode ser chamado com segurança antes de que o evento `ready` que é em
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md))
 * `options` Object
   * `certificate` [Certificate](structures/certificate.md) - O certificado para trust/import.
   * `message` String - A mensagem a ser exibida para o usuário.

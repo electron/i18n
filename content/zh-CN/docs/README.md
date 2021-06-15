@@ -14,7 +14,7 @@
 
 * [简介](tutorial/introduction.md)
 * [快速入门](tutorial/quick-start.md)
-* [进程模型](tutorial/process-model.md)
+* [流程模型](tutorial/process-model.md)
 
 ### 学习基础知识
 

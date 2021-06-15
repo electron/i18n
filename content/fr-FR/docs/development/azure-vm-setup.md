@@ -51,7 +51,7 @@ Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github
             * Subscription ID
             * Resource Group
             * Virtual Network
-    * You will also need to specify
+    * Vous devrez également préciser
         * Master VM name - just a unique name to identify the temporary VM
         * Master VM size - use `Standard_F32s_v2`
         * Master VHD URI - use URI obtained @ end of previous step
