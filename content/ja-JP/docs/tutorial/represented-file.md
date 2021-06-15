@@ -14,20 +14,38 @@ macOS では、アプリケーション内の任意のウインドウに表示�
 
 ## サンプル
 
-[クイックスタートガイド](quick-start.md)の作業アプリケーションから始めて、次の行を `main.js` ファイルに追加します。
-
 ```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
+const os = require('os');
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+}
 
 app.whenReady().then(() => {
   const win = new BrowserWindow()
 
-  win.setRepresentedFilename('/etc/passwd')
+  win.setRepresentedFilename(os.homedir())
   win.setDocumentEdited(true)
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
 })
 ```
 
-Electron アプリケーションを起動した後、`Command` または `Control` キーを押した状態でタイトルをクリックします。 すると、先ほど指定したファイルのポップアップが表示されるはずです。
+Electron アプリケーションを起動した後、`Command` または `Control` キーを押した状態でタイトルをクリックします。 You should see a popup with the represented file at the top. In this guide, this is the current user's home directory:
 
 ![表示中のファイル](../images/represented-file.png)
 
