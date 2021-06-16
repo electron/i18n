@@ -74,13 +74,13 @@ The following APIs have been removed or are now deprecated:
     * `ses.removeExtension(extension_id)`
     * `ses.getAllExtensions()`
 
-* The following `systemPreferences` methods have been deprecated:
+* Следующие `systemPreferences` были устаревшими:
 
     * `systemPreferences.isDarkMode()`
     * `systemPreferences.isInvertedColorScheme()`
     * `systemPreferences.isHighContrastColorScheme()`
 
-    Use the following `nativeTheme` properties instead:
+    Используйте следующие свойства `nativeTheme` вместо этого:
 
     * `nativeTheme.shouldUseDarkColors`
     * `nativeTheme.shouldUseInvertedColorScheme`
