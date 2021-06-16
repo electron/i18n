@@ -7,7 +7,7 @@ Follow the guidelines below for building **Electron itself** on Linux, for the p
 * Au moins 25GB d'espace disque et 8 Go de RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
-  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+  Veuillez également vous assurer que votre système et la version Python prennent en charge au moins TLS 1.2. Pour un test rapide, exécutez le script suivant :
 
   ```sh
   $ npx @electron/check-python-tls
@@ -56,7 +56,7 @@ $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
                    python2 python-dbusmock jdk8-openjdk
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Other distributions may offer similar packages for installation via package managers such as pacman. Ou on peut compiler à partir du code source.
 
 ### Multi-compilation
 

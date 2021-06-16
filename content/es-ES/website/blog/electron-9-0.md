@@ -34,7 +34,7 @@ El equipo de Electron está encantado de anunciar el lanzamiento de Electron 9.0
 
 Vea las notas de lanzamiento de [9.0.0](https://github.com/electron/electron/releases/tag/v9.0.0) para una lista completa de nuevas características y cambios.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 * Aviso de desbloqueo al usar `remoto` sin `enableRemoteModule: true`. [#21546](https://github.com/electron/electron/pull/21546)
     * Este es el primer paso en nuestros planes para desaprobar el módulo `remoto` y moverlo a tierra de usuario. Puede leer y seguir [este problema](https://github.com/electron/electron/issues/21408) que detalla nuestras razones para esto e incluye una línea temporal propuesta para la desaprobación.

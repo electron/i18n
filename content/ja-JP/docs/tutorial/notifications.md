@@ -33,7 +33,7 @@ Electron アプリケーションを起動すると、通知が表示されま�
 
 ![レンダラープロセスでの通知](../images/notification-renderer.png)
 
-Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
+さらに、通知をクリックすると、DOM が更新されて "Notification clicked!" と表示されます。
 
 ### メインプロセスで通知を表示する
 
@@ -54,7 +54,7 @@ app.whenReady().then(createWindow).then(showNotification)
 
 Electron アプリケーションを起動すると、以下のようなシステム通知が表示されるでしょう。
 
-![Notification in the Main process](../images/notification-main.png)
+![メインプロセスでの通知](../images/notification-main.png)
 
 ## 追加情報
 

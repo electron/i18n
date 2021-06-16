@@ -4,7 +4,7 @@ Suivez les instructions ci-dessous pour compiler **Electron**, afin de créer un
 
 ## Platform prerequisites
 
-Check the build prerequisites for your platform before proceeding
+Vérifiez les prérequis de build pour votre plateforme avant de continuer
 
 * [macOS](build-instructions-macos.md#prerequisites)
 * [Linux](build-instructions-linux.md#prerequisites)
@@ -203,9 +203,9 @@ On Windows, SMBv2 has a directory cache that will cause problems with the git ca
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+to 0. Plus d'informations : https://stackoverflow.com/a/9935126
 
-This can be set quickly in powershell (ran as administrator):
+Cela peut être défini rapidement dans powershell (exécuté en tant qu'administrateur) :
 
 ```powershell
 New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force

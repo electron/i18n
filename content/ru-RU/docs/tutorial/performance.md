@@ -1,6 +1,6 @@
-# Производительность
+# Характеристика
 
-Разработчики часто спрашивают о стратегиях оптимизации производительности приложений Electron. Инженеры по программированию, потребители и разработчики фреймворков не всегда согласны с одним единым определением понятия "производительность". В этом документе описаны любимые способы уменьшения количества памяти, процессора и дисковые ресурсы, используемые при условии, что ваше приложение реагирует на входные данные пользователя и выполняет операции как можно быстрее . Более того, мы хотим, чтобы все стратегии производительности поддерживали высокий стандарт для безопасности вашего приложения.
+Разработчики часто спрашивают о стратегиях оптимизации производительности приложений Electron. Les ingénieurs, les consommateurs et les développeurs de framework ne sont pas toujours d'accord sur une seule définition de ce que signifie "performance". В этом документе описаны любимые способы уменьшения количества памяти, процессора и дисковые ресурсы, используемые при условии, что ваше приложение реагирует на входные данные пользователя и выполняет операции как можно быстрее . Более того, мы хотим, чтобы все стратегии производительности поддерживали высокий стандарт для безопасности вашего приложения.
 
 Мудрость и информация о том, как создавать производительные сайты с JavaScript обычно применимы и к Electron. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Выполнение этой команды приводит к появлению файла `.cpuprofile` и файла `.heapprofile` в папке, в которой вы его запустили. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
 
-![performance-cpu-prof][]
+![Performance CPU Profile][4]
 
-![performance-heap-prof][]
+![Performance Heap Memory Profile][5]
 
 В этом примере на машине автора мы увидели, что загрузка `запроса` заняла почти половину секунды, в то время как `node-fetch` занимал значительно меньше памяти и менее 50 мс.
 
@@ -240,9 +240,10 @@ core Node.js modules (like <code>fs` or `child_process`) offer a synchronous or 
 
 As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
 
+[4]: ../images/performance-cpu-prof.png
+[5]: ../images/performance-heap-prof.png
+
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers

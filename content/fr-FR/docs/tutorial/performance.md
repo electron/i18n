@@ -1,6 +1,6 @@
-# Performances
+# Performance
 
-Les développeurs demandent fréquemment des stratégies pour optimiser les performances des applications Electron. Les ingénieurs, les consommateurs et les développeurs de framework ne sont pas toujours d'accord sur une seule définition de ce que signifie "performance". Ce document décrit certaines des façons préférées des mainteneurs d'Electron de réduire la quantité de de mémoire, de CPU, et les ressources disque sont utilisées tout en s'assurant que votre application répond à la saisie de l'utilisateur et complète les opérations dans les plus brefs délais . De plus, nous voulons que toutes les stratégies de performance maintiennent un standard élevé pour la sécurité de votre application.
+Developers frequently ask about strategies to optimize the performance of Electron applications. Software engineers, consumers, and framework developers do not always agree on one single definition of what "performance" means. This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. De plus, nous voulons que toutes les stratégies de performance maintiennent un standard élevé pour la sécurité de votre application.
 
 La sagesse et les informations sur la façon de construire des sites Web performants avec JavaScript s'appliquent généralement aussi aux applications Electron. Dans une certaine mesure, les ressources discutant de la façon de construire un nœud performant. s applications aussi s'appliquent, mais faites attention à comprendre que le terme "performance" signifie des choses différentes pour un nœud. s backend que pour une application exécutée sur un client.
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 L'exécution de cette commande aboutit à un fichier `.cpuprofile` et un fichier `.heapprofile` dans le répertoire dans lequel vous l'avez exécuté. Les deux fichiers peuvent être analysés en utilisant les outils de développement Chrome, en utilisant respectivement les onglets `Performance` et `Mémoire` .
 
-![performance-cpu-prof][]
+![Profil de performance de CPU][4]
 
-![performance-heap-prof][]
+![Profil de performance de la mémoire du tas][5]
 
 Dans cet exemple, sur la machine de l'auteur, nous avons vu que le chargement du module Request `` a pris près d'une demi-seconde, alors que `node-fetch` a pris beaucoup moins de mémoire et moins de 50ms.
 
@@ -239,9 +239,10 @@ Il y a de nombreux bundles JavaScript là-bas et nous savons mieux que de irrite
 
 As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
 
+[4]: ../images/performance-cpu-prof.png
+[5]: ../images/performance-heap-prof.png
+
 [security]: ./security.md
-[performance-cpu-prof]: ../images/performance-cpu-prof.png
-[performance-heap-prof]: ../images/performance-heap-prof.png
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
 [worker-threads]: https://nodejs.org/api/worker_threads.html
 [web-workers]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers

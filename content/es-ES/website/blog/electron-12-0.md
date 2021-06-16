@@ -36,7 +36,7 @@ El equipo de Electron esta emocionado de anunciar el lanzamiento de Electron 12.
 
 Vea la [notas de lanzamiento 12.0.0](https://github.com/electron/electron/releases/tag/v12.0.0) para la lista completa de nuevas características y cambios.
 
-## Cambios de última hora
+## Restaurar archivos borrados
 
 * Obsoleto el módulo `remote`. Es reemplazado por [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
     * Si actualmente está usando el módulo `remote`, hemos escrito [una guía para migrar a `@electron/remote` aquí.](https://github.com/electron/remote#migrating-from-remote)
