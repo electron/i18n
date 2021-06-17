@@ -42,7 +42,7 @@ Copy the image using the [Copy Master Image PowerShell script](https://github.co
 5
 
 Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
-    * From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
+    * Depuis PowerShell, exécutez le fichier `ps1` avec `./create_master_vm_from_vhd.ps1`
     * You will need the credential information available in the AppVeyor build cloud definition.
         * Ceci comprend :
             * Client ID
