@@ -67,7 +67,7 @@ As quoted from [MSDN][msdn-thumbnail]:
 
 > REMARQUE : La capture d'écran ci-dessus est un exemple de barre d'outils miniatures de Windows Media Player
 
-To set thumbnail toolbar in your application, you need to use [BrowserWindow.setThumbarButtons][setthumbarbuttons]
+Pour définir la barre d'outils des miniatures dans votre application, vous devez utiliser [BrowserWindow.setThumbarButtons][setthumbarbuttons]
 
 #### Exemples
 
