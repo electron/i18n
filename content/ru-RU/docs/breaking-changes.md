@@ -14,15 +14,15 @@
 
 ## Запланированные критические изменения API (14.0)
 
-### API Changed: `window.(open)`
+### Изменения в API: `window.(open)`
 
-The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+Необязательный параметр `frameName` больше не устанавливает название окна. Теперь это следует спецификации, описанной в [документации](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) в соответствии с параметром `windowName`.
 
-If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+Если вы использовали этот параметр, чтобы задать заголовок окна, вы можете использовать [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
 
-### Removed: `worldSafeExecuteJavaScript`
+### Удален: `worldSafeExecuteJavaScript`
 
-In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+В Electron 14 `worldSafeExecuteJavaScript` будет удален.  Альтернатива отсутствует, пожалуйста, убедитесь, что в вашем коде данный параметр включен.  Он был включен в Electron по умолчанию
 12.
 
 You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
@@ -62,9 +62,9 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Removed: `BrowserWindow` extension APIs
+### Удалено: `BrowserWindow` API расширений
 
-The deprecated extension APIs have been removed:
+Удалено устаревшее API расширений:
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -103,15 +103,15 @@ BrowserWindow.getDevToolsExtensions()
 session.defaultSession.getAllExtensions()
 ```
 
-### Removed: methods in `systemPreferences`
+### Удалено: методы в `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Следующие `systemPreferences` были устаревшими:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+Используйте следующие свойства `nativeTheme` вместо этого:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
@@ -134,7 +134,7 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
-### Deprecated: WebContents `new-window` event
+### Устарело: WebContents `new-window` событие
 
 The `new-window` event of WebContents has been deprecated. It is replaced by [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
@@ -152,9 +152,9 @@ webContents.setWindowOpenHandler((details) => {
 
 ## Запланированные критические изменения API (12.0)
 
-### Removed: Pepper Flash support
+### Удалено: Поддержка Pepper Flash
 
-Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+Chromium удалил поддержку Flash, и поэтому мы должны следовать этому примеру. Смотрите Chromium [Flash Roadmap](https://www.chromium.org/flash-roadmap) для получения более подробной информации.
 
 ### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
@@ -535,13 +535,13 @@ nativeTheme.on('updated', () => { /* ... */ })
 
 ### Deprecated: methods in `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Следующие `systemPreferences` были устаревшими:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+Используйте следующие свойства `nativeTheme` вместо этого:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
