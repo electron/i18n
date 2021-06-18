@@ -26,7 +26,7 @@ Nous devons d’abord importer `app`, `Tray`, `Menu`, `nativeImage` depuis `elec
 const { app, Tray, Menu, nativeImage } = require('electron')
 ```
 
-Ensuite, nous allons créer notre Tray. Pour ce faire, nous utiliserons une icône [`NativeImage`](https://www.electronjs.org/docs/api/native-image) , qui peut être créée via l’une de ces [méthodes](https://www.electronjs.org/docs/api/native-image#methods). Note that we wrap our Tray creation code within an [`app.whenReady`](https://www.electronjs.org/docs/api/app#appwhenready) as we will need to wait for our electron app to finish initializing.
+Ensuite, nous allons créer notre Tray. Pour ce faire, nous utiliserons une icône [`NativeImage`](https://www.electronjs.org/docs/api/native-image) , qui peut être créée via l’une de ces [méthodes](https://www.electronjs.org/docs/api/native-image#methods). Notez que nous encapsulons notre code de création du Tray dans un [`app.whenReady`](https://www.electronjs.org/docs/api/app#appwhenready) car nous devrons attendre que notre application electron termine de s'initialiser.
 
 ```js title='main.js'
 let tray
@@ -35,11 +35,11 @@ app.whenReady().then(() => {
   const icon = nativeImage.createFromPath('path/to/asset.png')
   tray = new Tray(icon)
 
-  // note: your contextMenu, Tooltip and Title code will go here!
+  // note: votre code contextMenu, Tooltip and Title ira ici!
 })
 ```
 
-Great! Now we can start attaching a context menu to our Tray, like so:
+Génial! Maintenant nous pouvons commencer à attacher un menu contextuel à notre Tray, comme ceci:
 
 ```js
 const contextMenu = Menu.buildFromTemplate([
@@ -57,11 +57,11 @@ Le code ci-dessus créera 4 éléments distincts de type radio dans le menu cont
 Enfin, donnons à notre barre d’états une infobulle et un titre.
 
 ```js
-tray.setToolTip('This is my application')
-tray.setTitle('This is my title')
+tray.setToolTip('Ceci est mon application')
+tray.setTitle('Ceci est mon titre')
 ```
 
 ## Conclusion
 
-After you start your electron app, you should see the Tray residing in either the top or bottom right of your screen, depending on your operating system.
+Après avoir démarré votre application electron, vous devriez voir le Tray placé en soit haut soit en bas à droite de votre écran, selon votre système d'exploitation.
 `fiddle docs/fiddles/native-ui/tray`
