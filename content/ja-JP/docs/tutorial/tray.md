@@ -52,9 +52,9 @@ const contextMenu = Menu.buildFromTemplate([
 tray.setContextMenu(contextMenu)
 ```
 
-The code above will create 4 separate radio-type items in the context menu. To read more about constructing native menus, click [here](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate).
+上記のコードは、コンテキストメニューに 4 つで別々のラジオタイプのアイテムを作成します。 ネイティブメニューの構築についてご覧になりたい方は、[こちら](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate) をクリックしてください。
 
-Finally, let's give our tray a tooltip and a title.
+最後に、Tray にツールチップとタイトルを入れましょう。
 
 ```js
 tray.setToolTip('This is my application')
@@ -63,5 +63,5 @@ tray.setTitle('This is my title')
 
 ## おわりに
 
-After you start your electron app, you should see the Tray residing in either the top or bottom right of your screen, depending on your operating system.
+Electron アプリを起動すると、オペレーティングシステムに応じて、画面の右上や右下に Tray が表示されます。
 `fiddle docs/fiddles/native-ui/tray`
