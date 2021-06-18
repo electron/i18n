@@ -52,7 +52,7 @@ const contextMenu = Menu.buildFromTemplate([
 tray.setContextMenu(contextMenu)
 ```
 
-Le code ci-dessus créera 4 éléments de type radio distincts dans le menu contextuel. To read more about constructing native menus, click [here](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate).
+Le code ci-dessus créera 4 éléments de type radio distincts dans le menu contextuel. Pour en savoir plus sur la création de menus natifs, cliquez [ici](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate).
 
 Finally, let's give our tray a tooltip and a title.
 
