@@ -61,7 +61,7 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Ejecutar este comando resulta en un archivo `.cpuprofile` y un archivo `.heapprofile` en el directorio en el que lo ejecutó. Ambos archivos pueden ser analizados usando las Herramientas para desarrolladores de Chrome, usando las pestañas `Rendimiento` y `Memoria` respectivamente.
 
-![Performance CPU Profile][4]
+![Perfil de rendimiento de la CPU][4]
 
 ![Performance Heap Memory Profile][5]
 
