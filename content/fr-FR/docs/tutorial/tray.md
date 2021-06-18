@@ -20,13 +20,13 @@ Sur MacOS et Ubuntu, la zone de notification sera située dans le coin supérieu
 
 ### main.js
 
-First we must import `app`, `Tray`, `Menu`, `nativeImage` from `electron`.
+Nous devons d’abord importer `app`, `Tray`, `Menu`, `nativeImage` depuis `electron`.
 
 ```js
 const { app, Tray, Menu, nativeImage } = require('electron')
 ```
 
-Next we will create our Tray. To do this, we will use a [`NativeImage`](https://www.electronjs.org/docs/api/native-image) icon, which can be created through any one of these [methods](https://www.electronjs.org/docs/api/native-image#methods). Note that we wrap our Tray creation code within an [`app.whenReady`](https://www.electronjs.org/docs/api/app#appwhenready) as we will need to wait for our electron app to finish initializing.
+Ensuite, nous allons créer notre Tray. Pour ce faire, nous utiliserons une icône [`NativeImage`](https://www.electronjs.org/docs/api/native-image) , qui peut être créée via l’une de ces [méthodes](https://www.electronjs.org/docs/api/native-image#methods). Note that we wrap our Tray creation code within an [`app.whenReady`](https://www.electronjs.org/docs/api/app#appwhenready) as we will need to wait for our electron app to finish initializing.
 
 ```js title='main.js'
 let tray
