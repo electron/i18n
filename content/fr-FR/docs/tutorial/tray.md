@@ -12,9 +12,9 @@ hide_title: true
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of creating a [Tray](https://www.electronjs.org/docs/api/tray) icon with its own context menu to the system's notification area.
+Ce guide vous guidera tout au long du processus de création d’une icône de la barre d’état [](https://www.electronjs.org/docs/api/tray)avec son propre menu contextuel dans la zone de notification du système.
 
-On MacOS and Ubuntu, the Tray will be located on the top right corner of your screen, adjacent to your battery and wifi icons. On Windows, the Tray will usually be located in the bottom right corner.
+Sur MacOS et Ubuntu, la zone de notification sera située dans le coin supérieur droit de l'écran, à coté des icônes batterie et wifi. Sous Windows, la barre d'états se trouve généralement dans le coin inférieur droit.
 
 ## Exemple
 
