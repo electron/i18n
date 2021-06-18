@@ -73,7 +73,7 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
-Or on Windows (without the optional argument):
+Ou sous Windows (sans l'argument optionnel) :
 
 ```sh
 $ cd src
