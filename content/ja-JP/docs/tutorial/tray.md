@@ -1,7 +1,7 @@
 ---
 title: Tray
-description: This guide will take you through the process of creating
-0: a Tray icon with its own context menu to the system's notification area.
+description: このガイドでは作る手順を一緒に見ていきます
+0: Tray アイコンはそのコンテキストメニューと共にシステムの通知エリアへ現れます。
 slug: tray
 hide_title: true
 ---
@@ -12,21 +12,21 @@ hide_title: true
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of creating a [Tray](https://www.electronjs.org/docs/api/tray) icon with its own context menu to the system's notification area.
+このガイドでは、システムの通知エリアにそれ独自のコンテキストメニューがある [Tray](https://www.electronjs.org/docs/api/tray) アイコンを作成する手順を一緒に見ていきます。
 
-On MacOS and Ubuntu, the Tray will be located on the top right corner of your screen, adjacent to your battery and wifi icons. On Windows, the Tray will usually be located in the bottom right corner.
+MacOS および Ubuntu では、Tray は画面の右上に位置し、バッテリーや Wi-Fi のアイコンと隣接します。 Windows の Tray は通常、右下に位置します。
 
 ## サンプル
 
 ### main.js
 
-First we must import `app`, `Tray`, `Menu`, `nativeImage` from `electron`.
+まず `electron` から `app`、`Tray`、`Menu`、`nativeImage` をインポートしなければなりません。
 
 ```js
 const { app, Tray, Menu, nativeImage } = require('electron')
 ```
 
-Next we will create our Tray. To do this, we will use a [`NativeImage`](https://www.electronjs.org/docs/api/native-image) icon, which can be created through any one of these [methods](https://www.electronjs.org/docs/api/native-image#methods). Note that we wrap our Tray creation code within an [`app.whenReady`](https://www.electronjs.org/docs/api/app#appwhenready) as we will need to wait for our electron app to finish initializing.
+次に Tray を作成します。 このために、[`NativeImage`](https://www.electronjs.org/docs/api/native-image) アイコンを使用することにします。これはいずれかの [メソッド](https://www.electronjs.org/docs/api/native-image#methods) で作成できます。 Tray の作成コードを [`app.whenReady`](https://www.electronjs.org/docs/api/app#appwhenready) で囲んでいるのは、Electron アプリの初期化完了を待つ必要があるからです。
 
 ```js title='main.js'
 let tray
@@ -35,11 +35,11 @@ app.whenReady().then(() => {
   const icon = nativeImage.createFromPath('path/to/asset.png')
   tray = new Tray(icon)
 
-  // note: your contextMenu, Tooltip and Title code will go here!
+  // 注釈: contextMenu、Tooltip、Title のコードはこちらで!
 })
 ```
 
-これでうまくいきました。 Now we can start attaching a context menu to our Tray, like so:
+これでうまくいきました。 それでは以下のように Tray へコンテキストメニューを付けていきます。
 
 ```js
 const contextMenu = Menu.buildFromTemplate([
