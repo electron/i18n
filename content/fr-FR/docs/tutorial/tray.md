@@ -1,7 +1,7 @@
 ---
 title: Tray
 description: Ce guide vous guidera tout au long du processus de création
-0: a Tray icon with its own context menu to the system's notification area.
+0: une icône de la barre d’état avec son propre menu contextuel dans la zone de notification du système.
 slug: tray
 hide_title: true
 ---
@@ -52,9 +52,9 @@ const contextMenu = Menu.buildFromTemplate([
 tray.setContextMenu(contextMenu)
 ```
 
-Le code ci-dessus créera 4 éléments de type radio distincts dans le menu contextuel. Pour en savoir plus sur la création de menus natifs, cliquez [ici](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate).
+Le code ci-dessus créera 4 éléments distincts de type radio dans le menu contextuel. Pour en savoir plus sur la création de menus natifs, cliquez sur ce lien [ici](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate).
 
-Finally, let's give our tray a tooltip and a title.
+Enfin, donnons à notre barre d’états une infobulle et un titre.
 
 ```js
 tray.setToolTip('This is my application')
