@@ -1,6 +1,6 @@
 ---
 title: Tray
-description: This guide will take you through the process of creating
+description: Ce guide vous guidera tout au long du processus de création
 0: a Tray icon with its own context menu to the system's notification area.
 slug: tray
 hide_title: true
@@ -52,7 +52,7 @@ const contextMenu = Menu.buildFromTemplate([
 tray.setContextMenu(contextMenu)
 ```
 
-The code above will create 4 separate radio-type items in the context menu. To read more about constructing native menus, click [here](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate).
+Le code ci-dessus créera 4 éléments de type radio distincts dans le menu contextuel. To read more about constructing native menus, click [here](https://www.electronjs.org/docs/api/menu#menubuildfromtemplatetemplate).
 
 Finally, let's give our tray a tooltip and a title.
 
