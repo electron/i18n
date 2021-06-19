@@ -1,6 +1,6 @@
 # クイック スタート
 
-このガイドでは、要点を抑えた Hello World アプリとして、[`electron/electron-quick-start`][quick-start] と同じものを Electron で作成する手順を説明します。
+This guide will step you through the process of creating a barebones Hello World app in Electron, similar to [`electron/electron-quick-start`][quick-start].
 
 このチュートリアルを終えると、ブラウザウインドウを開いて Chromium、Node.js、Electron それぞれの実行バージョン情報のウェブページを表示できるアプリが完成します。
 
