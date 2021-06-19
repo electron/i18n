@@ -1,8 +1,8 @@
 # Руководство для начинающих
 
-This guide will step you through the process of creating a barebones Hello World app in Electron, similar to [`electron/electron-quick-start`][quick-start].
+Это руководство проведёт вас через процесс создания простого Hello World приложения в Electron, похожий на [`electron/electron-quick-start`][quick-start].
 
-By the end of this tutorial, your app will open a browser window that displays a web page with information about which Chromium, Node.js, and Electron versions are running.
+К концу этого урока ваше приложение откроет окно браузера, отображая веб-страницу с информацией о том, какие версии Chromium.js Node и Electron работают.
 
 ## Требования
 
@@ -23,7 +23,7 @@ npm -v
 
 ## Создание приложения
 
-### Scaffold the project
+### Сборка приложения
 
 Electron apps follow the same general structure as other Node.js projects. Start by creating a folder and initializing an npm package.
 
@@ -37,7 +37,7 @@ The interactive `init` command will prompt you to set some fields in your config
 * `entry point` should be `main.js`.
 * `author` and `description` can be any value, but are necessary for [app packaging](#package-and-distribute-your-application).
 
-Your `package.json` file should look something like this:
+Ваш `package.json` файл должен выглядеть примерно так:
 
 ```json
 {
@@ -68,17 +68,17 @@ Finally, you want to be able to execute Electron. In the [`scripts`][package-scr
 }
 ```
 
-This `start` command will let you open your app in development mode.
+Эта `start` команда откроет ваше приложение в режиме разработчика.
 
 ```sh npm2yarn
 npm start
 ```
 
-> Note: This script tells Electron to run on your project's root folder. At this stage, your app will immediately throw an error telling you that it cannot find an app to run.
+> Примечание: Эта команда запускает приложение из корневой папки. На этом шаге возможна ошибка, которая заключается в том, что не найдено приложение для запуска.
 
-### Run the main process
+### Запуск main process
 
-The entry point of any Electron application is its `main` script. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
+Входной точкой для любого приложения на Electron является скрипт `main`. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
 
 During execution, Electron will look for this script in the [`main`][package-json-main] field of the app's `package.json` config, which you should have configured during the [app scaffolding](#scaffold-the-project) step.
 
