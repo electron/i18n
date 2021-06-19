@@ -1,7 +1,7 @@
 ---
 title: Tray
 description: Esta guía le llevará a través del proceso de creación
-0: a Tray icon with its own context menu to the system's notification area.
+0: un icono de bandeja con su propio menú contextual en el área de notificación del sistema.
 slug: tray
 hide_title: true
 ---
@@ -39,7 +39,7 @@ app.whenReady().then(() => {
 })
 ```
 
-¡Genial! Now we can start attaching a context menu to our Tray, like so:
+¡Genial! Ahora podemos empezar a adjuntar un menú contextual a nuestra bandeja, así:
 
 ```js
 const contextMenu = Menu.buildFromTemplate([

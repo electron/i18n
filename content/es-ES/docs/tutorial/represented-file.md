@@ -45,7 +45,7 @@ app.on('activate', () => {
 })
 ```
 
-Después de lanzar la aplicación Electron, pulse en el título con la tecla `Command` o `Control` presionada. You should see a popup with the represented file at the top. In this guide, this is the current user's home directory:
+Después de lanzar la aplicación Electron, pulse en el título con la tecla `Command` o `Control` presionada. Deberías ver una ventana emergente con el archivo representado en la parte superior. En esta guía, este es el directorio principal del usuario actual:
 
 ![Archivo representado](../images/represented-file.png)
 
