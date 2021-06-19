@@ -6,11 +6,11 @@ By the end of this tutorial, your app will open a browser window that displays a
 
 ## Требования
 
-To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
+Чтобы использовать Electron вы должны установить [Node.js][node-download]. Мы рекомендуем Вам использовать последнюю доступную `LTS` версию.
 
-> Пожалуйста, установите Node.js с помощью предварительно собранных инсталляторов для вашей платформы. Вы можете столкнуться с проблемами несовместимости с различными инструментами разработки.
+> Пожалуйста, установите Node.js с помощью предварительно собранных установщиков для вашей платформы. Вы можете столкнуться с проблемами несовместимости с различными инструментами разработки.
 
-To check that Node.js was installed correctly, type the following commands in your terminal client:
+Чтобы убедится что Node.js был установлен правильно, напишите следующие команды в терминале:
 
 ```sh
 node -v
@@ -19,9 +19,9 @@ npm -v
 
 Команды должны вывести версии Node.js и npm соответственно.
 
-**Note:** Since Electron embeds Node.js into its binary, the version of Node.js running your code is unrelated to the version running on your system.
+**Note:**Так как Electron встраивает Node.js в двоичный код, выполняемая версия Node.js может отличатся.
 
-## Create your application
+## Создание приложения
 
 ### Scaffold the project
 
