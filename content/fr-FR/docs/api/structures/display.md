@@ -10,10 +10,10 @@
 * `colorDepth` Number - Quantité de bits par pixel.
 * `depthPerComponent` Number - Quantité de bits par composant de couleur.
 * `displayFrequency` - Le taux de rafraîchissement de l’affichage.
-* `bounds` [Rectangle](rectangle.md) - the bounds of the display in DIP points.
-* `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md) - the work area of the display in DIP points.
-* `workAreaSize` [Size](size.md)
-* `internal` Boolean - `true` pour un display interne et `false` pour un display externe.
+* `bornes` [Rectangle](rectangle.md) - les bornes de l’affichage en points DIP.
+* `taille` [Taille](size.md)
+* `zoneDeTravail` [Rectangle](rectangle.md) - la zone de travail de l’affichage en points DIP.
+* `TailleDeLaZoneDeTravail` [Taille](size.md)
+* `interne` Booléen - `vrai` pour un affichage interne et `faux` pour un affichage externe
 
 L’objet `Display` représente un affichage physique connecté au système. Un faux `Display` existe peut-être sur un système sans affichage physique, ou un `Display` peut correspondre à un écran virtuel distant.
