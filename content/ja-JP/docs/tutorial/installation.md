@@ -107,13 +107,11 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 ## バイナリダウンロードのスキップ
 
-`electron` NPM パッケージをインストールすると、electron バイナリが自動的にダウンロードされます。
+Under the hood, Electron's JavaScript API binds to a binary that contains its implementations. Because this binary is crucial to the function of any Electron app, it is downloaded by default in the `postinstall` step every time you install `electron` from the npm registry.
 
-これは時々不要になることがあります。CI 環境で、他のコンポーネントをテストするときなどです。
+However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
 
-すべての npm 依存関係をインストールするときにバイナリがダウンロードされないようにするには、環境変数 `ELECTRON_SKIP_BINARY_DOWNLOAD` を設定します。 以下はその例です。
-
-```sh
+```sh npm2yarn
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
@@ -139,7 +137,7 @@ sudo npm install electron --unsafe-perm=true
 npm install --verbose electron
 ```
 
-強制的に再ダウンロードする必要がある場合は、`force_no_cache` 環境変数を `true` に設定してください。
+強制的に再ダウンロードする必要がある場合は、`force_no_cache`環境変数を`true`に設定してください。
 
 [npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md

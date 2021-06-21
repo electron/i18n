@@ -1,7 +1,6 @@
 ---
 title: Tray
-description: Esta guía le llevará a través del proceso de creación
-0: un icono de bandeja con su propio menú contextual en el área de notificación del sistema.
+description: This guide will take you through the process of creating a Tray icon with its own context menu to the system's notification area.
 slug: tray
 hide_title: true
 ---

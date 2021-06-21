@@ -1,7 +1,6 @@
 ---
 title: Fach
-description: This guide will take you through the process of creating
-0: a Tray icon with its own context menu to the system's notification area.
+description: This guide will take you through the process of creating a Tray icon with its own context menu to the system's notification area.
 slug: fach
 hide_title: true
 ---
