@@ -107,9 +107,9 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 ## Désactiver le téléchargement des binaires
 
-Sous le capot, l'API JavaScript d'Electron se lie à un binaire qui contient son implémentations. Because this binary is crucial to the function of any Electron app, it is downloaded by default in the `postinstall` step every time you install `electron` from the npm registry.
+Sous le capot, l'API JavaScript d'Electron est rattachée à un binaire contenant son implémentation. Ce binaire est indispensable au fonctionnement de toute application Electron, il est donc téléchargé par défaut dans l’étape du `postinstall` chaque fois que vous installez `electron` à partir du dépôt npm.
 
-However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
+Toutefois, si vous souhaitez installer les dépendances de votre projet sans avoir besoin d’utiliser les fonctionnalité d'Electron, vous pouvez définir la variable d’environnement `ELECTRON_SKIP_BINARY_DOWNLOAD` pour empêcher le téléchargement du fichier binaire. Ce peut être utile, par exemple dans les environnements d’intégration continue lors de l’exécution de tests unitaires qui simulent le module `electron` .
 
 ```sh npm2yarn
 format@@0 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
