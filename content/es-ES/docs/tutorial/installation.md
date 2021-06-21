@@ -78,7 +78,7 @@ Alternativamente, puede anular la memoria caché local. `@electron-get` almacena
 
 En entornos que han estado usando versiones anteriores de Electron, también podrás encontrar la caché en `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+También se puede anular la ubicación de almacenamiento en caché local al proporcionar una variable de entorno `electron_config_cache`.
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
@@ -107,13 +107,11 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 ## Omitir la descarga del archivo binario
 
-Cuando instale el paquete `electron` NPM, automáticamente descarga el archivo binario electron.
+Under the hood, Electron's JavaScript API binds to a binary that contains its implementations. Because this binary is crucial to the function of any Electron app, it is downloaded by default in the `postinstall` step every time you install `electron` from the npm registry.
 
-Esto puede ser innecesario, por ejemplo en un entorno CI, cuando se prueba otro componente.
+However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. Por ejemplo.:
-
-```sh
+```sh npm2yarn
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
