@@ -1,7 +1,6 @@
 ---
 title: Tray
-description: Ce guide vous guidera tout au long du processus de création
-0: une icône de la barre d’état avec son propre menu contextuel dans la zone de notification du système.
+description: This guide will take you through the process of creating a Tray icon with its own context menu to the system's notification area.
 slug: tray
 hide_title: true
 ---
