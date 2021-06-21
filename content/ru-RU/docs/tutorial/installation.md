@@ -41,7 +41,7 @@ If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` v
 
 ## Пользовательские зеркала и кэши
 
-During installation, the `electron` module will call out to [`@electron/get`][electron-get] to download prebuilt binaries of Electron for your platform. если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
+Во время установки модуль `electron` будет обращаться к [`@electron/get`][electron-get], чтобы загрузить скомпилированные бинарники для твоей платформы, если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
 
 Если доступа к GitHub нет или нужна другая сборка, можно задать зеркало или папку кеша.
 
@@ -70,7 +70,7 @@ The above configuration will download from URLs such as `https://npm.taobao.org/
 
 #### Кеш
 
-Кроме того, можно заменить локальный кеш. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
+Кроме того, можно заменить локальный кеш. `@electron/get` скачивает файлы в кеш, чтобы снизить нагрузку на сеть. Папку с кешем можно использовать для кастомных сборок или, чтобы полностью избежать сетевого трафика.
 
 * Linux: `$XDG_CACHE_HOME` или `~/.cache/electron/`
 * macOS: `~/Library/Caches/electron/`
@@ -78,7 +78,7 @@ The above configuration will download from URLs such as `https://npm.taobao.org/
 
 В старом Electron возможно использование папки `~/.electron`.
 
-You can also override the local cache location by providing a `electron_config_cache` environment variable.
+Также можно переопределить место кеша с помощью переменной окружения `electron_config_cache`.
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
@@ -107,13 +107,11 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 ## Пропустить загрузку бинарных файлов
 
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+Under the hood, Electron's JavaScript API binds to a binary that contains its implementations. Because this binary is crucial to the function of any Electron app, it is downloaded by default in the `postinstall` step every time you install `electron` from the npm registry.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
-
-```sh
+```sh npm2yarn
 ELECTRON_SKIP_BINARY_DESCRIPTION
 ```
 
