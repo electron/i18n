@@ -107,13 +107,11 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 ## 跳过二进制包下载
 
-当您在安装 `electron` NPM 包时, 它会自动下载 electron 的二进制包。
+Under the hood, Electron's JavaScript API binds to a binary that contains its implementations. Because this binary is crucial to the function of any Electron app, it is downloaded by default in the `postinstall` step every time you install `electron` from the npm registry.
 
-当在CI环境中 测试另一个组件的时候，这可能是不必要的。
+However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
 
-为了防止在安装所有 npm 依赖关系时下载二进制文件，您可以设置环境变量 `ELECTRON_SKIP_BINARY_DOWNLOAD`。 例如:
-
-```sh
+```sh npm2yarn
 ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
 ```
 
