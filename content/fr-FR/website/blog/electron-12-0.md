@@ -100,7 +100,7 @@ Les API suivantes ont été supprimées ou sont désormais dépréciées :
 
 * Déprécié le module `remote`. It is replaced by [`@electron/remote`](https://github.com/electron/remote). [#25293](https://github.com/electron/electron/pull/25293)
 * Suppression des API `crashReporter` dépréciées. [#26709](https://github.com/electron/electron/pull/26709)
-* Removed links to the Electron website from the default 'Help' menu in packaged apps. [#25831](https://github.com/electron/electron/pull/25831)
+* Suppression des liens vers le site Web Electron du menu "Aide" par défaut dans les applications packagées. [#25831](https://github.com/electron/electron/pull/25831)
 
 ## End of Support for 9.x.y
 
