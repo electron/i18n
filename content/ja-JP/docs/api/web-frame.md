@@ -55,6 +55,8 @@ webFrame.setZoomFactor(2)
 > webFrame.setVisualZoomLevelLimits(1, 3)
 > ```
 
+> **注意**: 視覚ズームはピンチによるズームの動作でのみ適用されます。 Cmd+/-/0 ズームのショートカットは、それぞれアプリケーションの Menu の 'zoomIn'、'zoomOut'、'resetZoom' の MenuItem ロールで制御されます。 ショートカットを無効にするには、手動で [Menu の定義](./menu.md#examples) を行い、定義からズームのロールを除きます。
+
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String

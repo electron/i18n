@@ -1,6 +1,6 @@
 ---
 title: Tray
-description: This guide will take you through the process of creating a Tray icon with its own context menu to the system's notification area.
+description: このガイドでは、システムの通知エリアにそれ独自のコンテキストメニューがある Tray アイコンを作成する手順を一緒に見ていきます。
 slug: tray
 hide_title: true
 ---
