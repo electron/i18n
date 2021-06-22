@@ -55,6 +55,8 @@ Establecer el nivel de máximo y mínimo pizca de zoom.
 > webFrame.setVisualZoomLevelLimits(1, 3)
 > ```
 
+> **NOTE**: Visual zoom only applies to pinch-to-zoom behavior. Cmd+/-/0 zoom shortcuts are controlled by the 'zoomIn', 'zoomOut', and 'resetZoom' MenuItem roles in the application Menu. To disable shortcuts, manually [define the Menu](./menu.md#examples) and omit zoom roles from the definition.
+
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `idioma` Cadena
@@ -106,7 +108,7 @@ Inyecta CSS en la página web actual y devuelve un identificador único para la 
 
 * `llave` Cadena
 
-Elimina el CSS insertado desde la página web actual. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+Elimina el CSS insertado desde la página web actual. La hoja de estilos se identifica por su clave, el cual es devuelto desde `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(texto)`
 
