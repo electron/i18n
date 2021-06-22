@@ -55,6 +55,8 @@ webFrame.setZoomFactor(2)
 > webFrame.setVisualZoomLevelLimits(1, 3)
 > ```
 
+> **NOTE**: Visual zoom only applies to pinch-to-zoom behavior. Cmd+/-/0 zoom shortcuts are controlled by the 'zoomIn', 'zoomOut', and 'resetZoom' MenuItem roles in the application Menu. To disable shortcuts, manually [define the Menu](./menu.md#examples) and omit zoom roles from the definition.
+
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
