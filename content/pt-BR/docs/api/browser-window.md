@@ -179,7 +179,7 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Por padrão é `false`.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Deprecated_
+    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Descontinuado_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Por padrão é `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Por padrão é `true`.
     * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Por padrão é `true`.
@@ -205,8 +205,8 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
-    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`.  The default is `false`. In Electron 12, the default will be changed to `true`. _Deprecated_
+    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. Defaults to `true`. _Descontinuado_
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
@@ -564,13 +564,13 @@ A `Boolean` property that determines whether the menu bar should be visible.
 
 A `Boolean` property that determines whether the window is in kiosk mode.
 
-#### `win.documentEdited` _macOS_
+#### `win.documentEdited` no _macOS_
 
 A `Boolean` property that specifies whether the window’s document has been edited.
 
 The icon in title bar will become gray when set to `true`.
 
-#### `win.representedFilename` _macOS_
+#### `win.representedFilename` no _macOS_
 
 A `String` property that determines the pathname of the file the window represents, and the icon of the file will show in window's title bar.
 
@@ -612,7 +612,7 @@ A `Boolean` property that determines Whether the window can be moved by user.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
-#### `win.excludedFromShownWindowsMenu` _macOS_
+#### `win.excludedFromShownWindowsMenu` no _macOS_
 
 A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
 
@@ -719,7 +719,7 @@ Sets whether the window should be in fullscreen mode.
 
 Returns `Boolean` - Whether the window is in fullscreen mode.
 
-#### `win.setSimpleFullScreen(flag)` _macOS_
+#### `win.setSimpleFullScreen(flag)` no _macOS_
 
 * `flag` Boolean
 
@@ -727,7 +727,7 @@ Enters or leaves simple fullscreen mode.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of macOS prior to Lion (10.7).
 
-#### `win.isSimpleFullScreen()` _macOS_
+#### `win.isSimpleFullScreen()` no _macOS_
 
 Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
@@ -753,14 +753,14 @@ The aspect ratio is not respected when window is resized programmingly with APIs
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
-#### `win.previewFile(path[, displayName])` _macOS_
+#### `win.previewFile(path[, displayName])` no _macOS_
 
 * `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
 * `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. O padrão é `path`.
 
 Uses [Quick Look][quick-look] to preview a file at a given path.
 
-#### `win.closeFilePreview()` _macOS_
+#### `win.closeFilePreview()` no _macOS_
 
 Closes the currently open [Quick Look][quick-look] panel.
 
@@ -984,7 +984,7 @@ Returns `String` - The title of the native window.
 
 **Note:** The title of the web page can be different from the title of the native window.
 
-#### `win.setSheetOffset(offsetY[, offsetX])` _macOS_
+#### `win.setSheetOffset(offsetY[, offsetX])` no _macOS_
 
 * `offsetY` Float
 * `offsetX` Float (optional)
@@ -1066,23 +1066,23 @@ Unhook the window message.
 
 Unhooks all of the window messages.
 
-#### `win.setRepresentedFilename(filename)` _macOS_
+#### `win.setRepresentedFilename(filename)` no _macOS_
 
 * `filename` String
 
 Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
 
-#### `win.getRepresentedFilename()` _macOS_
+#### `win.getRepresentedFilename()` no _macOS_
 
 Returns `String` - The pathname of the file the window represents.
 
-#### `win.setDocumentEdited(edited)` _macOS_
+#### `win.setDocumentEdited(edited)` no _macOS_
 
 * `edited` Boolean
 
 Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
 
-#### `win.isDocumentEdited()` _macOS_
+#### `win.isDocumentEdited()` no _macOS_
 
 Returns `Boolean` - Whether the window's document has been edited.
 
