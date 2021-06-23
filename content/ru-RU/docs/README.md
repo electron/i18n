@@ -10,7 +10,7 @@
 
 ## Руководство
 
-### Getting started
+### Начало работы
 
 * [Введение](tutorial/introduction.md)
 * [Руководство для начинающих](tutorial/quick-start.md)
