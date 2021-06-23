@@ -55,7 +55,7 @@ Establecer el nivel de máximo y mínimo pizca de zoom.
 > webFrame.setVisualZoomLevelLimits(1, 3)
 > ```
 
-> **NOTE**: Visual zoom only applies to pinch-to-zoom behavior. Cmd+/-/0 zoom shortcuts are controlled by the 'zoomIn', 'zoomOut', and 'resetZoom' MenuItem roles in the application Menu. To disable shortcuts, manually [define the Menu](./menu.md#examples) and omit zoom roles from the definition.
+> **NOTE**: Visual zoom only applies to pinch-to-zoom behavior. Cmd+/-/0 zoom shortcuts are controlled by the 'zoomIn', 'zoomOut', and 'resetZoom' MenuItem roles in the application Menu. Para desactivar los atajos manualmente, [defina el menú](./menu.md#examples) y omita los roles de zoom de la definición.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 

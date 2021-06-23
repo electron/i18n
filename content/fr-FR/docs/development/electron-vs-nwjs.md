@@ -4,7 +4,7 @@ Comme [NW.js][nwjs], Electron fournit une plate-forme pour développer des appli
 
 Il existe cependant des différences fondamentales entre les deux projets qui font d'Electron un produit complètement distinct de NW.js.
 
-## 1) Entry of Application
+## 1) Point d'entré de l'application
 
 Dans NW.js, le point d'entrée principal d'une application peut être une page Web HTML. Dans dans ce cas, NW.js ouvrira le point d'entrée donné dans une fenêtre de navigateur.
 
@@ -14,7 +14,7 @@ Electron fonctionne plus comme le runtime Node.js. Les API d’Electron sont de 
 
 ## 2) Intégration de Node
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the `libuv` loop with each platform's message loop to avoid hacking Chromium. Voir le code [`node_bindings`][node-bindings] pour comprendre comment cela a été fait.
+Dans NW.js, l'intégration de node dans les pages web requière de patcher Chronium pour fonctionner, alors que dans Electron nou avons choisi une approche différente d'intégrer la boucle `libuv` avec le protocole de communication de chaque plateforme pour éviter le piratage de Chronium. Voir le code [`node_bindings`][node-bindings] pour comprendre comment cela a été fait.
 
 ## 3) Contextes JavaScript
 
@@ -24,9 +24,9 @@ En utilisant le [multi-contexte](https://github.com/nodejs/node-v0.x-archive/com
 
 Remarque : NW.js supporte éventuellement le multi-contexte depuis la v0.13.
 
-## 4) Legacy Support
+## 4) Rétrocompatibilité
 
-NW.js still offers a "legacy release" that supports Windows XP. Il ne reçoit pas les mises à jour de sécurité.
+NW.js offre quand même de la rétrocompatibilité jusque sur Windows XP. Il ne reçoit pas les mises à jour de sécurité.
 
 Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't released even critical security updates for that system, we have to warn you that using Windows XP is wildly insecure and outright irresponsible.
 
