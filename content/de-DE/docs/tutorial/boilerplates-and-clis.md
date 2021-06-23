@@ -1,6 +1,6 @@
 # Boilerplates und CLIs
 
-Die Entwicklung von Elektronen ist nicht beurteilt - es gibt keine "einzige richtige Methode", um eine Electron-Anwendung zu entwickeln, zu bauen, zu paketieren oder freizugeben. Zusätzliche Funktionen für Electron, sowohl für die Build- als auch für die Laufzeit finden Sie in der Regel unter [npm](https://www.npmjs.com/search?q=electron) in einzelnen Paketen, erlaubt Entwicklern, sowohl als auch Pipeline zu bauen, die sie benötigen.
+Die Entwicklung von Electron ist nicht dogmatisch - es gibt keine "einzige richtige Methode", um eine Electron-Anwendung zu entwickeln, builden, verpacken oder veröffentlichen. Zusätzliche Funktionen für Electron, sowohl für die Build- als auch für die Laufzeit finden Sie in der Regel unter [npm](https://www.npmjs.com/search?q=electron) in einzelnen Paketen, erlaubt Entwicklern, sowohl als auch Pipeline zu bauen, die sie benötigen.
 
 Dieses Niveau der Modularität und Erweiterbarkeit stellt sicher, dass alle Entwickler, die mit Electron arbeiten, sowohl groß als auch klein in Teamgröße sind niemals in dem eingeschränkt, was sie während ihres Entwicklungslebenszyklus tun können oder können. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
 
