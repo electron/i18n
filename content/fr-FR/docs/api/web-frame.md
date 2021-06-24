@@ -55,7 +55,7 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 > webFrame.setVisualZoomLevelLimits(1, 3)
 > ```
 
-> **NOTE**: Visual zoom only applies to pinch-to-zoom behavior. Cmd+/-/0 zoom shortcuts are controlled by the 'zoomIn', 'zoomOut', and 'resetZoom' MenuItem roles in the application Menu. To disable shortcuts, manually [define the Menu](./menu.md#examples) and omit zoom roles from the definition.
+> **NOTE**: Le zoom visuel s'applique uniquement au comportement pinch-to-zoom. Les raccourcis de zoom Cmd+/-/0 sont contrôlés par les rôles des MenuItem 'zoomIn', 'zoomOut' et 'resetZoom' dans le menu de l'application. Pour désactiver les raccourcis, [définissez manuellement le Menu](./menu.md#examples) et omettez les rôles de zoom de la définition.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 

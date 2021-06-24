@@ -28,13 +28,13 @@ Remarque : NW.js supporte éventuellement le multi-contexte depuis la v0.13.
 
 NW.js offre quand même de la rétrocompatibilité jusque sur Windows XP. Il ne reçoit pas les mises à jour de sécurité.
 
-Given that hardware manufacturers, Microsoft, Chromium, and Node.js haven't released even critical security updates for that system, we have to warn you that using Windows XP is wildly insecure and outright irresponsible.
+Etant donné que les fabriquants de matériel, Microsoft, Chronium, et Node.js n'ont pas réalisés de mise à jour de sécurité pour Windows XP, nous devons vous avertir que l'utiliser sur cette plateforme est totallement non sécurisé et très irresponsable.
 
 Cependant, nous comprenons que des exigences en dehors de notre imagination la plus folle peuvent exister, donc si vous recherchez quelque chose comme Electron qui fonctionne sous Windows XP, la version héritée de NW.js pourrait vous convenir.
 
 ## 5) Fonctionnalités
 
-Il existe de nombreuses différences dans la quantité de fonctionnalités prises en charge. Electron has a bigger community, more production apps using it, and [a large amount of userland modules available on npm][electron-modules].
+Il existe de nombreuses différences dans la quantité de fonctionnalités prises en charge. Electron a une plus grande communauté, plus d'application sur le marché, et [une grande quantité de librairies disponibles sur npm][electron-modules].
 
 À titre d'exemple, Electron a un support intégré pour les mises à jour automatiques et d'innombrables outils qui facilitent la création d'installateurs. A titre d'exemple en faveur de NW.js, NW.js prend en charge davantage d'API `Chrome.*` pour le développement d'applications Chrome.
 

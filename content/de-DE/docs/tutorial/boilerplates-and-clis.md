@@ -1,8 +1,8 @@
 # Boilerplates und CLIs
 
-Die Entwicklung von Elektronen ist nicht beurteilt - es gibt keine "einzige richtige Methode", um eine Electron-Anwendung zu entwickeln, zu bauen, zu paketieren oder freizugeben. Zusätzliche Funktionen für Electron, sowohl für die Build- als auch für die Laufzeit finden Sie in der Regel unter [npm](https://www.npmjs.com/search?q=electron) in einzelnen Paketen, erlaubt Entwicklern, sowohl als auch Pipeline zu bauen, die sie benötigen.
+Die Entwicklung von Electron ist nicht dogmatisch - es gibt nicht "die richtige Methode", um eine Electron-Anwendung zu entwickeln, bauen, verpacken oder veröffentlichen. Zusätzliche Funktionen für Electron, sowohl für die Build- als auch für die Laufzeit, können im [npm](https://www.npmjs.com/search?q=electron) in Form von individuellen Paketen gefunden werden, was Entwicklern erlaubt, sowohl App als auch Build-Pipeline zu erstellen, die sie brauchen.
 
-Dieses Niveau der Modularität und Erweiterbarkeit stellt sicher, dass alle Entwickler, die mit Electron arbeiten, sowohl groß als auch klein in Teamgröße sind niemals in dem eingeschränkt, was sie während ihres Entwicklungslebenszyklus tun können oder können. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Dieses Level an Modularität und Erweiterbarkeit stellt sicher, dass jede Entwickler, die mit Electron arbeiten, im kleinem wie auch im großen Team, zu keinem Zeitpunkt in ihrem Entwicklungszyklus in dem was sie tun oder nicht tun können eingeschränkt sind. Allerdings können von der Community getragene Boilerplates oder Befehlszeilentools das Kompilieren, Verpacken und Veröffentlichen einer App für viele Entwickler erheblich vereinfachen.
 
 ## Boilerplate vs CLI
 
@@ -28,8 +28,8 @@ Weitere Informationen und Dokumentation finden Sie im [Projektarchiv](https://gi
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. Es ist sehr beliebt in der Community und verwendet `Elektron-Builder` intern.
+Wenn du kein Tool benötigst, sondern nur ein stabiles Fundament auf dem du bauen kannst, dann könnte CT Lins [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) einen Blick wert sein. Es ist recht beliebt in der Community und verwendet intern `elektron-builder`.
 
 ## Andere Tools und Boilerplates
 
-Die ["Awesome Electron" Liste](https://github.com/sindresorhus/awesome-electron#boilerplates) enthält weitere Werkzeuge und Boilerplatten zur Auswahl. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+Die ["Awesome Electron" Liste](https://github.com/sindresorhus/awesome-electron#boilerplates) enthält weitere Werkzeuge und Boilerplatten zur Auswahl. Wenn du die Länge der Liste einschüchternd findest, vergesse nicht, dass das spätere Hinzufügen von Tools auch ein brauchbarer Ansatz ist.

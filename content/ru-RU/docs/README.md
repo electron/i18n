@@ -39,18 +39,18 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Другие инструменты и макеты](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Advanced steps
+### Advanced topics
 
 * Архитектура приложения
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-  * [Security Strategies](tutorial/security.md)
+  * [Стратегии безопасности](tutorial/security.md)
   * [Process Sandboxing](tutorial/sandbox.md)
 * [Доступность](tutorial/accessibility.md)
   * [Включение функций специальных возможностей вручную](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестирование и отладка](tutorial/application-debugging.md)
   * [Отладка главного процесса](tutorial/debugging-main-process.md)
-  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Отладка с кодом Visual Studio](tutorial/debugging-vscode.md)
   * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
