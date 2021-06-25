@@ -1,14 +1,14 @@
 # Введение
 
-Добро пожаловать в документацию Electron! Если вы впервые разрабатываете приложение Electron, прочтите этот раздел Getting Started, чтобы ознакомиться с основами. В противном случае, не стесняйтесь изучить наши руководства и документацию по API!
+Добро пожаловать в документацию Electron! Если вы впервые разрабатываете приложение на Electron, начните знакомство с раздела Getting Started, чтобы ознакомиться с основами. В противном случае, не стесняйтесь изучать наши руководства и документацию по API!
 
 ## Что такое Electron?
 
-Electron это фреймворк для разработки десктопных приложений с использованием HTML, CSS и JavaScript. By embedding [Chromium][chromium] and [Node.js][node] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
+Electron - это фреймворк для разработки десктопных приложений с использованием HTML, CSS и JavaScript. В двоичный код Electron уже встроены [Chromium][chromium] и [Node.js][node], и это позволяет вам поддерживать только JavaScript код и создавать кроссплатформенные приложение, которые будут работать как на Windows, так и на macOS и Linux без необходимости иметь собственный опыт разработки.
 
 ## Требования
 
-Данная документация опирается на предположение о том, что читатель знаком как с Node.js, так и с веб-разработкой в общем виде. If you need to get more comfortable with either of these areas, we recommend the following resources:
+Данная документация опирается на предположение о том, что читатель знаком как с Node.js, так и с веб-разработкой в общем виде. Если вы хотите стать более уверенными в какой-либо из этих областей разработки, то мы рекомендуем вам следующие ресурсы для ознакомления:
 
 * [Начало работы с Интернетом (MDN)][mdn-guide]
 * [Введение в Node.js][node-guide]
