@@ -13,11 +13,11 @@ Electron - это фреймворк для разработки десктоп�
 * [Начало работы с Интернетом (MDN)][mdn-guide]
 * [Введение в Node.js][node-guide]
 
-Более того, вы будете лучше понимать, как работает Electron, если вы ознакомитесь с моделью процессов Chromium. You can get a brief overview of Chrome architecture with the [Chrome comic][comic], which was released alongside Chrome's launch back in 2008. Although it's been over a decade since then, the core principles introduced in the comic remain helpful to understand Electron.
+Более того, вы будете лучше понимать, как работает Electron, если вы ознакомитесь с моделью процессов Chromium. Вы можете ознакомиться с кратким обзором архитектуры Chrome с помощью [комикса Chrome][comic], который был выпущен вместе с релизом Chrome в 2008 году. Несмотря на то, что с тех пор прошло более десяти лет, основные принципы, представленные в комиксе, по-прежнему полезны для понимания Electron.
 
-## Экспереименты с Electron Fiddle
+## Эксперименты с Electron Fiddle
 
-[Electron Fiddle][fiddle] - песочница написанная на Electron поддерживаемое разработчиками Electron. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+[Electron Fiddle][fiddle] - песочница, написанная на Electron и поддерживаемая разработчиками Electron. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
 
 Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
 
