@@ -8,4 +8,4 @@
 * `globalY` Entier (optionel)
 * `movementX` Entier (optionel)
 * `movementY` Entier (optionel)
-* `clickCount` Integer (optional)
+* `clickCount` Entier (optionel)
