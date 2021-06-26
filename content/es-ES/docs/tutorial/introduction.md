@@ -2,7 +2,7 @@
 
 Bienvenido a la documentacion de Electron! Si es esta es tu primera vez programando una aplicacion de Electron, lea esta sección de Introducción para familiarizarse con lo esencial. De lo contrario, sientase libre de explorar nuestra guias y documentaciones sobre nuestra API!
 
-## What is Electron?
+## ¿Qué es Electron?
 
 Electron es un framework para crear aplicaciones de escritorio usando JavaScript, HTML y CSS. Incrustando [Chromium][chromium] y [Node.js][node] dentro del mismo, Electron le permite mantener una base de código JavaScript y crear aplicaciones multiplataforma que funcionan en Windows, macOS y Linux, - no requiere experiencia en desarrollo nativo.
 
