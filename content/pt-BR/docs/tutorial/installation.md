@@ -1,6 +1,6 @@
 # Instalação
 
-To install prebuilt Electron binaries, use [`npm`][npm]. O método preferido é instalar o Electron como uma dependência de desenvolvimento em seu app:
+npm install electron --save-dev O método preferido é instalar o Electron como uma dependência de desenvolvimento em seu app:
 
 ```sh
 npm install electron --save-dev
@@ -144,7 +144,6 @@ mostrar o progresso do download:</p>
 
 Se você precisar forçar um novo download do ativo e o arquivo SHASUM, defina a variável force_no_cache</ 0> do ambiente para <code>true</ 0>.</p>
 
-[npm]: https://docs.npmjs.com
 [versioning]: ./electron-versioning.md
 [npx]: https://docs.npmjs.com/cli/v7/commands/npx
 [releases]: https://github.com/electron/electron/releases
