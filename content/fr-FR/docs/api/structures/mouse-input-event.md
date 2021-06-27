@@ -4,8 +4,8 @@
 * `x` Integer
 * `y` Integer
 * `button` String (facultatif) - Le bouton appuyé, peut être `left`, `middle`, `right`.
-* `globalX` Integer (optional)
-* `globalY` Integer (optional)
-* `movementX` Integer (optional)
-* `movementY` Integer (optional)
-* `clickCount` Integer (optional)
+* `globalX` Entier (optionel)
+* `globalY` Entier (optionel)
+* `movementX` Entier (optionel)
+* `movementY` Entier (optionel)
+* `clickCount` Entier (optionel)
