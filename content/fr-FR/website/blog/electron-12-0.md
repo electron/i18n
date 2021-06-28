@@ -70,15 +70,15 @@ Plus d'informations à propos de ces changements et de futurs peuvent être trou
 * `MenuItem` API changes:
     * Ajout de la prise en charge de l'affichage du menu de partage macOS. [#25629](https://github.com/electron/electron/pull/25629)
 * `net` API changes:
-    * Added a new `credentials` option for `net.request()`. [#25284](https://github.com/electron/electron/pull/25284)
-    * Added `net.online` for detecting whether there is currently internet connection. [#21004](https://github.com/electron/electron/pull/21004)
+    * Ajout d'une nouvelle option `credentials` pour `net.request()`. [#25284](https://github.com/electron/electron/pull/25284)
+    * Ajout de `net.online` pour détecter s'il existe actuellement une connexion Internet. [#21004](https://github.com/electron/electron/pull/21004)
 * `powerMonitor` API changes:
     * Ajout de `powerMonitor.onBatteryPower`. [#26494](https://github.com/electron/electron/pull/26494)
     * Added fast user switching event to powerMonitor on macOS. [#25321](https://github.com/electron/electron/pull/25321)
 * `session` API change :
-    * Added `allowFileAccess` option to `ses.loadExtension()` API. [#27702](https://github.com/electron/electron/pull/27702)
+    * Ajout de l'option `allowFileAccess` à l'API `ses.loadExtension()`. [#27702](https://github.com/electron/electron/pull/27702)
     * Added `display-capture` API for `session.setPermissionRequestHandler`. [#27696](https://github.com/electron/electron/pull/27696)
-    * Added a `disabledCipherSuites` option to `session.setSSLConfig`. [#25818](https://github.com/electron/electron/pull/25818)
+    * Ajout d'une option `disabledCipherSuites` à `session.setSSLConfig`. [#25818](https://github.com/electron/electron/pull/25818)
     * Added `extension-loaded`, `extension-unloaded`, and `extension-ready` events to `session`. [#25385](https://github.com/electron/electron/pull/25385)
     * Added `session.setSSLConfig()` to allow configuring SSL. [#25461](https://github.com/electron/electron/pull/25461)
     * Added support for explicitly specifying `direct`, `auto_detect` or `system` modes in `session.setProxy()`. [#24937](https://github.com/electron/electron/pull/24937)
