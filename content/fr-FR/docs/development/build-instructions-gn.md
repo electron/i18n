@@ -203,7 +203,7 @@ On Windows, SMBv2 has a directory cache that will cause problems with the git ca
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. Plus d'informations : https://stackoverflow.com/a/9935126
+à 0. Plus d'informations : https://stackoverflow.com/a/9935126
 
 Cela peut être défini rapidement dans powershell (exécuté en tant qu'administrateur) :
 
