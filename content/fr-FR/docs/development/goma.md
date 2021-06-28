@@ -6,7 +6,7 @@ Electron has a deployment of a custom Goma Backend that we make available to all
 
 ## Enabling Goma
 
-Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). Goma configuration is automatically included when you set up `build-tools`.
+Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). La configuration de Goma est automatiquement incluse lorsque vous configurez `build-tools`.
 
 Si vous êtes un maintenant et avez accès à notre cluster, assurez-vous d’exécuter des `e init` avec `--goma=cluster` afin de configurer des `build-tools` pour utiliser cluster Goma.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
 
@@ -28,10 +28,10 @@ If you access [http://localhost:8088](http://localhost:8088) on your local machi
 
 ## Access
 
-For security and cost reasons, access to Electron's Goma cluster is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+Pour des raisons de sécurité et de coût, l'accès au cluster Goma d'Electron est actuellement restreint aux mainteneurs d'Electron.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
 
 ## Uptime / Support
 
-We have automated monitoring of our Goma cluster and cache at https://status.notgoma.com
+Nous avons une surveillance automatisée de notre cluster et de notre cache Goma sur https://status.notgoma.com
 
 We do not provide support for usage of Goma and any issues raised asking for help / having issues will _probably_ be closed without much reason, we do not have the capacity to handle that kind of support.
