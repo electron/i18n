@@ -95,7 +95,7 @@ web_technologies:
   description: Electron 基于 Chromium 和 Node.js, 让你可以使用 HTML, CSS 和 JavaScript 构建应用。
 open_source:
   title: 开源
-  description: Electron 是一个由 GitHub 及众多贡献者组成的活跃社区共同维护的开源项目。
+  description: Electron is an open source project maintained by the OpenJS Foundation and an active community of contributors.
 cross_platform:
   title: 跨平台
   description: Electron 兼容 Mac、Windows 和 Linux，可以构建出三个平台的应用程序。
@@ -110,13 +110,10 @@ get_started:
   title: 入门
   description: 初识 Electron，可参考下列资料，了解如何使用 Electron 封装你的前端代码，调用丰富的 API，以及生成安装程序。
 explore:
-  title: 探索 Electron 的 API
-  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示例程序</a>采用交互式界面展示了 Electron API 最关键的功能。通过代码样例和提示发掘 Electron 的无限可能，踏上你的开发之旅。"
-  fiddle_title: 借助 Electron Fiddle 深入探索
+  fiddle_title: Try powerful experiments with Electron Fiddle
   see_more_info: 详细了解
 download: 下载
 download_from_github: 从 GitHub 下载
-view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
 quick_start:
   title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'> 快速启动</a> 应用程序，看看 Electron 是如何运转的："
   description: 一个有帮助内容的 Electron 应用。
