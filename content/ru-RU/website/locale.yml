@@ -95,7 +95,7 @@ web_technologies:
   description: Electron использует Chromium и Node.js, так что Вы можете создавать свои приложения на HTML, CSS и JavaScript.
 open_source:
   title: Open Source
-  description: Electron is an open source project maintained by the OpenJS Foundation and an active community of contributors.
+  description: Electron это проект с открытым исходным кодом, который поддерживается OpenJS Foundation и активным сообществом авторов.
 cross_platform:
   title: Кросс-платформенный
   description: Совместимые с Mac, Windows и Linux приложения Electron создаются и запускаются на трех платформах.
