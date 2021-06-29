@@ -95,7 +95,7 @@ web_technologies:
   description: Electron utilise Chromium et Node.js pour que vous puissiez développer avec HTML, CSS et JavaScript.
 open_source:
   title: Open Source
-  description: Electron is an open source project maintained by the OpenJS Foundation and an active community of contributors.
+  description: Electron est un projet open source maintenu par l'OpenJS Foundation et par une communauté active de contributeurs.
 cross_platform:
   title: Multi-Plateformes
   description: Compatible avec Mac, Windows et Linux, les applications Electron sont développées et utilisées sur ces trois plateformes.
@@ -110,7 +110,7 @@ get_started:
   title: Premiers pas
   description: Pour commencer avec Electron, consultez les ressources ci-dessous. Vous apprendrez comment développer votre app web avec Electron, accéder aux APIs et générer des installateurs.
 explore:
-  fiddle_title: Try powerful experiments with Electron Fiddle
+  fiddle_title: Essayez des expériences puissantes avec Electron Fiddle
   see_more_info: Voir plus d'infos
 download: Télécharger
 download_from_github: Télécharger depuis GitHub
