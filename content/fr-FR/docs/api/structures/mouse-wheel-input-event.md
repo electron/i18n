@@ -1,4 +1,4 @@
-# MouseWheelInputEvent Object extends `MouseInputEvent`
+# L'objet MouseWheelInputEvent étend `MouseInputEvent`
 
 * `type` String - Le type de l'événement, peut être `mouseWheel`.
 * `deltaX` Entier (optionel)
