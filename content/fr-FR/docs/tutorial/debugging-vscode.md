@@ -2,9 +2,9 @@
 
 Ce guide explique comment configurer le débogage de VSCode pour votre propre projet Electron ainsi que pour la base de code natif d'Electron.
 
-## Debugging your Electron app
+## Débogage de votre application Electron
 
-### Main process
+### Processus principal
 
 #### 1. Ouvrez un projet Electron dans VSCode.
 
@@ -41,11 +41,11 @@ Définissez quelques points d'arrêt dans `main.js`, et commencez à déboguer d
 
 Voici un projet pré-configuré que vous pouvez télécharger et déboguer directement dans VSCode : https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
-## Debugging the Electron codebase
+## Débogage du code de base d'Electron
 
-If you want to build Electron from source and modify the native Electron codebase, this section will help you in testing your modifications.
+Cette section vous aidera à tester vos modifications si vous souhaitez générer Electron à partir des sources et modifier le code natif de base d'Electron. .
 
-For those unsure where to acquire this code or how to build it, [Electron's Build Tools](https://github.com/electron/build-tools) automates and explains most of this process. If you wish to manually set up the environment, you can instead use these [build instructions](https://www.electronjs.org/docs/development/build-instructions-gn).
+Si vous ne savez pas où aller chercher ce code ce code ou comment le générer, [Electron's Build Tools](https://github.com/electron/build-tools) automatise et explique la plupart de ce processus. Si vous souhaitez configurer manuellement l’environnement, vous pouvez utiliser ces [instructions de génération](https://www.electronjs.org/docs/development/build-instructions-gn).
 
 ### Windows (C++)
 
@@ -96,4 +96,4 @@ $ code electron-quick-start
 
 #### 3. Débogage
 
-Set some breakpoints in the .cc files of your choosing in the native Electron C++ code, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging).
+Définissez quelques points d'arrêt dans le code natif Electron C++ et commencez à déboguer dans la [Vue débogage](https://code.visualstudio.com/docs/editor/debugging).
