@@ -95,7 +95,7 @@ web_technologies:
   description: Electron usa Chromium y Node.js para que puedas construir aplicaciones con HTML, CSS y JavaScript.
 open_source:
   title: Código Abierto
-  description: Electron es un proyecto open-source mantenido por GitHub y una activa comunidad de contribuyentes.
+  description: Electron is an open source project maintained by the OpenJS Foundation and an active community of contributors.
 cross_platform:
   title: Multiplataforma
   description: Compatible con Mac, Windows y Linux las aplicaciones de Electron compilan y corren en tres plataformas.
@@ -110,13 +110,10 @@ get_started:
   title: Empezar
   description: Para empezar con Electron, revisa los recursos a continuación. Aprende a envolver tu aplicación web con Electron, accede a todas las API y genera instaladores.
 explore:
-  title: Explorar las APIs de Electron
-  description: "La <a href='https://github.com/electron/electron-api-demos'>aplicación de demostración de Electron API</a> muestra de forma interactiva las características más importantes de la API de Electron. Vea qué es posible hacer con Electron con código de muestra y consejos útiles para construir su aplicación."
-  fiddle_title: Prueba experimentos más poderosos con Electrón Fiddle
+  fiddle_title: Try powerful experiments with Electron Fiddle
   see_more_info: Ver más información
 download: Descargar
 download_from_github: Descargar desde GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas las versiones</a> en GitHub
 quick_start:
   title: "Girar la aplicación de Start</a> de <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick ver Electron en acción:"
   description: Una aplicación mínima de Electron con anotaciones útiles.

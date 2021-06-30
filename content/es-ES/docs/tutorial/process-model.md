@@ -1,6 +1,6 @@
 # Modelo de proceso
 
-Electron inherits its multi-process architecture from Chromium, which makes the framework architecturally very similar to a modern web browser. In this guide, we'll expound on the conceptual knowledge of Electron that we applied in the minimal [quick start app][].
+Electron hereda su arquitectura multiprocesos de Chromium, lo que hace que la arquitectura del framework sea muy similar a la de un navegador web moderno. En esta guía, expondremos el conocimiento conceptual de Electron que aplicamos en el tutorial [quick-start-app][].
 
 ## Why not a single process?
 
@@ -133,7 +133,7 @@ This feature is incredibly useful for two main purposes:
 * By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
 * If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
 
-[quick start app]: ./quick-start.md
+[quick-start-app]: ./quick-start.md
 
 [Chrome Comic]: https://www.google.com/googlebooks/chrome/
 

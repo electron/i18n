@@ -95,7 +95,7 @@ web_technologies:
   description: Electron は Chromium と Node.js を利用しているため、HTML、CSS、JavaScript でアプリ開発ができます。
 open_source:
   title: オープンソース
-  description: Electron は GitHub と活発な貢献者コミュニティがメンテナンスするオープンソースプロジェクトです。
+  description: Electron は OpenJS Foundation と活発な貢献者コミュニティがメンテナンスするオープンソースプロジェクトです。
 cross_platform:
   title: クロスプラットフォーム
   description: Electron アプリは Mac、Windows、Linux に対応しており、3 つのプラットフォームでビルド・動作します。
@@ -110,13 +110,10 @@ get_started:
   title: 始めましょう！
   description: Electron での開発を始めるには、下記の情報をご確認ください。Electron でのウェブアプリのパッケージ、API へのアクセス、インストーラーの作成方法などを解説しています。
 explore:
-  title: Electron API の探検
-  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API デモアプリ</a> では、Electron API の重要な機能をインタラクティブに体験できます。Electron で実現できることをヒント付きのサンプルコードと共にご覧いただけますので、アプリ構築にお役立てください。"
   fiddle_title: Electron Fiddle の強力な実験機能を試しましょう
   see_more_info: 詳細
 download: ダウンロード
 download_from_github: GitHub からダウンロード
-view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
   title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>クイックスタート</a> アプリを起動して Electron が動くところを見てみましょう。"
   description: 丁寧に注記を載せた、最小限の Electron アプリです。
