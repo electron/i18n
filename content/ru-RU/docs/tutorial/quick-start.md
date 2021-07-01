@@ -25,7 +25,7 @@ npm -v
 
 ### Сборка приложения
 
-Electron apps follow the same general structure as other Node.js projects. Start by creating a folder and initializing an npm package.
+Приложения Electron имеют ту же общую структуру, что и другие проекты Node.js. Начните с создания папки и инициализации пакета npm.
 
 ```sh npm2yarn
 mkdir my-electron-app && cd my-electron-app
