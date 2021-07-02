@@ -125,7 +125,12 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Incorrecto --><webview nodeIntegration src="page.html"></webview><!-- Correcto --><webview src="page.html"></webview>
+```html
+<!-- Incorrecto -->
+<webview nodeIntegration src="page.html"></webview>
+
+<!-- Correcto -->
+<webview src="page.html"></webview>
 ```
 
 Cuando desactivas la integración Node.js, todavía puedes exponer APIs a tu página web que consume módulos Node.js o características. Guiones precargados continúan teniendo acceso a `require` y otras características de Node.js, permitiendo que los desarrolladores expongan un API personalizado para cargar contenido de manera remota.
