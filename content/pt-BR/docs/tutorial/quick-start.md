@@ -78,19 +78,19 @@ npm start
 
 ### Execute o processo principal
 
-The entry point of any Electron application is its `main` script. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
+O ponto de entrada de qualquer aplicação Electron é o script `main`. Este script controla o **processo principal**, que é executado em um ambiente Node.js completo e é responsável por controlar o ciclo de vida de seu aplicativo, exibindo interfaces nativas, realizando todas as operações necessárias e gerenciando os processos de renderização (mais sobre isso mais tarde).
 
 During execution, Electron will look for this script in the [`main`][package-json-main] field of the app's `package.json` config, which you should have configured during the [app scaffolding](#scaffold-the-project) step.
 
-To initialize the `main` script, create an empty file named `main.js` in the root folder of your project.
+Para inicializar o script `main`, crie um arquivo vazio com o nome `main.js` na pasta raíz do seu projeto.
 
-> Note: If you run the `start` script again at this point, your app will no longer throw any errors! However, it won't do anything yet because we haven't added any code into `main.js`.
+> Nota: Se você executar o script `start` novamente neste ponto, sua aplicação não irá lançar qualquer erro! Entretanto, ela não fará nada, visto que não adicionamos nenhum código no arquivo `main.js`.
 
 ### Crie uma página web
 
-Before we can create a window for our application, we need to create the content that will be loaded into it. In Electron, each window displays web contents that can be loaded from either from a local HTML file or a remote URL.
+Antes de criarmos uma janela para a nossa aplicação, precisamos criar o conteúdo que será carregado dentro dela. No Electron, cada janela exibe um conteúdo web, que pode ser carregado de um arquivo HTML local ou de um URL remoto.
 
-For this tutorial, you will be doing the former. Create an `index.html` file in the root folder of your project:
+Para este tutorial, você fará a página html primeiro. Crie um arquivo `index.html` na pasta raíz do seu projeto:
 
 ```html
 <!DOCTYPE html>
@@ -104,29 +104,29 @@ For this tutorial, you will be doing the former. Create an `index.html` file in 
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
+    Estamos utilizando Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    e Electron <span id="electron-version"></span>.
   </body>
 </html>
 ```
 
-> Note: Looking at this HTML document, you can observe that the version numbers are missing from the body text. We'll manually insert them later using JavaScript.
+> Nota: Olhando para este documento HTML, você pode observar que os números das versões estão faltando dentro do texto. Nós vamos inserir manualmente mais tarde, utilizando JavaScript.
 
-### Opening your web page in a browser window
+### Abrindo sua página web em uma janela do navegador
 
-Now that you have a web page, load it into an application window. To do so, you'll need two Electron modules:
+Agora que você já tem uma página web, carregue-a na janela do aplicativo. Para fazer isso, você precisa de dois módulos do Electron:
 
-* The [`app`][app] module, which controls your application's event lifecycle.
-* The [`BrowserWindow`][browser-window] module, which creates and manages application windows.
+* O módulo [`app`][app], que controla os eventos do ciclo de vida de sua aplicação.
+* O módulo [`BrowserWindow`][browser-window], que cria e gerencia as janelas da sua aplicação.
 
-Because the main process runs Node.js, you can import these as [CommonJS][commonjs] modules at the top of your file:
+Pelo fato do processo principal ser executado em Node.js, você pode importá-los como módulos [CommonJS][commonjs] no topo de seu arquivo:
 
 ```js
 const { app, BrowserWindow } = require('electron')
 ```
 
-Then, add a `createWindow()` function that loads `index.html` into a new `BrowserWindow` instance.
+Então, adicione a função `createWindow()` que carregará o arquivo `index.html` em uma nova instância do `BrowserWindow`.
 
 ```js
 function createWindow () {
@@ -139,9 +139,9 @@ function createWindow () {
 }
 ```
 
-Next, call this `createWindow()` function to open your window.
+O próximo passo é chamar a função `createWindow()` que abrirá a janela.
 
-In Electron, browser windows can only be created after the `app` module's [`ready`][app-ready] event is fired. You can wait for this event by using the [`app.whenReady()`][app-when-ready] API. Call `createWindow()` after `whenReady()` resolves its Promise.
+No Electron, janelas do navegador só podem ser criadas após o módulo `app` disparar o evento [`ready`][app-ready]. Você pode esperar por este evento utilizando a API [`app.whenReady()`][app-when-ready]. Chame a função `createWindow()` após `whenReady()` resolver a Promise.
 
 ```js
 app.whenReady().then(() => {
@@ -149,19 +149,19 @@ app.whenReady().then(() => {
 })
 ```
 
-> Note: At this point, your Electron application should successfully open a window that displays your web page!
+> Nota: Neste ponto do tutorial, sua aplicação Electron deve abrir uma janela que mostra o conteúdo de sua página web!
 
-### Manage your window's lifecycle
+### Gerencie o ciclo de vida de sua janela
 
 Although you can now open a browser window, you'll need some additional boilerplate code to make it feel more native to each platform. Application windows behave differently on each OS, and Electron puts the responsibility on developers to implement these conventions in their app.
 
 In general, you can use the `process` global's [`platform`][node-platform] attribute to run code specifically for certain operating systems.
 
-#### Quit the app when all windows are closed (Windows & Linux)
+#### Encerrar a aplicação quando todas as janelas estiverem fechadas (Windows e Linux)
 
-On Windows and Linux, exiting all windows generally quits an application entirely.
+No Windows e no Linux, fechar todas as janelas geralmente encerra totalmente a aplicação.
 
-To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
+Para implementar isso, "ouça" o módulo [`window-all-closed`][window-all-closed] do `app` e chame [`app.quit()`][app-quit] se o usuário não estiver utilizando macOS (`darwin`).
 
 ```js
 app.on('window-all-closed', function () {

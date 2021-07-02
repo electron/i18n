@@ -78,8 +78,13 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Mau --><script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css"><!-- Bom --><script crossorigin src="https://example.com/react.js"></script>
+```html
+<!-- Mau -->
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
+
+<!-- Bom -->
+<script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -120,7 +125,12 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Mau --><webview nodeIntegration src="page.html"></webview><!-- Bom --><webview src="page.html"></webview>
+```html
+<!-- Mau -->
+<webview nodeIntegration src="page.html"></webview>
+
+<!-- Bom -->
+<webview src="page.html"></webview>
 ```
 
 Ao desativar a integração do Node.js, você ainda pode expor APIs ao seu site que consome módulos ou recursos do Node.js. Pré-carregar scripts continuam a ter acesso para `exigir` e outro nó. s recursos, permitindo que os desenvolvedores exponham uma API personalizada para um conteúdo carregado remotamente.
@@ -209,7 +219,12 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html<!-- Mau --><webview disablewebsecurity src="page.html"></webview><!-- Bom --><webview src="page.html"></webview>
+```html
+<!-- Mau -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- Bom -->
+<webview src="page.html"></webview>
 ```
 
 ## 6) Defina uma política de segurança de conteúdo
@@ -349,7 +364,12 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 ### Como?
 
-```html<!-- Mau --><webview allowpopups src="page.html"></webview><!-- Bom --><webview src="page.html"></webview>
+```html
+<!-- Mau -->
+<webview allowpopups src="page.html"></webview>
+
+<!-- Bom -->
+<webview src="page.html"></webview>
 ```
 
 ## 11) Verifique as opções do WebView antes da criação

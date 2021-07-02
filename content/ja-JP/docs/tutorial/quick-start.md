@@ -347,7 +347,10 @@ window.addEventListener('DOMContentLoaded', () => {
     <h1>Hello World!</h1>
     We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.<!-- このプロセスで他ファイルを require して実行することもできます --><script src="./renderer.js"></script>
+    and Electron <span id="electron-version"></span>.
+
+    <!-- このプロセスで他ファイルを require して実行することもできます -->
+    <script src="./renderer.js"></script>
   </body>
 </html>
 ```

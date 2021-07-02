@@ -1,6 +1,6 @@
 # Démarrage Rapide
 
-Ce guide vous guidera dans le processus de création d'une application Hello World dans Electron, similaire à [`electron/electron-quick-start`][quick-start].
+Ce tutoriel vous guidera dans le processus de création d'une application Hello World dans Electron, similaire à [`electron/electron-quick-start`][quick-start].
 
 À la fin de ce tutoriel, votre application ouvrira une fenêtre de navigateur qui affichera une page web avec des informations sur quelles versions de Chromium, de Node.js et d'Electron sont en cours d'exécution.
 
@@ -346,7 +346,10 @@ window.addEventListener('DOMContentLoaded', () => {
     <h1>Hello World!</h1>
     Nous utilisons Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
-    et Electron <span id="electron-version"></span>.<!-- Vous pouvez également requérir que d’autres fichiers s’exécutent dans ce processus --><script src="./renderer.js"></script>
+    et Electron <span id="electron-version"></span>.
+
+    <!-- Vous pouvez également requérir que d’autres fichiers s’exécutent dans ce processus -->
+    <script src="./renderer.js"></script>
   </body>
 </html>
 ```

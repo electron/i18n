@@ -78,8 +78,13 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Schlecht --><script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css"><!-- Gut --><script crossorigin src="https://example.com/react.js"></script>
+```html
+<!-- Schlecht -->
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
+
+<!-- Gut -->
+<script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -120,7 +125,12 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Schlecht --><webview nodeIntegration src="page.html"></webview><!-- Gut --><webview src="page.html"></webview>
+```html
+<!-- Schlecht -->
+<webview nodeIntegration src="page.html"></webview>
+
+<!-- Gut -->
+<webview src="page.html"></webview>
 ```
 
 Wenn Sie die Node.js-Integration deaktivieren, können Sie trotzdem APIs Ihrer Website aussetzen, die Node.js Module oder Funktionen verbrauchen. Skripte vor dem Laden haben weiterhin Zugriff auf auf `erfordern` und andere Knoten. s Features, die es Entwicklern erlauben, eine benutzerdefinierte API für aus der Ferne geladene Inhalte freizugeben.
@@ -209,7 +219,12 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html<!-- Schlecht --><webview disablewebsecurity src="page.html"></webview><!-- Gut --><webview src="page.html"></webview>
+```html
+<!-- Schlecht -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- Gut -->
+<webview src="page.html"></webview>
 ```
 
 ## 6) Definieren Sie eine Inhaltssicherheitsrichtlinie
@@ -349,7 +364,12 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 ### Wie?
 
-```html<!-- Schlecht --><webview allowpopups src="page.html"></webview><!-- Gut --><webview src="page.html"></webview>
+```html
+<!-- Schlecht -->
+<webview allowpopups src="page.html"></webview>
+
+<!-- Gut -->
+<webview src="page.html"></webview>
 ```
 
 ## 11) WebView-Optionen vor der Erstellung überprüfen

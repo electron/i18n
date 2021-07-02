@@ -23,7 +23,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] 
   * `defaultPath` String (任意)
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `properties` String[] (任意) - ダイアログが使うべきでない機能を含む。 以下の値がサポートされています:
+  * `properties` String[]&#32;(任意) - ダイアログが使うべきでない機能が入ります。 以下の値がサポートされています:
     * `openFile` - ファイルを選択するのを許可します。
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
@@ -71,7 +71,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (任意)
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `properties` String[] (任意) - ダイアログが使うべきでない機能を含む。 以下の値がサポートされています:
+  * `properties` String[]&#32;(任意) - ダイアログが使うべきでない機能が入ります。 以下の値がサポートされています:
     * `openFile` - ファイルを選択するのを許可します。
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。
@@ -88,7 +88,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 * `canceled` Boolean - dialog がキャンセルされたかそうでないか。
 * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列. ダイアログがキャンセルされた場合、これは空の配列になります。
-* `bookmarks` String[] (任意)_macOS_ _mas_ - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
+* `bookmarks` String[]&#32;(任意)_macOS_ _mas_ - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (任意) _macOS_ - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) _macOS_ - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) _macOS_ - タグの入力ボックスを表示します。省略値は、`true` です。
-  * `properties` String[] (任意)
+  * `properties` String[]&#32;(任意)
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` _macOS_ - ダイアログでディレクトリを作成するのを許可します。
     * `treatPackageAsDirectory` _macOS_ - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
@@ -156,7 +156,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (任意) _macOS_ - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) _macOS_ - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) _macOS_ - タグの入力ボックスを表示します。省略値は、`true` です。
-  * `properties` String[] (任意)
+  * `properties` String[]&#32;(任意)
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` _macOS_ - ダイアログでディレクトリを作成するのを許可します。
     * `treatPackageAsDirectory` _macOS_ - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
@@ -182,7 +182,7 @@ dialog.showOpenDialog(mainWindow, {
 * `options` Object
   * `message` String - メッセージボックスの内容。
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
-  * `buttons` String[] (任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
+  * `buttons` String[]&#32;(任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
   * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
   * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
   * `detail` String (任意) - メッセージの追加情報。
@@ -205,7 +205,7 @@ dialog.showOpenDialog(mainWindow, {
 * `options` Object
   * `message` String - メッセージボックスの内容。
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
-  * `buttons` String[] (任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
+  * `buttons` String[]&#32;(任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
   * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
   * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
   * `detail` String (任意) - メッセージの追加情報。

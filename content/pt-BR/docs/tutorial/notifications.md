@@ -21,19 +21,19 @@ Starting with a working application from the [Quick Start Guide](quick-start.md)
 ...and add the `renderer.js` file:
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const NOTIFICATION_TITLE = 'Title'
-const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
-const CLICK_MESSAGE = 'Notification clicked'
+const NOTIFICACAO_TITULO = 'Title'
+const NOTIFICACAO_CORPO = 'Notification from the Renderer process. Click to log to console.'
+const CLICK_MENSAGEM = 'Notificação clicada!'
 
-new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
-  .onclick = () => console.log(CLICK_MESSAGE)
+new Notification(NOTIFICACAO_TITULO, { body: NOTIFICACAO_CORPO })
+  .onclick = () => console.log(CLICK_MENSAGEM)
 ```
 
 Após iniciar o aplicativo Electron, você verá a notificação:
 
 ![Notificação no processo de renderização](../images/notification-renderer.png)
 
-Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
+Além disso, se você clicar na notificação, o DOM atualizará para exibir 'Notificação clicada!".
 
 ### Mostrar notificações no processo principal
 
@@ -52,7 +52,7 @@ function showNotification () {
 app.whenReady().then(createWindow).then(showNotification)
 ```
 
-After launching the Electron application, you should see the system notification:
+Após executar a aplicação em Electron, você deve ver a notificação do sistema:
 
 ![Notification in the Main process](../images/notification-main.png)
 

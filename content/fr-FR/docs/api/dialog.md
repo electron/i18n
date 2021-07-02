@@ -23,7 +23,7 @@ Le module `dialog` dispose des méthodes suivantes :
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `propriétés` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue utilise. Les valeurs suivantes sont prises en charge :
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. Les valeurs suivantes sont prises en charge :
     * `openFile` - Permet la sélection de fichiers.
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
@@ -71,7 +71,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `propriétés` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue utilise. Les valeurs suivantes sont prises en charge :
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. Les valeurs suivantes sont prises en charge :
     * `openFile` - Permet la sélection de fichiers.
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
@@ -88,7 +88,7 @@ Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments su
 
 * `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
 * `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur. If the dialog is cancelled this will be an empty array.
-* `signets` String[] (facultatif) _macOS_ _mas_ - Un tableau correspondant au tableau `filePaths` de chaînes encodées en base64 qui contient des données de marque-pages à portée de sécurité. `securityScopedBookmarks` doit être activé pour que ceci soit rempli. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
+* `bookmarks` String[]&#32;(optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` doit être activé pour que ceci soit rempli. (Pour les valeurs de retour, voir la [table ici](#bookmarks-array).)
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) _macOS_ - Affiche le champ de texte. `true` par défaut.
-  * `properties` String[] (optionnelle)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
@@ -156,7 +156,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `message` String (facultatif) _macOS_ - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) _macOS_ - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) _macOS_ - Affiche le champ de texte, par défaut à `true`.
-  * `properties` String[] (optionnelle)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` _macOS_ - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `treatPackageAsDirectory` _macOS_ - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
@@ -182,7 +182,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
 * Objet `options`
   * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `detail` String (facultatif) - Informations supplémentaires du message.
@@ -205,7 +205,7 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
 * Objet `options`
   * `message` Chaîne - Contenu de la boîte de message.
   * `type` String (facultatif) - Peut être `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. Sur Windows, `"question"` affiche la même icône que `"info"`, sauf si vous définissez une icône en utilisant l'option `"icône"`. Sur macOS, `"avertissement"` et `"erreur"` affichent la même icône d'avertissement.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `detail` String (facultatif) - Informations supplémentaires du message.
