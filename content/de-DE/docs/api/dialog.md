@@ -23,7 +23,7 @@ Das `dialog` module hat die folgenden Methoden:
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. The following values are supported:
     * `openFile` - Erlaubt die Auswahl von Dateien.
     * `openDirectory` - Erlaubt die Auswahl von Verzeichnissen.
     * `multiSelections` - Erlaubt die Auswahl mehrerer Pfade.
@@ -71,7 +71,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. The following values are supported:
     * `openFile` - Erlaubt die Auswahl von Dateien.
     * `openDirectory` - Erlaubt die Auswahl von Verzeichnissen.
     * `multiSelections` - Erlaubt die Auswahl mehrerer Pfade.
@@ -88,7 +88,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
+* `bookmarks` String[]&#32;(optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (optional) _macOS_ - Message to display above text fields.
   * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
-  * `properties` String[] (optional)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
     * `createDirectory` _macOS_ - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -156,7 +156,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `message` String (optional) _macOS_ - Message to display above text fields.
   * `nameFieldLabel` String (optional) _macOS_ - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
-  * `properties` String[] (optional)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
     * `createDirectory` _macOS_ - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `treatPackageAsDirectory` _macOS_ - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -182,7 +182,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 * `options` Object
   * `message` String - Content of the message box.
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `detail` String (optional) - Extra information of the message.
@@ -205,7 +205,7 @@ The `browserWindow` argument allows the dialog to attach itself to a parent wind
 * `options` Object
   * `message` String - Content of the message box.
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `detail` String (optional) - Extra information of the message.
