@@ -78,8 +78,13 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Incorrect --><script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css"><!-- Correct --><script crossorigin src="https://example.com/react.js"></script>
+```html
+<!-- Incorrect -->
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
+
+<!-- Correct -->
+<script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -120,7 +125,12 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html<!-- Incorrect --><webview nodeIntegration src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
+```html
+<!-- Incorrect -->
+<webview nodeIntegration src="page.html"></webview>
+
+<!-- Correct -->
+<webview src="page.html"></webview>
 ```
 
 Lors de la désactivation de l'intégration de Node.js, vous pouvez toujours exposer des API à votre site web qui consomment des modules ou des fonctionnalités de Node.js. Les scripts de préchargement continuent d'avoir accès à `require` et aux autres fonctionnalités de Node.js, permettant aux développeurs d'exposer une API personnalisée au contenu chargé à distance.
@@ -209,7 +219,12 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html<!-- Incorrect --><webview disablewebsecurity src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
+```html
+<!-- Incorrect -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- Correct -->
+<webview src="page.html"></webview>
 ```
 
 ## 6) Définir une politique de sécurité de contenu
@@ -349,7 +364,12 @@ Si vous n'avez pas besoin de popups, il vaut mieux ne pas autoriser la création
 
 ### Comment ?
 
-```html<!-- Incorrect --><webview allowpopups src="page.html"></webview><!-- Correct --><webview src="page.html"></webview>
+```html
+<!-- Incorrect -->
+<webview allowpopups src="page.html"></webview>
+
+<!-- Correct -->
+<webview src="page.html"></webview>
 ```
 
 ## 11) Vérifiez les options de WebView avant la création
