@@ -23,7 +23,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] 
   * `defaultPath` String (опционально)
   * `buttonLabel` String(опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. The following values are supported:
     * `openFile` - Позволяет выбирать файлы.
     * `openDirectory` - Позволяет выбирать папки.
     * `multiSelections` - Позволяет выбрать несколько объектов.
@@ -71,7 +71,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (опционально)
   * `buttonLabel` String(опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported:
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. The following values are supported:
     * `openFile` - Позволяет выбирать файлы.
     * `openDirectory` - Позволяет выбирать папки.
     * `multiSelections` - Позволяет выбрать несколько объектов.
@@ -88,7 +88,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 * `canceled` Boolean - независимо от того, был ли диалог отменен.
 * `filePaths` String[] - Массив файлов, которые выбрал пользователь. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (необязательно) _macOS_ _mas_ - Массив строк, соответствующих массиву `filePaths`, в кодировке base64, который содержит закладки с областью безопасности. Для его использования, `securityScopedBookmarks` должны быть активированы. (For return values, see [table here](#bookmarks-array).)
+* `bookmarks` String[]&#32;(optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. Для его использования, `securityScopedBookmarks` должны быть активированы. (For return values, see [table here](#bookmarks-array).)
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (необязательно) _macOS_ - Сообщение, которое будет показано над полями ввода.
   * `nameFieldLabel` String (необязательно) _macOS_ - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
   * `showsTagField` Boolean (необязательно) _macOS_ - Показать поле ввода тегов, по умолчанию `true`.
-  * `properties` String[] (опционально)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` _macOS_ - Позволяет создавать новые директории из диалога.
     * `treatPackageAsDirectory` _macOS_ - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
@@ -156,7 +156,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (необязательно) _macOS_ - Сообщение, которое будет показано над полями ввода.
   * `nameFieldLabel` String (необязательно) _macOS_ - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
   * `showsTagField` Boolean (optional) _macOS_ - Show the tags input box, defaults to `true`.
-  * `properties` String[] (опционально)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` _macOS_ - Позволяет создавать новые директории из диалога.
     * `treatPackageAsDirectory` _macOS_ - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
@@ -182,7 +182,7 @@ dialog.showOpenDialog(mainWindow, {
 * `options` Object
   * `message` String - содержимое сообщения.
   * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
   * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
@@ -205,7 +205,7 @@ dialog.showOpenDialog(mainWindow, {
 * `options` Object
   * `message` String - содержимое сообщения.
   * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
   * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
