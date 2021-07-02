@@ -23,7 +23,7 @@ El módulo `dialogo` tiene los siguientes métodos:
   * `defaultPath` Cadena (optional)
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (opcional) - Contiene cuales características del dialog que debe usar. Los siguientes valores son soportados:
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. Los siguientes valores son soportados:
     * `openFile` - Le permite a los archivos ser seleccionados.
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
@@ -71,7 +71,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` Cadena (optional)
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (opcional) - Contiene cuales características del dialog que debe usar. Los siguientes valores son soportados:
+  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. Los siguientes valores son soportados:
     * `openFile` - Le permite a los archivos ser seleccionados.
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
@@ -88,7 +88,7 @@ Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
 * `canceled` Boolean - si el diálogo fue o no cancelado.
 * `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario. Si es dialog es cancelado esto será un array vacío.
-* `bookmarks` String[] (opcional) _macOS_ _mas_ - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
+* `bookmarks` String[]&#32;(optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` debe estar activado para ser poblado. (Para devolver valores, vea [tabla aquí](#bookmarks-array).)
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) _macOS_ - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) _macOS_ - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
-  * `properties` String[] (opcional)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
     * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
     * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
@@ -156,7 +156,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `message` Cadena (opcional) _macOS_ - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) _macOS_ - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) _macOS_ - Muestra las etiquetas input box, por defecto `true`.
-  * `properties` String[] (opcional)
+  * `properties` String[]&#32;(optional)
     * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
     * `createDirectory` _macOS_- Permite crear nuevos directorios a partir del diálogo.
     * `treatPackageAsDirectory` _macOS_ - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
@@ -182,7 +182,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 * `options` Object
   * `message` Cadena - Contenido de la caja de mensaje.
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
-  * `buttons` String[] (opcional) - Array de textos para los botones. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `detail` Cadena (opcional) - Información extra del mensaje.
@@ -205,7 +205,7 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
 * `options` Object
   * `message` Cadena - Contenido de la caja de mensaje.
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
-  * `buttons` String[] (opcional) - Array de textos para los botones. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
+  * `buttons` String[]&#32;(optional) - Array of texts for buttons. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `detail` Cadena (opcional) - Información extra del mensaje.
