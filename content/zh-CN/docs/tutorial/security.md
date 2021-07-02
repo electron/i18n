@@ -77,8 +77,13 @@ browserWindow.loadURL ('http://example.com')
 browserWindow.loadURL ('https://example.com')
 ```
 
-```html<!-- 不推荐 --><script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css"><!-- 推荐 --><script crossorigin src="https://example.com/react.js"></script>
+```html
+<!-- 不推荐 -->
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
+
+<!-- 推荐 -->
+<script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -119,7 +124,12 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html<!-- 不推荐 --><webview nodeIntegration src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
+```html
+<!-- 不推荐 -->
+<webview nodeIntegration src="page.html"></webview>
+
+<!-- 推荐 -->
+<webview src="page.html"></webview>
 ```
 
 当禁用Node.js集成时，你依然可以暴露API给你的站点以使用Node.js的模块功能或特性。 预加载脚本依然可以使用`require`等Node.js特性， 以使开发者可以暴露自定义API给远程加载内容。
@@ -208,7 +218,12 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html<!-- 不推荐 --><webview disablewebsecurity src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
+```html
+<!-- 不推荐 -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- 推荐 -->
+<webview src="page.html"></webview>
 ```
 
 ## 6) 定义一个内容安全策略
@@ -348,7 +363,12 @@ _Electron的默认值即是建议值。_
 
 ### 怎么做？
 
-```html<!-- 不推荐 --><webview allowpopups src="page.html"></webview><!-- 推荐 --><webview src="page.html"></webview>
+```html
+<!-- 不推荐 -->
+<webview allowpopups src="page.html"></webview>
+
+<!-- 推荐 -->
+<webview src="page.html"></webview>
 ```
 
 ## 11) 创建WebView前确认其选项
