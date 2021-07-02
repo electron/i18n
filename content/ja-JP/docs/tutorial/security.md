@@ -78,8 +78,13 @@ browserWindow.loadURL('http://example.com')
 browserWindow.loadURL('https://example.com')
 ```
 
-```html<!-- NG --><script crossorigin src="http://example.com/react.js"></script>
-<link rel="stylesheet" href="http://example.com/style.css"><!-- OK --><script crossorigin src="https://example.com/react.js"></script>
+```html
+<!-- NG -->
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
+
+<!-- OK -->
+<script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
@@ -120,7 +125,12 @@ const mainWindow = new BrowserWindow({
 mainWindow.loadURL('https://example.com')
 ```
 
-```html<!-- NG --><webview nodeIntegration src="page.html"></webview><!-- OK --><webview src="page.html"></webview>
+```html
+<!-- NG -->
+<webview nodeIntegration src="page.html"></webview>
+
+<!-- OK -->
+<webview src="page.html"></webview>
 ```
 
 Node.js integration を無効にすると、ウェブサイトへ Node.js モジュールまたは機能を使用する API を確認することができます。 プリロードスクリプトは引き続き `require` と他の Node.js の機能にアクセスできるため、開発者はコンテンツをリモートにロードするカスタム API を確認します。
@@ -209,7 +219,12 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-```html<!-- NG --><webview disablewebsecurity src="page.html"></webview><!-- OK --><webview src="page.html"></webview>
+```html
+<!-- NG -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- OK -->
+<webview src="page.html"></webview>
 ```
 
 ## 6) Content-Security-Policy を定義する
@@ -349,7 +364,12 @@ _Electron のデフォルトを推奨しています_
 
 ### どうすればいいの？
 
-```html<!-- NG --><webview allowpopups src="page.html"></webview><!-- OK --><webview src="page.html"></webview>
+```html
+<!-- NG -->
+<webview allowpopups src="page.html"></webview>
+
+<!-- OK -->
+<webview src="page.html"></webview>
 ```
 
 ## 11) 作成前に WebView のオプションを確認する
