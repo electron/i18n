@@ -87,10 +87,6 @@ MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人�
 
 请注意，通知的大小限制为256个字节，如果超过该限制，则会被截断。
 
-#### 高级通知
-
-后来的 macOS 版本允许有一个输入字段的通知，允许用户快速回复通知。 为了通过输入字段发送通知，请使用用户区模块[node-mac-notifier][node-mac-notifier]。
-
 #### 勿扰 / 会话状态
 
 要检测是否允许发送通知，请使用用户区模块 [electron-notification-state][electron-notification-state]。
@@ -102,8 +98,6 @@ MacOS上的通知是最直接的，但你应该注意[苹果关于通知的人�
 通知是通过`libnotify`发送的，libnotify可以在任何实现了[桌面通知规范（Desktop Notifications Specification）][notification-spec]的桌面环境中发送通知，包括Cinnamon、Enlightenment、Unity、GNOME、KDE
 
 [apple-notification-guidelines]: https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/
-
-[node-mac-notifier]: https://github.com/CharlieHess/node-mac-notifier
 
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 
