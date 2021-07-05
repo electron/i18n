@@ -24,7 +24,7 @@ If you're using `build-tools`, appropriate `-j` values will automatically be use
 
 ## Monitoring Goma
 
-If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
+Si vous accédez à [http://localhost:8088](http://localhost:8088) sur votre machine, vous pouvez surveiller les tâches de compilation au fur et à mesure qu'elles transitent par le système goma.
 
 ## Access
 
