@@ -10,8 +10,8 @@ Electron是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框
 
 熟悉该文档之前，需要你有Node.js和web开发经验。 如果您需要了解这两个方面的开发知识，我们推荐您使用以下学习资源：
 
-* [Getting started with the Web (MDN)][mdn-guide]
-* [Introduction to Node.js][node-guide]
+* [来自Mozilla开发社区(Mozilla Developer Network)的web入门教程][mdn-guide]
+* [NodeJS官方入门指南][node-guide]
 
 此外，如果您熟悉Chromium进程模型，您将更好了解 Electron 的工作原理。 You can get a brief overview of Chrome architecture with the [Chrome comic][comic], which was released alongside Chrome's launch back in 2008. 尽管Chrome发布十多年了，【Chrome comic】漫画中介绍的核心原理仍然有助于理解Electron。
 

@@ -1,30 +1,30 @@
-# Process Model
+# Modelos de Processo
 
-Electron inherits its multi-process architecture from Chromium, which makes the framework architecturally very similar to a modern web browser. In this guide, we'll expound on the conceptual knowledge of Electron that we applied in the minimal [quick start app][].
+O Electron herda sua arquitetura multi-processo do Chromium, o que torna o framework muito semelhante a um navegador web moderno. Neste guia, nós vamos expor o conhecimento conceitual do Electron que aplicamos no básico [aplicativo de início rápido][].
 
-## Why not a single process?
+## Porque não um processo único?
 
-Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+Navegadores da web são aplicações incrivelmente complicadas. Além da função principal de mostrar o conteúdo web, eles têm muitas responsabilidades secundárias, tais como gerenciar várias janelas (ou abas) e carregar extensões de terceiros.
 
-In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
+Nos dias anteriores, os navegadores costumavam usar um único processo para todas estas funcionalidades. Embora este padrão significasse menos sobrecarga para cada guia que você tinha aberta, também significava que se um site falhasse ou travasse, isso afetaria todo o navegador.
 
-## The multi-process model
+## O modelo multi-processo
 
-To solve this problem, the Chrome team decided that each tab would render in its own process, limiting the harm that buggy or malicious code on a web page could cause to the app as a whole. A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
+Para resolver este problema, a equipe do Chrome decidiu que cada aba renderizaria seu próprio processo, limitando o dano que códigos defeituosos ou maliciosos em uma página da web poderiam causar ao aplicativo como um todo. Um único processo de navegador, em seguida, controla esses processos, bem como o ciclo de vida da aplicação como um todo. Este diagrama abaixo do [Chrome Comic][] visualiza este modelo:
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
-Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Aplicações Electron são estruturadas de forma muito semelhante. Como um desenvolvedor, você controla dois tipos de processos: o principal e o renderizador. Essas são análogas ao próprio navegador do Chrome e aos processos de renderização descritos acima.
 
-## The main process
+## O processo principal
 
-Each Electron app has a single main process, which acts as the application's entry point. The main process runs in a Node.js environment, meaning it has the ability to `require` modules and use all of Node.js APIs.
+Cada aplicativo do Electron tem um único processo principal, que atua como o ponto de entrada do aplicativo. O processo principal é executado em um ambiente de Node.js, o que significa que tem a habilidade de `exigir` módulos e usar todas as APIs do Node.js.
 
-### Window management
+### Gerenciamento de janelas
 
-The main process' primary purpose is to create and manage application windows with the [`BrowserWindow`][browser-window] module.
+O objetivo principal do processo é criar e gerenciar as janelas do aplicativo com o módulo [`BrowserWindow`][browser-window].
 
-Each instance of the `BrowserWindow` class creates an application window that loads a web page in a separate renderer process. You can interact with this web content from the main process using the window's [`webContents`][web-contents] object.
+Cada instância da classe `BrowserWindow` cria uma janela do aplicativo que carrega uma página web em um processo de renderização separado. Você pode interagir com este conteúdo web do processo principal usando o objeto [`webContents`][web-contents] da janela.
 
 ```js title='main.js'
 const { BrowserWindow } = require('electron')
@@ -36,7 +36,7 @@ const contents = win.webContents
 console.log(contents)
 ```
 
-> Note: A renderer process is also created for [web embeds][web-embed] such as the `BrowserView` module. The `webContents` object is also accessible for embedded web content.
+> Nota: Um processo de renderização também é criado para a [web embeds][web-embed], como o módulo `BrowserView`. O objeto `de conteúdo` web também é acessível para conteúdo web embutido.
 
 Because the `BrowserWindow` module is an [`EventEmitter`][event-emitter], you can also add handlers for various user events (for example, minimizing or maximizing your window).
 
@@ -133,7 +133,7 @@ This feature is incredibly useful for two main purposes:
 * By exposing [`ipcRenderer`][ipcRenderer] helpers to the renderer, you can use inter-process communication (IPC) to trigger main process tasks from the renderer (and vice-versa).
 * If you're developing an Electron wrapper for an existing web app hosted on a remote URL, you can add custom properties onto the renderer's `window` global that can be used for desktop-only logic on the web client's side.
 
-[quick start app]: ./quick-start.md
+[aplicativo de início rápido]: ./quick-start.md
 
 [Chrome Comic]: https://www.google.com/googlebooks/chrome/
 

@@ -88,10 +88,6 @@ Les notifications sont simples sur macOS, mais vous devriez être au courant de 
 
 Notez que les notifications sont limitées à 256 octets de taille et risque d’être tronquées si vous dépassez cette limite.
 
-#### Notifications enrichies
-
-Les versions ultérieures de macOS permettent aux notifications d'avoir un champ de saisie, permettant à l’utilisateur de répondre rapidement à une notification. Pour envoyer des notifications à un champ de saisie, utilisez le module de "userland" [node-mac-notifier][node-mac-notifier].
-
 #### Ne pas déranger / État de la session
 
 Pour détecter si oui ou non vous êtes autorisé à envoyer une notification, utilisez module "userland" [electron-notification-state][electron-notification-state].
@@ -103,8 +99,6 @@ Cela vous permettra de détecter si la notification sera affichée ou pas.
 Les notifications sont envoyées à l'aide de `libnotify` qui permet l'affichage de notifications sur n'importe quel environnement bureau suivant [Desktop Notifications Specification][notification-spec], comme Cinnamon, Enlightenment, Unity, GNOME et KDE.
 
 [apple-notification-guidelines]: https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/
-
-[node-mac-notifier]: https://github.com/CharlieHess/node-mac-notifier
 
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 

@@ -88,10 +88,6 @@ Las notificaciones son directas en macOS, pero usted debe ser conciente de [Appl
 
 Tenga en cuenta que las notificaciones están limitadas a 256 bytes de tamaño y se truncarán si supera ese límite.
 
-#### Notificaciones Avanzadas
-
-Las versiones posteriores de macOS permiten notificaciones con un campo de entrada, lo que permite al usuario responder rápidamente a una notificación. Para enviar notificaciones con un campo de entrada, use el módulo de usuario [node-mac-notifier][node-mac-notifier].
-
 #### No molestar / Estado de Sesión
 
 Para detectar si se le permite o no enviar una notificación, use el módulo de usuario [electron-notification-state][electron-notification-state].
@@ -103,8 +99,6 @@ Esto le permitirá detectar con anticipación si la notificación se mostrará o
 Las notificaciones se envían utilizando `libnotify` que puede mostrar notificaciones en cualquier entorno de escritorio que siga la [Especificación de Notificaciones de Escritorio][notification-spec], incluidos Cinnamon, Enlightenment, Unity, GNOME, KDE.
 
 [apple-notification-guidelines]: https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/
-
-[node-mac-notifier]: https://github.com/CharlieHess/node-mac-notifier
 
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 

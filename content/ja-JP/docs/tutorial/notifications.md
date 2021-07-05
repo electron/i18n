@@ -88,10 +88,6 @@ macOS 上での通知は簡単ですが、[通知に関する Apple のヒュー
 
 通知サイズは256バイトに制限されており、その制限を超えると切り捨てられることに注意してください。
 
-#### 高度な通知
-
-macOS の以降のバージョンでは、ユーザがすぐに通知に返信できるように、入力フィールドつきの通知を利用できます。 入力フィールドつきの通知を送信するためには、[node-mac-notifier][node-mac-notifier] ユーザーランドモジュールを使用します。
-
 #### おやすみモード / セッションステート
 
 通知を送信することが許可されているかどうかを検出するには、[electron-notification-state][electron-notification-state] ユーザーランドモジュールを使用します。
@@ -103,8 +99,6 @@ macOS の以降のバージョンでは、ユーザがすぐに通知に返信�
 通知は、[デスクトップ通知仕様][notification-spec] (Cinnamon、Enlightenment、Unity、GNOME、KDE) に従ってデスクトップ環境の通知を表示できる `libnotify` を使用して送信されます。
 
 [apple-notification-guidelines]: https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/
-
-[node-mac-notifier]: https://github.com/CharlieHess/node-mac-notifier
 
 [electron-notification-state]: https://github.com/felixrieseberg/electron-notification-state
 
