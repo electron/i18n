@@ -38,7 +38,7 @@ window.electron.doThing()
 
 `contextBridge`模块有以下方法:
 
-### `contextBridge.exposeInMainWorld(apiKey, api)` _实验功能_
+### `contextBridge.exposeInMainWorld(apiKey, api)`
 
 * `apiKey` String - 将 API 注入到 `窗口` 的键。  API 将可通过 `window[apiKey]` 访问。
 * `api` any - 你的 API可以是什么样的以及它是如何工作的相关信息如下。
@@ -47,7 +47,7 @@ window.electron.doThing()
 
 ### API
 
-提供给 [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) 的 `api` 必须是一个 `Function`， `String`， `Number`， `Array`， `Boolean`；或一个键为字符串，值为一个 `Function`， `String`， `Number`， `Array`， `Boolean`的对象；或其他符合相同条件的嵌套对象。
+提供给 [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api) 的 `api` 必须是一个 `Function`， `String`， `Number`， `Array`， `Boolean`；或一个键为字符串，值为一个 `Function`， `String`， `Number`， `Array`， `Boolean`的对象；或其他符合相同条件的嵌套对象。
 
 `Function` 类型的值被代理到其他上下文中，所有其他类型的值都会被 **复制** 并 **冻结**。 在 API 中发送的任何数据 /原始数据将不可改变，在桥接器其中一侧的更新不会导致另一侧的更新。
 

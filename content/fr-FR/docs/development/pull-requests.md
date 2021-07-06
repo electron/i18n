@@ -75,7 +75,7 @@ Un bon message de modification/commit doit décrire le changement et sa raison. 
 
 Avant qu’une demande de traction puisse être fusionnée, **doit** avoir un titre de demande de traction avec un préfixe sémantique.
 
-Examples of commit messages with semantic prefixes:
+Exemples de messages de commit avec préfixes sémantiques :
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
@@ -94,7 +94,7 @@ Common prefixes:
 * style: Changements qui n’affectent pas la signification du code (linting)
 * fournisseur: Bumping une dépendance comme libchromiumcontent ou nœud
 
-Other things to keep in mind when writing a commit message:
+Autres choses à garder à l'esprit lors de la rédaction d'un message de commit :
 
 1. La première ligne doit :
    * contenir une courte description du changement (de préférence 50 caractères ou moins, et pas plus de 72 caractères)
@@ -106,7 +106,7 @@ Other things to keep in mind when writing a commit message:
 
 A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+Voir [conventionalcommits.org](https://conventionalcommits.org) pour plus de détails.
 
 ### Étape 6 : Refonder - Rebase
 

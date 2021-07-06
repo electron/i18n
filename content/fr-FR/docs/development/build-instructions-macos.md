@@ -17,7 +17,7 @@ Veuillez également vous assurer que votre système et la version Python prennen
 $ npx @electron/check-python-tls
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. Pour mettre à jour Python, utilisez [Homebrew](https://brew.sh/) :
 
 ```sh
 $ brew install python@2 && brew link python@2 --force

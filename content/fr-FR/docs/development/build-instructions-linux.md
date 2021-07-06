@@ -5,7 +5,7 @@ Follow the guidelines below for building **Electron itself** on Linux, for the p
 ## Prérequis
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent toujours Python 2.6.x vous devrez donc peut-être vérifier votre version de Python avec `python -V`.
 
   Veuillez également vous assurer que votre système et la version Python prennent en charge au moins TLS 1.2. Pour un test rapide, exécutez le script suivant :
 

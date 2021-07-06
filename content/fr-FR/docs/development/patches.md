@@ -1,10 +1,10 @@
 # Patches in Electron
 
-Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. We try our best to use these dependencies exactly as they are but sometimes we can't achieve our goals without patching those upstream dependencies to fit our use cases.
+Electron is built on two major upstream projects: Chromium and Node.js. Chacun de ces projets a également plusieurs de ses propres dépendances. Nous faisons de notre mieux pour utiliser ces dépendances exactement telles qu'elles sont, mais parfois nous ne pouvons pas atteindre nos objectifs sans corriger ces dépendances en amont pour les adapter à nos cas d'utilisation.
 
 ## Patch justification
 
-Every patch in Electron is a maintenance burden. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+Chaque patch dans Electron est une charge de maintenance. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. Nous nous efforçons donc de maintenir notre nombre de patchs au minimum. À cette fin, chaque patch doit décrire sa raison d'être dans son message de commit. Cette raison doit être l'une des suivantes :
 
 1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
 2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).

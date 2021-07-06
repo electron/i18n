@@ -38,7 +38,7 @@ window.electron.doThing()
 
 Модуль `contextBridge` имеет следующие методы:
 
-### `contextBridge.exposeInMainWorld(apiKey, api)` _Эксперементально_
+### `contextBridge.exposeInMainWorld(apiKey, api)`
 
 * `apiKey` String - Ключ для вставки API в `window`.  API будет доступен в `window[apiKey]`.
 * `api` Record - Ваш объект API, более подробная информация о том, что это и как он будет работать, доступна ниже.
@@ -47,7 +47,7 @@ window.electron.doThing()
 
 ### API
 
-Объект `api`, предоставленный для [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental), должен быть объектом, ключи которого являются строками, а значения являются `Function`, `String`, `Number`, `Array`, `Boolean` или другой вложенный объект, удовлетворяющий тем же условиям.
+Объект `api`, предоставленный для [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api), должен быть объектом, ключи которого являются строками, а значения являются `Function`, `String`, `Number`, `Array`, `Boolean` или другой вложенный объект, удовлетворяющий тем же условиям.
 
 Значения `Function` передаются в другой контекст, а все остальные значения **копируются** и **заморожены**. То есть Любые данные / примитивы, отправленные в объекте API, становятся неизменяемыми, и обновления на любой стороне моста не приводят к обновлению на другой стороне.
 
