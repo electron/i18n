@@ -1,6 +1,6 @@
 # Patches in Electron
 
-Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. Nous faisons de notre mieux pour utiliser ces dépendances exactement telles qu'elles sont, mais parfois nous ne pouvons pas atteindre nos objectifs sans corriger ces dépendances en amont pour les adapter à nos cas d'utilisation.
+Electron is built on two major upstream projects: Chromium and Node.js. Chacun de ces projets a également plusieurs de ses propres dépendances. Nous faisons de notre mieux pour utiliser ces dépendances exactement telles qu'elles sont, mais parfois nous ne pouvons pas atteindre nos objectifs sans corriger ces dépendances en amont pour les adapter à nos cas d'utilisation.
 
 ## Patch justification
 
