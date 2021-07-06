@@ -48,15 +48,15 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 </script>
 ```
 
-## Internal implementation
+## 内部实现
 
-Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
+在内部  `webview` 与 [过程外 iframes（OOPIF）](https://www.chromium.org/developers/design-documents/oop-iframes)一起实施。 `webview` 标签本质上是一个自定义元素，使用 shadow DOM 将 `iframe` 元素包裹在里面。
 
-So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
+因此， `webview` 的行为与跨域 `iframe` 非常相似，例如：
 
-* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard, mouse, and scroll event listeners to `webview`.
-* All reactions between the embedder frame and `webview` are asynchronous.
+* 在 `webview` 中单击时，页面焦点将从嵌入器移动到 `webview`。
+* 您无法将键盘、鼠标和滚动事件侦听器添加到 `webview`。
+* 嵌入器框架和 `webview` 之间的所有反应都是异步的。
 
 ## CSS 样式说明
 
@@ -84,7 +84,7 @@ So the behavior of `webview` is very similar to a cross-domain `iframe`, as exam
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-一 `Boolean`。 当有此属性时, ` webview ` 中的访客页（guest page）将具有Node集成, 并且可以使用像 ` require ` 和 ` process ` 这样的node APIs 去访问低层系统资源。 Node 集成在访客页中默认是禁用的。
+一个 `Boolean`。 当有此属性时, ` webview ` 中的访客页（guest page）将具有Node集成, 并且可以使用像 ` require ` 和 ` process ` 这样的node APIs 去访问低层系统资源。 Node 集成在访客页中默认是禁用的。
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ So the behavior of `webview` is very similar to a cross-domain `iframe`, as exam
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. Node 集成在访客页中默认是禁用的。
 
 ### `enableremotemodule`
 
@@ -100,7 +100,7 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-一 `Boolean`。 When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
+一个 `Boolean`。 When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
 
 ### `plugins`
 
@@ -108,7 +108,7 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-一 `Boolean`。 When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+一个 `Boolean`。 When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `preload`
 
@@ -144,7 +144,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-一 `Boolean`。 When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+一个 `Boolean`。 When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -163,7 +163,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-一 `Boolean`。 When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+一个 `Boolean`。 When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
