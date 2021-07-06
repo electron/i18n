@@ -31,7 +31,7 @@
     "handlebars": "^4.7.4",
     "href-type": "^1.0.1",
     "hubdown": "^2.6.0",
-    "husky": "^6.0.0",
+    "husky": "^7.0.0",
     "locale-code": "^2.0.1",
     "lodash": "^4.17.4",
     "make-dir": "^3.0.0",
