@@ -38,7 +38,7 @@ Cuando `contextIsolation` está activado en tu `webPreferences` (este es el comp
 
 El módulo `contextBridge` tiene los siguientes métodos:
 
-### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
+### `contextBridge.exposeInMainWorld(apiKey, api)`
 
 * `apiKey` String - La clave para inyectar la API en la ventana `window`.  La API será accesible en `window[apiKey]`.
 * `api` any - Tu API más información sobre qué puede ser esta API y como funciona esta disponible a continuación.
@@ -47,7 +47,7 @@ El módulo `contextBridge` tiene los siguientes métodos:
 
 ### API
 
-La `api` proveeida a [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) debe ser una `Function`, `String`, `Number`, `Array`, `Boolean`, o un objeto cuya llaves son strings y los valores son una `Function`, `String`, `Number`, `Array`, `Boolean`, u otro objeto anidado que cumpa con las mismas condiciones.
+La `api` proveeida a [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api) debe ser una `Function`, `String`, `Number`, `Array`, `Boolean`, o un objeto cuya llaves son strings y los valores son una `Function`, `String`, `Number`, `Array`, `Boolean`, u otro objeto anidado que cumpa con las mismas condiciones.
 
 Los valores `Function` se transfieren a otro contexto y todos los demás valores son **copiados** y **congedados**. Cualquier dato / primitivos enviado en la API se vuelve inmutable y las actualizaciones de una lado del puente no resulta en una actualización en el otro lado.
 
