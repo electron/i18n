@@ -154,7 +154,7 @@ webContents.setWindowOpenHandler((details) => {
 
 ### Removed: Pepper Flash support
 
-Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+Chromium a supprimé la prise en charge de Flash, nous devons donc emboîter le pas. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
 
 ### Changements de rupture`true`
 
