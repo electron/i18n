@@ -28,7 +28,7 @@ Si vous accédez à [http://localhost:8088](http://localhost:8088) sur votre mac
 
 ## Access
 
-Pour des raisons de sécurité et de coût, l'accès au cluster Goma d'Electron est actuellement restreint aux mainteneurs d'Electron.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+Pour des raisons de sécurité et de coût, l'accès au cluster Goma d'Electron est actuellement restreint aux mainteneurs d'Electron.  Si vous souhaitez y accéder, rendez-vous sur `#access-requests` dans Slack et ping `@goma-squad` pour demander l'accès.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
 
 ## Uptime / Support
 

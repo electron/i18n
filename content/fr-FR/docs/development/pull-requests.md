@@ -164,7 +164,7 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 ### Étape 10 : Examiner et mettre à jour
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+You will probably get feedback or requests for changes to your pull request. Ceci est une grande partie du processus de soumission, donc ne soyez pas découragé ! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
 To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
