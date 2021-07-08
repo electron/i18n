@@ -1,6 +1,6 @@
 # Einführung
 
-Welcome to the Electron documentation! If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
+Willkommen bei der Electron-Dokumentation! Wenn Sie zum ersten Mal eine Electron-App entwickeln, lesen Sie diesen Abschnitt "Erste Schritte" durch, um sich mit den Grundlagen vertraut zu machen. Andernfalls können Sie gerne unsere Anleitungen und die Api-Dokumentation erkunden! If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
 
 ## What is Electron?
 
