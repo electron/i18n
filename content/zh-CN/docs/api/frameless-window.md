@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-使用自定义的关闭、缩小和全屏按钮，这些按钮会在划过窗口的左上角时显示。 The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. This option is only applicable for frameless windows.
+使用自定义的关闭、缩小和全屏按钮，这些按钮会在划过窗口的左上角时显示。 由于无框窗口与苹果 macOS 窗口界面的限制，全屏按钮不可用。 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. 这个选项只适用于无框窗口。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -124,7 +124,7 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+如果只将自定义标题栏设置为可拖拽，还需要使标题栏中的所有按钮都不可拖拽。
 
 ## 文本选择
 
