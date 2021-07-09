@@ -14,7 +14,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Electron CLI Flags
+## Electron CLI 标志
 
 ### --auth-server-whitelist=`url`
 
