@@ -19,14 +19,14 @@ hide_title: true
 
 ### メインプロセス (main.js)
 
-最初に `electron` から必要なモジュールをインポートします。 これらのモジュールは、アプリケーションの動作の制御と、ネイティブなブラウザウィンドウの作成を助けます。
+最初に `electron` から必要なモジュールをインポートします。 これらのモジュールは、アプリケーションの動作の制御と、ネイティブなブラウザウインドウの作成を助けます。
 
 ```js
 const { app, BrowserWindow, shell } = require('electron')
 const path = require('path')
 ```
 
-Next, we will proceed to register our application to handle all "`electron-fiddle://`" protocols.
+次に、"`electron-fiddle://`" プロトコルをすべて処理するために、アプリケーションを登録します。
 
 ```js
 if (process.defaultApp) {
@@ -38,11 +38,11 @@ if (process.defaultApp) {
 }
 ```
 
-We will now define the function in charge of creating our browser window and load our application's `index.html` file.
+ここで、ブラウザのウインドウを作成し、アプリケーションの `index.html` ファイルを読み込む関数を定義します。
 
 ```js
 function createWindow () {
-  // Create the browser window.
+  // ブラウザウインドウを作成します。
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -55,11 +55,11 @@ function createWindow () {
 }
 ```
 
-In this next step, we will create our  `BrowserWindow` and tell our application how to handle an event in which an external protocol is clicked.
+この次のステップで、`BrowserWindow` を作成し、外部プロトコルがクリックされたイベントの処理方法をアプリケーションに伝えます。
 
-This code will be different in WindowsOS compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same electron instance. Read more about this [here](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
+WindowsOS でのこのコードは、MacOS や Linux と異なります。 これは、Windows で同じ Electron インスタンス内のプロトコルリンクのコンテンツを開くには、さらなるコードが必要だからです。 この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
 
-### Windows code:
+### Windows のコード:
 
 ```js
 const gotTheLock = app.requestSingleInstanceLock()
@@ -68,57 +68,57 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 誰かが 2 つ目のインスタンスを実行しようとしたので、ウインドウにフォーカスさせなければなりません。
     if (mainWindow) {
       if (mainWindow.isMinimized()) mainWindow.restore()
       mainWindow.focus()
     }
   })
 
-  // Create mainWindow, load the rest of the app, etc...
+  // mainWindow を作成する、アプリの残りを読み込む、etc...
   app.whenReady().then(() => {
     createWindow()
   })
 
-  // handling the protocol. In this case, we choose to show an Error Box.
+  // プロトコルのハンドリング。 今回は、エラーボックスを表示することにします。
   app.on('open-url', (event, url) => {
     dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
   })
 }
 ```
 
-### MacOS and Linux code:
+### MacOS と Linux のコード:
 
 ```js
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// このメソッドは、Electron の初期化が完了し、
+// ブラウザウインドウの作成準備ができると呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.whenReady().then(() => {
   createWindow()
 })
 
-// handling the protocol. In this case, we choose to show an Error Box.
+// プロトコルのハンドリング。 今回は、エラーボックスを表示することにします。
 app.on('open-url', (event, url) => {
   dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
 })
 ```
 
-Finally, we will add some additional code to handle when someone closes our application
+最後に、誰かがアプリケーションを閉じたときの処理コードを追加します。
 
 ```js
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// macOS 以外では、すべてのウインドウを閉じたときに終了します。 ユーザが
+// Cmd + Q で明示的に終了するまで、アプリケーションと
+// そのメニューバーがアクティブになっているのが一般的です。
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 ```
 
-## Important Note:
+## 重要な注意事項:
 
 ### パッケージ化
 
-This feature will only work on macOS when your app is packaged. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `plist` for the app is updated to include the new protocol handler. If you're using [`electron-packager`](https://github.com/electron/electron-packager) then you can add the flag `--extend-info` with a path to the `plist` you've created. The one for this app is below:
+macOS でのこの機能は、アプリがパッケージ化されているときのみ動作します。 開発中でコマンドラインから起動した場合は動作しません。 アプリをパッケージ化する際には、アプリの macOS `plist` が更新され、その新しいプロトコルハンドラが含まれていることを確認するようにしてください。 [`electron-packager`](https://github.com/electron/electron-packager) を使用している場合、フラグ `--extend-info` で作成した `plist` へのパスをを追加できます。 このアプリの plist は以下のとおりです。
 
 ### Plist
 
@@ -152,7 +152,7 @@ This feature will only work on macOS when your app is packaged. It will not work
 
 ## おわりに
 
-After you start your electron app, you can now enter in a URL in your browser that contains the custom protocol, for example `"electron-fiddle://open"` and observe that the application will respond and show an error dialog box.
+Electron アプリを起動した後、ブラウザにカスタムプロトコルを含む URL、例えば`"electron-fiddle://open"` を入力すると、アプリが応答してエラーダイアログボックスを表示することを確認できます。
 
 <!--
     Because Electron examples usually require multiple files (HTML, CSS, JS
