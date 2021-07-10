@@ -46,7 +46,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.defaultApp` _只读_
 
-一 `Boolean`。 当应用程序启动时被作为参数传递给默认应用，这个属性在主进程中是`true`，否则是`undefined`。
+一个 `Boolean`。 当应用程序启动时被作为参数传递给默认应用，这个属性在主进程中是`true`，否则是`undefined`。
 
 ### `process.isMainFrame` _只读_
 
@@ -54,7 +54,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.mas` _只读_
 
-一 `Boolean`。 为Mac App Store 构建，该属性是 `true`，为其他构建则为`undefined`。
+一个 `Boolean`。 为Mac App Store 构建，该属性是 `true`，为其他构建则为`undefined`。
 
 ### `process.noAsar`
 
@@ -70,7 +70,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.sandboxed` _只读_
 
-一 `Boolean`。 当渲染器进程被沙盒化时，该属性是 `true`，否则是 `undefined`。
+一个 `Boolean`。 当渲染器进程被沙盒化时，该属性是 `true`，否则是 `undefined`。
 
 ### `process.contextIsolated` _只读_
 
@@ -106,7 +106,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.windowsStore` _只读_
 
-一 `Boolean`。 如果应用以 Windows 商店应用(appx) 运行，该属性为`true`，否则为 `undefined`。
+一个 `Boolean`。 如果应用以 Windows 商店应用(appx) 运行，该属性为`true`，否则为 `undefined`。
 
 ### `process.contextId` _只读_
 
