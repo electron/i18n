@@ -2,7 +2,7 @@
 
 ## Vue d'ensemble
 
-On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+Sur de nombreux environnements Linux, vous pouvez ajouter des entrées personnalisées à son lanceur d'application en modifiant le fichier `.desktop`. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
 
 ![audacieux][3]
 
