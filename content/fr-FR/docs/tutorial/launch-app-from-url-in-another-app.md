@@ -5,28 +5,28 @@ slug: launch-app-from-url-in-another-app
 hide_title: true
 ---
 
-# Launching Your Electron App From A URL In Another App
+# Lancement de votre application Electron depuis une URL dans une autre application
 
 ## Vue d'ensemble
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of setting your electron app as the default handler for a specific [protocol](https://www.electronjs.org/docs/api/protocol).
+Ce guide vous guidera tout au long du processus de définition de votre application electron en tant que gestionnaire par défaut pour un du genre [protocole spécifique](https://www.electronjs.org/docs/api/protocol).
 
-By the end of this tutorial, we will have set our app to intercept and handle any clicked URLs that start with a specific protocol. In this guide, the protocol we will use will be "`electron-fiddle://`".
+À la fin de ce tutoriel, nous aurons configuré notre application pour intercepter et gérer toutes les URL qui commençant par un protocole spécifique. Dans ce guide, le protocole utilisé sera "`electron-fiddle://`".
 
 ## Exemples
 
-### Main Process (main.js)
+### Processus principal (main.js)
 
-First we will import the required modules from `electron`. These modules help control our application life and create a native browser window.
+Importons tout d'abord les modules requis depuis `electron`. Ces modules aident à gérer le cycle de notre application et à créer une fenêtre de navigateur native.
 
 ```js
 const { app, BrowserWindow, shell } = require('electron')
 const path = require('path')
 ```
 
-Next, we will proceed to register our application to handle all "`electron-fiddle://`" protocols.
+Ensuite, déclarons application comme gestionnaire des protocoles "`electron-fiddle://`".
 
 ```js
 if (process.defaultApp) {
@@ -38,11 +38,11 @@ if (process.defaultApp) {
 }
 ```
 
-We will now define the function in charge of creating our browser window and load our application's `index.html` file.
+Nous allons maintenant définir la fonction chargée de la création de notre fenêtre de navigateur et charger le fichier `index.html` de notre application.
 
 ```js
 function createWindow () {
-  // Create the browser window.
+  // Création de la fenêtre de navigateur.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -55,9 +55,9 @@ function createWindow () {
 }
 ```
 
-In this next step, we will create our  `BrowserWindow` and tell our application how to handle an event in which an external protocol is clicked.
+Dans l'étape suivante , nous allons créer notre  `BrowserWindow` et dire à notre application comment gérer un événement venant d'un lien vers un protocole externe.
 
-This code will be different in WindowsOS compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same electron instance. En savoir plus à ce sujet [ici](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
+Ce code sera différent selon le système d'exploitation : WindowsOS, MacOS ou Linux. Cela est dû au fait que Windows a besoin de code supplémentaire pour ouvrir le contenu du lien dans la même instance d'électron. En savoir plus à ce sujet [ici](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
 
 ### Windows code:
 
