@@ -38,7 +38,7 @@ Votre script `preload` s'exécute dans un "Isolated World" lorsque `contextIsola
 
 Le module `contextBridge` possède les méthodes suivantes :
 
-### `contextBridge.exposeInMainWorld(apiKey, api)` _Expérimental_
+### `contextBridge.exposeInMainWorld(apiKey, api)`
 
 * `apiKey` String - La clé à utiliser pour injecter l'API dans `fenêtre`.  L’API sera accessible par `window[apiKey]`.
 * `api` any- Votre API, plus d'informations sur ce que peut être cette API et son fonctionnement est disponible ci-dessous.
@@ -47,7 +47,7 @@ Le module `contextBridge` possède les méthodes suivantes :
 
 ### API
 
-L' `api` fourni à [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) peut être du type `Function`, `String`, `Number`, `Array`, `Boolean` ou un objet dont les clés sont des chaînes de caractères et les valeurs du type `Function`, `String`, `Number`, `Array`, `Boolean` ou un autre objet imbriqué qui remplit les mêmes conditions.
+L' `api` fourni à [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api) peut être du type `Function`, `String`, `Number`, `Array`, `Boolean` ou un objet dont les clés sont des chaînes de caractères et les valeurs du type `Function`, `String`, `Number`, `Array`, `Boolean` ou un autre objet imbriqué qui remplit les mêmes conditions.
 
 `Function` values are proxied to the other context and all other values are **copied** and **frozen**. Toutes les données ou primitives envoyées par l'API deviennent immuables et les mises à jour de chaque côté du pont de connexion ne donnent pas lieu à une mise à jour de l'autre côté.
 

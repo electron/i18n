@@ -24,11 +24,11 @@ If you're using `build-tools`, appropriate `-j` values will automatically be use
 
 ## Monitoring Goma
 
-If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
+Si vous accédez à [http://localhost:8088](http://localhost:8088) sur votre machine, vous pouvez surveiller les tâches de compilation au fur et à mesure qu'elles transitent par le système goma.
 
 ## Access
 
-Pour des raisons de sécurité et de coût, l'accès au cluster Goma d'Electron est actuellement restreint aux mainteneurs d'Electron.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+Pour des raisons de sécurité et de coût, l'accès au cluster Goma d'Electron est actuellement restreint aux mainteneurs d'Electron.  Si vous souhaitez y accéder, rendez-vous sur `#access-requests` dans Slack et ping `@goma-squad` pour demander l'accès.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
 
 ## Uptime / Support
 

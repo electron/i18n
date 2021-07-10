@@ -1,3 +1,3 @@
-# NouvelleFenetreContenusObjetd'Evenement s'etend a `Eventement`
+# NewWindowWebContentsEvent Object extends `Event`
 
 * `newGuest` BrowserWindow (optional)

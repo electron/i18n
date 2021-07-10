@@ -12,7 +12,7 @@
 
 В некоторых случаях вам нужно установить инструмент `snapcraft`. Инструкции по установке `snapcraft` для вашего конкретного дистрибутива доступны [здесь](https://snapcraft.io/docs/installing-snapcraft).
 
-## Использование `Электрон-инсталлятор-привязка`
+## Использование `electron-installer-snap`
 
 The module works like [`electron-winstaller`][electron-winstaller] and similar modules in that its scope is limited to building snap packages. Вы можете установить его с:
 

@@ -38,7 +38,7 @@ window.electron.doThing()
 
 `contextBridge` モジュールには以下のメソッドがあります。
 
-### `contextBridge.exposeInMainWorld(apiKey, api)` _実験的_
+### `contextBridge.exposeInMainWorld(apiKey, api)`
 
 * `apiKey` String - `window` に API を注入するキー。  その API には `window[apiKey]` でアクセスできます。
 * `api` Record - あなたの API です。この詳細と動作については下記を参照してください。
@@ -47,7 +47,7 @@ window.electron.doThing()
 
 ### API
 
-[`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) に指定する `api` は、`Function`、`String`、`Number`、`Array`、`Boolean`、または文字列のキーで `Function`、`String`、`Number`、`Array`、`Boolean`、同じ条件を満たすオブジェクトのいずれかの値の、入れ子でなければなりません。
+[`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api) に指定する `api` は、`Function`、`String`、`Number`、`Array`、`Boolean`、または文字列のキーで `Function`、`String`、`Number`、`Array`、`Boolean`、同じ条件を満たすオブジェクトのいずれかの値の、入れ子でなければなりません。
 
 `Function` 値は他のコンテキストへプロキシされ、他のすべての値は **コピー** か **凍結** されます。 API で送信されるデータ/プリミティブはイミュータブルであり、ブリッジの一方で更新しても他方のものは更新されません。
 
