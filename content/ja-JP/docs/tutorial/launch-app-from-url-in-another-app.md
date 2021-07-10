@@ -1,25 +1,25 @@
 ---
 title: launch-app-from-URL-in-another-app
-description: This guide will take you through the process of setting your electron app as the default handler for a specific protocol.
+description: このガイドでは、Electron アプリを特定のプロトコルのデフォルトハンドラとして設定する手順を説明します。
 slug: launch-app-from-url-in-another-app
 hide_title: true
 ---
 
-# Launching Your Electron App From A URL In Another App
+# 他アプリ内の URL から自分の Electron アプリを起動する
 
 ## 概要
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of setting your electron app as the default handler for a specific [protocol](https://www.electronjs.org/docs/api/protocol).
+このガイドでは、Electron アプリを特定の [protocol](https://www.electronjs.org/docs/api/protocol) のデフォルトハンドラとして設定する手順を説明します。
 
-By the end of this tutorial, we will have set our app to intercept and handle any clicked URLs that start with a specific protocol. In this guide, the protocol we will use will be "`electron-fiddle://`".
+このチュートリアルを終える頃には、特定のプロトコルで始まる URL がクリックされた場合、アプリがそれに干渉してハンドリングするように設定できます。 このガイドでは、使用するプロトコルを "`electron-fiddle://`" とします。
 
 ## サンプル
 
-### Main Process (main.js)
+### メインプロセス (main.js)
 
-First we will import the required modules from `electron`. These modules help control our application life and create a native browser window.
+最初に `electron` から必要なモジュールをインポートします。 これらのモジュールは、アプリケーションの動作の制御と、ネイティブなブラウザウィンドウの作成を助けます。
 
 ```js
 const { app, BrowserWindow, shell } = require('electron')
