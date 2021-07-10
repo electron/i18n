@@ -57,7 +57,7 @@ function createWindow () {
 
 In this next step, we will create our  `BrowserWindow` and tell our application how to handle an event in which an external protocol is clicked.
 
-This code will be different in WindowsOS compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same electron instance. Read more about this [here](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
+This code will be different in WindowsOS compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same electron instance. En savoir plus à ce sujet [ici](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
 
 ### Windows code:
 
