@@ -2,7 +2,7 @@
 
 ## 概览
 
-Electron有API来配置Windows任务栏中的应用程序图标。 This API supports both Windows-only features like [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), and cross-platform features like [recent documents][recent-documents] and [application progress][progress-bar].
+Electron有API来配置Windows任务栏中的应用程序图标。 此API 支持windows 专用的功能有： [创建 `JumpList`](#jumplist), [自定义缩略图和工具栏](#thumbnail-toolbars), [图标覆盖](#icon-overlays-in-taskbar), 和 ["Flash Frame" 效果](#flash-frame), 和跨平台的功能 有：[最近打开的文档][recent-documents] 和 [应用程序进度][progress-bar].
 
 ## 弹出列表
 
