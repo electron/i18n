@@ -17,9 +17,9 @@ Electron - это фреймворк для разработки десктоп�
 
 ## Эксперименты с Electron Fiddle
 
-[Electron Fiddle][fiddle] - песочница, написанная на Electron и поддерживаемая разработчиками Electron. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+[Electron Fiddle][fiddle] - песочница, написанная на Electron и поддерживаемая разработчиками Electron. Мы настоятельно рекомендуем установить его в качестве обучающего инструмента для экспериментов с API-интерфейсами Electron или для создания прототипов функций во время разработки.
 
-Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
+Fiddle также прекрасно интегрируется с нашей документацией. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
 
 ## Getting help
 
