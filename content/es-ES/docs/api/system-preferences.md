@@ -243,7 +243,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `caption-text` - Textos en subtítulos, tamaño de la caja y la barra de desplazamiento de la caja de flecha.
     * `desktop` - Color de fondo del escritorio.
     * `disabled-text` - Gris (desactivado) texto.
-    * 0>highlight</code> - objeto(s) seleccionados en un control.
+    * `highlight` - objeto(s) seleccionados en un control.
     * `highlight-text` - Texto de objeto(s) seleccionados en un control.
     * `hotlight` - Color para un hiperlink o un muy rastreado objeto.
     * `inactive-border` - Borde de ventana inactivo.
