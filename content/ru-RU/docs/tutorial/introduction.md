@@ -17,16 +17,16 @@ Electron - это фреймворк для разработки десктоп�
 
 ## Эксперименты с Electron Fiddle
 
-[Electron Fiddle][fiddle] - песочница, написанная на Electron и поддерживаемая разработчиками Electron. We highly recommend installing it as a learning tool to experiment with Electron's APIs or to prototype features during development.
+[Electron Fiddle][fiddle] - песочница, написанная на Electron и поддерживаемая разработчиками Electron. Мы настоятельно рекомендуем установить его в качестве обучающего инструмента для экспериментов с API-интерфейсами Electron или для создания прототипов функций во время разработки.
 
-Fiddle also integrates nicely with our documentation. When browsing through examples in our tutorials, you'll frequently see an "Open in Electron Fiddle" button underneath a code block. If you have Fiddle installed, this button will open a `fiddle.electronjs.org` link that will automatically load the example into Fiddle, no copy-pasting required.
+Fiddle также прекрасно интегрируется с нашей документацией. При просмотре примеров в наших учебниках вы часто видите кнопку "Открыть в Electron Fiddle" под блоком кода. Если у вас установлен Fiddle эта кнопка откроет `, fiddle.electronjs. rg` ссылка, которая автоматически загрузит пример в Fiddle, не требуется.
 
 ## Getting help
 
-Are you getting stuck anywhere? Here are a few links to places to look:
+Вы застряли где-нибудь? Вот несколько ссылок для поиска:
 
-* If you need help with developing your app, our [community Discord server][discord] is a great place to get advice from other Electron app developers.
-* If you suspect you're running into a bug with the `electron` package, please check the [GitHub issue tracker][issue-tracker] to see if any existing issues match your problem. If not, feel free to fill out our bug report template and submit a new issue.
+* Если вам нужна помощь в разработке вашего приложения, наше [сообщество Discord сервер][discord] отличное место для получения советов от других разработчиков приложений Electron.
+* Если вы подозреваете, что вы столкнулись с ошибкой в пакете `electron`, пожалуйста, проверьте на [GitHub issue tracker][issue-tracker], чтобы увидеть, соответствуют ли какие-либо проблемы вашей проблеме. Если нет, заполните наш шаблон отчета об ошибке и отправьте новый выпуск.
 
 [chromium]: https://www.chromium.org/
 [node]: https://nodejs.org/
