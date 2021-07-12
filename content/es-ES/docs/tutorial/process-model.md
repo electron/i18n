@@ -2,21 +2,21 @@
 
 Electron hereda su arquitectura multiprocesos de Chromium, lo que hace que la arquitectura del framework sea muy similar a la de un navegador web moderno. En esta guía, expondremos el conocimiento conceptual de Electron que aplicamos en el tutorial [quick-start-app][].
 
-## Why not a single process?
+## ¿Por qué no un proceso único?
 
-Web browsers are incredibly complicated applications. Aside from their primary ability to display web content, they have many secondary responsibilities, such as managing multiple windows (or tabs) and loading third-party extensions.
+Los navegadores web son aplicaciones increíblemente complejas. Aparte de su capacidad principal para mostrar el contenido Web, tienen muchas responsabilidades secundarias, como administrar múltiples ventanas (o pestañas) y cargar extensiones de terceros.
 
-In the earlier days, browsers usually used a single process for all of this functionality. Although this pattern meant less overhead for each tab you had open, it also meant that one website crashing or hanging would affect the entire browser.
+En los comienzos, los navegadores usaban un solo proceso para todas estas funcionalidades. A pesar de que este patrón significaba menos sobrecarga para cada pestaña que estaba abierta, también significaba que un sitio web que se colgaba o dejaba de funcionar afectaba a todo el navegador.
 
-## The multi-process model
+## El modelo multiproceso
 
-To solve this problem, the Chrome team decided that each tab would render in its own process, limiting the harm that buggy or malicious code on a web page could cause to the app as a whole. A single browser process then controls these processes, as well as the application lifecycle as a whole. This diagram below from the [Chrome Comic][] visualizes this model:
+Para resolver este problema, el equipo de Chrome decidió que cada pestaña se renderizaría en su propio proceso, limitando el daño que código malicioso o con errores de una página web puede causar a la aplicación en su conjunto. Un único proceso de navegador controla estos procesos, así como el ciclo de vida de la aplicación en su conjunto. El siguiente diagrama de [Chrome Comic][] representa este modelo:
 
 ![Chrome's multi-process architecture](../images/chrome-processes.png)
 
-Electron applications are structured very similarly. As an app developer, you control two types of processes: main and renderer. These are analogous to Chrome's own browser and renderer processes outlined above.
+Las aplicaciones que usan Electron están estructuradas de forma muy similar. Como programador de una App, controlas dos tipos de procesos: principal y renderizador. Estos son análogos al propio navegador de Chrome y a los procesos descritos anteriormente.
 
-## The main process
+## El proceso principal
 
 Each Electron app has a single main process, which acts as the application's entry point. The main process runs in a Node.js environment, meaning it has the ability to `require` modules and use all of Node.js APIs.
 
@@ -83,7 +83,7 @@ At this point, you might be wondering how your renderer process user interfaces 
 
 
 <!-- Note: This guide doesn't take sandboxing into account, which might fundamentally 
-change the statements here. --> Preload scripts contain code that executes in a renderer process before its web content begins loading. Estos scripts se ejecutan dentro del contexto del renderizador, pero tienen más privilegios al poder acceder a las APIs de Node.js.
+change the statements here. --> Los scripts de precarga contienen el código que se ejecuta en un proceso de renderizado antes de que su contenido web comience a cargar. Estos scripts se ejecutan dentro del contexto del renderizador, pero tienen más privilegios al poder acceder a las APIs de Node.js.
 
 A preload script can be attached to the main process in the `BrowserWindow` constructor's `webPreferences` option.
 
