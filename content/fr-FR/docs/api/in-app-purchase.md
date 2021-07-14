@@ -14,7 +14,7 @@ Le module `inAppPurchase` émet les événements suivants :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `transactions` Transaction[] - Tableau d'objets [`Transaction`](structures/transaction.md).
 
 ## Méthodes
