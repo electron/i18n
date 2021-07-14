@@ -6,7 +6,7 @@ Electron有API来配置Windows任务栏中的应用程序图标。 此API 支持
 
 ## 弹出列表
 
-Windows 允许应用程序自定义一个菜单栏，当用户右键单击任务栏中的应用图标可以看到该菜单栏。 该上下文菜单被成为 `弹出列表`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
+Windows 允许应用程序自定义一个菜单栏，当用户右键单击任务栏中的应用图标及可显示该列表。 该上下文菜单被成为 `弹出列表`. You specify custom actions in the `Tasks` category of JumpList, as quoted from [MSDN][msdn-jumplist]:
 
 > 应用程序的“任务”列表的制定是基于程序的功能，用户能用它做一些快捷操作。 任务应当是与上下文无关的，因为它不需要程序运行就可以工作。 而且据统计，它们应该是用户在这个应用上使用最多的操作，例如: 撰写一封邮件或者在邮件程序里打开日历，word处理程序新建一个文档，以某一种模式启动应用程序，或者是启动应用程序的某些子命令。 一个应用程序不应当定义一些用户不需要的高级功能的或者只会使用一次的操作的菜单，以防止将菜单弄得杂乱无章，例如注册。 不要将“任务”功能用于广告操作，例如升级应用或者推广特价产品等等。
 > 
@@ -114,7 +114,7 @@ As quoted from [MSDN][msdn-icon-overlay]:
 
 > 图标叠加作为状态的上下文通知, 旨在否定需要一个单独的通知区域状态图标来将该信息传达给用户。 例如, 当前在通知区域中显示的 Microsoft Outlook 中的新邮件状态现在可以通过任务栏按钮上的叠加来表示。 同样, 您必须在开发周期中决定哪个方法最适合您的应用程序。 叠加图标用于提供重要的、长期的状态或通知, 如网络状态、messenger 状态或新邮件。 不应向用户显示不断变化的叠加或动画。
 
-![任务栏按钮的叠加](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 > 注：上面的屏幕截图是任务栏按钮叠加的示例
 
