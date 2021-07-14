@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-` webContents ` 是一个 [EventEmitter][event-emitter]。 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
+`webContents`是一个[EventEmitter][event-emitter]. 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -259,7 +259,7 @@ This event cannot be prevented, if you want to prevent redirects you should chec
 
 Emitted when a main frame navigation is done.
 
-此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 Use `did-navigate-in-page` event for this purpose.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 #### Event: 'did-frame-navigate'
 
@@ -275,7 +275,7 @@ Emitted when a main frame navigation is done.
 
 Emitted when any frame navigation is done.
 
-此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 Use `did-navigate-in-page` event for this purpose.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 #### Event: 'did-navigate-in-page'
 
@@ -362,7 +362,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 返回:
 
 * `event` Event
-* `name` String
+* `name` 字符串
 * `version` String
 
 当有插件进程崩溃时触发
@@ -378,14 +378,14 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `event` Event
 * `input` Object - Input properties.
   * `type` String - 可以是 `keyUp` ，或者 `keyDown`.
-  * `key` String - 等同于 [KeyboardEvent.key][keyboardevent].
-  * ` code ` String - 等同于 [KeyboardEvent. code ][keyboardevent].
-  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ][keyboardevent].
+  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
+  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
   * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
-  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ][keyboardevent].
-  * ` control ` String - 等同于 [KeyboardEvent. controlKey ][keyboardevent].
-  * ` alt ` String - 等同于 [KeyboardEvent. altKey ][keyboardevent].
-  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ][keyboardevent].
+  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -416,7 +416,7 @@ win.webContents.on('before-input-event', (event, input) => {
 返回:
 
 * `event` Event
-* `zoomDirection` String - 可以是 `in` 或 `out`.
+* `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -438,7 +438,7 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
 
 * `event` Event
 * `url` String
-* `error` String - 错误码.
+* `error` String - The error code.
 * `certificate` [证书](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - 用于显示证书是否可信。
@@ -487,7 +487,7 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
 返回:
 
 * `event` Event
-* `result` 对象
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
@@ -903,7 +903,7 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+清除定位历史。
 
 #### `contents.goBack()`
 
@@ -994,7 +994,7 @@ contents.on('did-finish-load', async () => {
 #### `contents.executeJavaScript(code[, userGesture])`
 
 * `code` String
-* `userGesture` 布尔型(可选) - 默认为`false`.
+* `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
@@ -1015,7 +1015,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature.  You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` 布尔型(可选) - 默认为`false`.
+* `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
@@ -1029,7 +1029,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.setWindowOpenHandler(handler)`
 
-* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+* `handler` 函数<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
   * `details` Object
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
@@ -1085,7 +1085,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
 设置最大和最小缩放级别。
 
@@ -1154,7 +1154,7 @@ Copy the image at the given position to the clipboard.
 
 * `text` String
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
 插入`text` 到焦点元素
 
@@ -1578,7 +1578,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` 对象
+* `parameters` Object
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1619,7 +1619,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` 对象
+* `item` Object
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
@@ -1714,7 +1714,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 返回 `Promise<void>` - 指明快捷方式是否被成功创建。
 
-采取V8堆快照，并保存到 `filePath`。
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
