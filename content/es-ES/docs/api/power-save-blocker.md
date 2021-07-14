@@ -2,7 +2,7 @@
 
 > Bloquea al sistema para evitar que entre en el modo de bajo consumo (suspensión).
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Por ejemplo:
 
