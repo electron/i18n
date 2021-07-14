@@ -28,15 +28,15 @@ Security` → `System` → `Advanced system settings` ，然后添加系统变�
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# 这将使用大约16G
 ```
 
-## 获得源码
+## 获取代码
 
 ```sh
 $ mkdir electron && cd electron
-$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
-$ gclient sync --with_branch_heads --with_tags
+$ gclient config --name "src/electron" --unmanaged https://github. om/electron/electron
+$ gclient sync --with_branch_head--with_tags
 # 这将需要一段时间，喝杯咖啡休息一下。
 ```
 
@@ -78,7 +78,7 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EX
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
+$ gn out/testing --args="import(\"//electron/build/args/testing.gn\")
 ```
 
 这将在`src/`下的`out/Testing`内生成一个有测试生成配置的文件夹 您可以用另一个名称 替换 `Testing` ，但它应该是 `out` 的子目录。 Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
@@ -114,7 +114,7 @@ $ ninja -C out/Release electron
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
-The built executable will be under `./out/Testing`:
+构建需要在`./out/Testing`文件下执行：
 
 ```sh
 $ ./out/Testing/Electron.app/Contents/MacOS/Electron
@@ -148,9 +148,9 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
-| Host        | 目标            | 状态                   |
+| 主机          | 目标            | 状态                   |
 | ----------- | ------------- | -------------------- |
-| Windows x64 | Windows arm64 | 实验功能                 |
+| Windows x64 | Windows arm64 | Experimental         |
 | Windows x64 | Windows x86   | Automatically tested |
 | Linux x64   | Linux x86     | Automatically tested |
 
