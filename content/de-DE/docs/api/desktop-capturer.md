@@ -4,7 +4,7 @@
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Das folgende Beispiel zeigt, wie Sie ein Video von einem Desktop-Fenster aufnehmen, dessen Titel `Elektron` lautet:
+Das folgende Beispiel zeigt, wie man Video von einem Desktop Fenster mit dem Titel `Electron` aufnehmen kann:
 
 ```javascript
 // In the renderer process.
@@ -72,7 +72,7 @@ Das Modul `desktopCapturer` verfügt über die folgenden Methoden:
 
 ### `desktopCapturer.getSources(options)`
 
-* `options` Object
+* `options` Objekt
   * `types` String[] - Ein Array von Strings, das die Typen der Desktop-Quellen auflistet die aufgezeichnet werden sollen, verfügbare Typen sind `screen` und `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - Die Größe, auf die die Miniaturansicht der Medienquelle skaliert werden soll. Voreinstellung ist `150` x `150`. Setzen Sie die Breite oder Höhe auf 0, wenn Sie kein Miniaturansichten benötigen. Dies reduziert die Verarbeitungszeit, die für die Erfassung des Inhalts der einzelnen Fenster und des Bildschirme benötigt wird.
   * `fetchWindowIcons` Boolean (optional) - Auf true setzen, um das Abrufen von Fenstersymbolen zu aktivieren. Der Standard Wert ist false. Bei false gibt die appIcon-Eigenschaft der Quellen null zurück. Dasselbe gilt, wenn eine Quelle den Typ "screen" hat.
