@@ -1,10 +1,16 @@
-# Extensión de Chrome DevTools
+# Extensión de herramientas de desarrollo
 
-Electron soporta [Chrome DevTools extensions][devtools-extension], el cual puede ser usado para extender la habilidad de las herramientas de desarrollo de Chrome para depurar web frameworks populares.
+Electron soporta [Chrome DevTools extensions][devtools-extension], el cual puede ser usado para extender la habilidad de las herramientas de desarrollo de Chrome para depurar web frameworks populares.</a></a>
+
+.</p> 
+
+
 
 ## Cargando una extensión DevTools con herramientas
 
 La forma más fácil de cargar una extensión DevTools es utilizar herramientas de terceros para automatizar el proceso por usted. [electron-devtools-installer][electron-devtools-installer] es un popular paquete NPM que hace justamente eso.
+
+
 
 ## Cargando una extensión DevTools manualmente
 
@@ -14,15 +20,18 @@ Usando el [React Developer Tools][react-devtools] como un ejemplo:
 
 1. Instala la extensión en Google Chrome.
 1. Acceder a `chrome://extensions`, e identificar el ID de la extensión, que es una cadena de texto como `fmkadmapgofadopljbjfkapdkoienihi`.
+
 1. Encuentra la ubicación del sistema de archivo usado por Chrome para alamacenar las extensiones:
-   * en Windows es `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-   * en Linux pueden ser:
-     * `~/.config/google-chrome/Default/Extensions/`
+   
+      * en Windows es `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * en Linux pueden ser: 
+          * `~/.config/google-chrome/Default/Extensions/`
      * `~/.config/google-chrome-beta/Default/Extensions/`
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * en macOS es `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-1. Pasa la ubicación de la extensión a la API [`ses.loadExtension`][load-extension]. Para React Developer Tools `v4.9.0`, se ve algo como:
+1. Pasa la ubicación de la extensión a la API [`ses.loadExtension`][load-extension]. Para React Developer Tools `v4.9.0`, se ve algo como: 
+   
 
    ```javascript
     const { app, session } = require('electron')
@@ -40,15 +49,22 @@ Usando el [React Developer Tools][react-devtools] como un ejemplo:
     })
    ```
 
+
 **Notas:**
 
 * `loadExtension` devuelve una Promise con un [Extension object][extension-structure], que contiene metadatos sobre la extensión que fue cargada. Esta promise necesita resolver (p. ej. con una expresión `await`) antes de cargar una página. De lo contrario, no estará garantizada la carga de la extensión.
+
 * `loadExtension` no puede ser llamada antes de que el evento `ready` del módulo `app`sea emitido, ni puede ser llamado en sesiones en memoria (no persistente).
+
 * `loadExtension` debe ser llamado en cada arranque de tu aplicación si quieres que la extensión sea cargada.
+
+
 
 ### Eliminando una extensión DevTools
 
 Puedes pasar la ID de la extensión a la API [`ses.removeExtension`][remove-extension] para eliminarla de tu Session. Las extensiones cargadas no son persistidas entre los lanzamientos de la aplicación.
+
+
 
 ## Soporte de extensión DevTools
 
@@ -65,6 +81,8 @@ Las siguientes extensiones Devtools han siso probadas para funcionar en Electron
 * [Cerebral Debugger](https://cerebraljs.com/docs/introduction/devtools.html)
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
+
+
 
 ### ¿Qué debería hacer si una extensión DevTools no está funcionando?
 
