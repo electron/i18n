@@ -1,7 +1,7 @@
-# ProtocolRequest オブジェクト
+# ProtocolRequest Object
 
 * `url` String
 * `referrer` String
 * `method` String
-* `uploadData` [UploadData[]](upload-data.md) (任意)
+* `uploadData` [UploadData[]](upload-data.md) (optional)
 * `headers` Record<String, String>
