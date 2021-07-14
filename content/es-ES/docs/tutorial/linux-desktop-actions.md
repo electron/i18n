@@ -2,7 +2,7 @@
 
 ## Descripción general
 
-En muchos entornos Linux, puede agregar entradas personalizadas al lanzador del sistema modificando el archivo `.desktop`. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+En muchos entornos Linux, puede agregar entradas personalizadas al lanzador del sistema modificando el archivo `.desktop`. Para la documentación de Unity de Canonical, vea [Agregar atajos al Lanzador][unity-launcher]. Para obtener detalles sobre una implementación más genérica, vea la [freedesktop.org Especificación][spec].
 
 ![audaz][3]
 
