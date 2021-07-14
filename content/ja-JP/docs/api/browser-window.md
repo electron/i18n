@@ -118,7 +118,7 @@ child.once('ready-to-show', () => {
   * `height` Integer (任意) - ピクセル単位でのウインドウの高さ。 省略値は `600` です。
   * `x` Integer (任意) - (y が使われている場合は **必須**) ウインドウの画面左のオフセット。 省略すると、ウインドウは中央に配置されます。
   * `y` Integer (任意) - (x が使われている場合は **必須**) ウインドウの画面上のオフセット。 省略すると、ウインドウは中央に配置されます。
-  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は、`false` です。
+  * `useContentSize` Boolean (任意) - `width` と `height` が、Webページのサイズとして使用されます。この場合、実際のウインドウのサイズは、ウインドウ枠のサイズが含まれ、若干大きくなることを意味します。 省略値は `false` です。
   * `center` Boolean (任意) - ウインドウを画面中央に表示します。
   * `minWidth` Integer (任意) - ウインドウの最小の幅。 省略値は `0` です。
   * `minHeight` Integer (任意) - ウィンドウの最小の高さ。 省略値は `0` です。
@@ -130,28 +130,28 @@ child.once('ready-to-show', () => {
   * `maximizable` Boolean (任意) - ウインドウが最大化可能かどうか。 これは Linux では実装されていません。 省略値は `true` です。
   * `closable` Boolean (任意) - ウインドウを閉じることができるかどうか。 これは Linux では実装されていません。 省略値は `true` です。
   * `focusable` Boolean (任意) - ウインドウにフォーカスを当てることができるかどうか。 省略値は `true` です。 Windowsでは、`focusable: false` と設定することは、`skipTaskbar: true` と設定することにもなります。 Linuxでは、`focusable: false` と設定することは、ウインドウがwmとのやり取りを停止することになるため、ウインドウがすべてのワークスペースで常に前面に表示されます。
-  * `alwaysOnTop` Boolean (任意) - ウインドウを常に他のウインドウの前面に表示させるかどうか。 省略値は、`false` です。
-  * `fullscreen` Boolean (任意) - ウインドウをフルスクリーンで表示させるかどうか。 明示的に `false` と設定された場合、macOSでは、フルスクリーンボタンが非表示または無効になります。 省略値は、`false` です。
+  * `alwaysOnTop` Boolean (任意) - ウインドウを常に他のウインドウの前面に表示させるかどうか。 省略値は `false` です。
+  * `fullscreen` Boolean (任意) - ウインドウをフルスクリーンで表示させるかどうか。 明示的に `false` と設定された場合、macOSでは、フルスクリーンボタンが非表示または無効になります。 省略値は `false` です。
   * `fullscreenable` Boolean (任意) - ウインドウをフルスクリーンモードにすることができるかどうか。 macOSでは、さらに、最大化/ズームボタンが、フルスクリーンモードまたはウインドウ最大化に切り替わるかどうか。 省略値は `true` です。
-  * `simpleFullscreen` Boolean (任意) - macOS で Lion より前のフルスクリーンを使用します。 省略値は、`false` です。
+  * `simpleFullscreen` Boolean (任意) - macOS で Lion より前のフルスクリーンを使用します。 省略値は `false` です。
   * `skipTaskbar` Boolean (任意) - ウインドウをタスクバーに表示するかどうか。 省略値は `false` です。
-  * `kiosk` Boolean (任意) - ウインドウがキオスクモードかどうか。 省略値は、`false` です。
+  * `kiosk` Boolean (任意) - ウインドウがキオスクモードかどうか。 省略値は `false` です。
   * `title` String (任意) - デフォルトのウインドウタイトル。 省略値は `"Electron"` です。 HTML タグの `<title>` が `loadURL()` でロードされた HTML ファイル内で定義されている場合、このプロパティは無視されます。
   * `icon` ([NativeImage](native-image.md) | String) (任意) - ウインドウのアイコン。 Windowsでは、最高の視覚効果を得るためには、`ICO` アイコンを使うことを推奨します。未定義のままにすることもできますが、その場合、実行可能ファイルのアイコンが使われます。
   * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。 省略値は `true` です。
   * `paintWhenInitiallyHidden` Boolean (任意) - `show` が `false` で作成されたばかりのときに、レンダラーをアクティブにするかどうか。  `show: false` での `document.visibilityState` が最初のロードで正しく機能するには、これを `false` に設定する必要があります。  これを `false` に設定すると、`ready-to-show` イベントが発生しなくなります。  省略値は `true` です。
   * `frame` Boolean (任意) - `false` を指定すると [フレームレスウインドウ](frameless-window.md) を生成します。 省略値は `true` です。
   * `parent` BrowserWindow (任意) - 親ウインドウを指定します。 省略値は `null` です。
-  * `modal` Boolean (任意) - これをモーダルウインドウにするかどうか。 これは、このウインドウが子ウインドウの場合にのみ機能します。 省略値は、`false` です。
+  * `modal` Boolean (任意) - これをモーダルウインドウにするかどうか。 これは、このウインドウが子ウインドウの場合にのみ機能します。 省略値は `false` です。
   * `acceptFirstMouse` Boolean (任意) - ウインドウをアクティブにした一回のマウスダウンイベントをウェブビューが同時に受け付けるかどうか。 省略値は `false` です。
-  * `disableAutoHideCursor` Boolean (任意) - タイプ中にカーソルを非表示にするかどうか。 省略値は、`false` です。
-  * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていなければ、メニューバーを自動で非表示にします。 省略値は、`false` です。
-  * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は、`false` です。
+  * `disableAutoHideCursor` Boolean (任意) - タイプ中にカーソルを非表示にするかどうか。 省略値は `false` です。
+  * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていなければ、メニューバーを自動で非表示にします。 省略値は `false` です。
+  * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は `false` です。
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
   * `hasShadow` Boolean (任意) - ウインドウに影を付けるかどうか。 省略値は `true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を 0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。 これは Windows と macOS でのみ実装されています。
-  * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマの使用を強制します。いくつかの GTK+3 デスクトップ環境でしか動作しません。 省略値は、`false` です。
-  * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
+  * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマの使用を強制します。いくつかの GTK+3 デスクトップ環境でしか動作しません。 省略値は `false` です。
+  * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は `false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
   * `type` String (任意) - ウインドウのタイプで、省略すると通常のウインドウになります。 詳しくは後述します。
   * `visualEffectState` String (任意) - macOS 上のウィンドウのアクティビティ状態をマテリアルの外観に反映させる方法を指定します。 `vibrancy`プロパティと一緒に使用する必要があります。 以下は取りうる値です。
     * `followWindow` - ウィンドウがアクティブなときにはアクティブに、そうでないときには非アクティブになるよう背景が自動的に表示されます。 これが既定値です。
@@ -164,32 +164,32 @@ child.once('ready-to-show', () => {
     * `customButtonsOnHover` - タイトルバーが非表示になり、フルサイズコンテンツのウインドウが表示されます。ウィンドウの左上にカーソルを置くと信号機ボタンが表示されるようになります。  **注:** 現在、これは実験的な機能です。
   * `trafficLightPosition` [Point](structures/point.md) (任意) - フレームレスウインドウにおける信号機ボタンのカスタム位置を設定します。
   * `roundedCorners` Boolean (任意) - macOS でのフレームレスウインドウが丸角であるべきかどうか。 省略値は `true` です。
-  * `fullscreenWindowTitle` Boolean (任意) _非推奨_ - macOSで titleBarStyle が `hiddenInset` のフルスクリーンモードでタイトルバーにタイトルを表示するかどうか。 省略値は、`false` です。
+  * `fullscreenWindowTitle` Boolean (任意) _非推奨_ - macOSで titleBarStyle が `hiddenInset` のフルスクリーンモードでタイトルバーにタイトルを表示するかどうか。 省略値は `false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
   * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 `appearance-based`、`light`、`dark`、`medium-light`、`ultra-dark` は非推奨になっており、macOS Catalina (10.15) で削除されたことにご注意ください。
-  * `zoomToPageWidth` Boolean (任意) - macOS で、option キーを押しながら緑の信号ボタンをクリックしたり、ウインドウ > ズーム のメニュー項目をクリックしたりしたときの動作を制御します。 `true` の場合、ズームしたとき、ウインドウはWebページの最適な幅に拡大されます。`false` だと、画面の幅にズームされます。 これは、`maximize()` を直接呼び出したときの動作にも影響を与えます。 省略値は、`false` です。
+  * `zoomToPageWidth` Boolean (任意) - macOS で、option キーを押しながら緑の信号ボタンをクリックしたり、ウインドウ > ズーム のメニュー項目をクリックしたりしたときの動作を制御します。 `true` の場合、ズームしたとき、ウインドウはWebページの最適な幅に拡大されます。`false` だと、画面の幅にズームされます。 これは、`maximize()` を直接呼び出したときの動作にも影響を与えます。 省略値は `false` です。
   * `tabbingIdentifier` String (任意) - タブのグループ名で、macOS 10.12以上の場合、ネイティブのタブとしてウインドウを開くことができます。 同一のタブ識別子を持つウインドウは、一緒にグループ化されます。 これはネイティブのタブボタンをウインドウのタブバーに追加し、`app` とウインドウが `new-window-for-tab` イベントを受け取ることができるようになります。
   * `webPreferences` Object (任意) - ウェブページの機能の設定です。
     * `devTools` Boolean (任意) - デベロッパーツールを有効にするかどうか。 `false` に設定すると、`BrowserWindow.webContents.openDevTools()` を使ってデベロッパーツールを開くことはできません。 省略値は `true` です。
-    * `nodeIntegration` Boolean (任意) - Node インテグレーションを有効にするかどうか。 省略値は、`false` です。
-    * `nodeIntegrationInWorker` Boolean (任意) - WebワーカーでNode統合を有効にするかどうか。 省略値は、`false` です。 これについての詳細は、[マルチスレッド](../tutorial/multithreading.md) を参照してください。
+    * `nodeIntegration` Boolean (任意) - Node インテグレーションを有効にするかどうか。 省略値は `false` です。
+    * `nodeIntegrationInWorker` Boolean (任意) - WebワーカーでNode統合を有効にするかどうか。 省略値は `false` です。 これについての詳細は、[マルチスレッド](../tutorial/multithreading.md) を参照してください。
     * `nodeIntegrationInSubFrames` Boolean (任意) - iframe や子ウインドウのようなサブフレーム内で Node.js サポートを有効にする実験的な機能です。 すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。
     * `preload` String (任意) - 他のスクリプトがページで実行される前にロードされるスクリプトを指定します。 このスクリプトは、Node統合がオンまたはオフであるかに関係なく常にNode APIにアクセスできます。 値は、スクリプトへの絶対ファイルパスにする必要があります。 Node統合がオフのときでも、プレロードされたスクリプトは、Nodeのグローバルシンボルをグローバルスコープに再導入できます。 [ここ](context-bridge.md#exposing-node-global-symbols) の例を参照してください。
     * `sandbox` Boolean (任意) - 設定された場合、ウインドウと関連付けられているレンダラーをサンドボックス化します。これは、ChromiumのOSレベルのサンドボックスと互換性を持ち、Node.jsエンジンを無効化します。 これは `nodeIntegration` オプションと同じではなく、プレロードスクリプトで利用可能なAPIよりもさらに制限がかかります。 このオプションの詳細については、[ここ](../tutorial/sandbox.md) をお読みください。
-    * `enableRemoteModule` Boolean (任意) - [`remote`](remote.md) モジュールを有効にするかどうか。 省略値は、`false` です。
+    * `enableRemoteModule` Boolean (任意) - [`remote`](remote.md) モジュールを有効にするかどうか。 省略値は `false` です。
     * `session` [Session](session.md#class-session) (任意) - ページで使用されるセッションを設定します。 Session オブジェクトを直接引き渡す代わりに、パーティション文字列を受け付ける `partition` オプションを使用することを選択することもできます。 `session` と `partition` の両方が指定されたときは、`session` が優先されます。 省略値は、既定のセッションです。
     * `partition` String (任意) - セッションのパーティション文字列に従って、ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 省略値は、既定のセッションです。
     * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 _非推奨_
     * `zoomFactor` Number (任意) - ページの既定のズーム倍率で、`3.0` は `300%` を表します。 省略値は `1.0` です。
     * `javascript` Boolean (任意) - JavaScript サポートを有効にします。 省略値は `true` です。
     * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、テスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
-    * `allowRunningInsecureContent` Boolean (任意) - https のページで http の URL からの JavaScript、CSS やプラグインを実行することを許可します。 省略値は、`false` です。
+    * `allowRunningInsecureContent` Boolean (任意) - https のページで http の URL からの JavaScript、CSS やプラグインを実行することを許可します。 省略値は `false` です。
     * `images` Boolean (任意) - 画像のサポートを有効にします。 省略値は `true` です。
     * `textAreasAreResizable` Boolean (任意) - TextArea 要素のサイズを変更可能にします。 省略値は `true` です。
     * `webgl` Boolean (任意) - WebGL のサポートを有効にします。 省略値は `true` です。
-    * `plugins` Boolean (任意) - プラグインを有効にするかどうか。 省略値は、`false` です。
-    * `experimentalFeatures` Boolean (任意) - Chromium の実験的な機能を有効にします。 省略値は、`false` です。
-    * `scrollBounce` Boolean (任意) - macOS でスクロールバウンス (ラバーバンディング) 効果を有効にします。 省略値は、`false` です。
+    * `plugins` Boolean (任意) - プラグインを有効にするかどうか。 省略値は `false` です。
+    * `experimentalFeatures` Boolean (任意) - Chromium の実験的な機能を有効にします。 省略値は `false` です。
+    * `scrollBounce` Boolean (任意) - macOS でスクロールバウンス (ラバーバンディング) 効果を有効にします。 省略値は `false` です。
     * `enableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた有効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5][runtime-enabled-features] ファイルで確認することができます。
     * `disableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた無効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5][runtime-enabled-features] ファイルで確認することができます。
     * `defaultFontFamily` Object (任意) - 各フォントファミリーの既定フォントを設定します。
@@ -210,10 +210,10 @@ child.once('ready-to-show', () => {
     * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。  小規模なデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
-    * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は、`false` です。
+    * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は `false` です。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
-    * `disableDialogs` Boolean (任意) - ダイアログを完全に無効化するかどうか。 `safeDialogs` を上書きします。 省略値は、`false` です。
-    * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ & ドロップした際にナビゲーションするかどうか。 省略値は、`false` です。
+    * `disableDialogs` Boolean (任意) - ダイアログを完全に無効化するかどうか。 `safeDialogs` を上書きします。 省略値は `false` です。
+    * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ & ドロップした際にナビゲーションするかどうか。 省略値は `false` です。
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーンになった時にウィンドウのサイズ変更を禁止するかどうか。 省略値は `false` です。
     * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。 この文字列はユーザに直接表示されません。
@@ -224,7 +224,7 @@ child.once('ready-to-show', () => {
       * `code` - ヒューリスティックベースのコードキャッシュ
       * `bypassHeatCheck` - ヒューリスティックのコードキャッシュをバイパスしつつ遅延コンパイル
       * `bypassHeatCheckAndEagerCompile` - 上と同じにしつつ先行コンパイルします。 既定のポリシーは `code` です。
-    * `enablePreferredSizeMode` Boolean (任意) - 優先サイズモードを有効にするかどうか。 優先サイズとは、document のレイアウトをスクロール無しで格納するにあたって必要な最小サイズのことです。 これを有効にすると、優先サイズが変更されたときに `WebContents`で`preferred-size-changed`イベントが発生します。 省略値は、`false` です。
+    * `enablePreferredSizeMode` Boolean (任意) - 優先サイズモードを有効にするかどうか。 優先サイズとは、document のレイアウトをスクロール無しで格納するにあたって必要な最小サイズのことです。 これを有効にすると、優先サイズが変更されたときに `WebContents`で`preferred-size-changed`イベントが発生します。 省略値は `false` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -244,7 +244,7 @@ child.once('ready-to-show', () => {
 
 #### イベント: 'page-title-updated'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `title` String
@@ -254,13 +254,13 @@ child.once('ready-to-show', () => {
 
 #### イベント: 'close'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
 ウインドウがクローズされようとするときに発生します。 これは、DOMの `beforeunload` と `unload` イベントの前に発生します。 `event.preventDefault()` を呼び出すことで、クローズがキャンセルされます。
 
-通常、ウインドウをクローズさせる必要があるかどうかを判断するために、`beforeunload` ハンドラーを使用したいと思うでしょうが、これは、ウインドウがリロードされるときにも呼び出されます。 Electronでは、`undefined` 以外の値を返却すれば、クローズをキャンセルします。 例:
+通常、ウインドウをクローズさせる必要があるかどうかを判断するために、`beforeunload` ハンドラーを使用したいと思うでしょうが、これは、ウインドウがリロードされるときにも呼び出されます。 Electronでは、`undefined` 以外の値を返却すれば、クローズをキャンセルします。 以下がその例です。
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -332,7 +332,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 #### イベント: 'will-resize' _macOS_ _Windows_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
@@ -351,9 +351,9 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 これは、通常、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 macOS の場合 `setBounds`/`setSize` でウィンドウのサイズを変更し、 `animate` パラメーターを `true` に設定すると、サイズ変更が完了したときにも、このイベントが発生します。
 
-#### イベント: 'will-move' _macOS_ _Windows_
+#### Event: 'will-move' _macOS_ _Windows_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウが移動されようとしている位置。
@@ -390,7 +390,7 @@ __注__: macOSでは、このイベントは `move` のエイリアスです。
 
 #### イベント: 'always-on-top-changed'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
@@ -399,7 +399,7 @@ __注__: macOSでは、このイベントは `move` のエイリアスです。
 
 #### イベント: 'app-command' _Windows_ _Linux_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `command` String
@@ -438,18 +438,18 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 #### イベント: 'swipe' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `direction` String
 
-3 本指でのスワイプ時に発生します。 方向は `up`、`right`、`down`、`left` のいずれかになります。
+3 本指でのスワイプ時に発火されます。 方向は `up`、`right`、`down`、`left` のいずれかになります。
 
 このイベントは、スワイプで画面の内容が移動しない、古い macOS スタイルのトラックパッドスワイプを元にしています。 ほとんどの macOS トラックパッドはもうこの類のスワイプを許可していないため、正常にイベントを発生させるためには `システム環境設定 > トラックパッド > その他のジェスチャ` の 'ページ間をスワイプ' 設定を '2本指または3本指でスワイプ' にする必要があります。
 
 #### イベント: 'rotate-gesture' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `rotation` Float
@@ -470,7 +470,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 #### イベント: 'system-context-menu' _Windows_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `point` [Point](structures/point.md) - コンテキストメニューがトリガーされた画面の座標。
@@ -614,7 +614,7 @@ Linux ではセッターは何もしませんが、ゲッターは `true` を返
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 省略値は `false` です。
+ウィンドウがアプリケーションの Windows メニューから除外されるかどうかを決定する `Boolean` プロパティ。 既定値は `false` です。
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -766,7 +766,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (任意) _macOS_
 
 指定した境界までウインドウのサイズを変更して移動します。 指定されていないプロパティは、既定で現在の値になります。
 
@@ -795,7 +795,7 @@ console.log(win.getBounds())
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (任意) _macOS_
 
 指定した境界までウインドウのクライアント領域 (例えば、Webページ) のサイズを変更して移動します。
 
@@ -817,13 +817,13 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-戻り値 `Boolean` - ウインドウが有効かどうか。
+戻り値 `Boolean` - そのウインドウが有効かどうか。
 
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (任意) _macOS_
 
 ウインドウのサイズを `width` と `height` に変更します。 `width` または `height` が最小サイズ制約の設定値より低い場合、ウィンドウはその最小サイズにスナップします。
 
@@ -835,7 +835,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (任意) _macOS_
 
 ウインドウのクライアント領域 (例えば、Webページ) のサイズを `width` と `height` に変更します。
 
@@ -963,7 +963,7 @@ Z オーダーの意味で、ウィンドウをソースウィンドウの上に
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) _macOS_
+* `animate` Boolean (任意) _macOS_
 
 ウインドウを `x` と `y` に移動します。
 
@@ -988,7 +988,7 @@ Z オーダーの意味で、ウィンドウをソースウィンドウの上に
 * `offsetY` Float
 * `offsetX` Float (optional)
 
-macOS においてシートを設置する位置を変更します。 既定では、シートはウィンドウフレームのすぐ下に設置されますが、 HTML で表示されたツールバーの下に表示することもできます。 例:
+macOS においてシートを設置する位置を変更します。 既定では、シートはウィンドウフレームのすぐ下に設置されますが、 HTML で表示されたツールバーの下に表示することもできます。 以下がその例です。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1230,7 +1230,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 `flags` は、以下の `String` を含めることができる配列です。
 
-* `enabled` - そのボタンはアクティブかつユーザが使用可能です。
+* `enabled` - ボタンはアクティブで、ユーザーが使用できます。
 * `disabled` - そのボタンは無効化されます。 存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
 * `dismissonclick` - そのボタンをクリックすると、サムネイルウインドウがすぐに閉じます。
 * `nobackground` - そのボタンの縁を描画しません。画像にのみ使用してください。
