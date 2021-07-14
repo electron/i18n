@@ -1,5 +1,5 @@
 ---
-title: Nova Cadência de Lançamento no Electron
+title: New Electron Release Cadence
 author: VerteDinde
 date: '2021-07-14'
 ---
@@ -34,13 +34,13 @@ The alpha channel build will ship for **Electron 15** on **July 20th, 2021**. It
 
 Below is our current release schedule for 2021:
 
-| Electron | Crômo | Alpha Release | Beta Release | Stable Release | Stable Cycle (Weeks) |
-| -------- | ----- | ------------- | ------------ | -------------- | -------------------- |
-| E13      | M91   | -             | 2021-Mar-05  | 2021-May-25    | 12                   |
-| E14      | M93   | -             | 2021-May-26  | 2021-Aug-31    | 14                   |
-| E15      | M94   | 2021-Jul-20   | 2021-Sep-01  | 2021-Sep-21    | 9 (includes alpha)   |
-| E16      | M96   | -             | 2021-Sep-22  | 2021-Nov-16    | 8                    |
-| E17      | M98   | -             | 2021-Nov-17  | 2022-Feb-01    | 11                   |
+| Electron | Chrome | Alpha Release | Beta Release | Stable Release | Stable Cycle (Weeks) |
+| -------- | ------ | ------------- | ------------ | -------------- | -------------------- |
+| E13      | M91    | -             | 2021-Mar-05  | 2021-May-25    | 12                   |
+| E14      | M93    | -             | 2021-May-26  | 2021-Aug-31    | 14                   |
+| E15      | M94    | 2021-Jul-20   | 2021-Sep-01  | 2021-Sep-21    | 9 (includes alpha)   |
+| E16      | M96    | -             | 2021-Sep-22  | 2021-Nov-16    | 8                    |
+| E17      | M98    | -             | 2021-Nov-17  | 2022-Feb-01    | 11                   |
 
 Adding the alpha channel extends the development time before Electron 15's launch from 3 weeks to 9 weeks - closer to our new 8 week cycle, while still meeting the requirements for Windows Store submission.
 
@@ -54,7 +54,7 @@ We've tried to address common concerns below:
 
 #### ❓ Why even make this change? Why not keep the 12 week release cadence?
 
-Para entregar as versões mais atualizadas do Chromium no Electron, a nossa programação precisa rastrear as suas versões. Mais informações sobre o ciclo de lançamento do Chromium podem ser encontradas [aqui](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
 
 Additionally, the current 12 week release cadence would be untenable with the Microsoft Store's new submission requirements. Even apps on the latest stable version of Electron would experience a roughly two week period where their app may be rejected under the new security requirements.
 
@@ -80,6 +80,6 @@ We will be extending our supported version policy from the latest three versions
 | --           | --           | 12.x.y       | 13.x.y       | 14.x.y       | 15.x.y       | --           |
 
 
-## Perguntas?
+## Questions?
 
 📨 If you have questions or concerns, please mail us at [info@electronjs.org](mailto:info@electronjs.org) or [join our Discord](https://discord.com/invite/electron). We know this is a change that will impact many apps and developers, and your feedback is very important to us. We want to hear from you!
