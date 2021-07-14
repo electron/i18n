@@ -4,13 +4,13 @@ Making accessible applications is important and we're happy to provide functiona
 
 ---
 
-Accessibility Bedenken in Electron Anwendungen ähneln denen von Webseiten, da sie beide letztendlich HTML sind. Mit Electron-Apps jedoch Sie können die Online-Ressourcen nicht für Zugänglichkeitsprüfungen verwenden, weil Ihre App keine URL hat, auf die Sie den Auditor verweisen können.
+Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
 These features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Lesen Sie weiter für eine Zusammenfassung der Werkzeuge.
 
 ## Spectron
 
-Im Test-Framework Spectron können Sie nun jedes Fenster und `<webview>` Tag in Ihrer Anwendung überprüfen. Ein Beispiel:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Ein Beispiel:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,29 +24,29 @@ Erfahren Sie mehr über dieses Feature in der [Spectron Dokumentation][spectron-
 
 ## Devtron
 
-In Devtron gibt es einen Tab für Barrierefreiheit, der es Ihnen erlaubt, eine Seite in Ihrer App zu überprüfen, zu sortieren und zu filtern.
+In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
 ![Screenshot von Devtron][4]
 
 Both of these tools are using the [Accessibility Developer Tools][a11y-devtools] library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki][a11y-devtools-wiki].
 
-Wenn Sie andere großartige Zugänglichkeitstools für Electron kennen, fügen Sie sie der Zugänglichkeitsdokumentation mit einem Pull-Request hinzu.
+If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
 
-## Bedienungshilfen manuell aktivieren
+## Manually enabling accessibility features
 
-Elektron-Anwendungen ermöglichen automatisch Zugänglichkeitsfunktionen im Vorhandensein von unterstützender Technologie (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) unter Windows oder [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) unter macOS). Schauen Sie in die [Dokumentation für Barrierefreiheit][a11y-docs] für weitere Informationen.
+Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). Schauen Sie in die [Dokumentation für Barrierefreiheit][a11y-docs] für weitere Informationen.
 
-Sie können diese Funktionen auch manuell in Ihrer Electron-Anwendung oder in der nativen Software von Drittanbietern einstellen.
+You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
 
-### Elektronische API verwenden
+### Using Electron's API
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Beachten Sie, dass die Systemwerkzeuge des Benutzers Vorrang vor dieser Einstellung haben und sie überschreibt.
+By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
 
-### Innerhalb von Drittanbieter-Software
+### Within third-party software
 
 #### macOS
 
-Bei macOS kann die unterstützende Technologie von Drittanbietern die Barrierefreiheitsfunktionen innerhalb von Elektro-Anwendungen umschalten, indem sie das Attribut `AXManualAccessibility` programmatisch einstellen:
+On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
