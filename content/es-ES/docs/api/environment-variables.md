@@ -32,7 +32,7 @@ Ejemplo:
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Las opciones no soportadas son:
+Las opciones no respaldadas son:
 
 ```sh
 --use-bundled-ca
@@ -89,9 +89,9 @@ No utilizar la barra de menú global en Linux.
 
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. Predeterminadamente, es `gio`.
+Set the trash implementation on Linux. Por defecto es `gio`.
 
-Options:
+Opciones:
 
 * `gvfs-trash`
 * `trash-cli`
