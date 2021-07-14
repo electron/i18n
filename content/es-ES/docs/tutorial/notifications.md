@@ -2,15 +2,15 @@
 
 ## Descripción general
 
-Los tres sistemas operativos proporcionan medios para que las aplicaciones envíen notificaciones al usuario. La técnica de mostrar notificaciones es diferente para los procesos Principales y Renderizadores.
+All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
 
-Para el proceso de Renderer, Electron permite convenientemente a los desarrolladores enviar notificaciones con la [API de notificación HTML5](https://notifications.spec.whatwg.org/), usando las API de notificación nativa del sistema operativo en ejecución para mostrarlas.
+For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
 
-Para mostrar las notificaciones en el proceso principal, necesita utilizar el módulo [Notification](../api/notification.md).
+To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
 
 ## Ejemplo
 
-### Mostrar notificaciones en el proceso de Renderer
+### Show notifications in the Renderer process
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), add the following line to the `index.html` file before the closing `</body>` tag:
 
@@ -29,13 +29,13 @@ new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
   .onclick = () => console.log(CLICK_MESSAGE)
 ```
 
-Después de lanzar la aplicación Electron deberías ver la notificación:
+After launching the Electron application, you should see the notification:
 
-![Notificación en el proceso de Renderer](../images/notification-renderer.png)
+![Notification in the Renderer process](../images/notification-renderer.png)
 
 Additionally, if you click on the notification, the DOM will update to show "Notification clicked!".
 
-### Mostrar notificaciones en el proceso principal
+### Show notifications in the Main process
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -56,13 +56,13 @@ After launching the Electron application, you should see the system notification
 
 ![Notification in the Main process](../images/notification-main.png)
 
-## Información adicional
+## Additional information
 
 Si bien el código y la experiencia del usuario en los sistemas operativos son similares, existen diferencias sutiles.
 
 ### Windows
 
-* En Windows 10, se debe instalar un acceso directo a tu app en el menú de inicio con la [ID del modelo de usuario de la aplicación][app-user-model-id]. Esto puede ser anulado durante el desarrollo, por lo que añadir `node_modules\electron\dist\electron.exe` a su Menú Inicio también hace el truco . Navegue al archivo en Explorer, haga clic derecho y "Anclar para iniciar el menú". Luego necesitará añadir la línea `app.setAppUserModelId(process.execPath)` a su proceso principal para ver las notificaciones.
+* En Windows 10, se debe instalar un acceso directo a tu app en el menú de inicio con la [ID del modelo de usuario de la aplicación][app-user-model-id]. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
 * En Windows 8.1 y Windows 8, un acceso directo para tu aplicación con un [Application User Model ID][app-user-model-id] debe ser instalado en el Start screen. Sin embargo, tenga en cuenta que no es necesario fijarlo a la pantalla de Inicio.
 * En Windows 7, las notificaciones funcionan a través de una implementación personalizada que se asemeja visualmente a la nativa en los sistemas más nuevos.
 
