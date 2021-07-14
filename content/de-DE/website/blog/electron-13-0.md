@@ -7,15 +7,15 @@ author:
 date: '2021-05-25'
 ---
 
-Electron 13.0.0 has been released! It includes upgrades to Chromium `91` and V8 `9.1`. We've added several API updates, bug fixes, and general improvements. Lesen Sie unten für weitere Details!
+Electron 13.0.0 has been released! It includes upgrades to Chromium `91` and V8 `9.1`. We've added several API updates, bug fixes, and general improvements. Read below for more details!
 
 ---
 
-The Electron team is excited to announce the release of Electron 13.0.0! Sie können es mit npm installieren über `npm electron@latest` installieren oder von unserer [Release-Website](https://electronjs.org/releases/stable) herunterladen. Lesen Sie weiter für Details zu dieser Version, und teilen Sie bitte Ihr Feedback!
+The Electron team is excited to announce the release of Electron 13.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). Continue reading for details about this release, and please share any feedback you have!
 
-## Bemerkenswerte Änderungen
+## Notable Changes
 
-### Stapeländerungen
+### Stack Changes
 
 * Chromium `91`
     * [New in Chrome 91](https://developer.chrome.com/blog/new-in-chrome-91/)
@@ -27,7 +27,7 @@ The Electron team is excited to announce the release of Electron 13.0.0! Sie kö
     * [V8 9.1 blog post](https://v8.dev/blog/v8-release-91)
     * [V8 9.0 blog post](https://v8.dev/blog/v8-release-90)
 
-### Merkmale hervorheben
+### Highlight Features
 
 * Added `process.contextIsolated` property that indicates whether the current renderer context has `contextIsolation` enabled. [#28252](https://github.com/electron/electron/pull/28252)
 * Added new `session.storagePath` API to get the path on disk for session-specific data. [#28866](https://github.com/electron/electron/pull/28866)
@@ -41,9 +41,9 @@ See the [13.0.0 release notes](https://github.com/electron/electron/releases/tag
 * `window.open()` parameter frameName is no longer set as window title. [#27481](https://github.com/electron/electron/pull/27481)
 * Changed `session.setPermissionCheckHandler(handler)` to allow for `handler`'s first parameter, `webContents` to be `null`. [#19903](https://github.com/electron/electron/pull/19903)
 
-Weitere Informationen zu diesen und zukünftigen Änderungen finden Sie auf der [geplanten Änderungen](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) Seite.
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
-## API-Änderungen
+## API Changes
 
 * Added `roundedCorners` option for `BrowserWindow`. [#27572](https://github.com/electron/electron/pull/27572)
 * Added new `session.storagePath` API to get the path on disk for session-specific data.[28866](https://github.com/electron/electron/pull/28866)
@@ -88,10 +88,10 @@ The following APIs have been removed or are now deprecated:
 
 ## End of Support for 10.x.y
 
-Electron 10.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Entwickler und Anwendungen werden ermutigt, auf eine neuere Version von Electron zu aktualisieren.
+Electron 10.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
 
-## Was ist als Nächstes
+## What's Next
 
-Kurzfristig Sie können erwarten, dass sich das Team weiterhin auf die Entwicklung der wichtigsten Komponenten konzentriert, aus denen Electron besteht, einschließlich Chromium, Knoten und V8. Obwohl wir darauf achten, keine Versprechungen über Veröffentlichungstermine zu machen, unser Plan ist die Veröffentlichung neuer Hauptversionen von Electron mit neuen Versionen dieser Komponenten etwa vierteljährlich. The [tentative 14.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 14.0 development life cycle. Siehe [auch unser Versionierungsdokument](https://electronjs.org/docs/tutorial/electron-versioning) für genauere Informationen zur Versionierung in Electron.
+In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 14.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 14.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 
-Für Informationen über geplante Änderungen in zukünftigen Versionen von Electron, [lesen Sie unseren geplanten Breaking Changes Doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
