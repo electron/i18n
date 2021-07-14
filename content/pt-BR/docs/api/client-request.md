@@ -49,15 +49,15 @@ Retorna:
 
 Retorna:
 
-* `authInfo` Object
+* Objeto `authInfo`
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcional)
+  * `password` String (opcional)
 
 Emitido quando um proxy de autenticação está solicitando as credenciais de usuário.
 
@@ -117,7 +117,7 @@ Retorna:
 
 Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 #### `request.chunkedEncoding`
 
