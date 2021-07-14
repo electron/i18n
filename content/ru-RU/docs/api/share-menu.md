@@ -18,7 +18,7 @@ Creates a new share menu.
 
 ### Методы экземпляра
 
-The `shareMenu` object has the following instance methods:
+Экземпляр объекта `shareMenu` содержит следующие методы:
 
 #### `shareMenu.popup([options])`
 
