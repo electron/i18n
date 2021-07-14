@@ -1,6 +1,6 @@
 # Notification
 
-> OSのデスクトップ通知を作成します。
+> デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -10,7 +10,7 @@
 
 ## クラス: Notification
 
-> OSのデスクトップ通知を作成します。
+> デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -51,7 +51,7 @@
 
 #### イベント: 'show'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -59,7 +59,7 @@
 
 #### イベント: 'click'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -67,7 +67,7 @@
 
 #### イベント: 'close'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -77,7 +77,7 @@
 
 #### イベント: 'reply' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `reply` String - ユーザが埋め込み返信フィールドに入力した文字列.
@@ -86,14 +86,14 @@
 
 #### イベント: 'action' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `index` Number - アクティベートされたアクションのインデックス.
 
 #### イベント: 'failed' _Windows_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `error` String - `show()` メソッドの実行中に発生したエラー。
