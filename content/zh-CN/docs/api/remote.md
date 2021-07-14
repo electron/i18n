@@ -2,7 +2,7 @@
 
 > 在渲染进程中使用主进程模块。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 > ⚠️ WARNING ⚠️ The `remote` module is [deprecated](https://github.com/electron/electron/issues/21408). Instead of `remote`, use [`ipcRenderer`](ipc-renderer.md) and [`ipcMain`](ipc-main.md).
 > 
@@ -117,13 +117,13 @@ console.log(app)
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `name` 字符串
 
 返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
-## Properties
+## 属性
 
-### `需要`
+### `remote.require`
 
 A `NodeJS.Require` function equivalent to `require(module)` in the main process. 由其相对路径指定的模块将相对于主进程的入口点来解析。
 
