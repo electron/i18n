@@ -4,7 +4,7 @@
 
 通过这个教程，你的app将会打开一个浏览器窗口，来展示包含当前正在运行的 Chromium, Node.js与 Electronweb等版本信息的web界面
 
-## 前提条件
+## 基本要求
 
 在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 我们建议您使用最新的LTS版本。
 
