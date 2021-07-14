@@ -14,14 +14,14 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
    command script import ~/electron/src/tools/lldb/lldbinit.py
    ```
 
-## Adjuntado y depuración de Electron
+## A y depuración Electron
 
 Para empezar una sesión de depuración, abra el terminal e inicie `lldb`, pasando al constructo de depuración de Electron como un parámetro.
 
 ```sh
 $ lldb ./out/Testing/Electron.app
 (lldb) target create "./out/Testing/Electron.app"
-Current executable set to './out/Testing/Electron.app' (x86_64).
+Ejecutable actual establecido en './out/Testing/Electron.app' (x86_64).
 ```
 
 ### Establecer puntos de interrupción
@@ -87,7 +87,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-**Nota:** si no ves el código fuente cuando creas que deberías hacerlo, es posible que no hayas agregado el archivo `~/.lldbinit` anterior.
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Para finalizar la depuración en este punto, corra `continuar proceso`. También puede continuar hasta cierta linea es tocada en este hilo (`hilo hasta 100`). Este comando correrá el hilo en la estructura actual hasta que alcance la linea 100 en este, o se detiene si deja la estructura en la que se encuentra.
 
@@ -97,7 +97,7 @@ Ahora, si abre las herramientas para desarrolladores y llama `setName`, alcanzar
 
 LLDB es una herramienta poderosa con una gran documentación. Para aprender más sobre esto, considera leer la documentación sobre la depuración de Apple, como [LLDB Command Structure Reference][lldb-command-structure] o la introducción de [Using LLDB as a Standalone Debugger][lldb-standalone].
 
-También puedes consultar el fantástico [manual y tutorial][lldb-tutorial] de LLDB, el cual explica escenarios de depuración más complejos.
+You can also check out LLDB's fantastic [manual and tutorial][lldb-tutorial], which will explain more complex debugging scenarios.
 
 [lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
 [lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
