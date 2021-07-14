@@ -1,6 +1,6 @@
-# IpcMainInvokeEvent オブジェクト extends `Event`
+# IpcMainInvokeEvent Object extends `Event`
 
-* `processId` Integer - このメッセージを送信したレンダラープロセスの内部 ID
-* `frameId` Integer - このメッセージを送信したレンダラーフレームの ID
-* `sender` WebContents - メッセージを送信した `webContents` を返します
-* `senderFrame` WebFrameMain _Readonly_ - このメッセージを送信したフレーム
+* `processId` Integer - The internal ID of the renderer process that sent this message
+* `frameId` Integer - The ID of the renderer frame that sent this message
+* `sender` WebContents - Returns the `webContents` that sent the message
+* `senderFrame` WebFrameMain _Readonly_ - The frame that sent this message
