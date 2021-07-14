@@ -88,6 +88,7 @@ async function main() {
   const tutorials = await filterTutorials(latestBranchContents)
   const websiteContent = await fetchWebsiteContent()
   const blogposts = await fetchWebsiteBlogPosts()
+  const newSite = await fetchNewWebsiteConfig()
 
   const content = [
     ...apiDocs,
@@ -95,6 +96,7 @@ async function main() {
     ...tutorials,
     websiteContent,
     ...blogposts,
+    ...newSite,
   ]
 
   /**
@@ -226,6 +228,25 @@ async function fetchWebsiteBlogPosts() {
     return {
       ...blog,
       filename: path.join('website', 'blog', blog.filename),
+    }
+  })
+}
+
+async function fetchNewWebsiteConfig() {
+  console.log(
+    'Fetching configuration files from electron/electronjs.org-new#main'
+  )
+
+  const files = await roggy('main', {
+    owner: 'electron',
+    repository: 'electronjs.org-new',
+    downloadMatch: 'i18n/en-US',
+  })
+
+  return files.map((file) => {
+    return {
+      ...file,
+      filename: path.join('website', 'i18n', file.filename),
     }
   })
 }
