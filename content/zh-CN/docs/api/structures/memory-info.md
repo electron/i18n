@@ -1,7 +1,7 @@
-# MemoryInfo 对象
+# MemoryInfo Object
 
-* `workingSetSize` Integer- 当前占用的物理内存RAM总量
-* `peakWorkingSetSize` Integer - 已被占用的物理内存最大值。
-* `privateBytes` Integer (optional) _Windows_ - 独占的内存，不被其他进程（如JavaScript堆或者HTML内容）共享的内存数量
+* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
+* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
+* `privateBytes` Integer (optional) _Windows_ - The amount of memory not shared by other processes, such as JS heap or HTML content.
 
-备注：所有数据值以KB为单位
+Note that all statistics are reported in Kilobytes.
