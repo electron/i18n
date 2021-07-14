@@ -1,12 +1,12 @@
-# Certificate オブジェクト
+# Certificate Object
 
-* `data` String - PEMエンコードデータ
-* `issuer` [CertificatePrincipal](certificate-principal.md) - 発行者
-* `issuerName` String - 発行者のコモンネーム
-* `issuerCert` Certificate - 発行者の証明書 (自己署名していない場合)
-* `subject` [CertificatePrincipal](certificate-principal.md) - 発行先
-* `subjectName` String - 発行先のコモンネーム
-* `serialNumber` String - 16 進数の文字列
-* `validExpiry` Number - 有効な証明書になる開始日の秒数
-* `validExpiry` Number - 有効な証明書でなくなる終了日の秒数
-* `fingerprint` String - 証明書のフィンガープリント
+* `data` String - PEM encoded data
+* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
+* `issuerName` String - Issuer's Common Name
+* `issuerCert` Certificate - Issuer certificate (if not self-signed)
+* `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
+* `subjectName` String - Subject's Common Name
+* `serialNumber` String - Hex value represented string
+* `validStart` Number - Start date of the certificate being valid in seconds
+* `validExpiry` Number - End date of the certificate being valid in seconds
+* `fingerprint` String - Fingerprint of the certificate
