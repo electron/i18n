@@ -2,7 +2,7 @@
 
 > Busca y modifica las cookies de la sesión.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Las instancias de la clase `Cookies` son accedidas utilizado la propiedad `cookies` de una `Session`.
 
@@ -46,7 +46,7 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
 * `cause` String - La causa del cambio con uno de los siguientes valores:
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
@@ -82,10 +82,10 @@ Envía una solicitud para obtener todas las cookies que coincidan con `filter`, 
   * `url` String - La URL con la que asociar la cookie. La promise será rechazada si la URL es invalida.
   * `name` String (opcional) - El nombre de la cookie. Vacío por defecto si se omite.
   * `value` String (opcional) - El valor de la cookie. Vacío por defecto si se omite.
-  * `domain` String (optional) - El dominio de la cookie; este será normalizado por precediéndolo con un punto para que también sea valido para el uso de subdominios. Vacío por defecto si se omite.
+  * `domain` String (optional) - El dominio de la cookie; este será normalizado precediéndolo con un punto para que también sea valido para el uso de subdominios. Vacío por defecto si se omite.
   * `path` String (opcional) - La ruta de la cookie. Vacío por defecto si se omite.
   * `secure` Boolean (opcional) - Si la cookie debería ser marcado como Segura o no. Por defecto a false.
-  * `httpOnly` Boolean (opcional) - Si la cookie debería ser marcada como sólo HTTP. Por defecto es false.
+  * `httpOnly` Boolean (opcional) - Si la cookie debería ser marcada como sólo HTTP. Por defecto es falso.
   * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
   * `sameSite` String (opcional) - La política del [Mismo sitio](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) para aplicar a esta cookie.  Puede ser `unspecified`, `no_restriction`, `lax` o `strict`.  Por defecto es `no_restriction`.
 
