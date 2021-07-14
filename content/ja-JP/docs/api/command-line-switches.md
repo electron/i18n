@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 
 統合認証が有効であるサーバーのコンマ区切りのリスト。
 
-例:
+以下がその例です。
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
@@ -81,7 +81,7 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ホスト名をどのようにマッピングするかを制御する `rules` のコンマ区切りのリスト。
 
-例:
+以下がその例です。
 
 * `MAP * 127.0.0.1` は、すべてのホスト名を強制的に127.0.0.1にマッピングします。
 * `MAP *.google.com proxy` は、すべてのgoogle.comのサブドメインを強制的に "proxy" で解決されるようにします。
@@ -132,7 +132,7 @@ Chromium の [サンドボックス](https://www.chromium.org/developers/design-
 
 セミコロン区切りで与えられたホストに対してプロキシサーバを回避するように Electron へ指示します。 このフラグは `—proxy-server` と共に使用される場合のみ有効です。
 
-例:
+以下がその例です。
 
 ```javascript
 const { app } = require('electron')
