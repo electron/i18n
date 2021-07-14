@@ -1,4 +1,4 @@
-# キーボードショートカット
+# キーボード ショート カット
 
 ## 概要
 
@@ -49,7 +49,7 @@ app.whenReady().then(() => {
   globalShortcut.register('Alt+CommandOrControl+I', () => {
     console.log('Electron loves global shortcuts!')
   })
-})その後(ウィンドウを作成)
+}).then(createWindow)
 ```
 
 > 注意: 上記コードの `CommandOrControl` の組み合わせは、macOS では `Command` を、Windows/Linux では `Control` を使用します。
