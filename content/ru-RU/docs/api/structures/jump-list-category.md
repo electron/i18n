@@ -1,12 +1,12 @@
-# Объект JumpListCategory
+# JumpListCategory Object
 
-* `type` String (опционально) - Один из следующих вариантов:
-  * `tasks` - элементы этой категории будут помещены в стандартную категорию `Tasks`. Там может быть только одна такая категория, и она всегда будет отображаться в нижней части списка переходов.
-  * `frequent` - отображает список файлов, часто открываемых приложением, имя категории и ее элементы, установленных в Windows.
-  * `recent` - отображает список файлов, недавно открытых приложением, имя категории и ее элементы, установленных в Windows. Элементы могут быть добавлены в эту категорию косвенно, используя `app.addRecentDocument(path)`.
-  * `custom` - отображает ссылки на задачи или файлы, `name` должно быть установлено приложением.
-* `name` String (опционально) - должно быть установлено, если `type` является `custom`, иначе оно должно быть опущено.
-* `items` JumpListItem[] (опционально) - массив объектов [`JumpListItem`](jump-list-item.md), если `type` является `tasks` или `custom`, иначе оно должно быть опущено.
+* `type` String (optional) - One of the following:
+  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
+  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
+  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
+  * `custom` - Displays tasks or file links, `name` must be set by the app.
+* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
+* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
 **Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается как `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
