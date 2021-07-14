@@ -40,7 +40,7 @@ In order to allow renderer processes to communicate with the main process, prelo
 In addition, the preload script also polyfills certain Node.js primitives as globals:
 
 * [`Buffer`](https://nodejs.org/api/Buffer.html)
-* [`进程`](../api/process.md)
+* [`process`](../api/process.md)
 * [`clearImmediate`](https://nodejs.org/api/timers.html#timers_clearimmediate_immediate)
 * [`setImmediate`](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args)
 
