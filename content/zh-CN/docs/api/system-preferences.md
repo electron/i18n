@@ -86,7 +86,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
   * `userInfo` Record<String, unknown>
   * `object` String
 
-返回 `Number` - 该订阅的 ID
+返回 `Number` - 此订阅的 ID
 
 订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。 The `object` is the sender of the notification, and only supports `NSString` values for now.
 
@@ -107,7 +107,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
   * `userInfo` Record<String, unknown>
   * `object` String
 
-返回 `Number` - 该订阅的 ID
+返回 `Number` - 此订阅的 ID
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. 这对事件 `NSUserDefaultsDidChangeNotification` 是必需的。
 
@@ -119,7 +119,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
   * `userInfo` Record<String, unknown>
   * `object` String
 
-返回 `Number` - 该订阅的 ID
+返回 `Number` - 此订阅的 ID
 
 与 `subscribeNotification`一样, 但使用`NSWorkspace.sharedWorkspace.notificationCenter`。 这对事件 `NSWorkspaceDidActivateApplicationNotification` 是必需的。
 
@@ -400,7 +400,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 ### `systemPreferences.getAnimationSettings()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
@@ -408,7 +408,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 Returns an object with system animation settings.
 
-## Properties
+## 属性
 
 ### `systemPreferences.appLevelAppearance` _macOS_
 
