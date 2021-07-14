@@ -12,7 +12,7 @@ You can also set the edited state for a window so that the file icon can indicat
 
 To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename][setrepresentedfilename] and [BrowserWindow.setDocumentEdited][setdocumentedited] APIs.
 
-## Exemple
+## Example
 
 ```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
