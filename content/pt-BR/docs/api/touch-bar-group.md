@@ -6,5 +6,5 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new TouchBarGroup(options)`
 
-* `options` Object
+* Objeto `options`
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.
