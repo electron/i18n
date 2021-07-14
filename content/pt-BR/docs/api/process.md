@@ -1,4 +1,4 @@
-# processado
+# process
 
 > Extensões para objeto process.
 
@@ -46,7 +46,7 @@ Emitido quando o Electron já carregou seu script de inicialização interno e c
 
 ### `process.defaultApp` _Readonly_
 
-Um `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
@@ -54,7 +54,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Readonly_
 
-Um `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
@@ -70,7 +70,7 @@ Uma `String` que representa o caminho para o diretório de recursos.
 
 ### `process.sandboxed` _Readonly_
 
-Um `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.contextIsolated` _Readonly_
 
@@ -106,7 +106,7 @@ A `String` representing Electron's version string.
 
 ### `process.windowsStore` _Readonly_
 
-Um `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ### `process.contextId` _Readonly_
 
@@ -124,7 +124,7 @@ Causes the main thread of the current process crash.
 
 Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
 
-Indicates the creation time of the application. O tempo é representado como número de milissegundos desde a época. It returns null if it is unable to get the process creation time.
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
@@ -201,7 +201,7 @@ console.log(version)
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
-Tira um instantâneo de pilha V8 e salva-o para `filePath`.
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
