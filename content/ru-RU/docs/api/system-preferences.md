@@ -1,4 +1,4 @@
-# системные настройки
+# systemPreferences
 
 > Получение системных параметров.
 
@@ -17,20 +17,20 @@ console.log(systemPreferences.isDarkMode())
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `newColor` Строка - новый цвет RGBA, назначенный пользователем в качестве акцентного цвета.
 
 ### Событие: 'color-changed' _Windows_
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 
 ### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
@@ -39,7 +39,7 @@ console.log(systemPreferences.isDarkMode())
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
@@ -84,7 +84,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
-  * `object` String
+  * Строка `object`
 
 Returns `Number` - The ID of this subscription
 
@@ -105,7 +105,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
-  * `object` String
+  * Строка `object`
 
 Returns `Number` - The ID of this subscription
 
@@ -117,7 +117,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
-  * `object` String
+  * Строка `object`
 
 Returns `Number` - The ID of this subscription
 
