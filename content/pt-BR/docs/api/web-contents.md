@@ -175,7 +175,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 Retorna:
 
 * `window` BrowserWindow
-* `details` Object
+* Objeto `details`
   * `url` String - URL for the created window.
   * `frameName` String - Name given to the created window in the `window.open()` call.
   * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -336,7 +336,7 @@ Emitted when the renderer process crashes or is killed.
 Retorna:
 
 * `event` Event
-* `details` Object
+* Objeto `details`
   * `reason` String - The reason the render process is gone.  Valores possíveis:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
@@ -416,7 +416,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 Retorna:
 
 * `event` Event
-* `zoomDirection` String - Pode ser `in` ou `out`.
+* `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -438,7 +438,7 @@ Retorna:
 
 * `event` Event
 * String `url`
-* `error` String - O código do erro.
+* `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -466,17 +466,17 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Retorna:
 
 * `event` Event
-* `authenticationResponseDetails` Object
+* Objeto `authenticationResponseDetails`
   * `url` URL
-* `authInfo` Object
+* Objeto `authInfo`
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcional)
+  * `password` String (opcional)
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
@@ -487,7 +487,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Retorna:
 
 * `event` Event
-* Objeto `resultado`
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -532,7 +532,7 @@ Retorna:
 
 * `event` Event
 * `type` String
-* `image` [NativeImage](native-image.md) (optional)
+* `image` [NativeImage](native-image.md) (opcional)
 * `scale` Float (optional) - scaling factor for the custom cursor.
 * `size` [Size](structures/size.md) (optional) - the size of the `image`.
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
@@ -634,7 +634,7 @@ app.whenReady().then(() => {
 Retorna:
 
 * `event` Event
-* `dirtyRect` [Retângulo](structures/rectangle.md)
+* `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
@@ -694,7 +694,7 @@ Retorna:
 
 * `event` Event
 * `preloadPath` String
-* `error` Error
+* Erro `error`
 
 Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
 
@@ -785,7 +785,7 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
 #### `contents.loadURL(url[, options])`
 
 * String `url`
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -805,7 +805,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -963,7 +963,7 @@ Returns `String` - The user agent for this web page.
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -1029,8 +1029,8 @@ Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.setWindowOpenHandler(handler)`
 
-* `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` Object
+* `handler` Função<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
+  * Objeto `details`
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
     * `features` String - Comma separated list of window features provided to `window.open()`.
@@ -1085,7 +1085,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Retorna `Promise<void>`
 
 Sets the maximum and minimum pinch-to-zoom level.
 
@@ -1154,14 +1154,14 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Returns `Promise<void>`
+Retorna `Promise<void>`
 
 Inserts `text` to the focused element.
 
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1222,16 +1222,16 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 Get the system printer list.
 
-Retorna [`PrinterInfo[]`](structures/printer-info.md)
+Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por padrão é `true`.
-  * Objeto `margins` (opcional)
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Padrão é `true`.
+  * `margins` Object (optional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -1245,7 +1245,7 @@ Retorna [`PrinterInfo[]`](structures/printer-info.md)
   * `pageRanges` Object[]  (optional) - The page range to print. On macOS, only one range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Pode ser `simplex`, `shortEdge` ou `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
@@ -1280,7 +1280,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `options` Object
+* Objeto `options`
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
@@ -1435,7 +1435,7 @@ app.whenReady().then(() => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. O padrão é `verdadeiro`.
 
@@ -1507,7 +1507,7 @@ app.whenReady().then(() => {
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('ping', 'whoooooooh!')
-  }) 
+  })
 })
 ```
 
@@ -1605,7 +1605,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
 * `callback` Function
   * `image` [NativeImage](native-image.md)
-  * `dirtyRect` [Retângulo](structures/rectangle.md)
+  * `dirtyRect` [Rectangle](structures/rectangle.md)
 
 Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
@@ -1650,7 +1650,7 @@ win.webContents.on('did-finish-load', async () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` no _macOS_
+#### `contents.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
@@ -1684,7 +1684,7 @@ Returns `Integer` - If *offscreen rendering* is enabled returns the current fram
 
 Schedules a full repaint of the window this web contents is in.
 
-Se *renderização offscreen* estiver habilitado invalida o quadro e gera um novo através do evento `'paint'` .
+If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
@@ -1714,7 +1714,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-Tira um instantâneo de pilha V8 e salva-o para `filePath`.
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 #### `contents.getBackgroundThrottling()`
 
@@ -1730,7 +1730,7 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 #### `contents.audioMuted`
 
