@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding][rdp] available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -31,11 +31,11 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instanz Events
+### Instanz-Ereignisse
 
 #### Event: 'detach'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
@@ -44,7 +44,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 #### Event: 'message'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `method` String - Method name.
@@ -53,7 +53,7 @@ Rückgabewert:
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 #### `debugger.attach([protocolVersion])`
 
