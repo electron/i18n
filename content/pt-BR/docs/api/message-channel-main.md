@@ -29,7 +29,7 @@ ipcRenderer.on('port', (e) => {
 })
 ```
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 #### `channel.port1`
 
