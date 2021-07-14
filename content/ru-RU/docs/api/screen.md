@@ -54,7 +54,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `newDisplay` [Display](structures/display.md)
 
 Возникает при добавлении `newDisplay`.
@@ -63,7 +63,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `oldDisplay` [Display](structures/display.md)
 
 Возникает при удалении `oldDisplay`.
@@ -72,7 +72,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
