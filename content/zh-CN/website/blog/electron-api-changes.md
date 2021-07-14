@@ -1,56 +1,56 @@
 ---
-title: API 更改在 Electron 1.0
+title: API Changes Coming in Electron 1.0
 author: zcbenz
 date: '2015-11-17'
 ---
 
-自Electron开始以来，当它曾经被称为Atom-Shell时，开始返回， 我们一直在尝试为Chromium的内容模块和本机GUI组件提供一个漂亮的跨平台JavaScript API。 API机构是非常有机地启动的，随着时间的推移，我们已经做了几处修改，以改进初始设计。
+Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
 
 ---
 
-现在在 Electron 准备发布了 1.0 版本后，我们想通过处理最新的 API 详细信息来抓住机会进行修改。 下面描述的更改包含在 **0.35。**, 使用旧的 API 报告过时警告, 以便您可以获得未来1.0 版本的最新信息。 一个 Electron 1.0 将在几个月内不会退出，这样您就有一些时间才能打断这些更改。
+Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
 
-## 过时警告
+## Deprecation warnings
 
-默认情况下，警告将显示是否使用已废弃的 API。 若要关闭它们，您可以将 `process.no废弃` 设置为 `true`。 要跟踪废弃的 API 使用源，您可以设置 `进程。 hrow废弃` 到 `true` 来丢弃异常而不是打印警告，或者设置 `流程。 竞技过时` 到 `true` 打印过失痕迹。
+By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
 
-## 使用内置模块的新方式
+## New way of using built-in modules
 
-内置模块现在分成一个模块，而不是分成独立模块， 这样您就可以使用它们 [而不会与其他模块](https://github.com/electron/electron/issues/387) 相冲突：
+Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules][issue-387]:
 
 ```javascript
 var app = require('electron').app
-var Browserwindow = require('electron').BrowserWindow
+var BrowserWindow = require('electron').BrowserWindow
 ```
 
-`要求的旧方式('app')` 仍然支持向后兼容性，但如果关闭，您也可以转向：
+The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
 
 ```javascript
 require('electron').hideInternalModules()
-require('app') // 丢失错误。
+require('app')  // throws error.
 ```
 
-## 更容易使用 `远程` 模块
+## An easier way to use the `remote` module
 
-由于使用内置模块的方式已经改变，我们更容易在渲染过程中使用主处理模块。 您现在可以访问 `远程`的属性来使用它们：
+Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
 
 ```javascript
-/ 新方式
+// New way.
 var app = require('electron').remote.app
 var BrowserWindow = require('electron').remote.BrowserWindow
 ```
 
-不需要使用长链：
+Instead of using a long require chain:
 
 ```javascript
-/ 旧路径。
+// Old way.
 var app = require('electron').remote.require('app')
-var Browserwindow = require('electron').remote.require('BrowserWindow')
+var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## 拆分 `ipc` 模块
+## Splitting the `ipc` module
 
-`ipc` 模块存在于主进程和渲染器进程中，每一方的 API 不同。 这对新用户来说相当混乱。 我们在主流程中将模块重命名为 `ipcMain` ，并且 `ipcRenderer` 在渲染器过程中避免混淆：
+The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
 
 ```javascript
 // 在主进程中.
@@ -58,40 +58,42 @@ var ipcMain = require('electron').ipcMain
 ```
 
 ```javascript
-// 在渲染过程中。
+// In renderer process.
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-对于 `ipcRenderer` 模块，收到消息时添加了额外的 `事件` 对象 匹配如何在 `ipcMain` 模块中处理消息：
+And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
 
 ```javascript
-ipcRender.on('message', function (event) v.
+ipcRenderer.on('message', function (event) {
   console.log(event)
 })
 ```
 
-## 将 `浏览器窗口` 选项标准化
+## Standardizing `BrowserWindow` options
 
-`浏览器窗口` 选项有不同的风格，基于其他API的选项， 并且在JavaScript中使用起来有点困难，因为 `-` 在名称中。 它们现在已经标准化为传统的 JavaScript 名称：
+The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
 
 ```javascript
 new BrowserWindow({ minWidth: 800, minHeight: 600 })
 ```
 
-## 关注DOM的 API 名称协议
+## Following DOM's conventions for API names
 
-Electron中用于所有API名称的 API 名称， 像 `Url` to `URL`, 但DOM 有自己的惯例. 他们更喜欢 `URL` 而喜欢 `Url`当使用 `Id` 而不是 `ID` 时。 我们做了以下API重命名以匹配DOM的样式：
+The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
 
-* `Url` 已重命名为 `URL`
-* `Csp` 已重命名为 `CSP`
+* `Url` is renamed to `URL`
+* `Csp` is renamed to `CSP`
 
-由于这些更改，您将会在为您的应用使用 Electron v0.35.0 时注意到许多废弃之处。 修复它们的一种简单方式是用 `URL` 替换所有 `Url` 的实例。
+You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
 
-## 更改为 `托盘`的事件名称
+## Changes to `Tray`'s event names
 
-`托盘` 事件名称的风格与其他模块有些不同，所以已经重命名以使它与其他模块相匹配。
+The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
 
-* `点击` 重新命名为 `点击`
-* `双击` 被重命名为 `双击`
-* `右键点击` 已重命名为 ``
+* `clicked` is renamed to `click`
+* `double-clicked` is renamed to `double-click`
+* `right-clicked` is renamed to `right-click`
+
+[issue-387]: https://github.com/electron/electron/issues/387
 
