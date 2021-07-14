@@ -2,7 +2,7 @@
 
 ## Поиск поддержки
 
-Если у вас есть вопросы безопасности, обратитесь к документу [безопасности](https://github.com/electron/electron/tree/master/SECURITY.md).
+Если у вас есть проблема с безопасностью, смотрите [документ безопасности](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Если вы ищете помощь в программировании, для ответов на вопросы, или присоединиться к обсуждению с другими разработчиками, которые используют Electron, вы можете взаимодействовать с сообществом в этих местах:
 
@@ -21,11 +21,11 @@
 * [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
 * [`electron-pl`](https://electronpl.github.io) *(Польша)*
 
-Если вы хотите внести свой вклад в Electron, см. [документ](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Если вы хотите внести свой вклад в Electron, смотрите [документ](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Если вы обнаружили ошибку в [поддерживаемой версии](#supported-versions) Electron, сообщите об этом [issue tracker](../development/issues.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) - поддерживаемый сообществом список полезных примеров приложений, инструментов и ресурсов.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
 ## Поддерживаемые версии
 
@@ -39,13 +39,13 @@ All supported release lines will accept external pull requests to backport fixes
 
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
-### Поддерживаемые версии
+### Currently supported versions
 
 * 13.x.y
 * 12.x.y
 * 11.x.y
 
-### Конец жизни
+### End-of-life
 
 When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
 
