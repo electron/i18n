@@ -1,11 +1,11 @@
-# 事务对象
+# Transaction Object
 
-* `transactionIdentifier` String - 成功加入队列的事务的唯一标识
-* `transactionDate` String - 事务被加入队列的时间
-* `originalTransactionIdentifier` String - App Store恢复的事务的标识符
-* `transactionState` String - 事务状态, 可以是 `purchasing`, `purchased`, `failed`, `restored` 或 `deferred`.
-* `errorCode` Integer - 处理事务时发生错误时的错误代码。
-* `errorMessage` String - 处理事务时发生错误时的错误消息。
+* `transactionIdentifier` String - A string that uniquely identifies a successful payment transaction.
+* `transactionDate` String - The date the transaction was added to the App Store’s payment queue.
+* `originalTransactionIdentifier` String - The identifier of the restored transaction by the App Store.
+* `transactionState` String - The transaction state, can be `purchasing`, `purchased`, `failed`, `restored` or `deferred`.
+* `errorCode` Integer - The error code if an error occurred while processing the transaction.
+* `errorMessage` String - The error message if an error occurred while processing the transaction.
 * `payment` Object
-  * `productIdentifier` String - 购买产品的标识符。
-  * `quantity` Integer  - 购买数量。
+  * `productIdentifier` String - The identifier of the purchased product.
+  * `quantity` Integer  - The quantity purchased.
