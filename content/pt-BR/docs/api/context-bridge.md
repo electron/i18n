@@ -36,7 +36,7 @@ When `contextIsolation` is enabled in your `webPreferences` (this is the default
 
 ## Métodos
 
-O módulo `contextBridge` tem os seguintes métodos:
+O módulo `contextBridge` possui os seguintes métodos:
 
 ### `contextBridge.exposeInMainWorld(apiKey, api)`
 
