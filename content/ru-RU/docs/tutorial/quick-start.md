@@ -435,7 +435,8 @@ Forge's scaffolding:
 [app-when-ready]: ../api/app.md#appwhenready
 
 [node-platform]: https://nodejs.org/api/process.html#process_process_platform
-[window-all-closed]: ../api/app.md#appquit
+[window-all-closed]: ../api/app.md#event-window-all-closed
+[app-quit]: ../api/app.md#appquit
 
 [activate]: ../api/app.md#event-activate-macos
 
