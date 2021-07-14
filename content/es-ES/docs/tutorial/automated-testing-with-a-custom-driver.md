@@ -1,4 +1,4 @@
-# Tests automatizados con un Controlador Personalizado
+# Automatizado con un controlador personalizado de prueba
 
 Para escribir tests automatizados para su aplicación Electron, necesitará una forma de "controlar" su aplicación. [Spectron](https://electronjs.org/spectron) es una solución de uso común que le permite emular las acciones de los usuarios a través de [WebDriver](https://webdriver.io/). Sin embargo, también es posible escribir su propio controlador personalizado utilizando el IPC-over-STDIO incorporado en node. El beneficio de un controlador personalizado es que tiende a requerir menos recursos que Spectron, y le permite exponer métodos personalizados a su conjunto de pruebas.
 
