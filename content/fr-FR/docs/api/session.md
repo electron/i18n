@@ -25,7 +25,7 @@ Le module `session` dispose des méthodes suivantes :
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `cache` Boolean - Si vous voulez activer le cache.
 
 Retourne `Session` - Une instance de session de la chaîne de caractères `partition`. Quand il y a une `Session` existante avec la même `partition`, elle sera retournée; sinon une nouvelle instance `Session` sera créée avec `options`.
@@ -64,7 +64,7 @@ Les événements suivants sont disponibles pour les instances de `Session` :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -86,7 +86,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `extension` [Extension](structures/extension.md)
 
 Émis après le chargement d’une extension. Cela se produit chaque fois qu’une extension ajoutée à l’ensemble d’extensions « activées ». Ceci comprend :
@@ -100,7 +100,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is unloaded. Cela se produit lorsque `Session.removeExtension` est appelée.
@@ -109,7 +109,7 @@ Emitted after an extension is unloaded. Cela se produit lorsque `Session.removeE
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
@@ -118,7 +118,7 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `preconnectUrl` String - L'URL demandée pour la préconnexion par le moteur de rendu .
 * `allowCredentials` Booléen - Vrai si le moteur de rendu demande que la connexion inclue les informations d'identification (voir la [spec](https://w3c.github.io/resource-hints/#preconnect) pour plus de détails.)
 
@@ -128,7 +128,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
@@ -137,7 +137,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
@@ -146,7 +146,7 @@ Emitted when a hunspell dictionary file starts downloading
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
@@ -155,7 +155,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
@@ -164,7 +164,7 @@ Emitted when a hunspell dictionary file download fails.  For details on the fail
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `portList` [SerialPort[]](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 * `callback` Function
@@ -206,7 +206,7 @@ app.whenReady().then(() => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -216,7 +216,7 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -238,7 +238,7 @@ Efface le cache HTTP de la session.
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
   * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. Si ce n'est pas spécifié, effacez tous les types de stockage.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`. S'il n'est pas spécifié, effacez tous les quotas.
@@ -251,7 +251,7 @@ Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config)`
 
-* Objet `config`
+* `config` Object
   * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
     * `direct` In direct mode all connections are created directly, without any proxy involved.
     * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
@@ -296,7 +296,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
 
-   Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
 * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -332,14 +332,14 @@ Returns `Promise<void>` - Resolves when the all internal states of proxy service
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - Emplacement de téléchargement.
+* `path` String - The download location.
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * Objet `options`
-  * `offline` Boolean (optional) - Whether to emulate network outage. Par défaut, est faux.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -362,7 +362,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * Objet `options`
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. 1 par défaut.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
 Preconnects the given number of sockets to an origin.
 
@@ -379,7 +379,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function | null
-  * Objet `request`
+  * `request` Object
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `validatedCertificate` [Certificate](structures/certificate.md)
@@ -519,7 +519,7 @@ Renvoie `String` - L'utilisateur de cette session.
 
 #### `ses.setSSLConfig(config)`
 
-* Objet `config`
+* `config` Object
   * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. `tls1` par défaut.
   * `maxVersion` String (optional) - Can be `tls1.2` or `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Par défaut, `tls1.3`.
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
@@ -625,7 +625,7 @@ Returns `Boolean` - Whether the word was successfully removed from the custom di
 #### `ses.loadExtension(path[, options])`
 
 * `path` String - Path to a directory containing an unpacked Chrome extension
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `allowFileAccess` Boolean - Whether to allow the extension to read local files over `file://` protocol and inject content scripts into `file://` pages. This is required e.g. for loading devtools extensions on `file://` URLs. Par défaut, faux.
 
 Returns `Promise<Extension>` - resolves when the extension is loaded.
@@ -687,7 +687,7 @@ A `String | null` indicating the absolute file system path where data for this s
 
 Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
-#### `ses.availableSpellCheckerLanguages` _Readonly_
+#### `ses.availableSpellCheckerLanguages` _Lecture seule_
 
 A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
@@ -695,7 +695,7 @@ A `String[]` array which consists of all the known available spell checker langu
 
 A `Boolean` indicating whether builtin spell checker is enabled.
 
-#### `ses.storagePath` _Readonly_
+#### `ses.storagePath` _Lecture seule_
 
 A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
 
@@ -703,9 +703,9 @@ A `String | null` indicating the absolute file system path where data for this s
 
 Un objet [`Cookies`](cookies.md) pour cette session.
 
-#### `ses.serviceWorkers` _Readonly_
+#### `ses.serviceWorkers` _Lecture seule_
 
-A [`ServiceWorkers`](service-workers.md) object for this session.
+Un objet [`ServiceWorkers`](service-workers.md) pour cette session.
 
 #### `ses.webRequest` _Readonly_
 
