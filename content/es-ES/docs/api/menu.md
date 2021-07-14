@@ -4,7 +4,7 @@
 
 > Crea menús de aplicaciones nativas y menús contextuales.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new Menu()`
 
@@ -81,7 +81,7 @@ Anexa el `menuItem` al menú.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` Cadena
+* `id` String
 
 Devuelve `MenuItem | null` el item con el `id` especificado
 
@@ -102,7 +102,7 @@ Objetos creados con `new Menu` o retornados por `Menu.buildFromTemplate` emiten 
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Emitido cuando se llama a `menu.popup()`.
 
@@ -110,11 +110,11 @@ Emitido cuando se llama a `menu.popup()`.
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Se emite cuando una ventana emergente se cierra manualmente o con `menu.closePopup()`.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Los objetos `menu` también tienen las siguientes propiedades:
 
@@ -284,11 +284,11 @@ macOS ha proporcionado acciones estándares para algunos elementos del menú, co
 
 ### Nombre del menú principal
 
-En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files][AboutInformationPropertyListFiles].
+En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. See [About Information Property List Files][AboutInformationPropertyListFiles] for more information.
 
-## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
-El [`setMenu` method][setMenu] de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
+The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
 
 ## La posición del elemento del menú
 
