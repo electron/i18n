@@ -46,7 +46,7 @@
 
 ### `process.defaultApp` _Только чтение_
 
-А `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Только чтение_
 
@@ -54,7 +54,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Только чтение_
 
-А `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
@@ -70,7 +70,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 
 ### `process.sandboxed` _Только чтение_
 
-А `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.contextIsolated` _Только чтение_
 
@@ -106,7 +106,7 @@ A `String` representing the current process's type, can be:
 
 ### `process.windowsStore` _Только чтение_
 
-А `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ### `process.contextId` _Только чтение_
 
@@ -174,8 +174,8 @@ Chromium не предоставляет значение `residentSet` для m
 
 * `total` Integer - Общий объем физической памяти в килобайтах, доступный системе.
 * `free` Integer - Общий объем памяти, не используемый приложениями или дисковым кэшем.
-* `swapTotal` Integer _Windows_ _Linux_ - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer _Windows_ _Linux_ - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer _Windows_ _Linux_ - Общий объем памяти подкачки в килобайтах, доступной системе.
+* `swapFree` Integer _Windows_ _Linux_ - Свободный объем памяти подкачки в килобайтах, доступный системе.
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
@@ -197,7 +197,7 @@ console.log(version)
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Путь к выходному файлу.
+* `filePath` String - Path to the output file.
 
 Возвращает `Boolean`, который указывает успешно ли создан снимок.
 
