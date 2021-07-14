@@ -1,6 +1,6 @@
 # Установка
 
-To install prebuilt Electron binaries, use [`npm`][npm]. Предпочтительным методом является установка Electron в качестве зависимости для разработки в вашем приложении :
+To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
@@ -32,14 +32,14 @@ npm install --arch=ia32 electron
 npm install --platform=win32 electron
 ```
 
-## Полномочия
+## Прокси
 
 If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
 
-* [Узел 10 и выше][proxy-env-10]
-* [До узла 10][proxy-env]
+* [Node 10 and above][proxy-env-10]
+* [Before Node 10][proxy-env]
 
-## Пользовательские зеркала и кэши
+## Пользовательские зеркала и кеши
 
 Во время установки модуль `electron` будет обращаться к [`@electron/get`][electron-get], чтобы загрузить скомпилированные бинарники для твоей платформы, если она указана в списке релиза (`https://github.com/electron/electron/releases/tag/v$VERSION`, где `$VERSION` — версия Electron).
 
@@ -105,14 +105,14 @@ The cache contains the version's official zip file as well as a checksum, stored
     └── SHASUMS256.txt
 ```
 
-## Пропустить загрузку бинарных файлов
+## Skip binary download
 
 Under the hood, Electron's JavaScript API binds to a binary that contains its implementations. Because this binary is crucial to the function of any Electron app, it is downloaded by default in the `postinstall` step every time you install `electron` from the npm registry.
 
 However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
 
 ```sh npm2yarn
-ELECTRON_SKIP_BINARY_DESCRIPTION
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
 ## Устранение проблем
@@ -121,11 +121,11 @@ ELECTRON_SKIP_BINARY_DESCRIPTION
 
 В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Такие ошибки, как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшее решение - попытаться переключить сеть, или немного подождать, и попытаться установить снова.
 
-Также вы можете попытаться скачать Electron непосредственно из [релизов][releases], если установка через `npm` терпит неудачу.
+You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 
-Если установка завершается с ошибкой `EACCESS`, нужно [поправить права npm][npm-permissions].
+If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
 
-Если ошибки не пропадают, можно использовать аргумент [unsafe-perm][unsafe-perm]:
+If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
