@@ -2,7 +2,7 @@
 
 ## Encontrar Soporte
 
-Si tiene una preocupación de seguridad, consulte el documento de seguridad [](https://github.com/electron/electron/tree/master/SECURITY.md).
+Si tiene un problema de seguridad, consulte el [documento de seguridad](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Si busca ayuda con la programación, respuestas a preguntas o conversaciones con otros desarrolladores que usan Electron, puede interactuar con la comunidad en estos lugares:
 
@@ -21,7 +21,7 @@ Si busca ayuda con la programación, respuestas a preguntas o conversaciones con
 * [`electron-id`](https://electron-id.slack.com) *(Indonesio)*
 * [`electron-pl`](https://electronpl.github.io) *(Polaco)*
 
-Si quieres contribuir a Electron, consulta el [documento de contribución](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Si desea contribuir a Electron, consulte el [documento contribuyente](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Si has encontrado un error en una [versión soportada](#supported-versions) de Electron, infórmalo con el [rastreador de problemas](../development/issues.md).
 
