@@ -94,7 +94,7 @@ request.on('login', (authInfo, callback) => {
 
 在 `request` 被中止时触发。 如果 `request` 已经关闭， `abort` 事件将不会被触发。
 
-#### 事件: 'error'
+#### Event: 'error'
 
 返回:
 
@@ -137,7 +137,7 @@ request.on('login', (authInfo, callback) => {
 某些头部受应用程序设置的限制。 这些头部如下所列。 有关受限头部的更多信息，可以在 [Chromium的头部工具](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22) 中找到。
 
 * `Content-Length`
-* `Host`
+* `主机`
 * `Trailer` 或 `Te`
 * `Upgrade`
 * `Cookie2`
@@ -186,7 +186,7 @@ request.on('login', (authInfo, callback) => {
 
 #### `request.getUploadProgress()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `active` Boolean - 请求当前是否处于活动状态。 如果为 false，将不会设置其他属性。
 * `started` Boolean - 上传是否已经开始。 如果值为false，`current` 和 `total` 将被设置为 0。
