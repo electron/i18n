@@ -1,4 +1,4 @@
-# Electron 和 NW.js 之间的技术差异
+# Electron 和 NW.js 之间的技术差异 类似于NW.js，Electron提供了一个使用Web技术开发桌面应用程序的平台。它们都可以让开发者很便利地使用HTML、JavaScript以及Node.js进行开发。表面上，它们俩非常相似。、 然而，两个项目间依旧存在着一些本质的差异，这使得Electron是一个完全独立且不同于NW.js的项目。 1）应用程序的入口 NW.js中，应用程序的主入口是一个HTML网页。NW.js将会使用一个浏览器窗口打开给定的入口点（HTML网页）。 在Electron中，入口点是一个Javascript脚本文件。我们需要通过Javascript代码手动创建一个浏览器窗口并加载一个HTML文件，而不是直接提供一个URL的方法。当然我们也可以去监听窗口的事件来决定什么时候退出应用程序。 Electron的工作机制更像是Node.js的运行时。而且Electron的API实际上更为底层，所以我们可以使用它进行相应的浏览器测试并替代PhantomJS。 2）Node集成 在NW.js中，在Web页面中集成Node需要通过给Chromium打补丁的方式才能运行。而Electron采取了通过在集成libuv loop——不同的操作系统平台（Windows、Linux、MacOS）的消息循环来避免魔改Chromium。 3）Javascript上下文
 
 类似于 NW.js，Electron 提供了一个使用 Web 技术开发桌面应用程序的平台。 两个平台都允许开发者使用 HTML、JavaScript 和 Node.js。 表面上，它们似乎非常相似。
 
