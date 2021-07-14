@@ -36,7 +36,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 * `listener` Función
   * `...args` any[]
 
-Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
+Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
@@ -49,7 +49,7 @@ Elimina todos los oyentes, o aquellos del `channel` especificado.
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono al main process a través de `channel`, junto con los argumentos. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje asíncrono al main process a través de `channel`, junto con los argumentos. Los argumentos serán serializados con el [Structured CloneAlgorithm][SCA], al igual que [`window.postMessage`][], así que las cadenas del prototipo no estarán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -68,7 +68,7 @@ If you want to receive a single response from the main process, like the result 
 
 Devuelve `Promise<any>` - Resuelve con la respuesta desde el main process.
 
-Envía un mensaje al main process a través de `channel` y espera un resultado asíncrono. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje al main process a través de `channel` y espera un resultado asíncrono. Los argumentos serán serializados con el [Structured CloneAlgorithm][SCA], al igual que [`window.postMessage`][], así que las cadenas del prototipo no estarán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -102,7 +102,7 @@ If you do not need a response to the message, consider using [`ipcRenderer.send`
 
 Devuelve `any` - El valor enviado de vuelta por el controlador [`ipcMain`](ipc-main.md).
 
-Envía un mensaje al main process a través de `channel` y expera un resultado sincrónicamente. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`window.postMessage`][], so prototype chains will not be included. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
+Envía un mensaje al main process a través de `channel` y expera un resultado sincrónicamente. Los argumentos serán serializados con el [Structured CloneAlgorithm][SCA], al igual que [`window.postMessage`][], así que las cadenas del prototipo no estarán incluidas. El envío de funciones, promesas, símbolos, WeakMaps o WeakSets lanzará una excepción.
 
 > **NOTA**: Enviar tipos de JavaScript no estándar tales como objetos DOM o objetos especiales de Electron lanzará una excepción.
 > 
@@ -110,7 +110,7 @@ Envía un mensaje al main process a través de `channel` y expera un resultado s
 
 El processo principal lo controlo por escuchar `channel` con el módulo [`ipcMain`](ipc-main.md), y contesta configurando `event.returnValue`.
 
-> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. Es mucho mejor usar la versión asincróna [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+> :warning: **ADVERTENCIA**: El envío de un mensaje síncrono bloqueará todo el proceso del renderizador hasta que se reciba la respuesta, así que use este método solo como último recurso. Es mucho mejor usar la versión asincróna [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.postMessage(channel, message, [transfer])`
 
