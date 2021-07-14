@@ -1,13 +1,13 @@
-# Objeto JumpListCategory
+# JumpListCategory Object
 
 * `type` String (optional) - One of the following:
-  * `tasks` - Los objetos en esta categoría se colocarán en la categoría estándar de `Tasks`. Puede haber sólo una categoría, y siempre será mostrada en la parte inferior de la Lista Jump.
-  * `frequent` - Muestra una lista de archivos abiertos frecuentemente por la aplicación, el nombre de la categoría y sus objetos son establecidos por Windows.
-  * `recent` - Muestra una lista de archivos abiertos recientemente por la aplicación, el nombre de la categoría y sus objetos son establecidos por Windows. Los objetos pueden ser añadidos indirectamente a esta categoría usando `app.addRecentDocument(path)`.
-  * `custom` - Muestra las tareas o los enlaces a archivo, `name` debe ser establecido por la aplicación.
-* `name` String (opcional) - Debe establecerse si `type` es `custom`, de lo contrario debe omitirse.
-* `items` JumpListItem [] (opcional) - Array de objetos [`JumpListItem`](jump-list-item.md) si `type` es `tasks` o `custom`, de lo contrario debe omitirse.
+  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
+  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
+  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
+  * `custom` - Displays tasks or file links, `name` must be set by the app.
+* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
+* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
-**Nota:** Si un objeto `JumpListCategory` no tiene ni la propiedad `type` o `name`, asume que el `type` es `tasks`. Si la propiedad `name` está establecida pero la propiedad `type` esta omitida entonces se asume que el `type` es `custom`.
+**Nota:** Si un objeto `JumpListCategory` no tiene la propiedad `type` o `name` establecidas, entones se asume que el `type` es `tasks`. Si la propiedad `name` está establecida pero la propiedad `type` esta omitida entonces se asume que el `type` es `custom`.
 
 **Note:** The maximum length of a Jump List item's `description` property is 260 characters. Beyond this limit, the item will not be added to the Jump List, nor will it be displayed.
