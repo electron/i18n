@@ -8,13 +8,13 @@ Ce niveau de modularité et d'extensibilité garantit que tous les développeurs
 
 Un "Boilerplate" n'est qu'un point de départ - un canevas, pour ainsi dire - à partir de laquelle vous construisez votre application. Ils se présentent généralement sous la forme d'un dossier que vous pouvez cloner et personnaliser.
 
-Un outil en ligne de commande quant à lui vous soutient durant tout le processus de développement et de publication. C'est plus utile et convivial mais impose une ligne de conduite sur la manière dont votre code doit être structuré et généré. *Pour les débutants utiliser un outil en ligne de commande peut-être utile*.
+Un outil en ligne de commande quant à lui vous soutient durant tout le processus de développement et de publication. C'est plus utile et convivial mais impose une ligne de conduite sur la manière dont votre code doit être structuré et généré. *Il peut être particulièrement utile, spécialement pour les débutants, d'utiliser un outil en ligne de commande*.
 
 ## electron-forge
 
 Un "outil complet pour construire des applications Electron modernes". Electron Forge unifie les outil de build actuels (et bien maintenus) pour le développement sous Electron en un paquet homogène afin que chacun puisse se lancer rapidement dans le développement sous Electron.
 
-Forge est livré avec [un template prêt à l'usage](https://electronforge.io/templates), reposant sur Webpack. Il comprend un exemple de configuration typescript et offre deux fichiers de configuration pour permettre une customisation aisée. Il utilise les mêmes modules de base utilisés par la communauté grande Electron (comme [`electron-packager`](https://github.com/electron/electron-packager)) – modifications apportées par les mainteneurs d'Electron (comme Slack) bénéficient aux utilisateurs de Forge. De même, il y a aussi un grand nombre de choses à faire.
+Forge est livré avec [un template prêt à l'usage](https://electronforge.io/templates), reposant sur Webpack. Il comprend un exemple de configuration typescript et offre deux fichiers de configuration pour permettre une customisation aisée. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) – changes made by Electron maintainers (like Slack) benefit Forge's users, too.
 
 Vous pouvez trouver plus d'information et de documentation sur [electronforge.io](https://electronforge.io/).
 
