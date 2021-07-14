@@ -234,7 +234,7 @@ $ gclient sync -f
 
 ### Estão me Solicitando um nome de Usuário/Senha para o chromium-interno.googlesource.com
 
-Se você ver um prompt solicitando o `Usuário em 'https://chrome-internal.googlesource.com':` ao executar o `gclient sync` no Windows, Provavelmente é porque a variável de ambiente `DEPOT_TOOLS_WIN_TOOLCHAIN` não está definida como 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável de sistema `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Se você ver um prompt solicitando o `Usuário em 'https://chrome-internal.googlesource.com':` ao executar o `gclient sync` no Windows, Provavelmente é porque a variável de ambiente `DEPOT_TOOLS_WIN_TOOLCHAIN` não está definida como 0. Abra `Painel de Controle` → `Sistema e Segurança` → `Sistema` → `Configurações avançadas do sistema` e adicione uma variável do sistema chamada `DEPOT_TOOLS_WIN_TOOLCHAIN` com valor `0`.  This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
 
 [application-distribution]: ../tutorial/application-distribution.md
 
