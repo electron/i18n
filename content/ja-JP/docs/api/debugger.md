@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### イベント: 'detach'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `reason` String - デバッガーがデタッチする理由。
@@ -44,7 +44,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### イベント: 'message'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `method` String - メソッド名。
