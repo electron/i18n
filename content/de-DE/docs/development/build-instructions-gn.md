@@ -150,7 +150,7 @@ Nicht alle Kombinationen von Quell- und Ziel-Prozessor/Betriebssystem werden von
 
 | Host        | Ziel          | Status               |
 | ----------- | ------------- | -------------------- |
-| Windows x64 | Windows arm64 | Experimentell        |
+| Windows x64 | Windows arm64 | Experimental         |
 | Windows x64 | Windows x86   | Automatisch getestet |
 | Linux x64   | Linux x86     | Automatisch getestet |
 
