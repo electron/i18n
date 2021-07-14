@@ -22,7 +22,7 @@ Follow the guidelines below for building **Electron itself** on Linux, for the p
 En Ubuntu, instala las siguientes librerías:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
+sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -80,7 +80,7 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cp
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 ```
 
-## Compilando
+## Construcción
 
 Ver [Build Instructions: GN](build-instructions-gn.md)
 
