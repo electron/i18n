@@ -1,6 +1,6 @@
 # Installation
 
-To install prebuilt Electron binaries, use [`npm`][npm]. La méthode préférée est d'installer Electron en tant que dépendance de développement dans votre application :
+To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
@@ -83,26 +83,26 @@ Vous pouvez également substituer l’emplacement du cache local en fournissant 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
-── httpsgithub.comelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
-Ω<unk> ── electron-v1.7.9-darwin-x64.zip
-── httpsgithub.comelectronreleasesdownloadv1.7.9SHASUMS256.txt
-文<unk> ─ SHASUMS256.txt
-─ httpsgithub.comelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64. ip
-Ω<unk> ─ electron-v1.8.1-darwin-x64.zip
-── httpsgithub.comelectronreleasesdownloadv1.8.1SHASUMS256.txt
-Ω<unk> ─ SHASUMS256.txt
-── httpsgithub. omelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
-Ω<unk> ── electron-v1.8.2-beta.1-darwin-x64.zip
-── httpsgithub. omelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
-文<unk> ── SHASUMS256.txt
-── httpsgithub.comelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
-Ω<unk> ─ electron-v1.8.2-beta.2-darwin-x64.zip
-─ httpsgithub.comelectronreleasesdownloadv1.8.2-beta. SHASUMS256.txt
-Ω<unk> ─ SHASUMS256.txt
-Ω─ httpsgithub.comelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64. ip
-Ω<unk> ─ electron-v1.8.2-beta.3-darwin-x64.zip
-<unk> ─ httpsgithub.comelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
-    <unk> ─ SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
+│   └── electron-v1.7.9-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64.zip
+│   └── electron-v1.8.1-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
+│   └── electron-v1.8.2-beta.1-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
+│   └── electron-v1.8.2-beta.2-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64.zip
+│   └── electron-v1.8.2-beta.3-darwin-x64.zip
+└── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
+    └── SHASUMS256.txt
 ```
 
 ## Désactiver le téléchargement des binaires
@@ -112,7 +112,7 @@ Sous le capot, l'API JavaScript d'Electron est rattachée à un binaire contenan
 Toutefois, si vous souhaitez installer les dépendances de votre projet sans avoir besoin d’utiliser les fonctionnalité d'Electron, vous pouvez définir la variable d’environnement `ELECTRON_SKIP_BINARY_DOWNLOAD` pour empêcher le téléchargement du fichier binaire. Ce peut être utile, par exemple dans les environnements d’intégration continue lors de l’exécution de tests unitaires qui simulent le module `electron` .
 
 ```sh npm2yarn
-format@@0 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
 ## Résolution de problème
@@ -123,9 +123,9 @@ Dans la plupart des cas, ces erreurs sont le résultat d'un problème de réseau
 
 Vous pouvez également essayer de télécharger Electron directement depuis [electron/electron/releases][releases] si l'installation via `npm` ne marche pas.
 
-Si l'installation échoue avec une erreur `EACCESS`, vous devez peut-être [réparer les droits npm][npm-permissions].
+If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
 
-Si l'erreur ci-dessus persiste, le paramètre [unsafe-perm][unsafe-perm] devrait être définit à true :
+If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
