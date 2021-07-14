@@ -1,4 +1,4 @@
-# Objeto Size
+# Size Object
 
-* `width` Number - Largura
-* `height` Number - Altura
+* `width` Number
+* `height` Number
