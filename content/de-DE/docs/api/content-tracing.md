@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 This module does not include a web interface. To view recorded traces, use [trace viewer][], available at `chrome://tracing` in Chrome.
 
@@ -26,7 +26,7 @@ app.whenReady().then(() => {
 
 ## Methoden
 
-The `contentTracing` module has the following methods:
+Das Modul `contentTracing` verfügt über die folgenden Methoden:
 
 ### `contentTracing.getCategories()`
 
