@@ -1,6 +1,6 @@
 # Instalación
 
-To install prebuilt Electron binaries, use [`npm`][npm]. El método preferido es instalar Electron como una dependencia de desarrollo en tu aplicación :
+To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
@@ -121,11 +121,11 @@ Cuando ejecutamos `npm install electron`, ocasionalmente algunos usuarios encuen
 
 En casi todos los casos, estos errores son resultados de problemas en la red y no de problemas con el paquete npm de `electron`. Errores como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` y `ETIMEDOUT` son indicadores de dichos problemas de red. La mejor solución es tratar de cambiar las redes, o esperar un poco e instalar de nuevo.
 
-También puede intentar descargar Electron directamente de [electron/electron/releases][releases] si la ruta de instalación `npm` está fallando.
+You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 
-Si la instalación falla con un error `EACCESS` puede que se necesite los [fix your npm permissions][npm-permissions].
+If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
 
-Si el error de arriba persiste, puede ser que la marca [unsafe-perm][unsafe-perm] necesite sea establecido a true:
+If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
