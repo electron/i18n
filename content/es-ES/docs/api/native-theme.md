@@ -2,7 +2,7 @@
 
 > Lee y respondo a los cambios en el tema de color nativo de Chromium.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ## Eventos
 
