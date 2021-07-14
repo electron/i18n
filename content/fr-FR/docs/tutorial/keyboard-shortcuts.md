@@ -4,7 +4,7 @@
 
 Cette fonctionnalité vous permet de configurer les raccourcis clavier locaux et globaux de votre application Electron.
 
-## Exemple
+## Example
 
 ### Raccourcis Locaux
 
