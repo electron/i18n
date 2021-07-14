@@ -2,7 +2,7 @@
 
 > Crear un depurador (un selector de desplazamiento)
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new TouchBarScrubber(options)`
 
@@ -18,17 +18,17 @@ Proceso: [Main](../glossary.md#main-process)
   * `mode` String (opcional) - Puede ser `fixed` o `free`. Por defecto es `free`.
   * `continuous` Boolean (opcional) - Por defecto a `true`.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguientes propiedades está disponibles en instancias del `depurador de barra tactil`:
 
 #### `touchBarScrubber.items`
 
-Un array de `ScrubberItem[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen propiedades profundas en este arreglo **no actualice la barra táctil**.
+Un array de `ScrubberItem[]` representando los elementos en este depurador. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
 
 #### `touchBarScrubber.selectedStyle`
 
-Una `Cadena` que representa el estilo que deben tener los elementos seleccionados por el depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Posibles valores:
+Una `Cadena` que representa el estilo que deben tener los elementos seleccionados por el depurador. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Posibles valores:
 
 * `background` - Mapa a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
@@ -48,11 +48,11 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 
 #### `touchBarScrubber.mode`
 
-Un `String` que representa el modo de este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Posibles valores:
+Un `String` que representa el modo de este depurador. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Posibles valores:
 
 * `fijo` - Mapa a `NSScrubberModeFixed`.
 * `libre` - Mapa a `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 
-Un `Boolean` que representa si este depurador es continuo o no. Actualizar este valor actualiza inmediatamente el control en la barra táctil.
+Un `Boolean` que representa si este depurador es continuo o no. Actualiza este valor inmediatamente actualiza el control de la barra táctil.
