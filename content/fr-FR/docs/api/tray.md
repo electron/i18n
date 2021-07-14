@@ -59,7 +59,7 @@ Si vous souhaitez conserver les mêmes comportements sur toutes les plateformes,
 ### `new Tray(image, [guid])`
 
 * `image` ([NativeImage](native-image.md) | String)
-* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changer le chemin vers l’exécuteur testamentaire brisera la création de l’icône du plateau et un nouveau GUID doit être utilisé. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
+* `guid` String (optional) _Windows_ - Assigns a GUID to the tray icon. If the executable is signed and the signature contains an organization in the subject line then the GUID is permanently associated with that signature. OS level settings like the position of the tray icon in the system tray will persist even if the path to the executable changes. If the executable is not code-signed then the GUID is permanently associated with the path to the executable. Changing the path to the executable will break the creation of the tray icon and a new GUID must be used. However, it is highly recommended to use the GUID parameter only in conjunction with code-signed executable. If an App defines multiple tray icons then each icon must use a separate GUID.
 
 Créer une nouvelle icône dans la barre de notification avec l'`image`.
 
@@ -115,7 +115,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `files` String[] - les chemins d’accès des fichiers déposés.
 
 Émis lorsque des fichiers sont glissés et déposés sur l’icône.
@@ -124,7 +124,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `text` String - le texte déposé.
 
 Émis lorsqu'un texte est déposé sur l’icône.
@@ -217,7 +217,7 @@ Définit le texte au survol pour l'icône.
 #### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Définit le titre affiché à côté de l'icône de la barre d'état dans la barre d'état (couleurs support ANSI).
@@ -242,7 +242,7 @@ Retourne un `Boolean` - Si oui ou non les événènements de double clic seront 
 
 * Objet `options`
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Par défaut la valeur est `custom`.
   * `title` String
   * `content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. La valeur par défaut est `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
