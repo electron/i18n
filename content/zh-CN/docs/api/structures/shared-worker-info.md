@@ -1,4 +1,4 @@
-# SharedWorkerInfo 对象
+# SharedWorkerInfo Object
 
-* `id` String - shared worker的唯一ID。
-* `url` String - shared worker的 url。
+* `id` String - The unique id of the shared worker.
+* `url` String - The url of the shared worker.
