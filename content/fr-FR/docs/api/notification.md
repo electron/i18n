@@ -28,12 +28,12 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 ### `new Notification([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (facultatif) _macOS_ - Un sous-titre pour la notification, qui sera affiché sous le titre.
   * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
-  * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
-  * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
+  * `silent` Boolean (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
+  * `icon` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
   * `hasReply` Boolean (facultatif) _macOS_ - Ajout ou non d'une option de réponse en ligne à la notification.
   * `timeoutType` String (optional) _Linux_ _Windows_ - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (facultatif) _macOS_ - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
@@ -53,7 +53,7 @@ Les objets créés avec `new Notification` émettent les événements suivants :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque la notification est affiché à l'utilisateur, notez que cet événement peut être émis plusieurs fois du fait qu'une notification peut être affichée plusieurs fois par le biais de la méthode `show()`.
 
@@ -61,7 +61,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque l'utilisateur clique sur la notification.
 
@@ -69,7 +69,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
@@ -79,7 +79,7 @@ Cet événement ne garantit pas d'être émis dans tous les cas de fermeture de 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `reply` String - La chaîne de caractères que l'utilisateur a écrite dans le champ de réponse.
 
 Émis lorsque l'utilisateur clique sur le bouton "Reply" sur une notification avec `hasReply: true`.
@@ -88,14 +88,14 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `index` Number - L'indice de l'action qui a été activée.
 
 #### Event: 'failed' _Windows_
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `error` String - The error encountered during execution of the `show()` method.
 
 Emitted when an error is encountered while creating and showing the native notification.
