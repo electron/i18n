@@ -2,7 +2,7 @@
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ## Utilizando el proceso de renderizado
 
@@ -12,7 +12,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `Notification` es un [EventEmitter][event-emitter].
 
@@ -53,7 +53,7 @@ Los objetos creados con `new Notification` emite los siguientes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Se emite cuando la notificación se muestra al usuario. Tenga en cuenta que este puede emitirse tantas veces como se muestre la notificación a través del método `show()`.
 
@@ -61,7 +61,7 @@ Se emite cuando la notificación se muestra al usuario. Tenga en cuenta que este
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Se emite cuando el usuario hace clic en la notificación.
 
@@ -69,7 +69,7 @@ Se emite cuando el usuario hace clic en la notificación.
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
@@ -79,7 +79,7 @@ No se garantiza que este evento se emita en todos los casos donde se cierre la n
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `reply` String - La cadena que ingreso el usuario dentro del campo de respuesta insertado.
 
 Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.
@@ -88,14 +88,14 @@ Se emite cuando el usuario hace clic en el botón "Reply" en una notificación c
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `index` Númerp - El indice de la acción que fue activado.
 
 #### Evento: 'failed' _Windows_
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `error` String - El error encontrado durante la ejecución del método `show()`.
 
 Se emite cuando un error ocurre mientras se esta creando y mostrando una notificación nativa.
@@ -114,7 +114,7 @@ Si la notificación ha sido mostrada con anterioridad, este método descartará 
 
 Descarta la notificación.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 #### `notification.title`
 
