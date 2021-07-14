@@ -1,7 +1,7 @@
 # UploadFile Object
 
 * `type` 'file' - `file`.
-* `filePath` String - Pfad der Datei, die hochgeladen werden soll.
-* `offset` Integer - Default ist `0`.
-* `length` Integer - Anzahl der zu lesenden Bytes ab `offset`. Standard ist `0`.
-* `modificationTime` Double - Datum der letzten Modifikation in Sekunden seit der UNIX Epoche.
+* `filePath` String - Path of file to be uploaded.
+* `offset` Integer - Defaults to `0`.
+* `length` Integer - Number of bytes to read from `offset`. Defaults to `0`.
+* `modificationTime` Double - Last Modification time in number of seconds since the UNIX epoch.
