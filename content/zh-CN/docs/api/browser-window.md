@@ -17,11 +17,11 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## 无边框窗口
+## Frameless window
 
 如果想创建一个无边框或者任意形状的透明窗口，你可以使用[Frameless Window](frameless-window.md) 的API
 
-## 优雅地显示窗口
+## Showing window gracefully
 
 当直接在窗口中加载一个页面时，用户可能会看到页面一点点加载，这对原生应用来说体验不是很好。 要使窗口显示时没有视觉闪烁，对于不同情况有两种解决方案。
 
@@ -107,21 +107,21 @@ child.once('ready-to-show', () => {
 
 进程：[主进程](../glossary.md#main-process)
 
-`BrowserWindow` 是一个[EventEmitter][event-emitter].
+`BrowserWindow`是一个[EventEmitter][event-emitter].
 
 通过 `options` 可以创建一个具有原生属性的 `BrowserWindow` 。
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (可选)
-  * `width` Integer (可选) - 窗口的宽度(以像素为宽度)。 默认值为 `800`
-  * `height` Integer (可选) - 窗口的高度(以像素为单位)。 默认值为 `600`
+  * `width` 整数型 (可选) - 窗口的宽度（以像素为单位）。 默认值为 `800`。
+  * `height` 整数型 (可选) - 窗口的高度（以像素为单位）。 默认值为 `600`。
   * `x` Interger (可选) - (**必选** 如果使用了y) 窗口相对于屏幕左侧的偏移量。 默认值为将窗口居中。
   * `y` Integer (可选) - (**必选** 如果使用了x) 窗口相对于屏幕顶端的偏移量。 默认值为将窗口居中。
   * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
   * `center` Boolean (可选) - 窗口是否在屏幕居中.
-  * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`
-  * `minHeight` Integer(可选) - 窗口的最小高度。 默认值为 `0`
+  * 整型（可选）-窗口的最小宽度。默认为0 默认值为 `0`.
+  * `minHeight` Integer(可选) - 窗口的最小高度。 默认值为 `0`.
   * `maxWidth `Integer(可选)-窗口的最大宽度。 默认值不限
   * `maxHeight `Integer (可选) - 窗口的最大高度。 默认值不限
   * `resizable` Boolean (可选) - 窗口大小是否可调整。 默认值为 `true`。
@@ -928,7 +928,7 @@ console.log(win.getBounds())
 
 #### `win.isClosable()` _macOS_ _Windows_
 
-返回 `Boolean` - 窗口是否被用户关闭了.
+返回 `Boolean` - 窗口是否可以被用户关闭.
 
 在 Linux 上总是返回 ` true `。
 
@@ -1232,7 +1232,7 @@ win.loadURL('http://localhost:8000/post', {
 * `enabled` - 该按钮处于活动状态并可供用户使用.
 * `disabled` - 按钮已禁用。 会以一种视觉状态表示它不会响应用户操作的形式显示。
 * `dismissonclick` - 当按钮被点击时，缩略图窗口立即关闭。
-* `nobackground` - 不可以画按钮边框，只能使用图片背景。
+* `nobackground` - 仅仅使用图像而不绘制边框。
 * `hidden` - 该按钮对用户不可见。
 * `noninteractive` - 按钮已启用，但不交互；不绘制按钮按下的状态。 此值用于在通知中使用按钮的实例。
 
@@ -1253,7 +1253,7 @@ win.loadURL('http://localhost:8000/post', {
 * `选项` 对象
   * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
   * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (可选) - `appIconPath`中的图标索引。 未设置 `appIconPath` 时忽略。 默认值为 `0`
+  * `appIconIndex` Integer (可选) - `appIconPath`中的图标索引。 未设置 `appIconPath` 时忽略。 默认值为 `0`.
   * `relaunchCommand` String (可选) - 窗口的 [重新启动命令](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (可选) - 窗口的[重新启动显示名称](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
