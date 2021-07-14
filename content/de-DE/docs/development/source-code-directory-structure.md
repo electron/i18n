@@ -60,7 +60,7 @@ Electron
 |   |   |   └── x/ - X11 specific source code.
 |   |   ├── api/ - The implementation of the main process APIs.
 |   |   ├── net/ - Network related code.
-|   |   Mac/ - Mac-spezifischer Objektiv-C-Quellcode.
+|   |   ├── mac/ - Mac specific Objective-C source code.
 |   |   └── resources/ - Icons, platform-dependent files, etc.
 |   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - The implementation of renderer process APIs.
