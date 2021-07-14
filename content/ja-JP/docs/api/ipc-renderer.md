@@ -76,7 +76,7 @@
 
 メインプロセスは、[`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener) で `channel` をリッスンする必要があります。
 
-例:
+以下がその例です。
 
 ```javascript
 // レンダラープロセス
@@ -122,7 +122,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 転送した `MessagePort` オブジェクトは、発生したイベントの `ports` プロパティにアクセスすることで、[`MessagePortMain`](messageport-main.md) オブジェクトとしてメインプロセスで利用可能になります。
 
-例:
+以下がその例です。
 
 ```js
 // レンダラープロセス
