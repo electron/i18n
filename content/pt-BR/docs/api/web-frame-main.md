@@ -113,7 +113,7 @@ ipcRenderer.on('port', (e, msg) => {
 })
 ```
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 #### `frame.url` _Readonly_
 
