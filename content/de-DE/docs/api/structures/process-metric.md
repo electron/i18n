@@ -1,6 +1,6 @@
-# ProcessMetric Objekt
+# ProcessMetric Object
 
-* `pid` Integer - Prozess Id des Prozesses.
+* `pid` Integer - Process id of the process.
 * `Typ` String - Prozess-Typ. Einer der folgenden Werte:
   * `Browser`
   * `Tab`
@@ -13,13 +13,13 @@
   * `Unknown`
 * `serviceName` String (optional) - The non-localized name of the process.
 * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
-* `cpu` [CPUUsage](cpu-usage.md) - CPU-Auslastung des Prozesses.
-* `CreationTime` Number - Erstellungszeit für diesen Prozess. Die Zeit wird seit der Epoche als Anzahl von Millisekunden dargestellt. Da die `pid` wiederverwendet werden kann, nachdem ein Prozess stirbt, ist es nützlich, sowohl `pid` als auch `creationTime` zu verwenden, um einen Prozess eindeutig zu identifizieren.
-* `memory` [MemoryInfo](memory-info.md) - Speicherinformationen für den Prozess.
+* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
+* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
 * `sandboxed` Boolean (optional) _macOS_ _Windows_ - Whether the process is sandboxed on OS level.
 * `integrityLevel` String (optional) _Windows_ - One of the following values:
   * `untrusted`
-  * `niedrig`
+  * `low`
   * `medium`
-  * `hoch`
+  * `high`
   * `unknown`
