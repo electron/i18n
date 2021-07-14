@@ -17,11 +17,11 @@
   * `type` String (опционально) - Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
   * `label` String (опционально)
   * `sublabel` String (опционально)
-  * `toolTip` String (опционально) _macOS_ - Текст при наведении на этот пункт меню.
+  * `toolTip` String (optional) _macOS_ - Hover text for this menu item.
   * `accelerator` [Accelerator](accelerator.md) (опционально)
   * `icon` ([NativeImage](native-image.md) | String) (опционально)
   * `enabled` Boolean (опционально) - Если false, пункт меню выделится серым цветом и не будет нажимться.
-  * `acceleratorWorksWhenHidden` Boolean (опционально) _macOS_ - по умолчанию `true`, когда `false`, accelerator не допустит активации элемента, если элемент не отображается.
+  * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (опционально) - Если false, пункт меню будет полностью скрыт.
   * `checked` Boolean (опционально) - Должно быть указано только для `checkbox` или `radio` типов элементов меню.
   * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
@@ -33,7 +33,7 @@
   * `beforeGroupContaining` String[] (опционально) - Предоставляет возможность в одном контекстном меню объявить размещение группы, содержащей элемент, перед группой, содержащей элемент с указанной меткой.
   * `afterGroupContaining` String[] (опционально) - Предоставляет возможность в одном контекстном меню объявить размещение группы, содержащей элемент, после группы, содержащей элемент с указанной меткой.
 
-**Примечание:** `acceleratorWorksWhenHidden` указан только как macOS потому, что accelerators всегда работают, когда элементы скрыты в Windows и Linux. Эта опция доступна пользователям для того, чтобы дать им возможность отключить ее, так как это возможно в родной macOS разработке. Это свойство можно использовать только на macOS High Sierra 10.13 или новее.
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. Эта опция доступна пользователям для того, чтобы дать им возможность отключить ее, так как это возможно в родной macOS разработке. Это свойство можно использовать только на macOS High Sierra 10.13 или новее.
 
 ### Роли
 
@@ -68,30 +68,30 @@
 * `zoomOut` - Уменьшение масштаба страницы на 10%.
 * `toggleSpellChecker` - Enable/disable builtin spell checker.
 * `fileMenu` - Полное меню "Файл" по умолчанию (Закрыть/Выйти)
-* `editMenu` - Полное меню "Редактировать" (Отменить, копировать и т. д.).
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
 * `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
 * `windowMenu` - Полное меню "Окно" по умолчанию (Свернуть, масштаб и т. д.).
 
 The following additional roles are available on _macOS_:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
-* `hide` -Сопоставляется с `hide`.
-* `hideOthers` - Сопоставляется с `hideOtherApplications`.
-* `unhide` - Сопоставляется с `unhideAllApplications`.
-* `startSpeaking` - Сопоставляется с `startSpeaking`.
-* `stopSpeaking` - Сопоставляется с `stopSpeaking`.
-* `front` - Сопоставляется с `arrangeInFront`.
-* `zoom` - Сопоставляется с `performZoom`.
-* `toggleTabBar` - Сопоставляется с `toggleTabBar`.
-* `selectNextTab` - Сопоставляется с `selectNextTab`.
-* `selectPreviousTab` - Сопоставляется с `selectPreviousTab`.
-* `mergeAllWindows` - Сопоставляется с `mergeAllWindows`.
-* `moveTabToNewWindow` - Сопоставляется с `moveTabToNewWindow`.
-* `window` - Подменю в меню "Окно".
-* `help` - Подменю в меню "Help".
-* `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Оно предназначено только для использования в Меню Приложений и *не* то же самое, что и подменю "Сервисы", используемое в контекстных меню приложений macOS, которое не реализовано в Electron.
-* `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
-* `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
+* `hide` - Map to the `hide` action.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Map to the `unhideAllApplications` action.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 * `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
 
 При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
