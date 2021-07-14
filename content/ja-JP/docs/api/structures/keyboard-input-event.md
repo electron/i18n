@@ -1,4 +1,4 @@
-# KeyboardInputEvent オブジェクト extends `InputEvent`
+# KeyboardInputEvent Object extends `InputEvent`
 
-* `type` String - イベントの種類です。`keyDown`、`keyUp`、`char` のいずれかになります。
-* `keyCode` String - キーボードイベントとして送信される文字。 [Accelerator](../accelerator.md) で有効なキーコードのみを使用する必要があります。
+* `type` String - The type of the event, can be `keyDown`, `keyUp` or `char`.
+* `keyCode` String - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](../accelerator.md).
