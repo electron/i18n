@@ -22,7 +22,7 @@ shell.openExternal('https://github.com')
 
 ### `shell.showItemInFolder(fullPath)`
 
-* Строка `fullPath`
+* `fullPath` String
 
 Show the given file in a file manager. If possible, select the file.
 
@@ -38,7 +38,7 @@ Open the given file in the desktop's default manner.
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (опционально)
-  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
+  * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. По-умолчанию - `true`.
   * `workingDirectory` String (optional) _Windows_ - The working directory.
 
 Возвращает `Promise<void>`
@@ -59,7 +59,7 @@ Play the beep sound.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
-* Строка `shortcutPath`
+* `shortcutPath` String
 * `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
@@ -72,7 +72,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` _Windows_
 
-* Строка `shortcutPath`
+* `shortcutPath` String
 
 Возвращает [`ShortcutDetails`](structures/shortcut-details.md)
 
