@@ -2,9 +2,9 @@
 
 > Realiza las operaciones de copiar y pegar en el portapapeles del sistema.
 
-Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-En Linux, además hay un portapapeles `selection`. Para manipularlo necesitas pasar `selection` a cada método:
+En Linux, también hay un portapapeles `selección`. Para manipularlo necesita pasar `selección` a cada método:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -35,9 +35,9 @@ console.log(text)
 // hello i am a bit of text!'
 ```
 
-### `clipboard.writeText(text[, type])`
+### `clipboard.writeText(texto[, type])`
 
-* `texto` String
+* `texto` Cadena
 * `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe el `texto` en el portapapeles como texto sin formato.
@@ -65,7 +65,7 @@ console.log(html)
 // <meta charset='utf-8'><b>Hi</b>
 ```
 
-### `clipboard.writeHTML(markupo[, type])`
+### `clipboard.writeHTML(markup[, type])`
 
 * `markup` Cadena
 * `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
@@ -84,7 +84,7 @@ clipboard.writeHTML('<b>Hi</b')
 
 Devuelve [`NativeImage`](native-image.md) - El contenido de la imagen en el portapapeles.
 
-### `clipboard.writeImage(imageo[, type])`
+### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
@@ -107,9 +107,9 @@ console.log(rtf)
 // {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
 ```
 
-### `clipboard.writeRTF(texto[, type])`
+### `clipboard.writeRTF(text[, type])`
 
-* `texto` String
+* `texto` Cadena
 * `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Escribe el `text` en el portapapeles en RTF.
@@ -157,7 +157,7 @@ Este método usa IPC síncrono cuando se llama desde el renderer process. El val
 
 ### `clipboard.writeFindText(text)` _macOS_
 
-* `texto` String
+* `texto` Cadena
 
 Escribe el `text` portapapeles de búsqueda ( portapapeles que contiene información sobre el estado actual del panel de búsqueda de la aplicación) como texto plano. Este método usa IPC síncrono cuando se llama desde el renderer process.
 
@@ -183,7 +183,7 @@ console.log(formats)
 
 ### `clipboard.has(format[, type])` _Experimental_
 
-* `format` Cadena
+* `formato` Cadena
 * `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
 Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
@@ -198,13 +198,13 @@ console.log(hasFormat)
 
 ### `clipboard.read(format)` _Experimental_
 
-* `format` Cadena
+* `formato` Cadena
 
 Devuelve `String` - Lee el tipo de `formato` del portapapeles.
 
 ### `clipboard.readBuffer(format)` _Experimental_
 
-* `format` Cadena
+* `formato` Cadena
 
 Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
@@ -222,7 +222,7 @@ console.log(buffer.equals(out))
 
 ### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
-* `format` Cadena
+* `formato` Cadena
 * `buffer` Buffer
 * `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
@@ -235,7 +235,7 @@ const buffer = Buffer.from('writeBuffer', 'utf8')
 clipboard.writeBuffer('public.utf8-plain-text', buffer)
 ```
 
-### `clipboard.write(datao[, type])`
+### `clipboard.write(data[, type])`
 
 * `data` Object
   * `text` Cadena (opcional)
