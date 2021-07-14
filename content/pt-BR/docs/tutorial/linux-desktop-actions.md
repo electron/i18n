@@ -1,4 +1,4 @@
-# Ações personalizadas do Launcher do Linux Desktop
+# Custom Linux Desktop Launcher Actions
 
 ## Visão Geral
 
@@ -11,20 +11,20 @@ On many Linux environments, you can add custom entries to the system launcher by
 To create a shortcut, you need to provide `Name` and `Exec` properties for the entry you want to add to the shortcut menu. Unity will execute the command defined in the `Exec` field after the user clicked the shortcut menu item. An example of the `.desktop` file may look as follows:
 
 ```plaintext
-Ações=PlayPause;Próximo;Anterior
+Actions=PlayPause;Next;Previous
 
-[Ação Desktop PlayPause]
-Nome=Play-Pause
+[Desktop Action PlayPause]
+Name=Play-Pause
 Exec=audacious -t
-ApenasShowIn=Unity;
+OnlyShowIn=Unity;
 
-[Ação da Área de Trabalho]
-Nome=Próximo
-Executar=audacious -f
-Apenas ShowIn=Unidade;
+[Desktop Action Next]
+Name=Next
+Exec=audacious -f
+OnlyShowIn=Unity;
 
-[Ação da Área de Trabalho Anterior]
-Nome=Anterior
+[Desktop Action Previous]
+Name=Previous
 Exec=audacious -r
 OnlyShowIn=Unity;
 ```
