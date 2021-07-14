@@ -2,7 +2,7 @@
 
 > Extensiones para el objeto process.
 
-Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 El objeto `process` de Electron es heredado del [objeto `process` de Node.js](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
 
@@ -44,15 +44,15 @@ Emitido cuando Electron ha cargado su script de inicialización interno y está 
 
 ## Propiedades
 
-### `process.defaultApp` _Readonly_
+### `process.defaultApp` _Solo lectura_
 
 Un `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame` _Readonly_
+### `process.isMainFrame` _Solo lectura_
 
 Un `Boolean`, `true` cuando el contexto actual del renderer es "main" renderer frame. Si quieres el ID del frame actual deberías usar `webFrame.routingId`.
 
-### `process.mas` _Readonly_
+### `process.mas` _Solo lectura_
 
 Un `Boolean`. Para compilaciones de Mac App Store, esta propiedad es `true`, para otras compilaciones es `undefined`.
 
@@ -64,11 +64,11 @@ Un `Boolean` que controla el soporte ASAR dentro de tu aplicación. Establecer e
 
 Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-deprecation`.
 
-### `process.resourcesPath` _Readonly_
+### `process.resourcesPath` _Solo lectura_
 
 Un `string` que representa la ruta de acceso al directorio de recursos.
 
-### `process.sandboxed` _Readonly_
+### `process.sandboxed` _Solo lectura_
 
 Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
