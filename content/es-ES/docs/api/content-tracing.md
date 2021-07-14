@@ -1,4 +1,4 @@
-# class="VfPpkd-ksKsZd-XxIAqe">
+# contentTracing
 
 > Recopila datos de seguimiento de Chromium para encontrar cuellos de botella y operaciones lentas.
 
