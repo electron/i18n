@@ -1,5 +1,5 @@
 ---
-title: Nouvelle Cadence de Sortie Electron
+title: New Electron Release Cadence
 author: VerteDinde
 date: '2021-07-14'
 ---
@@ -54,7 +54,7 @@ We've tried to address common concerns below:
 
 #### ❓ Why even make this change? Why not keep the 12 week release cadence?
 
-Pour fournir les versions les plus récentes de Chromium dans Electron, notre horaire doit suivre les leurs. Plus d'informations sur le cycle de publication de Chromium peuvent être trouvées [ici](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
 
 Additionally, the current 12 week release cadence would be untenable with the Microsoft Store's new submission requirements. Even apps on the latest stable version of Electron would experience a roughly two week period where their app may be rejected under the new security requirements.
 
