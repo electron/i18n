@@ -1,26 +1,26 @@
 ---
-title: Touch Bar サポート
+title: Touch Bar Support
 author: kevinsawicki
 date: '2017-03-08'
 ---
 
-Electron の [1.6.3][] ベータリリースは macOS の [Touch Bar][] に対する初期サポートを含みます。
+The Electron [1.6.3][] beta release contains initial support for the macOS [Touch Bar][].
 
 ---
 
-新しい Touch Bar API により、ボタン、ラベル、ポップオーバー、カラーピッカー、スペーサを追加することができます。 これらの要素は動的に更新され、対話が起こった際にはイベントが発生します。
+The new Touch Bar API allows you to add buttons, labels, popovers, color pickers, sliders, and spacers. These elements can be dynamically updated and also emit events when they are interacted with.
 
-この API の最初のリリースに過ぎないため、いくつかの Electron のリリースの間に進化していくでしょう。 詳しい更新内容についてはリリースノートを参照してください。なんらかの問題が生じているか、機能が欠けている場合は、 [Issue](https://github.com/electron/electron/issues) を開いてください。
+This is the first release of this API so it will be evolving over the next few Electron releases. Please check out the release notes for further updates and open [issues](https://github.com/electron/electron/issues) for any problems or missing functionality.
 
-このバージョンは `npm install electron@beta` でインストールできます。詳細は Electron ドキュメントの [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) 及び [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) を参照してください。
+You can install this version via `npm install electron@beta` and learn more about it in the [TouchBar](https://github.com/electron/electron/blob/master/docs/api/touch-bar.md) and [BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsettouchbartouchbar-macos) Electron docs.
 
-[@MarshallOfSound](https://github.com/MarshallOfSound) による Electron への貢献に大いなる感謝を表します。 :tada:
+Big thanks to [@MarshallOfSound](https://github.com/MarshallOfSound) for contributing this to Electron. :tada:
 
-## Touch Bar の例
+## Touch Bar Example
 
-![Touch Bar の Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
+![Touch Bar Gif](https://cloud.githubusercontent.com/assets/671378/23723516/5ff1774c-03fe-11e7-97b8-c693a0004dc8.gif)
 
-以下は Touch Bar を用いたシンプルなスロットゲームの例です。 Touch Bar の作成方法、アイテムにスタイルを適用する方法、ウィンドウと関連付ける方法、ボタンクリックイベントを扱う方法、ラベルを動的に更新する方法を示しています。
+Below is an example of creating a simple slot machine game in the touch bar. It demonstrates how to create a touch bar, style the items, associate it with a window, handle button click events, and update the labels dynamically.
 
 ```js
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -29,20 +29,20 @@ const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// リールのラベル
+// Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// 結果のラベル
+// Spin result label
 const result = new TouchBarLabel()
 
-// スピンボタン
+// Spin button
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // 常に回っていれば無視
+    // Ignore clicks if already spinning
     if (spinning) {
       return
     }
@@ -60,7 +60,7 @@ const spin = new TouchBarButton({
       if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // スピンごとに少し遅くする
+        // Slow down a bit on each spin
         timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
@@ -84,16 +84,46 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // 3 つの値がすべて同じ
-    result.label = '💰 ジャックポット!'
+    // All 3 values are the same
+    result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 つの値が同じ場合
-    result.label = '😍 やったね!'
+    // 2 values are the same
+    result.label = '😍 Winner!'
     result.textColor = '#FDFF00'
-  } else if (uniqueValues === 2) {
-    // 2 つの値が同じ
-    result.label = '😍 勝利!'
+  } else {
+    // No values are the same
+    result.label = '🙁 Spin Again'
+    result.textColor = null
+  }
+  spinning = false
+}
+
+const touchBar = new TouchBar([
+  spin,
+  new TouchBarSpacer({size: 'large'}),
+  reel1,
+  new TouchBarSpacer({size: 'small'}),
+  reel2,
+  new TouchBarSpacer({size: 'small'}),
+  reel3,
+  new TouchBarSpacer({size: 'large'}),
+  result
+])
+
+let window
+
+app.once('ready', () => {
+  window = new BrowserWindow({
+    frame: false,
+    titleBarStyle: 'hidden-inset',
+    width: 200,
+    height: 200,
+    backgroundColor: '#000'
+  })
+  window.loadURL('about:blank')
+  window.setTouchBar(touchBar)
+})
 ```
 
 [1.6.3]: https://github.com/electron/electron/releases/tag/v1.6.3
