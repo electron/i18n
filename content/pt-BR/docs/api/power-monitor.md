@@ -6,21 +6,21 @@ Processo: [Main](../glossary.md#main-process)
 
 ## Eventos
 
-The `powerMonitor` module emits the following events:
+O módulo `powerMonitor` emite os seguintes eventos:
 
-### Event: 'suspend' _macOS_ _Windows_
+### Evento: 'suspend' _macOS_ _Windows_
 
 Emitted when the system is suspending.
 
-### Event: 'resume' _macOS_ _Windows_
+### Evento: 'resume' _macOS_ _Windows_
 
 Emitted when system is resuming.
 
-### Event: 'on-ac' _macOS_ _Windows_
+### Evento: 'on-ac' _macOS_ _Windows_
 
 Emitted when the system changes to AC power.
 
-### Event: 'on-battery' _macOS_  _Windows_
+### Evento: 'on-battery' _macOS_  _Windows_
 
 Emitted when system changes to battery power.
 
@@ -46,13 +46,13 @@ Emitted when a login session is deactivated. See [documentation](https://develop
 
 ## Métodos
 
-The `powerMonitor` module has the following methods:
+O módulo `powerMonitor` tem os seguintes métodos:
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+Returns `String` - The system's current state. Pode ser `active`, `idle`, `locked` ou `unknown`.
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 
