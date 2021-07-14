@@ -1,4 +1,4 @@
-# 使用 Node 原生模块
+# 使用原生 Node 模块
 
 原生Node.js模块由Electron支持，但由于Electron具有与给定Node.js不同的 [应用二进制接口 (ABI)][abi](由于使用Chromium的 BoringSL 而不是 OpenSSL 等 差异)，您使用的原生 模块需要为Electron重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
@@ -88,28 +88,27 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 ### 关于`win_delay_load_hook`的说明
 
-在Windows上，默认情况下，`node-gyp`将原生模块与`node.dll`链接。 然而，在Electron 4.x和更高的版本中，原生模块需要的symbols由`electron.exe`导出，并且没有`node.dll`。 为了在Windows上加载原生 模块 `node-gyp` 安装一个 [延迟加载 钩子](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) 当本地模块加载时触发 并重定向 `节点。 ll` 引用了使用 加载可执行文件而不是 `节点。 在书库搜索中显示` 的路径 路径(不会出现任何路径)。 因此，在 Electron 4.x 和更高版本， `'win_delay_load_hook': 'true'` 需要加载本机模块。
+在Windows上，默认情况下，`node-gyp`将原生模块与`node.dll`链接。 然而，在Electron 4.x和更高的版本中，原生模块需要的symbols由`electron.exe`导出，并且没有`node.dll`。 In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
-如果您遇到错误，如 `模块没有自注册`， 或 `无法找到指定的
-程序`这可能意味着你试图使用的模块 没有正确地包含延迟载荷钩。  如果模块是由 node-gyp, 确保将 `win_delay_load_hook` 变量设置为 `true` 在 中设置为 `绑定。 yp` 文件，不会在任何地方被忽略。  如果模块 是与另一个系统构建的， 您需要确保您在主 `安装了
-个延迟钩子来构建。 代码` 文件。 您的 `link.exe` 调用 看起来像这样：
+If you get an error like `Module did not self-register`, or `The specified
+procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook.  If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere.  If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
 
 ```plaintext
- link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib / DELAYLOAD:node.exe /DLL
+ link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
      "my_addon.obj" "win_delay_load_hook.obj"
 ```
 
-尤其重要的是：
+In particular, it's important that:
 
-* 您链接了 `node.lib` 来自 _Electron_ 而不是节点。 如果您链接到 错误的 `node.lib` 当您需要 Electron 中的 模块时，您将会遇到加载时间错误。
-* 您包含标志 `/DELAYLOAD:node.exe`。 If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-* `win_delay_load_hook.obj` 直接连接到最终的 DLL。 如果钩子 设置在依赖的 DLL 中，它不会在适当的时候开火。
+* you link against `node.lib` from _Electron_ and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
+* you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
+* `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
 
-请参阅 [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) 以示例显示延迟载荷钩，如果您正在执行自己的操作。
+See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) for an example delay-load hook if you're implementing your own.
 
 ## 依赖于 `prebuild` 的模块
 
-[`预构建`](https://github.com/prebuild/prebuild) 提供了一种发布 本机节点模块的方式，并且预建了二进制节点 和 Electron。
+[`prebuild`](https://github.com/prebuild/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
 If the `prebuild`-powered module provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
 
