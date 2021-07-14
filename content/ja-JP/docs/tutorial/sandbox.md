@@ -33,14 +33,14 @@ Electron のレンダラープロセスをサンドボックス化すると、�
 レンダラープロセスがメインプロセスと通信できるようにするため、サンドボックス化したレンダラーにアタッチされるプリロードスクリプトでは Node.js API をポリフィルしたサブセットを利用できるようになっています。 Node の `require` に似た `require` 関数のモジュールを公開してありますが、これは以下 Electron や Node の組み込みモジュールのサブセットしかインポートできません。
 
 * `electron` (レンダラープロセスのモジュールのみ)
-* [`イベント`](https://nodejs.org/api/events.html)
+* [`events`](https://nodejs.org/api/events.html)
 * [`timers`](https://nodejs.org/api/timers.html)
 * [`url`](https://nodejs.org/api/url.html)
 
 加えて、プリロードスクリプトは以下の Node.js プリミティブもグローバルとしてポリフィルします。
 
 * [`Buffer`](https://nodejs.org/api/Buffer.html)
-* [`process`](../api/process.md)
+* [`プロセス`](../api/process.md)
 * [`clearImmediate`](https://nodejs.org/api/timers.html#timers_clearimmediate_immediate)
 * [`setImmediate`](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args)
 
