@@ -123,7 +123,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('Вверх вниз слева справа b enter', () => {
+Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
 ```
