@@ -1,4 +1,4 @@
-# Atajos de teclado
+# Atajos del teclado
 
 ## Descripción general
 
