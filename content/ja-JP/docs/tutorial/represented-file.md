@@ -1,4 +1,4 @@
-# macOS の BrowserWindow が表すファイル
+# macOS の BrowserWindow の Represented File
 
 ## 概要
 
