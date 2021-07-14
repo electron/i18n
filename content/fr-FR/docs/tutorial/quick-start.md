@@ -4,11 +4,11 @@ Ce tutoriel vous guidera dans le processus de création d'une application Hello 
 
 À la fin de ce tutoriel, votre application ouvrira une fenêtre de navigateur qui affichera une page web avec des informations sur quelles versions de Chromium, de Node.js et d'Electron sont en cours d'exécution.
 
-## Prérequis
+## Prerequisites
 
 Pour utiliser Electron, vous devez installer [Node.js][node-download]. Nous vous recommandons d'utiliser la dernière version `LTS` disponible.
 
-> Veuillez installer Node.js en utilisant des installateurs pré-compilés pour votre plate-forme. Dans le cas contraire, vous pourriez rencontrer des problèmes d'incompatibilité avec différents outils de développement.
+> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
 
 Pour vérifier que Node.js a été installé correctement, tapez les commandes suivantes dans votre terminal client :
 
