@@ -1,6 +1,6 @@
 # Тег `<webview>`
 
-## Предупреждение
+## Warning
 
 Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, [Electron's `BrowserView`](browser-view.md), or an architecture that avoids embedded content altogether.
 
@@ -84,7 +84,7 @@ The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, w
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-А `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+A `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
 ### `nodeintegrationinsubframes`
 
@@ -100,7 +100,7 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-А `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
+A `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
 
 ### `plugins`
 
@@ -108,9 +108,9 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-А `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
-### `предварительная загрузка`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -144,7 +144,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-А `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+A `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -153,7 +153,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. если нет `persist:` префикса, страница будет использовать сеанс в памяти. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -163,7 +163,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-А `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+A `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -206,15 +206,15 @@ webview.addEventListener('dom-ready', () => {
 })
 ```
 
-### `<webview>.loadURL (url, опционы)`
+### `<webview>.loadURL(url[, options])`
 
 * `url` URL
 * `options` Object (опционально)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
-  * `userAgent` String (опционально) - user-agent, создающий запрос.
-  * `extraHeaders` String (опционально) - Дополнительные заголовки, разделенные "\n"
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `userAgent` String (optional) - A user agent originating the request.
+  * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
-  * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
@@ -541,7 +541,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - фактор увилечения.
+* `factor` Number - Zoom factor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
@@ -600,8 +600,8 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 Возвращает:
 
 * `errorCode` Integer
-* Строка `errorDescription`
-* Строка `validatedURL`
+* `errorDescription` String
+* `validatedURL` String
 * `isMainFrame` Boolean
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
@@ -658,7 +658,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 * `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
-* Строка `sourceId`
+* `sourceId` String
 
 Fired when the guest window logs a console message.
 
@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 Возвращает:
 
-* Объект `result`
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -694,7 +694,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Событие: 'new-window'
+### Event: 'new-window'
 
 Возвращает:
 
@@ -796,7 +796,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Событие: 'crashed'
+### Event: 'crashed'
 
 Fired when the renderer process is crashed.
 
