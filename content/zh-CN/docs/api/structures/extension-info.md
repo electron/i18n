@@ -1,4 +1,4 @@
-# 扩展信息对象
+# ExtensionInfo Object
 
 * `name` String
 * `version` String
