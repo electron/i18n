@@ -4,8 +4,8 @@ Estas guías están pensadas para gente que trabaja en el proyecto Electron. Par
 
 * [Código de conducta](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
 * [Contribuyendo a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
-* [Problemas](issues.md)
-* [Pull Requests](pull-requests.md)
+* [Informes de problemas](issues.md)
+* [Solicitudes de Extracción](pull-requests.md)
 * [Documentación guía de estilos](coding-style.md#documentation)
 * [Estructura de directorios del código fuente](source-code-directory-structure.md)
 * [Estilo de código](coding-style.md)
