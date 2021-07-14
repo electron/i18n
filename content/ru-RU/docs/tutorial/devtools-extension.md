@@ -24,7 +24,7 @@ Using the [React Developer Tools][react-devtools] as an example:
      * `~/.config/google-chrome-canary/Default/Extensions/`
      * `~/.config/chromium/Default/Extensions/`
    * в macOS это `~/Library/Application Support/Google/Chrome/Default/Extensions`.</ul></li>
-1 Передайте местоположение расширения в [`ses.loadExtension`][load-extension] API. Для React Developer Tools `v4.9.0`, это выглядит как:
+1 Передайте местоположение расширения в [`ses.loadExtension`][load-extension] API. For React Developer Tools `v4.9.0`, it looks something like:
 
    ```javascript
     const { app, session } = require('electron')
@@ -60,14 +60,14 @@ Electron only supports [a limited set of `chrome.*` APIs][supported-extension-ap
 The following Devtools extensions have been tested to work in Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-* [Инструменты React разработчика](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-* [Верхний отладчик](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
-* [jQuery Отладчик](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
+* [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+* [Backbone Debugger](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
+* [jQuery Debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-* [Церебральный отладчик](https://cerebraljs.com/docs/introduction/devtools.html)
-* [Расширение Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
-* [Инструменты разработчика MobX](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
+* [Cerebral Debugger](https://cerebraljs.com/docs/introduction/devtools.html)
+* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
 ### What should I do if a DevTools extension is not working?
 
