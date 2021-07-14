@@ -149,7 +149,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
 
 | Host        | Target        | Состояние                 |
 | ----------- | ------------- | ------------------------- |
-| Windows x64 | Windows arm64 | Экспериментально          |
+| Windows x64 | Windows arm64 | Experimental              |
 | Windows x64 | Windows x86   | Автоматически тестировано |
 | Linux x64   | Linux x86     | Автоматически тестировано |
 
