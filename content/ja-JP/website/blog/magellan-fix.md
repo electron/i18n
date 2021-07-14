@@ -1,36 +1,36 @@
 ---
-title: SQLite の脆弱性の修正
+title: SQLite Vulnerability Fix
 author: ckerr
 date: '2018-12-18'
 ---
 
-リモートコード実行の脆弱性 "[Magellan](https://blade.tencent.com/magellan/index_en.html)" が発見されました。SQLite、Chromium、全バージョンの Electron ベースのソフトウェアに影響します。
+A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
 
 ---
 
-## 影響範囲
+## Scope
 
-Web SQL を使用する Electron アプリケーションが影響を受けます。
+Electron applications using Web SQL are impacted.
 
 
-## 緩和策
+## Mitigation
 
-影響を受けるアプリは、Web SQL を使用停止するか、パッチを当てたバージョンの Electron にアップグレードする必要があります。
+Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
 
-以下の通り、この脆弱性に対する修正を含む新しいバージョンの Electron を公開しました。
+We've published new versions of Electron which include fixes for this vulnerability:
   * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
   * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-これに関する被害報告はありませんが、影響を受けるアプリケーションは緩和策を実施してください。
+There are no reports of this in the wild; however, affected applications are urged to mitigate.
 
-## 詳細情報
+## Further Information
 
-この脆弱性は Tencent Blade チームによって発見されました。彼らは [この脆弱性について論じたブログ記事](https://blade.tencent.com/magellan/index_en.html) を公開しています。
+This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
 
-Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル][] を参照してください。
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
-Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。
+If you wish to report a vulnerability in Electron, email security@electronjs.org.
 
-[セキュリティチュートリアル]: https://electronjs.org/docs/tutorial/security
+[security tutorial]: https://electronjs.org/docs/tutorial/security
