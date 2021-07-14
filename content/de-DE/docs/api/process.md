@@ -36,7 +36,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `windowsStore`
 * `contextId`
 
-## Ereignisse
+## Events
 
 ### Event: 'loaded'
 
@@ -46,7 +46,7 @@ Emitted when Electron has loaded its internal initialization script and is begin
 
 ### `process.defaultApp` _Readonly_
 
-Ein `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
@@ -54,7 +54,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Readonly_
 
-Ein `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
@@ -70,7 +70,7 @@ A `String` representing the path to the resources directory.
 
 ### `process.sandboxed` _Readonly_
 
-Ein `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.contextIsolated` _Readonly_
 
@@ -106,7 +106,7 @@ A `String` representing Electron's version string.
 
 ### `process.windowsStore` _Readonly_
 
-Ein `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ### `process.contextId` _Readonly_
 
@@ -201,7 +201,7 @@ console.log(version)
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
-Erstellt einen V8-Heap-Snapshot und speichert ihn in `filePath`.
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
