@@ -2,7 +2,7 @@
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 El módulo `session` puede ser usado para crear nuevos objetos `session`.
 
@@ -46,7 +46,7 @@ Un objeto `Session`, es el objeto de session de la aplicación por defecto.
 
 > Obtener y configurar las propiedades de una sesión.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Puede crear un objeto `Session` en el módulo `session`:
 
@@ -64,7 +64,7 @@ Los siguientes eventos están disponibles en instancias de `Session`:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -86,7 +86,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. Esto incluye:
@@ -100,7 +100,7 @@ Emitted after an extension is loaded. This occurs whenever an extension is added
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
@@ -109,7 +109,7 @@ Emitted after an extension is unloaded. This occurs when `Session.removeExtensio
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
@@ -118,7 +118,7 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `preconnectUrl` String - La URL que esta siendo solicitada para preconexión por el renderer.
 * `allowCredentials` Boolean - True si el renderer está solicitando que la conexión incluya las credenciales (vea el [especificación](https://w3c.github.io/resource-hints/#preconnect) para más detalles.)
 
@@ -128,7 +128,7 @@ Emitido cuando un render process solicita preconexión a una URL, generalmente d
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
@@ -137,7 +137,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitido cuando un archivo de diccionario hunspell se comienza a descargar
@@ -146,7 +146,7 @@ Emitido cuando un archivo de diccionario hunspell se comienza a descargar
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitido cuando un archivo de diccionario hunspell se ha descargado correctamente
@@ -155,7 +155,7 @@ Emitido cuando un archivo de diccionario hunspell se ha descargado correctamente
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `languageCode` String - El código de idioma del archivo de diccionario
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
@@ -164,7 +164,7 @@ Emitted when a hunspell dictionary file download fails.  For details on the fail
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `portList` [SerialPort[]](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 * `callback` Función
@@ -206,7 +206,7 @@ app.whenReady().then(() => {
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -216,7 +216,7 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -251,7 +251,7 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 
 #### `ses.setProxy(config)`
 
-* Objeto `config`
+* `config` Object
   * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
     * `direct` In direct mode all connections are created directly, without any proxy involved.
     * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
@@ -296,7 +296,7 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
 
    Une todos los nombres que coinciden con el patrón HOSTNAME_PATTERN.
 
-   Ejemplos: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
 * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -324,7 +324,7 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
 
 * `url` URL
 
-Devuelve `Promise<String>` - Se resuelve con la información del proxy para `url`.
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.forceReloadProxyConfig()`
 
@@ -332,14 +332,14 @@ Returns `Promise<void>` - Resolves when the all internal states of proxy service
 
 #### `ses.setDownloadPath(path)`
 
-* `ruta` Cadena - la ubicación de descarga.
+* `path` String - The download location.
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (optional) - Whether to emulate network outage. Por defecto es false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -362,7 +362,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * `options` Object
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Por defecto es 1.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
 Preconecta el número dado de sockets a un origen.
 
@@ -381,8 +381,8 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function | null
   * Objeto `request`
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
-    * `validatedCertificate` [certificate](structures/certificate.md)
+    * `certificate` [certificate](structures/certificate.md)
+    * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Resultado de la verificación de chromium.
     * `errorCode` Integer - Código de error.
   * `callback` Función
@@ -519,8 +519,8 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 
 #### `ses.setSSLConfig(config)`
 
-* Objeto `config`
-  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Por defecto a `tls1`.
+* `config` Object
+  * `minVersion` String (opcional) - Puede ser `tls1`, `tls1.1`, `tls1.2` o `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Por defecto a `tls1`.
   * `maxVersion` String (opcional) - Puede ser `tls1.2` o `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Por defecto es `tls1.3`.
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
@@ -626,7 +626,7 @@ Devuelve `Boolean` - Si la palabra fue eliminada con éxito del diccionario pers
 
 * `path` String - Path to a directory containing an unpacked Chrome extension
 * `options` Object (opcional)
-  * `allowFileAccess` Boolean - Si permitir que la extensión lea los archivos locales sobre el protocolo `file://` e inyecte scripts contenido dentro de las páginas `file://`. Esto es necesario por ejemplo para cargar las extensiones devtools en las URLs `file://`. Por defecto es false.
+  * `allowFileAccess` Boolean - Si permitir que la extensión lea los archivos locales sobre el protocolo `file://` e inyecte scripts contenido dentro de las páginas `file://`. Esto es necesario por ejemplo para cargar las extensiones devtools en las URLs `file://`. Por defecto es falso.
 
 Devuelve `Promise<Extension>` - se resuelve cuando la extensión está cargada.
 
@@ -683,19 +683,19 @@ Devuelve `Extension[]` - Una lista de todas las extensiones cargadas.
 
 A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
 #### `ses.availableSpellCheckerLanguages` _Readonly_
 
-Un array `String[]` que consiste en todos los idiomas conocidos disponibles para el corrector ortográfico.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
+Un array `String[]` que consiste en todos los idiomas conocidos disponibles para el corrector ortográfico.  Proporcionar un código de lenguaje a la API `setSpellCheckerLanguages` que no este en este array resultará en un error.
 
 #### `ses.spellCheckerEnabled`
 
 A `Boolean` indicating whether builtin spell checker is enabled.
 
-#### `ses.storagePath` _Readonly_
+#### `ses.storagePath` _SoloLectura_
 
 A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
 
@@ -703,9 +703,9 @@ A `String | null` indicating the absolute file system path where data for this s
 
 Un objeto [`Cookies`](cookies.md) para esta sesión.
 
-#### `ses.serviceWorkers` _Readonly_
+#### `ses.serviceWorkers` _SoloLectura_
 
-A [`ServiceWorkers`](service-workers.md) object for this session.
+Un objeto [`ServiceWorkers`](service-workers.md) para esta sesión.
 
 #### `ses.webRequest` _Readonly_
 
