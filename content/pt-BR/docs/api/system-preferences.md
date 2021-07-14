@@ -261,7 +261,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-frame` - Window frame.
     * `window-text` - Text in windows.
   * On **macOS**
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _deprecated_
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. _descontinuado_
     * `control-background` - The background of a large interface element, such as a browser or table.
     * `control` - The surface of a control.
     * `control-text` -The text of a control that isn’t disabled.
@@ -388,7 +388,7 @@ This user consent was not required on macOS 10.13 High Sierra or lower so this m
 
 Windows 10 has a global setting controlling `microphone` and `camera` access for all win32 applications. It will always return `granted` for `screen` and for all media types on older versions of Windows.
 
-### `systemPreferences.askForMediaAccess(mediaType)` _macOS_
+### `systemPreferences.askForMediaAccess(mediaType)` no _macOS_
 
 * `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
 
@@ -410,7 +410,7 @@ Returns an object with system animation settings.
 
 ## Propriedades
 
-### `systemPreferences.appLevelAppearance` _macOS_
+### `systemPreferences.appLevelAppearance` no _macOS_
 
 A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
