@@ -1,86 +1,86 @@
 ---
-title: 'Electron の舞台裏: Chromium をライブラリとしてビルドする'
+title: 'Electron Internals: Building Chromium as a Library'
 author: zcbenz
 date: '2017-03-03'
 ---
 
-Electron は、Google のオープンソースプロジェクト Chromium をベースにしています。このプロジェクトは、他のプロジェクトで使用することを想定していません。 この記事では、Electron のライブラリとしての Chromium がどのように構築されているのか、またビルドシステムがどのように進化してきたのかを紹介します。
+Electron is based on Google's open-source Chromium, a project that is not necessarily designed to be used by other projects. This post introduces how Chromium is built as a library for Electron's use, and how the build system has evolved over the years.
 
 ---
 
-## CEF の利用
+## Using CEF
 
-Chromium Embedded Framework (CEF) は、Chromium をライブラリ化し、Chromium のコードベースに基づいて安定した API を提供するプロジェクトです。 黎明期の Atom エディタや NW.js では CEF を使用していました。
+The Chromium Embedded Framework (CEF) is a project that turns Chromium into a library, and provides stable APIs based on Chromium's codebase. Very early versions of Atom editor and NW.js used CEF.
 
-安定した API を維持するために、CEF は Chromium の詳細をすべて隠蔽し、独自のインターフェースで Chromium の API をラップします。 そのため、Node.js をウェブページに統合するような、内部の Chromium API にアクセスする必要があったとき、CEF の利点が障害になりました。
+To maintain a stable API, CEF hides all the details of Chromium and wraps Chromium's APIs with its own interface. So when we needed to access underlying Chromium APIs, like integrating Node.js into web pages, the advantages of CEF became blockers.
 
-そのため、結局 Electron も NW.js も Chromium の API を直接使うように切り替えました。
+So in the end both Electron and NW.js switched to using Chromium's APIs directly.
 
-## Chromium を部品としてビルドする
+## Building as part of Chromium
 
-Chromium は公式には外部プロジェクトをサポートしていませんが、コードベースはモジュール化されており、Chromium をベースに小さなブラウザを簡単に構築できます。 ブラウザインターフェイスを提供するコアモジュールは、コンテンツモジュールと呼ばれています。
+Even though Chromium does not officially support outside projects, the codebase is modular and it is easy to build a minimal browser based on Chromium. The core module providing the browser interface is called Content Module.
 
-コンテンツモジュールでプロジェクトを開発する際は、Chromium をプロジェクトの部品としてビルドするのが一番簡単です。 このためには、まず Chromium のソースコードをチェックアウトしてから、プロジェクトを Chromium の `DEPS` ファイルに追加します。
+To develop a project with Content Module, the easiest way is to build the project as part of Chromium. This can be done by first checking out Chromium's source code, and then adding the project to Chromium's `DEPS` file.
 
-NW.js や Electron の非常に初期のバージョンでは、このようなビルド方法を使用しています。
+NW.js and very early versions of Electron are using this way for building.
 
-この欠点は、Chromium がとても大きいコードベースであるため、相応に強力な マシンでビルドする必要があるということです。 一般的なラップトップであれば、5 時間以上かかります。 そのため、貢献できる開発者の数に多大な影響を与え、開発も遅くなりかねません。
+The downside is, Chromium is a very large codebase and requires very powerful machines to build. For normal laptops, that can take more than 5 hours. So this greatly impacts the number of developers that can contribute to the project, and it also makes development slower.
 
-## 単一の共有ライブラリとして Chromium をビルドする
+## Building Chromium as a single shared library
 
-コンテンツモジュールのユーザからすれば、ほとんどの場合で Electron が Chromium のコードを修正する必要はないので、Electron のビルドを改善する明白な方法は Chromium を共有ライブラリとしてビルドして Electron 内でそれをリンクすることです。 これにより、開発者は Electron に貢献する際に Chromium すべてをビルドする必要がなくなります。
+As a user of Content Module, Electron does not need to modify Chromium's code under most cases, so an obvious way to improve the building of Electron is to build Chromium as a shared library, and then link with it in Electron. In this way developers no longer need to build all off Chromium when contributing to Electron.
 
-[libchromiumcontent][] プロジェクトは [@aroben](https://github.com/aroben) によってこのために作成されました。 これは、Chromium のコンテンツモジュールを共有ライブラリとしてビルドし、Chromium のヘッダとビルド済みバイナリをダウンロードできるようにします。 libchromiumcontent の初期バージョンのコードは [こちらのリンクに][libcc-classic] あります。
+The [libchromiumcontent][] project was created by [@aroben](https://github.com/aroben) for this purpose. It builds the Content Module of Chromium as a shared library, and then provides Chromium's headers and prebuilt binaries for download. The code of the initial version of libchromiumcontent can be found [in this link][libcc-classic].
 
-libchromiumcontent の一部として [brightray][] プロジェクトも生まれました。これはコンテンツモジュールの周りに薄い層を提供します。
+The [brightray][] project was also born as part of libchromiumcontent, which provides a thin layer around Content Module.
 
-libchromiumcontent と brightray を併用することで、開発者は Chromium のビルドの詳細に踏み込まずに素早くブラウザをビルドできます。 そして、プロジェクトをビルドするための高速なネットワークと強力なマシンが必要なくなります。
+By using libchromiumcontent and brightray together, developers can quickly build a browser without getting into the details of building Chromium. And it removes the requirement of a fast network and powerful machine for building the project.
 
-Electron 以外に、[Breach ブラウザ][breach] のように、この方法でビルドされた Chromium をベースにしたプロジェクトもあります。
+Apart from Electron, there were also other Chromium-based projects built in this way, like the [Breach browser][breach].
 
-## エクスポートしたシンボルのフィルタリング
+## Filtering exported symbols
 
-Windows では、単一の共有ライブラリでエクスポートできるシンボル数に制限があります。 Chromium のコードベースが大きくなるにつれ、libchromiumcontent がエクスポートするシンボル数はすぐに制限を超えてしまいました。
+On Windows there is a limitation of how many symbols one shared library can export. As the codebase of Chromium grew, the number of symbols exported in libchromiumcontent soon exceeded the limitation.
 
-これは、DLL ファイル生成時に不要なシンボルをフィルタリングすることで解決しました。 [リンカに `.def` ファイルを提供し][libcc-def]、[名前空間の中にあるシンボルをエクスポートするかどうか判断する][libcc-filter] スクリプトを使うようにしました。
+The solution was to filter out unneeded symbols when generating the DLL file. It worked by [providing a `.def` file to the linker][libcc-def], and then using a script to [judge whether symbols under a namespace should be exported][libcc-filter].
 
-このアプローチを取ることで、Chromium がエクスポートされたシンボルを新しく追加し続けても、libchromiumcontent はより多くシンボルを削除することで共有ライブラリファイルを生成できるようになりました。
+By taking this approach, though Chromium kept adding new exported symbols, libchromiumcontent could still generate shared library files by stripping more symbols.
 
-## コンポーネントビルド
+## Component build
 
-libchromiumcontent の次の段階の話をする前に、まずは Chromium におけるコンポーネントビルドの概念を紹介しておきます。
+Before talking about the next steps taken in libchromiumcontent, it is important to introduce the concept of component build in Chromium first.
 
-巨大プロジェクトであるため、Chromium ではビルド時のリンクの段階で非常に長い時間がかかってしまいます。 大抵、開発者がちょっとした変更を加えると、最終的な出力が得られるまで 10 分ほどかかります。 これを解決するため、Chromium ではコンポーネントビルドを導入しました。Chromium 内の各モジュールを分離された共有ライブラリとしてビルドすることで、最終的なリンク作業に費やす時間が気にならないようにしました。
+As a huge project, the linking step takes very long in Chromium when building. Normally when a developer makes a small change, it can take 10 minutes to see the final output. To solve this, Chromium introduced component build, which builds each module in Chromium as separated shared libraries, so the time spent in the final linking step becomes unnoticeable.
 
-## 生バイナリの頒布
+## Shipping raw binaries
 
-Chromium が成長を続ける中で、Chromium のエクスポートされたシンボルがあまりにも多くなり、コンテンツモジュールや Webkit のシンボルですらも制限を超えるようになりました。 シンボルを削減するだけでは、使用可能な共有ライブラリを生成できなくなったのです。
+With Chromium continuing to grow, there were so many exported symbols in Chromium that even the symbols of Content Module and Webkit were more than the limitation. It was impossible to generate a usable shared library by simply stripping symbols.
 
-最終的に、単一の共有ライブラリを生成する代わりに [Chromium の生バイナリを頒布][libcc-gyp] しなければなりませんでした。
+In the end, we had to [ship the raw binaries of Chromium][libcc-gyp] instead of generating a single shared library.
 
-先ほど紹介したように、Chromium には 2 つのビルドモードがあります。 生のバイナリを頒布した結果、libchromiumcontent ではバイナリに対して 2 種類のディストリビューションを頒布しなければならなくなりました。 1 つは `static_library` ビルドと呼ばれるもので、Chromium の通常ビルドで生成された各モジュールすべての静的ライブラリをインクルードします。 もう 1 つは `shared_library` で、コンポーネントビルドで生成された各モジュールの共有ライブラリすべてをインクルードします。
+As introduced earlier there are two build modes in Chromium. As a result of shipping raw binaries, we have to ship two different distributions of binaries in libchromiumcontent. One is called `static_library` build, which includes all static libraries of each module generated by the normal build of Chromium. The other is `shared_library`, which includes all shared libraries of each module generated by the component build.
 
-Electron では、デバッグ版を libchromiumcontent の `shared_library` 版とリンクしています。これは、ダウンロードが少なく、最終的な実行ファイルをリンクする際に時間がかからないためです。 また、リリース版の Electron は libchromiumcontent の `static_library` 版とリンクしています。コンパイラはデバッグに重要なシンボルを完全に生成でき、リンカはどのオブジェクトファイルが必要かそうでないかを知っているため、より良い最適化を行えます。
+In Electron, the Debug version is linked with the `shared_library` version of libchromiumcontent, because it is small to download and takes little time when linking the final executable. And the Release version of Electron is linked with the `static_library` version of libchromiumcontent, so the compiler can generate full symbols which are important for debugging, and the linker can do much better optimization since it knows which object files are needed and which are not.
 
-そのため、通常の開発において開発者はデバッグ版をビルドするだけでよく、良好なネットワークや強力なマシンは不要です。 リリース版では、ビルドにより良いハードウェアを必要としますが、より最適化されたバイナリを生成できます。
+So for normal development, developers only need to build the Debug version, which does not require a good network or powerful machine. Though the Release version then requires much better hardware to build, it can generate better optimized binaries.
 
-## `gn` の更新
+## The `gn` update
 
-世界的に見ても最大級のプロジェクトであるため、通常のビルドシステムはほとんど Chromium のビルドには適していません。Chromium チームは独自のビルドツールを開発しています。
+Being one of the largest projects in the world, most normal systems are not suitable for building Chromium, and the Chromium team develops their own build tools.
 
-初期バージョンの Chromium はビルドシステムとして `gyp` を使用していましたが、動作が遅く、複雑なプロジェクトでは設定ファイルがわかりづらくなるという問題がありました。 何年もの開発の後に、Chromium はビルドシステムを `gn` に切り替えました。こちらの方がはるかに高速で明確なアーキテクチャとなっています。
+Earlier versions of Chromium were using `gyp` as a build system, but it suffers from being slow, and its configuration file becomes hard to understand for complex projects. After years of development, Chromium switched to `gn` as a build system, which is much faster and has a clear architecture.
 
-`gn` の改良点の一つは、オブジェクトファイルのグループを表す `source_set` を導入したことです。 `gyp` では、各モジュールは `static_library` か `shared_library` のいずれかで表現されます。Chromium の通常のビルドでは、各モジュールの静的ライブラリを生成し、最終的な実行ファイルへリンクしていました。 `gn` を使うと、各モジュールはオブジェクトファイルの集まりだけを生成し、最終的な実行ファイルには全オブジェクトファイルをリンクするだけなので、中間の静的ライブラリファイルは生成されなくなります。
+One of the improvements of `gn` is to introduce `source_set`, which represents a group of object files. In `gyp`, each module was represented by either `static_library` or `shared_library`, and for the normal build of Chromium, each module generated a static library and they were linked together in the final executable. By using `gn`, each module now only generates a bunch of object files, and the final executable just links all the object files together, so the intermediate static library files are no longer generated.
 
-しかし、この改善は libchromiumcontent に大きなお世話でした。なぜなら、中間の静的ライブラリファイルは libchromiumcontent が実際に必要としていたのです。
+This improvement however made great trouble to libchromiumcontent, because the intermediate static library files were actually needed by libchromiumcontent.
 
-これを解決する最初の試みは、[静的ライブラリファイルを生成するように `gn` にパッチを当てる][libcc-gn-hack] ことでした、これで問題は解決しましたが、まともな解決策には程遠いものでした。
+The first try to solve this was to [patch `gn` to generate static library files][libcc-gn-hack], which solved the problem, but was far from a decent solution.
 
-2 つ目の試みは、[@alespergl](https://github.com/alespergl) による、[オブジェクトファイルのリストからカスタムの静的ライブラリを生成する][libcc-gn] ものでした。 これは、最初にダミービルドを実行して生成されたオブジェクトファイルのリストを収集してから、`gn` にそのリストを与えて静的ライブラリを実際にビルドするという仕掛けでした。 これは Chromium のソースコードを最小限変更しただけで、Electron のビルドアーキテクチャはそのままです。
+The second try was made by [@alespergl](https://github.com/alespergl) to [produce custom static libraries from the list of object files][libcc-gn]. It used a trick to first run a dummy build to collect a list of generated object files, and then actually build the static libraries by feeding `gn` with the list. It only made minimal changes to Chromium's source code, and kept Electron's building architecture still.
 
-## 概要
+## Summary
 
-このように、Electron を Chromium の一部として構築するのに比べて、ライブラリとして Chromium を構築するにはより多くの労力と継続的なメンテナンスが必要になります。 しかし、後者は Electron のビルドに強力なハードウェアが不要となるため、より多くの開発者が Electron をビルドして貢献できるようになります。 この努力はそれだけの価値があります。
+As you can see, compared to building Electron as part of Chromium, building Chromium as a library takes greater efforts and requires continuous maintenance. However the latter removes the requirement of powerful hardware to build Electron, thus enabling a much larger range of developers to build and contribute to Electron. The effort is totally worth it.
 
 [libchromiumcontent]: https://github.com/electron/libchromiumcontent
 [brightray]: https://github.com/electron/brightray
