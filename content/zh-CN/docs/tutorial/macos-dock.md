@@ -6,7 +6,7 @@ Electron有API来配置macOS Dock中的应用程序图标。 A macOS-only API ex
 
 __Terminal.app 的 Dock 菜单:__
 
-![基座菜单][3]
+![Dock Menu][3]
 
 要设置您的自定义 dock 菜单，您需要使用 [`app.dock.setmenu`](../api/dock.md#docksetmenumenu-macos) API，它仅在 macOS 上可用。
 
@@ -60,7 +60,7 @@ app.on('activate', () => {
 
 ```
 
-启动 Electron 应用程序后，右键点击应用程序图标。 您应该可以看到您刚刚设置的自定义菜单：
+After launching the Electron application, right click the application icon. 您应该可以看到您刚刚设置的自定义菜单：
 
 ![macOS dock 菜单](../images/macos-dock-menu.png)
 
