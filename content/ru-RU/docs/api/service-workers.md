@@ -33,7 +33,7 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
@@ -48,7 +48,7 @@ Emitted when a service worker logs something to the console.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `details` Object - Information about the registered service worker
   * `scope` String - The base URL that a service worker is registered for
 
