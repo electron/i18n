@@ -1,4 +1,4 @@
-# 剪贴板
+# clipboard
 
 > 在系统剪贴板上执行复制和粘贴操作。
 
@@ -123,7 +123,7 @@ clipboard.writeRTF(rtf)
 
 ### `clipboard.readBookmark()` _macOS_ _Windows_
 
-返回 ` Object `:
+返回 `Object`:
 
 * `title` String
 * `url` String
