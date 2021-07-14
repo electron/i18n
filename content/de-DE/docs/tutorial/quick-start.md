@@ -8,7 +8,7 @@ By the end of this tutorial, your app will open a browser window that displays a
 
 To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
 
-> Bitte installieren Sie Node.js mit vorkompilierten Installern für Ihre Plattform. Andernfalls könnten Inkompatibilitätsprobleme mit verschiedenen Entwicklungstools auftreten.
+> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
 
 To check that Node.js was installed correctly, type the following commands in your terminal client:
 
