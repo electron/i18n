@@ -52,7 +52,7 @@ IpcMain模块有以下方法来侦听事件：
   * `event` IpcMainEvent
   * `...args` any[]
 
-监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
+监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
 
 ### `ipcMain.once(channel, listener)`
 
@@ -69,13 +69,13 @@ IpcMain模块有以下方法来侦听事件：
 * `listener` Function
   * `...args` any[]
 
-从监听器数组中移除监听 `channel` 的指定 `listener`。
+为特定的 channel 从监听队列中删除特定的 listener 监听者.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String (optional)
 
-删除所有监听者，或特指的 channel 的所有监听者.
+移除所有指定 channel 的监听器； 若未指定 channel，则移除所有监听器。
 
 ### `ipcMain.handle(channel, listener)`
 
@@ -84,7 +84,7 @@ IpcMain模块有以下方法来侦听事件：
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-为一个 `invoke`able IPC 添加一个处理器。 每当一个渲染进程调用 `ipcRenderer.invoke(channel, ...args)` 时这个处理器就会被调用。
+为一个 `invokeable`的IPC 添加一个handler。 每当一个渲染进程调用 `ipcRenderer.invoke(channel, ...args)` 时这个处理器就会被调用。
 
 If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
 
