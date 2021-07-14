@@ -1,12 +1,12 @@
 # Cookie Object
 
-* `name` String - O nome do cookie.
-* `value` String - O valor do cookie.
-* `domain` String (opcional) - O domínio do cookie; isto será normalizado com um ponto no início para que ele também seja válido para subdomínios.
-* `hostOnly` Boolean (opcional) - Se o cookie é host-only; isso será `true` apenas se nenhum domínio foi passado.
-* `path` String (opcional) - O Diretório do cookie.
-* `secure` Boolean (opcional) - Se o cookie está marcado como seguro.
-* `httpOnly` Boolean (opcional) - Se o cookie está marcado como apenas HTTP.
-* `session` Boolean (optional) - Se o cookie é um cookie de sessão ou um cookie persistente com uma data de expiração.
-* `expirationDate` Double (optional) - A data de validade do cookie como o número de segundos desde a época da UNIX. Não fornecida em cookies de sessão.
-* `sameSite` String - A política de [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) aplicada a este cookie.  Pode ser `unspecified`, `no_restriction`, `lax` ou `strict`.
+* `name` String - The name of the cookie.
+* `value` String - The value of the cookie.
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
+* `path` String (optional) - The path of the cookie.
+* `secure` Boolean (optional) - Whether the cookie is marked as secure.
+* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
+* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.
