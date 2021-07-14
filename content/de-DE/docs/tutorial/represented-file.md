@@ -1,10 +1,10 @@
-# Repräsentierte Datei für macOS BrowserWindows
+# Repräsentative Datei für macOS BrowserWindows
 
 ## Übersicht
 
 On macOS, you can set a represented file for any window in your application. The represented file's icon will be shown in the title bar, and when users `Command-Click` or `Control-Click`, a popup with a path to the file will be shown.
 
-![Repräsentierte Datei][1]
+![Represented File][1]
 
 > NOTE: The screenshot above is an example where this feature is used to indicate the currently opened file in the Atom text editor.
 
