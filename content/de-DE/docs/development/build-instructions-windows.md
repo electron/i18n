@@ -33,7 +33,7 @@ Siehe [Build Instruktionen: GN](build-instructions-gn.md)
 
 ## 32-Bit-Build
 
-Um für das 32-Bit-Ziel zu bauen, müssen Sie `target_cpu = "x86"` als GN- arg übergeben. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
