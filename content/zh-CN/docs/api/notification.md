@@ -14,7 +14,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification`是一个[EventEmitter][event-emitter].
 
 通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
