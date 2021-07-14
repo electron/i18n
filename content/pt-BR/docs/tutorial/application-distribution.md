@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Para distribuir seu aplicativo com o Electron, você precisa empacotar e remarcá-lo. To do this, you can either use specialized tooling or manual approaches.
+To distribute your app with Electron, you need to package and rebrand it. To do this, you can either use specialized tooling or manual approaches.
 
 ## With tooling
 
@@ -103,7 +103,7 @@ Você pode renomear o executável `electron` para qualquer nome que você quiser
 
 ### Rebranding by rebuilding Electron from source
 
-Também é possível remarcar o Electron mudando o nome do produto e construindo a partir fonte. Para fazer isso, você precisa definir o argumento de compilação correspondente ao nome do produto (`electron_product_name = "NomeDoDoProduto"`) nos `argumentos. n` arquivo e reconstruir.
+Também é possível remarcar o Electron mudando o nome do produto e construindo a partir fonte. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 [asar]: https://github.com/electron/asar
 
