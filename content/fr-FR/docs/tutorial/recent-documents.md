@@ -12,7 +12,7 @@ __Menu application du dock :__
 
 ![Dock de macOS][2]
 
-## Exemple
+## Example
 
 ### Gestiçon des documents récents
 
@@ -55,7 +55,7 @@ app.on('activate', () => {
 
 Utilisez l'API [app.addRecentDocument][addrecentdocument] pour ajouter un fichier aux documents récents .
 
-Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet. Vous devriez voir `recently-used.md` ajouté à la liste des fichiers récents :
+After launching the Electron application, right click the application icon. Dans ce guide, l'élément est un fichier Markdown situé à la racine du projet. Vous devriez voir `recently-used.md` ajouté à la liste des fichiers récents :
 
 ![Document récent](../images/recent-documents.png)
 
@@ -63,7 +63,7 @@ Après avoir lancé l'application Electron, faites un clic droit sur l'icône de
 
 Pour effacer la liste des documents récents, utilisez l'API [app.clearRecentDocuments][clearrecentdocuments]. Dans ce guide, la liste des documents est effacée lorsque toutes les fenêtres ont été fermées.
 
-## Informations complémentaires
+## Additional information
 
 ### Remarques Windows
 
