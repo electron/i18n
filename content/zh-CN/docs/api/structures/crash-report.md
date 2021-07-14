@@ -1,4 +1,4 @@
-# 崩溃报告对象
+# CrashReport Object
 
-* `date` 字符串
+* `date` Date
 * `id` String
