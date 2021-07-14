@@ -113,7 +113,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `width` Entier (facultatif) - Largeur de la fenêtre en pixels. Le Defaut est`800`.
   * `height` Entier (facultatif) - Hauteur de la fenêtre en pixels. Defaut es `600`.
   * `x` Entier (optionel) - (**obligatoire** si y n'est pas utilise) Le décalage de la fenêtre a été effacé de l'écran. Le defaut est de centrer la fenetre.
@@ -141,7 +141,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `show` Boolean (optional) - Whether window should be shown when created. La valeur par défaut est `true`.
   * `paintWhenInitiallyHidden` Boolean (facultatif) - Si le moteur de rendu doit être actif lorsque `show` est `false` et qu'il vient d'être créé.  Afin que `document.visibilityState` fonctionne correctement lors du premier chargement avec `show: false` vous devez définir ceci à `false`.  Mettre ceci à `false` fera que l'événement `prêt-à-montrer` ne sera pas déclenché.  La valeur par défaut est `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). La valeur par défaut est `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Par défaut la valeur est `null`.
+  * `parent` BrowserWindow (optional) - Specify parent window. `null` par défaut.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Par défaut la valeur est `false`.
   * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. La valeur par défaut est `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Par défaut la valeur est `false`.
@@ -157,7 +157,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Par défaut la valeur est `default`. Les valeurs possibles sont :
+  * `titleBarStyle` String (optional) - The style of window title bar. `default` par défaut. Les valeurs possibles sont :
     * `default` - Résultats dans la barre de titre standard de Mac opaque gris.
     * `Caché` - Résultats dans une barre de titre cachée et une fenêtre de contenu en pleine taille, encore la barre de titre a toujours les contrôles standards de la fenêtre ("feux de circulation") dans en haut à gauche.
     * `hiddenInset` - Résultats dans une barre de titre cachée avec un look alternatif où les boutons du feu de circulation sont légèrement plus insérables à partir du bord de la fenêtre.
@@ -180,7 +180,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `session` [Session](session.md#class-session) (facultatif) - Définit la session utilisée par la page . Au lieu de passer l'objet Session directement, vous pouvez également choisir d'utiliser l'option `partition` à la place, qui accepte une chaîne de partition. Lorsque `session` et `partition` sont fournies, `session` sera préférée. La session par défaut est celle par défaut.
     * `partition` String (facultatif) - Définit la session utilisée par la page en fonction de la chaîne de partition de la session . Si `partition` commence par `persist:`, la page utilisera une session persistante disponible pour toutes les pages de l'application avec le même `partition`. S'il n'y a pas de préfixe `persistant:`, la page utilisera une session en mémoire . En assignant la même `partition`, plusieurs pages peuvent partager la même session. La session par défaut est celle par défaut.
     * `affinity` String (facultatif) - Lorsque spécifié, les pages web avec le même `affinity` s'exécuteront dans le même processus de rendu . Notez que en raison de la réutilisation du processus du moteur de rendu certaines options `webPreferences` seront également partagées entre les pages web, même lorsque vous avez spécifié des valeurs différentes pour elles, incluant mais non limité à `preload`, `sandbox` et `nodeIntegration`. Il est donc suggéré d'utiliser exactement la même `webPreferences` pour les pages web avec la même `affinité`. _Déprécié_
-    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Par défaut la valeur est `1.0`.
+    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. `1.0` par défaut.
     * `javascript` Boolean (optional) - Enables JavaScript support. La valeur par défaut est `true`.
     * `webSecurity` Boolean (facultatif) - Lorsque `false`, il désactivera la politique de même origine (généralement en utilisant des sites de test par des personnes), et définissez `allowRunningInsecureContent` à `true` si cette option n'a pas été définie par l'utilisateur. La valeur par défaut est `true`.
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Par défaut la valeur est `false`.
@@ -246,7 +246,7 @@ Les objets crées avec `new BrowserWindow` émettent les évennements suivants :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `title` String
 * `explicitSet` Boolean
 
@@ -256,7 +256,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeunload` et `unload` du DOM. Appeler `event.preventDefault()` annulera la fermeture.
 
@@ -277,7 +277,7 @@ _**Note**: Il y a une subtile différence entre le comportement de `window.onbef
 
 #### Événement : 'closed'
 
-Émit lorsque la fenêtre est fermée. After you have received this event you should remove the reference to the window and avoid using it any more.
+Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
 #### Événement : 'session-end' _Windows_
 
@@ -333,7 +333,7 @@ Veuillez noter que l'utilisation de cet événement implique que le moteur de re
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Taille de la fenêtre en cours de redimensionnage.
 
 Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
@@ -354,7 +354,7 @@ This is usually emitted when the window has been resized manually. On macOS, res
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Emplacement où la fenêtre est en cours de déplacement.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
@@ -391,7 +391,7 @@ __Note__ : Sous macOS, cet événement est un alias de `move`.
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `isAlwaysOnTop` Boolean
 
 Émis lorsque la fenêtre est définie ou non définie pour toujours afficher au dessus des autres fenêtres.
@@ -400,7 +400,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `command` String
 
 Émis lorsqu'une [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) est appelée. Elles sont généralement liées aux touches multimédia du clavier ou aux commandes du navigateur, ainsi que le bouton "Retour" intégré à certaines souris sous Windows.
@@ -439,7 +439,7 @@ Les commandes d'application suivantes sont explicitement prises en charge sur Li
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -450,7 +450,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `rotation` Float
 
 Émis lors du mouvement de rotation du trackpad. Émission continue jusqu'à la fin du geste de rotation. La valeur `rotation` sur chaque émission est l'angle en degrés tourné depuis la dernière émission. Le dernier événement émis lors d'un geste de rotation sera toujours de la valeur `0`. Les valeurs de rotation dans le sens inverse des aiguilles d'une montre sont positives, tandis que les valeurs dans le sens horaire sont négatives.
@@ -471,7 +471,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
 
 Emitted when the system context menu is triggered on the window, this is normally only triggered when the user right clicks on the non-client area of your window.  This is the window titlebar or any area you have declared as `-webkit-app-region: drag` in a frameless window.
@@ -613,7 +613,7 @@ Sur Linux, le setter est un no-op, bien que le getter retourne `true`.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` par défaut.
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -624,7 +624,7 @@ const template = [
   }
 ]
 
-win.excludedFromShownWindowsMenu = true
+gagne. xcludedFromShownWindowsMenu = true
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
@@ -1100,7 +1100,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (facultatif) - Une URL de référence HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
@@ -1140,7 +1140,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `query` Enregistrement<String, String> (facultatif) - Passé à `url.format()`.
   * `search` String (facultatif) - Passé à `url.format()`.
   * `hash` String (facultatif) - Passé à `url.format()`.
@@ -1166,7 +1166,7 @@ Retirez la barre de menu de la fenêtre.
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `mode` String _Windows_ - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Définit la valeur de progression dans la barre de progression. La plage valide est [0, 1.0].
@@ -1303,7 +1303,7 @@ Retourne `Boolean` - Si la barre de menu est visible.
 #### `win.setVisibleOnWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `visibleOnFullScreen` Booléen (facultatif) _macOS_ - Définit si la fenêtre doit être visible au-dessus des fenêtres plein écran.
   * `skipTransformProcessType` Boolean (optional) _macOS_ - Calling setVisibleOnAllWorkspaces will by default transform the process type between UIElementApplication and ForegroundApplication to ensure the correct behavior. However, this will hide the window and dock for a short time every time it is called. If your window is already of type UIElementApplication, you can bypass this transformation by passing true to skipTransformProcessType.
 
@@ -1320,7 +1320,7 @@ Retourne `Boolean` - Si la fenêtre est visible sur tous les espaces de travail.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `Avancer` Boolean (facultatif) _macOS_ _Windows_ - Si vrai, transférez la souris messages vers Chromium, en activant les événements liés à la souris tels que `souris`. Utilisé uniquement lorsque `ignore` est vrai. Si `ignore` est faux, le transfert est toujours désactivé quelle que soit cette valeur.
 
 Fait que la fenêtre ignore tous les événements de la souris.
