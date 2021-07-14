@@ -4,39 +4,39 @@ author: zeke
 date: '2016-08-16'
 ---
 
-Electron バージョン 1.3.1 では、 `npm install electron --save-dev` とすればコンパイル済みの Electron をアプリにインストールできます。
+As of Electron version 1.3.1, you can `npm install electron --save-dev` to install the latest precompiled version of Electron in your app.
 
 ---
 
 ![npm install electron](https://cloud.githubusercontent.com/assets/378023/17259327/3e3196be-55cb-11e6-8156-525e9c45e66e.png)
 
-## ビルド済み Electron ライブラリ
+## The prebuilt Electron binary
 
-Electron アプリの開発経験があれば、おそらく `electron-prebuilt` npm パッケージを触ったことがあるでしょう。 このパッケージはほぼすべての Electron プロジェクトにおいて不可欠なものです。 インストールされると、オペレーティングシステムを検出し、ビルド済みバイナリの中からそのシステムアーキテクチャに適したものをダウンロードします。
+If you've ever worked on an Electron app before, you've likely come across the `electron-prebuilt` npm package. This package is an indispensable part of nearly every Electron project. When installed, it detects your operating system and downloads a prebuilt binary that is compiled to work on your system's architecture.
 
-## 新しい名前
+## The new name
 
-Electron のインストール過程は、新規開発者にとっての壁となりがちでした。 多くの勇敢な人々が、`npm install electron-prebuilt` ではなく `npm install electron` を実行して Electron アプリの開発を始めようとして散っていきました。(大抵は混乱してから) 探していた `electron` ではなかったと気づいたのです。
+The Electron installation process was often a stumbling block for new developers. Many brave people tried to get started developing an Electron by app by running `npm install electron` instead of `npm install electron-prebuilt`, only to discover (often after much confusion) that it was not the `electron` they were looking for.
 
-これは、 GitHub の Electron プロジェクトが作られる前から `electron` プロジェクトが npm に存在していたためです。 Electron での開発がより簡単で直感的になるよう、私たちは既存の `electron` の所有者に連絡を取り、名前を使わせてもらえないかを交渉しました。 幸いにも彼は私たちのプロジェクトに賛同し、名前の再利用に協力していただけることになりました。
+This was because there was an existing `electron` project on npm, created before GitHub's Electron project existed. To help make Electron development easier and more intuitive for new developers, we reached out to the owner of the existing `electron` npm package to ask if he'd be willing to let us use the name. Luckily he was a fan of our project, and agreed to help us repurpose the name.
 
-## Prebuilt との営み
+## Prebuilt lives on
 
-バージョン 1.3.1 では、[`electron`](https://www.npmjs.com/package/electron) と `electron-prebuilt` のパッケージを npm に同時公開するようになりました。 2 つのパッケージは同じです。 現在プロジェクトで `electron-prebuilt` を使用している数多の開発者のために、しばらくの間、両方の名前でパッケージを公開することを決めました。 新しい `electron` に依存するように `package.json` ファイルを更新することを推奨しますが、 2016 年末までは新しいバージョンの `electron-prebuilt` もリリースされます。
+As of version 1.3.1, we have begun publishing [`electron`](https://www.npmjs.com/package/electron) and `electron-prebuilt` packages to npm in tandem. The two packages are identical. We chose to continue publishing the package under both names for a while so as not to inconvenience the thousands of developers who are currently using `electron-prebuilt` in their projects. We recommend updating your `package.json` files to use the  new `electron` dependency, but we will continue releasing new versions of `electron-prebuilt` until the end of 2016.
 
-[electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) は `electron` npm パッケージに対する正規のホームリポジトリとして残ります。
+The [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt) repository will remain the canonical home of the `electron` npm package.
 
-## 謝辞
+## Many thanks
 
-[@mafintosh](https://github.com/mafintosh)、[@maxogden](https://github.com/maxogden)、その他多くの [コントリビュータ](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) の方々による `electron-prebuilt` の作成と保守、JavaScript、Node.js、Electron コミュニティによる不断のサービス提供に感謝します。
+We owe a special thanks to [@mafintosh](https://github.com/mafintosh), [@maxogden](https://github.com/maxogden), and many other [contributors](https://github.com/electron-userland/electron-prebuilt/graphs/contributors) for creating and maintaining `electron-prebuilt`, and for their tireless service to the JavaScript, Node.js, and Electron communities.
 
-そして npm で `electron` パッケージを引き取らせてくれた [@logicalparadox](https://github.com/logicalparadox) に感謝します。
+And thanks to [@logicalparadox](https://github.com/logicalparadox) for allowing us to take over the `electron` package on npm.
 
-## プロジェクトの更新
+## Updating your projects
 
-この変更に影響される人気のパッケージを更新するために、コミュニティと協力してきました。 [electron-packager](https://github.com/electron-userland/electron-packager) 、 [electron-rebuild](https://github.com/electron/electron-rebuild) 、 [electron-builder](https://github.com/electron-userland/electron-builder) のようなパッケージは、古い名前をサポートしつつ、既に新しい名前で動作するように更新されています。
+We've worked with the community to update popular packages that are affected by this change. Packages like [electron-packager](https://github.com/electron-userland/electron-packager), [electron-rebuild](https://github.com/electron/electron-rebuild), and [electron-builder](https://github.com/electron-userland/electron-builder) have already been updated to work with the new name while continuing to support the old name.
 
-新しいパッケージをインストールするときに何らかの問題が発生した場合、 [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt/issues) リポジトリに Issue を開いてお知らせください。
+If you encounter any problems installing this new package, please let us know by opening an issue on the [electron-userland/electron-prebuilt](https://github.com/electron-userland/electron-prebuilt/issues) repository.
 
-Electron に関する他の問題については、 [electron/electron](https://github.com/electron/electron/issues) リポジトリを使用してください。
+For any other issues with Electron, please use the [electron/electron](https://github.com/electron/electron/issues) repository.
 
