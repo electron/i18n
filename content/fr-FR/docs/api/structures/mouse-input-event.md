@@ -1,11 +1,11 @@
-# **Remarque :** La longueur maximale d'un élément d'une liste de sauts de `description` propriété est 260 caractères
+# MouseInputEvent Object extends `InputEvent`
 
-* `type` `mouseDown`    `mouseUp` `mouseEnter` `mouseLeave` `contextMenu` `mouseWheel` `mouseMove`.
+* `type` String - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` or `mouseMove`.
 * `x` Integer
 * `y` Integer
-* `button` String (facultatif) - Le bouton appuyé, peut être `left`, `middle`, `right`.
-* `globalX` Entier (optionel)
-* `globalY` Entier (optionel)
-* `movementX` Entier (optionel)
-* `movementY` Entier (optionel)
-* `clickCount` Entier (optionel)
+* `button` String (optional) - The button pressed, can be `left`, `middle`, `right`.
+* `globalX` Integer (optional)
+* `globalY` Integer (optional)
+* `movementX` Integer (optional)
+* `movementY` Integer (optional)
+* `clickCount` Integer (optional)
