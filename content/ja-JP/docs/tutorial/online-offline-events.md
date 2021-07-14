@@ -74,7 +74,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-Electron アプリケーションを起動すると、通知が表示されます。
+After launching the Electron application, you should see the notification:
 
 ![接続状態](../images/connection-status.png)
 
