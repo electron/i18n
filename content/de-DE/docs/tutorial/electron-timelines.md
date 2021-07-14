@@ -2,15 +2,12 @@
 
 Special notes:
 
-* Die `-beta.1` und `stabilen` Daten sind unsere festen Veröffentlichungsdaten.
-* Wir streben wöchentliche Beta-Releases an, aber oft veröffentlichen wir mehr Betas als geplant.
-* Alle Termine sind unsere Ziele, aber es kann Gründe geben, die stabile Frist anzupassen, wie zum Beispiel Sicherheitslücken.
-* Werfen Sie einen Blick auf den [5.0.0 Timeline Blog Beitrag](https://electronjs.org/blog/electron-5-0-timeline) für Informationen über die Veröffentlichung unserer Veröffentlichungsdaten.
-* Seit Electron 6.0 haben wir uns auf jede andere Chromium-Version konzentriert und unsere stable am selben Tag wie Chrome Stable freigegeben. Sie können den Veröffentlichungsplan von Chromium [hier](https://chromiumdash.appspot.com/schedule) referenzieren. Siehe
-
-den neuen Blogeintrag von [ Electronic für Release cadence](https://www.electronjs.org/blog/12-week-cadence) für weitere Details zu unserem Release-Zeitplan.</li> 
-  
-  * Electron 15.0 only will include a special Alpha release. Starting in Electron 16.0, we will release on an 8-week cadence. See [Electron's new 8-week cadence blog post](https://www.electronjs.org/blog/8-week-cadence) for more details.</ul> 
+* The `-beta.1` and `stable` dates are our solid release dates.
+* We strive for weekly beta releases, however we often release more betas than scheduled.
+* All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
+* Take a look at the [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
+* Since Electron 6.0, we've been targeting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
+* Electron 15.0 only will include a special Alpha release. Starting in Electron 16.0, we will release on an 8-week cadence. See [Electron's new 8-week cadence blog post](https://www.electronjs.org/blog/8-week-cadence) for more details.
 
 | Electron | Alpha       | Beta        | Stabil      | Chrome | Node   |
 | -------- | ----------- | ----------- | ----------- | ------ | ------ |
