@@ -2,15 +2,15 @@
 
 ## Vue d'ensemble
 
-Les trois systèmes d'exploitation fournissent des moyens pour les applications d'envoyer des notifications à l'utilisateur. La technique d'affichage des notifications est différente pour les processus Main et Renderer.
+All three operating systems provide means for applications to send notifications to the user. The technique of showing notifications is different for the Main and Renderer processes.
 
-Pour le processus de rendu Electron permet facilement aux développeurs d'envoyer des notifications avec l'API de notification [HTML5](https://notifications.spec.whatwg.org/), en utilisant les API de notification natives du système d'exploitation actuellement en cours d'exécution pour l'afficher.
+For the Renderer process, Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
 
-Pour afficher les notifications dans le processus principal, vous devez utiliser le module [Notification](../api/notification.md).
+To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
 
-## Exemple
+## Example
 
-### Afficher les notifications dans le processus de rendu
+### Show notifications in the Renderer process
 
 En partant d'une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), ajoutez les lignes suivantes au fichier `index.html` avant la balise de fermeture `</body>` :
 
@@ -29,13 +29,13 @@ new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
   .onclick = () => console.log(CLICK_MESSAGE)
 ```
 
-Après avoir lancé l'application Electron, vous devriez voir la notification :
+After launching the Electron application, you should see the notification:
 
-![Notification dans le processus de rendu](../images/notification-renderer.png)
+![Notification in the Renderer process](../images/notification-renderer.png)
 
 De plus, si vous cliquez sur la notification, le DOM se mettra à jour pour afficher "Notification cliquée!".
 
-### Afficher les notifications dans le processus principal
+### Show notifications in the Main process
 
 À partir d’une application fonctionnelle du [Guide de démarrage rapide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
 
@@ -56,13 +56,13 @@ Après avoir lancé l'application Electron, vous devriez voir la notification sy
 
 ![Notification dans le processus principal](../images/notification-main.png)
 
-## Informations complémentaires
+## Additional information
 
 Le code et l’expérience utilisateur sur les différents systèmes d’exploitation sont semblables, mais il y a des différences.
 
 ### Windows
 
-* Sous Windows 10, un raccourci vers votre application avec un [ID de modèle d’utilisateur d’application][app-user-model-id] doit être installé sur le Menu Démarrer. Cela peut être overkill pendant le développement, donc ajouter `node_modules\electron\dist\electron.exe` à votre menu de démarrage fait aussi l'astuce . Naviguez vers le fichier dans l'explorateur, cliquez avec le bouton droit de la souris et 'Épingler pour démarrer le menu'. Vous devrez ensuite ajouter la ligne `app.setAppUserModelId(process.execPath)` à votre processus principal pour voir les notifications.
+* Sous Windows 10, un raccourci vers votre application avec un [ID de modèle d’utilisateur d’application][app-user-model-id] doit être installé sur le Menu Démarrer. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Naviguez vers le fichier dans l'explorateur, cliquez avec le bouton droit de la souris et 'Épingler pour démarrer le menu'. Vous devrez ensuite ajouter la ligne `app.setAppUserModelId(process.execPath)` à votre processus principal pour voir les notifications.
 * Sous Windows 8.1 et Windows 8, un raccourci vers votre application avec un [Utilisateur de l'application ID modèle][app-user-model-id] doit être installé sur l'écran de démarrage. Notez, cependant, qu’il n’a pas besoin d’être épinglée à l’écran de démarrage.
 * Sur Windows 7, les notifications fonctionnent via une implémentation personnalisée qui ressemble visuellement au natif sur les systèmes plus récents.
 
