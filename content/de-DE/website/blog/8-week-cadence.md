@@ -1,5 +1,5 @@
 ---
-title: Neue Elektronenfreigabe-Kadenz
+title: New Electron Release Cadence
 author: VerteDinde
 date: '2021-07-14'
 ---
@@ -54,7 +54,7 @@ We've tried to address common concerns below:
 
 #### ❓ Why even make this change? Why not keep the 12 week release cadence?
 
-Um die aktuellsten Versionen von Chromium in Electron zu liefern, muss unser Zeitplan ihre nachverfolgen. Weitere Informationen zum Chromium's Release-Zyklus finden Sie [hier](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
 
 Additionally, the current 12 week release cadence would be untenable with the Microsoft Store's new submission requirements. Even apps on the latest stable version of Electron would experience a roughly two week period where their app may be rejected under the new security requirements.
 
@@ -80,6 +80,6 @@ We will be extending our supported version policy from the latest three versions
 | --           | --           | 12.x.y       | 13.x.y       | 14.x.y       | 15.x.y       | --           |
 
 
-## Fragen?
+## Questions?
 
 📨 If you have questions or concerns, please mail us at [info@electronjs.org](mailto:info@electronjs.org) or [join our Discord](https://discord.com/invite/electron). We know this is a change that will impact many apps and developers, and your feedback is very important to us. We want to hear from you!
