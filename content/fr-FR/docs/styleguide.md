@@ -104,7 +104,7 @@ En prenant `autoUpdater` comme exemple :
 * All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Les événements d'instance doivent être listés sous un chapitre `### Instance Events`.
-* Les propriétés d'instance doivent être listées sous un chapitre `### Propriétés d'instance`.
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance Properties must start with "A [Property Type] ..."
 
 En prenant les classes `Session` et `Cookies` comme exemple :
@@ -146,10 +146,10 @@ En prenant les classes `Session` et `Cookies` comme exemple :
 Le chapitre sur les méthodes doit respecter la forme suivante :
 
 ```markdown
-### `objectName.methodName(required[, optional])`
+### `objectName.methodName(required[, optional]))`
 
-* `required` String - Une description du paramètre.
-* `optional` Integer (facultatif) - Une autre description du paramètre.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
