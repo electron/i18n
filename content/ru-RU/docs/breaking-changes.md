@@ -29,7 +29,7 @@ You will be affected by this change if you use either `webFrame.executeJavaScrip
 
 ## Запланированные критические изменения API (13.0)
 
-### API Changed: `session.setPermissionCheckHandler(handler)`
+### Изменения в API: `session.setPermissionCheckHandler(handler)`
 
 The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
 
@@ -51,9 +51,9 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 })
 ```
 
-### Удалено: `shell.moveItemToTrash()`
+### Удален: `shell.moveItemToTrash()`
 
-Удален синхронный `shell.moveItemToTrash()` API. Используйте асинхронный `shell.trashItem()` вместо этого.
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
 
 ```js
 // Removed in Electron 13
@@ -172,7 +172,7 @@ Another implication is that `require()` cannot be used in the renderer process u
 
 For more details see: https://github.com/electron/electron/issues/23506
 
-### Removed: `crashReporter.getCrashesDirectory()`
+### Удален: `crashReporter.getCrashesDirectory()`
 
 The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
 
@@ -187,7 +187,7 @@ app.getPath('crashDumps')
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-* `Отчет об ошибке.старте`
+* `crashReporter.start`
 * `crashReporter.getLastCrashReport`
 * `crashReporter.getUploadedReports`
 * `crashReporter.getUploadToServer`
@@ -268,7 +268,7 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-* `Отчет об ошибке.старте`
+* `crashReporter.start`
 * `crashReporter.getLastCrashReport`
 * `crashReporter.getUploadedReports`
 * `crashReporter.getUploadToServer`
@@ -361,7 +361,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## Запланированные API изменения (9.0)
+## Запланированные критические изменения API (9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
@@ -424,7 +424,7 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-### Removed: `webFrame.setLayoutZoomLevelLimits()`
+### Удален: `webFrame.setLayoutZoomLevelLimits()`
 
 Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
@@ -471,7 +471,7 @@ Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 
 Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
 
-### Deprecated: `<webview>.getWebContents()`
+### Obsoleto: `<webview>.getWebContents()`
 
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
@@ -645,7 +645,7 @@ In Electron <=6, this would return a `FileList` with a `File` object for:
 path/to/folder
 ```
 
-В Electron 7, теперь он вернет `FileList` с объектом `File` для:
+In Electron 7, this now returns a `FileList` with a `File` object for:
 
 ```console
 /path/to/folder/file3
@@ -653,7 +653,7 @@ path/to/folder
 /path/to/folder/file1
 ```
 
-Обратите внимание, что `webkitdirectory` больше не возвращает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Changed: Callback-based versions of promisified APIs
 
@@ -696,11 +696,11 @@ These functions now only return Promises:
 * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 * `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
 
-Теперь эти функции имеют две формы: синхронный и асинхронный:
+These functions now have two forms, synchronous and Promise-based asynchronous:
 
 * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
-* `dialog.showSaveDialog()`/`диалог.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
+* `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
 ## Запланированные критические изменения API (6.0)
 
@@ -773,7 +773,7 @@ app.enableMixedSandbox()
 
 Режим смешанной песочницы теперь включен по умолчанию.
 
-### Obsoleto: `Tray.setHighlightMode`
+### Deprecated: `Tray.setHighlightMode`
 
 Под macOS Catalina наша прежняя реализация Tray нарушена. Нативная замена Apple не поддерживает изменение поведения подсветки.
 
@@ -811,7 +811,7 @@ Child windows opened with the `nativeWindowOpen` option will always have Node.js
 
 ### API Changed: Registering privileged schemes must now be done before app ready
 
-API графического процесса `webFrame.registerURLSchemeAsPrivileged` и `webFrame.registerURLSchemeAsBypassingCSP`, а также API процесса браузера `protocol.registerStandardSchemes` были удалены. Новый API `protocol.registerSchemesAsPrivileged` был добавлен и должен использоваться для регистрации пользовательских схем с необходимыми привилегиями. Пользовательские схемы должны быть зарегистрированы до готовности приложения.
+Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. Новый API `protocol.registerSchemesAsPrivileged` был добавлен и должен использоваться для регистрации пользовательских схем с необходимыми привилегиями. Пользовательские схемы должны быть зарегистрированы до готовности приложения.
 
 ### Deprecated: `webFrame.setIsolatedWorld*` replaced with `webFrame.setIsolatedWorldInfo`
 
@@ -914,19 +914,19 @@ app.getGPUInfo('basic')
 
 ## Критические изменения API (3.0)
 
-Следующий список включает в себя критические изменения API, сделанные в Electron 3.0.
+Данный список включает в себя критические изменения в API для Electron 3.0.
 
 ### `app`
 
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменено на
+// Заменить на
 app.getAppMetrics()
 
 // Устарело
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Свойство устарело
+const { memory } = metrics[0] // свойство устарело
 ```
 
 ### `BrowserWindow`
@@ -1172,7 +1172,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
-Файл _без префикса_ по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
+The file _without the prefix_ is still being published to avoid breaking any setups that may be consuming it. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 
 Для подробностей см. [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).
 
