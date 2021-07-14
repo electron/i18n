@@ -1,5 +1,5 @@
 ---
-title: '今週のプロジェクト: WordPress デスクトップ'
+title: 'Project of the Week: WordPress Desktop'
 author:
   - mkaz
   - johngodley
@@ -7,57 +7,57 @@ author:
 date: '2017-02-28'
 ---
 
-今週の [Automattic](https://automattic.com/) では [WordPress デスクトップ](https://apps.wordpress.com/desktop/) について話をしました。これは、WordPress コンテンツを管理するためのオープンソースのデスクトップクライアントです。
+This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
 
 ---
 
-[![WordPress アプリ](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## WordPress は誰でも知っているけれど、WordPress デスクトップって何?
+## Everyone knows about WordPress, but what is WordPress Desktop?
 
-[WordPress.com デスクトップアプリ](https://apps.wordpress.com/desktop/) は、コンテンツとデザインに集中できる、シームレスなクロスプラットフォーム体験を提供します。ブラウザタブが無いので、あなたの集中を削いだり、サイト作りを放って違うサイトを見てしまったりすることはありません。 ブラウザーサポートとモバイルアプリを組み合わせることで、どこでもサイトを作れます。
+The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
 
-## なぜ WordPress サイトを管理するデスクトップアプリを作るのですか? ウェブベースで十分じゃないですか?
+## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
 
-実際、ブラウザで [WordPress.com](https://wordpress.com) にアクセスしたときと全く同じ技術を使用しています。 しかし、これはすべてローカルでホストされるため、読み込み時間が最小限になります。 Dock や通知などのネイティブ機能の恩恵を活用し、WordPress のサイトとブログにより集中できます。
+It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
 
-## Electron で WordPress デスクトップを構築することにしたのはなぜですか?
+## Why did you choose to build WordPress Desktop on Electron?
 
-2015 年末に、WordPress.com の多くを [Calypso](https://github.com/automattic/wp-calypso) 形式で再構築しました。これは、React を使用したオープンソースのモダン JavaScript アプリです。 私たちは Electron の検討を開始し、Calypso にいくつかの変更を加えて、ローカルで実行できるようにしました。 それは信じられないような体験で、さらなる開発に多くの価値を見出しました。
+At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
 
-我々には Calypso に取り組むチームがいくつかありました。 従来のデスクトップ技術を使用して、これに一致する完全なマルチプラットフォーム GUI クライアントを作成するには、さらに多くの作業が必要でした。 Electron を使用することで、2 ~ 4 人の小さなチームが他のチームの成果を活用する形で数ヶ月でデスクトップアプリを構築できました。
+We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
 
-## WordPress デスクトップ構築の際に直面した課題はありますか?
+## What are some challenges you've faced while building WordPress Desktop?
 
-アプリの初期バージョンは非常に速く動作しましたが、デスクトップアプリとして最適な動作をするよう調整するには、より多くの時間がかかりました。 このアプリの大きな課題の 1 つは、実際に自身のマシン上で Calypso のコピーを実行していることです。これは純粋に API が駆動する UI です。 ブリッジ作業が多く、変更は Calypso 自体にフィードバックされました。
+We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
 
-さらに、Windows、macOS、Linux バージョンを提供するために、各プラットフォーム向けにアプリをパッケージ化する多大な労力が費やされました。
+Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
 
-当時、Electron は比較的新しいものであり、すぐに (時には同日中に!) 修正される問題に直面し続けました。
+At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
 
-## Electron はどういった領域で改善されるべきでしょうか?
+## In what areas should Electron be improved?
 
-Electron はすでにデスクトップアプリに必要なもののほとんどを提供しており、私たちが使い始めてから急速に進歩しています。 とはいえ Electron は、スペルチェックや検索/置換など、デスクトップアプリではそのまま複製するのが難しい領域が改善されるべきだと考えます。
+Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
 
-また、新しい Chrome 技術の一部を Electron でも使いたいです。 私たちは特に WebVR の実験に熱心です。
+We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
 
-## Electron の好きなところは何ですか?
+## What are your favorite things about Electron?
 
-Electron を選んだ主な理由は、非常に活発でオープンなコミュニティだからです。それが何よりの強みです。 Automattic は常にオープンソースを信奉しています。 それは私たちの中核理念の一つで、Electron プロジェクトとコミュニティは、非常にオープンかつ前向きであるという中核理念の多くに沿っています。
+The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
 
-## WordPress デスクトップの今後の予定は何ですか?
+## What's coming next in WordPress Desktop?
 
-私たちのモデルの素晴らしいところは、デスクトップアプリが新しい Calypso 機能の恩恵を受けていることです。この機能は絶えず改善されています。 オフラインサポートなどの追加機能をアプリに追加できるようにしたいと思います。オフラインサポートは、アプリを実際にネイティブの領域に持ち込み、システム通知を改善します。
+The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
 
-## Automattic で他に Electron アプリの作業をしているチームはありますか?
+## Are there any teams at Automattic working on other Electron apps?
 
-はい、このデスクトップアプリに取り組んだ後、Simplenote チームは Electron を使用して Windows と Linux 向け (ネイティブ Mac クライアントは既存) のデスクトップアプリを構築することにしました。 [Simplenote Electron アプリ](https://github.com/Automattic/simplenote-electron) もオープンソースとなっており、Github で入手できます。
+Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
 
-また、Electron を使用する Raspberry Pi との統合も予定しています。
+We've also got an upcoming Raspberry Pi integration that uses Electron.
 
-面白そうだと思ったものがあれば、[ご連絡お待ちしてます](https://automattic.com/work-with-us/)!
+If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
 
-## 他の開発者に役立つ Electron のノウハウはありますか?
+## Any Electron tips that might be useful to other developers?
 
-署名されたデスクトップソフトウェアを公開するプロセスは、特に Windows において比較的新しいものです。 [Windows アプリのコード署名](https://mkaz.blog/code/code-signing-a-windows-application/) の記事を作成しました。この記事には、そのプロセスとそれを正しく行うために経験したいくつかの壁について書いています。
+The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
 
