@@ -12,7 +12,7 @@
 
 1つ以上のトランザクションが更新されたときに発生します。
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `transactions` Transaction[] - [`Transaction`](structures/transaction.md) オブジェクトの配列。
