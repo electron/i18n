@@ -2,7 +2,7 @@
 
 ## 概览
 
-要使用 Electron 分发您的应用，您需要打包并重命名它。 为此，您可以使用专用工具或手动方法。
+To distribute your app with Electron, you need to package and rebrand it. 为此，您可以使用专用工具或手动方法。
 
 ## 专用工具
 
