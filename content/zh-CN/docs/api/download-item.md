@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-在Electron中，`DownloadItem` 是一个代表下载项目的[EventEmitter][event-emitter]。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
+`DownloadItem` is an [EventEmitter][event-emitter] that represents a download item in Electron. 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程中.
@@ -96,11 +96,11 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.isPaused()`
 
-返回`Boolean` - 下载是否暂停。
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-恢复已暂停的下载。
+Resumes the download that has been paused.
 
 **注意：** 为了支持断点续传，必须要从支持范围请求的服务器下载，并且提供`Last-Modified` 和 `ETag`的头部值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
