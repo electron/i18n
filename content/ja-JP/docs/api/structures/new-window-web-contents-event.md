@@ -1,3 +1,3 @@
-# NewWindowWebContentsEvent オブジェクト extends `Event`
+# NewWindowWebContentsEvent Object extends `Event`
 
-* `newGuest` BrowserWindow (任意)
+* `newGuest` BrowserWindow (optional)
