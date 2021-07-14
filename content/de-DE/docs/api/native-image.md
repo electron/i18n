@@ -99,7 +99,7 @@ The `nativeImage` module has the following methods, all of which return an insta
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Gibt das `NativeImage` zurück
 
 Creates an empty `NativeImage` instance.
 
@@ -114,7 +114,7 @@ Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview ima
 
 * `path` String
 
-Returns `NativeImage`
+Gibt das `NativeImage` zurück
 
 Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
@@ -128,12 +128,12 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer][buffer]
-* `options` Object
+* `options` Objekt
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Gibt das `NativeImage` zurück
 
 Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
 
@@ -145,7 +145,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Gibt das `NativeImage` zurück
 
 Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
@@ -153,7 +153,7 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 * `dataURL` String
 
-Returns `NativeImage`
+Gibt das `NativeImage` zurück
 
 Creates a new `NativeImage` instance from `dataURL`.
 
@@ -162,7 +162,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 * `imageName` String
 * `hslShift` Number[] (optional)
 
-Returns `NativeImage`
+Gibt das `NativeImage` zurück
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
@@ -186,7 +186,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Instanz Methoden
+### Beispiel Methoden
 
 The following methods are available on instances of the `NativeImage` class:
 
@@ -262,10 +262,10 @@ Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
-* `options` Object
+* `options` Objekt
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) - The desired quality of the resize image. Mögliche Werte sind `good`, `better` oder `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Returns `NativeImage` - The resized image.
 
@@ -285,7 +285,7 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 #### `image.addRepresentation(options)`
 
-* `options` Object
+* `options` Objekt
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
