@@ -59,8 +59,8 @@ A return value of `false` is a pretty strong indicator that the user won't be ab
 
 ## Propriétés
 
-### `net.online` _Readonly_
+### `net.online` _Lecture seule_
 
-A `Boolean` property. Whether there is currently internet connection.
+Une propriété `Boolean`. Whether there is currently internet connection.
 
 A return value of `false` is a pretty strong indicator that the user won't be able to connect to remote sites. However, a return value of `true` is inconclusive; even if some link is up, it is uncertain whether a particular connection attempt to a particular remote site will be successful.
