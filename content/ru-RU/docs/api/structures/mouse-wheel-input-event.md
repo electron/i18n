@@ -1,11 +1,11 @@
-# Объект MouseWheelInputEvent расширяет `MouseInputEvent`
+# MouseWheelInputEvent Object extends `MouseInputEvent`
 
-* `type` String - Тип события, может быть `mouseWheel`.
-* `deltaX` Integer (опционально)
-* `deltaY` Integer (опционально)
-* `wheelTicksX` Integer (опционально)
-* `wheelTicksY` Integer (опционально)
-* `accelerationRatioX` Integer (опционально)
-* `accelerationRatioY` Integer (опционально)
-* `hasPreciseScrollingDeltas` Boolean (опционально)
-* `canScroll` Boolean (опционально)
+* `type` String - The type of the event, can be `mouseWheel`.
+* `deltaX` Integer (optional)
+* `deltaY` Integer (optional)
+* `wheelTicksX` Integer (optional)
+* `wheelTicksY` Integer (optional)
+* `accelerationRatioX` Integer (optional)
+* `accelerationRatioY` Integer (optional)
+* `hasPreciseScrollingDeltas` Boolean (optional)
+* `canScroll` Boolean (optional)
