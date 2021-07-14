@@ -16,7 +16,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 * [Schnellstart](tutorial/quick-start.md)
 * [Process Model](tutorial/process-model.md)
 
-### Grundlagen lernen
+### Learning the basics
 
 * Features zu deiner App hinzufügen
   * [Benachrichtigungen](tutorial/notifications.md)
@@ -26,12 +26,12 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [Benutzerdefinierte Windows Taskleiste](tutorial/windows-taskbar.md)
   * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
-  * [Offline/Online Erkennung](tutorial/online-offline-events.md)
-  * [Repräsentierte Datei für macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native Datei Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Offline/Online erkennung](tutorial/online-offline-events.md)
+  * [Repräsentative Datei für macOS BrowserWindows](tutorial/represented-file.md)
+  * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-  * [Dark-Modus](tutorial/dark-mode.md)
-  * [Webbetten in Electron](tutorial/web-embeds.md)
+  * [Dark Mode](tutorial/dark-mode.md)
+  * [Einbindung von Webseiten in Electron](tutorial/web-embeds.md)
 * [Boilerplates und CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -39,24 +39,24 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Andere Tools und Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Erweiterte Schritte
+### Advanced steps
 
 * Anwendungsarchitektur
   * [Native Node.js Module benutzen](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
-  * [Sicherheitsstrategien](tutorial/security.md)
+  * [Security Strategies](tutorial/security.md)
   * [Process Sandboxing](tutorial/sandbox.md)
 * [Barrierefreiheit](tutorial/accessibility.md)
-  * [Manuelle Aktivierung der Bedienungshilfen](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Testen und Debuggen](tutorial/application-debugging.md)
   * [Debuggen des Hauptprozesses](tutorial/debugging-main-process.md)
-  * [Debuggen mit Visual Studio-Code](tutorial/debugging-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
   * [Automatisiertes Testen mit einem benutzerdefinierten Treiber](tutorial/automated-testing-with-a-custom-driver.md)
   * [REPL](tutorial/repl.md)
-* [Verteilung](tutorial/application-distribution.md)
+* [Distribution](tutorial/application-distribution.md)
   * [Unterstützte Plattformen](tutorial/support.md#supported-platforms)
   * [Code Signierung](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
@@ -72,7 +72,7 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 
 Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weiter oben diskutiert wurden.
 
-* [Electron installieren](tutorial/installation.md)
+* [Installiere Electron](tutorial/installation.md)
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
@@ -106,19 +106,19 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
+* [Browserfenster](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [Menü](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [MessageChannelMain](api/message-channel-main.md)
 * [MessagePortMain](api/message-port-main.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [nativeThema](api/native-theme.md)
+* [nativeTheme](api/native-theme.md)
 * [Mitteilung](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
@@ -140,11 +140,11 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 
 ### Module für beide Prozesse:
 
-* [Zwischenablage (clipboard)](api/clipboard.md)
+* [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [desktopCapturer](api/desktop-capturer.md)
 * [nativeImage](api/native-image.md)
-* [Shell](api/shell.md)
+* [shell](api/shell.md)
 
 ## Entwicklung
 
