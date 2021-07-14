@@ -1,10 +1,10 @@
 # Introdução
 
-Bem vindo a documentação do Electron If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Otherwise, feel free to explore our guides and API documentation!
+Bem vindo a documentação do Electron If this is your first time developing an Electron app, read through this Getting Started section to get familiar with the basics. Caso contrário, sinta-se à vontade para explorar nossos guias e documentação da API!
 
 ## O que é o Electron?
 
-Electron é um framework que te permite criar aplicações desktop com JavaScript, HTML e CSS. By embedding [Chromium][chromium] and [Node.js][node] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
+Electron é um framework que te permite criar aplicações desktop com JavaScript, HTML e CSS. Incorporando \[Chromium\]\[chromium\] e \[Node.js\]\[node\] no seu binário, Electron permite que você mantenha uma base de código para JavaScript e crie aplicações multiplataforma que funcionam no Windows macOS, e Linux — sem necessidade de experiência de desenvolvimento nativo.
 
 ## Pré-requisitos
 
@@ -28,8 +28,6 @@ Você está ficando preso em algum lugar? Aqui estão alguns links de lugares pa
 * If you need help with developing your app, our [community Discord server][discord] is a great place to get advice from other Electron app developers.
 * If you suspect you're running into a bug with the `electron` package, please check the [GitHub issue tracker][issue-tracker] to see if any existing issues match your problem. If not, feel free to fill out our bug report template and submit a new issue.
 
-[chromium]: https://www.chromium.org/
-[node]: https://nodejs.org/
 [mdn-guide]: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
 [node-guide]: https://nodejs.dev/learn
 [comic]: https://www.google.com/googlebooks/chrome/

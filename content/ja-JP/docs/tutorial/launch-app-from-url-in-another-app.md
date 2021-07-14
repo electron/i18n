@@ -57,7 +57,7 @@ function createWindow () {
 
 この次のステップで、`BrowserWindow` を作成し、外部プロトコルがクリックされたイベントの処理方法をアプリケーションに伝えます。
 
-WindowsOS でのこのコードは、MacOS や Linux と異なります。 これは、Windows で同じ Electron インスタンス内のプロトコルリンクのコンテンツを開くには、さらなるコードが必要だからです。 この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
+Windows でのこのコードは、MacOS や Linux と異なります。 これは、Windows で同じ Electron インスタンス内のプロトコルリンクのコンテンツを開くには、さらなるコードが必要だからです。 この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
 
 ### Windows のコード:
 
@@ -75,7 +75,7 @@ if (!gotTheLock) {
     }
   })
 
-  // mainWindow を作成する、アプリの残りを読み込む、etc...
+  // mainWindow を作成する、アプリの残りを読み込む、等
   app.whenReady().then(() => {
     createWindow()
   })
@@ -87,7 +87,7 @@ if (!gotTheLock) {
 }
 ```
 
-### MacOS と Linux のコード:
+### macOS と Linux のコード:
 
 ```js
 // このメソッドは、Electron の初期化が完了し、
@@ -106,8 +106,7 @@ app.on('open-url', (event, url) => {
 最後に、誰かがアプリケーションを閉じたときの処理コードを追加します。
 
 ```js
-// macOS 以外では、すべてのウインドウを閉じたときに終了します。 ユーザが
-// Cmd + Q で明示的に終了するまで、アプリケーションと
+// macOS 以外では、すべてのウインドウを閉じたときに終了します。 // ユーザが Cmd + Q で明示的に終了するまで、アプリケーションと
 // そのメニューバーがアクティブになっているのが一般的です。
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
