@@ -1,49 +1,49 @@
 ---
-title: Apple Silicon サポート
+title: Apple Silicon Support
 author: MarshallOfSound
 date: '2020-10-15'
 ---
 
-Apple Silicon ハードウェアが下半期にリリース予定です。 新ハードウェアで Electron アプリを動作させるにはどうすればよいでしょうか?
+With Apple Silicon hardware being released later this year, what does the path look like for you to get your Electron app running on the new hardware?
 
 ---
 
-Electron 11.0.0-beta.1 のリリースに伴い、Electron チームでは Apple が下半期に出荷予定の新 Apple Silicon ハードウェア上で動作する Electron ビルドを頒布しています。 `npm install electron@beta` で最新のベータ版を入手するか、 [releases website](https://electronjs.org/releases/stable) から直接ダウンロードできます。
+With the release of Electron 11.0.0-beta.1, the Electron team is now shipping builds of Electron that run on the new Apple Silicon hardware that Apple plans on shipping later this year. You can grab the latest beta with `npm install electron@beta` or download it directly from our [releases website](https://electronjs.org/releases/stable).
 
-## どのように動作しますか？
+## How does it work?
 
-Electron 11 では、Intel Mac と Apple Silicon Mac で別々のバージョンの Electron がリリースされます。 これに先立ち、既に `darwin-x64` と `mas-x64` の 2 つのアーティファクトがリリースされました。 後者には Mac App Store との互換性があります。 上記のアーティファクトの Apple Silicon に相当する、`darwin-arm64` と `mas-arm64` の 2 つのアーティファクトもリリースしています。
+As of Electron 11, we will be shipping separate versions of Electron for Intel Macs and Apple Silicon Macs. Prior to this change, we were already shipping two artifacts, `darwin-x64` and `mas-x64`, with the latter being for Mac App Store compatibility usage. We are now shipping another two artifacts, `darwin-arm64` and `mas-arm64`, which are the Apple Silicon equivalents of the aforementioned artifacts.
 
-## 必要事項は何ですか?
+## What do I need to do?
 
-x64 (Intel Mac) 用 と arm64 (Apple Silicon) 用、2 つのバージョンのアプリを頒布する必要があります。 [`electron-packager`](https://github.com/electron/electron-packager/)と[`electron-rebuild`](https://github.com/electron/electron-rebuild/)と [`electron-forge`](https://github.com/electron-userland/electron-forge/) はすでにこの `arm64` アーキテクチャターゲットをサポートしていす。 これらのパッケージの最新バージョンを実行している限り、 ターゲットアーキテクチャを `arm64`に更新すると、アプリが完璧に動作するはずです。
+You will need to ship two versions of your app: one for x64 (Intel Mac) and one for arm64 (Apple Silicon). The good news is that [`electron-packager`](https://github.com/electron/electron-packager/), [`electron-rebuild`](https://github.com/electron/electron-rebuild/) and [`electron-forge`](https://github.com/electron-userland/electron-forge/) already support targeting the `arm64` architecture. As long as you're running the latest versions of those packages, your app should work flawlessly once you update the target architecture to `arm64`.
 
-将来的には、 `arm64` と`x64` アプリを単一のユニバーサルバイナリにマージできるパッケージをリリースしますが、このバイナリは_巨大になるため_、おそらくユーザーへのリリースには適していません。
+In the future, we will release a package that allows you to "merge" your `arm64` and `x64` apps into a single universal binary, but it's worth noting that this binary would be _huge_ and probably isn't ideal for shipping to users.
 
-## 潜在的な問題
+## Potential Issues
 
-### ネイティブモジュール
+### Native Modules
 
-新しいアーキテクチャをターゲットにしているので、ビルドの問題を引き起こす可能性のあるいくつかの依存関係を更新する必要があります。 各依存関係の最小バージョンは、以下をご参照ください。
+As you are targeting a new architecture, you'll need to update several dependencies which may cause build issues. The minimum version of certain dependencies are included below for your reference.
 
-| 依存関係                | バージョン要件       |
-| ------------------- | ------------- |
-| Xcode               | `>=12.2.0` |
-| `node-gyp`          | `>=7.1.0`  |
-| `electron-rebuild`  | `>=1.12.0` |
-| `electron-packager` | `>=15.1.0` |
+| Dependency          | Version Requirement |
+| ------------------- | ------------------- |
+| Xcode               | `>=12.2.0`       |
+| `node-gyp`          | `>=7.1.0`        |
+| `electron-rebuild`  | `>=1.12.0`       |
+| `electron-packager` | `>=15.1.0`       |
 
-これらの依存関係のバージョン要件のために、特定のネイティブモジュールを修正/更新しなければならない場合があるでしょう。  注意として、Xcode のアップグレードによって新しいバージョンの macOS SDK が導入されるため、ネイティブモジュールのビルドに失敗する可能性があります。
+As a result of these dependency version requirements, you may have to fix/update certain native modules.  One thing of note is that the Xcode upgrade will introduce a new version of the macOS SDK, which may cause build failures for your native modules.
 
 
-## どうすればテストできますか?
+## How do I test it?
 
-現在、Apple Silicon アプリケーションは、このブログ記事の執筆時点で市販されていない Apple Silicon ハードウェアでのみ動作します。 [開発者移行キット](https://developer.apple.com/programs/universal/) をお持ちの場合、そのマシン上でアプリケーションをテストできます。 さもなくば、アプリケーションの動作テストには、製品版の Apple Silicon ハードウェアのリリースを待つ必要があります。
+Currently, Apple Silicon applications only run on Apple Silicon hardware, which isn't commercially available at the time of writing this blog post. If you have a [Developer Transition Kit](https://developer.apple.com/programs/universal/), you can test your application on that. Otherwise, you'll have to wait for the release of production Apple Silicon hardware to test if your application works.
 
-## Rosetta 2 についてはどうなるのでしょうか?
+## What about Rosetta 2?
 
-Rosetta 2 は、Apple の [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) 技術の最新の成果で、同社の新しい arm64 Apple Silicon ハードウェア上でも x64 Intel アプリケーションを実行できます。 x64 Electron アプリは Rosetta 2 で動作すると推測していますが、注意すべき重要な点が (ネイティブ arm64 バイナリを頒布すべきかどうかについても) いくつかあります。
+Rosetta 2 is Apple's latest iteration of their [Rosetta](https://en.wikipedia.org/wiki/Rosetta_(software)) technology, which allows you to run x64 Intel applications on their new arm64 Apple Silicon hardware. Although we believe that x64 Electron apps will run under Rosetta 2, there are some important things to note (and reasons why you should ship a native arm64 binary).
 
-* アプリのパフォーマンスは大幅に低下します。 Electron / V8 は JavaScript を [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) コンパイルしており、Rosetta の動作方式によっては、事実上 JIT を 2 回 (V8 で 1 回、Rosetta で 1 回) 実行します。
-* メモリのページサイズ増大など、Apple Sillicon の新技術の恩恵を受けられなくなります。
-* パフォーマンスが **大幅に** 低下するって言いましたよね?
+* Your app's performance will be significantly degraded. Electron / V8 uses [JIT](https://en.wikipedia.org/wiki/Just-in-time_compilation) compilation for JavaScript, and due to how Rosetta works, you will effectively be running JIT twice (once in V8 and once in Rosetta).
+* You lose the benefit of new technology in Apple Silicon, such as the increased memory page size.
+* Did we mention that the performance will be **significantly** degraded?
