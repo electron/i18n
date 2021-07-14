@@ -29,6 +29,8 @@ Electron の [サポートしているバージョン](#supported-versions) に�
 
 ## サポートされているバージョン
 
+_**Note:** Beginning in September 2021 with Electron 15, the Electron team will temporarily support the latest **four** stable major versions. This extended support is intended to help Electron developers transition to the [new eight week release cadence](https://electronjs.org/blog/8-week-cadence), and will continue until May 2022, with the release of Electron 19. At that time, the Electron team will drop support back to the latest three stable major versions._
+
 最新の 3 つの *安定した* メジャーバージョンは Electron チームによってサポートされます。 たとえば、最新のリリースが 6.1.x の場合、5.0.x と 4.2.x 系列がサポートされます。  安定リリース系列ごとに最新のマイナーリリースのみをサポートしています。  つまり、セキュリティ修正の場合 6.1.x は修正を受けますが、6.0.x の新しいバージョンはリリースしません。
 
 最新の安定版リリースは一方的に `master` からすべての修正を受け取り、それ以前のバージョンは時間と容量が許すようなこれら修正の大部分を受けています。 サポートされている最も古いリリースラインには、セキュリティ修正のみが直接送られます。
