@@ -4,7 +4,7 @@
 
 > Añadir los iconos y menús contextuales al área de notificación del sistema.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `Tray` es un [EventEmitter][event-emitter].
 
@@ -115,7 +115,7 @@ Emitido cuando cualquier elemento arrastrado es dejado en el icono de bandeja.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `files` String[] - Las rutas de los archivos dejados en la bandeja.
 
 Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
@@ -124,7 +124,7 @@ Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `text` Cadena - la cadena del texto dejado.
 
 Emitido cuando el texto arrastrado es arrojado en el icono de bandeja.
@@ -210,7 +210,7 @@ En macOS, configura la `image` asociada con este icono de bandeja cuando se pres
 
 #### `tray.setToolTip(toolTip)`
 
-* `toolTip` Cadena
+* `toolTip` String
 
 Configura la activación de texto para este icono de bandeja.
 
@@ -242,7 +242,7 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - Icono a usar cuando `iconType` es `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Por defecto es `custom`.
   * `title` String
   * `content` String
   * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Mapea a [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
