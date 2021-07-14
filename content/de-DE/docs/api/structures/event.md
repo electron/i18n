@@ -1,3 +1,3 @@
-# IpcMainEvent Object erweitert `Event`
+# Event Object extends `GlobalEvent`
 
 * `preventDefault` VoidFunction
