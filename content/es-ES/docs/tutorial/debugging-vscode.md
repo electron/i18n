@@ -6,7 +6,7 @@ This guide goes over how to set up VSCode debugging for both your own Electron p
 
 ### Proceso principal
 
-#### 1. Abrir un proyecto Electron en VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -35,9 +35,9 @@ $ code electron-quick-start
 }
 ```
 
-#### 3. Depurar
+#### 3. Debugging
 
-Establece algunos puntos de interrupción en `main.js`, y comienza a depurar en la [Vista de depuración](https://code.visualstudio.com/docs/editor/debugging). Debería ser capaz de golpear los puntos de interrupción.
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
 Aquí hay un proyecto preconfigurado que puede descargar y depurar directamente en VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
@@ -49,7 +49,7 @@ For those unsure where to acquire this code or how to build it, [Electron's Buil
 
 ### Windows (C++)
 
-#### 1. Abrir un proyecto Electron en VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -94,6 +94,6 @@ $ code electron-quick-start
   * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
 * The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
 
-#### 3. Depurar
+#### 3. Debugging
 
 Set some breakpoints in the .cc files of your choosing in the native Electron C++ code, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging).
