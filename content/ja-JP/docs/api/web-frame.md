@@ -1,12 +1,12 @@
 # webFrame
 
-> 現在のウェブページの描画をカスタマイズします。
+> Customize the rendering of the current web page.
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`webFrame` は現在の `BrowserWindow` のトップフレームで表示されている `WebFrame` クラスのインスタンスをエクスポートする Electron のモジュールです。 サブフレームは特定のプロパティとメソッド (`webFrame.firstChild` など) によって取得されます。
+`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-現在のページを 200% にズームするサンプルです。
+An example of zooming current page to 200%.
 
 ```javascript
 const { webFrame } = require('electron')
@@ -16,7 +16,7 @@ webFrame.setZoomFactor(2)
 
 ## メソッド
 
-`WebFrame`クラスには以下のメソッドがあります。
+The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -28,7 +28,7 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.getZoomFactor()`
 
-戻り値 `Number` - 現在の拡大率。
+Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -40,7 +40,7 @@ webFrame.setZoomFactor(2)
 
 ### `webFrame.getZoomLevel()`
 
-戻り値 `Number` - 現在の拡大レベル。
+Returns `Number` - The current zoom level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -55,7 +55,7 @@ webFrame.setZoomFactor(2)
 > webFrame.setVisualZoomLevelLimits(1, 3)
 > ```
 
-> **注意**: 視覚ズームはピンチによるズームの動作でのみ適用されます。 Cmd+/-/0 ズームのショートカットは、それぞれアプリケーションの Menu の 'zoomIn'、'zoomOut'、'resetZoom' の MenuItem ロールで制御されます。 ショートカットを無効にするには、手動で [Menu の定義](./menu.md#examples) を行い、定義からズームのロールを除きます。
+> **NOTE**: Visual zoom only applies to pinch-to-zoom behavior. Cmd+/-/0 zoom shortcuts are controlled by the 'zoomIn', 'zoomOut', and 'resetZoom' MenuItem roles in the application Menu. To disable shortcuts, manually [define the Menu](./menu.md#examples) and omit zoom roles from the definition.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -66,9 +66,9 @@ webFrame.setZoomFactor(2)
     * `callback` Function
       * `misspeltWords` String[]
 
-入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
+Sets a provider for spell checking in input fields and text areas.
 
-このメソッドを使用する場合は、ウインドウを構築するときに組み込みスペルチェックを無効にする必要があります。
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
 
 ```js
 const mainWindow = new BrowserWindow({
@@ -78,9 +78,9 @@ const mainWindow = new BrowserWindow({
 })
 ```
 
-`provider` は、スペルチェックのために個々の単語の配列を受け取る `spellCheck` メソッドを持つオブジェクトである必要があります。 `spellCheck` 関数は非同期的に実行され、完了時にスペルミスの単語を含む `callback` 関数を呼び出します。
+The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-[node-spellchecker][spellchecker] をプロバイダとして使用するサンプルです。
+An example of using [node-spellchecker][spellchecker] as provider:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -98,9 +98,9 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ### `webFrame.insertCSS(css)`
 
-* `css` String - CSS ソースコード。
+* `css` String - CSS source code.
 
-戻り値 `String` - 挿入された CSS のキー。後で `webFrame.removeInsertedCSS(key)` を介して CSS を削除するために使用できます。
+Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
 
 現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
 
@@ -108,7 +108,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `key` String
 
-現在のウェブページから挿入された CSS を削除します。 スタイルシートは `webFrame.insertCSS(css)` から返されるキーで識別されます。
+現在のウェブページから挿入された CSS を削除します。 The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
@@ -120,11 +120,11 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `code` String
 * `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (任意) - スクリプトの実行後に呼び出されます。 フレームがサスペンド (モーダルアラートの表示など) されない限り、実行は同期的に行われ、メソッドから戻る前にコールバックが呼び出されます。 このメソッドは古いバージョンとの互換性のため、エラーが第 2 引数です。
+* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
   * `error` Error
 
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve されるか、実行でスロー又は reject された結果の場合に reject される Promise。
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 ページ内の `code` を評価します。
 
@@ -132,28 +132,28 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - `0` は (コンテンツを実行する) デフォルトのメインワールド、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 1..536870911 の範囲の値を受け付けます。
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (任意) - スクリプトの実行後に呼び出されます。 フレームがサスペンド (モーダルアラートの表示など) されない限り、実行は同期的に行われ、メソッドから戻る前にコールバックが呼び出されます。  このメソッドは古いバージョンとの互換性のため、エラーが第 2 引数です。
+* `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
   * `error` Error
 
-戻り値 `Promise<any>` - コードの実行結果で resolve するか、実行を開始できなかった場合に reject される Promise。
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
-スクリプトの実行そのものが失敗した場合、返された Promise 拒否されず `result` は `undefined` になることに注意してください。 これは、Chromium が隔離されたワールドから外のワールドへエラーを転送しないためです。
+Note that when the execution of script fails, the returned promise will not reject and the `result` would be `undefined`. This is because Chromium does not dispatch errors of isolated worlds to foreign worlds.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
 * `info` Object
-  * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
-  * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー
-  * `name` String (任意) - 隔離されたワールドの名前。 デベロッパー ツールで役立ちます。
+  * `securityOrigin` String (optional) - Security origin for the isolated world.
+  * `csp` String (optional) - Content Security Policy for the isolated world.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
 
-隔離されたワールドのセキュリティオリジン、コンテンツセキュリティポリシー、名前を設定します。 注: `csp` が指定されている場合は、`securityOrigin` も指定する必要があります。
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
@@ -166,14 +166,14 @@ webFrame.setSpellCheckProvider('en-US', {
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Blink の内部メモリキャッシュの使用情報を記述しているオブジェクトを返します。
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-これが生成されます。
+This will generate:
 
 ```javascript
 {
@@ -182,73 +182,73 @@ console.log(webFrame.getResourceUsage())
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* "images" と同じ */ },
-  xslStyleSheets: { /* "images" と同じ */ },
-  fonts: { /* "images" と同じ */ },
-  other: { /* "images" と同じ" */ }
+  cssStyleSheets: { /* same with "images" */ },
+  xslStyleSheets: { /* same with "images" */ },
+  fonts: { /* same with "images" */ },
+  other: { /* same with "images" */ }
 }
 ```
 
 ### `webFrame.clearCache()`
 
-以前使用していたメモリを解放しようとします (以前のナビゲーションの画像など)。
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-このメソッドを盲目的に呼び出すと、空になったキャッシュを補充する必要があるため、Electron の処理速度が遅くなる可能性があることに注意してください。アプリ内のイベントが発生してページの実際のメモリ使用量が少なくなったと思われる場合にのみ呼び出すようにしてください (即ち、とても重いページから空のページへナビゲートし、そこにとどまるとき)。
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - フレーム要素の CSS セレクタ。
+* `selector` String - CSS selector for a frame element.
 
-戻り値 `WebFrame` - `selector` によって選択された `webFrame` のドキュメント。`selector` がフレームを選択していないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
+Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
 ### `webFrame.findFrameByName(name)`
 
 * `name` String
 
-戻り値 `WebFrame` - 与えられた `name` である `webFrame` の子。そのようなフレームが存在しないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
+Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
-* `routingId` Integer - 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 ルーティング ID は `WebFrame` インスタンス (`webFrame.routingId`) や、フレーム特有の `WebContents` ナビゲーションイベント (`did-frame-navigate` など) から取得できます。
+* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
 
-戻り値 `WebFrame` - 渡された `routingId` のもの。見つからなければ `null`。
+Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
 ### `webFrame.isWordMisspelled(word)`
 
-* `word` String - スペルチェックされる単語。
+* `word` String - The word to be spellchecked.
 
-戻り値 `Boolean` - 組み込みスペルチェッカーでスペルミスを検知した場合は true、そうでない場合は false です。 辞書が読み込まれていない場合は、常に false を返します。
+Returns `Boolean` - True if the word is misspelled according to the built in spellchecker, false otherwise. If no dictionary is loaded, always return false.
 
 ### `webFrame.getWordSuggestions(word)`
 
-* `word` String - スペルミスのある単語。
+* `word` String - The misspelled word.
 
-戻り値 `String[]` - 指定の単語に対する候補のリスト。 単語のスペルが正しければ、結果は空です。
+Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
 
 ## プロパティ
 
-### `webFrame.top` _読み出し専用_
+### `webFrame.top` _Readonly_
 
-`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame | null`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener` _読み出し専用_
+### `webFrame.opener` _Readonly_
 
-`webFrame` が開かれたフレームを表す `WebFrame | null`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent` _読み出し専用_
+### `webFrame.parent` _Readonly_
 
-`webFrame` の親フレームを表す `WebFrame | null`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild` _読み出し専用_
+### `webFrame.firstChild` _Readonly_
 
-`webFrame` の最初の子フレームを表す `WebFrame | null`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling` _読み出し専用_
+### `webFrame.nextSibling` _Readonly_
 
-次の兄弟フレームを表す `WebFrame | null`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId` _読み出し専用_
+### `webFrame.routingId` _Readonly_
 
-現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 
 [spellchecker]: https://github.com/atom/node-spellchecker
