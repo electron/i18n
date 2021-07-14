@@ -29,7 +29,7 @@ Retourne `Integer` - L'ID du blocage assigné à ce power blocker.
 
 Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Seulement le type de priorité le plus élevé prendra effet. En d'autres termes, `prevent-display-sleep` a toujours la priorité sur `prevent-app-suspension`.
+**Remarque :** `prevent-display-sleep` a une priorité plus élevée que `prevent-app-suspension`. Seulement le type de priorité le plus élevé prendra effet. En d'autres termes, `prevent-display-sleep` a toujours la priorité sur `prevent-app-suspension`.
 
 Par exemple, une API requête A pour `prevent-app-suspension`, et un autre requête B pour `prevent-display-sleep`. `prevent-display-sleep` sera utilisé jusqu’à ce que la requête B se stoppe. Après cela, `prevent-app-suspension` est utilisé.
 
