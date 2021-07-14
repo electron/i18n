@@ -1,17 +1,17 @@
-# Objet PrinterInfo
+# PrinterInfo Object
 
-* `nom`Fiche-le nom imprime concu comme OS.
-* `afficherNom`Fiche-le nom de l'imprimante comme elle montree dans Print View. ('Vue Imprimee').
-* `description`Fiche-une description plus longue du type d'imprimante.
-* `etat`Numero-l'etat courant de l'imprimante.
-* `estDefaut`Boolean-soit ou non une certane imprimante est installee comme imprimante defaut sur OS.
-* `options`Objet-un objet qui contient un nombre variable d'information imprimee sur la plateforme specifique.
+* `name` String - the name of the printer as understood by the OS.
+* `displayName` String - the name of the printer as shown in Print Preview.
+* `description` String - a longer description of the printer's type.
+* `status` Number - the current status of the printer.
+* `isDefault` Boolean - whether or not a given printer is set as the default printer on the OS.
+* `options` Object - an object containing a variable number of platform-specific printer information.
 
-Le nombre représenté par `status` a des significations différentes selon la plateforme: sur Windows, il peut prendre les valeurs que l'on peut trouver [ici](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2) et sur Linux et macOS [ici](https://www.cups.org/doc/cupspm.html).
+The number represented by `status` means different things on different platforms: on Windows its potential values can be found [here](https://docs.microsoft.com/en-us/windows/win32/printdocs/printer-info-2), and on Linux and macOS they can be found [here](https://www.cups.org/doc/cupspm.html).
 
-## Exemple
+## Example
 
-Ci-dessous, un exemple de certaines des options supplémentaires qui peuvent être définies en étant différentes pour chaque plateforme.
+Below is an example of some of the additional options that may be set which may be different on each platform.
 
 ```javascript
 {
