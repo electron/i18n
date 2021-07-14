@@ -6,7 +6,7 @@ Por favor, asegúrese de utilizar los documentos que correspondan con la versió
 
 Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un tema:
 
-* [Preguntas Frecuentes sobre Electron](faq.md)
+* [Preguntas más frecuentes sobre Electron](faq.md)
 
 ## Guías y tutoriales
 
@@ -16,7 +16,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
 * [Inicio Rápido](tutorial/quick-start.md)
 * [Modelo de proceso](tutorial/process-model.md)
 
-### Aprender lo básico
+### Learning the basics
 
 * Agregar características a su aplicación
   * [Notificaciones](tutorial/notifications.md)
@@ -25,17 +25,17 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
   * [Menú Dock personalizado](tutorial/macos-dock.md)
   * [Barra de tareas de Windows personalizado](tutorial/windows-taskbar.md)
   * [Acciones de escritorio Linux personalizado](tutorial/linux-desktop-actions.md)
-  * [Atajos de teclado](tutorial/keyboard-shortcuts.md)
-  * [Detección Offline y Online](tutorial/online-offline-events.md)
+  * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
+  * [Offline/Online erkennung](tutorial/online-offline-events.md)
   * [Archivo representado por macOS BrowserWindows](tutorial/represented-file.md)
-  * [Función nativa arrastrar & soltar archivo](tutorial/native-file-drag-drop.md)
-  * [Renderización fuera de pantalla](tutorial/offscreen-rendering.md)
+  * [Función nativa de Arrastrar y Soltar archivo](tutorial/native-file-drag-drop.md)
+  * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
   * [Modo oscuro](tutorial/dark-mode.md)
   * [Página web embebida en Electron](tutorial/web-embeds.md)
 * [Plantillas y CLIs](tutorial/boilerplates-and-clis.md)
   * [Plantillas vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [Electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Otras Herramientas y Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
@@ -47,14 +47,14 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
   * [Estrategias de seguridad](tutorial/security.md)
   * [Process Sandboxing](tutorial/sandbox.md)
 * [Accesibilidad](tutorial/accessibility.md)
-  * [Habilitando manualmente Características de Accesibilidad](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Pruebas y depuración](tutorial/application-debugging.md)
   * [Depuración del proceso principal](tutorial/debugging-main-process.md)
   * [Depurando con Visual Studio Code](tutorial/debugging-vscode.md)
   * [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [Extensión de Chrome DevTools](tutorial/devtools-extension.md)
-  * [Prueba Automática con un controlador personalizado](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Extensión de herramientas de desarrollo](tutorial/devtools-extension.md)
+  * [Automatizado con un controlador personalizado de prueba](tutorial/automated-testing-with-a-custom-driver.md)
   * [REPL](tutorial/repl.md)
 * [Distribución](tutorial/application-distribution.md)
   * [Plataformas soportadas](tutorial/support.md#supported-platforms)
@@ -72,7 +72,7 @@ Hay preguntas que se hacen bastante a menudo. Comprueba esto antes de crear un t
 
 Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
-* [Instalando Electron](tutorial/installation.md)
+* [Instalar Electron](tutorial/installation.md)
   * [Proxies](tutorial/installation.md#proxies)
   * [Espejos y cachés personalizados](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemas](tutorial/installation.md#troubleshooting)
@@ -96,8 +96,8 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 ### Elementos de DOM personalizados:
 
-* [`File` Object](api/file-object.md)
-* [Etiqueta `<webview>`](api/webview-tag.md)
+* [`Archivo` Objeto](api/file-object.md)
+* [`<webview>` Etiqueta](api/webview-tag.md)
 * [Función `window.open`](api/window-open.md)
 * [`BrowserWindowProxy` Objeto](api/browser-window-proxy.md)
 
@@ -107,7 +107,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
-* [class="VfPpkd-ksKsZd-XxIAqe">](api/content-tracing.md)
+* [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [Compras integradas](api/in-app-purchase.md)
@@ -116,13 +116,13 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [MenuItem](api/menu-item.md)
 * [MessageChannelMain](api/message-channel-main.md)
 * [Título 1 Xpath:/h 1](api/message-port-main.md)
-* [red](api/net.md)
+* [net](api/net.md)
 * [netLog](api/net-log.md)
 * [nativeTheme](api/native-theme.md)
 * [Notification](api/notification.md)
-* [Monitor de energía](api/power-monitor.md)
+* [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [Protocolo](api/protocol.md)
+* [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [ShareMenu](api/share-menu.md)
@@ -143,7 +143,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [desktopCapturer](api/desktop-capturer.md)
-* [NativeImage](api/native-image.md)
+* [nativeImage](api/native-image.md)
 * [shell](api/shell.md)
 
 ## Desarrollo
