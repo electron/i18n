@@ -1,7 +1,7 @@
-# L'objet IpcRendererEvent étend l'événement
+# IpcRendererEvent Object extends `Event`
 
-* sender IpcRenderer - L'instance IpcRenderer qui a émis l'événement à l'origine
-* `senderId` Integer - Le `webContents.id` qui a envoyé le message, tu peux appeler `event.sender.sendTo(event.senderId, ...)` pour répondre au message, voir [ipcRenderer.sendTo][ipc-renderer-sendto] pour plus d'informations. Cela ne s'applique qu'aux messages envoyés à partir d'un moteur de rendu différent.  Les messages envoyés directement à partir du processus principal définissent event.senderId sur 0.
-* `ports` MessagePort[] - Une liste de MessagePorts qui ont été transférés par ce message
+* `sender` IpcRenderer - The `IpcRenderer` instance that emitted the event originally
+* `senderId` Integer - The `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo][ipc-renderer-sendto] for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+* `ports` MessagePort[] - A list of MessagePorts that were transferred with this message
 
 [ipc-renderer-sendto]: ../ipc-renderer.md#ipcrenderersendtowebcontentsid-channel-args
