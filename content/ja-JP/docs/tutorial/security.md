@@ -12,7 +12,7 @@ Electron の脆弱性を報告する正しい方法については [SECURITY.md]
 
 ## Chromium のセキュリティ問題とアップグレード
 
-Electron は、Chromium のリリースとは交互に更新しています。 詳しくは、[Electron リリースケイデンスのブログ記事](https://electronjs.org/blog/12-week-cadence) を参照してください。
+Electron は、Chromiumのリリースとは交互に更新しています。 詳しくは、[Electron リリースケイデンスのブログ記事](https://electronjs.org/blog/12-week-cadence) を参照してください。
 
 ## セキュリティはみんなの責任
 
@@ -154,7 +154,7 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `nodeIntegration: false` を使用している場合でも、真に強力なアイソレーションを強制し Node プリミティブの使用を防ぐためには、`contextIsolation` も使用 **しなければなりません**。
 
-### なぜ & 方法を？
+### Why & How?
 
 `contextIsolation` が何であるのか及びこれを有効にする方法についての情報は、[コンテキスト隔離](context-isolation.md) ドキュメントをご参照ください。
 
@@ -356,11 +356,11 @@ const mainWindow = new BrowserWindow()
 
 _Electron のデフォルトを推奨しています_
 
-[`<webview>`][webview-tag] を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`][browser-window] を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
+[`<webview>`][webview-tag] を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindow`][browser-window] を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
 
 ### なぜ？
 
-ポップアップが必要ない場合は、デフォルトでは新しい [`BrowserWindows`][browser-window] の作成を許可しないほうがよいでしょう。 これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
+ポップアップが必要ない場合は、デフォルトで新しい [`BrowserWindow`][browser-window] の作成を許可しないようにしたほうがよいでしょう。 これは必要最低限なアクセスの原則に従っています。ウェブサイトにその機能が必要でない限り、新しいポップアップを作成させないでください。
 
 ### どうすればいいの？
 
@@ -479,7 +479,7 @@ Shellの [`openExternal`][open-external] はデスクトップのネィティブ
 
 ### なぜ？
 
-[`openExternal`][open-external]の不適切な利用によって、そのユーザーホストを危険に曝すことがありえます。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
+[`openExternal`][open-external] の不適切な利用によって、そのユーザーのホストを危険に曝す可能性があります。 openExternalを信頼できないコンテンツで使用するとき、任意のコマンドの実行を許してしまう可能性があります。
 
 ### どうすればいいの？
 
@@ -504,8 +504,6 @@ shell.openExternal('https://example.com/index.html')
 古いバージョンの Electron、Chromium、Node.js で構築されたアプリケーションは、最新バージョンのこれらコンポーネントを使用しているアプリケーションよりも容易な標的です。 一般的に、古いバージョンの Chromium と Node.js ではより広いセキュリティ問題とエクスプロイトが適用できます。
 
 Chromium と Node.js はどちらも、何千人もの才能のある開発者によって構築された素晴らしい技術です。 人気を考えると、それらのセキュリティは同様に熟練したセキュリティ研究者によって慎重にテストされ分析されます。 これら研究者の多くは、[脆弱性を責任を持って開示][responsible-disclosure] しています。これは一般に、研究者が問題を公開する前に Chromium と Node.js に問題を修正する時間を与えることを意味します。 最新バージョンの Electron (および Chromium と Node.js) で実行している場合、潜在的なセキュリティ問題がそれほど広く知られておらずアプリケーションはより安全になります。
-
-[browser-window]: ../api/browser-window.md
 
 [browser-window]: ../api/browser-window.md
 [browser-view]: ../api/browser-view.md
