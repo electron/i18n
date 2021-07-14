@@ -87,7 +87,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-**REMARQUE:** Si vous ne voyez pas le code source quand vous pensez que vous le devriez, vous n'avez peut-être pas ajouté le fichier `~/.lldbinit` ci-dessus.
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Pour terminer de déboguer à ce stade, exécutez : `process continue`. Vous pouvez également continuer jusqu'à ce que la ligne soit frappée dans ce thread (`thread jusqu'à 100`). Cette commande exécutera le thread dans le frame actif jusqu'à ce qu’il atteigne la ligne 100 dans cette trame ou s’arrête si elle quitte le frame en cours.
 
@@ -97,7 +97,7 @@ Maintenant, si vous ouvrez les outils de développement d'Electron et appelez `s
 
 LLDB est un outil puissant, avec une excellente documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference][lldb-command-structure] or the introduction to [Using LLDB as a Standalone Debugger][lldb-standalone].
 
-Vous pouvez également consulter les fantastiques [manuel et didacticiel][lldb-tutorial] pour LLDB, qui vous expliquera des scénarios de déboggage plus complexes.
+You can also check out LLDB's fantastic [manual and tutorial][lldb-tutorial], which will explain more complex debugging scenarios.
 
 [lldb-command-structure]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2
 [lldb-standalone]: https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
