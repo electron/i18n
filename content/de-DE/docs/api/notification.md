@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,15 +12,15 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification` ist ein [EventEmitter][event-emitter].
 
-It creates a new `Notification` with native properties as set by the `options`.
+Es erzeugt ein neues `Notification` mit nativen Eigenschaften die durch `options` gesetzt wurden.
 
 ### Static Methods
 
-The `Notification` class has the following static methods:
+Die `Notification` Klasse hat folgende statische Methoden:
 
 #### `Notification.isSupported()`
 
@@ -43,15 +43,15 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `closeButtonText` String (optional) _macOS_ - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
   * `toastXml` String (optional) _Windows_ - A custom description of the Notification on Windows superseding all properties above. Provides full customization of design and behavior of the notification.
 
-### Instanz Events
+### Instanz-Ereignisse
 
-Objects created with `new Notification` emit the following events:
+Objekte welche mit `new Notification` erzeugt wurden emitieren folgende Events:
 
 **Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
 #### Event: 'show'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 
@@ -59,7 +59,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 #### Ereignis: 'click'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 
@@ -67,7 +67,7 @@ Emitted when the notification is clicked by the user.
 
 #### Event: 'close'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 
@@ -77,7 +77,7 @@ This event is not guaranteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' _macOS_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `reply` String - The string the user entered into the inline reply field.
@@ -86,23 +86,23 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 #### Event: 'action' _macOS_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `index` Number - The index of the action that was activated.
 
 #### Event: 'failed' _Windows_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `error` String - The error encountered during execution of the `show()` method.
 
 Emitted when an error is encountered while creating and showing the native notification.
 
-### Instanz Methoden
+### Beispiel Methoden
 
-Objects created with `new Notification` have the following instance methods:
+Objekte, die mit `new Notification` erstellt wurden, haben folgende Instanzmethoden:
 
 #### `notification.show()`
 
