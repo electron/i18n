@@ -12,7 +12,7 @@
 
 Chrome для Electron обычно выпускается в течение одной или двух недель после выпуска стабильной версии Chrome. Этот срок не является гарантированным и зависит от объема работ, связанных с обновлением.
 
-Используется только стабильный канал Chrome. Если важное исправление находится в бета-версии или в канале , мы вернем его порт.
+Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
 Для получения дополнительной информации, пожалуйста, просмотрите [введение в обеспечение безопасности](tutorial/security.md).
 
@@ -26,7 +26,7 @@ Chrome для Electron обычно выпускается в течение о�
 
 Для передачи данных между веб-страницами (графическими процессами) самым простым способом является использование HTML5 API, который уже доступен в браузерах. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
-В качестве альтернативы можно использовать примитивы IPC, предоставляемые Electron. обмениваться данными между основными процессами и процессами визуализации, вы можете использовать модули [`ipcMain`](api/ipc-main.md) и [`ipcRenderer`](api/ipc-renderer.md). Чтобы общаться непосредственно между веб-страницами, вы можете отправить [`MessagePort`][message-port] друг другу, возможно через главный процесс с помощью [`ipcRenderer. ostMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Последующее общение через порты сообщений является прямым и не проходит через основной процесс.
+Alternatively, you can use the IPC primitives that are provided by Electron. To share data between the main and renderer processes, you can use the [`ipcMain`](api/ipc-main.md) and [`ipcRenderer`](api/ipc-renderer.md) modules. To communicate directly between web pages, you can send a [`MessagePort`][message-port] from one to the other, possibly via the main process using [`ipcRenderer.postMessage()`](api/ipc-renderer.md#ipcrendererpostmessagechannel-message-transfer). Subsequent communication over message ports is direct and does not detour through the main process.
 
 ## Трей моего приложения исчезает через несколько минут.
 
@@ -99,11 +99,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 If [sub-pixel anti-aliasing](https://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Пример:
 
-![пример рендеринга субпикселей][]
+![subpixel rendering example][]
 
 Для анти-алиасинга подпикселя требуется непрозрачный фон, содержащий глифы шрифта. (См. [эту проблему](https://github.com/electron/electron/issues/6344#issuecomment-420371918) для получения дополнительной информации).
 
-Для достижения этой цели установите в конструкторе фон для [BrowserWindow][browser-window]:
+To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -112,7 +112,7 @@ const win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Даже если вы не видите различия, некоторые из ваших пользователей могут. Лучше всегда установить фон таким образом, если у вас нет причин не делать этого.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Обратите внимание, что только настройка фона в CSS не имеет желаемого эффекта.
 
@@ -124,4 +124,4 @@ The effect is visible only on (some?) LCD screens. Даже если вы не �
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
-[пример рендеринга субпикселей]: images/subpixel-rendering-screenshot.gif
+[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
