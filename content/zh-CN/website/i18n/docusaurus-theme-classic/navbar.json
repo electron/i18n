@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "Electron",
+    "description": "The title in the navbar"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.API": {
+    "message": "应用开发接口（API）",
+    "description": "Navbar item with label API"
+  },
+  "item.label.Examples": {
+    "message": "示例",
+    "description": "Navbar item with label Examples"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
