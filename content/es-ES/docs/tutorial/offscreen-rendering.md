@@ -1,4 +1,4 @@
-# Renderización fuera de pantalla
+# Representación fuera de la pantalla
 
 ## Descripción general
 
@@ -16,7 +16,7 @@ Offscreen rendering te permite obtener el contenido de un `BrowserWindow` en un 
 
 #### GPU acelerado
 
-La renderización acelerada por GPU significa que la GPU se usa para la composición. Por eso, el frame ha de ser copiado desde la GPU lo cual requiere mas recursos, por lo tanto este modo es mas lento que el dispositivo de salida de Software. El beneficio de este modo es que las animaciones WebGL y 3D CSS son compatibles.
+La renderización acelerada por GPU significa que la GPU se usa para la composición. Por eso, el frame ha de ser copiado desde la GPU lo cual requiere mas recursos, por lo tanto este modo es mas lento que el dispositivo de salida de Software. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
 #### Dispositivo de salida de software
 
