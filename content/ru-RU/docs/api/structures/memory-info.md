@@ -1,7 +1,7 @@
-# Объект MemoryInfo
+# MemoryInfo Object
 
-* `workingSetSize` Integer - объем памяти, привязанный в текущий момент к физической RAM.
-* `peakWorkingSetSize` Integer - максимальный объем памяти, который когда-либо был привязан к физической RAM.
-* `privateBytes` Integer (опционально) _Windows_ - объем памяти, не разделяемый с другими процессами, такими как JS куча или HTML контент.
+* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
+* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
+* `privateBytes` Integer (optional) _Windows_ - The amount of memory not shared by other processes, such as JS heap or HTML content.
 
-Обратите внимание, что вся статистика предоставляется ​​в Килобайтах.
+Note that all statistics are reported in Kilobytes.
