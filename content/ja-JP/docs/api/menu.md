@@ -100,7 +100,7 @@ menu の `pos` の位置に `menuItem` を挿入します。
 
 #### イベント: 'menu-will-show'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -108,7 +108,7 @@ menu の `pos` の位置に `menuItem` を挿入します。
 
 #### イベント: 'menu-will-close'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -284,11 +284,11 @@ macOS はいくつかのメニューアイテムに、`About xxx` や `Hide xxx`
 
 ### メインメニュー名
 
-macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 より詳しくは、[情報プロパティリストファイルについて][AboutInformationPropertyListFiles] を参照して下さい。
+macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 See [About Information Property List Files][AboutInformationPropertyListFiles] for more information.
 
 ## 特定のブラウザウィンドウのメニューの設定 (*Linux* *Windows*)
 
-ブラウザウインドウの [`setMenu` メソッド][setMenu] は、特定のブラウザウインドウのメニューを設定できます。
+The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
 
 ## メニューアイテムの位置
 
