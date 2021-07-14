@@ -12,7 +12,7 @@ Web开发人员通畅享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-Electron随时更新交替释放Chromium。 欲了解更多信息，请查看 [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence)。
+Electron keeps up to date with alternating Chromium releases. 欲了解更多信息，请查看 [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence)。
 
 ## 安全是所有人的共同责任
 
@@ -89,7 +89,7 @@ browserWindow.loadURL ('https://example.com')
 
 ## 2) 不要为远程内容启用 Node.js 集成
 
-_此建议是 Electron 从 5.0.0 开始的默认行为。_
+_This recommendation is the default behavior in Electron since 5.0.0._
 
 加载远程内容时，不论使用的是哪一种渲染器（[`BrowserWindow`][browser-window]，[`BrowserView`][browser-view] 或者 [`<webview>`][webview-tag]），最重要的就是绝对不要启用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
@@ -155,7 +155,7 @@ Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.
 
 ### 为什么?
 
-欲了解更多关于 `上下文隔离` 以及如何启用它的信息，请 查看我们专用的 [上下文隔离](context-isolation.md) 文档。
+For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
 ## 4) 处理来自远程内容的会话许可请求
 
@@ -407,45 +407,45 @@ app.on('web-contents-created', (event, contents) => {
 
 不过，这个清单只是将风险降低到最低限度，但没有将其消除。 如果您的目标是展示一个网站，浏览器将是一个更安全的选择。
 
-## 12) 禁用或限制导航
+## 12) Disable or limit navigation
 
-如果您的应用不需要导航或只需要导航到已知的页面， 将导航直接限制在已知范围内是一个好主意，将不允许 其他类型的导航。
+If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
 ### 为什么？
 
-导航是一个常见的攻击矢量。 如果攻击者可以说服你的应用走出当前页面 他们可能会迫使您的应用在互联网上打开 个网站。 即使您的 `webcontent` 被配置为更多的 安全性(类似于 `节点集成` 已禁用或 `上下文隔离` 已启用)， 让您的应用打开一个随机的网站将使开发您的 应用的工作更加容易。
+Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
 
-一种常见的攻击模式是，攻击者让你的应用用户相信你的应用可以与应用程序交互 ，它可以导航到攻击者的一个 页面。 这通常是通过链接、插件或其他用户生成的内容来完成。
+A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
 
 ### 怎么做？
 
-如果您的应用不需要导航，您可以在 [`will-navigate`][will-navigate] 处理器中调用 `event.preventDefault()`。 如果您知道您的应用程序 可能导航到的页面 在事件处理程序中检查URL，并且只允许导航 与您想要的URL匹配。
+如果您的应用不需要导航，您可以在 [`will-navigate`][will-navigate] 处理器中调用 `event.preventDefault()`。 If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
-我们建议您使用 Node的 URL 解析器。 简单的字符串比较有时会出错 - `startsWith('https://example.com')`测试会让`https://example.com.attacker.com`通过.
+We recommend that you use Node's parser for URLs. 简单的字符串比较有时会出错 - `startsWith('https://example.com')`测试会让`https://example.com.attacker.com`通过.
 
 ```js
 const URL = require('url').URL
 
-app.on('web-contents-created', (evidences, contents) => format@@
-  contents. n('will-navigate', (event, navigationUrl) => }
+app.on('web-contents-created', (event, contents) => {
+  contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (aparsedUrl) rigin !== 'https://example.com') *
+    if (parsedUrl.origin !== 'https://example.com') {
       event.preventDefault()
     }
-  }
+  })
 })
 ```
 
 ## 13) 禁用或限制新窗口的创建
 
-如果您有一组已知的窗口，最好是在您的应用程序中限制 个附加窗口的创建。
+If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 
 ### 为什么？
 
-就像导航一样，新的 `webContent` 是一个常见的攻击 矢量。 攻击者试图说服您的应用创建新的窗口、框架、 或其他渲染过程，拥有比以前更多的权限； 或 打开之前无法打开的页面。
+Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
 
-如果您除了知道您需要创建窗口之外不需要创建窗口， 需要创建窗口， 禁用创建将免费购买额外的 安全性。 对于打开一个 `Browserwindow` 并且不需要在运行时打开任意数量的 窗口的应用来说，情况通常如此。
+If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
 
 ### 怎么做？
 
@@ -483,13 +483,13 @@ Shell 的 [`openExternal`][open-external] 允许使用桌面的原生工具打�
 ### 怎么做？
 
 ```js
-// 错误
+//  Bad
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 
 ```js
-/ 好
+//  Good
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
@@ -500,7 +500,7 @@ shell.openExternal('https://example.com/index.html')
 
 ### 为什么？
 
-一个使用 Electron、Chromium 和 Node.js 的旧版本构建的应用程序比使用这些组件的最新版本的应用程序更容易成为目标。 一般来说，较旧的 版本的 Chromium 和 Node.js 的安全问题和开发范围更广。
+一个使用 Electron、Chromium 和 Node.js 的旧版本构建的应用程序比使用这些组件的最新版本的应用程序更容易成为目标。 Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
 
 Chromium 和 Node.js 都是数千名有才华的开发者建造的令人印象深刻的工程。 鉴于他们受欢迎的程度，他们的安全性都经过专业的安全研究人员仔细的测试和分析。 其中许多研究人员[负责任地披露漏洞][responsible-disclosure]，这通常意味着研究人员会给 Chromium 和 Node.js 一些时间来修复问题，然后再发布它们。 如果你的应用程序运行的是 Electron 的最新版本 (包括 Chromium 和 Node.js)，你的应用程序将更加安全，因为潜在的安全问题并不广为人知。
 
