@@ -1,6 +1,6 @@
 # IpcMainInvokeEvent Object extends `Event`
 
-* `processId` Integer - O ID interno do processo de renderização que enviou esta mensagem
-* `frameId` Integer - O ID do quadro do renderizador que enviou esta mensagem
-* `sender` WebContents - Retorna o `webContents` que enviou a mensagem
+* `processId` Integer - The internal ID of the renderer process that sent this message
+* `frameId` Integer - The ID of the renderer frame that sent this message
+* `sender` WebContents - Returns the `webContents` that sent the message
 * `senderFrame` WebFrameMain _Readonly_ - The frame that sent this message
