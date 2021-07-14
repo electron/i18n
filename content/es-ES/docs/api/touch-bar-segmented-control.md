@@ -2,7 +2,7 @@
 
 > Crea un control segmentado (un conjunto de botones) donde un botón tiene un estado seleccionado
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new TouchBarSegmentedControl(options)`
 
@@ -26,7 +26,7 @@ Proceso: [Main](../glossary.md#main-process)
     * `selectedIndex` Integer - El índice del elemento seleccionado por el usuario.
     * `isSelected` Boolean - Si el elemento es seleccionado o no como resultado de la selección del usuario.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguientes propiedades están disponibles en instancias de `TouchBarSegmentedControl`:
 
@@ -36,7 +36,7 @@ Un `String` que representa el estilo del segmento actual de los controles. Actua
 
 #### `touchBarSegmentedControl.segments`
 
-Un arreglo `SegmentedControlSegment[]` que representa los segmentos en este control. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen propiedades profundas en este arreglo **no actualice la barra táctil**.
+Un arreglo `SegmentedControlSegment[]` que representa los segmentos en este control. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
@@ -44,4 +44,4 @@ Un `entero` que representa el segmento seleccionado actual. Cambiar este valor a
 
 #### `touchBarSegmentedControl.mode`
 
-A `String` representing the current selection mode of the control.  Can be `single`, `multiple` or `buttons`.
+A `String` representing the current selection mode of the control.  Puede ser `single`, `multiple` o `buttons`.
