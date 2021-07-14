@@ -1,4 +1,4 @@
-# Objet CrashReport
+# CrashReport Object
 
 * `date` Date
 * `id` String
