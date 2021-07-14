@@ -14,7 +14,7 @@
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBarSpacer`:
+以下属性可用于 `TouchBarSpacer`:
 
 #### `touchBarSpacer.size`
 
