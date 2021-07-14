@@ -1,13 +1,13 @@
 # Chronologie de sortie d'électron
 
-Special notes:
+Remarques particulières:
 
 * Les dates -beta.1</ 0> et <code>stables</ 0> sont nos dates de sortie.</li>
 <li>Nous nous efforçons d'obtenir des versions bêta hebdomadaires, mais nous publions souvent plus de bêtas que prévu.</li>
 <li>Toutes les dates sont nos objectifs, mais il peut y avoir des raisons d’ajuster la date limite, telles que des problèmes de sécurité.</li>
 <li>Consultez l'article <a href="https://electronjs.org/blog/electron-5-0-timeline">5.0.0 Timeline</a> sur le blog Timeline pour plus d'informations sur la publication de nos dates de publication.</li>
-<li>Depuis Electron 6.0, nous ciblons toute nouvelle version de Chromium et publions notre version stable le même jour que Chrome. Vous pouvez référencer le calendrier de publication de Chromium <a href="https://chromiumdash.appspot.com/schedule">ici</a>. Consultez <a href="https://www.electronjs.org/blog/12-week-cadence">le blog de cadence de la nouvelle version d'Electron</a> pour plus de détails sur notre calendrier de publication.</li>
-<li>Electron 15.0 only will include a special Alpha release. Starting in Electron 16.0, we will release on an 8-week cadence. See <a href="https://www.electronjs.org/blog/8-week-cadence">Electron's new 8-week cadence blog post</a> for more details.</li>
+<li>Depuis Electron 6.0, nous ciblons toute nouvelle version de Chromium et publions notre version stable le même jour que Chrome. Vous pouvez vous référer au calendrier de publication de Chromium <a href="https://chromiumdash.appspot.com/schedule">ici</a>. Consultez <a href="https://www.electronjs.org/blog/12-week-cadence">le blog de cadence des nouvelle versions d'Electron</a> pour plus de détails sur notre calendrier de sortie.</li>
+<li>Electron 15.0 n'inclura qu'une version Alpha spéciale. À partir d’Electron 16.0, nous publierons sur une cadence de 8 semaines. Pour plus de détails, consultez le nouveau billet de blog cadence de 8 semaines de <a href="https://www.electronjs.org/blog/8-week-cadence">Electron</a> .</li>
 </ul>
 
 <table spaces-before="0">
