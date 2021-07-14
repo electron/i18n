@@ -2,7 +2,7 @@
 
 > Registrar eventos de red para una sesión.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ```javascript
 const { netLog } = require('electron')
