@@ -2,7 +2,7 @@
 
 > Controla tu aplicación en el dock de macOS
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 El siguiente ejemplo muestra como rebotar tu ícono en el dock.
 
@@ -27,7 +27,7 @@ Cuando `informational` es pasado, el icono del dock rebotará por un segundo. Si
 
 #### `dock.cancelBounce(id)` _macOS_
 
-* `id` Íntegro
+* `id` Integer
 
 Cancela el rebote de `id`.
 
@@ -39,13 +39,13 @@ Rebota la apilación de descargas si el archivo de camino está dentro de la car
 
 #### `dock.setBadge(text)` _macOS_
 
-* `texto` String
+* `texto` Cadena
 
 Establece la cadena para ser mostrada en el área de insignia del punto.
 
 #### `dock.getBadge()` _macOS_
 
-Devuelve `Cadena` - La insignia cadena del punto.
+Devuelve `String` - La insignia cadena del punto.
 
 #### `dock.hide()` _macOS_
 
