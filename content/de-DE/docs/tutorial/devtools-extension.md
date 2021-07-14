@@ -13,10 +13,10 @@ If you don't want to use the tooling approach, you can also do all of the necess
 Using the [React Developer Tools][react-devtools] as an example:
 
 1. Install the extension in Google Chrome.
-1. Navigieren Sie zu `chrome://extensions`und finden Sie seine Erweiterungs-ID, die ein Hash Zeichenkette ist wie `fmkadmapgofadopljbjfkapdkoienihi`.
+1. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
 1. Find out the filesystem location used by Chrome for storing extensions:
-   * unter Windows ist es `%LOCALAPPDATA%\Google\Chrome\Benutzerdaten\Default\Erweiterungen`;
-   * unter Linux könnte es sein:
+   * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+   * on Linux it could be:
      * `~/.config/google-chrome/Default/Extensions/`
      * `~/.config/google-chrome-beta/Default/Extensions/`
      * `~/.config/google-chrome-canary/Default/Extensions/`
