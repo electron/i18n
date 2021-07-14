@@ -1,6 +1,6 @@
 # Multithreading
 
-С помощью [Web Workers][web-workers], есть возможность запускать JavaScript в потоках на уровне операционной системы.
+Avec [Web Workers][web-workers], il est possible d'exécuter du code JavaScript au niveau du système d'exploitation.
 
 ## Multi-threaded Node.js
 
@@ -30,7 +30,7 @@ La seule façon de charger un module natif en toute sécurité pour l’instant,
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Charger le module natif n'est pas sûr')
+  throw new Error('Load native module is not safe')
 }
 const worker = new Worker('script.js')
 ```
