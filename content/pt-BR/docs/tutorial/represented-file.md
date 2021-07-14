@@ -1,4 +1,4 @@
-# Representação de Arquivo para o macOS BrowserWindows
+# Arquivo Representado para o macOS BrowserWindows
 
 ## Visão Geral
 
@@ -12,7 +12,7 @@ You can also set the edited state for a window so that the file icon can indicat
 
 Para definir uma representação de arquivo de uma janela, você pode usar as APIs [BrowserWindow.setRepresentedFilename][setrepresentedfilename] e [BrowserWindow.setDocumentEdited][setdocumentedited].
 
-## Exemplo
+## Example
 
 ```javascript fiddle='docs/fiddles/features/represented-file'
 const { app, BrowserWindow } = require('electron')
