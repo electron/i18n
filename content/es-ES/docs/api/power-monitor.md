@@ -1,8 +1,8 @@
-# Monitor de energía
+# powerMonitor
 
 > Monitorea los cambios de estado de energía.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ## Eventos
 
@@ -52,7 +52,7 @@ El modulo `powerMonitor` tiene los siguientes métodos:
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+Returns `String` - The system's current state. Puede ser `active`, `idle`, `locked` o `unknown`.
 
 Calcule el estado de reposo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo.  `locked` is available on supported systems only.
 
@@ -74,4 +74,4 @@ To monitor for changes in this property, use the `on-battery` and `on-ac` events
 
 Una propiedad `Boolean`. True if the system is on battery power.
 
-Consulta [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
+See [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower).
