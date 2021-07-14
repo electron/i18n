@@ -1,7 +1,7 @@
-# UploadFile 对象
+# UploadFile Object
 
-* `type` 'file' - `文件`.
-* `filePath` String - 准备上传的文件的路径
-* `offset` Integer - 默认值 `0`.
-* `length` Integer - 从 `offset` 位置开始读取的字节数。 默认值为：`0`。
-* `modificationTime` Double - 最后更新时间，自UNIX时期计时总的秒数表示.
+* `type` 'file' - `file`.
+* `filePath` String - Path of file to be uploaded.
+* `offset` Integer - Defaults to `0`.
+* `length` Integer - Number of bytes to read from `offset`. Defaults to `0`.
+* `modificationTime` Double - Last Modification time in number of seconds since the UNIX epoch.
