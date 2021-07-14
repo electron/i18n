@@ -10,7 +10,7 @@ Ve la documentacion de [Channel Messaging API][] para mas información sobre el 
 
 > Interfaz del puerto para la mensajería de canales del proceso principal.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### Métodos de Instancia
 
@@ -35,7 +35,7 @@ Disconnects the port, so it is no longer active.
 
 Devuelve:
 
-* `messageEvent` Object
+* Objeto `messageEvent`
   * `data` any
   * `ports` MessagePortMain[]
 
