@@ -15,7 +15,7 @@ Ce guide vous guidera tout au long du processus de création d’une icône de l
 
 Sur MacOS et Ubuntu, la zone de notification sera située dans le coin supérieur droit de l'écran, à coté des icônes batterie et wifi. Sous Windows, la barre d'états se trouve généralement dans le coin inférieur droit.
 
-## Exemple
+## Example
 
 ### main.js
 
