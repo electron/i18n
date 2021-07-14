@@ -2,20 +2,20 @@
 
 > Create a scrubber (a scrollable selector)
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new TouchBarScrubber(options)`
 
-* `options` Object
+* `options` Objekt
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
   * `select` Function (optional) - Called when the user taps an item that was not the last tapped item.
     * `selectedIndex` Integer - The index of the item the user selected.
   * `highlight` Function (optional) - Called when the user taps any item.
     * `highlightedIndex` Integer - The index of the item the user touched.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Standardwert ist `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Standardwert ist `none`.
   * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
+  * `mode` String (optional) - Kann `fixed` oder `free` sein. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Instanz Eigenschaften
