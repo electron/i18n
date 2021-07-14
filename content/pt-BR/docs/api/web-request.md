@@ -39,7 +39,7 @@ The following methods are available on instances of `WebRequest`:
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
@@ -59,9 +59,9 @@ The `listener` will be called with `listener(details, callback)` when a request 
 
 The `uploadData` is an array of `UploadData` objects.
 
-O `callback` tem que ser chamado com um objeto `response`.
+The `callback` has to be called with an `response` object.
 
-Alguns exemplos de `urls` válidas:
+Some examples of valid `urls`:
 
 ```js
 'http://foo:1234/'
@@ -81,7 +81,7 @@ Alguns exemplos de `urls` válidas:
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
@@ -97,7 +97,7 @@ Alguns exemplos de `urls` válidas:
       * `cancel` Boolean (optional)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. Isto pode ocorrer após uma conexão TCP ser feita ao servidor, mas antes que qualquer dado http seja enviado.
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 The `callback` has to be called with a `response` object.
 
@@ -106,7 +106,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
@@ -125,7 +125,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
@@ -154,7 +154,7 @@ The `callback` has to be called with a `response` object.
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
@@ -176,7 +176,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
@@ -200,7 +200,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
@@ -223,7 +223,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `filter` Object (optional)
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
-  * `details` Object
+  * Objeto `details`
     * `id` Inteiro
     * String `url`
     * `method` String
