@@ -1,31 +1,31 @@
 ---
-title: "Nuevo en Electron 2: Compras dentro de la aplicación"
+title: "New in Electron 2: In-App Purchases"
 author: zeke
-date: '04-04-2018'
+date: '2018-04-04'
 ---
   
-La nueva línea de lanzamiento Electron 2.0 está [empaquetada](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) con nuevas características y correcciones. Uno de los aspectos destacados de esta nueva versión principal es una nueva [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) para la App Store [de Mac](https://support.apple.com/en-us/HT202023).
+The new Electron 2.0 release line is [packed](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) with new features and fixes. One of the highlights from this new major version is a new [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) for Apple's [Mac App Store](https://support.apple.com/en-us/HT202023).
 
 ---
 
-Las compras dentro de la aplicación permiten que el contenido o las suscripciones se compren directamente desde dentro de las aplicaciones. Esto proporciona a los desarrolladores una forma fácil de abrazarse con el modelo de negocio [freemium](https://developer.apple.com/app-store/freemium-business-model/), dondequiera que los usuarios no paguen nada para descargar una aplicación y se les ofrece compras dentro de la aplicación opcional para funciones premium, contenido adicional o suscripciones.
+In-app purchases enable content or subscriptions to be purchased directly from within apps. This gives developers an easy way to embrace the [freemium business model](https://developer.apple.com/app-store/freemium-business-model/), wherein users pay nothing to download an app and are offered optional in-app purchases for premium features, additional content, or subscriptions.
 
-La nueva API fue añadida a Electron por el colaborador comunitario [Adrien Fery](https://github.com/AdrienFery) para permitir compras dentro de la aplicación en [Amanote](https://amanote.com/), una aplicación Electron para tomar notas para conferencias y conferencias. Amanote es gratuito para descargar y permite añadir notas claras y estructuradas a PDFs, con características como fórmulas matemáticas, dibujos, grabación de audio y más.
+The new API was added to Electron by community contributor [Adrien Fery](https://github.com/AdrienFery) to enable in-app purchases in [Amanote](https://amanote.com/), a note-taking Electron app for lectures and conferences. Amanote is free to download and allows clear and structured notes to be added to PDFs, with features like mathematical formulae, drawings, audio recording, and more.
 
-Desde que se añadió soporte para compras en la aplicación a la versión Mac de Amanote, ¡Adrien ha notado un **40% más de ventas**!
+Since adding in-app purchase support to the Mac version of Amanote, Adrien has noted a **40% increase in sales**!
 
-## Comenzando
+## Getting Started
 
-La nueva [`inAppPurchase`](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) API ya ha aterrizado en la última beta de Electron:
+The new [`inAppPurchase`](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) API has already landed in the latest Electron beta:
 
 ```sh
 npm i -D electron@beta
 ```
 
-Los documentos para la API pueden ser [encontrados en GitHub](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md), y Adrien han tenido la amabilidad de escribir un tutorial sobre cómo usar la API. Para empezar a añadir compras dentro de la aplicación, [vea el tutorial](https://github.com/AdrienFery/electron/blob/a69bbe882aed1a5aee2b7910afe09900275b2bf6/docs/tutorial/in-app-purchases.md).
+The docs for the API can be [found on GitHub](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md), and Adrien has been kind enough to write a tutorial on how to use the API. To get started adding in-app purchases to your app, [see the tutorial](https://github.com/AdrienFery/electron/blob/a69bbe882aed1a5aee2b7910afe09900275b2bf6/docs/tutorial/in-app-purchases.md).
 
-Más [mejoras en la API](https://github.com/electron/electron/pull/12464) están en funcionamiento, y pronto llegará a una próxima versión beta de Electron.
+More [improvements to the API](https://github.com/electron/electron/pull/12464) are in the works, and will soon be landing in an upcoming Electron beta release.
 
-## Windows podría ser siguiente
+## Windows Could Be Next
 
-A continuación, Adrien espera abrir un nuevo canal de ingresos para Amanote añadiendo soporte para las compras dentro de la aplicación de Microsoft Store en Electron. ¡Manténte atento a desarrollos al respecto!
+Up next, Adrien is hoping to open a new revenue channel for Amanote by adding support for Microsoft Store in-app purchases in Electron. Stay tuned for developments on that!
