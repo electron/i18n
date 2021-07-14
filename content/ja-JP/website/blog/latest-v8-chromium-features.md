@@ -1,76 +1,76 @@
 ---
-title: Electron で V8 や Chromium の機能を使用する
+title: Use V8 and Chromium Features in Electron
 author: jlord
 date: '2016-01-07'
 ---
 
-Electron アプリケーションの構築は、1 つのブラウザ向けに 1 つのコードベースとデザインを作成するだけでいいので、非常に手軽です。 しかも Electron は最新リリースの [Node.js](http://nodejs.org) と [Chromium](https://www.chromium.org) を保持しており、同梱の優れた機能を利用できます。 これにより以前はウェブアプリに含める必要があった依存関係が解消される場合があります。
+Building an Electron application means you only need to create one codebase and design for one browser, which is pretty handy. But because Electron stays up to date with [Node.js](http://nodejs.org) and [Chromium](https://www.chromium.org) as they release, you also get to make use of the great features they ship with. In some cases this eliminates dependencies you might have previously needed to include in a web app.
 
 ---
 
-多くの機能があるため、ここでは例をいくつか取り上げます。すべての機能について知りたい場合は、[Google Chromium ブログ](http://blog.chromium.org) 及び [Node.js 変更ログ](https://nodejs.org/en/download/releases) に目を通してください。 Node.js、Chromium、V8 の Electron での使用バージョンは [electronjs.org/#electron-versions](https://electronjs.org/#electron-versions) で確認できます。
+There are many features and we'll cover some here as examples, but if you're interested in learning about all features you can keep an eye on the [Google Chromium blog](http://blog.chromium.org) and [Node.js changelogs](https://nodejs.org/en/download/releases). You can see what versions of Node.js, Chromium and V8 Electron is using at [electronjs.org/#electron-versions](https://electronjs.org/#electron-versions).
 
-## V8 による ES6 サポート
+## ES6 Support through V8
 
-Electron は Chromium のレンダリングライブラリに Node.js を組み合わせています。 二者は同じ JavaScript エンジン [V8](https://developers.google.com/v8) を共有します。 多くの ECMAScript 2015 (ES6) の機能はすでに V8 に組み込まれており、コンパイラーがなくても Electron アプリケーションで使用できます。
+Electron combines Chromium's rendering library with Node.js. The two share the same JavaScript engine, [V8](https://developers.google.com/v8). Many ECMAScript 2015 (ES6) features are already built into V8 which means you can use them in your Electron application without any compilers.
 
-以下にいくつかの例を示しますが、class (strict モード)、ブロックスコープ、Promise、TypedArray などを書くこともできます。 V8 の ES6 機能の詳細については [このリスト](https://nodejs.org/en/docs/es6/) を参照してください。
+Below are a few examples but you can also get classes (in strict mode), block scoping, promises, typed arrays and more. Check out [this list](https://nodejs.org/en/docs/es6/) for more information on ES6 features in V8.
 
-**アロー関数**
+**Arrow Functions**
 
 ```js
-const findTime = () => {
+findTime () => {
   console.log(new Date())
 }
 ```
-**文字列内挿**
+**String Interpolation**
 
 ```js
 var octocat = "Mona Lisa";
 console.log(`The octocat's name is ${octocat}`);
 ```
 
-**new.target**
+**New Target**
 
 ```js
-function Octocat() {
+Octocat() => {
   if (!new.target) throw "Not new";
   console.log("New Octocat");
 }
 
-// 例外が投げられる
+// Throws
 Octocat();
-// ログが出る
+// Logs
 new Octocat();
 ```
 
-**Array.includes**
+**Array Includes**
 
 ```js
- // true を返します
+ // Returns true
 [1, 2].includes(2);
 ```
 
-**残余引数**
+**Rest Parameters**
 
 ```js
-// 可変長引数を配列として表現します
+// Represent indefinite number of arguments as an array
 (o, c, ...args) => {
   console.log(args.length)
 }
 ```
 
-## Chromium の機能
+## Chromium Features
 
-Google と Chromium に貢献してくれた皆の協力のおかげで、Electron アプリを構築するときに、以下のすごいものも使用できます (これだけではありません)。
+Thanks to all the hard work Google and contributors put into Chromium, when you build Electron apps you can also use cool things like (but not limited to):
 
 - [MouseEvent.getModifierState()](https://googlechrome.github.io/samples/mouseevent-get-modifier-state/index.html)
 - [CSS.escape()](https://googlechrome.github.io/samples/css-escape/index.html)
-- [Fetch API ストリーム](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
+- [Fetch API Streaming](https://googlechrome.github.io/samples/fetch-api/fetch-response-stream.html)
 
-[Google Chromium ブログ](http://blog.chromium.org) をフォローすれば、新しいバージョンが出るたびにその機能について知ることができます。また、Electronが使用する Chromium のバージョンは [こちら](https://electronjs.org/#electron-versions) で確認できます。
+Follow along with the [Google Chromium blog](http://blog.chromium.org) to learn about features as new versions ship and again, you can check the version of Chromium that Electron uses [here](https://electronjs.org/#electron-versions).
 
-## 何か好きなものはありましたか?
+## What are you excited about?
 
-V8 や Chromium のお気に入りの組み込み機能を [@ElectronJS](https://twitter.com/electronjs) 宛にツイートしましょう。
+Tweet to us [@ElectronJS](https://twitter.com/electronjs) with your favorite features built into V8 or Chromium.
 
