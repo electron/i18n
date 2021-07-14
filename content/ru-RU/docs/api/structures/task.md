@@ -1,9 +1,9 @@
-# Объект Task
+# Task Object
 
-* `program` String - путь к исполняемой программе, как правило, следует указывать `process.execPath`, который открывает текущую программу.
-* `arguments` String - аргументы командной строки при выполнении `program`.
-* `title` String - строка, отображаемая в списке переходов.
-* `description` String - описание задачи.
-* `iconPath` String - абсолютный путь к иконке для отображения в списке переходов, который может быть произвольным файлом ресурса, содержащий иконку. Обычно, Вы можете указывать `process.execPath`, чтобы показать иконку программы.
-* `iconIndex` Number - индекс иконки в файле иконки. Данное значение стоит устанавливать только если в файле иконок находится более одного изображения. Если файл с иконками содержит только одно изображение, то значение равно 0.
-* `workingDirectory` String (опционально) - Рабочий каталог. По умолчанию пусто.
+* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
+* `arguments` String - The command line arguments when `program` is executed.
+* `title` String - The string to be displayed in a JumpList.
+* `description` String - Description of this task.
+* `iconPath` String - The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. You can usually specify `process.execPath` to show the icon of the program.
+* `iconIndex` Number - The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
+* `workingDirectory` String (optional) - The working directory. Default is empty.
