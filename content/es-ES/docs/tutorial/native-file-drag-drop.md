@@ -1,10 +1,10 @@
-# Función nativa arrastrar & soltar archivo
+# Función nativa de Arrastrar y Soltar archivo
 
 ## Descripción general
 
 Ciertos tipos de aplicaciones que manipulan archivos podrían querer soportar la función nativa de arrastrar & soltar archivos del sistema operativo. Arrastrar archivos dentro de un web content es común y soportado por muchos sitios web. Adicionalmente Electron soporta arrastre de archivos fuera del web content dentro del mundo del sistema.
 
-Para implementar esta característica en tu aplicación, necesitas llamar a [`webContents. tartDrag(item)`](../api/web-contents.md#contentsstartdragitem) API en respuesta al evento `ondragstart`.
+To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
 
 ## Ejemplo
 
