@@ -1,63 +1,63 @@
 ---
-title: 'Проект Недели: WordPress рабочий стол'
+title: 'Project of the Week: WordPress Desktop'
 author:
-  - мказ
-  - Джонгодли
+  - mkaz
+  - johngodley
   - zeke
 date: '2017-02-28'
 ---
 
-На этой неделе мы попали на [Автоматически](https://automattic.com/) с рассказом о [WordPress рабочем столе](https://apps.wordpress.com/desktop/), Open source desktop client for management WordPress content.
+This week we caught up with folks at [Automattic](https://automattic.com/) to talk about [WordPress Desktop](https://apps.wordpress.com/desktop/), an open-source desktop client for managing WordPress content.
 
 ---
 
-[![WordPress приложения](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
-## Все знают о WordPress, но что такое WordPress рабочий стол?
+## Everyone knows about WordPress, but what is WordPress Desktop?
 
-[WordPress. Приложение om Desktop](https://apps.wordpress.com/desktop/) предоставляет многоплатформенный опыт, позволяющий сосредоточиться на контенте и дизайне без вкладок браузера для отвлечения вас — или держать ваши сайты поперечными но доступными. В сочетании с нашей поддержкой браузера и мобильным приложением Вы можете создать свой сайт в любом месте, что поможет Вам в выполнении своей работы.
+The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
 
-## Зачем создавать приложение для рабочего стола для управления WordPress сайтами? Не могли бы быть веб-базы?
+## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
 
-Это на самом деле использует ту же технологию, которую вы получаете, посетив [WordPress.com](https://wordpress.com) в вашем браузере. Тем не менее, все это локально хост-соединено с минимальной нагрузкой. С помощью родных функций, таких как нахождение в док-станции, уведомления и т.д., вы действительно можете сосредоточиться на ваших WordPress сайтах и блогах.
+It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
 
-## Почему вы выбрали создание WordPress рабочего стола на Electron?
+## Why did you choose to build WordPress Desktop on Electron?
 
-В конце 2015 года мы реконструировали большую часть WordPress.com в виде [Calypso](https://github.com/automattic/wp-calypso), современного открытого исходного кода JavaScript приложения с помощью React. Мы начали смотреть на Electron и с некоторыми изменениями в Calypso смогли заставить его работать локально. Это был убедительный опыт, и мы думали, что его дальнейшее развитие имеет большое значение.
+At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
 
-У нас было несколько команд над Calypso. Чтобы сделать полноценный многоплатформенный GUI клиент, совпадающий с традиционными настольными технологиями, занял бы больше работы. Используя Electron, маленькая команда из 2-4 из нас сумела в течение нескольких месяцев увеличить усилия другой команды и создать приложение для рабочего стола.
+We had several teams working on Calypso. To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
 
-## Каковы некоторые вызовы, с которыми вы столкнулись при создании WordPress рабочего стола?
+## What are some challenges you've faced while building WordPress Desktop?
 
-У нас очень быстро запущена первоначальная версия приложения, но настройка так, чтобы вести себя оптимально, как настольное приложение заняло гораздо больше времени. Одной из серьезных проблем с приложением является то, что вы на самом деле используете копию Calypso на своей машине - это чисто интерфейс, управляемый API. В этом процессе была проделана большая работа и изменения были возвращены в Калипсо.
+We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
 
-Кроме того, много усилий было потрачено на упаковку приложения для различных платформ - мы предоставляем Windows, macOS и Linux версии - и есть достаточные различия, чтобы сделать это сложно.
+Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
 
-В то время, когда Electron был относительно новым, мы всё время сталкивались с проблемами, которые были исправлены в ближайшее время (иногда в тот же день!)
+At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
 
-## В каких областях Electron следует улучшить?
+## In what areas should Electron be improved?
 
-Electron уже обеспечивает большую часть того, что нам необходимо для настольного приложения, и с тех пор, как мы начали использовать его. Тем не менее, есть некоторые области, которые принимаются для предоставления в настольных приложениях, Например, проверка орфографии и нахождение/замена на более сложное копирование с Electron как есть.
+Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
 
-Мы также хотели бы увидеть некоторые из новых технологий Chrome фильтрации в Electron. Мы особенно заинтересованы в экспериментах с WebVR.
+We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
 
-## Каковы ваши любимые вещи в Electron?
+## What are your favorite things about Electron?
 
-Главная причина, по которой мы выбрали Electron, и ее самая большая сила, это очень активное и открытое сообщество. Автомат всегда верил в открытый исходный код. Это одно из наших основных предложений, и проект и сообщество Electron следуют многим основным убеждениям, которые являются очень открытыми и позитивными.
+The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
 
-## Что будет дальше в WordPress Desktop?
+## What's coming next in WordPress Desktop?
 
-Отлично, что наша модель заключается в том, что приложение для рабочего стола выгодно от любой новой функции Calypso - есть постоянные улучшения. Мы надеемся, что мы сможем добавить дополнительные функции в приложение, такие как оффлайн поддержка, что действительно может привести приложение в родную территорию, и лучше системные уведомления.
+The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
 
-## Есть ли команды в Automattic для других приложений Electron?
+## Are there any teams at Automattic working on other Electron apps?
 
-Да, после наших усилий в настольном приложении, команда Simplenote решила использовать Electron для создания настольных приложений для Windows и Linux (родной Mac клиент уже существует). Приложение [Simplenote Electron](https://github.com/Automattic/simplenote-electron) также является открытым исходным кодом и доступно на Github.
+Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
 
-Мы также получили предстоящую интеграцию Raspberry Pi, использующую Electron.
+We've also got an upcoming Raspberry Pi integration that uses Electron.
 
-Если что-то из этого интересно, мы будем рады [услышать от вас](https://automattic.com/work-with-us/)!
+If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
 
-## Любые советы Electron, которые могут быть полезны другим разработчикам?
+## Any Electron tips that might be useful to other developers?
 
-Процесс доставки подписанного ПО для настольных компьютеров является относительно новым для нас, особенно для Windows. мы написали статью для [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) , которая включает в себя процесс и несколько препятствий, которые мы преодолели, чтобы сделать это правильно.
+The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
 
