@@ -1,21 +1,21 @@
 ---
 title: Electron 13.0.0
 author:
-  - 索菲亚格文
+  - sofianguy
   - georgexu99
   - VerteDinde
 date: '2021-05-25'
 ---
 
-Electron 13.0.0 已发布！ 它包括了到 Chromium `91` 和 V8 `9.1` 的更新。 我们添加了多个 API 更新、错误修复和一般改进。 请阅读下文了解更多详情！
+Electron 13.0.0 has been released! It includes upgrades to Chromium `91` and V8 `9.1`. We've added several API updates, bug fixes, and general improvements. Read below for more details!
 
 ---
 
-Electron 团队很高兴发布了 Electron 13.0.0.0！ 您可以通过 `npm 安装electron@later` 或者从我们的 [发布网站](https://electronjs.org/releases/stable) 下载它。 继续阅读此版本的详细信息，请分享您拥有的任何反馈！
+The Electron team is excited to announce the release of Electron 13.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). Continue reading for details about this release, and please share any feedback you have!
 
-## 显著更改
+## Notable Changes
 
-### 堆栈更改
+### Stack Changes
 
 * Chromium `91`
     * [New in Chrome 91](https://developer.chrome.com/blog/new-in-chrome-91/)
@@ -27,7 +27,7 @@ Electron 团队很高兴发布了 Electron 13.0.0.0！ 您可以通过 `npm 安�
     * [V8 9.1 blog post](https://v8.dev/blog/v8-release-91)
     * [V8 9.0 blog post](https://v8.dev/blog/v8-release-90)
 
-### 高亮功能
+### Highlight Features
 
 * Added `process.contextIsolated` property that indicates whether the current renderer context has `contextIsolation` enabled. [#28252](https://github.com/electron/electron/pull/28252)
 * Added new `session.storagePath` API to get the path on disk for session-specific data. [#28866](https://github.com/electron/electron/pull/28866)
@@ -41,9 +41,9 @@ See the [13.0.0 release notes](https://github.com/electron/electron/releases/tag
 * `window.open()` parameter frameName is no longer set as window title. [#27481](https://github.com/electron/electron/pull/27481)
 * Changed `session.setPermissionCheckHandler(handler)` to allow for `handler`'s first parameter, `webContents` to be `null`. [#19903](https://github.com/electron/electron/pull/19903)
 
-有关这些和未来更改的更多信息可在 [计划打破更改](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) 页面找到。
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
-## API 更改
+## API Changes
 
 * Added `roundedCorners` option for `BrowserWindow`. [#27572](https://github.com/electron/electron/pull/27572)
 * Added new `session.storagePath` API to get the path on disk for session-specific data.[28866](https://github.com/electron/electron/pull/28866)
@@ -88,10 +88,10 @@ The following APIs have been removed or are now deprecated:
 
 ## End of Support for 10.x.y
 
-Electron 10.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). 鼓励开发者和应用程序升级到 Electron 的较新版本。
+Electron 10.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
 
-## 下一步
+## What's Next
 
-短期内， 您可以期待团队继续专注于跟上Electron主要组件的开发工作。 包括Chromium, Node和V8。 尽管我们注意不要就释放日期作出许诺， 我们的计划大约每季度发布新的Electron版本的新版本。 [暂定 14.0.0 时间表](https://electronjs.org/docs/tutorial/electron-timelines) 展示了 Electron 14.0 开发生命周期中的关键日期。 另外， [查看我们的版本化文档](https://electronjs.org/docs/tutorial/electron-versioning) 以获取更多关于Electron版本化的详细信息。
+In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 14.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 14.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 
-关于 Electron 的预定中断更改的信息， [请参阅我们计划的打破更改。](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
+For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
