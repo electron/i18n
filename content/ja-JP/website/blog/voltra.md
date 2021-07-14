@@ -1,5 +1,5 @@
 ---
-title: '今週のプロジェクト: Voltra'
+title: 'Project of the Week: Voltra'
 author:
   - '0x00A'
   - aprileelcich
@@ -7,87 +7,87 @@ author:
 date: '2017-03-07'
 ---
 
-今週は、[Aprile Elcich](https://twitter.com/aprileelcich) さんと [Paolo Fragomeni](https://twitter.com/0x00A) さんにお会いして、Electron を搭載した音楽プレイヤー Voltra についてお話を伺いました。
+This week we met with [Aprile Elcich](https://twitter.com/aprileelcich) and [Paolo Fragomeni](https://twitter.com/0x00A) to talk about Voltra, an Electron-powered music player.
 
 ---
 
-## Voltra とは何ですか?
+## What is Voltra?
 
-[Voltra](https://voltra.co/) は、自分の音楽を所有したい人のための音楽プレイヤーです。 すでに持っているものから新しい音楽を見つけたり、購入したりできるストアでもあります。 広告なしで、デスクトップとモバイル向けのクロスプラットフォームです。 情報収集もしません。
+[Voltra](https://voltra.co/) is a music player for people who want to own their music. It’s also a store where you can discover and buy new music based on what you already own. It’s ad-free, cross-platform for desktop and mobile. It also doesn’t spy on you.
 
 [![voltra-artistview](https://cloud.githubusercontent.com/assets/2289/23670061/4db0323c-031b-11e7-81fd-128e714e911c.jpg)](https://voltra.co/)
 
-## Voltra はどんな人が対象ですか?
+## Who is Voltra for?
 
-音楽を聴くすべての人です。
+Anyone who listens to music.
 
-## Voltra を作ったきっかけは何ですか?
+## What motivated you to create Voltra?
 
-ラジオは昔からリスナーの大きなシェアを獲得しています。 今や電波からインターネットへと移行しています。 オンデマンドで音楽をレンタルできるようにもなりました - ラジオの復活です! そのために多くの新しい製品やサービスが登場しています。しかし、ストリーミングラジオはまだ、音楽とその視聴手段を掌握されています。
+Radio has has always had a big share of listeners. It’s moving off the airwaves and onto the Internet. Now you can rent music on demand — it’s a radio revival! A lot of new products and services have emerged because of this, but streaming radio still leaves someone else in control of your music and how you experience it.
 
-私たちは、自分が持っている音楽というものに全面的にこだわったプロダクトを望みました。 アーティストやレーベルから直接、新しい音楽を発見したり購入したりすることを容易にするものです。
+We wanted a product that was entirely focused on music you own. Something that made it easy to discover and buy new music directly from artists or labels.
 
-## 無料版はありますか?
+## Is there a free version?
 
-デスクトッププレイヤーは完全に無料です。 [あなたの音楽を販売するのも無料です!](https://voltra.co/artists) 当サイトに広告はありません。
+The desktop player is completely free. [Selling your music is also free!](https://voltra.co/artists) We are not ad-supported.
 
-このアプリは無料なので、後にオープンソース化するかもしれません。 今のところそれを管理する余裕はありません。 機能や採り入れる方向性についても、とても具体的なアイデアを持っています。 活発なベータコミュニティもあり、そのフィードバックを大切にしています。
+Since the app is free, we may open source it later on. Right now we don’t have the bandwidth to manage that. We also have very specific ideas for features and the direction we want to take things. We have an active beta community and we take our feedback to heart.
 
-## どうやって収益化するのですか?
+## How do you make money?
 
-プレミアム機能があります!
+We have premium features!
 
-[Voltra Audio Archive](https://voltra.co/premium/) は、音楽に特化したクラウドバックアップサービスです。 データブロックを圧縮、共有はしません。 あなたの音楽コレクションは、物理的なバックアップです。
+Our [Voltra Audio Archive](https://voltra.co/premium/) is a cloud-backup service designed specifically for music. We don’t compress or share data blocks. Your music collection is physically backed up for you.
 
-アーティストやレーベル向けの [プロ会員](https://voltra.co/artists/pro) は、アナリティクスやプロアーティストのウェブページなど、より関連する視聴者に届けるためのツールを提供しています。
+For artists and labels, our [Pro Membership](https://voltra.co/artists/pro) offers tools to help them reach more relevant audiences, such as analytics and professional artist webpages.
 
-## Voltra は何が特色なのですか?
+## What makes Voltra different?
 
-デザインとユーザビリティは、私たちにとって非常に重要です。 リスナーの皆様に、煩わせない視聴体験を提供したいのです! 興味深い音楽プレーヤーやストアはすでにいくつか出ています。 しかし、その多くは作者が思っているよりも高度で使いづらいのです。 一人でも多くの人が Voltra を利用できるようにしたいです。
+Design and usability are incredibly important to us. We want to give listeners a distraction-free listening experience! There are a some interesting music players and stores out there. But many of them are more advanced and harder to use than their creators realize. We want to make Voltra accessible to as many people as possible.
 
-また、アーティストやレーベルからの引き抜きはしていません。 これが差別化しているポイントです。 アーティストが自分の音楽を市場に出すための障壁を下げるには、本当に重要なことなのです。
+We also don't take a cut from the artist or the label. That’s a key differentiator for us. It’s really important because it lowers the barrier for artists to get their music to market.
 
-## どのようなデザイン & 技術的な決定をしましたか?
+## What are some design & technical decisions you made?
 
-Voltra をデザインするにあたって、ネイティブアプリやウェブの UI の慣習を考慮し、何を削るかということもたくさん考えました。 私たちには、ここ数ヶ月の間で批判的なフィードバックをくれた活発なプライベートベータグループがいます。
+While designing Voltra, we considered UI conventions from native apps and the web, we also thought a lot about what we could remove. We have an active private beta group who have given us critical feedback over the last few months.
 
-人々は、アルバムアートや写真を本当に大切にしているということがわかりました。 多くのプレイヤーはファイルのリストでしかありません。 アルバムアートは物理アルバムを所有するにあたって格好いい所の一つですが、Voltra デスクトップアプリではこの点を強調したいと思いました。
+We found that album art and photography are really important to people. Many players are just lists of files. One of the cool things about owning physical albums is the album art, and we wanted to put emphasis on this in the Voltra desktop app.
 
 [![voltra-albumview](https://cloud.githubusercontent.com/assets/2289/23670056/4b0c18d4-031b-11e7-89e1-539e927a380d.jpg)](https://voltra.co/)
 
-他人のファイルに手を出さないようにも気をつけました。 ファイルを見るだけなので、それ自体は好きな場所に置くことができます。名前を変更したり、移動したりすることはありません。 プロセスが実行されていなくても新規ファイルを追跡できるように、見ているディレクトリの状態を追跡する埋め込みデータベースがあります。
+We also made sure not to mess with people's files. We use file watching so you can put your files wherever you want, and we don't rename them or move them for you. We have an embedded database to track the state of the watched directories so that we can track what's new, even when the process isn't running.
 
-## Voltra 構築の際に直面した課題はありますか?
+## What are some challenges you've faced while building Voltra?
 
-パフォーマンスを重視して、そこに時間をかけました。 最初はフレームワークから始めましたが、バニラ JavaScript に移行しました。 経験上、フレームワークが提供する一般的な抽象化は、導入することによるパフォーマンスの対価や儀式的な記述を上回ります。
+We spend a lot of time focused on performance. We started with frameworks but moved to vanilla Javascript. In our experience, the generalized abstractions they provide outweigh the performance penalties and ceremony that they introduce.
 
-私たちはこの時点で非常に大きなコレクションをかなりうまく扱います。 大きなコレクションは、おそらく数万の画像を意味します! ノードを持つ。 レンダリングプロセスから直接利用できるsのファイルシステムモジュールにより、DOM イベントに基づいて多くの画像をすばやく読み込むことが容易になりました。
+We handle very large collections pretty well at this point. Large collections means possibly tens of thousands of images! Having Node.js’ file system module directly available from the render process made it really easy to lazy load and unload lots of images super quickly based on DOM events.
 
-一般的に、*[setImmediate][]* と *[requestIdleCallback][]* は、UI の応答性を維持しながら多くの処理を実行するにあたってとてつもなく重要な道具です。 具体的には、CPU に依存するタスクを別のプロセスに分散させることで、ユーザーインターフェースの応答性を保つことができます。 たとえば、実際のオーディオコンテキストを別のプロセスに移動し、ビジーな UI による潜在的な中断を [IPC][] を介した通信で回避しました。
+In general *[setImmediate][]* and *[requestIdleCallback][]* have been super important tools for performing lots of processing while keeping the UI responsive. More specifically, distributing CPU-bound tasks into separate processes really helps to keep the user interface responsive. For example, we moved the actual audio context into a separate process, communicating with it over [IPC][] to avoid potential interruptions from a busy UI.
 
-## Electron で Voltra を構築することにしたのはなぜですか?
+## Why did you choose to build Voltra on Electron?
 
-ブラウザのサンドボックスはとても制限されていますが、私たちはウェブプレイヤーも開発しています。 しかし、私たちはウェブプレイヤーも開発しています。 そのため、2 つの実装間でほぼ 100% のコードを共有できるのは大きな利点です。
+The browser’s sandbox is too restricted for our app. But we are also developing a web player. So it’s a huge win that we can share almost 100% of the code between the two implementations.
 
-実際には、Swift でネイティブアプリを構築するところから始めました。 一番の問題点は、多くの再発明をしていることでした。 ウェブには世界最大のオープンソースエコシステムがあります。 そこで、すぐに Electron に切り替えました。
+We actually started by building a native app with Swift. The main problem we found was that we were reinventing a lot of things. The web has the world’s largest open source eco-system. So we pretty quickly switched to Electron.
 
-最も重要なのは、Electron で一度開発すれば、すべての主要なプラットフォームで Just Work™ するということです。 保証はありませんが、各プラットフォームのためのネイティブコーディングのコストは、Electron を導入するコストを確実に上回っています。
+Also, and most importantly, with Electron you develop once and it should Just Work™ on all the major platforms. It’s not guaranteed, but the cost of coding natively for each platform definitely outweighs any other costs that electron introduces.
 
-## Electron の好きなところは何ですか?
+## What are your favorite things about Electron?
 
-**GTD!**: Node.js のネットワーキングスタックと Chromium のプレゼンテーションレイヤーをパッケージ化することは、物事を成し遂げるためのレシピです。
+**GTD!**: Having Node.js’ networking stack and Chromium’s presentation layer packaged together is a recipe for getting things done.
 
-**コンピテンシー**: Webスタックだけなので、文字通り我々のチームは実際に製品を作ることに携わっています。
+**Competency**: It’s just the web stack, so literally our whole team is involved in actually building the product.
 
-**コミュニティ**: 非常に組織化されたコミュニティがあり、本当によくコミュニケーションする方法を知っています。 このような支援を受けて開発することはとても素晴らしいことだと思います。
+**Community**:  There is a highly organized community that knows how to communicate really well! We feel pretty great about developing with support like that.
 
-## Electronはどの分野で改善できますか?
+## In what areas could Electron be improved?
 
-Electronが単一の包装会社を支持するのを見たいと思います。 パッケージマネージャーは Electron にとってパッケージマネージャーがNodeにとって重要です。 ユーザーランドには複数のパッケージがあり、それぞれに興味深い機能がありますが、それぞれにバグがあります。 コミュニティによるコンセンサスは、貢献者が費やすエネルギーを指示するのに役立ちます。
+We would like to see Electron endorse a single packager. The packager is as important to Electron what the package manager is to Node. There are multiple packagers in user-land, each with interesting features but each with bugs. Consensus by the community would help to direct the energy being spent by contributors.
 
-## 今後の予定は何ですか?
+## What's coming next?
 
-私たちは現在、モバイルアプリを開発しており、アーティストやラベルと協力して、Voltraショップに音楽を追加しています。 やあ！ アーティストやラベルがあれば、 [今すぐサインアップ](https://admin.voltra.co/signup)! 1,000万曲という目標を達成したら開店を計画しています。
+We‘re currently developing a mobile app, and working with artists and labels to add their music to the Voltra shop. Hey! If you’re an artist or label, [sign up now](https://admin.voltra.co/signup)! We plan on opening up the shop when we reach our goal of 10 million tracks.
 
 [setImmediate]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
 [requestIdleCallback]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback
