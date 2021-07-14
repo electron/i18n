@@ -1,4 +1,4 @@
-# Size 对象
+# Size Object
 
 * `width` Number
 * `height` Number
