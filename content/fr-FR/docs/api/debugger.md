@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Les outils de développement de chrome a une [liaison spéciale][rdp] disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
+Chrome Developer Tools possède une [liaison spéciale][rdp] disponible à l'exécutable JavaScript qui permet d'interagir avec les pages et de les instrumentaliser.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `reason` String - Motif du retrait du débogueur.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -46,7 +46,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `method` String - Nom de la méthode.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 * `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.
