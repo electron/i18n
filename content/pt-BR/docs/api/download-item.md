@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-`DownloadItem` é um [EventEmitter][event-emitter] que representa um item de download no Electron. É usado no evento `will-download` da classe `Session`, e permite aos usuários controlarem o item de download.
+`DownloadItem` is an [EventEmitter][event-emitter] that represents a download item in Electron. É usado no evento `will-download` da classe `Session`, e permite aos usuários controlarem o item de download.
 
 ```javascript
 // No processo main.
@@ -166,7 +166,7 @@ Returns `String` - ETag header value.
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 #### `downloadItem.savePath`
 
