@@ -16,7 +16,7 @@ Processo: [Main](../glossary.md#main-process)
 
 
 
-### Exemplo
+### Example
 
 
 
@@ -37,12 +37,12 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` _Experimental_
 
-* `options` Object (optional) 
+* `options` Object (Opcional) 
     * `webPreferences` Objeto (opcional) - Veja [BrowserWindow](browser-window.md).
 
 
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 Objectos criados com `new BrowserView` posuem as seguintes propriedades:
 
@@ -62,7 +62,7 @@ Objectos criados com `new BrowserView` possuem os seguintes métodos de instânc
 
 #### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object 
+* Objeto `options` 
     * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
@@ -80,7 +80,7 @@ Resizes and moves the view to the supplied bounds relative to the window.
 
 #### `view.getBounds()` _Experimental_
 
-Returns [`Rectangle`](structures/rectangle.md)
+Retorna [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
