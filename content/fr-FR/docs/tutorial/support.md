@@ -21,7 +21,7 @@ Si vous avez besoin d’aide pour la programmation, de réponses à vos question
 * [`electron-id`](https://electron-id.slack.com) *(Indonésien)*
 * [`electron-pl`](https://electronpl.github.io) *(Polonais)*
 
-Si vous souhaitez contribuer à Electron, voir le document de contribution [](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Si vous souhaitez contribuer sur Electron, lisez le [document de contribution](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Si vous découvrez une erreur dans une [version supportée](#supported-versions) d'Electron, veuillez s’il vous plaît la signaler dans notre [suivi d'erreurs](../development/issues.md).
 
@@ -39,13 +39,13 @@ All supported release lines will accept external pull requests to backport fixes
 
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
-### Versions actuellement supportées
+### Currently supported versions
 
 * 13.x.y
 * 12.x.y
 * 11.x.y
 
-### Fin de vie
+### End-of-life
 
 Quand une branche de version arrive au terme de son cycle de support, les révisions associées sont rendues obsolètes dans NPM et une toute dernière révision de fin de support est mise à disposition. Cette révision signalera alors que la version d'Electron utilisée n'est plus supportée.
 
