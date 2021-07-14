@@ -1,18 +1,18 @@
-# Documentos Recentes (Windows & macOS)
+# Recent Documents (Windows & macOS)
 
 ## Visão Geral
 
-Windows e macOS fornecem acesso a uma lista de documentos recentes abertos pelo o aplicativo via JumpList ou menu dock, respectivamente.
+Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
 __JumpList:__
 
-![Arquivos recentes do JumpList][1]
+![JumpList Recent Files][1]
 
-__Menu dock de aplicação:__
+__Application dock menu:__
 
-![Menu Dock do macOS][2]
+![macOS Dock Menu][2]
 
-## Exemplo
+## Example
 
 ### Managing recent documents
 
@@ -55,7 +55,7 @@ app.on('activate', () => {
 
 To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
 
-Após iniciar o aplicativo Electron, clique com o botão direito no ícone do aplicativo. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
+After launching the Electron application, right click the application icon. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
 
 ![Recent document](../images/recent-documents.png)
 
@@ -63,7 +63,7 @@ Após iniciar o aplicativo Electron, clique com o botão direito no ícone do ap
 
 To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
 
-## Informação Adicional
+## Additional information
 
 ### Windows Notes
 
