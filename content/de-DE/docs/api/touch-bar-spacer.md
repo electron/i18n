@@ -2,11 +2,11 @@
 
 > Create a spacer between two items in the touch bar for native macOS applications
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new TouchBarSpacer(options)`
 
-* `options` Object
+* `options` Objekt
   * `size` String (optional) - Size of spacer, possible values are:
     * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
     * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
