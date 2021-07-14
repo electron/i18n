@@ -6,7 +6,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter][event-emitter].
+`Tray` é um [EventEmitter][event-emitter].
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -65,14 +65,14 @@ Creates a new tray icon associated with the `image`.
 
 ### Eventos de instância
 
-The `Tray` module emits the following events:
+O módulo `Tray` emite os seguintes eventos:
 
 #### Event: 'click'
 
 Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Retângulo](structures/rectangle.md) - Os limites do ícone da bandeja.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the tray icon is clicked.
@@ -82,7 +82,7 @@ Emitted when the tray icon is clicked.
 Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Retângulo](structures/rectangle.md) - Os limites do ícone da bandeja.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is right clicked.
 
@@ -91,7 +91,7 @@ Emitted when the tray icon is right clicked.
 Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Retângulo](structures/rectangle.md) - Os limites do ícone da bandeja.
+* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is double clicked.
 
@@ -202,7 +202,7 @@ Destroys the tray icon immediately.
 
 Sets the `image` associated with this tray icon.
 
-#### `tray.setPressedImage(image)` _macOS_
+#### `tray.setPressedImage(image)` no _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -217,7 +217,7 @@ Sets the hover text for this tray icon.
 #### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
@@ -226,7 +226,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 Returns `String` - the title displayed next to the tray icon in the status bar
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
+#### `tray.setIgnoreDoubleClickEvents(ignore)` no _macOS_
 
 * `ignore` Boolean
 
@@ -240,12 +240,12 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object
+* Objeto `options`
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Por padrão é `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Por padrão é `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Padrão é `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (optional) - Do not play the associated sound. Por padrão é `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Por padrão é `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 
@@ -280,7 +280,7 @@ Sets the context menu for this icon.
 
 #### `tray.getBounds()` _macOS_ _Windows_
 
-Returns [`Rectangle`](structures/rectangle.md)
+Retorna [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this tray icon as `Object`.
 
