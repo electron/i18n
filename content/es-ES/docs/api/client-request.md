@@ -2,7 +2,7 @@
 
 > Hace solicitudes HTTP/HTTPS.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `Peticiones del cliente` implementa la interfaz de [corriente de escritura](https://nodejs.org/api/stream.html#stream_writable_streams) y por lo tanto es un [emitidor de eventos][event-emitter].
 
@@ -63,8 +63,8 @@ Emitido cuando un proxy de autenticación requiere las credenciales del usuario.
 
 Se espera que la función `retrollamada` sea llamada de vuelta con las credenciales del usuario:
 
-* `username` Cadena
-* `contraseña` Cadena
+* `username` String
+* `password` String
 
 ```JavaScript
 request.on('login', (authInfo, callback) => {
@@ -117,11 +117,11 @@ Devuelve:
 
 Emitido cuando el servidor devuelve una respuesta redirect (por ejemplo 301 Moved Permanently). Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.  Si este evento es manejado, [`request.followRedirect`](#requestfollowredirect) debe ser llamado **synchronously**, de otra manera la solicitud será cancelada.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 #### `request.chunkedEncoding`
 
-Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es false. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
+Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es falso. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
 
 Utilizar codificación empaquetada es fuertemente recomendado si no necesita enviar una solicitud grande dado que lo datos serán transmitidos en paquetes pequeños en lugar de ser cargados internamente en la memoria de proceso de Electron.
 
