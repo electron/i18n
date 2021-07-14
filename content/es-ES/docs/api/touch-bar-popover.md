@@ -2,7 +2,7 @@
 
 > Crea una notificación en la barra táctil para aplicaciones nativas macOS
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new TouchBarPopover(options)`
 
@@ -12,7 +12,7 @@ Proceso: [Main](../glossary.md#main-process)
   * `items` [TouchBar](touch-bar.md) - Elementos a mostrar en el popover.
   * `showCloseButton` Boolean (opcional) - `true` para mostrar un botón cerrar en la izquierda de notificación, `false` para no mostrar. Por defecto es `true`.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguiente propiedades están disponibles en instancias de `notificaciones de la barra táctil`:
 
