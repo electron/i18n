@@ -1,6 +1,6 @@
-# Isolamento de contexto
+# Context Isolation
 
-## O que é isso?
+## What is it?
 
 Isolamento de Contexto é um recurso que garante que tanto os seus `scripts do preload` quanto a lógica interna do Electron sejam executados em um contexto separado para a pagina que você carregar em um [`webContent`](../api/web-contents.md).  Isso é importante por questões de segurança, pois ajuda a impedir que a pagina web acesse os módulos internos do Electron ou aos privelégios de APIs que seu script de preload tem acesso.
 
@@ -8,9 +8,9 @@ Isto significa que o objeto `window` ao qual seu script de preload tem acesso se
 
 Cada aplicação deve ter o contextIsolation habilitado a partir da versão 12 do Electron, esse parâmetro estará habilitado por padrão.
 
-## Como faço para habilitá-lo?
+## How do I enable it?
 
-Do Electron 12, será ativado por padrão. Para versões mais baixas, é uma opção na opção `WebPreferences` ao construir `nova janela de navegação`.
+From Electron 12, it will be enabled by default. For lower versions it is an option in the `webPreferences` option when constructing `new BrowserWindow`'s.
 
 ```javascript
 const mainWindow = new BrowserWindow({
@@ -22,11 +22,11 @@ const mainWindow = new BrowserWindow({
 
 ## Migração
 
-> Costumava fornecer APIs do meu script de pré-carregamento usando `window.X = apiObject` agora, o que?
+> I used to provide APIs from my preload script using `window.X = apiObject` now what?
 
-Expor APIs do seu script de pré-carga para o site carregado é um usecase comum e há um módulo dedicado no Electron para ajudá-lo a fazer isso de uma maneira indolor.
+Exposing APIs from your preload script to the loaded website is a common usecase and there is a dedicated module in Electron to help you do this in a painless way.
 
-**Antes: Com o isolamento de contexto desativado**
+**Before: With context isolation disabled**
 
 ```javascript
 window.myAPI = {
@@ -34,7 +34,7 @@ window.myAPI = {
 }
 ```
 
-**Depois: Com o isolamento de contexto habilitado**
+**After: With context isolation enabled**
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -44,25 +44,25 @@ contextBridge.exposeInMainWorld('myAPI', {
 })
 ```
 
-O módulo [`contextBridge`](../api/context-bridge.md) pode ser usado para **expor as APIs com segurança** do contexto isolado no qual seu script de pré-carga é executado para o contexto no qual o site está sendo executado. A API também estará acessível no site `window.myAPI` como antes.
+The [`contextBridge`](../api/context-bridge.md) module can be used to **safely** expose APIs from the isolated context your preload script runs in to the context the website is running in. The API will also be accessible from the website on `window.myAPI` just like it was before.
 
-Você deve ler a documentação `contextBridge` ligada acima para entender completamente suas limitações.  Por exemplo, você não pode enviar protótipos ou símbolos personalizados para a ponte.
+You should read the `contextBridge` documentation linked above to fully understand its limitations.  For instance you can't send custom prototypes or symbols over the bridge.
 
-## Considerações de segurança
+## Security Considerations
 
-Apenas habilitar `contextIsolação` e usar `contextBridge` não significa automaticamente que tudo o que você faz é seguro.  Por exemplo, esse código é **inseguro**.
+Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe.  For instance this code is **unsafe**.
 
 ```javascript
-// ❌ Código inválido
+// ❌ Bad code
 contextBridge.exposeInMainWorld('myAPI', {
   send: ipcRenderer.send
 })
 ```
 
-Ele expõe diretamente uma API poderosa sem qualquer tipo de filtragem de argumento. Isso permitirá que qualquer site envie mensagens IPC arbitrárias que você não quer que sejam possíveis. A maneira correta de expor APIs baseadas em IPC seria fornecendo um método por mensagem IPC.
+It directly exposes a powerful API without any kind of argument filtering. This would allow any website to send arbitrary IPC messages which you do not want to be possible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
 
 ```javascript
-// ✅ Um bom código
+// ✅ Good code
 contextBridge.exposeInMainWorld('myAPI', {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
