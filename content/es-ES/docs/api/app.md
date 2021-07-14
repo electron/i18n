@@ -2,7 +2,7 @@
 
 > Controla el ciclo de vida de los eventos de su aplicación.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Los siguientes ejemplos muestran como salir de la aplicación cuando la última ventana está cerrada:
 
@@ -27,7 +27,7 @@ En la mayoría de los casos usted debe hacer todo desde el controlador del event
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
 Se emite una vez, cuando Electron ha terminado de iniciarse. En macOS `launchInfo` almacena el `userInfo` de `NSUserNotification` o la información de [`UNNotificationResponse`](structures/notification-response.md) que fue usado para abrir la aplicación, si este fue lanzado desde el Centro de Notificaciones. Además puede llamar a `app.isReady()` para comprobar si el evento ha sido lanzado y `app.whenReady()` para obtener una Promise que se cumple cuando Electron está inicializado.
@@ -42,7 +42,7 @@ Si no se subscribe a este evento y todas las ventanas están cerradas, el compor
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Emitido antes de que la aplicación empiece a cerrar sus ventanas. Llamando a `event.preventDefault()` evitará el comportamiento por defecto, que es terminar la aplicación.
 
@@ -54,7 +54,7 @@ Emitido antes de que la aplicación empiece a cerrar sus ventanas. Llamando a `e
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará. Llamando a `event.preventDefault()` evitará el comportamiento por defecto, que es terminar la aplicación.
 
@@ -66,7 +66,7 @@ Consulte la descripción del evento `window-all-closed` por las diferencias con 
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `exitCode` Integer
 
 Emitido cuando la aplicación se está cerrando.
@@ -77,7 +77,7 @@ Emitido cuando la aplicación se está cerrando.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `path` String
 
 Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y el sistema operativo quiere reusar la aplicación para abrir el archivo. `open-file` también es emitido cuando el archivo es soltado dentro del dock y la aplicación todavía no se está ejecutando. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para manejar este caso (incluso antes de que el evento `ready` sea emitido).
@@ -90,10 +90,10 @@ En Windows, tiene que analizar `process.argv` (en el proceso principal) para enc
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `url` String
 
-Emitido cuando el usuario quiere abrir una URL con la aplicación. EL archivo `Info.plist` de tu aplicación debe definir el esquema URL dentro de la llave `CFBundleURLTypes`, y establecer `NSPrincipalClass` a `AtomApplication`.
+Emitido cuando el usuario quiere abrir una URL con la aplicación. El archivo `Info.plist` de tu aplicación debe definir el esquema URL dentro de la llave `CFBundleURLTypes` y configurar `NSPrincipalClass` a `AtomApplication`.
 
 Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
@@ -101,7 +101,7 @@ Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `hasVisibleWindows` Boolean
 
 Emitido cuando la aplicación está activada. Varias acciones puede activar este evento, como iniciar la aplicación por primera vez, intentar relanzar la aplicación cuando ya está corriendo, o hacer click en el dock de la aplicación o en el ícono de la barra de tareas.
@@ -110,7 +110,7 @@ Emitido cuando la aplicación está activada. Varias acciones puede activar este
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Emitido cuando la aplicación mac se activa. La diferencia del evento `activate` es que `did-become-active` es emitido cada vez que la aplicación se activa, no solo cuando el icono en el Dock es pulsado o la aplicación es re-lanzada.
 
@@ -118,7 +118,7 @@ Emitido cuando la aplicación mac se activa. La diferencia del evento `activate`
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad en otro dispositivo.
 
@@ -130,7 +130,7 @@ La actividad de un usuario puede ser continuada solo en una aplicación que teng
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
 
 Emitido durante [Handoff][handoff] cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
@@ -139,7 +139,7 @@ Emitido durante [Handoff][handoff] cuando una actividad de un artefacto diferent
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
 * `error` String - Una cadena en el idioma local con la descripción del error.
 
@@ -149,9 +149,9 @@ Emitido durante [Handoff][handoff] cuando una actividad desde un artefacto difer
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
-* `userInfo` unknown - Contiene el estado específico de la aplicación guardado por la actividad.
+* `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad.
 
 Emitido durante [Handoff][handoff] después de que una actividad de este artefacto haya sido reanudado con éxito en otro.
 
@@ -159,17 +159,17 @@ Emitido durante [Handoff][handoff] después de que una actividad de este artefac
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
-* `userInfo` unknown - Contiene el estado específico de la aplicación guardado por la actividad.
+* `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad.
 
 Emitido cuando [Handoff][handoff] va a ser reanudado en otro artefacto. Si necesita actualizar el estado que se transferirá, debe llamar a `event.preventDefault ()` inmediatamente, crear un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActivity()` de manera oportuna. De otra manera, la operación fallará en `continue-activity-error` será llamada.
 
-### Evento: 'new-window-for-tab' _macOS_
+### Evento: "new-window-for-tab" _macOS_
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Emitido cuando el usuario hace clic en el botón de nueva pestaña nativa de macOS. El botón de nueva pestaña solo es visible si el `BrowserWindow` actual tiene un `tabbingIdentifier`
 
@@ -177,7 +177,7 @@ Emitido cuando el usuario hace clic en el botón de nueva pestaña nativa de mac
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `window` [BrowserWindow](browser-window.md)
 
 Emitido cuando el [browserWindow](browser-window.md) está borroso.
@@ -186,7 +186,7 @@ Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `window` [BrowserWindow](browser-window.md)
 
 Emitido cuando se enfoca un [browserWindow](browser-window.md).
@@ -195,16 +195,16 @@ Emitido cuando se enfoca un [browserWindow](browser-window.md).
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `window` [BrowserWindow](browser-window.md)
 
 Emitido cuando se crea un [browserWindow](browser-window.md).
 
-### Evento: 'web-contents-created'
+### Evento: 'web-contenido-creado'
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 
 Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
@@ -213,13 +213,13 @@ Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - El código de error
-* `certificate` [Certificate](structures/certificate.md)
+* `error` cadena - el error del código
+* `certificate` [certificate](structures/certificate.md)
 * `callback` Función
-  * `isTrusted` Boolean - Si se considera que el certificado es de confianza
+  * `isTrusted` Boleano - Si considera que el certificado como de confianza
 
 Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
 
@@ -241,7 +241,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
@@ -265,7 +265,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 * `authenticationResponseDetails` Object
   * `url` URL
@@ -294,7 +294,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 
 Si `callback` es llamado sin un nombre de usuario o contraseña, la solicitud de autenticación sera cancelada y el error de autenticación será retornado a la página.
 
-### Event: 'gpu-info-update'
+### Evento: 'gpu-info-update'
 
 Emitido cada vez que hay una actualización de información de la GPU.
 
@@ -302,8 +302,8 @@ Emitido cada vez que hay una actualización de información de la GPU.
 
 Devuelve:
 
-* `event` Event
-* `killed` Boolean
+* `event`
+* `killed` Booleano
 
 Emitido cuando el proceso de la GPU se crashea o es terminado.
 
@@ -313,9 +313,9 @@ Emitido cuando el proceso de la GPU se crashea o es terminado.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
-* `killed` Boolean
+* `killed` Booleano
 
 Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
@@ -325,7 +325,7 @@ Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
   * `reason` String - La razón por la que finalizo el proceso.  Posibles valores:
@@ -344,16 +344,16 @@ Emitido cuando el renderer process desaparece inesperadamente.  Esto se debe com
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `details` Object
   * `type` String - Tipo de proceso. Uno de los siguiente valores:
-    * `Utilidad`
+    * `Utility`
     * `Zygote`
-    * `Ayuda de Sandbox`
+    * `Sandbox helper`
     * `GPU`
-    * `Plugin Pepper`
-    * `Broker de Plugin de Pepper`
-    * `Desconocido`
+    * `Pepper Plugin`
+    * `Pepper Plugin Broker`
+    * `Unknown`
   * `reason` String - La razón por la que se cerro el proceso hijo. Posibles valores:
     * `clean-exit` -El proceso ha finalizado con un exit code de cero
     * `abnormal-exit` - El proceso a finalizado con un exit code distinto de cero
@@ -372,7 +372,7 @@ Emitted when the child process unexpectedly disappears. Esto se debe comúnmente
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `accessibilitySupportEnabled` Booleano - `true` cuando el soporte de accesibilidad de Chrome está activado, de lo contrario `false`.
 
 Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
@@ -397,7 +397,7 @@ app.on('session-created', (session) => {
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
 * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
@@ -415,7 +415,7 @@ Este evento garantiza que se ejecute después del evento `ready` de `app` para s
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 
 Emitido cuando `desktopCapturer.getSources()` es llamado en el render process del `webContents`. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
@@ -424,7 +424,7 @@ Emitido cuando `desktopCapturer.getSources()` es llamado en el render process de
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
@@ -434,7 +434,7 @@ Emitido cuando `remote.require()` es llamado en el renderer process de `webConte
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
@@ -444,7 +444,7 @@ Emitido cuando `remote.getGlobal()` es llamado en el proceso de renderizado del 
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
@@ -454,25 +454,25 @@ Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 
-Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ### Evento: 'remote-get-current-web-contents' _Obsoleto_
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `webContents` [WebContents](web-contents.md)
 
-Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
 
-**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Note:** Algunos métodos solo están disponibles en sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
@@ -534,7 +534,7 @@ Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` _macOS_
 
-Muestra las ventanas de la aplicación después que fueron ocultadas. No los enfoca automáticamente.
+Muestra las ventanas de la aplicación luego de que se ocultaron. No los enfoca automáticamente.
 
 ### `app.setAppLogsPath([path])`
 
@@ -542,7 +542,7 @@ Muestra las ventanas de la aplicación después que fueron ocultadas. No los enf
 
 Establece o crea un directorio de registros de tu aplicación el cual puede ser manipulado con `app.getPath()` o `app.setPath(pathName, newPath)`.
 
-Llamando a `app.setAppLogsPath()` sin un parámetro `path` resultará en que este directorio sea configurado a `~/Library/Logs/YourAppName` en _macOS_ y adentro del directorio `userData` en _Linux_ y _Windows_.
+Llamando `app.setAppLogsPath()` sin un parámetro `path` resultará en que este directorio sea establecido a `~/Library/Logs/YourAppName` en _macOS_, y dentro del directorio `userData` en _Linux_ y _Windows_.
 
 ### `app.getAppPath()`
 
@@ -557,7 +557,7 @@ Devuelve `String` - al directorio de la aplicación actual.
     * `$XDG_CONFIG_HOME` o `~/.config` en Linux
     * `~/Library/Application Support` en marcOS
   * `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
-  * `caché`
+  * `chaché`
   * `temp` Directorio temporal.
   * `exe` Archivo ejecutable en curso.
   * `module` la librería `libchromiumcontent`.
@@ -884,7 +884,7 @@ Actualiza la actividad actual si su tipo coincide `type`, fusionando las entrada
 
 ### `app.setAppUserModelId(id)` _Windows_
 
-* `id` Cadena
+* `id` String
 
 Cambia el [Id Modelo de Usuario de la Aplicación][app-user-model-id] a `id`.
 
@@ -914,13 +914,13 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 
 Desactiva la aceleración por hardware para esta aplicación.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
@@ -981,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. En Linux, solo funciona para Unity launcher.
 
-**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1002,10 +1002,10 @@ Su proporcionas las opciones `path` y `args` a `app.setLoginItemSettings`, enton
 Devuelve `Objecto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
-* `openAsHidden` Boolean _macOS_ - `true` si la aplicación es establecida para abrirse como oculta al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` si la aplicación fue abierto automáticamente al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` si la APP se abrió como un elemento de inicio de sesión oculto . Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` si la aplicación fue abierto como un artículo de login que debería restaurar el estado de la sesión anterior. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. This setting is not available on [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. This setting is not available on [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1018,13 +1018,13 @@ Devuelve `Objecto`:
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Por defecto es `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` abrirse la aplicación como oculta. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. This setting is not available on [MAS builds][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Por defecto a `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Por defecto a un array vacío. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Por defecto es `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Establece los objetos de inicio de ajuste de la aplicación.
 
-Para trabajar con `autoUpdater` de Electron en Windows, el cual usa [Squirrel][Squirrel-Windows], querrás establecer el camino de ejecución de Update.exe, y pasarán los argumentos que especifican el nombre de tu aplicación. Por ejemplo:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Por ejemplo:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1065,13 +1065,13 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` Cadena (opcional) - El nombre de la aplicación.
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
-  * `version` String (opcional) _macOS_ - El numero de versión de compilación de la aplicación.
-  * `credits` String (opcional) _macOS_ _Windows_ - Información de crédito.
-  * `autores` String[] (opcional) _Linux_ - Lista de autores de la app.
-  * `website` String (opcional) _Linux_ - El sitio web de la aplicación.
+  * `version` String (optional) _macOS_ - The app's build version number.
+  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `authors` String[] (optional) _Linux_ - List of app authors.
+  * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. Ver el [Apple docs][about-panel-options] para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 
 Si no estableces `credits` pero aún deseas sacarlos en tu aplicación, AppKit buscará por un archivo llamado "Credits.html", "Credits.rtf", y "Credits.rtfd", en ese orden, en el paquete devuelto por el método de clase principal NSBundle. El primer archivo encontrado es usado, y si no se encuentra ninguno, el área de información se deja en blanco. Vea la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) de Apple para más información.
 
@@ -1087,7 +1087,7 @@ Muestra el selector de emoji nativo de la plataforma.
 
 * `bookmarkData` String - El marcador de datos de ámbito de seguridad de codificación base64 devuelto por los métodos `dialog.showOpenDialog` o `dialog.showSaveDialog`.
 
-Devuelve `Function` - Esta función **debe** ser llamado una vez que hayas terminado de acceder el archivo de ámbito de seguridad. Si no recuerdas de dejar de acceder el marcador, [recursos de nucleo se fugarán](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) y tu aplicación se perderá su capacidad de alcanzar afuera del entorno aislado completamente hasta que se reinicia tu aplicación.
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. Si no recuerdas de dejar de acceder el marcador, [recursos de nucleo se fugarán](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) y tu aplicación se perderá su capacidad de alcanzar afuera del entorno aislado completamente hasta que se reinicia tu aplicación.
 
 ```js
 // Start accessing the file.
@@ -1104,7 +1104,7 @@ Empezar a acceder un recurso de ámbito de seguridad. Con este método las aplic
 
 Habilita el modo sandbox completo en la aplicación. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` _macOS_
 
@@ -1120,9 +1120,9 @@ Devuelve `Boolean` - Si el movimiento fue realizado correctamente. Por favor, te
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por ejemplo si el usuario cancela el dialogo de autorización, este método va a devolver falso. Si nosotros no realizamos la copia, entonces este método va a lanzar un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado.
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. Por ejemplo si el usuario cancela el dialogo de autorización, este método va a devolver falso. Si nosotros no realizamos la copia, entonces este método va a lanzar un error. The message in the error should be informative and tell you exactly what went wrong.
 
-Por defecto, si una aplicación con el mismo nombre que la aplicación que esta siendo movida existe en el directorio de las Aplicaciones y _no_ está ejecutándose, la aplicación existente será eliminada y la aplicación activa se moverá en su lugar. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Este comportamiento puede ser cambiado proporcionando un controlador de conflicto opcional, donde el booleano devuelto por el controlado determina si el conflicto de movimiento se resuelve o no con el controlador por defecto.  es decir, devolviendo `false` se asegura que no se tomaran más acciones, devolviendo `true` resultará en el comportamiento por defecto y el método continuando.
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Este comportamiento puede ser cambiado proporcionando un controlador de conflicto opcional, donde el booleano devuelto por el controlado determina si el conflicto de movimiento se resuelve o no con el controlador por defecto.  es decir, devolviendo `false` se asegura que no se tomaran más acciones, devolviendo `true` resultará en el comportamiento por defecto y el método continuando.
 
 Por ejemplo:
 
@@ -1183,7 +1183,7 @@ Una propiedad `Integer` que devuelve el recuento de insignias para la aplicació
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1213,7 +1213,7 @@ Este es el agente de usuario que se utilizará cuando ningún agente de usuario 
 
 ### `app.allowRendererProcessReuse`
 
-Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene en su lugar para asegurar que los renderer processes son reiniciados en cada navegación.  The current default value for this property is `true`.
+Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene en su lugar para asegurar que los renderer processes son reiniciados en cada navegación.  El valor por defecto actual para esta propiedad es `true`.
 
 La intención para estos anuladores es desactivan por defecto y luego en algún punto en el futuro esta propiedad sera eliminada.  Esta propiedad impacta en cuales modulos nativos puedes usar en el renderer process.  Para más información de la dirección en que Electron esta yendo con el renderer process, reinicio y uso de modulos nativos en el renderer process por favor revisa esto [Tracking Issue](https://github.com/electron/electron/issues/18397).
 
