@@ -22,13 +22,13 @@
 
 ### Windows
 
-На Windows, вы должны установить ваше приложение в машину пользователя, прежде чем вы сможете использовать `autoUpdater`, поэтому рекомендуется использовать [электрон-winstaller][installer-lib], [электронной кузницы][electron-forge-lib] или [хрюканье электрон-установщик][installer] пакет для создания установки Windows.
+На Windows Вам придется установить приложение на компьютер пользователя, прежде чем Вы сможете использовать `autoUpdater`, поэтому рекомендуется использовать пакет [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] или [grunt-electron-installer][installer] для создания установщика Windows.
 
-При использовании [электронного winstaller][installer-lib] или [электронной кузницы][electron-forge-lib] убедитесь, что вы не пытаетесь обновить приложение [в первый раз он работает](https://github.com/electron/windows-installer#handling-squirrel-events) (Также см. [этот вопрос для получения дополнительной информации](https://github.com/electron/electron/issues/7155)). Также рекомендуется использовать [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup), для получения ярлыка Вашего приложения на рабочем столе.
+При использовании [electron-winstaller][installer-lib] или [electron-forge][electron-forge-lib] убедитесь, что Вы не пытаетесь обновить ваше приложение [при первом запуске](https://github.com/electron/windows-installer#handling-squirrel-events) (также см. [этот вопрос для получения дополнительной информации](https://github.com/electron/electron/issues/7155)). Также рекомендуется использовать [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup), для получения ярлыка Вашего приложения на рабочем столе.
 
-Установщик, генерируемый с Белка создаст значок ярлыка с [приложение Пользователь Модель ID][app-user-model-id] в формате `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, примеры `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Вы должны использовать тот же ID для Вашего приложения в `app.setAppUserModelId` API, иначе Windows не сможет должным образом закрепить приложение в панели задач.
+Установщик, сгенерированный с помощью Squirrel, создаст ярлык с [Application User Model ID][app-user-model-id] в формате `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Вы должны использовать тот же ID для Вашего приложения в `app.setAppUserModelId` API, иначе Windows не сможет должным образом закрепить приложение в панели задач.
 
-В отличие от Squirrel.Mac, обновления для Windows можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документы [Squirrel.Windows,][squirrel-windows] получить более подробную информацию о том как работает Squirrel.Windows.
+В отличие от Squirrel.Mac, обновления для Windows можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документацию о [Squirrel.Windows][squirrel-windows], для получения более подробной информации о том, как работает Squirrel.Windows.
 
 ## События
 
@@ -58,7 +58,7 @@
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -84,7 +84,7 @@
 
 * `options` Object
   * `url` String
-  * `headers` Record<String, String> (опционально) _macOS_ - заголовки HTTP-запроса.
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
   * `serverType` String (опционально) _macOS_ - может быть `json`, либо `default`, смотрите README [Squirrel.Mac][squirrel-mac] для подробной информации.
 
 Задает `url` и инициализирует автоматическое обновление.
@@ -103,13 +103,12 @@
 
 Внутри, вызов `autoUpdater.quitAndInstall()` сначала закроет все окна приложения, и автоматически вызовет `app.quit()`, после того, как все окна будут закрыты.
 
-**Примечание:** Не обязательно вызывать эту функцию, чтобы применить обновление, успешно загруженное обновление будет применено в следующий раз, когда приложение запустится.
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
 
 [squirrel-mac]: https://github.com/Squirrel/Squirrel.Mac
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support
 [squirrel-windows]: https://github.com/Squirrel/Squirrel.Windows
 [installer]: https://github.com/electron/grunt-electron-installer
-[installer-lib]: https://github.com/electron/windows-installer
 [installer-lib]: https://github.com/electron/windows-installer
 [electron-forge-lib]: https://github.com/electron-userland/electron-forge
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
