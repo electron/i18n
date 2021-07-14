@@ -16,21 +16,21 @@
 * [快速入门](tutorial/quick-start.md)
 * [流程模型](tutorial/process-model.md)
 
-### 学习基础知识
+### Learning the basics
 
 * 为你的应用添加功能
   * [通知（Notifications）](tutorial/notifications.md)
-  * [最近文档](tutorial/recent-documents.md)
+  * [最近的文件](tutorial/recent-documents.md)
   * [应用程序进程](tutorial/progress-bar.md)
   * [自定义 Dock 菜单](tutorial/macos-dock.md)
   * [自定义 Windows 任务栏](tutorial/windows-taskbar.md)
   * [自定义 Linux 桌面动作](tutorial/linux-desktop-actions.md)
   * [键盘快捷键](tutorial/keyboard-shortcuts.md)
   * [离线/在线 侦测](tutorial/online-offline-events.md)
-  * [macOS BrowserWindows 的代表文件](tutorial/represented-file.md)
-  * [原生文件拖放](tutorial/native-file-drag-drop.md)
+  * [针对 macOS 系统 BrowserWindows 的展示文件](tutorial/represented-file.md)
+  * [原生文件拖 & 放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
-  * [暗黑模式](tutorial/dark-mode.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [语言](tutorial/web-embeds.md)
 * [模板和命令行界面](tutorial/boilerplates-and-clis.md)
   * [模板与命令行界面](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -39,15 +39,15 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [其它工具和模板](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### 高级步骤
+### Advanced steps
 
 * 应用架构
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
   * [性能策略](tutorial/performance.md)
-  * [安全策略](tutorial/security.md)
+  * [Security Strategies](tutorial/security.md)
   * [进程沙盒化](tutorial/sandbox.md)
 * [辅助功能](tutorial/accessibility.md)
-  * [手动启用辅助功能](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [测试和调试](tutorial/application-debugging.md)
   * [调试主进程](tutorial/debugging-main-process.md)
   * [使用Visual Studio Code调试](tutorial/debugging-vscode.md)
@@ -59,8 +59,8 @@
 * [分发](tutorial/application-distribution.md)
   * [支持平台](tutorial/support.md#supported-platforms)
   * [代码签名](tutorial/code-signing.md)
-  * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
-  * [Windows Store](tutorial/windows-store-guide.md)
+  * [Mac 应用程序商店](tutorial/mac-app-store-submission-guide.md)
+  * [Windows 应用商店](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [更新](tutorial/updates.md)
   * [部署更新服务器](tutorial/updates.md#deploying-an-update-server)
@@ -108,8 +108,8 @@
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [对话框](api/dialog.md)
-* [系统快捷键](api/global-shortcut.md)
+* [dialog](api/dialog.md)
+* [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
@@ -118,10 +118,10 @@
 * [MessagePortMain](api/message-port-main.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [本地主题](api/native-theme.md)
+* [nativeTheme](api/native-theme.md)
 * [通知](api/notification.md)
-* [电源监视器](api/power-monitor.md)
-* [省电拦截器 | powerSaveBlocker](api/power-save-blocker.md)
+* [powerMonitor](api/power-monitor.md)
+* [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
@@ -140,7 +140,7 @@
 
 ### 两种进程都可用的模块:
 
-* [剪贴板](api/clipboard.md)
+* [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [desktopCapturer](api/desktop-capturer.md)
 * [nativeImage](api/native-image.md)
