@@ -16,7 +16,7 @@
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarSlider`:
+Для экземпляров `TouchBarSlider` доступны следующие свойства:
 
 #### `touchBarSlider.label`
 
