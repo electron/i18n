@@ -2,7 +2,7 @@
 
 > Recuperar información acerca del tamaño de la pantalla, posiciones del cursor, posiciones, etc.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Este módulo no puede ser usado hasta que el evento `ready` del módulo `app` es emitido.
 
@@ -54,7 +54,7 @@ El módulo `screen` emite los siguientes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `newDisplay` [Display](structures/display.md)
 
 Emitido cuando `newDisplay` ha sido añadido.
@@ -63,7 +63,7 @@ Emitido cuando `newDisplay` ha sido añadido.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `oldDisplay` [Display](structures/display.md)
 
 Emitido cuando `oldDisplay` ha sido eliminado.
@@ -72,7 +72,7 @@ Emitido cuando `oldDisplay` ha sido eliminado.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `display` [Display](structures/display.md)
 * `changedMetrics` Cadena[]
 
