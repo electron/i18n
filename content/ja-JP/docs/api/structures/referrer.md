@@ -1,6 +1,6 @@
-# Referrer オブジェクト
+# Referrer Object
 
-* `url` String - HTTP リファラ URL。
-* `policy` String - `default`, `unsafe-url`, `no-referrer-when-downgrade`, `no-referrer`, `origin`、`strict-origin-when-cross-origin`, `same-origin`, `strict-origin` にできます。 これらの値の意味の詳細については [Referrer-Policy 仕様書][1] を参照してください。
+* `url` String - HTTP Referrer URL.
+* `policy` String - Can be `default`, `unsafe-url`, `no-referrer-when-downgrade`, `no-referrer`, `origin`, `strict-origin-when-cross-origin`, `same-origin` or `strict-origin`. See the [Referrer-Policy spec][1] for more details on the meaning of these values.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
