@@ -1,16 +1,16 @@
-# Snapcraft Guide (Ubuntu Software Center & Plus)
+# Snapcraft Guide (Ubuntu Software Center & More)
 
 Ce guide fournit des informations sur comment empaqueter votre application Electron pour n’importe quel environnement Snapcraft, y compris l’Ubuntu Software Center.
 
 ## Contexte et exigences
 
-Avec une plus large communauté Linux, Canonical a pour but de corriger de nombreux problèmes d'installation de logiciels courants avec le projet [`snapcraft`](https://snapcraft.io/) . Les Snaps sont des paquets logiciels conteneurs qui incluent les dépendances requises, la mise à jour automatique et fonctionnent sur toutes les distributions Linux majeures sans modification du système.
+Avec une plus large communauté Linux, Canonical a pour but de corriger de nombreux problèmes d'installation de logiciels courants avec le projet [`snapcraft`](https://snapcraft.io/) . Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
 Il existe trois méthodes pour créer un fichier `.snap` :
 
 1) En utilisant [`electron-forge`][electron-forge] ou [`electron-builder`][electron-builder], deux outils qui sont livrés en supportant `snap` par nature. C'est l'option la plus simple. 2) En utilisant `electron-installer-snap`, qui réceptionne les émissions d'`electron-packager`. 3) En utilisant un package `.deb` déjà créé.
 
-Dans certains cas, vous devrez avoir installé l'outil `snapcraft`. Les instructions pour installer `snapcraft` pour votre distribution particulière sont disponibles [ici](https://snapcraft.io/docs/installing-snapcraft).
+In some cases, you will need to have the `snapcraft` tool installed. Instructions to install `snapcraft` for your particular distribution are available [here](https://snapcraft.io/docs/installing-snapcraft).
 
 ## Utilisation de `electron-installer-snap`
 
@@ -28,22 +28,22 @@ La sortie devrait ressembler à peu près à ceci :
 
 ```plaintext
 .
-<unk> ── dist
-    <unk> ── app-linux-x64
-        ── LICENSE
-        ── LICENSES. hromium.html
-        ── content_shell. ak
-        ── app
-        ── ─ icudtl. à
-        ── libgcrypt.so.11
-        ── libnode. o
-        ── locales
-        ── resources
-        Ω── v8_context_snapshot. dans
-        <unk> ─ version
+└── dist
+    └── app-linux-x64
+        ├── LICENSE
+        ├── LICENSES.chromium.html
+        ├── content_shell.pak
+        ├── app
+        ├── icudtl.dat
+        ├── libgcrypt.so.11
+        ├── libnode.so
+        ├── locales
+        ├── resources
+        ├── v8_context_snapshot.bin
+        └── version
 ```
 
-### Étape 2 : Exécution de `electron-installer-snap`
+### Step 2: Running `electron-installer-snap`
 
 Depuis un terminal qui a `snapcraft` dans son `PATH`, exécutez `electron-installer-snap` avec seulement `--src`, qui est l'emplacement de votre application Electron créée à la première étape.
 
@@ -138,11 +138,11 @@ Snapcraft est capable de prendre un fichier `.deb` existant et de le convertir e
 
 ### Étape 1 : Créer un package Debian
 
-Si vous n’avez pas déjà un package `.deb`, utiliser `electron-installer-snap` peut être un chemin plus facile pour créer des packages snap. Cependant, plusieurs solutions pour la création de paquets Debian existent, y compris [`electron-forge`][electron-forge], [`electron-builder`][electron-builder] ou [`electron-installer-debian`][electron-installer-debian].
+Si vous n’avez pas déjà un package `.deb`, utiliser `electron-installer-snap` peut être un chemin plus facile pour créer des packages snap. However, multiple solutions for creating Debian packages exist, including [`electron-forge`][electron-forge], [`electron-builder`][electron-builder] or [`electron-installer-debian`][electron-installer-debian].
 
 ### Étape 2 : Créer un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Let's look at an example:
+For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. Examinons un exemple :
 
 ```yaml
 name: myApp
@@ -187,7 +187,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+Comme vous pouvez le voir, le `snapcraft.yaml` demande au système d'exécuter le fichier nommé `electron-launch`. Dans cet exemple, il transmet des informations au code binaire de l'application :
 
 ```sh
 #!/bin/sh
@@ -195,7 +195,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternativement, si vous construisez votre `snap` avec un confinement `strict` , vous pouvez utiliser la commande `desktop-launch`:
+Alternativement, si vous générez votre `snap` avec la restriction `strict` , vous pouvez utiliser la commande `desktop-launch`:
 
 ```yaml
 apps:
