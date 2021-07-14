@@ -265,7 +265,7 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 * `选项` 对象
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (可选) - 默认值为图片高度.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) - The desired quality of the resize image. 可能的值为 `good`、`better` 或 `best`。 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 返回 ` NativeImage `-裁剪的图像。
 
