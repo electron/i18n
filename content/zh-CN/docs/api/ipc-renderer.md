@@ -2,7 +2,7 @@
 
 > 从渲染器进程到主进程的异步通信。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 `ipcRenderer` 是一个 [EventEmitter][event-emitter] 的实例。 你可以使用它提供的一些方法从渲染进程 (web 页面) 发送同步或异步的消息到主进程。 也可以接收主进程回复的消息。
 
@@ -19,7 +19,7 @@
   * `event` IpcRendererEvent
   * `...args` any[]
 
-监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
+监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
 
 ### `ipcRenderer.once(channel, listener)`
 
@@ -36,7 +36,7 @@
 * `listener` Function
   * `...args` any[]
 
-从监听器数组中移除监听 `channel` 的指定 `listener`。
+为特定的 channel 从监听队列中删除特定的 listener 监听者.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
@@ -144,7 +144,7 @@ For more information on using `MessagePort` and `MessageChannel`, see the [MDN d
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+通过 `channel` 发送消息到带有 `webContentsId` 的窗口.
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
