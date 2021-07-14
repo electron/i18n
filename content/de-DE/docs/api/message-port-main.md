@@ -10,9 +10,9 @@ See the [Channel Messaging API][] documentation for more information on using ch
 
 > Port interface for channel messaging in the main process.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
-### Instanz Methoden
+### Beispiel Methoden
 
 #### `port.postMessage(message, [transfer])`
 
@@ -29,13 +29,13 @@ Starts the sending of messages queued on the port. Messages will be queued until
 
 Disconnects the port, so it is no longer active.
 
-### Instanz Events
+### Instanz-Ereignisse
 
 #### Event: 'message'
 
-Rückgabewert:
+Kehrt zurück:
 
-* `messageEvent` Object
+* `messageEvent` Objekt
   * `data` any
   * `ports` MessagePortMain[]
 
