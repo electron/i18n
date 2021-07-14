@@ -13,27 +13,25 @@
 举一个`Quick Start`的例子:
 
 ```markdown
-# 快速启动
+# 快速入门
 
 ...
 
-## 主要进程
-
-...
+## 主进程
 
 ## 渲染进程
 
 ...
 
-## 运行您的应用程序
+## 运行应用程序
 
 ...
 
-### 以发行版
+### 作为分发版本运行
 
- 运行...
+...
 
-### 手动下载 Electron 二进制文件
+### 手动下载二进制格式的 Electron
 
 ...
 ```
@@ -104,7 +102,7 @@
 * 所有具有返回值的方法都必须以“Returns `[TYPE]` - [Return description]”开始
   * 如果该方法返回一个 `Object`，其结构可以使用冒号后跟换行符的方式，然后使用与函数参数相同样式的无序属性列表。
 * 实例事件必须在 `### Instance Events` 章节中列出.
-* 实例属性必须列在 `### 实例属性` 章节下。
+* 实例属性必须在 `### Instance Properties` 章节中列出。
   * 实例属性必须以 "[属性类型] ..." 开头。
 
 这里用 `Session` 和 `Cookies` 类作为例子:
@@ -146,10 +144,10 @@
 方法章节必须采用以下形式：
 
 ```markdown
-### `objectName.methodName(required[, optional])`
+### `objectName.methodName(required[, optional]))`
 
-* `requird` String - A 参数描述。
-* `optional` 整数(可选) - 另一个参数描述。
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
@@ -208,7 +206,7 @@ Returns:
 
 事件的参数遵循与方法相同的规则.
 
-### Properties
+### 属性
 
 属性章节必须采用以下形式:
 
