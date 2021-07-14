@@ -2,7 +2,7 @@
 
 > Crea un espaciador entre dos elementos en la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new TouchBarSpacer(options)`
 
@@ -12,10 +12,10 @@ Proceso: [Main](../glossary.md#main-process)
     * `large` - Espacio grande entre los elementos. Mapea a `NSTouchBarItemIdentifierFixedSpaceLarge`.
     * `flexible` - Ocupa todo el espacio disponible. Mapea a `NSTouchBarItemIdentifierFlexibleSpace`.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
-The following properties are available on instances of `TouchBarSpacer`:
+Las siguientes propiedades están disponibles en las instancias de `TouchBarSpacer`:
 
 #### `touchBarSpacer.size`
 
-A `String` representing the size of the spacer.  Can be `small`, `large` or `flexible`.
+A `String` representing the size of the spacer.  Puede ser `small`, `large` o `flexible`.
