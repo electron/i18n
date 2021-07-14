@@ -2,15 +2,15 @@
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](tutorial/electron-versioning.md#semver).
 
-### 打破更改类型
+### 重大更改的类型
 
-本文件利用以下公约对重大变化进行分类：
+本文档使用以下约定对重大更改进行分类：
 
-* **API 更改：** 一个 API 更改的方式使得尚未更新的代码保证会丢弃异常。
-* **行为有所改变：** Electron的行为已经改变，但并不是一定会抛出例外情况。
-* **默认更改：** 代码取决于旧的默认情况可能会中断，不一定会抛出例外。 可以通过明确指定值来恢复旧行为。
-* **已废弃：** 一个 API 被标记为过时状态。 API将继续运行，但将发出一个废弃警告，并将在未来的发布中删除。
-* **已移除：** 一个 API 或功能已被删除，不再被 Electron 支持。
+* **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
+* **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
+* **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
+* **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
+* **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
 ## 计划重写的 API (14.0)
 
@@ -53,7 +53,7 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 
 ### 已移除： `shell.moveItemToTrash()`
 
-废弃的同步 `shell.moveItemToTrash()` API 已被删除。 使用 异步 `shell.trashItem()` 代替。
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
 
 ```js
 // Removed in Electron 13
@@ -187,7 +187,7 @@ app.getPath('crashDumps')
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-* `开始`
+* `crashReporter.start`
 * `crashReporter.getLastCrashReport`
 * `crashReporter.getUploadedReports`
 * `crashReporter.getUploadToServer`
@@ -240,7 +240,7 @@ The experimental APIs `BrowserView.{destroy, fromId, fromWebContents, getAllView
 
 For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
 
-## 计划破解API更改(10.0)
+## 计划重写的 API (10.0)
 
 ### Deprecated: `companyName` argument to `crashReporter.start()`
 
@@ -268,7 +268,7 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-* `开始`
+* `crashReporter.start`
 * `crashReporter.getLastCrashReport`
 * `crashReporter.getUploadedReports`
 * `crashReporter.getUploadToServer`
@@ -361,7 +361,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## 计划破解API更改(9.0)
+## 计划重写的 API (9.0)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
@@ -564,7 +564,7 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
-## 计划重写的 API (7.0)
+## Planned Breaking API Changes (7.0)
 
 ### Deprecated: Atom.io Node Headers URL
 
@@ -663,8 +663,8 @@ These functions now only return Promises:
 
 * `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
 * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
-* `contentTracking.getcategories()` [#16583](https://github.com/electron/electron/pull/16583)
-* `contentTracking.getTraceBufferUs()` [#16600](https://github.com/electron/electron/pull/16600)
+* `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
+* `contentTracing.getTraceBufferUsage()` [#16600](https://github.com/electron/electron/pull/16600)
 * `contentTracing.startRecording()` [#16584](https://github.com/electron/electron/pull/16584)
 * `contentTracing.stopRecording()` [#16584](https://github.com/electron/electron/pull/16584)
 * `contents.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
@@ -674,15 +674,15 @@ These functions now only return Promises:
 * `cookies.set()` [#16464](https://github.com/electron/electron/pull/16464)
 * `debugger.sendCommand()` [#16861](https://github.com/electron/electron/pull/16861)
 * `dialog.showCertificateTrustDialog()` [#17181](https://github.com/electron/electron/pull/17181)
-* `inAppAppase.getProducts()` [#17355](https://github.com/electron/electron/pull/17355)
-* `inAppAppase.handeProduct()`[#17355](https://github.com/electron/electron/pull/17355)
+* `inAppPurchase.getProducts()` [#17355](https://github.com/electron/electron/pull/17355)
+* `inAppPurchase.purchaseProduct()`[#17355](https://github.com/electron/electron/pull/17355)
 * `netLog.stopLogging()` [#16862](https://github.com/electron/electron/pull/16862)
-* `session.clear. AuthCache()` [#17259](https://github.com/electron/electron/pull/17259)
+* `session.clearAuthCache()` [#17259](https://github.com/electron/electron/pull/17259)
 * `session.clearCache()`  [#17185](https://github.com/electron/electron/pull/17185)
-* `session.clearhostResolverCache()` [#17229](https://github.com/electron/electron/pull/17229)
-* `session.clearclearStorageData` [#17249](https://github.com/electron/electron/pull/17249)
+* `session.clearHostResolverCache()` [#17229](https://github.com/electron/electron/pull/17229)
+* `session.clearStorageData()` [#17249](https://github.com/electron/electron/pull/17249)
 * `session.getBlobData()` [#17303](https://github.com/electron/electron/pull/17303)
-* `session.getCacheSize()`  </code>  [#17185](https://github.com/electron/electron/pull/17185)
+* `session.getCacheSize()`  [#17185](https://github.com/electron/electron/pull/17185)
 * `session.resolveProxy()` [#17222](https://github.com/electron/electron/pull/17222)
 * `session.setProxy()`  [#17222](https://github.com/electron/electron/pull/17222)
 * `shell.openExternal()` [#16176](https://github.com/electron/electron/pull/16176)
@@ -696,13 +696,13 @@ These functions now only return Promises:
 * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 * `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
 
-这些功能现在有两种形式，即同步和基于允诺的异步：
+These functions now have two forms, synchronous and Promise-based asynchronous:
 
 * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-## 计划重写的 API (6.0)
+## Planned Breaking API Changes (6.0)
 
 ### API Changed: `win.setMenu(null)` is now `win.removeMenu()`
 
@@ -783,7 +783,7 @@ tray.setHighlightMode(mode)
 // API will be removed in v7.0 without replacement.
 ```
 
-## 计划重写的 API (5.0)
+## Planned Breaking API Changes (5.0)
 
 ### Default Changed: `nodeIntegration` and `webviewTag` default to false, `contextIsolation` defaults to true
 
@@ -875,7 +875,7 @@ console.log(factor)
 
 ## 计划重写的 API (4.0)
 
-以下包含了Electron 4.0中重大的API更新
+The following list includes the breaking API changes made in Electron 4.0.
 
 ### `app.makeSingleInstance`
 
@@ -953,7 +953,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `剪贴板`
+### `clipboard`
 
 ```js
 // 过时的
@@ -1005,7 +1005,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `进程`
+### `process`
 
 ```js
 // 弃用
@@ -1137,7 +1137,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `进程`
+### `process`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
@@ -1153,7 +1153,7 @@ webContents.setVisualZoomLevelLimits(1, 2)
 ### `webFrame`
 
 ```js
-// 被废弃
+// 移除
 webFrame.setZoomLevelLimits(1, 2)
 // 替换为
 webFrame.setVisualZoomLevelLimits(1, 2)
@@ -1172,7 +1172,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-为了防止可能导致安装器毁坏的中断，_不带前缀_的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
+The file _without the prefix_ is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the unprefixed file will no longer be published.
 
 更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
 
