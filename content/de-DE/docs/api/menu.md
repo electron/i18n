@@ -1,10 +1,10 @@
-# Menu
+# Menü
 
 ## Klasse: Menü
 
 > Create native application menus and context menus.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -52,7 +52,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 Das `menu` Objekt hat die folgenden Instanz Methoden:
 
@@ -92,7 +92,7 @@ Returns `MenuItem | null` the item with the specified `id`
 
 Füre das `menuItem` an der `pos` Position im Menü ein.
 
-### Instanz Events
+### Instanz-Ereignisse
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
@@ -100,7 +100,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 #### Event: 'menu-will-show'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 
@@ -108,7 +108,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 
@@ -275,8 +275,8 @@ macOS has a completely different style of application menu from Windows and Linu
 On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `window`
-* `hilfe`
-* `dienste`
+* `help`
+* `services`
 
 ### Standard Menu Item Actions
 
