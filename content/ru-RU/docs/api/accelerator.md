@@ -15,7 +15,7 @@
 const { app, globalShortcut } = require('electron')
 
 app.whenReady().then(() => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // Регистрирует слушателя сочетания клавиш 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Сделайте что-нибудь, когда Y и Command/Control нажаты.
   })
