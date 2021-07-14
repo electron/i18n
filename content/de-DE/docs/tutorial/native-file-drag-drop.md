@@ -1,10 +1,10 @@
-# Native Datei Drag & Drop
+# Natives Datei Drag & Drop
 
 ## Übersicht
 
-Bestimmte Arten von Anwendungen, die Dateien manipulieren, könnten die native Datei-Drag & Drop Funktion des Betriebssystems unterstützen. Das Ziehen von Dateien in Webinhalte ist üblich und wird von vielen Webseiten unterstützt. Electron unterstützt zusätzlich das Ziehen von Dateien und Inhalten aus Webinhalten in die Welt des Betriebssystems .
+Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Dragging files into web content is common and supported by many websites. Electron additionally supports dragging files and content out from web content into the operating system's world.
 
-Um diese Funktion in Ihrer App zu implementieren, müssen Sie den [`Webcontent aufrufen. tartDrag(item)`](../api/web-contents.md#contentsstartdragitem) API als Antwort auf das `ondragstart` Ereignis.
+To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
 
 ## Beispiel
 
