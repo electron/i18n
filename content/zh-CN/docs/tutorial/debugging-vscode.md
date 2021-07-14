@@ -6,7 +6,7 @@
 
 ### 主进程
 
-#### 1. 在 VSCode 中打开一个 Electron 项目。
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -34,7 +34,7 @@ $ code electron-quick-start
 }
 ```
 
-#### 3. 调试
+#### 3. Debugging
 
 在 `main.js` 中设置一些断点，并在 [调试视图](https://code.visualstudio.com/docs/editor/debugging) 中开始调试. 您应该能够点击断点。
 
@@ -48,7 +48,7 @@ $ code electron-quick-start
 
 ### Windows (C++)
 
-#### 1. 在 VSCode 中打开一个 Electron 项目。
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -93,6 +93,6 @@ $ code electron-quick-start
   * `your-directory-name`：如果你在构建过程中修改， 这将是你指定的。
 * `args` 数组字符串 `"your electron-project-path"` 应为您正在用于测试的 Electron 项目或 `main.js` 的绝对路径。 在本示例中，它应该是您的 `electron-quick-start` 的路径。
 
-#### 3. 调试
+#### 3. Debugging
 
 在你选择的原始 Electron C++ 代码中的 .cc 文件中设置一些断点，并在 [Debug View](https://code.visualstudio.com/docs/editor/debugging) 中开始调试。
