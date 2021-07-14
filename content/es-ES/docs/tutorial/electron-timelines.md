@@ -2,11 +2,11 @@
 
 Special notes:
 
-* The `-beta.1` and `stable` dates are our solid release dates.
+* Las fechas `-beta.1` y `stable` son nuestras fechas de lanzamiento sólidas.
 * Nos esforzamos por liberar versiones beta semanalmente, sin embargo a menudo liberamos mas betas que las programadas.
 * Todas las fechas son nuestras metas pero puede haber razones para ajustar el plazo de la versión estable, tales como errores de seguridad.
 * Echa un vistazo a [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) para información acerca de publicación de nuestras fechas de lanzamiento.
-* Desde Electron 6.0, hemos estado apuntando a todas las demás versiones de Chromium y lanzando nuestra versión estable el mismo día que Chrome. Puede hacer referencia al horario de lanzamiento de Chromium [aquí](https://chromiumdash.appspot.com/schedule). Vea [la nueva publicación del blog de cadencia de Electron](https://www.electronjs.org/blog/12-week-cadence) para más detalles sobre nuestro programa de lanzamiento.
+* Desde Electron 6.0, hemos estado apuntando a todas las demás versiones de Chromium y lanzando nuestra versión estable el mismo día que Chrome. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
 * Electron 15.0 only will include a special Alpha release. Starting in Electron 16.0, we will release on an 8-week cadence. See [Electron's new 8-week cadence blog post](https://www.electronjs.org/blog/8-week-cadence) for more details.
 
 | Electron | Alfa        | Beta        | Estable     | Chrome | Nodo   |
