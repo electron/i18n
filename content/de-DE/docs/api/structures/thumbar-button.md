@@ -1,6 +1,6 @@
-# ThumbarButton Objekt
+# ThumbarButton Object
 
-* ` Icon ` [ NativeImage ](../native-image.md)-das Symbol zeigt in Thumbnail Leiste.
+* `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
 * ` Klicken Sie auf ` Funktion
 * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
 * `flags` String[] (optional) - Kontrollieren Sie bestimmte Zustände und Verhaltensweisen des Buttons. Standardmäßig ist es `['enabled']`.
