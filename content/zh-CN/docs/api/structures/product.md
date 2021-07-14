@@ -1,11 +1,11 @@
-# Product 对象
+# Product Object
 
-* `productIdentifier` String - 用于苹果应用商店标识产品的字符串。
-* `localizedDescription` String - 产品的描述。
-* `localizedTitle` String - 产品的名称。
-* `contentVersion` String - 标识产品的版本的字符串。
-* `contentLengths` Number[] - 内容的总大小，以字节为单位。
-* `price` Number - 以本地货币计算的产品成本。
-* `formattedPrice` String - 本地格式化的产品价格。
-* `currencyCode` String - 基于 ISO 4217标准的由三个字母组成字符串，表示一种商品货币.
-* `isDownloadable` Boolean - 一个布尔值，指示应用商店是否有该产品的可下载内容。 `true` 如果至少有一个文件与产品关联。
+* `productIdentifier` String - The string that identifies the product to the Apple App Store.
+* `localizedDescription` String - A description of the product.
+* `localizedTitle` String - The name of the product.
+* `contentVersion` String - A string that identifies the version of the content.
+* `contentLengths` Number[] - The total size of the content, in bytes.
+* `price` Number - The cost of the product in the local currency.
+* `formattedPrice` String - The locale formatted price of the product.
+* `currencyCode` String - 3 character code presenting a product's currency based on the ISO 4217 standard.
+* `isDownloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product. `true` if at least one file has been associated with the product.
