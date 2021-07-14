@@ -58,7 +58,7 @@ L'objet `menu` a les méthodes d'instance suivantes:
 
 #### `menu.popup([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `window` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
   * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `y` est déclaré.
   * `x` Number (facultatif) - C'est par défaut la position actuelle du curseur de la souris. Doit être déclaré si `x` est déclaré.
@@ -102,7 +102,7 @@ Les objets créés avec `nouveau Menu` ou retournés par `Menu.buildFromTemplate
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque `menu.popup()` est appelé.
 
@@ -110,7 +110,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsqu'un popup est fermé manuellement ou avec `menu.closePopup()`.
 
@@ -284,11 +284,11 @@ macOS a fourni des actions standard pour certains liens de menu, comme `À propo
 
 ### Nom du menu principal
 
-Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information][AboutInformationPropertyListFiles] pour plus d'informations.
+Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. See [About Information Property List Files][AboutInformationPropertyListFiles] for more information.
 
-## Menu de configuration pour la fenêtre de navigation spécifique (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
-La [`setMenu` méthode][setMenu] des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
+The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
 
 ## Position de l'élément de menu
 
