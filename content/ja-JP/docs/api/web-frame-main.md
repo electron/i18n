@@ -1,10 +1,10 @@
 # webFrameMain
 
-> ウェブページと iframe を制御します。
+> Control web pages and iframes.
 
 プロセス: [Main](../glossary.md#main-process)
 
-`webFrameMain` モジュールは、既存の [`WebContents`](web-contents.md) インスタンスを横断したフレームの探索に利用できます。 ナビゲーションイベントがよくあるユースケースでしょう。
+The `webFrameMain` module can be used to lookup frames across existing [`WebContents`](web-contents.md) instances. Navigation events are the common use case.
 
 ```javascript
 const { BrowserWindow, webFrameMain } = require('electron')
@@ -24,7 +24,7 @@ win.webContents.on(
 )
 ```
 
-また、[`WebContents`](web-contents.md) の `mainFrame` プロパティを使用することでも既存ページのフレームへアクセスできます。
+You can also access frames of existing pages by using the `mainFrame` property of [`WebContents`](web-contents.md).
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -50,16 +50,16 @@ main()
 
 ## メソッド
 
-これらのメソッドは、`webFrameMain` モジュールからアクセスできます。
+These methods can be accessed from the `webFrameMain` module:
 
 ### `webFrameMain.fromId(processId, routingId)`
 
-* `processId` Integer - `Integer` 型で、そのフレームを所有しているプロセスの内部 ID を表します。
-* `routingId` Integer - `Integer` 型で、現在のレンダラープロセスでの一意なフレーム ID を表します。 ルーティング ID は、`WebFrameMain` インスタンス (`frame.routingId`) から取得できるほか、フレーム固有の `WebContents` ナビゲーションイベント (`did-frame-navigate` など) によっても渡されます。
+* `processId` Integer - An `Integer` representing the internal ID of the process which owns the frame.
+* `routingId` Integer - An `Integer` representing the unique frame ID in the current renderer process. Routing IDs can be retrieved from `WebFrameMain` instances (`frame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`).
 
-戻り値 `WebFrameMain | undefined` - 指定のプロセスとルーティングの ID のフレームです。指定の ID に関連付けられた WebFrameMain がない場合は `undefined` になります。
+Returns `WebFrameMain | undefined` - A frame with the given process and routing IDs, or `undefined` if there is no WebFrameMain associated with the given IDs.
 
-## クラス: WebFrameMain
+## Class: WebFrameMain
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -70,7 +70,7 @@ main()
 * `code` String
 * `userGesture` Boolean (任意) - 省略値は `false`。
 
-戻り値 `Promise<unknown>` - 実行されたコードの結果で resolve されるか、実行でスロー又は reject された結果の場合に reject される Promise。
+Returns `Promise<unknown>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
 ページ内の `code` を評価します。
 
@@ -78,16 +78,16 @@ main()
 
 #### `frame.reload()`
 
-戻り値 `boolean` - リロードが正常に開始されたかどうか。 フレームに履歴がない場合のみ `false` になります。
+Returns `boolean` - Whether the reload was initiated successfully. Only results in `false` when the frame has no history.
 
 #### `frame.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`]\[] と同様に [構造化複製アルゴリズム\]\[SCA\] でシリアライズされるので、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
 
-レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
 #### `frame.postMessage(channel, message, [transfer])`
 
@@ -95,18 +95,18 @@ main()
 * `message` any
 * `transfer` MessagePortMain[] (任意)
 
-レンダラープロセスにメッセージを送信し、任意で 0 個以上の [`MessagePortMain`][] オブジェクトの所有権を転送します。
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-転送された `MessagePortMain` オブジェクトは、レンダラープロセスで発生したイベントの `ports` プロパティにアクセスすれば利用できます。 レンダラーに着くと、それらはネイティブの DOM `MessagePort` オブジェクトになります。
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
-例:
+以下がその例です。
 
 ```js
-// メインプロセス
+// Main process
 const { port1, port2 } = new MessageChannelMain()
 webContents.mainFrame.postMessage('port', { message: 'hello' }, [port1])
 
-// レンダラープロセス
+// Renderer process
 ipcRenderer.on('port', (e, msg) => {
   const [port] = e.ports
   // ...
@@ -115,42 +115,42 @@ ipcRenderer.on('port', (e, msg) => {
 
 ### インスタンスプロパティ
 
-#### `frame.url` _読み出し専用_
+#### `frame.url` _Readonly_
 
-`string` 型で、そのフレームの現在の URL を表します。
+A `string` representing the current URL of the frame.
 
-#### `frame.top` _読み出し専用_
+#### `frame.top` _Readonly_
 
-`WebFrameMain | null` 型で、`frame` が属するフレーム階層の最上位フレームを表します。
+A `WebFrameMain | null` representing top frame in the frame hierarchy to which `frame` belongs.
 
-#### `frame.parent` _読み出し専用_
+#### `frame.parent` _Readonly_
 
-`WebFrameMain | null` 型で、`frame` の親フレームを表します。`frame` がそのフレーム階層の最上位フレームであれば、このプロパティは `null` です。
+A `WebFrameMain | null` representing parent frame of `frame`, the property would be `null` if `frame` is the top frame in the frame hierarchy.
 
-#### `frame.frames` _読み出し専用_
+#### `frame.frames` _Readonly_
 
-`WebFrameMain[]` 型で、`frame` の直接の子フレームを格納するコレクションです。
+A `WebFrameMain[]` collection containing the direct descendents of `frame`.
 
-#### `frame.framesInSubtree` _読み出し専用_
+#### `frame.framesInSubtree` _Readonly_
 
-`WebFrameMain[]` 型で、`frame` のサブツリーのうち自身を含んだ全フレームのコレクションです。 これは、すべてのフレームをトラバースするときに便利です。
+A `WebFrameMain[]` collection containing every frame in the subtree of `frame`, including itself. This can be useful when traversing through all frames.
 
-#### `frame.frameTreeNodeId` _読み出し専用_
+#### `frame.frameTreeNodeId` _Readonly_
 
-`Integer` 型で、フレーム内部の FrameTreeNode インスタンスの ID を表します。 この ID はブラウザー内で共通となっており、コンテンツをホストするフレームを一意に識別します。 識別子はフレーム作成時に固定され、フレームが有効である間は変化しません。 フレームが削除されると、その ID が再び使用されることはありません。
+An `Integer` representing the id of the frame's internal FrameTreeNode instance. This id is browser-global and uniquely identifies a frame that hosts content. The identifier is fixed at the creation of the frame and stays constant for the lifetime of the frame. When the frame is removed, the id is not used again.
 
-#### `frame.name` _読み出し専用_
+#### `frame.name` _Readonly_
 
-`String` 型で、そのフレームの名前を表します。
+A `String` representing the frame name.
 
-#### `frame.osProcessId` _読み出し専用_
+#### `frame.osProcessId` _Readonly_
 
-`Integer` 型で、このフレームを所有するプロセスのオペレーティングシステムの `pid` を表します。
+An `Integer` representing the operating system `pid` of the process which owns this frame.
 
-#### `frame.processId` _読み出し専用_
+#### `frame.processId` _Readonly_
 
-`Integer` 型で、このフレームを所有するプロセスの Chromium 内部の `pid` を表します。 これは OS のプロセス ID と同じではありません。それを読み出すには `frame.osProcessId` を使用してください。
+An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
 
-#### `frame.routingId` _読み出し専用_
+#### `frame.routingId` _Readonly_
 
-現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 同じ基底フレームを参照する `WebFrameMain` インスタンスすべては、それぞれ同じ `routingId` になります。
+An `Integer` representing the unique frame id in the current renderer process. Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
