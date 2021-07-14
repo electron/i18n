@@ -2,16 +2,16 @@
 
 > Create a button in the touch bar for native macOS applications
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new TouchBarButton(options)`
 
-* `options` Object
+* `options` Objekt
   * `label` String (optional) - Button text.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Standardwert ist `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
   * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Standard ist `true`.
 
@@ -39,7 +39,7 @@ A `NativeImage` representing the button's current icon. Changing this value imme
 
 #### `touchBarButton.iconPosition`
 
-A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
+A `String` - Can be `left`, `right` or `overlay`.  Standardwert ist `overlay`.
 
 #### `touchBarButton.enabled`
 
