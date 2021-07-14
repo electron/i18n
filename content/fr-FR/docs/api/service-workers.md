@@ -33,7 +33,7 @@ Les événements suivants sont disponibles pour les instances de `ServiceWorkers
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
@@ -48,7 +48,7 @@ Emitted when a service worker logs something to the console.
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `details` Object - Information about the registered service worker
   * `scope` String - The base URL that a service worker is registered for
 
@@ -56,7 +56,7 @@ Emitted when a service worker has been registered. Can occur after a call to [`n
 
 ### Méthodes d’instance
 
-Les méthodes suivants sont disponibles pour les instances de `ServiceWorkers` :
+Les méthodes suivantes sont disponibles pour les instances de `ServiceWorkers` :
 
 #### `serviceWorkers.getAllRunning()`
 
