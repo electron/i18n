@@ -1,10 +1,10 @@
-# Guides officiels
+# Guide officiel
 
 Veuillez vous assurer d'utiliser la documentation qui correspond à votre version d'Electron. Le numéro de version doit être une partie de l'URL de la page. Si ce n'est pas le cas, vous utilisez probablement la documentation d'une branche de développement pouvant contenir des modifications de l'API qui ne sont pas compatibles avec votre version d'Electron. Pour consulter les anciennes versions de la documentation, vous pouvez [Parcourir par tag](https://github.com/electron/electron/tree/v1.4.0) sur GitHub en ouvrant la liste déroulante « Switch branches/tags » et sélectionnez le tag qui correspond à votre version.
 
 ## FAQ
 
-Certaines questions sont souvent posées. Vérifiez ceci avant de créer un problème :
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [FAQ Electron](faq.md)
 
@@ -16,7 +16,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
 * [Démarrage Rapide](tutorial/quick-start.md)
 * [Modèle de processus](tutorial/process-model.md)
 
-### Apprendre les bases
+### Learning the basics
 
 * Ajouter des fonctionnalités à votre App
   * [Notifications](tutorial/notifications.md)
@@ -29,8 +29,8 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Détection en ligne/hors ligne](tutorial/online-offline-events.md)
   * [Fichier représenté pour BrowserWindows sur macOS](tutorial/represented-file.md)
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
-  * [Rendu Offscreen](tutorial/offscreen-rendering.md)
-  * [Mode foncé](tutorial/dark-mode.md)
+  * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
+  * [Dark Mode](tutorial/dark-mode.md)
   * [Les web embeds dans Electron](tutorial/web-embeds.md)
 * [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -54,7 +54,7 @@ Certaines questions sont souvent posées. Vérifiez ceci avant de créer un prob
   * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extension DevTools](tutorial/devtools-extension.md)
-  * [Test automatisé avec un driver personnalisé](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Test automatisé avec un driver personalisé](tutorial/automated-testing-with-a-custom-driver.md)
   * [REPL](tutorial/repl.md)
 * [Distribution](tutorial/application-distribution.md)
   * [Plateformes supportées](tutorial/support.md#supported-platforms)
@@ -96,7 +96,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 ### Éléments DOM Personnalisé :
 
-* [`File` Object](api/file-object.md)
+* [Objet `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
@@ -118,7 +118,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [MessagePortMain](api/message-port-main.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [nativeTheme (nativeTheme)](api/native-theme.md)
+* [nativeTheme](api/native-theme.md)
 * [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
@@ -134,7 +134,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 ### Modules pour le processus de rendu (Page Web) :
 
-* [contexteBridge](api/context-bridge.md)
+* [contextBridge](api/context-bridge.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [webFrame](api/web-frame.md)
 
