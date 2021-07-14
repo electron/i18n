@@ -1,12 +1,12 @@
-# nativeThema
+# nativeTheme
 
 > Read and respond to changes in Chromium's native color theme.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
-## Ereignisse
+## Events
 
-The `nativeTheme` module emits the following events:
+Das `nativeTheme` Modul sendet folgende Ereignisse aus:
 
 ### Event: 'updated'
 
