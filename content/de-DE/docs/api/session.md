@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -56,13 +56,13 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instanz Events
+### Instanz-Ereignisse
 
 The following events are available on instances of `Session`:
 
 #### Event: 'will-download'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -84,7 +84,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'extension-loaded'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
@@ -98,7 +98,7 @@ Emitted after an extension is loaded. This occurs whenever an extension is added
 
 #### Event: 'extension-unloaded'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
@@ -107,7 +107,7 @@ Emitted after an extension is unloaded. This occurs when `Session.removeExtensio
 
 #### Event: 'extension-ready'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
@@ -116,7 +116,7 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 
 #### Event: 'preconnect'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
@@ -126,7 +126,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 #### Event: 'spellcheck-dictionary-initialized'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -135,7 +135,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 #### Event: 'spellcheck-dictionary-download-begin'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -144,7 +144,7 @@ Emitted when a hunspell dictionary file starts downloading
 
 #### Event: 'spellcheck-dictionary-download-success'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -153,7 +153,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `languageCode` String - The language code of the dictionary file
@@ -162,7 +162,7 @@ Emitted when a hunspell dictionary file download fails.  For details on the fail
 
 #### Event: 'select-serial-port' _Experimental_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `portList` [SerialPort[]](structures/serial-port.md)
@@ -204,7 +204,7 @@ app.whenReady().then(() => {
 
 #### Event: 'serial-port-added' _Experimental_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `port` [SerialPort](structures/serial-port.md)
@@ -214,7 +214,7 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 
 #### Event: 'serial-port-removed' _Experimental_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `port` [SerialPort](structures/serial-port.md)
@@ -222,9 +222,9 @@ Rückgabewert:
 
 Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
 
-### Instanz Methoden
+### Beispiel Methoden
 
-Die folgenden Methoden sind verfügbar in Instanzen von `Session`:
+The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize()`
 
@@ -251,7 +251,7 @@ Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config)`
 
-* `config` Objekt
+* `config` Object
   * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
     * `direct` In direct mode all connections are created directly, without any proxy involved.
     * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
@@ -338,7 +338,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object
+* `options` Objekt
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -360,9 +360,9 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` Object
+* `options` Objekt
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Der Standardwert ist 1.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
 Preconnects the given number of sockets to an origin.
 
@@ -379,8 +379,8 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function | null
-  * `request` Objekt
-    * `hostname` Zeichenkette
+  * `request` Object
+    * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
@@ -519,7 +519,7 @@ Returns `String` - The user agent for this session.
 
 #### `ses.setSSLConfig(config)`
 
-* `config` Objekt
+* `config` Object
   * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Defaults to `tls1`.
   * `maxVersion` String (optional) - Kann `tls1.2` oder `tls1.3` sein. The maximum SSL version to allow when connecting to remote servers. Standardwert ist `tls1.3`.
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
@@ -534,15 +534,16 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+<p spaces-before="0">Initiates a download of the resource at <code>url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.</p>
 
 **Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object
+* `options` Objekt
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
