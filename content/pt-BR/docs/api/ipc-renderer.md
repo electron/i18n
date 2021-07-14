@@ -4,7 +4,7 @@
 
 Processo: [Renderizador](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an  [EventEmitter][event-emitter]. Ele fornece alguns métodos para que você possa enviar mensagens síncronas e assíncronas do processo de renderização (página da web) para o processo principal. Você também pode receber respostas do processo principal.
+O módulo `ipcRenderer` é um [EventEmitter][event-emitter]. Ele fornece alguns métodos para que você possa enviar mensagens síncronas e assíncronas do processo de renderização (página da web) para o processo principal. Você também pode receber respostas do processo principal.
 
 Veja [ipcMain](ipc-main.md) para exemplos de código.
 
@@ -15,7 +15,7 @@ O módulo `ipcRenderer` possui o seguinte método para ouvir eventos e enviar me
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Função
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,7 +24,7 @@ Ouve o `channel`, quando uma mensagem chega, o `listener` deve ser chamado com `
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Função
+* `listener` Function
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -33,7 +33,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Função
+* `listener` Function
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.
