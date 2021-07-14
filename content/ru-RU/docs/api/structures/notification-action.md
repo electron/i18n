@@ -1,19 +1,19 @@
-# Объект NotificationAction
+# NotificationAction Object
 
-* `type` String - тип действия, может быть `button`.
-* `text` String - (опционально) метка для данного действия.
+* `type` String - The type of action, can be `button`.
+* `text` String (optional) - The label for the given action.
 
-## Платформа / Поддержка действий
+## Platform / Action Support
 
-| Тип действия | Поддержка платформы | Использование `text`                     | По умолчанию `text`                                                                                        | Ограничения                                                                                                                                                                                                                                                                              |
-| ------------ | ------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`     | macOS               | Используется в качестве метки для кнопки | "Show" (или локализованная строка на языке системы для первого `button`, и пустая строка в других случаях) | Используется только первый из них. Если указаны несколько действий, то все, кроме первого, будут перечислены как дополнительные (и будут показаны при наведении мыши на кнопку). Такие действия несовместимы с `hasReply` и будут игнорироваться, если `hasReply` имеет значение `true`. |
+| Action Type | Platform Support | Usage of `text`                  | Default `text`                                                                              | Limitations                                                                                                                                                                                                                                                               |
+| ----------- | ---------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`    | macOS            | Used as the label for the button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
-### Button поддерживается на macOS
+### Button support on macOS
 
-Чтобы дополнительные кнопки уведомлений работали на macOS, Ваше приложение должно соответствовать следующим критериям.
+In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
-* Приложение подписано
-* Свойство `NSUserNotificationAlertStyle` установлено в `alert` в файле `Info.plist`.
+* App is signed
+* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-Если одно из этих требований не будет выполнено, кнопка просто не появится.
+If either of these requirements are not met the button won't appear.
