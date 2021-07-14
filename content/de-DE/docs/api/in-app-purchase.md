@@ -2,24 +2,24 @@
 
 > In-app purchases on Mac App Store.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
-## Ereignisse
+## Events
 
-The `inAppPurchase` module emits the following events:
+Das `inAppPurchase` Modul sendet folgende Ereignisse aus:
 
 ### Event: 'transactions-updated'
 
 Emitted when one or more transactions have been updated.
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
 ## Methoden
 
-The `inAppPurchase` module has the following methods:
+Das `inAppPurchase` Modul hat folgende Methoden:
 
 ### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
