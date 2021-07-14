@@ -1,12 +1,12 @@
-# Cookie 对象
+# Cookie Object
 
-* `name` String - cookie 的名称。
-* `value` String - cookie 的值。
-* `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。
-* `hostOnly` Boolean (可选) - cookie 是否仅匹配主机头；此项仅在未设置域名时才能为 `true`。
-* `path` String (可选) - cookie 的路径。
-* `secure` Boolean (可选) - cookie 是否标记为安全。
-* `httpOnly` Boolean (可选) - cookie 是否只标记为 HTTP。
-* `session` Boolean (可选) - cookie是会话cookie 还是具有过期时间的持久性 cookie
-* `expirationDate` Double (可选) - cookie的过期时间, 为从UNIX标准时间开始的秒数 没有为 session cookies 提供.
-* `sameSite` String - cookie应用的[sameSite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies)策略值。  可以被设置为`unspecified`，`no_restriction`，`lax`或者`strict`
+* `name` String - The name of the cookie.
+* `value` String - The value of the cookie.
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
+* `path` String (optional) - The path of the cookie.
+* `secure` Boolean (optional) - Whether the cookie is marked as secure.
+* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
+* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.
