@@ -4,7 +4,7 @@
 
 ## FAQ
 
-Есть вопросы, которые довольно часто задаваются. Проверьте это перед созданием задачи:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [FAQ по Electron](faq.md)
 
@@ -16,11 +16,11 @@
 * [Руководство для начинающих](tutorial/quick-start.md)
 * [Process Model](tutorial/process-model.md)
 
-### Изучение основ
+### Learning the basics
 
 * Добавление функционала в Ваше приложение
   * [Notification (Оповещения)](tutorial/notifications.md)
-  * [Recent Documents](tutorial/recent-documents.md)
+  * [Недавние документы](tutorial/recent-documents.md)
   * [Прогресс приложения](tutorial/progress-bar.md)
   * [Пользовательское меню macOS](tutorial/macos-dock.md)
   * [Пользовательские задачи Windows](tutorial/windows-taskbar.md)
@@ -28,7 +28,7 @@
   * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
   * [Оффлайн/Онлайн обнаружение](tutorial/online-offline-events.md)
   * [Представленный файл для macOS BrowserWindows](tutorial/represented-file.md)
-  * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
+  * [Нативное перемещение файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
   * [Dark Mode](tutorial/dark-mode.md)
   * [Встраивание веб в Electron](tutorial/web-embeds.md)
@@ -47,18 +47,18 @@
   * [Стратегии безопасности](tutorial/security.md)
   * [Process Sandboxing](tutorial/sandbox.md)
 * [Доступность](tutorial/accessibility.md)
-  * [Включение функций специальных возможностей вручную](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестирование и отладка](tutorial/application-debugging.md)
   * [Отладка главного процесса](tutorial/debugging-main-process.md)
   * [Отладка с кодом Visual Studio](tutorial/debugging-vscode.md)
   * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
-  * [Автоматическое тестирование с помощью собственного драйвера](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Автоматическое тестирование с помощью специального драйвера](tutorial/automated-testing-with-a-custom-driver.md)
   * [REPL](tutorial/repl.md)
 * [Распространение](tutorial/application-distribution.md)
   * [Поддерживаемые платформы](tutorial/support.md#supported-platforms)
-  * [Цифровая подпись](tutorial/code-signing.md)
+  * [Подписывание кода](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -73,13 +73,13 @@
 Эти индивидуальные руководства расширят темы, обсуждаемые выше.
 
 * [Установка Electron](tutorial/installation.md)
-  * [Полномочия](tutorial/installation.md#proxies)
-  * [Пользовательские зеркала и кэши](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Прокси](tutorial/installation.md#proxies)
+  * [Пользовательские зеркала и кеши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
 * Отзыв разработчика Electron Releases &
   * [Политика контроля версиями](tutorial/electron-versioning.md)
   * [Графики выпуска](tutorial/electron-timelines.md)
-* [Тестирование Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 
 ---
 
@@ -108,7 +108,7 @@
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [диалоговые окна](api/dialog.md)
+* [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
@@ -120,13 +120,13 @@
 * [netLog](api/net-log.md)
 * [nativeTheme (Родная тема)](api/native-theme.md)
 * [Notification (Оповещения)](api/notification.md)
-* [powerMonitor (Мониторинг питания)](api/power-monitor.md)
+* [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [ShareMenu](api/share-menu.md)
-* [системные настройки](api/system-preferences.md)
+* [systemPreferences](api/system-preferences.md)
 * [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
