@@ -12,7 +12,7 @@
 
 Electron 内の Chrome のバージョンは、通常であれば新しい Chrome の安定バージョンがリリースされてから 1 ~ 2 週間以内に更新します。 この期間というのは保証されておらず、バージョンアップの作業量にも依存します。
 
-Only the stable channel of Chrome is used. إذا كان إصلاح مهم في قناة بيتا أو ديف ، سنقوم بعودة المنبور.
+Chrome の安定版のみを使用します。 重要な修正が beta や dev 版にある場合、それをバックポートします。
 
 より詳しい情報は、[セキュリティについて](tutorial/security.md) を参照してください。
 
@@ -32,7 +32,7 @@ Alternatively, you can use the IPC primitives that are provided by Electron. To 
 
 これは、tray を格納している変数がガベージコレクトされると発生します。
 
-この問題に遭遇した時には、次のドキュメントを読むことをお勧めします。
+以下のドキュメントが参考になるはずです。
 
 * [メモリ管理][memory-management]
 * [変数スコープ][variable-scope]
@@ -58,7 +58,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## jQuery/RequireJS/Meteor/AngularJS が Electron で使えません。
+## jQuery/RequireJS/Meteor/AngularJSがElectronで使えません
 
 Electron の Node.js 組み込みの影響で、`module`、`exports`、`require` のような余分なシンボルが DOM に追加されています。 このため、いくつかのライブラリでは同名のシンボルを追加しようとして問題が発生することがあります。
 
@@ -104,11 +104,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 [サブピクセルアンチエイリアス](https://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
-![サブピクセル レンダリングの例][]
+![subpixel rendering example][]
 
 サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
 
-この目的を達成するには、 [BrowserWindow][browser-window] のコンストラクタで背景を設定してください。
+To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -129,4 +129,4 @@ CSS で背景を設定するだけでは期待する効果はないことに注�
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
-[サブピクセル レンダリングの例]: images/subpixel-rendering-screenshot.gif
+[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
