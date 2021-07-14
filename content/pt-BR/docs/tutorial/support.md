@@ -1,10 +1,10 @@
-# Suporte ao Electron
+# Electron Support
 
-## Suporte para Busca
+## Finding Support
 
-Se você tiver um problema de segurança, consulte o [documento de segurança](https://github.com/electron/electron/tree/master/SECURITY.md).
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
-Se estiver procurando a ajuda da programação, para respostas a perguntas, ou para participar de discussões com outros desenvolvedores que usam o Electron, você pode interagir com a comunidade nesses locais:
+If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
 * [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
   * Getting help
@@ -21,13 +21,13 @@ Se estiver procurando a ajuda da programação, para respostas a perguntas, ou p
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 * [`electron-pl`](https://electronpl.github.io) *(Poland)*
 
-Se você gostaria de contribuir com o Electron, veja o [documento contribuinte](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-Se você encontrou um bug em uma [versão suportada](#supported-versions) do Electron, por favor reporte-o com o [rastreador de problemas](../development/issues.md).
+If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
 
-[incrível-elétrons](https://github.com/sindresorhus/awesome-electron) é uma lista mantida pela comunidade de aplicativos de exemplo ferramentas e recursos.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
-## Versões suportadas
+## Supported Versions
 
 _**Note:** Beginning in September 2021 with Electron 15, the Electron team will temporarily support the latest **four** stable major versions. This extended support is intended to help Electron developers transition to the [new eight week release cadence](https://electronjs.org/blog/8-week-cadence), and will continue until May 2022, with the release of Electron 19. At that time, the Electron team will drop support back to the latest three stable major versions._
 
@@ -39,13 +39,13 @@ All supported release lines will accept external pull requests to backport fixes
 
 When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
-### Versões atualmente suportadas
+### Currently supported versions
 
 * 13.x.y
 * 12.x.y
 * 11.x.y
 
-### Fim da vida
+### End-of-life
 
 When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
 
