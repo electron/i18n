@@ -1,34 +1,36 @@
 ---
-title: SQLite 脆弱性修复
+title: SQLite Vulnerability Fix
 author: ckerr
 date: '2018-12-18'
 ---
 
-已经发现一个远程代码执行脆弱性，"[Magellan](https://blade.tencent.com/magellan/index_en.html)," 影响基于 SQLite 或 Chromium 的软件，包括所有版本的 Electron 。
+A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
 
 ---
 
-## 范围
+## Scope
 
-使用 Web SQL 的 Electron 应用程序受到影响。
+Electron applications using Web SQL are impacted.
 
 
-## 减轻影响
+## Mitigation
 
-受影响的应用应该停止使用 Web SQL 或升级到 Electron 的补丁版本。
+Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
 
-我们已经发布了新版本的 Electron ，其中包括对此脆弱性的修正：
+We've published new versions of Electron which include fixes for this vulnerability:
   * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
-  * [3.1.0-β.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
+  * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-野生动物没有关于这种情况的报告；但敦促受影响的应用缓解这种情况。
+There are no reports of this in the wild; however, affected applications are urged to mitigate.
 
-## 更多信息
+## Further Information
 
-Tencent Blade团队发现了这种易受伤害性，他们已经发表了 [个博客文章讨论了易受伤害性](https://blade.tencent.com/magellan/index_en.html)。
+This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
 
-要了解更多关于维护您的 Electron 应用安全的最佳做法，请参阅我们的 [安全教程](https://electronjs.org/docs/tutorial/security)。
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
-如果您想要报告Electron中的脆弱性，电子邮件security@electronjs.org。
+If you wish to report a vulnerability in Electron, email security@electronjs.org.
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security
