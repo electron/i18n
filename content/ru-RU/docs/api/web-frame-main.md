@@ -115,42 +115,42 @@ ipcRenderer.on('port', (e, msg) => {
 
 ### Свойства экземпляра
 
-#### `frame.url` _Только чтение_
+#### `frame.url` _Readonly_
 
 A `string` representing the current URL of the frame.
 
-#### `frame.top` _Только чтение_
+#### `frame.top` _Readonly_
 
 A `WebFrameMain | null` representing top frame in the frame hierarchy to which `frame` belongs.
 
-#### `frame.parent` _Только чтение_
+#### `frame.parent` _Readonly_
 
 A `WebFrameMain | null` representing parent frame of `frame`, the property would be `null` if `frame` is the top frame in the frame hierarchy.
 
-#### `frame.frames` _Только чтение_
+#### `frame.frames` _Readonly_
 
 A `WebFrameMain[]` collection containing the direct descendents of `frame`.
 
-#### `frame.framesInSubtree` _Только чтение_
+#### `frame.framesInSubtree` _Readonly_
 
 A `WebFrameMain[]` collection containing every frame in the subtree of `frame`, including itself. This can be useful when traversing through all frames.
 
-#### `frame.frameTreeNodeId` _Только чтение_
+#### `frame.frameTreeNodeId` _Readonly_
 
 An `Integer` representing the id of the frame's internal FrameTreeNode instance. This id is browser-global and uniquely identifies a frame that hosts content. The identifier is fixed at the creation of the frame and stays constant for the lifetime of the frame. When the frame is removed, the id is not used again.
 
-#### `frame.name` _Только чтение_
+#### `frame.name` _Readonly_
 
 A `String` representing the frame name.
 
-#### `frame.osProcessId` _Только чтение_
+#### `frame.osProcessId` _Readonly_
 
 An `Integer` representing the operating system `pid` of the process which owns this frame.
 
-#### `frame.processId` _Только чтение_
+#### `frame.processId` _Readonly_
 
 An `Integer` representing the Chromium internal `pid` of the process which owns this frame. This is not the same as the OS process ID; to read that use `frame.osProcessId`.
 
-#### `frame.routingId` _Только чтение_
+#### `frame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
