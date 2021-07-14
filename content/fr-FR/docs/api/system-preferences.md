@@ -17,20 +17,20 @@ L'objet `systemPreferences` émet les événements suivants :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `newColor` String - La nouvelle couleur RGBA que l'utilisateur à assigné à son système.
 
 ### Événement : 'color-changed' _Windows_
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 ### Événement : 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `invertedColorScheme` Boolean - `true` si un schéma de couleur inversé (un schéma de couleur à contraste élevé avec le texte clair et les fonds sombres) est utilisé, `faux` sinon.
 
 **Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.
@@ -39,14 +39,14 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` si un thème à contraste élevé est utilisé, `false` sinon.
 
 **Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.
 
 ## Méthodes
 
-### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _obsolète_
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Déprécié_
 
 Retourne `Boolean` - Si le système est en mode sombre.
 
@@ -340,7 +340,7 @@ Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
 
-### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Deprecated_
+### `systemPreferences.setAppLevelAppearance(appearance)` _macOS_ _Déprécié_
 
 * `appearance` String | null - Can be `dark` or `light`
 
