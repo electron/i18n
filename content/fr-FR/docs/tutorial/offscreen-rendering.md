@@ -1,4 +1,4 @@
-# Rendu Offscreen
+# Rendu hors de l'écran
 
 ## Vue d'ensemble
 
@@ -24,7 +24,7 @@ Ce mode utilise un périphérique d'affichage logiciel pour le rendu du CPU, don
 
 Pour activer ce mode, l'accélération GPU doit être désactivée en appelant l'API [`app.disableHardwareAcceleration()`][disablehardwareacceleration].
 
-## Exemple
+## Example
 
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
