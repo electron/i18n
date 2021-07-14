@@ -1,10 +1,10 @@
-# Objeto PostBody
+# PostBody Object
 
 * `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - The post data to be sent to the new window.
-* `contentType` String - La cabecera `content-type` usada para los datos. Uno de `aplicacion/x-wwww-form-urlencoded` o `mulipart/form-data`. Corresponde al atributo `enctype` del formulario HTML enviado.
-* `boundary` String (opcional) - El límite utilizado para separar varias partes del mensaje. Solo es válido cuando `contentType` es `multipart/form-data`.
+* `contentType` String - The `content-type` header used for the data. One of `application/x-www-form-urlencoded` or `multipart/form-data`. Corresponds to the `enctype` attribute of the submitted HTML form.
+* `boundary` String (optional) - The boundary used to separate multiple parts of the message. Only valid when `contentType` is `multipart/form-data`.
 
-Tenga en cuenta que las claves que empiezan con `--` no están soportadas actualmente. Por ejemplo, el siguiente ejemplo se enviará incorrectamente como `multipart/form-data` cuando `nativeWindowOpen` tiene valor `false` en webPreferences:
+Note that keys starting with `--` are not currently supported. For example, this will errantly submit as `multipart/form-data` when `nativeWindowOpen` is set to `false` in webPreferences:
 
 ```html
 <form
