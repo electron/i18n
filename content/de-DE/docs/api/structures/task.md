@@ -1,9 +1,9 @@
 # Task Object
 
-* `program` String - Pfad des auszuführenden Programms, normalerweise sollten Sie `process.execPath` nehmen, was das aktuelle Programm öffnet.
-* `arguments` String - Kommandozeilenargumente wenn `program` ausgeführt wird.
-* `title` String - Text welcher in einer JumpList angezeigt wird.
-* `description` String - Beschreibung dieser Aufgabe.
-* `iconPath` String - Absolute Pfad zu einem Symbol, welches in einer JumpList angezeigt werden soll. Der Pfad kann zu einer beliebige Resourcendatei führen, solang diese ein Symbol enthält. Man kann normalerweise `process.execPath` angeben um das Symbol des Programms anzuzeigen.
-* `iconIndex` Number - Symbol-Index in der Symboldatei. Wenn eine Symboldatei aus zwei oder mehr Symbolen besteht, muss dieser Wert gesetzt werden um das Symbol zu identifizieren. Wenn eine Symboldatei aus einem Symbol besteht ist dieser Wert 0.
-* `workingDirectory` String (optional)-Die Telefonliste von Arbeit. Default ist leer.
+* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
+* `arguments` String - The command line arguments when `program` is executed.
+* `title` String - The string to be displayed in a JumpList.
+* `description` String - Description of this task.
+* `iconPath` String - The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. You can usually specify `process.execPath` to show the icon of the program.
+* `iconIndex` Number - The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
+* `workingDirectory` String (optional) - The working directory. Default is empty.
