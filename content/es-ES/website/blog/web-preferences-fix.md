@@ -1,37 +1,37 @@
 ---
-title: Arreglo de vulnerabilidad WebPreferencias
+title: WebPreferences Vulnerability Fix
 author: ckerr
-date: '22-08-2018'
+date: '2018-08-22'
 ---
 
-Se ha descubierto una vulnerabilidad de ejecución de un código remoto la cual afecta aplicaciones con la capacidad de abrir ventanas anidadas hijas en versiones de Electron (3.0.0-beta.6, 2.0.7, 1.8.7, and 1.7.15). La vulnerabilidad ha sido asignada al identificador CVE [CVE-2018-15685][].
+A remote code execution vulnerability has been discovered affecting apps with the ability to open nested child windows on Electron versions (3.0.0-beta.6, 2.0.7, 1.8.7, and 1.7.15). This vulnerability has been assigned the CVE identifier [CVE-2018-15685][].
 
 ---
 
-## Plataformas Afectadas
+## Affected Platforms
 
-Esto te afecta si:
+You are impacted if:
 
-1. Has incrustado _cualquier_ contenido de usuario remoto, incluso en una sandbox
-2. Aceptas inputs de usuario con cualquier vulnerabilidad XSS
+1. You embed _any_ remote user content, even in a sandbox
+2. You accept user input with any XSS vulnerabilities
 
-_Detalles_
+_Details_
 
-Esto te afecta si cualquier código de usuario se ejecuta dentro de `iframe` / si puede crear un `iframe`. Dada la posibilidad de una vulnerabilidad XSS, se puede asumir que la mayoría de aplicaciones son vulnerables a este caso.
+You are impacted if any user code runs inside an `iframe` / can create an `iframe`. Given the possibility of an XSS vulnerability it can be assumed that most apps are vulnerable to this case.
 
-Esto te afecta si abres cualquiera de tus ventanas con las opciones `nativeWindowOpen: true` o `sandbox: true`.  A pesar de que esta vulnerabilidad también requiere que exista una vulnerabilidad XSS en tu aplicación, deberías aplicar una de las mitigaciones de abajo si utilizas alguna de estas opciones.
+You are also impacted if you open any of your windows with the `nativeWindowOpen: true` or `sandbox: true` option.  Although this vulnerability also requires an XSS vulnerability to exist in your app, you should still apply one of the mitigations below if you use either of these options.
 
-## Modificación
+## Mitigation
 
-Hemos publicado nuevas versiones de Electron las cuales incluyen correcciones para esta vulnerabilidad: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). Le pedimos a todos los desarrolladores de Electron a que actualicen sus aplicaciones a la más reciente versión estable ahora mismo.
+We've published new versions of Electron which include fixes for  this vulnerability: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We urge all Electron developers to update their apps to the latest stable version immediately.
 
-Si por alguna razón no puedes actualizar la versión de Electron, puedes proteger tu aplicación mediante `event.preventDefault()` en el evento `new-window` para `webContents`. Si no utilizas `window.open` o ninguna ventana hija en absoluto, entonces esta también es una mitigación válida para tu aplicación.
+If for some reason you are unable to upgrade your Electron version, you can protect your app by blanket-calling `event.preventDefault()` on the `new-window` event for all  `webContents`'. If you don't use `window.open` or any child windows at all then this is also a valid mitigation for your app.
 
 ```javascript
 mainWindow.webContents.on('new-window', e => e.preventDefault())
 ```
 
-Si dependes de la capacidad de tus ventanas hijas para crear ventanas de nietos, entonces una tercera estrategia de mitigación requiere utilizar el siguiente código en tu ventana de nivel superior:
+If you rely on the ability of your child windows to make grandchild windows, then a third mitigation strategy is to use the following code on your top level window:
 
 ```javascript
 const enforceInheritance = (topWebContents) => {
@@ -52,15 +52,15 @@ const enforceInheritance = (topWebContents) => {
 enforceInheritance(mainWindow.webContents)
 ```
 
-Este código forzará manualmente las ventanas de nivel superior (`webPreferences`) sean aplicadas a todas las ventanas hijas de manera infinitamente profunda.
+This code will manually enforce that the top level windows `webPreferences` is manually applied to all child windows infinitely deep.
 
-## Más información
+## Further Information
 
-Esta vulnerabilidad fue encontrada y reportada responsablemente al proyecto Electron por [Matt Austin](https://twitter.com/mattaustin) de [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
+This vulnerability was found and reported responsibly to the Electron project by [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-Para aprender más sobre las buenas prácticas para mantener tus aplicaciones Electron seguras, ve nuestro [tutorial de seguridad][].
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
-Si desea reportar una vulnerabilidad en Electron, envíe un correo electrónico a security@electronjs.org.
+If you wish to report a vulnerability in Electron, email security@electronjs.org.
 
-[tutorial de seguridad]: https://electronjs.org/docs/tutorial/security
+[security tutorial]: https://electronjs.org/docs/tutorial/security
 [CVE-2018-15685]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15685
