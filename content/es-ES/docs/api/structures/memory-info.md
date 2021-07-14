@@ -1,7 +1,7 @@
-# Objeto MemoryInfo (Información de memoria)
+# MemoryInfo Object
 
-* `workingSetSize` Integer - La cantidad de memoria actualmente cubierta por la RAM física real.
-* `peakWorkingSetSize` Integer - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
-* `privateBytes` Integer (opcional) _Windows_ - La cantidad de memoria no compartida por otros procesos, como el heap de JS o contenido HTML.
+* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
+* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
+* `privateBytes` Integer (optional) _Windows_ - The amount of memory not shared by other processes, such as JS heap or HTML content.
 
-Tome en cuenta que todas las estadísticas son reportadas en Kilobytes.
+Note that all statistics are reported in Kilobytes.
