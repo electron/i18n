@@ -20,7 +20,7 @@
 
 [WebViews](../api/webview-tag.md)基于 Chromium 的 WebView，不被 Electron 明确支持。 我们不能保证WebView API 在未来版本的 Electron 中仍然可用。 这就是为什么如果您想要使用`<webview>`标签，您需要在`BrowserWindow` 的 `webPreferences` 中设置 `webviewTag` 为 `true`。
 
-WebView是一个自定义元素 (`<webview>`)，仅在 Electron 内工作。 它们作为“进程外框架”执行。 这意味着所有与 `<webview>` 的通信都是异步使用 IPC 进行的。 `<webview>`元素有许多自定义方法和事件，类似于`webContents`，使您能够更多地控制内容。
+WebView是一个自定义元素 (`<webview>`)，仅在 Electron 内工作。 它们以 "进程外 iframe" 实现。 这意味着所有与 `<webview>` 的通信都是异步使用 IPC 进行的。 `<webview>`元素有许多自定义方法和事件，类似于`webContents`，使您能够更多地控制内容。
 
 与 `<iframe>`，`<webview>` 相比往往稍慢，但在加载和与第三方内容通信以及处理各种事件方面提供了更大的控制。
 
