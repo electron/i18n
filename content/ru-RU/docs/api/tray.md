@@ -115,7 +115,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `files` String[] - пути брошенных файлов.
 
 Возникает при перетаскивании файлов на значок в трее.
@@ -124,7 +124,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `text` String - брошенная текстовая строка.
 
 Возникает при перетаскивании строки на значок в трее.
@@ -228,7 +228,7 @@ Emitted when the mouse clicks the tray icon.
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
@@ -242,7 +242,7 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. По умолчанию - `custom`.
   * `title` String
   * `content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. По умолчанию - `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
@@ -262,7 +262,7 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 #### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (опционально)
-* `position` [Point](structures/point.md) (опционально) - Позиция всплывающего сообщения.
+* `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
