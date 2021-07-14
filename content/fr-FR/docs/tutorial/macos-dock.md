@@ -8,11 +8,11 @@ __Menu du Dock de Terminal.app :__
 
 ![Menu Dock][3]
 
-Pour configurer votre menu de dock personnalisé, vous devez utiliser l'API [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) , qui n'est disponible que sur macOS.
+To set your custom dock menu, you need to use the [`app.dock.setMenu`](../api/dock.md#docksetmenumenu-macos) API, which is only available on macOS.
 
-## Exemple
+## Example
 
-Commencer avec une application fonctionnelle à partir du [Guide de démarrage rapide](quick-start.md), mettez à jour le fichier `main.js` avec les lignes suivantes :
+Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
 ```javascript fiddle='docs/fiddles/features/macos-dock-menu'
 const { app, BrowserWindow, Menu } = require('electron')
@@ -60,9 +60,9 @@ app.on('activate', () => {
 
 ```
 
-Après avoir lancé l'application Electron, faites un clic droit sur l'icône de l'application. Vous devriez voir le menu personnalisé que vous venez de définir:
+After launching the Electron application, right click the application icon. You should see the custom menu you just defined:
 
-![Menu du dock macOS](../images/macos-dock-menu.png)
+![macOS dock menu](../images/macos-dock-menu.png)
 
 [3]: https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png
 [recent-documents]: ./recent-documents.md
