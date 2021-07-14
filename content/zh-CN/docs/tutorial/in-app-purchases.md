@@ -28,34 +28,34 @@
 通过下面的例子来了解如何在Electron中使用应用内购买功能。 您必须使用通过ITunes Connect创建的产品的唯一标识 （ID）来替换掉下面示例中的PRODUCT_IDS。( `com.example.app.product1` 的ID是 `product1`)。 请注意，您必须尽可能早的在你的应用中监听`transactions-updated`事件。
 
 ```javascript
-// 主进程
+// Main process
 const { inAppPurchase } = require('electron')
 const PRODUCT_IDS = ['id1', 'id2']
 
-// 监听交易尽快进行。
+// Listen for transactions as soon as possible.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
   // 检查每一笔交易.
-  transactions.forEach(function (transaction) }
-    const pay = transactions. ayment
+  transactions.forEach(function (transaction) {
+    const payment = transaction.payment
 
-    开关(交易)。 赎金动作状态(
-      案例'购买'：
-        控制台。 og(正在购买 ${payment.productIdentifier}... ()
-        休息
+    switch (transaction.transactionState) {
+      case 'purchasing':
+        console.log(`Purchasing ${payment.productIdentifier}...`)
+        break
 
-      案例'购买'：□
-        console. og(`${payment.productIdentifier} 购买.`)
+      case 'purchased': {
+        console.log(`${payment.productIdentifier} purchased.`)
 
-        // 获取收据URL。
-        const receivtURL = inApppurase.getreceiptURL()
+        // Get the receipt url.
+        const receiptURL = inAppPurchase.getReceiptURL()
 
-        console.log(`receipt URL: ${receiptURL}`)
+        console.log(`Receipt URL: ${receiptURL}`)
 
-        // 将收到文件提交服务器并检查它是否有效。
+        // Submit the receipt file to the server and check if it is valid.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // 如果收据通过校验，说明产品已经被购买了
@@ -64,14 +64,14 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         // 交易完成.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
-        断开
+        break
       }
 
-      案例'失败':
+      case 'failed':
 
-        console.log(`无法购买 ${payment.productIdentifier}.`)
+        console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // 完成交易。
+        // Finish the transaction.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -110,10 +110,10 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   })
 
   // 询问用户需要购买哪个产品.
-  const selected Product = 产品[0]
-  选定数量= 1
+  const selectedProduct = products[0]
+  const selectedQuantity = 1
 
-  // 购买选定的产品
+  // Purchase the selected product.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')
