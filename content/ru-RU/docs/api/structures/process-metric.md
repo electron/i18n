@@ -1,6 +1,6 @@
-# Объект ProcessMetric
+# ProcessMetric Object
 
-* `pid` Integer - id процесса в списке процессов.
+* `pid` Integer - Process id of the process.
 * `type` String - Тип процесса. Одно из следующих значений:
   * `Browser`
   * `Tab`
@@ -13,13 +13,13 @@
   * `Unknown`
 * `serviceName` String (optional) - The non-localized name of the process.
 * `name` String (опционально) - Название процесса. Например: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture` и т.д.
-* `cpu` [CPUUsage](cpu-usage.md) - использование CPU процессом.
-* `creationTime` Number - Время создания этого процесса. Время представлено как количество миллисекунд с начала эпохи. Поскольку `pid` можно повторно использовать после смерти процесса, полезно использовать `pid` и `creationTime` для уникальной идентификации процесса.
-* `memory` [MemoryInfo](memory-info.md) - информация о памяти для процесса.
-* `sandboxed` Boolean (опционально) _macOS_ _Windows_ - Является ли процесс песочницей на уровне ОС.
+* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
+* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
+* `sandboxed` Boolean (optional) _macOS_ _Windows_ - Whether the process is sandboxed on OS level.
 * `integrityLevel` String (optional) _Windows_ - One of the following values:
-  * `ненадёжный`
-  * `низкий`
-  * `средний`
-  * `высокий`
+  * `untrusted`
+  * `low`
+  * `medium`
+  * `high`
   * `unknown`
