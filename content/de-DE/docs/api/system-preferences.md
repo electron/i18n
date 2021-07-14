@@ -2,33 +2,33 @@
 
 > Systemeinstellungen anschauen.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Ereignisse
+## Events
 
 Das `systemPreferences` Objekt stellt folgende Event zur Verfügung:
 
 ### Event: 'accent-color-changed' _Windows_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' _Windows_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 
 ### Event: 'inverted-color-scheme-changed' _Windows_ _Deprecated_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
@@ -37,7 +37,7 @@ Rückgabewert:
 
 ### Event: 'high-contrast-color-scheme-changed' _Windows_ _Deprecated_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
@@ -257,7 +257,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `menubar` - The background color for the menu bar when menus appear as flat menus.
     * `menu-text` - Text in menus.
     * `scrollbar` - Scroll bar gray area.
-    * `window` - Fensterhintergrund.
+    * `window` - Window background.
     * `window-frame` - Window frame.
     * `window-text` - Text in windows.
   * On **macOS**
