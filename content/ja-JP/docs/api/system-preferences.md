@@ -15,20 +15,20 @@ console.log(systemPreferences.isDarkMode())
 
 ### イベント: 'accent-color-changed' _Windows_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `newColor` String - ユーザがシステムのアクセントカラーに割り当てる新しいRGBAカラー。
 
 ### イベント: 'color-changed' _Windows_
 
-戻り値:
+戻り値：
 
 * `event` Event
 
 ### イベント: 'inverted-color-scheme-changed' _Windows_ _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `invertedColorScheme` Boolean - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) が使用されている場合は `true`、それ以外の場合は `false` です。
@@ -37,7 +37,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### イベント: 'high-contrast-color-scheme-changed' _Windows_ _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `highContrastColorScheme` Boolean - ハイコントラストテーマが使用されている場合は `true`、そうでない場合は `false` です。
@@ -46,7 +46,7 @@ console.log(systemPreferences.isDarkMode())
 
 ## メソッド
 
-### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _非推奨_
+### `systemPreferences.isDarkMode()` _macOS_ _Windows_ _Deprecated_
 
 戻り値 `Boolean` - システムがダークモードかどうか。
 
@@ -322,7 +322,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 **非推奨:** 新しく [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API を使用する必要があります。
 
-### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _非推奨_
+### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
@@ -418,7 +418,7 @@ Windows 10 には、すべての win32 アプリケーションの `microphone` 
 
 このプロパティは macOS 10.14 Mojave 以降でのみ利用可能です。
 
-### `systemPreferences.effectiveAppearance` _macOS_ _読み出し専用_
+### `systemPreferences.effectiveAppearance` _macOS_ _Readonly_
 
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。
 
