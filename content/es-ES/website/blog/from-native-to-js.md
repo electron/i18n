@@ -1,97 +1,97 @@
 ---
-title: De nativo a JavaScript en Electron
+title: From native to JavaScript in Electron
 author: codebytere
-date: '19-03-2019'
+date: '2019-03-19'
 ---
 
-¿Cómo llegan las características de Electron escritas en C++ o Objective-C a JavaScript para que estén disponibles para un usuario final?
+How do Electron's features written in C++ or Objective-C get to JavaScript so they're available to an end-user?
 
 ---
 
-## Fondo
+## Background
 
-[Electron](https://electronjs.org) es una plataforma JavaScript cuyo principal propósito es reducir la barrera a la entrada para que los desarrolladores construyan aplicaciones de escritorio robustas sin preocuparse por las implementaciones específicas de la plataforma. Sin embargo, en su núcleo, Electron mismo todavía necesita que la funcionalidad específica de la plataforma se escriba en un lenguaje de sistema determinado.
+[Electron](https://electronjs.org) is a JavaScript platform whose primary purpose is to lower the barrier to entry for developers to build robust desktop apps without worrying about platform-specific implementations. However, at its core, Electron itself still needs platform-specific functionality to be written in a given system language.
 
-En realidad, Electron maneja el código nativo para usted para que pueda centrarse en una única API de JavaScript.
+In reality, Electron handles the native code for you so that you can focus on a single JavaScript API.
 
-¿Pero cómo funciona esto? ¿Cómo llegan las características de Electron escritas en C++ o Objective-C a JavaScript para que estén disponibles para un usuario final?
+How does that work, though? How do Electron's features written in C++ or Objective-C get to JavaScript so they're available to an end-user?
 
-Para rastrear este camino, vamos a comenzar con el módulo [`aplicación`](https://electronjs.org/docs/api/app).
+To trace this pathway, let's start with the [`app` module](https://electronjs.org/docs/api/app).
 
-Al abrir el archivo [`app.ts`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/lib/browser/api/app.ts) dentro de nuestro directorio `lib/` , encontrarás la siguiente línea de código hacia arriba:
+By opening the [`app.ts`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/lib/browser/api/app.ts) file inside our `lib/` directory, you'll find the following line of code towards the top:
 
 ```js
 const binding = process.electronBinding('app')
 ```
 
-Esta línea apunta directamente al mecanismo de Electron para unir sus módulos C++/Objective-C a JavaScript para su uso por los desarrolladores. Esta función es creada por el encabezado y [archivo de implementación](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/common/api/electron_bindings.cc) para la clase `ElectronBindings`.
+This line points directly to Electron's mechanism for binding its C++/Objective-C modules to JavaScript for use by developers. This function is created by the header and [implementation file](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/common/api/electron_bindings.cc) for the `ElectronBindings` class.
 
 ## `process.electronBinding`
 
-Estos archivos añaden la función `process.electronBinding` , que se comporta como el `process.binding` de Node.js. `process.binding` es una implementación de menor nivel de Node. 's [`require()`](https://nodejs.org/api/modules.html#modules_require_id) método, excepto que permite a los usuarios `requerir` código nativo en lugar de otro código escrito en JS. Esta función personalizada `process.electronBinding` confiere la capacidad de cargar código nativo desde Electron.
+These files add the `process.electronBinding` function, which behaves like Node.js’ `process.binding`. `process.binding` is a lower-level implementation of Node.js' [`require()`](https://nodejs.org/api/modules.html#modules_require_id) method, except it allows users to `require` native code instead of other code written in JS. This custom `process.electronBinding` function confers the ability to load native code from Electron.
 
-Cuando un módulo JavaScript de nivel superior (como `app`) requiere este código nativo, ¿cómo se determina y establece el estado de ese código nativo? ¿Dónde están los métodos expuestos a JavaScript? ¿Qué pasa con las propiedades?
+When a top-level JavaScript module (like `app`) requires this native code, how is the state of that native code determined and set? Where are the methods exposed up to JavaScript? What about the properties?
 
 ## `native_mate`
 
-En la actualidad, las respuestas a esta pregunta se pueden encontrar en `native_mate`: un fork de Chromium [`gin` librería](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) que facilita los tipos de marshal entre C++ y JavaScript.
+At present, answers to this question can be found in `native_mate`:  a fork of Chromium's [`gin` library](https://chromium.googlesource.com/chromium/src.git/+/lkgr/gin/) that makes it easier to marshal types between C++ and JavaScript.
 
-Dentro de `native_mate/native_mate` hay un encabezado y archivo de implementación para `object_template_builder`. Esto es lo que nos permite formar módulos en código nativo cuya forma se ajusta a lo que los desarrolladores de JavaScript esperarían.
+Inside `native_mate/native_mate` there's a header and implementation file for `object_template_builder`. This is what allow us to form modules in native code whose shape conforms to what JavaScript developers would expect.
 
 ### `mate::ObjectTemplateBuilder`
 
-Si miramos cada módulo Electron como un `objeto`, se hace más fácil ver por qué queremos usar `object_template_builder` para construirlos. Esta clase está construida sobre una clase expuesta por V8, que es el motor de alta potencia JavaScript y WebAssembly de código abierto de Google, escrito en C++. V8 implementa la especificación JavaScript (ECMAScript), por lo que sus implementaciones de funcionalidad nativas pueden correlacionarse directamente con implementaciones en JavaScript. Por ejemplo, [`v8::ObjectTemplate`](https://v8docs.nodesource.com/node-0.8/db/d5f/classv8_1_1_object_template.html) nos da objetos JavaScript sin una función de constructor dedicada y prototipo. Utiliza `Objeto[.prototype]`, y en JavaScript sería equivalente a [`Object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
+If we look at every Electron module as an `object`, it becomes easier to see why we would want to use `object_template_builder` to construct them. This class is built on top of a class exposed by V8, which is Google’s open source high-performance JavaScript and WebAssembly engine, written in C++. V8 implements the JavaScript (ECMAScript) specification, so its native functionality implementations can be directly correlated to implementations in JavaScript. For example, [`v8::ObjectTemplate`](https://v8docs.nodesource.com/node-0.8/db/d5f/classv8_1_1_object_template.html) gives us JavaScript objects without a dedicated constructor function and prototype. It uses `Object[.prototype]`, and in JavaScript would be equivalent to [`Object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create).
 
-Para ver esto en acción, mire al archivo de implementación del módulo de la aplicación, [`atom_api_app.cc`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/browser/api/atom_api_app.cc). En la parte inferior está:
+To see this in action, look to the implementation file for the app module, [`atom_api_app.cc`](https://github.com/electron/electron/blob/0431997c8d64c9ed437b293e8fa15a96fc73a2a7/atom/browser/api/atom_api_app.cc). At the bottom is the following:
 
 ```cpp
 mate::ObjectTemplateBuilder(isolate, prototype->PrototypeTemplate())
     .SetMethod("getGPUInfo", &App::GetGPUInfo)
 ```
 
-En la línea anterior, `.SetMethod` es llamado en `mate::ObjectTemplateBuilder`. `. etMethod` puede ser llamado en cualquier instancia de la clase `ObjectTemplateBuilder` para establecer métodos en el [prototipo de objeto](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) en JavaScript, con la siguiente sintaxis:
+In the above line, `.SetMethod` is called on `mate::ObjectTemplateBuilder`. `.SetMethod` can be called on any instance of the `ObjectTemplateBuilder` class to set methods on the [Object prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) in JavaScript, with the following syntax:
 
 ```cpp
 .SetMethod("method_name", &function_to_bind)
 ```
 
-Este es el equivalente JavaScript de:
+This is the JavaScript equivalent of:
 
 ```js
 function App{}
 App.prototype.getGPUInfo = function () {
-  // implementación aquí
+  // implementation here
 }
 ```
 
-Esta clase también contiene funciones para establecer propiedades en un módulo:
+This class also contains functions to set properties on a module:
 
 ```cpp
 .SetProperty("property_name", &getter_function_to_bind)
 ```
 
-o
+or
 
 ```cpp
 .SetProperty("property_name", &getter_function_to_bind, &setter_function_to_bind)
 ```
 
-Estas serían a su vez las implementaciones de JavaScript de [Object.defineProperty](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty):
+These would in turn be the JavaScript implementations of [Object.defineProperty](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty):
 
 ```js
 function App {}
-Object.defineProperty(unnamed@@0) prototype, 'myProperty', {
+Object.defineProperty(App.prototype, 'myProperty', {
   get() {
     return _myProperty
   }
 })
 ```
 
-y
+and
 
 ```js
 function App {}
-Object.defineProperty(unnamed@@0) prototype, 'myProperty', {
+Object.defineProperty(App.prototype, 'myProperty', {
   get() {
     return _myProperty
   }
@@ -101,6 +101,6 @@ Object.defineProperty(unnamed@@0) prototype, 'myProperty', {
 })
 ```
 
-Es posible crear objetos JavaScript formados con prototipos y propiedades como esperan los desarrolladores, y una razón más clara sobre las funciones y propiedades implementadas en este nivel del sistema inferior!
+It’s possible to create JavaScript objects formed with prototypes and properties as developers expect them, and more clearly reason about functions and properties implemented at this lower system level!
 
-La decisión acerca de dónde implementar cualquier método de módulo es en sí misma una compleja y a menudo no determinista, que cubriremos en un futuro puesto.
+The decision around where to implement any given module method is itself a complex and oft-nondeterministic one, which we'll cover in a future post.
