@@ -78,7 +78,7 @@ npm start
 
 ### Запуск main process
 
-Входной точкой для любого приложения на Electron является скрипт `main`. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
+Входной точкой для любого приложения на Electron является скрипт `main`. Этот скрипт управляет **основным процессом**, который запускается в полной среде Node.js и отвечает за управление рабочего цикла вашего приложения, отображение основного интерфейса, выполнение привилегированных операций и управление процессом визуализации (подробнее об этом позже).
 
 During execution, Electron will look for this script in the [`main`][package-json-main] field of the app's `package.json` config, which you should have configured during the [app scaffolding](#scaffold-the-project) step.
 
