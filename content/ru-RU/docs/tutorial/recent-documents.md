@@ -6,11 +6,11 @@ Windows и macOS предоставляют легкий доступ к спи�
 
 __JumpList:__
 
-![Список последних файлов][1]
+![JumpList Recent Files][1]
 
 __Dock меню приложения:__
 
-![macOS панель меню][2]
+![Меню macOS Dock][2]
 
 ## Пример
 
@@ -55,7 +55,7 @@ app.on('activate', () => {
 
 To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
 
-После запуска приложения Electron щелкните правой кнопкой мыши на значке приложения. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
+After launching the Electron application, right click the application icon. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
 
 ![Недавний документ](../images/recent-documents.png)
 
@@ -63,7 +63,7 @@ To add a file to recent documents, use the [app.addRecentDocument][addrecentdocu
 
 To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
 
-## Дополнительная информация
+## Additional information
 
 ### Windows примечания
 
