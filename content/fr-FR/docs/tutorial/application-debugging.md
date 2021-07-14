@@ -21,15 +21,15 @@ Déboguer le processus principal est un peu plus compliqué, car vous ne pouvez 
 
 Pour plus d'informations, voir la [documentation sur le Débogage du processus principal][main-debug].
 
-## Ecrasements V8
+## V8 Crashes
 
-Si le contexte V8 plante, le DevTools affichera ce message.
+If the V8 context crashes, the DevTools will display this message.
 
-`DevTools a été déconnecté de la page. Une fois la page rechargée, DevTools se reconnectera automatiquement.`
+`DevTools was disconnected from the page. Once page is reloaded, DevTools will automatically reconnect.`
 
-Les logs Chromium peuvent être activés via la variable d'environnement `ELECTRON_ENABLE_LOGGING`. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
+Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. For more information, see the [environment variables documentation](../api/environment-variables.md#electron_enable_logging).
 
-Alternativement, l'argument de la ligne de commande `--enable-logging` peut être passé. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).
+Alternatively, the command line argument `--enable-logging` can be passed. More information is available in the [command line switches documentation](../api/command-line-switches.md#--enable-logging).
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools
