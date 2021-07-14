@@ -6,15 +6,15 @@
 
 ```js
 const childProcess = require('child_process')
-const electronic Path = require('electron')
+const electronPath = require('electron')
 
-// 生成 process
-const env = Power/* . 。*/ }
-const stdio = ['继承', '继承', '继承', 'ipc']
-const appProcess = childProcess。 pawn(electronic Path, ['./app'], { stdio, env })
+// spawn the process
+const env = { /* ... */ }
+const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// 监听应用程序的 IPC 消息
-应用流程。 n('message', (msg) => }
+// listen for IPC messages from the app
+appProcess.on('message', (msg) => {
   // ...
 })
 
@@ -68,14 +68,14 @@ class TestDriver {
 
   // simple RPC call
   // to use: driver.rpc('method', 1, 2, 3).then(...)
-  async rpc (cmd, ...args) 然后
-    // 发送 rpc request
-    const msgId = 这个。 pcalls.length
-    this process. end({ msgId, cmd, args })
-    return new Promise((resolve, reject) => this.rpcalls. huss({ resolve, reject }))
+  async rpc (cmd, ...args) {
+    // send rpc request
+    const msgId = this.rpcCalls.length
+    this.process.send({ msgId, cmd, args })
+    return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
 
-  stop ()
+  stop () {
     this.process.kill()
   }
 }
@@ -117,11 +117,11 @@ const METHODS = {
 
 ```js
 const test = require('ava')
-const electronic Path = require('electron')
+const electronPath = require('electron')
 
-const app = new TestDriver(~)
-  path,
-  args: ['。 app'],
+const app = new TestDriver({
+  path: electronPath,
+  args: ['./app'],
   env: {
     NODE_ENV: 'test'
   }
@@ -129,7 +129,7 @@ const app = new TestDriver(~)
 test.before(async t => {
   await app.isReady
 })
-测试。 fter.always('cleanup', async t => *
-  等待app.stop()
+test.after.always('cleanup', async t => {
+  await app.stop()
 })
 ```
