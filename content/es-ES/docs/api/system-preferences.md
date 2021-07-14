@@ -2,7 +2,7 @@
 
 > Obtener las preferencias del sistema.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -17,20 +17,20 @@ El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `nuevoColor` String - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' _Windows_
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 ### Evento: 'inverted-color-scheme-changed' _Windows_ _Obsoleto_
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `invertedColorScheme` Boolean - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondos oscuros) se esta usando, de otra manera `false`.
 
 **Obsoleto:** Debería usar el nuevo evento [`updated`](native-theme.md#event-updated) en el módulo `nativeTheme`.
@@ -39,7 +39,7 @@ Devuelve:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
 **Obsoleto:** Debería usar el nuevo evento [`updated`](native-theme.md#event-updated) en el módulo `nativeTheme`.
@@ -58,7 +58,7 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 
 ### `systemPreferences.postNotification(event, userInfo)` _macOS_
 
-* `evento` Cadena
+* `event` String
 * Registro `userInfo`<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
@@ -66,23 +66,23 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
-* `evento` Cadena
+* `event` String
 * Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
-* `evento` Cadena
+* `event` String
 * Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
-* `evento` Cadena
+* `event` String
 * `callback` Función
-  * `evento` Cadena
+  * `event` String
   * Registro `userInfo`<String, unknown>
   * String `object`
 
@@ -102,7 +102,7 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 ### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function
+* `callback` Función
   * `event` String
   * Registro `userInfo`<String, unknown>
   * String `object`
@@ -113,9 +113,9 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
-* `evento` Cadena
+* `event` String
 * `callback` Función
-  * `evento` Cadena
+  * `event` String
   * Registro `userInfo`<String, unknown>
   * String `object`
 
@@ -149,12 +149,12 @@ Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplic
 
 ### `systemPreferences.getUserDefault(key, type)` _macOS_
 
-* `llave` Cadena
+* `key` String
 * `type` String - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
 
 Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
 
-Algún `key` y `type`s populares:
+Algunos `key` y `type`s populares:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -174,7 +174,7 @@ Establece el valor de `key` en `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Algún `key` y `type`s populares:
+Algunos `key` y `type`s populares:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
