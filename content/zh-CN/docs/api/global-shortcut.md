@@ -1,4 +1,4 @@
-# 系统快捷键
+# globalShortcut
 
 > 在应用程序没有键盘焦点时，监听键盘事件。
 
@@ -76,9 +76,9 @@ Registers a global shortcut of all `accelerator` items in `accelerators`. 当用
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
+返回 `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
-当快捷键已经被其他应用程序注册时, 此调用将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+当快捷键已经被其他应用程序注册时, 此调用依然将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 ### `globalShortcut.unregister(accelerator)`
 
@@ -88,4 +88,4 @@ Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
 ### `globalShortcut.unregisterAll()`
 
-注销所有的全局快捷键（清空该应用程序的全局快捷键）。
+注销所有的全局快捷键（清空该应用程序的所有全局快捷键）。

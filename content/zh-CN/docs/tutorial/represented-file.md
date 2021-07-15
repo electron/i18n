@@ -1,4 +1,4 @@
-# macOS BrowserWindows 的代表文件
+# 针对 macOS 系统 BrowserWindows 的展示文件
 
 ## 概览
 

@@ -10,13 +10,13 @@ Para criar uma frameless window, você precisa definir `frame` como `false` nas 
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = novo BrowserWindow({ width: 800, height: 600, frame: false })
+const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
 ### Alternativas no macOS
 
-Há uma maneira alternativa de especificar uma janela sem cromado. Em vez de definir `frame` para `false` que desativa tanto a barra de título quanto os controles de janela, você pode querer ter a barra de título escondida e seu conteúdo estender-se ao tamanho total da janela, ainda preservar os controles de janela ("semáforos") para ações de janela padrão. Você pode fazê-lo, especificando a opção `titleBarStyle`:
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Você pode fazê-lo, especificando a opção `titleBarStyle`:
 
 #### `hidden`
 
@@ -24,7 +24,7 @@ Resultando em uma janela com a barra do título escondida e o conteúdo ocupando
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = novo BrowserWindow({ titleBarStyle: 'hidden' })
+const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -34,17 +34,17 @@ Resulta em uma barra de título escondida com uma aparência alternativa, onde o
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = novo BrowserWindow({ titleBarStyle: 'hiddenInset' })
+const win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover`
 
-Usa botões personalizados desenhados perto e miniaturize que exibem ao pairar no canto superior esquerdo da janela. O botão fullscreen não está disponível devido a restrições de janelas sem moldura, pois interface com as máscaras de janela macOS da Apple. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. Esta opção só é aplicável para janelas sem moldura.
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's macOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = novo BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -54,14 +54,14 @@ Definindo a opção `transparent` como `true` você também pode fazer a framele
 
 ```javascript
 const { BrowserWindow } = require('electron')
-const win = novo BrowserWindow({ transparent: true, frame: false })
+const win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
 ### Limitações
 
 * Você não pode clicar através da área transparente. Nós iremos introduzir uma API para definir a forma da janela para solucionar isto, veja [nosso issue no Github](https://github.com/electron/electron/issues/1335) para mais detalhes.
-* Janelas transparentes não são resizáveis. A configuração `resizable` para `true` pode fazer com que uma janela transparente pare de funcionar em algumas plataformas.
+* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * O filtro `blur` apenas se aplica a página web, logo, não há uma maneira de aplicar o efeito de borrado ao conteúdo abaixo da janela (ou seja, outras aplicações abertas no sistema do usuário).
 * The window will not be transparent when DevTools is opened.
 * On Windows operating systems,

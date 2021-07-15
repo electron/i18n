@@ -14,9 +14,9 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 Processo: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter][event-emitter].
+`Notification` é um [EventEmitter][event-emitter].
 
-It creates a new `Notification` with native properties as set by the `options`.
+O mesmo cria um novo `Notification` com propriedades nativas informadas como a opção `options`.
 
 ### Métodos estáticos
 
@@ -28,7 +28,7 @@ Retorna `Boolean` - se as notificações do desktop são suportadas ou não pelo
 
 ### `new Notification([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
   * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
@@ -102,7 +102,7 @@ Emitted when an error is encountered while creating and showing the native notif
 
 ### Métodos de Instância
 
-Objects created with `new Notification` have the following instance methods:
+Objectos criados com `new Notification` possuem os seguintes métodos de instâncias:
 
 #### `notification.show()`
 
@@ -114,7 +114,7 @@ If the notification has been shown before, this method will dismiss the previous
 
 Dismisses the notification.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 #### `notification.title`
 

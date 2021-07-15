@@ -8,7 +8,7 @@
   * [步骤4: 编写代码](#step-4-code)
   * [步骤5: 提交更改](#step-5-commit)
     * [提交代码说明的指导](#commit-message-guidelines)
-  * [步骤6：变基](#step-6-rebase)
+  * [步骤6: 合并分支](#step-6-rebase)
   * [步骤7: 测试](#step-7-test)
   * [步骤8: 推送代码](#step-8-push)
   * [步骤9: 新建一个合并代码请求](#step-9-opening-the-pull-request)
@@ -108,7 +108,7 @@ A commit that has the text `BREAKING CHANGE:` at the beginning of its optional b
 
 参阅 [conventionalcommits.org](https://conventionalcommits.org) 以获得更多细节。
 
-### 步骤6：变基
+### 步骤6: 合并分支
 
 提交更改后, 最好使用 ` git rebase ` (而不是 ` git merge `) 将您的工作与主代码库同步。
 

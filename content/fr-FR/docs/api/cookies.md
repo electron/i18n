@@ -46,7 +46,7 @@ Les événements suivants sont disponibles pour les instances de `Cookies` :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `cookie` [Cookie](structures/cookie.md) - Le cookie qui a été changé.
 * `cause` String - The cause of the change with one of the following values:
   * `explicit` - Le cookie a été modifié directement par l'action du consommateur.
@@ -84,10 +84,10 @@ Envoie une demande pour obtenir tous les cookies correspondant à `filter`, et r
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (facultatif) - Le nom de domaine du cookie; ce dernier sera normalisé par un point le précédent pour qu'il soit valide pour les sous-domaines. Empty by default if omitted.
   * `path` String (facultatif) - Le chemin du cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. false par défaut.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Par défaut, faux.
   * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Peut être `unspecified`, `no_restriction`, `lax` ou `strict`.  Default is `no_restriction`.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Peut être `unspecified`, `no_restriction`, `lax` ou `strict`.  `no_restriction` par défaut.
 
 Retourne `Promise<void>` - Une promesse qui résout lorsque le cookie a été défini
 

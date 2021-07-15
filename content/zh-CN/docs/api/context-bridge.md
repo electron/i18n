@@ -2,7 +2,7 @@
 
 > 在隔离的上下文中创建一个安全的、双向的、同步的桥梁。
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 如下，是一个从隔离的预加载脚本将 API 暴露给渲染器的示例：
 
@@ -45,7 +45,7 @@ window.electron.doThing()
 
 ## 用法
 
-### API
+### 应用开发接口（API）
 
 提供给 [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api) 的 `api` 必须是一个 `Function`， `String`， `Number`， `Array`， `Boolean`；或一个键为字符串，值为一个 `Function`， `String`， `Number`， `Array`， `Boolean`的对象；或其他符合相同条件的嵌套对象。
 
@@ -89,14 +89,14 @@ contextBridge.exposeInMainWorld(
 
 | 类型                                                                                                             | 复杂度 | 有入参 | 有返回值 | 局限性                                                                            |
 | -------------------------------------------------------------------------------------------------------------- | --- | --- | ---- | ------------------------------------------------------------------------------ |
-| `字符串`                                                                                                          | 简单  | ✅   | ✅    | N/A                                                                            |
+| `String`                                                                                                       | 简单  | ✅   | ✅    | N/A                                                                            |
 | `Number`                                                                                                       | 简单  | ✅   | ✅    | N/A                                                                            |
 | `Boolean`                                                                                                      | 简单  | ✅   | ✅    | N/A                                                                            |
-| `Object - 过滤器对象，包含过滤参数`                                                                                        | 复杂  | ✅   | ✅    | 键仅支持使用此表中的“简单”的类型。  值必须在此表中支持的值。  修改prototype将被丢弃。  发送自定义类将复制值，但不会包含prototype。 |
+| `Object`                                                                                                       | 复杂  | ✅   | ✅    | 键仅支持使用此表中的“简单”的类型。  值必须在此表中支持的值。  修改prototype将被丢弃。  发送自定义类将复制值，但不会包含prototype。 |
 | `Array`                                                                                                        | 复杂  | ✅   | ✅    | 与 `Object` 类型相同的限制                                                             |
 | `Error`                                                                                                        | 复杂  | ✅   | ✅    | 所抛出的错误也会被复制，这可能导致消息和堆栈跟踪的错误略有变化，由于在不同的上下文中抛出                                   |
 | `Promise`                                                                                                      | 复杂  | ✅   | ✅    | 只有当 promise 是返回值或确切参数时，它们才会被代理。  嵌套在数组或对象中的Promise将被丢弃。                        |
-| `Function - 回调函数`                                                                                              | 复杂  | ✅   | ✅    | 修改prototype将被丢弃。  发送类或构造函数将不起作用。                                               |
+| `Function`                                                                                                     | 复杂  | ✅   | ✅    | 修改prototype将被丢弃。  发送类或构造函数将不起作用。                                               |
 | [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | 简单  | ✅   | ✅    | 点击链接查看可克隆类型的文档                                                                 |
 | `Element`                                                                                                      | 复杂  | ✅   | ✅    | 修改prototype将被丢弃。  发送自定义元素将不生效。                                                 |
 | `Symbol`                                                                                                       | N/A | ❌   | ❌    | Symbol不能跨上下文复制，因此会丢弃它们                                                         |

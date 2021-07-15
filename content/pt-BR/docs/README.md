@@ -4,19 +4,19 @@ Certifique-se de usar a documentação correspondente a versão do Electron que 
 
 ## Perguntas Frequentes
 
-Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar uma issue:
+There are questions that are asked quite often. Check this out before creating an issue:
 
 * [Perguntas Frequentes no Electron](faq.md)
 
 ## Guias e Tutoriais
 
-### Introdução
+### Guia de Introdução
 
 * [Introdução](tutorial/introduction.md)
 * [Início Rápido](tutorial/quick-start.md)
 * [Modelos de Processo](tutorial/process-model.md)
 
-### Aprendendo os conceitos básicos
+### Learning the basics
 
 * Adicionando Recursos para Seu Aplicativo
   * [Notificações](tutorial/notifications.md)
@@ -27,11 +27,11 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [Ações Desktop Linux Personalizado](tutorial/linux-desktop-actions.md)
   * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
   * [Detecção de Offline/Online](tutorial/online-offline-events.md)
-  * [Representação de Arquivo para o macOS BrowserWindows](tutorial/represented-file.md)
-  * [Drag & Drop de Arquivos Nativo (Arrastar e Soltar)](tutorial/native-file-drag-drop.md)
+  * [Arquivo Representado para o macOS BrowserWindows](tutorial/represented-file.md)
+  * [Nativo Arquivo Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Renderização fora da tela](tutorial/offscreen-rendering.md)
   * [Modo escuro](tutorial/dark-mode.md)
-  * [Incorporações da Web no Electron](tutorial/web-embeds.md)
+  * [Incluir conteúdos Web no Electron](tutorial/web-embeds.md)
 * [Boilerplates e CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -39,22 +39,22 @@ Há perguntas que são muitas vezes feitas. Dê uma olhada nisso antes de criar 
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Outras Ferramentas e Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 
-### Etapas avançadas
+### Advanced steps
 
 * Arquitetura do Aplicativo
   * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
   * [Estratégias de Performance](tutorial/performance.md)
-  * [Estratégias de segurança](tutorial/security.md)
+  * [Security Strategies](tutorial/security.md)
   * [Process Sandboxing](tutorial/sandbox.md)
 * [Acessibilidade](tutorial/accessibility.md)
-  * [Habilitar manualmente Recursos de Acessibilidade](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Teste e Depuração](tutorial/application-debugging.md)
   * [O Processo Principal de Depuração](tutorial/debugging-main-process.md)
-  * [Depuração com Visual Studio Code](tutorial/debugging-vscode.md)
+  * [Debugging with Visual Studio Code](tutorial/debugging-vscode.md)
   * [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)
-  * [Testando Automatizado com um Driver Personalizado](tutorial/automated-testing-with-a-custom-driver.md)
+  * [Automatizando Teste com Driver Personalizado](tutorial/automated-testing-with-a-custom-driver.md)
   * [REPL](tutorial/repl.md)
 * [Distribuição](tutorial/application-distribution.md)
   * [Plataformas Suportadas](tutorial/support.md#supported-platforms)
@@ -96,9 +96,9 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
 ### Elementos de DOM Personalizado:
 
-* [Objeto `File`](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
-* [Função `window.open`](api/window-open.md)
+* [`window.open` Função](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Módulos para o Processo Principal:
@@ -118,7 +118,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [MessagePortMain](api/message-port-main.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [nativoTheme](api/native-theme.md)
+* [nativeTheme](api/native-theme.md)
 * [Notificação](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)

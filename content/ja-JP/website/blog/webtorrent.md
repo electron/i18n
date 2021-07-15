@@ -1,138 +1,138 @@
 ---
-title: '今週のプロジェクト: WebTorrent'
+title: 'Project of the Week: WebTorrent'
 author:
   - feross
   - zeke
 date: '2017-03-14'
 ---
 
-今週は [@feross](https://github.com/feross) と [@dcposch](https://github.com/dcposch) が WebTorrent についてお話しします。WebTorrent は、ユーザーをつなぎ合わせて分配された分散型ブラウザ間ネットワークを形成する、ウェブベースのトレントクライアントです。
+This week we caught up with [@feross](https://github.com/feross) and [@dcposch](https://github.com/dcposch) to talk about WebTorrent, the web-powered torrent client that connects users together to form a distributed, decentralized browser-to-browser network.
 
 ---
 
-## WebTorrent とは?
+## What is WebTorrent?
 
-[WebTorrent](https://webtorrent.io) は、ブラウザーで動く初のトレントクライアントです。 全て JavaScript で書かれており、P2P 転送に WebRTC を使用できます。 ブラウザのプラグイン、拡張機能、インストールは不要です。
+[WebTorrent](https://webtorrent.io) is the first torrent client that works in the browser. It's written completely in JavaScript and it can use WebRTC for peer-to-peer transport. No browser plugin, extension, or installation is required.
 
-公開のウェブ標準を使用して、WebTorrent はウェブサイトのユーザーを結び付け、効率的なファイル転送のために分配された分散型ブラウザ間ネットワークを形成します。
+Using open web standards, WebTorrent connects website users together to form a distributed, decentralized browser-to-browser network for efficient file transfer.
 
-WebTorrent の実際のデモは [webtorrent.io](https://webtorrent.io/) で見ることができます。
+You can see a demo of WebTorrent in action here: [webtorrent.io](https://webtorrent.io/).
 
 <a href="https://webtorrent.io/">
-  <img alt="webtorrent ホームページ" src="https://cloud.githubusercontent.com/assets/2289/23912149/1543d2ce-089c-11e7-8519-613740c82b47.jpg">
+  <img alt="webtorrent homepage" src="https://cloud.githubusercontent.com/assets/2289/23912149/1543d2ce-089c-11e7-8519-613740c82b47.jpg">
 </a>
 
-## これが凄いと言われるのはなぜですか?
+## Why is this cool?
 
-YouTube のようだけれども、訪問者がサイトコンテンツのホストを助けるビデオサイトを想像してください。 WebTorrent で強化されたウェブサイトは、利用者が多いほどより高速で強靭になります。
+Imagine a video site like YouTube, but where visitors help to host the site's content. The more people that use a WebTorrent-powered website, the faster and more resilient it becomes.
 
-ブラウザ間通信は仲介者を排除し、人々が各々の条件で通信できます。 クライアント/サーバーは不要です。ピアのネットワークがあれば、みな平等です。 WebTorrent は、ウェブを再分散化する道程の初めの一歩です。
+Browser-to-browser communication cuts out the middle-man and lets people communicate on their own terms. No more client/server – just a network of peers, all equal. WebTorrent is the first step in the journey to re-decentralize the Web.
 
-## Electron はどこに登場するのですか?
+## Where does Electron come into the picture?
 
-約 1 年前、デスクトップアプリ版 WebTorrent である [WebTorrent デスクトップ](https://webtorrent.io/desktop/) を作成することにしました。
+About one year ago, we decided to build [WebTorrent Desktop](https://webtorrent.io/desktop/), a version of WebTorrent that runs as a desktop app.
 
-[![WebTorrent デスクトッププレイヤーウインドウ](https://cloud.githubusercontent.com/assets/2289/23912152/154aef0a-089c-11e7-8544-869b0cd642b1.jpg)](https://webtorrent.io/desktop/)
+[![WebTorrent Desktop player window](https://cloud.githubusercontent.com/assets/2289/23912152/154aef0a-089c-11e7-8544-869b0cd642b1.jpg)](https://webtorrent.io/desktop/)
 
-私たちは、以下の 3 つの理由の下に WebTorrent デスクトップを作りました。
+We created WebTorrent Desktop for three reasons:
 
-1. 簡潔、軽量、広告なしのオープンソーストレントアプリが欲しい
-2. 優良なストリーミングサポート付きトレントアプリが欲しい
-3. BitTorrent と WebTorrent ネットワークを繋ぐ "ハイブリッドクライアント" が欲しい
+1. We wanted a clean, lightweight, ad-free, open source torrent app
+2. We wanted a torrent app with good streaming support
+3. We need a "hybrid client" that connects the BitTorrent and WebTorrent networks
 
-## トレントは既にウェブブラウザでダウンロードできるのに、なぜデスクトップアプリなのですか?
+## If we can already download torrents in my web browser, why a desktop app?
 
-初めに、WebTorrent 設計の背景を少しだけお話しましょう。
+First, a bit of background on the design of WebTorrent.
 
 <a href="https://webtorrent.io/desktop/">
-  <img alt="webtorrent デスクトップロゴ" src="https://cloud.githubusercontent.com/assets/2289/23912151/154657e2-089c-11e7-9889-6914ce71ebc9.png" width="200" align="right">
+  <img alt="webtorrent desktop logo" src="https://cloud.githubusercontent.com/assets/2289/23912151/154657e2-089c-11e7-9889-6914ce71ebc9.png" width="200" align="right">
 </a>
 
-黎明期の頃、BitTorrent は TCP を転送プロトコルとして使用していました。 その後、TCP よりも優れた性能と更なるメリットを持った uTP が登場しました。 すべての上流トレントクライアントは最終的に uTP を採用し、現在はどちらのプロトコルでも BitTorrent を使用できます。 WebRTC プロトコルは次の必然的な段階です。 すべてのデスクトップ BitTorrent クライアントと数百万のウェブブラウザで構成される 1 つの巨大な P2P ネットワーク — これはウェブブラウザとの相互運用性を保証します。
+In the early days, BitTorrent used TCP as its transport protocol. Later, uTP came along promising better performance and additional advantages over TCP. Every mainstream torrent client eventually adopted uTP, and today you can use BitTorrent over either protocol. The WebRTC protocol is the next logical step. It brings the promise of interoperability with web browsers – one giant P2P network made up of all desktop BitTorrent clients and millions of web browsers.
 
-"ウェブピア" (ウェブブラウザで実行されるトレントピア) は、数百万の新しいピアを追加し、BitTorrent を多数の新しいユースケースに広めることで、BitTorrent ネットワークを強化します。 WebTorrent は、既存の BitTorrent クライアントが WebTorrent サポートを簡単に追加できるように、できるだけ BitTorrent 仕様に準拠しています。
+“Web peers” (torrent peers that run in a web browser) make the BitTorrent network stronger by adding millions of new peers, and spreading BitTorrent to dozens of new use cases. WebTorrent follows the BitTorrent spec as closely as possible, to make it easy for existing BitTorrent clients to add support for WebTorrent.
 
-[Vuze](https://www.vuze.com/) のような一部のトレントアプリはウェブピアを既にサポートしていますが、他のアプリのサポート追加を待ちたくはありませんでした。 **元来、WebTorrent デスクトップは WebTorrent プロトコルの採用を促進する手段でした。**誰もが使いたくなるような素晴らしいトレントアプリを作成することで、ウェブピア (ウェブサイト上のユーザなど) とトレントを共有できるネットワーク内のピア数を増やすのです。
+Some torrent apps like [Vuze](https://www.vuze.com/) already support web peers, but we didn't want to wait around for the rest to add support. **So basically, WebTorrent Desktop was our way to speed up the adoption of the WebTorrent protocol.** By making an awesome torrent app that people really want to use, we increase the number of peers in the network that can share torrents with web peers (i.e. users on websites).
 
-## あまり知られていないような、興味深いトレントの用法はありますか?
+## What are some interesting use cases for torrents beyond what people already know they can do?
 
-WebTorrent の一番すごい用法というと、ピアアシスト配信でしょう。 [Wikipedia](https://www.wikipedia.org/) や [インターネットアーカイブ](https://archive.org/) などの非営利プロジェクトは、訪問者にリソースを提供してもらうことで帯域幅とホスティングコストを削減できます。 人気コンテンツは、ブラウザ間で迅速かつ安価に提供できます。 たまにしかアクセスされないコンテンツは、オリジンサーバーから HTTP 経由で確実に提供できます。
+One of the most exciting uses for WebTorrent is peer-assisted delivery. Non-profit projects like [Wikipedia](https://www.wikipedia.org/) and the [Internet Archive](https://archive.org/) could reduce bandwidth and hosting costs by letting visitors chip in. Popular content can be served browser-to-browser, quickly and cheaply. Rarely-accessed content can be served reliably over HTTP from the origin server.
 
-インターネットアーカイブはトレントファイルを実際に既に更新しているため、WebTorrent でうまく動作します。 なので、サイトにインターネットアーカイブのコンテンツを埋め込みたい場合でも、トレントでアーカイブのホスティングコストを削減し、アーカイブ側は実際にウェブをアーカイブすることに資金を注げます。
+The Internet Archive actually already updated their torrent files so they work great with WebTorrent. So if you want to embed Internet Archive content on your site, you can do it in a way that reduces hosting costs for the Archive, allowing them to devote more money to actually archiving the web!
 
-CDN から P2P を介したアプリ配信といった、面白いビジネスユースケースもあります。
+There are also exciting business use cases, from CDNs to app delivery over P2P.
 
-## WebTorrent を使うお気に入りのプロジェクトはありますか?
+## What are some of your favorite projects that use WebTorrent?
 
-![gaia アプリスクリーンショット](https://cloud.githubusercontent.com/assets/2289/23912148/154392c8-089c-11e7-88a8-3d4bcb1d2a94.jpg)
+![gaia app screenshot](https://cloud.githubusercontent.com/assets/2289/23912148/154392c8-089c-11e7-88a8-3d4bcb1d2a94.jpg)
 
-WebTorrent で作られた一番すごいものといえば、間違いなく、[Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html) でしょう。 これは、ぬるぬる動く天の川の 3D インタラクティブシミュレーションです。 データはトレントから直接ブラウザに読み込まれます。 銀河系を飛び回り、私たち人間が宇宙の広大さに比べてどれだけ小さいかを実感すると同時に畏敬の念を抱きます。
+The coolest thing built with WebTorrent, hands down, is probably [Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html). It's a slick 3D interactive simulation of the Milky Way. The data loads from a torrent, right in your browser. It's awe-inspiring to fly through our star system and realize just how little we humans are compared to the vastness of our universe.
 
-この作成方法は、著者の Charlie Hoey が WebGL と WebTorrent で天体図を作成した方法を説明しているブログ記事 [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93) で読むことができます。
+You can read about how this was made in [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93), a blog post where the author, Charlie Hoey, explains how he built the star map with WebGL and WebTorrent.
 
 <a href="https://brave.com/">
-  <img alt="brave ロゴ" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
+  <img alt="brave logo" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
 </a>
 
-また、私たちは [Brave](https://brave.com/) の大ファンです。 Brave は、広告とトラッカーを自動的にブロックして、ウェブをより高速で安全にするブラウザです。 最近、Brave はトレントサポートを追加しました。そのため、[従来のトレントを外部アプリなしで閲覧](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/) できます。 この機能は WebTorrent で動作しています。
+We're also huge fans of [Brave](https://brave.com/). Brave is a browser that automatically blocks ads and trackers to make the web faster and safer. Brave recently added torrent support, so you can [view traditional torrents without using a separate app](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/). That feature is powered by WebTorrent.
 
-そのため、ほとんどのブラウザーが PDF ファイルを描画できるように、Brave はマグネットリンクとトレントファイルを描画できます。 これらは、ブラウザがネイティブでサポートするただの別種のコンテンツです。
+So, just like how most browsers can render PDF files, Brave can render magnet links and torrent files. They're just another type of content that the browser natively supports.
 
-なんと、Brave の共同創設者の 1 人は、WebTorrent の作成に使われた言語 JavaScript の作成者 Brendan Eich です。その Brave が WebTorrent 統合を選んだなんてとてもカッコよくないですか?
+One of the co-founders of Brave is actually Brendan Eich, the creator of JavaScript, the language we wrote WebTorrent in, so we think it's pretty cool that Brave chose to integrate WebTorrent.
 
-## Electron で WebTorrent デスクトップを構築することにしたのはなぜですか?
+## Why did you choose to build WebTorrent Desktop on Electron?
 
 <a href="https://webtorrent.io/desktop/">
-  <img alt="WebTorrent デスクトップメインウインドウ" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
+  <img alt="WebTorrent Desktop main window" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
 </a>
 
-Electron アプリはすべてのアプリに Chrome コンテンツモジュール全体を含むため、"肥大化" していると言われています。 これは、場合によっては部分的に当てはまります (Electron アプリインストーラーは通常 ~40MB ですが、OS 固有のアプリインストーラーでは通常 ~20MB)。
+There is a meme that Electron apps are "bloated" because they include the entire Chrome content module in every app. In some cases, this is partially true (an Electron app installer is usually ~40MB, where an OS-specific app installer is usually ~20MB).
 
-しかし、WebTorrent デスクトップの場合、Electron のほぼすべての機能を使用しますし、通常の操作では何十もの Chrome 機能を使用します。 プラットフォームごとにこれらの機能をゼロから実装していれば、アプリを構築するのに数ヶ月から数年かかるか、単一のプラットフォームでしかリリースできなかったでしょう。
+However, in the case of WebTorrent Desktop, we use nearly every Electron feature, and many dozens of Chrome features in the course of normal operation. If we wanted to implement these features from scratch for each platform, it would have taken months or years longer to build our app, or we would have only been able to release for a single platform.
 
-アイデアを実現するため、Electron の [Dock 統合](https://electronjs.org/docs/api/app/#appdockbouncetype-macos) (ダウンロード進捗を表示)、[メニューバー統合](https://electronjs.org/docs/api/menu) (バックグラウンド実行)、[プロトコルハンドラーの登録](https://electronjs.org/docs/api/app/#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) (マグネットリンクを開く)、[powerSaveBlocker](https://electronjs.org/docs/api/power-save-blocker/) (映像再生中のスリープ防止)、[自動更新](https://electronjs.org/docs/api/auto-updater) といった機能を使用しました。 Chrome の機能については、`<video>` タグ (多種に渡る動画形式の再生)、`<track>` (字幕対応用)、ドラッグアンドドロップ対応、WebRTC (ネイティブアプリでの使用は難しい) など、色々と使用しています。
+Just to get an idea, we use Electron's [dock integration](https://electronjs.org/docs/api/app/#appdockbouncetype-macos) (to show download progress), [menu bar integration](https://electronjs.org/docs/api/menu) (to run in the background), [protocol handler registration](https://electronjs.org/docs/api/app/#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) (to open magnet links), [power save blocker](https://electronjs.org/docs/api/power-save-blocker/) (to prevent sleep during video playback), and [automatic updater](https://electronjs.org/docs/api/auto-updater). As for Chrome features, we use plenty: the `<video>` tag (to play many different video formats), the `<track>` tag (for closed captions support), drag-and-drop support, and WebRTC (which is non-trivial to use in a native app).
 
-言うまでもなく、トレントエンジンは多くの Node API が存在することを前提とした JavaScript で記述されています。特に、`require('net')` と `require('dgram')` によって TCP と UDP ソケットをサポートしています。
+Not to mention: our torrent engine is written in JavaScript and assumes the existence of lots of Node APIs, but especially `require('net')` and `require('dgram')` for TCP and UDP socket support.
 
-まとめると、Electron は私たちが必要としていたもので、堅牢で洗練されたアプリを記録的な速さで配信するために必要で正確な機能群を備えていました。
+Basically, Electron is just what we needed and had the exact set of features we needed to ship a solid, polished app in record time.
 
-## Electron の好きなところは何ですか?
+## What are your favorite things about Electron?
 
-WebTorrent ライブラリは、オープンソースサイドプロジェクトとして 2 年間開発中です。 **WebTorrent デスクトップは 4 週間で作成しました。**アプリを非常に迅速に構築して配信できたのは Electron であることが主な理由です。
+The WebTorrent library has been in development as an open source side project for two years. **We made WebTorrent Desktop in four weeks.** Electron is the primary reason that we were able to build and ship our app so quickly.
 
-jQuery を使用する世代のフロントエンドプログラマーを Node.js がサーバープログラミングに導いたのと同じで、Electron はウェブや Node.js の開発に精通している人なら誰でもネイティブアプリ開発に手を出せるようにします。 Electron は非常に強力です。
+Just as Node.js made server programming accessible to a generation of jQuery-using front-end programmers, Electron makes native app development accessible to anyone familiar with Web or Node.js development. Electron is extremely empowering.
 
-## ウェブサイトとデスクトップクライアントはコードを共有していますか?
+## Do the website and the Desktop client share code?
 
-はい、[`webtorrent` npm パッケージ](https://npmjs.com/package/webtorrent) は、Node.js、ブラウザ、Electron で動作します。 全く同じコードがすべての環境で実行できる — これが JavaScript の美です。 これが今日の万国共通の実行環境です。 Java Applets は "一度書けば、どこでも動く" アプリを約束しましたが、その理想は多くの理由で実際には実現しませんでした。 Electron は、他のどのプラットフォームよりも、本当にその理想に接近しています。
+Yes, the [`webtorrent` npm package](https://npmjs.com/package/webtorrent) works in Node.js, in the browser, and in Electron. The exact same code can run in all environments – this is the beauty of JavaScript. It's today's universal runtime. Java Applets promised "Write Once, Run Anywhere" apps, but that vision never really materialized for a number of reasons. Electron, more than any other platform, actually gets pretty darn close to that ideal.
 
-## WebTorrent デスクトップ構築の際に直面した課題はありますか?
+## What are some challenges you've faced while building WebTorrent?
 
-アプリの初期版では、UI パフォーマンスの向上に苦労しました。 メインアプリウィンドウを描画するレンダラープロセスと同じ所にトレントエンジンを配置していました。このため、予想どおり、トレントエンジンからの激しい CPU 演算 (ピアから受信したトレントピースの検証など) が発生した場合は常に低速になっていました。
+In early versions of the app, we struggled to make the UI performant. We put the torrent engine in the same renderer process that draws the main app window which, predictably, led to slowness anytime there was intense CPU activity from the torrent engine (like verifying the torrent pieces received from peers).
 
-これを修正するため、トレントエンジンを [IPC](https://electronjs.org/docs/api/ipc-main/) を介して通信する 2 つ目の非表示のレンダラープロセスに移動しました。 こうすれば、そのプロセスが短時間に多くの CPU を使用する場合でも、UI スレッドは影響を受けません。 滑らかなスクロールとアニメーションには非常に満足です。
+We fixed this by moving the torrent engine to a second, invisible renderer process that we communicate with over [IPC](https://electronjs.org/docs/api/ipc-main/). This way, if that process briefly uses a lot of CPU, the UI thread will be unaffected. Buttery-smooth scrolling and animations are so satisfying.
 
-注釈: WebRTC (レンダラーでのみ使用可能) にアクセスする必要があるため、"メイン" プロセスではなく、レンダラープロセスにトレントエンジンを配置する必要がありました。
+Note: we had to put the torrent engine in a renderer process, instead of a "main" process, because we need access to WebRTC (which is only available in the renderer.)
 
-## Electron はどういった領域で改善されるべきでしょうか?
+## In what areas should Electron be improved?
 
-本番用のアプリを構築して配信する方法や、特にコード署名や自動更新などのトリッキーなテーマについて、より良いドキュメントを望んでいます。 私たちは、ソースコードを研究して Twitter で尋ねてベストプラクティスについて学ぶ必要がありました!
+One thing we'd love to see is better documentation about how to build and ship production-ready apps, especially around tricky subjects like code signing and auto-updating. We had to learn about best practices by digging into source code and asking around on Twitter!
 
-## WebTorrent デスクトップは開発終了ですか? それとも、今後何かありますか?
+## Is WebTorrent Desktop done? If not, what's coming next?
 
-現行の WebTorrent デスクトップは素晴らしいと思いますが、改善の余地は常にあります。 現在、細かい点の修正、パフォーマンス、字幕サポート、映像コーデックサポートの改善に取り組んでいます。
+We think the current version of WebTorrent Desktop is excellent, but there's always room for improvement. We're currently working on improving polish, performance, subtitle support, and video codec support.
 
-プロジェクトの参加に興味がある場合は、[私たちの GitHub ページ](https://github.com/feross/webtorrent-desktop) を見てください!
+If you're interested in getting involved in the project, check out [our GitHub page](https://github.com/feross/webtorrent-desktop)!
 
-## 他の開発者に役立つ Electron 開発のノウハウはありますか?
+## Any Electron development tips that might be useful to other developers?
 
-WebTorrent デスクトップのコントリビューターの 1 人である [Feross](http://feross.org/) は、最近 NodeConf Argentina で *"Electron の世界: JavaScript でクロスプラットフォームアプリを構築"* という講演を行い、洗練された Electron アプリをリリースするための便利なヒントを紹介しました。 この講演は、あなたが基本的な実用アプリを持っている段階にいて、それを次のレベルの洗練と専門的な領域に昇華させようとしているのであれば非常に役立ちます。
+[Feross](http://feross.org/), one of the WebTorrent Desktop contributors, recently gave a talk *"Real world Electron: Building Cross-platform desktop apps with JavaScript"* at NodeConf Argentina that contains useful tips for releasing a polished Electron app. The talk is especially useful if you're at the stage where you have a basic working app and you're trying to take it to the next level of polish and professionalism.
 
-[動画はこちら](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
+[Watch here](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-[スライドはこちら](https://speakerdeck.com/feross/real-world-electron):
+[Slides here](https://speakerdeck.com/feross/real-world-electron):
 
 <script async class="speakerdeck-embed" data-id="5aae08bb7c5b4dbd89060cff11bb1300" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
-もう一人の WebTorrent のコントリビューターである [DC](https://dcpos.ch/) は、アプリを洗練されたネイティブにするための [できることのチェックリスト](https://blog.dcpos.ch/how-to-make-your-electron-app-sexy) を書きました。 コード例が付いており、macOS Dock 統合、ドラッグアンドドロップ、デスクトップ通知、アプリの読み込みを速くするなどをカバーしています。
+[DC](https://dcpos.ch/), another WebTorrent contributor, wrote [a checklist of things you can do](https://blog.dcpos.ch/how-to-make-your-electron-app-sexy) to make your app feel polished and native. It comes with code examples and covers things like macOS dock integration, drag-and-drop, desktop notifications, and making sure your app loads quickly.
 

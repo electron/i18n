@@ -1,10 +1,10 @@
-# Depuración de la aplicación
+# Aplicación de Depuración
 
-Cada vez que su aplicación de Electron no se comporta de la manera que desea, una variedad de herramientas de depuración pueden ayudarte a encontrar errores en el código, rendimiento, u oportunidades de optimización.
+Cada vez que su aplicación de Electron no se comporta de la manera que desea, una variedad de herramientas de depuración pueden ayudarte a encontrar errores de codificación, embotellamiento de rendimiento, u oportunidades de optimización.
 
 ## Proceso de Renderización
 
-La herramienta mas completa para depurar un proceso de renderización individualmente son las Chromium Developer Tools. Está disponible para todos los procesos de renderización, incluyendo `BrowserWindow`, `BrowserView`, y `WebView`. Puedes abrirla programáticamente usando la API `openDevTools()` de la instancia de `webContents`:
+La herramienta mas completa para depurar un proceso visualizador individualmente es el Chromium Developer Toolset. Está disponible para todos los procesos visualizador, incluyendo casos de `BrowserWindow`, `BrowserView`, y `WebView`. Puedes abrirlos mediante programación usando el API `openDevTools()` en el `webContents` de la instancia:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,11 +13,11 @@ const win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google ofrece [documentación excelente para sus herramientas de desarrollo][devtools]. Recomendamos que se familiarice con ello - son una de las utilidades más versátiles para cualquier desarrollador de aplicaciones de Electron.
+Google ofrece [documentación excelente para sus herramientas de desarrollo][devtools]. Recomendamos que se familiarice con ello - son usualmente una de las utilidades más poderosas en cualquier cinturón de herramientas de un desarrollador Electron.
 
 ## Proceso Principal
 
-La depuración del proceso principal es un poco más complicada, porque en este caso no se pueden abrir las Developer Tools. Las Chromium Developer Tools pueden [ser usadas para depurar el proceso principal de Electron][node-inspect] gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculos como la ausencia de `require` en la consola.
+La depuración del proceso principal es un poco más complicada, porque no se pueden abrir las developer tools en este caso. Las Chromium Developer Tools pueden [ser usadas para depurar el proceso principal de Electron][node-inspect] gracias a una colaboración cercana entre Google / Chrome y Node.js, pero puede encontrar obstáculos como la ausencia de `require` en la consola.
 
 Para mas información, vea la [documentación de Depurando el Proceso Principal][main-debug].
 

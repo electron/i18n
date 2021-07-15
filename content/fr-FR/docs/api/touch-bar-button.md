@@ -11,7 +11,7 @@ Processus : [Main](../glossary.md#main-process)
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String(facultatif) - Icône du bouton.
-  * `iconPosition` String (facultatif) -Peut être `left`, `right` ou `overlay`. Defaults to `overlay`.
+  * `iconPosition` String (facultatif) -Peut être `left`, `right` ou `overlay`. Par défaut, `overlay`.
   * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
   * `enabled` Boolean (optional) - Whether the button is in an enabled state.  La valeur par défaut est `true`.
 
@@ -39,7 +39,7 @@ A `NativeImage` representing the button's current icon. Changing this value imme
 
 #### `touchBarButton.iconPosition`
 
-A `String` - Can be `left`, `right` or `overlay`.  Defaults to `overlay`.
+A `String` - Can be `left`, `right` or `overlay`.  Par défaut, `overlay`.
 
 #### `touchBarButton.enabled`
 

@@ -1,8 +1,8 @@
-# BrowserWindow
+# Browserfenster
 
 > Erstellung und Steuerung von Browserfenstern.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ```javascript
 // Im Hauptprozess.
@@ -105,7 +105,7 @@ Es wird empfohlen aufwendige Aufgaben zu pausieren wenn der Sichtbarkeitszustand
 
 > Erstellung und Steuerung von Browserfenstern.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `BrowserWindow` ist ein [EventEmitter][event-emitter].
 
@@ -137,7 +137,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `skipTaskbar` Boolean (optional) - Gibt an ob das Fenster in der Taskbar anzeigt werden soll. Standard ist `false`.
   * `kiosk` Boolean (optional) - Gibt an, ob der Benutzer eingeschränkte Rechte besitzt (Kiosk-Modus). Standard ist `false`.
   * `Titel` String (optional) - der Standardfenstertitel. Standard ist `"Electron"`. Wenn der HTML-Tag `<title>` in der von `loadUrl()` geladenen HTML-Datei festgelegt ist, dann wird dieser Wert ignoriert.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. Es empfiehlt sich, unter Windows ein `ICO` Icon zu verwenden, um die besten visuellen Effekte zu erreichen. Das Icon des ausführbaren Programmes wird verwendet, wenn dieser Wert nicht definiert wird.
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. Es empfiehlt sich unter Windows ein `ICO` Icon zu verwenden um die besten visuellen Effekte zu erreichen. Das Icon der Executable wird verwendet wenn dieser Wert nicht definiert wird.
   * `show` Boolean (optional) - Gibt an ob das Fenster angezeigt wird, sobald es erstellt wurde. Standard ist `true`.
   * `paintWhenInitiallyHidden` Boolean (optional) - Gibt an, ob der Renderer aktiv sein soll, wenn `show` `false` ist und das Fenster gerade erstellt wurde.  Damit `document.visibilityState` beim ersten Laden mit `show: false` korrekt funktioniert, sollten Sie diesen Wert auf `false`setzen.  Wenn Sie diese Einstellung auf `false` festlegen, wird das `ready-to-show` -Ereignis nicht ausgelöst.  Standard ist `true`.
   * `frame` Boolean (optional) - Geben Sie `false` an, um ein [Frameless Window](frameless-window.md)zu erstellen. Standard ist `true`.
@@ -230,13 +230,13 @@ When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeig
 
 The possible values and behaviors of the `type` option are platform dependent. Mögliche Werte sind:
 
-* Unter Linux sind mögliche Typen `desktop`, `dock`, `toolbar`, `splash`, `notification`.
+* On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * On macOS, possible types are `desktop`, `textured`.
   * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
   * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
-### Instanz Events
+### Instanz-Ereignisse
 
 Objekte welche mit `new BrowserWindow` erzeugt wurden emitieren folgende Events:
 
@@ -244,7 +244,7 @@ Objekte welche mit `new BrowserWindow` erzeugt wurden emitieren folgende Events:
 
 #### Event: 'page-title-updated'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `title` String
@@ -254,7 +254,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 
@@ -278,7 +278,7 @@ _**Note**: There is a subtle difference between the behaviors of `window.onbefor
 
 #### Event: 'closed'
 
-Ausgegeben, wenn das Fenster geschlossen wird. After you have received this event you should remove the reference to the window and avoid using it any more.
+Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
 #### Event: 'session-end' _Windows_
 
@@ -332,7 +332,7 @@ Emitted when the window is restored from a minimized state.
 
 #### Event: 'will-resize' _macOS_ _Windows_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
@@ -353,7 +353,7 @@ This is usually emitted when the window has been resized manually. On macOS, res
 
 #### Event: 'will-move' _macOS_ _Windows_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
@@ -390,7 +390,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'always-on-top-changed'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
@@ -399,7 +399,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' _Windows_ _Linux_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `command` String
@@ -438,7 +438,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' _macOS_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `direction` String
@@ -449,7 +449,7 @@ The method underlying this event is built to handle older macOS-style trackpad s
 
 #### Event: 'rotate-gesture' _macOS_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `rotation` Float
@@ -470,7 +470,7 @@ Emitted when the native new tab button is clicked.
 
 #### Event: 'system-context-menu' _Windows_
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `point` [Point](structures/point.md) - The screen coordinates the context menu was triggered at
@@ -635,7 +635,7 @@ Menu.setApplicationMenu(menu)
 
 A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 Objekte, die mit `new BrowserWindow` erstellt wurden, haben folgende Instanzmethoden:
 
@@ -1100,8 +1100,8 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
-* `options` Object (optional)
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -1223,7 +1223,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 `buttons` ist ein Array mit `Button` Objekten:
 
-* `Button` Objekt
+* `Button` Object
   * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
   * ` Klicken Sie auf ` Funktion
   * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
@@ -1252,7 +1252,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` _Windows_
 
-* `options` Object
+* `options` Objekt
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Standard ist `0`.

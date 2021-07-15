@@ -2,7 +2,7 @@
 
 ## Encontrar Soporte
 
-Si tiene una preocupación de seguridad, consulte el documento de seguridad [](https://github.com/electron/electron/tree/master/SECURITY.md).
+Si tiene un problema de seguridad, consulte el [documento de seguridad](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Si busca ayuda con la programación, respuestas a preguntas o conversaciones con otros desarrolladores que usan Electron, puede interactuar con la comunidad en estos lugares:
 
@@ -21,7 +21,7 @@ Si busca ayuda con la programación, respuestas a preguntas o conversaciones con
 * [`electron-id`](https://electron-id.slack.com) *(Indonesio)*
 * [`electron-pl`](https://electronpl.github.io) *(Polaco)*
 
-Si quieres contribuir a Electron, consulta el [documento de contribución](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Si desea contribuir a Electron, consulte el [documento contribuyente](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Si has encontrado un error en una [versión soportada](#supported-versions) de Electron, infórmalo con el [rastreador de problemas](../development/issues.md).
 
@@ -29,13 +29,15 @@ Si has encontrado un error en una [versión soportada](#supported-versions) de E
 
 ## Versiones Soportadas
 
+_**Note:** Beginning in September 2021 with Electron 15, the Electron team will temporarily support the latest **four** stable major versions. This extended support is intended to help Electron developers transition to the [new eight week release cadence](https://electronjs.org/blog/8-week-cadence), and will continue until May 2022, with the release of Electron 19. At that time, the Electron team will drop support back to the latest three stable major versions._
+
 Las últimas tres versiones *stable* son soportadas por el equipo Electron. Por ejemplo, si la última versión es 6.1.x, entonces la 5.0.x así como la series 4.2.x son soportadas.  Solo soportamos la última versión minor por cada versión estable.  Esto quiere decir que en el caso de una corrección de seguridad 6.1.x recibirá la corrección, pero no lanzaremos una nueva versión de 6.0.x.
 
 La última versión estable recibe unilateralmente todas las correcciones de `master`, y la versión anterior recibe la gran mayoría de esas correcciones como el tiempo y el ancho de banda lo permite. Las versiones más antiguas soportadas solamente van a recibir correcciones de seguridad directamente.
 
 Todas las versiones soportadas aceptarán peticiones de pull requests externas a backport correcciones previamente fusionadas en `master`, aunque esto puede ser caso por caso para algunas versiones mas antiguas. Todas las decisiones impugnadas entorno a la liberación de la versión de backports serán resueltas por el [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) como un elemento de agenda en su reunión semanal la semana que se levanta el PR backport.
 
-Cuando se cambia o elimina una API de una manera que rompe la funcionalidad existente, la funcionalidad anterior será soportada por un mínimo de dos versiones principales cuando sea posible antes de ser eliminada. Por ejemplo, si una función toma tres argumentos, y ese número se reduce a dos en la versión principal 10, la versión de tres argumentos continuaría funcionando hasta que, como mínimo, la versión principal 12. Anterior el umbral mínimo de dos versiones, intentaremos soportar la compatibilidad hacia atrás más allá de dos versiones hasta que los mantenedores sientan que la carga de mantenimiento es demasiado alta para seguir haciéndolo.
+When an API is changed or removed in a way that breaks existing functionality, the previous functionality will be supported for a minimum of two major versions when possible before being removed. For example, if a function takes three arguments, and that number is reduced to two in major version 10, the three-argument version would continue to work until, at minimum, major version 12. Past the minimum two-version threshold, we will attempt to support backwards compatibility beyond two versions until the maintainers feel the maintenance burden is too high to continue doing so.
 
 ### Versiones soportadas actualmente
 
@@ -65,7 +67,7 @@ El soporte nativo para dispositivos Apple Silicon (`arm64`) fue agregado en Elec
 
 Windows 7 y posteriores son soportados, sistemas operativos más viejos no lo son (y no funcionan).
 
-Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. [Soporte nativo para Windows en dispositivos Arm (`arm64`) fue agregado a Electron 6.0.8.](windows-arm.md). Es posible ejecutar aplicaciones empaquetadas con versiones anteriores usando el binario ia32.
+Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. [Soporte nativo para Windows en dispositivos Arm (`arm64`) fue agregado a Electron 6.0.8.](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
 
 ### Linux
 

@@ -1,8 +1,8 @@
-# Objekt von Erweiterung
+# Extension Object
 
 * `id` String
-* `manifest`any-Kopie von [ Manifest Daten Erweiterung ](https://developer.chrome.com/extensions/manifest).
+* `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).
 * `name` String
-* `path`String-Das Erweiterung Pfad von Datei.
+* `path` String - The extension's file path.
 * `version` String
-* `url`String-Die Chrome-Erweiterung von Erweiterung von URL://</code>.
+* `url` String - The extension's `chrome-extension://` URL.

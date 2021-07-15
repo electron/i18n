@@ -1,8 +1,8 @@
-# Extension オブジェクト
+# Extension Object
 
 * `id` String
-* `manifest` any - [拡張機能のマニフェストデータ](https://developer.chrome.com/extensions/manifest) のコピー。
+* `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).
 * `name` String
-* `path` String - 拡張機能のファイルパス。
+* `path` String - The extension's file path.
 * `version` String
-* `url` String - 拡張機能の `chrome-extension://` URL.
+* `url` String - The extension's `chrome-extension://` URL.

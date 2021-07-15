@@ -4,7 +4,7 @@
 
 > Crea los diseños de la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new TouchBar(options)`
 
@@ -16,7 +16,7 @@ Crea una nueva barra táctil con los elementos especificados. Use `BrowserWindow
 
 **Nota:** La API TouchBar API actualmente es experimental y puede cambiar o ser eliminada en futuras versiones de Electron.
 
-**Consejo:** Si no tienes una MacBook con barra táctil, se puede utilizar[Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) para probar el uso de la barra táctil en la aplicación.
+**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
 ### Propiedades estáticas
 
@@ -60,7 +60,7 @@ Un [`typeof TouchBarSpacer`](./touch-bar-spacer.md) referencia a la clase `Touch
 
 Un [`typeof TouchBarOtherItemsProxy`](./touch-bar-other-items-proxy.md) referencia a la clase `TouchBarOtherItemsProxy`.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguientes propiedades están disponibles en instancias de `TouchBar`:
 

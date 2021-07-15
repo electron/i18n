@@ -55,7 +55,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // 領収書ファイルをサーバーに送信し、有効かどうかを確認します。
+        // Submit the receipt file to the server and check if it is valid.
         // こちらを参照 https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
         // 領収書が有効であれば、プロダクトは購入されます
@@ -71,7 +71,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // トランザクションを終了します。
+        // Finish the transaction.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break

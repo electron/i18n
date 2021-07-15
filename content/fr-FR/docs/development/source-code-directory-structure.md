@@ -1,4 +1,4 @@
-# Hiérarchie du Code Source
+# Structure du répertoire du Code Source
 
 Le code source d'Electron est séparé en plusieurs parties, principalement suivant les conventions de séparation de Chromium.
 

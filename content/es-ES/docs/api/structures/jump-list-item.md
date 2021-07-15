@@ -1,14 +1,14 @@
-# Objeto JumpListItem
+# JumpListItem Object
 
-* `type` String (opcional) - Uno de los siguientes:
-  * `task` - Una tarea lanzará una aplicación con un argumento específico.
-  * `separator` - Puede ser usado para separar elementos en la categoría estándar `Tasks`.
-  * `file` - Un link de un archivo abrirá uno usando la aplicación que creó el salto de lista, para que esto funciona la aplicación debe estar registrada como controlador del tipo de archivo (A pesar de que no tiene que ser el controlador por defecto).
-* `path` String (opcional) - Ruta que tiene el archivo para ser abierto, debe ser configurado solo si `type` es `file`.
-* `program` String (opcional) - Ruta del programa para ejecutarse, usualmente usted especificará el `process.execPath` que abrirá el programa en curso. Debe ser configurado solamente si `type` es `task`.
-* `args` String (opcional) - Los argumentos de la linea de comandos cuando `program` es ejecutado. Debe ser configurado solamente si `type` es `task`.
-* `title` String (opcional) - El texto que debe ser mostrado por el elemento en la JumpList. Debe ser configurado solamente si `type` es `task`.
-* `description` String (opcional) - Descripción de la tarea(mostrada en una descripción emergente). Debe ser configurado solamente si `type` es `task`. Longitud máxima 260 caracteres.
-* `iconPath` Cadena (opcional) - La ruta total a un ícono a ser mostrado en la lista, que puede ser un archivo arbitrario que contenga un ícono (e.g. `.ico`, `.exe`, `.dll`). Puede especificar `process.execPath` Para mostrar el ícono del programa.
-* `iconIndex` Numero (opcional) - El índice del ícono en el archivo de recursos. Si un archivo de recursos contiene múltiples íconos, este valor puede ser utilizado para especificar el índice en base ceroque debe ser mostrado en esta tarea. Si un archivo de recurso contiene solamente un ícono, el valor debe ser cero.
-* `workingDirectory` String (optional) - El directorio de trabajo. Por defecto es vacío.
+* `type` String (optional) - One of the following:
+  * `task` - A task will launch an app with specific arguments.
+  * `separator` - Can be used to separate items in the standard `Tasks` category.
+  * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
+* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
+* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
+* `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
+* `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
+* `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`. Maximum length 260 characters.
+* `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
+* `iconIndex` Number (optional) - The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
+* `workingDirectory` String (optional) - The working directory. Default is empty.

@@ -4,6 +4,6 @@
 > 
 > Nota: Sólo una instancia de esta clase puede ser agregada por TouchBar.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new TouchBarOtherItemsProxy()`

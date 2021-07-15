@@ -16,11 +16,11 @@ Ejemplo Caso de uso:
 
 2. Obtenga la clave de la cuenta de almacenamiento Azure
     * Inicie sesión en Azure usando credenciales almacenadas en LastPass (bajo Azure Enterprise) y luego encuentre la cuenta de almacenamiento correspondiente al nombre encontrado en AppVeyor.
-        * Ejemplo, para `appveyorlibccbuilds` **nombre de la cuenta de almacenamiento de disco** buscarías `appveyorlibccbuilds` en la lista de cuentas de almacenamiento @ Home < cuentas de almacenamiento
+        * Ejemplo, para `appveyorlibccbuilds` **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts
             * Haga clic en él y busque `Access Keys`, y luego puede utilizar cualquiera de las claves presentes en la lista.
 
 3. Obtenga la URI completa de imagen de maquina virtual de Azure
-    * Navega hasta cuentas de almacenamiento < Inicio < `$ACCT_NAME` < blobs < imágenes
+    * Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images
         * EN la siguiente lista, mira el nombre de ruta VHD que obtuvo de Appveyor y luego pulsa en él.
             * Copiar toda la URL desde la parte superior de la ventana posterior.
 

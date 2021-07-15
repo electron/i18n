@@ -51,9 +51,9 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Изменяет и перемещает вид в предоставленные границы, относительно окна.
+Изменяет и перемещает вид в предоставленные границы относительно окна.
 
-#### `view.getBounds()` _Экспериментально_
+#### `view.getBounds()` _ Экспериментально_
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 

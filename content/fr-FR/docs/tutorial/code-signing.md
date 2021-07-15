@@ -8,8 +8,8 @@ Sous Windows, le système assigne un niveau de confiance à votre certificat de 
 
 Bien qu'il soit possible de distribuer des applications non signées, cela n'est pas recommandé. Windows et macOS empêcheront par défaut le téléchargement ou l'exécution d'applications non signées. À partir de macOS Catalina (version 10.15), les utilisateurs doivent passer par plusieurs étapes manuelles pour ouvrir des applications non signées.
 
-![Avertissement pour macOS Catalina Gatekeeper : L'application ne peut pas être ouverte car le développeur
-ne peut pas être vérifié](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper warning: The app cannot be opened because the
+developer cannot be verified](../images/gatekeeper.png)
 
 Comme vous pouvez le voir, les utilisateurs ont deux options : déplacez l'application directement dans la corbeille ou annulez son exécution. Vous ne voulez pas que vos utilisateurs voient cette boîte de dialogue.
 
@@ -17,21 +17,21 @@ Si vous développez une application Electron destinée à être empaquetée et d
 
 # Signature & certification des versions macOS
 
-Une bonne préparation des applications macOS pour la publication nécessite deux étapes : tout d'abord, l'application doit être signée. Ensuite, l'application doit être téléchargée sur Apple pour un processus appelé "notariation", où les systèmes automatisés vérifieront davantage que votre application ne fait rien pour mettre en danger ses utilisateurs.
+Une bonne préparation des applications macOS pour la publication nécessite deux étapes : tout d'abord, l'application doit être signée. Then, the app needs to be uploaded to Apple for a process called "notarization", where automated systems will further verify that your app isn't doing anything to endanger its users.
 
 Pour démarrer le processus, assurez-vous que vous remplissez les conditions pour signer et certifier votre application :
 
 1. S'inscrire au [Programme de Développeurs Apple][] (moyennant des frais annuels)
-2. Télécharger et installer [Xcode][] - cela nécessite un ordinateur exécutant macOS
+2. Download and install [Xcode][] - this requires a computer running macOS
 3. Générer, télécharger et installer [des certificats de signature][]
 
 L'écosystème d'Electron donne priorité à la configuration et a la liberté et bien sur donc il y a plusieurs moyens de signer et certifier votre application.
 
 ## `electron-forge`
 
-Si vous utilisez l'outil de génération d'Electron vous devrez faire quelques ajouts à votre configuration pour signer et certifier votre application. [Forge](https://electronforge.io) est une collection des outils officiels d'Electron, en utilisant [`electron-packager`][], [`electron-osx-sign`][], et [`electron-notarize`][] sous le capot.
+Si vous utilisez l'outil de génération d'Electron vous devrez faire quelques ajouts à votre configuration pour signer et certifier votre application. [Forge](https://electronforge.io) is a collection of the official Electron tools, using [`electron-packager`][], [`electron-osx-sign`][], and [`electron-notarize`][] under the hood.
 
-Regardons un exemple de configuration comportant tous les champs obligatoires. Tous les ne sont pas requis : les outils seront suffisamment intelligents pour trouver automatiquement une identité `appropriée`, par exemple, mais nous vous recommandons d'être explicite.
+Regardons un exemple de configuration comportant tous les champs obligatoires. Not all of them are required: the tools will be clever enough to automatically find a suitable `identity`, for instance, but we recommend that you are explicit.
 
 ```json
 {
@@ -85,7 +85,7 @@ Si vous prévoyez dans votre application d'accéder au microphone ou à la camé
 <true/>
 ```
 
-Si ceux-ci ne sont pas présents dans les droits de votre application lorsque vous invoquez, par exemple :
+If these are not present in your app's entitlements when you invoke, for example:
 
 ```js
 const { systemPreferences } = require('electron')
@@ -93,15 +93,15 @@ const { systemPreferences } = require('electron')
 const microphone = systemPreferences.askForMediaAccess('microphone')
 ```
 
-Votre application peut planter. Consultez la section Accès aux ressources dans [Exécution renforcée](https://developer.apple.com/documentation/security/hardened_runtime) pour plus d'informations et de droits dont vous pourriez avoir besoin.
+Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
 
 ## `electron-builder`
 
-Electron Builder est fourni avec une solution personnalisée pour signer votre application. Vous pouvez trouver [sa documentation ici](https://www.electron.build/code-signing).
+Electron Builder comes with a custom solution for signing your application. You can find [its documentation here](https://www.electron.build/code-signing).
 
 ## `electron-packager`
 
-Si vous n'utilisez pas de pipeline de construction intégré comme Forge ou Builder, vous utilisez probablement [`electron-packager`][], qui comprend [`electron-osx-sign`][] et [`electron-notarize`][].
+If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
 
 Si vous utilisez l'API de Packager, vous pouvez fournit une [configuration](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) qui signera et certifiera votre application.
 
@@ -111,14 +111,14 @@ const packager = require('electron-packager')
 packager({
   dir: '/path/to/my/app',
   osxSign: {
-    identité: 'Application ID développeur : Felix Rieseberg (LT94ZKYDCJ)',
-    'durcis-runtime' : vrai,
-    droits : 'alinéas. liste',
-    "droits d'héritage" : "droits. list',
+    identity: 'Developer ID Application: Felix Rieseberg (LT94ZKYDCJ)',
+    'hardened-runtime': true,
+    entitlements: 'entitlements.plist',
+    'entitlements-inherit': 'entitlements.plist',
     'signature-flags': 'library'
   },
   osxNotarize: {
-    appleId: 'felix@felix. un',
+    appleId: 'felix@felix.fun',
     appleIdPassword: 'my-apple-id-password'
   }
 })
@@ -152,7 +152,7 @@ Avant de signer les versions pour Windows, vous devez faire ce qui suit :
 1. Obtenir un certificat de signature de code d'authentification Windows (frais annuels)
 2. Installez Visual Studio pour obtenir l'utilitaire de signature ( [Community Edition ](https://visualstudio.microsoft.com/vs/community/) qui est gratuite est suffisante)
 
-Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il peut valoir la peine que vous compariez. Les revendeurs populaires comprennent :
+Vous pouvez obtenir un certificat de signature de code auprès de nombreux revendeurs. Les prix varient, donc il peut valoir la peine que vous compariez. Popular resellers include:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)

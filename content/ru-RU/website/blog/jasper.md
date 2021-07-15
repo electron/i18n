@@ -1,5 +1,5 @@
 ---
-title: 'Проект Недели: Джаспер'
+title: 'Project of the Week: Jasper'
 author:
   - h13i32maru
   - watilde
@@ -7,137 +7,143 @@ author:
 date: '2017-03-21'
 ---
 
-На этой неделе мы опросили создателя [Jasper](https://jasperapp.io), инструмента на основе Electron для управления уведомлениями GitHub.
+This week we interviewed the creator of [Jasper][], an Electron-based tool for managing GitHub notifications.
 
 ---
 
-## Привет! Кто вы?
+## Hello! Who are you?
 
-Я [Ryo Maruyama](https://github.com/h13i32maru), разработчик программного обеспечения в Японии. Я разрабатываю [Jasper](https://jasperapp.io) и [ESDoc](https://esdoc.org).
+I'm [Ryo Maruyama](https://github.com/h13i32maru), a software developer in Japan. I am developing [Jasper](https://jasperapp.io) and [ESDoc](https://esdoc.org).
 
-## Что такое Jasper?
+## What is Jasper?
 
-[Jasper](https://jasperapp.io) является гибким и мощным читателем задач для GitHub. Поддерживает проблемы и pull-запросы на github.com и GitHub Enterprise.
+[Jasper][] is a flexible and powerful issue reader for GitHub. It supports issues and pull requests on github.com and GitHub Enterprise.
 
-[![Скриншот приложения Jasper](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
+[![Jasper App Screenshot](https://cloud.githubusercontent.com/assets/2289/24108647/75ef131e-0d4b-11e7-945b-27dd50cb03ab.png)](https://jasperapp.io/)
 
-## Почему вы сделали это?
+## Why did you make it?
 
-Когда люди используют GitHub в своей работе или OSS активности, они ежедневно получают много уведомлений. Чтобы подписаться на уведомления, GitHub предоставляет электронную почту и [веб-уведомления](https://github.com/notifications). Я использовал их в течение нескольких лет, но я столкнулся со следующими проблемами:
+When people use GitHub in their job or OSS activities, they tend to receive many notifications on a daily basis. As a way to subscribe to the notifications, GitHub provides email and [web notifications](https://github.com/notifications). I used these for a couple of years, but I faced the following problems:
 
-- Легко упускать из виду вопросы, о которых я говорил, я прокомментировал, или я смотрю.
-- Я поставил некоторые проблемы в угол головы, чтобы проверить позже, но иногда я забуду об этом.
-- Чтобы не забывать о проблемах, я держать много вкладок открытым в моем браузере.
-- Трудно проверить все вопросы, связанные со мной.
-- Трудно понять всю деятельность моей команды.
+- It's easy to overlook issues where I was mentioned, I commented, or I am watching.
+- I put some issues in a corner of my head to check later, but I sometimes forget about them.
+- To not forget issues, I keep many tabs open in my browser.
+- It's hard to check all issues that are related to me.
+- It's hard to grasp all of my team's activity.
 
-Я тратил много времени и энергии, пытаясь предотвратить эти проблемы, так что я решил сделать читатель вопросов для GitHub для эффективного решения этих проблем и начал разрабатывать Jasper.
+I was spending a lot of time and energy trying to prevent those problems, so I decided to make an issue reader for GitHub to solve these problems efficiently, and started developing Jasper.
 
-## Кто использует Jasper?
+## Who's using Jasper?
 
-Jasper используется разработчиками, дизайнерами и менеджерами в нескольких компаниях, которые используют GitHub. Разумеется, некоторые разработчики OSS также используют его. И он также используется некоторыми людьми на GitHub!
+Jasper is used by developers, designers, and managers in several companies that are using GitHub. Of course, some OSS developers also are using it. And it is also used by some people at GitHub!
 
 <a href="https://twitter.com/mistydemeo/status/778841101109080064"><img src="https://cloud.githubusercontent.com/assets/2289/24108650/75f87706-0d4b-11e7-8fcb-9fbedf2f66ea.png" width="500"></a>
 
 <a href="https://twitter.com/jna_sh/status/798283937344651264"><img src="https://cloud.githubusercontent.com/assets/2289/24108649/75f4b9e0-0d4b-11e7-9701-24a0ef251ad2.png" width="500"></a>
 
-## Как работает Jasper?
+## How does Jasper work?
 
-Когда Jasper настроен, появляется следующий экран. Слева направо, вы можете увидеть "список потоков", список вопросов и тел.
+Once Jasper is configured, the following screen appears. From left to right, you can see "streams list", "issues list" and "issue body".
 
-[![Jasper стартовый экран](https://cloud.githubusercontent.com/assets/2289/24108645/75ae3786-0d4b-11e7-9a1a-3c270ae33cba.png)](https://jasperapp.io/)
+[![Jasper Start Screen](https://cloud.githubusercontent.com/assets/2289/24108645/75ae3786-0d4b-11e7-9a1a-3c270ae33cba.png)](https://jasperapp.io/)
 
-Это "поток" является основной особенностью Jasper. Например, если вы хотите увидеть "замечания, которые привязаны @zeke в электронном репозитории", вы создаете следующий поток:
+This "stream" is the core feature of Jasper. For example, if you want to see "issues that are assigned to @zeke in the electron/electron repository", you create the following stream:
 
 ```
-repo:electron/electron assigne:zeke is:issue
+repo:electron/electron assignee:zeke is:issue
 ```
 
-[![Джаспер Начальный Экран 2](https://cloud.githubusercontent.com/assets/2289/24108648/75f403ec-0d4b-11e7-9ed4-4599ecd26b78.png)](https://jasperapp.io/)
+[![Jasper Start Screen 2](https://cloud.githubusercontent.com/assets/2289/24108648/75f403ec-0d4b-11e7-9ed4-4599ecd26b78.png)](https://jasperapp.io/)
 
-После создания потока и ожидания нескольких секунд, вы можете увидеть вопросы, удовлетворяющие условиям.
+After creating the stream and waiting for a few seconds, you can see the issues that meet the conditions.
 
-[![Джаспер стартовой Экран 3](https://cloud.githubusercontent.com/assets/2289/24108646/75b7fea6-0d4b-11e7-9d05-7dd4e595403c.png)](https://jasperapp.io/)
+[![Jasper Start Screen 3](https://cloud.githubusercontent.com/assets/2289/24108646/75b7fea6-0d4b-11e7-9d05-7dd4e595403c.png)](https://jasperapp.io/)
 
-## Что мы можем делать с потоками?
+## What can we do with streams?
 
-Я представлю, какие условия могут быть использованы для потока.
+I will introduce what kind of conditions can be used for stream.
 
-### Пользователи и команды
+### Users and Teams
 
-| Поток                                            | Вопросы                                                                             |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| `упоминания:cat упоминания:собака`               | Проблемы, упоминающие пользователя `кошка` или `собака`                             |
-| `Автор:cat автор:собака`                         | Задачи, созданные пользователем `кот` или `собака`                                  |
-| `назначено:cat назначено:собака`                 | Замечания, назначенные `котику` или `собака`                                        |
-| `comter:cat комментарий:собака`                  | Замечания, которые `кошка` или `собака` прокомментировали                           |
-| `вовлекает:кошачь:собака`                        | Вопросы, которые "затрагивают" `кот` или `боб`                                      |
-| `команда:animal/white-cat team:animal/black-dog` | Замечания, которые упоминаются `животные/белые-кошки` или `животные/черно-собака` в |
+| Stream                                        | Вопросы                                                               |
+| --------------------------------------------- | --------------------------------------------------------------------- |
+| `mentions:cat mentions:dog`                   | Issues that mention user `cat` or `dog`                               |
+| `author:cat author:dog`                       | Issues created by user `cat` or `dog`                                 |
+| `assignee:cat assignee:dog`                   | Issues assigned to `cat` or `dog`                                     |
+| `commenter:cat commenter:dog`                 | Issues that `cat` or `dog` commented on                               |
+| `involves:cat involves:dog`                   | Issues that "involve" `cat` or `bob`                                  |
+| `team:animal/white-cat team:animal/black-dog` | Issues that `animal/white-cat` or `animal/black-dog` are mentioned in |
 
-`включает` означает `упоминание`, `автор`, `назначение` или `комментатор`
+`involves` means `mention`, `author`, `assignee` or `commenter`
 
-### Репозитории и организации
+### Repositories and Organizations
 
-| Поток                            | Вопросы                                    |
-| -------------------------------- | ------------------------------------------ |
-| `repo:cat/прыжок repo:dog/run`   | Проблемы в `cat/jump` или `dog/run`        |
-| `org:electron user:cat user:dog` | Замечания в `electron`, `cat` или `собака` |
+| Stream                           | Вопросы                              |
+| -------------------------------- | ------------------------------------ |
+| `repo:cat/jump repo:dog/run`     | Issues in `cat/jump` or `dog/run`    |
+| `org:electron user:cat user:dog` | Issues in `electron`, `cat` or `dog` |
 
-`org` такой же, как `пользователь`
+`org` is same as `user`
 
-### Атрибуты
+### Attributes
 
-| Поток                                     | Вопросы                                                                  |
-| ----------------------------------------- | ------------------------------------------------------------------------ |
-| `repo:cat/jump этап :v1.0.0 этап :v1.0.1` | Замечания, прилагаемые к `v1.0.0` или `v1.0.1` в `cat/jump`              |
-| `repo:cat/jump label:bug label:blocker`   | Замечания, прикрепляемые к `багам` **и** `блокировщик` в `котики/прыжка` |
-| `электрон ИЛИ атомshell`                  | Задачи, включающие `electron` или `atomshell`                            |
+| Stream                                            | Вопросы                                                        |
+| ------------------------------------------------- | -------------------------------------------------------------- |
+| `repo:cat/jump milestone:v1.0.0 milestone:v1.0.1` | Issues that are attached to `v1.0.0` or `v1.0.1` in `cat/jump` |
+| `repo:cat/jump label:bug label:blocker`           | Issues that are attached `bug` **and** `blocker` in `cat/jump` |
+| `electron OR atomshell`                           | Issues that include `electron` or `atomshell`                  |
 
-### Статус отзыва
+### Review Status
 
-| Поток                             | Вопросы                                                                            |
-| --------------------------------- | ---------------------------------------------------------------------------------- |
-| `:pr отзыв:требуется`             | Замечания, требующие рассмотрения в `котики/прыжка`                                |
-| `запрошено:pr рецензирования:cat` | Замечания, которые запрашивают отзыв `cat`. <br/> Но они еще не рассмотрены. |
-| `есть:pr просмотрено:cat`         | Замечания, которые рассматриваются `котами`                                        |
+| Stream                       | Вопросы                                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------------- |
+| `is:pr review:required`      | Issues that are required review in `cat/jump`                                          |
+| `is:pr review-requested:cat` | Issues that are requested review by `cat`. <br/> But these are not reviewed yet. |
+| `is:pr reviewed-by:cat`      | Issues that are reviewed by `cat`                                                      |
 
 <br/>
 
-Как вы могли заметить, просматривая эти запросы, потоки могут использовать поисковые запросы GitHub. Подробнее о том, как использовать потоки и поисковые запросы, см. следующие URL.
+As you may have noticed by looking at these, streams can use GitHub's search queries. For details on how to use streams and search queries, see the following URLs.
 
 - [jasperapp.io/doc.html#stream](https://jasperapp.io/doc.html#stream)
-- [help.github.com/articles/searching-замечания](https://help.github.com/articles/searching-issues/)
-- [help.github.com/articles/search-синтаксис](https://help.github.com/articles/search-syntax/)
+- [help.github.com/articles/searching-issues](https://help.github.com/articles/searching-issues/)
+- [help.github.com/articles/search-syntax](https://help.github.com/articles/search-syntax/)
 
-Jasper также имеет возможность управления непрочитанными замечаниями, непрочитанным управлением комментариями, звёздами маркировки, обновлениями уведомлений, проблемами фильтрации, сочетанием клавиш и т.д.
+Jasper also has features for unread issue management, unread comment management, marking stars, notification updating, filtering issues, keyboard shortcuts, etc.
 
-## Является ли Jasper платный продукт? Сколько это стоит?
+## Is Jasper a paid product? How much does it cost?
 
-Jasper равен $12. Однако вы можете использовать [бесплатную версию](https://jasperapp.io/) в течение 30 дней.
+Jasper is $12. However you can use the [free trial edition](https://jasperapp.io/) for 30 days.
 
-## Почему вы решили создать Jasper на Electron?
+## Why did you choose to build Jasper on Electron?
 
-Мне нравятся следующие аспекты Electron:
+I like the following aspects of Electron:
 
-- Приложения могут быть разработаны с помощью JavaScript/CSS/HTML.
-- Приложения могут быть собраны для платформ Windows, Mac и Linux.
-- Electron активно развивается и имеет большое сообщество.
+- Apps can be developed with JavaScript/CSS/HTML.
+- Apps can be built for Windows, Mac, and Linux platforms.
+- Electron is actively developed and has a large community.
 
-Эти возможности позволяют быстро и просто разрабатывать десктопные приложения. Это круто! Если у вас есть идеи о продукте, вы должны использовать Electron всеми способами.
+These features enable rapid and simple desktop application development. It is awesome! If you have any product idea, you should consider using Electron by all means.
 
-## Каковы некоторые вызовы, с которыми вы столкнулись при разработке Jasper?
+## What are some challenges you've faced while developing Jasper?
 
-У меня было трудное время разобраться с концепцией "поток". Сначала я подумал использовать [Notifications API](https://developer.github.com/v3/activity/notifications/). Однако я заметил, что он не поддерживает некоторые варианты использования. После этого я считал использование [Issues API](https://developer.github.com/v3/issues/) и [Pull requests API](https://developer.github.com/v3/pulls/), в дополнение к API уведомлений. Но это никогда не стало то, что я хотел. Затем, думая о различных методах, я понял, что опрос [поискового API GitHub's](https://developer.github.com/v3/search/) предоставит самую гибкую возможность. Прошло около месяца экспериментов, чтобы добраться до этого момента. Затем я реализовал прототип Jasper с концепцией потока в два дня.
+I had a hard time figuring out the "stream" concept. At first I considered using GitHub's [Notifications API][]. However I noticed that it does not support certain use cases. After that I considered using the [Issues API][] and [Pull Requests API][], in addition to the Notification API. But it never became what I wanted. Then while thinking about various methods, I realized that polling GitHub's [Search API][] would offer the most flexibility. It took about a month of experimentation to get to this point, then I implemented a prototype of Jasper with the stream concept in two days.
 
-Примечание: опрос ограничивается один раз в 10 секунд. Это достаточно приемлемо для ограничения GitHub API.
+Note: The polling is limited to once every 10 seconds at most. This is acceptable enough for the restriction of GitHub API.
 
-## Что будет дальше?
+## What's coming next?
 
-У меня есть план разработки следующих функций:
+I have a plan to develop the following features:
 
-- **Фильтрованный поток**: В потоке есть некоторые фильтрованные проблемы фильтра в потоке. Это как представление о SQL.
-- **Несколько аккаунтов**: вы сможете использовать и github.com и GHE
-- **Улучшение производительности**: На данный момент проблема загрузки в WebView является низкой скоростью, чем обычный браузер.
+- **A filtered stream**: A stream has some filtered stream that filter issues in the stream. It is like as view of SQL.
+- **Multiple accounts**: you will be able to use both github.com and GHE
+- **Improve performance**: For now the loading a issue in WebView is low speed than normal browser.
 
-Подпишитесь на [@jasperappio](https://twitter.com/jasperappio) в Twitter для обновлений.
+Follow [@jasperappio](https://twitter.com/jasperappio) on Twitter for updates.
+
+[Jasper]: https://jasperapp.io
+[Notifications API]: https://developer.github.com/v3/activity/notifications/
+[Pull Requests API]: https://developer.github.com/v3/pulls/
+[Issues API]: https://developer.github.com/v3/issues/
+[Search API]: https://developer.github.com/v3/search/
 

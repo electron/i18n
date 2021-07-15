@@ -6,7 +6,7 @@ Prozess: [Renderer](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-Ein Beispiel zum zoomen der aktuellen Page auf 200%.
+An example of zooming current page to 200%.
 
 ```javascript
 const { webFrame } = require('electron')
@@ -16,7 +16,7 @@ webFrame.setZoomFactor(2)
 
 ## Methoden
 
-Die `WebFrame` class hat die folgenden Methoden:
+The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -28,7 +28,7 @@ The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
-Gibt eine `Number` zurück - Der aktuelle Zoom Faktor.
+Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -40,7 +40,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - Das aktuelle Zoom Level.
+Returns `Number` - The current zoom level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -118,7 +118,7 @@ Füge `text` in das fokusierte Element ein.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
@@ -177,7 +177,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Dies generiert:
+This will generate:
 
 ```javascript
 {
@@ -201,7 +201,7 @@ Note that blindly calling this method probably makes Electron slower since it wi
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector für ein frame Element.
+* `selector` String - CSS selector for a frame element.
 
 Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 

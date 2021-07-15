@@ -6,7 +6,7 @@ This feature allows you to configure local and global keyboard shortcuts for you
 
 ## Beispiel
 
-### Lokale Verknüpfungen
+### Local Shortcuts
 
 Local keyboard shortcuts are triggered only when the application is focused. To configure a local keyboard shortcut, you need to specify an [`accelerator`][] property when creating a [MenuItem][] within the [Menu][] module.
 
@@ -36,7 +36,7 @@ After launching the Electron application, you should see the application menu al
 
 If you click `Help` or press the defined accelerator and then open the terminal that you ran your Electron application from, you will see the message that was generated after triggering the `click` event: "Electron rocks!".
 
-### Globale Verknüpfungen
+### Global Shortcuts
 
 To configure a global keyboard shortcut, you need to use the [globalShortcut][] module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -56,7 +56,7 @@ app.whenReady().then(() => {
 
 After launching the Electron application, if you press the defined key combination then open the terminal that you ran your Electron application from, you will see that Electron loves global shortcuts!
 
-### Verknüpfungen innerhalb eines Browserfensters
+### Shortcuts within a BrowserWindow
 
 #### Using web APIs
 
@@ -123,7 +123,7 @@ Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
 // konami code!
-Mousetrap.bind('oben links unten rechts rechts ein enter', () => {
+Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
 ```

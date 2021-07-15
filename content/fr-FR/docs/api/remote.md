@@ -2,7 +2,7 @@
 
 > Utilise les modules du processus main depuis le processus renderer.
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 > ⚠️ ATTENTION ⚠️ Le module `remote` est [obsolète](https://github.com/electron/electron/issues/21408). Au lieu de `remote`, utilisez [`ipcRenderer`](ipc-renderer.md) et [`ipcMain`](ipc-main.md).
 > 
@@ -12,7 +12,7 @@ Processus : [Rendu](../glossary.md#renderer-process)
 
 Le module `remote` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 
-Dans Electron, les modules liés à l'interface graphique (comme `dialog`, `menu` etc.) ne sont disponibles que dans le processus principal et pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI][rmi]de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
+Dans Electron, les modules liés à l'interface graphique (comme `dialog`, `menu` etc.) ne sont disponibles que dans le processus principal et pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `remote`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI][rmi]de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -22,7 +22,7 @@ win.loadURL('https://github.com')
 
 **Remarque :** Pour l'inverse (accédez au processus de rendu depuis le processus principal), vous pouvez utiliser [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
-**Remarque :** Le module distant peut être désactivé pour des raisons de sécurité dans les contextes suivants :
+**Remarque :** Le module remote peut être désactivé pour des raisons de sécurité dans les contextes suivants :
 
 * [`BrowserWindow`](browser-window.md) - en définissant l'option `enableRemoteModule` à `false`.
 * [`<webview>`](webview-tag.md)`</0> - en définissant l'attribut <2>enableremotemodule</2> à <2>false</2>.</li>
@@ -87,11 +87,11 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-Mais n'oubliez pas que la callback est référencée par le processus principal jusqu'à ce que vous la désinstalliez explicitement. Si vous ne le faites pas, chaque fois que vous rechargez votre fenêtre, la fonction de rappel sera réinstallée, fuyant un rappel pour chaque redémarrage.
+Mais n'oubliez pas que le callback est référencé par le processus principal jusqu'à ce que vous le désinstallez explicitement explicitement. Si vous ne le faites pas, chaque fois que vous rechargez votre fenêtre, la fonction de rappel sera réinstallée, fuyant un rappel pour chaque redémarrage.
 
-Pour compliquer la situation, puisque le contexte des callbacks précédemment installées a été libéré, des exceptions seront levées dans le processus principal lorsque l'événement `close` sera émis.
+Pour empirer les choses, puisque le contexte des callbacks précédemment installés a été libéré, les exceptions seront levées dans le processus principal lorsque l'événement `close` est émis.
 
-Pour éviter ce problème, assurez-vous de nettoyer toutes les références aux callbacks du processus de rendu transmises au processus principal. Cela implique de nettoyer les gestionnaires d'événements, ou de s'assurer que l'on a indiqué explicitement au processus principal de déréférencer les callbacks venant d'un processus de rendu se terminant.
+Pour éviter ce problème, assurez-vous de nettoyer toutes les références pour rendre les callbacks passés au processus principal. Cela implique de nettoyer les gestionnaires d'événements, ou en s'assurant que le processus principal est explicitement dit de déréférencer les callbacks qui sont venus d'un processus de rendu qui se termine.
 
 ## Accès aux modules intégrés dans le processus principal
 
@@ -124,7 +124,7 @@ Retourne `any` - La variable globale de `name` (par exemple `global[name]`) dans
 
 ## Propriétés
 
-### `Exiger`
+### `remote.require`
 
 A `NodeJS.Require` function equivalent to `require(module)` in the main process. Les modules spécifiés par leur chemin relatif résoudront par rapport au point d'entrée du processus principal.
 

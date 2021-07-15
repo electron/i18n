@@ -16,9 +16,9 @@ Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap
 
 #### Аппаратное ускорение
 
-Ускоренное отображение GPU означает, что GPU используется для композиции GPU. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Преимущество этого режима заключается в том, что поддерживается анимация WebGL и 3D CSS.
+GPU accelerated rendering means that the GPU is used for composition. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
-#### Устройство вывода
+#### Software output device
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 

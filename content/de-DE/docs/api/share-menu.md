@@ -8,7 +8,7 @@ For including the share menu as a submenu of other menus, please use the `shareM
 
 > Create share menu on macOS.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new ShareMenu(sharingItem)`
 
@@ -16,9 +16,9 @@ Prozess: [Main](../glossary.md#main-process)
 
 Creates a new share menu.
 
-### Instanz Methoden
+### Beispiel Methoden
 
-The `shareMenu` object has the following instance methods:
+Das `shareMenu` Objekt hat die folgenden Instanz Methoden:
 
 #### `shareMenu.popup([options])`
 

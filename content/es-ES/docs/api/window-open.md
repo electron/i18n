@@ -11,13 +11,13 @@ However, when the `sandbox` (or directly, `nativeWindowOpen`) option is set, a `
 
 Electron pairs this native Chrome `Window` with a BrowserWindow under the hood. You can take advantage of all the customization available when creating a BrowserWindow in the main process by using `webContents.setWindowOpenHandler()` for renderer-created windows.
 
-Las opciones del constructor de BrowserWindow son establecidas por, en orden de precedencia creciente: opciones heredadas desde el padre, analizadas desde la cadena `features` de `window.open()`, webPreferences relacionadas a seguridad heredadas desde el padre y opciones dadas por [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
+BrowserWindow constructor options are set by, in increasing precedence order: options inherited from the parent, parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (opcional)
-* `features` String (opcional)
+* `frameName` String (optional)
+* `features` String (optional)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
@@ -33,9 +33,9 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 
 **Notas:**
 
-* La integración de nodo siempre estará deshabilitada en la `window` abierta si está deshabilitada en la ventana principal.
-* El aislamiento de contexto siempre estará habilitado en la `window` abierta si está habilitado en la ventana principal.
-* JavaScript siempre estará deshabilitado en la `window` abierta si está deshabilitado en la ventana principal.
+* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
+* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
+* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `additionalFeatures` argument.
 
 To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `false` cancels the window, while returning an object sets the `BrowserWindowConstructorOptions` used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.

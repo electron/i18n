@@ -4,12 +4,12 @@
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-В Linux также есть буфер обмена `selection`. Для работы с ним необходимо передать `selection` каждому методу:
+В Linux также есть `selection` буфер обмена. Для работы с ним необходимо передать `selection` каждому методу:
 
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Пример строки', 'selection')
+clipboard.writeText('Пример строки', 'selection)
 console.log(clipboard.readText('selection'))
 ```
 
@@ -21,9 +21,9 @@ console.log(clipboard.readText('selection'))
 
 ### `clipboard.readText([type])`
 
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
-Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
+Возвращает `String` — содержимое буфера обмена в виде обычного текста.
 
 ```js
 const { clipboard } = require('electron')
@@ -38,9 +38,9 @@ console.log(text)
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
-Записывает `text` в буфер обмена как обычный текст.
+Записывает `text` в буфер обмена, как обычный текст.
 
 ```js
 const { clipboard } = require('electron')
@@ -51,9 +51,9 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
-Возвращает `String` - содержимое в буфере обмена в виде разметки.
+Возвращает `String` - содержимое буфера обмена в виде разметки.
 
 ```js
 const { clipboard } = require('electron')
@@ -68,7 +68,7 @@ console.log(html)
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Записывает `markup` в буфер обмена.
 
@@ -80,20 +80,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
-Возвращает [`NativeImage`](native-image.md) - Содержимое изображения в буфере обмена.
+Возвращает [`NativeImage`](native-image.md) - содержимое изображения в буфере обмена.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Записывает `image` в буфер обмена.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Возвращает `String` - содержимое в буфере обмена в виде RTF.
 
@@ -110,7 +110,7 @@ console.log(rtf)
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Записывает `text` в буфер обмена как RTF.
 
@@ -134,7 +134,7 @@ clipboard.writeRTF(rtf)
 
 * `title` String
 * `url` String
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Записывает `title` и `url` в буфер обмена, как закладку.
 
@@ -153,7 +153,7 @@ clipboard.writeBookmark({
 
 Возвращает `String` - текст в панели поиска, который представляет собой информацию о текущем состоянии панели поиска активного приложения.
 
-Этот метод использует синхронный IPC, когда вызывается в процессе рендеринга. The cached value is reread from the find pasteboard whenever the application is activated.
+Этот метод использует синхронный IPC, когда вызывается в процессе рендеринга. Закэшированное значение перечитывается из буфера обмена, всякий раз, когда приложение активировано.
 
 ### `clipboard.writeFindText(text)` _macOS_
 
@@ -163,13 +163,13 @@ clipboard.writeBookmark({
 
 ### `clipboard.clear([type])`
 
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Очищает содержимое буфера обмена.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Возвращает `String[]` - массив поддерживаемых форматов для `type` буфера обмена.
 
@@ -181,10 +181,10 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _Экспериментально_
 
 * `format` String
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Возвращает `Boolean` - поддерживает ли буфер обмена указанный `format`.
 
@@ -196,13 +196,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _Экспериментально_
 
 * `format` String
 
 Возвращает `String` - читает тип `format` из буфера обмена.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _Экспериментально_
 
 * `format` String
 
@@ -220,11 +220,11 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _Экспериментально_
 
 * `format` String
 * `buffer` Buffer
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Записывает `buffer` в буфер обмена, как `format`.
 
@@ -243,7 +243,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `image` [NativeImage](native-image.md) (опционально)
   * `rtf` String (опционально)
   * `bookmark` String (опционально) - заголовок ссылки на `text`.
-* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
+* `type` String (опционально) - Может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только в Linux.
 
 Записывает `data` в буфер обмена.
 

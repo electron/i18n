@@ -1,19 +1,19 @@
-# NotificationAction オブジェクト
+# NotificationAction Object
 
-* `type` String - アクションタイプ。`button` にできる。
-* `text` String (任意) - 指定されたアクションのラベル。
+* `type` String - The type of action, can be `button`.
+* `text` String (optional) - The label for the given action.
 
-## プラットフォーム / 動作サポート
+## Platform / Action Support
 
-| アクションタイプ | サポートプラットフォーム | `text` の用途 | デフォルト `text`                                         | 制限事項                                                                                                                                                   |
-| -------- | ------------ | ---------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `button` | macOS        | ボタンのラベル    | "表示" (または `button` のようなシステムデフォルトでローカライズされた文字列か、空文字列) | 最初のもののみが使用されます。 複数が指定された場合、最初以降は追加のアクション (アクションボタンにマウスオーバーした時に表示されるもの) としてリストされます。 いずれの `hasReply` アクションとも互換性はありません。`hasReply` が `true` のアクションは無視されます。 |
+| Action Type | Platform Support | Usage of `text`                  | Default `text`                                                                              | Limitations                                                                                                                                                                                                                                                               |
+| ----------- | ---------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`    | macOS            | Used as the label for the button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
-### macOS でのボタンサポート
+### Button support on macOS
 
-macOS で追加の通知ボタンを動作させるには、アプリは以下の要件を満たす必要があります。
+In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
-* アプリが署名済みであること
-* アプリの `Info.plist` 内で `NSUserNotificationAlertStyle` が `alert` に設定されていること。
+* App is signed
+* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-上記いずれかの要件が満たされていないと、ボタンは表示されません。
+If either of these requirements are not met the button won't appear.

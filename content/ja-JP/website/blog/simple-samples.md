@@ -1,22 +1,22 @@
 ---
-title: Electron のシンプルなサンプル
+title: Electron Simple Samples
 author: zeke
 date: '2017-01-19'
 ---
 
-先日、サンフランシスコにある女性のためのプログラミングスクール [Hackbright Academy](https://hackbrightacademy.com) の会員のために、 GitHub 本社で Electron ハッカソンを開催しました。 参加者がプロジェクトを開始しやすくするために、 [Kevin Sawicki](https://github.com/kevinsawicki) がいくつかのサンプル Electron アプリケーションを作ってくれました。
+We recently hosted an Electron hackathon at GitHub HQ for members of [Hackbright Academy](https://hackbrightacademy.com), a coding school for women founded in San Francisco. To help attendees get a head start on their projects, our own [Kevin Sawicki](https://github.com/kevinsawicki) created a few sample Electron applications.
 
 ---
 
-あなたが Electron での開発を始めたばかりか、まだ試したことないのであれば、これらのサンプルアプリケーションは良いスタートとなるでしょう。 小さく、読みやすく、丁寧にコメントされたコードがどのように動いているかを説明してくれます。
+If you're new to Electron development or haven't yet tried it out, these sample applications are a great place to start. They are small, easy to read, and the code is heavily commented to explain how everything works.
 
-始めるには、このリポジトリをクローンします:
+To get started, clone this repository:
 
 ```sh
 git clone https://github.com/electron/simple-samples
 ```
 
-いずれかのアプリを起動するには、そのアプリのディレクトリに入り、依存をインストールして開始します:
+To run any of the apps below, change into the app's directory, install dependencies, then start:
 
 ```sh
 cd activity-monitor
@@ -24,38 +24,38 @@ npm install
 npm start
 ```
 
-## アクティビティモニター
+## Activity Monitor
 
-CPU におけるシステム、ユーザ、アイドル状態の時間をドーナツグラフで表示します。
+Shows a doughnut chart of the CPU system, user, and idle activity time.
 
-[![スクリーンショット](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
+[![Screenshot](https://cloud.githubusercontent.com/assets/671378/20894933/3882a328-bacc-11e6-865b-4bc1c5ac7ec7.png)](https://github.com/kevinsawicki/electron-samples/tree/master/activity-monitor)
 
-## ハッシュ
+## Hash
 
-入力されたテキストのハッシュ値をいくつかのアルゴリズムを使って表示します。
+Shows the hash values of entered text using different algorithms.
 
-[![スクリーンショット](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
+[![screenshot](https://cloud.githubusercontent.com/assets/671378/21204178/de96fa12-c20a-11e6-8e94-f5b16e676eee.png)](https://github.com/kevinsawicki/electron-samples/tree/master/hash)
 
 ## ミラー
 
-最大化されたサイズで、鏡を見ているかのようにコンピュータのカメラの映像を再生します。 任意で CSS アニメーションを利用した虹色フィルタ効果を含みます。
+Plays a video of the computer's camera at a maximized size like looking into a mirror. Includes an optional rainbow filter effect that uses CSS animations.
 
-## 価格
+## Prices
 
-Yahoo Finance API を用いて、現在の原油、金、銀の価格を表示します。
+Shows the current price of oil, gold, and silver using the Yahoo Finance API.
 
-[![スクリーンショット](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
+[![screenshot](https://cloud.githubusercontent.com/assets/671378/21198004/6e7a3798-c1f2-11e6-8228-495de90b7797.png)](https://github.com/kevinsawicki/electron-samples/tree/master/prices)
 
 ## URL
 
-コマンドラインで渡された URL をウィンドウに表示します。
+Loads a URL passed on the command line in a window.
 
-## その他の資料
+## Other Resources
 
-Electron の利用を開始するためにこれらのアプリが役立つことを願います。 さらに学習するための便利な資料がこちらです:
+We hope these apps help you get started using Electron. Here are a handful other resources for learning more:
 
-- [electron-quick-start](https://github.com/electron/electron-quick-start): 最小の Electron アプリケーションテンプレート。
-- [Electron API Demos](https://github.com/electron/electron-api-demos): Electron API のコア機能を試すためのインタラクティブアプリ。
-- [electronjs.org/docs/all](https://electronjs.org/docs/all/): すべての Electron ドキュメントが検索しやすい 1 ページに。
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps): Electron メンテナ [Haojian Wu](https://github.com/hokein) によってコンパイルされたサンプルアプリケーションたち。
-- [awesome-electron](https://github.com/sindresorhus/awesome-electron) - 最新で最良の Electron に関するチュートリアル、本、動画などを集めた GitHub リポジトリ。
+- [electron-quick-start](https://github.com/electron/electron-quick-start): A minimal Electron application boilerplate.
+- [Electron API Demos](https://github.com/electron/electron-api-demos): An interactive app that demonstrates the core features of the Electron API
+- [electronjs.org/docs/all](https://electronjs.org/docs/all/): All of the Electron documentation together on a single searchable page.
+- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps): Another collection of sample applications for Electron, compiled by Electron maintainer [Haojian Wu](https://github.com/hokein).
+- [awesome-electron](https://github.com/sindresorhus/awesome-electron) - A GitHub repository that collects the latest and greatest Electron-related tutorials, books, videos, etc.

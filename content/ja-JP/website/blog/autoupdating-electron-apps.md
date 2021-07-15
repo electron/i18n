@@ -1,31 +1,31 @@
 ---
-title: オープンソースアプリの自動更新が簡単に
+title: Easier AutoUpdating for Open-Source Apps
 author: zeke
 date: '2018-05-01'
 ---
 
-本日、無料でオープンソースのホスト型 [更新ウェブサービス][update.electronjs.org] と連携 [npm パッケージ][update-electron-app] をリリースし、オープンソース Electron アプリの自動更新を簡単にできるようにします。 これにより、アプリ開発者がデプロイについて頭を悩ませずに済み、ユーザーへの高品質なエクスペリエンス開発について集中できます。
+Today we're releasing a free, open-source, hosted [updates webservice][update.electronjs.org] and companion [npm package][update-electron-app] to enable easy automatic updates for open-source Electron apps. This is a step toward empowering app developers to think less about deployment and more about developing high-quality experiences for their users.
 
 ---
 
 <figure>
   <a href="https://github.com/electron/update-electron-app" style="display: block; text-align: center;">
-    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="アップデータースクリーンショット">
-    <figcaption>動作中の新しい更新モジュール</figcaption>
+    <img class="screenshot" src="https://user-images.githubusercontent.com/2289/39480716-e9990910-4d1d-11e8-8901-9549c6ff6050.png" alt="Updater Screenshot">
+    <figcaption>The new updater module in action</figcaption>
   </a>
 </figure>
 
-## 簡単に新しく
+## Making life easier
 
-Electron には [autoUpdater][] API があります。これはバックグラウンドで外部エンドポイントからメタデータを取得して、アプリのアップデートを確認し、自動的にインストールします。
+Electron has an [autoUpdater][] API that gives apps the ability to consume metadata from a remote endpoint to check for updates, download them in the background, and install them automatically.
 
-こういった更新の有効化は、多くの Electron アプリ開発者にとってデプロイプロセスでの面倒な手順でした。アプリのバージョン履歴メタデータを提供するためだけに、ウェブサーバーを展開して維持する必要があるからです。
+Enabling these updates has been a cumbersome step in the deployment process for many Electron app developers because it requires a web server to be deployed and maintained just to serve app version history metadata.
 
-本日、アプリ自動更新の新しいドロップインソリューションを発表します。 Electron アプリが公開 GitHub リポジトリにあり、GitHub Releases を使用してビルドを公開している場合、このサービスでアプリの継続更新をユーザーに配布できます。
+Today we are announcing a new drop-in solution for automatic app updates. If your Electron app is in a public GitHub repository and you're using GitHub Releases to publish builds, you can use this service to deliver continuous app updates to your users.
 
-## 新モジュールの使い方
+## Using the new module
 
-最小限の構成にするため、新しい [update.electronjs.org][] ウェブサービスと統合する npm モジュール [update-electron-app][] を作成しました。
+To minimize configuration on your part, we've created [update-electron-app][], an npm module which integrates with the new [update.electronjs.org][] webservice.
 
 モジュールのインストール
 
@@ -33,36 +33,36 @@ Electron には [autoUpdater][] API があります。これはバックグラ�
 npm install update-electron-app
 ```
 
-アプリの [メインプロセス][] 内のどこかで、以下を呼び出します。
+Call it from anywhere in your app's [main process][]:
 
 ```js
 require('update-electron-app')()
 ```
 
-これだけです! このモジュールはアプリの起動時に更新を確認し、その後 10 分ごとにも確認します。 更新があれば、バックグラウンドで自動的にダウンロードされ、更新準備が整うとダイアログが表示されます。
+That's it! The module will check for updates at app startup, then every ten minutes. When an update is found it will download automically in the background, and a dialog will be displayed when the update is ready.
 
-## 既存アプリの移行
+## Migrating existing apps
 
-既に Electron の autoUpdater API を使用しているアプリもこのサービスを使用できます。 移行するには、[`update-electron-app`][update-electron-app]モジュールか、[update.electronjs.org と直接統合][update.electronjs.org] します。
+Apps already using Electron's autoUpdater API can use this service too. To do so, you can [customize the `update-electron-app`][update-electron-app] module or [integrate directly with update.electronjs.org][update.electronjs.org].
 
-## 代替手段
+## Alternatives
 
-[electron-builder][] でアプリをパッケージ化している場合、その組み込みアップデーターを使用できます。 詳細は、[electron.build/auto-update](https://www.electron.build/auto-update) を参照してください。
+If you're using [electron-builder][] to package your app, you can use its built-in updater. For details, see [electron.build/auto-update](https://www.electron.build/auto-update).
 
-アプリが非公開の場合、独自の更新サーバーを実行する必要があります。 これには、Zeit の [Hazel][] や Atlassian の [Nucleus][] など、多くのオープンソースツールがあります。 さらなる情報は [更新サーバーのデプロイ][] チュートリアルを参照してください。
+If your app is private, you may need to run your own update server. There are a number of open-source tools for this, including Zeit's [Hazel][] and Atlassian's [Nucleus][]. See the [Deploying an Update Server][] tutorial for more info.
 
-## 謝辞
+## Thanks
 
-このシンプルでスケーラブルなウェブサービスの設計と構築を支援して頂いた [Julian Gruber][] に感謝します。 オープンソースの [Hazel][] サービスを作った [Zeit][] の方々に感謝します。このサービスからデザインのインスピレーションを得ました。 コードレビューをして下さった [Samuel Attard][] に感謝します。 このサービスのテストを支援してくれた Electron コミュニティに感謝します。
+Thanks to [Julian Gruber][] for helping design and build this simple and scalable web service. Thanks to the folks at [Zeit][] for their open-source [Hazel][] service, from which we drew design inspiration. Thanks to [Samuel Attard][] for the code reviews. Thanks to the Electron community for helping test this service.
 
-🌲 Electron アプリの未来はここに永遠の緑となった!
+🌲 Here's to an evergreen future for Electron apps!
 
 [autoUpdater]: https://electronjs.org/docs/tutorial/updates
 [electron-builder]: https://github.com/electron-userland/electron-builder
 [Hazel]: https://github.com/zeit/hazel
 [Julian Gruber]: http://juliangruber.com/
-[メインプロセス]: https://electronjs.org/docs/glossary#main-process
-[更新サーバーのデプロイ]: https://electronjs.org/docs/tutorial/updates#deploying-an-update-server
+[main process]: https://electronjs.org/docs/glossary#main-process
+[Deploying an Update Server]: https://electronjs.org/docs/tutorial/updates#deploying-an-update-server
 [Nucleus]: https://github.com/atlassian/nucleus
 [Samuel Attard]: https://www.samuelattard.com/
 [update-electron-app]: https://github.com/electron/update-electron-app

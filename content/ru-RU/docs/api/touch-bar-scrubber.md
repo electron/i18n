@@ -14,13 +14,13 @@
     * `highlightedIndex` Integer - The index of the item the user touched.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
-  * `continuous` Boolean (optional) - Defaults to `true`.
+  * `showArrowButtons` Boolean (опиционально) - по умолчанию `false`.
+  * `mode` String (опционально) - Может быть `fixed` или `free`. По-умолчанию `free`.
+  * `continuous` Boolean (опиционально) - по умолчанию `true`.
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarScrubber`:
+Для экземпляров `TouchBarScrubber` доступны следующие свойства:
 
 #### `touchBarScrubber.items`
 
@@ -51,7 +51,7 @@ A `Boolean` representing whether to show the left / right selection arrows in th
 A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Возможные значения:
 
 * `fixed` - Maps to `NSScrubberModeFixed`.
-* `free` - Карты `NSScrubberModeFree`.
+* `free` - Maps to `NSScrubberModeFree`.
 
 #### `touchBarScrubber.continuous`
 

@@ -1,8 +1,8 @@
-# NativeImage
+# nativeImage
 
 > Crea iconos de bandeja, base y aplicación usando archivos PNG o JPG.
 
-Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. Una imagen vacía será usada cuando se pase `null`.
 
@@ -184,7 +184,7 @@ donde `SYSTEM_IMAGE_NAME` debe ser reemplazado con cualquier valor de [this list
 
 > Envuelve nativamente imágenes como la bandeja, el muelle y los íconos de las aplicaciones.
 
-Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Métodos de Instancia
 
@@ -294,13 +294,13 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
 Una propiedad `Boolean` que determina si la imagen es considerada una [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Por favor note que esta propiedad solo tiene efecto en macOS.
+Ten en cuenta que esta propiedad solo tiene un efecto en macOS.
 
 [icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
 

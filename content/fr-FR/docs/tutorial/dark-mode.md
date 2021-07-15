@@ -1,4 +1,4 @@
-# Mode foncé
+# Dark Mode
 
 ## Vue d'ensemble
 
@@ -22,7 +22,7 @@ In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for
 
 If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
-## Exemple
+## Example
 
 This example demonstrates an Electron application that derives its theme colors from the `nativeTheme`. Additionally, it provides theme toggle and reset controls using IPC channels.
 
@@ -155,7 +155,7 @@ The `'dark-mode:system'` IPC channel handler method assigns the string `'system'
 
 Run the example using Electron Fiddle and then click the "Toggle Dark Mode" button; the app should start alternating between a light and dark background color.
 
-![Mode foncé](../images/dark_mode.gif)
+![Dark Mode](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/

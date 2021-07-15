@@ -25,7 +25,7 @@ app.on('window-all-closed', () => {
 
 ### イベント: 'ready'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
@@ -40,7 +40,7 @@ Electron が一度、初期化処理を完了したときに発生します。 m
 
 ### イベント: 'before-quit'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -52,7 +52,7 @@ Electron が一度、初期化処理を完了したときに発生します。 m
 
 ### イベント: 'will-quit'
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -64,7 +64,7 @@ Electron が一度、初期化処理を完了したときに発生します。 m
 
 ### イベント: 'quit'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `exitCode` Integer
@@ -75,7 +75,7 @@ Electron が一度、初期化処理を完了したときに発生します。 m
 
 ### イベント: 'open-file' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `path` String
@@ -88,7 +88,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 ### イベント: 'open-url' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `url` String
@@ -99,7 +99,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 ### イベント: 'activate' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -108,7 +108,7 @@ Windows では、ファイルパスを取得するために (メインプロセ�
 
 ### イベント: 'did-become-active' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -116,7 +116,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'continue-activity' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
@@ -128,7 +128,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'will-continue-activity' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
@@ -137,7 +137,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'continue-activity-error' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
@@ -147,7 +147,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'activity-was-continued' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
@@ -157,17 +157,17 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'update-activity-state' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ][handoff] が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要があれば、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` 辞書を構築して `app.updateCurrentActivity()` を適切に呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
+[ハンドオフ][handoff] が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 
@@ -175,7 +175,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'browser-window-blur'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -184,7 +184,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'browser-window-focus'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -193,7 +193,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'browser-window-created'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -202,7 +202,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'web-contents-created'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -211,7 +211,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 
 ### イベント: 'certificate-error'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -239,14 +239,14 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### イベント: 'select-client-certificate'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
-  * `certificate` [Certificate](structures/certificate.md) (任意)
+  * `certificate` [Certificate](structures/certificate.md) (optional)
 
 クライアント証明書が要求されたときに発生します。
 
@@ -263,7 +263,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### イベント: 'login'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -279,7 +279,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String (任意)
   * `password` String (任意)
 
-`webContents` が Basic 認証を要求すると発生します。
+`webContents` がBasic認証を要求すると発生します。
 
 既定の動作では、全てに認証をキャンセルします。 これを変更するには、`event.preventDefault()` で既定の動作をキャンセルして、資格情報と共に `callback(username, password)` を呼び出すようにしてください。
 
@@ -300,7 +300,7 @@ GPU 情報の更新がある場合に発生します。
 
 ### イベント: 'gpu-process-crashed' _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `killed` Boolean
@@ -311,7 +311,7 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 ### イベント: 'renderer-process-crashed' _Deprecated_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -323,26 +323,26 @@ GPU プロセスがクラッシュしたり、強制終了されたりしたと�
 
 ### イベント: 'render-process-gone'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `details` Object
   * `reason` String - レンダープロセスがなくなった理由。  取りうる値:
-    * `clean-exit` - ゼロの終了コードでプロセスが終了した
-    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
-    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
+    * `clean-exit` - 終了コードが0でプロセスが終了した
+    * `abnormal-exit` - ゼロでない終了コードでプロセスを終了しました。
+    * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
     * `crashed` - プロセスがクラッシュした
     * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows コードの整合性チェックに失敗した
+    * `integrity-failure` - Windows コードの整合性チェックに失敗しました
   * `exitCode` Integer - プロセスの終了コードです。`reason` が `launch-failed` でなければ、`exitCode` はプラットフォーム固有の起動失敗のエラーコードになります。
 
-renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やキルされた場合は正常です。
+renderer processが予期せず消えたときに発生します。  プロセスがクラッシュした場合やまたは殺された場合、これは正常です。
 
 ### イベント: 'child-process-gone'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `details` Object
@@ -355,22 +355,22 @@ renderer processが予期せず消えたときに発生します。  プロセ�
     * `Pepper Plugin Broker`
     * `Unknown`
   * `reason` String - 子プロセスがなくなった理由。 取りうる値:
-    * `clean-exit` - ゼロの終了コードでプロセスが終了した
-    * `abnormal-exit` - 非ゼロの終了コードでプロセスが終了した
-    * `killed` - プロセスが SIGTERM シグナルの送信などの方法でキルされた
+    * `clean-exit` - 終了コードが0でプロセスが終了した
+    * `abnormal-exit` - ゼロでない終了コードでプロセスを終了しました。
+    * `killed` - プロセスへSIGTERMシグナルが送信されたか、その他の方法で殺されました。
     * `crashed` - プロセスがクラッシュした
     * `oom` - プロセスがメモリ不足になった
     * `launch-failed` - プロセスが正常に起動されなかった
-    * `integrity-failure` - Windows コードの整合性チェックに失敗した
+    * `integrity-failure` - Windows コードの整合性チェックに失敗しました
   * `exitCode` Number - プロセスの終了コード (例: posix の場合は waitpid からのステータス、Windowsの場合は GetExitCodeProcess) 。
   * `serviceName` String (任意) - そのプロセスのローカライズされていない名前。
   * `name` String (任意) - そのプロセスの名前。 ユーティリティの例: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`など
 
-子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やキルされた場合は正常です。 レンダラープロセスを含みません。
+子 processが予期せず消えたときに発生します。 プロセスがクラッシュした場合やまたは殺された場合、これは正常です。 レンダラープロセスを含みません。
 
 ### イベント: 'accessibility-support-changed' _macOS_ _Windows_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chromeのユーザ補助機能が有効な場合は `true`、そうでない場合は `false`。
@@ -379,7 +379,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 ### イベント: 'session-created'
 
-戻り値:
+戻り値：
 
 * `session` [Session](session.md)
 
@@ -395,7 +395,7 @@ app.on('session-created', (session) => {
 
 ### イベント: 'second-instance'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
@@ -413,7 +413,7 @@ app.on('session-created', (session) => {
 
 ### イベント: 'desktop-capturer-get-sources'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -422,7 +422,7 @@ app.on('session-created', (session) => {
 
 ### イベント: 'remote-require' _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -432,7 +432,7 @@ app.on('session-created', (session) => {
 
 ### イベント: 'remote-get-global' _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -442,7 +442,7 @@ app.on('session-created', (session) => {
 
 ### イベント: 'remote-get-builtin' _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -452,7 +452,7 @@ app.on('session-created', (session) => {
 
 ### イベント: 'remote-get-current-window' _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -461,7 +461,7 @@ app.on('session-created', (session) => {
 
 ### イベント: 'remote-get-current-web-contents' _非推奨_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -522,11 +522,11 @@ Returns `Promise<void>` - Electron が初期化されるときに実行される
 ### `app.focus([options])`
 
 * `options` Object (任意)
-  * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、レシーバをアクティブにします。
+  * `steal` Boolean _macOS_ - 他のアプリが現在アクティブな場合でも、受信者をアクティブなアプリにします。
 
 Linux では、最初の表示ウィンドウにフォーカスします。 macOS では、アプリケーションがアクティブになります。 Windows では、アプリケーションの最初のウィンドウにフォーカスします。
 
-`steal` オプションはできるだけ慎重に使用してください。
+できるだけ慎重に `steal` オプションを使用してください。
 
 ### `app.hide()` _macOS_
 
@@ -569,7 +569,7 @@ Linux では、最初の表示ウィンドウにフォーカスします。 macO
   * `videos` ユーザのビデオのディレクトリ。
   * `recent` ユーザーの最近のファイルのめのディレクトリ(Windows のみ)。
   * `logs` アプリのログフォルダのディレクトリ。
-  * `crashDumps` クラッシュダンプを格納するディレクトリ。
+  * `crashDumps` クラッシュダンプが格納されているディレクトリ。
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。 失敗した場合、`Error` が送出されます。
 
@@ -831,7 +831,7 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // 誰かが2つ目のインスタンスを実行したとき、このウィンドウにフォーカスする
+    // Someone tried to run a second instance, we should focus our window.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
@@ -894,11 +894,11 @@ if (!gotTheLock) {
 
 アプリのアクティベーションポリシーを設定します。
 
-アクティベーションポリシーの種類は以下のとおりです。
+アクティベーションポリシーの種類:
 
-* 'regular' - Dock に表示される通常のアプリで、ユーザーインターフェースがあったりします。
-* 'accessory' - このアプリケーションはドックに表示されず、メニューバーもありません。プログラムから又はウィンドウをクリックすることでアクティベートできます。
-* 'prohibited' - アプリケーションはドックに表示されず、ウィンドウも作られず、アクティベートできません。
+* 'regular' - アプリケーションはDockに表示される通常のアプリで、ユーザーインターフェイスを持っている可能性があります。
+* 'accessory' - このアプリケーションはドックに表示されませんし、メニューバーも持ちません。プログラムまたはウィンドウの1つをクリックすることでアクティベートできます。
+* 'prohibited' - アプリケーションはドックに表示できないし、ウィンドウを作成できないし、アクティベートできません。
 
 ### `app.importCertificate(options, callback)` _Linux_
 
@@ -1024,7 +1024,7 @@ macOS では Dock アイコンに表示されます。 Linux では Unity ラン
   * `enabled` Boolean (任意) _Windows_ - `true` の場合、スタートアップが承認したレジストリキーを変更し、 `タスクマネージャと Windows 設定で` アプリを有効/無効にします。 省略値は `true` です。
   * `name` String (任意) _Windows_ - レジストリに書きこむ値の名前。 デフォルトはアプリの AppUserModelId() です。 アプリのログイン項目設定を設定します。
 
-Windows 上で Electron の `autoUpdater` を [Squirrel][Squirrel-Windows] を使って動かす場合、起動パスを Update.exe に設定し、渡す引数にアプリケーション名を指定してください。 例:
+Windows 上で Electron の `autoUpdater` を [Squirrel][Squirrel-Windows] を使って動かす場合、起動パスを Update.exe に設定し、渡す引数にアプリケーション名を指定してください。 以下がその例です。
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1066,7 +1066,7 @@ app.setLoginItemSettings({
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
   * `version` String (任意) _macOS_ - アプリのビルドバージョン番号。
-  * `credits` String (任意) _macOS_ _Windows_ - クレジット情報。
+  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
   * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (任意) _Linux_ _Windows_ - JPEGまたはPNGフォーッマットの、アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
@@ -1087,7 +1087,7 @@ Aboutパネルのオプションを設定します。 macOS の場合、これ�
 
 * `bookmarkData` String - `dialog.showOpenDialog` または `dialog.showSaveDialog` メソッドによって返された、base64 でエンコードされたセキュリティスコープのブックマークデータ。
 
-戻り値 `Function` - セキュリティスコープ付きファイルへのアクセスが終了すると、この関数を呼び出す**必要が**あります。 ブックマークへのアクセスを忘れた場合は、[カーネルリソースがリークします](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)。アプリが再起動されるまで、サンドボックスの外部にアクセスする権限は失われます。
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. ブックマークへのアクセスを忘れた場合は、[カーネルリソースがリークします](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)。アプリが再起動されるまで、サンドボックスの外部にアクセスする権限は失われます。
 
 ```js
 // ファイルアクセス開始
@@ -1120,11 +1120,11 @@ stopAccessingSecurityScopedResource()
 
 デフォルトでは確認ダイアログは表示されません。 ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) API で実現できます。
 
-**注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
-既定では、移動するアプリと同じ名前のアプリがアプリケーションディレクトリに存在し _実行されていない_ 場合、既存のアプリはゴミ箱に移動され、新たなアプリがその場所に移動します。 _実行されている_ 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。  つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. _実行されている_ 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。  つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
 
-例:
+以下がその例です。
 
 ```js
 app.moveToApplicationsFolder({
@@ -1191,7 +1191,7 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 [`CommandLine`](./command-line.md) オブジェクトです。Chromium が使用するコマンドライン引数の読み取りと操作ができます。
 
-### `app.dock` _macOS_ _読み出し専用_
+### `app.dock` _macOS_ _Readonly_
 
 [`Dock`](./dock.md) `| undefined` 型のオブジェクトです。macOS のユーザーの Dock 内のアプリアイコンにおけるアクションを実行できます。
 

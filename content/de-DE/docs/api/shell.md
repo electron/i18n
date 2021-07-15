@@ -1,4 +1,4 @@
-# Shell
+# shell
 
 > Verwalten von Dateien und URLs durch ihre Standardprogramme.
 
@@ -18,11 +18,11 @@ shell.openExternal('https://github.com')
 
 ## Methoden
 
-Das `shell` Modul hat folgende Methoden:
+Das Modul `shell` verfügt über die folgenden Methoden:
 
 ### `shell.showItemInFolder(fullPath)`
 
-* `fullPath` String
+* `fullPath` Zeichenkette
 
 Show the given file in a file manager. If possible, select the file.
 
@@ -41,7 +41,7 @@ Open the given file in the desktop's default manner.
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. The default is `true`.
   * `workingDirectory` String (optional) _Windows_ - The working directory.
 
-Returns `Promise<void>`
+Gibt das `Promise<void>` zurück
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
@@ -59,7 +59,7 @@ Play the beep sound.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` _Windows_
 
-* `shortcutPath` String
+* `shortcutPath` Zeichenkette
 * `operation` String (optional) - Default is `create`, can be one of following:
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
@@ -72,7 +72,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` _Windows_
 
-* `shortcutPath` String
+* `shortcutPath` Zeichenkette
 
 Returns [`ShortcutDetails`](structures/shortcut-details.md)
 

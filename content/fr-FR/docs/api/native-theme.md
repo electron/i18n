@@ -1,4 +1,4 @@
-# nativeTheme (nativeTheme)
+# nativeTheme
 
 > Consulte et réagit aux changements du thème de couleur natif de Chromium.
 
@@ -22,7 +22,7 @@ A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is bei
 
 ### `nativeTheme.themeSource`
 
-A `String` property that can be `system`, `light` or `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.
+Une propriété `String` qui peut être `system`, `light` ou `dark`.  It is used to override and supersede the value that Chromium has chosen to use internally.
 
 Setting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.
 

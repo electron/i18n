@@ -1,11 +1,11 @@
-# MouseWheelInputEvent オブジェクト extends `MouseInputEvent`
+# MouseWheelInputEvent Object extends `MouseInputEvent`
 
-* `type` String - イベントのタイプ。`mouseWheel` になります。
-* `deltaX` Integer (任意)
-* `deltaY` Integer (任意)
-* `wheelTicksX` Integer (任意)
-* `wheelTicksY` Integer (任意)
-* `accelerationRatioX` Integer (任意)
-* `accelerationRatioY` Integer (任意)
-* `hasPreciseScrollingDeltas` Boolean (任意)
-* `canScroll` Boolean (任意)
+* `type` String - The type of the event, can be `mouseWheel`.
+* `deltaX` Integer (optional)
+* `deltaY` Integer (optional)
+* `wheelTicksX` Integer (optional)
+* `wheelTicksY` Integer (optional)
+* `accelerationRatioX` Integer (optional)
+* `accelerationRatioY` Integer (optional)
+* `hasPreciseScrollingDeltas` Boolean (optional)
+* `canScroll` Boolean (optional)

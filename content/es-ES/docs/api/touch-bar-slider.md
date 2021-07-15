@@ -2,7 +2,7 @@
 
 > Crea un control deslizante en la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new TouchBarSlider(options)`
 
@@ -14,7 +14,7 @@ Proceso: [Main](../glossary.md#main-process)
   * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Number - El valor que el usuario seleccionó en el control deslizante.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Las siguientes propiedades está disponibles en instancias de `TouchBarSlider`:
 

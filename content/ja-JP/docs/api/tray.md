@@ -31,7 +31,7 @@ __プラットフォームによる制限:__
 * アプリインジゲータのみがある Linux ディストリビューションでは、tray アイコンを動かすために `libappindicator1` をインストールする必要があります。
 * アプリインジゲータはコンテキストメニューがあるときのみ表示されます。
 * Linux でアプリインジゲータが使用されるとき、`click` イベントは無視されます。
-* Linux では、個々の `MenuItem` に加えられた変更を有効にするには、`setContextMenu` を再び呼ぶ必要があります。 例:
+* Linux では、個々の `MenuItem` に加えられた変更を有効にするには、`setContextMenu` を再び呼ぶ必要があります。 以下がその例です。
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -69,7 +69,7 @@ app.whenReady().then(() => {
 
 #### イベント: 'click'
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
@@ -77,9 +77,9 @@ app.whenReady().then(() => {
 
 tray アイコンがクリックされたときに発行されます。
 
-#### イベント: 'right-click' _macOS_ _Windows_
+#### Event: 'right-click' _macOS_ _Windows_
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
@@ -88,7 +88,7 @@ tray アイコンが右クリックされたときに発行されます。
 
 #### イベント: 'double-click' _macOS_ _Windows_
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
@@ -113,7 +113,7 @@ tray アイコン上に何かのドラッグされたアイテムがドロップ
 
 #### イベント: 'drop-files' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `files` String[] - ドロップされたファイルのパス。
@@ -122,7 +122,7 @@ tray アイコン上にドラッグされたファイルがドロップされた
 
 #### イベント: 'drop-text' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `text` String - ドロップされたテキスト文字列。
@@ -143,7 +143,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 #### イベント: 'mouse-up' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
@@ -154,7 +154,7 @@ tray アイコンをクリックしてマウスを離したときに発生しま
 
 #### イベント: 'mouse-down' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
@@ -163,7 +163,7 @@ tray アイコンをマウスクリックしたときに発生します。
 
 #### イベント: 'mouse-enter' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
@@ -172,7 +172,7 @@ tray アイコンをマウスクリックしたときに発生します。
 
 #### イベント: 'mouse-leave' _macOS_
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
@@ -181,7 +181,7 @@ tray アイコンをマウスクリックしたときに発生します。
 
 #### イベント: 'mouse-move' _macOS_ _Windows_
 
-戻り値:
+戻り値：
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
@@ -246,8 +246,8 @@ macOS において、この tray アイコンが押されたときの関連付�
   * `title` String
   * `content` String
   * `largeIcon` Boolean (任意) - 大きなバージョンのアイコン。できればこちらを使用します。 省略値は `true` です。 [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON] に対応します。
-  * `noSound` Boolean (任意) - 関連付けられたサウンドを再生しないようにします。 省略値は、`false` です。 [`NIIF_NOSOUND`][NIIF_NOSOUND] に対応します。
-  * `respectQuietTime` Boolean (任意) - ユーザが現在 "おやすみモード" の場合、バルーン通知を表示しないようにします。 省略値は、`false` です。 [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME] に対応します。
+  * `noSound` Boolean (任意) - 関連付けられたサウンドを再生しないようにします。 省略値は `false` です。 [`NIIF_NOSOUND`][NIIF_NOSOUND] に対応します。
+  * `respectQuietTime` Boolean (任意) - ユーザが現在 "おやすみモード" の場合、バルーン通知を表示しないようにします。 省略値は `false` です。 [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME] に対応します。
 
 tray のバルーンを表示します。
 

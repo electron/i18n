@@ -2,7 +2,7 @@
 
 > Muestra diálogos nativos del sistema para abrir y guardar archivos, alertas, etc.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Un ejemplo de mostrar un dialogo para seleccionar múltiples archivos:
 
@@ -17,7 +17,7 @@ El módulo `dialogo` tiene los siguientes métodos:
 
 ### `dialog.showOpenDialogSync([browserWindow, ]options)`
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `options` Object
   * `título` cadena (opcional)
   * `defaultPath` Cadena (optional)
@@ -65,7 +65,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 ### `dialog.showOpenDialog([browserWindow, ]options)`
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `options` Object
   * `título` cadena (opcional)
   * `defaultPath` Cadena (optional)
@@ -122,7 +122,7 @@ dialog.showOpenDialog(mainWindow, {
 
 ### `dialog.showSaveDialogSync([browserWindow, ]options)`
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `options` Object
   * `title` Cadena (opcional) - Título del diálogo. No puede mostrarse en algunos entornos de escritorio de _Linux_.
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
@@ -147,7 +147,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `options` Object
   * `title` Cadena (opcional) - Título del diálogo. No puede mostrarse en algunos entornos de escritorio de _Linux_.
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
@@ -178,7 +178,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `options` Object
   * `message` Cadena - Contenido de la caja de mensaje.
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
@@ -201,7 +201,7 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `options` Object
   * `message` Cadena - Contenido de la caja de mensaje.
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
@@ -236,7 +236,7 @@ Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `a
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` _macOS_ _Windows_
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `options` Object
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` Cadena - El mensaje a mostrar al usuario.

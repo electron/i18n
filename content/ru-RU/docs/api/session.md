@@ -64,7 +64,7 @@ console.log(ses.getUserAgent())
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -86,7 +86,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. This includes:
@@ -100,7 +100,7 @@ Emitted after an extension is loaded. This occurs whenever an extension is added
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
@@ -109,7 +109,7 @@ Emitted after an extension is unloaded. This occurs when `Session.removeExtensio
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `extension` [Extension](structures/extension.md)
 
 Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
@@ -118,7 +118,7 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `preconnectUrl` String - URL-адрес, запрашиваемый рендерером для предварительного подключения.
 * `allowCredentials` Boolean - True если рендерер запрашивает, чтобы соединение включало учетные данные (см. [spec](https://w3c.github.io/resource-hints/#preconnect) для получения более подробной информации.)
 
@@ -128,7 +128,7 @@ Emitted after an extension is loaded and all necessary browser state is initiali
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
@@ -137,7 +137,7 @@ Emitted when a hunspell dictionary file has been successfully initialized. This 
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file starts downloading
@@ -146,7 +146,7 @@ Emitted when a hunspell dictionary file starts downloading
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file has been successfully downloaded
@@ -155,7 +155,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `languageCode` String - The language code of the dictionary file
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
@@ -164,11 +164,11 @@ Emitted when a hunspell dictionary file download fails.  For details on the fail
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `portList` [SerialPort[]](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 * `callback` Function
-  * Строка `portId`
+  * `portId` String
 
 Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
 
@@ -206,7 +206,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -216,7 +216,7 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
@@ -251,7 +251,7 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 
 #### `ses.setProxy(config)`
 
-* Объект `config`
+* `config` Object
   * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
     * `direct` In direct mode all connections are created directly, without any proxy involved.
     * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
@@ -296,7 +296,7 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 
    Сопоставьте все имена хостов, которые соответствуют шаблону HOSTNAME_PATTERN.
 
-   Например:    "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
 * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -519,9 +519,9 @@ Returns `String` - The user agent for this session.
 
 #### `ses.setSSLConfig(config)`
 
-* Объект `config`
-  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Значение по умолчанию: `tls1`.
-  * `maxVersion` String (опционально) - Может быть `tls1.2` или `tls1.3`. The maximum SSL version to allow when connecting to remote servers. По умолчанию - `tls1.3`.
+* `config` Object
+  * `minVersion` String (опционально) - Может быть `tls1`, `tls1.1`, `tls1.2` или `tls1.3`. The minimum SSL version to allow when connecting to remote servers. Значение по умолчанию: `tls1`.
+  * `maxVersion` String (опционально) - Может быть `tls1.2` или `tls1.3`. The maximum SSL version to allow when connecting to remote servers. Defaults to `tls1.3`.
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
 Sets the SSL configuration for the session. All subsequent network requests will use the new configuration. Existing network connections (such as WebSocket connections) will not be terminated, but old sockets in the pool will not be reused for new connections.
@@ -685,9 +685,9 @@ A `String | null` indicating the absolute file system path where data for this s
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `Session`:
+Для экземпляров `Session` доступны следующие свойства:
 
-#### `ses.availableSpellCheckerLanguages` _Readonly_
+#### `ses.availableSpellCheckerLanguages` _Только чтение_
 
 A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
@@ -695,23 +695,23 @@ A `String[]` array which consists of all the known available spell checker langu
 
 A `Boolean` indicating whether builtin spell checker is enabled.
 
-#### `ses.storagePath` _Readonly_
+#### `ses.storagePath` _Только чтение_
 
 A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
 
-#### `ses.cookies` _Readonly_
+#### `ses.cookies` _Только чтение_
 
 A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.serviceWorkers` _Readonly_
+#### `ses.serviceWorkers` _Только чтение_
 
 A [`ServiceWorkers`](service-workers.md) object for this session.
 
-#### `ses.webRequest` _Readonly_
+#### `ses.webRequest` _Только чтение_
 
 A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol` _Readonly_
+#### `ses.protocol` _Только чтение_
 
 A [`Protocol`](protocol.md) object for this session.
 
@@ -730,7 +730,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### `ses.netLog` _Readonly_
+#### `ses.netLog` _Только чтение_
 
 A [`NetLog`](net-log.md) object for this session.
 

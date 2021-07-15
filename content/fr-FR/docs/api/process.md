@@ -46,7 +46,7 @@ Dans les moteurs de rendu en bac à sable, l'objet `process` ne contient qu'un s
 
 ### `process.defaultApp` _Readonly_
 
-Un `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.isMainFrame` _Readonly_
 
@@ -54,7 +54,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas` _Readonly_
 
-Un `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
@@ -70,7 +70,7 @@ Une `String` représentant le chemin vers le répertoire des ressources.
 
 ### `process.sandboxed` _Readonly_
 
-Un `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.contextIsolated` _Lecture seule_
 
@@ -106,7 +106,7 @@ Un `String` représentant la version d'Electron.
 
 ### `process.windowsStore` _Readonly_
 
-Un `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ### `process.contextId` _Lecture seule_
 

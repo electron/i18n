@@ -6,7 +6,7 @@ Eine `Browseransicht` kann verwendet werden, um zusätzliche Webinhalte in ein [
 
 > Erstelle und kontrolliere Ansichten.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 ### Beispiel
 
@@ -35,19 +35,19 @@ Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Eigenschaften
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Instanzmethoden:
 
-#### `view.setAutoResize(options)` _Experimentell_
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object
+* `options` Objekt
   * `width` Boolean (optional) - Wenn `true`, wächst und schrumpft die Breite der Ansicht zusammen mit dem übergeordneten Fenster. Automatisch `false`.
   * `height` Boolean (optional) - Wenn `true`, wächst und schrumpft die Höhe der Ansicht zusammen mit dem übergeordneten Fenster. Automatisch `false`.
   * `horizontal` Boolean (optional) - Wenn `true`, ändert sich sowohl die X-Position als auch die Breite der Ansicht zusammen mit dem übergeordneten Fenster. Automatisch `false`.
   * `vertical` Boolean (optional) - Wenn `true`, ändert sich sowohl die Y-Position als auch die Höhe der Ansicht zusammen mit dem übergeordneten Fenster. Automatisch `false`.
 
-#### `view.setBounds(bounds)` _Experimentell_
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md) Die Grenzen der Ansicht als Rechteck
 
@@ -59,6 +59,6 @@ Gibt [`Rectangle`](structures/rectangle.md) zurück
 
 Die `bounds` dieser BrowserView-Instanz als `Object`.
 
-#### `view.setBackgroundColor(color)` _Experimentell_
+#### `view.setBackgroundColor(color)` _Experimental_
 
 * `color` String - Farbe in `#aarrggbb` oder `#argb` Form. Der Alpha-Kanal ist optional.

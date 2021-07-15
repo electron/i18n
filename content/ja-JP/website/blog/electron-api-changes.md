@@ -1,56 +1,56 @@
 ---
-title: Electron 1.0 における API の変更点
+title: API Changes Coming in Electron 1.0
 author: zcbenz
 date: '2015-11-17'
 ---
 
-Electron が始まって以来、以前の Atom-Shell と呼ばれていた頃から、Chromium のコンテンツモジュールとネイティブ GUI コンポーネント向けに、クロスプラットフォームの JavaScript API を提供する実験を行ってきました。 この API の始まりは非常に原始的で、時間をかけて初期設計を改善するためにいくつかの変更を加えてきました。
+Since the beginning of Electron, starting way back when it used to be called Atom-Shell, we have been experimenting with providing a nice cross-platform JavaScript API for Chromium's content module and native GUI components. The APIs started very organically, and over time we have made several changes to improve the initial designs.
 
 ---
 
-Electron は 1.0 リリースに向けて準備を進めていますが、この機会を利用して、最後の問題となっていた API の詳細を記述したいと考えています。 以下で述べる変更点は **0.35.x** のものです。古い API の利用に対する非推奨の警告を発するので、将来の 1.0 リリースに備えてアップデートしてもよいでしょう。 Electron 1.0 は数ヶ月先になりますので、これらの変更が破壊的になるまでの猶予があります。
+Now with Electron gearing up for a 1.0 release, we'd like to take the opportunity for change by addressing the last niggling API details. The changes described below are included in **0.35.x**, with the old APIs reporting deprecation warnings so you can get up to date for the future 1.0 release. An Electron 1.0 won't be out for a few months so you have some time before these changes become breaking.
 
-## 非推奨の警告
+## Deprecation warnings
 
-デフォルトでは、非推奨 API を使用している場合に警告が表示されます。 これを無効にするには、`process.noDeprecation` を `true` にします。 非推奨の API 利用のソースをトラッキングするには、警告を表示する代わりに例外を投げるように `process.throwDeprecation` を `true` に設定したり、非推奨のトレースを表示するように `process.traceDeprecation` を `true` に設定したりすることができます。
+By default, warnings will show if you are using deprecated APIs. To turn them off you can set `process.noDeprecation` to `true`. To track the sources of deprecated API usages, you can set `process.throwDeprecation` to `true` to throw exceptions instead of printing warnings, or set `process.traceDeprecation` to `true` to print the traces of the deprecations.
 
-## 組み込みモジュールの新しい利用方法
+## New way of using built-in modules
 
-組み込みモジュールは、独立したモジュールに分離されるのではなく 1 つのモジュールにまとめられるようになったので、[他のモジュールと競合することなく][issue-387] 使用できます。
+Built-in modules are now grouped into one module, instead of being separated into independent modules, so you can use them [without conflicts with other modules][issue-387]:
 
 ```javascript
 var app = require('electron').app
 var BrowserWindow = require('electron').BrowserWindow
 ```
 
-従来の `require('app')` の方法は後方互換性のためにまだサポートされますが、以下のようにして無効化もできます。
+The old way of `require('app')` is still supported for backward compatibility, but you can also turn if off:
 
 ```javascript
 require('electron').hideInternalModules()
-require('app')  // エラーを送出します。
+require('app')  // throws error.
 ```
 
-## `remote` モジュールの利用がより簡単に
+## An easier way to use the `remote` module
 
-組み込みモジュールの使い方が変わったので、レンダラープロセスでメインプロセス側のモジュールを使いやすくしました。 以下のように、`remote` の属性にアクセスするだけで利用できるようになります。
+Because of the way using built-in modules has changed, we have made it easier to use main-process-side modules in renderer process. You can now just access `remote`'s attributes to use them:
 
 ```javascript
-// 新しい方法です。
+// New way.
 var app = require('electron').remote.app
 var BrowserWindow = require('electron').remote.BrowserWindow
 ```
 
-以下のような長い require チェーンはもう不要です。
+Instead of using a long require chain:
 
 ```javascript
-// 古い方法です。
+// Old way.
 var app = require('electron').remote.require('app')
 var BrowserWindow = require('electron').remote.require('BrowserWindow')
 ```
 
-## `ipc` モジュールの分割
+## Splitting the `ipc` module
 
-`ipc` モジュールはメインプロセスとレンダラープロセスの両方に存在し、それぞれの側での API が異なっていたため、新規ユーザーは非常に混乱していました。 混乱を避けるため、メインプロセスの `ipcMain` とレンダラープロセスの `ipcRenderer` にモジュール名を変更しました。
+The `ipc` module existed on both the main process and renderer process and the API was different on each side, which is quite confusing for new users. We have renamed the module to `ipcMain` in the main process, and `ipcRenderer` in the renderer process to avoid confusion:
 
 ```javascript
 // メインプロセス
@@ -58,11 +58,11 @@ var ipcMain = require('electron').ipcMain
 ```
 
 ```javascript
-// レンダラープロセス
+// In renderer process.
 var ipcRenderer = require('electron').ipcRenderer
 ```
 
-また、`ipcRenderer` モジュールでメッセージを受け取る際に `event` オブジェクトが追加されました。これは `ipcMain` モジュールでメッセージがどのように処理されるかを併せています。
+And for the `ipcRenderer` module, an extra `event` object has been added when receiving messages, to match how messages are handled in `ipcMain` modules:
 
 ```javascript
 ipcRenderer.on('message', function (event) {
@@ -70,30 +70,30 @@ ipcRenderer.on('message', function (event) {
 })
 ```
 
-## `BrowserWindow` オプションの標準化
+## Standardizing `BrowserWindow` options
 
-`BrowserWindow` のオプションは、他 API のオプションとスタイルが異なっていたり、名前に `-` が入っていたりしていたため、JavaScript では少し扱いづらかったようです。 これらは、従来の JavaScript の名前に標準化されました。
+The `BrowserWindow` options had different styles based on the options of other APIs, and were a bit hard to use in JavaScript because of the `-` in the names. They are now standardized to the traditional JavaScript names:
 
 ```javascript
 new BrowserWindow({ minWidth: 800, minHeight: 600 })
 ```
 
-## DOM の API 名の規約に準拠
+## Following DOM's conventions for API names
 
-Electron の API 名は、以前は `URL`ではなく `Url` のように、すべての API 名で camelCase を使用していましたが、DOM には独自の規約があり、`ID` ではなく `Id` を使いつつも、`Url` ではなく `URL` を使用しています。 DOM のスタイルに合わせて、以下の API の名称変更を行いました。
+The API names in Electron used to prefer camelCase for all API names, like `Url` to `URL`, but the DOM has its own conventions, and they prefer `URL` to `Url`, while using `Id` instead of `ID`. We have done the following API renames to match the DOM's styles:
 
-* `Url` を `URL` に名称変更しました。
-* `Csp` を `CSP` に名称変更しました。
+* `Url` is renamed to `URL`
+* `Csp` is renamed to `CSP`
 
-これらの変更によって、アプリで Electron v0.35.0 を使用していると非推奨の通知が多く出てくると思われます。 これは簡単な方法で修正できます。すべての `Url` の記述を `URL` に置換するだけです。
+You will notice lots of deprecations when using Electron v0.35.0 for your app because of these changes. An easy way to fix them is to replace all instances of `Url` with `URL`.
 
-## `Tray` のイベント名の変更
+## Changes to `Tray`'s event names
 
-`Tray` のイベント名のスタイルが他のモジュールと少し異なっていたため、他のモジュールと一致するように名前を変更しました。
+The style of `Tray` event names was a bit different from other modules so a rename has been done to make it match the others.
 
-* `clicked` を `click` に名称変更しました。
-* `double-clicked` を `double-click` に名称変更しました。
-* `right-clicked` を `right-click` に名称変更しました。
+* `clicked` is renamed to `click`
+* `double-clicked` is renamed to `double-click`
+* `right-clicked` is renamed to `right-click`
 
 [issue-387]: https://github.com/electron/electron/issues/387
 

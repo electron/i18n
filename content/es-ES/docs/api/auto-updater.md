@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 **Puedes Ver: [Una guía detallada sobre cómo implementar las actualizaciones en su aplicación](../tutorial/updates.md).**
 
@@ -22,13 +22,13 @@ En macOS, el módulo `autoUpdater` está construido sobre [Squirrel.Mac][squirre
 
 ### Windows
 
-En Windows, tienes que instalar tu app en el equipo de un usuario antes de que puedas usar el `autoUpdater`, por lo que se recomienda que uses el [Electron-winstaller][installer-lib], [Electron-Forge][electron-forge-lib] o el paquete [Grunt-Electron-Installer][installer] para generar un instalador de Windows.
+On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller][installer-lib], [electron-forge][electron-forge-lib] or the [grunt-electron-installer][installer] package to generate a Windows installer.
 
-Cuando uses [Electron-winstaller][installer-lib] o [Electron-Forge][electron-forge-lib] asegúrate de no tratar de actualizar tu App [la primera vez que se ejecuta](https://github.com/electron/windows-installer#handling-squirrel-events) (también puedes ver [este problema para obtener más información](https://github.com/electron/electron/issues/7155)). Se recomienda usar [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) para obtener acceso directo en el escritorio para su aplicación.
+When using [electron-winstaller][installer-lib] or [electron-forge][electron-forge-lib] make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). Se recomienda usar [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) para obtener acceso directo en el escritorio para su aplicación.
 
-El instalador generado con Squirrel creará un icono de acceso directo con un [ID del modelo de usuario de aplicación][app-user-model-id] en el formato de `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, los ejemplos son `com.squirrel.slack.Slack` y `com.squirrel.code.Code`. Tu debes usar el mismo ID de tu aplicación con `app.setAppUserModelId` API, de lo contrario Windows no podría ejecutarlo correctamente en la barra de tareas.
+The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. Tu debes usar el mismo ID de tu aplicación con `app.setAppUserModelId` API, de lo contrario Windows no podría ejecutarlo correctamente en la barra de tareas.
 
-A diferencia de Squirrel, Mac OS, Windows puede recibir actualizaciones sobre S3 o cualquier otro lhst de archivos estático, Puedes leer los documentos de [Squirrel. Windows][squirrel-windows] para obtener más detalles acerca de cómo funciona Squirrel. Windows.
+A diferencia de Squirrel, Mac OS, Windows puede recibir actualizaciones sobre S3 o cualquier otro lhst de archivos estático, You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
 
 ## Eventos
 
@@ -58,7 +58,7 @@ Aparece cuando no hay una actualización disponible.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -85,7 +85,7 @@ El objeto `autoUpdater` tiene los siguientes métodos:
 * `options` Object
   * `url` String
   * `headers` Record<String, String> (opcional) _macOS_ - Cabeceras de peticiones HTTP.
-  * `serverType` cadena (opcional) _macOS_ -se puede `json` o `default`, consulta el [Squirrel. Mac][squirrel-mac] README para obtener más información.
+  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
 
 Configura el `url` e inicializa la actualización automática.
 
@@ -103,9 +103,7 @@ Reinicia la aplicación e instala la actualización después que esta ha sido de
 
 Llamar a `autoUpdater.quitAndInstall()` bajo la capucha cerrará todas las ventanas de la aplicación, y llamará automáticamente a `app.quit()` después de que se hayan cerrado todas las ventanas.
 
-**Note:** No es estrictamente necesario llamar esta función para aplicar una actualización, como una actualización fue descargada con éxito siempre será actualizada la próxima vez que la aplicación inicie.
-
-[squirrel-mac]: https://github.com/Squirrel/Squirrel.Mac
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
 
 [squirrel-mac]: https://github.com/Squirrel/Squirrel.Mac
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support

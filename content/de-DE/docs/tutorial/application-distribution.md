@@ -2,7 +2,7 @@
 
 ## Übersicht
 
-Um Ihre App mit Electron zu verteilen, müssen Sie sie paketieren und neu markieren. To do this, you can either use specialized tooling or manual approaches.
+To distribute your app with Electron, you need to package and rebrand it. To do this, you can either use specialized tooling or manual approaches.
 
 ## With tooling
 

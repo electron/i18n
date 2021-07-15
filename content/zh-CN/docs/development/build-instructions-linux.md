@@ -2,7 +2,7 @@
 
 按照下面的指南在Linux下构建 **Electron 本身**，以此创建自定义 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
-## 前提条件
+## 基本要求
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.

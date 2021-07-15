@@ -2,7 +2,7 @@
 
 > Una mirada detallada en la política e implementación de las versiones.
 
-A partir de la versión 2.0.0, Electron sigue [SemVer](#semver). El siguiente comando instalará la versión estable más reciente de Electron:
+A partir de la versión 2.0.0, Electron sigue [SemVer](#semver). The following command will install the most recent stable build of Electron:
 
 ```sh
 npm install --save-dev electron
@@ -26,7 +26,7 @@ Una aplicación desarrollada con `1.8.1` no puede tener la solución de errores 
 
 ## Versión 2.0 y superiores
 
-Hay varios cambios importantes en nuestra estrategia 1.x descrito a continuación. Cada cambio está destinado a satisfacer las necesidades y prioridades de desarrolladores/mantenedores y desarrolladores de aplicaciones.
+There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
 
 1. Uso estricto de SemVer
 2. Introducción de las etiquetas de semver-compliant `-beta`
@@ -48,11 +48,11 @@ A continuación una tabla que mapea explícitamente los tipos de cambios con sus
 | Actualizaciones en la version major de Node.js | Actualizaciones en la version minor de Node.js | Actualizaciones en la version patch de Node.js               |
 | Actualización de versiones de Chromium         |                                                | parches de chromium relacionados con soluciones de problemas |
 
-Tenga en cuenta que la mayoría de las actualizaciones de Chromium se considerarán rupturas. Las correcciones que pueden ser portadas en backported probablemente serán seleccionadas como parches.
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Ramas de estabilización
 
-Las ramas de estabilización son ramas que funcionan paralelas al maestro, tomando sólo commits elegidos en cereza que están relacionados con la seguridad o la estabilidad. Estas ramas nunca se fusionan de vuelta al maestro.
+Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
 ![Ramas de estabilización](../images/versioning-sketch-1.png)
 
@@ -85,8 +85,8 @@ El proceso es el siguiente:
 Específicamente, lo anterior significa:
 
 1. Admitir cambios que no generen rompimiento en la API antes de la Semana 3 en el ciclo beta está bien, incluso si esos cambios tienen potencial de causar efectos secundarios moderados.
-2. Admitiendo cambios marcados con características, que de otro modo no alteran las rutas de código existentes, en la mayoría de los puntos del ciclo beta está bien. Los usuarios pueden habilitar explícitamente estas banderas en sus aplicaciones.
-3. Admitiendo características de cualquier tipo después de la Semana 3 en el ciclo beta es :spapers_down: sin una razón muy buena.
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
 Por cada cambio mayor y menor, debería esperar ver algo como lo siguiente:
 
@@ -101,10 +101,10 @@ Por cada cambio mayor y menor, debería esperar ver algo como lo siguiente:
 
 Un ejemplo del ciclo de vida en imágenes:
 
-* Se crea una nueva rama de lanzamiento que incluye el último conjunto de características. Se publica como `2.0.0-beta.1`. ![Nueva Rama de Lanzamiento](../images/versioning-sketch-3.png)
-* Una corrección de errores entra en maestro que puede ser adaptada a la rama de lanzamiento. El parche se aplica, y una nueva beta se publica como `2.0.0-beta.2`. ![Corrección de errores y Backport a Beta](../images/versioning-sketch-4.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![Nueva Rama de Lanzamiento](../images/versioning-sketch-3.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![Corrección de errores y Backport a Beta](../images/versioning-sketch-4.png)
 * El beta es considerado _generalmente estable_ y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![Beta a Estable](../images/versioning-sketch-5.png)
-* Más tarde, se revela una explotación de día cero y una solución se aplica al maestro. Realizamos backport a la línea `2-0-x` y lanzamos `2.0.1`. ![Backports de seguridad](../images/versioning-sketch-6.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![Backports de seguridad](../images/versioning-sketch-6.png)
 
 Algunos ejemplos de como varios rangos SemVer recogerán los nuevos lanzamientos:
 
@@ -134,7 +134,7 @@ Buscamos aumentar la claridad en todos los niveles del proceso de actualización
 * Los commits que resultarían en una versión **minor** de SemVer debe empezar con `feat:`.
 * Los commits que resultarían en una versión **patch** de SemVer deben empezar con `fix:`.
 
-* Permitimos aplastar confirmaciones, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
+* We allow squashing of commits, provided that the squashed message adheres to the above message format.
 * Es aceptable que algunos compromisos en una solicitud de pull no incluyan un prefijo semántico, siempre que el título de pull request contenga un mensaje semántico significativo.
 
 # Versioned `master`
@@ -142,4 +142,4 @@ Buscamos aumentar la claridad en todos los niveles del proceso de actualización
 * La rama `master` siempre contendrá la siguiente versión mayor `X.0.0-nightly.DATE` en su `package.json`
 * Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
 * Las ramas de versión _do_contienen la versión correcta en su `package.json`
-* Tan pronto como se corta una rama de lanzamiento para un mayor, el maestro debe ser golpeado al siguiente mayor.  I.e. `master` is always versioned as the next theoretical release branch
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

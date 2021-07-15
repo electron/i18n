@@ -30,7 +30,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
+Возвращает `Menu | null` - меню приложения, если установлено, иначе `null`.
 
 **Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
@@ -38,7 +38,7 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 * `action` String
 
-Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Чаще всего вы будет использовать свойство [`role`](menu-item.md#roles) экземпляра [`MenuItem`](menu-item.md).
 
 Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
@@ -102,7 +102,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 
 Вызывается при вызове `menu.popup()`.
 
@@ -110,7 +110,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 
 Вызывается, когда всплывающее окно закрывается вручную или с помощью `menu.closePopup()`.
 
@@ -284,11 +284,11 @@ macOS представляет стандартные действия для н
 
 ### Имя главного меню
 
-На macOS название первого элемента меню приложения - всегда название Вашего приложения, независимо от того, какое название элемента Вы установили. Чтобы изменить его, измените файл `Info.plist` Вашей сборки приложения. См. [О информации свойств списка файлов][AboutInformationPropertyListFiles] для большей информации.
+На macOS название первого элемента меню приложения - всегда название Вашего приложения, независимо от того, какое название элемента Вы установили. Чтобы изменить его, измените файл `Info.plist` Вашей сборки приложения. See [About Information Property List Files][AboutInformationPropertyListFiles] for more information.
 
-## Настройка меню для конкретного окна браузера (*Linux* *Windows*)
+## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
-[Метод `setMenu`][setMenu] окна браузера может установить меню определенных окон браузера.
+The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
 
 ## Позиция элемента меню
 

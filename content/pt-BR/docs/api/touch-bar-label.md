@@ -6,16 +6,16 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new TouchBarLabel(options)`
 
-* `options` Object
+* Objeto `options`
   * `label` String (optional) - Text to display.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
-### Propriedades de Instância
+### Propriedades da Instância
 
-The following properties are available on instances of `TouchBarLabel`:
+As seguintes propriedades estão disponíveis em instâncias de `TouchBarLabel`:
 
 #### `touchBarLabel.label`
 

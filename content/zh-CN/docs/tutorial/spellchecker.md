@@ -1,38 +1,38 @@
 # 拼写检查器
 
-自 Electron 8 以来已内置支持 Chromium 拼写检查器。  在 Windows 和 Linux 上，这个功能由 Hunspell 字典提供，并在 macOS 上使用本机拼写检查器 API。
+自 Electron 8 以来已内置支持 Chromium 拼写检查器。  On Windows and Linux this is powered by Hunspell dictionaries, and on macOS it makes use of the native spellchecker APIs.
 
-## 如何启用拼写检查器？
+## How to enable the spellchecker?
 
-对于 Electron 9 及以上，默认启用拼写检查器。  对于Electron 8，您需要在 `Web 首选项` 中启用它。
+对于 Electron 9 及以上，默认启用拼写检查器。  For Electron 8 you need to enable it in `webPreferences`.
 
 ```js
-const mywindow = new BrowserWindow(format@@
+const myWindow = new BrowserWindow({
   webPreferences: {
     spellcheck: true
   }
 })
 ```
 
-## 如何设置拼写检查器使用的语言？
+## How to set the languages the spellchecker uses?
 
-在 macOS 上，当我们使用原生API时，无法设置拼写检查器使用的语言。 默认情况下，macOS 本机拼写检查器会自动检测您使用的语言。
+On macOS as we use the native APIs there is no way to set the language that the spellchecker uses. 默认情况下，macOS 本机拼写检查器会自动检测您使用的语言。
 
 对于 Windows 和 Linux，你应该使用一些 Electron API 来设置拼写检查器的语言。
 
 ```js
-// 设置拼写检查器以检查英语、美国语和法语
-myWindow.session. etSpellCheckerLanguages(['en-US', 'fr'])
+// Sets the spellchecker to check English US and French
+myWindow.session.setSpellCheckerLanguages(['en-US', 'fr'])
 
-// 所有可用语言代码的数组
-const possibleLangues(myWindow.session.available SpellCheckerLanges)
+// An array of all available language codes
+const possibleLanguages = myWindow.session.availableSpellCheckerLanguages
 ```
 
-默认情况下，拼写检查器将启用匹配当前操作系统区域的语言。
+By default the spellchecker will enable the language matching the current OS locale.
 
-## 如何在上下文菜单中显示拼写检查器的结果？
+## How do I put the results of the spellchecker in my context menu?
 
-生成上下文菜单所需的所有信息都在 [`上下文菜单`](../api/web-contents.md#event-context-menu) 每个事件 `webContent` 实例中提供。  下面提供了一个小的示例，如何用此信息制作上下文菜单。
+All the required information to generate a context menu is provided in the [`context-menu`](../api/web-contents.md#event-context-menu) event on each `webContents` instance.  下面提供了一个小的示例，如何用此信息制作上下文菜单。
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -62,7 +62,7 @@ myWindow.webContents.on('context-menu', (event, params) => {
 })
 ```
 
-## 拼写检查器是否使用任何谷歌服务？
+## Does the spellchecker use any Google services?
 
 虽然拼写检查器本身没有发送任何输入， 单词或用户输入到谷歌服务中，hunspell 字典文件默认从谷歌 CDN 下载。  如果你想要避免这种情况，你可以提供一个替代 URL 来下载字典。
 

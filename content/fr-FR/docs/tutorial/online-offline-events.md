@@ -11,7 +11,7 @@ L'attribut `navigator.onLine` renvoie :
 
 Puisque de nombreux cas retournent `true`, vous devriez traiter avec précaution les cas pouvant être des faux positifs, car la valeur `true` ne signifie pas toujours qu'Electron puisse accéder à Internet. Par exemple, dans les cas où l'ordinateur exécute un logiciel de virtualisation qui a des adaptateurs Ethernet virtuels avec l'état « toujours connecté ». Par conséquent, si vous voulez déterminer le statut de l'accès à Internet d'Electron, vous devrez mettre en œuvre des moyens supplémentaires de vérification.
 
-## Exemple
+## Example
 
 En partant d'un fichier HTML `index.html`, cet exemple démontrera comment l'API `navigator.onLine` peut être utilisée pour construire un indicateur d'état de connexion.
 
@@ -74,7 +74,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-Après avoir lancé l'application Electron, vous devriez voir la notification :
+After launching the Electron application, you should see the notification:
 
 ![Connection status](../images/connection-status.png)
 

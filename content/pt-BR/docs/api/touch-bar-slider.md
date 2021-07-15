@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new TouchBarSlider(options)`
 
-* `options` Object
+* Objeto `options`
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
@@ -14,9 +14,9 @@ Processo: [Main](../glossary.md#main-process)
   * `change` Function (optional) - Function to call when the slider is changed.
     * `newValue` Number - The value that the user selected on the Slider.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
-The following properties are available on instances of `TouchBarSlider`:
+As seguintes propriedades estão disponíveis em instâncias de `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 

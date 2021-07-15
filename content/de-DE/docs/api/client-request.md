@@ -2,7 +2,7 @@
 
 > Tätigen von HTTP/HTTPS anfragen.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit ein [EventEmitter][event-emitter].
 
@@ -37,19 +37,19 @@ const request = net.request({
 })
 ```
 
-### Instanz Events
+### Instanz-Ereignisse
 
 #### Event: 'response'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `response` [IncomingMessage](incoming-message.md) - An object representing the HTTP response message.
 
 #### Event: 'login'
 
-Rückgabewert:
+Kehrt zurück:
 
-* `authInfo` Object
+* `authInfo` Objekt
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -94,9 +94,9 @@ Ausgesendet, direkt nachdem der letzte Block der `request` Daten in das `request
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### Ereignis : "Fehler
 
-Rückgabewert:
+Kehrt zurück:
 
 * `error` Error - Ein Error Objekt, welches Informationen über den Fehler enthält.
 
@@ -108,7 +108,7 @@ Ausgelöst als letztes Event in der HTTP request-response Interaktion. Das `clos
 
 #### Event: 'redirect'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `statusCode` Integer
 * `method` String
@@ -125,7 +125,7 @@ Ein `Boolean` gibt an, ob die HTTP Anfrage eine segmentierte Übertragungscodier
 
 Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen großen request body senden möchtest, da die Daten in kleinen Stücken gestreamt wird, anstatt das diese intern im Electron Prozess Speicher gebufferd werden.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 #### `request.setHeader(name, value)`
 

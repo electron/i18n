@@ -8,7 +8,7 @@
 
 Чтобы использовать Electron вы должны установить [Node.js][node-download]. Мы рекомендуем Вам использовать последнюю доступную `LTS` версию.
 
-> Пожалуйста, установите Node.js с помощью предварительно собранных установщиков для вашей платформы. Вы можете столкнуться с проблемами несовместимости с различными инструментами разработки.
+> Пожалуйста, установите Node.js с помощью предварительно собранных установщиков для вашей платформы. You may encounter incompatibility issues with different development tools otherwise.
 
 Чтобы убедится что Node.js был установлен правильно, напишите следующие команды в терминале:
 
@@ -78,19 +78,19 @@ npm start
 
 ### Запуск main process
 
-Входной точкой для любого приложения на Electron является скрипт `main`. This script controls the **main process**, which runs in a full Node.js environment and is responsible for controlling your app's lifecycle, displaying native interfaces, performing privileged operations, and managing renderer processes (more on that later).
+Входной точкой для любого приложения на Electron является скрипт `main`. Этот скрипт управляет **основным процессом**, который запускается в полной среде Node.js и отвечает за управление рабочего цикла вашего приложения, отображение основного интерфейса, выполнение привилегированных операций и управление процессом визуализации (подробнее об этом позже).
 
-During execution, Electron will look for this script in the [`main`][package-json-main] field of the app's `package.json` config, which you should have configured during the [app scaffolding](#scaffold-the-project) step.
+В процессе выполнения, Electron будет искать этот скрипт в [`основном`][package-json-main] поле вашего `package.json` конфига, который вы сконфигурировали в процессе [формирования кода приложения](#scaffold-the-project).
 
-To initialize the `main` script, create an empty file named `main.js` in the root folder of your project.
+Чтобы инициализировать `основной` скрипт, создайте пустой файл с именем `main.js` в корневой папке вашего проекта.
 
-> Note: If you run the `start` script again at this point, your app will no longer throw any errors! However, it won't do anything yet because we haven't added any code into `main.js`.
+> Примечание: Если вы снова запустите скрипт `запуска` на этот момент, ваше приложение больше не будет выявлять никаких ошибок! Тем не менее, он не будет делать ничего, потому что мы не добавили код в `main.js`.
 
-### Create a web page
+### Создание веб-страницы
 
-Before we can create a window for our application, we need to create the content that will be loaded into it. In Electron, each window displays web contents that can be loaded from either from a local HTML file or a remote URL.
+Прежде чем мы сможем создать окно для нашего приложения, нам нужно создать контент, который будет загружен в него. В Electron каждое окно отображает веб-содержимое, которое может быть загружено из локального HTML файла или удаленного URL.
 
-For this tutorial, you will be doing the former. Create an `index.html` file in the root folder of your project:
+В этом туториале вы будете создавать первое. Создайте `index.html` файл в корневой папке проекта:
 
 ```html
 <!DOCTYPE html>
@@ -111,7 +111,7 @@ For this tutorial, you will be doing the former. Create an `index.html` file in 
 </html>
 ```
 
-> Note: Looking at this HTML document, you can observe that the version numbers are missing from the body text. We'll manually insert them later using JavaScript.
+> Замечание: Посмотрев на этот HTML-документ, можно заметить, что версии не указаны в блоке body. Мы вручную вставим их позже с помощью JavaScript.
 
 ### Opening your web page in a browser window
 
@@ -435,7 +435,8 @@ Forge's scaffolding:
 [app-when-ready]: ../api/app.md#appwhenready
 
 [node-platform]: https://nodejs.org/api/process.html#process_process_platform
-[window-all-closed]: ../api/app.md#appquit
+[window-all-closed]: ../api/app.md#event-window-all-closed
+[app-quit]: ../api/app.md#appquit
 
 [activate]: ../api/app.md#event-activate-macos
 

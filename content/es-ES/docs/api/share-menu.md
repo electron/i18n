@@ -8,7 +8,7 @@ Para incluir el menú compartido como submenú de otros, por favor usa el rol `s
 
 > Create share menu on macOS.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### `new ShareMenu(sharingItem)`
 
@@ -18,7 +18,7 @@ Creates a new share menu.
 
 ### Métodos de Instancia
 
-The `shareMenu` object has the following instance methods:
+El objeto `shareMenu` tiene los siguientes métodos de instancia:
 
 #### `shareMenu.popup([options])`
 

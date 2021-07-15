@@ -16,7 +16,7 @@ Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap
 
 #### GPU Beschleunigung
 
-GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. Der Vorteil dieses Modus ist, dass WebGL und 3D CSS-Animationen unterstützt werden.
+GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
 #### Software Ausgabegerät
 

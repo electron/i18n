@@ -2,7 +2,7 @@
 
 > クラッシュレポートをリモートサーバーに送信します。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 以下は、Electron が外部サーバーにクラッシュレポートを自動送信するように設定する例です。
 
@@ -60,8 +60,8 @@ Node.js の `child_process` モジュールを使用していて、Linux 上で�
   * `productName` String (任意) - 省略値は、`app.name` です。
   * `companyName` String (任意) _非推奨_ - `{ globalExtra: { _companyName: ... } }` の非推奨な別名です。
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。 false の場合、クラッシュレポートは収集されてクラッシュのディレクトリに保存されますが、アップロードされません。 省略値は `true` です。
-  * `ignoreSystemCrashHandler` Boolean (任意) - true の場合、メインプロセスで発生したクラッシュをシステムクラッシュハンドラに転送しません。 省略値は、`false` です。
-  * `rateLimit` Boolean (任意) _macOS_ _Windows_ - true の場合、アップロードされるクラッシュの数を 1 時間につき 1 つに制限します。 省略値は、`false` です。
+  * `ignoreSystemCrashHandler` Boolean (任意) - true の場合、メインプロセスで発生したクラッシュをシステムクラッシュハンドラに転送しません。 省略値は `false` です。
+  * `rateLimit` Boolean (任意) _macOS_ _Windows_ - true の場合、アップロードされるクラッシュの数を 1 時間につき 1 つに制限します。 省略値は `false` です。
   * `compress` Boolean (任意) - true の場合、クラッシュレポートは圧縮され `Content-Encoding: gzip` でアップロードされます。 省略値は `true` です。
   * `extra` Record<String, String> (任意) - メインプロセスが生成するクラッシュレポートと一緒に送信される追加のキー/バリューアノテーションの文字列。 文字列のみをサポートしています。 子プロセスから生成されたクラッシュレポートはこれらの追加パラメータを含みません。子プロセスが生成したクラッシュにこれらを含める場合は、子プロセスから [`addExtraParameter`](#crashreporteraddextraparameterkey-value) を呼び出してください。
   * `globalExtra` Record<String, String> (任意) - 任意のプロセスが生成したクラッシュレポートと一緒に送信される、追加のキー/バリューアノテーションの文字列。 これらのアノテーションは、クラッシュレポーターを起動すると変更できません。 グローバル追加パラメータとプロセス固有の追加パラメータの両方に同じキーが存在する場合、グローバルのものが優先されます。 デフォルトでは、 `productName` と、Electron のバージョンと同様のアプリのバージョンが含まれています。
@@ -137,9 +137,9 @@ Node.js の `child_process` モジュールを使用していて、Linux 上で�
 * `platform` String - 例えば、'win32'。
 * `process_type` String - 例えば、'renderer'。
 * `guid` String - 例えば、'5e1286fc-da97-479e-918b-6bfb0c3d1c72'。
-* `_version` String - `package.json` のバージョン。
-* `_productName` String - `crashReporter` の `options` のプロダクト名。
+* `_version` String - `package.json`内のバージョン。
+* `_productName` String - `crashReporter`の`options`内のproductName。
 * `prod` String - 基底にあるプロダクトの名前。 この場合は Electron です。
-* `_companyName` String - `crashReporter` の `options` の会社名。
-* `upload_file_minidump` File - `minidump` 形式でのクラッシュレポート。
-* `crashReporter` の `options` オブジェクトにある `extra` オブジェクトのすべてのレベル1プロパティ。
+* `_companyName` String - `crashReporter`の`options`内のcompanyName。
+* `upload_file_minidump` File - `minidump`フォーマットのクラッシュレポート。
+* `crashReporter`の`options`内の`extra`オブジェクトの全ての最上位プロパティ。

@@ -4,9 +4,9 @@
 
 ## Отладка приложения Electron
 
-### Главный процесс
+### Основной процесс
 
-#### 1. Откройте проект Electron в VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -34,9 +34,9 @@ $ code electron-quick-start
 }
 ```
 
-#### 3. Отладка
+#### 3. Debugging
 
-Установите некоторые точки останова в `main.js`и начните отладку в [Debug View](https://code.visualstudio.com/docs/editor/debugging). Вы должны иметь возможность попасть в точки останова.
+Установите некоторые точки останова в `main.js`и начните отладку в [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
 Это заранее настроенный проект, который вы можете скачать и непосредственно отладить в VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
@@ -48,7 +48,7 @@ $ code electron-quick-start
 
 ### Windows (C++)
 
-#### 1. Откройте проект Electron в VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -93,6 +93,6 @@ $ code electron-quick-start
   * `your-directory-name`: Если вы изменили его во время сборки, оно будет таким, каким вы его указали.
 * Массив `args` должен содержать строки `your-electron-project-path`, которые являются абсолютными путями до каждой директории или `main.js` файла проекта, который вы хотели бы протестировать. В данном примере в нём должен быть путь до `electron-quick-start`.
 
-#### 3. Отладка
+#### 3. Debugging
 
 Установите некоторые точки останова в .cc файле выбранного вами кода Electron C++ и начните отладку в [Debug View](https://code.visualstudio.com/docs/editor/debugging).

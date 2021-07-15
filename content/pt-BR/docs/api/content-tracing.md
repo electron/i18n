@@ -26,7 +26,7 @@ app.whenReady().then(() => {
 
 ## Métodos
 
-The `contentTracing` module has the following methods:
+O módulo `contentTracing` tem os seguintes métodos:
 
 ### `contentTracing.getCategories()`
 
@@ -50,7 +50,7 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
-* `resultFilePath` String (optional)
+* `resultFilePath` String (opcional)
 
 Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 

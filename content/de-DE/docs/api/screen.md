@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 This module cannot be used until the `ready` event of the `app` module is emitted.
 
@@ -46,13 +46,13 @@ app.whenReady().then(() => {
 })
 ```
 
-## Ereignisse
+## Events
 
 Das `screen` Modul sendet folgende Ereignisse aus:
 
 ### Event: 'display-added'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -61,7 +61,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -70,7 +70,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `display` [Display](structures/display.md)

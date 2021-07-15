@@ -2,7 +2,7 @@
 
 > Manipulate the command line arguments for your app that Chromium reads
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 The following example shows how to check if the `--disable-gpu` flag is set.
 
@@ -13,7 +13,7 @@ app.commandLine.hasSwitch('disable-gpu')
 
 For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
 
-### Instanz Methoden
+### Beispiel Methoden
 
 #### `commandLine.appendSwitch(switch[, value])`
 

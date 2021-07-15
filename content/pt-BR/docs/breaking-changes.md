@@ -1,16 +1,16 @@
 # Breaking Changes
 
-Quebrar as alterações serão documentadas aqui e quando possível as advertências de depreciação adicionadas ao código JS. pelo menos [uma versão principal](tutorial/electron-versioning.md#semver) antes que a alteração seja feita.
+Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](tutorial/electron-versioning.md#semver) before the change is made.
 
-### Tipos de Alterações de Abertura
+### Types of Breaking Changes
 
-Este documento usa a seguinte convenção para categorizar as alterações mais significativas:
+This document uses the following convention to categorize breaking changes:
 
-* **API alterada:** Uma API foi alterada de tal forma que o código que não foi atualizado tem a garantia de lançar uma exceção.
-* **Comportamento alterado:** O comportamento do Electron mudou, mas não de tal forma que uma exceção será necessariamente lançada.
-* **Padrão alterado:** O código dependendo do antigo padrão pode quebrar, não necessariamente lançando uma exceção. O comportamento antigo pode ser restaurado especificando explicitamente o valor.
-* **Obsoleto:** Uma API foi marcada como obsoleta. A API continuará funcionando, mas emitirá um aviso de depreciação, e será removida em uma versão futura.
-* **Removido:** Uma API ou recurso foi removida, e não é mais suportada pelo Electron.
+* **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
+* **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
+* **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
+* **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
+* **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
 ## Alterações planejadas na API (14.0)
 
@@ -53,7 +53,7 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 
 ### Removido: `shell.moveItemToTrash()`
 
-A API depreciada `shell.moveItemToTrash()` foi removida. Use a `shell.trashItem()` assíncrona.
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
 
 ```js
 // Removed in Electron 13
@@ -187,8 +187,8 @@ app.getPath('crashDumps')
 
 The following `crashReporter` methods are no longer available in the renderer process:
 
-* `início_crashReporter.start`
-* `Relatório`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
 * `crashReporter.getUploadedReports`
 * `crashReporter.getUploadToServer`
 * `crashReporter.setUploadToServer`
@@ -268,8 +268,8 @@ app.getPath('crashDumps')
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
-* `início_crashReporter.start`
-* `Relatório`
+* `crashReporter.start`
+* `crashReporter.getLastCrashReport`
 * `crashReporter.getUploadedReports`
 * `crashReporter.getUploadToServer`
 * `crashReporter.setUploadToServer`
@@ -564,7 +564,7 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
-## Alterações planejadas na API (7.0)
+## Planned Breaking API Changes (7.0)
 
 ### Deprecated: Atom.io Node Headers URL
 
@@ -696,13 +696,13 @@ These functions now only return Promises:
 * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 * `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
 
-Essas funções agora têm duas formas, sincronizadas e baseadas em Promiss:
+These functions now have two forms, synchronous and Promise-based asynchronous:
 
 * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-## Alterações planejadas na API (6.0)
+## Planned Breaking API Changes (6.0)
 
 ### API Changed: `win.setMenu(null)` is now `win.removeMenu()`
 
@@ -783,7 +783,7 @@ tray.setHighlightMode(mode)
 // API will be removed in v7.0 without replacement.
 ```
 
-## Alterações planejadas na API (5.0)
+## Planned Breaking API Changes (5.0)
 
 ### Default Changed: `nodeIntegration` and `webviewTag` default to false, `contextIsolation` defaults to true
 
@@ -791,9 +791,9 @@ The following `webPreferences` option default values are deprecated in favor of 
 
 | Property           | Deprecated Default                   | New Default |
 | ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| `contextIsolation` | `falso`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `falso`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `falso`     |
 
 Ex. Re-enabling the webviewTag
 
@@ -1005,7 +1005,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `processado`
+### `process`
 
 ```js
 // Deprecated
@@ -1099,7 +1099,7 @@ Deprecated: https://atom.io/download/atom-shell
 
 Replace with: https://atom.io/download/electron
 
-## Alterações na API (2.0)
+## Breaking API Changes (2.0)
 
 The following list includes the breaking API changes made in Electron 2.0.
 
@@ -1137,7 +1137,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `processado`
+### `process`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 

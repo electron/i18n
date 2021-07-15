@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -45,7 +45,7 @@ app.whenReady().then(() => {
 
 ## Methoden
 
-The `protocol` module has the following methods:
+Das Modul `protocol` verfügt über die folgenden Methoden:
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
@@ -85,7 +85,7 @@ Protocols that use streams (http and stream protocols) should set `stream: true`
 ### `protocol.registerFileProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -101,7 +101,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
@@ -123,7 +123,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -137,7 +137,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` ProtocolResponse
@@ -151,7 +151,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
@@ -211,7 +211,7 @@ Returns `Boolean` - Whether `scheme` is already registered.
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -223,7 +223,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
@@ -235,7 +235,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
@@ -247,7 +247,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` [ProtocolResponse](structures/protocol-response.md)
@@ -259,7 +259,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler)`
 
 * `scheme` String
-* `handler` Function
+* `handler` Funktion
   * `request` [ProtocolRequest](structures/protocol-request.md)
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))

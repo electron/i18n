@@ -187,7 +187,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `detail` String (facultatif) - Informations supplémentaires du message.
   * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` par défaut.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` ([NativeImage](native-image.md) | String) (facultatif)
   * `cancelId` Integer (facultatif) - L'index du bouton à utiliser pour annuler la boîte de dialogue, via la touche `Esc`. Par défaut, ceci est assigné au premier bouton avec l'étiquette "annuler" ou "non". Si aucun bouton de ce type n'existe et que cette option n'est pas définie, `0` sera utilisé comme valeur de retour .
   * `noLink` Booléen (optionnel) - Sous Windows, Electron essaiera de déterminer lequel des les boutons `` sont des boutons courants (comme "Annuler" ou "Oui"), et affichent le d'autres comme liens de commande dans le dialogue. Cela peut faire apparaître la boîte de dialogue dans le style des applications Windows modernes. Si vous n'aimez pas ce comportement, vous pouvez définir `noLink` à `true`.
@@ -210,7 +210,7 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `detail` String (facultatif) - Informations supplémentaires du message.
   * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` par défaut.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (facultatif)
   * `cancelId` Integer (facultatif) - L'index du bouton à utiliser pour annuler la boîte de dialogue, via la touche `Esc`. Par défaut, ceci est assigné au premier bouton avec l'étiquette "annuler" ou "non". Si aucun bouton de ce type n'existe et que cette option n'est pas définie, `0` sera utilisé comme valeur de retour .
   * `noLink` Booléen (optionnel) - Sous Windows, Electron essaiera de déterminer lequel des les boutons `` sont des boutons courants (comme "Annuler" ou "Oui"), et affichent le d'autres comme liens de commande dans le dialogue. Cela peut faire apparaître la boîte de dialogue dans le style des applications Windows modernes. Si vous n'aimez pas ce comportement, vous pouvez définir `noLink` à `true`.
@@ -254,7 +254,7 @@ Sous Windows, les options sont plus limitées, en raison des API Win32 utilisée
 
 `showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
 
-| Type de compilation | securityScopedBookmarks boolean | Return Type | Valeur de retour               |
+| Type de compilation | securityScopedBookmarks boolean | Return Type | Return Value                   |
 | ------------------- | ------------------------------- |:-----------:| ------------------------------ |
 | macOS mas           | True                            |   Succès    | `['LONGBOOKMARKSTRING']`       |
 | macOS mas           | True                            |    Error    | `['']` (array of empty string) |

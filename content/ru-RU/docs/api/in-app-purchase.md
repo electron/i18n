@@ -14,7 +14,7 @@
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `transactions` Transaction[] - Массив [`Transaction`](structures/transaction.md) объектов.
 
 ## Методы

@@ -1,6 +1,6 @@
 # 公式ガイド
 
-使用している Electron のバージョンに応じたドキュメントを参照するように確認してください。 ドキュメントのバージョン番号はページの URL の一部となっています。 バージョン番号が URL にない場合は、おそらくご使用の Electron のバージョンと互換性のない API 変更を含んだ development ブランチのドキュメントを参照しているものと思われます。 古いバージョンのドキュメントを読むには、GitHub上で[タグを見て](https://github.com/electron/electron/tree/v1.4.0)みてください。"Switch branches/tags" のドロップダウンメニューを開いて、あなたが使っているバージョンと同じタグを選んでください。
+電子版に合致するドキュメントを使用していることを確認してください。 バージョン番号は、ページ URL の一部である必要があります。 そうでなければ、おそらく、お使 いの電子版と互換性のないAPI 変更を含む可能性のある開発ブランチのドキュメントを使用している可能性があります。 古いバージョンのドキュメントを読むには、GitHub上で[タグを見て](https://github.com/electron/electron/tree/v1.4.0)みてください。"Switch branches/tags" のドロップダウンメニューを開いて、あなたが使っているバージョンと同じタグを選んでください。
 
 ## FAQ
 
@@ -16,18 +16,18 @@
 * [クイック スタート](tutorial/quick-start.md)
 * [プロセスモデル](tutorial/process-model.md)
 
-### 基本を学ぶ
+### Learning the basics
 
 * アプリに機能を追加する
   * [通知](tutorial/notifications.md)
-  * [最近使った書類](tutorial/recent-documents.md)
+  * [最近使用したドキュメント](tutorial/recent-documents.md)
   * [アプリケーションの進行状況](tutorial/progress-bar.md)
   * [カスタム Dock メニュー](tutorial/macos-dock.md)
   * [カスタム Windows タスクバー](tutorial/windows-taskbar.md)
   * [カスタム Linux デスクトップアクション](tutorial/linux-desktop-actions.md)
-  * [キーボードショートカット](tutorial/keyboard-shortcuts.md)
+  * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
   * [オフライン/オンライン検出](tutorial/online-offline-events.md)
-  * [macOS の BrowserWindow が表すファイル](tutorial/represented-file.md)
+  * [macOS の BrowserWindow の Represented File](tutorial/represented-file.md)
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
   * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
   * [ダークモード](tutorial/dark-mode.md)
@@ -53,8 +53,8 @@
   * [Visual Studio コードを使用したデバッグ](tutorial/debugging-vscode.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-  * [デベロッパー ツール拡張](tutorial/devtools-extension.md)
-  * [カスタムドライバを使った自動テスト](tutorial/automated-testing-with-a-custom-driver.md)
+  * [DevTools エクステンション](tutorial/devtools-extension.md)
+  * [カスタムドライバーを使った自動テスト](tutorial/automated-testing-with-a-custom-driver.md)
   * [REPL](tutorial/repl.md)
 * [配布方法](tutorial/application-distribution.md)
   * [サポートされているプラットフォーム](tutorial/support.md#supported-platforms)
@@ -73,7 +73,7 @@
 これらの個別のチュートリアルでは、上のガイドで説明したトピックを拡張しています。
 
 * [Electron のインストール](tutorial/installation.md)
-  * [プロキシ](tutorial/installation.md#proxies)
+  * [プロキシ環境下](tutorial/installation.md#proxies)
   * [ミラーとキャッシュのカスタマイズ](tutorial/installation.md#custom-mirrors-and-caches)
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
 * Electron のリリース & 開発者のフィードバック
@@ -94,9 +94,9 @@
 * [Chrome 拡張機能サポート](api/extensions.md)
 * [API の破壊的変更](breaking-changes.md)
 
-### カスタム DOM 要素:
+### カスタム DOM 要素
 
-* [`File` オブジェクト](api/file-object.md)
+* [`File`オブジェクト](api/file-object.md)
 * [`<webview>`タグ](api/webview-tag.md)
 * [`window.open`関数](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)

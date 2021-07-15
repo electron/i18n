@@ -1,50 +1,53 @@
 ---
-title: 'Electron Internals: Integración de bucle de mensaje'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
-date: '28-07-2016'
+date: '2016-07-28'
 ---
 
-Este es el primer post de una serie que explica los internos de Electron. Esta publicación introduce cómo se integra el bucle de eventos de Node con Chromium en Electron.
+This is the first post of a series that explains the internals of Electron. This post introduces how Node's event loop is integrated with Chromium in Electron.
 
 ---
 
-Ha habido muchos intentos de usar Node para programación GUI, como [node-gui](https://github.com/zcbenz/node-gui) para enlaces GTK+ y [node-qt](https://github.com/arturadib/node-qt) para enlaces QT. Pero ninguno de ellos funciona en producción porque los kits de herramientas GUI tienen su propio bucle de mensaje mientras que Node usa libuv para su propio bucle de eventos, y el hilo principal sólo puede ejecutar un bucle al mismo tiempo. Así que el truco común para ejecutar un bucle de mensajes GUI en Node es bombear el bucle del mensaje en un temporizador con un intervalo muy pequeño, que hace lenta la respuesta de interfaz GUI y ocupa muchos recursos de CPU.
+There had been many attempts to use Node for GUI programming, like [node-gui][node-gui] for GTK+ bindings, and [node-qt][node-qt] for QT bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
 
-Durante el desarrollo de Electron nos encontramos con el mismo problema, aunque de una manera invertida: tuvimos que integrar el bucle de eventos de Node en el bucle del mensaje de Chromium.
+During the development of Electron we met the same problem, though in a reversed way: we had to integrate Node's event loop into Chromium's message loop.
 
-## El proceso principal y proceso de renderizado
+## The main process and renderer process
 
-Antes de que nos sumerjamos en los detalles de la integración del bucle de mensajes, primero explicaré la arquitectura multi-proceso de Chromium.
+Before we dive into the details of message loop integration, I'll first explain the multi-process architecture of Chromium.
 
-En Electron hay dos tipos de procesos: el proceso principal y el proceso de renderizador (esto en realidad es extremadamente simplificado, para una vista completa por favor vea [Archivación multiproceso](http://dev.chromium.org/developers/design-documents/multi-process-architecture)). El proceso principal es responsable de GUI trabajar como crear ventanas, mientras que el proceso de renderizado solo se ocupa de ejecutar y renderizar páginas web.
+In Electron there are two types of processes: the main process and the renderer process (this is actually extremely simplified, for a complete view please see [Multi-process Architecture][multi-process]). The main process is responsible for GUI work like creating windows, while the renderer process only deals with running and rendering web pages.
 
-Electron permite usar JavaScript para controlar tanto el proceso principal como el proceso de renderizado , lo que significa que tenemos que integrar Node en ambos procesos.
+Electron allows using JavaScript to control both the main process and renderer process, which means we have to integrate Node into both processes.
 
-## Sustituyendo el bucle de mensajes de Chromium por libuv
+## Replacing Chromium's message loop with libuv
 
-Mi primer intento fue reimplementar el bucle de mensajes de Chromium con libuv.
+My first try was reimplementing Chromium's message loop with libuv.
 
-Fue fácil para el proceso de renderizado, ya que su bucle de mensajes solo escuchó descriptores de archivos y temporizadores, y sólo necesitaba implementar la interfaz con libuv.
+It was easy for the renderer process, since its message loop only listened to file descriptors and timers, and I only needed to implement the interface with libuv.
 
-Sin embargo, fue mucho más difícil para el proceso principal. Cada plataforma tiene su propio tipo de bucles de mensajes GUI. macOS Chromium usa `NSRunLoop`, mientras que Linux usa glib. Intenté muchos hacks para extraer los descriptores de archivos subyacentes de los bucles nativos de mensajes GUI, y luego alimentó a libuv para iteración, pero todavía conocí casos de borde que no funcionaban.
+However it was significantly more difficult for the main process. Each platform has its own kind of GUI message loops. macOS Chromium uses `NSRunLoop`, whereas Linux uses glib. I tried lots of hacks to extract the underlying file descriptors out of the native GUI message loops, and then fed them to libuv for iteration, but I still met edge cases that did not work.
 
-Así que finalmente añadí un temporizador para sondear el bucle de mensajes GUI en un intervalo pequeño. Como resultado el proceso tomó un uso constante de la CPU, y ciertas operaciones tuvieron largos retrasos.
+So finally I added a timer to poll the GUI message loop in a small interval. As a result the process took a constant CPU usage, and certain operations had long delays.
 
-## Elegir el bucle de eventos del nodo en un hilo separado
+## Polling Node's event loop in a separate thread
 
-A medida que la libuv maduraba, entonces era posible adoptar otro enfoque.
+As libuv matured, it was then possible to take another approach.
 
-El concepto de fd del backend se introdujo en libuv, que es un descriptor de archivo (o manejador) que las encuestas de libuv para su bucle de eventos. Así que al sondear el fd del backend es posible recibir una notificación cuando hay un nuevo evento en libuv.
+The concept of backend fd was introduced into libuv, which is a file descriptor (or handle) that libuv polls for its event loop. So by polling the backend fd it is possible to get notified when there is a new event in libuv.
 
-Así que en Electron creé un hilo separado para sondear el fd del backend, y puesto que yo estaba usando las llamadas del sistema para sondeo en lugar de las API de libuv, era hilo seguro. Y cada vez que hubo un nuevo evento en el bucle de eventos de libuv, un mensaje sería publicado en el bucle de mensajes de Chromium, y los eventos de libuv entonces serían procesados en el hilo principal.
+So in Electron I created a separate thread to poll the backend fd, and since I was using the system calls for polling instead of libuv APIs, it was thread safe. And whenever there was a new event in libuv's event loop, a message would be posted to Chromium's message loop, and the events of libuv would then be processed in the main thread.
 
-De esta manera evité parchear el cromo y el nodo, y el mismo código se utilizó en tanto el proceso principal como el proceso de renderizado.
+In this way I avoided patching Chromium and Node, and the same code was used in both the main and renderer processes.
 
-## El código
+## The code
 
-You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`][node-bindings]. Puede reutilizarse fácilmente para proyectos que quieran integrar Node.
+You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`][node-bindings]. It can be easily reused for projects that want to integrate Node.
 
-*Actualización: Implementación movida a [`electron/shell/common/node_bindings.cc`][node-bindings-updated].*
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`][node-bindings-updated].*
 
+[node-gui]: https://github.com/zcbenz/node-gui
+[node-qt]: https://github.com/arturadib/node-qt
+[multi-process]: http://dev.chromium.org/developers/design-documents/multi-process-architecture
 [node-bindings]: https://github.com/electron/electron/tree/main/atom/common
 [node-bindings-updated]: https://github.com/electron/electron/blob/master/shell/common/node_bindings.cc

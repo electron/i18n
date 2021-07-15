@@ -1,11 +1,11 @@
-# Объект Transaction
+# Transaction Object
 
-* `transactionIdentifier` String - строка, которая уникально идентифицирует успешную транзакцию оплаты.
-* `transactionDate` String - дата добавления транзакции в платежный список App Store.
-* `originalTransactionIdentifier` String - идентификатор восстановленной транзакции App Store.
-* `transactionState` String - состояние транзакции, может быть `purchasing`, `purchased`, `failed`, `restored` или `deferred`.
-* `errorCode` Integer - код ошибки, если ошибка возникнет во время выполнения транзакции.
-* `errorMessage` String - сообщение об ошибке, если ошибка возникнет во время выполнения транзакции.
+* `transactionIdentifier` String - A string that uniquely identifies a successful payment transaction.
+* `transactionDate` String - The date the transaction was added to the App Store’s payment queue.
+* `originalTransactionIdentifier` String - The identifier of the restored transaction by the App Store.
+* `transactionState` String - The transaction state, can be `purchasing`, `purchased`, `failed`, `restored` or `deferred`.
+* `errorCode` Integer - The error code if an error occurred while processing the transaction.
+* `errorMessage` String - The error message if an error occurred while processing the transaction.
 * `payment` Object
-  * `productIdentifier` String - идентификатор купленного продукта.
-  * `quantity` Integer  - количество купленного.
+  * `productIdentifier` String - The identifier of the purchased product.
+  * `quantity` Integer  - The quantity purchased.

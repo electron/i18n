@@ -114,7 +114,7 @@ Como se cita desde [MSDN][msdn-icon-overlay]:
 
 > El encubrimiento de íconos sirve como una notificación contextual del estatus, y tiene la intención de negar la necesidad de separar el ícono de la notificación del estatus del ícono para comunicar la información al usuario. Por ejemplo, el nuevo estatus de correos en Microsoft Outlook, actualmente se muestra en el área de notificaciones, ahora puede ser indicado a través de un encubrimiento en el botón de la barra de tareas. De nuevo, debes decidir durante su ciclo de desarrollo cual método es el mejor para su aplicación. El encubrimiento de íconos tiene la intención de dar información importante, estatus de larga duración o notificaciones así como estado de la red o de mensajería, o nuevos correos. El usuario no debe ser presentado con cambios constantes en el encubrimiento o animaciones.
 
-![Encubrimiento en botones de la barra de tareas](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 > NOTA: La captura de pantalla anterior es un ejemplo de superposición en un botón de la barra de tareas
 
@@ -140,7 +140,7 @@ Como se cita desde [MSDN][msdn-flash-frame]:
 
 > Por lo general, una ventana está iluminada para informar al usuario que la ventana requiere atención pero este no está concentrado en el teclado en el momento.
 
-Para destellar el botón de la barra de tareas del BrowserWindow, debes usar el [BrowserWindow. flashFrame][flashframe] API.
+To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame][flashframe] API.
 
 #### Ejemplo
 

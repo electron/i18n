@@ -7,59 +7,59 @@ author:
 date: '2021-05-25'
 ---
 
-Electron 13.0.0 がリリースされました! これには Chromium `91` とV8 `9.1` へのアップグレードが含まれています。 いくつかの API の更新、バグ修正、及び一般的な改善を行いました。 詳細は以下をご覧ください!
+Electron 13.0.0 has been released! It includes upgrades to Chromium `91` and V8 `9.1`. We've added several API updates, bug fixes, and general improvements. Read below for more details!
 
 ---
 
-Electron チームは、Electron 13.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
+The Electron team is excited to announce the release of Electron 13.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). Continue reading for details about this release, and please share any feedback you have!
 
-## 変更の目玉
+## Notable Changes
 
-### 累積的変更
+### Stack Changes
 
 * Chromium `91`
-    * [Chrome 91 の新機能](https://developer.chrome.com/blog/new-in-chrome-91/)
-    * [Chrome 90 の新機能](https://developer.chrome.com/blog/new-in-chrome-90/)
+    * [New in Chrome 91](https://developer.chrome.com/blog/new-in-chrome-91/)
+    * [New in Chrome 90](https://developer.chrome.com/blog/new-in-chrome-90/)
 * Node.js `14.16.0`
-    * [Node 14.16.0 ブログ記事](https://nodejs.org/en/blog/release/v14.16.0/)
-    * [Node 14.0.0 ブログ記事](https://nodejs.org/en/blog/release/v14.0.0/)
+    * [Node 14.16.0 blog post](https://nodejs.org/en/blog/release/v14.16.0/)
+    * [Node 14.0.0 blog post](https://nodejs.org/en/blog/release/v14.0.0/)
 * V8 `9.1`
-    * [V8 9.1 ブログ記事](https://v8.dev/blog/v8-release-91)
-    * [V8 9.0 ブログ記事](https://v8.dev/blog/v8-release-90)
+    * [V8 9.1 blog post](https://v8.dev/blog/v8-release-91)
+    * [V8 9.0 blog post](https://v8.dev/blog/v8-release-90)
 
-### 注目の機能
+### Highlight Features
 
-* `process.contextIsolated` プロパティを追加しました。これは現在のレンダラーコンテキストで `contextIsolation` が有効かどうかを示します。 [#28252](https://github.com/electron/electron/pull/28252)
-* セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。 [#28866](https://github.com/electron/electron/pull/28866)
-* `WebContents` の `new-window` イベントを非推奨にしました。 これは `webContents.setWindowOpenHandler()` に置き換えられます。
-* `@electron/remote` で使用されている `process.contextId` を追加しました。 [#28251](https://github.com/electron/electron/pull/28251)
+* Added `process.contextIsolated` property that indicates whether the current renderer context has `contextIsolation` enabled. [#28252](https://github.com/electron/electron/pull/28252)
+* Added new `session.storagePath` API to get the path on disk for session-specific data. [#28866](https://github.com/electron/electron/pull/28866)
+* Deprecated the `new-window` event of `WebContents`. It is replaced by `webContents.setWindowOpenHandler()`
+* Added `process.contextId` used by `@electron/remote`. [#28251](https://github.com/electron/electron/pull/28251)
 
-新機能と変更の完全なリストは、[13.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v13.0.0) を参照してください。
+See the [13.0.0 release notes](https://github.com/electron/electron/releases/tag/v13.0.0) for a full list of new features and changes.
 
 ## 破壊的変更
 
-* `window.open()` の引数 frameName はウインドウタイトルとして設定されなくなりました。 [#27481](https://github.com/electron/electron/pull/27481)
-* `session.setPermissionCheckHandler(handler)` で、`handler` の第一引数である `webContents` が `null` になることがあるように変更しました。 [#19903](https://github.com/electron/electron/pull/19903)
+* `window.open()` parameter frameName is no longer set as window title. [#27481](https://github.com/electron/electron/pull/27481)
+* Changed `session.setPermissionCheckHandler(handler)` to allow for `handler`'s first parameter, `webContents` to be `null`. [#19903](https://github.com/electron/electron/pull/19903)
 
-これらの変更と将来の変更の詳細については、[予定されている破壊的な変更](https://github.com/electron/electron/electron/blob/master/docs/breaking-changes.md) のページを参照してください。
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
-## API の変更
+## API Changes
 
-* `BrowserWindow` に `roundedCorners` オプションを追加しました。 [#27572](https://github.com/electron/electron/pull/27572)
-* セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。[28866](https://github.com/electron/electron/pull/28866)
-* コンテキストブリッジで DOM 要素を渡す機能を追加しました。 [#26776](https://github.com/electron/electron/pull/26776)
-* サンドボックス化したレンダラーに `process.uptime()` を追加しました。 [#26684](https://github.com/electron/electron/pull/26684)
-* `context-menu` イベントの一部として発生する引数に不足していたフィールドを追加しました。[#26788](https://github.com/electron/electron/pull/26788)
-* Manifest V3 拡張機能のサービスワーカーの登録に対応しました。
-* ServiceWorker に 'registration-completed' イベントを追加しました。 [#27562](https://github.com/electron/electron/pull/27562)
+* Added `roundedCorners` option for `BrowserWindow`. [#27572](https://github.com/electron/electron/pull/27572)
+* Added new `session.storagePath` API to get the path on disk for session-specific data.[28866](https://github.com/electron/electron/pull/28866)
+* Added support for passing DOM elements over the context bridge. [#26776](https://github.com/electron/electron/pull/26776)
+* Added `process.uptime()` to sandboxed renderers. [#26684](https://github.com/electron/electron/pull/26684)
+* Added missing fields to the parameters emitted as part of the `context-menu`event.[#26788](https://github.com/electron/electron/pull/26788)
+* Added support for registering Manifest V3 extension service workers.
+* Added ‘registration-completed’ event to ServiceWorkers. [#27562](https://github.com/electron/electron/pull/27562)
 
-### 削除/非推奨となった変更
+### Removed/Deprecated Changes
 
-以下の API は削除されたか非推奨になりました。
+The following APIs have been removed or are now deprecated:
 
-* `WebContents` の `new-window` イベントを非推奨にしました。 これは `webContents.setWindowOpenHandler()` に置き換えられます。
-* 非推奨だった `shell.moveItemToTrash()` を削除しました. [#26723](https://github.com/electron/electron/pull/26723)
-* 非推奨となっていた以下の `BrowserWindow` 拡張機能 API を削除しました。
+* Deprecated the `new-window` event of `WebContents`. It is replaced by `webContents.setWindowOpenHandler()`
+* Removed deprecated `shell.moveItemToTrash()`. [#26723](https://github.com/electron/electron/pull/26723)
+* Removed the following deprecated `BrowserWindow` extension APIs:
 
     * `BrowserWindow.addExtension(path)`
     * `BrowserWindow.addDevToolsExtension(path)`
@@ -68,7 +68,7 @@ Electron チームは、Electron 13.0.0 のリリース発表にワクワクし�
     * `BrowserWindow.getExtensions()`
     * `BrowserWindow.getDevToolsExtensions()`
 
-    代わりに以下の `session` API を使用してください。
+    Use the `session` APIs instead:
 
     * `ses.loadExtension(path)`
     * `ses.removeExtension(extension_id)`
@@ -86,12 +86,12 @@ Electron チームは、Electron 13.0.0 のリリース発表にワクワクし�
     * `nativeTheme.shouldUseInvertedColorScheme`
     * `nativeTheme.shouldUseHighContrastColors`
 
-## 10.x.y サポート終了
+## End of Support for 10.x.y
 
-Electron 10.x.y はプロジェクトの [サポートポリシー](https://electronjs.org/docs/tutorial/support#supported-versions) に則りサポート終了となりました。 開発者はアプリケーションを新しいバージョンの Electron にアップグレードすることを推奨します。
+Electron 10.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
 
-## 次回予告
+## What's Next
 
-短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないように、チームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 [仮 14.0.0 スケジュール](https://electronjs.org/docs/tutorial/electron-timelines) では、Electron 14.0 開発ライフサイクルの主要な日付を示してあります。 また、Electron のバージョン管理の詳細については [バージョン管理のドキュメントを参照](https://electronjs.org/docs/tutorial/electron-versioning) してください。
+In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 14.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 14.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 
-今後のバージョンの Electron で予定されている破壊的な変更の詳細については、[予定されている破壊的な変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
+For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).

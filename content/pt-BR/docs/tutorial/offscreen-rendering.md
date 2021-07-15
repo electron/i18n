@@ -12,19 +12,19 @@ Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap
 * When nothing is happening on a webpage, no frames are generated.
 * An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### Modos de Renderização
+### Rendering Modes
 
 #### Aceleração da GPU
 
-Renderização acelerada pela GPU significa que a GPU é usada para composição. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. O benefício deste modo é que as animações CSS WebGL e 3D são suportadas.
+GPU accelerated rendering means that the GPU is used for composition. Because of that, the frame has to be copied from the GPU which requires more resources, thus this mode is slower than the Software output device. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
-#### Dispositivo de saída
+#### Software output device
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster. As a result, this mode is preferred over the GPU accelerated one.
 
 To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
-## Exemplo
+## Example
 
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')

@@ -2,10 +2,10 @@
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ```javascript
-// In the main process.
+/// In the main process.
 const { BrowserWindow } = require (' Electron ')
 
 const Win = New BrowserWindow ({ width: 800, height: 600 })
@@ -105,7 +105,7 @@ Se recomienda detener operaciones costosas cuando el estado de visibilidad está
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `BrowserWindow` es un [EventEmitter][event-emitter].
 
@@ -157,7 +157,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. Este es el valor predeterminado.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Por defecto es `default`. Los valores posibles son:
+  * `titleBarStyle` String (optional) - The style of window title bar. Predeterminadamente, es `default`. Los valores posibles son:
     * `default` - Es la barra de título gris opaca estándar de Mac.
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
@@ -174,15 +174,15 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Por defecto es `false`.
     * `nodeIntegrationInWorker` Boolean (opcional) - Si la integración de nodos está habilitada en los trabajadores de la web. Por defecto es `false`. Se pueden encontrar más detalles en [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (opcional) - Opcion experimental para habilitar soporte Node.js en sub-frames como iframes y ventas hijos. Todos tus preloads cargarán por cada iframe, puedes usar `process.isMainFrame` para determinar si estás en el marco principal o no.
-    * `preload` String (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](context-bridge.md#exposing-node-global-symbols).
+    * `preload` String (opcional) - Especifica un script que será cargado antes de que otros scripts se ejecuten en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](context-bridge.md#exposing-node-global-symbols).
     * `sandbox` Boolean (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](../tutorial/sandbox.md).
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Por defecto es `false`.
     * `session` [Session](session.md#class-session) (opcional) - Configura la sesión usada por la página. En lugar de pasar directamente el objeto de la sesión, se puede optar por utilizar la opción de `partition`, la cual acepta una cadena de partición. Cuando se proporcionen `session` y `partition`, se preferirá `session`. Default es la sesión por defecto.
-    * `partition` Cadena (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Default es la sesión por defecto.
+    * `partition` Cadena (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Default es la sesión por defecto.
     * `affinity` Cadena de caracteres (opcional): Cuando se especifica, las páginas web con la misma `affinity` se ejecutarán en el mismo proceso de renderizado. Nótese que debido a que se reutiliza el proceso de renderizado, ciertas opciones `webPreferences` también se compartirán entre las páginas web incluso si se especificaron valores diferentes para cada una de ellas, incluyendo pero no limitándose a `preload`, `sandbox` y`nodeIntegration`. Por lo tanto, se sugiere utilizar las mismas `webPreferences` para páginas web con la misma `affinity`. _Deprecated_
-    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Por defecto es `1.0`.
+    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Predeterminadamente, es `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Por defecto es `true`.
-    * `webSecurity` Booleano (opcional) - Cuando es `false`, deshabilitará la política de un mismo origen (por lo general se utiliza cuando la gente testea los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
+    * `webSecurity` Boolean (opcional) - Cuando es `false`, desactivará la política de same-origin (por lo general se utiliza cuando la gente prueba los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Por defecto es `false`.
     * `images` Boolean (optional) - Enables image support. Por defecto es `true`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
@@ -246,9 +246,9 @@ Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `title` String
-* `explicitSet` Boolen
+* `explicitSet` Boolean
 
 Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie. `explicitSet` es falso cuando el título se sintetiza a partir de la URL del archivo.
 
@@ -256,7 +256,7 @@ Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` e
 
 Devuelve:
 
-* `event` Event
+* `event`
 
 Aparece cuando la ventana se va a cerrar. Se emite antes de el evento del DOM `beforeunload` y `unload`. Llamar a `event.preventDefault()` cancelará el cierre.
 
@@ -278,7 +278,7 @@ _**Nota**: Hay una diferencia sutil entre el comportamiento de `window.onbeforeu
 
 #### Evento: "closed"
 
-Emitido cuando la ventana es cerrada. Después de haber recibido este evento, debe eliminar la referencia a la ventana y evitar volverla a usar.
+Emitted when the window is closed. Después de haber recibido este evento, debe eliminar la referencia a la ventana y evitar volverla a usar.
 
 #### Evento: "session-end" _Windows_
 
@@ -334,7 +334,7 @@ Aparece cuando se restaura la ventana de un estado minimizado.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `newBounds` [Rectangle](structures/rectangle.md) - Tamaño de la ventana en que esta siendo redimensionada.
 
 Emitido antes de que la ventana sea redimensionada. Llamar a `event.preventDefault()` evitará que la ventana sea redimensionada.
@@ -355,7 +355,7 @@ This is usually emitted when the window has been resized manually. On macOS, res
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `newBounds` [Rectangle](structures/rectangle.md) - Ubicación a la que se está moviendo la ventana.
 
 Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
@@ -392,7 +392,7 @@ Aparece cuando la ventana sale de un estado pantalla completa activado por la AP
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `isAlwaysOnTop` Boolean
 
 Emitido cuando la ventana es configurada o no configurada para mostrarse siempre en la parte superior de las otras ventanas.
@@ -401,7 +401,7 @@ Emitido cuando la ventana es configurada o no configurada para mostrarse siempre
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `command` Cadena
 
 Aparece cuando se invoca un [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Estos están generalmente relacionados a las teclas del teclado o a los comandos del navegador, así como el botón "Back" está en algunos ratones en Windows.
@@ -440,7 +440,7 @@ Aparece cuando la fase del evento de la rueda desplazamiento ha alcanzado el bor
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -451,10 +451,10 @@ El método subyacente a este evento esta construido para manejar el viejo estilo
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `rotation` Float
 
-Emitido en el gesto de rotación de trackpad. Continuamente emitido hasta que el gesto de rotación se termine. El valor `rotation` en cada emisión es el angulo rotado en grado desde la última emisión. El último evento emitido sobre un gesto de rotación será siempre de valor `0`. Los valores de rotación en sentido antihorario son positivos, mientras que los valores de rotación en sentido horario son negativos.
+Emitido en el gesto de rotación del trackpad. Emitido continuamente hasta que el gesto de rotación se termine. El valor de `rotation` en cada emisión es el angulo en grado rotado desde la última emisión. El último evento emitido sobra un gesto de rotación siempre será el valor de `0`. Los valores de rotación en sentido contrario a las agujas del reloj son positivos, mientras que los del sentido de las agujas del reloj son Negativo.
 
 #### Evento: "sheet-begin" _macOS_
 
@@ -464,7 +464,7 @@ Aparece cuando la ventana abre una hoja.
 
 Aparece cuando la ventana cierra una hoja.
 
-#### Evento: 'new-window-for-tab' _macOS_
+#### Evento: "new-window-for-tab" _macOS_
 
 Aparece cuando se hace clic al botón de nueva pestaña nativa.
 
@@ -472,7 +472,7 @@ Aparece cuando se hace clic al botón de nueva pestaña nativa.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `point` [Point](structures/point.md) - Las coordenadas de la pantalla del menú contextual que fue activado en
 
 Emitido cuando el menú contextual del sistema es activado en la ventana, esto normalmente solo es activado cuando el usuario hace click derecho en el área que no es del cliente de la ventana.  Esto es la barra de titulo de la ventana o cualquier área que haya declarado como `-webkit-app-region: drag` en una ventana sin marco.
@@ -495,7 +495,7 @@ Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación
 
 * `webContents` [WebContents](web-contents.md)
 
-Devuelve `BrowserWindow | null` - La ventana a que pertenece el `webContents` indicado o `null` si los contenidos no son propiedad de una ventana.
+Devuelve `BrowserWindow | null` - La ventana que posee al `webContents` dado o `null` si los contenidos no son propiedad de una ventana.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -505,11 +505,11 @@ Devuelve `BrowserWindow | null` - La ventana que posee el `browserView` dado. Si
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Íntegro
+* `id` Integer
 
 Devuelve `BrowserWindow | null` -La ventana con la `id` especificada.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Los objetos creados con `new BrowserWindow` tienen las siguientes propiedades:
 
@@ -639,7 +639,7 @@ A `String` property that defines an alternative title provided only to accessibi
 
 Los objetos creados con `new BrowserWindow` tienen los siguientes métodos de instancia:
 
-**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Note:** Algunos métodos solo están disponibles en sistemas operativos específicos y son etiquetados como tal.
 
 #### `win.destroy()`
 
@@ -767,7 +767,7 @@ Cierra el panel actual de [Quick Look][quick-look].
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` Partial<[Rectangle](structures/rectangle.md)>
-* `animate` Booleano (opcional) _macOS_
+* `animate` Boolean (opcional) _macOS_
 
 Redimensiona y mueve la ventana a los límites proporcionados. Cualquier propiedad que no se proporcione tendrá sus valores actuales por defecto.
 
@@ -796,7 +796,7 @@ Returns `String` - Gets the background color of the window. Ver [Setting `backgr
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Booleano (opcional) _macOS_
+* `animate` Boolean (opcional) _macOS_
 
 Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página web) hasta los límites proporcionados.
 
@@ -824,7 +824,7 @@ Devuelce `Boolean` -si la ventana está activada.
 
 * `width` Integer
 * `alto` Integer
-* `animate` Booleano (opcional) _macOS_
+* `animate` Boolean (opcional) _macOS_
 
 Cambia el tamaño de la ventana a `width` y `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -836,7 +836,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura de la ventana.
 
 * `width` Integer
 * `alto` Integer
-* `animate` Booleano (opcional) _macOS_
+* `animate` Boolean (opcional) _macOS_
 
 Cambia el área del cliente de la ventana (por ejemplo, la página web) a la `width` y `height`.
 
@@ -868,7 +868,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura máxima de la ventana.
 
 #### `win.setResizable(resizable)`
 
-* `resizable` Booleano
+* `resizable` Boolean
 
 Sets whether the window can be manually resized by the user.
 
@@ -964,7 +964,7 @@ Mueve la ventana al centro de la pantalla.
 
 * `x` Integer
 * `y` Integer
-* `animate` Booleano (opcional) _macOS_
+* `animate` Boolean (opcional) _macOS_
 
 Mueve la ventana a `x` y `y`.
 
@@ -1068,7 +1068,7 @@ Desancla todos los mensajes de la ventana.
 
 #### `win.setRepresentedFilename(filename)` _macOS_
 
-* `filename` String
+* `filename` Cadena
 
 Establece el nombre de la ruta del archivo que la ventana representa, y el icono del archivo se mostrará en la barra de título de la ventana.
 
@@ -1103,8 +1103,8 @@ Captura una foto instantánea de la página dentro de `rect`. Omitiendo `rect` c
 * `url` String
 * `options` Object (opcional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una URL de referencia HTTP.
-  * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
-  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
+  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
+  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
   * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
   * `baseURLForDataURL` String (opcional) - URL base (con separador de ruta final) para archivos a ser cargados por el data URL. Esto solo es necesario si la `url` especificada es una data URL y necesita cargar otros archivos.
 
@@ -1223,9 +1223,9 @@ El número de botones en la barra de herramientas de la vista previa no debe ser
 
 Los `buttons` es un arreglo de objetos `Button`:
 
-* Objeto `Button`
+* `Button` Object
   * `icon` [NativeImage](native-image.md) - El icono que muestra la barra de herramientas de la vista previa.
-  * `click` Function
+  * `click` Función
   * `tooltip` String (opcional): el texto de la información sobre el botón.
   * `flags` String[] (opcional) - Controla los estados y comportamientos específicos del botón. Por defecto, es `['enabled']`.
 
@@ -1246,7 +1246,7 @@ Establece la región de la ventana para mostrar como la vista previa de la image
 
 #### `win.setThumbnailToolTip(toolTip)` _Windows_
 
-* `toolTip` Cadena
+* `toolTip` String
 
 Configura la descripción emergente que se muestra cuando se pasa sobre la vista previa de la ventana en la barra de tareas.
 

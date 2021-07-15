@@ -58,7 +58,7 @@ O objeto `menu` possui os seguintes métodos de instância:
 
 #### `menu.popup([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -114,7 +114,7 @@ Retorna:
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
 Objetos `menu` também possuem as seguintes propriedades:
 

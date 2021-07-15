@@ -1,4 +1,4 @@
-# UploadData Objekt
+# UploadRawData Object
 
 * `type` 'rawData' - `rawData`.
-* ` Bytes ` Puffer Daten, die hochgeladen werden sollen.
+* `bytes` Buffer - Data to be uploaded.

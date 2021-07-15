@@ -128,7 +128,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer][buffer]
-* `options` Object
+* Objeto `options`
   * `width` Integer
   * `height` Integer
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
@@ -140,8 +140,8 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
-* `options` Object (optional)
-  * `width` Integer (optional) - Required for bitmap buffers.
+* `options` Object (Opcional)
+  * `width` Integer (opicional) - Necessário para buffers de bitmap.
   * `height` Integer (opicional) - Necessário para buffers de bitmap.
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
@@ -164,7 +164,7 @@ Cria uma nova instância `NativeImage` a partir do `dataURL`.
 
 Retorna `NativeImage`
 
-Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona para o dado nome da Imagem. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona para o dado nome da Imagem. Veja [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) para uma lista dos possíveis valores.
 
 O `hslShift` é aplicado à imagem com as seguintes regras:
 
@@ -192,7 +192,7 @@ Os seguintes métodos estão disponíveis nas instâncias da classe `NativeImage
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer][buffer] que contém os dados codificados de `PNG` da imagem.
@@ -205,21 +205,21 @@ Retorna `Buffer` - Um [Buffer][buffer] que contém os dados codificados de `JPG`
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer][buffer] que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `String` - Os dados de URL da imagem.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer][buffer] que contém os dados de bitmap crus (sem alterações) da imagem.
@@ -262,10 +262,10 @@ Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
-* `options` Object
+* Objeto `options`
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) - The desired quality of the resize image. Os valores possíveis são: `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Retorna `NativeImage` - A imagem redimensionada.
 
@@ -285,7 +285,7 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 #### `image.addRepresentation(options)`
 
-* `options` Object
+* Objeto `options`
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Padrão sendo 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (opcional) - Padrão sendo 0. Required if a bitmap buffer is specified as `buffer`.
@@ -294,9 +294,9 @@ Returns `Float[]` - An array of all scale factors corresponding to representatio
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-### Propriedades de Instância
+### Propriedades da Instância
 
-#### `nativeImage.isMacTemplateImage` _macOS_
+#### `nativeImage.isMacTemplateImage` no _macOS_
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 

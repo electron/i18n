@@ -2,15 +2,15 @@
 
 > Behandelt Antworten zu HTTP/HTTPS Anfragen.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 `IncomingMessage` implementiert das [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface und ist somit ein [EventEmitter][event-emitter].
 
-### Instanz Events
+### Instanz-Ereignisse
 
 #### Event: 'data'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `chunk` Buffer - Ein Stück der Antwortdaten.
 
@@ -24,9 +24,9 @@ Gibt an dass der Body der Antwort endet. Must be placed before 'data' event.
 
 Ausgegeben wenn eine Anfrage während einer laufenden HTTP Transaktion abgebrochen wurde.
 
-#### Event: 'error'
+#### Ereignis : "Fehler
 
-Rückgabewert:
+Kehrt zurück:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 

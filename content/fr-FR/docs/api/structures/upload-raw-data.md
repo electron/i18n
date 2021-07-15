@@ -1,4 +1,4 @@
-# Objet UploadRawData
+# UploadRawData Object
 
 * `type` 'rawData' - `rawData`.
-* `bytes` Buffer - Données à télécharger.
+* `bytes` Buffer - Data to be uploaded.

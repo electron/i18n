@@ -55,10 +55,10 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `errorCode` Integer
-* Строка `errorDescription`
-* Строка `validatedURL`
+* `errorDescription` String
+* `validatedURL` String
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -69,10 +69,10 @@ This event is like `did-finish-load` but emitted when the load failed. The full 
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `errorCode` Integer
-* Строка `errorDescription`
-* Строка `validatedURL`
+* `errorDescription` String
+* `validatedURL` String
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -83,7 +83,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -102,7 +102,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 
 Emitted when the document in the given frame is loaded.
 
@@ -110,7 +110,7 @@ Emitted when the document in the given frame is loaded.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `title` String
 * `explicitSet` Boolean
 
@@ -120,7 +120,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `favicons` String[] - Array of URLs.
 
 Emitted when page receives favicon urls.
@@ -175,7 +175,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 Возвращает:
 
 * `window` BrowserWindow
-* `details` Object
+* Объект `details`
   * `url` String - URL for the created window.
   * `frameName` String - Name given to the created window in the `window.open()` call.
   * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
@@ -192,7 +192,7 @@ See [`window.open()`](window-open.md) for more details and how to use this in co
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
@@ -207,7 +207,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -220,7 +220,7 @@ Emitted when any frame (including main) starts navigating. `isInPlace` will be `
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -237,7 +237,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -252,7 +252,7 @@ Emitted after a server side redirect occurs during navigation.  For example a 30
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
@@ -265,7 +265,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
@@ -281,7 +281,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -295,7 +295,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -308,8 +308,8 @@ win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBoxSync(win, {
     type: 'question',
     buttons: ['Leave', 'Stay'],
-    title: 'Вы действительно хотите покинуть этот сайт?',
-    message: 'Изменения не могут быть сохранены.',
+    title: 'Do you want to leave this site?',
+    message: 'Changes you made may not be saved.',
     defaultId: 0,
     cancelId: 1
   })
@@ -324,7 +324,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
@@ -335,8 +335,8 @@ Emitted when the renderer process crashes or is killed.
 
 Возвращает:
 
-* `event` Event
-* `details` Object
+* Событие типа `event`
+* Объект `details`
   * `reason` String - The reason the render process is gone.  Возможные значения:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
@@ -361,7 +361,7 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `name` String
 * `version` String
 
@@ -375,7 +375,7 @@ Emitted when `webContents` is destroyed.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `input` Object - Input properties.
   * `type` String - Either `keyUp` or `keyDown`.
   * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
@@ -415,8 +415,8 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Возвращает:
 
-* `event` Event
-* `zoomDirection` String - Может быть `in` или `out`.
+* Событие типа `event`
+* `zoomDirection` String - Can be `in` or `out`.
 
 Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
@@ -436,9 +436,9 @@ Emitted when DevTools is focused / opened.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
-* `error` String - код ошибки.
+* `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -451,13 +451,13 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-Происходит, когда запрошен сертификат клиента.
+Возникает при запросе сертификата клиента.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -465,7 +465,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `authenticationResponseDetails` Object
   * `url` URL
 * `authInfo` Object
@@ -478,7 +478,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String (опционально)
   * `password` String (опционально)
 
-Происходит, когда `webContents` выполняет базовую аутентификацию.
+Возникает `webContents`, когда делается базовый auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
@@ -486,8 +486,8 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Возвращает:
 
-* `event` Event
-* Объект `result`
+* Событие типа `event`
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -508,7 +508,7 @@ Emitted when media is paused or done playing.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
@@ -521,7 +521,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
@@ -530,7 +530,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `type` String
 * `image` [NativeImage](native-image.md) (опционально)
 * `scale` Float (optional) - scaling factor for the custom cursor.
@@ -545,7 +545,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `params` Object
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
@@ -600,7 +600,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function
   * `deviceId` String
@@ -633,7 +633,7 @@ app.whenReady().then(() => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -657,7 +657,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -671,7 +671,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
@@ -680,11 +680,11 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
 * `message` String - The actual console message
 * `line` Integer - The line number of the source that triggered this console message
-* Строка `sourceId`
+* `sourceId` String
 
 Emitted when the associated window logs a console message.
 
@@ -692,8 +692,8 @@ Emitted when the associated window logs a console message.
 
 Возвращает:
 
-* `event` Event
-* Строка `preloadPath`
+* Событие типа `event`
+* `preloadPath` String
 * `error` Error
 
 Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
@@ -702,7 +702,7 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `channel` String (Строка)
 * `...args` any[]
 
@@ -712,7 +712,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `channel` String (Строка)
 * `...args` any[]
 
@@ -722,7 +722,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Вызов `event.preventDefault()` вернет пустые источники.
 
@@ -773,7 +773,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `preferredSize` [Size](structures/size.md) - The minimum size needed to contain the layout of the document—without requiring scrolling.
 
 Emitted when the `WebContents` preferred size has changed.
@@ -786,11 +786,11 @@ This event will only be emitted when `enablePreferredSizeMode` is set to `true` 
 
 * `url` String
 * `options` Object (опционально)
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - URL-адрес HTTP ссылки.
-  * `userAgent` String (опционально) - user-agent, создающий запрос.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
-  * `baseURLForDataURL` String (опционально) - Базовый Url (с разделителем пути), для файлов, которые будут загружены по Url данных. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
@@ -1023,14 +1023,14 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 #### `contents.setIgnoreMenuShortcuts(ignore)`
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.setWindowOpenHandler(handler)`
 
 * `handler` Function<{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}>
-  * `details` Object
+  * Объект `details`
     * `url` String - The _resolved_ version of the URL passed to `window.open()`. e.g. opening a window with `window.open('foo')` will yield something like `https://the-origin/the/current/path/foo`.
     * `frameName` String - Name of the window provided in `window.open()`
     * `features` String - Comma separated list of window features provided to `window.open()`.
@@ -1437,7 +1437,7 @@ app.whenReady().then(() => {
 
 * `options` Object (опционально)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. По-умолчанию - `true`.
 
 Opens the devtools.
 
@@ -1578,7 +1578,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* Объект `parameters`
+* `parameters` Object
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1602,7 +1602,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (опиционально) - по умолчанию `false`.
+* `onlyDirty` Boolean (optional) - Defaults to `false`.
 * `callback` Function
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1619,7 +1619,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* Объект `item`
+* `item` Object
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
@@ -1710,9 +1710,9 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Путь к выходному файлу.
+* `filePath` String - Path to the output file.
 
-Возвращает `Promise<void>`, который указывает успешно ли создан снимок.
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 
@@ -1784,7 +1784,7 @@ A [`Debugger`](debugger.md) instance for this webContents.
 
 A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
-#### `contents.mainFrame` _Только чтение_
+#### `contents.mainFrame` _Readonly_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 

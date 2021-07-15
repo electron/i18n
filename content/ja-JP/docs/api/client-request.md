@@ -14,7 +14,7 @@
   * `session` Session (任意) - リクエストが関連付けられている [`Session`](session.md) のインスタンス。
   * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 `session` オプションは `partition` を上書きします。 そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
   * `credentials` String (任意) - `include` か `omit` にできます。 このリクエストと一緒に [資格情報](https://fetch.spec.whatwg.org/#credentials) を送信するかどうか。 `include` に設定した場合、リクエストに関連付けられたセッションからの資格情報が使用されます。 `omit` に設定した場合、資格情報はリクエストと一緒に送信されません (そして 401 の場合に `'login'` イベントが発生しません)。 これは、同名の [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) オプションの動作と同じです。 このオプションを指定しない場合、セッションからの認証データは送信され、(`useSessionCookies` を設定しない限り) Cookie は送信されません。
-  * `useSessionCookies` Boolean (任意) - 指定のセッションからこのリクエストで Cookie を送るかどうか。 `credentials` を指定した場合、このオプションの効果はありません。 省略値は、`false` です。
+  * `useSessionCookies` Boolean (任意) - 指定のセッションからこのリクエストで Cookie を送るかどうか。 `credentials` を指定した場合、このオプションの効果はありません。 省略値は `false` です。
   * `protocol` String (任意) - `http:` か `https:` にできます。 これは 'scheme:' という形式のプロトコルスキームです。 既定値は 'http:' です。
   * `host` String (任意) - ホスト名とポート番号を連結した 'hostname:port' として指定されたサーバーホスト。
   * `hostname` String (任意) - サーバーホスト名。
@@ -41,13 +41,13 @@ const request = net.request({
 
 #### イベント: 'response'
 
-戻り値:
+戻り値：
 
 * `response` [IncomingMessage](incoming-message.md) - HTTP レスポンスメッセージを表すオブジェクト。
 
 #### イベント: 'login'
 
-戻り値:
+戻り値：
 
 * `authInfo` Object
   * `isProxy` Boolean
@@ -96,7 +96,7 @@ request.on('login', (authInfo, callback) => {
 
 #### イベント: 'error'
 
-戻り値:
+戻り値：
 
 * `error` Error - 失敗に関するいくつかの情報を提供するエラーオブジェクト。
 
@@ -108,7 +108,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 
 #### イベント: 'redirect'
 
-戻り値:
+戻り値：
 
 * `statusCode` Integer
 * `method` String
@@ -121,7 +121,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 
 #### `request.chunkedEncoding`
 
-リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean` 型。 省略値は false 。 プロパティは読み書き可能ですが、HTTPヘッダーがまだ送信されていない最初の書き込み操作の前でしか設定できません。 最初の書き込みの後、`chunkedEncoding` プロパティを設定しようとすると、エラーがスローされます。
+リクエストがHTTPのチャンク形式転送エンコーディングを使用するかどうかを指定する `Boolean` 型。 省略値は、false です。 プロパティは読み書き可能ですが、HTTPヘッダーがまだ送信されていない最初の書き込み操作の前でしか設定できません。 最初の書き込みの後、`chunkedEncoding` プロパティを設定しようとすると、エラーがスローされます。
 
 Electronのプロセスメモリの中で内部的にバッファする代わりにデータが細切れにストリーミングされるため、大きなリクエストボディを送信する必要がある場合、チャンク形式のエンコーディングを使用することを強く推奨します。
 

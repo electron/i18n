@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ## Eventos
 
-The `inAppPurchase` module emits the following events:
+O módulo `inAppPurchase` emite os seguintes eventos:
 
 ### Event: 'transactions-updated'
 
@@ -19,7 +19,7 @@ Retorna:
 
 ## Métodos
 
-The `inAppPurchase` module has the following methods:
+O módulo `inAppPurchase` possui os seguintes métodos:
 
 ### `inAppPurchase.purchaseProduct(productID[, quantity])`
 

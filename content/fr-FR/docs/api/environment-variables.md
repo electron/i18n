@@ -89,7 +89,7 @@ N'utilise pas la bar de menu global sur Linux.
 
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. `gio` par défaut.
+Set the trash implementation on Linux. Par défaut la valeur est `gio`.
 
 Options :
 

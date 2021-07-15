@@ -37,7 +37,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `reason` String - причина отсоединения отладчика.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
@@ -46,7 +46,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `method` String - имя метода.
 * `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 * `sessionId` String - Unique identifier of attached debugging session, will match the value sent from `debugger.sendCommand`.

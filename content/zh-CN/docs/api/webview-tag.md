@@ -1,32 +1,32 @@
 # `<webview>`标签
 
-## 警告
+## Warning
 
-Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webview]，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` ，[Electron的 `BrowserView`](browser-view.md) 或完全避免嵌入内容的架构。
+Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, [Electron's `BrowserView`](browser-view.md), or an architecture that avoids embedded content altogether.
 
-## 启用
+## Enabling
 
-默认情况下，Electron >= 5禁用 `webview` 标签。  在构造 `BrowserWindow` 时，需要通过设置 `webviewTag` webPreferences选项来启用标签。 更多信息请参看 [BrowserWindows 的构造器文档](browser-window.md)。
+By default the `webview` tag is disabled in Electron >= 5.  You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
 
 ## 概览
 
-> 在一个独立的 frame 和进程里显示外部 web 内容。
+> Display external web content in an isolated frame and process.
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
-使用 `webview` 标签将'guest'内容 (例如网页) 嵌入到您的 Electron 应用中。 Guest 内容包含在 `webview` 容器内。 应用中的嵌入页面可以控制外来内容的布局和重绘。
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
-与 `iframe`不同， `webview` 独立于您的应用程序运行。 它拥有和你的页面不一样的权限并且所嵌入的内容和你应用之间的交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
 ## 示例
 
-若要在应用程序中嵌入网页, 请将 ` webview ` 标签添加到应用程序的被嵌入页面中 (这是将显示外来内容的应用程序页)。 在最简单的例子中, ` webview ` 标签包括网页的 ` src ` 和控制 ` webview ` 容器外观的 css 样式:
+To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-如果要以任何方式控制外来内容, 则可以写用于侦听 ` webview ` 事件的 JavaScript, 并使用 ` webview ` 方法响应这些事件。 下面是包含两个事件侦听器的示例代码: 一个侦听网页开始加载, 另一个用于网页停止加载, 并在加载时显示 "loading..." 消息:
+If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
 
 ```html
 <script>
@@ -48,23 +48,23 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 </script>
 ```
 
-## 内部实现
+## Internal implementation
 
-在内部  `webview` 与 [过程外 iframes（OOPIF）](https://www.chromium.org/developers/design-documents/oop-iframes)一起实施。 `webview` 标签本质上是一个自定义元素，使用 shadow DOM 将 `iframe` 元素包裹在里面。
+Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
 
-因此， `webview` 的行为与跨域 `iframe` 非常相似，例如：
+So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
-* 在 `webview` 中单击时，页面焦点将从嵌入器移动到 `webview`。
-* 您无法将键盘、鼠标和滚动事件侦听器添加到 `webview`。
-* 嵌入器框架和 `webview` 之间的所有反应都是异步的。
+* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
+* All reactions between the embedder frame and `webview` are asynchronous.
 
-## CSS 样式说明
+## CSS Styling Notes
 
-请注意，`webview` 标签的样式使用 `display:flex;` 来确保 ` iframe `在传统和 flex 布局一起使用的情况下填充其 `webview` 容器的全部高度和宽度。 除非指定内联布局的 `display:inline-flex;` ，否则请不要 覆盖默认 `display:flex;` CSS属性。
+Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
-## 标签属性
+## Tag Attributes
 
-`webview` 标签具有以下属性：
+The `webview` tag has the following attributes:
 
 ### `src`
 
@@ -72,11 +72,11 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="https://www.github.com/"></webview>
 ```
 
-表示可见网址的 `String` 。 Writing to this attribute initiates top-level navigation.
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
-更改 `src` 的值将重新加载当前页面。
+Assigning `src` its own value will reload the current page.
 
-` src ` 属性还可以接受数据 URL, 如 ` data:text/plain, Hello, world! `。
+The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
 ### `nodeintegration`
 
@@ -84,7 +84,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-一个 `Boolean`。 当有此属性时, ` webview ` 中的访客页（guest page）将具有Node集成, 并且可以使用像 ` require ` 和 ` process ` 这样的node APIs 去访问低层系统资源。 Node 集成在访客页中默认是禁用的。
+一个 `Boolean`。 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. Node 集成在访客页中默认是禁用的。
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -116,9 +116,9 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-A `String` that specifies a script that will be loaded before other scripts run in the guest page. 该脚本的URL的协议必须是 `file:`  `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
 
-当访客页没有 node integration ，这个脚本仍然有能力去访问所有的 Node APIs, 但是当这个脚本执行执行完成之后，通过Node 注入的全局对象（global objects）将会被删除。
+When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
 **Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
@@ -153,7 +153,7 @@ A `String` that sets the user agent for the guest page before the page is naviga
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -171,9 +171,9 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-`String` 是一个由逗号分割的字符串列表，其中指定了要设置在 webview 上的 Web 首选项。 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
+A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `0` 解析为 `false`。
+The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.
 
 ### `enableblinkfeatures`
 
@@ -193,9 +193,9 @@ A `String` which is a list of strings which specifies the blink features to be d
 
 ## 方法
 
-`webview` 标签具有以下方法：
+The `webview` tag has the following methods:
 
-** 注意: **使用方法之前 <0>webview</0> 元素必须已被加载。
+**Note:** The webview element must be loaded before using the methods.
 
 **示例**
 
@@ -218,7 +218,7 @@ webview.addEventListener('dom-ready', () => {
 
 Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
-`webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
+Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
 ### `<webview>.downloadURL(url)`
 
@@ -228,15 +228,15 @@ Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.getURL()`
 
-返回 `String` - 访客页的URL。
+Returns `String` - The URL of guest page.
 
 ### `<webview>.getTitle()`
 
-返回 `String` - 访客页的标题。
+Returns `String` - The title of guest page.
 
 ### `<webview>.isLoading()`
 
-返回 `Boolean` - 访客页是否仍然在加载资源。
+Returns `Boolean` - Whether guest page is still loading resources.
 
 ### `<webview>.isLoadingMainFrame()`
 
@@ -244,7 +244,7 @@ Returns `Boolean` - Whether the main frame (and not just iframes or frames withi
 
 ### `<webview>.isWaitingForResponse()`
 
-返回 `Boolean` - 访客页面是否正在等待页面主资源的第一响应。
+Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
 
 ### `<webview>.stop()`
 
@@ -252,43 +252,43 @@ Stops any pending navigation.
 
 ### `<webview>.reload()`
 
-刷新访客页。
+Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-刷新访客页并忽略缓存。
+Reloads the guest page and ignores cache.
 
 ### `<webview>.canGoBack()`
 
-返回 `Boolean` - 访客页能否后退。
+Returns `Boolean` - Whether the guest page can go back.
 
 ### `<webview>.canGoForward()`
 
-返回 `Boolean` - 访客页能否前进。
+Returns `Boolean` - Whether the guest page can go forward.
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-返回 `Boolean` - 访客页能否前进到 `offset`。
+Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+清除定位历史。
 
 ### `<webview>.goBack()`
 
-使访客页后退。
+Makes the guest page go back.
 
 ### `<webview>.goForward()`
 
-使访客页前进。
+Makes the guest page go forward.
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-定位到指定的绝对索引。
+Navigates to the specified absolute index.
 
 ### `<webview>.goToOffset(offset)`
 
@@ -304,11 +304,11 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-覆盖访客页的用户代理。
+Overrides the user agent for the guest page.
 
 ### `<webview>.getUserAgent()`
 
-返回 `String` - 访客页的用户代理。
+Returns `String` - The user agent for guest page.
 
 ### `<webview>.insertCSS(css)`
 
@@ -329,27 +329,27 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
 * `code` String
-* `userGesture` Boolean (可选) - 默认为 `false`。
+* `userGesture` Boolean (optional) - Default `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-在页面中执行 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
+在页面中执行 `code`。 If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
-打开 guest 页面的 DevTools 窗口。
+Opens a DevTools window for guest page.
 
 ### `<webview>.closeDevTools()`
 
-关闭 guest 页面的 DevTools 窗口。
+Closes the DevTools window of guest page.
 
 ### `<webview>.isDevToolsOpened()`
 
-返回 `Boolean` - guest 页面是否打开了 Devtools。
+Returns `Boolean` - Whether guest page has a DevTools window attached.
 
 ### `<webview>.isDevToolsFocused()`
 
-返回 `Boolean` - guest 页面的 DevTools 窗口是否聚焦。
+Returns `Boolean` - Whether DevTools window of guest page is focused.
 
 ### `<webview>.inspectElement(x, y)`
 
@@ -370,11 +370,11 @@ Opens the DevTools for the service worker context present in the guest page.
 
 * `muted` Boolean
 
-设置访客页是否静音。
+Set guest page muted.
 
 ### `<webview>.isAudioMuted()`
 
-返回 `Boolean` - 访客页是否被静音。
+Returns `Boolean` - Whether guest page has been muted.
 
 ### `<webview>.isCurrentlyAudible()`
 
@@ -382,57 +382,57 @@ Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
-在页面中执行编辑命令 `undo`。
+Executes editing command `undo` in page.
 
 ### `<webview>.redo()`
 
-在页面中执行编辑命令 `redo`。
+Executes editing command `redo` in page.
 
 ### `<webview>.cut()`
 
-在页面中执行编辑命令 `cut`。
+Executes editing command `cut` in page.
 
 ### `<webview>.copy()`
 
-在页面中执行编辑命令 `copy`。
+Executes editing command `copy` in page.
 
 ### `<webview>.paste()`
 
-在页面中执行编辑命令 `paste`。
+Executes editing command `paste` in page.
 
 ### `<webview>.pasteAndMatchStyle()`
 
-在页面中执行编辑命令 `pasteAndMatchStyle`。
+Executes editing command `pasteAndMatchStyle` in page.
 
 ### `<webview>.delete()`
 
-在页面中执行编辑命令 `delete`。
+Executes editing command `delete` in page.
 
 ### `<webview>.selectAll()`
 
-在页面中执行编辑命令 `selectAll`。
+Executes editing command `selectAll` in page.
 
 ### `<webview>.unselect()`
 
-在页面中执行编辑命令 `unselect`。
+Executes editing command `unselect` in page.
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-在页面中执行编辑命令 `replace`。
+Executes editing command `replace` in page.
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` String
 
-在页面中执行编辑命令 `replaceMisspelling`。
+Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.insertText(text)`
 
 * `text` String
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
 插入`text` 到焦点元素
 
@@ -478,7 +478,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `pageRanges` Object[] (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. 可以是 `simplex`、`shortEdge` 或 `longEdge`。
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
@@ -486,9 +486,9 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `footer` String (optional) - String to be printed as page footer.
   * `pageSize` String | Size (optional) - Specify page size of the printed document. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`.
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
-Prints `webview`'s web page. 与 `webContents.print([options])` 相同.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
@@ -499,7 +499,7 @@ Prints `webview`'s web page. 与 `webContents.print([options])` 相同.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. and `width` in microns.
   * `scaleFactor` Number (optional) - The scale factor of the web page. Can range from 0 to 100.
-  * `pageRanges` Record<string, number> (optional) - The page range to print. 在macOS上，只有数组的第一个值被信任。
+  * `pageRanges` Record<string, number> (optional) - The page range to print. On macOS, only the first range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height`
@@ -523,17 +523,17 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 * `channel` String
 * `...args` any[]
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
-通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-args)
+See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
 Sends an input `event` to the page.
 
@@ -541,7 +541,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - 缩放比例
+* `factor` Number - Zoom factor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
@@ -566,7 +566,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
 设置最大和最小缩放级别。
 
@@ -580,7 +580,7 @@ Returns `Number` - The WebContents ID of this `webview`.
 
 ## DOM Events
 
-`webview` 标签具有以下有效的 DOM 事件：
+The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
@@ -593,7 +593,7 @@ Fired when a load has committed. This includes navigation within the current doc
 
 ### Event: 'did-finish-load'
 
-导航完成时触发，即选项卡的旋转器将停止旋转，并指派` onload `事件后。（译者：网页加载的过程中，并不是所有的浏览器都是转圈圈，而且浏览器版本不同，加载效果也有可能不一样。其中 ie 和 chrome 是转圈圈，safari 是进度条，firefox是一个小点左右来回移动--20180103）
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Event: 'did-fail-load'
 
@@ -604,7 +604,7 @@ Fired when a load has committed. This includes navigation within the current doc
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()`
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### Event: 'did-frame-finish-load'
 
@@ -662,7 +662,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 Fired when the guest window logs a console message.
 
-下示例代码将所有日志消息转发到嵌入器的主机 而不顾日志级别或其他属性。
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -675,7 +675,7 @@ webview.addEventListener('console-message', (e) => {
 
 返回:
 
-* `result` 对象
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
@@ -694,7 +694,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### 事件: 'new-window'
+### Event: 'new-window'
 
 返回:
 
@@ -741,7 +741,7 @@ Calling `event.preventDefault()` does __NOT__ have any effect.
 
 Emitted when a navigation is done.
 
-此事件不用于页面导航，例如单击锚链接 或更新 `window.location.hash`。 Use `did-navigate-in-page` event for this purpose.
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Event: 'did-navigate-in-page'
 
@@ -750,7 +750,7 @@ Emitted when a navigation is done.
 * `isMainFrame` Boolean
 * `url` String
 
-当发生页内导航时，触发该事件。
+Emitted when an in-page navigation happened.
 
 当发生页内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 例如，点击锚点链接，或者DOM的 `hashchange`事件被触发时，都会触发该事件。
 
@@ -796,7 +796,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### 事件: 'crashed'
+### Event: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -804,7 +804,7 @@ Fired when the renderer process is crashed.
 
 返回:
 
-* `name` String
+* `name` 字符串
 * `version` String
 
 Fired when a plugin process is crashed.

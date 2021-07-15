@@ -1,4 +1,4 @@
-# Dark-Modus
+# Dark Mode
 
 ## Übersicht
 
@@ -155,7 +155,7 @@ The `'dark-mode:system'` IPC channel handler method assigns the string `'system'
 
 Run the example using Electron Fiddle and then click the "Toggle Dark Mode" button; the app should start alternating between a light and dark background color.
 
-![Dark-Modus](../images/dark_mode.gif)
+![Dark Mode](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/

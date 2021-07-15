@@ -1,12 +1,12 @@
-# Objeto JumpListCategory
+# JumpListCategory Object
 
-* `type` String (opcional) - Um dos seguintes:
-  * `tarefas` - itens nesta categoria serão colocados na categoria de `tarefas` padrão. Só pode existir um de cada categoria, e sempre será mostrado no final da Jump List.
-  * `frequente` - Exibe uma lista de arquivos abertos recentemente pelo aplicativo, o nome da categoria e seus itens são definidos pelo Windows.
-  * `recent` - Exibe uma lista de arquivos abertos recentemente pelo aplicativo, o nome e a categoria de seus itens são definidos pelo Windows. Itens podem ser adicionados indiretamente a esta categoria usando `app.addRecentDocument(path)`.
-  * `custom` - Exibe tarefas ou links para arquivos, o `name` precisa ser definido pelo aplicativo.
-* `name` String (opcional) - Precisa ser definido se o `type` é `custom`, caso contrário deverá ser omitido.
-* `items` JumpListItem[] (opcional) - Matriz de [`JumpListItem`](jump-list-item.md) objetos que se `type` for `tasks` ou `custom`, caso contrário, deverá ser omitido.
+* `type` String (optional) - One of the following:
+  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
+  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
+  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
+  * `custom` - Displays tasks or file links, `name` must be set by the app.
+* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
+* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
 **Nota:** Se um objeto `JumpListCategory` não tiver for nem a propriedade `type` nem a `name` definidas, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
 

@@ -2,7 +2,7 @@
 
 > Verhindere, dass das System in den Stromspar-/Schlafmodus geht.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 Ein Beispiel:
 

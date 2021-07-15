@@ -27,7 +27,7 @@ Dans la plupart des cas, vous devriez pouvoir tout faire dans l'évènement `rea
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
 Émis lorsqu'Electron a terminé l’initialisation. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été émis et `app.whenReady()` pour obtenir une Promesse qui sera résolue Electron sera initialisé.
@@ -42,7 +42,7 @@ Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis avant que l'application ne commence à fermer ses fenêtres. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
@@ -54,7 +54,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque toutes les fenêtres ont été fermées et que l'application va se fermer. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
@@ -66,7 +66,7 @@ Consultez la description de l’événement `window-all-closed` pour voir les di
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
@@ -77,7 +77,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `path` String
 
 Émis lorsque l’utilisateur souhaite ouvrir un fichier avec l’application. L’événement `open-file` est habituellement émis lorsque l’application est déjà ouvert et le système d’exploitation souhaite réutiliser l’application pour ouvrir le fichier. `open-file` est également émis lorsqu’un fichier est déposé sur le dock et l’application n’est pas encore en cours d’exécution. Assurez-vous d’écouter l’événement `open-file` très tôt dans le démarrage votre l’application pour gérer ce cas (même avant que l’événement `ready` soit émis).
@@ -90,7 +90,7 @@ Sur Windows, vous devrez analyser `process.argv` (dans le main process) pour obt
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `url` String
 
 Émis lorsque l’utilisateur souhaite ouvrir une URL avec l’application. Le fichier de votre application `Info.plist` doit définir le schéma d'URL dans la touche `CFBundleURLTypes` et définir `NSPrincipalClass` à `AtomApplication`.
@@ -101,7 +101,7 @@ Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet évén
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `hasVisibleWindows` Boolean
 
 Émis lorsque l'application est activée. Différentes actions peuvent déclencher cet événement, comme le lancement de l’application pour la première fois, essayer de relancer l’application lorsqu’elle est déjà en cours d’exécution, ou en cliquant sur l'icône du dock de l’application ou de l’icône de la barre des tâches.
@@ -110,7 +110,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque l'application est activée. Contrairement à l'événement `activate`, l'événement `did-become-active` est émit à chaque fois que l'application devient active, et pas seulement sur l'icône du Dock de l'application ou quand l'application est relancée.
 
@@ -118,7 +118,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`][activity-type].
 * `userInfo` inconnu - Contient l'état spécifique de l'application stocké par l'activité sur un autre appareil.
 
@@ -130,7 +130,7 @@ Une activité d'utilisateur peut être poursuivie seulement dans une application
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`][activity-type].
 
 Émis au cours de la [procédure de transfert][handoff] quand une activité depuis un périphérique différent veut reprendre. Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
@@ -139,7 +139,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`][activity-type].
 * `error` String - Une chaîne de caractères avec la description localisée de l'erreur.
 
@@ -149,7 +149,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`][activity-type].
 * `userInfo` inconnu - Contient l'état spécifique de l'application stocké par l'activité.
 
@@ -159,7 +159,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`][activity-type].
 * `userInfo` inconnu - Contient l'état spécifique de l'application stocké par l'activité.
 
@@ -169,7 +169,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Émis lorsque l'utilisateur clique sur le bouton natif de nouvel onglet de macOS. Le bouton de nouvel onglet n'est visible que si la `BrowserWindow actuelle` possède un `tabbingIdentifier`
 
@@ -177,7 +177,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un [browserWindow](browser-window.md) perd le focus.
@@ -186,7 +186,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un [browserWindow](browser-window.md) gagne le focus.
@@ -195,7 +195,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un nouveau [browserWindow](browser-window.md) est créé.
@@ -204,7 +204,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 
 Émis lorsqu'un nouveau [webContents](web-contents.md) est créé.
@@ -213,7 +213,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - Le code d'erreur
@@ -241,7 +241,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -265,7 +265,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * Objet `authenticationResponseDetails`
   * `url` URL
@@ -302,7 +302,7 @@ Si `callback` est appelé sans nom d'utilisateur ou mot de passe, la demande d'a
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `killed` Boolean
 
 Émis lorsque le processus GPU plante ou est tué.
@@ -313,7 +313,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
@@ -325,7 +325,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * Objet `details`
   * `reason` String - La raison pour laquelle le processus de rendu a disparu.  Valeurs possibles :
@@ -344,7 +344,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * Objet `details`
   * `type` String - Type de processus. Une des valeurs suivantes:
     * `Utilitaire`
@@ -372,7 +372,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` quand le support de l'accessibilité de Chrome est activé, sinon `false`.
 
 Émis lorsque le support de l’accessibilité du Chrome change. Cet événement se déclenche lorsque les technologies d’assistance, tels que les lecteurs d’écran sont activés ou désactivés. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
@@ -397,7 +397,7 @@ app.on('session-created', (session) => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
 * `workingDirectory` String - Le répertoire de travail de la deuxième instance
 
@@ -415,7 +415,7 @@ Cet évènement est garanti d'être émis après que l'évènement `ready` de `a
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 
 Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
@@ -424,7 +424,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `module` String
 
@@ -434,7 +434,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
@@ -444,7 +444,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `module` String
 
@@ -454,7 +454,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 
 Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -463,7 +463,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 
 Émis lorsque `remote.getCurrentWebContents()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -490,7 +490,7 @@ Toutes les fenêtres seront fermées immédiatement sans demander à l'utilisate
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `args` String[] - (facultatif)
   * `execPath` String (facultatif)
 
@@ -518,7 +518,7 @@ Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut ast
 
 ### `app.focus([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `steal` Boolean _macOS_ - Destiner l'action à l'application active même si il s'agit d'une autre application.
 
 Sous Linux, donne le focus à la première fenêtre visible. Sur macOS, fait de l'application l'application active. Sous Windows, donne le focus à la première fenêtre de l'application.
@@ -575,7 +575,7 @@ Si `app.getPath('logs')` est appelé sans que `app.setAppLogsPath()` soit appel�
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -990,19 +990,19 @@ Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (optional)
-  * `path` String (optional) _Windows_ - The executable path to compare against. Par défaut `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Par défaut, un tableau vide.
+* `options` Object (facultatif)
+  * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
 Si vous avez fourni des options `path` et `args` à `app.setLoginItemSettings`, vous devez passer les mêmes arguments ici pour que `openAtLogin` soit défini correctement.
 
 Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` si l'application est configurée pour démarrer à l'ouverture de session.
-* `openAsHidden` Boolean _macOS_ - `true` si l'application est configurée pour s'ouvrir comme cachée à l'ouverture de session. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` si l'application est automatiquement ouverte à l'ouverture de session. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` si l'application est ouverte comme un programme caché à l'ouverture de session. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` si l'application est ouverte comme un programme qui devrait restaurer l'état de la session précédente à l'ouverture de session. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. This setting is not available on [MAS builds][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Cela indique que l'application devrait restaurer les fenêtres qui étaient ouvertes lorsque celle-ci a été précédemment fermée. This setting is not available on [MAS builds][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -1015,13 +1015,13 @@ Retourne `Object`:
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Par défaut, `faux`.
-  * `openAsHidden` Boolean (facultatif) _macOS_ - `true` pour ouvrir l’application comme cachée. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. Ce paramètre n'est pas disponible sur les [MAS builds][mas-builds].
-  * `path` String (optional) _Windows_ - The executable to launch at login. Par défaut `process.execPath`.
-  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Par défaut, un tableau vide. Take care to wrap paths in quotes.
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. This setting is not available on [MAS builds][mas-builds].
+  * `path` String (optional) _Windows_ - The executable to launch at login. Defaults to `process.execPath`.
+  * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Par défaut, `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Configurer les paramètres de l'application lors de l'ouverture de session.
 
-Pour fonctionner avec `autoUpdater` d'Electron sur Windows, qui utilise [Squirrel][Squirrel-Windows], vous aurez besoin de configurer le chemin de démarrage de Update.exe et de lui passer les arguments qui définissent le nom de votre application. Par exemple :
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Par exemple :
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1062,13 +1062,13 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (optional) - Nom de l'application.
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
-  * `version` String (facultatif) _macOS_ - Le numéro de version de l'application.
-  * `crédits` String (facultatif) _macOS_ _Windows_ - Crédits.
-  * `auteurs` String[] (facultatif) _Linux_ - Liste des auteurs d'applications.
-  * `site web` String (facultatif) _Linux_ - Le site web de l'application.
+  * `version` String (optional) _macOS_ - The app's build version number.
+  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `authors` String[] (optional) _Linux_ - List of app authors.
+  * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. Sous Linux, sera affiché en 64x64 pixels tout en conservant le ratio.
 
-Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on macOS. Voir [la documentation Apple][about-panel-options] pour de plus amples informations. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
+Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
 
 Si vous ne définissez pas `credits<0> mais vous souhaitez quand même les afficher dans votre app, AppKit cherchera un fichier nommé "Credits.html", "Credits.rtf", et "Credits.rtfd", dans cet ordre, dans le bundle retourné par la méthode la classe main de NSBundle. Le premier fichier trouvé est utilisé, et si aucun n'est trouvé, la zone info est laissée vide. Consultez la <a href="https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc">documentation</a> Apple pour plus d'informations.</p>
 
@@ -1084,7 +1084,7 @@ Montrer le sélecteur d'émoji natif de la plateforme.
 
 * `bookmarkData` String - Les données de marque-page encodées en base64 renvoyées par les méthodes `dialog.showOpenDialog` où `dialog.showSaveDialog`.
 
-Retourne `Fonction` - Cette fonction **doit** être appelée une fois que vous avez fini d'accéder au fichier de sécurité utilisé. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
 
 ```js
 // Commence à accéder au fichier.
@@ -1109,7 +1109,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - Le type de conflit de déplacement rencontré par le gestionnaire ; peut être `exists` ou `existsAndRunning`, où `existe` signifie qu'une application du même nom est présente dans le répertoire Applications et `existsAndRunning` signifie à la fois qu'elle existe et qu'elle est actuellement en cours d'exécution.
 
@@ -1117,9 +1117,9 @@ Returns `Boolean` - Whether the move was successful. Please note that if the mov
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** Cette méthode renvoie des erreurs si quelque chose d'autre qu'une erreur utilisateur fait échouer le déplacement. Par exemple, si l'utilisateur annule la boîte de dialogue d'autorisation, cette méthode renvoie false. Si nous ne réussissons pas à effectuer la copie, alors cette méthode lancera une erreur. Le message contenu dans l'erreur devrait être suffisamment informatif pour que vous puissiez déterminer précisément quel est le problème.
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. Par exemple, si l'utilisateur annule la boîte de dialogue d'autorisation, cette méthode renvoie false. Si nous ne réussissons pas à effectuer la copie, alors cette méthode lancera une erreur. The message in the error should be informative and tell you exactly what went wrong.
 
-Par défaut, si une application du même nom que celle qui a été déplacée existe dans le répertoire Applications et est _pas_ en cours d'exécution, l'application existante sera mise à la corbeille et l'application active sera déplacée à sa place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Ce comportement peut être modifié en fournissant le gestionnaire de conflits facultatif, où le booléen retourné par le gestionnaire détermine si le conflit de déplacement est résolu avec le comportement par défaut.  c'est-à-dire que retourner `false` ne garantira aucune action supplémentaire, retourner `true` entraînera le comportement par défaut et la méthode continuera.
+By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. If it _is_ running, the pre-existing running app will assume focus and the previously active app will quit itself. Ce comportement peut être modifié en fournissant le gestionnaire de conflits facultatif, où le booléen retourné par le gestionnaire détermine si le conflit de déplacement est résolu avec le comportement par défaut.  c'est-à-dire que retourner `false` ne garantira aucune action supplémentaire, retourner `true` entraînera le comportement par défaut et la méthode continuera.
 
 Par exemple :
 
@@ -1210,7 +1210,7 @@ C'est l'agent utilisateur qui sera utilisé quand aucun agent utilisateur n'est 
 
 ### `allowRenderererProcessRuse`
 
-Un `Booléen` qui, lorsque `true` désactive les remplacements qu'Electron a en place pour s'assurer que les processus de rendu sont redémarrés à chaque navigation.  The current default value for this property is `true`.
+Un `Booléen` qui, lorsque `true` désactive les remplacements qu'Electron a en place pour s'assurer que les processus de rendu sont redémarrés à chaque navigation.  La valeur par défaut actuelle pour cette propriété est `true`.
 
 L'intention est que ces dérogations soient désactivées par défaut, puis à un point dans le futur cette propriété sera supprimée.  Cette propriété impacte les modules natifs que vous pouvez utiliser dans le processus de rendu.  Pour plus d'informations sur la direction vers laquelle Electron va avec le redémarrage du processus de rendu et l'utilisation de modules natifs dans le processus de rendu veuillez consulter ce [Problème de suivi](https://github.com/electron/electron/issues/18397).
 

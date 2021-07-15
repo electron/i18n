@@ -36,7 +36,7 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 ### イベント: 'error'
 
-戻り値:
+戻り値：
 
 * `error` Error
 
@@ -56,7 +56,7 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 ### イベント: 'update-downloaded'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `releaseNotes` String
@@ -84,7 +84,7 @@ Windowsでは `releaseName` のみ利用可能です。
 
 * `options` Object
   * `url` String
-  * `headers` Record&lt;String, String&gt; (任意) _macOS_ - HTTP リクエストのヘッダ。
+  * `headers` Record<String, String> (optional) _macOS_ - HTTP request headers.
   * `serverType` String (任意) _macOS_ - `json`、`default` のいずれかです。詳細は [Squirrel.Mac][squirrel-mac] README を参照してください。
 
 `url` を設定して自動更新を初期化します。
@@ -103,7 +103,7 @@ Windowsでは `releaseName` のみ利用可能です。
 
 `autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
 
-**注意:** アップデートを適用するために必ずこの関数を呼ぶ必要はなく、ダウンロードに成功したアップデートは次回のアプリケーション起動時に必ず適用されます。
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
 
 [squirrel-mac]: https://github.com/Squirrel/Squirrel.Mac
 [server-support]: https://github.com/Squirrel/Squirrel.Mac#server-support

@@ -20,7 +20,7 @@ Cierra a la fuerza la ventana secundaria sin llamar a su evento de descarga.
 
 #### `win.eval(code)`
 
-* `codigo` String
+* `code` String
 
 Evalúa el código en la ventana secundaria.
 
@@ -41,7 +41,7 @@ Envía un mensaje a la ventana secundaria con el origen específicado o `*` sin 
 
 Además de estos métodos, la ventana secundaria implementa el objeto `window.opener` sin ninguna propiedad y un método único.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 El objeto `BrowserWindowProxy` tiene las siguientes propiedades de instancia:
 

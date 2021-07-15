@@ -59,11 +59,11 @@ On Windows, you can add a thumbnail toolbar with specified buttons to a taskbar 
 
 As quoted from [MSDN][msdn-thumbnail]:
 
-> Эта панель инструментов является обычным управлением стандартной панелью инструментов. У него максимум из семи кнопок. Идентификатор каждой кнопки, изображение, подсказка и состояние определены в структуре, которая затем передается на панель задач. Приложение может показать, включить, отключить или скрыть кнопки из панели инструментов эскизов, как это требуется текущего состояния.
+> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
-> Например, Windows Media Player может предлагать стандартные средства управления мультимедиа транспортом , такие как воспроизведение, пауза, приглушение и остановка.
+> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-![игрок](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 > NOTE: The screenshot above is an example of thumbnail toolbar of Windows Media Player
 
@@ -106,15 +106,15 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-### Наслоения значков в панели задач
+### Icon Overlays in Taskbar
 
 On Windows, a taskbar button can use a small overlay to display application status.
 
 As quoted from [MSDN][msdn-icon-overlay]:
 
-> Наслоения иконок служат контекстуальным уведомлением о статусе, и предназначены для отказа от необходимости отдельной иконки статуса области уведомлений, чтобы сообщить пользователю эту информацию. Например, новый статус почты в Microsoft Outlook, в настоящее время отображается в области уведомлений, можно указывать через накладываемое изображение на кнопку панели задач. Опять же, вы должны решить в течение цикла разработки , какой метод лучше подходит для вашего приложения. Накладываемые иконки предназначены для предоставления важных, давно существующих статусов или уведомлений, таких как сетевой статус, статус сообщения или новая почта. Пользователь не должен быть с постоянно меняющимися наслоениями или анимацией.
+> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-![Наложение на кнопку панели задач](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 > NOTE: The screenshot above is an example of overlay on a taskbar button
 
@@ -132,7 +132,7 @@ const win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-### Флэш-кадр
+### Flash Frame
 
 On Windows, you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon in macOS.
 

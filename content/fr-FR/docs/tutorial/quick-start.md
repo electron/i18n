@@ -4,11 +4,11 @@ Ce tutoriel vous guidera dans le processus de création d'une application Hello 
 
 À la fin de ce tutoriel, votre application ouvrira une fenêtre de navigateur qui affichera une page web avec des informations sur quelles versions de Chromium, de Node.js et d'Electron sont en cours d'exécution.
 
-## Prérequis
+## Prerequisites
 
 Pour utiliser Electron, vous devez installer [Node.js][node-download]. Nous vous recommandons d'utiliser la dernière version `LTS` disponible.
 
-> Veuillez installer Node.js en utilisant des installateurs pré-compilés pour votre plate-forme. Dans le cas contraire, vous pourriez rencontrer des problèmes d'incompatibilité avec différents outils de développement.
+> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
 
 Pour vérifier que Node.js a été installé correctement, tapez les commandes suivantes dans votre terminal client :
 
@@ -161,7 +161,7 @@ En général, vous pouvez utiliser l'attribut [`platform`][node-platform] de la 
 
 Sur Windows et Linux, quitter toutes les fenêtres quitte généralement une application entièrement.
 
-Pour implémenter cela, écoutez l’événement [`'window-all-closed'`][window-all-closed] du module `app` et appelez [`app.quit()`][app-quit] si l’utilisateur n’est pas sur macOS (`darwin`).
+To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
 
 ```js
 app.on('window-all-closed', function () {
@@ -173,7 +173,7 @@ app.on('window-all-closed', function () {
 
 Alors que les applications Linux et Windows se ferment lorsqu'elles n'ont pas de fenêtres ouvertes, les applications macOS continuent généralement de s'exécuter même sans aucune fenêtre ouverte et activer l'application lorsqu'aucune fenêtre n'est disponible devrait en ouvrir une nouvelle.
 
-Pour implémenter cette fonctionnalité, écoutez l'événement [`activate`][activate] du module `app` et appelez votre méthode existante `createWindow()` si aucune fenêtre de navigateur n'est ouverte.
+To implement this feature, listen for the `app` module's [`activate`][activate] event, and call your existing `createWindow()` method if no browser windows are open.
 
 Étant donné que les fenêtres ne peuvent pas être créées avant l'événement `ready` , vous ne devriez écouter l'événement `activate` qu'après l'initialisation de votre application. Pour ce faire, attachez votre event listener à partir de votre callback `whenReady()` existant.
 
@@ -195,7 +195,7 @@ Maintenant, la dernière chose à faire est d'afficher les numéros de version p
 
 L’accès à ces informations est trivial à faire dans le processus principal via l’objet global `process` de Node. Cependant, vous ne pouvez pas simplement modifier le DOM à partir du processus principal car il n'a pas accès au contexte du `document` du moteur de rendu. Ils sont dans des processus entièrement différents!
 
-> Remarque : Si vous avez besoin d’un examen plus approfondi des processus Electron, consultez le document [Process Model][].
+> Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
 
 C'est là que l'attachement d'un script **preload** à votre moteur de rendu est pratique. Un script de préchargement s'exécute avant que le processus de rendu soit chargé, et a accès aux deux renderer globals (e. `window` et `document`) et environnement Node.js.
 
@@ -239,8 +239,8 @@ function createWindow () {
 
 Il y a deux concepts Node.js qui sont utilisés ici :
 
-* La chaîne de caractères [`__dirname`][dirname] pointe vers le chemin du script en cours d'exécution (dans ce cas, le dossier racine de votre projet).
-* L'API [`path.join`][path-join] relie plusieurs segments de chemin ensemble, créant un chemin sous forme d'une chaîne de caractères combinée qui fonctionne sur toutes les plateformes.
+* The [`__dirname`][dirname] string points to the path of the currently executing script (in this case, your project's root folder).
+* The [`path.join`][path-join] API joins multiple path segments together, creating a combined path string that works across all platforms.
 
 Nous utilisons un chemin relatif au fichier JavaScript en cours d'exécution afin que votre chemin relatif fonctionne en mode développement et en mode packaged.
 
@@ -254,7 +254,7 @@ Pour toute interaction avec votre contenu web, vous souhaitez ajouter des script
 <script src="./renderer.js"></script>
 ```
 
-Le code contenu dans `renderer.js` peut alors utiliser les mêmes APIs JavaScript et outils que vous utilisez pour le développement front-end typique, comme utiliser [`webpack`][webpack] pour regrouper et minifier votre code ou [React][react] pour gérer vos interfaces utilisateur.
+The code contained in `renderer.js` can then use the same JavaScript APIs and tooling you use for typical front-end development, such as using [`webpack`][webpack] to bundle and minify your code or [React][react] to manage your user interfaces.
 
 ### Récapitulatif
 
@@ -430,7 +430,8 @@ Le moyen le plus rapide de distribuer votre application nouvellement créée est
 [app-when-ready]: ../api/app.md#appwhenready
 
 [node-platform]: https://nodejs.org/api/process.html#process_process_platform
-[window-all-closed]: ../api/app.md#appquit
+[window-all-closed]: ../api/app.md#event-window-all-closed
+[app-quit]: ../api/app.md#appquit
 
 [activate]: ../api/app.md#event-activate-macos
 

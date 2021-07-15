@@ -1,10 +1,10 @@
-# Нативное перетаскивание файла
+# Нативное перемещение файла
 
 ## Обзор
 
 Некоторым приложениям может понадобиться поддержка реализованной в операционной системе функции перетаскивания файлов. Перетаскивание файлов в веб-контент поддерживается большинством веб-сайтов. Electron дополнительно поддерживает перетаскивание файлов и содержимого приложения в операционную систему.
 
-Чтобы реализовать эту функцию в вашем приложении, вам нужно позвонить [`веб-контента. tartDrag(item)`](../api/web-contents.md#contentsstartdragitem) API в ответ на событие `ondragstart`.
+To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
 
 ## Пример
 

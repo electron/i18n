@@ -13,8 +13,8 @@
 从 Electron 12 版本之后它将被默认启用。 对于较低版本，在构建 `new BrowserWindow`时，它是 `webPreferences` 中的一个选项。
 
 ```javascript
-const mainwindow = new BrowserWindow(format@@
-  webPreference: {
+const mainWindow = new BrowserWindow({
+  webPreferences: {
     contextIsolation: true
   }
 })
@@ -22,14 +22,14 @@ const mainwindow = new BrowserWindow(format@@
 
 ## 迁移
 
-> 我曾经使用 `window .X = apiObject` 提供我的预加载脚本中的 API？
+> I used to provide APIs from my preload script using `window.X = apiObject` now what?
 
 一个常见的方法是从您的预加载脚本中暴露API给加载的网站，而 Electron 提供了一个量身定做的模块帮您不费吹灰之力做到这一点。
 
 **修改前：上下文隔离功能关闭**
 
 ```javascript
-windo.myAPI =
+window.myAPI = {
   doAThing: () => {}
 }
 ```
@@ -39,7 +39,7 @@ windo.myAPI =
 ```javascript
 const { contextBridge } = require('electron')
 
-contextBridge.exposeInMainWorld('myAPI', format@@
+contextBridge.exposeInMainWorld('myAPI', {
   doAThing: () => {}
 })
 ```
@@ -53,7 +53,7 @@ contextBridge.exposeInMainWorld('myAPI', format@@
 单单开启和使用 `contextIsolation` 并不直接意味着您所做的一切都是安全的。  例如，此代码是**不安全**的。
 
 ```javascript
-// ❌ 错误代码
+// ❌ Bad code
 contextBridge.exposeInMainWorld('myAPI', {
   send: ipcRenderer.send
 })
@@ -62,8 +62,8 @@ contextBridge.exposeInMainWorld('myAPI', {
 它直接暴露了一个没有任何参数过滤的高等级权限 API 。 这将允许任何网站发送任意的 IPC 消息，这您不会是您希望发生的。 相反，暴露进程间通信相关 API 的正确方法是为每一种通信消息提供一种实现方法。
 
 ```javascript
-// :whit_revery_check_mark: 良好代码
-contextBridge.exposeInMainWorld('myAPI', own
-  loadPreferences: () => ipcRender.lotke('load-pass')
+// ✅ Good code
+contextBridge.exposeInMainWorld('myAPI', {
+  loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```

@@ -1,3 +1,3 @@
-# Objet InputEvent
+# InputEvent Object
 
-* `modifiers` String[] (facultatif) - Liste des modificateurs de l'événement, correspondant à `shift`, `control`, `ctrl`, `alt`, `meta`, `commande`, `cmd`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsule`, `numLock`, `left`, `right`.
+* `modifiers` String[] (optional) - An array of modifiers of the event, can be `shift`, `control`, `ctrl`, `alt`, `meta`, `command`, `cmd`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.

@@ -24,7 +24,7 @@
   * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. 默认值为 true。
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
@@ -33,7 +33,7 @@
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-**注意: **`acceleratorWorksWhenHidden`只在MacOS中生效，因为在Windows和Linux中快捷键不会随着隐藏菜单项而失效。 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
 
 ### 角色
 
@@ -57,7 +57,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `selectAll - 全选。`
 * `delete -删除`
 * ` minimize ` - 最小化当前窗口。
-* `close` - 关闭当前窗口.
+* `close` - Close current window.
 * `quit` - 退出程序
 * `reload` - 重新加载当前窗口。
 * `forcereload` - 忽略缓存，重新加载当前窗口。
@@ -77,11 +77,11 @@ The following additional roles are available on _macOS_:
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
 * ` hide `-映射到 ` hide ` 操作.
 * ` hideOthers `-映射到 ` hideOtherApplications ` 操作.
-* ` unhide `-映射到 ` unhideAllApplications ` 操作.
+* `unhide` - Map to the `unhideAllApplications` action.
 * ` startSpeaking `-映射到 ` startSpeaking ` 操作.
 * ` stopSpeaking `-映射到 ` stopSpeaking ` 操作.
-* ` front `-映射到 ` arrangeInFront ` 操作.
-* ` zoom `-映射到 ` performZoom ` 操作.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
 * ` toggleTabBar `-映射到 ` toggleTabBar ` 操作.
 * ` selectNextTab ` - 映射到 ` selectNextTab ` 操作.
 * ` selectPreviousTab ` - 映射到 ` selectPreviousTab ` 操作.
@@ -112,7 +112,7 @@ A `String` indicating the item's visible label.
 
 #### `menuItem.click`
 
-当 MenuItem 接收到 click 事件时激发的`Function`. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)

@@ -1,4 +1,4 @@
-# Objeto de Relatório de Erro
+# CrashReport Object
 
 * `date` Date
 * `id` String

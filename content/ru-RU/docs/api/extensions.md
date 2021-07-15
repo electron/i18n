@@ -89,7 +89,7 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 
 ### `chrome.management`
 
-The following methods of `chrome.management` are supported:
+Поддерживаются только следующие методы `chrome.management`:
 
 - `chrome.management.getAll`
 - `chrome.management.get`

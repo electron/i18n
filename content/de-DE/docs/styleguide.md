@@ -17,15 +17,15 @@ Am Beispiel von `Schnellstart`:
 
 ...
 
-## Hauptprozess
+## Main-Prozess
 
 ...
 
-## Renderer Prozess
+## Renderer-Prozess
 
 ...
 
-## Starte deine App
+## Ihre App ausführen
 
 ...
 
@@ -33,14 +33,14 @@ Am Beispiel von `Schnellstart`:
 
 ...
 
-### Manuell heruntergeladene Electron Binärdatei
+### Electron-Binärdatei manuell herunterladen
 
 ...
 ```
 
 Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 
-## Markdown-Dateien
+## Regeln für Markdown
 
 This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
 
@@ -55,8 +55,8 @@ There are a few style guidelines that aren't covered by the linter rules:
 
 ## Wörter auswählen
 
-* "Wird" sollte statt "würde" verwendet werden, um Ergebnisse zu beschreiben.
-* Debuggen des Hauptprozesses in VSCode".
+* Verwende "wird" anstatt "würde" für die Beschreibung von Ergebnissen.
+* Bevorzugen Sie "im ___ Prozess" gegenüber "bei".
 
 ## API Referenzen
 
@@ -104,7 +104,7 @@ Verwende `AutoUpdater` als Beispiel:
 * All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instanz-Eigenschaften müssen im Kapitel `### Instanz-Eigenschaften` aufgelistet werden.
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance Properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -149,7 +149,7 @@ The methods chapter must be in the following form:
 ### `objectName.methodName(required[, optional]))`
 
 * `required` String - A parameter description.
-* `optional` Ganzzahl (optional) - Eine weitere Parameterbeschreibung.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
@@ -190,7 +190,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-### Ereignisse
+### Events
 
 The events chapter must be in following form:
 

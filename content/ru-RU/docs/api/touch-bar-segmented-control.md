@@ -28,7 +28,7 @@
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Для экземпляров `TouchBarSegmentedControl` доступны следующие свойства:
 
 #### `touchBarSegmentedControl.segmentStyle`
 

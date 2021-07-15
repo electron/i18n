@@ -1,50 +1,50 @@
 ---
-title: 'Electron の舞台裏: メッセージループの統合'
+title: 'Electron Internals: Message Loop Integration'
 author: zcbenz
 date: '2016-07-28'
 ---
 
-Electron の舞台裏について説明するシリーズ、第一弾です。 この投稿では、 Electron が Node のイベントループをどのように Chromium と統合しているかを紹介します。
+This is the first post of a series that explains the internals of Electron. This post introduces how Node's event loop is integrated with Chromium in Electron.
 
 ---
 
-これまで、Node を GUI プログラミングに使う試みは数多くありました。GTK+ のバインディングでは [node-gui][node-gui] が、 Qt のバインディングでは [node-qt][node-qt] があります。 しかし、GUI ツールキットは独自のメッセージループを持っているにもかかわらず、Node は独自のイベントループに libuv を使用しています。メインスレッドは同時に 1 つのループしか実行できないため、本番環境ではどちらも動作しません。 そのために、Node で GUI のメッセージループを共通化して実行するための仕掛けとして非常に短い間隔のタイマーでメッセージループをポンピングすると、GUI のレスポンスが遅くなり、多くの CPU リソースを占有してしまいます。
+There had been many attempts to use Node for GUI programming, like [node-gui][node-gui] for GTK+ bindings, and [node-qt][node-qt] for QT bindings. But none of them work in production because GUI toolkits have their own message loops while Node uses libuv for its own event loop, and the main thread can only run one loop at the same time. So the common trick to run GUI message loop in Node is to pump the message loop in a timer with very small interval, which makes GUI interface response slow and occupies lots of CPU resources.
 
-Electron の開発中にも同じ問題が発生しましたが、 Node のイベントループを Chromium のメッセージループに統合するという、逆の方法を取りました。
+During the development of Electron we met the same problem, though in a reversed way: we had to integrate Node's event loop into Chromium's message loop.
 
-## メインプロセスとレンダラープロセス
+## The main process and renderer process
 
-メッセージループの統合についての詳細の前に、 Chromium のマルチプロセスアーキテクチャについて説明します。
+Before we dive into the details of message loop integration, I'll first explain the multi-process architecture of Chromium.
 
-Electron には、メインプロセスとレンダラープロセス、2 種類のプロセスがあります (これはとても単純化してあります。詳細は [マルチプロセスアーキテクチャ][multi-process] を参照してください)。 メインプロセスはウインドウの作成など GUI が動作するための責務を担い、レンダラープロセスはウェブページの実行とレンダリングだけを行います。
+In Electron there are two types of processes: the main process and the renderer process (this is actually extremely simplified, for a complete view please see [Multi-process Architecture][multi-process]). The main process is responsible for GUI work like creating windows, while the renderer process only deals with running and rendering web pages.
 
-Electron では JavaScript を使ってメインプロセスとレンダラープロセスの両方を制御できるように、両方のプロセスに Node を統合する必要があるのです。
+Electron allows using JavaScript to control both the main process and renderer process, which means we have to integrate Node into both processes.
 
-## Chromium のメッセージループを libuv に置換
+## Replacing Chromium's message loop with libuv
 
-最初の試みは、 Chromium のメッセージループを libuv で再実装することでした。
+My first try was reimplementing Chromium's message loop with libuv.
 
-レンダラープロセスは、メッセージループはファイル記述子とタイマーだけをリッスンしていたので簡単でした。
+It was easy for the renderer process, since its message loop only listened to file descriptors and timers, and I only needed to implement the interface with libuv.
 
-しかし、メインプロセスではとても困難でした。 各プラットフォームは独自の GUI メッセージループを持ちます。 macOS の Chromium は `NSRunLoop` を使う一方、 Linux では glib を使います。 ネイティブ GUI のメッセージループからファイル記述子を抽出して libuv の繰り返しに与えるために多くのハックを試みましたが、それでもうまくいかないエッジケースに遭遇しました。
+However it was significantly more difficult for the main process. Each platform has its own kind of GUI message loops. macOS Chromium uses `NSRunLoop`, whereas Linux uses glib. I tried lots of hacks to extract the underlying file descriptors out of the native GUI message loops, and then fed them to libuv for iteration, but I still met edge cases that did not work.
 
-最終的に、短い間隔で GUI メッセージループをポーリングするタイマーを追加しました。 この結果、プロセスは一定の CPU 使用率を消費し、操作によっては長い遅延が発生してしまいました。
+So finally I added a timer to poll the GUI message loop in a small interval. As a result the process took a constant CPU usage, and certain operations had long delays.
 
-## 別のスレッドで Node のイベントループをポーリング
+## Polling Node's event loop in a separate thread
 
-libuv が成熟するにつれて、別のアプローチができるようになりました。
+As libuv matured, it was then possible to take another approach.
 
-libuv にバックエンドファイル記述子の概念が導入されました。これは libuv がイベントループのためにポーリングするファイル記述子 (またはハンドル) です。 バックエンドファイル記述子をポーリングすることで、 libuv で新しいイベントが発生したときに通知を受けられるようになりました。
+The concept of backend fd was introduced into libuv, which is a file descriptor (or handle) that libuv polls for its event loop. So by polling the backend fd it is possible to get notified when there is a new event in libuv.
 
-そこで Electron では、バックエンドファイル記述子をポーリングするために別のスレッドを作成しました。これは libuv API の代わりにシステムコールでポーリングしていたのでスレッドセーフでした。 そして、 libuv のイベントループで新しいイベントがあるとき、メッセージが Chromium のメッセージループに送信され、 libuv のイベントはメインスレッドで処理されるようになりました。
+So in Electron I created a separate thread to poll the backend fd, and since I was using the system calls for polling instead of libuv APIs, it was thread safe. And whenever there was a new event in libuv's event loop, a message would be posted to Chromium's message loop, and the events of libuv would then be processed in the main thread.
 
-このようにして、 Chromium や Node にパッチを当てることを避けつつ、メインプロセスとレンダラープロセスで同じコードを使用できました。
+In this way I avoided patching Chromium and Node, and the same code was used in both the main and renderer processes.
 
-## コード
+## The code
 
-メッセージループの統合の実装は [`electron/atom/common/`][node-bindings] 下の `node_bindings` ファイルで見ることができます。 これは Node を統合したいプロジェクトでも簡単に再利用できます。
+You can find the implemention of the message loop integration in the `node_bindings` files under [`electron/atom/common/`][node-bindings]. It can be easily reused for projects that want to integrate Node.
 
-*更新: 実装を [`electron/shell/common/node_bindings.cc`][node-bindings-updated] に移動しました。*
+*Update: Implementation moved to [`electron/shell/common/node_bindings.cc`][node-bindings-updated].*
 
 [node-gui]: https://github.com/zcbenz/node-gui
 [node-qt]: https://github.com/arturadib/node-qt

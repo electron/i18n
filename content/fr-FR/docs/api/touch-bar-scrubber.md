@@ -12,10 +12,10 @@ Processus : [Main](../glossary.md#main-process)
     * `selectedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
   * `highlight` Function (optional) - Called when the user taps any item.
     * `highlightedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Par défaut, `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Par défaut, `none`.
   * `showArrowButtons` Boolean (optionnel) - `false` par défaut.
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
+  * `mode` String (optional) - Can be `fixed` or `free`. Par défaut, `free`.
   * `continuous` Boolean (optionnel) - `true` par défaut.
 
 ### Propriétés d'instance

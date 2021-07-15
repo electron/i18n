@@ -1,12 +1,12 @@
-# class="VfPpkd-ksKsZd-XxIAqe">
+# contentTracing
 
-> Recopila datos de seguimiento de Chromium para encontrar cuellos de botella y operaciones lentas.
+> Recopile datos de rastreo del módulo de contenido de Chromium para encontrar cuellos de botella de rendimiento y operaciones lentas.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Este módulo no incluye una interfaz web. Para ver las huellas gravadas, use [trace viewer][], disponible en `chrome://tracing` en Chrome.
 
-**Nota:** No debe usar este módulo hasta que se emita el evento `ready` del módulo de la aplicación.
+**Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const { app, contentTracing } = require('electron')
@@ -32,7 +32,7 @@ El módulo `contentTracing` tiene los siguientes métodos:
 
 Devuelve `Promise<String[]>` - resuelve con un array de grupos de categorías una vez que todos los procesos hijos han confirmado la solicitud `getCategories`
 
-Obtenga un conjunto de grupos de categorías. La categoría de grupos puede cambiar a medida que se alcanza nuevas rutas de código. Ver también [lista de categorías de seguimiento integradas](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+Obtener un conjunto de grupos de categorías. La categoría de grupos puede cambiar a medida que se alcanza nuevas rutas de código. Ver también [lista de categorías de seguimiento integradas](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 > **NOTA:** Electron añade una categoría de seguimiento no predeterminada llamada `"electron"`. Esta categoría se puede utilizar para capturar eventos de seguimiento específicos de Electron.
 

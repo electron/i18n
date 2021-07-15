@@ -1,11 +1,11 @@
-# Objeto IpcMainEvent extiende de `Event`
+# IpcMainEvent Object extends `Event`
 
-* `processId` Entero - El ID interno del proceso de renderizado que envió este mensaje
-* `frameId` Integer - El ID de frame renderer que enviá este mensaje
-* `returnValue` any - Configura este al valor a ser devuelto en un mensaje sincrónico
-* `sender` WebContents - Devuelve el `webContents` que enviá el mensaje
-* `senderFrame` WebFrameMain _SoloLectura_ - El frame que envió este mensaje
-* `ports` MessagePortMain[] - Una lista de MessagePorts que se transfirió con este mensaje
-* `reply` Function - Una función que enviara un mensaje IPC al renderizador del frame que enviá el mensaje original que actualmente estas manejando.  Deberías usar este método para "responder" al envío de mensajes en orden para garantizar que la respuesta se irá al proceso y frame correcto.
+* `processId` Integer - The internal ID of the renderer process that sent this message
+* `frameId` Integer - The ID of the renderer frame that sent this message
+* `returnValue` any - Set this to the value to be returned in a synchronous message
+* `sender` WebContents - Returns the `webContents` that sent the message
+* `senderFrame` WebFrameMain _Readonly_ - The frame that sent this message
+* `ports` MessagePortMain[] - A list of MessagePorts that were transferred with this message
+* `reply` Function - A function that will send an IPC message to the renderer frame that sent the original message that you are currently handling.  You should use this method to "reply" to the sent message in order to guarantee the reply will go to the correct process and frame.
   * `channel` String
   * `...args` any[]

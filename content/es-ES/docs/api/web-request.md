@@ -1,20 +1,20 @@
-## Clase: WebRequest
+## Class: WebRequest
 
-> Interceptar y modificar el contenido de una solicitud en varias etapas de su ciclo de vida.
+> Intercept and modify the contents of a request at various stages of its lifetime.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
-Instancias de la clase `WebRequest` son accesibles usando la propiedad `webRequest` de una `Session`.
+Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
-Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `listener` será cancelado con `listener(details)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud.
+The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request.
 
 ⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
-El objeto `filter` tiene una propiedad `urls` que es un arreglo de patrones URL que serán usados para filtrar las solicitudes que no coincidan con los patrones de URL. Si el `filtro` es omitido todas las solicitudes serán atendidas.
+The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
-Para ciertos eventos el `listener` es pasado con una `callback`, Que debe ser llamada con un objeto `response` cuando el `listener` haya hecho su trabajo.
+For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
 
-Un ejemplo de añadir encabezados `User-Agent` a las solicitudes:
+An example of adding `User-Agent` header for requests:
 
 ```javascript
 const { session } = require('electron')
@@ -32,36 +32,36 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### Métodos de Instancia
 
-Lo siguientes métodos están disponibles en instancias de `WebRequest`:
+The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
+    * `referrer` String
+    * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Función
     * `response` Object
-      * `cancelar` Booleano (opcional)
-      * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
+      * `cancel` Boolean (optional)
+      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
-El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
+The `listener` will be called with `listener(details, callback)` when a request is about to occur.
 
-Los `buttons` es un arreglo de objetos `Button`.
+The `uploadData` is an array of `UploadData` objects.
 
 The `callback` has to be called with an `response` object.
 
-Algunos ejemplos de `urls` válidas:
+Some examples of valid `urls`:
 
 ```js
 'http://foo:1234/'
@@ -79,161 +79,161 @@ Algunos ejemplos de `urls` válidas:
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
+    * `referrer` String
+    * `timestamp` Double
     * `requestHeaders` Record<string, string>
   * `callback` Función
     * `beforeSendResponse` Object
-      * `cancelar` Booleano (opcional)
-      * `requestHeaders` Record<string, string | string[]> (opcional) -Cuando es proveído, la solicitud será hecha con esas cabeceras.
+      * `cancel` Boolean (optional)
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
-El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
-El `callback` ha de ser llamado con un objeto `response`.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
+    * `referrer` String
+    * `timestamp` Double
     * `requestHeaders` Record<string, string>
 
-El`oyente` Será llamado con `listener(details)` justo antes que una solicitud vaya a ser enviada al servidor, modificaciones de previas respuestas `onBeforeSendHeaders` son visibles en el momento que este oyente esté en funcionamiento.
+The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
-    * `linea de estatus` Cadena
+    * `referrer` String
+    * `timestamp` Double
+    * `statusLine` String
     * `Estatus de código` entero
     * `requestHeaders` Record<string, string>
-    * `responseHeaders` Record<string, string[]> (opcional)
+    * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Función
     * `headersReceivedResponse` Object
-      * `cancelar` Booleano (opcional)
-      * `responseHeaders` Record<string, string | string[]> (opcional) - Cuando es proveído, el servidor se asume que ha respondido con estas cabeceras.
-      * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
+      * `cancel` Boolean (optional)
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
+The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-El `callback` ha de ser llamado con un objeto `response`.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
-    * `responseHeaders` Record<string, string[]> (opcional)
-    * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
+    * `referrer` String
+    * `timestamp` Double
+    * `responseHeaders` Record<string, string[]> (optional)
+    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `Estatus de código` entero
-    * `linea de estatus` Cadena
+    * `statusLine` String
 
-El `oyente` será cancelado con `listener(details)` cuando se reciba el primer byte del cuerpo de la respuesta. Para las solicitudes HTTP, esto significa que la línea de estado y los encabezados de respuesta están disponibles.
+The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
+    * `referrer` String
+    * `timestamp` Double
     * `redirectURL` String
     * `Estatus de código` entero
-    * `linea de estatus` Cadena
-    * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
-    * `Desde cache` Booleano
-    * `responseHeaders` Record<string, string[]> (opcional)
+    * `statusLine` String
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `fromCache` Boolean
+    * `responseHeaders` Record<string, string[]> (optional)
 
-El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
+The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
-    * `responseHeaders` Record<string, string[]> (opcional)
-    * `Desde cache` Booleano
+    * `referrer` String
+    * `timestamp` Double
+    * `responseHeaders` Record<string, string[]> (optional)
+    * `fromCache` Boolean
     * `Estatus de código` entero
-    * `linea de estatus` Cadena
+    * `statusLine` String
     * `error` String
 
-El `listener` será llamado con `listener(details)` cuando una petición es completada.
+The `listener` will be called with `listener(details)` when a request is completed.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null
   * `details` Object
-    * `id` Íntegro
+    * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Entero (opcional)
-    * `webContents` WebContents (opcional)
-    * `frame` WebFrameMain (opcional)
+    * `webContentsId` Integer (optional)
+    * `webContents` WebContents (optional)
+    * `frame` WebFrameMain (optional)
     * `resourceType` String
-    * `referrer` Cadena
-    * `fecha y hora` Doble
-    * `Desde cache` Booleano
-    * `error` Cadena - la descripción del error.
+    * `referrer` String
+    * `timestamp` Double
+    * `fromCache` Boolean
+    * `error` String - The error description.
 
-El `oyente` será cancelado con `listener(details)` cuando ocurra un error.
+The `listener` will be called with `listener(details)` when an error occurs.

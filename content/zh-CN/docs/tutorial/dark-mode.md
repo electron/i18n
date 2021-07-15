@@ -1,4 +1,4 @@
-# 暗黑模式
+# Dark Mode
 
 ## 概览
 
@@ -155,7 +155,7 @@ app.on('window-all-closed', () => {
 
 使用Electron Fiddle运行示例，然后点击“切换深色模式”按钮； 应用程序应该开始在亮色和黑色背景颜色之间交替。
 
-![暗黑模式](../images/dark_mode.gif)
+![Dark Mode](../images/dark_mode.gif)
 
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/

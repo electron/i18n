@@ -14,7 +14,7 @@
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarSpacer`:
+Для экземпляров `TouchBarSpacer` доступны следующие свойства:
 
 #### `touchBarSpacer.size`
 

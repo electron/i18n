@@ -1,4 +1,4 @@
-# SharedWorkerInfo オブジェクト
+# SharedWorkerInfo Object
 
-* `id` String - 共有ワーカーの一意な ID。
-* `url` String - 共有ワーカーの URL。
+* `id` String - The unique id of the shared worker.
+* `url` String - The url of the shared worker.

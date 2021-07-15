@@ -1,15 +1,16 @@
 # webFrame
 
-> 自定义渲染当前网页
+> Customize the rendering of the current web page.
 
-进程: [渲染进程](../glossary.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-将当前页缩放到200% 的示例。
+An example of zooming current page to 200%.
 
 ```javascript
 const { webFrame } = require('electron')
+
 webFrame.setZoomFactor(2)
 ```
 
@@ -27,7 +28,7 @@ The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - 当前的缩放比例。
+Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -118,7 +119,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` 布尔型(可选) - 默认为`false`.
+* `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
   * `error` Error
@@ -133,7 +134,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default main world (where content runs), `999` is the world used by Electron's `contextIsolation` feature. Accepts values in the range 1..536870911.
 * `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` 布尔型(可选) - 默认为`false`.
+* `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
   * `error` Error
@@ -156,7 +157,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -190,9 +191,9 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-尝试释放不再使用的内存 (如以前导航中的图像)。
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-请注意, 盲目调用此方法可能使Electron较慢, 因为它将不得不重新填充这些清空的缓存。你应该只在这种情况下调用它, 就是当你的应用程序发生的一个事件, 使你认为你的网页实际只使用了较少的内存 (例如你从一个超级重页跳转到一个基本为空的页面, 并打算留在那)。
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
 ### `webFrame.getFrameForSelector(selector)`
 
@@ -202,7 +203,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` String
+* `name` 字符串
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
@@ -224,29 +225,29 @@ Returns `Boolean` - True if the word is misspelled according to the built in spe
 
 Returns `String[]` - A list of suggested words for a given word. If the word is spelled correctly, the result will be empty.
 
-## Properties
+## 属性
 
-### `webFrame.top` _只读_
+### `webFrame.top` _Readonly_
 
 A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener` _只读_
+### `webFrame.opener` _Readonly_
 
 A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent` _只读_
+### `webFrame.parent` _Readonly_
 
 A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild` _只读_
+### `webFrame.firstChild` _Readonly_
 
 A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling` _只读_
+### `webFrame.nextSibling` _Readonly_
 
 A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId` _只读_
+### `webFrame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 

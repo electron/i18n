@@ -1,4 +1,4 @@
-# デベロッパー ツール拡張
+# DevTools エクステンション
 
 Electron は [Chrome デベロッパー ツール拡張][devtools-extension] をサポートしています。これは人気ウェブフレームワークのデバッグ向けに Chrome デベロッパー ツールを拡張できます。
 

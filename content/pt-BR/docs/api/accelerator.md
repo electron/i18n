@@ -18,7 +18,7 @@ app.whenReady().then(() => {
   // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
   // Fazer algo quando Y e Command ou Control forem pressionados.
-  }) 
+  })
 })
 ```
 

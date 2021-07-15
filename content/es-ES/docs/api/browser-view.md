@@ -6,12 +6,12 @@ Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro
 
 > Crear y controlar vistas.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 ### Ejemplo
 
 ```javascript
-// In the main process.
+/// In the main process.
 const { BrowserView, BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
@@ -27,7 +27,7 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object (opcional)
   * `webPreferences` Object (opcional) - Vea [BrowserWindow](browser-window.md).
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Los objetos creados con `new BrowserView` tienen las siguientes propiedades:
 

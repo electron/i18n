@@ -95,9 +95,9 @@ The renderer process can handle the message by listening to `channel` with the [
 * `message` tous
 * `transfer` MessagePortMain[] (optional)
 
-Envoie un message au processus de rendu en effectuant éventuellement un transfert de propriété de zéro ou plus objets de type [`MessagePortMain`][].
+Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
-Les objets `MessagePortMain` transférés seront disponibles dans le processus de rendu en accédant à la propriété `ports` de l'événement émis. Ils seront des objets DOM `MessagePort` natifs en arrivant dans le moteur de rendu.
+The transferred `MessagePortMain` objects will be available in the renderer process by accessing the `ports` property of the emitted event. When they arrive in the renderer, they will be native DOM `MessagePort` objects.
 
 Par exemple :
 
@@ -141,7 +141,7 @@ An `Integer` representing the id of the frame's internal FrameTreeNode instance.
 
 #### `frame.name` _Readonly_
 
-Un `String` représentant le nom du cadre.
+A `String` representing the frame name.
 
 #### `frame.osProcessId` _Readonly_
 

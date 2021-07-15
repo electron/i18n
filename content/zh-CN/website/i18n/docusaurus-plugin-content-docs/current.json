@@ -1,0 +1,70 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Get Started": {
+    "message": "Get Started",
+    "description": "The label for category Get Started in sidebar docs"
+  },
+  "sidebar.docs.category.Development": {
+    "message": "开发",
+    "description": "The label for category Development in sidebar docs"
+  },
+  "sidebar.docs.category.Performance": {
+    "message": "性能",
+    "description": "The label for category Performance in sidebar docs"
+  },
+  "sidebar.docs.category.Security": {
+    "message": "Security",
+    "description": "The label for category Security in sidebar docs"
+  },
+  "sidebar.docs.category.Distribution": {
+    "message": "分发",
+    "description": "The label for category Distribution in sidebar docs"
+  },
+  "sidebar.docs.category.Testing And Debugging": {
+    "message": "Testing And Debugging",
+    "description": "The label for category Testing And Debugging in sidebar docs"
+  },
+  "sidebar.docs.category.How To": {
+    "message": "How To",
+    "description": "The label for category How To in sidebar docs"
+  },
+  "sidebar.docs.category.Internals": {
+    "message": "Internals",
+    "description": "The label for category Internals in sidebar docs"
+  },
+  "sidebar.docs.category.Resources": {
+    "message": "Resources",
+    "description": "The label for category Resources in sidebar docs"
+  },
+  "sidebar.docs.category.Contributing": {
+    "message": "Contributing",
+    "description": "The label for category Contributing in sidebar docs"
+  },
+  "sidebar.api.category.Main Process Modules": {
+    "message": "Main Process Modules",
+    "description": "The label for category Main Process Modules in sidebar api"
+  },
+  "sidebar.api.category.Renderer Process Modules": {
+    "message": "Renderer Process Modules",
+    "description": "The label for category Renderer Process Modules in sidebar api"
+  },
+  "sidebar.api.category.Custom DOM Elements": {
+    "message": "Custom DOM Elements",
+    "description": "The label for category Custom DOM Elements in sidebar api"
+  },
+  "sidebar.api.category.Chromium and Node.js": {
+    "message": "Chromium and Node.js",
+    "description": "The label for category Chromium and Node.js in sidebar api"
+  },
+  "sidebar.api.category.Classes": {
+    "message": "类",
+    "description": "The label for category Classes in sidebar api"
+  },
+  "sidebar.api.category.API Structures": {
+    "message": "API Structures",
+    "description": "The label for category API Structures in sidebar api"
+  }
+}

@@ -131,7 +131,7 @@ Converts a screen DIP point to a screen physical point. The DPI scale is perform
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Retângulo](structures/rectangle.md)
 
-Returns [`Rectangle`](structures/rectangle.md)
+Retorna [`Rectangle`](structures/rectangle.md)
 
 Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
 
@@ -140,7 +140,7 @@ Converts a screen physical rect to a screen DIP rect. The DPI scale is performed
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Retângulo](structures/rectangle.md)
 
-Returns [`Rectangle`](structures/rectangle.md)
+Retorna [`Rectangle`](structures/rectangle.md)
 
 Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
 

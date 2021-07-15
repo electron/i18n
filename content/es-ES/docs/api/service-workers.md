@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Las instancias de la clase `ServiceWorkers` son accedidas utilizado la propiedad `serviceWorkers` de una `Session`.
 
@@ -33,7 +33,7 @@ Los siguientes eventos están disponibles en instancias de `ServiceWorkers`:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `messageDetails` Object - Information about the console message
   * `message` String - The actual console message
   * `versionId` Number - The version ID of the service worker that sent the log message
@@ -48,7 +48,7 @@ Emitted when a service worker logs something to the console.
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `details` Object - Información sobre el service worker registrado
   * `scope` String - La URL base para la que un service worker está registrada
 
@@ -56,7 +56,7 @@ Emitido cuando un service worker ha sido registrado. Puede ocurrir después de u
 
 ### Métodos de Instancia
 
-Lo siguientes métodos están disponibles en instancias de `ServiceWorkers`:
+Los siguientes métodos están disponibles en las instancias de `ServiceWorkers`:
 
 #### `serviceWorkers.getAllRunning()`
 

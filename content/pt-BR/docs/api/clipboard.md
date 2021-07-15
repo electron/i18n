@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 O módulo `clipboard` possui os seguintes métodos:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** APIs experimentais são marcadas como tal e podem ser removidas no futuro.
 
 ### `clipboard.readText([type])`
 
@@ -238,14 +238,14 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 ### `clipboard.write(data[, type])`
 
 * `data` Object
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
+  * `text` String (opcional)
+  * `html` String (opcional)
+  * `image` [NativeImage](native-image.md) (opcional)
+  * `rtf` String (opcional)
   * `bookmark` String (optional) - The title of the URL at `text`.
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `data` to the clipboard.
+Escreve `data` na área de transferência.
 
 ```js
 const { clipboard } = require('electron')

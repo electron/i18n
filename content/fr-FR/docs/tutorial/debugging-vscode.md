@@ -6,7 +6,7 @@ Ce guide explique comment configurer le débogage de VSCode pour votre propre pr
 
 ### Processus principal
 
-#### 1. Ouvrez un projet Electron dans VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -35,9 +35,9 @@ $ code electron-quick-start
 }
 ```
 
-#### 3. Débogage
+#### 3. Debugging
 
-Définissez quelques points d'arrêt dans `main.js`, et commencez à déboguer dans la [vue débogage](https://code.visualstudio.com/docs/editor/debugging). Vous devriez être en mesure de toucher les points d'arrêt.
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
 Voici un projet pré-configuré que vous pouvez télécharger et déboguer directement dans VSCode : https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
@@ -49,7 +49,7 @@ Si vous ne savez pas où aller chercher ce code ce code ou comment le générer,
 
 ### Windows (C++)
 
-#### 1. Ouvrez un projet Electron dans VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -94,6 +94,6 @@ $ code electron-quick-start
   * `your-directory-name`: If you modified this during your build process from the default, this will be whatever you specified.
 * The `args` array string `"your-electron-project-path"` should be the absolute path to either the directory or `main.js` file of the Electron project you are using for testing. In this example, it should be your path to `electron-quick-start`.
 
-#### 3. Débogage
+#### 3. Debugging
 
 Définissez quelques points d'arrêt dans le code natif Electron C++ et commencez à déboguer dans la [Vue débogage](https://code.visualstudio.com/docs/editor/debugging).

@@ -43,7 +43,7 @@ Sous Windows, vous pouvez également charger les icônes `ICO` à partir de chem
   * 64x64 (200% DPI scale)
   * 256x256
 
-Check the *Size requirements* section in [this article][icons].
+Consultez la section *Taille requise* dans [cet article][icons].
 
 ## Images à haute résolution
 
@@ -140,14 +140,14 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Crée une nouvelle instance `NativeImage` à partir de `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -192,7 +192,7 @@ The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées `PNG` de l'image.
@@ -205,21 +205,21 @@ Retourne `Buffer` - Un [tampon][buffer] qui contient les données encodées en `
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon][buffer] qui contient une copie des données du pixel brut bitmap de l'image.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `String` - L'URL des données de l'image.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional)
+* `options` Object (facultatif)
   * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon][buffer] qui contient les données brutes des pixels bitmap de l'image.

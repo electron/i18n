@@ -13,27 +13,27 @@ Estas são as diretrizes para escrever a documentação do Electron.
 Usado o `Inicio Rápido` como exemplo:
 
 ```markdown
-# Início rápido
+# Quick Start
 
 ...
 
-## Processo principal
+## Main process
 
 ...
 
-## Processo de renderização
+## Renderer process
 
 ...
 
-## Execute seu aplicativo
+## Run your app
 
 ...
 
-### Executar como um
+### Run as a distribution
 
- de distribuição...
+...
 
-### Binário do Electron baixado manualmente
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -104,7 +104,7 @@ Using `autoUpdater` as an example:
 * All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* As Propriedades da Instância devem ser listadas abaixo de um `### Propriedades de Instância` capítulo.
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance Properties must start with "A [Property Type] ..."
 
 Usando as classes `Session` e `Cookies` como exemplo:
@@ -148,8 +148,8 @@ O capítulo de métodos deve estar no seguinte formato:
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - Uma descrição de parâmetro.
-* `optional` Integer (opcional) - Outra descrição do parâmetro.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```

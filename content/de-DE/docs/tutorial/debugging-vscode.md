@@ -6,7 +6,7 @@ This guide goes over how to set up VSCode debugging for both your own Electron p
 
 ### Main process
 
-#### 1. Öffnen Sie ein Electron Projekt in VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
@@ -17,18 +17,18 @@ $ code electron-quick-start
 
 ```json
 {
-  "version": "0.2. ",
+  "version": "0.2.0",
   "configurations": [
     {
-      "name": "Hauptprozess debug",
-      "Typ": "Knoten",
+      "name": "Debug Main Process",
+      "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "${workspaceFolder}/node_modules/. in/electron",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
       "windows": {
-        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron. md"
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
       },
-      "args" : [". ],
+      "args" : ["."],
       "outputCapture": "std"
     }
   ]
@@ -37,7 +37,7 @@ $ code electron-quick-start
 
 #### 3. Debugging
 
-Legen Sie einige Haltepunkte in `main.js`fest und starten Sie das Debugging in der [Debug View](https://code.visualstudio.com/docs/editor/debugging). Du solltest in der Lage sein, die Haltepunkte zu treffen.
+Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
 
 Hier finden Sie ein vorkonfiguriertes Projekt, dass Sie herunterladen und direkt in VSCode debuggen können: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
 
@@ -49,7 +49,7 @@ For those unsure where to acquire this code or how to build it, [Electron's Buil
 
 ### Windows (C++)
 
-#### 1. Öffnen Sie ein Electron Projekt in VSCode.
+#### 1. Open an Electron project in VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git

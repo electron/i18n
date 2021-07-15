@@ -1,4 +1,4 @@
 # CPUUsage Object
 
-* `percentCPUUsage` Nummer - Prozentuale Nutzung der CPU seit dem letzten Aufgrud von getCPUUsage. Das Resultat des ersten Aufrufs ist 0.
-* `idleWakeupsPerSecond` Number - Die Anzahl von isolierten CPU-Aufwachroutinen pro Sekunde seit dem letzten Aufruf von getCPUUsage. Das Resultat des ersten Aufrufs ist 0. Wird auf Windows immer 0 zurückgeben.
+* `percentCPUUsage` Number - Percentage of CPU used since the last call to getCPUUsage. First call returns 0.
+* `idleWakeupsPerSecond` Number - The number of average idle CPU wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.

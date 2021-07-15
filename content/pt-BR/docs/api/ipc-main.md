@@ -48,7 +48,7 @@ O módulo `ipcMain` possui o seguinte método para ouvir eventos:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Função
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ Ouve o `channel`, quando uma mensagem chega, o `listener` deve ser chamado com `
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Função
+* `listener` Function
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Função
+* `listener` Function
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.

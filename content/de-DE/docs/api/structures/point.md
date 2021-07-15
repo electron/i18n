@@ -1,6 +1,6 @@
-# Point Objekt
+# Point Object
 
 * `x` Number
 * `y` Number
 
-**Bemerkung:** Beide `x` wie auch `y` müssen Integer Nummer sein, wenn ein Punkt Objekt an die Electron API übergeben wird, werden wir deine `x` und `y` Wert automatisch auf die nächste ganze Integer Wert runden.
+**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.

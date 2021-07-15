@@ -21,7 +21,7 @@ Usando `Quick Start` como ejemplo:
 
 ...
 
-## Proceso de renderizado
+## Proceso Renderer
 
 ...
 
@@ -29,7 +29,7 @@ Usando `Quick Start` como ejemplo:
 
 ...
 
-### Ejecutar como una distribución
+### Ejecuta como una distribución
 
 ...
 
@@ -104,7 +104,7 @@ Usando `autoUpdater` como ejemplo:
 * All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
-* Las propiedades de la instancia deben estar listadas bajo un capítulo `### Propiedades de Instancia`.
+* Las Propiedades de Instancia deben ser listadas bajo un capitulo `### Instance Properties`.
   * Instance Properties must start with "A [Property Type] ..."
 
 Usando las clases `Session` y `Cookies` como ejemplo:
@@ -146,10 +146,10 @@ Usando las clases `Session` y `Cookies` como ejemplo:
 El capítulo de métodos debe estar de la siguiente forma:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `nombreDeObjeto.nombreDeMetodo(required[, opcional]))`
 
 * `required` String - Una descripción del parámetro.
-* `optional` Integer (opcional) - Otra descripción de parámetro.
+* `opcional` Integer (opcional) - Otra descripción del parámetro.
 
 ...
 ```

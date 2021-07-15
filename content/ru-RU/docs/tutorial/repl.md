@@ -2,7 +2,7 @@
 
 [Read-Eval-Print-Loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
 
-## Главный процесс
+## Основной процесс
 
 Electron exposes the [Node.js `repl` module](https://nodejs.org/dist/latest/docs/api/repl.html) through the `--interactive` CLI flag. Assuming you have `electron` installed as a local project dependency, you should be able to access the REPL with the following command:
 

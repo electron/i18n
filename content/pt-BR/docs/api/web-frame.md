@@ -122,7 +122,7 @@ Inserts `text` to the focused element.
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns. For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
-  * `error` Error
+  * Erro `error`
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution throws or results in a rejected promise.
 
@@ -137,7 +137,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. Unless the frame is suspended (e.g. showing a modal alert), execution will be synchronous and the callback will be invoked before the method returns.  For compatibility with an older version of this method, the error parameter is second.
   * `result` Any
-  * `error` Error
+  * Erro `error`
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if execution could not start.
 
@@ -151,7 +151,7 @@ Note that when the execution of script fails, the returned promise will not reje
 * `info` Object
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
-  * `name` String (opcional) - Nome para mundo isolado. Useful in devtools.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
 
 Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 

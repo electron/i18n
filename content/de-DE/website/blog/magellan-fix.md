@@ -1,34 +1,36 @@
 ---
-title: SQLite-Schwachstelle beheben
+title: SQLite Vulnerability Fix
 author: ckerr
 date: '2018-12-18'
 ---
 
-Eine Verwundbarkeit, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," wurde entdeckt, die Software basierend auf SQLite oder Chromium, einschließlich aller Versionen von Electron, beeinflusst.
+A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
 
 ---
 
-## Bereich
+## Scope
 
-Elektronische Anwendungen, die Web SQL verwenden, sind betroffen.
+Electron applications using Web SQL are impacted.
 
 
-## Abmilderung
+## Mitigation
 
-Betroffene Apps sollten Web SQL nicht mehr verwenden oder auf eine gepatchte Version von Electron aktualisieren.
+Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
 
-Wir haben neue Versionen von Electron veröffentlicht, die Korrekturen für diese Verwundbarkeit enthalten:
+We've published new versions of Electron which include fixes for this vulnerability:
   * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
   * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-Darüber gibt es keine Meldungen in freier Wildbahn; betroffene Anwendungen werden jedoch aufgefordert, Abmilderung zu fordern.
+There are no reports of this in the wild; however, affected applications are urged to mitigate.
 
-## Weitere Informationen
+## Further Information
 
-Diese Verwundbarkeit wurde vom Tencent Blade Team entdeckt, das [einen Blogbeitrag veröffentlicht hat, der die Verwundbarkeit](https://blade.tencent.com/magellan/index_en.html) diskutiert.
+This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
 
-Um mehr über Best Practices für die Sicherheit Ihrer Electron-Apps zu erfahren, lesen Sie unsere [-Sicherheitshinweise](https://electronjs.org/docs/tutorial/security).
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
-Wenn Sie eine Verwundbarkeit in Electron melden möchten, schicken Sie eine E-Mail an security@electronjs.org.
+If you wish to report a vulnerability in Electron, email security@electronjs.org.
+
+[security tutorial]: https://electronjs.org/docs/tutorial/security

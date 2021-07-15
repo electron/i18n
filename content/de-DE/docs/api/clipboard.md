@@ -1,4 +1,4 @@
-# Zwischenablage (clipboard)
+# clipboard
 
 > Ausführung von Kopier- und Einfüge-Operationen von der Zwischenablage des Betriebssystems.
 
@@ -17,7 +17,7 @@ console.log(clipboard.readText('selection'))
 
 Das `clipboard` Modul besitzt die folgenden Methoden:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Notiz:** Experimentelle Schnittstellen sind mit "Experimentell" markiert und könnten in der Zukunft wegfallen.
 
 ### `clipboard.readText([type])`
 
@@ -126,15 +126,16 @@ clipboard.writeRTF(rtf)
 Gibt das `Object` zurück:
 
 * `title` String
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.
+<p spaces-before="0">Gibt ein Objekt, dass die Keys <code>title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.</p>
 
 ### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
-* `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
 
 Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
 
@@ -181,7 +182,7 @@ console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
 
-### `clipboard.has(format[, type])` _Experimental_
+### `clipboard.has(format[, type])` _Experimentell_
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` ist nur unter Linux verfügbar.
@@ -196,13 +197,13 @@ console.log(hasFormat)
 // 'true' or 'false
 ```
 
-### `clipboard.read(format)` _Experimental_
+### `clipboard.read(format)` _Experimentell_
 
 * `format` String
 
 Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
 
-### `clipboard.readBuffer(format)` _Experimental_
+### `clipboard.readBuffer(format)` _Experimentell_
 
 * `format` String
 
@@ -220,7 +221,7 @@ console.log(buffer.equals(out))
 // true
 ```
 
-### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimentell_
 
 * `format` String
 * `buffer` Puffer

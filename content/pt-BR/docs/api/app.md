@@ -165,7 +165,7 @@ Retorna:
 
 Emitido quando o [Handoff][handoff] está prestes a ser continuado em outro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActivity()` in a timely manner. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
-### Evento: 'new-window-for-tab' no _macOS_
+### Evento: 'new-window-for-tab' _macOS_
 
 Retorna:
 
@@ -267,17 +267,17 @@ Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` Object
+* Objeto `authenticationResponseDetails`
   * `url` URL
-* `authInfo` Object
+* Objeto `authInfo`
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
 * `callback` Function
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcional)
+  * `password` String (opcional)
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
@@ -327,7 +327,7 @@ Retorna:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `details` Object
+* Objeto `details`
   * `reason` String - The reason the render process is gone.  Valores possíveis:
     * `clean-exit` - Process exited with an exit code of zero
     * `abnormal-exit` - Process exited with a non-zero exit code
@@ -345,7 +345,7 @@ Emitted when the renderer process unexpectedly disappears.  This is normally bec
 Retorna:
 
 * `event` Event
-* `details` Object
+* Objeto `details`
   * `type` String - Process type. One of the following values:
     * `Utilidade`
     * `Zygote`
@@ -418,7 +418,7 @@ Retorna:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Este evento será emitido quando `desktopCapturer.getSources()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### Event: 'remote-require' _Deprecated_
 
@@ -457,7 +457,7 @@ Retorna:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-É emitido quando `remote.getCurrentWindow()` é chamado pelo processo de renderização de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Este evento será emitido quando `remote.getCurrentWindow()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ### Event: 'remote-get-current-web-contents' _Deprecated_
 
@@ -466,7 +466,7 @@ Retorna:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-É emitido quando `remote.getCurrentWebContents()` é chamado pelo processo de renderização de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Este evento será emitido quando `remote.getCurrentWebContents()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ## Métodos
 
@@ -490,7 +490,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `args` String[] (opcional)
   * `execPath` String (opcional)
 
@@ -517,11 +517,11 @@ Retorna `Boolean` - `true` se o Electron tiver inicializado, `false` caso contr�
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. Pode ser usado como uma alternativa conveniente para a verificação `app.isReady()` e subscrever o evento `ready` se a aplicação ainda não estiver pronta.
+Retorna `Promise<void>` - cumprido quando o Electron é inicializado. Pode ser usado como uma alternativa conveniente para a verificação `app.isReady()` e subscrever o evento `ready` se a aplicação ainda não estiver pronta.
 
 ### `app.focus([options])`
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
@@ -578,7 +578,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -655,7 +655,7 @@ Limpa a lista de documentos recentes.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - O nome do protocolo sem `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) _Windows_ - The path to the Electron executable. Defaults to `process.execPath`
+* `path` String (optional) _Windows_ - The path to the Electron executable. O padrão é `process.execPath`
 * `args` String[] (optional) _Windows_ - Arguments passed to the executable. Defaults to an empty array
 
 Retorna `Boolean` - Se a chamada foi realizada com sucesso.
@@ -888,7 +888,7 @@ Atualiza a atividade atual se seu tipo corresponder a `type`, mesclando as entra
 
 Muda o [Application User Model ID][app-user-model-id] para `id`.
 
-### `app.setActivationPolicy(policy)` _macOS_
+### `app.setActivationPolicy(policy)` no _macOS_
 
 * `policy` String - Can be 'regular', 'accessory', or 'prohibited'.
 
@@ -902,7 +902,7 @@ Activation policy types:
 
 ### `app.importCertificate(options, callback)` _Linux_
 
-* `options` Object
+* Objeto `options`
   * `certificate` String - Caminho para o arquivo pkcs12.
   * `password` String - Passphrase do certificado.
 * `callback` Function
@@ -934,9 +934,9 @@ Retorna [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Os status de re
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - Pode ser `basic` ou `complete`.
 
-Returns `Promise<unknown>`
+Retorna `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -981,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Nota:** O lançador Unity requer a existência de um arquivo `.desktop` para que isso funcione. Para mais detalhes, leia a [Integração com Ambiente de Trabalho][unity-requirement].
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -993,7 +993,7 @@ Retorna `Boolean` - Indica se o ambiente de trabalho atual é o Unity ou não.
 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -1024,7 +1024,7 @@ Retorna `Object`:
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Defaults to `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Define as opções de execução do aplicativo na inicialização do sistema.
 
-Para funcionar com o `autoUpdater` do Electron no Windows, o qual usa o [Squirrel][Squirrel-Windows], recomendamos definir o caminho de inicialização para Update.exe e passar a ele os argumentos que especificam o nome do seu aplicativo. Como por exemplo:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Como por exemplo:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1061,7 +1061,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 ### `app.setAboutPanelOptions(options)`
 
-* `options` Object
+* Objeto `options`
   * `applicationName` String (opcional) - O nome do aplicativo.
   * `applicationVersion` String (opcional) - A versão do aplicativo.
   * `copyright` String (opcional) - Informações de copyright.
@@ -1071,7 +1071,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Define as opções do painel sobre. This will override the values defined in the app's `.plist` file on macOS. Consulte a [documentação da Apple][about-panel-options] para mais detalhes. On Linux, values must be set in order to be shown; there are no defaults.
+Define as opções do painel sobre. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
 If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
@@ -1106,13 +1106,13 @@ Enables full sandbox mode on the app. This means that all renderers will be laun
 
 Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
-### `app.isInApplicationsFolder()` no _macOS_
+### `app.isInApplicationsFolder()` _macOS_
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (optional)
+* `options` Object (Opcional)
   * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
@@ -1143,7 +1143,7 @@ app.moveToApplicationsFolder({
 
 Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
-### `app.isSecureKeyboardEntryEnabled()` no _macOS_
+### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
 Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
 
@@ -1183,7 +1183,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Nota:** O lançador Unity requer a existência de um arquivo `.desktop` para que isso funcione. Para mais detalhes, leia a [Integração com Ambiente de Trabalho][unity-requirement].
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 

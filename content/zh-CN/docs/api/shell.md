@@ -41,7 +41,7 @@ Returns `Promise<String>` - Resolves with a string containing the error message 
   * `activate` Boolean (optional) _macOS_ - `true` to bring the opened application to the foreground. 默认值为 `true`。
   * `workingDirectory`字符串 (可选的) _Windows_ - 工作目录
 
-Returns `Promise<void>`
+返回 `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 

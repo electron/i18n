@@ -1,3 +1,3 @@
-# NeueFensterWebInhaltErreignis Objekt wird weiter gehen`Erreignis`
+# NewWindowWebContentsEvent Object extends `Event`
 
 * `newGuest` BrowserWindow (optional)

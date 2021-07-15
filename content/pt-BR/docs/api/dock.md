@@ -31,13 +31,13 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 Cancel the bounce of `id`.
 
-#### `dock.downloadFinished(filePath)` _macOS_
+#### `dock.downloadFinished(filePath)` no _macOS_
 
 * `filePath` String
 
 Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
-#### `dock.setBadge(text)` _macOS_
+#### `dock.setBadge(text)` no _macOS_
 
 * `text` String
 
@@ -59,7 +59,7 @@ Returns `Promise<void>` - Resolves when the dock icon is shown.
 
 Returns `Boolean` - Whether the dock icon is visible.
 
-#### `dock.setMenu(menu)` _macOS_
+#### `dock.setMenu(menu)` no _macOS_
 
 * `menu` [Menu](menu.md)
 
@@ -69,7 +69,7 @@ Sets the application's \[dock menu\]\[dock-menu\].
 
 Returns `Menu | null` - The application's \[dock menu\]\[dock-menu\].
 
-#### `dock.setIcon(image)` _macOS_
+#### `dock.setIcon(image)` no _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 

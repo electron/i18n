@@ -2,9 +2,9 @@
 
 本指南将会通过使用Electron创建一个极简的 Hello World 应用一步步的带你了解，该应用与[`electron/electron-quick-start`][quick-start]类似。
 
-通过这个教程，你的app将会打开一个浏览器窗口，来展示包含当前正在运行的 Chromium, Node.js, and Electronweb等版本信息的web界面
+通过这个教程，你的app将会打开一个浏览器窗口，来展示包含当前正在运行的 Chromium, Node.js与 Electronweb等版本信息的web界面
 
-## 前提条件
+## 基本要求
 
 在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 我们建议您使用最新的LTS版本。
 
@@ -161,7 +161,7 @@ app.whenReady().then(() => {
 
 在Windows和Linux上，关闭所有窗口通常会完全退出一个应用程序。
 
-为了实现这一点，监听 `app` 模块的 [`'window-all-closed'`][window-all-closed] 事件，并在用户不是在 macOS (`darwin`) 上运行时调用 [`app.quit()`][app-quit]
+To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
 
 ```js
 app.on('window-all-closed', function () {
@@ -173,7 +173,7 @@ app.on('window-all-closed', function () {
 
 当 Linux 和 Windows 应用在没有窗口打开时退出了，macOS 应用通常即使在没有打开任何窗口的情况下也继续运行，并且在没有窗口可用的情况下激活应用时会打开新的窗口。
 
-为了实现这一特性，监听 `app` 模块的 [`activate`][activate] 事件，并在没有浏览器窗口打开的情况下调用你仅存的 `createWindow()` 方法。
+To implement this feature, listen for the `app` module's [`activate`][activate] event, and call your existing `createWindow()` method if no browser windows are open.
 
 因为窗口无法在 `ready` 事件前创建，你应当在你的应用初始化后仅监听 `activate` 事件。 通过在您现有的 `whenReady()` 回调中附上您的事件监听器来完成这个操作。
 
@@ -195,7 +195,7 @@ app.whenReady().then(() => {
 
 在主进程通过Node的全局 `process` 对象访问这个信息是微不足道的。 然而，你不能直接在主进程中编辑DOM，因为它无法访问渲染器 `文档` 上下文。 它们存在于完全不同的进程！
 
-> 注意：如果您需要更深入地查看Electron进程，请参阅 [进程模型][] 文档。
+> Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
 
 这是将 **预加载** 脚本连接到渲染器时派上用场的地方。 预加载脚本在渲染器进程加载之前加载，并有权访问两个 渲染器全局 (例如 `window` 和 `document`) 和 Node.js 环境。
 
@@ -239,8 +239,8 @@ function createWindow () {
 
 这里使用了两个Node.js概念：
 
-* [`__dirname`][dirname] 字符串指向当前正在执行脚本的路径 (本例中，你的项目的根文件夹)。
-* [`path.join`][path-join] API 将多个路径段联结在一起，创建一个跨平台的组合路径字符串。
+* The [`__dirname`][dirname] string points to the path of the currently executing script (in this case, your project's root folder).
+* The [`path.join`][path-join] API joins multiple path segments together, creating a combined path string that works across all platforms.
 
 我们使用一个相对当前正在执行JavaScript文件的路径，这样您的相对路径将在开发模式和打包模式中都将有效。
 
@@ -254,7 +254,7 @@ function createWindow () {
 <script src="./renderer.js"></script>
 ```
 
-`renderer.js` 中包含的代码接下来可以使用与前端开发相同的 JavaScript API 和工具，例如使用 [`webpack`][webpack] 打包并最小化您的代码或 [React][react] 来管理您的用户界面。
+The code contained in `renderer.js` can then use the same JavaScript APIs and tooling you use for typical front-end development, such as using [`webpack`][webpack] to bundle and minify your code or [React][react] to manage your user interfaces.
 
 ### 回顾
 
@@ -433,11 +433,12 @@ To summarize all the steps we've done:
 [app-when-ready]: ../api/app.md#appwhenready
 
 [node-platform]: https://nodejs.org/api/process.html#process_process_platform
-[window-all-closed]: ../api/app.md#appquit
+[window-all-closed]: ../api/app.md#event-window-all-closed
+[app-quit]: ../api/app.md#appquit
 
 [activate]: ../api/app.md#event-activate-macos
 
-[进程模型]: ./process-model.md
+[Process Model]: ./process-model.md
 [dirname]: https://nodejs.org/api/modules.html#modules_dirname
 [path-join]: https://nodejs.org/api/path.html#path_path_join_paths
 

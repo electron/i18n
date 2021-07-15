@@ -1,4 +1,4 @@
-# 进程
+# process
 
 > 处理对象的扩展
 
@@ -42,7 +42,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 当Electron加载了它的内部初始化脚本并且是正要开始加载网页或主脚本时触发。
 
-## Properties
+## 属性
 
 ### `process.defaultApp` _只读_
 
@@ -136,7 +136,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.getHeapStatistics()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -152,7 +152,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.getBlinkMemoryInfo()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -170,7 +170,7 @@ Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用
 
 ### `process.getSystemMemoryInfo()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
@@ -183,7 +183,7 @@ Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用
 
 返回 ` String ` - 主机操作系统的版本。
 
-示例:
+示例：
 
 ```js
 const version = process.getSystemVersion()
@@ -201,7 +201,7 @@ console.log(version)
 
 返回 `Boolean` - 指明快捷方式是否被成功创建。
 
-采取V8堆快照，并保存到 `filePath`。
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 

@@ -8,7 +8,7 @@ Ve la documentacion de [Channel Messaging API][] para mas información sobre el 
 
 > Interfaz para la mensajería de canales del proceso principal.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 Ejemplo:
 
@@ -29,7 +29,7 @@ ipcRenderer.on('port', (e) => {
 })
 ```
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 #### `channel.port1`
 

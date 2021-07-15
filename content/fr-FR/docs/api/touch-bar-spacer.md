@@ -14,7 +14,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarSpacer`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarSpacer` :
 
 #### `touchBarSpacer.size`
 

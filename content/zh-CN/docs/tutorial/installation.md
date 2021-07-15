@@ -121,7 +121,7 @@ ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
 
 在大多数情况下，这些错误都是由网络问题导致，而不是因为 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
 
-如果通过`npm`安装失败，您也可以尝试通过从[electron/electron/release][releases]直接下载Electron。
+You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 
 如果安装失败并报错`EACCESS`，您可能需要[修复npm权限][npm-permissions]。
 

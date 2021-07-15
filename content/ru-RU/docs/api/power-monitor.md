@@ -1,4 +1,4 @@
-# powerMonitor (Мониторинг питания)
+# powerMonitor
 
 > Отслеживает изменения состояния питания устройства.
 
@@ -52,7 +52,7 @@ Emitted when a login session is deactivated. See [documentation](https://develop
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+Returns `String` - The system's current state. Может быть `active`, `idle`, `locked` или `unknown`.
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
 

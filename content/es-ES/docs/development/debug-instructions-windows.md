@@ -12,7 +12,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 * **ProcMon**: la [herramienta gratuita SysInternals][sys-internals] le permite inspeccionar los parámetros de los procesos, los manejadores de archivos y las operaciones de registro.
 
-## Adjuntado y depuración de Electron
+## A y depuración Electron
 
 Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versión de depuración de Electron, usando la aplicación para abrir como parámetro.
 

@@ -55,7 +55,7 @@ app.on('activate', () => {
 
 To add a file to recent documents, use the [app.addRecentDocument][addrecentdocument] API.
 
-Nachdem Sie die Electron-Anwendung gestartet haben, klicken Sie mit der rechten Maustaste auf das Symbol der Anwendung. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
+After launching the Electron application, right click the application icon. In this guide, the item is a Markdown file located in the root of the project. You should see `recently-used.md` added to the list of recent files:
 
 ![Recent document](../images/recent-documents.png)
 
@@ -63,7 +63,7 @@ Nachdem Sie die Electron-Anwendung gestartet haben, klicken Sie mit der rechten 
 
 To clear the list of recent documents, use the [app.clearRecentDocuments][clearrecentdocuments] API. In this guide, the list of documents is cleared once all windows have been closed.
 
-## Zusätzliche Informationen
+## Additional information
 
 ### Bemerkungen zu Windows
 

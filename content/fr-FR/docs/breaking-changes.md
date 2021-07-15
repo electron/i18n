@@ -2,23 +2,23 @@
 
 Les changements cassants seront documentés ici, et des avertissements de dépréciations ajoutés au code JS quand possible, au moins [une version majeur](tutorial/electron-versioning.md#semver) avant que le changement soit fait.
 
-### Types de changements de rupture
+### Types de modifications majeures
 
-Ce document utilise la convention suivante pour catégoriser les modifications en cours :
+Ce document utilise la convention suivante pour catégoriser les modifications majeures :
 
-* **API modifiée :** Une API a été modifiée de manière à ce que le code qui n'a pas été mis à jour soit garanti de lancer une exception.
-* **Comportement modifié :** Le comportement d'Electron a changé, mais pas de telle manière qu'une exception soit nécessairement levée.
-* **Valeur par défaut modifiée :** Le code dépendant de l'ancienne valeur par défaut peut se briser, sans nécessairement lancer une exception. L'ancien comportement peut être restauré en spécifiant explicitement la valeur.
-* **Obsolète :** Une API a été marquée comme obsolète. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
-* **Supprimé:** Une API ou une fonctionnalité a été supprimée, et n'est plus prise en charge par Electron.
+* **API modifiée :** Une API a été modifiée avec la garantie que du code non modifié déclenchera une exception.
+* **Comportement modifié :** Le comportement d'Electron a changé, mais pas de telle manière qu'une exception soit nécessairement déclenchée.
+* **Valeur par défaut modifiée :** Le code dépendant de l'ancienne valeur par défaut peut ne plus fonctionner, sans nécessairement déclencher une exception. Le comportement d'origine peut être restauré en spécifiant explicitement la valeur.
+* **Déprécié :** une API a été marquée comme étant dépréciée. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
+* **Supprimé:** Une API ou une fonctionnalité a été supprimée et n'est plus prise en charge par Electron.
 
 ## Changements majeurs prévus de l'API (14.0)
 
-### Modification de l’API : `window.(open)`
+### API modifiée : `window.(open)`
 
-Le paramètre `frameName` ne définira plus le titre de la fenêtre. Cela fait maintenant suite à la spécification décrite par [documentation native](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) sous le paramètre correspondant `windowName`.
+The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
 
-Si vous utilisiez ce paramètre pour définir le titre d’une fenêtre, vous pouvez plutôt utiliser [win.setTitle (titre)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
 
 ### Supprimé : `worldSafeExecuteJavaScript`
 
@@ -53,7 +53,7 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 
 ### Supprimé : `shell.moveItemToTrash()`
 
-L'API `shell.moveItemToTrash()` dépréciée a été supprimée. Utilisez le shell.trashItem() `asynchrone` à la place.
+The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
 
 ```js
 // Supprimé dans Electron 13
@@ -62,9 +62,9 @@ shell.moveItemToTrash(path)
 shell.trashItem(path).then(/* ... */)
 ```
 
-### Supprimé : API `BrowserWindow` 'extension
+### Removed: `BrowserWindow` extension APIs
 
-Les API d’extension dépréciées ont été supprimées :
+The deprecated extension APIs have been removed:
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -80,26 +80,26 @@ Utilisez plutôt les API de session :
 * `ses.getAllExtensions()`
 
 ```js
-Supprimé dans Electron 13
-BrowserWindow.addExtension (path)
-BrowserWindow.addDevToolsExtension (path)
-// Remplacer par
+// Removed in Electron 13
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Replace with
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-Supprimé dans Electron 13
-BrowserWindow.removeExtension (nom)
-BrowserWindow.removeDevToolsExtension (nom)
-// Remplacer par
+// Removed in Electron 13
+BrowserWindow.removeExtension(name)
+BrowserWindow.removeDevToolsExtension(name)
+// Replace with
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-Supprimé dans Electron 13
+// Removed in Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Remplacer par
+// Replace with
 session.defaultSession.getAllExtensions()
 ```
 
@@ -240,7 +240,7 @@ Les API expérimentales `BrowserView.{destroy, fromId, fromWebContents, getAllVi
 
 Pour des informations plus détaillées, voir [#23578](https://github.com/electron/electron/pull/23578).
 
-## Changements prévus de l'API (10.0)
+## Changements majeurs prévus de l'API (10.0)
 
 ### Déprécié : l'argument `companyName` de `crashReporter.start()`
 
@@ -309,7 +309,7 @@ Nous vous recommandons d'éviter d'utiliser le module [distant](https://medium.c
 
 ### `protocol.uninterceptProtocol`
 
-Les API sont désormais synchrones et le rappel facultatif n'est plus nécessaire.
+Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
 
 ```javascript
 // Deprecated
@@ -338,7 +338,7 @@ protocol.unregisterProtocol(scheme)
 
 ### `protocol.interceptStreamProtocol`
 
-Les API sont désormais synchrones et le rappel facultatif n'est plus nécessaire.
+Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
 
 ```javascript
 // Deprecated
@@ -361,7 +361,7 @@ const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
 
-## Changements d'API prévus (9.0)
+## Changements majeurs prévus de l'API (9.0)
 
 ### Fonctionnement par défaut modifié : le chargement des modules natifs non contextuels dans le processus de rendu est désactivé par défaut
 
@@ -564,7 +564,7 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
-## Changements majeurs prévus de l'API (7.0)
+## Planned Breaking API Changes (7.0)
 
 ### Deprecated: Atom.io Node Headers URL
 
@@ -696,13 +696,13 @@ Les fonctions suivantes ne retournent plus que des promesses :
 * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 * `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
 
-Ces fonctions ont maintenant deux formes, synchrone et asynchrone basées sur Promis:
+These functions now have two forms, synchronous and Promise-based asynchronous:
 
 * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-## Changements majeurs prévus de l'API (6.0)
+## Planned Breaking API Changes (6.0)
 
 ### API modifiée : `win.setMenu(null)` est désormais `win.removeMenu()`
 
@@ -773,7 +773,7 @@ app.enableMixedSandbox()
 
 Le mode bac à sable mixte est désormais activé par défaut.
 
-### Déprécié : `Tray.setHighlightMode`
+### Deprecated: `Tray.setHighlightMode`
 
 Sous macOS Catalina, notre ancienne implémentation de Tray est interrompue. Le substitut natif d'Apple ne prend pas en charge la modification du comportement de mise en évidence.
 
@@ -795,7 +795,7 @@ Les options suivantes de `webPreferences` seront dépréciées en faveur de nouv
 | `nodeIntegration`  | `true`                                | `false`                    |
 | `webviewTag`       | `nodeIntegration` si mis sinon `true` | `false`                    |
 
-Exemple : Re-enabling the webviewTag
+E.g. Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -875,7 +875,7 @@ console.log(factor)
 
 ## Changements majeurs prévus de l'API (4.0)
 
-La liste suivant inclut les changements majeurs faits dans Electron 4.0.
+The following list includes the breaking API changes made in Electron 4.0.
 
 ### `app.makeSingleInstance`
 
@@ -1064,14 +1064,14 @@ webContents.setSize(options)
 ### `webFrame`
 
 ```js
-// Déprécié
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// Remplacé par
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Déprécié
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Remplacé par
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
@@ -1172,7 +1172,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Chaque version d'Electron contient deux versions ARM identiques avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. Celui avec le préfixe `v7l` a été ajouté pour clarifier aux utilisateurs quelle version ARM elle supporte, et supprimer les ambiguïtés des prochains paquets armv6l et arm64 qui pourraient être produites.
 
-Le fichier _sans le préfixe_ est toujours publié afin d'éviter de casser les installations qui pourraient l'utiliser. À partir de la 2.0, le fichier sans préfixe ne sera plus publié.
+The file _without the prefix_ is still being published to avoid breaking any setups that may be consuming it. À partir de la 2.0, le fichier sans préfixe ne sera plus publié.
 
 Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
 

@@ -6,9 +6,9 @@ Prozess: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
-### Instanz Methoden
+### Beispiel Methoden
 
-The `BrowserWindowProxy` object has the following instance methods:
+Das `BrowserWindowProxy` Objekt hat die folgenden Instanz Methoden:
 
 #### `win.blur()`
 
@@ -20,7 +20,7 @@ Forcefully closes the child window without calling its unload event.
 
 #### `win.eval(code)`
 
-* `code` String
+* `code` Zeichenkette
 
 Evaluates the code in the child window.
 
@@ -35,7 +35,7 @@ Invokes the print dialog on the child window.
 #### `win.postMessage(message, targetOrigin)`
 
 * `message` any
-* `targetOrigin` String
+* `targetOrigin` Zeichenkette
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.
 

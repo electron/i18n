@@ -182,20 +182,20 @@ electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekee
 
 アップロードした後は、[アプリを審査に提出][submit-for-review] しましょう。
 
-## MAS ビルドの制限
+## MAS Buildの制限
 
-アプリのサンドボックス化ですべての要件を満たすために、MAS ビルドで以下のモジュールを無効にしてください。
+アプリのサンドボックスですべての要件を満たすために、MASビルドで次のモジュールを無効にしてください。
 
 * `crashReporter`
 * `autoUpdater`
 
-そして、以下の挙動が変化します。
+次の挙動を変更してください。
 
 * ビデオキャプチャーはいくつかのマシンで動作しないかもしれません。
 * 一部のアクセシビリティ機能が動作しないことがあります。
 * アプリはDNSの変更を認識しません。
 
-サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は [App Sandboxing][app-sandboxing] を参照してください。
+サンドボックス化の利用により、アプリがアクセスできるリソースは厳密に制限されます。詳細は [アプリのサンドボックス化][app-sandboxing] をご参照ください。
 
 ### 追加のエンタイトルメント
 
@@ -237,7 +237,7 @@ electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekee
 
 詳細は [Enabling User-Selected File Access ドキュメント][user-selected] を参照してください。
 
-## Electron が使用する暗号化アルゴリズム
+## Electronが使用する暗号化アルゴリズム
 
 アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 詳細は [暗号輸出コンプライアンスドキュメント][export-compliance] を参照してください。
 

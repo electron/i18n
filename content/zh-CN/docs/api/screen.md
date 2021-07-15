@@ -6,7 +6,7 @@
 
 在 ` app ` 模块 `emitted ready ` 事件之前，您不能使用此模块。
 
-`screen` 是一个 [EventEmitter][event-emitter].
+`screen`是一个[EventEmitter][event-emitter].
 
 **Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 

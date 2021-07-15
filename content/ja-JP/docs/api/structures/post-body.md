@@ -1,10 +1,10 @@
-# PostBody オブジェクト
+# PostBody Object
 
-* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - 新規ウインドウに送信する POST データ。
-* `contentType` String - データに使用する `content-type` ヘッダー。 `application/x-www-form-urlencoded` と `multipart/form-data` のどちらかにできます。 送信される HTML フォームの `enctype` 属性に相当します。
-* `boundary` String (任意) - メッセージを複数部分へ分ける際に使用する境界。 `contentType` が `multipart/form-data` の場合のみ有効です。
+* `data` ([UploadRawData](upload-raw-data.md) | [UploadFile](upload-file.md))[] - The post data to be sent to the new window.
+* `contentType` String - The `content-type` header used for the data. One of `application/x-www-form-urlencoded` or `multipart/form-data`. Corresponds to the `enctype` attribute of the submitted HTML form.
+* `boundary` String (optional) - The boundary used to separate multiple parts of the message. Only valid when `contentType` is `multipart/form-data`.
 
-`--` から始まるキーが現在サポートされていないことに注意してください。 例えば、webPreferencesで `nativeWindowOpen` が `false` に設定されている場合、これは `multipart/form-data` として誤って送信されます。
+Note that keys starting with `--` are not currently supported. For example, this will errantly submit as `multipart/form-data` when `nativeWindowOpen` is set to `false` in webPreferences:
 
 ```html
 <form

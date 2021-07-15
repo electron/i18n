@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Ce module ne peut pas être utilisé tant que l'événement `ready` du module `app` n'est pas émis.
+Ce module ne peut pas être utilisé tant que l'événement `prêt` du module `app` n'est pas émis.
 
 `screen` est un [EventEmitter][event-emitter].
 
@@ -54,7 +54,7 @@ Le module `screen` émet les événements suivants :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 Émis lorsque `newDisplay` a été ajouté.
@@ -63,7 +63,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
 Émis lorsque `oldDisplay` a été retiré.
@@ -72,7 +72,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 

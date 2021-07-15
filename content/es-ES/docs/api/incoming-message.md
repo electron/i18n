@@ -2,7 +2,7 @@
 
 > Maneja las respuestas a las solicitudes HTTP/HTTPS.
 
-Proceso: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 `IncomingMessage` implementa la interfaz [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) y es por lo tanto un [EventEmitter][event-emitter].
 
@@ -32,7 +32,7 @@ Devuelve:
 
 Aparece cuando se detecta un error mientras se transmiten los eventos de datos de respuesta. Por ejemplo, si el servidor cierra el subyacente mientras que la respuesta todavía se está transfiriendo, un evento `data` aparecerá como objeto de respuesta y un evento `close` seguirá posteriormente al objeto de la solicitud.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
 Una instancia `IncomingMessage` tiene las siguientes propiedades legibles:
 

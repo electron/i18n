@@ -2,7 +2,7 @@
 
 按照下面的指南在Windows下构建 **Electron 本身**，以此创建自定义 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
-## 前提条件
+## 基本要求
 
 * Windows 10 / Server 2012 R2 或更高版本
 * Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2019 社区版](https://www.visualstudio.com/vs/)

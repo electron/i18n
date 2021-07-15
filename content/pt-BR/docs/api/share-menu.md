@@ -18,7 +18,7 @@ Creates a new share menu.
 
 ### Métodos de Instância
 
-The `shareMenu` object has the following instance methods:
+O objeto `shareMenu` possui os seguintes métodos de instância:
 
 #### `shareMenu.popup([options])`
 

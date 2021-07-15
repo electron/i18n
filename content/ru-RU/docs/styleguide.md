@@ -13,27 +13,27 @@
 Используйте `Быстрый старт` как пример:
 
 ```markdown
-# Быстрый старт
+# Quick Start
 
 ...
 
-## Основной процесс
+## Main process
 
 ...
 
-## Процесс визуализации
+## Renderer process
 
 ...
 
-## Запустите приложение
+## Run your app
 
 ...
 
-### Запустите как дистрибутив
+### Run as a distribution
 
 ...
 
-### Ручная загрузка файла Electron
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -104,7 +104,7 @@ Using the `session` module as an example:
 * All methods that have a return value must start their description with "Returns `[TYPE]` - [Return description]"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * События экземпляров, должны быть перечислены под главой `### События экземпляра`.
-* Свойства экземпляра должны быть перечислены в разделе `### Свойства экземпляра`.
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance Properties must start with "A [Property Type] ..."
 
 Используйте классы `Session` и `Cookies` в качестве примера:
@@ -146,10 +146,10 @@ Using the `session` module as an example:
 Методы главы должны быть в следующем виде:
 
 ```markdown
-### `objectName.methodName(required[, optional])`
+### `objectName.methodName(required[, optional]))`
 
-* `required` String - Описание параметра.
-* `optional` Integer (необязательно) - Описание другого параметра.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```

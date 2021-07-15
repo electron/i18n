@@ -6,7 +6,7 @@
 
 `ServiceWorkers` クラスのインスタンスは、`Session` の `serviceWorkers` プロパティを使用してアクセスします。
 
-例:
+以下がその例です。
 
 ```javascript
 const { session } = require('electron')
@@ -31,7 +31,7 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 #### Event: 'console-message'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `messageDetails` Object - コンソールメッセージに関する情報
@@ -46,7 +46,7 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 #### イベント: 'registration-completed'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `details` Object - 登録されているサービスワーカーに関する情報

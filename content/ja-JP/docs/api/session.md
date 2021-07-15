@@ -62,7 +62,7 @@ console.log(ses.getUserAgent())
 
 #### イベント: 'will-download'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `item` [DownloadItem](download-item.md)
@@ -84,7 +84,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### イベント: 'extension-loaded'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
@@ -98,7 +98,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### イベント: 'extension-unloaded'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
@@ -107,7 +107,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### イベント: 'extension-ready'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `extension` [Extension](structures/extension.md)
@@ -116,7 +116,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### イベント: 'preconnect'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `preconnectUrl` String - レンダラーによって事前接続に要求されている URL。
@@ -126,7 +126,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### イベント: 'spellcheck-dictionary-initialized'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
@@ -135,7 +135,7 @@ hunspell 辞書ファイルの初期化に成功したときに発生します�
 
 #### イベント: 'spellcheck-dictionary-download-begin'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
@@ -144,7 +144,7 @@ hunspell 辞書ファイルのダウンロードが始まったときに発生�
 
 #### イベント: 'spellcheck-dictionary-download-success'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
@@ -153,7 +153,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 #### イベント: 'spellcheck-dictionary-download-failure'
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `languageCode` String - 辞書ファイルの言語コード
@@ -162,7 +162,7 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
 
 #### イベント: 'select-serial-port' _実験的_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `portList` [SerialPort[]](structures/serial-port.md)
@@ -204,7 +204,7 @@ app.whenReady().then(() => {
 
 #### イベント: 'serial-port-added' _Experimental_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `port` [SerialPort](structures/serial-port.md)
@@ -214,7 +214,7 @@ app.whenReady().then(() => {
 
 #### イベント: 'serial-port-removed' _実験的_
 
-戻り値:
+戻り値：
 
 * `event` Event
 * `port` [SerialPort](structures/serial-port.md)
@@ -280,7 +280,7 @@ proxyURIList = <proxyURL>[","<proxyURIList>]
 proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 ```
 
-例:
+以下がその例です。
 
 * `http=foopy:80;ftp=foopy2` - `http://` URL には HTTP プロキシ `foopy:80` を、`ftp://` URL には HTTP プロキシ `foopy2:80` を使用する。
 * `foopy:80` - すべての URL に `foopy:80` HTTP プロキシを使用する。
@@ -296,7 +296,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
 
-   例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
 * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -332,14 +332,14 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - ダウンロード位置.
+* `path` String - The download location.
 
 ダウンロードの保存ディレクトリを設定します。 デフォルトでは、ダウンロードディレクトリは各アプリフォルダの下の `ダウンロード (Downloads)` になります。
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。 省略値は、false です。
+  * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。 Defaults to false.
   * `latency` Double (任意) - RTT ミリ秒。 省略値は 0 で、このときレイテンシのスロットルは無効化されます。
   * `downloadThroughput` Double (任意) - 下りレート Bps。 省略値は 0 で、このときダウンロードのスロットルは無効化されます。
   * `uploadThroughput` Double (任意) - 上りレート Bps。 省略値は 0 で、このときアップロードのスロットルは無効化されます。
@@ -362,7 +362,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * `options` Object
   * `url` String - 事前接続する URL。 ソケットの開通に関係しているのはオリジンのみです。
-  * `numSockets` Number (任意) - 事前接続するソケット数。 1 から 6 にしてください。 デフォルトは 1.
+  * `numSockets` Number (任意) - 事前接続するソケット数。 1 から 6 にしてください。 Defaults to 1.
 
 指定された数のソケットをオリジンに事前接続します。
 
@@ -584,7 +584,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。  スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。  `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**注:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。  この API は、macOS では何もしません。
+**注意:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。  この API は、macOS では何もしません。
 
 #### `ses.getSpellCheckerLanguages()`
 
@@ -600,7 +600,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `hunspell_dictionaries.zip` が `https://example.com/dictionaries/language-code.bdic` に存在して利用できる場合、`ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')` を呼び出すことになります。  末尾のスラッシュに注意してください。  辞書への URL は、`${url}${filename}` の形式になります。
 
-**注:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。  この API は、macOS では何もしません。
+**注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。  この API は、macOS では何もしません。
 
 #### `ses.listWordsInSpellCheckerDictionary()`
 
@@ -626,7 +626,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `path` String - 解凍されていない Chrome 拡張機能を含んだディレクトリへのパス
 * `options` Object (任意)
-  * `allowFileAccess` Boolean - 拡張機能が `file://` プロトコルでローカルファイルを読み込んで `file://` ページにコンテンツスクリプトを注入することを許可するかどうか。 これは、例えば `file://` URL でデベロッパー ツール拡張機能を読み込むために必要です。 省略値は false 。
+  * `allowFileAccess` Boolean - 拡張機能が `file://` プロトコルでローカルファイルを読み込んで `file://` ページにコンテンツスクリプトを注入することを許可するかどうか。 これは、例えば `file://` URL でデベロッパー ツール拡張機能を読み込むために必要です。 省略値は、false です。
 
 戻り値 `Promise<Extension>` - 拡張機能が読み込まれたときに解決されます。
 

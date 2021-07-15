@@ -9,7 +9,7 @@ Para distribuir tu aplicación de Electron, necesitas empaquetarla y cambiar el 
 Puedes usar las siguientes herramientas para distribuir tu aplicación:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [Electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
 Estas herramientas se encargaran de todo los pasos necesarios para crear una aplicación de Electron distribuible, como empaquetar tu aplicación, cambiar el nombre del ejecutable y configurar los iconos correctos.

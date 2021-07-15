@@ -1,8 +1,8 @@
-# contexteBridge
+# contextBridge
 
 > Crée un pont synchrone sécurisé, bidirectionnel entre des contextes isolés
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 Exemple d’une API exposée à un rendu à partir d’un script de preload:
 

@@ -26,7 +26,7 @@ Si le paramètre à une valeur négative (par exemple `-1`) cela supprimera la b
 
 Voir la [documentation API pour plus d'options et de modes][setprogressbar].
 
-## Exemple
+## Example
 
 Dans cet exemple, nous ajoutons une barre de progression à la fenêtre principale qui s’incrémente au fil du temps à l’aide des timers de Node.js.
 

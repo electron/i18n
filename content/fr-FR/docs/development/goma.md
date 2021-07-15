@@ -8,7 +8,7 @@ Electron has a deployment of a custom Goma Backend that we make available to all
 
 Currently the only supported way to use Goma is to use our [Build Tools](https://github.com/electron/build-tools). La configuration de Goma est automatiquement incluse lorsque vous configurez `build-tools`.
 
-Si vous êtes un maintenant et avez accès à notre cluster, assurez-vous d’exécuter des `e init` avec `--goma=cluster` afin de configurer des `build-tools` pour utiliser cluster Goma.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
+If you are a maintainer and have access to our cluster, please ensure that you run `e init` with `--goma=cluster` in order to configure `build-tools` to use the Goma cluster.  If you have an existing config, you can just set `"goma": "cluster"` in your config file.
 
 ## Building with Goma
 

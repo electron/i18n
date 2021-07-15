@@ -1,4 +1,4 @@
-# Instruções para Configuração (Windows)
+# Instruções para Compilação (Windows)
 
 Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 

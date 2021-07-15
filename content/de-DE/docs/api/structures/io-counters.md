@@ -1,8 +1,8 @@
 # IOCounters Object
 
-* `readOperationCount` Number - Anzahl der I/O Lesevorgänge.
-* `writeOperationCount` Number - Anzahl der I/O Schreibvorgänge.
-* `otherOperationCount` Number - Anzahl der anderen I/O vorgänge.
-* `readTransferCount` Number - Anzahl der I/O-Lesetransfers.
-* `writeTransferCount` Number - Anzahl der I/O-Schreibübertragungen.
-* `otherTransferCount` Number - Anzahl der anderen I/O-Übertragungen.
+* `readOperationCount` Number - The number of I/O read operations.
+* `writeOperationCount` Number - The number of I/O write operations.
+* `otherOperationCount` Number - Then number of I/O other operations.
+* `readTransferCount` Number - The number of I/O read transfers.
+* `writeTransferCount` Number - The number of I/O write transfers.
+* `otherTransferCount` Number - Then number of I/O other transfers.

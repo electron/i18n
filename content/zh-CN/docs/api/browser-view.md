@@ -61,4 +61,4 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.setBackgroundColor(color)` _实验功能_
 
-* `color` 字符串 - 颜色为 `#aarrggbb` 或 `#argb` 形式。 Alpha 通道是 可选的。
+* `color` String - Color in `#aarrggbb` or `#argb` form. Alpha 通道是 可选的。

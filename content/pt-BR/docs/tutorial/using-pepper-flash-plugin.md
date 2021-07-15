@@ -1,5 +1,5 @@
 # Usando o Plugin Pepper Flash
 
-O Electron não suporta mais o plugin Pepper Flash, já que o Chrome removeu o suporte.
+Electron no longer supports the Pepper Flash plugin, as Chrome has removed support.
 
-Consulte [o Flash Roadmap do Chrome](https://www.chromium.org/flash-roadmap) para mais detalhes .
+See [Chromium's Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.

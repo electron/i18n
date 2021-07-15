@@ -1,6 +1,6 @@
 # Instalação
 
-npm install electron --save-dev O método preferido é instalar o Electron como uma dependência de desenvolvimento em seu app:
+npm install electron --save-dev The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
 npm install electron --save-dev
@@ -36,8 +36,8 @@ npm install --platform=win32 electron
 
 Se você necessitar usar um HTTP proxy, é preciso adicionar a variável para múltiplos valores,`ELECTRON_GET_USE_PROXY`, além das variáveis de ambientes adicionais, dependendo da versão do Node:
 
-* [Node 10 e superior][proxy-env-10]
-* [Antes do Node 10][proxy-env]
+* [Node 10 and above][proxy-env-10]
+* [Before Node 10][proxy-env]
 
 ## Mirrors e Caches Customizados
 
@@ -83,36 +83,36 @@ Você também pode sobrescrever o local do cache local fornecendo uma variável 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
 ```sh
-── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
-── electron-v1.7.9-darwin-x64.zip
-─── httpsgithub.comelectronreleasesdownloadv1.7.9SHASUMS256.txt
-── SHASUMS256.txt
-── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64. ip
-├── electron-v1.8.1-darwin-x64.zip
-── httpsgithub.comelectronreleasesdownloadv1.8.1SHASUMS256.txt
-── SHASUMS256.txt
-─ httpsgithub. omelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
-── electron-v1.8.2-beta.1-darwin-x64.zip
-── httpsgithub. omelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
-├── SHASUMS256.txt
-── httpsgithub.comelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
-─── electron-v1.8.2-beta.2-darwin-x64.zip
-── httpsgithubelectronreleasesdownloadv1.8.2-beta. SHASUMS256.txt
-├── SHASUMS256.txt
-─ httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64. ip
-├── electron-v1.8.2-beta.3-darwin-x64.zip
-── httpsgithub.comelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
-    ── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
+│   └── electron-v1.7.9-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64.zip
+│   └── electron-v1.8.1-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
+│   └── electron-v1.8.2-beta.1-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
+│   └── electron-v1.8.2-beta.2-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64.zip
+│   └── electron-v1.8.2-beta.3-darwin-x64.zip
+└── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
+    └── SHASUMS256.txt
 ```
 
-## Pular download binário
+## Skip binary download
 
 Under the hood, Electron's JavaScript API binds to a binary that contains its implementations. Because this binary is crucial to the function of any Electron app, it is downloaded by default in the `postinstall` step every time you install `electron` from the npm registry.
 
 However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
 
 ```sh npm2yarn
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 instalação npm
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
 ## Solução de Problemas
@@ -121,26 +121,21 @@ Ao executar o `npm install electron`, alguns usuários encontram erros de instal
 
 Em quase todos os casos, esses problemas são resultado de problemas de rede e não de problemas reais com o pacote npm `electron`. Erros como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, e `ETIMEDOUT` são resultados da falta de internet. A melhor solução é tentar trocar de rede, ou aguardar um pouco e tentar instalar novamente.
 
-Se a instalação via `npm` falhar, você também pode tentar baixar o Electron diretamente do código fonte em [electron/electron/releases][releases].
+You can also attempt to download Electron directly from [electron/electron/releases][releases] if installing via `npm` is failing.
 
-Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm][npm-permissions].
+If installation fails with an `EACCESS` error you may need to [fix your npm permissions][npm-permissions].
 
-Se o erro acima persistir, o sinalizador
-
-unsafe-perm</ 0> pode precisar ser definido como true:</p> 
-
-
+If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be set to true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-
 Em redes mais lentas, pode ser aconselhável usar o sinalizador `--verbose</ 0> para
 mostrar o progresso do download:</p>
 
 <pre><code class="sh">npm install --verbose electron
-`</pre> 
+`</pre>
 
 Se você precisar forçar um novo download do ativo e o arquivo SHASUM, defina a variável force_no_cache</ 0> do ambiente para <code>true</ 0>.</p>
 
@@ -151,3 +146,4 @@ Se você precisar forçar um novo download do ativo e o arquivo SHASUM, defina a
 [proxy-env]: https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config
 [electron-get]: https://github.com/electron/get
 [npm-permissions]: https://docs.npmjs.com/getting-started/fixing-npm-permissions
+[unsafe-perm]: https://docs.npmjs.com/misc/config#unsafe-perm

@@ -45,7 +45,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## WebDriverJs の設定
 
-[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) は、Web Driver でテストするための Node パッケージを提供します。ここでは例として使用します。
+[WebDriverJs](https://www.selenium.dev/selenium/docs/api/javascript/index.html) provides a Node package for testing with web driver, we will use it as an example.
 
 ### 1. ChromeDriver の開始
 
@@ -99,7 +99,7 @@ driver.quit()
 
 ## WebdriverIO で設定する
 
-[WebdriverIO](https://webdriver.io/) は、Web Driver でテストするための Node パッケージを提供します。
+[WebdriverIO](https://webdriver.io/) provides a Node package for testing with web driver.
 
 ### 1. ChromeDriver の開始
 

@@ -8,7 +8,7 @@ By the end of this tutorial, your app will open a browser window that displays a
 
 To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
 
-> Por favor instale Node.js usando instaladores precompilados para su plataforma. De lo contrario, puede encontrarse con problemas de incompatibilidad con diferentes herramientas de desarrollo.
+> Please install Node.js using pre-built installers for your platform. You may encounter incompatibility issues with different development tools otherwise.
 
 To check that Node.js was installed correctly, type the following commands in your terminal client:
 
@@ -435,7 +435,8 @@ Forge's scaffolding:
 [app-when-ready]: ../api/app.md#appwhenready
 
 [node-platform]: https://nodejs.org/api/process.html#process_process_platform
-[window-all-closed]: ../api/app.md#appquit
+[window-all-closed]: ../api/app.md#event-window-all-closed
+[app-quit]: ../api/app.md#appquit
 
 [activate]: ../api/app.md#event-activate-macos
 

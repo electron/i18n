@@ -6,7 +6,7 @@ Certains types d'applications manipulant des fichiers peuvent prendre en charge 
 
 Pour implémenter cette fonctionnalité dans votre application, vous devez appeler l'API [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) dans la réponse à l'événement `ondragstart`.
 
-## Exemple
+## Example
 
 An example demonstrating how you can create a file on the fly to be dragged out of the window.
 

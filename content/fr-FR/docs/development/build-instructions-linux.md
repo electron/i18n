@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
-## Prérequis
+## Prerequisites
 
 * Au moins 25GB d'espace disque et 8 Go de RAM.
 * Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent toujours Python 2.6.x vous devrez donc peut-être vérifier votre version de Python avec `python -V`.
@@ -47,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Sur Arch Linux / Manjaro, installez les bibliothèques suivantes :
+On Arch Linux / Manjaro, install the following libraries:
 
 ```sh
 $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
@@ -96,7 +96,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Sujets Avancés
 
-The default building configuration is targeted for major desktop Linux distributions. Pour créer une distribution ou un périphérique spécifique, les informations informations peuvent vous aider.
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 

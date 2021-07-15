@@ -8,19 +8,19 @@ Se o seu aplicativo não usa nenhum módulo nativo, então é muito mais fácil 
 
 1. Certifique-se de que o diretório `node_modules` do seu app esteja vazio.
 2. Usando um _Prompt de Comando_, execute `set npm_config_arch=arm64` antes de executar `npm install`/`yarn install` como de costume.
-3. [Se você tem o Electron instalado como uma dependência de desenvolvimento](quick-start.md#prerequisites), npm irá baixar e descompactar a versão arm64. Você pode então empacotar e distribuir seu aplicativo normalmente.
+3. [If you have Electron installed as a development dependency](quick-start.md#prerequisites), npm will download and unpack the arm64 version. Você pode então empacotar e distribuir seu aplicativo normalmente.
 
-## Considerações gerais
+## General considerations
 
-### Código de arquitetura específico
+### Architecture-specific code
 
 Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
 
 ```js
 if (process.arch === 'x64') {
-  // Faça coisas de 64-bit...
+  // Do 64-bit thing...
 } else {
-  // Fazer algo de 32-bit...
+  // Do 32-bit thing...
 }
 ```
 
@@ -28,13 +28,13 @@ Se você quiser o arm64 como arquitetura de destino, uma lógica como essa norma
 
 ### Módulos nativos
 
-Se você usar módulos nativos, você deve se certificar de que eles compilam contra v142 do compilador MSVC (fornecido no Visual Studio 2017). Você também deve verificar se qualquer `.dll` ou `pré-construído. arquivos ib` fornecidos ou referenciados pelo módulo nativo estão disponíveis para Windows no Arm.
+If you use native modules, you must make sure that they compile against v142 of the MSVC compiler (provided in Visual Studio 2017). You must also check that any pre-built `.dll` or `.lib` files provided or referenced by the native module are available for Windows on Arm.
 
 ### Testando seu aplicativo
 
 Para testar seu aplicativo, use um dispositivo ARM executando o Windows 10 ARM (versão 1903 ou mais tarde). Certifique-se de copiar seu aplicativo para o dispositivo de destino - a sandbox do Chromium não funcionará corretamente ao carregar seus recursos de aplicativo a partir de um local de rede.
 
-## Pré-requisitos de desenvolvimento
+## Development prerequisites
 
 ### Node.js/node-gyp
 
@@ -50,7 +50,7 @@ vs_installer.exe ^
 --add Microsoft.VisualStudio.Component.VC.ATLMFC ^
 --add Microsoft.VisualStudio.Component.VC.Tools.ARM64 ^
 --add Microsoft.VisualStudio.Component.VC.MFC.ARM64 ^
---includeRecomendado
+--includeRecommended
 ```
 
 #### Criando um prompt de comando para compilação cruzada
@@ -64,11 +64,11 @@ Definir `npm_config_arch=arm64` no ambiente cria os arquivos `.obj` corretos par
 Se feito com sucesso, o prompt de comando deverá imprimir algo semelhante a isso na inicialização:
 
 ```bat
-********************************************************************
-do Visual Studio 2017 Comando do Desenvolvedor 2017 Prompt v15.9.15
+**********************************************************************
+** Visual Studio 2017 Developer Command Prompt v15.9.15
 ** Copyright (c) 2017 Microsoft Corporation
-******************************************************************
-[vcvarsall.bat] Environment initialized para: 'x64_arm64'
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64_arm64'
 ```
 
 Se você deseja desenvolver seu aplicativo diretamente em um dispositivo do Arm, substitua `vcvarsx86_arm64.bat` no _Destino_ para que a compilação cruzada ocorra com a emulação x86 do dispositivo.
@@ -90,13 +90,13 @@ Depois de completar tudo acima, abra o seu prompt de comando de compilação cru
 
 Módulos nativos podem ser depurados com o Visual Studio 2017 (funcionando na sua máquina de desenvolvimento) e o [depurador remoto do Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) correspondente rodando no dispositivo de destino. Para depurar:
 
-1. Abra seu aplicativo `. Encha` no dispositivo de destino através do _Prompt de Comando_ (passando `--inspect-brk` para pausá-lo antes que qualquer módulo nativo seja carregado).
+1. Launch your app `.exe` on the target device via the _Command Prompt_ (passing `--inspect-brk` to pause it before any native modules are loaded).
 2. Inicie o Visual Studio 2017 em sua máquina de desenvolvimento.
-3. Conectar ao dispositivo de destino selecionando _Debug > Attach to Process..._ e digite o endereço IP do dispositivo e o número da porta exibido pela ferramenta Visual Studio Depurador Remoto.
+3. Connect to the target device by selecting _Debug > Attach to Process..._ and enter the device's IP address and the port number displayed by the Visual Studio Remote Debugger tool.
 4. Clique em _Atualizar_ e selecione o [processo do Electron apropriado para anexar](../development/debug-instructions-windows.md).
-5. Você pode precisar ter certeza de que quaisquer símbolos para módulos nativos no seu aplicativo estão carregados corretamente. Para configurar isso, vá para _Depurar > Opções..._ no Visual Studio 2017, e adicione as pastas que contém seu `. db` símbolos sob _depuração > Símbolos_.
+5. You may need to make sure that any symbols for native modules in your app are loaded correctly. To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
 6. Uma vez anexados, defina quaisquer pontos de interrupção apropriados e retome a execução do JavaScript usando as [ferramentas remotas do Chrome para o Node](debugging-main-process.md).
 
-## Obter ajuda adicional
+## Getting additional help
 
 Se você encontrar um problema com esta documentação, ou se seu aplicativo funciona quando compilado para x86, mas não para arm64, por favor [registre um problema](../development/issues.md) com "Windows on Arm" no título.

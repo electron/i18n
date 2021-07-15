@@ -5,64 +5,64 @@ author:
 date: '2020-11-17'
 ---
 
-Electron 11.0.0 がリリースされました! これには Chromium `87`、V8 `8.7`、Node.js `12.18.3` へのアップグレードが含まれています。 Apple Sillicon のサポート追加に、ほか一般的な改善となりました。 詳細は以下をご覧ください!
+Electron 11.0.0 has been released! It includes upgrades to Chromium `87`, V8 `8.7`, and Node.js `12.18.3`. We've added support for Apple silicon, and general improvements. Read below for more details!
 
 ---
 
-Electron チームは、Electron 11.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 今回のリリースでは、アップグレード、修正、Apple の M1 ハードウェアの新規サポートなどが盛り込まれています。
+The Electron team is excited to announce the release of Electron 11.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new support for Apple's M1 hardware.
 
-新機能たちと共に何を作るのか、楽しみにしています! このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
+We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
 
-## 変更の目玉
+## Notable Changes
 
-### 累積的変更
+### Stack Changes
 
 * Chromium `87.0.4280.47`
-    * [Chrome 86 の新機能](https://developers.google.com/web/updates/2020/10/nic86)
-    * [Chrome 87 の新機能](https://developers.google.com/web/updates/2020/11/nic87)
+    * [New in Chrome 86](https://developers.google.com/web/updates/2020/10/nic86)
+    * [New in Chrome 87](https://developers.google.com/web/updates/2020/11/nic87)
 * Node.js `12.18.3`
-    * [Node 12.18.3 ブログ記事](https://nodejs.org/en/blog/release/v12.18.3/)
-    * [Node 12.7.0 ブログ記事](https://nodejs.org/en/blog/release/v12.17.0/)
+    * [Node 12.18.3 blog post](https://nodejs.org/en/blog/release/v12.18.3/)
+    * [Node 12.7.0 blog post](https://nodejs.org/en/blog/release/v12.17.0/)
 * V8 `8.7`
-    * [V8 8.6 ブログ記事](https://v8.dev/blog/v8-release-86)
-    * [V8 8.7 ブログ記事](https://v8.dev/blog/v8-release-87)
+    * [V8 8.6 blog post](https://v8.dev/blog/v8-release-86)
+    * [V8 8.7 blog post](https://v8.dev/blog/v8-release-87)
 
-### 注目の機能
+### Highlight Features
 
-* Apple M1 に対応: 11 月 10 日、Apple は [今後のハードウェア](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/) に内蔵される新しい M1 チップを発表しました。 Electron 11 から、Intel Mac (x64) 用と Apple の次期 M1 ハードウェア (arm64) 用の別々のバージョンを頒布する予定です。 Electron アプリを [Apple の M1 ハードウェア上で動作させる方法については、こちら](https://www.electronjs.org/blog/apple-silicon) を参照してください。 [#24545](https://github.com/electron/electron/pull/24545)
-* crashReport の引数に V8 のクラッシュメッセージと位置情報を追加しました。 [#24771](https://github.com/electron/electron/pull/24771)
-* コンテキストブリッジを介して大きめのオブジェクトを送信する際のパフォーマンスを改善しました。 [#24671](https://github.com/electron/electron/pull/24671)
+* Support for Apple M1: On November 10, Apple announced their [new M1 chips, which will be included in their upcoming hardware](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/). Beginning in Electron 11, Electron will be shipping separate versions of Electron for Intel Macs (x64) and Apple's upcoming M1 hardware (arm64). You can learn more about how to get your Electron app [running on Apple's M1 hardware here.](https://www.electronjs.org/blog/apple-silicon) [#24545](https://github.com/electron/electron/pull/24545)
+* Added V8 crash message and location information to crashReport parameters. [#24771](https://github.com/electron/electron/pull/24771)
+* Improved the performance of sending wide objects over the context bridge. [#24671](https://github.com/electron/electron/pull/24671)
 
-新機能と変更の完全なリストは、[11.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v11.0.0) を参照してください。
+See the [11.0.0 release notes](https://github.com/electron/electron/releases/tag/v11.0.0) for a full list of new features and changes.
 
 ## 破壊的変更
 
-* 実験的 API の削除: `BrowserView.{fromId, fromWebContents, getAllViews}` と `BrowserView` の `id` プロパティ。 [#23578](https://github.com/electron/electron/pull/23578)
+* Removed experimental APIs: `BrowserView.{fromId, fromWebContents, getAllViews}` and the `id` property of `BrowserView`. [#23578](https://github.com/electron/electron/pull/23578)
 
-これらの変更と将来の変更の詳細については、[予定されている破壊的な変更](https://github.com/electron/electron/electron/blob/master/docs/breaking-changes.md) のページを参照してください。
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
-## API の変更
+## API Changes
 
-* 特定のプロトコルを扱うアプリの詳細情報を返す API `app.getApplicationInfoForProtocol()` を追加しました。 [#24112](https://github.com/electron/electron/pull/24112)
-* ファイルのパスと最大サムネイルサイズを指定するとファイルのプレビュー画像を返す API `app.createThumbnailFromPath()` を追加しました。 [#24802](https://github.com/electron/electron/pull/24802)
-* ハングしたレンダラーの回復を支援するため、レンダラープロセスを強制的に終了させる `webContents.forcefullyCrashRenderer()` を追加しました。 [#25756](https://github.com/electron/electron/pull/25756)
+* Added `app.getApplicationInfoForProtocol()` API that returns detailed information about the app that handles a certain protocol. [#24112](https://github.com/electron/electron/pull/24112)
+* Added `app.createThumbnailFromPath()` API that returns a preview image of a file given its file path and a maximum thumbnail size. [#24802](https://github.com/electron/electron/pull/24802)
+* Added `webContents.forcefullyCrashRenderer()` to forcefully terminate a renderer process to assist with recovering a hung renderer. [#25756](https://github.com/electron/electron/pull/25756)
 
-## 8.x.y サポートの終了
+## End of Support for 8.x.y
 
-Electron 8.x.y はプロジェクトの [サポートポリシー](https://electronjs.org/docs/tutorial/support#supported-versions) に則りサポート終了となりました。 開発者はアプリケーションを新しいバージョンの Electron にアップグレードすることを推奨します。
+Electron 8.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
 
-## 次回予告
+## What's Next
 
-短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないように、チームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 [仮 12.0.0 スケジュール](https://electronjs.org/docs/tutorial/electron-timelines) では、Electron 12.0 開発ライフサイクルの主要な日付を示してあります。 また、Electron のバージョン管理の詳細については [バージョン管理のドキュメントを参照](https://electronjs.org/docs/tutorial/electron-versioning) してください。
+In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is to release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 12.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 12.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 
-今後のバージョンの Electron で予定されている破壊的な変更の詳細については、[予定されている破壊的な変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
+For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
-### `remote` モジュールの非推奨化作業の継続
-[Electron 9](https://www.electronjs.org/blog/electron-9-0) から `remote` モジュールの削除作業を開始してきました。 Electron 14 では `remote` モジュール自体を削除する予定です。
+### Continued Work for Deprecation of `remote` Module
+We started work to remove the `remote` module in [Electron 9](https://www.electronjs.org/blog/electron-9-0). We plan to remove the `remote` module itself in Electron 14.
 
-[この Issue](https://github.com/electron/electron/issues/21408) から、非推奨化の全計画と詳細をご確認ください。
+Read and follow [this issue](https://github.com/electron/electron/issues/21408) for full plans and details for deprecation.
 
-### ネイティブ Node モジュールで Context Aware や N-API を要求するようにする最終段階 (Electron 12 にて)
-Electron 6 以降、レンダラープロセスで読み込まれる [ネイティブ Node モジュール](https://nodejs.org/api/addons.html) では、[N-API](https://nodejs.org/api/n-api.html) または [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons) のいずれかであることを要求するように下準備の作業が行われてきました。 この変更を適用することで、セキュリティの強化、パフォーマンスの高速化、保守作業の軽減が可能になります。 この計画の最終段階は、Electron 12 でレンダラープロセスの再利用を無効にする機能を削除することです。
+### Final Step for Requiring Native Node Modules to be Context Aware or N-API (in Electron 12)
+From Electron 6 onwards, we've been laying the groundwork to require [native Node modules](https://nodejs.org/api/addons.html) loaded in the renderer process to be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Enforcing this change allows for stronger security, faster performance, and reduced maintenance workload. The final step of this plan is to remove the ability to disable render process reuse in Electron 12.
 
-提案のタイムラインを含む詳細は、[この Issue](https://github.com/electron/electron/issues/18397) をご参照ください。
+Read and follow [this issue](https://github.com/electron/electron/issues/18397) for full details, including the proposed timeline.

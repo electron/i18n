@@ -123,7 +123,7 @@ Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main 
 
 ## Propriedades
 
-### `remoto.necessário`
+### `remote.require`
 
 A `NodeJS.Require` function equivalent to `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 

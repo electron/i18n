@@ -10,9 +10,9 @@ Vérifiez les prérequis de build pour votre plateforme avant de continuer
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Construire des outils
+## Build Tools
 
-[outils de build d’Electron](https://github.com/electron/build-tools) une grande partie de la configuration pour compiler Electron à partir de sources avec différentes configurations et construire des cibles. Si vous souhaitez configurer l’environnement manuellement, les instructions sont énumérées ci-dessous.
+[Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. If you wish to set up the environment manually, the instructions are listed below.
 
 ## GN prerequisites
 
@@ -21,9 +21,9 @@ Vous devrez installer [`depot_tools`][depot-tools], l'ensemble d'outils utilisé
 De plus, sous Windows, vous devrez définir la variable d'environnement `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Pour ce faire, ouvrez `Panneau de configuration` → `Système et
 Sécurité` → `Système` → `Paramètres système avancés` et ajouter une variable système `DEPOT_TOOLS_WIN_TOOLCHAIN` avec la valeur `0`.  Cela indique au `depot_tools` d’utiliser votre version locale de Visual Studio (par défaut, `depot_tools` essaiera de télécharger une version interne de Google uniquement accessible à ses utilisateurs).
 
-### Mise en place du cache git
+### Setting up the git cache
 
-Si vous prévoyez de vérifier Electron plus d’une fois (par exemple, pour avoir plusieurs répertoires parallèles vérifiés à différentes branches), en utilisant le cache git va accélérer les appels ultérieurs vers `gclient`. Pour ce faire, définissez une variable `GIT_CACHE_PATH` 'environnement :
+If you plan on checking out Electron more than once (for example, to have multiple parallel directories checked out to different branches), using the git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -178,7 +178,7 @@ Next, run `gn gen` as above with `target_cpu="arm64"`.
 
 ## Tests
 
-Pour exécuter les tests, vous devez d’abord construire les modules de test par rapport à la même version de nœud.js qui a été construit dans le cadre du processus de construction. To generate build headers for the modules to compile against, run the following under `src/` directory.
+To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
 $ ninja -C out/Testing third_party/electron_node:headers
@@ -213,7 +213,7 @@ New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstatio
 
 ## Résolution de problème
 
-### synchronisation gclient se plaint de rebase
+### gclient sync complains about rebase
 
 If `gclient sync` is interrupted the git tree may be left in a bad state, leading to a cryptic message when running `gclient sync` in the future:
 

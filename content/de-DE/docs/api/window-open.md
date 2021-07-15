@@ -15,8 +15,8 @@ BrowserWindow constructor options are set by, in increasing precedence order: op
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` String
-* `frameName` String (optional)
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>frameName` String (optional)
 * `features` String (optional)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)

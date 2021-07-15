@@ -4,7 +4,7 @@
 
 快捷键可以包含多个功能键和一个键码的字符串，由符号`+`结合，用来定义你应用中的键盘快捷键
 
-示例：
+示例
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
@@ -12,10 +12,10 @@
 快捷方式使用 [` register `](global-shortcut.md#globalshortcutregisteraccelerator-callback) 方法在 [` globalShortcut `](global-shortcut.md) 模块中注册, 即:
 
 ```javascript
-康斯特 { app, globalShortcut } =需要（'电子'）
+const { app, globalShortcut } = require('electron')
 
-应用程序。当准备（然后）=> {
-  //注册一个"指挥官控制+Y"快捷方式的听众。
+app.whenReady().then(() => {
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
   })
@@ -47,7 +47,7 @@
 * `0` 到 `9`
 * `A` 到 `Z`
 * `F1` 到 `F24`
-* 标点符号如 `~`、 `!`、 `@`、 `#`、 `$`等。
+* Punctuation like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`
@@ -55,7 +55,7 @@
 * `数字锁定（Numlock）`
 * `滚动锁定`
 * `Backspace`
-* `Delete`
+* `删除`
 * `Insert`
 * `Return` (等同于 `Enter`)
 * `Up`, `Down`, `Left` and `Right`

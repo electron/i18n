@@ -1,33 +1,33 @@
 ---
-title: 'Electron の舞台裏: 弱参照'
+title: 'Electron Internals: Weak References'
 author: zcbenz
 date: '2016-09-20'
 ---
 
-ガベージコレクションがある言語 JavaScript は、ユーザーがリソースを手動で管理しなくてよくなります。 しかし、Electron はこの環境をホストしているため、メモリリークとリソースリークの両方を避けようと非常に慎重にならざるをえません。
+As a language with garbage collection, JavaScript frees users from managing resources manually. But because Electron hosts this environment, it has to be very careful avoiding both memory and resources leaks.
 
-この記事では、弱参照の概念と、それが Electron のリソース管理でどのように使われているかを紹介します。
+This post introduces the concept of weak references and how they are used to manage resources in Electron.
 
 ---
 
-## 弱参照
+## Weak references
 
-JavaScript でオブジェクトを変数に代入するというのは、必ずオブジェクトへの参照を追加していることになります。 オブジェクトへの参照がある限り、そのオブジェクトはずっとメモリに保持されます。 オブジェクトへのすべての参照がなくなる、例えばオブジェクトを格納する変数がなくなると、JavaScript エンジンは次のガベージコレクションでそのメモリを回収します。
+In JavaScript, whenever you assign an object to a variable, you are adding a reference to the object. As long as there is a reference to the object, it will always be kept in memory. Once all references to the object are gone, i.e. there are no longer variables storing the object, the JavaScript engine will recoup the memory on next garbage collection.
 
-弱参照とは、ガベージコレクションされるかどうかに影響せずオブジェクトを取得できるようにする参照です。 オブジェクトがガベージコレクションされたときにその通知もされます。 これにより、JavaScript でリソース管理を可能にします。
+A weak reference is a reference to an object that allows you to get the object without effecting whether it will be garbage collected or not. You will also get notified when the object is garbage collected. It then becomes possible to manage resources with JavaScript.
 
-Electron の `NativeImage` クラスを例に挙げると、`nativeImage.create()` APIを呼び出すたびに `NativeImage` インスタンスが返され、これに画像データが C++ 側で格納されます。 インスタンスの処理が終わり JavaScript エンジン (V8) がオブジェクトをガベージコレクトしたら、C++ のコードが呼び出されてメモリ内の画像データが解放されるので、ユーザが手動で管理する必要はありません。
+Using the `NativeImage` class in Electron as an example, every time you call the `nativeImage.create()` API, a `NativeImage` instance is returned and it is storing the image data in C++. Once you are done with the instance and the JavaScript engine (V8) has garbage collected the object, code in C++ will be called to free the image data in memory, so there is no need for users manage this manually.
 
-別の例としては、[ウインドウ消失問題][window-disappearing] があります。これはウインドウへの参照がすべてなくなったときにガベージコレクトされる様子を、視覚的に観察できます。
+Another example is [the window disappearing problem][window-disappearing], which visually shows how the window is garbage collected when all the references to it are gone.
 
-## Electron での弱参照のテスト
+## Testing weak references in Electron
 
-生の JavaScript には弱参照を代入する方法がないので、弱参照を直接テストする方法はありません。 弱参照に関連する JavaScript の API だと [WeakMap][WeakMap] がありますが、これは弱参照のキーを作成するだけなので、オブジェクトがガベージコレクトされたかどうかは知ることができません。
+There is no way to directly test weak references in raw JavaScript since the language doesn't have a way to assign weak references. The only API in JavaScript related to weak references is [WeakMap][WeakMap], but since it only creates weak-reference keys, it is impossible to know when an object has been garbage collected.
 
-v0.37.8 以前のバージョンの Electron では、内部の `v8Util.setDestructor` API を使用して弱参照をテストできました。以下のように、渡されたオブジェクトに弱参照を追加し、オブジェクトがガベージコレクションされたときにコールバックを呼び出すものです。
+In versions of Electron prior to v0.37.8, you can use the internal `v8Util.setDestructor` API to test weak references, which adds a weak reference to the passed object and calls the callback when the object is garbage collected:
 
 ```javascript
-// 以下のコードは Electron < v0.37.8 でのみ実行できます。
+// Code below can only run on Electron < v0.37.8.
 var v8Util = process.atomBinding('v8_util')
 
 var object = {}
@@ -35,24 +35,24 @@ v8Util.setDestructor(object, function () {
   console.log('The object is garbage collected')
 })
 
-// オブジェクトへの参照を全て削除します。
+// Remove all references to the object.
 object = undefined
-// GC を手動で起動します。
+// Manually starts a GC.
 gc()
-// コンソールに "The object is garbage collected" と出力されます。
+// Console prints "The object is garbage collected".
 ```
 
-注意としては、内部の `gc` 関数を公開させるために、`--js-flags="--expose_gc"` コマンドスイッチで Electron を起動する必要があります。
+Note that you have to start Electron with the `--js-flags="--expose_gc"` command switch to expose the internal `gc` function.
 
-この API は後のバージョンで削除されました。このため V8 では実際にはデストラクタで JavaScript コードを実行できず、これをしようとしても確率でクラッシュします。
+The API was removed in later versions because V8 actually does not allow running JavaScript code in the destructor and in later versions doing so would cause random crashes.
 
-## `remote` モジュールでの弱参照
+## Weak references in the `remote` module
 
-C++ でネイティブリソースを管理する以外にも、Electron は JavaScript のリソースを管理するために弱参照が必要です。 例えば、Electron の `remote` モジュールはいわゆる [Remote Procedure Call][remote-procedure-call] (RPC) モジュールで、レンダラープロセスからメインプロセス内のオブジェクトを使用できるようにます。
+Apart from managing native resources with C++, Electron also needs weak references to manage JavaScript resources. An example is Electron's `remote` module, which is a [Remote Procedure Call][remote-procedure-call] (RPC) module that allows using objects in the main process from renderer processes.
 
-`remote` モジュールの重要な課題の 1 つに、メモリリークを避けるというものがあります。 ユーザがレンダラープロセス内のリモートオブジェクトを取得する場合、`remote` モジュールは、レンダラープロセス内の参照がなくなるまでオブジェクトがメインプロセスに存在し続けるよう保証しなければなりません。 さらに、レンダラープロセスでリモートオブジェクトへの参照がなくなったときに、そのオブジェクトがガベージコレクションされるようにする必要があります。
+One key challenge with the `remote` module is to avoid memory leaks. When users acquire a remote object in the renderer process, the `remote` module must guarantee the object continues to live in the main process until the references in the renderer process are gone. Additionally, it also has to make sure the object can be garbage collected when there are no longer any reference to it in renderer processes.
 
-例えば、適切な実装を行わないと、以下のコードはすぐにメモリリークを起こしてしまいます。
+For example, without proper implementation, following code would cause memory leaks quickly:
 
 ```javascript
 const {remote} = require('electron')
@@ -62,18 +62,18 @@ for (let i = 0; i < 10000; ++i) {
 }
 ```
 
-`remote` モジュールのリソース管理は単純です。 オブジェクトの要求ごとにメインプロセスへメッセージが送信されます。それに対して Electron はオブジェクトをマップに保存して ID を割り当て、レンダラープロセスにその ID を送り返します。 レンダラープロセスでは、`remote` モジュールが ID を受け取ってプロキシオブジェクトでラップし、プロキシオブジェクトがガベージコレクションされると、オブジェクト解放のメッセージをメインプロセスに送信します。
+The resource management in the `remote` module is simple. Whenever an object is requested, a message is sent to the main process and Electron will store the object in a map and assign an ID for it, then send the ID back to the renderer process. In the renderer process, the `remote` module will receive the ID and wrap it with a proxy object and when the proxy object is garbage collected, a message will be sent to the main process to free the object.
 
-`remote.require` API を例にすると、簡略化した実装は以下のようになります。
+Using `remote.require` API as an example, a simplified implementation looks like this:
 
 ```javascript
 remote.require = function (name) {
-  // モジュールのメタデータを返すようにメインプロセスに伝えます。
+  // Tell the main process to return the metadata of the module.
   const meta = ipcRenderer.sendSync('REQUIRE', name)
-  // プロキシオブジェクトを作成します。
+  // Create a proxy object.
   const object = metaToValue(meta)
-  // プロキシオブジェクトがガベージコレクションされたときに
-  // オブジェクトの解放をメインプロセスに指示します。
+  // Tell the main process to free the object when the proxy object is garbage
+  // collected.
   v8Util.setDestructor(object, function () {
     ipcRenderer.send('FREE', meta.id)
   })
@@ -81,7 +81,7 @@ remote.require = function (name) {
 }
 ```
 
-メインプロセスでは以下のようにします。
+In the main process:
 
 ```javascript
 const map = {}
@@ -89,9 +89,9 @@ const id = 0
 
 ipcMain.on('REQUIRE', function (event, name) {
   const object = require(name)
-  // オブジェクトへの参照を追加します。
+  // Add a reference to the object.
   map[++id] = object
-  // オブジェクトをメタデータに変換します。
+  // Convert the object to metadata.
   event.returnValue = valueToMeta(id, object)
 })
 
@@ -100,13 +100,13 @@ ipcMain.on('FREE', function (event, id) {
 })
 ```
 
-## 弱参照の辞書配列
+## Maps with weak values
 
-先述の単純な実装では、`remote` モジュールを呼び出すたびにメインプロセスが新しいリモートオブジェクトを返し、各リモートオブジェクトがメインプロセスのオブジェクトへの参照を表します。
+With the previous simple implementation, every call in the `remote` module will return a new remote object from the main process, and each remote object represents a reference to the object in the main process.
 
-デザイン自体は問題ないのですが、同じオブジェクトを受信するために複数回呼び出すと、複数のプロキシオブジェクトが作成され、複雑なオブジェクトの場合にメモリ使用量とガベージコレクションを圧迫するという問題があります。
+The design itself is fine, but the problem is when there are multiple calls to receive the same object, multiple proxy objects will be created and for complicated objects this can add huge pressure on memory usage and garbage collection.
 
-以下のようなコードがあったとします。
+For example, the following code:
 
 ```javascript
 const {remote} = require('electron')
@@ -116,41 +116,41 @@ for (let i = 0; i < 10000; ++i) {
 }
 ```
 
-まずプロキシオブジェクトを作成するためにメモリを多く使用し、そのガベージコレクションと IPC メッセージの送信に CPU(Central Processing Unit) を占有します。
+It first uses a lot of memory creating proxy objects and then occupies the CPU (Central Processing Unit) for garbage collecting them and sending IPC messages.
 
-明白な最適化としては、リモートオブジェクトのキャッシュがあります。すなわち、すでに同じ ID のリモートオブジェクトが存在する場合、新しいオブジェクトを作成するのではなく以前のリモートオブジェクトを返すようにします。
+An obvious optimization is to cache the remote objects: when there is already a remote object with the same ID, the previous remote object will be returned instead of creating a new one.
 
-これは JavaScript コアの API ではできません。 通常の辞書配列を使ってオブジェクトをキャッシュすれば V8 によるオブジェクトのガベージコレクションを防げますが、[WeakMap][WeakMap] クラスではオブジェクトのみが弱参照のキーに使えます。
+This is not possible with the API in JavaScript core. Using the normal map to cache objects will prevent V8 from garbage collecting the objects, while the [WeakMap][WeakMap] class can only use objects as weak keys.
 
-これを解決するために、値を弱参照として持つマップ型を追加しました。ID を持つオブジェクトのキャッシュに最適です。 これで、`remote.require` は以下のようになります。
+To solve this, a map type with values as weak references is added, which is perfect for caching objects with IDs. Now the `remote.require` looks like this:
 
 ```javascript
 const remoteObjectCache = v8Util.createIDWeakMap()
 
 remote.require = function (name) {
-  // モジュールのメタデータを返すようにメインプロセスに伝えます。
+  // Tell the main process to return the meta data of the module.
   ...
   if (remoteObjectCache.has(meta.id))
     return remoteObjectCache.get(meta.id)
-  // プロキシオブジェクトを作成します。
+  // Create a proxy object.
   ...
   remoteObjectCache.set(meta.id, object)
   return object
 }
 ```
 
-注意として、`remoteObjectCache` はオブジェクトを弱参照として保管するので、オブジェクトがガベージコレクトされたときでもキーの削除は不要です。
+Note that the `remoteObjectCache` stores objects as weak references, so there is no need to delete the key when the object is garbage collected.
 
-## ネイティブコード
+## Native code
 
-Electron の弱参照の C++ コードに興味がある方は、以下のファイルを参照してください。
+For people interested in the C++ code of weak references in Electron, it can be found in following files:
 
-`setDestructor` API:
+The `setDestructor` API:
 
 * [`object_life_monitor.cc`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/object_life_monitor.cc)
 * [`object_life_monitor.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/object_life_monitor.h)
 
-`createIDWeakMap` API:
+The `createIDWeakMap` API:
 
 * [`key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/key_weak_map.h)
 * [`atom_api_key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/atom_api_key_weak_map.h)

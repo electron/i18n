@@ -5,21 +5,21 @@ author:
 date: '2020-11-17'
 ---
 
-Electron 11.0.0 вышел! Он включает обновления Chromium `87`, V8 `8.7` и Node.js `12.18.3`. We've added support for Apple silicon, and general improvements. Читайте ниже для более подробной информации!
+Electron 11.0.0 has been released! It includes upgrades to Chromium `87`, V8 `8.7`, and Node.js `12.18.3`. We've added support for Apple silicon, and general improvements. Read below for more details!
 
 ---
 
-Команда Electron рада объявить о выпуске Electron 11.0.0! Вы можете установить его с помощью npm `npm install electron@latest` или загрузить его с нашего сайта [релизов](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new support for Apple's M1 hardware.
+The Electron team is excited to announce the release of Electron 11.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new support for Apple's M1 hardware.
 
-Мы не можем ждать, чтобы увидеть, что вы строили с ними! Продолжайте читать подробности об этом релизе, пожалуйста, поделитесь любым отзывом!
+We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
 
-## Значительные изменения
+## Notable Changes
 
-### Изменения стека
+### Stack Changes
 
 * Chromium `87.0.4280.47`
-    * [Новое в Chrome 86](https://developers.google.com/web/updates/2020/10/nic86)
-    * [Новое в Chrome 87](https://developers.google.com/web/updates/2020/11/nic87)
+    * [New in Chrome 86](https://developers.google.com/web/updates/2020/10/nic86)
+    * [New in Chrome 87](https://developers.google.com/web/updates/2020/11/nic87)
 * Node.js `12.18.3`
     * [Node 12.18.3 blog post](https://nodejs.org/en/blog/release/v12.18.3/)
     * [Node 12.7.0 blog post](https://nodejs.org/en/blog/release/v12.17.0/)
@@ -27,7 +27,7 @@ Electron 11.0.0 вышел! Он включает обновления Chromium 
     * [V8 8.6 blog post](https://v8.dev/blog/v8-release-86)
     * [V8 8.7 blog post](https://v8.dev/blog/v8-release-87)
 
-### Выделить возможности
+### Highlight Features
 
 * Support for Apple M1: On November 10, Apple announced their [new M1 chips, which will be included in their upcoming hardware](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/). Beginning in Electron 11, Electron will be shipping separate versions of Electron for Intel Macs (x64) and Apple's upcoming M1 hardware (arm64). You can learn more about how to get your Electron app [running on Apple's M1 hardware here.](https://www.electronjs.org/blog/apple-silicon) [#24545](https://github.com/electron/electron/pull/24545)
 * Added V8 crash message and location information to crashReport parameters. [#24771](https://github.com/electron/electron/pull/24771)
@@ -39,9 +39,9 @@ See the [11.0.0 release notes](https://github.com/electron/electron/releases/tag
 
 * Removed experimental APIs: `BrowserView.{fromId, fromWebContents, getAllViews}` and the `id` property of `BrowserView`. [#23578](https://github.com/electron/electron/pull/23578)
 
-Более подробную информацию об этих и будущих изменениях можно найти на странице [Планируемые нарушительные изменения](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/master/docs/breaking-changes.md) page.
 
-## Изменения API
+## API Changes
 
 * Added `app.getApplicationInfoForProtocol()` API that returns detailed information about the app that handles a certain protocol. [#24112](https://github.com/electron/electron/pull/24112)
 * Added `app.createThumbnailFromPath()` API that returns a preview image of a file given its file path and a maximum thumbnail size. [#24802](https://github.com/electron/electron/pull/24802)
@@ -49,13 +49,13 @@ See the [11.0.0 release notes](https://github.com/electron/electron/releases/tag
 
 ## End of Support for 8.x.y
 
-Electron 8.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Разработчикам и приложениям рекомендуется обновиться до новой версии Electron.
+Electron 8.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
 
-## Что дальше
+## What's Next
 
-В краткосрочном плане вы можете ожидать, что команда продолжит фокусироваться на поддержании разработки основных компонентов, составляющих Electron, включая Chromium, Node и V8. Although we are careful not to make promises about release dates, our plan is to release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 12.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 12.0 development life cycle. Также, [смотрите наш документ по версии](https://electronjs.org/docs/tutorial/electron-versioning) для получения более подробной информации о версиях в Electron.
+In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is to release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 12.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 12.0 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 
-Информацию о запланированных изменениях в предстоящих версиях Electron, [см. в разделе «Планируемые изменения »](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
 ### Continued Work for Deprecation of `remote` Module
 We started work to remove the `remote` module in [Electron 9](https://www.electronjs.org/blog/electron-9-0). We plan to remove the `remote` module itself in Electron 14.

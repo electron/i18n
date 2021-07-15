@@ -34,7 +34,7 @@ Returns `Session` - 根据`partition`字符串产生的session实例。 当这�
 
 要根据`options`创建`Session`，你需要确保`Session`的`partition`在之前从未被使用。 没有办法修改一个已存在的`Session`对象的`options`。
 
-## Properties
+## 属性
 
 ` session ` 模块具有以下方法:
 
@@ -89,7 +89,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `extension` [Extension](structures/extension.md)
 
-Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. This includes:
+Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. 这包括：
 
 * Extensions being loaded from `Session.loadExtension`.
 * Extensions being reloaded:
@@ -296,7 +296,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    与 HOSTNAME_PATTERN 模式匹配的所有主机名。
 
-   例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
 * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -332,14 +332,14 @@ Returns `Promise<void>` - Resolves when the all internal states of proxy service
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - 下载地址.
+* `path` String - The download location.
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `选项` 对象
-  * `offline` Boolean (optional) - Whether to emulate network outage. 默认值为 false.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
@@ -382,7 +382,7 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `request` Object
     * `hostname` String
     * `certificate` [证书](structures/certificate.md)
-    * `validatedCertificate` [证书](structures/certificate.md)
+    * `validatedCertificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - chromium证书验证结果
     * `errorCode` Integer - 错误代码
   * `callback` Function
@@ -519,7 +519,7 @@ Returns `Boolean` - Whether or not this session is a persistent one. The default
 #### `ses.setSSLConfig(config)`
 
 * `config` Object
-  * `minVersion` String (optional) - Can be `tls1`, `tls1.1`, `tls1.2` or `tls1.3`. The minimum SSL version to allow when connecting to remote servers. 默认为`tls1`。
+  * `minVersion` String (可选) - 值可以是 `tls1`， `tls1.1`， `tls1.2` 或 `tls1.3`。 The minimum SSL version to allow when connecting to remote servers. 默认为`tls1`。
   * `maxVersion` String (可选) - 可以是 `tls1.2` 或 `tls1.3`。 The maximum SSL version to allow when connecting to remote servers. 默认值为 `tls1.3`。
   * `disabledCipherSuites` Integer[] (optional) - List of cipher suites which should be explicitly prevented from being used in addition to those disabled by the net built-in policy. Supported literal forms: 0xAABB, where AA is `cipher_suite[0]` and BB is `cipher_suite[1]`, as defined in RFC 2246, Section 7.4.1.2. Unrecognized but parsable cipher suites in this form will not return an error. Ex: To disable TLS_RSA_WITH_RC4_128_MD5, specify 0x0004, while to disable TLS_ECDH_ECDSA_WITH_RC4_128_SHA, specify 0xC002. Note that TLSv1.3 ciphers cannot be disabled using this mechanism.
 
@@ -686,7 +686,7 @@ A `String | null` indicating the absolute file system path where data for this s
 
 以下属性在` Session </ 0>实例上可用：</p>
 
-<h4 spaces-before="0"><code>ses.availableSpellCheckerLanguages` _Readonly_</h4>
+<h4 spaces-before="0"><code>ses.availableSpellCheckerLanguages` _只读_</h4>
 
 A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
@@ -694,23 +694,23 @@ A `String[]` array which consists of all the known available spell checker langu
 
 A `Boolean` indicating whether builtin spell checker is enabled.
 
-#### `ses.storagePath` _Readonly_
+#### `ses.storagePath` _只读_
 
 A `String | null` indicating the absolute file system path where data for this session is persisted on disk.  For in memory sessions this returns `null`.
 
-#### `ses.cookies` _Readonly_
+#### `ses.cookies` _只读_
 
 A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.serviceWorkers` _Readonly_
+#### `ses.serviceWorkers` _只读_
 
 A [`ServiceWorkers`](service-workers.md) object for this session.
 
-#### `ses.webRequest` _Readonly_
+#### `ses.webRequest` _只读_
 
 A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol` _Readonly_
+#### `ses.protocol` _只读_
 
 A [`Protocol`](protocol.md) object for this session.
 
@@ -729,7 +729,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### `ses.netLog` _Readonly_
+#### `ses.netLog` _只读_
 
 A [`NetLog`](net-log.md) object for this session.
 

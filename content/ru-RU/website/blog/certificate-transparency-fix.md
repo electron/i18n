@@ -1,99 +1,102 @@
 ---
-title: Исправление прозрачности сертификата
+title: Certificate Transparency Fix
 author: kevinsawicki
 date: '2016-12-09'
 ---
 
-Electron [1.4. 2](https://github.com/electron/electron/releases/tag/v1.4.12) содержит важный патч, который исправляет проблему с поддержкой Chrome в которой некоторые Symantec, GeoTrust, и сертификаты Thawte SSL/TLS некорректно отклонены 10 недель от времени сборки [libchromiumcontent](https://github.com/electron/libchromiumcontent), лежащая в основе Electron библиотека Chrome. Нет никаких проблем с сертификатами используемыми на затронутых сайтах и замена этих сертификатов не будет помогать.
+Electron [1.4.12][] contains an important patch that fixes an upstream Chrome issue where some Symantec, GeoTrust, and Thawte SSL/TLS certificates are incorrectly rejected 10 weeks from the build time of [libchromiumcontent][], Electron's underlying Chrome library. There are no issues with the certificates used on the affected sites and replacing these certificates will not help.
 
 ---
 
-В Electron 1.4.0 &mdash; 1.4.11 HTTPS запросы на сайты с использованием этих сертификатов не будут обработаны после определенной даты. This affects HTTPS requests made using Chrome's underlying networking APIs such as `window.fetch`, Ajax requests, Electron's `net` API, `BrowserWindow.loadURL`, `webContents.loadURL`, the `src` attribute on a `<webview>` tag, and others.
+In Electron 1.4.0 &mdash; 1.4.11 HTTPS requests to sites using these affected certificates will fail with network errors after a certain date. This affects HTTPS requests made using Chrome's underlying networking APIs such as `window.fetch`, Ajax requests, Electron's `net` API, `BrowserWindow.loadURL`, `webContents.loadURL`, the `src` attribute on a `<webview>` tag, and others.
 
-Обновление ваших приложений до 1.4.12 предотвратит возникновение ошибок в запросе.
+Upgrading your applications to 1.4.12 will prevent these request failures from occurring.
 
-**Примечание:** Эта проблема была введена в Chrome 53 так что Electron версии раньше версии 1.4.0 не пострадали.
+**Note:** This issue was introduced in Chrome 53 so Electron versions earlier than 1.4.0 are not affected.
 
-### Даты воздействия
+### Impact Dates
 
-Ниже приведена таблица каждой версии Electron 1.4 и дата, когда запросов на сайты, использующие эти сертификаты, начнут не выполняться.
+Below is a table of each Electron 1.4 version and the date when requests to sites using these affected certificates will start to fail.
 
 <table class="table table-ruled table-full-width">
     <thead>
         <tr class="text-left">
-            <th>Версия Electron</th>
-            <th>Дата удара</th>
+            <th>Electron Version</th>
+            <th>Impact Date</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>1,3.х</td>
-            <td>Не затронуто</td>
+            <td>1.3.x</td>
+            <td>Unaffected</td>
         </tr>
         <tr>
             <td>1.4.0</td>
-            <td>Уже не удалось</td>
+            <td>Already failing</td>
         </tr>
         <tr>
             <td>1.4.1</td>
-            <td>Уже не удалось</td>
+            <td>Already failing</td>
         </tr>
         <tr>
             <td>1.4.2</td>
-            <td>Уже не удалось</td>
+            <td>Already failing</td>
         </tr>
         <tr>
             <td>1.4.3</td>
-            <td>10 декабря 2016 вечера PST</td>
+            <td>December 10th, 2016 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.4</td>
-            <td>10 декабря 2016 вечера PST</td>
+            <td>December 10th, 2016 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.5</td>
-            <td>10 декабря 2016 вечера PST</td>
+            <td>December 10th, 2016 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.6</td>
-            <td>14 января 2017 вечера PST</td>
+            <td>January 14th, 2017 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.7</td>
-            <td>14 января 2017 вечера PST</td>
+            <td>January 14th, 2017 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.8</td>
-            <td>14 января 2017 вечера PST</td>
+            <td>January 14th, 2017 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.9</td>
-            <td>14 января 2017 вечера PST</td>
+            <td>January 14th, 2017 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.10</td>
-            <td>14 января 2017 вечера PST</td>
+            <td>January 14th, 2017 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.11</td>
-            <td>11 февраля 2017 21:00 PST</td>
+            <td>February 11th, 2017 9:00 PM PST</td>
         </tr>
         <tr>
             <td>1.4.12</td>
-            <td>Не затронуто</td>
+            <td>Unaffected</td>
         </tr>
     </tbody>
 </table>
 
-Вы можете проверить дату появления вашего приложения, установив часы на вашем компьютере впереди и затем проверьте, что [https://symbeta. ymantec.com/welcome/](https://symbeta.symantec.com/welcome/) успешно загружен с него.
+You can verify your app's impact date by setting your computer's clock ahead and then check to see if [https://symbeta.symantec.com/welcome/](https://symbeta.symantec.com/welcome/) successfully loads from it.
 
-## Дополнительная информация
+## More Information
 
-Вы можете прочитать больше об этой теме, оригинальной ошибке и исправлении в следующих местах:
+You can read more about this topic, the original issue, and the fix at the following places:
 
-- [Что такое Прозрачность Сертификата?](https://www.certificate-transparency.org/what-is-ct)
-- [Статья базы знаний Symtantec](https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&id=ALERT2160)
-- [Вопрос Chrome 664177](https://bugs.chromium.org/p/chromium/issues/detail?id=664177)
-- [Исправлена ошибка Chrome 664177](https://codereview.chromium.org/2495583002)
-- [патч libchromiumcontent для выпуска 664177](https://github.com/electron/libchromiumcontent/pull/248)
+- [What is Certificate Transparency?](https://www.certificate-transparency.org/what-is-ct)
+- [Symtantec knowledge base article](https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&id=ALERT2160)
+- [Chrome issue 664177](https://bugs.chromium.org/p/chromium/issues/detail?id=664177)
+- [Chrome fix for issue 664177](https://codereview.chromium.org/2495583002)
+- [libchromiumcontent patch for issue 664177](https://github.com/electron/libchromiumcontent/pull/248)
+
+[libchromiumcontent]: https://github.com/electron/libchromiumcontent
+[1.4.12]: https://github.com/electron/electron/releases/tag/v1.4.12
 

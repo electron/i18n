@@ -1,26 +1,26 @@
 ---
-title: Correction de la vulnérabilité du gestionnaire de protocole
+title: Protocol Handler Vulnerability Fix
 author: zeke
 date: '2018-01-22'
 ---
 
-Une vulnérabilité d'exécution de code à distance a été découverte affectant les applications Electron qui utilisent des gestionnaires de protocoles personnalisés. Cette vulnérabilité a été assignée à l'identifiant CVE [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006).
+A remote code execution vulnerability has been discovered affecting Electron apps that use custom protocol handlers. This vulnerability has been assigned the CVE identifier [CVE-2018-1000006][].
 
 ---
 
-## Plateformes affectées
+## Affected Platforms
 
-Les applications Electron conçues pour fonctionner sous Windows qui s'inscrivent comme le gestionnaire par défaut d'un protocole, comme `myapp://`, sont vulnérables.
+Electron apps designed to run on Windows that register themselves as the default handler for a protocol, like `myapp://`, are vulnerable.
 
-Ces applications peuvent être affectées indépendamment de la manière dont le protocole est enregistré, p. ex. en utilisant le code natif, le registre Windows, ou l'API
+Such apps can be affected regardless of how the protocol is registered, e.g. using native code, the Windows registry, or Electron's [app.setAsDefaultProtocolClient][] API.
 
-macOS et Linux ne sont **pas vulnérables** à ce problème.
+macOS and Linux are **not vulnerable** to this issue.
 
-## Atténuation
+## Mitigation
 
-Nous avons publié de nouvelles versions d'Electron qui incluent des corrections pour cette vulnérabilité : [`1.8.2-beta.`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7. 2`](https://github.com/electron/electron/releases/tag/v1.7.12), et [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). Nous encourageons tous les développeurs d'Electron à mettre à jour leurs applications vers la dernière version stable immédiatement.
+We've published new versions of Electron which include fixes for this vulnerability: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), and [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
 
-Si pour une raison quelconque, vous ne pouvez pas mettre à jour votre version d'Electron, vous pouvez ajouter `--` comme dernier argument en appelant l'application [. etAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows), qui empêche Chromium d'analyser d'autres options. Le double tiret `--` indique la fin des options de commande, après quoi seuls les paramètres positionnels sont acceptés.
+If for some reason you are unable to upgrade your Electron version, you can append `--` as the last argument when calling [app.setAsDefaultProtocolClient][], which prevents Chromium from parsing further options. The double dash `--` signifies the end of command options, after which only positional parameters are accepted.
 
 ```js
 app.setAsDefaultProtocolClient(protocol, process.execPath, [
@@ -29,10 +29,12 @@ app.setAsDefaultProtocolClient(protocol, process.execPath, [
 ])
 ```
 
-Voir l' [app.setAsDefaultProtocolClient][] API pour plus de détails.
+See the [app.setAsDefaultProtocolClient][] API for more details.
 
-Voir l'API [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) pour plus de détails.
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
-Si vous souhaitez signaler une vulnérabilité dans Electron, envoyez un e-mail à security@electronjs.org.
+If you wish to report a vulnerability in Electron, email security@electronjs.org.
 
+[security tutorial]: https://electronjs.org/docs/tutorial/security
 [app.setAsDefaultProtocolClient]: https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows
+[CVE-2018-1000006]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006

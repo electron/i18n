@@ -40,7 +40,7 @@ fs.writeFile(fileName, 'Lorem Ipsum', () => {
 
 若要增加一个文件到最近文件列表，你可以使用[app.addRecentDocument][addrecentdocument] API.
 
-启动 Electron 应用程序后，右键点击应用程序图标。 在本指南中，本项是位于项目根目录下的 Markdown 文件： 您应该可以看到添加到最近文件列表中的 `recently-used.md` ：
+After launching the Electron application, right click the application icon. 在本指南中，本项是位于项目根目录下的 Markdown 文件： 您应该可以看到添加到最近文件列表中的 `recently-used.md` ：
 
 ![最近的文档](../images/recent-documents.png)
 
@@ -48,7 +48,7 @@ fs.writeFile(fileName, 'Lorem Ipsum', () => {
 
 若要清空最近文件列表，你可以使用[app.clearRecentDocuments][clearrecentdocuments] API. 在此指南中，一旦所有窗口都关闭，文件列表就会被清除。
 
-## 补充资料
+## Additional information
 
 ### Windows 注意事项
 

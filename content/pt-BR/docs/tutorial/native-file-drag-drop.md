@@ -1,12 +1,12 @@
-# Drag & Drop de Arquivos Nativo (Arrastar e Soltar)
+# Nativo Arquivo Drag & Drop
 
 ## Visão Geral
 
 Alguns tipos de aplicativos que manipulam arquivos talvez queiram oferecer suporte ao recurso de drag & drop (arrastar e soltar) nativo do sistema operacional. Arrastar arquivos para a web é bastante comum e utilizado por muitos sites. Além disso, Electron adicionou suporte para arrastar arquivos e conteúdos de fora do conteúdo web para o mundo do sistema operacional.
 
-Para implementar esse recurso no seu aplicativo, você precisa chamar o [`webContents. tartDrag(item)`](../api/web-contents.md#contentsstartdragitem) API em resposta ao evento `ondragstart`.
+To implement this feature in your app, you need to call the [`webContents.startDrag(item)`](../api/web-contents.md#contentsstartdragitem) API in response to the `ondragstart` event.
 
-## Exemplo
+## Example
 
 An example demonstrating how you can create a file on the fly to be dragged out of the window.
 

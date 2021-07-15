@@ -26,7 +26,7 @@ npm install --save-dev electron@latest
 
 ## 版本 2.0 和之后版本
 
-我们的1.x战略有以下几项重大变化。 每次更改都是为了满足开发者/维护者和应用开发者的需要和优先事项。
+There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
 
 1. 严格使用 SemVer
 2. 引入符合 semver 的 `-beta` 标签
@@ -44,11 +44,11 @@ npm install --save-dev electron@latest
 
 | Major 版本增量          | Minor 版本增量           | Patch 版本增量         |
 | ------------------- | -------------------- | ------------------ |
-| Electron 突破性 API 变更 | Electron 无突破性 API 变更 | Electron bug 修复    |
+| Electron 突破性 API 变更 | Electron 无突破性 API 变更 | Electron bug fixes |
 | Node.js 重大版本更新      | Node.js 次要版本更新       | Node.js patch 版本更新 |
 | Chromium 版本更新       |                      | 修复相关的 chromium 补丁  |
 
-请注意，大多数 Chromium 更新都将被认为是破坏性的。 可以返回的修复很可能会被精选为补丁。
+请注意，大多数 Chromium 更新都将被认为是破坏性的。 Fixes that can be backported will likely be cherry-picked as patches.
 
 # 稳定分支
 
@@ -62,7 +62,7 @@ npm install --save-dev electron@latest
 
 GitHub不支持旧线路，但是其他分组可以自行获取所有权和返回稳定性和安全修复。 我们不鼓励这样做，但是认识到它使得许多应用程序开发人员的生活更轻松。
 
-# 测试版和 Bug 修复
+# 测试版和Bug修复
 
 开发人员想知道哪个版本可以 _安全_ 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
@@ -75,7 +75,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 过程如下:
 
-1. All new major and minor releases lines begin with a beta series indicated by SemVer prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. 在第一次测试后，测试版随后的释放必须满足以下所有条件：
+1. All new major and minor releases lines begin with a beta series indicated by SemVer prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions:
     1. 更改是落后的 API 兼容 (允许废弃)
     2. 实现我们稳定的时间表的危险必须是低的。
 2. 如果允许更改需要在释放测试版之后进行，则使用并增加预放标签，例如`2.0.0-beta.2`。
@@ -85,8 +85,8 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 特别地，上述步骤意味着：
 
 1. 在测试周期的第 3 周前允许非破坏性的 API 更改，即使这些变化有可能造成适度的副影响。
-2. 接受特征标记的更改，这些更改不会改变现有的代码路径。在测试周期中的大多数点都是好的。 用户可以在他们的应用中明确启用那些标记。
-3. 第三周之后在测试周期内接纳任何类型的功能是 👎 没有很好的理由。
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort after Week 3 in the beta cycle is 👎 without a very good reason.
 
 对于每个主要和次要的颠覆，你都应该像以下示例一样进行操作：
 
@@ -101,10 +101,10 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 图片中的生命周期示例:
 
-* 创建了一个新的发行分支，包括最新的功能。 它会被发布为 `2.0.0-beta.1`。 ![新发行版](../images/versioning-sketch-3.png)
-* Bug 修复会被导入主，可以返回发布分支。 补丁已应用，一个新测试版已发布为 `2.0.0-beta.2`。 ![修复的 bug 移植至测试版](../images/versioning-sketch-4.png)
+* A new release branch is created that includes the latest set of features. 它会被发布为 `2.0.0-beta.1`。 ![新发行版](../images/versioning-sketch-3.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![修复的 bug 移植至测试版](../images/versioning-sketch-4.png)
 * 测试版被认为是 _ 一般稳定 _ 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![测试版至稳定版](../images/versioning-sketch-5.png)
-* 之后有个 0day 漏洞被发现，然后对 master 采取了修复措施。 我们支持修复为 `2-0-x` 行，并释放 `2.0.1`。 ![安全移植](../images/versioning-sketch-6.png)
+* 之后有个 0day 漏洞被发现，然后对 master 采取了修复措施。 We backport the fix to the `2-0-x` line and release `2.0.1`. ![安全移植](../images/versioning-sketch-6.png)
 
 几个不同的 SemVer 范围将如何接收新版本的示例:
 
@@ -142,4 +142,4 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 * The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
 * Release 分支永远不会合并回 master 分支
 * 发布分支 _在_ 其`package.json ` 中包含正确的版本
-* 一旦一个主要的释放分支被切割，主子就必须被打碎为下一个大师。  I.e. `master` is always versioned as the next theoretical release branch
+* As soon as a release branch is cut for a major, master must be bumped to the next major.  I.e. `master` is always versioned as the next theoretical release branch

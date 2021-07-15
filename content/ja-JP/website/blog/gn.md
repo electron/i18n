@@ -1,42 +1,42 @@
 ---
-title: "GN を使って Electron を構築する"
+title: "Using GN to Build Electron"
 author: nornagon
 date: '2018-09-05'
 ---
 
-Electron は、GN を使用して自身を構築しています。 その理由についてこちらで説明します。
+Electron now uses GN to build itself. Here's a discussion of why.
 
 ---
 
-# GYP と GN
+# GYP and GN
 
-2013 年、最初に Electron がリリースされたとき、Chromium のビルド構成は [GYP][] で記述されていました。これは "Generate Your Projects" の略です。
+When Electron was first released in 2013, Chromium's build configuration was written with [GYP][], short for "Generate Your Projects".
 
-2014 年、Chromium プロジェクトは [GN][] ("Generate [Ninja][]") を導入しました。Chromium のビルドファイルは GN に移行され、GYP はソースコードから削除されました。
+In 2014, the Chromium project introduced a new build configuration tool called [GN][] (short for "Generate [Ninja][]") Chromium's build files were migrated to GN and GYP was removed from the source code.
 
-歴史的に、Electron はメインの [Electron コード][] と [libchromiumcontent][] を分離しています。これは、Chromium の 'content' サブモジュールをラップする Electron の一部です。 Electron は GYP を使用し続けましたが、Chromium の方の libchromiumcontent は GN に切り替えました。
+Electron has historically kept a separation between the main [Electron code][] and [libchromiumcontent][], the part of Electron that wraps Chromium's 'content' submodule. Electron has carried on using GYP, while libchromiumcontent -- as a subset of Chromium -- switched to GN when Chromium did.
 
-ピッタリ噛まない歯車のように、2 つのビルドシステムの間に摩擦がありました。 互換性の維持にはエラーが発生しやすくなりました。コンパイラフラグと `#define` を Chromium、Node、V8、Electron 間で細心の注意を払って同期する必要があるからです。
+Like gears that don't quite mesh, there was friction between using the two build systems. Maintaining compatibility was error-prone, from compiler flags and `#defines` that needed to be meticulously kept in sync between Chromium, Node, V8, and Electron.
 
-これに対処するため、Electron チームは全てを GN へ移行してきました。 そしてついに、Electron 最後の GYP コード削除の [コミット](https://github.com/electron/electron/pull/14097)が master に乗りました。
+To address this, the Electron team has been working on moving everything to GN. Today, the [commit](https://github.com/electron/electron/pull/14097) to remove the last of the GYP code from Electron was landed in master.
 
-# 開発者にとっての意義
+# What this means for you
 
-Electron 自体にコントリビュートしている方は、`master` もしくは 4.0.0 から Electron をチェックアウトしてビルドするプロセスが 3.0.0 以前と大きく変わります。 詳細は [GN ビルド手順](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) を参照してください。
+If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
 
-Electron でアプリを開発している方は、新しい Electron 4.0.0-nightly でのいくつかの小さな変更に気付くかもしれません。しかし、Electron ビルドシステムが変わったことによる影響はおそらくありません。
+If you're developing an app with Electron, there are a few minor changes you might notice in the new Electron 4.0.0-nightly; but more than likely, Electron's change in build system will be totally transparent to you.
 
-# Electron にとっての意義
+# What this means for Electron
 
-GN は GYP より [高速](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) で、ファイルの可読性が高く保守も容易です。 さらに、単体のビルド構成システムを使用することで、Electron を Chromium の新バージョンへアップグレードするにあたって必要な作業が軽減されるでしょう。
+GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. Moreover, we hope that using a single build configuration system will reduce the work required to upgrade Electron to new versions of Chromium.
 
- * Chromium 67 では MSVC サポートを削除し、Windows でも Clang を使用したビルドに切り替えました。そのため、Electron 4.0.0 での開発は既に大幅に支援されています。 GN ビルドでは、Chromium からすべてのコンパイラコマンドを直接継承するため、Windows 用 Clang ビルドを無料で入手できます!
+ * It's already helped development on Electron 4.0.0 substantially because Chromium 67 removed support for MSVC and switched to building with Clang on Windows. With the GN build, we inherit all the compiler commands from Chromium directly, so we got the Clang build on Windows for free!
 
- * また、Electron、Chromium、Node 間で同じビルドの [BoringSSL][] を Electron に使用しやすくなりました。これはもはや [過去の問題](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library) です。
+ * It's also made it easier for Electron to use [BoringSSL][] in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
 
 
 [BoringSSL]: https://boringssl.googlesource.com/boringssl/
-[Electron コード]: https://github.com/electron/electron
+[Electron code]: https://github.com/electron/electron
 [GN]: https://gn.googlesource.com/gn/
 [GYP]: https://gyp.gsrc.io/
 [Ninja]: https://ninja-build.org/

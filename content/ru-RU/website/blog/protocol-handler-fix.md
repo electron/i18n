@@ -1,38 +1,40 @@
 ---
-title: Уязвимость обработчика протокола
+title: Protocol Handler Vulnerability Fix
 author: zeke
 date: '2018-01-22'
 ---
 
-Обнаружена уязвимость удаленного выполнения кода, затрагивающая приложения Electron, использующие обработчики пользовательских протоколов. Эта уязвимость была назначена идентификатором CVE [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006).
+A remote code execution vulnerability has been discovered affecting Electron apps that use custom protocol handlers. This vulnerability has been assigned the CVE identifier [CVE-2018-1000006][].
 
 ---
 
-## Затрагиваемые платформы
+## Affected Platforms
 
-Electron приложения, предназначенные для запуска на Windows, которые зарегистрированы как обработчик по умолчанию для протокола, например `myapp://`, уязвимы.
+Electron apps designed to run on Windows that register themselves as the default handler for a protocol, like `myapp://`, are vulnerable.
 
-Такие приложения могут быть затронуты независимо от того, как зарегистрирован протокол, это может быть родной код, реестр Windows или API Electron [app.setAsDefaultProtocolClient][].
+Such apps can be affected regardless of how the protocol is registered, e.g. using native code, the Windows registry, or Electron's [app.setAsDefaultProtocolClient][] API.
 
-macOS и Linux **не уязвимы** к этой проблеме.
+macOS and Linux are **not vulnerable** to this issue.
 
-## Смягчение
+## Mitigation
 
-Мы опубликовали новые версии Electron, которые включают исправления этой уязвимости: [`1.8.2-beta.`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7. 2`](https://github.com/electron/electron/releases/tag/v1.7.12), и [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). Мы настоятельно призываем всех разработчиков Electron немедленно обновить свои приложения до последней стабильной версии .
+We've published new versions of Electron which include fixes for this vulnerability: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), and [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
 
-Если по какой-то причине вы не можете обновить версию Electron, вы можете добавить `--` в качестве последнего аргумента при вызове приложения [. etAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows), , который не позволяет Chromium анализировать дальнейшие параметры. Двойной тире `--` обозначает параметры конца команды, после которых принимаются только позиционные параметры.
+If for some reason you are unable to upgrade your Electron version, you can append `--` as the last argument when calling [app.setAsDefaultProtocolClient][], which prevents Chromium from parsing further options. The double dash `--` signifies the end of command options, after which only positional parameters are accepted.
 
 ```js
-app.setAsDefaultProtocolClient(протокол, process.execPath, [
-  '--your-switches-здесь',
+app.setAsDefaultProtocolClient(protocol, process.execPath, [
+  '--your-switches-here',
   '--'
 ])
 ```
 
-Смотрите [app.setAsfaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API для получения более подробной информации.
+See the [app.setAsDefaultProtocolClient][] API for more details.
 
-Чтобы узнать больше о лучших методах обеспечения безопасности приложений Electron, смотрите наш [учебник по безопасности](https://electronjs.org/docs/tutorial/security).
+To learn more about best practices for keeping your Electron apps secure, see our [security tutorial][].
 
-Если вы хотите сообщить об уязвимости в Electron, напишите security@electronjs.org.
+If you wish to report a vulnerability in Electron, email security@electronjs.org.
 
+[security tutorial]: https://electronjs.org/docs/tutorial/security
 [app.setAsDefaultProtocolClient]: https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows
+[CVE-2018-1000006]: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006

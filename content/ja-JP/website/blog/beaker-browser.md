@@ -1,36 +1,36 @@
 ---
-title: '今週のプロジェクト: Beaker ブラウザ'
+title: 'Project of the Week: Beaker Browser'
 author:
   - pfrazee
   - zeke
 date: '2017-02-07'
 ---
 
-今週は、[Beaker ブラウザ](https://beakerbrowser.com/) の作者 [Paul Frazee](http://pfrazee.github.io/) に突撃しました。 Beaker は実験的な P2P ウェブブラウザで、Dat プロトコルでユーザーのデバイスからサイトをホストします。
+This week we caught up with [Paul Frazee](http://pfrazee.github.io/), creator of [Beaker Browser](https://beakerbrowser.com/). Beaker is an experimental peer-to-peer web browser that uses the Dat protocol to host sites from users’ devices.
 
 ---<iframe width="100%" height="420" src="https://www.youtube.com/embed/Bem9nRpyPEs" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-## Beaker とは何ですか? なぜ作ったのですか?
+## What is Beaker and why did you create it?
 
-Beaker は参加型ブラウザです。 個人ハッカー向けのブラウザなのです。
+Beaker is a participatory browser. It's a browser for indie hackers.
 
-ウェブはオープンソースではありません。 ソーシャルメディアの機能に影響を与えたい場合、Facebook や Twitter に働きかける必要があります。 検索なら、Google です。 この制御は、ユーザー自身ではなく企業が握ってます。
+The Web is closed source. If you want to influence how social media works, you have to work at Facebook or Twitter. For search, Google. Control is in the hands of companies, rather than the users themselves.
 
-Beaker には、新しいウェブプロトコル [Decentralized Archive Transport](https://datprotocol.com) があります。 "Dat"。 それはオンデマンドかつ無料でサイトを作成し、デバイスから共有します。 サーバーは要りません。 これは革命です。
+With Beaker, we have a new Web protocol: the [Decentralized Archive Transport](https://datprotocol.com). "Dat." It creates sites on demand, for free, and then shares them from the device. No servers required. That's our innovation.
 
-![Beaker のプロトコル](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
+![Beakers Protocols](https://cloud.githubusercontent.com/assets/2289/22560648/3defed5c-e92a-11e6-93f8-956cafafe3be.jpg)
 
-Beaker で Dat サイトを訪れると、そのファイルをダウンロードします。 これで、このサイトは永遠にあなたのものです。 保存したり、フォークしたり、変更したり、新しいバージョンを無料で共有したりできます。 全てがオープンソースです。
+When you visit a Dat site in Beaker, you download the files. The site is yours, forever. You can save it, fork it, modify it, and share your new version for free. It's all open-source.
 
-これこそが、私たちがオープンソースウェブサイト向けブラウザを作っているということです。 これをソーシャルハッキングのツールキットにしたいのです。
+So that's what it's about: We're making a browser for open-source Websites. We want it to be a toolkit for social hacking.
 
-## どんな人が Beaker を使うべきですか?
+## Who should be using Beaker?
 
-ハッカー。 モッダー。 創り手。 弄り回すのが好きな人。
+Hackers. Modders. Creative types. People who like to tinker.
 
-## Dat を使った新規プロジェクトの作り方は?
+## How do I create a new project that uses Dat?
 
-git + npm のような [bkr というコマンドラインツール](https://github.com/beakerbrowser/bkr) があります。 これで以下のようにしてサイトを作ります。
+We've got [a command-line tool called bkr](https://github.com/beakerbrowser/bkr) that's kind of like git + npm. Here's creating a site:
 
 ```bash
 $ cd ~/my-site
@@ -39,7 +39,7 @@ $ echo "Hello, world!" > index.html
 $ bkr publish
 ```
 
-そして、サイトのフォークはこのようにします。
+And here's forking a site:
 
 ```bash
 $ bkr fork dat://0ff7d4c7644d0aa19914247dc5dbf502d6a02ea89a5145e7b178d57db00504cd/ ~/my-fork
@@ -48,38 +48,38 @@ $ echo "My fork has no regard for the previous index.html!" > index.html
 $ bkr publish
 ```
 
-これらのサイトは、ブラウザからホストされます。 BitTorrent に少し似た、P2P メッシュでのサイト共有です。
+Those sites then get hosted out of your browser. It's a little like BitTorrent; you share the sites in a P2P mesh.
 
-GUI が必要な場合でも、ブラウザにはユーザーランドに押し込んでいる基本的なツールがいくつか組み込まれています。 これによって全て変更可能なユーザーアプリになります。
+If you want a GUI, we have some basic tools built into the browser, but we're pushing those tools into userland. It's all going to be moddable user apps.
 
-## Electron で Beaker を構築することにしたのはなぜですか?
+## Why did you choose to build Beaker on Electron?
 
-このプロジェクトにとっては言うまでもありませんでした。 もし私自身の手で Chrome をフォークしていれば、今頃 C++ を書いていたことでしょう! 誰しもそうはしたくありません。 私はウェブで積み重ねた経験があるので、Electron なら手早く作業できます。 悩むことはありません。
+It was obvious for this project. If I forked Chrome myself, I'd be writing C++ right now! Nobody wants to do that. I know the Web stack, and I can work quickly with it. It's a no-brainer.
 
-事実、Electron なくして成し遂げられるかどうか分かりませんでした。 これは素晴らしいソフトウェアです。
+The truth is, I'm not sure I could do any of this without Electron. It's a great piece of software.
 
-## Beaker 構築の際に直面した課題はありますか?
+## What are some challenges you've faced while building Beaker?
 
-半分は、ツールを試してどのくらいまでで打ち切るかを予測しました。
+Half of it is poking at the tools and figuring out how much I can get away with.
 
-ブラウザ自体の作成は非常に簡単でした。 Electron はブラウザを作るツールキットとも言えます。 ...ブラウザタブを除けば。これが正常に動くまで、かつてないほど時間がかかりました。 ついには挫折して、SVG の動かし方を学びました。 見た目は格段に良くなりましたが、正常になるまで 3、4 回やり直しました。
+Making the browser itself was pretty easy. Electron is practically a toolkit for making browsers. ...Except for the browser tabs; that took me forever to get right. I finally broke down and learned how to do SVGs. It's much better looking, but it took 3 or 4 iterations before I got that right.
 
-## Electron はどういった領域で改善されるべきでしょうか?
+## In what areas should Electron be improved?
 
-WebView 内にデベロッパー ツールをドッキングできたら、どんなに素晴らしいでしょうか。
+It'd be really great if I could dock the devtools inside a webview.
 
-## Beaker の今後の予定は何ですか?
+## What's coming next in Beaker?
 
-Dat サイトの DNS 名保護。 ["アプリスキーム"](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) というソーシャルで構成可能な URL スキーム。その他 Dat API。
+Secure DNS names for Dat sites. A socially configurable URL scheme, called the ["app scheme."](https://github.com/beakerbrowser/beaker/wiki/App-Scheme) More Dat APIs.
 
-## プロジェクトへの貢献に興味がありそうな人向けに、Beaker はどの領域で助けが必要なのか教えて頂けますか?
+## For folks who may be interested in contributing to the project, in what areas does Beaker need help?
 
-未解決の Issue がたくさんあります。 私への連絡を恐れることはありません。 フリーノード上に #beakerbrowser があります。 [コントリビューター向けのページ](https://beakerbrowser.com/docs/team.html) を管理しており、そこに加えます。 オースティンを訪れてくれたら、私がビールを奢りましょう。
+We have lots of open issues. Don't be afraid to ping me. #beakerbrowser on freenode. We keep a [page for contributors](https://beakerbrowser.com/docs/team.html) and we'll add you to it. And if you visit Austin, I'll buy you a beer.
 
-## 他の開発者に役立つ Electron のノウハウはありますか?
+## Any Electron tips that might be useful to other developers?
 
-1. 既製のビルドツールを使用しましょう。 独自の解決方法のせいで苦戦してほしくありません。私を信じてください。 electron-builder を使いましょう。 雛型レポジトリを使いましょう。
-2. Electron リポジトリで Issue を開く必要がある場合は、より簡単に再現できるように努めましょう。 より迅速に回答が得られ、そのチームも高く評価します。 さらに言えば、自分で修正してみましょう。 中身を覗くのは本当にとっても面白いです。
-3. すべてのガイドと上級者向けドキュメントを 1 回は読みましょう。
-4. ただのブラウザを構築しないようにしましょう。それは飽和した市場です。
+1. Use the build tooling that's out there. You don't want to wrestle with your own solutions, trust me. Use electron-builder. Use a boilerplate repo.
+2. If you need to open an issue in the Electron repo, go the extra mile to make it easy to reproduce. You'll get a response much more quickly, and the team will appreciate it. Even better, try fixing it yourself. It's actually pretty interesting to see the innards.
+3. Read through all the guides and advanced docs at least once.
+4. Don't build a browser, it's a saturated market.
 

@@ -155,7 +155,7 @@ module.exports = 'bar'
 const foo = require('electron').remote.require('./foo') // bar
 ```
 
-### `remote.process` _Readonly_
+### `remote.process` _Solo lectura_
 
 Un objeto `NodeJS.Process`.  El objeto `process` en el main process. Esto es el mismo que `remote.getGlobal('process')` pero está en cache.
 

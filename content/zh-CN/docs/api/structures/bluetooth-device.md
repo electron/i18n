@@ -1,4 +1,4 @@
-# BluetoothDevice Object 蓝牙设备
+# BluetoothDevice Object
 
-* `deviceName` String 设备名称
-* `deviceId` String 设备Id
+* `deviceName` String
+* `deviceId` String

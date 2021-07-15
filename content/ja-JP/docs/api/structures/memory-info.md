@@ -1,7 +1,7 @@
-# MemoryInfo オブジェクト
+# MemoryInfo Object
 
-* `workingSetSize` Integer - 現在、実際の物理 RAM に確保されているメモリ量。
-* `peakWorkingSetSize` Integer - 実際の物理 RAM に確保されたことのある最大メモリ量。
-* `privateBytes` Integer (任意) _Windows_ - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないメモリ量。
+* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
+* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
+* `privateBytes` Integer (optional) _Windows_ - The amount of memory not shared by other processes, such as JS heap or HTML content.
 
-すべての統計情報はキロバイト単位で返ってくることに注意してください。
+Note that all statistics are reported in Kilobytes.

@@ -1,8 +1,8 @@
-# Custom Linux Desktop Launcher Actions
+# 自定义 Linux 桌面启动器行为
 
 ## 概览
 
-On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher][unity-launcher]. For details on a more generic implementation, see the [freedesktop.org Specification][spec].
+On many Linux environments, you can add custom entries to the system launcher by modifying the `.desktop` file. 关于 Canonical 的 Unity 启动器文档， 参考 [Adding Shortcuts to a Launcher][unity-launcher]。 详细的参考信息请见 [freedesktop.org Specification][spec]。
 
 ![audacious][3]
 

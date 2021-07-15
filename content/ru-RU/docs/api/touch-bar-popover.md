@@ -14,7 +14,7 @@
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarPopover`:
+Для экземпляров `TouchBarPopover` доступны следующие свойства:
 
 #### `touchBarPopover.label`
 

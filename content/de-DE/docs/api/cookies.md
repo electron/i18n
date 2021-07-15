@@ -2,7 +2,7 @@
 
 > Abfragen und modifizieren von Session Cookies.
 
-Prozess: [Main](../glossary.md#main-process)
+Prozess: [Haupt](../glossary.md#main-process)
 
 Auf Instanzen der `Cookies-Klasse` wird über die Cookie-Eigenschaft einer Sitzung zugegriffen.
 
@@ -38,13 +38,13 @@ session.defaultSession.cookies.set(cookie)
   })
 ```
 
-### Instanz Events
+### Instanz-Ereignisse
 
 The following events are available on instances of `Cookies`:
 
 #### Event: 'changed'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
@@ -58,9 +58,9 @@ Rückgabewert:
 
 Emitted when a cookie is changed because it was added, edited, removed, or expired.
 
-### Instanz Methoden
+### Beispiel Methoden
 
-The following methods are available on instances of `Cookies`:
+Die folgenden Methoden sind verfügbar in Instanzen von `Cookies`:
 
 #### `cookies.get(filter)`
 
@@ -78,7 +78,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.set(details)`
 
-* `details` Object
+* `details` Objekt
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
@@ -87,7 +87,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Der Standardwert ist false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Sein Wert kann `nicht gesetzt `, `no_restriction`, `lax` oder `strict` sein.  Default is `no_restriction`.
+  * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Sein Wert kann `nicht gesetzt `, `no_restriction`, `lax` oder `strict` sein.  Standard ist `no_restriction`.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 

@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter][event-emitter].
+`autoUpdater` é um [EventEmitter][event-emitter].
 
 ## Avisos de plataforma
 
@@ -38,7 +38,7 @@ O objeto `autoUpdater` emite os seguintes eventos:
 
 Retorna:
 
-* `error` Error
+* Erro `error`
 
 Emitido quando há um erro durante a atualização.
 
@@ -82,7 +82,7 @@ O objeto `autoUpdater` possui os seguintes métodos:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object
+* Objeto `options`
   * String `url`
   * `headers` Record<String, String> (opcional) _macOS_ - Cabeçalhos da solicitação HTTP.
   * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
@@ -91,7 +91,7 @@ Define a `url` e inicializa a atualização automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Devoluções `String` - A URL de alimentação de atualização atual.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 

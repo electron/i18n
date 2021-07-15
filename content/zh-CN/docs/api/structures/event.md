@@ -1,3 +1,3 @@
-# 事件对象扩展 `通用事件`
+# Event Object extends `GlobalEvent`
 
-* `预览默认值` 空函数
+* `preventDefault` VoidFunction

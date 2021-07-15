@@ -148,13 +148,13 @@ Additionally, setting the `Connection` header to the value `upgrade` is also dis
 
 #### `request.getHeader(name)`
 
-* `name` String - укажите имя дополнительного заголовка.
+* `name` String - Specify an extra header name.
 
 Возвращает `String` - значение ранее установленного дополнительного заголовка.
 
 #### `request.removeHeader(name)`
 
-* `name` String - укажите имя дополнительного заголовка.
+* `name` String - Specify an extra header name.
 
 Удаляет ранее установленное дополнительное имя заголовка. Этот метод может быть вызван только перед первой записью. Попытка вызвать его после первой записи приведет к ошибке.
 

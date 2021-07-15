@@ -1,3 +1,3 @@
-# NewWindowWebContentsEvent 对象继承 `Event`
+# NewWindowWebContentsEvent Object extends `Event`
 
-* `newGuest` BrowserWindow (可选)
+* `newGuest` BrowserWindow (optional)

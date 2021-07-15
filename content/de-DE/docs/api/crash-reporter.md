@@ -55,7 +55,7 @@ Das Modul `crashReporter` verfügt über die folgenden Methoden:
 
 ### `crashReporter.start(options)`
 
-* `options` Object
+* `options` Objekt
   * `submitURL` String (optional) - URL that crash reports will be sent to as POST. Required unless `uploadToServer` is `false`.
   * `productName` String (optional) - Defaults to `app.name`.
   * `companyName` String (optional) _Deprecated_ - Deprecated alias for `{ globalExtra: { _companyName: ... } }`.

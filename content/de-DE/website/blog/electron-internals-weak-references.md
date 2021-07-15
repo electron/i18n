@@ -4,75 +4,76 @@ author: zcbenz
 date: '2016-09-20'
 ---
 
-Als Sprache mit Müllsammlung befreit JavaScript Benutzer von der manuellen Verwaltung von Ressourcen. But because Electron hosts this environment, it has to be very careful avoiding both memory and resources leaks.
+As a language with garbage collection, JavaScript frees users from managing resources manually. But because Electron hosts this environment, it has to be very careful avoiding both memory and resources leaks.
 
-Dieser Beitrag führt das Konzept der schwachen Referenzen ein und wie sie verwendet werden, um Ressourcen in Electron zu verwalten.
+This post introduces the concept of weak references and how they are used to manage resources in Electron.
 
 ---
 
-## Schwachstellen Referenzen
+## Weak references
 
-In JavaScript, wenn Sie einer Variable ein Objekt zuweisen, fügen Sie dem Objekt eine Referenz hinzu. Solange es eine Referenz auf das Objekt gibt, wird es immer im Speicher behalten. Sobald alle Verweise auf das Objekt verschwunden sind, z. es keine Variablen mehr gibt, die das Objekt speichern, die JavaScript-Engine wird den Speicher bei der nächsten Müllsammlung wiederherstellen.
+In JavaScript, whenever you assign an object to a variable, you are adding a reference to the object. As long as there is a reference to the object, it will always be kept in memory. Once all references to the object are gone, i.e. there are no longer variables storing the object, the JavaScript engine will recoup the memory on next garbage collection.
 
-Eine schwache Referenz ist eine Referenz auf ein Objekt, das es Ihnen erlaubt, das Objekt zu erhalten, ohne zu bewirken, ob es Müll gesammelt wird oder nicht. Du wirst auch benachrichtigt, wenn das Objekt Müll gesammelt wird. Es wird dann möglich Ressourcen mit JavaScript zu verwalten.
+A weak reference is a reference to an object that allows you to get the object without effecting whether it will be garbage collected or not. You will also get notified when the object is garbage collected. It then becomes possible to manage resources with JavaScript.
 
-Verwenden Sie die `NativeImage` Klasse in Electron als Beispiel, jedes Mal, wenn Sie das `nativeImage aufrufen. reate()` API, eine `NativeImage` Instanz wird zurückgegeben und speichert die Bilddaten in C++. Sobald du mit der Instanz fertig bist und die -JavaScript-Engine (V8) Müll das Objekt gesammelt hat, -Code in C++ wird aufgerufen, um die Bilddaten im Speicher freizugeben, so dass Benutzer dies nicht manuell verwalten müssen.
+Using the `NativeImage` class in Electron as an example, every time you call the `nativeImage.create()` API, a `NativeImage` instance is returned and it is storing the image data in C++. Once you are done with the instance and the JavaScript engine (V8) has garbage collected the object, code in C++ will be called to free the image data in memory, so there is no need for users manage this manually.
 
-Ein weiteres Beispiel ist [das Verschwindendes Problem](https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes), die visuell zeigt, wie das Fenster Müll gesammelt wird, wenn alle Referenzen auf ihn verschwunden sind.
+Another example is [the window disappearing problem][window-disappearing], which visually shows how the window is garbage collected when all the references to it are gone.
 
-## Teste schwache Referenzen in Electron
+## Testing weak references in Electron
 
-Es gibt keine Möglichkeit, schwache Referenzen in rohem JavaScript direkt zu testen, da die Sprache keine Möglichkeit hat, schwache Referenzen zuzuweisen. Die einzige API in JavaScript in Bezug auf schwache Referenzen ist [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), aber da es nur schwache Referenzschlüssel erzeugt, ist es unmöglich zu wissen, wann ein Objekt Müll gesammelt wurde.
+There is no way to directly test weak references in raw JavaScript since the language doesn't have a way to assign weak references. The only API in JavaScript related to weak references is [WeakMap][WeakMap], but since it only creates weak-reference keys, it is impossible to know when an object has been garbage collected.
 
-In Versionen von Electron vor v0.37.8 können Sie das interne `v8Util verwenden. etDestructor` API zum Testen schwacher Referenzen, die eine schwache Referenz zum übergebenen Objekt hinzufügt und den Rückruf aufruft, wenn das Objekt Müll sammelt:
+In versions of Electron prior to v0.37.8, you can use the internal `v8Util.setDestructor` API to test weak references, which adds a weak reference to the passed object and calls the callback when the object is garbage collected:
 
 ```javascript
-// Code unten kann nur auf Electron < v0.37.8 ausgeführt werden.
+// Code below can only run on Electron < v0.37.8.
 var v8Util = process.atomBinding('v8_util')
 
 var object = {}
-v8Util. etDestructor(object, function () {
-  console.log('Das Objekt ist Garbage gesammelt')
+v8Util.setDestructor(object, function () {
+  console.log('The object is garbage collected')
 })
 
-// Alle Verweise auf das Objekt entfernen.
-object = undefiniert
-// Manuell ein GC starten. gc()
-// Konsole druckt "Das Objekt ist Garbage gesammelt".
+// Remove all references to the object.
+object = undefined
+// Manually starts a GC.
+gc()
+// Console prints "The object is garbage collected".
 ```
 
-Beachten Sie, dass Sie Electron mit dem `--js-flags="--expose_gc"` Befehl starten müssen, um die interne `gc` Funktion auszublenden.
+Note that you have to start Electron with the `--js-flags="--expose_gc"` command switch to expose the internal `gc` function.
 
-Die API wurde in späteren Versionen entfernt, da V8 das Ausführen von JavaScript-Code im Destruktor nicht zulässt und dies in späteren Versionen zufällige Abstürze verursachen würde.
+The API was removed in later versions because V8 actually does not allow running JavaScript code in the destructor and in later versions doing so would cause random crashes.
 
-## Schwacher Referenzen im `Remote-` Modul
+## Weak references in the `remote` module
 
-Neben der Verwaltung nativer Ressourcen mit C++ benötigt Electron auch schwache Referenzen, um JavaScript-Ressourcen zu verwalten. An example is Electron's `remote` module, which is a [Remote Procedure Call](https://en.wikipedia.org/wiki/Remote_procedure_call) (RPC) module that allows using objects in the main process from renderer processes.
+Apart from managing native resources with C++, Electron also needs weak references to manage JavaScript resources. An example is Electron's `remote` module, which is a [Remote Procedure Call][remote-procedure-call] (RPC) module that allows using objects in the main process from renderer processes.
 
-Eine Schlüsselherausforderung des `Remote-` Moduls besteht darin, Speicherlecks zu vermeiden. Wenn Benutzer ein entferntes Objekt im Renderer-Prozess erhalten das Modul `remote` muss garantieren, dass das Objekt weiterhin im Hauptprozess lebt, bis die Referenzen im Renderer-Prozess verschwunden sind. Zusätzlich es muss auch sicherstellen, dass das Objekt abgeholt werden kann, wenn es in Renderer-Prozessen keine Referenz mehr gibt.
+One key challenge with the `remote` module is to avoid memory leaks. When users acquire a remote object in the renderer process, the `remote` module must guarantee the object continues to live in the main process until the references in the renderer process are gone. Additionally, it also has to make sure the object can be garbage collected when there are no longer any reference to it in renderer processes.
 
-Ohne eine ordnungsgemäße Implementierung würde der folgende Code zum Beispiel Speicherlecks schnell verursachen:
+For example, without proper implementation, following code would cause memory leaks quickly:
 
 ```javascript
 const {remote} = require('electron')
 
-für (let i = 0; i < 10000; ++i) {
+for (let i = 0; i < 10000; ++i) {
   remote.nativeImage.createEmpty()
 }
 ```
 
-Die Ressourcenverwaltung im `Remote-` Modul ist einfach. Wann immer ein Objekt angefordert wird, eine Nachricht wird an den Hauptprozess gesendet und Electron speichert das Objekt in einer Karte und weist ihm eine ID zu. dann senden Sie die ID zurück an den Prozess Renderer. Im Renderer-Prozess das `Remote-` Modul erhält die ID und wickelt sie mit einem Proxy-Objekt und wenn das Proxy-Objekt Müll ist gesammelt, eine Nachricht wird an den Hauptprozess gesendet, um das Objekt freizugeben.
+The resource management in the `remote` module is simple. Whenever an object is requested, a message is sent to the main process and Electron will store the object in a map and assign an ID for it, then send the ID back to the renderer process. In the renderer process, the `remote` module will receive the ID and wrap it with a proxy object and when the proxy object is garbage collected, a message will be sent to the main process to free the object.
 
-Unter Verwendung von `remote.require` API als Beispiel, sieht eine vereinfachte Implementierung wie folgt aus:
+Using `remote.require` API as an example, a simplified implementation looks like this:
 
 ```javascript
 remote.require = function (name) {
-  // Der Hauptprozess soll die Metadaten des Moduls zurückgeben.
+  // Tell the main process to return the metadata of the module.
   const meta = ipcRenderer.sendSync('REQUIRE', name)
-  // Proxy-Objekt erstellen.
+  // Create a proxy object.
   const object = metaToValue(meta)
-  // Erzählen Sie dem Hauptprozess, um das Objekt zu befreien, wenn das Proxy-Objekt Müll ist
-  // gesammelt.
+  // Tell the main process to free the object when the proxy object is garbage
+  // collected.
   v8Util.setDestructor(object, function () {
     ipcRenderer.send('FREE', meta.id)
   })
@@ -80,17 +81,17 @@ remote.require = function (name) {
 }
 ```
 
-Im Hauptprozess:
+In the main process:
 
 ```javascript
 const map = {}
 const id = 0
 
-ipcMain. n('REQUIRE', function (event name) {
+ipcMain.on('REQUIRE', function (event, name) {
   const object = require(name)
-  // Fügen Sie eine Referenz zum Objekt hinzu.
-  map[++id] = Objekt
-  // Objekt in Metadaten konvertieren.
+  // Add a reference to the object.
+  map[++id] = object
+  // Convert the object to metadata.
   event.returnValue = valueToMeta(id, object)
 })
 
@@ -99,35 +100,35 @@ ipcMain.on('FREE', function (event, id) {
 })
 ```
 
-## Karten mit schwachen Werten
+## Maps with weak values
 
-Mit der vorherigen einfachen Implementierung, jeder Aufruf im `Remote-` Modul wird ein neues entferntes Objekt vom Hauptprozess zurückgeben und jedes entfernte Objekt repräsentiert eine Referenz auf das Objekt im Hauptprozess.
+With the previous simple implementation, every call in the `remote` module will return a new remote object from the main process, and each remote object represents a reference to the object in the main process.
 
-Das Design selbst ist in Ordnung, aber das Problem ist, wenn es mehrere Anrufe an gibt, das gleiche Objekt zu erhalten, Es werden mehrere Proxy-Objekte erstellt und für komplizierte Objekte kann dies einen enormen Druck auf die Speicherauslastung und den Müll Sammlung verursachen.
+The design itself is fine, but the problem is when there are multiple calls to receive the same object, multiple proxy objects will be created and for complicated objects this can add huge pressure on memory usage and garbage collection.
 
-Zum Beispiel den folgenden Code:
+For example, the following code:
 
 ```javascript
 const {remote} = require('electron')
 
-für (let i = 0; i < 10000; ++i) {
+for (let i = 0; i < 10000; ++i) {
   remote.getCurrentWindow()
 }
 ```
 
-Zuerst wird viel Speicher verwendet, um Proxy-Objekte zu erstellen und dann die CPU (Central Processing Unit) für das Sammeln und Senden von IPC- Nachrichten belegt.
+It first uses a lot of memory creating proxy objects and then occupies the CPU (Central Processing Unit) for garbage collecting them and sending IPC messages.
 
-Eine offensichtliche Optimierung ist es, die entfernten Objekte zu cachen: Wenn es bereits ein entferntes Objekt mit der gleichen ID gibt, das vorherige entfernte Objekt wird zurückgegeben, anstatt ein neues zu erstellen.
+An obvious optimization is to cache the remote objects: when there is already a remote object with the same ID, the previous remote object will be returned instead of creating a new one.
 
-Dies ist mit der API im JavaScript-Kern nicht möglich. Wenn du die normale Karte benutzt, um Objekte zu zwischenspeichern verhindert, dass V8 Müll die Objekte sammelt, während die [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) Klasse Objekte nur als schwache Schlüssel verwenden kann.
+This is not possible with the API in JavaScript core. Using the normal map to cache objects will prevent V8 from garbage collecting the objects, while the [WeakMap][WeakMap] class can only use objects as weak keys.
 
-Um dies zu beheben, wird ein Kartentyp mit Werten als schwache Referenzen hinzugefügt, der perfekt für das Caching von Objekten mit IDs ist. Jetzt sieht die `Fernbedienung` aus wie dies:
+To solve this, a map type with values as weak references is added, which is perfect for caching objects with IDs. Now the `remote.require` looks like this:
 
 ```javascript
 const remoteObjectCache = v8Util.createIDWeakMap()
 
 remote.require = function (name) {
-  // Den Hauptprozess anweisen, die Metadaten des Moduls zurückzugeben.
+  // Tell the main process to return the meta data of the module.
   ...
   if (remoteObjectCache.has(meta.id))
     return remoteObjectCache.get(meta.id)
@@ -138,19 +139,23 @@ remote.require = function (name) {
 }
 ```
 
-Beachten Sie, dass der `remoteObjectCache` Objekte als schwache Referenzen speichert so dass es nicht nötig ist, den Schlüssel zu löschen, wenn das Objekt Müll gesammelt wird.
+Note that the `remoteObjectCache` stores objects as weak references, so there is no need to delete the key when the object is garbage collected.
 
-## Nativer Code
+## Native code
 
-Für Interessenten, die am C++-Code von schwachen Referenzen in Electron interessiert sind, kann er in folgenden Dateien gefunden werden:
+For people interested in the C++ code of weak references in Electron, it can be found in following files:
 
-Die `setDestructor` API:
+The `setDestructor` API:
 
 * [`object_life_monitor.cc`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/object_life_monitor.cc)
 * [`object_life_monitor.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/object_life_monitor.h)
 
-Die `createIDWeakMap` API:
+The `createIDWeakMap` API:
 
-* [`schlssel_schwach_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/key_weak_map.h)
+* [`key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/key_weak_map.h)
 * [`atom_api_key_weak_map.h`](https://github.com/electron/electron/blob/v1.3.4/atom/common/api/atom_api_key_weak_map.h)
+
+[window-disappearing]: https://electronjs.org/docs/faq/#my-apps-windowtray-disappeared-after-a-few-minutes
+[WeakMap]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+[remote-procedure-call]: https://en.wikipedia.org/wiki/Remote_procedure_call
 

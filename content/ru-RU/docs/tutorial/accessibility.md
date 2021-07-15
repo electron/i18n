@@ -1,6 +1,6 @@
 # Доступность
 
-Making accessible applications is important and we're happy to provide functionality to [Devtron][devtron] and [Spectron][spectron] that gives developers the opportunity to make their apps better for everyone.
+Создание доступных приложений важно и мы рады представить новые функции [Devtron][devtron] и [Spectron][spectron], которые дают разработчикам возможность делать свои приложения лучше для всех.
 
 ---
 
@@ -10,7 +10,7 @@ These features bring those auditing tools to your Electron app. You can choose t
 
 ## Spectron
 
-В тестируемом фреймворке Spectron теперь вы можете проверить каждое окно и `<webview>` тег в вашем приложении. Например:
+In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. Например:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -24,7 +24,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-В Devtron есть вкладка специальных возможностей, которая позволит вам проверить страницу в вашем приложении, сортировать и фильтровать результаты.
+In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
 
 ![devtron скриншот][4]
 
@@ -32,21 +32,21 @@ app.client.auditAccessibility().then(function (audit) {
 
 Если вы знаете другие средства для поверки доступности в Electron, добавите их в документацию через pull request.
 
-## Включение функций специальных возможностей вручную
+## Manually enabling accessibility features
 
-Приложение Electron автоматически включит функции специальных возможностей в наличии вспомогательной технологии (e. . [JAWS](https://www.freedomscientific.com/products/software/jaws/) на Windows или [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) на MacOS). See Chrome's [accessibility documentation][a11y-docs] for more details.
+Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). See Chrome's [accessibility documentation][a11y-docs] for more details.
 
-Вы также можете вручную переключить эти функции в вашем приложении Electron или установив флаги в стороннем родном программном обеспечении.
+You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
 
-### Использование Electron API
+### Using Electron's API
 
-By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Обратите внимание, что системные вспомогательные утилиты пользователя имеют приоритет над этим параметром и переопределит его.
+By using the [`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API, you can manually expose Chrome's accessibility tree to users in the application preferences. Note that the user's system assistive utilities have priority over this setting and will override it.
 
-### Внутри стороннего программного обеспечения
+### Within third-party software
 
 #### macOS
 
-В macOS, вспомогательная технология сторонних разработчиков может переключаться на специальные возможности внутри приложений Electron, установив программный атрибут `AXManualAccessibility` :
+On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

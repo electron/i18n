@@ -1,4 +1,4 @@
-# KeyboardInputEvent 对象继承`InputEvent`
+# KeyboardInputEvent Object extends `InputEvent`
 
-* `type` String - 事件类型，可以为`keyDown`, `keyUp` 或 `char`.
-* `keyCode` String - keyCode字符将被作为键盘事件发送 在[Accelerator](../accelerator.md)中只能使用有效的keyCode。
+* `type` String - The type of the event, can be `keyDown`, `keyUp` or `char`.
+* `keyCode` String - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](../accelerator.md).

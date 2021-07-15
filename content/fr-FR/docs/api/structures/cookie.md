@@ -1,12 +1,12 @@
-# Objet Cookie
+# Cookie Object
 
-* `name` String - Nom du cookie.
-* `value` String - La valeur du cookie.
-* `domain` String (facultatif) - Le nom de domaine du cookie; ce dernier sera normalisé par un point le précédent pour qu'il soit valide pour les sous-domaines.
-* hostOnly Boolean (optionel) - Si le cookie est un cookie réservé à l'hôte uniquement; cela ne sera ` vrai </ 0> que si aucun domaine n'a été transmis.</li>
-<li><code>path` String (facultatif) - Le chemin du cookie.
-* `secure` Boolean (optional) - Si le cookie est marqué comme étant sécurisé.
-* `httpOnly` Boolean (facultatif) - Si le cookie est marqué comme HTTP uniquement.
-* `session` Boolean (facultatif) - Si le cookie est un cookie de session ou un cookie persistant avec une date d'expiration.
-* `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Non fournie pour les cookies de session.
-* `sameSite` String - La politique de [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) s'applique à ce cookie.  Peut être `unspecified`, `no_restriction`, `lax` ou `strict`.
+* `name` String - The name of the cookie.
+* `value` String - The value of the cookie.
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
+* `path` String (optional) - The path of the cookie.
+* `secure` Boolean (optional) - Whether the cookie is marked as secure.
+* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
+* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
+* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `sameSite` String - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy applied to this cookie.  Can be `unspecified`, `no_restriction`, `lax` or `strict`.

@@ -22,8 +22,8 @@ menu.append(new MenuItem({
   label: 'Electron',
   submenu: [{
     role: 'help',
-    accelerator: process.platform === 'darwin' ? "Alt+Cmd+I"："Alt+Shift+I"，
-    单击：（）=> {控制台.log（"电子岩石！"） }
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
+    click: () => { console.log('Electron rocks!') }
   }]
 }))
 
