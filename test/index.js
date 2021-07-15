@@ -97,6 +97,7 @@ describe('i18n.website', () => {
 
   it('contains localized strings', () => {
     i18n.website['en-US'].tagline.should.contain('desktop apps')
+    console.log("GHOSTS ARE HEERE", i18n.website['ru-RU'])
     i18n.website['ru-RU'].tagline.should.contain(
       'кросс-платформенные приложения'
     )
@@ -214,7 +215,7 @@ describe('API Structures', () => {
 
   it('sets expected crowdinFileId', () => {
     const doc = i18n.docs['fr-FR']['/docs/api/structures/gpu-feature-status']
-    doc.crowdinFileId.should.equal('250646')
+    doc.crowdinFileId.should.equal('255810')
   })
 })
 
