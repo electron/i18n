@@ -14,12 +14,12 @@ The `filter` object has a `urls` property which is an Array of URL patterns that
 
 For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
 
-An example of adding `User-Agent` header for requests:
+Ein Beispiel zum hinzufügen von `User-Agent` Headern für Requests:
 
 ```javascript
 const { session } = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// Modifiziert den user agent für alle requests zu den folgenden Urls.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -27,17 +27,17 @@ const filter = {
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
   callback({ requestHeaders: details.requestHeaders })
-})
+}){ requestHeaders: details.requestHeaders }
 ```
 
 ### Beispiel Methoden
 
-The following methods are available on instances of `WebRequest`:
+Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer
@@ -51,15 +51,15 @@ The following methods are available on instances of `WebRequest`:
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `response` Object
+    * `response` Objekt
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
 
-The `uploadData` is an array of `UploadData` objects.
+`uploadData` ist ein Array mit `UploadData` Objekten.
 
-The `callback` has to be called with an `response` object.
+Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
 Some examples of valid `urls`:
 
@@ -79,7 +79,7 @@ Some examples of valid `urls`:
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer
@@ -93,7 +93,7 @@ Some examples of valid `urls`:
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
   * `callback` Function
-    * `beforeSendResponse` Object
+    * `beforeSendResponse` Objekt
       * `cancel` Boolean (optional)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -104,7 +104,7 @@ The `callback` has to be called with a `response` object.
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer
@@ -123,7 +123,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer
@@ -137,10 +137,9 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function
-    * `headersReceivedResponse` Object
+    * `headersReceivedResponse` Objekt
       * `cancel` Boolean (optional)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
@@ -152,7 +151,7 @@ The `callback` has to be called with a `response` object.
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer
@@ -174,7 +173,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer
@@ -189,7 +188,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `redirectURL` String
     * `statusCode` Integer
     * `statusLine` String
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (optional) - Die Server IP Adresse an den der Request ursprünglich gesendet wurde.
     * `fromCache` Boolean
     * `responseHeaders` Record<string, string[]> (optional)
 
@@ -198,7 +197,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer
@@ -214,14 +213,14 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
-    * `error` String
+    * `error` Zeichenkette
 
 The `listener` will be called with `listener(details)` when a request is completed.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (optional)
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Function | null
   * `details` Objekt
     * `id` Integer

@@ -1,6 +1,6 @@
 # Тег `<webview>`
 
-## Warning
+## Предупреждение
 
 Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, [Electron's `BrowserView`](browser-view.md), or an architecture that avoids embedded content altogether.
 
@@ -110,7 +110,7 @@ A `Boolean`. When this attribute is `false` the guest page in `webview` will not
 
 A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
-### `preload`
+### `предварительная загрузка`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -153,7 +153,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. если нет `persist:` префикса, страница будет использовать сеанс в памяти. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -541,7 +541,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - фактор увилечения.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
@@ -622,6 +622,10 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
+### Event: 'did-attach'
+
+Fired when attached to the embedder web contents.
+
 ### Событие: 'dom-ready'
 
 Fired when document in the given frame is loaded.
@@ -694,7 +698,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Событие: 'new-window'
 
 Возвращает:
 
@@ -796,7 +800,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Событие: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -825,7 +829,7 @@ Emitted when media is paused or done playing.
 
 Возвращает:
 
-* `themeColor` String
+* Строка `themeColor`
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 

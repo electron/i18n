@@ -164,7 +164,7 @@ Après avoir démarré votre application electron, vous pouvez maintenant saisir
     can leave it empty.
 -->
 
-```fiddle docs/fiddles/system/protocol-handler/launch-app-from-url-in-another-app
+```fiddle docs/fiddles/system/protocol-handler/launch-app-from-URL-in-another-app
 
 ```
 
