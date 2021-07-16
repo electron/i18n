@@ -622,9 +622,9 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-attach'
+### Événement : 'did-navigate'
 
-Fired when attached to the embedder web contents.
+Déclenché lors de l'attachement au contenu Web de l'élément l'intégrant.
 
 ### Événement : 'dom-ready'
 
