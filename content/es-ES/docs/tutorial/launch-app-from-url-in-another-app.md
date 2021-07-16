@@ -164,7 +164,7 @@ After you start your electron app, you can now enter in a URL in your browser th
     can leave it empty.
 -->
 
-```fiddle docs/fiddles/system/protocol-handler/launch-app-from-url-in-another-app
+```fiddle docs/fiddles/system/protocol-handler/launch-app-from-URL-in-another-app
 
 ```
 

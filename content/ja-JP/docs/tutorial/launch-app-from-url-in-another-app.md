@@ -163,7 +163,7 @@ Electron アプリを起動した後、ブラウザにカスタムプロトコ�
     can leave it empty.
 -->
 
-```fiddle docs/fiddles/system/protocol-handler/launch-app-from-url-in-another-app
+```fiddle docs/fiddles/system/protocol-handler/launch-app-from-URL-in-another-app
 
 ```
 
