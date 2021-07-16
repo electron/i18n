@@ -1,6 +1,6 @@
 # `<webview>` Tag
 
-## Warning
+## Warnung
 
 Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, [Electron's `BrowserView`](browser-view.md), or an architecture that avoids embedded content altogether.
 
@@ -102,7 +102,7 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 
 A `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
 
-### `plugins`
+### `plug-ins`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -542,7 +542,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Zoom faktor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
@@ -622,6 +622,10 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 ### Event: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
+
+### Event: 'did-attach'
+
+Fired when attached to the embedder web contents.
 
 ### Event: 'dom-ready'
 
@@ -833,7 +837,7 @@ Emitted when media is paused or done playing.
 
 Kehrt zurück:
 
-* `themeColor` String
+* `themeColor` Zeichenkette
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
