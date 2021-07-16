@@ -622,9 +622,9 @@ webview.addEventListener('dom-ready', () => {
 
 タブのくるくるが止まるタイミングに対応しています。
 
-### Event: 'did-attach'
+### イベント: 'did-attach'
 
-Fired when attached to the embedder web contents.
+埋め込みウェブコンテンツにアタッチされたときに発生します。
 
 ### イベント: 'dom-ready'
 
