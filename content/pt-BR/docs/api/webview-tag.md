@@ -1,6 +1,6 @@
 # `<webview>` Tag
 
-## Warning
+## Atenção
 
 Electron's `webview` tag is based on [Chromium's `webview`][chrome-webview], which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, [Electron's `BrowserView`](browser-view.md), or an architecture that avoids embedded content altogether.
 
@@ -464,7 +464,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Padrão é `true`.
-  * `margins` Object (optional)
+  * Objeto `margins` (opcional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -478,7 +478,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `pageRanges` Object[] (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Index of the last page to print (inclusive) (0-based).
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Pode ser `simplex`, `shortEdge` ou `longEdge`.
   * `dpi` Record<string, number> (optional)
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
@@ -570,7 +570,7 @@ Retorna `Promise<void>`
 
 Sets the maximum and minimum pinch-to-zoom level.
 
-### `<webview>.showDefinitionForSelection()` _macOS_
+### `<webview>.showDefinitionForSelection()` no _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
@@ -621,6 +621,10 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 ### Event: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
+
+### Event: 'did-attach'
+
+Fired when attached to the embedder web contents.
 
 ### Event: 'dom-ready'
 
@@ -694,7 +698,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Evento: 'new-window'
 
 Retorna:
 
