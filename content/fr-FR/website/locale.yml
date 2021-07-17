@@ -50,7 +50,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Démarrez</b></a> à construire une application en lisant le <a href='/docs/tutorial/first-app'>tutoriel d'introduction</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Tenez vous au courant des dernières actualités</b></a> en suivant <a href='https://twitter.com/electronjs'>@electronjs</a> sur Twitter et en souscrivant <a href='/blog'>au fil d'actualité du blog</a>."
     localized_docs: "<a href='/languages'><b>Lisez la documentation dans votre langue maternelle</b></a> en visitant la <a href='/languages'>page des langues</a>."
-    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>Vous pouvez obtenir de l'aide et des commentaires</b> en rejoignant le <a href='https://discord.gg/electron'>serveur Discord</a> ou en allant sur <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Signalez des problèmes de sécurités</b></a> par mail à l'adresse <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Signalez un bug</b></a> en ouvrant une issue sur le repertoire git <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Demandez des fonctionalités</b></a> en ouvrant une issue sur le repertoire git <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -123,7 +123,7 @@ quick_start:
   dive_deeper: Ou allez plus loin en lisant la <a href='/docs'>documentation</a>.
 need_help:
   title: Besoin d'aide ?
-  description: Ask questions in the <a href='https://discord.gg/electron'>Discord server</a>. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Posez des questions sur le <a href='https://discord.gg/electron'>serveur Discord</a>. Suivez <a href="https://twitter.com/electronjs">@electronjs</a> sur Twitter les annonces importantes. Sinon pour un contact plus privé par e-mail à <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Langues
 taglines:
