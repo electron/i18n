@@ -624,7 +624,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### イベント: 'did-attach'
 
-埋め込みウェブコンテンツにアタッチされたときに発生します。
+埋め込みWebコンテンツに添付したときに発行されます。
 
 ### イベント: 'dom-ready'
 

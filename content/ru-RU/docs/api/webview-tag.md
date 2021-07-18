@@ -622,7 +622,7 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-attach'
+### Событие: 'did-attach'
 
 Fired when attached to the embedder web contents.
 
