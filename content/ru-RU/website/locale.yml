@@ -50,7 +50,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Начните</b></a> создание приложения с прочтения <a href='/docs/tutorial/first-app'>инструкции по началу работы</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсе</b></a>, отслеживая <a href='https://twitter.com/electronjs'>@electronjs</a> на Twitter и подписавшись на <a href='/blog'>блог</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацию на родном языке</b></a> посетив <a href='/languages'>языковую страницу</a>."
-    help: "<b>Get help and feedback</b> by joining the <a href='https://discord.gg/electron'>Discord server</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<b>Получите помощь и обратную связь</b>, присоединившись к <a href='https://discord.gg/electron'>серверу Discord</a> или посетив <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Сообщите о проблемах безопасности</b></a> по электронной почте <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Сообщайте об ошибках,</b></a> открывая вопросы в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозитории."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Предлагайте идеи,</b></a> открывая вопросы в репозитории <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -123,7 +123,7 @@ quick_start:
   dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
 need_help:
   title: Нужна помощь?
-  description: Ask questions in the <a href='https://discord.gg/electron'>Discord server</a>. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Задавайте вопросы в<a href='https://discord.gg/electron'>Discord server</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter. Если Вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Языки
 taglines:
