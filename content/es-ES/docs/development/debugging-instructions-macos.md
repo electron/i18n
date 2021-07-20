@@ -21,7 +21,7 @@ Para empezar una sesión de depuración, abra el terminal e inicie `lldb`, pasan
 ```sh
 $ lldb ./out/Testing/Electron.app
 (lldb) target create "./out/Testing/Electron.app"
-Ejecutable actual establecido en './out/Testing/Electron.app' (x86_64).
+Current executable set to './out/Testing/Electron.app' (x86_64).
 ```
 
 ### Establecer puntos de interrupción
