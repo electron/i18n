@@ -108,7 +108,7 @@ Emitted when an error is encountered while creating and showing the native notif
 
 即时向用户展示 notification ，请注意这意味着与HTML5的 Notification 的实现不同，实例化一个`new Notification` 不会立刻向用户展示， 你需要在系统将要显示它之前调用这个方法
 
-如果 notification 已展示过，此方法将忽略以前显示的 notification，并创建具有相同属性的新通知
+如果以前已显示通知, 则此方法将忽略以前显示的通知，并创建具有相同属性的新通知
 
 #### `notification.close()`
 
