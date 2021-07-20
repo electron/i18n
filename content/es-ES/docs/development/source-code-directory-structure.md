@@ -1,4 +1,4 @@
-# Estructura de directorios del código fuente
+# Estructura del directorio de código fuente
 
 El código fuente de Electron está separado en unas pocas partes, la mayoría siguiendo a Chromium en las convenciones de separación.
 
@@ -50,8 +50,9 @@ Electron
 |   └── v8/ - Parches aplicados encima del motor V8 de Google.
 ├── shell/ - Código fuente C++.
 |   ├── app/ - System entry code.
-|   ├── browser/ - El frontend incluyendo la ventana principal, la interfaz de usuario y todo lo relacionado al
-|   |   |          proceso main. Esto habla con el renderizador para manejar páginas web.
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
 |   |   |   ├── cocoa/ - Cocoa specific source code.
 |   |   |   ├── win/ - Windows GUI specific source code.
@@ -67,7 +68,7 @@ Electron
 |       └── api/ - La implementación de las APIs comunes y las bases de los módulos integrados de Electron.
 ├── spec/ - Componentes de la suite de pruebas de Electron se ejecutan en el proceso de renderizado.
 ├── spec-main/ - Componentes de la suite de pruebas de Electron se ejecutan en el proceso main.
-└── BUILD.gn - Reglas de construcción de Electron.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## Estructura de otros directorios
