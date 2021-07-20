@@ -77,7 +77,7 @@ app.whenReady().then(() => {
 
 tray アイコンがクリックされたときに発行されます。
 
-#### Event: 'right-click' _macOS_ _Windows_
+#### イベント: 'right-click' _macOS_ _Windows_
 
 戻り値：
 
