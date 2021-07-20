@@ -27,7 +27,7 @@ Si planeas hacer checkout de Electron más de una vez (por ejemplo, para tener m
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# Esto usará alrededor de 16G.
 ```
 
 ## Obteniendo el código
@@ -64,7 +64,7 @@ $ git pull
 $ gclient sync -f
 ```
 
-## Construcción
+## Compilando
 
 ```sh
 $ cd src
