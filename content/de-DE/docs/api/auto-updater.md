@@ -32,12 +32,12 @@ Unter Windows muss die App zuerst auf dem Gerät des Benutzers installiert werde
 
 Bei der Benutzung von [electron-winstaller][installer-lib] oder [electron-forge][electron-forge-lib] ist zu Beachten, dass die App nicht versucht, sich selbst zu update, wenn sie [zum Ersten mal ausgeführt wird](https://github.com/electron/windows-installer#handling-squirrel-events) (Weitere Informationen in diesem [issue](https://github.com/electron/electron/issues/7155)). Es wird auch empfohlen,  electron-squirrel-startup </ 0> zu verwenden, um Desktop-Verknüpfungen für Ihre App zu erhalten.</p> 
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. Sie müssen dieselbe ID für Ihre App mit der ` app.setAppUserModelId </ 0>  API verwenden , da Windows sonst Ihre App nicht ordnungsgemäß in der Taskleiste anheften kann .</p>
+Der Squirrel-Installer wird eine Desktop-Verknüpfung erstellen mit der [Application User Model ID][app-user-model-id] im Format `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, zum Beispiel: `com.squirrel.slack.Slack` oder `com.squirrel.code.Code`. Sie müssen dieselbe ID für Ihre App mit der ` app.setAppUserModelId </ 0>  API verwenden , da Windows sonst Ihre App nicht ordnungsgemäß in der Taskleiste anheften kann .</p>
 
 <p spaces-before="0">Im Gegensatz zu Squirrel.Mac kann Windows Updates auf S3 oder einem anderen statischen Dateihost hosten.
 Weitere Informationen können in der Dokumentation von <a href="https://github.com/Squirrel/Squirrel.Windows" f-id="squirrel-windows" fo="3">Squirrel.Windows</a> gefunden werden.</p>
 
-<h2 spaces-before="0">Events</h2>
+<h2 spaces-before="0">Ereignisse</h2>
 
 <p spaces-before="0">Das <code> autoUpdater </ 0> -Objekt gibt die folgenden Ereignisse aus:</p>
 
@@ -86,7 +86,7 @@ automatisch heruntergeladen.</p>
 <h3 spaces-before="0">Ereignis: 'before-quit-for-update'</h3>
 
 <p spaces-before="0">Dieses Event wird ausgelöst, wenn die Funktion <code>quitAndInstall()` aufgerufen wird.</p> 
-  When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+  Das `before-quit` Event wird erst ausgelöst nachdem alle Fenster geschlossen sind. Daher sollten Sie Aktionen, die Sie vor dem Beenden Ihrer Anwendung ausführen möchten, sowohl in diesem Event als auch im `before-quit` Event einbauen.
   
   
 
@@ -99,7 +99,7 @@ Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 * `options` Objekt 
     * ` URL </ 0>  Zeichenfolge</li>
 <li><code>headers` Record<String, String> (optional) _macOS_ - HTTP-Anfrage-Header.
-  * `serverType` String (optional) _macOS_ - Can be `json` or `default`, see the [Squirrel.Mac][squirrel-mac] README for more information.
+  * `serverType` String (optional) _macOS_ - Kann `json` oder `default` sein, siehe dazu [Squirrel.Mac][squirrel-mac] README für weitere informationen.
 
 Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>
 
