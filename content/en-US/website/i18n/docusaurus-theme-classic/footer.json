@@ -15,14 +15,6 @@
     "message": "Getting Started",
     "description": "The label of footer link with label=Getting Started linking to /"
   },
-  "link.item.label.Performance": {
-    "message": "Performance",
-    "description": "The label of footer link with label=Performance linking to /performance/"
-  },
-  "link.item.label.Security": {
-    "message": "Security",
-    "description": "The label of footer link with label=Security linking to /security/"
-  },
   "link.item.label.Stack Overflow": {
     "message": "Stack Overflow",
     "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/electron"
