@@ -362,7 +362,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 返回:
 
 * `event` Event
-* `name` 字符串
+* `name` String
 * `version` String
 
 当有插件进程崩溃时触发
