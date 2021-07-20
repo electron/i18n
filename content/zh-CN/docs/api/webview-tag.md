@@ -698,7 +698,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### 事件: 'new-window'
+### Event: 'new-window'
 
 返回:
 
@@ -800,7 +800,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### 事件: 'crashed'
+### Event: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -808,7 +808,7 @@ Fired when the renderer process is crashed.
 
 返回:
 
-* `name` 字符串
+* `name` String
 * `version` String
 
 Fired when a plugin process is crashed.
