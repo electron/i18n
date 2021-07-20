@@ -4,7 +4,7 @@
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Есть вопросы, которые довольно часто задаваются. Проверьте это перед созданием проблемы:
 
 * [FAQ по Electron](faq.md)
 
@@ -14,9 +14,9 @@ There are questions that are asked quite often. Check this out before creating a
 
 * [Введение](tutorial/introduction.md)
 * [Руководство для начинающих](tutorial/quick-start.md)
-* [Process Model](tutorial/process-model.md)
+* [Моделирование процесса](tutorial/process-model.md)
 
-### Learning the basics
+### Изучите основы
 
 * Добавление функционала в Ваше приложение
   * [Notification (Оповещения)](tutorial/notifications.md)
@@ -30,7 +30,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Представленный файл для macOS BrowserWindows](tutorial/represented-file.md)
   * [Нативное перемещение файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
-  * [Dark Mode](tutorial/dark-mode.md)
+  * [Темный режим](tutorial/dark-mode.md)
   * [Встраивание веб в Electron](tutorial/web-embeds.md)
 * [Макеты и CLI](tutorial/boilerplates-and-clis.md)
   * [Макеты против CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -45,9 +45,9 @@ There are questions that are asked quite often. Check this out before creating a
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
   * [Performance Strategies](tutorial/performance.md)
   * [Стратегии безопасности](tutorial/security.md)
-  * [Process Sandboxing](tutorial/sandbox.md)
+  * [Dima@mail.ru ](tutorial/sandbox.md)
 * [Доступность](tutorial/accessibility.md)
-  * [Manually Enabling Accessibility Features](tutorial/accessibility.md#manually-enabling-accessibility-features)
+  * [Включение функций специальных возможностей вручную](tutorial/accessibility.md#manually-enabling-accessibility-features)
 * [Тестирование и отладка](tutorial/application-debugging.md)
   * [Отладка главного процесса](tutorial/debugging-main-process.md)
   * [Отладка с кодом Visual Studio](tutorial/debugging-vscode.md)
