@@ -4,8 +4,8 @@
 
 * [行为准则](https://github.com/electron/electron/blob/master/CODE_OF_CONDUCT.md)
 * [贡献到 Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
-* [议题](issues.md)
-* [拉取请求](pull-requests.md)
+* [问题](issues.md)
+* [合并请求](pull-requests.md)
 * [文档风格指南](coding-style.md#documentation)
 * [源码目录结构](source-code-directory-structure.md)
 * [编码风格](coding-style.md)
