@@ -1,12 +1,12 @@
 # ヘッドレスCIシステムでのテスト (Travis CI, Jenkins)
 
-Chromium ベースであるが故に、 Electron の動作にはディスプレイドライバが必要です。 もし Chromium がディスプレイドライバを見つけられない場合、Electron は起動に失敗します。そのため、実行方法に関わらずテストを実行できません。 Travis、Circle、Jenkins などのシステムで Electron ベースのアプリをテストするには、ちょっとした設定が必要です。 要するに、仮想ディスプレイドライバを使う必要があります。
+Chromium ベースであるが故に、 Electron の動作にはディスプレイドライバが必要です。 もし、Chromiumがディスプレイドライバを見つけられない場合、Electronは起動に失敗します。そのため、あなたがどのように実行するかに関わらず、あなたのテストは実行できません。 Travis、Circle、Jenkins などのシステムで Electron ベースのアプリをテストするには、ちょっとした設定が必要です。 要するに、仮想ディスプレイドライバを使う必要があります。
 
 ## 仮想ディスプレイの構成
 
 まず、[Xvfb](https://en.wikipedia.org/wiki/Xvfb) をインストールします。 これは仮想フレームバッファで、X11 ディスプレイサーバプロトコルを実装しています。このフレームバッファは、画面出力を行うことなくメモリ内ですべてのグラフィック操作を行います。
 
-それから、仮想 Xvfb スクリーンを作成し、DISPLAY 環境変数でそれを指定します。 Electron の Chromium は自動的に `$DISPLAY` を探してくれるので、アプリの設定は特に必要ありません。 このステップは、Anaïs Betts 氏の [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe) で自動化できます。テストコマンドに `xvfb-maybe` を加えると、この小さなツールは必要な場合に自動で Xvfb を設定します。 Windows や macOS では何もしません。
+それから、仮想 Xvfb スクリーンを作成し、DISPLAY 環境変数でそれを指定します。 Electron の Chromium は自動的に `$DISPLAY` を探してくれるので、アプリの設定は特に必要ありません。 このステップは、Anaïs Betts 氏の [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe) で自動化できます。テストコマンドに `xvfb-maybe` を加えると、この小さなツールは必要な場合に自動で Xvfb を設定します。 Windows や macOSでは何もしません。
 
 ```sh
 ## Windows や macOS はelectron-mochaを起動します。
