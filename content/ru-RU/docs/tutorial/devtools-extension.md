@@ -43,7 +43,7 @@ Using the [React Developer Tools][react-devtools] as an example:
    ```
 </ol>
 
-**Замечания:**
+**Примечания:**
 
 * `loadExtension` returns a Promise with an [Extension object][extension-structure], which contains metadata about the extension that was loaded. This promise needs to resolve (e.g. with an `await` expression) before loading a page. Otherwise, the extension won't be guaranteed to load.
 * `loadExtension` cannot be called before the `ready` event of the `app` module is emitted, nor can it be called on in-memory (non-persistent) sessions.
