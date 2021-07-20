@@ -35,7 +35,7 @@ Volver `WebContents` - El contenido web que se centra en esta aplicación, de lo
 
 ### `webContents.fromId(id)`
 
-* `id` Integer
+* `id` Íntegro
 
 Devuelve `WebContents` | undefined - Una instancia de WebContents con el ID dado, o `undefined` si no hay WebContents asociados con ID dado.
 
@@ -112,7 +112,7 @@ Devuelve:
 
 * `event`
 * `title` String
-* `explicitSet` Boolean
+* `explicitSet` Boolen
 
 Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
 
@@ -978,7 +978,7 @@ contents.on('did-finish-load', () => {
 
 #### `contents.removeInsertedCSS(key)`
 
-* `key` String
+* `llave` Cadena
 
 Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
@@ -1087,7 +1087,7 @@ Devuelve `Number` - el nivel de zoom actual.
 
 Devuelve `Promise<void>`
 
-Establece el nivel de máximo y mínimo de acercar y alejar.
+Establecer el nivel de máximo y mínimo pizca de zoom.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
@@ -1156,7 +1156,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 Devuelve `Promise<void>`
 
-Inserta `text` al elemento enfocado.
+Inserta `texto` en el elemento enfocado.
 
 #### `contents.findInPage(text[, options])`
 
@@ -1284,15 +1284,15 @@ win.webContents.print(options, (success, errorType) => {
   * `headerFooter` Record<string, string> (opcional) - el encabezado y el pie de página para el PDF.
     * `title` String - El título para el encabezado PDF.
     * `url` String - la url para el pie de página PDF.
-  * `landscape` Boolean (opcional) - `true` para landscape, `false` para portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Puede variar entre 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la pagina PDF generada. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean (opcional) - Si va a imprimir los fondos CSS.
-  * `printSelectionOnly` Boolean (opcional) - Si se va a imprimir solo la selección.
+  * `pageSize` String | Size (opcional) - Especifica el tamaño de la página del PDF generado. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (octional) - Si se va a imprimir los fondos CSS.
+  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
@@ -1578,7 +1578,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
+* Objeto `parameters`
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - El tipo de la pantalla de escritorio.
     * `mobile` - El tipo de la pantalla móvil.
@@ -1619,7 +1619,7 @@ Finalizar suscripción para eventos de presentación de marcos.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
+* Objeto `item`
   * `file` String[] | String - La ruta(s) al arhivo(s) siendo arrastrado.
   * `icon` [NativeImage](native-image.md) | String - La imagen no debe estar vacía en on macOS.
 
