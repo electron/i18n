@@ -35,7 +35,7 @@ Disconnects the port, so it is no longer active.
 
 Devuelve:
 
-* Objeto `messageEvent`
+* `messageEvent` Object
   * `data` any
   * `ports` MessagePortMain[]
 
