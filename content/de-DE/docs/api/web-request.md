@@ -51,7 +51,7 @@ Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function
-    * `response` Objekt
+    * `response` Object
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
@@ -93,7 +93,7 @@ Some examples of valid `urls`:
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
   * `callback` Function
-    * `beforeSendResponse` Objekt
+    * `beforeSendResponse` Object
       * `cancel` Boolean (optional)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -139,7 +139,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `statusCode` Integer
     * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function
-    * `headersReceivedResponse` Objekt
+    * `headersReceivedResponse` Object
       * `cancel` Boolean (optional)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
@@ -213,7 +213,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
-    * `error` Zeichenkette
+    * `error` String
 
 The `listener` will be called with `listener(details)` when a request is completed.
 
