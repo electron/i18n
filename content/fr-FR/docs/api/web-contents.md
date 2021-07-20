@@ -77,7 +77,7 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Cet événement est comme `did-fail-load` mais émis lorsque la chargement a été annulé (par exemple lorsque `window.stop()` a été invoqué).
+Cet événement est comme `did-fail-load` mais émis lorsque la charge a été annulée (par exemple `window.stop()` a été appelé).
 
 #### Événement : 'did-frame-finish-load'
 
@@ -135,7 +135,7 @@ Retourne :
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
 * `options` BrowserWindowConstructorOptions - Les options qui seront utilisées pour créer le nouveau [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Les fonctionnalités non standards (fonctionnalités non gérés par Chromium ou Electron) donné à `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - Le référant transmis à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
+* `referrer` [Referrer](structures/referrer.md) - Le parrain qui sera passé à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
 * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
 
 Obsolète, utiliser [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) à la place.
@@ -144,7 +144,7 @@ Emitted when the page requests to open a new window for a `url`. It could be req
 
 Un nouveau `BrowserWindow` sera créé par défaut pour l'`url`.
 
-Appeler `event.preventDefault()` empêchera Electron de créer automatiquement une nouvelle [`BrowserWindow`](browser-window.md). Si vous appelez `event.preventDefault()` et créez manuellement un nouveau [`BrowserWindow`](browser-window.md) alors vous devez définir `événement. ewGuest` pour référencer la nouvelle instance [`BrowserWindow`](browser-window.md) . Si vous ne le faites pas, cela peut entraîner un comportement inattendu. Par exemple :
+L'appel à `event.preventDefault()` empêchera Electron de créer automatiquement une nouvelle [`BrowserWindow`](browser-window.md). Si vous appelez `event.preventDefault()` et créez manuellement un nouveau [`BrowserWindow`](browser-window.md) alors vous devez définir `événement. ewGuest` pour référencer la nouvelle instance [`BrowserWindow`](browser-window.md) . Si vous ne le faites pas, cela peut entraîner un comportement inattendu. Par exemple :
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
@@ -180,7 +180,7 @@ Retourne :
   * `frameName` String - Name given to the created window in the `window.open()` call.
   * `options` BrowserWindowConstructorOptions - The options used to create the BrowserWindow. They are merged in increasing precedence: options inherited from the parent, parsed options from the `features` string from `window.open()`, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Unrecognized options are not filtered out.
   * `additionalFeatures` String[] - The non-standard features (features not handled Chromium or Electron) _Deprecated_
-  * `referrer` [Referrer](structures/referrer.md) - Le référant transmis à la nouvelle fenêtre. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+  * `referrer` [Referrer](structures/referrer.md) - Le parrain qui sera passé à la nouvelle fenêtre. May or may not result in the `Referer` header being sent, depending on the referrer policy.
   * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
   * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 
@@ -1035,7 +1035,7 @@ Ignore application menu shortcuts while this web contents is focused.
     * `Nommarge`Fiche-Nom de fenetre fourni a `window.open=fenetre.ouverte()`
     * `traits`Fiche-Une liste de traits de fenetre separee par comas, a ete fournie a`window.open()`.
     * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` or `other`.
-    * `referrer` [Referrer](structures/referrer.md) - Le référant transmis à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
+    * `referrer` [Referrer](structures/referrer.md) - Le parrain qui sera passé à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
     * `postBody` [PostBody](structures/post-body.md) (optional) - The post data that will be sent to the new window, along with the appropriate headers that will be set. If no post data is to be sent, the value will be `null`. Only defined when the window is being created by a form that set `target=_blank`.
 
   Va donner `{action: 'deny'} | {action: 'permettre', surpasserOptionsduNavigateurFenetreBrowser?: OptionsConstructeurNavigateursFenetre}`- - `refuser` va supprimer la creation dans la fenetre nouvelle. `permettre`va permettre la creation d'une fenetre nouvelle. Specifying `overrideBrowserWindowOptions` allows customization of the created window. Returning an unrecognized value such as a null, undefined, or an object without a recognized 'action' value will result in a console error and have the same effect as returning `{action: 'deny'}`.
@@ -1230,7 +1230,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `silent` Boolean (optional) - Don't ask user for print settings. Par défaut la valeur est `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Par défaut la valeur est `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. La valeur par défaut est `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. La valeur par défaut est `vraie`.
   * `margins` Object (facultatif)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -1536,7 +1536,7 @@ Send an asynchronous message to a specific frame in a renderer process via `chan
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  E.g.
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value.  Exemple :
 
 ```js
 // In a renderer process
