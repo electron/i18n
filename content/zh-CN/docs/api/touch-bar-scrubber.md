@@ -12,10 +12,10 @@
     * `selectedIndex` Integer - 用户选中项排序。
   * `highlight` Function (optional) - Called when the user taps any item.
     * highlightedIndex Integer - 用户选中项排序.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. 默认值为 `none`。
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. 默认值为 `none`。
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. 默认值为：`none`。
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. 默认值为：`none`。
   * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (可选) - 可以是 `fixed` 或 `free`。 默认值为 `free`.
+  * `mode` String (可选) - 可以是 `fixed` 或 `free`。 默认值为`free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### 实例属性
