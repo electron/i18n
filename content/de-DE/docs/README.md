@@ -14,9 +14,9 @@ Es gibt sehr häufig gestellte Fragen. Prüfe das bitte vor dem Erstellen eines 
 
 * [Einführung](tutorial/introduction.md)
 * [Schnellstart](tutorial/quick-start.md)
-* [Process Model](tutorial/process-model.md)
+* [Prozessmodell](tutorial/process-model.md)
 
-### Learning the basics
+### ไทย
 
 * Features zu deiner App hinzufügen
   * [Benachrichtigungen](tutorial/notifications.md)
