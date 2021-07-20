@@ -209,15 +209,15 @@ Si su servidor de gestión de fallos no soporta cargas comprimidas, puedes desac
 El módulo `remote` está obsoleto en Electron 12 y sera eliminado en Electron 14. Es reemplazado por el módulo [`@electron/remote`](https://github.com/electron/remote).
 
 ```js
-// Deprecated in Electron 12:
+// Obsoleto en Electron 12:
 const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// Replace with:
+// Reemplazar con:
 const { BrowserWindow } = require('@electron/remote')
 
-// In the main process:
+// En el proceso principal:
 require('@electron/remote/main').initialize()
 ```
 
