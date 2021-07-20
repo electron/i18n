@@ -6,14 +6,14 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new TouchBarButton(options)`
 
-* Objeto `options`
+* `options` Object
   * `label` String (optional) - Button text.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. O padrão é `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
-  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Padrão é `true`.
+  * `enabled` Boolean (optional) - Whether the button is in an enabled state.  Por padrão é `true`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
