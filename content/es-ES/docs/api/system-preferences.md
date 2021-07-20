@@ -58,7 +58,7 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 
 ### `systemPreferences.postNotification(event, userInfo)` _macOS_
 
-* `event` String
+* `evento` Cadena
 * Registro `userInfo`<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
@@ -66,23 +66,23 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
-* `event` String
+* `evento` Cadena
 * Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` _macOS_
 
-* `event` String
+* `evento` Cadena
 * Registro `userInfo`<String, any>
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
-* `event` String
+* `evento` Cadena
 * `callback` Función
-  * `event` String
+  * `evento` Cadena
   * Registro `userInfo`<String, unknown>
   * String `object`
 
@@ -101,9 +101,9 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
-* `event` String
+* `evento` Cadena
 * `callback` Función
-  * `event` String
+  * `evento` Cadena
   * Registro `userInfo`<String, unknown>
   * String `object`
 
@@ -113,9 +113,9 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` _macOS_
 
-* `event` String
+* `evento` Cadena
 * `callback` Función
-  * `event` String
+  * `evento` Cadena
   * Registro `userInfo`<String, unknown>
   * String `object`
 
@@ -125,19 +125,19 @@ Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.not
 
 ### `systemPreferences.unsubscribeNotification(id)` _macOS_
 
-* `id` Integer
+* `id` Íntegro
 
 Remueve el subscriptor con el `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
-* `id` Integer
+* `id` Íntegro
 
 Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` _macOS_
 
-* `id` Integer
+* `id` Íntegro
 
 Igual que `unsubscribeNotification`, pero remueve el subscriptor desde `NSWorkspace.sharedWorkspace.notificationCenter`.
 
@@ -149,12 +149,12 @@ Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplic
 
 ### `systemPreferences.getUserDefault(key, type)` _macOS_
 
-* `key` String
+* `llave` Cadena
 * `type` String - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
 
 Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
 
-Algunos `key` y `type`s populares:
+Algún `key` y `type`s populares:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -166,7 +166,7 @@ Algunos `key` y `type`s populares:
 
 ### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
-* `key` String
+* `llave` Cadena
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 * `value` Cadena
 
@@ -174,13 +174,13 @@ Establece el valor de `key` en `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Algunos `key` y `type`s populares:
+Algún `key` y `type`s populares:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
 ### `systemPreferences.removeUserDefault(key)` _macOS_
 
-* `key` String
+* `llave` Cadena
 
 Elimina el `key` en `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
@@ -400,7 +400,7 @@ Este consentimiento de usuario no fue requerido hasta macOS 10.14 Mojave, por lo
 
 ### `systemPreferences.getAnimationSettings()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `shouldRenderRichAnimation` Boolean - Devuelve verdadero is animaciones ricas deben ser renderizadas. Se observa en el tipo de sesión (por ejemplo, escritorio remoto) y ajustes de accesibilidad para dar orientación a animaciones pesadas.
 * `scrollAnimationsEnabledBySystem` Boolean - Determina sobre una base por plataforma si las animaciones de desplazamiento (por ejemplo, producidas por la clave home/end) deben estar habilitadas.
