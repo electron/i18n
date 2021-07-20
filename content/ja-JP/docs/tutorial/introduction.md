@@ -6,7 +6,7 @@ Electron ドキュメントへようこそ！ 初めて Electron アプリを開
 
 Electron は、JavaScript、HTML、CSS によるデスクトップアプリケーションを構築するフレームワークです。 Electron は [Chromium][chromium] と [Node.js][node] をバイナリに組み込むことで、単一の JavaScript コードベースを維持しつつ、ネイテイブ開発経験無しでも Windows、macOS、Linux で動作するクロスプラットフォームアプリを作成できます。
 
-## 必要な環境
+## Prerequisites
 
 このドキュメントは、読者が Node.js と一般的なウェブ開発の両方に精通していることを前提にしています。 これらの分野のいずれかに精通しておきたい方は、以下のリソースをお勧めします。
 
