@@ -322,7 +322,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 **非推奨:** 新しく [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API を使用する必要があります。
 
-### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _Deprecated_
+### `systemPreferences.isHighContrastColorScheme()` _macOS_ _Windows_ _非推奨_
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
