@@ -20,5 +20,5 @@ Dieses Handbuch wendet sich an Entwickler des Electron Projekts. Guides zur App-
 * [Testen](testing.md)
 * [Debugging in Windows](debug-instructions-windows.md)
 * [Debugging in macOS](debugging-instructions-macos.md)
-* [Einen Symbol Server im Debugger einrichten](setting-up-symbol-server.md)
+* [Einrichtung eines Symbol Servers im Debugger](setting-up-symbol-server.md)
 * [Patches](patches.md)
