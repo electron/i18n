@@ -476,9 +476,9 @@ El objeto `app` tiene los siguientes métodos:
 
 ### `app.quit()`
 
-Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será producido y por defecto la aplicación se cerrará.
+Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será emitido y por defecto la aplicación se cerrará.
 
-Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. Es posible que una ventana cancele la salida regresando `falso` en el manipulador de eventos `antes de cargar`.
+Este método asegura que todos los controladores para los eventos `beforeunload` y `unload` se ejecutan correctamente. Es posible que una ventana cancele la salida devolviendo `falso` en el controlador de eventos `beforeunload`.
 
 ### `app.exit([exitCode])`
 
@@ -492,17 +492,17 @@ Todas las ventanas serán cerradas de inmediato sin preguntarle al usuario, y lo
 
 * `options` Object (opcional)
   * `args` String[] - (opcional)
-  * `execPath` Cadena (opcional)
+  * `execPath` String (opcional)
 
-Reinicia la aplicación cuando la instancia se cierra.
+Reinicia la aplicación cuando la instancia actual se cierra.
 
-Por defecto, la nueva instancia va a usar el mismo directorio de trabajo y los argumentos de la linea de comando con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
+Por defecto, la nueva instancia va a usar el mismo directorio de trabajo y los argumentos de la linea de comando con la instancia actual. Cuando se especifican `args`, entonces `args` se pasarán como argumentos de línea de comandos. Si se especifica `execPath`, entonces `execPath` se ejecutará como reinicio de la aplicación en vez de la aplicación actual.
 
-Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
+Note que este método no finaliza la aplicación cuando se ejecuta, debe llamar a `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
-Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
+Cuando `app.relaunch` se llama múltiples veces, se iniciarán múltiples instancias después de que la instancia actual finalice.
 
-Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
+Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comandos de la nueva instancia:
 
 ```javascript
 const { app } = require('electron')
@@ -513,7 +513,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`. See also `app.whenReady()`.
+Devuelve `Boolean` - `true` Si Electron ha terminado de inicializarse, de lo contrario `false`. See also `app.whenReady()`.
 
 ### `app.whenReady()`
 
@@ -530,7 +530,7 @@ You should seek to use the `steal` option as sparingly as possible.
 
 ### `app.hide()` _macOS_
 
-Oculta todas la ventanas de la aplicación sin minimizar estas.
+Oculta todas la ventanas de la aplicación sin minimizarlas.
 
 ### `app.show()` _macOS_
 
@@ -546,27 +546,27 @@ Llamando `app.setAppLogsPath()` sin un parámetro `path` resultará en que este 
 
 ### `app.getAppPath()`
 
-Devuelve `String` - al directorio de la aplicación actual.
+Devuelve `String` - El directorio actual de la aplicación.
 
 ### `app.getPath(name)`
 
 * `name` String - You can request the following paths by the name:
-  * `Inicio` Directorio de inicio del usuario.
+  * `home` Directorio personal del usuario.
   * `appData` Directorio de datos de la aplicación por usuario, el cual por defecto apunta a:
     * `%APPDATA%` en Windows
     * `$XDG_CONFIG_HOME` o `~/.config` en Linux
     * `~/Library/Application Support` en marcOS
-  * `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
+  * `userData` El directorio para almacenar los archivos de configuración de su aplicación, que es por defecto, el directorio `appData` seguido del nombre de su aplicación.
   * `chaché`
   * `temp` Directorio temporal.
-  * `exe` Archivo ejecutable en curso.
-  * `module` la librería `libchromiumcontent`.
-  * `escritorio` El directorio del escritorio del usuario en curso.
-  * `documentos` Directorio para la carpeta "Mis documentos" del usuario.
-  * `descargas` Directorio para las descargas del usuario.
-  * `musica` Directorio para la música del usuario.
-  * `imágenes` Directorio para las imágenes del usuario.
-  * `videos` Directorio para las imágenes del usuario.
+  * `exe` El archivo ejecutable actual.
+  * `module` La librería `libchromiumcontent`.
+  * `desktop` El escritorio actual del usuario.
+  * `documents` Directorio "Mis documentos" del usuario.
+  * `downloads` Directorio para las descargas del usuario.
+  * `music` Directorio para la música del usuario.
+  * `pictures` Directorio para las imágenes del usuario.
+  * `videos` Directorio para los vídeos del usuario.
   * `recent` Directory for the user's recent files (Windows only).
   * `logs` Directorio para los archivos de registro de la aplicación.
   * `crashDumps` Directory where crash dumps are stored.
@@ -586,12 +586,12 @@ Si se llama a `app.getPath('logs')` sin que se llame primero a `app.setAppLogsPa
 
 Devuelve `Promise<NativeImage>` - cumplido con el icono de la aplicación, el cual es un [NativeImage](native-image.md).
 
-Busca un ícono asociado a la ruta.
+Obtiene el icono asociado a la ruta.
 
-En _Windows_, Hay dos tipos de íconos:
+En _Windows_, Hay dos tipos de iconos:
 
-* Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
-* Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
+* Iconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
+* Iconos dentro del propio archivo, como `.exe`, `.dll`, `.ico`.
 
 En _Linux_ y _macOS_, los iconos dependen de la aplicación asociada al tipo de archivo.
 
@@ -600,21 +600,21 @@ En _Linux_ y _macOS_, los iconos dependen de la aplicación asociada al tipo de 
 * `name` String
 * `path` String
 
-Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si la ruta especifica un directorio que no existe, un `Error` es lanzado. En ese caso, el directorio devería ser creado con `fs.mkdirSync` o similar.
+Reemplaza el `path` a un directorio especial o un archivo asociado con `name`. Si la ruta especifica un directorio que no existe, un `Error` es lanzado. En ese caso, el directorio devería ser creado con `fs.mkdirSync` o similar.
 
-Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
+Solo puede sobrescribir rutas de un `name` definido en `app.getPath`.
 
-Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que reescribir la ruta de `Dato de Usuario` ante que el evento `listo` del módulo de la `app` sea emitido.
+Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que sobrescribir la ruta de `userData` ante de que el evento `ready` del módulo `app` se emita.
 
 ### `app.getVersion()`
 
-Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
+Devuelve `String` - La versión de la aplicación cargada. Si no se encuentra la versión en el fichero `package.json` de la aplicación, se devuelve la versión del paquete o ejecutable.
 
 ### `app.getName()`
 
-Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
+Devuelve `String` - El nombre actual de la aplicación, que se corresponde con el nombre especificado en el fichero `package.json` de la aplicación.
 
-Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Normalmente debe especificar un `productName` también, el cual es el nombre de su aplicación en mayúsculas, y que será preferido por Electron sobre `name`.
 
 ### `app.setName(name)`
 
@@ -654,7 +654,7 @@ Borra la lista de documentos recientes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Por ejemplo si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
+* `protocolo` String - El nombre de su protocolo, sin el `://`. Por ejemplo si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
 * `path` String (optional) _Windows_ - The path to the Electron executable. Por defecto a `process.execPath`
 * `args` String[] (optional) _Windows_ - Arguments passed to the executable. Por defecto a un array vacío
 
@@ -670,9 +670,9 @@ La API usa el Registro de Windows y `LSSetDefaultHandlerForURLScheme` internamen
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
-* `ruta` Cadena (opcional) _Windows_ - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) _Windows_ - por defecto a un arreglo vacío
+* `protocolo` String - El nombre de su protocolo, sin el `://`.
+* `ruta` String (opcional) _Windows_ - por defecto a `process.execPath`
+* `args` String[] (opcional) _Windows_ - por defecto a un arreglo vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
@@ -680,9 +680,9 @@ This method checks if the current executable as the default handler for a protoc
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
-* `ruta` Cadena (opcional) _Windows_ - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) _Windows_ - por defecto a un arreglo vacío
+* `protocolo` String - El nombre de su protocolo, sin el `://`.
+* `ruta` String (opcional) _Windows_ - por defecto a `process.execPath`
+* `args` String[] (opcional) _Windows_ - por defecto a un arreglo vacío
 
 Deveulve `Boolean` -Si el ejecutable actual es el manejador por defecto para un protocolo (alias esquema URI).
 
@@ -724,7 +724,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` _Windows_
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN][JumpListBeginListMSDN]).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array `JumpListItem` de objetos que corresponden a elementos que el usuario explícitamente a eliminado de la categorías personalizadas en el Jump List. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -884,7 +884,7 @@ Actualiza la actividad actual si su tipo coincide `type`, fusionando las entrada
 
 ### `app.setAppUserModelId(id)` _Windows_
 
-* `id` String
+* `id` Cadena
 
 Cambia el [Id Modelo de Usuario de la Aplicación][app-user-model-id] a `id`.
 
@@ -914,13 +914,13 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 
 Desactiva la aceleración por hardware para esta aplicación.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behavior.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
@@ -999,7 +999,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 Su proporcionas las opciones `path` y `args` a `app.setLoginItemSettings`, entonces necesitas pasar los mismos argumentos aquí para `openAtLogin` para que sea correctamente configurado.
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
@@ -1104,7 +1104,7 @@ Empezar a acceder un recurso de ámbito de seguridad. Con este método las aplic
 
 Habilita el modo sandbox completo en la aplicación. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` _macOS_
 
@@ -1203,7 +1203,7 @@ Una propiedad `Boolean` que retorna `true` si la aplicación está empaquetada, 
 
 Una propiedad `String` que índica el nombre actual de la aplicación, el cual es el nombre en el archivo `package.json` de la aplicación.
 
-Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Normalmente debe especificar un `productName` también, el cual es el nombre de su aplicación en mayúsculas, y que será preferido por Electron sobre `name`.
 
 ### `app.userAgentFallback`
 
@@ -1217,7 +1217,7 @@ Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene
 
 La intención para estos anuladores es desactivan por defecto y luego en algún punto en el futuro esta propiedad sera eliminada.  Esta propiedad impacta en cuales modulos nativos puedes usar en el renderer process.  Para más información de la dirección en que Electron esta yendo con el renderer process, reinicio y uso de modulos nativos en el renderer process por favor revisa esto [Tracking Issue](https://github.com/electron/electron/issues/18397).
 
-### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+### `app.runningUnderRosettaTranslation` _macOS_ _SoloLectura_
 
 A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
