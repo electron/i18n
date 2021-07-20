@@ -1,10 +1,10 @@
 {
   "link.title.Docs": {
-    "message": "Docs",
+    "message": "Documentación",
     "description": "The title of the footer links column with title=Docs in the footer"
   },
   "link.title.Community": {
-    "message": "Community",
+    "message": "Comunidad",
     "description": "The title of the footer links column with title=Community in the footer"
   },
   "link.title.More": {
@@ -12,16 +12,8 @@
     "description": "The title of the footer links column with title=More in the footer"
   },
   "link.item.label.Getting Started": {
-    "message": "Getting Started",
+    "message": "Empezar",
     "description": "The label of footer link with label=Getting Started linking to /"
-  },
-  "link.item.label.Performance": {
-    "message": "Rendimiento",
-    "description": "The label of footer link with label=Performance linking to /performance/"
-  },
-  "link.item.label.Security": {
-    "message": "Security",
-    "description": "The label of footer link with label=Security linking to /security/"
   },
   "link.item.label.Stack Overflow": {
     "message": "Stack Overflow",
