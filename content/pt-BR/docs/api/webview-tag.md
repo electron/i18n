@@ -18,7 +18,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## Exemplo
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -197,7 +197,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**Exemplo**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -209,7 +209,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -439,7 +439,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether to begin a new text finding session with this request. Should be `true` for initial requests, and `false` for follow-up requests. Defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -459,11 +459,11 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Por padrão é `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Por padrão é `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Padrão é `true`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Por padrão é `true`.
   * Objeto `margins` (opcional)
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
@@ -492,7 +492,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
-* Objeto `options`
+* `options` Object
   * `headerFooter` Record<string, string> (optional) - the header and footer for the PDF.
     * `title` String - The title for the PDF header.
     * `url` String - the url for the PDF footer.
@@ -570,7 +570,7 @@ Retorna `Promise<void>`
 
 Sets the maximum and minimum pinch-to-zoom level.
 
-### `<webview>.showDefinitionForSelection()` no _macOS_
+### `<webview>.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
