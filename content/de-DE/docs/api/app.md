@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Ereignisse
 
 Das `app` Objekt stellt folgende Event zur Verfügung:
 
@@ -581,7 +581,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 * `path` String
 * `options` Object (optional)
-  * `size` Zeichenkette
+  * `size` String
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 in _Linux_, 32x32 in _Windows_, wird in _macOS_ nicht unterstützt.
@@ -599,7 +599,7 @@ On _Linux_ and _macOS_, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` Zeichenfolge
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -620,7 +620,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` Zeichenfolge
 
 Überschreibt den Namen der aktuellen Anwendung.
 
@@ -886,7 +886,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 ### `app.setAppUserModelId(id)` _Windows_
 
-* `id` String
+* `id` Zeichenfolge
 
 Changes the [Application User Model ID][app-user-model-id] to `id`.
 
