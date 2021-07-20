@@ -9,7 +9,7 @@ const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Ereignisse
 
 Das `systemPreferences` Objekt stellt folgende Event zur Verfügung:
 
@@ -84,7 +84,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 * `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
-  * `object` String
+  * `object` Zeichenkette
 
 Returns `Number` - The ID of this subscription
 
@@ -105,7 +105,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
-  * `object` String
+  * `object` Zeichenkette
 
 Returns `Number` - The ID of this subscription
 
@@ -117,7 +117,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `callback` Function
   * `event` String
   * `userInfo` Record<String, unknown>
-  * `object` String
+  * `object` Zeichenkette
 
 Returns `Number` - The ID of this subscription
 
