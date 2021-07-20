@@ -244,7 +244,7 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Standard ist `custom`.
   * `title` String
-  * `content` Zeichenkette
+  * `content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. Standard ist `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (optional) - Do not play the associated sound. Standard ist `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Standard ist `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
