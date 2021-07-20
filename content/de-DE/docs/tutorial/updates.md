@@ -2,7 +2,7 @@
 
 Electron-Apps können auf verschiedenste Weise aktualisiert werden. Die einfachste und offiziell unterstützte ist, die Vorteile des eingebauten [Squirrel](https://github.com/Squirrel)-Frameworks und Electrons [autoUpdater](../api/auto-updater.md)-Moduls zu nutzen.
 
-## Nutzung von `update.electronjs.org`
+## Benutzt `update.electronjs.org`
 
 The Electron team maintains [update.electronjs.org][], a free and open-source webservice that Electron apps can use to self-update. Der Service ist für Electron-Apps, die die folgenden Kriterien erfüllen ausgelegt:
 
