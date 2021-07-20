@@ -60,7 +60,7 @@ app.on('activate', () => {
 
 ```
 
-After launching the Electron application, right click the application icon. You should see the custom menu you just defined:
+Electron アプリケーションの起動後、アプリケーションのアイコンを右クリックしてみましょう。 先ほど定義したカスタムメニューが表示されるはずです。
 
 ![macOS Dock メニュー](../images/macos-dock-menu.png)
 
