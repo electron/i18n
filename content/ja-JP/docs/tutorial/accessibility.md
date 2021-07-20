@@ -24,7 +24,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ## Devtron
 
-In Devtron, there is an accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+Devtron にはアクセシビリティタブがあり、アプリ内のページを監査し、結果を並べ替えてフィルタリングすることができます。
 
 ![devtron スクリーンショット][4]
 
@@ -32,21 +32,21 @@ In Devtron, there is an accessibility tab which will allow you to audit a page i
 
 Electron 向けの他の優れたアクセシビリティツールについて知っている場合は、アクセシビリティドキュメントにプルリクエストを加えてください。
 
-## Manually enabling accessibility features
+## アクセシビリティ機能を手動で有効にする
 
-Electron applications will automatically enable accessibility features in the presence of assistive technology (e.g. [JAWS](https://www.freedomscientific.com/products/software/jaws/) on Windows or [VoiceOver](https://help.apple.com/voiceover/mac/10.15/) on macOS). 詳細については、Chrome の [アクセシビリティドキュメント][a11y-docs] を参照してください。
+Electron アプリケーションは、支援技術 (Windows の [JAWS](https://www.freedomscientific.com/products/software/jaws/) や macOS の [VoiceOver](https://help.apple.com/voiceover/mac/10.15/)など) が動いている場合にアクセシビリティ機能を自動で有効にします。 詳細については、Chrome の [アクセシビリティドキュメント][a11y-docs] を参照してください。
 
-You can also manually toggle these features either within your Electron application or by setting flags in third-party native software.
+これらの機能は、Electron アプリケーション内からか、サードパーティのネイティブソフトウェアでフラグを設定することで手動切り替えできます。
 
-### Using Electron's API
+### Electron の API を使用する
 
-[`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API を使うことで、アプリケーション設定で Chrome のアクセシビリティを有効にする機能を手動設置できます。 Note that the user's system assistive utilities have priority over this setting and will override it.
+[`app.setAccessibilitySupportEnabled(enabled)`][setAccessibilitySupportEnabled] API を使うことで、アプリケーション設定で Chrome のアクセシビリティを有効にする機能を手動設置できます。 注意として、ユーザーのシステム支援ユーティリティはこの設定よりも優先され、これを上書きします。
 
-### Within third-party software
+### サードパーティーソフトウェア内から
 
 #### macOS
 
-On macOS, third-party assistive technology can toggle accessibility features inside Electron applications by setting the `AXManualAccessibility` attribute programmatically:
+macOS では、サードパーティの支援技術により `AXManualAccessibility` 属性をプログラムで設定することで、Electron アプリケーション内のアクセシビリティ機能を切り替えられます。
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
