@@ -26,7 +26,7 @@ Setting the parameter to negative values (e.g. `-1`) will remove the progress ba
 
 Veja a [documentação da API para mais opções e modos][setprogressbar].
 
-## Example
+## Exemplo
 
 In this example, we add a progress bar to the main window that increments over time using Node.js timers.
 
