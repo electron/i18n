@@ -91,7 +91,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 <ul>
   <li>
-    <code>menuItem</code> <a href="menu-item.md">MenuItem</a>
+    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
   </li>
 </ul>
 
@@ -107,7 +107,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 <ul>
   <li>
-    <code>id</code> 字符串
+    <code>id</code> String
   </li>
 </ul>
 
@@ -126,7 +126,7 @@ You can also attach other fields to the element of the `template` and they will 
     <code>pos</code> Integer
   </li>
   <li>
-    <code>menuItem</code> <a href="menu-item.md">MenuItem</a>
+    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
   </li>
 </ul>
 
