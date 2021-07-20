@@ -24,13 +24,13 @@ You'll have access to new Chromium and V8 features and fixes sooner than before.
 
 The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. For example, when [v6.0.0 goes stable on July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), we will support v6.x, v5.x, and v4.x, while v3.x will reach End-Of-Life.
 
-## 💬 App Feedback Program
+## 💬 应用反馈项目
 
 Please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) to help us with testing our beta releases and stabilization. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release.
 
 ## 📝 A brief history of Electron releases
 
-The decisions around stable releases before v3.0.0 did not follow a schedule. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Announcing our stable release dates was positively received overall and we're excited to continue doing that for future releases.
+The decisions around stable releases before v3.0.0 did not follow a schedule. 我们添加了项目的内部时间表与 v3.0.0 和 v4.0.0。 今年早些时候，我们决定首次发布 [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline) 的稳定发布日期。 Announcing our stable release dates was positively received overall and we're excited to continue doing that for future releases.
 
 In order to better streamline these upgrade-related efforts, our [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) and [Releases](https://github.com/electron/governance/tree/master/wg-releases) Working Groups were created within our [Governance](https://electronjs.org/blog/governance) system. They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
 
