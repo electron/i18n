@@ -1,4 +1,4 @@
-# Instructions de compilation (Windows)
+# Instructions de Build (Windows)
 
 Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
@@ -29,7 +29,7 @@ Windows Security doesn't like one of the files in the Chromium source code (see 
 
 ## Compilation
 
-Voir les [Instructions de compilation : GN](build-instructions-gn.md)
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Compilation 32bit
 
