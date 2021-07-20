@@ -1,8 +1,8 @@
-# Instruções para Compilação (Windows)
+# Instruções para Configuração (Windows)
 
 Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
-## Pré-requisitos
+## Prerequisites
 
 * Windows 10 / Server 2012 R2 ou superior
 * Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/)
@@ -29,7 +29,7 @@ Windows Security doesn't like one of the files in the Chromium source code (see 
 
 ## Compilando
 
-Veja [Instruções de build: GN](build-instructions-gn.md)
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Compilação 32bit
 
