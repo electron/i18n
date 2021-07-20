@@ -12,7 +12,7 @@
     "description": "The label for category Development in sidebar docs"
   },
   "sidebar.docs.category.Performance": {
-    "message": "Производительность",
+    "message": "Характеристика",
     "description": "The label for category Performance in sidebar docs"
   },
   "sidebar.docs.category.Security": {
