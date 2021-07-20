@@ -27,7 +27,7 @@ Cuando `informational` es pasado, el icono del dock rebotará por un segundo. Si
 
 #### `dock.cancelBounce(id)` _macOS_
 
-* `id` Integer
+* `id` Íntegro
 
 Cancela el rebote de `id`.
 
