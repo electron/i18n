@@ -1,25 +1,25 @@
 # ビルド手順 (Linux)
 
-カスタム Electron バイナリの作成にあたって Linux で **Electron そのもの** をビルドするには、以下のガイドラインに従ってください。 アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
+Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
 
-## 必要な環境
+## Prerequisites
 
-* 最低 25 GB のストレージ空き容量と 8 GB以上の RAM。
-* Python 2.7.x. CentOS 6.x のようないくつかのディストリビューションでは Python 2.6.x を採用しています。そのため、`python -V` で Python のバージョンを確認してください。
+* At least 25GB disk space and 8GB RAM.
+* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
-  あなたのシステムと Python が少くとも TLS 1.2 をサポートしていることを確認してください。 簡単に確認するには、以下のスクリプトを実行します。
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
 
   ```sh
   $ npx @electron/check-python-tls
   ```
 
-  あなたの設定が時代遅れのセキュリティプロトコルを使用していると、このスクリプトが返した場合、あなたのシステムパッケージマネージャでPythonを2.7.xブランチまで更新してください。 または、https://www.python.org/downloads/ を参照して、詳細な情報を入手してください。
+  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
-* Node.js. Node はいろいろな方法でインストールできます。 [nodejs.org](https://nodejs.org)からソースコードをダウンロードしてコンパイルできます。 一般ユーザーのホームディレクトリに Node をインストールできます。 または[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)のようなリポジトリを試してください。
-* [clang](https://clang.llvm.org/get_started.html) 3.4 またはそれ以降。
-* GTK 3 と libnotify の開発ヘッダ
+* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
+* Development headers of GTK 3 and libnotify.
 
-Ubuntu では、以下のライブラリをインストールしてください
+On Ubuntu, install the following libraries:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
@@ -29,7 +29,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        gperf bison python-dbusmock openjdk-8-jre
 ```
 
-RHEL / CentOS では、以下のライブラリをインストールしてください
+On RHEL / CentOS, install the following libraries:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
@@ -38,7 +38,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Fedora では、以下のライブラリをインストールしてください
+On Fedora, install the following libraries:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
@@ -47,7 +47,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Arch Linux / Manjaro では、以下の通りライブラリをインストールしてください。
+On Arch Linux / Manjaro, install the following libraries:
 
 ```sh
 $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
@@ -56,25 +56,25 @@ $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
                    python2 python-dbusmock jdk8-openjdk
 ```
 
-その他のディストリビューションも、例えば pacman のようなパッケージマネージャーで同様のパッケージをインストールできるでしょう。 ソースコードからコンパイルする必要があるかもしれません。
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-### クロスコンパイル
+### Cross compilation
 
-`arm` ターゲットに向けてビルドする場合、次の依存パッケージをインストールしてください。:
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-同様に `arm64` の場合以下をインストールします。:
+Similarly for `arm64`, install the following:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-`arm` または `ia32` ターゲット向けにクロスコンパイルする場合、`target_cpu` パラメーターで `gn gen`に情報を渡します。:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
 
 ```sh
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
@@ -82,34 +82,34 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 ## ビルド
 
-[ビルド指示: GN](build-instructions-gn.md)を参照してください。
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## トラブルシューティング
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-プリビルドされた `clang` は `libtinfo.so.5` へリンクしようとします。 ホストアーキテクチャにしたがって、以下のように適切な `libncurses` にシンボリックリンクしてください。
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## 高度なトピック
+## Advanced topics
 
-デフォルトのビルド構成は、主要なデスクトップ Linux ディストリビューションを対象としています。 特定のディストリビューションやデバイス向けにビルドするには、以下の情報を参考にしてください。
+The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### システムの`clang`をダウンロードした`clang`バイナリの代りに使う
+### Using system `clang` instead of downloaded `clang` binaries
 
-デフォルトでは、Electron のビルドは、Chromiumプロジェクトが提供する、プレビルドの[`clang`](https://clang.llvm.org/get_started.html)バイナリを使用します。 なんらかの理由であなたのシステムにインストールされた`clang`を使う場合、GNの引数の `clang_base_path` で指定します。
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
-例えば `clang` が `/usr/local/bin/clang`にインストールされている場合：
+For example if you installed `clang` under `/usr/local/bin/clang`:
 
 ```sh
 $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
 ```
 
-### `clang`以外のコンパイラの使用
+### Using compilers other than `clang`
 
-`clang`以外のコンパイラを用いたElectronのビルドはサポートされていません。
+Building Electron with compilers other than `clang` is not supported.
 
 [application-distribution]: ../tutorial/application-distribution.md
