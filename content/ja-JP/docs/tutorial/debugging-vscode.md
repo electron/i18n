@@ -35,7 +35,7 @@ $ code electron-quick-start
 }
 ```
 
-#### 3. Debugging
+#### 3. デバッグする
 
 `main.js` にいくつかブレークポイントを設定し 、[デバッグ ビュー](https://code.visualstudio.com/docs/editor/debugging) からデバッグを開始します。 このとき設定したブレークポイントにヒットするはずです。
 
@@ -94,6 +94,6 @@ $ code electron-quick-start
   * `your-directory-name`: ビルド処理中にこれをデフォルトから変更した場合は、指定したものがそのまま適用されます。
 * `args` 配列文字列内の `"your-electron-project-path"` は、テストに用する Electron プロジェクトのディレクトリまたは `main.js` ファイルへの絶対パスでなければなりません。 このサンプルでは、 `electron-quick-start` へのパスである必要があります。
 
-#### 3. Debugging
+#### 3. デバッグする
 
 ネイティブの Electron C++ コード内の任意の .cc ファイルにブレークポイントを設定し、[デバッグビュー](https://code.visualstudio.com/docs/editor/debugging) でデバッグを開始しましょう。
