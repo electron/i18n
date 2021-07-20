@@ -600,8 +600,8 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 Возвращает:
 
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* Строка `errorDescription`
+* Строка `validatedURL`
 * `isMainFrame` Boolean
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
