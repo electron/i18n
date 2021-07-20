@@ -542,7 +542,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom faktor.
+* `factor` Number - Zoom Faktor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
@@ -816,7 +816,7 @@ Fired when the renderer process is crashed.
 
 Kehrt zurück:
 
-* `name` String
+* `name` Zeichenfolge
 * `version` String
 
 Fired when a plugin process is crashed.
@@ -837,7 +837,7 @@ Emitted when media is paused or done playing.
 
 Kehrt zurück:
 
-* `themeColor` Zeichenkette
+* `themeColor` String
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
