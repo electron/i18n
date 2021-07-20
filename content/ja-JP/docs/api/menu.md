@@ -241,7 +241,7 @@ Menu.setApplicationMenu(menu)
 以下は、ユーザーがページを右クリックしたときにメニューを表示する例です。
 
 ```js
-// renderer
+// レンダラー
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
   ipcRenderer.send('show-context-menu')
@@ -251,7 +251,7 @@ ipcRenderer.on('context-menu-command', (e, command) => {
   // ...
 })
 
-// main
+// メイン
 ipcMain.on('show-context-menu', (event) => {
   const template = [
     {
@@ -284,11 +284,11 @@ macOS はいくつかのメニューアイテムに、`About xxx` や `Hide xxx`
 
 ### メインメニュー名
 
-macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 See [About Information Property List Files][AboutInformationPropertyListFiles] for more information.
+macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 より詳しくは、[Information Property List ファイルについて][AboutInformationPropertyListFiles] をご参照ください。
 
 ## 特定のブラウザウィンドウのメニューの設定 (*Linux* *Windows*)
 
-The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
+ブラウザウインドウの [`setMenu` メソッド][setMenu] は、特定のブラウザウインドウのメニューを設定できます。
 
 ## メニューアイテムの位置
 
@@ -314,7 +314,7 @@ The [`setMenu` method][setMenu] of browser windows can set the menu of certain b
 ]
 ```
 
-Menu:
+メニュー:
 
 ```sh
 - 1
@@ -336,7 +336,7 @@ Menu:
 ]
 ```
 
-Menu:
+メニュー:
 
 ```sh
 - 3
@@ -357,7 +357,7 @@ Menu:
 ]
 ```
 
-Menu:
+メニュー:
 
 ```sh
 - ---
