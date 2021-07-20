@@ -4,7 +4,7 @@
 
 ## Отладка приложения Electron
 
-### Основной процесс
+### Главный процесс
 
 #### 1. Open an Electron project in VSCode.
 
