@@ -40,18 +40,18 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Función
-    * Objeto `response`
+    * `response` Object
       * `cancelar` Booleano (opcional)
       * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
 
@@ -82,18 +82,18 @@ Algunos ejemplos de `urls` válidas:
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `requestHeaders` Record<string, string>
   * `callback` Función
-    * Objeto `beforeSendResponse`
+    * `beforeSendResponse` Object
       * `cancelar` Booleano (opcional)
       * `requestHeaders` Record<string, string | string[]> (opcional) -Cuando es proveído, la solicitud será hecha con esas cabeceras.
 
@@ -107,13 +107,13 @@ El `callback` ha de ser llamado con un objeto `response`.
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `requestHeaders` Record<string, string>
@@ -126,20 +126,20 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
     * `Estatus de código` entero
     * `responseHeaders` Record<string, string[]> (opcional)
   * `callback` Función
-    * Objeto `headersReceivedResponse`
+    * `headersReceivedResponse` Object
       * `cancelar` Booleano (opcional)
       * `responseHeaders` Record<string, string | string[]> (opcional) - Cuando es proveído, el servidor se asume que ha respondido con estas cabeceras.
       * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
@@ -154,13 +154,13 @@ El `callback` ha de ser llamado con un objeto `response`.
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `responseHeaders` Record<string, string[]> (opcional)
@@ -176,13 +176,13 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `redirectURL` String
@@ -200,13 +200,13 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `responseHeaders` Record<string, string[]> (opcional)
@@ -223,13 +223,13 @@ El `listener` será llamado con `listener(details)` cuando una petición es comp
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Function | null
   * `details` Object
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `referrer` String
     * `fecha y hora` Doble
     * `Desde cache` Booleano
