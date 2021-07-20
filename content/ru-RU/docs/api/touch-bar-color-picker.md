@@ -14,7 +14,7 @@
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarColorPicker`:
+Для экземпляров `TouchBarColorPicker` доступны следующие свойства:
 
 #### `touchBarColorPicker.availableColors`
 
