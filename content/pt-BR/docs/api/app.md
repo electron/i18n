@@ -490,7 +490,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 ### `app.relaunch([options])`
 
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `args` String[] (opcional)
   * `execPath` String (opcional)
 
@@ -521,7 +521,7 @@ Retorna `Promise<void>` - cumprido quando o Electron é inicializado. Pode ser u
 
 ### `app.focus([options])`
 
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `steal` Boolean _macOS_ - Make the receiver the active app even if another app is currently active.
 
 On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
@@ -578,7 +578,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `size` String
     * `small` - 16x16
     * `normal` - 32x32
@@ -743,7 +743,7 @@ Define ou remove uma Jump List personalizada para a aplicação e retorna uma da
 
 Se `categories` for `null`, a Jump List personalizada anteriormente definida (se houver) será substituída por uma Jump List padrão para o app (gerenciada pelo Windows).
 
-**Nota:** Se um objeto `JumpListCategory` não tiver for nem a propriedade `type` nem a `name` definidas, então seu `type` é assumido como `tasks`. Se a propriedade do `name` está definida mas a propriedade do `type` é omissa, então o `type` é assumido como `custom`.
+**Nota:** Se um objeto `JumpListCategory` não tiver for nem a propriedade `type` nem a `name` definidas, então seu `type` é assumido como `tasks`. Se a propriedade `name` está definida mas a propriedade `type` é omissa, então o `type` é assumido como `custom`.
 
 **Note:** Os usuários podem remover itens de categorias personalizadas, e o Windows não permitirá que um item removido seja adicionado novamente a uma categoria personalizada até **após** a próxima chamada bem-sucedida a `app.setJumpList(categories)`. Qualquer tentativa de adicionar novamente um item removido de uma categoria personalizada antes disso resultará na omissão da categoria inteira da Jump List. A lista dos itens removidos pode ser obtida usando `app.getJumpListSettings()`.
 
@@ -902,7 +902,7 @@ Activation policy types:
 
 ### `app.importCertificate(options, callback)` _Linux_
 
-* Objeto `options`
+* `options` Object
   * `certificate` String - Caminho para o arquivo pkcs12.
   * `password` String - Passphrase do certificado.
 * `callback` Function
@@ -993,7 +993,7 @@ Retorna `Boolean` - Indica se o ambiente de trabalho atual é o Unity ou não.
 
 ### `app.getLoginItemSettings([options])` _macOS_ _Windows_
 
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `path` String (optional) _Windows_ - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -1061,7 +1061,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 ### `app.setAboutPanelOptions(options)`
 
-* Objeto `options`
+* `options` Object
   * `applicationName` String (opcional) - O nome do aplicativo.
   * `applicationVersion` String (opcional) - A versão do aplicativo.
   * `copyright` String (opcional) - Informações de copyright.
@@ -1112,7 +1112,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `conflictHandler` Function\<Boolean> (optional) - A handler for potential conflict in move failure.
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
