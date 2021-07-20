@@ -6,11 +6,11 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new TouchBarPopover(options)`
 
-* Objeto `options`
+* `options` Object
   * `label` String (optional) - Popover button text.
   * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
   * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Padrão é `true`.
+  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Por padrão é `true`.
 
 ### Propriedades da Instância
 
