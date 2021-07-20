@@ -1,4 +1,4 @@
-# Solicitudes de Extracción
+# Pull Requests
 
 * [Configurando tu entorno local](#setting-up-your-local-environment)
   * [Paso 1: Fork](#step-1-fork)
@@ -77,9 +77,9 @@ Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un títul
 
 Ejemplos de mensajes de confirmación con prefijos semánticos:
 
-* `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
-* `feat: agregar método app.isPackaged()`
-* `docs: app.isDefaultProtocolClient está disponible en Linux`
+* `fix: don't overwrite prevent_default if default wasn't prevented`
+* `feat: add app.isPackaged() method`
+* `docs: app.isDefaultProtocolClient is now available on Linux`
 
 Prefijos usuales:
 
