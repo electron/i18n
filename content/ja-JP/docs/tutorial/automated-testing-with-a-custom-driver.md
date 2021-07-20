@@ -8,12 +8,12 @@ Electron アプリの自動テストを作成するには、アプリケーシ�
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// spawn the process
+// プロセスの生成
 const env = { /* ... */ }
 const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 const appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// listen for IPC messages from the app
+// アプリからの IPC メッセージをリッスン
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -43,22 +43,22 @@ class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
+    // 子プロセスの開始
+    env.APP_TEST_DRIVER = 1 // メッセージをリッスンする必要性をアプリに知らせる
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
+    // RPC レスポンスのハンドリング
     this.process.on('message', (message) => {
-      // pop the handler
+      // ハンドラを除去
       const rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
-      // reject/resolve
+      // 拒否/解決
       if (message.reject) rpcCall.reject(message.reject)
       else rpcCall.resolve(message.resolve)
     })
 
-    // wait for ready
+    // ready を待つ
     this.isReady = this.rpc('isReady').catch((err) => {
       console.error('Application failed to start', err)
       this.stop()
@@ -66,10 +66,10 @@ class TestDriver {
     })
   }
 
-  // simple RPC call
+  // 簡単な RPC 呼び出し
   // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
-    // send rpc request
+    // rpc リクエストを送信する
     const msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
