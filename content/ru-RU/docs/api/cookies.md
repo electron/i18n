@@ -64,7 +64,7 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.get(filter)`
 
-* `filter` Object
+* Объект `filter`
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (опционально) - Фильтрует cookies по имени.
   * `domain` String (опционально) - Изменяет cookies, чьи домены совпадают или являются поддоменами `domains`.
@@ -82,8 +82,8 @@ session.defaultSession.cookies.set(cookie)
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (опционально) - Домен cookie; это будет нормализовано с предыдущей точкой, чтобы он так же был действителен для поддоменов. Empty by default if omitted.
-  * `path` String (опционально) - путь к cookie. Empty by default if omitted.
+  * `domain` String (опционально) - домен cookie; это будет нормализовано с предыдущей точкой, чтобы он также был действителен для поддоменов. Empty by default if omitted.
+  * `path` String (опционально) - Путь к cookie. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. По умолчанию - false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
