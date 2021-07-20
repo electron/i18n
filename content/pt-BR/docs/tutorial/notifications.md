@@ -8,7 +8,7 @@ For the Renderer process, Electron conveniently allows developers to send notifi
 
 To show notifications in the Main process, you need to use the [Notification](../api/notification.md) module.
 
-## Example
+## Exemplo
 
 ### Show notifications in the Renderer process
 
