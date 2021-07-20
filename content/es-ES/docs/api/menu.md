@@ -81,7 +81,7 @@ Anexa el `menuItem` al menú.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` Cadena
 
 Devuelve `MenuItem | null` el item con el `id` especificado
 
@@ -158,7 +158,7 @@ const template = [
   },
   // { role: 'editMenu' }
   {
-    label: 'Edit',
+    label: 'Editar',
     submenu: [
       { role: 'undo' },
       { role: 'redo' },
