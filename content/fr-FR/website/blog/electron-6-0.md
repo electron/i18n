@@ -60,7 +60,7 @@ These functions now return Promises and still support older callback-based invoc
  * `webFrame.executeJavaScriptInIsolatedWorld()` [#17312](https://github.com/electron/electron/pull/17312)
  * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 
-These functions now have two forms, synchronous and Promise-based asynchronous:
+Ces fonctions ont maintenant deux formes, synchrone et asynchrone basées sur Promise :
  * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
  * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
  * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
