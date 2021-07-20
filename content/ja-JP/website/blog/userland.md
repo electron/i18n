@@ -16,7 +16,7 @@ Userland is where people in software communities come together to share tools an
 
 ## Node and Electron
 
-Like Node, Electron has a small set of core APIs. These provide the basic features needed for developing multi-platform desktop applications. この設計思想により、Electronは過度にルールに則りすぎたものではなく、柔軟なツールでいられるようにしています。
+Like Node, Electron has a small set of core APIs. These provide the basic features needed for developing multi-platform desktop applications. この設計思想により、Electronは過度にルールに則りすぎたものになることなく、柔軟性を持つツールであり続けることが可能になっています。
 
 Userland is the counterpart to "core", enabling users to create and share tools that extend Electron's functionality.
 
