@@ -1,4 +1,4 @@
-# Einen Symbol Server im Debugger einrichten
+# Einrichtung eines Symbol Servers im Debugger
 
 Debug-Symbole ermöglichen es Ihnen, bessere Debugging-Sitzungen zu haben. Sie enthalten Informationen über die Funktionen in Anwendungen und Bibliotheken und ermöglichen es ihnen saubere Call-Stacks zu erhalten. Ein Symbolserver erlaubt es dem Debugger die richtigen Symbole, Binärdateien und Quellcode automatisch zu laden, ohne den Nutzer zum Herunterladen großer Debuggingdateien zu zwingen. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
