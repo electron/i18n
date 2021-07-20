@@ -46,7 +46,7 @@ app.whenReady().then(() => {
 })
 ```
 
-## Events
+## Ereignisse
 
 Das `screen` Modul sendet folgende Ereignisse aus:
 
@@ -80,7 +80,7 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ## Methoden
 
-Das `screen` Modul hat folgende Methoden:
+Das Modul `screen` verfügt über die folgenden Methoden:
 
 ### `screen.getCursorScreenPoint()`
 
