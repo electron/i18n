@@ -56,7 +56,7 @@ Emitido cuando un service worker ha sido registrado. Puede ocurrir después de u
 
 ### Métodos de Instancia
 
-Los siguientes métodos están disponibles en las instancias de `ServiceWorkers`:
+Lo siguientes métodos están disponibles en instancias de `ServiceWorkers`:
 
 #### `serviceWorkers.getAllRunning()`
 
