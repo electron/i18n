@@ -38,7 +38,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
     return
   }
 
-  // Check each transaction.
+  // Verifica cada transacción.
   transactions.forEach(function (transaction) {
     const payment = transaction.payment
 
@@ -58,10 +58,10 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         // Submit the receipt file to the server and check if it is valid.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // Si el recibo es válido, el producto es comprado
         // ...
 
-        // Finish the transaction.
+        // Acaba la transacción.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -91,14 +91,14 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// Verifica si el usuario tiene permitido realizar la compra.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
 // Retrieve and display the product descriptions.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
+  // Verificar los parámetros.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
@@ -106,10 +106,10 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
 
   // Display the name and price of each product.
   products.forEach(product => {
-    console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
+    console.log(`El precio de  ${product.localizedTitle} es ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // Pregunta al usuario cual producto el/ella quiere comprar.
   const selectedProduct = products[0]
   const selectedQuantity = 1
 
