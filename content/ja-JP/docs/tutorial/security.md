@@ -154,7 +154,7 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `nodeIntegration: false` を使用している場合でも、真に強力なアイソレーションを強制し Node プリミティブの使用を防ぐためには、`contextIsolation` も使用 **しなければなりません**。
 
-### Why & How?
+### いったいどうして?
 
 `contextIsolation` が何であるのか及びこれを有効にする方法についての情報は、[コンテキスト隔離](context-isolation.md) ドキュメントをご参照ください。
 
