@@ -34,7 +34,7 @@ Retorna `Menu | null` - O menu do aplicativo, se definido, ou `null`, se não fo
 
 **Nota:** A instancia `Menu` retornada não suporta adição dinâmica ou remoção de itens de menu. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
 
-#### `Menu.sendActionToFirstResponder(action)` _macOS_
+#### `Menu.sendActionToFirstResponder(action)` no _macOS_
 
 * `action` String
 
@@ -58,7 +58,7 @@ O objeto `menu` possui os seguintes métodos de instância:
 
 #### `menu.popup([options])`
 
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
