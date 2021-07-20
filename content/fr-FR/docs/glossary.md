@@ -14,7 +14,7 @@ La bibliothèque de Runtime C (CRT) est la partie de la bibliothèque Standard C
 
 ### DMG
 
-Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un  "installateur" d'une application. [electron-builder][] prend en charge le `dmg` comme format de compilation.
+Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un « installateur » d'une application. [electron-builder][] prend en charge le `dmg` comme format de compilation.
 
 ### IME
 
@@ -56,7 +56,7 @@ Voir https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### modules natifs
 
-Les modules natifs (également appelés [addons][] dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l'aide de la fonction require() et sont utilisés comme si ils étaient des modules ordinaires de Node.js. Ils sont utilisés principalement pour fournir une interface entre JavaScript s'exécutant dans les librairies Node.js et C/C++.
+Les modules natifs (également appelés [addons][] dans Node.js) sont des modules écrits en C ou C++ qui peuvent être chargés dans Node.js ou Electron à l'aide de la fonction require() et sont utilisés comme si ils étaient des modules ordinaires de Node.js. Ils sont utilisés principalement pour fournir une interface entre JavaScript s’exécutant dans les librairies Node.js et C/C++.
 
 Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d'utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l'emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
@@ -64,7 +64,7 @@ Voir aussi [Utilisation des modules natifs de Node][].
 
 ### NSIS
 
-Nullsoft Scriptable Install System est un programme d'installation d'outil pilotée par script pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée par des produits propriétaire commerciales comme InstallShield. [electron-builder][] prend en charge NSIS comme format de build.
+Nullsoft Scriptable Install System est un programme d’installation d'outil pilotée par script pour Microsoft Windows. Il est distribué sous une combinaison de licences de logiciels libres et est une alternative largement utilisée par des produits propriétaire commerciales comme InstallShield. [electron-builder][] prend en charge NSIS comme format de compilation.
 
 ### OSR
 
@@ -72,7 +72,7 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 ### processus (process)
 
-Un processus est une instance d'un programme d'ordinateur en execution. Les apps Electron qui utilisent le processus [principal][] et un ou plusieurs processus [de rendu][] font tourner plusieurs programmes en même temps.
+Un processus est une instance d'un programme d'ordinateur en execution. Les applications Electron qui utilisent le processus [principal][] et un ou plusieurs processus [de rendu][] font tourner plusieurs programmes en même temps.
 
 Dans Node.js et Electron, chaque processus en execution ont un objet `processus`. Cet objet global donne des informations et permet de contrôler le processus current. Comme une variable global, cet objet est disponible dans l'application sans utiliser require().
 
@@ -88,11 +88,11 @@ Voir aussi : [processus](#process), [processus principal](#main-process)
 
 ### Squirrel
 
-Squirrel est un framework open-source permettant aux apps Electron de se mettre à jour automatiquement quand une nouvelle version est disponible. Voir l'API [autoUpdater][] pour plus d'informations sur comment démarrer avec Squirrel.
+Squirrel est un framework open-source permettant aux apps Electron de se mettre à jour automatiquement quand une nouvelle version est disponible. Voir l'API [autoUpdater][] pour plus d’informations sur comment démarrer avec Squirrel.
 
 ### userland
 
-Ce terme provient de la communauté Unix, où "userland" ou "userspace" fait référence aux programmes qui s'exécutent en dehors du noyau de système d'exploitation. Plus récemment, le terme a été popularisé dans Node et la communauté npm afin d'établir une distinction entre les fonctionnalités disponibles dans "Node core" par rapport aux paquets publié au registre npm par une grande majorité "d'utilisateurs" de la communauté.
+Ce terme provient de la communauté Unix, où « userland » ou « userspace » fait référence aux programmes qui s’exécutent en dehors du noyau de système d’exploitation. Plus récemment, le terme a été popularisé dans Node et la communauté npm afin d’établir une distinction entre les fonctionnalités disponibles dans « Node core » par rapport aux paquets publié au registre npm par une grande majorité « d'utilisateurs » de la communauté.
 
 Comme Node, Electron se concentre sur le fait d'avoir un petit ensemble d'APIs qui fournissent tout le nécessaire primaire pour développer des applications de bureau multiplateformes. Cette philosophie de conception permet à Electron de rester un outil souple sans être trop normative sur la façon dont il doit être utilisé. L'Userland permet aux utilisateurs de créer et partager des outils qui fournissent des fonctionnalités supplémentaires au dessus de ce qui est disponible dans le « noyau ».
 
