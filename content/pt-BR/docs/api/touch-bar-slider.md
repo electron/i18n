@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new TouchBarSlider(options)`
 
-* Objeto `options`
+* `options` Object
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
