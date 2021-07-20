@@ -2,7 +2,7 @@
 
 カスタム Electron バイナリの作成にあたって Windows で **Electron そのもの** をビルドするには、以下のガイドラインに従ってください。 アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
 
-## 必要な環境
+## Prerequisites
 
 * Windows 10 / Server 2012 R2 以上
 * Visual Studio 2017 15.7.2 以上 - [VS 2019 Community Edition 無料ダウンロード](https://www.visualstudio.com/vs/)
@@ -29,7 +29,7 @@ Windows Security は Chromium ソースコード内のファイルを良く思�
 
 ## ビルド
 
-[ビルド指示: GN](build-instructions-gn.md)を参照してください。
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32ビットビルド
 
