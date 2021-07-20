@@ -28,7 +28,7 @@ Retorna `Boolean` - se as notificações do desktop são suportadas ou não pelo
 
 ### `new Notification([options])`
 
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `title` String (optional) - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) _macOS_ - A subtitle for the notification, which will be displayed below the title.
   * `body` String (optional) - The body text of the notification, which will be displayed below the title or subtitle.
