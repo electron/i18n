@@ -4,7 +4,7 @@ Este guia guiará você através do processo de criação de um aplicativo bareb
 
 Ao final deste tutorial, sua aplicação abrirá uma janela do navegador que exibe uma página com informações sobre qual Chromium, Node.js, e versões do Electron estão sendo executadas.
 
-## Pré-requisitos
+## Prerequisites
 
 Para usar o Electron, você precisa instalar o [Node.js][node-download]. Recomendamos que você use a versão mais recente disponível do `LTS`.
 
