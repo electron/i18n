@@ -1,4 +1,4 @@
 # FileFilter Object
 
-* `name` String
+* `name` Zeichenfolge
 * `extensions` String[]
