@@ -43,7 +43,7 @@ window.electron.doThing()
 * `apiKey` String - Ключ для вставки API в `window`.  API будет доступен в `window[apiKey]`.
 * `api` Record - Ваш объект API, более подробная информация о том, что это и как он будет работать, доступна ниже.
 
-## Использование
+## Usage
 
 ### API
 
