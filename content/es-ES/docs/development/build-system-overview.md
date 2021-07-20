@@ -1,4 +1,4 @@
-# Compilación de sistemas
+# Resumen de compilación de sistemas
 
 Electron usa [gyp](https://gn.googlesource.com/gn) para la generación de proyectos y [ninja](https://ninja-build.org/) para su compilación. Las configuraciones del Proyecto puede ser encontradas en los archivos `.gn` y `.gni`.
 
