@@ -1,4 +1,4 @@
-# 自定义 Linux 桌面启动器行为
+# Custom Linux Desktop Launcher Actions
 
 ## 概览
 
