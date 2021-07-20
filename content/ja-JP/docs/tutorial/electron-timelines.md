@@ -1,15 +1,15 @@
 # Electron リリースタイムライン
 
-Special notes:
+特筆事項:
 
 * `-beta.1` および `stable` の日付は、具体的なリリース日です。
 * 私たちは毎週ベータ版のリリースを目指しますが、予定より多くのベータ版をリリースすることがよくあります。
 * これら全ての日付は私たちの目標ですが、セキュリティバグなど、安定版リリースの期限を調整する理由があるかもしれません。
 * リリース日の公表に関する情報については、[5.0.0 タイムラインのブログ記事](https://electronjs.org/blog/electron-5-0-timeline) をご覧ください。
-* Since Electron 6.0, we've been targeting every other Chromium version and releasing our stable on the same day as Chrome stable. You can reference Chromium's release schedule [here](https://chromiumdash.appspot.com/schedule). See [Electron's new release cadence blog post](https://www.electronjs.org/blog/12-week-cadence) for more details on our release schedule.
-* Electron 15.0 only will include a special Alpha release. Starting in Electron 16.0, we will release on an 8-week cadence. See [Electron's new 8-week cadence blog post](https://www.electronjs.org/blog/8-week-cadence) for more details.
+* Electron 6.0 以降、私たちは各 Chromium バージョンを対象に、Chrome 安定版と同じ日に Electron 安定版をリリースしています。 Chromium のリリーススケジュールは [こちら](https://chromiumdash.appspot.com/schedule) でご参照ください。 リリーススケジュールの詳細については、[Electron の新しいリリースケイデンスのブログ記事](https://www.electronjs.org/blog/12-week-cadence) をご覧ください。
+* Electron 15.0 にのみ、特別なアルファリリースが含まれます。 Electron 16.0 からは、8 週間周期でのリリースを予定しています。 詳細は [Electron の新しい 8 週間ケイデンスのブログ記事](https://www.electronjs.org/blog/8-week-cadence) をご覧ください。
 
-| Electron | アルファ        | ベータ         | Stable      | Chrome | ノード    |
+| Electron | アルファ        | ベータ         | 安定版         | Chrome | ノード    |
 | -------- | ----------- | ----------- | ----------- | ------ | ------ |
 | 2.0.0    | --          | 2018-Feb-21 | 2018-May-01 | M61    | v8.9   |
 | 3.0.0    | --          | 2018-Jun-21 | 2018-Sep-18 | M66    | v10.2  |
@@ -19,7 +19,7 @@ Special notes:
 | 7.0.0    | --          | 2019-Aug-01 | 2019-Oct-22 | M78    | v12.8  |
 | 8.0.0    | --          | 2019-Oct-24 | 2020-Feb-04 | M80    | v12.13 |
 | 9.0.0    | --          | 2020-Feb-06 | 2020-May-19 | M83    | v12.14 |
-| 10.0.0   | --          | 2020-May-21 | 2020-Aug-25 | M85    | v12.16 |
+| 10.0.0   | --          | 2020-May-21 | 2020-May-21 | M85    | v12.16 |
 | 11.0.0   | --          | 2020-Aug-27 | 2020-Nov-17 | M87    | v12.18 |
 | 12.0.0   | --          | 2020-Nov-19 | 2021-Mar-02 | M89    | v14.16 |
 | 13.0.0   | --          | 2021-Mar-04 | 2021-May-25 | M91    | v14.16 |
