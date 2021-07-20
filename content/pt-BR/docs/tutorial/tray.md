@@ -15,7 +15,7 @@ This guide will take you through the process of creating a [Tray](https://www.el
 
 On MacOS and Ubuntu, the Tray will be located on the top right corner of your screen, adjacent to your battery and wifi icons. On Windows, the Tray will usually be located in the bottom right corner.
 
-## Example
+## Exemplo
 
 ### main.js
 
