@@ -12,7 +12,7 @@ __Application dock menu:__
 
 ![macOS Dock Menu][2]
 
-## Example
+## Exemplo
 
 ### Managing recent documents
 
