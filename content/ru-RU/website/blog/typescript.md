@@ -38,7 +38,7 @@ If you were already using third-party definitions like `@types/electron` and `@t
 
 The definition file is derived from our [structured API documentation](https://electronjs.org/blog/2016/09/27/api-docs-json-schema), so it will always be consistent with [Electron's API documentation](https://electronjs.org/docs/api/). Just install `electron` and you'll always get TypeScript definitions that are up to date with the version of Electron you're using.
 
-## Использование
+## Usage
 
 For a summary of how to install and use Electron's new TypeScript annotations, watch this short demo screencast: <iframe width="100%" height="420" src="https://www.youtube.com/embed/PJRag0rYQt8" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
