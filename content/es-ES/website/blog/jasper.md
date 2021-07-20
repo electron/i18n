@@ -65,7 +65,7 @@ I will introduce what kind of conditions can be used for stream.
 
 ### Users and Teams
 
-| Stream                                        | Informes de problemas                                                 |
+| Stream                                        | Problemas                                                             |
 | --------------------------------------------- | --------------------------------------------------------------------- |
 | `mentions:cat mentions:dog`                   | Issues that mention user `cat` or `dog`                               |
 | `author:cat author:dog`                       | Issues created by user `cat` or `dog`                                 |
@@ -78,7 +78,7 @@ I will introduce what kind of conditions can be used for stream.
 
 ### Repositories and Organizations
 
-| Stream                           | Informes de problemas                |
+| Stream                           | Problemas                            |
 | -------------------------------- | ------------------------------------ |
 | `repo:cat/jump repo:dog/run`     | Issues in `cat/jump` or `dog/run`    |
 | `org:electron user:cat user:dog` | Issues in `electron`, `cat` or `dog` |
@@ -87,7 +87,7 @@ I will introduce what kind of conditions can be used for stream.
 
 ### Attributes
 
-| Stream                                            | Informes de problemas                                          |
+| Stream                                            | Problemas                                                      |
 | ------------------------------------------------- | -------------------------------------------------------------- |
 | `repo:cat/jump milestone:v1.0.0 milestone:v1.0.1` | Issues that are attached to `v1.0.0` or `v1.0.1` in `cat/jump` |
 | `repo:cat/jump label:bug label:blocker`           | Issues that are attached `bug` **and** `blocker` in `cat/jump` |
@@ -95,7 +95,7 @@ I will introduce what kind of conditions can be used for stream.
 
 ### Review Status
 
-| Stream                       | Informes de problemas                                                                  |
+| Stream                       | Problemas                                                                              |
 | ---------------------------- | -------------------------------------------------------------------------------------- |
 | `is:pr review:required`      | Issues that are required review in `cat/jump`                                          |
 | `is:pr review-requested:cat` | Issues that are requested review by `cat`. <br/> But these are not reviewed yet. |
