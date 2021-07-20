@@ -123,7 +123,7 @@ clipboard.writeRTF(rtf)
 
 ### `clipboard.readBookmark()` _macOS_ _Windows_
 
-返回 `Object`:
+返回 ` Object `:
 
 * `title` String
 * `url` String
