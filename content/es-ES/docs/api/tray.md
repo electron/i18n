@@ -242,7 +242,7 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 
 * `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - Icono a usar cuando `iconType` es `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Por defecto es `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Predeterminadamente, es `custom`.
   * `title` String
   * `content` String
   * `largeIcon` Boolean (opcional) - La versión grande del icono debe ser usada. Por defecto es `true`. Mapea a [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
