@@ -2,7 +2,7 @@
 
 请按照下面的指南在macOS下构建 **Electron 本身**，以此创建自定义 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
-## 基本要求
+## Prerequisites
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
@@ -14,7 +14,7 @@
 Please also ensure that your system and Python version support at least TLS 1.2. 这取决于您的 macOS 和 Python 的版本。 对于快速测试，请运行：
 
 ```sh
-$npx @emen/chect-python-tls
+$ npx @electron/check-python-tls
 ```
 
 如果以上命令的结果显示您正在使用过期的安全协议，您可以把macOS系统更新至High Sierra版，或者安装一个新的2.7.x版的Python。 您可以使用[Homebrew](https://brew.sh/)来更新Python版本：
