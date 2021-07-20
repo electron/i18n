@@ -4,7 +4,7 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-## Events
+## Ereignisse
 
 Das `powerMonitor` Modul sendet folgende Ereignisse aus:
 
