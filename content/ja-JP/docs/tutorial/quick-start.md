@@ -4,7 +4,7 @@ This guide will step you through the process of creating a barebones Hello World
 
 このチュートリアルを終えると、ブラウザウインドウを開いて Chromium、Node.js、Electron それぞれの実行バージョン情報のウェブページを表示できるアプリが完成します。
 
-## 必要な環境
+## Prerequisites
 
 Electron を使用するには、 [Node.js][node-download] をインストールする必要があります。 利用可能な最新の `LTS` バージョンのインストールを推奨します。
 
@@ -161,7 +161,7 @@ app.whenReady().then(() => {
 
 一般的に Windows や Linux では、すべてのウィンドウを終了するとアプリケーションが完全に終了します。
 
-To implement this, listen for the `app` module's [`'window-all-closed'`][window-all-closed] event, and call [`app.quit()`][app-quit] if the user is not on macOS (`darwin`).
+これを実装するには、`app` モジュールの [`'window-all-closed'`][window-all-closed] イベントをリッスンします。このイベントが発生し、ユーザーが macOS (`darwin`) でない場合に [`app.quit()`][app-quit] を呼び出すようにします。
 
 ```js
 app.on('window-all-closed', function () {
@@ -173,7 +173,7 @@ app.on('window-all-closed', function () {
 
 Linux や Windows のアプリはウインドウを開いていないと終了してしまいますが、macOS のアプリは一般的にウインドウを開いていなくても起動し続け、ウインドウがないときにアプリをアクティブにすると新規ウインドウが開きます。
 
-To implement this feature, listen for the `app` module's [`activate`][activate] event, and call your existing `createWindow()` method if no browser windows are open.
+この機能を実装するには、`app` モジュールの [`activate`][activate] イベントをリッスンします。ブラウザのウインドウが開いていなければ、既存の `createWindow()` メソッドを呼び出します。
 
 `ready` イベントの前ではウインドウを作成できないので、アプリが初期化された後に `activate` イベントだけをリッスンする必要があります。 そのためには、既存の `whenReady()` コールバックの中で、イベントリスナーをアタッチします。
 
@@ -195,7 +195,7 @@ app.whenReady().then(() => {
 
 この情報へアクセスするには、Node のグローバルである `process` オブジェクトを介してメインプロセスで行うのが簡単です。 しかし、メインプロセスはレンダラーの `document` コンテキストにアクセスできないため、メインプロセスから DOM を編集できません。 これらは全く別のプロセスだからです！
 
-> Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
+> 注: Electron のプロセスについてもっと詳しく知りたい方は、[プロセスモデル][] のドキュメントをご覧ください。
 
 そこで、**プリロード** スクリプトをレンダラーにアタッチすると便利です。 プリロードスクリプトは、レンダラープロセスが読み込まれる前に実行され、レンダラーのグローバル (`window` や `document` など) と Node.js 環境の両方にアクセスできます。
 
@@ -239,8 +239,8 @@ function createWindow () {
 
 ここでは、以下 2 つの Node.js のコンセプトが使われています。
 
-* The [`__dirname`][dirname] string points to the path of the currently executing script (in this case, your project's root folder).
-* The [`path.join`][path-join] API joins multiple path segments together, creating a combined path string that works across all platforms.
+* [`__dirname`][dirname] 文字列は、現在実行中のスクリプトのパス (ここではプロジェクトのルートフォルダ) を指しています。
+* [`path.join`][path-join] API は、複数のパス断片を結合し、すべてのプラットフォームで動作する結合パス文字列を作成します。
 
 現在実行中の JavaScript ファイルからの相対パスを使用しているので、開発モードとパッケージモードの両方で相対パスが機能します。
 
@@ -254,7 +254,7 @@ function createWindow () {
 <script src="./renderer.js"></script>
 ```
 
-The code contained in `renderer.js` can then use the same JavaScript APIs and tooling you use for typical front-end development, such as using [`webpack`][webpack] to bundle and minify your code or [React][react] to manage your user interfaces.
+`renderer.js` に含まれるコードは、[`webpack`][webpack] でコードをバンドルして最小化したり、[React][react] を使用してユーザーインターフェースを管理するなど、一般的なフロントエンド開発と同じ JavaScript API やツールを利用できます。
 
 ### まとめ
 
@@ -435,7 +435,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 [activate]: ../api/app.md#event-activate-macos
 
-[Process Model]: ./process-model.md
+[プロセスモデル]: ./process-model.md
 [dirname]: https://nodejs.org/api/modules.html#modules_dirname
 [path-join]: https://nodejs.org/api/path.html#path_path_join_paths
 
