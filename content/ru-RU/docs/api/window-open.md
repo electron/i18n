@@ -16,8 +16,8 @@ BrowserWindow constructor options are set by, in increasing precedence order: op
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String (опционально)
+* `features` String (опционально)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
@@ -31,11 +31,11 @@ A subset of `WebPreferences` can be set directly, unnested, from the features st
 window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIntegration=no')
 ```
 
-**Замечания:**
+**Примечания:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* Интеграция с Node будет всегда выключена в открытых `window` если она была выключена в родительском окне.
+* Изоляция контекста будет всегда включена в открытых `window` если она была включена в родительском окне.
+* JavaScript будет всегда включен в открытых `window` если он был включен в родительском окне.
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `additionalFeatures` argument.
 
 To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `false` cancels the window, while returning an object sets the `BrowserWindowConstructorOptions` used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
