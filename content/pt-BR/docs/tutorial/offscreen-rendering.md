@@ -24,7 +24,7 @@ This mode uses a software output device for rendering in the CPU, so the frame g
 
 To enable this mode, GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
-## Example
+## Exemplo
 
 ```javascript fiddle='docs/fiddles/features/offscreen-rendering'
 const { app, BrowserWindow } = require('electron')
