@@ -1,4 +1,4 @@
-# Instructions de compilation (macOS)
+# Instructions de Build (macOS)
 
 Follow the guidelines below for building **Electron itself** on macOS, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
@@ -11,7 +11,7 @@ Follow the guidelines below for building **Electron itself** on macOS, for the p
 
 ## Python
 
-Veuillez également vous assurer que votre système et la version Python prennent en charge au moins TLS 1.2. Cela dépend à la fois de votre version de macOS et de Python. For a quick test, run:
+Please also ensure that your system and Python version support at least TLS 1.2. Cela dépend à la fois de votre version de macOS et de Python. For a quick test, run:
 
 ```sh
 $ npx @electron/check-python-tls
