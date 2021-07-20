@@ -117,7 +117,7 @@ console.log(app)
 
 ### `remote.getGlobal(name)`
 
-* `name` 字符串
+* `name` String
 
 返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
