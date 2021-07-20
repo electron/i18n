@@ -4,7 +4,7 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-## Events
+## Ereignisse
 
 Das `inAppPurchase` Modul sendet folgende Ereignisse aus:
 
@@ -19,7 +19,7 @@ Kehrt zurück:
 
 ## Methoden
 
-Das `inAppPurchase` Modul hat folgende Methoden:
+Das Modul `inAppPurchase` verfügt über die folgenden Methoden:
 
 ### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
