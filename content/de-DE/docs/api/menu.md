@@ -81,7 +81,7 @@ Fügt dem Menü das `menuItem` hinzu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` Zeichenfolge
 
 Returns `MenuItem | null` the item with the specified `id`
 
