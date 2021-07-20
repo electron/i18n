@@ -320,7 +320,7 @@ Inyecta CSS en la página web actual y devuelve un identificador único para la 
 
 ### `<webview>.removeInsertedCSS(key)`
 
-* `key` String
+* `llave` Cadena
 
 Devuelve `Promise<void>` - Resuelve si la eliminación fue exitosa.
 
@@ -434,7 +434,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página.
 
 Devuelve `Promise<void>`
 
-Inserta `text` al elemento enfocado.
+Inserta `texto` en el elemento enfocado.
 
 ### `<webview>.findInPage(text[, options])`
 
@@ -496,15 +496,15 @@ Imprime la página web de `webview`. Igual que `webContents.print([options])`.
   * `headerFooter` Record<string, string> (opcional) - el encabezado y el pie de página para el PDF.
     * `title` String - El título para el encabezado PDF.
     * `url` String - la url para el pie de página PDF.
-  * `landscape` Boolean (opcional) - `true` para landscape, `false` para portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin. y `width` en micrones.
   * `scaleFactor` Number (opcional) - El factor de escalado de la página web. Puede variar entre 0 to 100.
   * `pageRanges` Record<string, number> (optional) - The page range to print. On macOS, only the first range is honored.
     * `from` Number - Index of the first page to print (0-based).
     * `to` Number - Índice de la última página a imprimir (inclusive) (0-based).
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la pagina PDF generada. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height`
-  * `printBackground` Boolean (opcional) - Si va a imprimir los fondos CSS.
-  * `printSelectionOnly` Boolean (opcional) - Si se va a imprimir solo la selección.
+  * `pageSize` String | Size (opcional) - Especifica el tamaño de la página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height`
+  * `printBackground` Boolean (octional) - Si se va a imprimir los fondos CSS.
+  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
 
 Returns `Promise<Uint8Array>` - Se resuelve cuando los datos PDF son generados.
 
@@ -568,7 +568,7 @@ Devuelve `Number` - el nivel de zoom actual.
 
 Devuelve `Promise<void>`
 
-Establece el nivel de máximo y mínimo de acercar y alejar.
+Establecer el nivel de máximo y mínimo pizca de zoom.
 
 ### `<webview>.showDefinitionForSelection()` _macOS_
 
@@ -635,7 +635,7 @@ Disparado cuando el documento en el frame dado es cargado.
 Devuelve:
 
 * `title` String
-* `explicitSet` Boolean
+* `explicitSet` Boolen
 
 Disparado cuando el título de la página se configura durante la navegación. `explicitSet` es false cuando el título es sincronizado desde el archivo url.
 
