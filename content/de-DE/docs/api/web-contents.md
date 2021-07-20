@@ -364,7 +364,7 @@ Ausgegeben wenn eine Webseite, die zuvor nicht mehr antwortete, wieder antwortet
 Kehrt zurück:
 
 * `event` Event
-* `name` String
+* `name` Zeichenfolge
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -1584,7 +1584,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
+* `parameters` Objekt
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1625,7 +1625,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
+* `item` Objekt
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
