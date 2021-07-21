@@ -4,7 +4,7 @@
 
 This feature allows you to configure local and global keyboard shortcuts for your Electron application.
 
-## Example
+## Exemplo
 
 ### Atalhos Locais
 

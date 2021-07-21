@@ -1,6 +1,6 @@
-# Opening windows from the renderer
+# 从渲染进程打开窗口
 
-There are several ways to control how windows are created from trusted or untrusted content within a renderer. Windows can be created from the renderer in two ways:
+There are several ways to control how windows are created from trusted or untrusted content within a renderer. 可以通过两种方式从渲染进程创建窗口：
 
 * clicking on links or submitting forms adorned with `target=_blank`
 * JavaScript calling `window.open()`
@@ -16,8 +16,8 @@ BrowserWindow constructor options are set by, in increasing precedence order: op
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String（可选）
+* `features` String（可选）
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) | [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
@@ -33,9 +33,9 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 
 **说明：**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* 如果在父窗口中禁用了 Node integration, 则在打开的 `window ` 中将始终被禁用。
+* 如果在父窗口中启用了上下文隔离, 则在打开的 ` window ` 中将始终被启用。
+* 父窗口禁用 Javascript，打开的 `window` 中将被始终禁用
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `additionalFeatures` argument.
 
 To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `false` cancels the window, while returning an object sets the `BrowserWindowConstructorOptions` used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.

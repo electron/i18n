@@ -36,7 +36,7 @@ Comienza la agravación de eventos de red en `path`.
 
 Devuelve `Promise<void>` - se resuelve cuando el net log se ha descargado en el disco.
 
-Detener la grabación de los eventos de red. Si no se llama, la grabación de los registros de red terminará automáticamente cuando la aplicación se cierre.
+Parar la grabación de eventos de red. Si no se llama, el registro de red automáticamente terminara cuando la aplicación se cierre.
 
 ## Propiedades
 

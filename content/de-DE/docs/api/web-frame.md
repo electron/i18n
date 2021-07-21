@@ -6,7 +6,7 @@ Prozess: [Renderer](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-An example of zooming current page to 200%.
+Ein Beispiel zum zoomen der aktuellen Page auf 200%.
 
 ```javascript
 const { webFrame } = require('electron')
@@ -16,7 +16,7 @@ webFrame.setZoomFactor(2)
 
 ## Methoden
 
-The `WebFrame` class has the following instance methods:
+Die `WebFrame` class hat die folgenden Methoden:
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -28,7 +28,7 @@ The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Gibt eine `Number` zurück - Der aktuelle Zoom Faktor.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -40,7 +40,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Returns `Number` - Das aktuelle Zoom Level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -60,11 +60,11 @@ Setzt das Maximum und Minimum pinch-to-zoom Level.
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
-* `provider` Object
-  * `spellCheck` Function
-    * `words` String[]
+* `provider` Objekt
+  * `spellCheck` Funktion
+    * `words` Zeichenkette[]
     * `callback` Function
-      * `misspeltWords` String[]
+      * `misspeltWords` Zeichenkette[]
 
 Sets a provider for spell checking in input fields and text areas.
 
@@ -152,7 +152,7 @@ Note that when the execution of script fails, the returned promise will not reje
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `info` Object
+* `info` Objekt
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
   * `name` String (optional) - Name for isolated world. Useful in devtools.
@@ -177,7 +177,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Dies generiert:
 
 ```javascript
 {
@@ -201,13 +201,13 @@ Note that blindly calling this method probably makes Electron slower since it wi
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - CSS selector für ein frame Element.
 
 Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` String
+* `name` Zeichenfolge
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 

@@ -12,7 +12,7 @@ Offscreen rendering lets you obtain the content of a `BrowserWindow` in a bitmap
 * When nothing is happening on a webpage, no frames are generated.
 * An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-### Режимы рендеринга
+### Режими рендеринга
 
 #### Аппаратное ускорение
 

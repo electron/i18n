@@ -48,7 +48,7 @@ The `ipcMain` module has the following method to listen for events:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Funktion
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Funktion
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -66,7 +66,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Funktion
   * `...args` any[]
 
 Removes the specified `listener` from the listener array for the specified `channel`.

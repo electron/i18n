@@ -482,7 +482,7 @@ app.on('session-created', (session) => {
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (任意)
 
 `exitCode` ですぐに終了します。 `exitCode` の省略値は 0 です。
 
@@ -492,7 +492,7 @@ app.on('session-created', (session) => {
 
 * `options` Object (任意)
   * `args` String[] (任意)
-  * `execPath` String (optional)
+  * `execPath` String (任意)
 
 現在のインスタンスが終了したときに、アプリを再起動します。
 
@@ -712,7 +712,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 ### `app.setUserTasks(tasks)` _Windows_
 
-* `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
+* `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
 
 `tasks` を Windows でのジャンプリストの [タスク][tasks] カテゴリに追加します。
 
@@ -831,7 +831,7 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 誰かが2つ目のインスタンスを実行したとき、このウィンドウにフォーカスします。
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
@@ -1066,7 +1066,7 @@ app.setLoginItemSettings({
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
   * `version` String (任意) _macOS_ - アプリのビルドバージョン番号。
-  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
+  * `credits` String (任意) _macOS_ _Windows_ - クレジット情報。
   * `authors` String[] (任意) _Linux_ - アプリの作者のリスト。
   * `website` String (任意) _Linux_ - アプリのウェブサイト。
   * `iconPath` String (任意) _Linux_ _Windows_ - JPEGまたはPNGフォーッマットの、アプリのアイコンへのパス。 Linux で、アスペクト比を保ったまま 64×64 ピクセルで表示されます。
@@ -1087,7 +1087,7 @@ Aboutパネルのオプションを設定します。 macOS の場合、これ�
 
 * `bookmarkData` String - `dialog.showOpenDialog` または `dialog.showSaveDialog` メソッドによって返された、base64 でエンコードされたセキュリティスコープのブックマークデータ。
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. ブックマークへのアクセスを忘れた場合は、[カーネルリソースがリークします](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)。アプリが再起動されるまで、サンドボックスの外部にアクセスする権限は失われます。
+戻り値 `Function` - セキュリティスコープ付きファイルへのアクセスが終了すれば、この関数の呼び出しを **しなければなりません**。 ブックマークへのアクセスを忘れた場合は、[カーネルリソースがリークします](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)。アプリが再起動されるまで、サンドボックスの外部にアクセスする権限は失われます。
 
 ```js
 // ファイルアクセス開始
@@ -1120,9 +1120,9 @@ stopAccessingSecurityScopedResource()
 
 デフォルトでは確認ダイアログは表示されません。 ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) API で実現できます。
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
+**注意:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーを送出します。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. _実行されている_ 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。  つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
+既定では、移動するアプリと同じ名前のアプリがアプリケーションディレクトリに存在し実行されて _いない_ 場合、既存のアプリはゴミ箱に移動され、新たなアプリがその場所に移動します。 _実行されている_ 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。  つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
 
 以下がその例です。
 

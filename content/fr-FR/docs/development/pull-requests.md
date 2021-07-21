@@ -2,7 +2,7 @@
 
 * [Configurer votre environnement local](#setting-up-your-local-environment)
   * [Étape 1 : Dupliquer un projet](#step-1-fork)
-  * [Etape 2 : construire, compiler](#step-2-build)
+  * [Etape 2 : Construire, compiler](#step-2-build)
   * [Step 3: Branches](#step-3-branch)
 * [Apporter des changements](#making-changes)
   * [Étape 4 : Code](#step-4-code)
@@ -30,7 +30,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Etape 2 : construire, compiler
+### Etape 2 : Construire, compiler
 
 Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
 

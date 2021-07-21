@@ -161,9 +161,9 @@ Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
 ### --vmodule=`pattern`
 
-Permet que les niveaux maximum par module de V-logging puisse dépasser la valeur donnée par `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Permet que les niveaux maximum par module de V-logging puisse dépasser la valeur donnée par `--v`. Exemple : `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Tout pattern contenant un slash ou un anti-slash sera testé pour tout le chemin et pas seulement le module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Tout pattern contenant un slash ou un anti-slash sera testé pour tout le chemin et pas seulement le module. Exemple : `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
@@ -195,7 +195,7 @@ Aliased to `--debug-port=[host:]port`.
 
 ### --inspect[=[host:]port]
 
-Activate inspector on `host:port`. `127.0.0.1:9229` par défaut.
+Activate inspector on `host:port`. Par défaut la valeur est `127.0.0.1:9229`.
 
 V8 inspector integration allows tools such as Chrome DevTools and IDEs to debug and profile Electron instances. The tools attach to Electron instances via a TCP port and communicate using the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).
 

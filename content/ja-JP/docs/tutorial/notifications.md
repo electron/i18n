@@ -29,7 +29,7 @@ new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
   .onclick = () => console.log(CLICK_MESSAGE)
 ```
 
-After launching the Electron application, you should see the notification:
+Electron アプリケーションを起動すると、以下のような通知が表示されるでしょう。
 
 ![レンダラープロセスでの通知](../images/notification-renderer.png)
 
@@ -56,7 +56,7 @@ Electron アプリケーションを起動すると、以下のようなシス�
 
 ![メインプロセスでの通知](../images/notification-main.png)
 
-## Additional information
+## さらなる情報
 
 オペレーティングシステム間でのコードとユーザエクスペリエンスは似ていますが、微妙な違いがあります。
 

@@ -4,7 +4,7 @@ Electron 使用 [GN](https://gn.googlesource.com/gn) 生成项目，并用 [Ninj
 
 ## GN 文件
 
-下面的 `gn` 文件包含了构建 Electron 的核心规则:
+The following `gn` files contain the main rules for building Electron:
 
 * `BUILD.gn` 指明了如何构建 Electron，还包括与 Chromium 相关的默认配置。
 * `build/args/{debug,release,all}.gn` 包含 Electron 的默认构建参数。

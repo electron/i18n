@@ -55,7 +55,7 @@ app.on('activate', () => {
 
 最近開いた書類にファイルを追加するには、[app.addRecentDocument][addrecentdocument] API を使用します。
 
-After launching the Electron application, right click the application icon. このガイドでは、そのアイテムはプロジェクトのルートにある Markdown ファイルとなっています。 最近開いたファイルのリストに `recently-used.md` が追加されているはずです。
+Electron アプリケーションの起動後、アプリケーションのアイコンを右クリックしてみましょう。 このガイドでは、そのアイテムはプロジェクトのルートにある Markdown ファイルとなっています。 最近開いたファイルのリストに `recently-used.md` が追加されているはずです。
 
 ![最近使った書類](../images/recent-documents.png)
 
@@ -63,7 +63,7 @@ After launching the Electron application, right click the application icon. こ�
 
 最近開いた書類のリストを消去するには、[app.clearRecentDocuments][clearrecentdocuments] API を使用します。 このガイドでは、すべてのウインドウを閉じた時点でその書類のリストは消去されます。
 
-## Additional information
+## さらなる情報
 
 ### Windows での注意
 

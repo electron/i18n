@@ -19,7 +19,7 @@ Retorna:
 
 ## Métodos
 
-O módulo `inAppPurchase` possui os seguintes métodos:
+O módulo `inAppPurchase` tem os seguintes métodos:
 
 ### `inAppPurchase.purchaseProduct(productID[, quantity])`
 

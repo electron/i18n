@@ -22,7 +22,7 @@ In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for
 
 If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
-## Example
+## Exemplo
 
 This example demonstrates an Electron application that derives its theme colors from the `nativeTheme`. Additionally, it provides theme toggle and reset controls using IPC channels.
 

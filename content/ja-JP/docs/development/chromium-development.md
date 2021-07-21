@@ -1,4 +1,4 @@
-# Chromiumの開発
+# Chromium開発
 
 > Chromium の学習や Chromium の開発状況を追跡する際に参考になるリソース集です
 

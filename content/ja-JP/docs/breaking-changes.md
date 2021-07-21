@@ -53,7 +53,7 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 
 ### 削除: `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+非推奨となっていた同期型の `shell.moveItemToTrash()` API が削除されました。 代わりに非同期の `shell.trashItem()` を使用してください。
 
 ```js
 // Electron 13 では削除されます。
@@ -565,7 +565,7 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastC
 ```
 
-## Planned Breaking API Changes (7.0)
+## 予定されている破壊的なAPIの変更 (7.0)
 
 ### 非推奨: Atom.io の Node ヘッダー URL
 
@@ -703,7 +703,7 @@ Electron 5 とElectron 6 では、既存の非同期 API の Promise ベース�
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-## Planned Breaking API Changes (6.0)
+## 予定されている破壊的なAPIの変更 (6.0)
 
 ### API 変更: `win.setMenu(null)` は `win.removeMenu()` に
 
@@ -784,7 +784,7 @@ tray.setHighlightMode(mode)
 // API は v7.0 で削除され、置換はできません
 ```
 
-## Planned Breaking API Changes (5.0)
+## 予定されている破壊的なAPIの変更 (5.0)
 
 ### 省略値変更: `nodeIntegration` と `webviewTag` の省略値は false に、`contextIsolation` の省略値は true に
 
@@ -1174,7 +1174,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 どの Electron リリースにも、`electron-v1.7.3-linux-arm.zip` や `electron-v1.7.3-linux-armv7l.zip` のような少しファイル名が異なる2つの同一な ARM ビルドが含まれます。 サポートされている ARM バージョンをユーザに明確にし、将来作成される armv6l および arm64 アセットらと明確にするために、`v7l` という接頭子を持つアセットが追加されました。
 
-The file _without the prefix_ is still being published to avoid breaking any setups that may be consuming it. 2.0 からは、接頭子のないファイルは公開されなくなりました。
+_接頭子が付いていない_ ファイルは、まだそれを使用している可能性がある設定を破壊しないために公開しています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
 
 詳細は、[6986](https://github.com/electron/electron/pull/6986) と [7189](https://github.com/electron/electron/pull/7189) を参照してください。
 

@@ -104,11 +104,11 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 [サブピクセルアンチエイリアス](https://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。 サンプル:
 
-![subpixel rendering example][]
+![サブピクセルレンダリングの例][]
 
 サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
 
-To achieve this goal, set the background in the constructor for [BrowserWindow][browser-window]:
+この目的を達成するには、[BrowserWindow][browser-window] のコンストラクタで背景を設定しましょう。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -129,4 +129,4 @@ CSS で背景を設定するだけでは期待する効果はないことに注�
 [indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 [message-port]: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort
 [browser-window]: api/browser-window.md
-[subpixel rendering example]: images/subpixel-rendering-screenshot.gif
+[サブピクセルレンダリングの例]: images/subpixel-rendering-screenshot.gif

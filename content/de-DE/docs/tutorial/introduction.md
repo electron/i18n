@@ -6,7 +6,7 @@ Willkommen bei der Electron-Dokumentation! Wenn Sie zum ersten Mal eine Electron
 
 Electron is a framework for building desktop applications using JavaScript, HTML, and CSS. By embedding [Chromium][chromium] and [Node.js][node] into its binary, Electron allows you to maintain one JavaScript codebase and create cross-platform apps that work on Windows, macOS, and Linux — no native development experience required.
 
-## Vorrausetzungen
+## Prerequisites
 
 These docs operate under the assumption that the reader is familiar with both Node.js and general web development. If you need to get more comfortable with either of these areas, we recommend the following resources:
 

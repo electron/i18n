@@ -16,7 +16,7 @@
 * [クイック スタート](tutorial/quick-start.md)
 * [プロセスモデル](tutorial/process-model.md)
 
-### Learning the basics
+### 基礎を学ぶ
 
 * アプリに機能を追加する
   * [通知](tutorial/notifications.md)

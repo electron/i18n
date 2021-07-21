@@ -4,7 +4,7 @@
 
 通过这个教程，你的app将会打开一个浏览器窗口，来展示包含当前正在运行的 Chromium, Node.js与 Electronweb等版本信息的web界面
 
-## 基本要求
+## Prerequisites
 
 在使用Electron进行开发之前，您需要安装 [Node.js][node-download]。 我们建议您使用最新的LTS版本。
 
@@ -258,12 +258,12 @@ The code contained in `renderer.js` can then use the same JavaScript APIs and to
 
 ### 回顾
 
-After following the above steps, you should have a fully functional Electron application that looks like this:
+完成上述步骤后，您应该有一个功能齐全的Electron程序，如下所示：
 
 ![最简的 Electron 应用程序](../images/simplest-electron-app.png)
 
 <!--TODO(erickzhao): Remove the individual code blocks for static website -->
-The full code is available below:
+完整代码如下：
 
 ```js
 // main.js
@@ -317,7 +317,7 @@ app.on('window-all-closed', function () {
 // preload.js
 
 // All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
+// 它拥有与Chrome扩展一样的沙盒。
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector, text) => {
     const element = document.getElementById(selector)
@@ -356,16 +356,13 @@ window.addEventListener('DOMContentLoaded', () => {
 ```fiddle docs/fiddles/quick-start
 ```
 
-To summarize all the steps we've done:
+总结我们所做的所有步骤：
 
-* We bootstrapped a Node.js application and added Electron as a dependency.
+*我们启动了一个Node.js程序，并将Electron添加为依赖。
 * We created a `main.js` script that runs our main process, which controls our app
-  and runs in a Node.js environment. In this script, we used Electron's `app` and
-  `BrowserWindow` modules to create a browser window that displays web content
-  in a separate process (the renderer).
+  and runs in a Node.js environment. 在此脚本中， 我们使用 Electron 的 `app` 和  `BrowserWindow` 模块来创建一个浏览器窗口，在一个单独的进程(渲染器)中显示网页内容。
 
-* In order to access certain Node.js functionality in the renderer, we attached
-  a preload script to our `BrowserWindow` constructor.
+* 为了访问渲染器中的Node.js的某些功能，我们在 `BrowserWindow` 的构造函数上附加了一个预加载脚本。
 
 ## 打包并分发您的应用程序
 

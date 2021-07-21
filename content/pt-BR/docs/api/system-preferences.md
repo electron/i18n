@@ -52,7 +52,7 @@ Returns `Boolean` - Whether the system is in Dark Mode.
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
-### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
+### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` no _macOS_
 
 Returns `Boolean` - Whether the Swipe between pages setting is on.
 
@@ -78,7 +78,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.subscribeNotification(event, callback)` _macOS_
+### `systemPreferences.subscribeNotification(event, callback)` no _macOS_
 
 * `event` String
 * `callback` Function
@@ -141,7 +141,7 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
-### `systemPreferences.registerDefaults(defaults)` _macOS_
+### `systemPreferences.registerDefaults(defaults)` no _macOS_
 
 * `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
 
@@ -178,7 +178,7 @@ Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
-### `systemPreferences.removeUserDefault(key)` _macOS_
+### `systemPreferences.removeUserDefault(key)` no _macOS_
 
 * `key` String
 
@@ -299,7 +299,7 @@ Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`).
 
 The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
-### `systemPreferences.getSystemColor(color)` _macOS_
+### `systemPreferences.getSystemColor(color)` no _macOS_
 
 * `color` String - One of the following values:
   * `blue`
@@ -328,7 +328,7 @@ Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise
 
 **Deprecated:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
-### `systemPreferences.getEffectiveAppearance()` _macOS_
+### `systemPreferences.getEffectiveAppearance()` no _macOS_
 
 Returns `String` - Can be `dark`, `light` or `unknown`.
 
@@ -346,13 +346,13 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
-### `systemPreferences.canPromptTouchID()` _macOS_
+### `systemPreferences.canPromptTouchID()` no _macOS_
 
 Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
 **NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
 
-### `systemPreferences.promptTouchID(reason)` _macOS_
+### `systemPreferences.promptTouchID(reason)` no _macOS_
 
 * `reason` String - The reason you are asking for Touch ID authentication
 
@@ -372,7 +372,7 @@ This API itself will not protect your user data; rather, it is a mechanism to al
 
 **NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
 
-### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
+### `systemPreferences.isTrustedAccessibilityClient(prompt)` no _macOS_
 
 * `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
 

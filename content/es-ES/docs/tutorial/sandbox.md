@@ -34,7 +34,7 @@ In order to allow renderer processes to communicate with the main process, prelo
 
 * `electron` (only renderer process modules)
 * [`events`](https://nodejs.org/api/events.html)
-* [`timers`](https://nodejs.org/api/timers.html)
+* [`contadores`](https://nodejs.org/api/timers.html)
 * [`url`](https://nodejs.org/api/url.html)
 
 In addition, the preload script also polyfills certain Node.js primitives as globals:

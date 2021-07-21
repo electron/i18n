@@ -2,7 +2,7 @@
 
 カスタム Electron バイナリの作成にあたって macOS で **Electron そのもの** をビルドするには、以下のガイドラインに従ってください。 アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
 
-## 必要な環境
+## Prerequisites
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
@@ -11,7 +11,7 @@
 
 ## Python
 
-あなたのシステムと Python が少くとも TLS 1.2 をサポートしていることを確認してください。 これは、macOS と Python 両方のバージョンに依存します。 クイックテストをするには以下を実行します。
+Please also ensure that your system and Python version support at least TLS 1.2. これは、macOS と Python 両方のバージョンに依存します。 クイックテストをするには以下を実行します。
 
 ```sh
 $ npx @electron/check-python-tls

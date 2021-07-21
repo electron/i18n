@@ -16,9 +16,9 @@ Ce document utilise la convention suivante pour catégoriser les modifications m
 
 ### API modifiée : `window.(open)`
 
-The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+Le paramètre optionnel `frameName` ne définira plus le titre de la fenêtre. Ceci conformément à la spécification décrite par la [documentation native](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) sous le paramètre correspondant `windowName`.
 
-If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+Si vous utilisiez ce paramètre pour définir le titre d'une fenêtre, vous devez utiliser à la place: [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
 
 ### Supprimé : `worldSafeExecuteJavaScript`
 
@@ -53,7 +53,7 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 
 ### Supprimé : `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+L’API `shell.moveItemToTrash()` synchrone qui était dépréciée a été supprimée. Utilisez shell.trashItem() `asynchrone` à la place.
 
 ```js
 // Supprimé dans Electron 13
@@ -64,7 +64,7 @@ shell.trashItem(path).then(/* ... */)
 
 ### Removed: `BrowserWindow` extension APIs
 
-The deprecated extension APIs have been removed:
+Les API d'extension obsolètes ont été supprimées :
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -80,26 +80,26 @@ Utilisez plutôt les API de session :
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// Supprimé dans Electron 13
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Remplacer par
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+Supprimé dans Electron 13
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// Remplacer par
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Removed in Electron 13
+Supprimé dans Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Remplacer par
 session.defaultSession.getAllExtensions()
 ```
 
@@ -139,12 +139,12 @@ nativeTheme.shouldUseHighContrastColors
 L'événement `new-window` de WebContents est déprécié. Il est remplacé par [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
-// Deprecated in Electron 13
+// Déprécié dans  Electron 13
 webContents.on('new-window', (event) => {
   event.preventDefault()
 })
 
-// Replace with
+// Remplacer par
 webContents.setWindowOpenHandler((details) => {
   return { action: 'deny' }
 })
@@ -152,9 +152,9 @@ webContents.setWindowOpenHandler((details) => {
 
 ## Changements majeurs prévus de l'API (12.0)
 
-### Removed: Pepper Flash support
+### Supprimé: Support de Pepper Flash
 
-Chromium a supprimé la prise en charge de Flash, nous devons donc emboîter le pas. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+Chromium a supprimé la prise en charge de Flash, nous devons donc emboîter le pas. Consultez la [ feuille de route Flash](https://www.chromium.org/flash-roadmap) de Chromium pour plus de détails.
 
 ### Changements de rupture`true`
 
@@ -174,7 +174,7 @@ Pour plus de détails, voir : https://github.com/electron/electron/issues/23506
 
 ### Supprimé : `crashReporter.getCrashesDirectory()`
 
-La méthode `crashReporter.getCrashesDirectory` a été supprimée. Usage should be replaced by `app.getPath('crashDumps')`.
+La méthode `crashReporter.getCrashesDirectory` a été supprimée. Usage Devrait être remplacé par `app.getPath('crashDumps')`.
 
 ```js
 // Supprimé dans Electron 12
@@ -198,11 +198,11 @@ Ils ne doivent être appelés qu'à partir du processus principal.
 
 Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de détails.
 
-### Default Changed: `crashReporter.start({ compress: true })`
+### Valeur par défaut modifiée : `crashReporter.start({ compress: true })`
 
-La valeur par défaut de l'option `compress` en `crashReporter.start` a changé de `false` à `true`. This means that crash dumps will be uploaded to the crash ingestion server with the `Content-Encoding: gzip` header, and the body will be compressed.
+La valeur par défaut de l'option `compress` en `crashReporter.start` a changé de `false` à `true`. Cela signifie que les rapports de plantage seront envoyés au serveur d'ingestion de plantage avec l'en-tête `Content-Encoding: gzip` et le corps sera compressé.
 
-If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
+Si votre serveur d'ingestion de plantage ne supporte pas les payloads compressées, vous pouvez désactiver la compression en spécifiant `{ compress: false }` dans les options du rapporteur de plantage.
 
 ### Déprécié : module` remote `
 
@@ -255,7 +255,7 @@ crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' }})
 
 ### Déprécié : `crashReporter.getCrashesDirectory()`
 
-La méthode `crashReporter.getCrashesDirectory` a été dépréciée. Usage should be replaced by `app.getPath('crashDumps')`.
+La méthode `crashReporter.getCrashesDirectory` a été dépréciée. Usage Devrait être remplacé par `app.getPath('crashDumps')`.
 
 ```js
 // Déprécié dans Electron 10
@@ -275,7 +275,7 @@ L'appel des méthodes `crashReporter` suivantes à partir du processus de rendu 
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
+Les seules méthodes non obsolètes restantes dans le module `crashReporter` du renderer sont `addExtraParameter`, `removeExtraParameter` et `getParameters`.
 
 Toutes les méthodes ci-dessus restent non dépréciées lorsqu'elles sont appelées à partir du processus principal.
 
@@ -283,7 +283,7 @@ Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de dét
 
 ### Déprécié : `crashReporter.start({ compress: false })`
 
-Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
+La configuration `{ compress: false }` dans `crashReporter.start` est obsolète. Presque tous les serveurs d'ingestion de plantages supportent la compression gzip. Cette option sera supprimée dans une future version d’Electron.
 
 ### Suppression : Browser Window Affinity
 
@@ -312,9 +312,9 @@ Nous vous recommandons d'éviter d'utiliser le module [distant](https://medium.c
 Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
 
 ```javascript
-// Deprecated
+// Déprécié
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// Remplacer par
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -341,9 +341,9 @@ protocol.unregisterProtocol(scheme)
 Les API sont désormais synchrones donc la callback qui était facultative n'est plus nécessaire.
 
 ```javascript
-// Deprecated
+// Déprécié
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// Remplacer par
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -354,9 +354,9 @@ Le protocole enregistré ou intercepté n'a pas d'effet sur la page actuelle tan
 Cette API est dépréciée et les utilisateurs doivent utiliser à la place `protocol.isProtocolRegistered` et `protocol.isProtocolIntercepted`.
 
 ```javascript
-// Deprecated
+// Déprécié
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// Remplacer par
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
@@ -389,18 +389,18 @@ Utilisez plutôt les API de session :
 * `ses.getAllExtensions()`
 
 ```js
-// Deprecated in Electron 9
+// Déprécié dans Electron 9
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Remplacer par
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Deprecated in Electron 9
+// Déprécié dans Electron 9
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// Remplacer par
 session.defaultSession.removeExtension(extension_id)
 ```
 
@@ -424,13 +424,13 @@ const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-### Supprimé : `webFrame.setLayoutZoomLevelLimits()`
+### Supprimé: `webFrame.setLayoutZoomLevelLimits()`
 
 Chrome a supprimé la prise en charge pour modifier les limites de niveau de zoom de mise en page et il n'est plus possible pour Electron de le maintenir. La fonction a été dépréciée dans Electron 8.x, et supprimée dans Electron 9.x. Les limites de niveau de zoom de mise en page sont maintenant fixées à un minimum de 0. 5 et un maximum de 5.0, tel que défini [ici](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Comportement modifié : l’envoi d’objets non-JS au travers d' IPC déclenche maintenant une exception
 
-Dans Electron 8.0, l'IPC a été modifié pour utiliser l'algorithme Structured Clone , apportant des améliorations significatives des performances. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Chaque fois que l'ancien algorithme était invoqué, un un avertissement de dépréciation a été imprimé.
+Dans Electron 8.0, l'IPC a été modifié pour utiliser l'algorithme Structured Clone , apportant des améliorations significatives des performances. Pour aider à faciliter la transition, l'ancien algorithme de sérialisation IPC a été conservé et utilisé pour certains objets qui ne sont pas sérialisables avec Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Chaque fois que l'ancien algorithme était invoqué, un un avertissement de dépréciation a été imprimé.
 
 In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
 
@@ -696,13 +696,13 @@ Les fonctions suivantes ne retournent plus que des promesses :
 * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 * `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
 
-These functions now have two forms, synchronous and Promise-based asynchronous:
+Ces fonctions ont maintenant deux formes, synchrone et asynchrone basées sur Promise :
 
 * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-## Planned Breaking API Changes (6.0)
+## Changements API non rétro-compatible prévus (6.0)
 
 ### API modifiée : `win.setMenu(null)` est désormais `win.removeMenu()`
 
@@ -773,7 +773,7 @@ app.enableMixedSandbox()
 
 Le mode bac à sable mixte est désormais activé par défaut.
 
-### Deprecated: `Tray.setHighlightMode`
+### Déprécié : `Tray.setHighlightMode`
 
 Sous macOS Catalina, notre ancienne implémentation de Tray est interrompue. Le substitut natif d'Apple ne prend pas en charge la modification du comportement de mise en évidence.
 
@@ -795,7 +795,7 @@ Les options suivantes de `webPreferences` seront dépréciées en faveur de nouv
 | `nodeIntegration`  | `true`                                | `false`                    |
 | `webviewTag`       | `nodeIntegration` si mis sinon `true` | `false`                    |
 
-E.g. Re-enabling the webviewTag
+Exemple : Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({

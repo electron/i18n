@@ -182,7 +182,7 @@ electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekee
 
 アップロードした後は、[アプリを審査に提出][submit-for-review] しましょう。
 
-## MAS Buildの制限
+## MAS ビルドの制限
 
 アプリのサンドボックスですべての要件を満たすために、MASビルドで次のモジュールを無効にしてください。
 
@@ -237,7 +237,7 @@ electron-osx-sign YourApp.app --identity='Developer ID Application' --no-gatekee
 
 詳細は [Enabling User-Selected File Access ドキュメント][user-selected] を参照してください。
 
-## Electronが使用する暗号化アルゴリズム
+## Electron が使用する暗号化アルゴリズム
 
 アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 詳細は [暗号輸出コンプライアンスドキュメント][export-compliance] を参照してください。
 

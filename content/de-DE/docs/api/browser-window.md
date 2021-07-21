@@ -1221,22 +1221,22 @@ Add a thumbnail toolbar with a specified set of buttons to the thumbnail image o
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-`buttons` ist ein Array mit `Button` Objekten:
+The `buttons` is an array of `Button` objects:
 
 * `Button` Object
-  * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
-  * ` Klicken Sie auf ` Funktion
-  * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
-  * `flags` String[] (optional) - Kontrollieren Sie bestimmte Zustände und Verhaltensweisen des Buttons. Standardmäßig ist es `['enabled']`.
+  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `click` Function
+  * `tooltip` String (optional) - The text of the button's tooltip.
+  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
-Die ` Flags ` ist ein Array, das folgende ` Zeichenfolge ` s enthalten kann:
+The `flags` is an array that can include following `String`s:
 
-* ` Enabled `-die Schaltfläche ist aktiv und für den Benutzer verfügbar.
-* `disabled` - Der Button ist deaktiviert. Er ist vorhanden, zeigt aber visuell, dass er nicht auf Nutzeraktionen reagiert.
-* ` dismissonclick `-wenn auf die Schaltfläche geklickt wird, wird das Thumbnail-Fenster geschlossen sofort.
-* ` nobackground `-zeichnen Sie keinen Schaltflächenrahmen, sondern verwenden Sie nur das Bild.
-* ` Hidden `-die Schaltfläche wird dem Benutzer nicht angezeigt.
-* `noninteractive` - Der Button ist aktiviert aber nicht interaktiv. Es wird kein gedrückter Button angezeigt. Dieser Wert ist für Instanzen bestimmt, in denen der Button in einer Benachrichtigung verwendet wird.
+* `enabled` - The button is active and available to the user.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
+* `nobackground` - Do not draw a button border, use only the image.
+* `hidden` - The button is not shown to the user.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
 
 #### `win.setThumbnailClip(region)` _Windows_
 

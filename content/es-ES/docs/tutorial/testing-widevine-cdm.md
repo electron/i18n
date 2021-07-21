@@ -41,11 +41,11 @@ Código de ejemplo:
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// You have to pass the directory that contains widevine library here, it is
-// * `libwidevinecdm.dylib` on macOS,
-// * `widevinecdm.dll` on Windows.
+// Tienes que pasar el directorio que contiene la biblioteca de widevine aquí, es
+// * `libwidevinecdm.dylib` en macOS,
+// * `widevinecdm.dll` en Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
-// The version of plugin can be got from `chrome://components` page in Chrome.
+// La versión del plugin puede ser obtenida desde la pagina `chrome://components` en Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null

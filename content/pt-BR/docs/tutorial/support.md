@@ -7,7 +7,7 @@ If you have a security concern, please see the [security document](https://githu
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
 * [`Electron's Discord`](https://discord.com/invite/electron) has channels for:
-  * Getting help
+  * Você precisa de ajuda
   * Ecosystem apps like [Electron Forge](https://github.com/electron-userland/electron-forge) and [Electron Fiddle](https://github.com/electron/fiddle)
   * Sharing ideas with other Electron app developers
   * And more!

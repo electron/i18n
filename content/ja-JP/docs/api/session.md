@@ -296,7 +296,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
    HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
 
-   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+   例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
 
 * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
 
@@ -332,14 +332,14 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` String - ダウンロード場所。
 
 ダウンロードの保存ディレクトリを設定します。 デフォルトでは、ダウンロードディレクトリは各アプリフォルダの下の `ダウンロード (Downloads)` になります。
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object
-  * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。 Defaults to false.
+  * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。 省略値は false です。
   * `latency` Double (任意) - RTT ミリ秒。 省略値は 0 で、このときレイテンシのスロットルは無効化されます。
   * `downloadThroughput` Double (任意) - 下りレート Bps。 省略値は 0 で、このときダウンロードのスロットルは無効化されます。
   * `uploadThroughput` Double (任意) - 上りレート Bps。 省略値は 0 で、このときアップロードのスロットルは無効化されます。
@@ -362,7 +362,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 * `options` Object
   * `url` String - 事前接続する URL。 ソケットの開通に関係しているのはオリジンのみです。
-  * `numSockets` Number (任意) - 事前接続するソケット数。 1 から 6 にしてください。 Defaults to 1.
+  * `numSockets` Number (任意) - 事前接続するソケット数。 1 から 6 にしてください。 省略値は 1 です。
 
 指定された数のソケットをオリジンに事前接続します。
 

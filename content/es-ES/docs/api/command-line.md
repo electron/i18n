@@ -18,7 +18,7 @@ Para más información sobre que tipos de banderas e interruptores puedes usar, 
 #### `commandLine.appendSwitch(switch[, value])`
 
 * `switch` String - Un interruptor de la linea de comandos, sin el líder `--`
-* `value` String (opcional) - Un valor para el cambio dado
+* `value` Cadena (opcional) - Un valor para el cambio dado
 
 Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
@@ -26,7 +26,7 @@ Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
 #### `commandLine.appendArgument(value)`
 
-* `valor` String - El argumento a adjuntar a la línea de comando
+* `valor` Cadena - El argumento a adjuntar a la línea de comando
 
 Agrega un argumento a la línea de comando de Chromium. El argumento será citado correctamente. Los interruptores precederán a los argumentos independientemente de orden agregado.
 
@@ -36,13 +36,13 @@ Si estas añadiendo un argumento como `--switch=value`, considere usar en su lug
 
 #### `commandLine.hasSwitch(switch)`
 
-* `switch` String - Un cambio en la línea de comando
+* `switch` Cadena - Un cambio en la línea de comando
 
 Devuelve `Boolean` - Si el interruptor de la línea de comando esta presente.
 
 #### `commandLine.getSwitchValue(switch)`
 
-* `switch` String - Un cambio en la línea de comando
+* `switch` Cadena - Un cambio en la línea de comando
 
 Devuelve `String` - El valor del interruptor de la linea de comando.
 

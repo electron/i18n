@@ -138,11 +138,11 @@ Snapcraft は既存の`.deb`ファイルをもとに、`.snap` ファイルに�
 
 ### ステップ1: デビアンパッケージの作成
 
-`.deb` パッケージがない場合、`electron-installer-snap`で容易 にsnapパッケージを作成できます。 However, multiple solutions for creating Debian packages exist, including [`electron-forge`][electron-forge], [`electron-builder`][electron-builder] or [`electron-installer-debian`][electron-installer-debian].
+`.deb` パッケージがない場合、`electron-installer-snap`で容易 にsnapパッケージを作成できます。 しかし、Debian パッケージは作成方法がいくつかあります。例えば、[`electron-forge`][electron-forge] や [`electron-builder`][electron-builder]、[`electron-installer-debian`][electron-installer-debian] があります。
 
 ### ステップ2: snapcraft.yamlファイルの作成
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax][snapcraft-syntax]. 以下で例を見てみましょう。
+利用可能な設定オプションの詳細については、[snapcraft 構文のドキュメント][snapcraft-syntax] を参照してください。 以下で例を見てみましょう。
 
 ```yaml
 name: myApp

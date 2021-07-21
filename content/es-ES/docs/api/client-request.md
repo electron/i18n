@@ -1,31 +1,31 @@
-## Clase: ClientRequest
+## Class: ClientRequest
 
-> Hace solicitudes HTTP/HTTPS.
+> Make HTTP/HTTPS requests.
 
 Proceso: [principal](../glossary.md#main-process)</0>
 
-`Peticiones del cliente` implementa la interfaz de [corriente de escritura](https://nodejs.org/api/stream.html#stream_writable_streams) y por lo tanto es un [emitidor de eventos][event-emitter].
+`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter][event-emitter].
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - Si `options` es un String, es interpretado como la URL de la solicitud. Si es un objeto, se espera que especifique completamente una solicitud HTTP a través de las siguientes propiedades:
-  * `method` String (opcional) - El método de la solicitud HTTP. Por defecto es el método GET.
-  * `url` String (opcional) - La URL de la solicitud. Debe ser proporcionada de forma absoluta con el esquema del protocolo especificado como http o https.
-  * `session` Session (opcional) - La instancia de [`Session`](session.md) con la cual la solicitud esta asociada.
-  * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. The `session` option supersedes `partition`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
-  * `credentials` String (opcional) - Puede ser `include` o `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
-  * `useSessionCookies` Boolean (opcional) - Si enviar cookies con esta solicitud desde la sesión poporcionada. If `credentials` is specified, this option has no effect. Por defecto es `false`.
-  * `protocol` String (opcional) - Puede ser `http:` o `https:`. The protocol scheme in the form 'scheme:'. Por defecto 'http:'.
-  * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
-  * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
-  * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
-  * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Por defecto es `seguir`.
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
+  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
+  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
+  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option supersedes `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
+  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
+  * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Por defecto es `false`.
+  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
+  * `hostname` String (optional) - The server host name.
+  * `port` Integer (optional) - The server's listening port number.
+  * `path` String (optional) - The path part of the request URL.
+  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Defaults to `follow`.
   * `origin` String (optional) - The origin URL of the request.
 
-`opcions` propiedades como `protocolo`, `central`, `nombre de anfitrión`, `puerto` y `ruta` siguen estrictamente al modo Node.js como es descrito en el módulo [URL](https://nodejs.org/api/url.html).
+`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
-Por ejemplo, podemos haber creado la misma solicitud a 'github.com' como sigue:
+For instance, we could have created the same request to 'github.com' as follows:
 
 ```JavaScript
 const request = net.request({
@@ -39,7 +39,7 @@ const request = net.request({
 
 ### Eventos de Instancia
 
-#### Evento: 'response'
+#### Event: 'response'
 
 Devuelve:
 
@@ -59,9 +59,9 @@ Devuelve:
   * `username` String (opcional)
   * `password` String (opcional)
 
-Emitido cuando un proxy de autenticación requiere las credenciales del usuario.
+Emitted when an authenticating proxy is asking for user credentials.
 
-Se espera que la función `retrollamada` sea llamada de vuelta con las credenciales del usuario:
+The `callback` function is expected to be called back with user credentials:
 
 * `username` String
 * `password` String
@@ -72,7 +72,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Proporcional credenciales vacías cancelará la solicitud y reportará un error de autenticación en el objeto de respuesta:
+Providing empty credentials will cancel the request and report an authentication error on the response object:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -86,55 +86,55 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Evento: "Finish"
+#### Event: 'finish'
 
-Emitido justo antes de que el último paquete de los datos de la `solicitud` haya sido escrito en el objeto `solicitud`.
+Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Evento: "abort"
+#### Event: 'abort'
 
-Emitido cuando la `request` es abortada. El evento `abort` no será lanzado si la `request` ya está cerrada.
+Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
 #### Evento: "error"
 
 Devuelve:
 
-* `error` Error - un objeto error proporciona cierta información sobre la falla.
+* `error` Error - an error object providing some information about the failure.
 
-Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamente cuando el objeto `solicitud` emite un evento `error`, un evento `cerrar` lo seguirá subsecuentemente y ningún objeto respuesta será proporcionado.
+Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
 #### Evento: "close"
 
-Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El evento `cerrar` indica que ningún otro evento será emitido en los objetos `solicitud` o `respuesta`.
+Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Evento: "redirect"
+#### Event: 'redirect'
 
 Devuelve:
 
-* `Estatus de código` entero
+* `statusCode` Integer
 * `method` String
-* `Redirigir Url` Cadena
+* `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitido cuando el servidor devuelve una respuesta redirect (por ejemplo 301 Moved Permanently). Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.  Si este evento es manejado, [`request.followRedirect`](#requestfollowredirect) debe ser llamado **synchronously**, de otra manera la solicitud será cancelada.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.  If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Propiedades de la instancia
 
 #### `request.chunkedEncoding`
 
-Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es falso. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
+A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
 
-Utilizar codificación empaquetada es fuertemente recomendado si no necesita enviar una solicitud grande dado que lo datos serán transmitidos en paquetes pequeños en lugar de ser cargados internamente en la memoria de proceso de Electron.
+Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
 ### Métodos de Instancia
 
 #### `request.setHeader(name, value)`
 
-* `nombre` Cadena - Un nombre de encabezado HTTP extra.
-* `value` String - Un valor de cabecera HTTP extra.
+* `name` String - An extra HTTP header name.
+* `value` String - An extra HTTP header value.
 
-Añade otro encabezado HTTP. El nombre de la cabecera se emitirá tal cual sin convertirlas a minúscula. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
+Adds an extra HTTP header. The header name will be issued as-is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
 
-Ciertos encabezados están restringidos de ser definidos por aplicaciones. Estos encabezados se enlistan a continuación. Más información sobre encabezados restringidos puede ser encontrada en [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
+Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
 
 * `Content-Length`
 * `Host`
@@ -144,41 +144,41 @@ Ciertos encabezados están restringidos de ser definidos por aplicaciones. Estos
 * `Keep-Alive`
 * `Transfer-Encoding`
 
-Además, definir el encabezado `Connection` al valor `upgrade` también está dehabilitado.
+Additionally, setting the `Connection` header to the value `upgrade` is also disallowed.
 
 #### `request.getHeader(name)`
 
-* `nombre` Cadena - Especifica el nombre del encabezado extra.
+* `name` String - Specify an extra header name.
 
-Devuelve `String` - El valor de un nombre de cabecera extra establecido anteriormente.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
-* `nombre` Cadena - Especifica el nombre del encabezado extra.
+* `name` String - Specify an extra header name.
 
-Elimina un nombre de cabecera establecido previamente. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
 * `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
 * `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `retrollamada` función (opcional) - Llamado cuando se haya realizado la operación de escritura.
+* `callback` Function (optional) - Called after the write operation ends.
 
-La `retrollamada` es esencialmente una función sencilla introducida con el propósito de mantener similitudes con el API Node.js. Es llamada asincrónicamente en el siguiente tick después de que el contenido del `paquete` haya sido entregado a la capa de red de Chromium. A diferencia de la implementación de Node.js, no está garantizado que el contenido del `paquete` haya sido entregado en el hilo antes de que sea llamada `retrollamada`.
+`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
-Agrega un paquete de datos al cuerpo de la solicitud. La primera operación de escritura pudiese causar que el encabezado de la solicitud sea cambiado en el hilo. Después de la primera operación de escritura, no está permitido el añadir o remover un encabezado personalizado.
+Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `paquete` (Cadena | Almacenamiento) (opcional)
-* `codificación` Cadena (opcional)
-* `retrocallback` Funcion (opcional)
+* `chunk` (String | Buffer) (optional)
+* `encoding` String (optional)
+* `callback` Function (optional)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
-Cancela una transacción HTTP en proceso. Si la solicitud ya emitió el evento de `cerrar`, la operación abortar no tendrá ningún efecto. De otra manera un evento en proceso emitirá los eventos `abortar` y `cerrar`. Adicionalmente, si hay algún objeto de respuesta activo, será emitido el evento `abortado`.
+Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
 
 #### `request.followRedirect()`
 
@@ -186,13 +186,13 @@ Continues any pending redirection. Can only be called during a `'redirect'` even
 
 #### `request.getUploadProgress()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - El número de bytes que se han subido hasta ahora
-* `total` Integer - El número de bytes que ha subido esta solicitud
+* `current` Integer - The number of bytes that have been uploaded so far
+* `total` Integer - The number of bytes that will be uploaded this request
 
-Puedes usar este método en conjunto con solicitudes `POST` para obtener el progreso de la carga de un archivo u otro dato de transferencia.
+You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

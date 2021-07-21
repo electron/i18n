@@ -1,8 +1,8 @@
-# Instrucciones para compilación (Windows)
+# Instrucciones de compilación (Windows)
 
 Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
-## Prerequisitos
+## Prerequisites
 
 * Windows 10 / Server 2012 R2 o superior
 * Visual Studio 2017 15.7.2 o posterior - [descargue de manera gratuita de VS 2019 Community Edition](https://www.visualstudio.com/vs/)
@@ -27,9 +27,9 @@ Electron se construye casi completamente con script de comandos de linea y no pu
 
 Windows Security doesn't like one of the files in the Chromium source code (see https://crbug.com/441184), so it will constantly delete it, causing `gclient sync` issues. You can exclude the source tree from being monitored by Windows Security by [following these instructions](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
 
-## Construcción
+## Compilando
 
-Ver [Build Instructions: GN](build-instructions-gn.md)
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Arquitectura 32bit
 

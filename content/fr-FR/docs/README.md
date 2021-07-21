@@ -4,7 +4,7 @@ Veuillez vous assurer d'utiliser la documentation qui correspond à votre versio
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Caertaines questions qui sont assez souvent posées. Vérifiez ceci avant de déclarer un problème:
 
 * [FAQ Electron](faq.md)
 
@@ -16,7 +16,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Démarrage Rapide](tutorial/quick-start.md)
 * [Modèle de processus](tutorial/process-model.md)
 
-### Learning the basics
+### Apprendre les bases
 
 * Ajouter des fonctionnalités à votre App
   * [Notifications](tutorial/notifications.md)
@@ -30,7 +30,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Fichier représenté pour BrowserWindows sur macOS](tutorial/represented-file.md)
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
-  * [Dark Mode](tutorial/dark-mode.md)
+  * [Thème Sombre](tutorial/dark-mode.md)
   * [Les web embeds dans Electron](tutorial/web-embeds.md)
 * [Les Boilerplates et CLIs](tutorial/boilerplates-and-clis.md)
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)

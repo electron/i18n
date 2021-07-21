@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)`
 
-* Objeto `options`
+* `options` Object
   * `segmentStyle` String (optional) - Style of the segments:
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
     * `rounded` - The control is displayed using the rounded style. Maps to `NSSegmentStyleRounded`.

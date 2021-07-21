@@ -40,7 +40,7 @@ Am Beispiel von `Schnellstart`:
 
 Für API-Referenzen gibt es Ausnahmen von dieser Regel.
 
-## Regeln für Markdown
+## Markdown-Dateien
 
 This repository uses the [`markdownlint`][markdownlint] package to enforce consistent Markdown styling. For the exact rules, see the `.markdownlint.json` file in the root folder.
 
@@ -55,8 +55,8 @@ There are a few style guidelines that aren't covered by the linter rules:
 
 ## Wörter auswählen
 
-* Verwende "wird" anstatt "würde" für die Beschreibung von Ergebnissen.
-* Bevorzugen Sie "im ___ Prozess" gegenüber "bei".
+* "Wird" sollte statt "würde" verwendet werden, um Ergebnisse zu beschreiben.
+* Debuggen des Hauptprozesses in VSCode".
 
 ## API Referenzen
 
@@ -190,7 +190,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-### Events
+### Ereignisse
 
 The events chapter must be in following form:
 

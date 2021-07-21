@@ -4,7 +4,7 @@ This guide will step you through the process of creating a barebones Hello World
 
 By the end of this tutorial, your app will open a browser window that displays a web page with information about which Chromium, Node.js, and Electron versions are running.
 
-## Prerequisitos
+## Prerequisites
 
 To use Electron, you need to install [Node.js][node-download]. We recommend that you use the latest `LTS` version available.
 

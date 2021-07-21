@@ -1,6 +1,6 @@
 # Automatizado con un controlador personalizado de prueba
 
-Para escribir tests automatizados para su aplicación Electron, necesitará una forma de "controlar" su aplicación. [Spectron](https://electronjs.org/spectron) es una solución de uso común que le permite emular las acciones de los usuarios a través de [WebDriver](https://webdriver.io/). Sin embargo, también es posible escribir su propio controlador personalizado utilizando el IPC-over-STDIO incorporado en node. El beneficio de un controlador personalizado es que tiende a requerir menos recursos que Spectron, y le permite exponer métodos personalizados a su conjunto de pruebas.
+Para escribir pruebas automatizadas para su aplicación Electron, necesitará una forma de "manejar" su aplicación. [Spectron](https://electronjs.org/spectron) es una solución de uso común que le permite emular las acciones de los usuarios a través de [WebDriver](https://webdriver.io/). Sin embargo, también es posible escribir su propio controlador personalizado utilizando el IPC-over-STDIO incorporado en el nodo. El beneficio de un controlador personalizado es que tiende a requerir menos gastos generales que Spectron, y le permite exponer métodos personalizados a su conjunto de pruebas.
 
 Para crear un controlador personalizado, usaremos la API de Node.js [child_process](https://nodejs.org/api/child_process.html). El conjunto de pruebas generará el proceso de Electron, luego establecerá un protocolo de mensajería simple:
 
@@ -18,23 +18,23 @@ appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// envía un mensaje IPC a la aplicación 
 appProcess.send({ my: 'message' })
 ```
 
 Desde dentro de la aplicación Electron, puedes escuchar mensajes y enviar respuestas usando la API de Node.js [process](https://nodejs.org/api/process.html):
 
 ```js
-// listen for IPC messages from the test suite
+// escuchar por mensajes IPC desde el suite de prueba
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// enviar un mensaje IPC al suite de prueba
 process.send({ my: 'message' })
 ```
 
-Ahora podemos comunicar desde la suite de pruebas a la aplicación Electron usando el objeto `appProcess`.
+Ahora podemos comunicar desde la suite de test a la aplicación Electron usando el objeto `appProcess`.
 
 Por conveniencia, es posible que desee encapsular `appProcess` en un objeto controlador, que provea funciones de más alto nivel. Este es un ejemplo de como podría hacerlo:
 

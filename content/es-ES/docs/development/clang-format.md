@@ -1,4 +1,4 @@
-# Uso de clang-format en Código C++
+# Usar clang-format en código C++
 
 [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html) es una herramienta para formatear automáticamente el código C/C++/Objective-C, de modo que los desarrolladores no tengan que preocuparse por los problemas de estilo durante las revisiones del código.
 

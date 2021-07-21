@@ -202,7 +202,7 @@ Destroys the tray icon immediately.
 
 Sets the `image` associated with this tray icon.
 
-#### `tray.setPressedImage(image)` no _macOS_
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` ([NativeImage](native-image.md) | String)
 
@@ -217,16 +217,16 @@ Sets the hover text for this tray icon.
 #### `tray.setTitle(title[, options])` _macOS_
 
 * `title` String
-* `options` Object (Opcional)
+* Objeto `options` (opcional)
   * `fontType` String (optional) - The font family variant to display, can be `monospaced` or `monospacedDigit`. `monospaced` is available in macOS 10.15+ and `monospacedDigit` is available in macOS 10.11+.  When left blank, the title uses the default system font.
 
 Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
-#### `tray.getTitle()` no _macOS_
+#### `tray.getTitle()` _macOS_
 
 Returns `String` - the title displayed next to the tray icon in the status bar
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` no _macOS_
+#### `tray.setIgnoreDoubleClickEvents(ignore)` _macOS_
 
 * `ignore` Boolean
 
@@ -234,18 +234,18 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 This value is set to false by default.
 
-#### `tray.getIgnoreDoubleClickEvents()` no _macOS_
+#### `tray.getIgnoreDoubleClickEvents()` _macOS_
 
 Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` _Windows_
 
-* Objeto `options`
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Por padrão é `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Padrão é `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Padrão é `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Por padrão é `true`. Maps to [`NIIF_LARGE_ICON`][NIIF_LARGE_ICON].
   * `noSound` Boolean (optional) - Do not play the associated sound. Por padrão é `false`. Maps to [`NIIF_NOSOUND`][NIIF_NOSOUND].
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Por padrão é `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`][NIIF_RESPECT_QUIET_TIME].
 

@@ -14,7 +14,7 @@ Electron trabaja más como el runtime de Node.js. Las APIs de Electron son de m�
 
 ## 2) Integración de Node
 
-En NW.js, la integración de Node en paginas web requiere parchear Chromium para trabajar, mientras en Electron nosotros elegimos una forma diferente de integrar le bucle `libuv` con el bucle de mensaje de cada plataforma para evitar parchear Chromium. Ver el código de [`node_bindings`][node-bindings] por lo fue hecho.
+En NW.js, la integración de Node en paginas web requiere parchear Chromium para trabajar, mientras en Electron nosotros elegimos una forma diferente de integrar le bucle `libuv` con el bucle de mensaje de cada plataforma para evitar parchear Chromium. Mira el código [`node_bindings`][node-bindings] para ver cómo se hizo eso.
 
 ## 3) Contextos de JavaScript
 

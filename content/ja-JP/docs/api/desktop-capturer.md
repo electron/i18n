@@ -79,7 +79,7 @@ const constraints = {
 
 戻り値 `Promise<DesktopCapturerSource[]>` - [`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列を使用して解決します。各 `DesktopCapturerSource` は、キャプチャできる画面または個々のウィンドウを表します。
 
-**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`][].
+**注釈** 画面コンテンツをキャプチャするには、macOS 10.15 Catalina 以降でのユーザーの同意が必要です。同意しているかどうかは [`systemPreferences.getMediaAccessStatus`][]で検知できます。
 
 ## Caveats
 

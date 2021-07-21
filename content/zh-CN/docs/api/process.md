@@ -136,7 +136,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.getHeapStatistics()`
 
-返回 `Object`:
+返回 ` Object `:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -152,7 +152,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ### `process.getBlinkMemoryInfo()`
 
-返回 `Object`:
+返回 ` Object `:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -170,7 +170,7 @@ Chromium 没有为macOS提供 `residentSet` 值。 因为macOS对最近未使用
 
 ### `process.getSystemMemoryInfo()`
 
-返回 `Object`:
+返回 ` Object `:
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。

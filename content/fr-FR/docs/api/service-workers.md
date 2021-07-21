@@ -56,7 +56,7 @@ Emitted when a service worker has been registered. Can occur after a call to [`n
 
 ### Méthodes d’instance
 
-Les méthodes suivantes sont disponibles pour les instances de `ServiceWorkers` :
+Les méthodes suivants sont disponibles pour les instances de `ServiceWorkers` :
 
 #### `serviceWorkers.getAllRunning()`
 

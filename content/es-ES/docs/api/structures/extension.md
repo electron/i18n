@@ -1,6 +1,6 @@
 # Extension Object
 
-* `id` String
+* `id` Cadena
 * `manifest` any - Copy of the [extension's manifest data](https://developer.chrome.com/extensions/manifest).
 * `name` String
 * `path` String - The extension's file path.

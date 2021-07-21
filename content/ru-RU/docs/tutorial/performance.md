@@ -1,4 +1,4 @@
-# Производительность
+# Характеристика
 
 Разработчики часто спрашивают о стратегиях оптимизации производительности приложений Electron. Les ingénieurs, les consommateurs et les développeurs de framework ne sont pas toujours d'accord sur une seule définition de ce que signifie "performance". This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
 

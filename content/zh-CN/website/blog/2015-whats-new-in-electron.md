@@ -8,7 +8,7 @@ There have been some interesting updates and talks given on Electron recently, h
 
 ---
 
-## Source
+## 源
 
 Electron is now up to date with Chrome 45 as of `v0.32.0`. Other updates include...
 

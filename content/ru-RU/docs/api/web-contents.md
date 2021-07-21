@@ -4,7 +4,7 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-`webContents` является [EventEmitter][event-emitter]'ом. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
+`webContents` is an [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -57,8 +57,8 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 * Событие типа `event`
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* Строка `errorDescription`
+* Строка `validatedURL`
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -71,8 +71,8 @@ This event is like `did-finish-load` but emitted when the load failed. The full 
 
 * Событие типа `event`
 * `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* Строка `errorDescription`
+* Строка `validatedURL`
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -1578,7 +1578,7 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object
+* Объект `parameters`
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`):
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1602,7 +1602,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `onlyDirty` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1619,7 +1619,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object
+* Объект `item`
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
@@ -1712,7 +1712,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 * `filePath` String - Path to the output file.
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+Возвращает `Promise<void>`, который указывает успешно ли создан снимок.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 
@@ -1758,25 +1758,25 @@ An `Integer` property that sets the frame rate of the web contents to the specif
 
 Only applicable if *offscreen rendering* is enabled.
 
-#### `contents.id` _Readonly_
+#### `contents.id` _Только чтение_
 
 A `Integer` representing the unique ID of this WebContents. Each ID is unique among all `WebContents` instances of the entire Electron application.
 
-#### `contents.session` _Readonly_
+#### `contents.session` _Только чтение_
 
 A [`Session`](session.md) used by this webContents.
 
-#### `contents.hostWebContents` _Readonly_
+#### `contents.hostWebContents` _Только чтение_
 
 A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
-#### `contents.devToolsWebContents` _Readonly_
+#### `contents.devToolsWebContents` _Только чтение_
 
 A `WebContents | null` property that represents the of DevTools `WebContents` associated with a given `WebContents`.
 
 **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
-#### `contents.debugger` _Readonly_
+#### `contents.debugger` _Только чтение_
 
 A [`Debugger`](debugger.md) instance for this webContents.
 
@@ -1784,7 +1784,7 @@ A [`Debugger`](debugger.md) instance for this webContents.
 
 A `Boolean` property that determines whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
-#### `contents.mainFrame` _Readonly_
+#### `contents.mainFrame` _Только чтение_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
 

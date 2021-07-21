@@ -120,7 +120,7 @@ As quoted from [MSDN][msdn-icon-overlay]:
 
 To set the overlay icon for a window, you need to use the [BrowserWindow.setOverlayIcon][setoverlayicon] API.
 
-#### Example
+#### Exemplo
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 
@@ -142,7 +142,7 @@ As quoted from [MSDN][msdn-flash-frame]:
 
 To flash the BrowserWindow taskbar button, you need to use the [BrowserWindow.flashFrame][flashframe] API.
 
-#### Example
+#### Exemplo
 
 Starting with a working application from the [Quick Start Guide](quick-start.md), update the `main.js` file with the following lines:
 

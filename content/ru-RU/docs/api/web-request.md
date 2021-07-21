@@ -32,7 +32,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### Методы экземпляра
 
-В экземпляре `WebRequest` доступны следующие методы:
+Для экземпляров `WebRequest` доступны следующие методы:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
@@ -43,15 +43,15 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+    * `uploadData` [UploadData[]](structures/upload-data.md)</code>
   * `callback` Function
-    * Объект `response`
+    * `response` Object
       * `cancel` Boolean (опционально)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
@@ -85,7 +85,7 @@ Some examples of valid `urls`:
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String
@@ -93,7 +93,7 @@ Some examples of valid `urls`:
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
   * `callback` Function
-    * Объект `beforeSendResponse`
+    * `beforeSendResponse` Object
       * `cancel` Boolean (опционально)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -110,7 +110,7 @@ The `callback` has to be called with a `response` object.
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String
@@ -129,7 +129,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String
@@ -139,7 +139,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `statusCode` Integer
     * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function
-    * Объект `headersReceivedResponse`
+    * `headersReceivedResponse` Object
       * `cancel` Boolean (опционально)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
@@ -157,7 +157,7 @@ The `callback` has to be called with a `response` object.
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String
@@ -179,7 +179,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String
@@ -203,7 +203,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String
@@ -226,7 +226,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (опиционально)
+    * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
     * `resourceType` String

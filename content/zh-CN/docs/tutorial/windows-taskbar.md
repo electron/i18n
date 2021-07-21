@@ -16,9 +16,9 @@ Windows 允许应用程序自定义一个菜单栏，当用户右键单击任务
 
 > 注：上面的屏幕截图是 IE 浏览器的任务栏示例
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts. For example, when a user clicks a task, the program will be executed with specified arguments.
+MacOS里的docker menu是菜单项，然而windows里的user tasks只是一个快捷方式。 举个栗子，当用户点击task的时候，程序将会执行特定的参数。
 
-To set user tasks for your application, you can use [app.setUserTasks][setusertaskstasks] API.
+你可以方便在你的application里用[app.setUserTasks][setusertaskstasks] API 去设置user task。
 
 #### 示例
 

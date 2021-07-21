@@ -1,12 +1,12 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> Настройка отображения текущей веб-страницы.
 
 Процесс: [Графический](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-An example of zooming current page to 200%.
+Пример масштабирования текущей страницы до 200%.
 
 ```javascript
 const { webFrame } = require('electron')
@@ -28,26 +28,26 @@ The factor must be greater than 0.0.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Возвращает `Number` - текущего маштаба.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - уровень увеличения.
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Изменяет уровень масштаба на указанный уровень. Оригинальный размер 0 и каждое приращение выше или ниже представляет масштабирование 20% больше или меньше, по умолчанию ограничение на 300% и 50% от исходного размера, соответственно.
 
 > **NOTE**: The zoom policy at the Chromium level is same-origin, meaning that the zoom level for a specific domain propagates across all instances of windows with the same domain. Differentiating the window URLs will make zoom work per-window.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Возвращает `Number` - текущего уровня маштаба.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
 > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
 > 
@@ -60,13 +60,13 @@ Sets the maximum and minimum pinch-to-zoom level.
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
-* `provider` Object
+* Объект `provider`
   * `spellCheck` Function
-    * `words` String[]
+    * Строка `words`[]
     * `callback` Function
-      * `misspeltWords` String[]
+      * Строка `misspeltWords`[]
 
-Sets a provider for spell checking in input fields and text areas.
+Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
 
 If you want to use this method you must disable the builtin spellchecker when you construct the window.
 
@@ -80,7 +80,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-An example of using [node-spellchecker][spellchecker] as provider:
+Пример использования [node-spellchecker][spellchecker] как поставщик:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -114,7 +114,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 * `text` String
 
-Inserts `text` to the focused element.
+Вставляет `text` в элемент с фокусом.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
@@ -148,7 +148,7 @@ Note that when the execution of script fails, the returned promise will not reje
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `info` Object
+* Объект `info`
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
   * `name` String (optional) - Name for isolated world. Useful in devtools.
@@ -166,14 +166,14 @@ Set the security origin, content security policy and name of the isolated world.
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Возвращает объект, описывающий сведения об использовании Blink внутренней памяти кэшей.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Это будет генерировать:
 
 ```javascript
 {
@@ -182,18 +182,18 @@ This will generate:
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* same with "images" */ },
-  xslStyleSheets: { /* same with "images" */ },
-  fonts: { /* same with "images" */ },
-  other: { /* same with "images" */ }
+  cssStyleSheets: { /* то же самое с "images" */ },
+  xslStyleSheets: { /* то же самое с "images" */ },
+  fonts: { /* то же самое с "images" */ },
+  other: { /* то же самое с "images" */ }
 }
 ```
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Пытается освободить память, которая больше не используется (например, изображения из предыдущей навигации).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Обратите внимание, что безрассудный вызов этого метода вероятно замедлит Electron, поскольку ему придется чистить кэши даже если они уже пустые, так что этот метод следует вызывать только в случае, когда вы уверены, что страница стала использовать меньше памяти (например, произошел переход с супер-тяжёлой страницы на лёгкую без ожидаемого возврата обратно на тяжёлую).
 
 ### `webFrame.getFrameForSelector(selector)`
 
@@ -227,27 +227,27 @@ Returns `String[]` - A list of suggested words for a given word. If the word is 
 
 ## Свойства
 
-### `webFrame.top` _Readonly_
+### `webFrame.top` _Только чтение_
 
 A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener` _Readonly_
+### `webFrame.opener` _Только чтение_
 
 A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent` _Readonly_
+### `webFrame.parent` _Только чтение_
 
 A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild` _Readonly_
+### `webFrame.firstChild` _Только чтение_
 
 A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling` _Readonly_
+### `webFrame.nextSibling` _Только чтение_
 
 A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId` _Readonly_
+### `webFrame.routingId` _Только чтение_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
 

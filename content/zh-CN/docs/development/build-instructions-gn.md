@@ -1,4 +1,4 @@
-# 构建指南
+# 构建说明
 
 按照下面的步骤构建 **Electron**，来生成自定义的 Electron 二进制文件。 为了将您的应用代码与预构建的 Electron 二进制文件打包并发布，请参阅 [应用程序发布][application-distribution] 指南。
 
@@ -35,14 +35,14 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 
 ```sh
 $ mkdir electron && cd electron
-$ gclient config --name "src/electron" --unmanaged https://github. om/electron/electron
-$ gclient sync --with_branch_head--with_tags
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
+$ gclient sync --with_branch_heads --with_tags
 # 这将需要一段时间，喝杯咖啡休息一下。
 ```
 
 > 除了使用 `https://github.com/electron/electron`， 你也可以使用你自己的 fork  (形如 `https://github.com/<username>/electron`)。
 
-### 推送/拉取的注意事项
+### 拉/推的注意事项
 
 如果您将来打算从 `electron` 官方地址进行 `git pull` 或 `git push`，那么您需要更新相应文件夹的源 URL。
 
@@ -148,7 +148,7 @@ $ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium.
 
-| 主机          | 目标            | 状态                   |
+| Host        | 目标            | 状态                   |
 | ----------- | ------------- | -------------------- |
 | Windows x64 | Windows arm64 | Experimental         |
 | Windows x64 | Windows x86   | Automatically tested |

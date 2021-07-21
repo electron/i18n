@@ -517,7 +517,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-返回 `Promise<void>` - 当Electron 初始化完成。 可用作检查 `app.isReady()` 的方便选择，假如应用程序尚未就绪，则订阅`ready`事件。
+返回 `Promise&lt;void&gt;` - 当Electron 初始化完成。 可用作检查 `app.isReady()` 的方便选择，假如应用程序尚未就绪，则订阅`ready`事件。
 
 ### `app.focus([options])`
 
@@ -597,7 +597,7 @@ app.exit(0)
 
 ### `app.setPath(name, path)`
 
-* `name` 字符串
+* `name` String
 * `path` String
 
 重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 如果路径指向一个不存在的目录，则抛出一个 `Error`。 在这种情况下，目录应该以 `fs.mkdirSync` 或类似的方式创建。
@@ -618,7 +618,7 @@ app.exit(0)
 
 ### `app.setName(name)`
 
-* `name` 字符串
+* `name` String
 
 设置当前应用程序的名字
 
@@ -724,7 +724,7 @@ Windows上添加 `tasks` 到 Jump List的 [Tasks][tasks] 类别。
 
 ### `app.getJumpListSettings()` _Windows_
 
-返回 `Object`:
+返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs][JumpListBeginListMSDN]).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - 用户已明确从Jump List自定义类别中删除的项对应的 `JumpListItem` 对象数组。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -884,7 +884,7 @@ if (!gotTheLock) {
 
 ### `app.setAppUserModelId(id)` _Windows_
 
-* `id` 字符串
+* `id` String
 
 改变当前应用的 [Application User Model ID][app-user-model-id] 为 `id`.
 
@@ -999,7 +999,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置相同的参数已确保正确的设置。
 
-返回 `Object`:
+返回 ` Object `:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
 * `openAsHidden` Boolean _macOS_ - 当应用程序设置为在登录时隐藏打开为`true`。 此设置在 [MAS 构建][mas-builds] 上不可用。

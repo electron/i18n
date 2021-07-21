@@ -1,25 +1,25 @@
-# Instructions de compilation (Linux)
+# Instructions de Build (Linux)
 
 Follow the guidelines below for building **Electron itself** on Linux, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
 ## Prerequisites
 
-* Au moins 25GB d'espace disque et 8 Go de RAM.
-* Python 2.7.x. Certaines distributions comme CentOS 6.x utilisent toujours Python 2.6.x vous devrez donc peut-être vérifier votre version de Python avec `python -V`.
+* At least 25GB disk space and 8GB RAM.
+* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
 
-  Veuillez également vous assurer que votre système et la version Python prennent en charge au moins TLS 1.2. Pour un test rapide, exécutez le script suivant :
+  Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
 
   ```sh
   $ npx @electron/check-python-tls
   ```
 
-  Si le script renvoie que votre configuration utilise un protocole de sécurité obsolète, utilisez le Gestionnaire de paquets de votre système afin de mettre à jour vers la dernière version dans la branche 2.7.x de Python. Vous pouvez également visiter https://www.python.org/downloads/ pour plus de détails.
+  If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
 
-* Node.js. Il y a différentes façons d’installer Node. Vous pouvez télécharger le code source depuis [nodejs.org](https://nodejs.org) et le compiler vous-même. Cela permet l’installation de Node sur votre propre répertoire comme un utilisateur standard. Ou essayez les dépôts tels que [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 ou plus.
-* En-têtes de développement de GTK+ et libnotify.
+* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
+* Development headers of GTK 3 and libnotify.
 
-Sur Ubuntu, installez les bibliothèques suivantes :
+On Ubuntu, install the following libraries:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
@@ -29,7 +29,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        gperf bison python-dbusmock openjdk-8-jre
 ```
 
-Sur RHEL / CentOS, installez les bibliothèques suivantes :
+On RHEL / CentOS, install the following libraries:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
@@ -38,7 +38,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Sur Fedora, installez les bibliothèques suivantes :
+On Fedora, install the following libraries:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
@@ -56,25 +56,25 @@ $ sudo pacman -Syu base-devel clang libdbus gtk2 libnotify \
                    python2 python-dbusmock jdk8-openjdk
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Ou on peut compiler à partir du code source.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-### Multi-compilation
+### Cross compilation
 
-Si vous voulez compiler une version `arm`, vous devez installer les dépendances suivantes :
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
-                        g++-arm-linux-gnueabihf
+                       g++-arm-linux-gnueabihf
 ```
 
-De même pour `arm64`, installez ce qui suit :
+Similarly for `arm64`, install the following:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-Et pour effectuer une compilation croisée pour les cibles `arm` ou `ia32`, vous devez passer le `target_cpu` paramètre à `gn gen` :
+And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
 
 ```sh
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
@@ -82,11 +82,11 @@ $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 
 ## Compilation
 
-Voir les [Instructions de compilation : GN](build-instructions-gn.md)
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Résolution de problème
 
-### Erreur lors du chargement Shared Libraries : libtinfo.so.5
+### Error While Loading Shared Libraries: libtinfo.so.5
 
 Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
@@ -94,22 +94,22 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Sujets Avancés
+## Advanced topics
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
+### Using system `clang` instead of downloaded `clang` binaries
 
-Par défaut, Electron est compilé avec les binaires précompilés de [`clang`](https://clang.llvm.org/get_started.html) fournis par le projet Chromium. Si pour une raison quelconque, vous souhaitez construire avec le `clang` installé dans votre système, vous pouvez spécifier l'argument `clang_base_path` dans le GN args.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
-Par exemple, si vous avez installé `clang` sous `/usr/local/bin/clang` :
+For example if you installed `clang` under `/usr/local/bin/clang`:
 
 ```sh
 $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
 ```
 
-### Utiliser un compilateur autre que `clang`
+### Using compilers other than `clang`
 
-La construction d'électrons avec des compilateurs autres que `clang` n'est pas prise en charge.
+Building Electron with compilers other than `clang` is not supported.
 
 [application-distribution]: ../tutorial/application-distribution.md

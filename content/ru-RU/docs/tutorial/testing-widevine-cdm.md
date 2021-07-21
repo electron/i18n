@@ -22,7 +22,7 @@ To enable video playback with this new restriction, [castLabs](https://castlabs.
 
 Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption Module` and make sure it is up to date, then you can find the library files from the application directory.
 
-### On Windows
+### На Windows
 
 The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
 
@@ -35,8 +35,6 @@ The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chro
 ## Using the library
 
 After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
-
-Example code:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')

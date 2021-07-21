@@ -103,7 +103,7 @@ console.log(app)
 
 ## Métodos
 
-O módulo `remote` tem os seguintes métodos:
+O módulo `remote` possui os seguintes métodos:
 
 ### `remote.getCurrentWindow()`
 

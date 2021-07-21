@@ -1,31 +1,31 @@
 ## Class: ClientRequest
 
-> Realiza requisições HTTP/HTTPS.
+> Make HTTP/HTTPS requests.
 
 Processo: [Main](../glossary.md#main-process)
 
-`ClientRequest` implementa a interface [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) e deste modo um [EventEmitter][event-emitter].
+`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter][event-emitter].
 
-### `new ClientRequest(opções)`
+### `new ClientRequest(options)`
 
 * `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. The `session` option supersedes `partition`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
+  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option supersedes `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
   * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Por padrão é `false`.
   * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
-  * `host` String (opcional) - O servidor, definido como a concatenação do nome com a porta: 'nome:porta'.
-  * `hostname` String (opcional) - O nome do servidor.
-  * `port` Integer (opcional) - O número da porta do servidor.
-  * `path` String (opcional) - A parte do caminho da URL de requisição.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  O padrão é `follow`.
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
+  * `hostname` String (optional) - The server host name.
+  * `port` Integer (optional) - The server's listening port number.
+  * `path` String (optional) - The path part of the request URL.
+  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Defaults to `follow`.
   * `origin` String (optional) - The origin URL of the request.
 
-As propriedades em `options`, como `protocol`, `host`, `hostname`, `port` e `path` seguem estritamente o modelo Node.js, como descrito no módulo [URL](https://nodejs.org/api/url.html).
+`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
-Por exemplo, nós poderíamos criar a mesma requisição para 'github.com' da seguinte forma:
+For instance, we could have created the same request to 'github.com' as follows:
 
 ```JavaScript
 const request = net.request({
@@ -39,7 +39,7 @@ const request = net.request({
 
 ### Eventos de instância
 
-#### Evento: 'response'
+#### Event: 'response'
 
 Retorna:
 
@@ -59,9 +59,9 @@ Retorna:
   * `username` String (opcional)
   * `password` String (opcional)
 
-Emitido quando um proxy de autenticação está solicitando as credenciais de usuário.
+Emitted when an authenticating proxy is asking for user credentials.
 
-A função de `callback` é esperada para chamar de volta as credenciais do usuário:
+The `callback` function is expected to be called back with user credentials:
 
 * `username` String
 * `password` String
@@ -72,7 +72,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Informar credenciais vazias irá cancelar a requisição e reportar um erro de autenticação no objeto de resposta:
+Providing empty credentials will cancel the request and report an authentication error on the response object:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -86,11 +86,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Evento: 'finish'
+#### Event: 'finish'
 
-Emitido logo após o último pedaço dos dados de `request` for escrito no objeto `request`.
+Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Evento: 'abort'
+#### Event: 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
@@ -98,15 +98,15 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 Retorna:
 
-* `error` Error - um objeto de erro que provê informações sobre a falha.
+* `error` Error - an error object providing some information about the failure.
 
-Emitido quando o módulo `net` falha ao emitir uma requisição de rede. Normalmente quando o objeto `request` emite um evento `error`, um evento `close` virá a seguir e nenhum objeto de resposta será fornecido.
+Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
 #### Evento: 'close'
 
-Emitido como último evento na transação HTTP de requisição-resposta. O evento `close` indica que nenhum outro evento será emitido no objeto `request` e nem no objeto `response`.
+Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Evento: 'redirect'
+#### Event: 'redirect'
 
 Retorna:
 
@@ -138,7 +138,7 @@ Certain headers are restricted from being set by apps. These headers are listed 
 
 * `Content-Length`
 * `Host`
-* `Trailer` ou `Te`
+* `Trailer` or `Te`
 * `Upgrade`
 * `Cookie2`
 * `Keep-Alive`
@@ -171,7 +171,7 @@ Adds a chunk of data to the request body. The first write operation may cause th
 #### `request.end([chunk][, encoding][, callback])`
 
 * `chunk` (String | Buffer) (optional)
-* `encoding` String (opcional)
+* `encoding` String (optional)
 * `callback` Function (optional)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.

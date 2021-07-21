@@ -1,4 +1,4 @@
-# Process Model
+# Моделирование процесса
 
 Electron inherits its multi-process architecture from Chromium, which makes the framework architecturally very similar to a modern web browser. In this guide, we'll expound on the conceptual knowledge of Electron that we applied in the minimal [quick start app][].
 

@@ -80,7 +80,7 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ## Métodos
 
-O módulo `screen` possui os seguintes métodos:
+O módulo `screen` tem os seguintes métodos:
 
 ### `screen.getCursorScreenPoint()`
 
@@ -106,7 +106,7 @@ Returns [`Display`](structures/display.md) - The display nearest the specified p
 
 ### `screen.getDisplayMatching(rect)`
 
-* `rect` [Retângulo](structures/rectangle.md)
+* `rect` [Rectangle](structures/rectangle.md)
 
 Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
 
@@ -129,7 +129,7 @@ Converts a screen DIP point to a screen physical point. The DPI scale is perform
 ### `screen.screenToDipRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
-* `rect` [Retângulo](structures/rectangle.md)
+* `rect` [Rectangle](structures/rectangle.md)
 
 Retorna [`Rectangle`](structures/rectangle.md)
 
@@ -138,7 +138,7 @@ Converts a screen physical rect to a screen DIP rect. The DPI scale is performed
 ### `screen.dipToScreenRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
-* `rect` [Retângulo](structures/rectangle.md)
+* `rect` [Rectangle](structures/rectangle.md)
 
 Retorna [`Rectangle`](structures/rectangle.md)
 

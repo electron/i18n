@@ -1,15 +1,15 @@
 # ThumbarButton Object
 
 * `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
-* `click` Función
-* `tooltip` String (opcional): el texto de la información sobre el botón.
-* `flags` String[] (opcional) - Controla los estados y comportamientos específicos del botón. Por defecto, es `['enabled']`.
+* `click` Function
+* `tooltip` String (optional) - The text of the button's tooltip.
+* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
-Los `flags` es una matriz que puede incluir siguientes `String`s:
+The `flags` is an array that can include following `String`s:
 
-* `enabled` - El botón está activo y disponible para el usuario.
-* `disabled` - El botón está deshabilitado. Está presente, pero tiene un estado visual indicando que no responderá a la acción del usuario.
-* `dismissonclick` - Cuando se hace clic en el botón, la ventana de miniatura se cierra de inmediato.
-* `nobackground` - No dibuja un borde del botón, usa solo la imagen.
-* `hidden` - El botón no es mostrado al usuario.
-* `noninteractive` - El botón está habilitado pero no es interactivo; no se dibuja el estado del botón pulsado. Este valor está destinado a instancias donde el botón se utiliza en una notificación.
+* `enabled` - The button is active and available to the user.
+* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
+* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
+* `nobackground` - Do not draw a button border, use only the image.
+* `hidden` - The button is not shown to the user.
+* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.

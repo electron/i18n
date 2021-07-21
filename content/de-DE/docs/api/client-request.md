@@ -1,10 +1,10 @@
-## Klasse: ClientRequest
+## Class: ClientRequest
 
-> Tätigen von HTTP/HTTPS anfragen.
+> Make HTTP/HTTPS requests.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit ein [EventEmitter][event-emitter].
+`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter][event-emitter].
 
 ### `new ClientRequest(options)`
 
@@ -12,20 +12,20 @@ Prozess: [Haupt](../glossary.md#main-process)
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. The `session` option supersedes `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
-  * `credentials` String (optional) - Kann `include` oder `omit` sein. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
+  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option supersedes `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
+  * `credentials` String (optional) - Can be `include` or `omit`. Whether to send [credentials](https://fetch.spec.whatwg.org/#credentials) with this request. If set to `include`, credentials from the session associated with the request will be used. If set to `omit`, credentials will not be sent with the request (and the `'login'` event will not be triggered in the event of a 401). This matches the behavior of the [fetch](https://fetch.spec.whatwg.org/#concept-request-credentials-mode) option of the same name. If this option is not specified, authentication data from the session will be sent, and cookies will not be sent (unless `useSessionCookies` is set).
   * `useSessionCookies` Boolean (optional) - Whether to send cookies with this request from the provided session. If `credentials` is specified, this option has no effect. Standard ist `false`.
-  * `protocol` String (optional) - Kann `http:` oder `https:` sein. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
-  * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung aus Hostnamen und der Port Nummer 'hostname:port'.
-  * `hostname` String (optional) - Der Server Host Name.
-  * `port` Integer (optional) - Die Port Nummer des Servers.
-  * `path` String (optional) - Der Pfad Teil der Anfrage URL.
-  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Standardwert ist `follow`.
+  * `protocol` String (optional) - Can be `http:` or `https:`. The protocol scheme in the form 'scheme:'. Defaults to 'http:'.
+  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
+  * `hostname` String (optional) - The server host name.
+  * `port` Integer (optional) - The server's listening port number.
+  * `path` String (optional) - The path part of the request URL.
+  * `redirect` String (optional) - Can be `follow`, `error` or `manual`. The redirect mode for this request. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.  Defaults to `follow`.
   * `origin` String (optional) - The origin URL of the request.
 
-`options` Eigenschaften wie zum Beispiel `protocol`, `host`, `hostname`, `port` und `path`, folgen strikt dem Node.js Modell, wie im [URL](https://nodejs.org/api/url.html) Modul beschrieben.
+`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
-Zum Beispiel hätten wir die gleiche Anfrage an "github.com" wie folgt erstellen können:
+For instance, we could have created the same request to 'github.com' as follows:
 
 ```JavaScript
 const request = net.request({
@@ -59,9 +59,9 @@ Kehrt zurück:
   * `username` String (optional)
   * `password` String (optional)
 
-Ausgegeben, wenn ein Authentifizierung Proxy die Benutzeranmeldeinformationen anfragt.
+Emitted when an authenticating proxy is asking for user credentials.
 
-Die `callback` Funktion erwartet mit den Benutzerdaten aufgerufen zu werden:
+The `callback` function is expected to be called back with user credentials:
 
 * `username` String
 * `password` String
@@ -72,7 +72,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Das nicht Angeben von Anmeldeinformationen wird die Anfrage abbrechen und dem Response-Objekt einen Authentifizierungsfehler melden:
+Providing empty credentials will cancel the request and report an authentication error on the response object:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -88,7 +88,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Event: 'finish'
 
-Ausgesendet, direkt nachdem der letzte Block der `request` Daten in das `request` Objekt geschrieben worden sind.
+Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
 #### Event: 'abort'
 
@@ -98,13 +98,13 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 Kehrt zurück:
 
-* `error` Error - Ein Error Objekt, welches Informationen über den Fehler enthält.
+* `error` Error - an error object providing some information about the failure.
 
-Ausgegeben, wenn das `net` Modul es nicht schaft eine Netzwerkanfrage zu senden. In der Regel wenn das `request` Objekt ein `error` Event auslöst, folgt ein `close` Event und es wird kein response Objekt zur Verfügung gestellt.
+Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
 #### Event: 'close'
 
-Ausgelöst als letztes Event in der HTTP request-response Interaktion. Das `close` Event gibt an, dass keine weiteren Events mehr auf die `request` oder `response` Objekte ausgelöst werden.
+Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
 #### Event: 'redirect'
 
@@ -121,24 +121,24 @@ Emitted when the server returns a redirect response (e.g. 301 Moved Permanently)
 
 #### `request.chunkedEncoding`
 
-Ein `Boolean` gibt an, ob die HTTP Anfrage eine segmentierte Übertragungscodierung nutzt oder nicht. Der Standardwert ist false. Die Eigenschaft ist lesbar und beschreibbar, jedoch kann dies nur eingestellt werden, bevor der ersten Schreib-Operation, da die HTTP headers noch nicht abgeschickt worden sind. Der Versuch die `chunkedEncoding` Eigenschaft nach der ersten Übertragung zu ändern, wird einen Fehler verursachen.
+A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
 
-Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen großen request body senden möchtest, da die Daten in kleinen Stücken gestreamt wird, anstatt das diese intern im Electron Prozess Speicher gebufferd werden.
+Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
 ### Beispiel Methoden
 
 #### `request.setHeader(name, value)`
 
-* `name` String - Ein extra HTTP header Name.
+* `name` String - An extra HTTP header name.
 * `value` String - An extra HTTP header value.
 
-Fügt einen extra HTTP header hinzu. The header name will be issued as-is without lowercasing. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. Falls der übergebene wert kein `String` ist, wird die `toString()` Methode aufgerufen, um den Finalen wert zu erhalten.
+Adds an extra HTTP header. The header name will be issued as-is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
 
 Certain headers are restricted from being set by apps. These headers are listed below. More information on restricted headers can be found in [Chromium's header utils](https://source.chromium.org/chromium/chromium/src/+/master:services/network/public/cpp/header_util.cc;drc=1562cab3f1eda927938f8f4a5a91991fefde66d3;bpv=1;bpt=1;l=22).
 
 * `Content-Length`
 * `Host`
-* `Trailer` oder `Te`
+* `Trailer` or `Te`
 * `Upgrade`
 * `Cookie2`
 * `Keep-Alive`
@@ -148,13 +148,13 @@ Additionally, setting the `Connection` header to the value `upgrade` is also dis
 
 #### `request.getHeader(name)`
 
-* `name` String - Spezifiziert einen extra Header Namen.
+* `name` String - Specify an extra header name.
 
-Gibt ein `String` wieder - Den wert des davor gesetzten extra Header Namen.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Spezifiziert einen extra Header Namen.
+* `name` String - Specify an extra header name.
 
 Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
@@ -162,23 +162,23 @@ Removes a previously set extra header name. This method can be called only befor
 
 * `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
 * `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Wird aufgerufen, nachdem der Schreibvorgang beendet ist.
+* `callback` Function (optional) - Called after the write operation ends.
 
-`callback` ist im Wesentlichen eine dummy-Funktion die dem Zweck dient, Ähnlichkeiten mit der Node.js API beizubehalten. Es wird in den nächsten Tick asynchron aufgerufen, nachdem der `chunk` Inhalt auf der Chromium Netzwerkebene geliefert worden ist. Im Gegensatz zu der Node.js Implementierung, ist es nicht Garantiert das der `chunk` Inhalt hochgeladen worden ist, vor dem Aufrufen von `callback`.
+`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
-Fügt einen Teil der Daten zum request body. Der erste Schreiboperation könnte das hochladen des request headers einleiten. Nach der ersten Schreiboperation, ist es nicht mehr erlaubt, Benutzerdefinierte Header hinzuzufügen oder zu entfernen.
+Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
 
 #### `request.end([chunk][, encoding][, callback])`
 
 * `chunk` (String | Buffer) (optional)
 * `encoding` String (optional)
-* `callback` Funktion (optional)
+* `callback` Function (optional)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
 #### `request.abort()`
 
-Bricht die laufende HTTP-Interaktion ab. Falls die Anfrage bereits das `close` Event ausgegeben hat, hat der Abbruch-Aktion keinen Effekt. Ansonsten wird ein laufendes Event `abort` und `close` Events ausgeben. Zusätzlich, falls es ein laufendes response-Objekt gibt, wir dieses ein `aborted` Event ausgeben.
+Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
 
 #### `request.followRedirect()`
 
@@ -190,9 +190,9 @@ Gibt das `Object` zurück:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - Die Anzahl der bereits hochgeladenen Bytes
-* `total` Integer - Die Anzahl der Bytes, die für diese Anforderung hochgeladen werden
+* `current` Integer - The number of bytes that have been uploaded so far
+* `total` Integer - The number of bytes that will be uploaded this request
 
-Sie können diese Methode in Verbindung mit `POST`-Anfragen verwenden, um den Fortschritt von einem Datei-Upload oder einer anderen Datenübertragung abzurufen.
+You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
 
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter

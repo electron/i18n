@@ -94,7 +94,7 @@ el.addEventListener('mouseleave', () => {
   ipcRenderer.send('set-ignore-mouse-events', false)
 })
 
-// Main process
+// メインプロセス
 const { ipcMain } = require('electron')
 ipcMain.on('set-ignore-mouse-events', (event, ...args) => {
   BrowserWindow.fromWebContents(event.sender).setIgnoreMouseEvents(...args)

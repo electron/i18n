@@ -378,18 +378,18 @@ Webページが応答しなくなるときに発生します。
 * `event` Event
 * `input` Object - 入力プロパティ。
   * `type` String - `keyUp` か `keyDown`。
-  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
-  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
+  * `key` String - [KeyboardEvent.key][keyboardevent] と等価です。
+  * `code` String - [KeyboardEvent.code][keyboardevent] と等価です。
+  * `isAutoRepeat` Boolean - [KeyboardEvent.repeat][keyboardevent] と等価です。
   * `isComposing` Boolean - [KeyboardEvent.isComposing][keyboardevent] と等価です。
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
+  * `shift` Boolean - [KeyboardEvent.shiftKey][keyboardevent] と等価です。
+  * `control` Boolean - [KeyboardEvent.controlKey][keyboardevent] と等価です。
+  * `alt` Boolean - [KeyboardEvent.altKey][keyboardevent] と等価です。
+  * `meta` Boolean - [KeyboardEvent.metaKey][keyboardevent] と等価です。
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore):
+メニューショートカットだけを阻害するには、以下のように [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore) を使用します。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -397,8 +397,8 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+  // 例として、Ctrl/Cmd が押下されているときだけアプリケーションメニューの
+  // キーボードショートカットを有効にしてみます。
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -438,7 +438,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - エラーコード。
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - 証明書が信頼できるとみなされるかどうかを示す。
@@ -547,8 +547,8 @@ win.webContents.on('before-input-event', (event, input) => {
 
 * `event` Event
 * `params` Object
-  * `x` Integer - x coordinate.
-  * `y` Integer - y coordinate.
+  * `x` Integer - x 座標。
+  * `y` Integer - y 座標。
   * `linkURL` String - コンテキストメニューが呼び出されたノードを囲うリンク URL。
   * `linkText` String - リンクに関連付けたテキスト。 リンクのコンテンツが画像の場合は、空文字列になります。
   * `pageURL` String - コンテキストメニューが呼び出された最上位のページの URL。
@@ -751,7 +751,7 @@ win.loadURL('http://github.com')
 * `event` IpcMainEvent
 * `モジュール名` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process. `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 #### イベント: 'remote-get-current-window' _非推奨_
 
@@ -759,7 +759,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. `event.pre
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 #### イベント: 'remote-get-current-web-contents' _非推奨_
 
@@ -767,7 +767,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. `eve
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 #### イベント: 'preferred-size-changed'
 
@@ -1327,7 +1327,7 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // Use default printing options
+  // 既定の印刷オプションを使用します
   win.webContents.printToPDF({}).then(data => {
     const pdfPath = path.join(os.homedir(), 'Desktop', 'temp.pdf')
     fs.writeFile(pdfPath, data, (error) => {
@@ -1406,7 +1406,7 @@ win.webContents.on('devtools-opened', () => {
 ```
 
 ```js
-// Main process
+// メインプロセス
 const { ipcMain, webContents } = require('electron')
 ipcMain.on('open-devtools', (event, targetContentsId, devtoolsContentsId) => {
   const target = webContents.fromId(targetContentsId)

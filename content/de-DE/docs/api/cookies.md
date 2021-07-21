@@ -64,7 +64,7 @@ Die folgenden Methoden sind verfügbar in Instanzen von `Cookies`:
 
 #### `cookies.get(filter)`
 
-* `filter` Object
+* `filter` Objekt
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.

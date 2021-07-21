@@ -1,14 +1,14 @@
 ---
 title: What's New in Electron
 author: jlord
-date: '2015-10-15'
+date: '15-10-2015'
 ---
 
 There have been some interesting updates and talks given on Electron recently, here's a roundup.
 
 ---
 
-## Source
+## Fonte
 
 Electron is now up to date with Chrome 45 as of `v0.32.0`. Other updates include...
 
