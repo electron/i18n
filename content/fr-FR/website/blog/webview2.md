@@ -15,32 +15,32 @@ Electron et WebView2 sont des projets en évolution rapide et constante. Nous av
 
 ## Vue d’ensemble de l’architecture
 
-Electron et WebView2 sont tous deux issus des source de Chromium pour le rendu du contenu Web. À proprement parler, WebView2 est généré à partir des sources de Edge, mais Edge est construit à l’aide d’un fork de Chromium. Electron ne partage aucune DLL avec Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
+Electron et WebView2 sont tous deux issus des source de Chromium pour le rendu du contenu Web. À proprement parler, WebView2 est généré à partir des sources de Edge, mais Edge est construit à l’aide d’un fork de Chromium. Electron ne partage aucune DLL avec Chrome. Les fichiers binaires WebView2 sont liés fortement à Edge (canal stable à compter d’Edge 90), et partagent certains éléments. Voir [le mode de distribution Evergreen](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) pour plus d'informations.
 
-Electron apps always bundle and distribute the exact version of Electron with which they were developed. WebView2 has two options in distribution. You can bundle the exact WebView2 library your application was developed with, or you can use a shared-runtime version that may already be present on the system. WebView2 provides tools for each approach, including a bootstrapping installer in case the shared runtime is missing. WebView2 is shipped _inbox_ starting with Windows 11.
+Les applications Electron regroupent et distribuent toujours la version exacte d’Electron avec laquelle elles ont été développées. WebView2 a deux options pour la distribution. Vous pouvez soit empaqueter la même bibliothèque WebView2 utilisée pour le développement de votre application, soit utiliser une version partagée du runtime pouvant être déjà présente sur le système. WebView2 fournit des outils pour chaque approche, y compris un programme d’installation d’amorçage au cas où le runtime partagé serait manquant. WebView2 est inclus dans Windows 11.
 
-Applications that bundle their frameworks are responsible for updating those frameworks, including minor security releases. For apps using the shared WebView2 runtime, WebView2 has its own updater, similar to Chrome or Edge, that runs independent of your application. Updating the application's code or any of its other dependencies is still a responsibility for the developer, same as with Electron. Neither Electron nor WebView2 is managed by Windows Update.
+Les applications qui incluent des frameworks sont responsables de leur mise à jour et ce même pour les versions mineures de sécurité. Pour les applications utilisant le runtime partagé WebView2, WebView2 possède son propre programme de mise à jour, similaire à Chrome ou Edge, qui s’exécute indépendamment de votre application. La mise à jour du code de l’application ou de l’une de ses dépendances est toujours une responsabilité du développeur, comme avec Electron. Electron et WebView2 ne sont pas gérés par Windows Update.
 
-Both Electron and WebView2 inherit Chromium’s multi-process architecture - namely, a single main process that communicates with one-or-more renderer processes. These processes are entirely separate from other applications running on the system. Every Electron application is a separate process tree, containing a root browser-process, some utility processes, and zero or more render processes. WebView2 apps that use the same [user data folder](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/user-data-folder) (like a suite of apps would do), share non-renderer processes. WebView2 apps using different data folders do not share processes.
+Electron et WebView2 héritent tous deux de l’architecture multi-processus de Chromium - à savoir, un processus principal unique qui communique avec un ou plusieurs processus de rendu. Ces processus sont entièrement séparés des autres applications exécutées sur le système. Chaque application Electron est une arborescence de processus séparée qui contient un processus de navigation racine, des processus utilitaires et éventuellement d'autres processus de rendu. Les applications WebView2 qui utilisent le même [dossier de données utilisateur](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/user-data-folder) (comme le ferait une suite d’applications), partagent les processus qui ne concernent pas le rendu. Les applications WebView2 utilisant différents dossiers de données ne partagent pas de processus.
 
-* ElectronJS Process Model:
+* Modèle des processus d'Electron:
 
-    ![ElectronJS Process Model Diagram](/images/Electron-Architecture.png)
-* WebView2 Based Application Process Model:
+    ![Modèle des processus d'Electron](/images/Electron-Architecture.png)
+* Modèle de processus des applications basées sur WebView2 :
 
-    ![WebView2 Process Model Diagram](/images/WebView2-Architecture.png)
+    ![Schéma du modèle du processus WebView2](/images/WebView2-Architecture.png)
 
-Read more about [WebView2’s process model](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/process-model) and [Electron’s process model](https://www.electronjs.org/docs/tutorial/process-model) here.
+Pour en savoir plus sur le modèle de processus de [WebView2,](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/process-model) et sur le modèle de processus d' [Electron,](https://www.electronjs.org/docs/tutorial/process-model) cliquez ici.
 
-Electron provides APIs for common desktop application needs such as menus, file system access, notifications, and more. WebView2 is a component meant to be integrated into an application framework such as WinForms, WPF, WinUI, or Win32. WebView2 does not provide operating system APIs outside the web standard via JavaScript.
+Electron fournit des API pour les besoins courants des applications de bureau telles que les menus, l'accès au système de fichiers, les notifications et plus encore. WebView2 est un composant destiné à être intégré dans un framework d'application tel que WinForms, WPF, WinUI ou Win32. WebView2 ne fournit pas d'API vers le système d'exploitation en dehors de la norme web via JavaScript.
 
-Node.js is integrated into Electron. Electron applications may use any Node.js API, module, or node-native-addon from the renderer and main processes. A WebView2 application does not assume which language or framework the rest of your application is written in. Your JavaScript code must proxy any operating system access through the application-host process.
+Node.js est intégré dans Electron. Les applications Electron peuvent utiliser n'importe quelle API Node.js, module ou node-native-addon depuis le moteur de rendu et les processus principaux. Une application WebView2 ne suppose pas dans quel langage ou infrastructure le reste de votre application est écrit. Votre code JavaScript doit transmettre par proxy tout accès au système d’exploitation via le processus application-hôte.
 
-Electron strives to maintain compatibility with the web API, including APIs developed from the [Fugu Project](https://fugu-tracker.web.app/). We have a [snapshot of Electron’s Fugu API compatibility](https://docs.google.com/spreadsheets/d/1APQalp8HCa-lXVOqyul369G-wjM2RcojMujgi67YaoE/edit?usp=sharing). WebView2 maintains a similar list of [API differences from Edge](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/browser-features).
+Electron s'efforce de maintenir la compatibilité avec l'API web, y compris les API développées à partir du [Projet Fugu](https://fugu-tracker.web.app/). Nous avons un aperçu [de la compatibilité de l’API Fugu d’Electron](https://docs.google.com/spreadsheets/d/1APQalp8HCa-lXVOqyul369G-wjM2RcojMujgi67YaoE/edit?usp=sharing). WebView2 maintient une liste similaire de [différences d'API par rapport à Edge](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/browser-features).
 
-Electron has a configurable security model for web content, from full-access to full-sandbox. WebView2 content is always sandboxed. Electron has [comprehensive security documentation](https://www.electronjs.org/docs/tutorial/security) on choosing your security model. WebView2 also has [security best practices](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/security).
+Electron a un modèle de sécurité configurable pour le contenu web, de l'accès complet au bac à sable. Le contenu WebView2 est toujours en bac à sable. Electron a [une documentation de sécurité complète](https://www.electronjs.org/docs/tutorial/security) sur le choix de votre modèle de sécurité. WebView2 dispose également de : [les meilleures pratiques de sécurité](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/security).
 
-The Electron source is maintained and available on GitHub. Applications can modify can build their own _brands_ of Electron. The WebView2 source is not available on GitHub.
+Les sources d'Electron sont maintenues et disponibles sur GitHub. Les applications peuvent modifier et leurs propres _version_ d'Electron. Les sources de WebView2 ne sont pas disponibles sur GitHub.
 
 Quick Summary:
 
@@ -58,24 +58,24 @@ Quick Summary:
 | Process Sharing Between Apps         |          Jamais |                Optional |
 | Mises à jour du framework gérées par |     Application |                WebView2 |
 
-## Performance Discussion
+## Discussion sur les performances
 
-En ce qui concerne le rendu de votre contenu web, nous nous attendons à peu de différence de performance entre Electron, WebView2 et tout autre moteur de rendu basé sur Chromium. We created [scaffolding for apps built using Electron, C++ + WebView2, and C# + WebView2](https://github.com/crossplatform-dev/xplat-challenges) for those interested to investigate potential performance differences.
+En ce qui concerne le rendu de votre contenu web, nous nous attendons à peu de différence de performance entre Electron, WebView2 et tout autre moteur de rendu basé sur Chromium. Nous avons créé [ossatures d'applications construites à l'aide d'Electron, C++ + WebView2, et C# + WebView2](https://github.com/crossplatform-dev/xplat-challenges) pour les personnes intéressées à étudier les différences potentielles de performance.
 
-There are a few differences that come into play _outside_ of rendering web content, and folks from Electron, WebView2, Edge, and others have expressed interest in working on a detailed comparison including PWAs.
+Il y a quelques différences qui entrent en jeu _en dehors_ du rendu de contenu web, et les gens d'Electron, WebView2, Edge, et d'autres personnes ont exprimé leur intérêt à travailler sur une comparaison détaillée, y compris les PWAs.
 
-### Inter-Process Communication (IPC)
+### La communication inter-processus(IPC)
 
-_There is one difference we want to highlight immediately, as we believe it is often a performance consideration in Electron apps._
+_Nous voulons mettre en évidence immédiatement une différence , car nous pensons qu'il s'agit souvent d'une considération de performance dans les applications Electron._
 
-In Chromium, the browser process acts as an IPC broker between sandboxed renderers and the rest of the system. While Electron allows unsandboxed render processes, many apps choose to enable the sandbox for added security. WebView2 always has the sandbox enabled, so for most Electron and WebView2 apps IPC can impact overall performance.
+Dans Chromium, le processus du navigateur agit comme un courtier de IPC entre les moteurs de rendu en bac à sable et le reste du système. Tandis qu'Electron autorise les processus de rendu sans bac à sable (sandbox), de nombreuses applications choisissent d'activer le sandbox pour plus de sécurité. WebView2 a toujours le sandbox activé, donc pour la plupart des applications Electron et WebView2 les IPC peut affecter les performances globales.
 
-Even though Electron and WebView2 have a similar process models, the underlying IPC differs. Communicating between JavaScript and C++ or C# requires [marshalling](https://en.wikipedia.org/wiki/Marshalling_(computer_science)), most commonly to a JSON string. JSON serialization/parsing is an expensive operation, and IPC-bottlenecks can negatively impact performance. Starting with Edge 93, WV2 will use [CBOR](https://en.wikipedia.org/wiki/CBOR) for network events.
+Même si Electron et WebView2 ont des modèles de processus similaires, les IPC sous-jacents diffèrent. La communication entre JavaScript et C++ ou C# nécessite [marshalling](https://en.wikipedia.org/wiki/Marshalling_(computer_science)), le plus souvent vers une chaîne JSON. La sérialisation/parsing JSON est une opération coûteuse, et les goulots d’étranglement IPC peuvent avoir un impact négatif sur les performances. À partir de Edge 93, WV2 utilisera [CBOR](https://en.wikipedia.org/wiki/CBOR) pour les événements du réseau.
 
-Electron supports direct IPC between any two processes via the [MessagePorts](https://www.electronjs.org/docs/latest/tutorial/message-ports) API, which utilize [the structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). Applications which leverage this can avoid paying the JSON-serialization tax when sending objects between processes.
+Electron prend en charge les IPC directement entre deux processus via l'API [MessagePorts](https://www.electronjs.org/docs/latest/tutorial/message-ports) , qui utilise [l'algorithme de clonage structuré](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). Les applications qui tirent parti de cela peuvent éviter de payer le tribut de la sérialisation JSON lors de l'envoi d'objets entre processus.
 
 ## Summary
 
-Electron and WebView2 have a number of differences, but don't expect much difference with respect to how they perform rendering web content. Ultimately, an app’s architecture and JavaScript libraries/frameworks have a larger impact on memory and performance than anything else because _Chromium is Chromium_ regardless of where it is running.
+Electron et WebView2 ont un certain nombre de différences, mais ne vous attendez pas à une grande différence par rapport à la façon dont ils effectuent le rendu du contenu web. En définitive, l'architecture d'une application et ses bibliothèques / frameworks JavaScript ont un impact plus important sur la mémoire et les performances que tout autre parce que _Chromium est Chromium_ peu importe où il fonctionne.
 
-Special thanks to the WebView2 team for reviewing this post, and ensuring we have an up-to-date view of the WebView2 architecture. They welcome any [feedback on the project](https://github.com/MicrosoftEdge/WebView2Feedback).
+Remerciements spéciaux à l'équipe WebView2 pour avoir examiné ce post, et s'assurer que nous avons une vue actualisée de l'architecture WebView2. Ils sont heureux de recevoir tout [commentaire sur le projet](https://github.com/MicrosoftEdge/WebView2Feedback).
