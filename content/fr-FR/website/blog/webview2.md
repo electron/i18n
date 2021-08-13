@@ -5,17 +5,17 @@ author:
 date: '2021-07-22'
 ---
 
-Au cours des dernières semaines, nous avons reçu plusieurs questions sur les différences entre le nouveau [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) et Electron.
+Au cours des dernières semaines, nous avons reçu plusieurs questions sur les différences entre la nouvelle [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) et Electron.
 
-Both teams have the expressed goal of making web-tech the best it can be on the Desktop, and a shared comprehensive comparison is being discussed.
+Les deux équipes ont pour but de transposer la technologie du web pour les application de Bureau de la meilleure façon possible et une comparaison faite en commun est en cours de discussion.
 
-Electron et WebView2 sont des projets en évolution rapide et constante. We have assembled a brief snapshot of similarities and differences between Electron and WebView2 as they exist today.
+Electron et WebView2 sont des projets en évolution rapide et constante. Nous avons rassemblé un bref aperçu des similitudes et des différences entre Electron et WebView2 telles qu’elles existent aujourd’hui.
 
 ---
 
 ## Vue d’ensemble de l’architecture
 
-Electron and WebView2 both build from the Chromium source for rendering web content. Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron ne partage aucun DLL avec Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
+Electron et WebView2 sont tous deux issus des source de Chromium pour le rendu du contenu Web. À proprement parler, WebView2 est généré à partir des sources de Edge, mais Edge est construit à l’aide d’un fork de Chromium. Electron ne partage aucune DLL avec Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
 
 Electron apps always bundle and distribute the exact version of Electron with which they were developed. WebView2 has two options in distribution. You can bundle the exact WebView2 library your application was developed with, or you can use a shared-runtime version that may already be present on the system. WebView2 provides tools for each approach, including a bootstrapping installer in case the shared runtime is missing. WebView2 is shipped _inbox_ starting with Windows 11.
 
