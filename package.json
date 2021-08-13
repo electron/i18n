@@ -69,7 +69,7 @@
     "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v13.1.7",
+  "electronLatestStableTag": "v13.1.9",
   "engines": {
     "node": ">=10"
   }
