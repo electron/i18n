@@ -102,7 +102,7 @@ Electron Builder comes with a custom solution for signing your application. 你�
 
 If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
 
-如果您正在使用Packager的 API，您可以通过配置 [来签名并对您的应用程序进行公证](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html)
+如果您正在使用Packager的 API，您可以通过配置 [来签名并对您的应用程序进行公证](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html)
 
 ```js
 const packager = require('electron-packager')
