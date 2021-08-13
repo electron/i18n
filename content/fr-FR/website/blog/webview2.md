@@ -15,7 +15,7 @@ Electron et WebView2 sont des projets en évolution rapide et constante. We have
 
 ## Vue d’ensemble de l’architecture
 
-Electron and WebView2 both build from the Chromium source for rendering web content. Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron does not share any DLLs with Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
+Electron and WebView2 both build from the Chromium source for rendering web content. Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron ne partage aucun DLL avec Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
 
 Electron apps always bundle and distribute the exact version of Electron with which they were developed. WebView2 has two options in distribution. You can bundle the exact WebView2 library your application was developed with, or you can use a shared-runtime version that may already be present on the system. WebView2 provides tools for each approach, including a bootstrapping installer in case the shared runtime is missing. WebView2 is shipped _inbox_ starting with Windows 11.
 
@@ -44,23 +44,23 @@ The Electron source is maintained and available on GitHub. Applications can modi
 
 Quick Summary:
 
-|                                     |        Electron |                WebView2 |
-| ----------------------------------- | ---------------:| -----------------------:|
-| Build Dependency                    |        Chromium |                    Edge |
-| Source Available on GitHub          |             Yes |                      No |
-| Shares Edge/Chrome DLLs             |              No |     Yes (as of Edge 90) |
-| Shared Runtime Between Applications |              No |                Optional |
-| Application APIs                    |             Yes |                      No |
-| Node.js                             |             Yes |                      No |
-| Mode bac à sable                    |        Optional |                  Always |
-| Requires an Application Framework   |              No |                     Yes |
-| Plateformes supportées              | Mac, Win, Linux | Win (Mac/Linux planned) |
-| Process Sharing Between Apps        |           Never |                Optional |
-| Framework Updates Managed By        |     Application |                WebView2 |
+|                                      |        Electron |                WebView2 |
+| ------------------------------------ | ---------------:| -----------------------:|
+| Build Dependency                     |        Chromium |                    Edge |
+| Source Available on GitHub           |             Yes |                     Non |
+| Shares Edge/Chrome DLLs              |             Non |     Yes (as of Edge 90) |
+| Shared Runtime Between Applications  |             Non |                Optional |
+| Application APIs                     |             Yes |                     Non |
+| Node.js                              |             Yes |                     Non |
+| Mode bac à sable                     |        Optional |                  Always |
+| Requires an Application Framework    |             Non |                     Yes |
+| Plateformes supportées               | Mac, Win, Linux | Win (Mac/Linux planned) |
+| Process Sharing Between Apps         |          Jamais |                Optional |
+| Mises à jour du framework gérées par |     Application |                WebView2 |
 
 ## Performance Discussion
 
-When it comes to rendering your web content, we expect little performance difference between Electron, WebView2, and any other Chromium-based renderer. We created [scaffolding for apps built using Electron, C++ + WebView2, and C# + WebView2](https://github.com/crossplatform-dev/xplat-challenges) for those interested to investigate potential performance differences.
+En ce qui concerne le rendu de votre contenu web, nous nous attendons à peu de différence de performance entre Electron, WebView2 et tout autre moteur de rendu basé sur Chromium. We created [scaffolding for apps built using Electron, C++ + WebView2, and C# + WebView2](https://github.com/crossplatform-dev/xplat-challenges) for those interested to investigate potential performance differences.
 
 There are a few differences that come into play _outside_ of rendering web content, and folks from Electron, WebView2, Edge, and others have expressed interest in working on a detailed comparison including PWAs.
 
