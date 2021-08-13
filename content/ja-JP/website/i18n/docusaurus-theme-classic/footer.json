@@ -1,23 +1,35 @@
 {
   "link.title.Docs": {
-    "message": "Docs",
+    "message": "ドキュメント",
     "description": "The title of the footer links column with title=Docs in the footer"
   },
+  "link.title.Checklists": {
+    "message": "Checklists",
+    "description": "The title of the footer links column with title=Checklists in the footer"
+  },
   "link.title.Community": {
-    "message": "Community",
+    "message": "コミュニティ",
     "description": "The title of the footer links column with title=Community in the footer"
   },
   "link.title.More": {
-    "message": "More",
+    "message": "その他",
     "description": "The title of the footer links column with title=More in the footer"
   },
   "link.item.label.Getting Started": {
-    "message": "Getting Started",
-    "description": "The label of footer link with label=Getting Started linking to /"
+    "message": "始めましょう",
+    "description": "The label of footer link with label=Getting Started linking to /docs/latest/"
   },
-  "link.item.label.Stack Overflow": {
-    "message": "Stack Overflow",
-    "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/electron"
+  "link.item.label.API Reference": {
+    "message": "API リファレンス",
+    "description": "The label of footer link with label=API Reference linking to /docs/latest/api/app"
+  },
+  "link.item.label.Performance": {
+    "message": "パフォーマンス",
+    "description": "The label of footer link with label=Performance linking to /docs/latest/tutorial/performance"
+  },
+  "link.item.label.Security": {
+    "message": "セキュリティ",
+    "description": "The label of footer link with label=Security linking to /docs/latest/tutorial/security"
   },
   "link.item.label.Discord": {
     "message": "Discord",
@@ -27,12 +39,20 @@
     "message": "Twitter",
     "description": "The label of footer link with label=Twitter linking to https://twitter.com/electronjs"
   },
+  "link.item.label.Stack Overflow": {
+    "message": "Stack Overflow",
+    "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/electron"
+  },
   "link.item.label.GitHub": {
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/electron/electron"
   },
+  "link.item.label.Open Collective": {
+    "message": "Open Collective",
+    "description": "The label of footer link with label=Open Collective linking to https://opencollective.com/electron"
+  },
   "copyright": {
-    "message": "Copyright © 2021 My Project, Inc. Built with Docusaurus.",
+    "message": "Copyright © 2021 OpenJS Foundation and Electron contributors.",
     "description": "The footer copyright"
   }
 }
