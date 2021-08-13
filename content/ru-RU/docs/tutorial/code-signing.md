@@ -8,8 +8,8 @@ On Windows, the system assigns a trust level to your code signing certificate wh
 
 Можно распространять неподписанные приложения, но не рекомендуется. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the
-developer cannot be verified](../images/gatekeeper.png)
+![предупреждение macOS Catalina Gatekeeper: Не удается открыть приложение, так как
+разработчик не может быть проверен](../images/gatekeeper.png)
 
 As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
 
@@ -103,7 +103,7 @@ Electron Builder comes with a custom solution for signing your application. You 
 
 If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
 
-If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html).
+If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html).
 
 ```js
 const packager = require('electron-packager')
@@ -149,10 +149,10 @@ See the [Mac App Store Guide][].
 
 Перед подписью, следует:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
-2. Install Visual Studio to get the signing utility (the free [Community Edition](https://visualstudio.microsoft.com/vs/community/) is enough)
+1. Получить сертификат для подписания кода аутентификации Windows (требуется ежегодная плата)
+2. Установите Visual Studio для получения утилиты подписи (бесплатной версия [ Community Edition](https://visualstudio.microsoft.com/vs/community/) достаточно)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Вы можете получить сертификат от множества продавцов, включая самых популярных. Цены варьируются, поэтому это может стоить вашего времени, чтобы ходить по магазинам. Популярные реселлеры включают:
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
@@ -167,7 +167,7 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 
 ## Windows Store
 
-See the [Windows Store Guide][].
+Смотри страницу [Windows Store Guide][].
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
