@@ -7,15 +7,15 @@ date: '2021-07-22'
 
 この数週間で、新しい [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) と Electron の違いについていくつかご質問をいただきました。
 
-Both teams have the expressed goal of making web-tech the best it can be on the Desktop, and a shared comprehensive comparison is being discussed.
+両チームとも、ウェブ技術をデスクトップ上で最高のものにするという目標を掲げているため、共通点の総合的な比較を検討してみましょう。
 
-Electron and WebView2 are fast-moving and constantly evolving projects. We have assembled a brief snapshot of similarities and differences between Electron and WebView2 as they exist today.
+Electron と WebView2 は、行動が早く、常に進化しているプロジェクトです。 現在の Electron と WebView2 の共通点と相違点を簡単にまとめてみました。
 
 ---
 
-## Architecture Overview
+## アーキテクチャの概要
 
-Electron and WebView2 both build from the Chromium source for rendering web content. Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron does not share any DLLs with Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
+Electron と WebView2 はどちらも、ウェブコンテンツのレンダリングに Chromium ソースを使用しています。 Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron does not share any DLLs with Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
 
 Electron apps always bundle and distribute the exact version of Electron with which they were developed. WebView2 has two options in distribution. You can bundle the exact WebView2 library your application was developed with, or you can use a shared-runtime version that may already be present on the system. WebView2 provides tools for each approach, including a bootstrapping installer in case the shared runtime is missing. WebView2 is shipped _inbox_ starting with Windows 11.
 
