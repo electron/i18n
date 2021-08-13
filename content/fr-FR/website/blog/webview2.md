@@ -1,19 +1,19 @@
 ---
-title: WebView2 and Electron
+title: WebView2 et Electron
 author:
   - electron
 date: '2021-07-22'
 ---
 
-Over the past weeks, we’ve received several questions about the differences between the new [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and Electron.
+Au cours des dernières semaines, nous avons reçu plusieurs questions sur les différences entre le nouveau [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) et Electron.
 
 Both teams have the expressed goal of making web-tech the best it can be on the Desktop, and a shared comprehensive comparison is being discussed.
 
-Electron and WebView2 are fast-moving and constantly evolving projects. We have assembled a brief snapshot of similarities and differences between Electron and WebView2 as they exist today.
+Electron et WebView2 sont des projets en évolution rapide et constante. We have assembled a brief snapshot of similarities and differences between Electron and WebView2 as they exist today.
 
 ---
 
-## Architecture Overview
+## Vue d’ensemble de l’architecture
 
 Electron and WebView2 both build from the Chromium source for rendering web content. Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron does not share any DLLs with Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
 
