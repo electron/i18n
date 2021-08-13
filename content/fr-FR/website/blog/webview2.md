@@ -42,21 +42,21 @@ Electron a un modèle de sécurité configurable pour le contenu web, de l'accè
 
 Les sources d'Electron sont maintenues et disponibles sur GitHub. Les applications peuvent modifier et leurs propres _version_ d'Electron. Les sources de WebView2 ne sont pas disponibles sur GitHub.
 
-Quick Summary:
+Résumé rapide:
 
-|                                      |        Electron |                WebView2 |
-| ------------------------------------ | ---------------:| -----------------------:|
-| Build Dependency                     |        Chromium |                    Edge |
-| Source Available on GitHub           |             Yes |                     Non |
-| Shares Edge/Chrome DLLs              |             Non |     Yes (as of Edge 90) |
-| Shared Runtime Between Applications  |             Non |                Optional |
-| Application APIs                     |             Yes |                     Non |
-| Node.js                              |             Yes |                     Non |
-| Mode bac à sable                     |        Optional |                  Always |
-| Requires an Application Framework    |             Non |                     Yes |
-| Plateformes supportées               | Mac, Win, Linux | Win (Mac/Linux planned) |
-| Process Sharing Between Apps         |          Jamais |                Optional |
-| Mises à jour du framework gérées par |     Application |                WebView2 |
+|                                         |        Electron |                   WebView2 |
+| --------------------------------------- | ---------------:| --------------------------:|
+| Installation des dépendances            |        Chromium |                       Edge |
+| Source disponible sur GitHub            |             Oui |                        Non |
+| Partage des DLL Edge/Chrome             |             Non | Oui (à compter de Edge 90) |
+| Runtime partagé entre applications      |             Non |                 Facultatif |
+| API d’application                       |             Oui |                        Non |
+| Node.js                                 |             Oui |                        Non |
+| Mode bac à sable                        |      Facultatif |                   Toujours |
+| Nécessite un Framework d'application    |             Non |                        Oui |
+| Plateformes supportées                  | Mac, Win, Linux |      Win (Mac/Linux prévu) |
+| Partage de processus entre applications |          Jamais |                 Facultatif |
+| Mises à jour du framework gérées par    |     Application |                   WebView2 |
 
 ## Discussion sur les performances
 
