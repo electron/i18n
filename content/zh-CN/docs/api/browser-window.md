@@ -142,7 +142,7 @@ child.once('ready-to-show', () => {
   * `paintWhenInitiallyHidden`Boolean(可选) - 当`show`为`false`并且渲染器刚刚被创建时，它是否应激活。  为了让`document.visibilityState` 在`show: false`的情况下第一次加载时正确地工作，你应该把这个设置成`false`.  设置为 `false` 将会导致`ready-to-show` 事件不触发。  默认值为 `true`。
   * `frame` Boolean (可选) - 设置为 `false` 时可以创建一个[无边框窗口](frameless-window.md)。 默认值为 `true`。
   * `parent` BrowserWindow (可选) - 指定父窗口 默认值为 `null`.
-  * `momodalable` Boolean (可选) - 当前是否为模态窗口。 只有当窗口是子窗口时才起作用。 默认值为 `false`.
+  * `modal` Boolean (可选) - 当前是否为模态窗口。 只有当窗口是子窗口时才起作用。 默认值为 `false`.
   * `acceptFirstMouse` Boolean (可选) - 是否允许单击页面来激活窗口。 默认值为 `false`。
   * `disableAutoHideCursor` Boolean (可选) - 是否在打字时隐藏光标。 默认值为 `false`.
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏，除非按了`Alt`键。 默认值为 `false`.
