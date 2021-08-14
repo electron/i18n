@@ -68,14 +68,14 @@ Electron のソースは GitHub 上でメンテンスされており、自由に
 
 _プロセス間通信は、Electron アプリでのパフォーマンスを考慮する必要があるでしょう。これにはすぐに強調すべき違いがあります。_
 
-Chromium では、サンドボックス化したレンダラーとシステムの他の部分との間で、ブラウザプロセスが IPC ブローカーとして機能します。 While Electron allows unsandboxed render processes, many apps choose to enable the sandbox for added security. WebView2 always has the sandbox enabled, so for most Electron and WebView2 apps IPC can impact overall performance.
+Chromium では、サンドボックス化したレンダラーとシステムの他の部分との間で、ブラウザプロセスが IPC ブローカーとして機能します。 Electron ではサンドボックスのないレンダープロセスにできますが、多くのアプリはセキュリティ強化のためにサンドボックスを有効にしています。 WebView2 は常にサンドボックスが有効なので、ほとんどの Electron および WebView2 アプリでは IPC が全体のパフォーマンスに影響を与えます。
 
-Even though Electron and WebView2 have a similar process models, the underlying IPC differs. Communicating between JavaScript and C++ or C# requires [marshalling](https://en.wikipedia.org/wiki/Marshalling_(computer_science)), most commonly to a JSON string. JSON serialization/parsing is an expensive operation, and IPC-bottlenecks can negatively impact performance. Starting with Edge 93, WV2 will use [CBOR](https://en.wikipedia.org/wiki/CBOR) for network events.
+Electron と WebView2 はプロセスモデルが似ていますが、基礎の IPC が異なります。 JavaScript と C++ や C# の間で通信するには、[マーシャリング](https://en.wikipedia.org/wiki/Marshalling_(computer_science)) が必要です。最も一般的なのは JSON 文字列への変換でしょう。 JSON のシリアライズ/パースは重い処理であり、この IPC のボトルネックはパフォーマンスに悪影響を及ぼします。 Edge 93 以降、WV2 はネットワークイベントに [CBOR](https://en.wikipedia.org/wiki/CBOR) を使用します。
 
-Electron supports direct IPC between any two processes via the [MessagePorts](https://www.electronjs.org/docs/latest/tutorial/message-ports) API, which utilize [the structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). Applications which leverage this can avoid paying the JSON-serialization tax when sending objects between processes.
+Electron は [MessagePorts](https://www.electronjs.org/docs/latest/tutorial/message-ports) API を介した直接の IPC を任意の 2 つのプロセス間でサポートしており、これは [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) を利用しています。 これを活用するアプリケーションは、プロセス間でオブジェクトを送信する際の JSON シリアライズのコストを回避できます。
 
 ## 概要
 
-Electron and WebView2 have a number of differences, but don't expect much difference with respect to how they perform rendering web content. Ultimately, an app’s architecture and JavaScript libraries/frameworks have a larger impact on memory and performance than anything else because _Chromium is Chromium_ regardless of where it is running.
+Electron と WebView2 にはいくつかの違いがありますが、ウェブコンテンツのレンダリング方法に関しては大きな違いはありません。 最終的には、アプリケーションのアーキテクチャと JavaScript ライブラリ/フレームワークが、メモリとパフォーマンスに何よりも大きな影響を与えます。なぜなら、実行箇所に関わらず _Chromium は Chromium_ だからです。
 
-Special thanks to the WebView2 team for reviewing this post, and ensuring we have an up-to-date view of the WebView2 architecture. They welcome any [feedback on the project](https://github.com/MicrosoftEdge/WebView2Feedback).
+この記事をレビューしてくださり、WebView2 アーキテクチャの最新情報を提供して頂いた WebView2 チームに感謝します。 They welcome any [feedback on the project](https://github.com/MicrosoftEdge/WebView2Feedback).
