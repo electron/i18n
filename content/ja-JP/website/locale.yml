@@ -75,8 +75,8 @@ releases:
   stable_desc: 定期かつサポートされるリリース
   beta_releases: ベータリリース
   beta_desc: 変更予定をアプリでテストしましょう
-  alpha_releases: Alpha Releases
-  alpha_desc: Test features slightly more on the edge
+  alpha_releases: アルファリリース
+  alpha_desc: 新機能を少しずつテストする
   nightly_releases: Nightly リリース
   nightly_desc: 最新機能の体験
   next: 次
