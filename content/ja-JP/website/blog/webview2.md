@@ -36,39 +36,39 @@ Electron は、メニュー、ファイルシステムへのアクセス、通�
 
 Electron は Node.js を統合しています。 Electron アプリケーションは、レンダラープロセスやメインプロセスから Node.js API、モジュール、Node ネイティブアドオンを利用できます。 WebView2 アプリケーションは、アプリケーションの他の部分が書かれている言語やフレームワークを前提にしていません。 JavaScript コードからオペレーティングシステムへアクセスするには、アプリケーションホストプロセスを介する必要があります。
 
-Electron は、[Fugu Project](https://fugu-tracker.web.app/) が開発した API を含むウェブ API との互換性を維持するよう努めています。 We have a [snapshot of Electron’s Fugu API compatibility](https://docs.google.com/spreadsheets/d/1APQalp8HCa-lXVOqyul369G-wjM2RcojMujgi67YaoE/edit?usp=sharing). WebView2 maintains a similar list of [API differences from Edge](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/browser-features).
+Electron は、[Fugu Project](https://fugu-tracker.web.app/) が開発した API を含むウェブ API との互換性を維持するよう努めています。 [こちらに Electron の Fugu API 対応状況のスナップショット](https://docs.google.com/spreadsheets/d/1APQalp8HCa-lXVOqyul369G-wjM2RcojMujgi67YaoE/edit?usp=sharing) を用意しました。 WebView2 では、[Edge との API の違い](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/browser-features) について同様のリストを作成しています。
 
-Electron has a configurable security model for web content, from full-access to full-sandbox. WebView2 content is always sandboxed. Electron has [comprehensive security documentation](https://www.electronjs.org/docs/tutorial/security) on choosing your security model. WebView2 also has [security best practices](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/security).
+Electron でのウェブコンテンツのセキュリティモデルは、フルアクセスからフルサンドボックスまで設定可能です。 WebView2 のコンテンツは常にサンドボックス化されます。 Electron はセキュリティモデルの選択について、[包括的なセキュリティドキュメント](https://www.electronjs.org/docs/tutorial/security) を用意しています。 WebView2 にも [セキュリティのベストプラクティス](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/security) が用意されています。
 
-The Electron source is maintained and available on GitHub. Applications can modify can build their own _brands_ of Electron. The WebView2 source is not available on GitHub.
+Electron のソースは GitHub 上でメンテンスされており、自由に利用できます。 アプリケーションは、Electron の独自 _ブランド_ を構築できるように変更を加えられます。 WebView2 のソースは GitHub 上で利用できません。
 
-Quick Summary:
+簡単な概要:
 
-|                                     |        Electron |                WebView2 |
-| ----------------------------------- | ---------------:| -----------------------:|
-| Build Dependency                    |        Chromium |                     エッジ |
-| Source Available on GitHub          |              あり |                      なし |
-| Shares Edge/Chrome DLLs             |              なし |     Yes (as of Edge 90) |
-| Shared Runtime Between Applications |              なし |                      任意 |
-| Application APIs                    |              あり |                      なし |
-| Node.js                             |              あり |                      なし |
-| サンドボックス                             |              任意 |                      常時 |
-| Requires an Application Framework   |              なし |                      あり |
-| サポートされているプラットフォーム                   | Mac, Win, Linux | Win (Mac/Linux planned) |
-| Process Sharing Between Apps        |           Never |                      任意 |
-| Framework Updates Managed By        |     Application |                WebView2 |
+|                     |        Electron |             WebView2 |
+| ------------------- | ---------------:| --------------------:|
+| ビルドの依存関係            |        Chromium |                  エッジ |
+| GitHub 上でコードが利用可能   |              あり |                   なし |
+| Edge/Chrome DLL の共有 |              なし |     あり (Edge 90 のもの) |
+| アプリケーション間でのランタイム共有  |              なし |                   任意 |
+| アプリケーション API        |              あり |                   なし |
+| Node.js             |              あり |                   なし |
+| サンドボックス             |              任意 |                   常時 |
+| アプリケーションフレームワークの必要性 |              なし |                   あり |
+| サポートされているプラットフォーム   | Mac, Win, Linux | Win (Mac/Linux は計画中) |
+| アプリ間でのプロセス共有        |              なし |                   任意 |
+| フレームワークの更新機構        |        アプリケーション |             WebView2 |
 
-## Performance Discussion
+## パフォーマンスの議論
 
-When it comes to rendering your web content, we expect little performance difference between Electron, WebView2, and any other Chromium-based renderer. We created [scaffolding for apps built using Electron, C++ + WebView2, and C# + WebView2](https://github.com/crossplatform-dev/xplat-challenges) for those interested to investigate potential performance differences.
+ウェブコンテンツのレンダリングに関しては、Electron、WebView2、その他 Chromium ベースのレンダラーの間におけるパフォーマンスの差はほとんどないと考えています。 私たちは、潜在的なパフォーマンスの違いを調査するご興味のある方向けに [Electron、C++ + WebView2、C# + WebView2 で構築したアプリの土台](https://github.com/crossplatform-dev/xplat-challenges) を作成しました。
 
-There are a few differences that come into play _outside_ of rendering web content, and folks from Electron, WebView2, Edge, and others have expressed interest in working on a detailed comparison including PWAs.
+ウェブコンテンツのレンダリング _以外_ にもいくつかの違いがあり、Electron、WebView2、Edge などの関係者は、PWA を含めた詳細な比較を行うことに興味を示しています。
 
-### Inter-Process Communication (IPC)
+### プロセス間通信 (IPC)
 
-_There is one difference we want to highlight immediately, as we believe it is often a performance consideration in Electron apps._
+_プロセス間通信は、Electron アプリでのパフォーマンスを考慮する必要があるでしょう。これにはすぐに強調すべき違いがあります。_
 
-In Chromium, the browser process acts as an IPC broker between sandboxed renderers and the rest of the system. While Electron allows unsandboxed render processes, many apps choose to enable the sandbox for added security. WebView2 always has the sandbox enabled, so for most Electron and WebView2 apps IPC can impact overall performance.
+Chromium では、サンドボックス化したレンダラーとシステムの他の部分との間で、ブラウザプロセスが IPC ブローカーとして機能します。 While Electron allows unsandboxed render processes, many apps choose to enable the sandbox for added security. WebView2 always has the sandbox enabled, so for most Electron and WebView2 apps IPC can impact overall performance.
 
 Even though Electron and WebView2 have a similar process models, the underlying IPC differs. Communicating between JavaScript and C++ or C# requires [marshalling](https://en.wikipedia.org/wiki/Marshalling_(computer_science)), most commonly to a JSON string. JSON serialization/parsing is an expensive operation, and IPC-bottlenecks can negatively impact performance. Starting with Edge 93, WV2 will use [CBOR](https://en.wikipedia.org/wiki/CBOR) for network events.
 
