@@ -25,10 +25,10 @@ Electron と WebView2 は、どちらも Chromium のマルチプロセスアー
 
 * ElectronJS プロセスモデル:
 
-    ![ElectronJS Process Model Diagram](/images/Electron-Architecture.png)
+    ![ElectronJS プロセスモデル図](/images/Electron-Architecture.png)
 * WebView2 ベースのアプリケーションプロセスモデル:
 
-    ![WebView2 Process Model Diagram](/images/WebView2-Architecture.png)
+    ![WebView2 プロセスモデル図](/images/WebView2-Architecture.png)
 
 [WebView2 のプロセスモデル](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/process-model) と [Electron のプロセスモデル](https://www.electronjs.org/docs/tutorial/process-model) についてはこちらをご覧ください。
 
@@ -78,4 +78,4 @@ Electron は [MessagePorts](https://www.electronjs.org/docs/latest/tutorial/mess
 
 Electron と WebView2 にはいくつかの違いがありますが、ウェブコンテンツのレンダリング方法に関しては大きな違いはありません。 最終的には、アプリケーションのアーキテクチャと JavaScript ライブラリ/フレームワークが、メモリとパフォーマンスに何よりも大きな影響を与えます。なぜなら、実行箇所に関わらず _Chromium は Chromium_ だからです。
 
-この記事をレビューしてくださり、WebView2 アーキテクチャの最新情報を提供して頂いた WebView2 チームに感謝します。 They welcome any [feedback on the project](https://github.com/MicrosoftEdge/WebView2Feedback).
+この記事をレビューしてくださり、WebView2 アーキテクチャの最新情報を提供して頂いた WebView2 チームに感謝します。 WebView2 チームの皆さんは [プロジェクトのフィードバック](https://github.com/MicrosoftEdge/WebView2Feedback) を歓迎しています。
