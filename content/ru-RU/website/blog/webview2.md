@@ -1,5 +1,5 @@
 ---
-title: WebView2 and Electron
+title: WebView2 и Electron
 author:
   - electron
 date: '2021-07-22'
@@ -15,9 +15,9 @@ Electron и WebView2это динамичные и постоянно разви
 
 ## Обзор архитектуры
 
-Electron, и WebView2 основаны на исходном коде Chromium для рендеринга веб-контента. Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron does not share any DLLs with Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
+Electron, и WebView2 основаны на исходном коде Chromium для рендеринга веб-контента. Строго говоря, WebView2 построен из исходного кода Edge, но Edge построен с использованием ветки исходного кода Chromium. Electron не использует библиотеки DLL совместно с Chrome. Двоичные файлы WebView2 жестко связаны с Edge (стабильный канал с Edge 90), поэтому они совместно используют диск и некоторый рабочий набор. См. [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) для получения дополнительной информации.
 
-Electron apps always bundle and distribute the exact version of Electron with which they were developed. WebView2 has two options in distribution. You can bundle the exact WebView2 library your application was developed with, or you can use a shared-runtime version that may already be present on the system. WebView2 provides tools for each approach, including a bootstrapping installer in case the shared runtime is missing. WebView2 is shipped _inbox_ starting with Windows 11.
+Приложения Electron всегда комплектуют и распространяют точную версию Electron, с которой они были разработаны. WebView2 имеет два варианта распространения. Можно объединить именно ту библиотеку WebView2, с которой было разработано приложение, или использовать версию общей среды выполнения, которая уже может присутствовать в системе. WebView2 предоставляет инструменты для каждого подхода, включая установщик начальной загрузки на случай, если общая среда выполнения отсутствует. WebView2 поставляется _папке «Входящие»_ начиная с Windows 11.
 
 Applications that bundle their frameworks are responsible for updating those frameworks, including minor security releases. For apps using the shared WebView2 runtime, WebView2 has its own updater, similar to Chrome or Edge, that runs independent of your application. Updating the application's code or any of its other dependencies is still a responsibility for the developer, same as with Electron. Neither Electron nor WebView2 is managed by Windows Update.
 
