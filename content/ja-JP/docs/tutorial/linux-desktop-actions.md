@@ -1,4 +1,4 @@
-# Desktop Launcher Actions (Linux)
+# デスクトップランチャーアクション (Linux)
 
 ## 概要
 
