@@ -1,4 +1,4 @@
-# 针对 macOS 系统 BrowserWindows 的展示文件
+# Representing Files in a BrowserWindow (macOS)
 
 ## 概览
 
