@@ -1,4 +1,4 @@
-# Snapcraft 指南 (Ubuntu 软件中心 & 更多)
+# Snapcraft Guide (Linux)
 
 本指南提供了有关如何包装你的 Electron 应用程序的任何 Snapcraft 环境, 包括 Ubuntu 软件中心的信息。
 
