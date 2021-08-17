@@ -1,4 +1,4 @@
-# インストール
+# Advanced Installation Instructions
 
 Electron のビルド済みバイナリをインストールするには、[`npm`][npm] を使用します。 アプリの開発用依存関係として Electron をインストールする方法を推奨します。
 
