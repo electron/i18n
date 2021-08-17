@@ -1,4 +1,4 @@
-# Actions personnalisées de lancement du bureau Linux
+# Desktop Launcher Actions (Linux)
 
 ## Vue d'ensemble
 
