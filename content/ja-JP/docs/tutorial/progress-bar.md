@@ -1,4 +1,4 @@
-# タスクバーで示すプログレスバー (Windows, macOS, Unity)
+# Taskbar Progress Bar (Windows & macOS)
 
 ## 概要
 
