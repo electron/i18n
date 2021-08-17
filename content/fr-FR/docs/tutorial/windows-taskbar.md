@@ -1,4 +1,4 @@
-# Barre des tâches Windows
+# Taskbar Customization (Windows)
 
 ## Vue d'ensemble
 
