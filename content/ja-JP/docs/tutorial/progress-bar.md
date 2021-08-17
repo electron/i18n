@@ -1,4 +1,4 @@
-# Taskbar Progress Bar (Windows & macOS)
+# タスクバーのプログレスバー (Windows & macOS)
 
 ## 概要
 
