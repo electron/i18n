@@ -1,4 +1,4 @@
-# Pepper Flash Plugin
+# Plugin Pepper Flash
 
 Electron no longer supports the Pepper Flash plugin, as Chrome has removed support.
 
