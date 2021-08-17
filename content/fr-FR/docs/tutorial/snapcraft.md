@@ -1,4 +1,4 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# Snapcraft Guide (Linux)
 
 Ce guide fournit des informations sur comment empaqueter votre application Electron pour n’importe quel environnement Snapcraft, y compris l’Ubuntu Software Center.
 
