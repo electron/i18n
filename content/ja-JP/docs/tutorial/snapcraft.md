@@ -1,4 +1,4 @@
-# Snapcraft ガイド (Ubuntu Software Center & 他)
+# Snapcraft Guide (Linux)
 
 このガイドは、Ubuntu Software Centerを含む、Snapcraft環境向けにあなたのElectronアプリケーションをパッケージする方法を提供します。
 
