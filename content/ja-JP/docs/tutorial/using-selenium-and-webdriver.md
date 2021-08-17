@@ -1,4 +1,4 @@
-# SeleniumとWebDriverを使用する
+# Selenium and WebDriver
 
 [ChromeDriver - クローム向けのWebDriver][chrome-driver]:
 
