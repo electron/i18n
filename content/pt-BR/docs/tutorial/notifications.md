@@ -1,4 +1,4 @@
-# Notificações (Windows, Linux, macOS)
+# Notificações
 
 ## Visão Geral
 
