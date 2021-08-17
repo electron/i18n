@@ -1,4 +1,4 @@
-# Usando Módulos Nativos do Node
+# Native Node Modules
 
 Módulos Node,js nativos são suportados pelo Electron, mas, como Electron tem uma [interface binária de aplicação (ABI)][abi] diferente da interface do Node.js (devido a diferenças como o uso do BoringSSL do Chromium ao invés do OpenSSL), os módulos nativos que você usar precisam ser recompilados para Electron. Otherwise, you will get the following class of error when you try to run your app:
 
