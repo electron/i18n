@@ -1,4 +1,4 @@
-# ネイティブのNodeモジュールを使用する
+# Native Node Modules
 
 Electron ではネイティブ Node.js モジュールがサポートされていますが、Electron は (OpenSSL ではなく Chromium の BoringSSL を使用するなどの違いにより) 指定の Node.js バイナリと異なる [アプリケーションバイナリインターフェイス (ABI)][abi] であるため、使用するネイティブモジュールを Electron 向けに再コンパイルする必要があります。 そうしなければ、以下の類のエラーが実行しようとしたときに発生します。
 
