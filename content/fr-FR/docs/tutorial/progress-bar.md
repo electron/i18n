@@ -1,4 +1,4 @@
-# Taskbar Progress Bar (Windows & macOS)
+# Barre de progression de la barre des tâches (Windows & macOS)
 
 ## Vue d'ensemble
 
