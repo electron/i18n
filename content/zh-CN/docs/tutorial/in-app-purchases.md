@@ -1,4 +1,4 @@
-# 应用内购买 (macOS)
+# In-App Purchases (macOS)
 
 ## 准备工作
 
