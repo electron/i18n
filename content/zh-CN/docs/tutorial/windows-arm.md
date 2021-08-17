@@ -1,4 +1,4 @@
-# Windows 10 ARM
+# Windows on ARM
 
 如果您的应用使用Electron 6.0.8及之后的版本，您现在可以在基于ARM的Windows10上构建它。 This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
 
