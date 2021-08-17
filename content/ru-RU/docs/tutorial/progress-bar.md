@@ -1,4 +1,4 @@
-# Индикатор прогресса в меню задач (Windows, macOS, Unity)
+# Taskbar Progress Bar (Windows & macOS)
 
 ## Обзор
 
