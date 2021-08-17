@@ -143,7 +143,7 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Por padrão é `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Por padrão é `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Por padrão é `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether clicking an inactive window will also click through to the web contents. Default is `false` on macOS. This option is not configurable on other platforms.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Por padrão é `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Por padrão é `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Por padrão é `false`.
@@ -1224,18 +1224,18 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - O icone exibido na barra de ferramentas de miniaturas.
   * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
+  * `tooltip` String (opcional) - O texto do tooltip do botão.
   * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
 
-The `flags` is an array that can include following `String`s:
+As `flags` são um array que pode conter as seguintes `String`s:
 
-* `enabled` - The button is active and available to the user.
+* `enabled` - O botão está ativo e disponível ao usuário.
 * `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
+* `dismissonclick` - Quando o botão é clicado, o janela da miniatura é fechada imediatamente.
+* `nobackground` - Não desenha a borda do botão, utiliza apenas a imagem.
+* `hidden` - O botão não é exibido ao usuário.
 * `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
 
 #### `win.setThumbnailClip(region)` _Windows_
@@ -1358,33 +1358,33 @@ Returns `BrowserWindow` - The parent window.
 
 Returns `BrowserWindow[]` - All child windows.
 
-#### `win.setAutoHideCursor(autoHide)` _macOS_
+#### `win.setAutoHideCursor(autoHide)` no _macOS_
 
 * `autoHide` Boolean
 
 Controls whether to hide cursor when typing.
 
-#### `win.selectPreviousTab()` _macOS_
+#### `win.selectPreviousTab()` no _macOS_
 
 Selects the previous tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.selectNextTab()` _macOS_
+#### `win.selectNextTab()` no _macOS_
 
 Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.mergeAllWindows()` _macOS_
+#### `win.mergeAllWindows()` no _macOS_
 
 Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
-#### `win.moveTabToNewWindow()` _macOS_
+#### `win.moveTabToNewWindow()` no _macOS_
 
 Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
 
-#### `win.toggleTabBar()` _macOS_
+#### `win.toggleTabBar()` no _macOS_
 
 Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
-#### `win.addTabbedWindow(browserWindow)` _macOS_
+#### `win.addTabbedWindow(browserWindow)` no _macOS_
 
 * `browserWindow` BrowserWindow
 
@@ -1398,17 +1398,17 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
-#### `win.setTrafficLightPosition(position)` _macOS_
+#### `win.setTrafficLightPosition(position)` no _macOS_
 
 * `position` [Point](structures/point.md)
 
 Set a custom position for the traffic light buttons in frameless window.
 
-#### `win.getTrafficLightPosition()` _macOS_
+#### `win.getTrafficLightPosition()` no _macOS_
 
 Returns `Point` - The custom position for the traffic light buttons in frameless window.
 
-#### `win.setTouchBar(touchBar)` _macOS_
+#### `win.setTouchBar(touchBar)` no _macOS_
 
 * `touchBar` TouchBar | null
 
@@ -1444,7 +1444,7 @@ Raises `browserView` above other `BrowserView`s attached to `win`. Throws an err
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** A API BrowserView atualmente é experimental e pode mudar ou ser removida em versões futuras do Electron.
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
 [page-visibility-api]: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
