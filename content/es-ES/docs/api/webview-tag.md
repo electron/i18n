@@ -737,6 +737,18 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Llamar a `event.preventDefault()`, __NO__ tiene ningún efecto.
 
+### Evento: 'did-start-navigation'
+
+Devuelve:
+
+* `url` String
+* `isInPlace` Boolean
+* `EsElFramePrincipal` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitido cuando cualquier frame (incluyendo el principal) comienza la navegación. `isInPlace` will be `true` for in-page navigations.
+
 ### Evento: 'did-navigate'
 
 Devuelve:
@@ -744,6 +756,21 @@ Devuelve:
 * `url` String
 
 Emitido cuando la navegación es finalizada.
+
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+### Evento: 'did-frame-navigate'
+
+Devuelve:
+
+* `url` String
+* `httpResponseCode` Integer - -1 para navegaciones no HTTP
+* `httpStatusText` String - vacío para navegaciones no HTTP
+* `EsElFramePrincipal` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitido cuando se ha realizado un navegación de algun frame.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
