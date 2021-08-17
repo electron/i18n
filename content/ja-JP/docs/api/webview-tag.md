@@ -737,6 +737,18 @@ webview.addEventListener('new-window', async (e) => {
 
 `event.preventDefault()` を呼んでも効果は __ありません__。
 
+### イベント: 'did-start-navigation'
+
+戻り値：
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInPlace` が `true` になります。
+
 ### イベント: 'did-navigate'
 
 戻り値：
@@ -744,6 +756,21 @@ webview.addEventListener('new-window', async (e) => {
 * `url` String
 
 ナビゲーションが完了したときに発行されます。
+
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
+
+### イベント: 'did-frame-navigate'
+
+戻り値：
+
+* `url` String
+* `httpResponseCode` Integer - HTTP ナビゲーションが無い場合は-1
+* `httpStatusText` String - HTTP ナビゲーションが無い場合は空。
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+フレームのナビゲーションが完了したときに発生します。
 
 このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。 これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
