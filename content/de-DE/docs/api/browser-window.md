@@ -143,7 +143,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `frame` Boolean (optional) - Geben Sie `false` an, um ein [Frameless Window](frameless-window.md)zu erstellen. Standard ist `true`.
   * `parent` BrowserWindow (optional) - Geben Sie das übergeordnete Fenster an. Standard ist `null`.
   * `modal` Boolean (optional) - Gibt an, ob es das Fenster ein modales Fenster sein soll. Diese Funktion funktioniert nur, wenn das Fenster ein untergeordnetes Fenster ist. Standard ist `false`.
-  * `acceptFirstMouse` Boolean (optional) - Gibt an, ob die Webansicht ein einzelnes Maus-Down-Ereignis akzeptiert, das gleichzeitig das Fenster aktiviert. Standard ist `false`.
+  * `acceptFirstMouse` Boolean (optional) - Whether clicking an inactive window will also click through to the web contents. Default is `false` on macOS. This option is not configurable on other platforms.
   * `disableAutoHideCursor` Boolean (optional) - Ob der Cursor ausgeblendet werden soll, wenn der Benutzer tippt. Standard ist `false`.
   * `autoHideMenuBar` Boolean (optional) - Blendet die Menüleiste automatisch aus, es sei denn, die `Alt` Taste wird gedrückt. Standard ist `false`.
   * `enableLargerThanScreen` Boolean (optional) - Dieser Wert gibt an, ob das Fenster größer als der Bildschirm sein kann. Nur relevant für macOS, da andere Betriebssysteme standardmäßig Fenster erlauben, die größer als der Bildschirm sind. Standard ist `false`.
@@ -1100,15 +1100,15 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 #### `win.loadURL(url[, options])`
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>options` Object (optional)
+* `url` String
+* `options` Object (optional)
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
   * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Gibt `Promise` zurück - das Versprechen wird aufgelöst, wenn die Seite das Laden beendet hat (siehe [`did-finish-load`](web-contents.md#event-did-finish-load)), und lehnt ab, wenn die Seite nicht geladen wird (siehe [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
@@ -1146,7 +1146,7 @@ win.loadURL('http://localhost:8000/post', {
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Gibt `Promise` zurück - das Versprechen wird aufgelöst, wenn die Seite das Laden beendet hat (siehe [`did-finish-load`](web-contents.md#event-did-finish-load)), und lehnt ab, wenn die Seite nicht geladen wird (siehe [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application.  See the `webContents` docs for more information.
 
@@ -1221,22 +1221,22 @@ Add a thumbnail toolbar with a specified set of buttons to the thumbnail image o
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-The `buttons` is an array of `Button` objects:
+`buttons` ist ein Array mit `Button` Objekten:
 
 * `Button` Object
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
+  * ` Klicken Sie auf ` Funktion
+  * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
+  * `flags` String[] (optional) - Kontrollieren Sie bestimmte Zustände und Verhaltensweisen des Buttons. Standardmäßig ist es `['enabled']`.
 
-The `flags` is an array that can include following `String`s:
+Die ` Flags ` ist ein Array, das folgende ` Zeichenfolge ` s enthalten kann:
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* ` Enabled `-die Schaltfläche ist aktiv und für den Benutzer verfügbar.
+* `disabled` - Der Button ist deaktiviert. Er ist vorhanden, zeigt aber visuell, dass er nicht auf Nutzeraktionen reagiert.
+* ` dismissonclick `-wenn auf die Schaltfläche geklickt wird, wird das Thumbnail-Fenster geschlossen sofort.
+* ` nobackground `-zeichnen Sie keinen Schaltflächenrahmen, sondern verwenden Sie nur das Bild.
+* ` Hidden `-die Schaltfläche wird dem Benutzer nicht angezeigt.
+* `noninteractive` - Der Button ist aktiviert aber nicht interaktiv. Es wird kein gedrückter Button angezeigt. Dieser Wert ist für Instanzen bestimmt, in denen der Button in einer Benachrichtigung verwendet wird.
 
 #### `win.setThumbnailClip(region)` _Windows_
 
