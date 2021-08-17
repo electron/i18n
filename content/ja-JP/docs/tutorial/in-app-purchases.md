@@ -1,4 +1,4 @@
-# In-App Purchases (macOS)
+# App 内課金 (macOS)
 
 ## 下準備
 
