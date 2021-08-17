@@ -1,4 +1,4 @@
-# Web Embeds
+# Intégrations Web
 
 ## Vue d'ensemble
 
