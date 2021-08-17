@@ -1,4 +1,4 @@
-# 任务栏的进度条 (Windows, macOS, Unity)
+# Taskbar Progress Bar (Windows & macOS)
 
 ## 概览
 
