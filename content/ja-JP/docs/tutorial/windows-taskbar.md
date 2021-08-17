@@ -1,4 +1,4 @@
-# Taskbar Customization (Windows)
+# タスクバーのカスタマイズ (Windows)
 
 ## 概要
 
