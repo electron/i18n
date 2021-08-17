@@ -1,4 +1,4 @@
-# 使用 Selenium 和 WebDriver
+# Selenium and WebDriver
 
 引自 [ChromeDriver - WebDriver for Chrome][chrome-driver]:
 
