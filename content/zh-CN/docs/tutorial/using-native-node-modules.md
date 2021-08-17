@@ -1,4 +1,4 @@
-# 使用原生 Node 模块
+# Native Node Modules
 
 原生Node.js模块由Electron支持，但由于Electron具有与给定Node.js不同的 [应用二进制接口 (ABI)][abi](由于使用Chromium的 BoringSL 而不是 OpenSSL 等 差异)，您使用的原生 模块需要为Electron重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
