@@ -143,7 +143,7 @@ child.once('ready-to-show', () => {
   * `frame` Boolean (任意) - `false` を指定すると [フレームレスウインドウ](frameless-window.md) を生成します。 省略値は `true` です。
   * `parent` BrowserWindow (任意) - 親ウインドウを指定します。 省略値は `null` です。
   * `modal` Boolean (任意) - これをモーダルウインドウにするかどうか。 これは、このウインドウが子ウインドウの場合にのみ機能します。 省略値は `false` です。
-  * `acceptFirstMouse` Boolean (optional) - Whether clicking an inactive window will also click through to the web contents. Default is `false` on macOS. This option is not configurable on other platforms.
+  * `acceptFirstMouse` Boolean (任意) - 非アクティブのウインドウをクリックしたとき、ウェブコンテンツにもクリックを渡すかどうか。 macOS での既定値は `false` です。 このオプションは他プラットフォームでは設定できません。
   * `disableAutoHideCursor` Boolean (任意) - タイプ中にカーソルを非表示にするかどうか。 省略値は `false` です。
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていなければ、メニューバーを自動で非表示にします。 省略値は `false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は `false` です。
