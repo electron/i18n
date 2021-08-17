@@ -1,4 +1,4 @@
-# Pepper Flash Plugin
+# Pepper Flash プラグイン
 
 Chrome がサポートを終了したため、Electron は Pepper Flash プラグインをサポートしていません。
 
