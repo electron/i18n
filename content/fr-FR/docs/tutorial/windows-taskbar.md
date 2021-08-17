@@ -1,4 +1,4 @@
-# Taskbar Customization (Windows)
+# Personnalisation de la barre des tâches (Windows)
 
 ## Vue d'ensemble
 
