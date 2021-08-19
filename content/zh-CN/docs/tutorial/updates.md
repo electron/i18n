@@ -35,14 +35,14 @@ require('update-electron-app')()
 
 根据你的需要，你可以从下方选择：
 
-- [Hazel][hazel] – 用于私人或开源应用的更新服务器，可以在 [Now][now] 上免费部署。 它从[GitHub Releases][gh-releases]中拉取更新文件，并且利用 GitHub CDN 的强大性能。
+- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Vercel][vercel]. 它从[GitHub Releases][gh-releases]中拉取更新文件，并且利用 GitHub CDN 的强大性能。
 - [Nuts][nuts]－同样使用[GitHub Releases][gh-releases], 但得在磁盘上缓存应用程序更新并支持私有存储库.
 - [electron-release-server][electron-release-server] – 提供一个用于处理发布的仪表板，并且不需要在GitHub上发布发布。
 - [Nucleus][nucleus] – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 支持多种应用程序和渠道; 使用静态文件存储来降低服务器成本.
 
 ## 在你的应用中实施更新
 
-一旦你部署了更新服务器, 继续导入你所需要的代码模块. 下列代码可能因不同的服务器软件而变化, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+一旦你部署了更新服务器, 继续导入你所需要的代码模块. 下列代码可能因不同的服务器软件而变化，但它的工作原理就像使用[Hazel][hazel]所描述的那样。
 
 **重要:** 请确保下面的代码只在打包的应用程序, 而不是开发中. 你可以使用[electron-is-dev](https://github.com/sindresorhus/electron-is-dev)检查当前环境.
 
@@ -102,8 +102,8 @@ autoUpdater.on('error', message => {
 
 Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
 
-[now]: https://zeit.co/now
-[hazel]: https://github.com/zeit/hazel
+[vercel]: https://vercel.com
+[hazel]: https://github.com/vercel/hazel
 [nuts]: https://github.com/GitbookIO/nuts
 [gh-releases]: https://help.github.com/articles/creating-releases/
 [electron-release-server]: https://github.com/ArekSredzki/electron-release-server
