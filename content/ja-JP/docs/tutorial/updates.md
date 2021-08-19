@@ -35,7 +35,7 @@ require('update-electron-app')()
 
 ニーズに応じて、次のいずれかから選択できます。
 
-- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Vercel][vercel]. それは [GitHub Releases][gh-releases] から引き出され、GitHub の CDN の力を活用します。
+- [Hazel][hazel] – [Vercel][vercel] 上に無料デプロイできる、非公開またはオープンソースのアプリのための更新サーバーです。 それは [GitHub Releases][gh-releases] から引き出され、GitHub の CDN の力を活用します。
 - [Nuts][nuts] – [GitHub Releases][gh-releases] も使用しますが、アプリの更新をディスクにキャッシュし、プライベートリポジトリをサポートします。
 - [electron-release-server][electron-release-server] – リリースを処理するためのダッシュボードを提供します。リリースを GitHub で作成する必要はありません。
 - [Nucleus][nucleus] – Atlassian がメンテナンスしている Electron アプリのための完全なアップデートサーバー。 複数のアプリケーションとチャンネルをサポートします。サーバーのコストを最小限に抑えるために静的ファイルストアを使用します。
