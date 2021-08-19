@@ -22,7 +22,7 @@ Une bonne préparation des applications macOS pour la publication nécessite deu
 Pour démarrer le processus, assurez-vous que vous remplissez les conditions pour signer et certifier votre application :
 
 1. S'inscrire au [Programme de Développeurs Apple][] (moyennant des frais annuels)
-2. Download and install [Xcode][] - this requires a computer running macOS
+2. Téléchargez et installez [Xcode][] - cela nécessite un ordinateur exécutant macOS
 3. Générer, télécharger et installer [des certificats de signature][]
 
 L'écosystème d'Electron donne priorité à la configuration et a la liberté et bien sur donc il y a plusieurs moyens de signer et certifier votre application.
@@ -93,7 +93,7 @@ const { systemPreferences } = require('electron')
 const microphone = systemPreferences.askForMediaAccess('microphone')
 ```
 
-Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
+Votre application peut planter. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
 
 ## `electron-builder`
 
