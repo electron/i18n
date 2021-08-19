@@ -35,7 +35,7 @@ If you're developing a private Electron application, or if you're not publishing
 
 Depending on your needs, you can choose from one of these:
 
-- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Vercel][vercel]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
+- [Hazel][hazel] – сервер обновлений для частных приложений или приложений с открытым исходным кодом, которые можно бесплатно развернуть на [Vercel][vercel]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
 - [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
 - [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
 - [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
