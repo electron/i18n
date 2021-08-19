@@ -35,14 +35,14 @@ Wenn Sie eine private Electron-Anwendung entwickeln oder wenn Sie sie nicht auf 
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 
-- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Now][now]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
+- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Vercel][vercel]. It pulls from [GitHub Releases][gh-releases] and leverages the power of GitHub's CDN.
 - [Nuts][nuts] – Also uses [GitHub Releases][gh-releases], but caches app updates on disk and supports private repositories.
 - [electron-release-server][electron-release-server] – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
 - [Nucleus][nucleus] – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
 
 ## Implementieren von Updates in deiner App
 
-Wenn Sie Ihren Update-Server aufgesetzt haben, fahren Sie mit dem Importieren der erforderlichen Module in Ihrem Code fort. Der folgende Code kann etwas abweichen für die verschiedenen Server, aber er funktioniert wie beschrieben bei der Verwendung von [Hazel](https://github.com/zeit/hazel).
+Wenn Sie Ihren Update-Server aufgesetzt haben, fahren Sie mit dem Importieren der erforderlichen Module in Ihrem Code fort. Der folgende Code kann etwas abweichen für die verschiedenen Server, aber er funktioniert wie beschrieben bei der Verwendung von [Hazel][hazel].
 
 **Wichtig:** Bitte stellen Sie sicher, das der Code nur in Ihrer gepackten App ausgeführt wird und nicht in der Entwicklungsumgebung. Sie können [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) nutzen, um Ihre Entwicklungsumgebung zu überprüfen.
 
@@ -102,8 +102,8 @@ autoUpdater.on('error', message => {
 
 Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
 
-[now]: https://zeit.co/now
-[hazel]: https://github.com/zeit/hazel
+[vercel]: https://vercel.com
+[hazel]: https://github.com/vercel/hazel
 [nuts]: https://github.com/GitbookIO/nuts
 [gh-releases]: https://help.github.com/articles/creating-releases/
 [electron-release-server]: https://github.com/ArekSredzki/electron-release-server
