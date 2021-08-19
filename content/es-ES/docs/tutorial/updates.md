@@ -35,14 +35,14 @@ Si está desarrollando una aplicación privada de Electrón, o si no está publi
 
 Dependiendo de sus necesidades, puede escoger una de esta:
 
-- [Hazel][hazel] – Servidor de actualizaciones para aplicaciones privadas o de código abierto que pueden ser desplegadas de forma gratuita. [Now][now]. Es tomado de los [Lanzamientos de GitHub][gh-releases] y aprovecha al maximo el poder de las CDN's de GitHub.
+- [Hazel][hazel] – Update server for private or open-source apps which can be deployed for free on [Vercel][vercel]. Es tomado de los [Lanzamientos de GitHub][gh-releases] y aprovecha al maximo el poder de las CDN's de GitHub.
 - [Nuts][nuts] – También usa los [Lanzamientos de GitHub][gh-releases], pero almacena la aplicación, actualiza en el Disco Duro y también soporta repositorios privados.
 - [electron-release-server][electron-release-server] – proporciona un panel para administrar los lanzamientos y no es necesarios que los lanzamientos se originen desde GitHub.
 - [Nucleus][nucleus] – Un servidor de actualizaciones completo para aplicaciones de Electrón y es mantenido gracias a Atlassian. Soporta múltiples aplicaciones y canales, y utiliza un almacén de archivos estáticos para minimizar el coste del servidor.
 
 ## Implementación de actualizaciones en su aplicación
 
-Una vez que haya implementado su servidor de actualización, continúe con la importación de los módulos requeridos en su código. El siguiente código podría variar en diferentes servidores de software, pero funciona como está descrito cuando se utiliza [Hazel](https://github.com/zeit/hazel).
+Una vez que haya implementado su servidor de actualización, continúe con la importación de los módulos requeridos en su código. El siguiente código podría variar en diferentes servidores de software, pero funciona como está descrito cuando se utiliza [Hazel][hazel].
 
 **Importantante:** por favor asegurate de que el siguiente código solo se ejecutara en su paquete de aplicaciones, y no en desarrollo. Puedes usar [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) para chequear el tipo de ambiente.
 
@@ -102,8 +102,8 @@ autoUpdater.on('error', message => {
 
 Because the requests made by Auto Update aren't under your direct control, you may find situations that are difficult to handle (such as if the update server is behind authentication). The `url` field does support files, which means that with some effort, you can sidestep the server-communication aspect of the process. [Here's an example of how this could work](https://github.com/electron/electron/issues/5020#issuecomment-477636990).
 
-[now]: https://zeit.co/now
-[hazel]: https://github.com/zeit/hazel
+[vercel]: https://vercel.com
+[hazel]: https://github.com/vercel/hazel
 [nuts]: https://github.com/GitbookIO/nuts
 [gh-releases]: https://help.github.com/articles/creating-releases/
 [electron-release-server]: https://github.com/ArekSredzki/electron-release-server
