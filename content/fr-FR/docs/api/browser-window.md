@@ -613,7 +613,7 @@ Sur Linux, le setter est un no-op, bien que le getter retourne `true`.
 
 #### `win.excludedFromShownWindowsMenu` _macOS_
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` par défaut.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
