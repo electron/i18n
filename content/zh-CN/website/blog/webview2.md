@@ -1,11 +1,11 @@
 ---
-title: WebView2 and Electron
+title: WebView2 与 Electron
 author:
   - electron
 date: '2021-07-22'
 ---
 
-Over the past weeks, we’ve received several questions about the differences between the new [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) and Electron.
+在过去几周里，我们收到了关于新的 [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) 和 Electron 之间差异的几个问题。
 
 Both teams have the expressed goal of making web-tech the best it can be on the Desktop, and a shared comprehensive comparison is being discussed.
 
