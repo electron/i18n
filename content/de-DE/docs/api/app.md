@@ -91,11 +91,9 @@ In Windows musst du `process.argv` (im Main-Prozess) parsen, um den Dateipfad zu
 Kehrt zurück:
 
 * `event` Event
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Your application's
-<code>Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.</p>
+Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
@@ -217,8 +215,8 @@ Kehrt zurück:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>error` String - Der error code
+* `url` String
+* `error` String - Der error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Gibt an ob das Zertifikat als vertrauenswürdig angesehen werden soll
@@ -983,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1185,7 +1183,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1233,7 +1231,7 @@ You can use this property to prompt users to download the arm64 version of your 
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
