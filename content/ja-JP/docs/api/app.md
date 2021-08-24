@@ -981,7 +981,7 @@ if (!gotTheLock) {
 
 macOS では Dock アイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1183,7 +1183,7 @@ app.moveToApplicationsFolder({
 
 macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 **注意:** macOS でこのプロパティを有効にするには、アプリケーションに通知を表示する権限があるかどうか確認する必要があります。
 
@@ -1231,7 +1231,7 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
