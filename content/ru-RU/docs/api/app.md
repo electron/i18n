@@ -981,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 На macOS отображается на иконке в Dock. На Linux работает только для лаунчера Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1102,13 +1102,13 @@ stopAccessingSecurityScopedResource()
 
 ### `app.enableSandbox()`
 
-Включает полноценный режим песочницы в приложении. This means that all renderers will be launched sandboxed, regardless of the value of the `sandbox` flag in WebPreferences.
+Включает полноценный режим песочницы в приложении. Это означает, что все рендереры будут запускаться изолированно, независимо от значения параметра `sandbox` флаг в WebPreferences.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
 ### `app.isInApplicationsFolder()` _macOS_
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Возвращает `Boolean` - выполняется ли приложение в данный момент из системной папки Приложения. Используйте в сочетании с `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder([options])` _macOS_
 
@@ -1116,13 +1116,13 @@ Returns `Boolean` - Whether the application is currently running from the system
   * `conflictHandler` Function\<Boolean> (опционально) - обработчик потенциальных конфликтов при неудачных попытках.
     * `conflictType` String - Тип конфликта перемещения, с которым столкнулся обработчик; может быть `exists` или `existsAndRunning`, где `exists` означает, что приложение с тем же именем присутствует в каталоге приложений, а `existsAndRunning` означает, что он существует и работает в данный момент.
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+Возвращает `Boolean` - если перемещение было успешным. Обратите внимание, что если перемещение выполнено успешно, ваше приложение закроется и перезапустится.
 
-No confirmation dialog will be presented by default. Если нужно подтверждение операции пользователем, используйте [`dialog`](dialog.md) API.
+По умолчанию диалоговое окно подтверждения не отображается. Если нужно подтверждение операции пользователем, используйте [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. The message in the error should be informative and tell you exactly what went wrong.
+**ПРИМЕЧАНИЕ:** Этот метод выдает ошибки, если что-то, кроме пользователя, вызывает переход к неудачи. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. Сообщение об ошибке должно быть информативным и сообщать вам именно то, что пошло не так.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is _not_ running, the existing app will be trashed and the active app moved into its place. Если оно _работает_, на уже существующее запущенное приложение переместится фокус, а ранее активное приложение само завершит работу. Это поведение можно изменить, предоставив необязательный обработчик конфликтов, где логическое значение, возвращаемое обработчиком, определяет, будет ли конфликт перемещения разрешен с поведением по умолчанию.  то есть возврат `false` гарантирует, что дальнейшие действия не будут приняты, возврат `true` приведет к поведению по умолчанию и продолжению метода.
+По умолчанию, если приложение с тем же именем, что и перемещаемое, существует в каталоге Applications и _not_ запущено, существующее приложение будет удалено, а активное приложение перемещено на свое место. Если оно _работает_, на уже существующее запущенное приложение переместится фокус, а ранее активное приложение само завершит работу. Это поведение можно изменить, предоставив необязательный обработчик конфликтов, где логическое значение, возвращаемое обработчиком, определяет, будет ли конфликт перемещения разрешен с поведением по умолчанию.  то есть возврат `false` гарантирует, что дальнейшие действия не будут приняты, возврат `true` приведет к поведению по умолчанию и продолжению метода.
 
 Например:
 
@@ -1145,21 +1145,21 @@ app.moveToApplicationsFolder({
 
 ### `app.isSecureKeyboardEntryEnabled()` _macOS_
 
-Returns `Boolean` - whether `Secure Keyboard Entry` is enabled.
+Возвращает `Boolean` - если включен `Secure Keyboard Entry`.
 
-By default this API will return `false`.
+По умолчанию этот API вернет `false`.
 
 ### `app.setSecureKeyboardEntryEnabled(enabled)` _macOS_
 
-* `enabled` Boolean - Enable or disable `Secure Keyboard Entry`
+* `enabled` Boolean - Включить или отключить `Secure Keyboard Entry`
 
-Set the `Secure Keyboard Entry` is enabled in your application.
+Установка `Secure Keyboard Entry` включена в вашем приложении.
 
-By using this API, important information such as password and other sensitive information can be prevented from being intercepted by other processes.
+Используя этот API, можно предотвратить перехват важной информации, такой как пароль и другую конфиденциальную информацию, другими процессами.
 
-See [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) for more details.
+См. [Apple's documentation](https://developer.apple.com/library/archive/technotes/tn2150/_index.html) для получения дополнительной информации подробности.
 
-**Note:** Enable `Secure Keyboard Entry` only when it is needed and disable it when it is no longer needed.
+**Примечание:** Включайте `Secure Keyboard Entry` только тогда, когда он нужен, и отключайте, когда он больше не нужен.
 
 ## Свойства
 
@@ -1167,7 +1167,7 @@ See [Apple's documentation](https://developer.apple.com/library/archive/technote
 
 `Boolean` свойство, которое `true`, если поддержка специальных возможностей Chrome включена, иначе `false`. Это свойство будет `true`, если использование вспомогательных технологий, таких как средства чтения с экрана, были обнаружены. Устанавливая это свойство на `true`, вручную включает поддержку специальных возможностей Chrome, позволяя разработчикам показать пользователю переключатели специальных возможностей в настройках приложения.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Отключено по умолчанию.
+См. [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) для получения более подробной информации. Отключено по умолчанию.
 
 Этот API должен вызываться после того, как произошло событие `ready`.
 
@@ -1179,11 +1179,11 @@ A `Menu | null`свойство, которое возвращает [`Menu`](me
 
 ### `app.badgeCount` _Linux_ _macOS_
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+Свойство `Integer`, которое возвращает количество значков для текущего приложения. Установка счетчика на `0` скроет значок.
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+В macOS установка любого ненулевого целого числа отображается на значке док-станции. В Linux это свойство работает только для модуля запуска Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 **Примечание:** На macOS, вы должны убедиться, что ваше приложение имеет разрешение на отображение уведомлений.
 
@@ -1193,7 +1193,7 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 ### `app.dock` _macOS_ _Readonly_
 
-A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on your app icon in the user's dock on macOS.
+Это [`Dock`](./dock.md) `| undefined` объект, который позволяет вам выполнять действия со значком вашего приложения в пользовательском док на macOS.
 
 ### `app.isPackaged` _Readonly_
 
@@ -1221,7 +1221,7 @@ A [`Dock`](./dock.md) `| undefined` object that allows you to perform actions on
 
 A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
-You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+Вы можете использовать это свойство, чтобы предложить пользователям загрузить версию для arm64 вашего приложения, когда они запускают версию x64 под Rosetta неправильно.
 
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
@@ -1231,7 +1231,7 @@ You can use this property to prompt users to download the arm64 version of your 
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
