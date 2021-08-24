@@ -30,7 +30,7 @@ Retourne :
 * `event` Event
 * `launchInfo` Record<string, any> | [NotificationResponse](structures/notification-response.md) _macOS_
 
-Émis lorsqu'Electron a terminé l’initialisation. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` or information from [`UNNotificationResponse`](structures/notification-response.md) that was used to open the application, if it was launched from Notification Center. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été émis et `app.whenReady()` pour obtenir une Promesse qui sera résolue Electron sera initialisé.
+Émis lorsqu'Electron a terminé l’initialisation. Sur macOS, `launchInfo` contient le `userInfo` de la `NSUserNotification` ou les informations de [`UNNotificationResponse`](structures/notification-response.md) qui ont été utilisés pour ouvrir l'application , si elle a été lancée à partir du centre de notification. Vous pouvez également appeler `app.isReady()` pour vérifier si cet événement a déjà été émis et `app.whenReady()` pour obtenir une Promesse qui sera résolue Electron sera initialisé.
 
 ### Événement : 'window-all-closed'
 
@@ -336,7 +336,7 @@ Retourne :
     * `oom` - Le processus est tombé à cours de mémoire
     * `launch-failed` - Le processus ne s'est pas lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
-  * `Codedesortie`Numero integre-Le code de sortie du proces, sauf `si <code>la raison est <code>lancer a echoue,`ou <0>le codeSortie </code>sera une plateforme specifique, de code envoye errone.
+  * `exitCode` Integer - Le code de sortie du proces, sauf si `reason` est `launch-failed`, dans ce cas là `exitCode` sera specifique per plateforme.
 
 Émis lorsque le processus de rendu plante de manière inattendue.  C'est normalement dans les cas où il s'est planté ou qu'il a été tué.
 
@@ -347,14 +347,14 @@ Retourne :
 * `event` Event
 * Objet `details`
   * `type` String - Type de processus. Une des valeurs suivantes:
-    * `Utilitaire`
+    * `Utility`
     * `Zygote`
-    * `Assistant bac à sable`
+    * `Sandbox helper`
     * `GPU`
-    * `Plugin Pepper`
-    * `Broker de plugin Pepper`
-    * `Inconnu`
-  * `reason` String - The reason the child process is gone. Valeurs possibles :
+    * `Pepper Plugin`
+    * `Pepper Plugin Broker`
+    * `Unknown`
+  * `reason` String - La raison pour laquelle le processus enfant s'est terminé. Valeurs possibles :
     * `` de sortie propre - Processus s'est terminé avec le code de sortie zéro
     * `anormal-exit` - Le Processus s'est terminé avec un code de sortie différent de zéro
     * `killed` - Le processus a reçu un SIGTERM ou a été tué autrement de l'extérieur
@@ -362,9 +362,9 @@ Retourne :
     * `oom` - Le processus est tombé à cours de mémoire
     * `launch-failed` - Le processus ne s'est pas lancé avec succès
     * `integrity-failure` - Les vérifications d'intégrité du code Windows ont échouées
-  * `exitCode` Number - The exit code for the process (e.g. status from waitpid if on posix, from GetExitCodeProcess on Windows).
+  * `exitCode` Number - Le code de sortie du processus (cad: l'état de waitpid sur posix, de GetExitCodeProcess sur Windows).
   * `serviceName` String (optional) - The non-localized name of the process.
-  * `name` String (optional) - The name of the process. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+  * `name` String (facultatif) - Le nom du processus. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
 Émis lorsque le processus enfant plante de manière inattendue. C'est normalement dans les cas où il s'est planté ou qu'il a été tué. Cela n'inclut pas le processus de rendu.
 
@@ -568,7 +568,7 @@ Retourne `String` - Répertoire courant de l'application.
   * `logs` Répertoire du dossier de log de votre application.
   * `crashDumps` Dossier où les rapports d'incidents sont stockés.
 
-Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. On failure, an `Error` is thrown.
+Retourne `String` - Un chemin vers le répertoire spécial ou le fichier associé à `nom`. En cas d'échec, une `Error` sera levée.
 
 Si `app.getPath('logs')` est appelé sans que `app.setAppLogsPath()` soit appelé en premier, un répertoire de logs par défaut sera créé équivalent à un appel `app.setAppLogsPath()` sans paramètre `path`.
 
@@ -701,9 +701,9 @@ Cette méthode retourne le nom de l'application du gestionnaire par défaut pour
 
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
 
-* `icon` NativeImage - the display icon of the app handling the protocol.
-* `path` String  - installation path of the app handling the protocol.
-* `name` String - display name of the app handling the protocol.
+* `icon` NativeImage - l’icône d’affichage de l’application qui gère le protocole.
+* `path` String - chemin d’installation de l’application qui gère le protocole.
+* `name` String - nom complet de l’application qui gère le protocole.
 
 This method returns a promise that contains the application name, icon and path of the default handler for the protocol (aka URI scheme) of a URL.
 
@@ -978,7 +978,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 Sur macOS, il s'affiche sur l'icône du dock. Sous Linux, il ne fonctionne que pour le lanceur Unity.
 
-**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1070,9 +1070,9 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
 
-Si vous ne définissez pas `credits<0> mais vous souhaitez quand même les afficher dans votre app, AppKit cherchera un fichier nommé "Credits.html", "Credits.rtf", et "Credits.rtfd", dans cet ordre, dans le bundle retourné par la méthode la classe main de NSBundle. Le premier fichier trouvé est utilisé, et si aucun n'est trouvé, la zone info est laissée vide. Consultez la <a href="https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc">documentation</a> Apple pour plus d'informations.</p>
+Si vous ne définissez pas `credits` mais vous souhaitez quand même les afficher dans votre app, AppKit cherchera un fichier nommé "Credits.html", "Credits.rtf", et "Credits.rtfd", dans cet ordre, dans le bundle retourné par la méthode la classe main de NSBundle. Le premier fichier trouvé est utilisé, et si aucun n'est trouvé, la zone info est laissée vide. Consultez la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) Apple pour plus d'informations.
 
-<h3 spaces-before="0"><code>app.isEmojiPanelSupported()`</h3>
+### `app.isEmojiPanelSupported()`
 
 Retourne `Boolean` - que la version actuelle de l'OS autorise ou non les sélecteurs natifs d'émojis.
 
@@ -1180,7 +1180,7 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
@@ -1229,7 +1229,7 @@ You can use this property to prompt users to download the arm64 version of your 
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
