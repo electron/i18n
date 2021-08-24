@@ -981,7 +981,7 @@ if (!gotTheLock) {
 
 在 macOS 上，它会在dock 图标上显示。 在 Linux 上，它只适用于 Unity 启动器。
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**注意：** Unity 启动器需要一个 `.desktop` 文件才能工作。 欲了解更多信息， 请阅读 [Unity integration 文档][unity-requirement]。
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1184,7 +1184,7 @@ app.moveToApplicationsFolder({
 
 在 macOS 上，为该属性设置任何非零整数，会显示在dock 图标上。 在 Linux 上，这个属性只适用于 Unity 启动器。
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**注意：** Unity 启动器需要一个 `.desktop` 文件才能工作。 欲了解更多信息， 请阅读 [Unity integration 文档][unity-requirement]。
 
 **注意：** 在 macOS 上，为了使该属性生效，您需要确保您的应用程序具有显示通知的权限。
 
