@@ -143,7 +143,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). La valeur par défaut est `vraie`.
   * `parent` BrowserWindow (optional) - Specify parent window. Par défaut la valeur est `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Par défaut la valeur est `false`.
-  * `acceptFirstMouse` Boolean (facultatif) - Un click sur une fenêtre inactive passera à travers jusqu'au contenu Web. La valeur par défaut est `false` sur macOS. Cette option n'est pas configurable sur d'autres plateformes.
+  * `acceptFirstMouse` Boolean (facultatif) - Un click sur une fenêtre inactive passera à travers jusqu'au contenu Web. La valeur par défaut est `false` sur macOS. Cette option n'est pas configurable sur les autres plateformes.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Par défaut la valeur est `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Par défaut la valeur est `false`.
   * `enableLargerThanScreen` Booléen (facultatif) - Permet à la fenêtre d'être redimensionnée plus grande que l'écran. Seulement pertinent pour macOS, car les autres systèmes d'exploitation autorisent par défaut des fenêtres plus grandes qu'écran par défaut. Par défaut la valeur est `false`.
