@@ -981,7 +981,7 @@ if (!gotTheLock) {
 
 macOS では Dock アイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**注意:** Unity ランチャーは動作にあたって `.desktop` ファイルを必要とします。 詳しい情報は、[Unity 統合ドキュメント][unity-requirement] をご覧ください。
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1183,7 +1183,7 @@ app.moveToApplicationsFolder({
 
 macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**注意:** Unity ランチャーは動作にあたって `.desktop` ファイルを必要とします。 詳しい情報は、[Unity 統合ドキュメント][unity-requirement] をご覧ください。
 
 **注意:** macOS でこのプロパティを有効にするには、アプリケーションに通知を表示する権限があるかどうか確認する必要があります。
 
