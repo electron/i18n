@@ -981,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS, it shows on the dock icon. En Linux, solo funciona para Unity launcher.
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**Nota:** El lanzador de Unity necesita un archivo `.desktop` para funcionar. Para más información, por favor lee la [documentación de integración con Unity][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1183,7 +1183,7 @@ Una propiedad `Integer` que devuelve el recuento de insignias para la aplicació
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**Nota:** El lanzador de Unity necesita un archivo `.desktop` para funcionar. Para más información, por favor lee la [documentación de integración con Unity][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission to display notifications for this property to take effect.
 
