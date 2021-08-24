@@ -981,7 +981,7 @@ if (!gotTheLock) {
 
 在 macOS 上，它会在dock 图标上显示。 在 Linux 上，它只适用于 Unity 启动器。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1024,7 +1024,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
   * `enabled` Boolean (可选) _Windows_ - `true` 将更改已启用的启动注册表项，并在任务管理器和 Windows 设置中 `启用 / 禁用` 应用程序。 默认值为 `true`。
   * `name` String (可选) _Windows_ - 要写入注册表的值名称。 默认为应用的 AppUserModelId()。 设置应用程序的登录项设置。
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. 例如：
+如果需要在 Windows 上使用[Squirrel][Squirrel-Windows]的 `autoUpdater` ，你需要将启动路径设置为 Update.exe，并传递指定应用程序名称的参数。 例如：
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1072,7 +1072,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `website` String (可选) _Linux_ - 应用程序的网站。
   * `iconPath` String (可选) _Linux_ _Windows_ - 以JPEG 或 PNG 文件格式为应用程序图标路径。 在 Linux 上，将显示为 64x64 像素，同时保留纵横比。
 
-设置 "关于" 面板选项。 这将覆盖应用程序在 macOS 上的 `.plist` 文件中定义的值。 See the [Apple docs][about-panel-options] for more details. 在 Linux 上，没有默认值，所以必须设置值才能显示。
+设置 "关于" 面板选项。 这将覆盖应用程序在 macOS 上的 `.plist` 文件中定义的值。 详细信息请查阅 [ Apple 文档 ][about-panel-options]。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
 如果您没有设置 `credits` 但仍希望在应用中显示它们，AppKit 将在 NSBundle 类的main方法返回的捆绑包中按顺序查找名为"Credits.html", "Credits.rtf"和"Credits.rtfd"的文件。 先找到的文件将被使用，如果未找到，则信息区域将留空。 有关更多信息，请参阅 Apple [文档](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) 。
 
@@ -1088,14 +1088,14 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 * `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
+返回 `Function` - 该函数 **必须** 在你完成访问安全作用域文件后调用一次。 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
 
 ```js
 //开始读取文件
-const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 🎉
+const stopAcessingSecurityScopedResource = app。 tartAccessingSecurityScopedResource(数据)
+// 您现在可以在 sandbox:party_popper 之外访问文件🎉
 
-// Remember to stop accessing the file once you've finished with it.
+// 记住在文件完成后停止访问
 stopAccessingSecurityScopedResource()
 ```
 
@@ -1121,7 +1121,7 @@ stopAccessingSecurityScopedResource()
 
 默认情况下不会显示确认对话框。 如果您希望允许用户确认操作，您可以使用[`dialog`](dialog.md) API 进行确认。
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是翔实的，并告诉你到底是哪里出了问题。
+**注意：**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是翔实的，并告诉你到底是哪里出了问题。
 
 默认情况下，如果应用程序目录中存在与被移动的应用同名的应用，并且 _未_ 运行，则已有应用将被丢弃，被移动的应用将顶替其位置。 如果它 _正在_ 运行，预先存在的运行应用程序将承担焦点，以前活动的应用程序将退出自己。 此行为可以通过提供可选的冲突处理器来更改，处理器返回的 boolean 将决定移动冲突是否通过默认行为得到解决。  即：返回 `false` 将确保不采取进一步行动，返回 `true` 将导致默认行为同时方法继续执行。
 
@@ -1184,7 +1184,7 @@ app.moveToApplicationsFolder({
 
 在 macOS 上，为该属性设置任何非零整数，会显示在dock 图标上。 在 Linux 上，这个属性只适用于 Unity 启动器。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
 
 **注意：** 在 macOS 上，为了使该属性生效，您需要确保您的应用程序具有显示通知的权限。
 
@@ -1232,7 +1232,7 @@ app.moveToApplicationsFolder({
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
