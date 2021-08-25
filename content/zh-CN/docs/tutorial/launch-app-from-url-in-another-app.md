@@ -13,20 +13,20 @@ hide_title: true
 
 本指南将会指导您配置 Electron 应用为[特定协议](https://www.electronjs.org/docs/api/protocol)的默认处理器。
 
-By the end of this tutorial, we will have set our app to intercept and handle any clicked URLs that start with a specific protocol. In this guide, the protocol we will use will be "`electron-fiddle://`".
+通过此教程，您会掌握如何设置您的应用以拦截并处理任意特定协议的URL的点击事件。 在本指南中，我们假定这个协议名为“`electron-fiddle://`”。
 
 ## 示例
 
-### Main Process (main.js)
+### 主进程（main.js）
 
-First we will import the required modules from `electron`. These modules help control our application life and create a native browser window.
+首先，我们需要从`electron`导入所需的模块。 这些模块有助于控制应用的生命周期，或创建原生的浏览器窗口。
 
 ```js
 const { app, BrowserWindow, shell } = require('electron')
 const path = require('path')
 ```
 
-Next, we will proceed to register our application to handle all "`electron-fiddle://`" protocols.
+其次，我们将应用注册为“`electron-fiddle://`”协议的处理器。
 
 ```js
 if (process.defaultApp) {
@@ -38,11 +38,11 @@ if (process.defaultApp) {
 }
 ```
 
-We will now define the function in charge of creating our browser window and load our application's `index.html` file.
+现在我们定义负责创建浏览器窗口的函数，并加载应用的 `index.html` 文件。
 
 ```js
 function createWindow () {
-  // Create the browser window.
+  // 创建浏览器窗口
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -55,11 +55,11 @@ function createWindow () {
 }
 ```
 
-In this next step, we will create our  `BrowserWindow` and tell our application how to handle an event in which an external protocol is clicked.
+紧接着，我们将创建 `BrowserWindow` 并在应用中定义如何处理此外部协议被点击的事件。
 
-This code will be different in WindowsOS compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same electron instance. Read more about this [here](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
+与 MacOS 或 Linux 不同，在 Windows 下需要其他的代码。 这是因为在 Windows 中需要特别处理在同一个 Electron 实例中打开的协议的内容。 请点击 [此处](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) 了解更多
 
-### Windows code:
+### Windows 下代码：
 
 ```js
 const gotTheLock = app.requestSingleInstanceLock()
@@ -68,42 +68,42 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 用户正在尝试运行第二个实例，我们需要让焦点指向我们的窗口
     if (mainWindow) {
       if (mainWindow.isMinimized()) mainWindow.restore()
       mainWindow.focus()
     }
   })
 
-  // Create mainWindow, load the rest of the app, etc...
+  // 创建 mainWindow，加载其他资源，等等……
   app.whenReady().then(() => {
     createWindow()
   })
 
-  // handling the protocol. In this case, we choose to show an Error Box.
+  // 处理协议。 在本例中，我们选择显示一个错误提示对话框。
   app.on('open-url', (event, url) => {
-    dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
+    dialog.showErrorBox('欢迎回来', `导向自: ${url}`)
   })
 }
 ```
 
-### MacOS and Linux code:
+### MacOS 与 Linux 下代码：
 
 ```js
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Electron 在完成初始化，并准备创建浏览器窗口时，
+// 会调用这个方法。
 // 部分 API 在 ready 事件触发后才能使用。
 app.whenReady().then(() => {
   createWindow()
 })
 
-// handling the protocol. In this case, we choose to show an Error Box.
+// 处理协议。 在本例中，我们选择显示一个错误提示对话框。
 app.on('open-url', (event, url) => {
-  dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
+  dialog.showErrorBox('欢迎回来', `导向自: ${url}`)
 })
 ```
 
-Finally, we will add some additional code to handle when someone closes our application
+最后，我们还需要处理应用的关闭事件。
 
 ```js
 // Quit when all windows are closed, except on macOS. There, it's common
