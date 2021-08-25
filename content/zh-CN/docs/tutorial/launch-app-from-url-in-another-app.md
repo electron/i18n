@@ -106,19 +106,19 @@ app.on('open-url', (event, url) => {
 最后，我们还需要处理应用的关闭事件。
 
 ```js
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// 在除 MacOS 的其他平台上，当所有窗口关闭后，退出当前应用。 在 MacOS 上，
+// 应用及其菜单栏通常会保持活跃状态，
+// 直到用户明确按下 Cmd + Q 退出应用。
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 ```
 
-## Important Note:
+## 重要说明：
 
 ### 打包
 
-This feature will only work on macOS when your app is packaged. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `plist` for the app is updated to include the new protocol handler. If you're using [`electron-packager`](https://github.com/electron/electron-packager) then you can add the flag `--extend-info` with a path to the `plist` you've created. The one for this app is below:
+在 MacOS 上的这个功能仅在应用打包后有效。 在命令行启动的开发版中无效。 打包 MacOS 应用时，您需要确保 `plist` 文件中包含了处理该协议的声明。 若您使用 [`electron-packager`](https://github.com/electron/electron-packager) 打包应用，您可以添加 `--extend-info` 标记，并附上 `plist` 文件的路径。 在本文的例子中如下所示：
 
 ### Plist
 
