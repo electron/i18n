@@ -1,17 +1,17 @@
 ---
-title: launch-app-from-URL-in-another-app
-description: This guide will take you through the process of setting your electron app as the default handler for a specific protocol.
-slug: launch-app-from-url-in-another-app
+title: 从其他应用中的URL启动应用
+description: 本指南将会指导您配置 Electron 应用为特定协议的默认处理器。
+slug: 从其他应用中的URL启动应用
 hide_title: true
 ---
 
-# Launching Your Electron App From A URL In Another App
+# 从其他应用中的 URL 启动您的应用
 
 ## 概览
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of setting your electron app as the default handler for a specific [protocol](https://www.electronjs.org/docs/api/protocol).
+本指南将会指导您配置 Electron 应用为[特定协议](https://www.electronjs.org/docs/api/protocol)的默认处理器。
 
 By the end of this tutorial, we will have set our app to intercept and handle any clicked URLs that start with a specific protocol. In this guide, the protocol we will use will be "`electron-fiddle://`".
 
