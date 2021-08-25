@@ -981,7 +981,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 На macOS отображается на иконке в Dock. На Linux работает только для лаунчера Unity.
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**Примечание:** для работы Unity лаунчера требуется файл `.desktop`. Дополнительную информациюможно прочесть в [Документации по интеграции Юнити][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1183,7 +1183,7 @@ A `Menu | null`свойство, которое возвращает [`Menu`](me
 
 В macOS установка любого ненулевого целого числа отображается на значке док-станции. В Linux это свойство работает только для модуля запуска Unity.
 
-**Note:** Unity launcher requires a `.desktop` file to work. For more information, please read the [Unity integration documentation][unity-requirement].
+**Примечание:** для работы Unity лаунчера требуется файл `.desktop`. Дополнительную информациюможно прочесть в [Документации по интеграции Юнити][unity-requirement].
 
 **Примечание:** На macOS, вы должны убедиться, что ваше приложение имеет разрешение на отображение уведомлений.
 
