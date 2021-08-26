@@ -146,7 +146,7 @@ app.on('window-all-closed', function () {
 
 ## 结论
 
-After you start your electron app, you can now enter in a URL in your browser that contains the custom protocol, for example `"electron-fiddle://open"` and observe that the application will respond and show an error dialog box.
+启动 Electron 应用后，在浏览器内键入包含该自定义协议的 URL，如`“electron-fiddle://open”`，观察应用是否正确响应并显示一个错误提示对话框。
 
 <!--
     Because Electron examples usually require multiple files (HTML, CSS, JS
