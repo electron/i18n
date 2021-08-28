@@ -14,7 +14,7 @@ Processus : [Main](../glossary.md#main-process)
     * `highlightedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Par défaut, `none`.
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Par défaut, `none`.
-  * `showArrowButtons` Boolean (optional) - Whether to show arrow buttons. Defaults to `false` and is only shown if `items` is non-empty.
+  * `showArrowButtons` Boolean (facultatif) - Afficher ou non les boutons flèches. La valeur par défaut est `false` et n'est affichée que si `items` n'est pas vide.
   * `mode` String (optional) - Can be `fixed` or `free`. Par défaut, `free`.
   * `continuous` Boolean (optionnel) - `true` par défaut.
 
