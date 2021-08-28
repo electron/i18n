@@ -452,7 +452,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function\<Boolean> | null
-  * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  権限を確認しているのがクロスオリジンのサブフレームの場合、このハンドラには `null` の webContents が渡されます。  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
+  * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  All cross origin sub frames making permission checks will pass a `null` webContents to this handler, while certain other permission checks such as `notifications` checks will always pass `null`.  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
   * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`、`notifications`、`geolocation`、`media`、`mediaKeySystem`、`midi`、`pointerLock`、`fullscreen`、`openExternal`、`serial` です。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
