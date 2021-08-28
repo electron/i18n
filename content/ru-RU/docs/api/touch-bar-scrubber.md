@@ -14,7 +14,7 @@
     * `highlightedIndex` Integer - The index of the item the user touched.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `showArrowButtons` Boolean (опиционально) - по умолчанию `false`.
+  * `showArrowButtons` Boolean (optional) - Whether to show arrow buttons. Defaults to `false` and is only shown if `items` is non-empty.
   * `mode` String (опционально) - Может быть `fixed` или `free`. The default is `free`.
   * `continuous` Boolean (опиционально) - по умолчанию `true`.
 
