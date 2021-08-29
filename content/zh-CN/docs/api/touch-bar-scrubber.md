@@ -14,7 +14,7 @@
     * highlightedIndex Integer - 用户选中项排序.
   * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. 默认值为：`none`。
   * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. 默认值为：`none`。
-  * `showArrowButtons` Boolean (optional) - Whether to show arrow buttons. Defaults to `false` and is only shown if `items` is non-empty.
+  * `showArrowButtons` Boolean (可选) - 是否在任务栏中显示窗口。 默认为 `false` 并且只在 `items` 是非空的情况下才显示。
   * `mode` String (可选) - 可以是 `fixed` 或 `free`。 默认值为`free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
