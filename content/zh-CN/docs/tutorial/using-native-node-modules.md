@@ -16,7 +16,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### 为 Electron 安装并重新编译模块
 
-您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`][electron-rebuild] 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。 If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
+您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`][electron-rebuild] 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。 如果您正在使用 [Electron Forge][electron-forge]，这个工具将在开发模式和发布时自动使用。
 
 For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
