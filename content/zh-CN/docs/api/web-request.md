@@ -46,7 +46,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -88,7 +88,7 @@ Some examples of valid `urls`:
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -113,7 +113,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -132,7 +132,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `statusLine` String
@@ -160,7 +160,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
@@ -182,7 +182,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
@@ -206,7 +206,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
@@ -229,7 +229,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (可选)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
