@@ -1,4 +1,4 @@
-# Achats In-App (macOS)
+# Achats avec l'application (macOS)
 
 ## Préparation
 
