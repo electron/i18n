@@ -74,7 +74,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/src/out/Default/gen/node_headers
 ```
 
 ## Problemlösungen
