@@ -18,7 +18,7 @@ Electron は、Chromiumのリリースとは交互に更新しています。 �
 
 あなたの Electron アプリケーションのセキュリティは、フレームワーク (*Chromium*、*Node.js*)、Electron 自身、NPM の依存関係、あなたのコード のセキュリティの結果であることを覚えておくことが大事です。 そのため、いくつかの重要なベストプラックティスに従う、責任があります。
 
-* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#15-use-a-current-version-of-electron)" を参照してください。
+* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#16-use-a-current-version-of-electron)" を参照してください。
 
 * **あなたのアプリの依存関係の評価する。** NPM は 50万もの再利用できるパッケージを提供しています。一方、あなたは信頼するサードパーティのライブラリを選択する責任があります。 あなたが既知の脆弱性の影響を受けるライブラリを利用する場合や、あまりメンテナンスされていないコードに頼る場合、あなたのアプリケーションのセキュリティは低下し危険な状態になります。
 
@@ -43,18 +43,19 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 1. [セキュアなコンテンツのみを読み込む](#1-only-load-secure-content)
 2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#3-enable-context-isolation-for-remote-content)
-4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#4-handle-session-permission-requests-from-remote-content)
-5. [`webSecurity` を無効にしない](#5-do-not-disable-websecurity)
-6. [`Content-Security-Policy` を定義](#6-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
-7. [`allowRunningInsecureContent` を `true` にしない](#7-do-not-set-allowrunninginsecurecontent-to-true)
-8. [実験的な機能を有効にしない](#8-do-not-enable-experimental-features)
-9. [`enableBlinkFeatures` を使用しない](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: `allowpopups` を使用しない](#10-do-not-use-allowpopups)
-11. [`<webview>`: オプションとパラメータを検証する](#11-verify-webview-options-before-creation)
-12. [ナビゲーションを無効化か制限](#12-disable-or-limit-navigation)
-13. [新規ウインドウの作成を無効化か制限](#13-disable-or-limit-creation-of-new-windows)
-14. [信用されないコンテンツで `openExternal` を使用しない](#14-do-not-use-openexternal-with-untrusted-content)
-15. [現行バージョンの Electron を使う](#15-use-a-current-version-of-electron)
+4. [Enable sandboxing](#4-enable-sandboxing)
+5. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#5-handle-session-permission-requests-from-remote-content)
+6. [`webSecurity` を無効にしない](#6-do-not-disable-websecurity)
+7. [`Content-Security-Policy` を定義](#7-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
+8. [`allowRunningInsecureContent` を `true` にしない](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [実験的な機能を有効にしない](#9-do-not-enable-experimental-features)
+10. [`enableBlinkFeatures` を使用しない](#10-do-not-use-enableblinkfeatures)
+11. [`<webview>`: `allowpopups` を使用しない](#11-do-not-use-allowpopups)
+12. [`<webview>`: オプションとパラメータを検証する](#12-verify-webview-options-before-creation)
+13. [ナビゲーションを無効化か制限](#13-disable-or-limit-navigation)
+14. [新規ウインドウの作成を無効化か制限](#14-disable-or-limit-creation-of-new-windows)
+15. [信用されないコンテンツで `openExternal` を使用しない](#15-do-not-use-openexternal-with-untrusted-content)
+16. [現行バージョンの Electron を使う](#16-use-a-current-version-of-electron)
 
 設定ミスやセキュアでないパターンを自動的に検出するには、[electronegativity](https://github.com/doyensec/electronegativity)が使用できます。 Electronを使用したアプリケーション開発時の潜在的な脆弱性やバグの埋め込みについてのより詳しい情報は、[開発者承認者向けガイドguide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)を参照してください。
 
@@ -158,7 +159,23 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `contextIsolation` が何であるのか及びこれを有効にする方法についての情報は、[コンテキスト隔離](context-isolation.md) ドキュメントをご参照ください。
 
-## 4) リモートのコンテンツからセッション権限リクエストを利用する
+## 4) Enable Sandboxing
+
+[Sandboxing](sandbox.md) is a Chromium feature that uses the operating system to significantly limit what renderer processes have access to. You should enable the sandbox in all renderers. Loading, reading or processing any untrusted content in an unsandboxed process, including the main process, is not advised.
+
+### どうすればいいの？
+
+When creating a window, pass the `sandbox: true` option in `webPreferences`:
+
+```js
+const win = new BrowserWindow({
+  webPreferences: {
+    sandbox: true
+  }
+})
+```
+
+## 5) リモートのコンテンツからセッション権限リクエストを利用する
 
 Chromeを使用しているときに許可リクエストが表示されていることがあります――ユーザーが手動で承認する必要がある機能 (通知など) をウェブサイトが使用しようとするたびにポップアップが表示されます。
 
@@ -191,7 +208,7 @@ session
   })
 ```
 
-## 5) webSecurity を無効にしない
+## 6) webSecurity を無効にしない
 
 _Electron のデフォルトを推奨しています_
 
@@ -227,7 +244,7 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## 6) Content-Security-Policy を定義する
+## 7) Content-Security-Policy を定義する
 
 Content Security Policy (CSP) は、クロスサイトスクリプティング攻撃やデータインジェクション攻撃から保護する副層です。 Electron 内でロードする任意のウェブサイトで有効にすることを推奨します。
 
@@ -270,7 +287,7 @@ CSP の推奨伝達メカニズムは HTTP ヘッダですが、`file://` プロ
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-## 7) `allowRunningInsecureContent` を `true` にしない
+## 8) `allowRunningInsecureContent` を `true` にしない
 
 _Electron のデフォルトを推奨しています_
 
@@ -298,7 +315,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 8) 実験的な機能を有効にしない
+## 9) 実験的な機能を有効にしない
 
 _Electron のデフォルトを推奨しています_
 
@@ -326,7 +343,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) `enableBlinkFeatures` を使用しない
+## 10) `enableBlinkFeatures` を使用しない
 
 _Electron のデフォルトを推奨しています_
 
@@ -352,7 +369,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 10) `allowpopups` を使用しない
+## 11) `allowpopups` を使用しない
 
 _Electron のデフォルトを推奨しています_
 
@@ -372,7 +389,7 @@ _Electron のデフォルトを推奨しています_
 <webview src="page.html"></webview>
 ```
 
-## 11) 作成前に WebView のオプションを確認する
+## 12) 作成前に WebView のオプションを確認する
 
 Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebView は常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
 
@@ -408,7 +425,7 @@ app.on('web-contents-created', (event, contents) => {
 
 繰り返しになりますが、このリストは単にリスクを最小化するだけで、除去するものではありません。 ウェブサイトを表示することが目的であれば、ブラウザの方が安全性の高い選択肢になります。
 
-## 12) ナビゲーションを無効化か制限
+## 13) ナビゲーションを無効化か制限
 
 アプリにナビゲートする必要がない場合、または既知のページにナビゲートするだけの場合は、ナビゲーションをその既知の範囲に完全に制限し、他の種類のナビゲーションを禁止することをお勧めします。
 
@@ -438,7 +455,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) 新規ウインドウの作成を無効化か制限
+## 14) 新規ウインドウの作成を無効化か制限
 
 既知の一連のウインドウがある場合は、アプリ内での追加ウインドウの作成を制限することをお勧めします。
 
@@ -473,7 +490,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) 信用されないコンテンツで `openExternal` を使用しない
+## 15) 信用されないコンテンツで `openExternal` を使用しない
 
 Shellの [`openExternal`][open-external] はデスクトップのネィティブユーティリティの指定した protocol URI で開けるようにします。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
 
@@ -495,7 +512,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) 現行バージョンの Electron を使う
+## 16) 現行バージョンの Electron を使う
 
 常に最新バージョンの Electron を使用するように努力してください。 新しいメジャーバージョンがリリースされる度に、できるだけ早くアプリを更新しましょう。
 
