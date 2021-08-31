@@ -41,11 +41,11 @@ console.log(webContents)
 
 ### `webContents.fromDevToolsTargetId(targetId)`
 
-* `targetId` String - The Chrome DevTools Protocol [TargetID](https://chromedevtools.github.io/devtools-protocol/tot/Target/#type-TargetID) associated with the WebContents instance.
+* `targetId` String - WebContents インスタンスに関連付けられた Chrome デベロッパー ツールプロトコルの [TargetID](https://chromedevtools.github.io/devtools-protocol/tot/Target/#type-TargetID)。
 
-Returns `WebContents` | undefined - A WebContents instance with the given TargetID, or `undefined` if there is no WebContents associated with the given TargetID.
+戻り値 `WebContents` | undefined - 指定 TargetID の WebContents インスタンス。指定 TargetID に関連付けられた WebContents が存在しない場合は `undefined` です。
 
-When communicating with the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/), it can be useful to lookup a WebContents instance based on its assigned TargetID.
+[Chrome デベロッパー ツールプロトコル](https://chromedevtools.github.io/devtools-protocol/) と通信する際に、割り当てられた TargetID で WebContents インスタンスを検索すると便利な場合があります。
 
 ```js
 async function lookupTargetId (browserWindow) {
@@ -152,7 +152,7 @@ async function lookupTargetId (browserWindow) {
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
 * `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
-* `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。 Deprecated, and will now always be the empty array `[]`.
+* `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。 非推奨であり、現在は必ず空の配列 `[]` になります。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
@@ -196,7 +196,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 * `details` Object
   * `url` String - 作成したウインドウの URL。
   * `frameName` String - `window.open()` の呼び出しで作成したウインドウに指定した名前。
-  * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 They are merged in increasing precedence: parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). 認識できないオプションが取り除かれることはありません。
+  * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 これらは、`window.open()` の `features` 文字列から解析されたオプション、親ウインドウから継承されたセキュリティ関連の webPreferences、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で与えられたオプションなどが優先度の高い順に結合されたものです。 認識できないオプションが取り除かれることはありません。
   * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 リファラのポリシーに応じた `Referer` ヘッダーが送信されるとは限りません。
   * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信される POST データと、設定される適切なヘッダです。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
   * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできます。
@@ -337,7 +337,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-**Note:** This will be emitted for `BrowserViews` but will _not_ be respected - this is because we have chosen not to tie the `BrowserView` lifecycle to its owning BrowserWindow should one exist per the [specification](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event).
+**注意:** これは `BrowserView` に対して発生しますが、尊重 _されません_。これは、[仕様](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) にあるように、`BrowserView` のライフサイクルはそれを所有する BrowserWindow に結び付けないとしたためです。
 
 #### イベント: 'crashed' _非推奨_
 
@@ -1016,7 +1016,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
   戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
 
-Called before creating a window a new window is requested by the renderer, e.g. by `window.open()`, a link with `target="_blank"`, shift+clicking on a link, or submitting a form with `<form target="_blank">`. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
+`window.open()`、`target="_blank"` のリンク、リンクのシフトクリック、`<form target="_blank">` のフォーム送信などによりレンダラーが新しいウインドウを要求すると、ウインドウ作成前に呼び出されます。 詳細や `did-create-window` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
 
 #### `contents.setAudioMuted(muted)`
 
