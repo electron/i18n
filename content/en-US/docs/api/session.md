@@ -179,7 +179,7 @@ Emitted when a hunspell dictionary file download fails.  For details
 on the failure you should collect a netlog and inspect the download
 request.
 
-#### Event: 'select-serial-port' _Experimental_
+#### Event: 'select-serial-port'
 
 Returns:
 
@@ -196,24 +196,15 @@ cancel the request.  Additionally, permissioning on `navigator.serial` can
 be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler)
 with the `serial` permission.
 
-Because this is an experimental feature it is disabled by default.  To enable this feature, you
-will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally
-because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'`
-on the `webPreferences` property when opening a BrowserWindow.
-
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
 let win = null
-app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
 
 app.whenReady().then(() => {
   win = new BrowserWindow({
     width: 800,
-    height: 600,
-    webPreferences: {
-      enableBlinkFeatures: 'Serial'
-    }
+    height: 600
   })
   win.webContents.session.on('select-serial-port', (event, portList, webContents, callback) => {
     event.preventDefault()
@@ -229,7 +220,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### Event: 'serial-port-added' _Experimental_
+#### Event: 'serial-port-added'
 
 Returns:
 
@@ -239,7 +230,7 @@ Returns:
 
 Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
 
-#### Event: 'serial-port-removed' _Experimental_
+#### Event: 'serial-port-removed'
 
 Returns:
 
@@ -531,7 +522,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function\<Boolean> | null
-  * `webContents` ([WebContents](web-contents.md) | null) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.  Cross origin sub frames making permission checks will pass a `null` webContents to this handler.  You should use `embeddingOrigin` and `requestingOrigin` to determine what origin the owning frame and the requesting frame are on respectively.
+  * `webContents` ([WebContents](web-contents.md) | null) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.  All cross origin sub frames making permission checks will pass a `null` webContents to this handler, while certain other permission checks such as `notifications` checks will always pass `null`.  You should use `embeddingOrigin` and `requestingOrigin` to determine what origin the owning frame and the requesting frame are on respectively.
   * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Some properties are only available on certain permission types.

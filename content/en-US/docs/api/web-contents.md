@@ -45,6 +45,26 @@ returns `null`.
 Returns `WebContents` | undefined - A WebContents instance with the given ID, or
 `undefined` if there is no WebContents associated with the given ID.
 
+### `webContents.fromDevToolsTargetId(targetId)`
+
+* `targetId` String - The Chrome DevTools Protocol [TargetID](https://chromedevtools.github.io/devtools-protocol/tot/Target/#type-TargetID) associated with the WebContents instance.
+
+Returns `WebContents` | undefined - A WebContents instance with the given TargetID, or
+`undefined` if there is no WebContents associated with the given TargetID.
+
+When communicating with the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/),
+it can be useful to lookup a WebContents instance based on its assigned TargetID.
+
+```js
+async function lookupTargetId (browserWindow) {
+  const wc = browserWindow.webContents
+  await wc.debugger.attach('1.3')
+  const { targetInfo } = await wc.debugger.sendCommand('Target.getTargetInfo')
+  const { targetId } = targetInfo
+  const targetWebContents = await webContents.fromDevToolsTargetId(targetId)
+}
+```
+
 ## Class: WebContents
 
 > Render and control the contents of a BrowserWindow instance.
@@ -147,7 +167,8 @@ Returns:
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new
   [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled
-  by Chromium or Electron) given to `window.open()`.
+  by Chromium or Electron) given to `window.open()`. Deprecated, and will now
+  always be the empty array `[]`.
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be
   passed to the new window. May or may not result in the `Referer` header being
   sent, depending on the referrer policy.
@@ -202,13 +223,11 @@ Returns:
   * `frameName` String - Name given to the created window in the
      `window.open()` call.
   * `options` BrowserWindowConstructorOptions - The options used to create the
-    BrowserWindow. They are merged in increasing precedence: options inherited
-    from the parent, parsed options from the `features` string from
-    `window.open()`, and options given by
+    BrowserWindow. They are merged in increasing precedence: parsed options
+    from the `features` string from `window.open()`, security-related
+    webPreferences inherited from the parent, and options given by
     [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler).
     Unrecognized options are not filtered out.
-  * `additionalFeatures` String[] - The non-standard features (features not
-    handled Chromium or Electron) _Deprecated_
   * `referrer` [Referrer](structures/referrer.md) - The referrer that will be
     passed to the new window. May or may not result in the `Referer` header
     being sent, depending on the referrer policy.
@@ -374,6 +393,8 @@ win.webContents.on('will-prevent-unload', (event) => {
   }
 })
 ```
+
+**Note:** This will be emitted for `BrowserViews` but will _not_ be respected - this is because we have chosen not to tie the `BrowserView` lifecycle to its owning BrowserWindow should one exist per the [specification](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event).
 
 #### Event: 'crashed' _Deprecated_
 
@@ -839,59 +860,6 @@ Returns:
 Emitted when `desktopCapturer.getSources()` is called in the renderer process.
 Calling `event.preventDefault()` will make it return empty sources.
 
-#### Event: 'remote-require' _Deprecated_
-
-Returns:
-
-* `event` IpcMainEvent
-* `moduleName` String
-
-Emitted when `remote.require()` is called in the renderer process.
-Calling `event.preventDefault()` will prevent the module from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-#### Event: 'remote-get-global' _Deprecated_
-
-Returns:
-
-* `event` IpcMainEvent
-* `globalName` String
-
-Emitted when `remote.getGlobal()` is called in the renderer process.
-Calling `event.preventDefault()` will prevent the global from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-#### Event: 'remote-get-builtin' _Deprecated_
-
-Returns:
-
-* `event` IpcMainEvent
-* `moduleName` String
-
-Emitted when `remote.getBuiltin()` is called in the renderer process.
-Calling `event.preventDefault()` will prevent the module from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-#### Event: 'remote-get-current-window' _Deprecated_
-
-Returns:
-
-* `event` IpcMainEvent
-
-Emitted when `remote.getCurrentWindow()` is called in the renderer process.
-Calling `event.preventDefault()` will prevent the object from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-#### Event: 'remote-get-current-web-contents' _Deprecated_
-
-Returns:
-
-* `event` IpcMainEvent
-
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
-Calling `event.preventDefault()` will prevent the object from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
 #### Event: 'preferred-size-changed'
 
 Returns:
@@ -1200,8 +1168,11 @@ Ignore application menu shortcuts while this web contents is focused.
   without a recognized 'action' value will result in a console error and have
   the same effect as returning `{action: 'deny'}`.
 
-Called before creating a window when `window.open()` is called from the
-renderer. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
+Called before creating a window a new window is requested by the renderer, e.g.
+by `window.open()`, a link with `target="_blank"`, shift+clicking on a link, or
+submitting a form with `<form target="_blank">`. See
+[`window.open()`](window-open.md) for more details and how to use this in
+conjunction with `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 

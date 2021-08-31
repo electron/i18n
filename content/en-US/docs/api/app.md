@@ -507,64 +507,6 @@ Returns:
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`.
 Calling `event.preventDefault()` will make it return empty sources.
 
-### Event: 'remote-require' _Deprecated_
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Emitted when `remote.require()` is called in the renderer process of `webContents`.
-Calling `event.preventDefault()` will prevent the module from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-global' _Deprecated_
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`.
-Calling `event.preventDefault()` will prevent the global from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-builtin' _Deprecated_
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`.
-Calling `event.preventDefault()` will prevent the module from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-current-window' _Deprecated_
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`.
-Calling `event.preventDefault()` will prevent the object from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-current-web-contents' _Deprecated_
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`.
-Calling `event.preventDefault()` will prevent the object from being returned.
-Custom value can be returned by setting `event.returnValue`.
-
 ## Methods
 
 The `app` object has the following methods:
@@ -1193,8 +1135,8 @@ badge.
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work,
-for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information,
+please read the [Unity integration documentation][unity-requirement].
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1432,8 +1374,8 @@ An `Integer` property that returns the badge count for current app. Setting the 
 
 On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work,
-for more information please read [Desktop Environment Integration][unity-requirement].
+**Note:** Unity launcher requires a `.desktop` file to work. For more information,
+please read the [Unity integration documentation][unity-requirement].
 
 **Note:** On macOS, you need to ensure that your application has the permission
 to display notifications for this property to take effect.
@@ -1461,7 +1403,7 @@ A `Boolean` property that returns  `true` if the app is packaged, `false` otherw
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
@@ -1484,19 +1426,6 @@ This is the user agent that will be used when no user agent is set at the
 `webContents` or `session` level.  It is useful for ensuring that your entire
 app has the same user agent.  Set to a custom value as early as possible
 in your app's initialization to ensure that your overridden value is used.
-
-### `app.allowRendererProcessReuse`
-
-A `Boolean` which when `true` disables the overrides that Electron has in place
-to ensure renderer processes are restarted on every navigation.  The current
-default value for this property is `true`.
-
-The intention is for these overrides to become disabled by default and then at
-some point in the future this property will be removed.  This property impacts
-which native modules you can use in the renderer process.  For more information
-on the direction Electron is going with renderer process restarts and usage of
-native modules in the renderer process please check out this
-[Tracking Issue](https://github.com/electron/electron/issues/18397).
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 

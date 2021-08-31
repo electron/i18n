@@ -1,4 +1,4 @@
-# Using Native Node Modules
+# Native Node Modules
 
 Native Node.js modules are supported by Electron, but since Electron has a different
 [application binary interface (ABI)][abi] from a given Node.js binary (due to
@@ -90,7 +90,7 @@ match a public release, instruct `npm` to use the version of Node you have bundl
 with your custom build.
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/src/out/Default/gen/node_headers
 ```
 
 ## Troubleshooting
