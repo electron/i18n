@@ -7,15 +7,15 @@ date: '2021-07-22'
 
 在过去几周里，我们收到了关于新的 [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) 和 Electron 之间差异的几个问题。
 
-Both teams have the expressed goal of making web-tech the best it can be on the Desktop, and a shared comprehensive comparison is being discussed.
+我们两个团队都致力于让 Web 技术在桌面上能发挥出最佳效用，同时互相讨论比较了二者之间的共性与不同之处。
 
-Electron and WebView2 are fast-moving and constantly evolving projects. We have assembled a brief snapshot of similarities and differences between Electron and WebView2 as they exist today.
+Electron 和 WebView2 都处在一个快速不断发展的进程中。 我们将对 Electron 与 WebView2 之间现有的相似之处与不同的地方做简短的概述。
 
 ---
 
-## Architecture Overview
+## 架构概述
 
-Electron and WebView2 both build from the Chromium source for rendering web content. Strictly speaking, WebView2 builds from the Edge source, but Edge is built using a fork of the Chromium source. Electron does not share any DLLs with Chrome. WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
+Electron 和 WebView2 都是从 Chromium 源代码构建的，用于渲染网页内容。 严格地说，WebView2 是从 Edge 源构建的，Edge 构建于 Chromium 源的一个分支上。 Electron 不与 Chrome 共享任何 DLL。 WebView2 binaries hard link against Edge (Stable channel as of Edge 90), so they share disk and some working set. See [Evergreen distribution mode](https://docs.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#evergreen-distribution-mode) for more info.
 
 Electron apps always bundle and distribute the exact version of Electron with which they were developed. WebView2 has two options in distribution. You can bundle the exact WebView2 library your application was developed with, or you can use a shared-runtime version that may already be present on the system. WebView2 provides tools for each approach, including a bootstrapping installer in case the shared runtime is missing. WebView2 is shipped _inbox_ starting with Windows 11.
 
