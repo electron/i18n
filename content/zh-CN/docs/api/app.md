@@ -420,54 +420,6 @@ app.on('session-created', (session) => {
 
 在 `webContents` 的渲染器进程中调用 `desktopCapturer.getSources()` 时触发。 调用 `event.preventDefault()` 将使它返回空的sources。
 
-### 事件： "remote-require" _弃用_
-
-返回:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-在 `webContents` 的渲染器进程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
-
-### 事件： "remote-get-global" _弃用_
-
-返回:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-在 `webContents` 的渲染器进程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
-
-### 事件： "remote-get-builtin" _弃用_
-
-返回:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-在 `webContents` 的渲染器进程中调用 `remote.getBuiltin()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
-
-### 事件： "remote-get-current-window" _弃用_
-
-返回:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-在 `webContents` 的渲染器进程中调用 `remote.getCurrentWindow()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
-
-### 事件： "remote-get-current-web-contents" _弃用_
-
-返回:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-在 `webContents` 的渲染器进程中调用 `remote.getCurrentWebContents()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
-
 ## 方法
 
 ` app ` 对象具有以下方法:
@@ -1211,12 +1163,6 @@ app.moveToApplicationsFolder({
 `String` Electron 用于全局回退的用户代理字符串。
 
 当用户代理在`webContents` 或 `session` 级别没有被设置时，将使用此用户代理。  有助于确保您的整个应用程序具有相同的用户代理。  在应用初始化中尽早设置为自定义值，以确保使用的是您覆盖的值。
-
-### `app.allowRendererProcessReuse`
-
-`Boolean` 为`true`时禁止Electron每次导航时都重新启动渲染器进程。  此属性的默认值为 `true`。
-
-目的是让这些覆盖在默认情况下不可用，此属性未来将被删除。  此属性会影响您可以在渲染进程中使用哪些本地模块。  有关 Electron 重新启动渲染进程以及在渲染进程中使用本地模块的未来设计，请查看此[跟踪问题](https://github.com/electron/electron/issues/18397)。
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _只读_
 
