@@ -1,4 +1,4 @@
-# OverlayOptions Object
+# OverlayOptions オブジェクト
 
-* `color` String (optional) _Windows_ - The CSS color of the Window Controls Overlay when enabled. Default is the system color.
-* `symbolColor` String (optional) _Windows_ - The CSS color of the symbols on the Window Controls Overlay when enabled. Default is the system color.
+* `color` String (任意) _Windows_ - 有効化されたウインドウコントロールオーバーレイの CSS の色。 既定値はシステムカラーです。
+* `symbolColor` String (任意) _Windows_ - 有効化されたウインドウコントロールオーバーレイ内の記号の CSS の色。 既定値はシステムカラーです。
