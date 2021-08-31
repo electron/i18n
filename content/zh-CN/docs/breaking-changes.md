@@ -22,6 +22,23 @@ See the documentation for [window.open in Electron](api/window-open.md) for more
 
 ## 计划重写的 API (14.0)
 
+### Removed: `remote` module
+
+The `remote` module was deprecated in Electron 12, and will be removed in Electron 14. 由[`@electronic/remote`](https://github.com/electron/remote) 模块替代。
+
+```js
+// Deprecated in Electron 12:
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+// 替换为：
+const { BrowserWindow } = require('@electron/remote')
+
+// 在主进程中：
+require('@electron/remote/main').initialize()
+```
+
 ### 已移除： `app.allowRendererProcessReuse`
 
 The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
@@ -42,7 +59,7 @@ For more detailed information see [#18397](https://github.com/electron/electron/
 
 ### 已移除： `worldSafeExecuteJavaScript`
 
-在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  除此之外没有其他方式，请保证您的代码中包含该属性。  Electron 12中默认启用该属性。
+在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。 除此之外没有其他方式，请保证您的代码中包含该属性。 Electron 12中默认启用该属性。
 12.
 
 若您使用了 `webFrame.executeJavaScript` 或 `webFrame.executeJavaScriptInIsolatedWorld`，这个改动会对您造成影响。 您需要保证 [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) 支持这些方法的返回值，因为这些方法使用相同的值传递语义。
