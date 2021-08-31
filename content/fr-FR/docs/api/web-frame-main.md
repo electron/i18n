@@ -154,3 +154,9 @@ An `Integer` representing the Chromium internal `pid` of the process which owns 
 #### `frame.routingId` _Readonly_
 
 An `Integer` representing the unique frame id in the current renderer process. Distinct `WebFrameMain` instances that refer to the same underlying frame will have the same `routingId`.
+
+#### `frame.visibilityState` _Lecture seule_
+
+A `string` representing the [visibility state](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) of the frame.
+
+See also how the [Page Visibility API](browser-window.md#page-visibility) is affected by other Electron APIs.
