@@ -79,7 +79,6 @@ Electron
 * **.circleci** - Config file for CI with CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 * **node_modules** - Third party node modules used for building.
 * **npm** - Logic for installation of Electron via npm.
 * **out** - Temporary output directory of `ninja`.
@@ -95,4 +94,3 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
 ```
 
 * **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies.
