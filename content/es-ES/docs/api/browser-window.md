@@ -6,15 +6,15 @@ Proceso: [principal](../glossary.md#main-process)</0>
 
 ```javascript
 /// In the main process.
-const { BrowserWindow } = require (' Electron ')
+const { BrowserWindow } = require('electron')
 
-const Win = New BrowserWindow ({ width: 800, height: 600 })
+const win = new BrowserWindow({ width: 800, height: 600 })
 
-//cargar una URL remota
-Win. loadURL (' https://github.com ')
+// Load a remote URL
+win.loadURL('https://github.com')
 
-//o cargar un archivo HTML local
-Win. loadURL (' File://${__dirname}/app/index.html ')
+// Or load a local HTML file
+win.loadFile('index.html')
 ```
 
 ## Ventana sin borde
@@ -157,11 +157,11 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. Este es el valor predeterminado.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Por defecto es `default`. Los valores posibles son:
-    * `default` - Es la barra de título gris opaca estándar de Mac.
-    * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
-    * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
-    * `customButtonsOnHover` - Resulta en una barra de titulo oculta y en una ventana de contenido de tamaño completo, los botones del semáforo se mostrarán al pasar el cursor sobre la parte superior izquierda de la ventana.  **Note:** Esta opción es experimental actualmente.
+  * `titleBarStyle` String (optional) _macOS_ _Windows_ - The style of window title bar. Por defecto es `default`. Los valores posibles son:
+    * `default` - Results in the standard title bar for macOS or Windows respectively.
+    * `hidden` - Results in a hidden title bar and a full size content window. On macOS, the window still has the standard window controls (“traffic lights”) in the top left. On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
+    * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+    * `customButtonsOnHover` - Only on macOS, results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **Note:** Esta opción es experimental actualmente.
   * `trafficLightPosition` [Point](structures/point.md) (opcional) - Establece una posición para los botones del semáforo en ventanas sin marco.
   * `roundedCorners` Boolean (opcional) - Si la ventana sin marco debería tener o no esquinas redondeadas macOS. Por defecto es `true`.
   * `fullscreenWindowTitle` Boolean (opcional) _Obsoleto_ - Muestra el título en la barra de título en el modo de pantalla completa en macOS para `hiddenInset` titleBarStyle. Por defecto es `false`.
@@ -176,10 +176,8 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `nodeIntegrationInSubFrames` Boolean (opcional) - Opcion experimental para habilitar soporte Node.js en sub-frames como iframes y ventas hijos. Todos tus preloads cargarán por cada iframe, puedes usar `process.isMainFrame` para determinar si estás en el marco principal o no.
     * `preload` String (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](context-bridge.md#exposing-node-global-symbols).
     * `sandbox` Boolean (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](../tutorial/sandbox.md).
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Por defecto es `false`.
     * `session` [Session](session.md#class-session) (opcional) - Configura la sesión usada por la página. En lugar de pasar directamente el objeto de la sesión, se puede optar por utilizar la opción de `partition`, la cual acepta una cadena de partición. Cuando se proporcionen `session` y `partition`, se preferirá `session`. Default es la sesión por defecto.
     * `partition` Cadena (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Default es la sesión por defecto.
-    * `affinity` Cadena de caracteres (opcional): Cuando se especifica, las páginas web con la misma `affinity` se ejecutarán en el mismo proceso de renderizado. Nótese que debido a que se reutiliza el proceso de renderizado, ciertas opciones `webPreferences` también se compartirán entre las páginas web incluso si se especificaron valores diferentes para cada una de ellas, incluyendo pero no limitándose a `preload`, `sandbox` y`nodeIntegration`. Por lo tanto, se sugiere utilizar las mismas `webPreferences` para páginas web con la misma `affinity`. _Deprecated_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Por defecto es `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Por defecto es `true`.
     * `webSecurity` Boolean (opcional) - Cuando es `false`, desactivará la política de same-origin (por lo general se utiliza cuando la gente prueba los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
@@ -206,8 +204,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. Esto también afecta a [Page Visibility API](#page-visibility). Por defecto es `true`.
     * `offscreen` Boolean(optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
     * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  Esta opción utiliza la misa técnica usada por [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. Por defecto es `true`. _Deprecated_
-    * `nativeWindowOpen` Boolean (opcional) - Si se usa el nativo `window.open()`. Por defecto es `false`. Las ventanas hijas siempre tienen la integración con node desabilidata a menos que `nodeIntegrationInSubFrames` es true. **Note:** Esta opción es experimental actualmente.
+    * `nativeWindowOpen` Boolean (opcional) - Si se usa el nativo `window.open()`. Por defecto es `false`. Las ventanas hijas siempre tienen la integración con node desabilidata a menos que `nodeIntegrationInSubFrames` es true. **Note:** The default value will be changing to `true` in Electron 15.
     * `webviewTag` Boolean (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto es `false`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Por defecto es `false`.
@@ -225,6 +222,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
       * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
       * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
     * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. Por defecto es `false`.
+  * `titleBarOverlay` [OverlayOptions](structures/overlay-options.md) | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. Por defecto es `false`.  On Windows, the [OverlayOptions](structures/overlay-options.md) can be used instead of a boolean to specify colors for the overlay.
 
 Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
@@ -543,6 +541,10 @@ A `Boolean` property that determines whether the window is in simple (pre-Lion) 
 #### `win.fullScreen`
 
 A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.focusable` _Windows_ _macOS_
+
+A `Boolean` property that determines whether the window is focusable.
 
 #### `win.visibleOnAllWorkspaces`
 
@@ -1344,6 +1346,10 @@ Cambia si se puede enfocar o no la ventana.
 
 En macOS no elimina el foco de la ventana.
 
+#### `win.isFocusable()` _macOS_ _Windows_
+
+Returns whether the window can be focused.
+
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow | null
@@ -1453,3 +1459,5 @@ Devuelve `BrowserView[]` - Un array de todos los BrowserViews que han sido adjun
 [window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
 [chrome-content-scripts]: https://developer.chrome.com/extensions/content_scripts#execution-environment
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[overlay-javascript-apis]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables
