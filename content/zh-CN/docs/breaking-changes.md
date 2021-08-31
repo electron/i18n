@@ -6,35 +6,93 @@
 
 本文档使用以下约定对重大更改进行分类：
 
-* **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
-* **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-* **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-* **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
-* **Removed:** An API or feature was removed, and is no longer supported by Electron.
+* **API 更改：**已更改的 API 会以某种方式使未更新的代码必定抛出异常。
+* **行为改变：**Electron 的行为已经改变，但并不一定抛出相应的异常。
+* **默认值更改：**依赖于默认值的代码的行为可能被破坏，但不保证会抛出相应的异常。 您可以通过显式指定该值的方式恢复旧的默认行为。
+* **已废弃：**该 API 已标记为废弃。 该 API 依旧可正常运作，但会抛出已废弃警告，并在将来会移除。
+* **已移除：**该 API 或功能已移除，Electron团队不再对此提供支持。
+
+## 计划重写的 API (15.0)
+
+### 默认更改： `nativeWindowOpen` 默认为 `true`
+
+Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
 
 ## 计划重写的 API (14.0)
 
-### API Changed: `window.(open)`
+### 已移除： `app.allowRendererProcessReuse`
 
-可选参数 `frameName` 将不再设置窗口的标题。 This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
+The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
 
-If you were using this parameter to set the title of a window, you can instead use [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
+### Removed: Browser Window Affinity
+
+The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
+### API 更改： `window.open()`
+
+可选参数 `frameName` 将不再设置窗口的标题。 该功能现在遵循 [原生文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) 中的约束，由名为 `windowName` 的参数控制。
+
+若您之前使用了该参数用于设置窗口标题，您可以转而使用 [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle)。
 
 ### 已移除： `worldSafeExecuteJavaScript`
 
-在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  除此之外没有其他方式，请保证您的代码中包含该属性。  Electron 12中默认启用该属性。
 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+若您使用了 `webFrame.executeJavaScript` 或 `webFrame.executeJavaScriptInIsolatedWorld`，这个改动会对您造成影响。 您需要保证 [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) 支持这些方法的返回值，因为这些方法使用相同的值传递语义。
+
+### Removed: BrowserWindowConstructorOptions inheriting from parent windows
+
+Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+
+Instead, explicitly set options for the new window with `setWindowOpenHandler`:
+
+```js
+webContents.setWindowOpenHandler((details) => {
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      // ...
+    }
+  }
+})
+```
+
+### 已移除： `additionalFeatures`
+
+The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+
+```js
+// Removed in Electron 14
+// Triggered by window.open('...', '', 'my-key')
+webContents.on('did-create-window', (window, details) => {
+  if (details.additionalFeatures.includes('my-key')) {
+    // ...
+  }
+})
+
+// Replace with
+webContents.on('did-create-window', (window, details) => {
+  if (details.options['my-key']) {
+    // ...
+  }
+})
+```
 
 ## 计划重写的 API (13.0)
 
 ### API 更改： `session.setPermissionCheckHandler(handler)`
 
-The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+`handler` 方法的第一个参数曾是 `webContents`，但现在可以为 `null`。  为正确响应权限检查，您需要使用`requestingOrigin`、`embeddingOrigin` 和 `securityOrigin` 这些属性。  因为 `webContents` 现在可能为 `null`，您不应当依赖此参数。
 
 ```js
-// Old code
+// 旧代码
 session.setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
     return true
@@ -42,7 +100,7 @@ session.setPermissionCheckHandler((webContents, permission) => {
   return false
 })
 
-// Replace with
+// 变更为
 session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
   if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
     return true
@@ -53,12 +111,12 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 
 ### 已移除： `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+已废弃的同步方法 `shell.moveItemToTrash()` 已移除。 作为替代，您应当使用异步的 `shell.trashItem()`。
 
 ```js
-// Removed in Electron 13
+// 在 Electron 13 移除
 shell.moveItemToTrash(path)
-// Replace with
+// 替换为
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -73,78 +131,78 @@ shell.trashItem(path).then(/* ... */)
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+改为使用 session API：
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// 在 Electron 13 移除
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// 替换为
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+// 在 Electron 13 移除
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// 替换为
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Removed in Electron 13
+// 在 Electron 13 移除
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// 替换为
 session.defaultSession.getAllExtensions()
 ```
 
 ### 已移除： `systemPreferences` 中的方法
 
-The following `systemPreferences` methods have been deprecated:
+`systemPreferences` 方法已经被废弃：
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+使用 `nativeTheme` 属性作为替代：
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Removed in Electron 13
+// 在 Electron 13 移除
 systemPreferences.isDarkMode()
-// Replace with
+// 替换为
 nativeTheme.shouldUseDarkColors
 
-// Removed in Electron 13
+// 在 Electron 13 移除
 systemPreferences.isInvertedColorScheme()
-// Replace with
+// 替换为
 nativeTheme.shouldUseInvertedColorScheme
 
-// Removed in Electron 13
+// 在 Electron 13 移除
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// 替换为
 nativeTheme.shouldUseHighContrastColors
 ```
 
-### Deprecated: WebContents `new-window` event
+### 已废弃: WebContents `new-window` 事件
 
-The `new-window` event of WebContents has been deprecated. It is replaced by [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+WebContents 中的 `new-window` 事件已经被废弃。 已弃用：[`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler)。
 
 ```js
-// Deprecated in Electron 13
+// 在 Electron 13 废弃
 webContents.on('new-window', (event) => {
   event.preventDefault()
 })
 
-// Replace with
+// 替换为
 webContents.setWindowOpenHandler((details) => {
   return { action: 'deny' }
 })
@@ -152,9 +210,9 @@ webContents.setWindowOpenHandler((details) => {
 
 ## 计划重写的 API (12.0)
 
-### Removed: Pepper Flash support
+### 已移除：Pepper Flash 支持
 
-Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+Chromium 已经取消了对Flash的支持，因此我们必须效仿。 更多详细信息，请参阅 Chromium 的 [ Flash Roadmap](https://www.chromium.org/flash-roadmap)
 
 ### 默认更改： `worldSafeExecuteJavaScript` 默认为 `true`
 
@@ -170,22 +228,22 @@ We [recommend having contextIsolation enabled](https://github.com/electron/elect
 
 Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
-For more details see: https://github.com/electron/electron/issues/23506
+更多信息请参阅：https://github.com/electron/electron/issues/23506
 
 ### 已移除： `crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been removed. Usage should be replaced by `app.getPath('crashDumps')`.
+`crashReporter.getCrashesDirectory` 方法已被删除。 Usage should be replaced by `app.getPath('crashDumps')`.
 
 ```js
-// Removed in Electron 12
+// 在 Electron 12 移除
 crashReporter.getCrashesDirectory()
-// Replace with
+// 替换为
 app.getPath('crashDumps')
 ```
 
 ### Removed: `crashReporter` methods in the renderer process
 
-The following `crashReporter` methods are no longer available in the renderer process:
+`crashReporter` 方法在渲染进程中不再能使用：
 
 * `crashReporter.start`
 * `crashReporter.getLastCrashReport`
@@ -196,7 +254,7 @@ The following `crashReporter` methods are no longer available in the renderer pr
 
 They should be called only from the main process.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+更多详细信息请访问 [#23265](https://github.com/electron/electron/pull/23265)
 
 ### Default Changed: `crashReporter.start({ compress: true })`
 
@@ -204,9 +262,9 @@ The default value of the `compress` option to `crashReporter.start` has changed 
 
 If your crash ingestion server does not support compressed payloads, you can turn off compression by specifying `{ compress: false }` in the crash reporter options.
 
-### Deprecated: `remote` module
+### 已废弃： `remote` 模块
 
-The `remote` module is deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+`remote` 模块在 Electron 12 废弃，并将在 Electron 14 被移除 由[`@electronic/remote`](https://github.com/electron/remote) 模块替代。
 
 ```js
 // Deprecated in Electron 12:
@@ -214,21 +272,21 @@ const { BrowserWindow } = require('electron').remote
 ```
 
 ```js
-// Replace with:
+// 替换为：
 const { BrowserWindow } = require('@electron/remote')
 
-// In the main process:
+// 在主进程中：
 require('@electron/remote/main').initialize()
 ```
 
-### Deprecated: `shell.moveItemToTrash()`
+### 已废弃：`shell.moveItemToTrash()`
 
 The synchronous `shell.moveItemToTrash()` has been replaced by the new, asynchronous `shell.trashItem()`.
 
 ```js
-// Deprecated in Electron 12
+// 在 Electron 12 废弃
 shell.moveItemToTrash(path)
-// Replace with
+// 替换为
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -253,7 +311,7 @@ crashReporter.start({ companyName: 'Umbrella Corporation' })
 crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 ```
 
-### Deprecated: `crashReporter.getCrashesDirectory()`
+### 已废弃：`crashReporter.getCrashesDirectory()`
 
 The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
 
@@ -264,7 +322,7 @@ crashReporter.getCrashesDirectory()
 app.getPath('crashDumps')
 ```
 
-### Deprecated: `crashReporter` methods in the renderer process
+### 已废弃：渲染进程中的 `crashReporter` 方法
 
 Calling the following `crashReporter` methods from the renderer process is deprecated:
 
@@ -279,17 +337,11 @@ The only non-deprecated methods remaining in the `crashReporter` module in the r
 
 All above methods remain non-deprecated when called from the main process.
 
-See [#23265](https://github.com/electron/electron/pull/23265) for more details.
+更多详细信息请访问 [#23265](https://github.com/electron/electron/pull/23265)
 
-### Deprecated: `crashReporter.start({ compress: false })`
+### 已废弃：`crashReporter.start({ compress: false })`
 
-Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
-
-### Removed: Browser Window Affinity
-
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
-
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. 此选项将在未来版本的 Electron 中删除。
 
 ### 默认更改： `enableRemoteModule` 默认为 `false`
 
@@ -309,7 +361,7 @@ We [recommend moving away from the remote module](https://medium.com/@nornagon/e
 
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+这些 APIs 现在是同步的，不再需要可选的回调。
 
 ```javascript
 // Deprecated
@@ -338,12 +390,12 @@ protocol.unregisterProtocol(scheme)
 
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+这些 APIs 现在是同步的，不再需要可选的回调。
 
 ```javascript
-// Deprecated
+// 已废弃
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// 替换为
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -371,7 +423,7 @@ If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to 
 
 For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
-### Deprecated: `BrowserWindow` extension APIs
+### 已废弃： `BrowserWindow` 扩展 API
 
 The following extension APIs have been deprecated:
 
@@ -382,51 +434,51 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+改为使用 session API：
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-// Deprecated in Electron 9
+// 在 Electron 9 废弃
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// 替换为
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Deprecated in Electron 9
+// 在 Electron 9 废弃
 BrowserWindow.removeExtension(name)
 BrowserWindow.removeDevToolsExtension(name)
-// Replace with
+// 替换为
 session.defaultSession.removeExtension(extension_id)
 ```
 
 ```js
-// Deprecated in Electron 9
+// 在 Electron 9 废弃
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// 替换为
 session.defaultSession.getAllExtensions()
 ```
 
-### Removed: `<webview>.getWebContents()`
+### 已移除： `<webview>.getWebContents()`
 
 This API, which was deprecated in Electron 8.0, is now removed.
 
 ```js
-// Removed in Electron 9.0
+// 在 Electron 9.0 移除
 webview.getWebContents()
-// Replace with
+// 替换为
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
 ### 已移除： `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function was deprecated in Electron 8.x, and has been removed in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. 函数在 Electron 8.x 废弃，并将在 Electron 9.x 被移除。 The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
 ### Behavior Changed: Sending non-JS objects over IPC now throws an exception
 
@@ -471,7 +523,7 @@ Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 
 Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
 
-### Deprecated: `<webview>.getWebContents()`
+### 已废弃： `<webview>.getWebContents()`
 
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
@@ -533,34 +585,34 @@ systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
-### Deprecated: methods in `systemPreferences`
+### 已废弃：`systemPreferences` 中的方法
 
-The following `systemPreferences` methods have been deprecated:
+`systemPreferences` 方法已经被废弃：
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+使用 `nativeTheme` 属性作为替代：
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Deprecated
+// 已废弃
 systemPreferences.isDarkMode()
-// Replace with
+// 替换为
 nativeTheme.shouldUseDarkColors
 
-// Deprecated
+// 已废弃
 systemPreferences.isInvertedColorScheme()
-// Replace with
+// 替换为
 nativeTheme.shouldUseInvertedColorScheme
 
-// Deprecated
+// 已废弃
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// 替换为
 nativeTheme.shouldUseHighContrastColors
 ```
 
@@ -664,7 +716,7 @@ These functions now only return Promises:
 * `app.getFileIcon()` [#15742](https://github.com/electron/electron/pull/15742)
 * `app.dock.show()` [#16904](https://github.com/electron/electron/pull/16904)
 * `contentTracing.getCategories()` [#16583](https://github.com/electron/electron/pull/16583)
-* `contentTracing.getTraceBufferUsage()` [#16600](https://github.com/electron/electron/pull/16600)
+* `contentTracking.getTraceBufferUs()` [#16600](https://github.com/electron/electron/pull/16600)
 * `contentTracing.startRecording()` [#16584](https://github.com/electron/electron/pull/16584)
 * `contentTracing.stopRecording()` [#16584](https://github.com/electron/electron/pull/16584)
 * `contents.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
@@ -683,7 +735,7 @@ These functions now only return Promises:
 * `session.clearStorageData()` [#17249](https://github.com/electron/electron/pull/17249)
 * `session.getBlobData()` [#17303](https://github.com/electron/electron/pull/17303)
 * `session.getCacheSize()`  [#17185](https://github.com/electron/electron/pull/17185)
-* `session.resolveProxy()` [#17222](https://github.com/electron/electron/pull/17222)
+* `session.getCacheSize()` [#17185](https://github.com/electron/electron/pull/17222)
 * `session.setProxy()`  [#17222](https://github.com/electron/electron/pull/17222)
 * `shell.openExternal()` [#16176](https://github.com/electron/electron/pull/16176)
 * `webContents.loadFile()` [#15855](https://github.com/electron/electron/pull/15855)
@@ -880,11 +932,11 @@ The following list includes the breaking API changes made in Electron 4.0.
 ### `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 已废弃
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// 替换为
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -932,20 +984,20 @@ const { memory } = metrics[0] // 弃用的属性
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 已废弃
 const optionsA = { webPreferences: { blinkFeatures: '' } }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// 替换为
 const optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 const windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 已废弃
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// 替换为
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -1106,10 +1158,10 @@ webview.onkeyup = () => { /* handler */ }
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 已废弃
 const optionsA = { titleBarStyle: 'hidden-inset' }
 const windowA = new BrowserWindow(optionsA)
-// Replace with
+// 替换为
 const optionsB = { titleBarStyle: 'hiddenInset' }
 const windowB = new BrowserWindow(optionsB)
 ```
