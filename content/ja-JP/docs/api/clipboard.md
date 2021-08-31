@@ -202,7 +202,7 @@ console.log(hasFormat)
 
 戻り値 `String` - クリップボードから `format` 形式で読み出します。
 
-`format` should contain valid ASCII characters and have `/` separator. `a/c`, `a/bc` are valid formats while `/abc`, `abc/`, `a/`, `/a`, `a` are not valid.
+`format` は有効な ASCII 文字を含み、`/` で区切られている必要があります。 `a/c`, `a/bc` は有効ですが、`/abc`, `abc/`, `a/`, `/a`, `a` は無効です。
 
 ### `clipboard.readBuffer(format)` _実験的_
 
