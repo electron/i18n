@@ -14,19 +14,21 @@ const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
-### Alternativen auf macOS
+### Alternatives
 
-Es gibt eine Alternative, um ein rahmenloses Fenster zu erhalten. Statt `frame` auf `false` zu setzen, welches sowohl die Titelleiste als auch die Schaltflächen entfernt, möchtest Du möglicherweise nur die Titelleiste entfernen, aber die Standard-Schaltflächen ("Amplelichter") behalten. Das kannst du erreichen indem du folgende `titleBarStyle`-Optionen verwendest:
+There's an alternative way to specify a chromeless window on macOS and Windows. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights" on macOS) for standard window actions. Das kannst du erreichen indem du folgende `titleBarStyle`-Optionen verwendest:
 
 #### `hidden`
 
-Resultiert in eine versteckte Titelleiste und ein Inhaltsfenster der vollen Größe. Dennoch sind die Standard-Fensterkontrollen (Ampel) weiterhin vorhanden.
+Results in a hidden title bar and a full size content window. On macOS, the title bar still has the standard window controls (“traffic lights”) in the top left.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
+
+### Alternativen auf macOS
 
 #### `hiddenInset`
 
@@ -45,6 +47,33 @@ Uses custom drawn close, and miniaturize buttons that display when hovering in t
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+win.show()
+```
+
+## Windows Control Overlay
+
+When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS, using one of the `titleBarStyle`s as described above so that the traffic lights are visible, or using `titleBarStyle: hidden` on Windows, you can access the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars] by setting the `titleBarOverlay` option to true. Specifying `true` will result in an overlay with default system colors.
+
+On Windows, you can also specify the color of the overlay and its symbols by setting `titleBarOverlay` to an object with the options `color` and `symbolColor`. If an option is not specified, the color will default to its system color for the window control buttons:
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: true
+})
+win.show()
+```
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: {
+    color: '#2f3241',
+    symbolColor: '#74b1be'
+  }
+})
 win.show()
 ```
 
@@ -142,3 +171,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Fo
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
 
 [ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
+[overlay-javascript-apis]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables
