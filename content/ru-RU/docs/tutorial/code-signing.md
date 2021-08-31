@@ -156,7 +156,6 @@ See the [Mac App Store Guide][].
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
-* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Amongst others, please shop around to find one that suits your needs, Google is your friend 😄
 
 Существует ряд инструментов для подписывания приложений:
