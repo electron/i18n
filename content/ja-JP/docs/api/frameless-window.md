@@ -16,11 +16,11 @@ win.show()
 
 ### 代替手段
 
-There's an alternative way to specify a chromeless window on macOS and Windows. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights" on macOS) for standard window actions. `titleBarStyle` オプションを指定すると、そのようにすることができます。
+macOS と Windows ではフレームレスウインドウを指定する方法が他にあります。 タイトルバーとウインドウコントロールの両方が無効になる `frame` を `false` に設定する方法の代わりに、タイトルバーを非表示にし、コンテンツをフルウインドウサイズに拡大しつつ、標準のウインドウアクションのためにウインドウコントロール (macOS での "信号ボタン") を保持し続けることもできます。 `titleBarStyle` オプションを指定すると、そのようにすることができます。
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window. On macOS, the title bar still has the standard window controls (“traffic lights”) in the top left.
+タイトルバーが隠れ、フルサイズのコンテンツウインドウになります。 macOS では、タイトルバーの左上に標準ウインドウコントロール ("信号機ボタン") が付きます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -50,11 +50,11 @@ const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: fa
 win.show()
 ```
 
-## Windows Control Overlay
+## ウインドウコントロールオーバーレイ
 
-When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS, using one of the `titleBarStyle`s as described above so that the traffic lights are visible, or using `titleBarStyle: hidden` on Windows, you can access the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars] by setting the `titleBarOverlay` option to true. `true` を指定すると、オーバーレイはデフォルトのシステムカラーになります。
+フレームレスウインドウを macOS の `win.setWindowButtonVisibility(true)` と組み合わせて使用したり、信号機ボタンが見えるように上述の `titleBarStyle` のいずれかを使用したり、Windows の `titleBarStyle: hidden` を使用したりしているとき、`titleBarOverlay` のオプションを true に設定するとウィンドウコントロールオーバーレイ [JavaScript API][overlay-javascript-apis] と [CSS 環境変数][overlay-css-env-vars] にアクセスできます。 `true` を指定すると、オーバーレイはデフォルトのシステムカラーになります。
 
-On Windows, you can also specify the color of the overlay and its symbols by setting `titleBarOverlay` to an object with the options `color` and `symbolColor`. If an option is not specified, the color will default to its system color for the window control buttons:
+Windows では、`color` と `symbolColor` のオプションで作った `titleBarOverlay` オブジェクトを設定することで、オーバーレイとそのシンボルの色指定もできます。 以下のようにオプションを指定しない場合、ウインドウコントロールボタンの色はデフォルトでシステムカラーになります。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -171,5 +171,5 @@ button {
 いくつかのプラットフォームでは、ドラッグ可能な領域は非クライアントのフレームとして扱われます。そのため、ドラッグ可能な領域を右クリックすると、システムメニューが現れます。 すべてのプラットフォームでコンテキストメニューが正しく動作するようにするには、絶対にカスタムのコンテキストメニューをドラッグ可能な領域で使用しないようにしてください。
 
 [ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
-[overlay-javascript-apis]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-javascript-apis]: https://github. com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
 [overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables
