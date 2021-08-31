@@ -92,7 +92,6 @@ Prefijos usuales:
 * perf: Un cambio en el código que mejora el rendimiento
 * refactor: Un cambio en el código que no corrige un error ni agrega una característica
 * style: Cambios que no afectan el significado del código (linting)
-* vendor: Cambiar una dependencia como libchromiumcontent o node
 
 Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
