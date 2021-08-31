@@ -64,6 +64,7 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
+- `chrome.runtime.reload`
 
 支持 `chrome.runtime` 的以下事件：
 
