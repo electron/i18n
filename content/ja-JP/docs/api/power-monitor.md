@@ -8,11 +8,11 @@
 
 `powerMonitor` モジュールでは以下のイベントが発生します。
 
-### イベント: 'suspend' _macOS_ _Windows_
+### イベント: 'suspend'
 
 システムがサスペンドするときに発生します。
 
-### イベント: 'resume' _macOS_ _Windows_
+### イベント: 'resume'
 
 システムが再開するときに発生します。
 
