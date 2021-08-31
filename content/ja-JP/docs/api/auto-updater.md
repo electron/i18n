@@ -97,6 +97,8 @@ Windowsでは `releaseName` のみ利用可能です。
 
 更新があるかどうかサーバーに問い合わせます。 この API を使用する前に `setFeedURL` を呼び出す必要があります。
 
+**Note:** If an update is available it will be downloaded automatically. Calling `autoUpdater.checkForUpdates()` twice will download the update two times.
+
 ### `autoUpdater.quitAndInstall()`
 
 ダウンロード後にアプリを再起動し、更新をインストールします。 `update-downloaded` が発生した後でしか呼び出さないでください。
