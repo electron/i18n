@@ -1,5 +1,5 @@
 ---
-title: launch-app-from-URL-in-another-app
+title: 他アプリ内の URL から自分の Electron アプリを起動する
 description: このガイドでは、Electron アプリを特定のプロトコルのデフォルトハンドラとして設定する手順を説明します。
 slug: launch-app-from-url-in-another-app
 hide_title: true
