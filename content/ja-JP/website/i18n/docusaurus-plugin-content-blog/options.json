@@ -1,14 +1,14 @@
 {
   "title": {
-    "message": "Electron's blog",
+    "message": "Electron のブログ",
     "description": "The title for the blog used in SEO"
   },
   "description": {
-    "message": "Keep up to date with what's going on with the Electron project",
+    "message": "Electron プロジェクトの最新情報をお届けします",
     "description": "The description for the blog used in SEO"
   },
   "sidebar.title": {
-    "message": "Latest posts",
+    "message": "最新の投稿",
     "description": "The label for the left sidebar"
   }
 }
