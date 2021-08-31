@@ -420,54 +420,6 @@ Retourne :
 
 Émis lors de l'appel à `desktopCapturer.getSources()` dans le processus de rendu de `webContents`. L' Appel à `event.preventDefault()` lui fera retourner des sources vides.
 
-### Événement: 'remote-require' _Deprecated_
-
-Retourne :
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `module` String
-
-Émis lorsque `remote.require()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
-
-### Événement: 'remote-get-global' _Deprecated_
-
-Retourne :
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
-
-### Événement: 'remote-get-builtin' _Deprecated_
-
-Retourne :
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `module` String
-
-Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
-
-### Événement: 'remote-get-current-window' _Deprecated_
-
-Retourne :
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
-
-### Événement: 'remote-get-current-web-contents' _Deprecated_
-
-Retourne :
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Émis lorsque `remote.getCurrentWebContents()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
-
 ## Méthodes
 
 L'objet `app` dispose des méthodes suivantes :
@@ -1207,12 +1159,6 @@ Habituellement, le champ `name` de `package.json` est un nom court en minuscule,
 Une `String` qui est la chaîne d'agent utilisateur que Electron utilisera comme solution de repli global.
 
 C'est l'agent utilisateur qui sera utilisé quand aucun agent utilisateur n'est défini au niveau `webContents` ou `session`.  Il est utile pour s'assurer que l'ensemble de votre application a le même agent utilisateur.  Définissez une valeur personnalisée dès que possible dans l'initialisation de votre application pour vous assurer que votre valeur remplacée est utilisée.
-
-### `allowRenderererProcessRuse`
-
-Un `Booléen` qui, lorsque `true` désactive les remplacements qu'Electron a en place pour s'assurer que les processus de rendu sont redémarrés à chaque navigation.  La valeur par défaut actuelle pour cette propriété est `true`.
-
-L'intention est que ces dérogations soient désactivées par défaut, puis à un point dans le futur cette propriété sera supprimée.  Cette propriété impacte les modules natifs que vous pouvez utiliser dans le processus de rendu.  Pour plus d'informations sur la direction vers laquelle Electron va avec le redémarrage du processus de rendu et l'utilisation de modules natifs dans le processus de rendu veuillez consulter ce [Problème de suivi](https://github.com/electron/electron/issues/18397).
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
