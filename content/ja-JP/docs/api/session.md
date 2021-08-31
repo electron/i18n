@@ -160,7 +160,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
-#### Event: 'select-serial-port'
+#### イベント: 'select-serial-port'
 
 戻り値：
 
@@ -196,7 +196,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### Event: 'serial-port-added'
+#### イベント: 'serial-port-added'
 
 戻り値：
 
@@ -206,7 +206,7 @@ app.whenReady().then(() => {
 
 `navigator.serial.requestPort` が呼び出され新しいシリアルポートが利用可能になった場合に、`select-serial-port` が発生した後に発生します。  例えば、このイベントは新しい USB デバイスが接続されたときに発生します。
 
-#### Event: 'serial-port-removed'
+#### イベント: 'serial-port-removed'
 
 戻り値：
 
