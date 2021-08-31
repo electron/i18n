@@ -39,6 +39,24 @@ console.log(webContents)
 
 戻り値 `WebContents` | undefined - 指定 ID の WebContents インスタンス。指定 ID に関連付けられた WebContents が存在しない場合は `undefined` です。
 
+### `webContents.fromDevToolsTargetId(targetId)`
+
+* `targetId` String - The Chrome DevTools Protocol [TargetID](https://chromedevtools.github.io/devtools-protocol/tot/Target/#type-TargetID) associated with the WebContents instance.
+
+Returns `WebContents` | undefined - A WebContents instance with the given TargetID, or `undefined` if there is no WebContents associated with the given TargetID.
+
+When communicating with the [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/), it can be useful to lookup a WebContents instance based on its assigned TargetID.
+
+```js
+async function lookupTargetId (browserWindow) {
+  const wc = browserWindow.webContents
+  await wc.debugger.attach('1.3')
+  const { targetInfo } = await wc.debugger.sendCommand('Target.getTargetInfo')
+  const { targetId } = targetInfo
+  const targetWebContents = await webContents.fromDevToolsTargetId(targetId)
+}
+```
+
 ## クラス: WebContents
 
 > BrowserWindow インスタンスのコンテンツを、描画し、制御します。
@@ -134,7 +152,7 @@ console.log(webContents)
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
 * `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
-* `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
+* `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。 Deprecated, and will now always be the empty array `[]`.
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信する POST データと、それにセットする適切なヘッダ。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
 
@@ -178,8 +196,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 * `details` Object
   * `url` String - 作成したウインドウの URL。
   * `frameName` String - `window.open()` の呼び出しで作成したウインドウに指定した名前。
-  * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 これはマージされたもので、親ウインドウから継承したオプション、`window.open()` の `features` 文字列から解析したオプション、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で指定したオプションの順で優先されます。 認識できないオプションが取り除かれることはありません。
-  * `additionalFeatures` String[] - 非標準の機能 (この機能は Chromium や Electron によって処理されません) _非推奨_
+  * `options` BrowserWindowConstructorOptions - その BrowserWindow の作成に使用したオプション。 They are merged in increasing precedence: parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). 認識できないオプションが取り除かれることはありません。
   * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 リファラのポリシーに応じた `Referer` ヘッダーが送信されるとは限りません。
   * `postBody` [PostBody](structures/post-body.md) (任意) - 新しいウィンドウに送信される POST データと、設定される適切なヘッダです。 送信する POST データが無い場合、値は `null` になります。 これは `target=_blank` を設定したフォームによってウィンドウが作成されている場合にのみセットされます。
   * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできます。
@@ -319,6 +336,8 @@ win.webContents.on('will-prevent-unload', (event) => {
   }
 })
 ```
+
+**Note:** This will be emitted for `BrowserViews` but will _not_ be respected - this is because we have chosen not to tie the `BrowserView` lifecycle to its owning BrowserWindow should one exist per the [specification](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event).
 
 #### イベント: 'crashed' _非推奨_
 
@@ -726,49 +745,6 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
-#### イベント: 'remote-require' _非推奨_
-
-戻り値：
-
-* `event` IpcMainEvent
-* `モジュール名` String
-
-レンダラープロセス内で `remote.require()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-#### イベント: 'remote-get-global' _非推奨_
-
-戻り値：
-
-* `event` IpcMainEvent
-* `globalName` String
-
-レンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-#### イベント: 'remote-get-builtin' _非推奨_
-
-戻り値：
-
-* `event` IpcMainEvent
-* `モジュール名` String
-
-レンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-#### イベント: 'remote-get-current-window' _非推奨_
-
-戻り値：
-
-* `event` IpcMainEvent
-
-レンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-#### イベント: 'remote-get-current-web-contents' _非推奨_
-
-戻り値：
-
-* `event` IpcMainEvent
-
-レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
 #### イベント: 'preferred-size-changed'
 
 戻り値：
@@ -1040,7 +1016,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
   戻り値 `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` を返すと新規ウインドウの作成をキャンセルします。 `allow` を返すと新規ウインドウが作成されます。 `overrideBrowserWindowOptions` を指定すると、作成されるウィンドウをカスタマイズできます。 null、undefined、規定の 'action' の値を持たないオブジェクトといった認識されない値を返すと、コンソールエラーになり、`{action: 'deny'}` を返すのと同じ効果となります。
 
-レンダラーから `window.open()` が呼び出されたときに、ウィンドウの作成前に呼び出されます。 詳細や `did-create-window` と併せた使用方法については [`window.open()`](window-open.md) をご参照ください。
+Called before creating a window a new window is requested by the renderer, e.g. by `window.open()`, a link with `target="_blank"`, shift+clicking on a link, or submitting a form with `<form target="_blank">`. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
