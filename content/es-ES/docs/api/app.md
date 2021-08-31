@@ -420,54 +420,6 @@ Devuelve:
 
 Emitido cuando `desktopCapturer.getSources()` es llamado en el render process del `webContents`. Llamando a `event.preventDefault()` hará que devuelva fuentes vacías.
 
-### Evento: 'remote-require' _Obsoleto_
-
-Devuelve:
-
-* `event`
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Emitido cuando `remote.require()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
-
-### Evento: 'remote-get-global' _Obsoleto_
-
-Devuelve:
-
-* `event`
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-Emitido cuando `remote.getGlobal()` es llamado en el proceso de renderizado del `webContents`. Llamando `event.preventDefault()` evitará que sea devuelto el global. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
-
-### Evento: 'remote-get-builtin' _Obsoleto_
-
-Devuelve:
-
-* `event`
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Emitido cuando `remote.getBuiltin()` es llamado en el proceso renderizador del `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
-
-### Evento: 'remote-get-current-window' _Obsoleto_
-
-Devuelve:
-
-* `event`
-* `webContents` [WebContents](web-contents.md)
-
-Emitido cuando `remote.getCurrentWindow()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
-
-### Evento: 'remote-get-current-web-contents' _Obsoleto_
-
-Devuelve:
-
-* `event`
-* `webContents` [WebContents](web-contents.md)
-
-Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
-
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
@@ -1210,12 +1162,6 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 Un `String` que es la cadena de agente de usuario Electron usará como una regresión global.
 
 Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  Es útil para asegurar que la aplicación entera tiene el mismo agente de usuario.  Establecer a un valor personalizado lo antes posible en la inicialización de tu aplicación para asegurar que el valor sobrescrito es usado.
-
-### `app.allowRendererProcessReuse`
-
-Un `Boolean` que cuando es `true` deshabilita las anulaciones que Electron tiene en su lugar para asegurar que los renderer processes son reiniciados en cada navegación.  El valor por defecto actual para esta propiedad es `true`.
-
-La intención para estos anuladores es desactivan por defecto y luego en algún punto en el futuro esta propiedad sera eliminada.  Esta propiedad impacta en cuales modulos nativos puedes usar en el renderer process.  Para más información de la dirección en que Electron esta yendo con el renderer process, reinicio y uso de modulos nativos en el renderer process por favor revisa esto [Tracking Issue](https://github.com/electron/electron/issues/18397).
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _SoloLectura_
 
