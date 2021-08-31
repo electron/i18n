@@ -10,10 +10,10 @@ const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-// Load a remote URL
+// Загрузка удаленного URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Или загрузка локального HTML файла
 win.loadFile('index.html')
 ```
 
@@ -157,9 +157,9 @@ child.once('ready-to-show', () => {
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) _macOS_ _Windows_ - The style of window title bar. По умолчанию - `default`. Возможные значения:
-    * `default` - Results in the standard title bar for macOS or Windows respectively.
-    * `hidden` - Results in a hidden title bar and a full size content window. On macOS, the window still has the standard window controls (“traffic lights”) in the top left. On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
+  * `titleBarStyle` Строка (необязательно) _macOS_ _Windows_ - Стиль строки заголовка окна. По умолчанию - `default`. Возможные значения:
+    * `по умолчанию` - результаты в стандартной строке заголовка для macOS или Windows, соответственно.
+    * `скрытые` - результаты в скрытой строке заголовка и окно полного размера. На macOS в левом верхнем углу окна все еще есть стандартное управление окном ("светофоры"). On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
     * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` - Only on macOS, results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **Примечание:** Эта опция в настоящее время экспериментальная.
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons in frameless windows.
