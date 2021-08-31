@@ -16,15 +16,15 @@
 
 ### 省略値変更: `nativeWindowOpen` の省略値を `true` に
 
-Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
+Electron 15 より前の `window.open` は既定で `BrowserWindowProxy` を使用していました。 このため、`window.open('about:blank')` では同期的にスクリプトで操作可能な子ウィンドウを開くことができないなどといった、非互換性がありました。 `nativeWindowOpen: true` は実験的でなくなり、既定値になります。
 
-See the documentation for [window.open in Electron](api/window-open.md) for more details.
+詳細については [Electron での window.open](api/window-open.md) をご参照ください
 
 ## 予定されている破壊的なAPIの変更 (14.0)
 
 ### 削除: `app.allowRendererProcessReuse`
 
-The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+`app.allowRendererProcessReuse` プロパティは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとより密接に連携する計画の一環として削除されます。
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
@@ -47,7 +47,7 @@ Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代
 
 `webFrame.executeJavaScript` か `webFrame.executeJavaScriptInIsolatedWorld` のいずれかを使用している場合、この変更の影響を受けます。 これらのメソッドは同じ値渡しセマンティクスを使用しているため、[Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) がサポートしている戻り値かどうかを確認する必要があります。
 
-### Removed: BrowserWindowConstructorOptions inheriting from parent windows
+### 削除: 親ウインドウからの BrowserWindowConstructorOptions の継承
 
 Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
 
