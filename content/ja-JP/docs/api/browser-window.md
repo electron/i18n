@@ -10,11 +10,11 @@ const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
 
-// Load a remote URL
+// 外部 URL を読み込む
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
-win.loadFile('index.html')
+// またはローカルの HTML ファイルを読み込む
+win.loadURL('index.html')
 ```
 
 ## フレームレスウィンドウ
@@ -157,7 +157,7 @@ child.once('ready-to-show', () => {
     * `followWindow` - ウィンドウがアクティブなときにはアクティブに、そうでないときには非アクティブになるよう背景が自動的に表示されます。 これが既定値です。
     * `active` - 背景が常にアクティブに表示されます。
     * `inactive` - 背景が常に非アクティブに表示されます。
-  * `titleBarStyle` String (optional) _macOS_ _Windows_ - The style of window title bar. 省略値は `default` です。 以下は取りうる値です。
+  * `titleBarStyle` String (任意) _macOS_ _Windows_ - ウインドウのタイトルバーのスタイル。 省略値は `default` です。 以下は取りうる値です。
     * `default` - Results in the standard title bar for macOS or Windows respectively.
     * `hidden` - Results in a hidden title bar and a full size content window. On macOS, the window still has the standard window controls (“traffic lights”) in the top left. On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
     * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
