@@ -64,13 +64,13 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 標準エラー出力 (またはログファイル) に Chromium のログを出力します。
 
-The `ELECTRON_ENABLE_LOGGING` environment variable has the same effect as passing `--enable-logging`.
+`ELECTRON_ENABLE_LOGGING` 環境変数への設定は `--enable-logging` を渡すのと同じ効果です。
 
-Passing `--enable-logging` will result in logs being printed on stderr. Passing `--enable-logging=file` will result in logs being saved to the file specified by `--log-file=...`, or to `electron_debug.log` in the user-data directory if `--log-file` is not specified.
+`--enable-logging` を渡すと、標準エラー出力にログを出力すます。 `--enable-logging=file` を渡すと、ログは `--log-file=...` で指定したファイルに、`--log-file` が未指定の場合はユーザデータディレクトリの `electron_debug.log` に保存されます。
 
-> **Note:** On Windows, logs from child processes cannot be sent to stderr. Logging to a file is the most reliable way to collect logs on Windows.
+> **注意:** Windows では、子プロセスからのログを標準エラー出力に送信できません。 Windows でのログ収集は、ファイルへのログ出力が最も信頼できる方法です。
 
-See also `--log-file`, `--log-level`, `--v`, and `--vmodule`.
+`--log-file`, `--log-level`, `--v`, `--vmodule` もご参照ください。
 
 ### --force-fieldtrials=`trials`
 
@@ -119,9 +119,9 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ### --log-file=`path`
 
-If `--enable-logging` is specified, logs will be written to the given path. The parent directory must exist.
+`--enable-logging` が指定された場合、ログを指定のパスに書き込みます。 その親ディレクトリは存在していなければなりません。
 
-Setting the `ELECTRON_LOG_FILE` environment variable is equivalent to passing this flag. If both are present, the command-line switch takes precedence.
+環境変数 `ELECTRON_LOG_FILE` への設定は、このフラグを渡すことと等価です。 両方とも存在する場合はコマンドラインスイッチを優先します。
 
 ### --log-net-log=`path`
 
@@ -129,9 +129,9 @@ Setting the `ELECTRON_LOG_FILE` environment variable is equivalent to passing th
 
 ### --log-level=`N`
 
-Sets the verbosity of logging when used together with `--enable-logging`. `N` should be one of [Chrome's LogSeverities][severities].
+`--enable-logging` と一緒に使用することで、ログの詳細度を設定します。 `N` は [ChromeのLogSeverities][severities] のいずれかでなければなりません。
 
-Note that two complimentary logging mechanisms in Chromium -- `LOG()` and `VLOG()` -- are controlled by different switches. `--log-level` controls `LOG()` messages, while `--v` and `--vmodule` control `VLOG()` messages. So you may want to use a combination of these three switches depending on the granularity you want and what logging calls are made by the code you're trying to watch.
+注意として、Chromium の 2 つの相補的なログメカニズムである `LOG()` と `VLOG()` は、それぞれ別のスイッチで制御しています。 `--log-level` は `LOG()` のメッセージを制御しますが、`--v` と `--vmodule` は `VLOG()` のメッセージを制御します。 そのため、必要な詳細度やウォッチしようとしているコードで行われているロギング呼び出しに応じて、これら 3 つのスイッチを組み合わせて使用するとよいでしょう。
 
 See [Chromium Logging source][logging] for more information on how `LOG()` and `VLOG()` interact. Loosely speaking, `VLOG()` can be thought of as sub-levels / per-module levels inside `LOG(INFO)` to control the firehose of `LOG(INFO)` data.
 
