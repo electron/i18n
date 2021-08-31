@@ -29,7 +29,7 @@ win.webContents.openDevTools()
 
 Chromium日志可以通过`ELECTRON_ENABLE_LOGGING`环境变量启用。 有关更多信息，请参见[环境变量文档](../api/environment-variables.md#electron_enable_logging)。
 
-或者，可以传递命令行参数`--enable-logging`。 更多信息请查看[命令行开关文档](../api/command-line-switches.md#--enable-logging)
+或者，可以传递命令行参数`--enable-logging`。 更多信息请查看[命令行开关文档](../api/command-line-switches.md#--enable-loggingfile)
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools
