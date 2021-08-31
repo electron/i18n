@@ -1,5 +1,5 @@
 ---
-title: launch-app-from-URL-in-another-app
+title: Lancement de votre application Electron depuis une URL dans une autre application
 description: This guide will take you through the process of setting your electron app as the default handler for a specific protocol.
 slug: launch-app-from-url-in-another-app
 hide_title: true
