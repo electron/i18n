@@ -147,12 +147,12 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 
 在应用的`NSUserDefaults`配置项中添加其它默认设置。
 
-### `systemPreferences.getUserDefault(key, type)` _macOS_
+### `systemPreferences.getUserDefault<Type extends keyof UserDefaultTypes>(key, type)` _macOS_
 
 * `key` String
-* `type` String - 可以为 `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` 或 `dictionary`.
+* `type` Type - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-返回 `any` - `NSUserDefaults` 中 `key` 的值.
+Returns [`UserDefaultTypes[Type]`](structures/user-default-types.md) - The value of `key` in `NSUserDefaults`.
 
 常用的 `key` 和 `type` 的类型为:
 
