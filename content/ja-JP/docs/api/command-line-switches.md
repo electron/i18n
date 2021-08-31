@@ -62,7 +62,7 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ### --enable-logging[=file]
 
-Prints Chromium's logging to stderr (or a log file).
+標準エラー出力 (またはログファイル) に Chromium のログを出力します。
 
 The `ELECTRON_ENABLE_LOGGING` environment variable has the same effect as passing `--enable-logging`.
 
