@@ -59,17 +59,18 @@ app.whenReady().then(() => {
 开启以下API 的调用堆栈日志记录(过滤事件)：
 
 * `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-* `remote.require()` / `remote-require`
-* `remote.getGlobal()` / `remote-get-builtin`
-* `remote.getBuiltin()` / `remote-get-global`
-* `remote.getCurrentWindow()` / `remote-get-current-window`
-* `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
-### --enable-logging
+### --enable-logging[=file]
 
-在控制台打印Chromium日志.
+Prints Chromium's logging to stderr (or a log file).
 
-这个开关不能用于`app.commandLine.appendSwitch`, 因为它在用户应用程序加载之前就被解析了, 但是你可以设置`ELECTRON_ENABLE_LOGGING`环境变量来达到同样的效果.
+The `ELECTRON_ENABLE_LOGGING` environment variable has the same effect as passing `--enable-logging`.
+
+Passing `--enable-logging` will result in logs being printed on stderr. Passing `--enable-logging=file` will result in logs being saved to the file specified by `--log-file=...`, or to `electron_debug.log` in the user-data directory if `--log-file` is not specified.
+
+> **Note:** On Windows, logs from child processes cannot be sent to stderr. Logging to a file is the most reliable way to collect logs on Windows.
+
+See also `--log-file`, `--log-level`, `--v`, and `--vmodule`.
 
 ### --force-fieldtrials=`trials`
 
@@ -116,9 +117,25 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 设置系统语言环境
 
+### --log-file=`path`
+
+If `--enable-logging` is specified, logs will be written to the given path. The parent directory must exist.
+
+Setting the `ELECTRON_LOG_FILE` environment variable is equivalent to passing this flag. If both are present, the command-line switch takes precedence.
+
 ### --log-net-log=`path`
 
 启用需要保存的网络日志事件并将其写入`path`路径下.
+
+### --log-level=`N`
+
+Sets the verbosity of logging when used together with `--enable-logging`. `N` should be one of [Chrome's LogSeverities][severities].
+
+Note that two complimentary logging mechanisms in Chromium -- `LOG()` and `VLOG()` -- are controlled by different switches. `--log-level` controls `LOG()` messages, while `--v` and `--vmodule` control `VLOG()` messages. So you may want to use a combination of these three switches depending on the granularity you want and what logging calls are made by the code you're trying to watch.
+
+See [Chromium Logging source][logging] for more information on how `LOG()` and `VLOG()` interact. Loosely speaking, `VLOG()` can be thought of as sub-levels / per-module levels inside `LOG(INFO)` to control the firehose of `LOG(INFO)` data.
+
+See also `--enable-logging`, `--log-level`, `--v`, and `--vmodule`.
 
 ### --no-proxy-server
 
@@ -159,6 +176,8 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 这个开关只有在`--enable-logging`也被传递时才起效.
 
+See also `--enable-logging`, `--log-level`, and `--vmodule`.
+
 ### --vmodule=`pattern`
 
 给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 如下: `my_module=2,foo*=3` 会更改所有代码在源文件 `my_module.*` 和 `foo*.*` 中的日志级别。
@@ -166,6 +185,8 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 如下: `*/foo/bar/*=2` 会更改`foo/bar` 目录下源文件中所有代码的日志级别。
 
 这个开关只有在`--enable-logging`也被传递时才起效.
+
+See also `--enable-logging`, `--log-level`, and `--v`.
 
 ### --force_high_performance_gpu
 
@@ -214,5 +235,7 @@ Electron 支持一些 Node.js 支持的 [CLI flags][node-cli]。
 [ready]: app.md#event-ready
 [play-silent-audio]: https://github.com/atom/atom/pull/9485/files
 [debugging-main-process]: ../tutorial/debugging-main-process.md
+[logging]: https://source.chromium.org/chromium/chromium/src/+/master:base/logging.h
 [node-cli]: https://nodejs.org/api/cli.html
 [node-cli]: https://nodejs.org/api/cli.html
+[severities]: https://source.chromium.org/chromium/chromium/src/+/master:base/logging.h?q=logging::LogSeverity&ss=chromium
