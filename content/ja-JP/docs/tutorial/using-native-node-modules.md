@@ -74,7 +74,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 公開されているリリースと一致しない Electron のカスタムビルドに対してネイティブの Node モジュールをコンパイルするには、カスタムビルドにバンドルされている Node のバージョンを使用するように `npm` に指示します。
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/src/out/Default/gen/node_headers
 ```
 
 ## トラブルシューティング
