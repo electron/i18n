@@ -1,4 +1,4 @@
-# UserDefaultTypes Object
+# UserDefaultTypes オブジェクト
 
 * `string` String
 * `boolean` Boolean
@@ -9,4 +9,4 @@
 * `array` Array\<unknown>
 * `dictionary` Record\<string, unknown>
 
-This type is a helper alias, no object will never exist of this type.
+この型はヘルパーエイリアスであり、この型のオブジェクトが存在することはありません。
