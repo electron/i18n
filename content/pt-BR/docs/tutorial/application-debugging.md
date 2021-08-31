@@ -29,7 +29,7 @@ Se o contexto V8 parar de funcionar, as ferramentas de desenvolvimento mostratã
 
 Logs para Chromium podem ser habilitados através da variável de ambiente `ELECTRON_ENABLE_LOGGING`. Para mais informações, consulte o documento [Variáveis de ambiente](../api/environment-variables.md#electron_enable_logging).
 
-Alternativamente, o argumento da linha de comando `--enable-logging` pode ser passado. Mais informações estão disponíveis na documentação de [Alteradores de linha de comando](../api/command-line-switches.md#--enable-logging).
+Alternativamente, o argumento da linha de comando `--enable-logging` pode ser passado. Mais informações estão disponíveis na documentação de [Alteradores de linha de comando](../api/command-line-switches.md#--enable-loggingfile).
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developers. google. com/web/tools/chrome-devtools/
