@@ -147,12 +147,12 @@ Igual que `unsubscribeNotification`, pero remueve el subscriptor desde `NSWorksp
 
 Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplicación.
 
-### `systemPreferences.getUserDefault(key, type)` _macOS_
+### `systemPreferences.getUserDefault<Type extends keyof UserDefaultTypes>(key, type)` _macOS_
 
 * `llave` Cadena
-* `type` String - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
+* `type` Type - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
+Returns [`UserDefaultTypes[Type]`](structures/user-default-types.md) - The value of `key` in `NSUserDefaults`.
 
 Algún `key` y `type`s populares:
 
