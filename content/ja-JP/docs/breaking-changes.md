@@ -49,9 +49,9 @@ Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代
 
 ### 削除: 親ウインドウからの BrowserWindowConstructorOptions の継承
 
-Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+Electron 14 より前は、`window.open` で開いたウインドウは、親ウインドウから `transparent` や `resizable` などの BrowserWindow コンストラクタのオプションを継承していました。 Electron 14 以降ではこの動作は削除され、ウインドウは親から BrowserWindow コンストラクタのオプションを継承しません。
 
-Instead, explicitly set options for the new window with `setWindowOpenHandler`:
+代わりに、`setWindowOpenHandler` で以下のように新しいウインドウのオプションを明示的に設定してください。
 
 ```js
 webContents.setWindowOpenHandler((details) => {
@@ -66,18 +66,18 @@ webContents.setWindowOpenHandler((details) => {
 
 ### 削除: `additionalFeatures`
 
-The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+WebContents の `new-window` イベントと `did-create-window` イベントの、非推奨となっていた `additionalFeatures` プロパティは削除されました。 `new-window` は引数の順番があるのでこの引数はまだ残りますが、常に空の配列 `[]` になります。 (ただし注意として、`new-window` イベント自体は非推奨であり `setWindowOpenHandler` に置き換えられます。) ウインドウ機能のキーに値が無い場合は、オプションオブジェクトで `true` の値を持つキーとして表示されるようになりました。
 
 ```js
-// Removed in Electron 14
-// Triggered by window.open('...', '', 'my-key')
+// Electron 14 で削除
+// window.open('...', '', 'my-key') で動く
 webContents.on('did-create-window', (window, details) => {
   if (details.additionalFeatures.includes('my-key')) {
     // ...
   }
 })
 
-// Replace with
+// こちらに置換
 webContents.on('did-create-window', (window, details) => {
   if (details.options['my-key']) {
     // ...
