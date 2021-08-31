@@ -420,54 +420,6 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
-### イベント: 'remote-require' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `モジュール名` String
-
-`webContents` のレンダラープロセス内で `remote.require()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-global' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-`webContents` のレンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-builtin' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `モジュール名` String
-
-`webContents` のレンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-current-window' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-`webContents` のレンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-current-web-contents' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-`webContents` のレンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
@@ -1210,12 +1162,6 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 この `String` は Electron がグローバルフォールバックとして使用するユーザーエージェント文字列です。
 
 これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。  アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。  オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
-
-### `app.allowRendererProcessReuse`
-
-この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  このプロパティの現在の既定値は `true` です。
-
-これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。  このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。  Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
