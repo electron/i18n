@@ -94,14 +94,6 @@ Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基
 
 この `Boolean` は `webview` 内の iframe などのサブフレームで NodeJS サポートを有効にするための実験的オプションです。 すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。 デフォルトではゲストページ内のこのオプションは無効化されています。
 
-### `enableremotemodule`
-
-```html
-<webview src="http://www.google.com/" enableremotemodule="false"></webview>
-```
-
-`Boolean`。 この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用不可です。
-
 ### `plugins`
 
 ```html
