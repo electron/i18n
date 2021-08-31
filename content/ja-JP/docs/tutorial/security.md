@@ -43,7 +43,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 1. [セキュアなコンテンツのみを読み込む](#1-only-load-secure-content)
 2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#3-enable-context-isolation-for-remote-content)
-4. [Enable sandboxing](#4-enable-sandboxing)
+4. [サンドボックス化を有効にする](#4-enable-sandboxing)
 5. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#5-handle-session-permission-requests-from-remote-content)
 6. [`webSecurity` を無効にしない](#6-do-not-disable-websecurity)
 7. [`Content-Security-Policy` を定義](#7-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
@@ -159,13 +159,13 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 
 `contextIsolation` が何であるのか及びこれを有効にする方法についての情報は、[コンテキスト隔離](context-isolation.md) ドキュメントをご参照ください。
 
-## 4) Enable Sandboxing
+## 4) サンドボックス化を有効にする
 
-[Sandboxing](sandbox.md) is a Chromium feature that uses the operating system to significantly limit what renderer processes have access to. You should enable the sandbox in all renderers. Loading, reading or processing any untrusted content in an unsandboxed process, including the main process, is not advised.
+[サンドボックス化](sandbox.md) は Chromium の機能で、オペレーティングシステムを利用してレンダラープロセスのアクセス範囲を大幅に制限します。 すべてのレンダラーでサンドボックスを有効にするべきです。 メインプロセスを含むサンドボックス化されていないプロセスでは、信頼されないコンテンツをロードしたり、読んだり、処理したりすることはお勧めしません。
 
 ### どうすればいいの？
 
-When creating a window, pass the `sandbox: true` option in `webPreferences`:
+ウインドウ作成時に、以下のように `webPreferences` に `sandbox: true` オプションを渡します。
 
 ```js
 const win = new BrowserWindow({
