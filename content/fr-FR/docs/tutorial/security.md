@@ -43,7 +43,7 @@ Vous devriez au moins suivre ces étapes pour améliorer la sécurité de votre 
 1. [Charger uniquement du contenu sécurisé](#1-only-load-secure-content)
 2. [Désactiver l'intégration de Node.js dans tous les moteurs de rendu qui affichent du contenu distant](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Activer l'isolement du contexte dans tous les moteurs de rendu qui affichent le contenu distant](#3-enable-context-isolation-for-remote-content)
-4. [Enable sandboxing](#4-enable-sandboxing)
+4. [Activer le bac à sable](#4-enable-sandboxing)
 5. [Utiliser `ses.setPermissionRequestHandler()` dans toutes les sessions qui se chargent de contenu distant](#5-handle-session-permission-requests-from-remote-content)
 6. [Ne pas désactiver `webSecurity`](#6-do-not-disable-websecurity)
 7. [Définissez une `Content-Security-Policy`](#7-define-a-content-security-policy) et utilisez des règles restrictives (c.-à-d. `script-src 'self'`)
@@ -159,13 +159,13 @@ Même lorsque `nodeIntegration: false` est utilisé, pour vraiment appliquer une
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
-## 4) Enable Sandboxing
+## Activer le bac à sable
 
-[Sandboxing](sandbox.md) is a Chromium feature that uses the operating system to significantly limit what renderer processes have access to. You should enable the sandbox in all renderers. Loading, reading or processing any untrusted content in an unsandboxed process, including the main process, is not advised.
+[Sandboxing](sandbox.md) est une fonctionnalité de Chromium qui utilise le système d’exploitation pour limiter considérablement ce à quoi les processus de rendu ont accès. Vous devez activer le bac à sable dans tous les moteurs de rendu. Charger, lire ou traiter tout contenu non fiable dans un processus non protégé par le bac à sable, y compris le processus principal, n'est pas conseillé.
 
 ### Comment ?
 
-When creating a window, pass the `sandbox: true` option in `webPreferences`:
+Lors de la création d'une fenêtre, passez l'option `sandbox : true` dans `webPreferences`:
 
 ```js
 const win = new BrowserWindow({
