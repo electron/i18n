@@ -46,7 +46,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -88,7 +88,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -113,7 +113,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -132,7 +132,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `statusLine` String
@@ -160,7 +160,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (任意)
@@ -182,7 +182,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
@@ -206,7 +206,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (任意)
@@ -229,7 +229,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (任意)
     * `webContents` WebContents (任意)
     * `frame` WebFrameMain (任意)
-    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
+    * `resourceType` String - `mainFrame`、`subFrame`、`stylesheet`、`script`、`image`、`font`、`object`、`xhr`、`ping`、`cspReport`、`media`、`webSocket`、`other` のいずれかにできます。
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
