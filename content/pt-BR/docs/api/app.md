@@ -420,54 +420,6 @@ Retorna:
 
 Este evento será emitido quando `desktopCapturer.getSources()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
-### Event: 'remote-require' _Deprecated_
-
-Retorna:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Este evento será emitido quando `remote.require()` é chamado no processo de renderização do `webContents`. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
-
-### Event: 'remote-get-global' _Deprecated_
-
-Retorna:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-Este evento será emitido quando `remote.getGlobal()` é chamado no processo de renderização do `webContents`. Evocando `event.preventDefault()` irá previnir o global ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
-
-### Event: 'remote-get-builtin' _Deprecated_
-
-Retorna:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-É emitido quando `remote.getBuiltin()` é chamado pelo processo de renderização de `webContents`. Evocando `event.preventDefault()` irá prevenir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
-
-### Event: 'remote-get-current-window' _Deprecated_
-
-Retorna:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Este evento será emitido quando `remote.getCurrentWindow()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
-
-### Event: 'remote-get-current-web-contents' _Deprecated_
-
-Retorna:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Este evento será emitido quando `remote.getCurrentWebContents()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
-
 ## Métodos
 
 O objeto `app` tem os seguintes métodos:
@@ -1210,12 +1162,6 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 A `String` which is the user agent string Electron will use as a global fallback.
 
 This is the user agent that will be used when no user agent is set at the `webContents` or `session` level.  It is useful for ensuring that your entire app has the same user agent.  Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
-
-### `app.allowRendererProcessReuse`
-
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation.  The current default value for this property is `true`.
-
-The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed.  This property impacts which native modules you can use in the renderer process.  For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
