@@ -94,14 +94,6 @@ Un `Boolean`. Cuando este atributo esté presente, la página de invitado en `we
 
 Un `Boolean` para habilitar la opción experimental soporte NodeJS en sub frames tal como iframes dentro de `webview`. Todas sus precargas se cargarán por cada iframe, pude usar `process.isMainFrame` para determinar si estás en el frame principal o no. Esta opción está deshailitada por defecto en la pagina de invitado.
 
-### `enableremotemodule`
-
-```html
-<webview src="http://www.google.com/" enableremotemodule="false"></webview>
-```
-
-Un `Boolean`. Cuando este atributo es `false` la pagina de invitado en `webview` no tendrá acceso al módulo [`remote`](remote.md). The remote module is unavailable by default.
-
 ### `plugins`
 
 ```html
