@@ -186,8 +186,6 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `detail` Cadena (opcional) - Información extra del mensaje.
-  * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
-  * `checkboxChecked` Boolean (opcional) - Estado inicial checked del checkbox. `false` por defecto.
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si no existen tales botones etiquetados y esta opción no esta configurada, `0` será usada como el valor de retorno.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
