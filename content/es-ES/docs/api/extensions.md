@@ -64,6 +64,7 @@ Los siguientes métodos de `chrome.runtime` son soportados:
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
+- `chrome.runtime.reload`
 
 Los siguientes eventos de `chrome.runtime` están soportados:
 
