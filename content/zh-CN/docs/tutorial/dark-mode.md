@@ -56,9 +56,9 @@ If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequ
 </html>
 ```
 
-以及 `style.css` 文件：
+以及 `styles.css` 文件：
 
-```css title='style.css'
+```css title='styles.css'
 @media (prefers-color-scheme: dark) {
   body { background: #333; color: white; }
 }
