@@ -56,7 +56,7 @@ Starting with the `index.html` file:
 </html>
 ```
 
-And the `styles.css` file:
+Et le fichier `styles.css`:
 
 ```css title='styles.css'
 @media (prefers-color-scheme: dark) {
