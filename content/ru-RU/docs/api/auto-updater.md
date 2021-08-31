@@ -97,6 +97,8 @@
 
 Спрашивает сервер, есть ли обновление. Вы должны вызвать `setFeedURL` перед использованием API.
 
+**Note:** If an update is available it will be downloaded automatically. Calling `autoUpdater.checkForUpdates()` twice will download the update two times.
+
 ### `autoUpdater.quitAndInstall()`
 
 Перезапускает приложение и устанавливает обновление после его загрузки. Следует вызывать только после произошедшего `update-downloaded`.
