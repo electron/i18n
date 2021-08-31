@@ -29,7 +29,7 @@ V8 コンテキストがクラッシュした場合、デベロッパー ツー�
 
 Chromium のログは `ELECTRON_ENABLE_LOGGING` 環境変数を介して有効にできます。 詳しい情報は [環境変数ドキュメント](../api/environment-variables.md#electron_enable_logging) を参照してください。
 
-代替として、`--enable-logging` コマンドライン引数を渡すことでもできます。 詳しい情報は [コマンドラインスイッチドキュメント](../api/command-line-switches.md#--enable-logging) を参照してください。
+代替として、`--enable-logging` コマンドライン引数を渡すことでもできます。 詳しい情報は [コマンドラインスイッチドキュメント](../api/command-line-switches.md#--enable-loggingfile) を参照してください。
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools
