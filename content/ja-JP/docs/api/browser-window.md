@@ -158,8 +158,8 @@ child.once('ready-to-show', () => {
     * `active` - 背景が常にアクティブに表示されます。
     * `inactive` - 背景が常に非アクティブに表示されます。
   * `titleBarStyle` String (任意) _macOS_ _Windows_ - ウインドウのタイトルバーのスタイル。 省略値は `default` です。 以下は取りうる値です。
-    * `default` - Results in the standard title bar for macOS or Windows respectively.
-    * `hidden` - Results in a hidden title bar and a full size content window. On macOS, the window still has the standard window controls (“traffic lights”) in the top left. On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
+    * `default` - macOS や Windows ごとの標準的なタイトルバーになります。
+    * `hidden` - タイトルバーが隠れ、フルサイズのコンテンツウインドウになります。 macOS では、ウインドウの左上に標準ウインドウコントロール ("信号機ボタン") が付きます。 Windows では、`titleBarOverlay: true` と合わせることでウインドウコントロールオーバーレイ (詳細は `titleBarOverlay` を参照) が有効になり、さもなくばウインドウコントロールは表示されません。
     * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` - Only on macOS, results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **注:** 現在、これは実験的な機能です。
   * `trafficLightPosition` [Point](structures/point.md) (任意) - フレームレスウインドウにおける信号機ボタンのカスタム位置を設定します。
