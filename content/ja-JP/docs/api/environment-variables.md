@@ -104,7 +104,15 @@ Linux でゴミの実装を設定します。 既定値は `gio` です。
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-コンソールにChromeの内部ログを出力します。
+Prints Chromium's internal logging to the console.
+
+Setting this variable is the same as passing `--enable-logging` on the command line. For more info, see `--enable-logging` in [command-line switches](./command-line-switches.md#enable-loggingfile).
+
+### `ELECTRON_LOG_FILE`
+
+Sets the file destination for Chromium's internal logging.
+
+Setting this variable is the same as passing `--log-file` on the command line. For more info, see `--log-file` in [command-line switches](./command-line-switches.md#log-filepath).
 
 ### `ELECTRON_DEBUG_DRAG_REGIONS`
 
@@ -112,7 +120,7 @@ macOS での [`BrowserView`](./browser-view.md) のドラッグ可能な領域�
 
 ### `ELECTRON_DEBUG_NOTIFICATIONS`
 
-macOS での [`Notification`](./notification.md) ライフサイクルにさらなるログを追加し、デバッグを支援します。 新しい通知の作成や有効化のタイミングで、そのさらなるログが表示されます。 これは、通知が表示されたり、解除されたり、そのボタンがクリックされたり、返信されたりといった一般的なアクションが実行されたときにも表示されます。
+macOS での [`Notification`](./notification.md) ライフサイクルにさらなるログを追加し、デバッグを支援します。 新しい通知の作成や有効化のタイミングで、そのさらなるログが表示されます。 They will also be displayed when common a tions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
 
 以下は出力例です。
 
