@@ -155,7 +155,6 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
-* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * とりわけ、あなたのニーズに合ったものを見つけるのであれば探してみてください。Google は友達です 😄
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
