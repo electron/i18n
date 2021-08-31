@@ -78,7 +78,6 @@ Electron
 * **.cloeci** - CircleCI 的 CI 配置文件。
 * **.github** - GitHub专用配置文件，包括 issue 模板和 CODEOWNERS。
 * **dist** - 由脚本 `script/create-dist.py` 创建的临时发布目录.
-* **external_binaries** - 下载了不支持用 `gn` 构建的第三方框架的二进制文件.
 * **node_modules** - 在构建中用到的第三方 node 模块.
 * **npm** - 通过 npm 安装 Electron 的逻辑。
 * **out** - `ninja` 的临时输出目录.
@@ -94,4 +93,3 @@ script/ - The set of all scripts Electron runs for a variety of purposes.
 ```
 
 * **typings** - Electron的内部代码的 TypeScript typings。
-* **vendor** - 一些第三方依赖的源代码。
