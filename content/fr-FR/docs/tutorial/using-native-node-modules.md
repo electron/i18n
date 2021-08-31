@@ -75,7 +75,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 Pour compiler des modules Node natifs avec une compilation personnalisée d'Electron qui ne correspond pas à une release publique, utilisez la commande `npm` pour utiliser la version de Node que vous avez empaquetée avec votre compilation personnalisée.
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/src/out/Default/gen/node_headers
 ```
 
 ## Résolution de problème
