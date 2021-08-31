@@ -154,3 +154,9 @@ ipcRenderer.on('port', (e, msg) => {
 #### `frame.routingId` _読み出し専用_
 
 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 同じ基底フレームを参照する `WebFrameMain` インスタンスすべては、それぞれ同じ `routingId` になります。
+
+#### `frame.visibilityState` _読み出し専用_
+
+A `string` representing the [visibility state](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) of the frame.
+
+See also how the [Page Visibility API](browser-window.md#page-visibility) is affected by other Electron APIs.
