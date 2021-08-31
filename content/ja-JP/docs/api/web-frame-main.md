@@ -157,6 +157,6 @@ ipcRenderer.on('port', (e, msg) => {
 
 #### `frame.visibilityState` _読み出し専用_
 
-A `string` representing the [visibility state](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) of the frame.
+`string` 型で、そのフレームの [可視性の状態](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) を表します。
 
-See also how the [Page Visibility API](browser-window.md#page-visibility) is affected by other Electron APIs.
+[Page 可視性 API](browser-window.md#page-visibility) が他の Electron API から受ける影響についてもご覧ください。
