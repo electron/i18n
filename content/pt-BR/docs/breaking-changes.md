@@ -12,9 +12,29 @@ This document uses the following convention to categorize breaking changes:
 * **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
 * **Removed:** An API or feature was removed, and is no longer supported by Electron.
 
+## Alterações planejadas na API (15.0)
+
+### Default Changed: `nativeWindowOpen` defaults to `true`
+
+Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
+
 ## Alterações planejadas na API (14.0)
 
-### API Changed: `window.(open)`
+### Removido: `app.allowRendererProcessReuse`
+
+The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
+### Removed: Browser Window Affinity
+
+The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
+### API Changed: `window.open()`
 
 The optional parameter `frameName` will no longer set the title of the window. This now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) under the corresponding parameter `windowName`.
 
@@ -22,10 +42,48 @@ If you were using this parameter to set the title of a window, you can instead u
 
 ### Removido: `worldSafeExecuteJavaScript`
 
-In Electron 14, `worldSafeExecuteJavaScript` will be removed.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+No Electron 14, `worldSafeExecuteJavaScript` será removido.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
 12.
 
 You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+
+### Removed: BrowserWindowConstructorOptions inheriting from parent windows
+
+Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+
+Instead, explicitly set options for the new window with `setWindowOpenHandler`:
+
+```js
+webContents.setWindowOpenHandler((details) => {
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      // ...
+    }
+  }
+})
+```
+
+### Removido: `additionalFeatures`
+
+The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+
+```js
+// Removed in Electron 14
+// Triggered by window.open('...', '', 'my-key')
+webContents.on('did-create-window', (window, details) => {
+  if (details.additionalFeatures.includes('my-key')) {
+    // ...
+  }
+})
+
+// Replace with
+webContents.on('did-create-window', (window, details) => {
+  if (details.options['my-key']) {
+    // ...
+  }
+})
+```
 
 ## Alterações planejadas na API (13.0)
 
@@ -284,12 +342,6 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 ### Deprecated: `crashReporter.start({ compress: false })`
 
 Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
-
-### Removed: Browser Window Affinity
-
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
-
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Default Changed: `enableRemoteModule` defaults to `false`
 
