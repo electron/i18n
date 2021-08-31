@@ -133,9 +133,9 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 注意として、Chromium の 2 つの相補的なログメカニズムである `LOG()` と `VLOG()` は、それぞれ別のスイッチで制御しています。 `--log-level` は `LOG()` のメッセージを制御しますが、`--v` と `--vmodule` は `VLOG()` のメッセージを制御します。 そのため、必要な詳細度やウォッチしようとしているコードで行われているロギング呼び出しに応じて、これら 3 つのスイッチを組み合わせて使用するとよいでしょう。
 
-See [Chromium Logging source][logging] for more information on how `LOG()` and `VLOG()` interact. Loosely speaking, `VLOG()` can be thought of as sub-levels / per-module levels inside `LOG(INFO)` to control the firehose of `LOG(INFO)` data.
+`LOG()` と `VLOG()` の相互作用の詳細については、[Chromium ロギングのソース][logging] をご参照ください。 大まかに言えば、`VLOG()` は大量の `LOG(INFO)` データを制御する `LOG(INFO)` 内部のサブレベル / モジュールごとのレベルと考えられます。
 
-See also `--enable-logging`, `--log-level`, `--v`, and `--vmodule`.
+`--enable-logging`, `--log-level`, `--v`, `--vmodule` もご参照ください。
 
 ### --no-proxy-server
 
@@ -176,7 +176,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
-See also `--enable-logging`, `--log-level`, and `--vmodule`.
+`--enable-logging`, `--log-level`, `--vmodule` もご参照ください。
 
 ### --vmodule=`pattern`
 
@@ -186,7 +186,7 @@ See also `--enable-logging`, `--log-level`, and `--vmodule`.
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
-See also `--enable-logging`, `--log-level`, and `--v`.
+`--enable-logging`, `--log-level`, `--v` もご参照ください。
 
 ### --force_high_performance_gpu
 
