@@ -64,6 +64,7 @@ session.loadExtension('path/to/unpacked/extension').then(({ id }) => {
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
+- `chrome.runtime.reload`
 
 Поддерживаются только следующие события `chrome.runtime`:
 
