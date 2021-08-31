@@ -1,5 +1,5 @@
 ---
-title: 从其他应用中的URL启动应用
+title: 从其他应用中的 URL 启动您的应用
 description: 本指南将会指导您配置 Electron 应用为特定协议的默认处理器。
 slug: 从其他应用中的URL启动应用
 hide_title: true
