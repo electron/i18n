@@ -160,8 +160,8 @@ child.once('ready-to-show', () => {
   * `titleBarStyle` String (任意) _macOS_ _Windows_ - ウインドウのタイトルバーのスタイル。 省略値は `default` です。 以下は取りうる値です。
     * `default` - macOS や Windows ごとの標準的なタイトルバーになります。
     * `hidden` - タイトルバーが隠れ、フルサイズのコンテンツウインドウになります。 macOS では、ウインドウの左上に標準ウインドウコントロール ("信号機ボタン") が付きます。 Windows では、`titleBarOverlay: true` と合わせることでウインドウコントロールオーバーレイ (詳細は `titleBarOverlay` を参照) が有効になり、さもなくばウインドウコントロールは表示されません。
-    * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` - Only on macOS, results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **注:** 現在、これは実験的な機能です。
+    * `hiddenInset` - macOS 限定で、タイトルバーが非表示になり、信号機ボタンがウインドウ端から少し離れたところに表示されるようになります。
+    * `customButtonsOnHover` - macOS 限定で、タイトルバーが非表示になり、フルサイズコンテンツのウインドウが表示されます。ウィンドウの左上にカーソルを置くと信号機ボタンが表示されるようになります。  **注:** 現在、これは実験的な機能です。
   * `trafficLightPosition` [Point](structures/point.md) (任意) - フレームレスウインドウにおける信号機ボタンのカスタム位置を設定します。
   * `roundedCorners` Boolean (任意) - macOS でのフレームレスウインドウが丸角であるべきかどうか。 省略値は `true` です。
   * `fullscreenWindowTitle` Boolean (任意) _非推奨_ - macOSで titleBarStyle が `hiddenInset` のフルスクリーンモードでタイトルバーにタイトルを表示するかどうか。 省略値は `false` です。
@@ -204,7 +204,7 @@ child.once('ready-to-show', () => {
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
     * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は `true` です。 `preload` スクリプトが実行されるコンテキストでは、専用の `document` および `window` グローバルと、独自の JavaScript ビルドインのセット (`Array`, `Object`, `JSON` など) にのみアクセスできます。これらすべてはロードされたコンテンツからは見えません。 Electron API は `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、信頼できない可能性のあるリモートコンテンツをロードする際に使用します。ロードされたコンテンツが `preload` スクリプトや使用する Electron API を改ざんできないようにするためです。  このオプションは、[Chrome のコンテンツスクリプト][chrome-content-scripts] のものと同じ技術を使用しています。  Console タブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスできます。
-    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **Note:** The default value will be changing to `true` in Electron 15.
+    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 省略値は Electron 15 で `true` に変更される予定です。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。  小規模なデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は `false` です。
@@ -222,7 +222,7 @@ child.once('ready-to-show', () => {
       * `bypassHeatCheck` - ヒューリスティックのコードキャッシュをバイパスしつつ遅延コンパイル
       * `bypassHeatCheckAndEagerCompile` - 上と同じにしつつ先行コンパイルします。 既定のポリシーは `code` です。
     * `enablePreferredSizeMode` Boolean (任意) - 優先サイズモードを有効にするかどうか。 優先サイズとは、document のレイアウトをスクロール無しで格納するにあたって必要な最小サイズのことです。 これを有効にすると、優先サイズが変更されたときに `WebContents`で`preferred-size-changed`イベントが発生します。 省略値は `false` です。
-  * `titleBarOverlay` [OverlayOptions](structures/overlay-options.md) | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. 省略値は `false` です。  On Windows, the [OverlayOptions](structures/overlay-options.md) can be used instead of a boolean to specify colors for the overlay.
+  * `titleBarOverlay` [OverlayOptions](structures/overlay-options.md) | Boolean (任意) -  フレームレスウインドウを macOS の`win.setWindowButtonVisibility(true)` と組み合わせて使用している場合や、`titleBarStyle` を使用して標準ウインドウコントロール (macOS では "信号機ボタン") が表示されている場合、このプロパティはウインドウコントロールオーバーレイで [JavaScript API][overlay-javascript-apis] と [CSS 環境変数][overlay-css-env-vars] を有効にします。 `true` を指定すると、オーバーレイはデフォルトのシステムカラーになります。 省略値は `false` です。  Windows では、真偽値の代わりに [OverlayOptions](structures/overlay-options.md) でオーバーレイの色を指定できます。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -544,7 +544,7 @@ win.loadURL('https://github.com')
 
 #### `win.focusable` _Windows_ _macOS_
 
-A `Boolean` property that determines whether the window is focusable.
+`Boolean` 型のプロパティです。ウィンドウにフォーカスできるどうかを決定します。
 
 #### `win.visibleOnAllWorkspaces`
 
@@ -1347,7 +1347,7 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 #### `win.isFocusable()` _macOS_ _Windows_
 
-Returns whether the window can be focused.
+ウインドウにフォーカスできるかどうかを返します。
 
 #### `win.setParentWindow(parent)`
 
