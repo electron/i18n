@@ -420,54 +420,6 @@ app.on('session-created', (session) => {
 
 Возникает, когда `desktopCapturer.getSources()` вызывается в процессе рендерера `webContents`. Вызов `event.preventDefault()` вернет пустые источники.
 
-### Event: 'remote-require' _Deprecated_
-
-Возвращает:
-
-* Событие типа `event`
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
-
-### Event: 'remote-get-global' _Deprecated_
-
-Возвращает:
-
-* Событие типа `event`
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
-
-### Event: 'remote-get-builtin' _Deprecated_
-
-Возвращает:
-
-* Событие типа `event`
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
-
-### Event: 'remote-get-current-window' _Deprecated_
-
-Возвращает:
-
-* Событие типа `event`
-* `webContents` [WebContents](web-contents.md)
-
-Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
-
-### Event: 'remote-get-current-web-contents' _Deprecated_
-
-Возвращает:
-
-* Событие типа `event`
-* `webContents` [WebContents](web-contents.md)
-
-Происходит когда функция `remote.getCurrentWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
-
 ## Методы
 
 Объект `app` имеет следующие методы:
@@ -1210,12 +1162,6 @@ A `Menu | null`свойство, которое возвращает [`Menu`](me
 `Строка`, которая является строкой агента пользователя, которую Electron будет использовать в качестве глобального запаса.
 
 Это агент пользователя, который будет использоваться, если ни один агент пользователя не установлен на уровнях `webContents` или `session`.  Это полезно для того, чтобы все ваше приложение имело один и тот же пользовательский агент.  Установите пользовательское значение как можно раньше в инициализации Ваших приложений, чтобы убедиться, что используется переопределенное значение.
-
-### `app.allowRendererProcessReuse`
-
-`Boolean`, которое, когда `true`, отключает переопределения, которые Electron имеет на месте, чтобы убедиться, что графические процессы перезапускаются при каждой навигации.  Текущее значение по умолчанию для этого свойства - `true`.
-
-Цель заключается в том, чтобы эти переопределения были отключены по умолчанию, а затем, в некоторой точке в будущем, это свойство будет удалено.  Это свойство влияет на то, какие нативные модули можно использовать в графическом процессе.  Для большей информации о том, как Electron перезапускает графический процесс и использует нативные модули в графическом процессе, пожалуйста, проверьте этот [отслеживаемый вопрос](https://github.com/electron/electron/issues/18397).
 
 ### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
