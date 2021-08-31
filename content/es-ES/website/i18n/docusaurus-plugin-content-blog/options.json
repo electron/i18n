@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Electron's blog",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Keep up to date with what's going on with the Electron project",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "Latest posts",
+    "description": "The label for the left sidebar"
+  }
+}
