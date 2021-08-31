@@ -150,9 +150,9 @@ macOS のネイティブ通知として `event` を送信します。 `userInfo`
 ### `systemPreferences.getUserDefault<Type extends keyof UserDefaultTypes>(key, type)` _macOS_
 
 * `key` String
-* `type` Type - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` Type - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array`、`dictionary` のいずれかにできます。
 
-Returns [`UserDefaultTypes[Type]`](structures/user-default-types.md) - The value of `key` in `NSUserDefaults`.
+戻り値 [`UserDefaultTypes[Type]`](structures/user-default-types.md) - `NSUserDefaults` 内の `key` の値。
 
 いくつかの一般的な `key` と `value` は以下です。
 
