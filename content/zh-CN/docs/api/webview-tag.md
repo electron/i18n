@@ -94,14 +94,6 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 
 A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. Node 集成在访客页中默认是禁用的。
 
-### `enableremotemodule`
-
-```html
-<webview src="http://www.google.com/" enableremotemodule="false"></webview>
-```
-
-一个 `Boolean`。 When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
-
 ### `plugins`
 
 ```html
