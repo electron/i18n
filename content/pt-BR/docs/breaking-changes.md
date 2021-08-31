@@ -22,6 +22,23 @@ See the documentation for [window.open in Electron](api/window-open.md) for more
 
 ## Alterações planejadas na API (14.0)
 
+### Removed: `remote` module
+
+The `remote` module was deprecated in Electron 12, and will be removed in Electron 14. It is replaced by the [`@electron/remote`](https://github.com/electron/remote) module.
+
+```js
+// Deprecated in Electron 12:
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+// Replace with:
+const { BrowserWindow } = require('@electron/remote')
+
+// In the main process:
+require('@electron/remote/main').initialize()
+```
+
 ### Removido: `app.allowRendererProcessReuse`
 
 The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
@@ -42,7 +59,7 @@ If you were using this parameter to set the title of a window, you can instead u
 
 ### Removido: `worldSafeExecuteJavaScript`
 
-No Electron 14, `worldSafeExecuteJavaScript` será removido.  There is no alternative, please ensure your code works with this property enabled.  It has been enabled by default since Electron
+No Electron 14, `worldSafeExecuteJavaScript` será removido. There is no alternative, please ensure your code works with this property enabled. It has been enabled by default since Electron
 12.
 
 You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
