@@ -14,7 +14,7 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 
 // Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+win.loadFile('index.html')
 ```
 
 ## Frameless window
@@ -157,11 +157,11 @@ child.once('ready-to-show', () => {
     * `followWindow` - 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态。 默认为该值。
     * `active` - 后台应一直显示为激活状态。
     * `inactive` - 后台应一直显示为非激活状态。
-  * `titleBarStyle` String (可选) - 窗口标题栏样式。 默认值为 `default`. 可能的值有
-    * `default` - 标准灰色不透明的Mac标题栏
-    * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
-    * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
-    * `customButtonsOnHover` - Results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  ** 注意: **此选项目前是实验性的。
+  * `titleBarStyle` String (optional) _macOS_ _Windows_ - The style of window title bar. 默认值为 `default`. 可能的值有
+    * `default` - Results in the standard title bar for macOS or Windows respectively.
+    * `hidden` - Results in a hidden title bar and a full size content window. On macOS, the window still has the standard window controls (“traffic lights”) in the top left. On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
+    * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+    * `customButtonsOnHover` - Only on macOS, results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  ** 注意: **此选项目前是实验性的。
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons in frameless windows.
   * `roundedCorners` Boolean (optional) - Whether frameless window should have rounded corners on macOS. 默认值为 `true`。
   * `fullscreenWindowTitle` Boolean (optional) _Deprecated_ - Shows the title in the title bar in full screen mode on macOS for `hiddenInset` titleBarStyle. 默认值为 `false`.
@@ -176,10 +176,8 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInSubFrames` Boolean (可选项)(实验性)，是否允许在子页面(iframe)或子窗口(child window)中集成Node.js； 预先加载的脚本会被注入到每一个iframe，你可以用 `process.isMainFrame` 来判断当前是否处于主框架（main frame）中。
     * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](context-bridge.md#exposing-node-global-symbols).
     * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](../tutorial/sandbox.md).
-    * `enableRemoteModule` Boolean (可选) - 是否启用 [`remote`](remote.md) 模块。 默认值为 `false`.
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
-    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` _已废弃_
     * `zoomFactor` Number (可选) - 页面的默认缩放系数, `3.0` 表示 `300%`。 默认值为 `1.0`.
     * `javascript` Boolean (可选) - 是否启用 JavaScript 支持。 默认值为 `true`。
     * `webSecurity` Boolean (可选) - 当设置为 `false`, 它将禁用同源策略 (通常用来测试网站), 如果此选项不是由开发者设置的，还会把 `allowRunningInsecureContent`设置为 `true`. 默认值为 `true`。
@@ -206,8 +204,7 @@ child.once('ready-to-show', () => {
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认为 `true`。 `预加载`脚本所运行的上下文环境只能访问其自身专用的`文档`和全局`窗口`，其自身一系列内置的JavaScript (`Array`, `Object`, `JSON`, 等等) 也是如此，这些对于已加载的内容都是不可见的。 Electron API 将只在`预加载`脚本中可用，在已加载页面中不可用。 这个选项应被用于加载可能不被信任的远程内容时来确保加载的内容无法篡改`预加载`脚本和任何正在使用的Electron api。  该选项使用的是与[Chrome内容脚本][chrome-content-scripts]相同的技术。  你可以在开发者工具Console选项卡内顶部组合框中选择 'Electron Isolated Context'条目来访问这个上下文。
-    * `worldSafeExecuteJavaScript` Boolean (可选) - 如果为true，从`webFrame.executeJavaScript` 返回的值将被特殊处理，以确保使用 `contextIsolation` 时，JS中的值安全地在两个世界之间传递。 默认值为 `true`。 _已废弃_
-    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. 除了 `nodeIntegrationInSubFrames` 为true时，其它情况下node integration将永远禁用。 ** 注意: **此选项目前是实验性的。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. 除了 `nodeIntegrationInSubFrames` 为true时，其它情况下node integration将永远禁用。 **Note:** The default value will be changing to `true` in Electron 15.
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
     * `additionalArguments` String[] (可选) - 一个将被附加到当前应用程序的渲染器进程中`process.argv`的字符串列表 。  可用于将少量的数据传递到渲染器进程预加载脚本中。
     * `safeDialogs` Boolean (可选) - 是否启用浏览器样式的持续对话框保护。 默认值为 `false`.
@@ -225,6 +222,7 @@ child.once('ready-to-show', () => {
       * `bypassHeatCheck` - 绕过启发式代码缓存，但使用懒编译。
       * `bypassHeatCheckAndEagerCompile` - 与上面相同，除了编译是及时的。 默认策略是 `code`。
     * `enablePreferredSizeMode` Boolean (可选) - 是否启用首选大小模式。 首选大小是包含文档布局所需的最小大小--无需滚动。 启用该属性将导致在首选大小发生变化时，在`WebContents` 上触发 `preferred-size-changed` 事件。 默认值为 `false`.
+  * `titleBarOverlay` [OverlayOptions](structures/overlay-options.md) | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. 默认值为 `false`.  On Windows, the [OverlayOptions](structures/overlay-options.md) can be used instead of a boolean to specify colors for the overlay.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -542,6 +540,10 @@ win.loadURL('https://github.com')
 #### `win.fullScreen`
 
 一个 `Boolean` 属性，用于决定窗口是否处于全屏模式。
+
+#### `win.focusable` _Windows_ _macOS_
+
+A `Boolean` property that determines whether the window is focusable.
 
 #### `win.visibleOnAllWorkspaces`
 
@@ -1342,6 +1344,10 @@ win.loadURL('http://localhost:8000/post', {
 
 在 macOS 上，该方法不会从窗口中移除焦点。
 
+#### `win.isFocusable()` _macOS_ _Windows_
+
+Returns whether the window can be focused.
+
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow | null
@@ -1451,3 +1457,5 @@ Returns `Point` - The custom position for the traffic light buttons in frameless
 [window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
 [chrome-content-scripts]: https://developer.chrome.com/extensions/content_scripts#execution-environment
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[overlay-javascript-apis]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables
