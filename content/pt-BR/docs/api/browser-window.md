@@ -14,7 +14,7 @@ const win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 
 // Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+win.loadFile('index.html')
 ```
 
 ## Janela sem frame
@@ -157,11 +157,11 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
     * `followWindow` - The backdrop should automatically appear active when the window is active, and inactive when it is not. This is the default.
     * `active` - The backdrop should always appear active.
     * `inactive` - The backdrop should always appear inactive.
-  * `titleBarStyle` String (optional) - The style of window title bar. Por padrão é `default`. Possible values are:
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` - Results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **Note:** This option is currently experimental.
+  * `titleBarStyle` String (optional) _macOS_ _Windows_ - The style of window title bar. Por padrão é `default`. Possible values are:
+    * `default` - Results in the standard title bar for macOS or Windows respectively.
+    * `hidden` - Results in a hidden title bar and a full size content window. On macOS, the window still has the standard window controls (“traffic lights”) in the top left. On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
+    * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+    * `customButtonsOnHover` - Only on macOS, results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  **Note:** This option is currently experimental.
   * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons in frameless windows.
   * `roundedCorners` Boolean (optional) - Whether frameless window should have rounded corners on macOS. Por padrão é `true`.
   * `fullscreenWindowTitle` Boolean (optional) _Deprecated_ - Shows the title in the title bar in full screen mode on macOS for `hiddenInset` titleBarStyle. Por padrão é `false`.
@@ -176,10 +176,8 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](context-bridge.md#exposing-node-global-symbols).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](../tutorial/sandbox.md).
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Por padrão é `false`.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. _Descontinuado_
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Por padrão é `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Por padrão é `true`.
     * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Por padrão é `true`.
@@ -206,8 +204,7 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `true`. The context that the `preload` script runs in will only have access to its own dedicated `document` and `window` globals, as well as its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.), which are all invisible to the loaded content. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used.  This option uses the same technique used by [Chrome Content Scripts][chrome-content-scripts].  You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `worldSafeExecuteJavaScript` Boolean (optional) - If true, values returned from `webFrame.executeJavaScript` will be sanitized to ensure JS values can't unsafely cross between worlds when using `contextIsolation`. Defaults to `true`. _Descontinuado_
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** The default value will be changing to `true` in Electron 15.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app.  Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Por padrão é `false`.
@@ -225,6 +222,7 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
       * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
       * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
     * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. Por padrão é `false`.
+  * `titleBarOverlay` [OverlayOptions](structures/overlay-options.md) | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. Por padrão é `false`.  On Windows, the [OverlayOptions](structures/overlay-options.md) can be used instead of a boolean to specify colors for the overlay.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -543,6 +541,10 @@ A `Boolean` property that determines whether the window is in simple (pre-Lion) 
 #### `win.fullScreen`
 
 A `Boolean` property that determines whether the window is in fullscreen mode.
+
+#### `win.focusable` _Windows_ _macOS_
+
+A `Boolean` property that determines whether the window is focusable.
 
 #### `win.visibleOnAllWorkspaces`
 
@@ -1344,6 +1346,10 @@ Changes whether the window can be focused.
 
 On macOS it does not remove the focus from the window.
 
+#### `win.isFocusable()` _macOS_ _Windows_
+
+Returns whether the window can be focused.
+
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow | null
@@ -1453,3 +1459,5 @@ Returns `BrowserView[]` - an array of all BrowserViews that have been attached w
 [window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
 [chrome-content-scripts]: https://developer.chrome.com/extensions/content_scripts#execution-environment
 [event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
+[overlay-javascript-apis]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables
