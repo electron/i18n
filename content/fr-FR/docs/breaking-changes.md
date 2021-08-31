@@ -22,6 +22,23 @@ See the documentation for [window.open in Electron](api/window-open.md) for more
 
 ## Changements majeurs prévus de l'API (14.0)
 
+### Removed: `remote` module
+
+The `remote` module was deprecated in Electron 12, and will be removed in Electron 14. Il est remplacé par le module [`@electron/remote`](https://github.com/electron/remote).
+
+```js
+// Déprécié dans Electron 12 :
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+Remplacer par :
+const { BrowserWindow } = require('@electron/remote')
+
+// Dans le processus principal:
+require('@electron/remote/main').initialize()
+```
+
 ### Supprimé : `app.allowRendererProcessReuse`
 
 The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
@@ -42,7 +59,7 @@ Si vous utilisiez ce paramètre pour définir le titre d'une fenêtre, vous deve
 
 ### Supprimé : `worldSafeExecuteJavaScript`
 
-Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée.  Il a été activé par défaut depuis Electron
+Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé. Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée. Il a été activé par défaut depuis Electron
 12.
 
 Vous serez affecté par ce changement si vous utilisez `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. Changements de rupture.
