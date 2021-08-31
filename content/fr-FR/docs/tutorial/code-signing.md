@@ -156,7 +156,6 @@ Vous pouvez obtenir un certificat de signature de code auprès de nombreux reven
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
-* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Et bien d'autres, veuillez comparer pour en trouver un qui correspond à vos besoins, Google est votre ami 😄
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :
