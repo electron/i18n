@@ -1,5 +1,5 @@
 ---
-title: launch-app-from-URL-in-another-app
+title: 他アプリ内の URL から自分の Electron アプリを起動する
 description: このガイドでは、Electron アプリを特定のプロトコルのデフォルトハンドラとして設定する手順を説明します。
 slug: launch-app-from-url-in-another-app
 hide_title: true
@@ -122,31 +122,25 @@ macOS でのこの機能は、アプリがパッケージ化されていると�
 ### Plist
 
 ```XML
-  <p>
-  <h5>macOS plist</h5>
-  <pre><code>
-    <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-            <plist version="1.0">
-                <dict>
-                    <key>CFBundleURLTypes</key>
-                    <array>
-                        <dict>
-                            <key>CFBundleURLSchemes</key>
-                            <array>
-                                <string>electron-api-demos</string>
-                            </array>
-                            <key>CFBundleURLName</key>
-                            <string>Electron API Demos Protocol</string>
-                        </dict>
-                    </array>
-                    <key>ElectronTeamID</key>
-                    <string>VEKTX9H2N7</string>
-                </dict>
-            </plist>
-        </code>
-    </pre>
-  <p>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>electron-api-demos</string>
+                </array>
+                <key>CFBundleURLName</key>
+                <string>Electron API Demos Protocol</string>
+            </dict>
+        </array>
+        <key>ElectronTeamID</key>
+        <string>VEKTX9H2N7</string>
+    </dict>
+</plist>
 ```
 
 ## おわりに

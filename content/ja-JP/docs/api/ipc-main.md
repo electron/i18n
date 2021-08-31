@@ -32,6 +32,8 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // レンダラープロセス（ウェブページ）
+// 備考: Electron の API は、contextIsolation が無効でない限りプリロードからのみアクセスできます。
+// 詳細は https://www.electronjs.org/docs/tutorial/process-model#preload-scripts をご参照ください。
 const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // "pong"を表示
 

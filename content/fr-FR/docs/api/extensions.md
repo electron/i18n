@@ -64,6 +64,7 @@ Les méthodes suivantes de `chrome.runtime` sont prises en charge :
 - `chrome.runtime.getURL`
 - `chrome.runtime.connect`
 - `chrome.runtime.sendMessage`
+- `chrome.runtime.reload`
 
 Les événements suivants de `chrome.runtime` sont pris en charge :
 

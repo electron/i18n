@@ -12,9 +12,29 @@
 * **Устарело:** API был помечен как устаревший. API продолжит функционировать, но будет появляться предупреждающее сообщение о том, что API будет удален в будущем релизе.
 * **Удалено:** API или функция была удалена и больше не поддерживается Electron.
 
+## Запланированные критические изменения API (15.0)
+
+### Default Changed: `nativeWindowOpen` defaults to `true`
+
+Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
+
 ## Запланированные критические изменения API (14.0)
 
-### Изменения в API: `window.(open)`
+### Удален: `app.allowRendererProcessReuse`
+
+The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+
+Для подробностей см. [#18397](https://github.com/electron/electron/issues/18397).
+
+### Removed: Browser Window Affinity
+
+Параметр `affinity` при создании нового `BrowserWindow` будет удален в рамках нашего плана для более тесной связи с моделью процесса Chrome в целях безопасности, производительность и лучшей поддержки.
+
+Для подробностей см. [#18397](https://github.com/electron/electron/issues/18397).
+
+### Изменения в API: `window.open()`
 
 Необязательный параметр `frameName` больше не устанавливает название окна. Теперь это следует спецификации, описанной в [документации](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) в соответствии с параметром `windowName`.
 
@@ -26,6 +46,44 @@
 12.
 
 You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+
+### Removed: BrowserWindowConstructorOptions inheriting from parent windows
+
+Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+
+Instead, explicitly set options for the new window with `setWindowOpenHandler`:
+
+```js
+webContents.setWindowOpenHandler((details) => {
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      // ...
+    }
+  }
+})
+```
+
+### Удален: `additionalFeatures`
+
+The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+
+```js
+// Removed in Electron 14
+// Triggered by window.open('...', '', 'my-key')
+webContents.on('did-create-window', (window, details) => {
+  if (details.additionalFeatures.includes('my-key')) {
+    // ...
+  }
+})
+
+// Replace with
+webContents.on('did-create-window', (window, details) => {
+  if (details.options['my-key']) {
+    // ...
+  }
+})
+```
 
 ## Запланированные критические изменения API (13.0)
 
@@ -284,12 +342,6 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 ### Obsoleto: `crashReporter.start({ compress: false })`
 
 Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
-
-### Removed: Browser Window Affinity
-
-Параметр `affinity` при создании нового `BrowserWindow` будет удален в рамках нашего плана для более тесной связи с моделью процесса Chrome в целях безопасности, производительность и лучшей поддержки.
-
-Для подробностей см. [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Изменение значения по-умолчанию: `enableRemoteModule` изменено на `false`
 

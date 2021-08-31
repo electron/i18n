@@ -14,19 +14,21 @@ const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
-### macOSでの他の方法
+### 代替手段
 
-枠のないウインドウを指定する他の方法があります。 タイトルバーとウインドウコントロールの両方が無効になる `frame` を `false` に設定する方法の代わりに、タイトルバーを非表示にし、コンテンツをフルウインドウサイズに拡大しつつ、標準のウインドウアクションのためにウインドウコントロール ("信号ボタン") を保持し続けることもできます。 `titleBarStyle` オプションを指定すると、そのようにすることができます。
+macOS と Windows ではフレームレスウインドウを指定する方法が他にあります。 タイトルバーとウインドウコントロールの両方が無効になる `frame` を `false` に設定する方法の代わりに、タイトルバーを非表示にし、コンテンツをフルウインドウサイズに拡大しつつ、標準のウインドウアクションのためにウインドウコントロール (macOS での "信号ボタン") を保持し続けることもできます。 `titleBarStyle` オプションを指定すると、そのようにすることができます。
 
 #### `hidden`
 
-タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
+タイトルバーが隠れ、フルサイズのコンテンツウインドウになります。 macOS では、タイトルバーの左上に標準ウインドウコントロール ("信号機ボタン") が付きます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
+
+### macOSでの他の方法
 
 #### `hiddenInset`
 
@@ -45,6 +47,33 @@ win.show()
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+win.show()
+```
+
+## ウインドウコントロールオーバーレイ
+
+フレームレスウインドウを macOS の `win.setWindowButtonVisibility(true)` と組み合わせて使用したり、信号機ボタンが見えるように上述の `titleBarStyle` のいずれかを使用したり、Windows の `titleBarStyle: hidden` を使用したりしているとき、`titleBarOverlay` のオプションを true に設定するとウィンドウコントロールオーバーレイ [JavaScript API][overlay-javascript-apis] と [CSS 環境変数][overlay-css-env-vars] にアクセスできます。 `true` を指定すると、オーバーレイはデフォルトのシステムカラーになります。
+
+Windows では、`color` と `symbolColor` のオプションで作った `titleBarOverlay` オブジェクトを設定することで、オーバーレイとそのシンボルの色指定もできます。 以下のようにオプションを指定しない場合、ウインドウコントロールボタンの色はデフォルトでシステムカラーになります。
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: true
+})
+win.show()
+```
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: {
+    color: '#2f3241',
+    symbolColor: '#74b1be'
+  }
+})
 win.show()
 ```
 
@@ -142,3 +171,5 @@ button {
 いくつかのプラットフォームでは、ドラッグ可能な領域は非クライアントのフレームとして扱われます。そのため、ドラッグ可能な領域を右クリックすると、システムメニューが現れます。 すべてのプラットフォームでコンテキストメニューが正しく動作するようにするには、絶対にカスタムのコンテキストメニューをドラッグ可能な領域で使用しないようにしてください。
 
 [ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
+[overlay-javascript-apis]: https://github. com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables

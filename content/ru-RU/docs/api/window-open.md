@@ -11,7 +11,7 @@ However, when the `sandbox` (or directly, `nativeWindowOpen`) option is set, a `
 
 Electron pairs this native Chrome `Window` with a BrowserWindow under the hood. You can take advantage of all the customization available when creating a BrowserWindow in the main process by using `webContents.setWindowOpenHandler()` for renderer-created windows.
 
-BrowserWindow constructor options are set by, in increasing precedence order: options inherited from the parent, parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
+BrowserWindow constructor options are set by, in increasing precedence order: parsed options from the `features` string from `window.open()`, security-related webPreferences inherited from the parent, and options given by [`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler). Note that `webContents.setWindowOpenHandler` has final say and full privilege because it is invoked in the main process.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -36,7 +36,8 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 * Интеграция с Node будет всегда выключена в открытых `window` если она была выключена в родительском окне.
 * Изоляция контекста будет всегда включена в открытых `window` если она была включена в родительском окне.
 * JavaScript будет всегда включен в открытых `window` если он был включен в родительском окне.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `additionalFeatures` argument.
+* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContents`'s `did-create-window` event handler in the `options` argument.
+* `frameName` follows the specification of `windowName` located in the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters).
 
 To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `false` cancels the window, while returning an object sets the `BrowserWindowConstructorOptions` used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
 
@@ -56,7 +57,7 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
   // For example...
-  childWindow.webContents('will-navigate', (e) => {
+  childWindow.webContents.on('will-navigate', (e) => {
     e.preventDefault()
   })
 })

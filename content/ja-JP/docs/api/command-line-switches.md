@@ -59,17 +59,18 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 以下の API の呼び出し元スタックログを有効にします (イベントのフィルタリング)。
 
 * `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
-* `remote.require()` / `remote-require`
-* `remote.getGlobal()` / `remote-get-builtin`
-* `remote.getBuiltin()` / `remote-get-global`
-* `remote.getCurrentWindow()` / `remote-get-current-window`
-* `remote.getCurrentWebContents()` / `remote-get-current-web-contents`
 
-### --enable-logging
+### --enable-logging[=file]
 
-コンソールにChromiumのログを出力します。
+標準エラー出力 (またはログファイル) に Chromium のログを出力します。
 
-このスイッチは、ユーザのアプリがロードされるよりも早く解析されるため、`app.commandLine.appendSwitch` で使用することはできませんが、同じ効果を得るために `ELECTRON_ENABLE_LOGGING` 環境変数を設定することができます。
+`ELECTRON_ENABLE_LOGGING` 環境変数への設定は `--enable-logging` を渡すのと同じ効果です。
+
+`--enable-logging` を渡すと、標準エラー出力にログを出力すます。 `--enable-logging=file` を渡すと、ログは `--log-file=...` で指定したファイルに、`--log-file` が未指定の場合はユーザデータディレクトリの `electron_debug.log` に保存されます。
+
+> **注意:** Windows では、子プロセスからのログを標準エラー出力に送信できません。 Windows でのログ収集は、ファイルへのログ出力が最も信頼できる方法です。
+
+`--log-file`, `--log-level`, `--v`, `--vmodule` もご参照ください。
 
 ### --force-fieldtrials=`trials`
 
@@ -116,9 +117,25 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 カスタムロケールを設定します。
 
+### --log-file=`path`
+
+`--enable-logging` が指定された場合、ログを指定のパスに書き込みます。 その親ディレクトリは存在していなければなりません。
+
+環境変数 `ELECTRON_LOG_FILE` への設定は、このフラグを渡すことと等価です。 両方とも存在する場合はコマンドラインスイッチを優先します。
+
 ### --log-net-log=`path`
 
 保存されるネットワークログイベントを有効にし、`path` にそれらを書き込みます。
+
+### --log-level=`N`
+
+`--enable-logging` と一緒に使用することで、ログの詳細度を設定します。 `N` は [ChromeのLogSeverities][severities] のいずれかでなければなりません。
+
+注意として、Chromium の 2 つの相補的なログメカニズムである `LOG()` と `VLOG()` は、それぞれ別のスイッチで制御しています。 `--log-level` は `LOG()` のメッセージを制御しますが、`--v` と `--vmodule` は `VLOG()` のメッセージを制御します。 そのため、必要な詳細度やウォッチしようとしているコードで行われているロギング呼び出しに応じて、これら 3 つのスイッチを組み合わせて使用するとよいでしょう。
+
+`LOG()` と `VLOG()` の相互作用の詳細については、[Chromium ロギングのソース][logging] をご参照ください。 大まかに言えば、`VLOG()` は大量の `LOG(INFO)` データを制御する `LOG(INFO)` 内部のサブレベル / モジュールごとのレベルと考えられます。
+
+`--enable-logging`, `--log-level`, `--v`, `--vmodule` もご参照ください。
 
 ### --no-proxy-server
 
@@ -159,6 +176,8 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
 
+`--enable-logging`, `--log-level`, `--vmodule` もご参照ください。
+
 ### --vmodule=`pattern`
 
 `--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 以下は例です。 `my_module=2,foo*=3` は、`my_module.*` と `foo*.*` のソースファイルにあるすべてのコードのログレベルを変更します。
@@ -166,6 +185,8 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 スラッシュまたはバックスラッシュを含むパターンは、モジュールだけでなく全体のパス名に対してテストされます。 以下は例です。 `*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
+
+`--enable-logging`, `--log-level`, `--v` もご参照ください。
 
 ### --force_high_performance_gpu
 
@@ -214,5 +235,7 @@ V8 インスペクタの統合により、Chrome デベロッパー ツールや
 [ready]: app.md#event-ready
 [play-silent-audio]: https://github.com/atom/atom/pull/9485/files
 [debugging-main-process]: ../tutorial/debugging-main-process.md
+[logging]: https://source.chromium.org/chromium/chromium/src/+/master:base/logging.h
 [node-cli]: https://nodejs.org/api/cli.html
 [node-cli]: https://nodejs.org/api/cli.html
+[severities]: https://source.chromium.org/chromium/chromium/src/+/master:base/logging.h?q=logging::LogSeverity&ss=chromium

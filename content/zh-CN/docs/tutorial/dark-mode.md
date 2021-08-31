@@ -56,9 +56,9 @@ If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequ
 </html>
 ```
 
-以及 `style.css` 文件：
+以及 `styles.css` 文件：
 
-```css title='style.css'
+```css title='styles.css'
 @media (prefers-color-scheme: dark) {
   body { background: #333; color: white; }
 }
@@ -160,6 +160,6 @@ app.on('window-all-closed', () => {
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/
 [electron-packager]: https://github.com/electron/electron-packager
-[packager-darwindarkmode-api]: https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html#darwindarkmodesupport
+[packager-darwindarkmode-api]: https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html#darwindarkmodesupport
 [prefers-color-scheme]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 [event-listeners]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener

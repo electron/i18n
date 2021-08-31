@@ -14,19 +14,21 @@ const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
-### Альтернативы на macOS
+### Alternatives
 
-Существует альтернативный способ указать окно chromeless. Вместо установки `frame` в `false`, которая отключает элементы заголовка и окна, вы можете скрыть строку заголовка, и ваш контент будет расширен до полного размера окна, при этом по-прежнему сохранятся элементы управления окном («светофор») для стандартных действий окна. Вы можете сделать это, указав параметр `titleBarStyle`:
+There's an alternative way to specify a chromeless window on macOS and Windows. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights" on macOS) for standard window actions. Вы можете сделать это, указав параметр `titleBarStyle`:
 
 #### `hidden`
 
-В результате скроется заголовок и содержимое станет во все окно, но заголовок по-прежнему будет иметь стандартное окно контроля ("светофоры") сверху слева.
+Results in a hidden title bar and a full size content window. On macOS, the title bar still has the standard window controls (“traffic lights”) in the top left.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
+
+### Альтернативы на macOS
 
 #### `hiddenInset`
 
@@ -48,9 +50,36 @@ const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: fa
 win.show()
 ```
 
+## Windows Control Overlay
+
+When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS, using one of the `titleBarStyle`s as described above so that the traffic lights are visible, or using `titleBarStyle: hidden` on Windows, you can access the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars] by setting the `titleBarOverlay` option to true. Specifying `true` will result in an overlay with default system colors.
+
+On Windows, you can also specify the color of the overlay and its symbols by setting `titleBarOverlay` to an object with the options `color` and `symbolColor`. If an option is not specified, the color will default to its system color for the window control buttons:
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: true
+})
+win.show()
+```
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: {
+    color: '#2f3241',
+    symbolColor: '#74b1be'
+  }
+})
+win.show()
+```
+
 ## Прозрачное окно
 
-Установите параметр `transparent` в значение `true`.<br>Примечание: вы можете сделать это только для безрамного окна.<br>Пример:
+Установив для параметра `transparent` значение `true`, можно также сделать безрамочный окно прозрачным:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -72,7 +101,7 @@ win.show()
 
 ## Невзаимодействующее окно
 
-Чтобы создать невзаимодействующее окно, те. которое не будет реагировать на событии мыши, необходимо вызвать функцию API:[win.setIgnoreMouseEvents(ignore)][ignore-mouse-events]<br>Пример:
+Чтобы создать окно клика, т.е. сделать так, чтобы окно игнорировало все события мыши, можно вызвать [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] API:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -142,3 +171,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Н
 На некоторых платформах перетаскиваемая область будет рассматриваться как неклиентский фрейм, поэтому при щелчке правой кнопкой мыши на ней появится системное меню. Чтобы контекстное меню работало правильно на всех платформах, вы никогда не должны использовать настраиваемое контекстное меню в перетаскиваемых областях.
 
 [ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
+[overlay-javascript-apis]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables

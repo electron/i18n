@@ -102,7 +102,7 @@ Electron Builder comes with a custom solution for signing your application. 你�
 
 If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
 
-如果您正在使用Packager的 API，您可以通过配置 [来签名并对您的应用程序进行公证](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html)
+如果您正在使用Packager的 API，您可以通过配置 [来签名并对您的应用程序进行公证](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html)
 
 ```js
 const packager = require('electron-packager')
@@ -155,7 +155,6 @@ You can get a code signing certificate from a lot of resellers. 价格各异，�
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
-* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * 除其他外，请货比三家后选择适合你的那一款，Google 是您的朋友😄：
 
 你可以运用许多方式来签署你的应用：

@@ -1,4 +1,4 @@
-# Fortschrittsanzeige in der Taskleiste (Windows, macOS, Unity)
+# Taskbar Progress Bar (Windows & macOS)
 
 ## Übersicht
 

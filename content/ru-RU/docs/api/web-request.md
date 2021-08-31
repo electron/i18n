@@ -46,7 +46,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)</code>
@@ -88,7 +88,7 @@ Some examples of valid `urls`:
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -113,7 +113,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
@@ -132,7 +132,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * Строка `statusLine`
@@ -160,7 +160,7 @@ The `callback` has to be called with a `response` object.
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
@@ -182,7 +182,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
@@ -206,7 +206,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Record<string, string[]> (optional)
@@ -229,7 +229,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `webContentsId` Integer (опционально)
     * `webContents` WebContents (optional)
     * `frame` WebFrameMain (optional)
-    * `resourceType` String
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean

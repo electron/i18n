@@ -22,7 +22,7 @@ Une bonne préparation des applications macOS pour la publication nécessite deu
 Pour démarrer le processus, assurez-vous que vous remplissez les conditions pour signer et certifier votre application :
 
 1. S'inscrire au [Programme de Développeurs Apple][] (moyennant des frais annuels)
-2. Download and install [Xcode][] - this requires a computer running macOS
+2. Téléchargez et installez [Xcode][] - cela nécessite un ordinateur exécutant macOS
 3. Générer, télécharger et installer [des certificats de signature][]
 
 L'écosystème d'Electron donne priorité à la configuration et a la liberté et bien sur donc il y a plusieurs moyens de signer et certifier votre application.
@@ -93,7 +93,7 @@ const { systemPreferences } = require('electron')
 const microphone = systemPreferences.askForMediaAccess('microphone')
 ```
 
-Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
+Votre application peut planter. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
 
 ## `electron-builder`
 
@@ -103,7 +103,7 @@ Electron Builder comes with a custom solution for signing your application. You 
 
 If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
 
-Si vous utilisez l'API de Packager, vous pouvez fournit une [configuration](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) qui signera et certifiera votre application.
+Si vous utilisez l'API de Packager, vous pouvez fournit une [configuration](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html) qui signera et certifiera votre application.
 
 ```js
 const packager = require('electron-packager')
@@ -156,7 +156,6 @@ Vous pouvez obtenir un certificat de signature de code auprès de nombreux reven
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
-* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * Et bien d'autres, veuillez comparer pour en trouver un qui correspond à vos besoins, Google est votre ami 😄
 
 Il existe un certain nombre d’outils pour la signature de votre application empaquetée :

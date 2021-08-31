@@ -1,4 +1,4 @@
-# Уведомления (Window, Linux, macOS)
+# Notification (Оповещения)
 
 ## Обзор
 

@@ -104,7 +104,15 @@ As seguintes variáveis de ambiente são destinadas principalmente para fins de 
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Imprime o log interno do Chrome para o console.
+Prints Chromium's internal logging to the console.
+
+Setting this variable is the same as passing `--enable-logging` on the command line. For more info, see `--enable-logging` in [command-line switches](./command-line-switches.md#enable-loggingfile).
+
+### `ELECTRON_LOG_FILE`
+
+Sets the file destination for Chromium's internal logging.
+
+Setting this variable is the same as passing `--log-file` on the command line. For more info, see `--log-file` in [command-line switches](./command-line-switches.md#log-filepath).
 
 ### `ELECTRON_DEBUG_DRAG_REGIONS`
 
@@ -112,7 +120,7 @@ Adds coloration to draggable regions on [`BrowserView`](./browser-view.md)s on m
 
 ### `ELECTRON_DEBUG_NOTIFICATIONS`
 
-Adds extra logs to [`Notification`](./notification.md) lifecycles on macOS to aid in debugging. Extra logging will be displayed when new Notifications are created or activated. They will also be displayed when common actions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
+Adds extra logs to [`Notification`](./notification.md) lifecycles on macOS to aid in debugging. Extra logging will be displayed when new Notifications are created or activated. They will also be displayed when common a tions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
 
 Sample output:
 

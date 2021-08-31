@@ -4,7 +4,7 @@
     "description": "The title in the navbar"
   },
   "item.label.Docs": {
-    "message": "Docs",
+    "message": "Documentation",
     "description": "Navbar item with label Docs"
   },
   "item.label.API": {
@@ -14,6 +14,10 @@
   "item.label.Examples": {
     "message": "Exemples",
     "description": "Navbar item with label Examples"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
   },
   "item.label.GitHub": {
     "message": "GitHub",

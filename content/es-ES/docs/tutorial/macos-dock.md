@@ -1,4 +1,4 @@
-# Configuring the macOS Dock
+# Dock (macOS)
 
 Electron tiene APIs para configurar el icono de la aplicación en el Dock de macOS. Solo existe una API macOS para crear menú de dock personalizado, pero Electron además usa el icono de app dock como el punto de entrada para características multiplataforma como [recent documents][recent-documents] y [application progress][progress-bar].
 

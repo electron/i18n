@@ -32,6 +32,8 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // Dans le processus de rendu (page web).
+// NB. Electron APIs are only accessible from preload, unless contextIsolation is disabled.
+// Voir https://www.electronjs.org/docs/tutorial/process-model#preload-scripts pour plus de détails.
 const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // affiche "pong"
 

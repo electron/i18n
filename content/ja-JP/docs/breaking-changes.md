@@ -12,9 +12,29 @@
 * **非推奨:** API は非推奨になりました。 この API は引き続き機能しますが、非推奨の警告を発し、将来のリリースで削除されます。
 * **削除:** API または機能が削除され、Electron でサポートされなくなりました。
 
+## 予定されている破壊的なAPIの変更 (15.0)
+
+### 省略値変更: `nativeWindowOpen` の省略値を `true` に
+
+Electron 15 より前の `window.open` は既定で `BrowserWindowProxy` を使用していました。 このため、`window.open('about:blank')` では同期的にスクリプトで操作可能な子ウィンドウを開くことができないなどといった、非互換性がありました。 `nativeWindowOpen: true` は実験的でなくなり、既定値になります。
+
+詳細については [Electron での window.open](api/window-open.md) をご参照ください
+
 ## 予定されている破壊的なAPIの変更 (14.0)
 
-### API 変更: `window.(open)`
+### 削除: `app.allowRendererProcessReuse`
+
+`app.allowRendererProcessReuse` プロパティは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとより密接に連携する計画の一環として削除されます。
+
+詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
+
+### 削除: Browser Window の Affinity
+
+`BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとの共同連携計画の一環として削除されます。
+
+詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
+
+### API 変更: `window.open()`
 
 任意引数 `frameName` は、ウィンドウのタイトルに設定されなくなります。 これにより、[ネイティブの document](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) に対応するパラメータ `windowName` で説明されている仕様に従うことになりました。
 
@@ -26,6 +46,44 @@ Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代
 12.
 
 `webFrame.executeJavaScript` か `webFrame.executeJavaScriptInIsolatedWorld` のいずれかを使用している場合、この変更の影響を受けます。 これらのメソッドは同じ値渡しセマンティクスを使用しているため、[Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) がサポートしている戻り値かどうかを確認する必要があります。
+
+### 削除: 親ウインドウからの BrowserWindowConstructorOptions の継承
+
+Electron 14 より前は、`window.open` で開いたウインドウは、親ウインドウから `transparent` や `resizable` などの BrowserWindow コンストラクタのオプションを継承していました。 Electron 14 以降ではこの動作は削除され、ウインドウは親から BrowserWindow コンストラクタのオプションを継承しません。
+
+代わりに、`setWindowOpenHandler` で以下のように新しいウインドウのオプションを明示的に設定してください。
+
+```js
+webContents.setWindowOpenHandler((details) => {
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      // ...
+    }
+  }
+})
+```
+
+### 削除: `additionalFeatures`
+
+WebContents の `new-window` イベントと `did-create-window` イベントの、非推奨となっていた `additionalFeatures` プロパティは削除されました。 `new-window` は引数の順番があるのでこの引数はまだ残りますが、常に空の配列 `[]` になります。 (ただし注意として、`new-window` イベント自体は非推奨であり `setWindowOpenHandler` に置き換えられます。) ウインドウ機能のキーに値が無い場合は、オプションオブジェクトで `true` の値を持つキーとして表示されるようになりました。
+
+```js
+// Electron 14 で削除
+// window.open('...', '', 'my-key') で動く
+webContents.on('did-create-window', (window, details) => {
+  if (details.additionalFeatures.includes('my-key')) {
+    // ...
+  }
+})
+
+// こちらに置換
+webContents.on('did-create-window', (window, details) => {
+  if (details.options['my-key']) {
+    // ...
+  }
+})
+```
 
 ## 予定されている破壊的なAPIの変更 (13.0)
 
@@ -285,12 +343,6 @@ app.getPath('crashDumps')
 ### 非推奨: `crashReporter.start({ compress: false })`
 
 `crashReporter.start` に `{ compress: false }` を指定することは非推奨です。 ほぼすべてのクラッシュ収集サーバーは gzip 圧縮をサポートしているためです。 このオプションは将来バージョンの Electron で削除されます。
-
-### 削除: Browser Window の Affinity
-
-`BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとの共同連携計画の一環として削除されます。
-
-詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
 ### 省略値変更: `enableRemoteModule` の省略値を `false` に
 

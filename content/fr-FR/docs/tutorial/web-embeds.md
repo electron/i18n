@@ -1,4 +1,4 @@
-# Intégration de contenu web
+# Intégrations Web
 
 ## Vue d'ensemble
 

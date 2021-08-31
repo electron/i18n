@@ -2,19 +2,39 @@
 
 Breaking-Änderungen werden hier dokumentiert, und Veraltungswarnungen werden js-Code nach Möglichkeit hinzugefügt, mindestens [eine Hauptversion](tutorial/electron-versioning.md#semver), bevor die Änderung vorgenommen wird.
 
-### Types of Breaking Changes
+### Typen von Breaking-Änderungen
 
-This document uses the following convention to categorize breaking changes:
+In diesem Dokument wird die folgende Konvention zur Kategorisierung von Breaking-Änderungen verwendet:
 
-* **API Changed:** An API was changed in such a way that code that has not been updated is guaranteed to throw an exception.
-* **Behavior Changed:** The behavior of Electron has changed, but not in such a way that an exception will necessarily be thrown.
-* **Default Changed:** Code depending on the old default may break, not necessarily throwing an exception. The old behavior can be restored by explicitly specifying the value.
-* **Deprecated:** An API was marked as deprecated. The API will continue to function, but will emit a deprecation warning, and will be removed in a future release.
-* **Removed:** An API or feature was removed, and is no longer supported by Electron.
+* **API geändert:** Die API wurde so geändert, dass Code, der nicht aktualisiert wurde, garantiert eine Ausnahme wirft.
+* **Verhalten geändert:** Das Verhalten von Electron hat sich geändert, aber nicht so, dass eine Ausnahme unbedingt geworfen wird.
+* **Standard geändert:** Code, der vom alten Standardwert abhängig ist, funktioniert möglicherweise nicht mehr und wirft nicht notwendigerweise eine Ausnahme. Das alte Verhalten kann durch explizite Angabe des Wertes wiederhergestellt werden.
+* **Veraltet:** Eine API wurde als veraltet markiert. Die API wird weiterhin funktionieren, sendet aber eine Veraltungswarnung aus und wird in einer zukünftigen Version entfernt.
+* **Entfernt:** Eine API oder Funktion wurde entfernt und wird von Electron nicht mehr unterstützt.
+
+## Geplante Bruch-API-Änderungen (15.0)
+
+### Standardwert geändert: `nativeWindowOpen` ist standardmäßig auf `true` eingestellt
+
+Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
 
 ## Geplante Bruch-API-Änderungen (14.0)
 
-### API geändert: `window.(offen)`
+### Entfernt: `app.allowRendererProcessReuse`
+
+The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+
+Weitere Informationen findest du unter [#18397](https://github.com/electron/electron/issues/18397).
+
+### Entfernt: Browserfenster-Affinität
+
+Die Einstellung `Affinität` beim Erstellen eines neuen `BrowserWindow` wird entfernt als Teil unseres Plans, sich stärker an das Prozessmodell von Chromium für Sicherheit, Leistung und Wartbarkeit anzupassen.
+
+Weitere Informationen findest du unter [#18397](https://github.com/electron/electron/issues/18397).
+
+### API geändert: `window.open()`
 
 Der optionale Parameter `FrameName` legt nicht mehr den Titel des Fensters fest. Dies folgt nun der Spezifikation, die in der [nativen Dokumentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) unter dem zugehörigen Parameter `windowName` beschrieben wird.
 
@@ -27,6 +47,44 @@ In Electron 14 wird `worldSafeExecuteJavaScript` entfernt.  Es gibt keine Altern
 
 Sie werden von dieser Änderung betroffen sein, wenn Sie entweder `webFrame.executeJavaScript` oder `webFrame.executeJavaScriptInIsolatedWorld` verwenden. Sie müssen sicherstellen, dass die von einer dieser Methoden zurückgegebenen Werte von der [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) unterstützt werden, da diese Methoden denselben Wert verwenden, der die Semantik übergeht.
 
+### Removed: BrowserWindowConstructorOptions inheriting from parent windows
+
+Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+
+Instead, explicitly set options for the new window with `setWindowOpenHandler`:
+
+```js
+webContents.setWindowOpenHandler((details) => {
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      // ...
+    }
+  }
+})
+```
+
+### Entfernt: `additionalFeatures`
+
+The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+
+```js
+// Removed in Electron 14
+// Triggered by window.open('...', '', 'my-key')
+webContents.on('did-create-window', (window, details) => {
+  if (details.additionalFeatures.includes('my-key')) {
+    // ...
+  }
+})
+
+// Replace with
+webContents.on('did-create-window', (window, details) => {
+  if (details.options['my-key']) {
+    // ...
+  }
+})
+```
+
 ## Geplante Bruch-API-Änderungen (13.0)
 
 ### API geändert: `session.setPermissionCheckHandler(handler)`
@@ -34,7 +92,7 @@ Sie werden von dieser Änderung betroffen sein, wenn Sie entweder `webFrame.exec
 Die `Handler` Methoden ersten Parameters waren zuvor immer ein `webContents`, es kann jetzt manchmal `null` sein.  Sie sollten die `requestingOrigin`, `einbettenOrigin` und `securityOrigin` Eigenschaften verwenden, um auf die Berechtigungsprüfung korrekt zu reagieren.  Da der `Webcontent` `null sein kann` nicht mehr auf ihn angewiesen werden.
 
 ```js
-// Old code
+// Alter Code
 session.setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
     return true
@@ -42,7 +100,7 @@ session.setPermissionCheckHandler((webContents, permission) => {
   return false
 })
 
-// Replace with
+// Ersetzen mit
 session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
   if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
     return true
@@ -53,18 +111,18 @@ session.setPermissionCheckHandler((webContents, permission, requestingOrigin) =>
 
 ### Entfernt: `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+Die veraltete synchrone `shell.moveItemToTrash()` API wurde entfernt. Verwende stattdessen die asynchrone `shell.trashItem()`.
 
 ```js
-// Removed in Electron 13
-shell.moveItemToTrash(path)
-// Replace with
+// Entfernt in Electron 13
+shell.moveItemTosh(path)
+// Ersetzen durch
 shell.trashItem(path).then(/* ... */)
 ```
 
 ### Entfernt: `BrowserWindow` Erweiterungs-APIs
 
-The deprecated extension APIs have been removed:
+Die veralteten Erweiterungs-APIs wurden entfernt:
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -80,71 +138,71 @@ Use the session APIs instead:
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// In Electron 13 entfernt
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Ersetzen durch
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
-BrowserWindow.removeExtension(name)
-BrowserWindow.removeDevToolsExtension(name)
-// Replace with
-session.defaultSession.removeExtension(extension_id)
+// In Electron 13 entfernt
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Ersetzen durch
+session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+// In Electron 13 entfernt
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Ersetzen durch
 session.defaultSession.getAllExtensions()
 ```
 
 ### Eliminado: métodos en `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Die folgenden `systemPreferences` Methoden wurden veraltet:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+Verwende stattdessen die folgenden `nativeTheme` Eigenschaften:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Removed in Electron 13
+// Entfernt in Electron 13
 systemPreferences.isDarkMode()
-// Replace with
+// Ersetzen durch
 nativeTheme.shouldUseDarkColors
 
-// Removed in Electron 13
-systemPreferences.isInvertedColorScheme()
-// Replace with
+// Entfernt in Electron 13
+systemPreferences. sInvertedColorScheme()
+// Ersetzen durch
 nativeTheme.shouldUseInvertedColorScheme
 
-// Removed in Electron 13
+// In Electron 13 entfernt
 systemPreferences.isHighContrastColorScheme()
-// Replace with
-nativeTheme.shouldUseHighContrastColors
+// Ersetzen durch
+nativeTheme.shouldUseHighContrastColorColorScheme
 ```
 
-### Deprecated: WebContents `new-window` event
+### Veraltet: WebContents `new-window` Ereignis
 
-The `new-window` event of WebContents has been deprecated. It is replaced by [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+Das `new-window` Ereignis von WebContents wurde veraltet. It is replaced by [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
-// Deprecated in Electron 13
+// Veraltet in Electron 13
 webContents.on('new-window', (event) => {
-  event.preventDefault()
+  event. reventDefault()
 })
 
-// Replace with
+// Ersetzen durch
 webContents.setWindowOpenHandler((details) => {
   return { action: 'deny' }
 })
@@ -152,15 +210,15 @@ webContents.setWindowOpenHandler((details) => {
 
 ## Geplante Bruch-API-Änderungen (12.0)
 
-### Removed: Pepper Flash support
+### Entfernt: Pepper Flash Unterstützung
 
-Chromium has removed support for Flash, and so we must follow suit. See Chromium's [Flash Roadmap](https://www.chromium.org/flash-roadmap) for more details.
+Chromium hat die Unterstützung für Flash entfernt, und deshalb müssen wir diesem Beispiel folgen. Weitere Details findest du in der [Flash-Roadmap](https://www.chromium.org/flash-roadmap) von Chromium.
 
-### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
+### Standardwert geändert: `worldSafeExecuteJavaScript` ist standardmäßig auf `true` eingestellt
 
-In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+In Electron 12, `worldSafeExecuteJavaScript` wird standardmäßig aktiviert.  Um das vorherige Verhalten wiederherzustellen, muss `worldSafeExecuteJavaScript: false` in WebPreferences angegeben werden. Bitte beachte, dass die Einstellung dieser Option auf `false` **unsicher** ist.
 
-This option will be removed in Electron 14 so please migrate your code to support the default value.
+Diese Einstellung wird in Electron 14 entfernt, also migriere bitte deinen Code um den Standardwert zu unterstützen.
 
 ### Default Changed: `contextIsolation` defaults to `true`
 
@@ -285,12 +343,6 @@ See [#23265](https://github.com/electron/electron/pull/23265) for more details.
 
 Setting `{ compress: false }` in `crashReporter.start` is deprecated. Nearly all crash ingestion servers support gzip compression. This option will be removed in a future version of Electron.
 
-### Removed: Browser Window Affinity
-
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
-
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
-
 ### Default Changed: `enableRemoteModule` defaults to `false`
 
 In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
@@ -369,7 +421,7 @@ As of Electron 9 we do not allow loading of non-context-aware native modules in 
 
 If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+Weitere Informationen findest du unter [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Deprecated: `BrowserWindow` extension APIs
 
@@ -535,13 +587,13 @@ nativeTheme.on('updated', () => { /* ... */ })
 
 ### Deprecated: methods in `systemPreferences`
 
-The following `systemPreferences` methods have been deprecated:
+Die folgenden `systemPreferences` Methoden wurden veraltet:
 
 * `systemPreferences.isDarkMode()`
 * `systemPreferences.isInvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
-Use the following `nativeTheme` properties instead:
+Verwende stattdessen die folgenden `nativeTheme` Eigenschaften:
 
 * `nativeTheme.shouldUseDarkColors`
 * `nativeTheme.shouldUseInvertedColorScheme`

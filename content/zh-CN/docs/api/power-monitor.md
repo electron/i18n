@@ -8,11 +8,11 @@
 
 ` powerMonitor ` 模块触发以下事件:
 
-### Event: 'suspend' _macOS_ _Windows_
+### Event: 'suspend'
 
 在系统挂起时触发。
 
-### Event: 'resume' _macOS_ _Windows_
+### Event: 'resume'
 
 在系统恢复时触发。
 

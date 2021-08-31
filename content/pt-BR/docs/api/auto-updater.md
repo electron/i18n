@@ -97,6 +97,8 @@ Returns `String` - The current update feed URL.
 
 Pergunta para o servidor se há alguma atualização. Você precisa chamar o `setFeedURL` antes de usar esta API.
 
+**Note:** If an update is available it will be downloaded automatically. Calling `autoUpdater.checkForUpdates()` twice will download the update two times.
+
 ### `autoUpdater.quitAndInstall()`
 
 Reinicia o aplicativo e instala a atualização após ela ter sido baixada. Deve ser chamado apenas após o evento `update-downloaded` ter sido emitido.

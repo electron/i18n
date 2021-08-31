@@ -104,7 +104,15 @@ Linux でゴミの実装を設定します。 既定値は `gio` です。
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-コンソールにChromeの内部ログを出力します。
+コンソールに Chromium の内部ログを出力します。
+
+この変数への設定は、コマンドラインで `--enable-logging` を渡すのと同じです。 詳しくは、[コマンドラインスイッチ](./command-line-switches.md#enable-loggingfile) の `--enable-logging` をご覧ください。
+
+### `ELECTRON_LOG_FILE`
+
+Chromium の内部ログの保存先ファイルを設定します。
+
+この変数への設定は、コマンドラインで `--log-file` を渡すのと同じです。 詳細は、 [コマンドラインスイッチ](./command-line-switches.md#log-filepath) の `--log-file` をご参照ください。
 
 ### `ELECTRON_DEBUG_DRAG_REGIONS`
 

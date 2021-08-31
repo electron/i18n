@@ -14,19 +14,21 @@ const win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
-### Alternatives sur macOS
+### Alternatives
 
-Il existe une autre façon de spécifier une fenêtre sans chrominance. Au lieu de définir `frame` à `false` qui désactive à la fois la barre de titre et le contrôle de fenêtre, vous pouvez vouloir masquer la barre de titre et étendre votre contenu à la taille de la fenêtre complète, tout en préservant les contrôles de fenêtres ("feux de circulation") pour les actions de fenêtres standard. Vous pouvez le faire en spécifiant l'option `titleBarStyle` :
+There's an alternative way to specify a chromeless window on macOS and Windows. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights" on macOS) for standard window actions. Vous pouvez le faire en spécifiant l'option `titleBarStyle` :
 
 #### `hidden`
 
-Résultats dans une barre de titre cachée et une fenêtre de contenu en taille réelle, Pourtant, la barre de titre possède toujours les contrôles standard des fenêtres (« feux de circulation ») en haut à gauche.
+Results in a hidden title bar and a full size content window. On macOS, the title bar still has the standard window controls (“traffic lights”) in the top left.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
+
+### Alternatives sur macOS
 
 #### `hiddenInset`
 
@@ -45,6 +47,33 @@ Utilise les boutons personnalisés de fermeture dessinée, et miniaturise les bo
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+win.show()
+```
+
+## Windows Control Overlay
+
+When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS, using one of the `titleBarStyle`s as described above so that the traffic lights are visible, or using `titleBarStyle: hidden` on Windows, you can access the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars] by setting the `titleBarOverlay` option to true. Specifying `true` will result in an overlay with default system colors.
+
+On Windows, you can also specify the color of the overlay and its symbols by setting `titleBarOverlay` to an object with the options `color` and `symbolColor`. If an option is not specified, the color will default to its system color for the window control buttons:
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: true
+})
+win.show()
+```
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow({
+  titleBarStyle: 'hidden',
+  titleBarOverlay: {
+    color: '#2f3241',
+    symbolColor: '#74b1be'
+  }
+})
 win.show()
 ```
 
@@ -142,3 +171,5 @@ In a frameless window the dragging behavior may conflict with selecting text. Pa
 Sur certaines plateformes, la zone glissable sera traitée comme une image non-client, donc lorsque vous faites un clic droit dessus un menu système apparaîtra. Pour que le menu contextuel se comporte correctement sur toutes les plates-formes, vous ne devriez jamais utiliser un menu contextuel personnalisé sur zones glissables.
 
 [ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore-options
+[overlay-javascript-apis]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#javascript-apis
+[overlay-css-env-vars]: https://github.com/WICG/window-controls-overlay/blob/main/explainer.md#css-environment-variables

@@ -92,7 +92,6 @@ Common prefixes:
 * perf: A code change that improves performance
 * refactor: A code change that neither fixes a bug nor adds a feature
 * style: Changes that do not affect the meaning of the code (linting)
-* vendor: Bumping a dependency like libchromiumcontent or node
 
 Autres choses à garder à l'esprit lors de la rédaction d'un message de commit :
 

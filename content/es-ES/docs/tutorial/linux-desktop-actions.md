@@ -1,4 +1,4 @@
-# Acciones personalizadas de arranque de escritorio de Linux
+# Desktop Launcher Actions (Linux)
 
 ## Descripción general
 

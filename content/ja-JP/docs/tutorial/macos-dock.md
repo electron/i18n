@@ -1,4 +1,4 @@
-# macOS Dock の設定
+# Dock (macOS)
 
 Electron には macOS Dock 内のアプリアイコンを設定する API があります。 カスタム Dock メニューを作成するための macOS 専用 API は存在しますが、Electron は [最近使った書類][recent-documents] や [アプリケーションのプログレス][progress-bar] などのクロスプラットフォーム機能のエントリポイントにアプリの Dock アイコンを使用します。
 

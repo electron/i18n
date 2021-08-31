@@ -1,4 +1,4 @@
-# Instalação
+# Advanced Installation Instructions
 
 npm install electron --save-dev The preferred method is to install Electron as a development dependency in your app:
 
@@ -131,13 +131,13 @@ If the above error persists, the [unsafe-perm][unsafe-perm] flag may need to be 
 sudo npm install electron --unsafe-perm=true
 ```
 
-Em redes mais lentas, pode ser aconselhável usar o sinalizador `--verbose</ 0> para
-mostrar o progresso do download:</p>
+Em redes mais lentas, pode ser aconselhável usar o sinalizador `--verbose` para mostrar o progresso do download:
 
-<pre><code class="sh">npm install --verbose electron
-`</pre>
+```sh
+npm install --verbose electron
+```
 
-Se você precisar forçar um novo download do ativo e o arquivo SHASUM, defina a variável force_no_cache</ 0> do ambiente para <code>true</ 0>.</p>
+Se você precisar forçar um novo download do ativo e o arquivo SHASUM, defina a variável `force_no_cache` do ambiente para `true`.
 
 [versioning]: ./electron-versioning.md
 [npx]: https://docs.npmjs.com/cli/v7/commands/npx

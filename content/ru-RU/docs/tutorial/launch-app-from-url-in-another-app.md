@@ -1,5 +1,5 @@
 ---
-title: launch-app-from-URL-in-another-app
+title: Launching Your Electron App From A URL In Another App
 description: This guide will take you through the process of setting your electron app as the default handler for a specific protocol.
 slug: launch-app-from-url-in-another-app
 hide_title: true
@@ -123,31 +123,25 @@ This feature will only work on macOS when your app is packaged. It will not work
 ### Plist
 
 ```XML
-  <p>
-  <h5>macOS plist</h5>
-  <pre><code>
-    <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-            <plist version="1.0">
-                <dict>
-                    <key>CFBundleURLTypes</key>
-                    <array>
-                        <dict>
-                            <key>CFBundleURLSchemes</key>
-                            <array>
-                                <string>electron-api-demos</string>
-                            </array>
-                            <key>CFBundleURLName</key>
-                            <string>Electron API Demos Protocol</string>
-                        </dict>
-                    </array>
-                    <key>ElectronTeamID</key>
-                    <string>VEKTX9H2N7</string>
-                </dict>
-            </plist>
-        </code>
-    </pre>
-  <p>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>electron-api-demos</string>
+                </array>
+                <key>CFBundleURLName</key>
+                <string>Electron API Demos Protocol</string>
+            </dict>
+        </array>
+        <key>ElectronTeamID</key>
+        <string>VEKTX9H2N7</string>
+    </dict>
+</plist>
 ```
 
 ## Conclusion

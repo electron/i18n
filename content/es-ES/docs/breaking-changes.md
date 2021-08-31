@@ -12,9 +12,29 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 * **Obsoleto:** Una API fue marcada como obsoleta. La API continuará funcionando, pero emitirá una advertencia de desaprobación y será eliminada en una futura versión.
 * **Eliminado:** Una API o característica fue eliminada y ya no es compatible por Electron.
 
+## Cambios planeados en la API(15.0)
+
+### Valor por defecto modificado: `nativeWindowOpen` por defecto a `true`
+
+Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
+
 ## Cambios planeados en la API(14.0)
 
-### API Changed: `window.(open)`
+### Eliminada: `app.allowRendererProcessReuse`
+
+The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+
+Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
+
+### Eliminado: Browser Window Affinity
+
+La opción `affinity` al construir una nueva `BrowserWindow` se eliminará como parte de nuestro plan para alinear más estrechamente con el modelo de proceso de Chromium por seguridad, rendimiento y mantenimiento.
+
+Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
+
+### API modificada: `window.open()`
 
 El parámetro opcional `frameName` ya no se establecerá como el título de la ventana. Esto ahora sigue la especificación descrita por la [documentación nativa](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) bajo el correspondiente parámetro `windowName`.
 
@@ -26,6 +46,44 @@ En Electron 14 `worldSafeExecuteJavaScript` será eliminado.  No hay alternativa
 12.
 
 Será afectado por este cambio si usted utliza `webFrame.executeJavaScript` o `webFrame.executeJavaScriptInIsolatedWorld`. Necesitará asegurase que los valores devueltos por cualquiera de esos métodos son soportados por [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) ya que estos métodos utilizan la misma semántica de paso de valores.
+
+### Removed: BrowserWindowConstructorOptions inheriting from parent windows
+
+Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+
+Instead, explicitly set options for the new window with `setWindowOpenHandler`:
+
+```js
+webContents.setWindowOpenHandler((details) => {
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      // ...
+    }
+  }
+})
+```
+
+### Eliminada: `additionalFeatures`
+
+The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+
+```js
+// Removed in Electron 14
+// Triggered by window.open('...', '', 'my-key')
+webContents.on('did-create-window', (window, details) => {
+  if (details.additionalFeatures.includes('my-key')) {
+    // ...
+  }
+})
+
+// Replace with
+webContents.on('did-create-window', (window, details) => {
+  if (details.options['my-key']) {
+    // ...
+  }
+})
+```
 
 ## Cambios planeados en la API(13.0)
 
@@ -134,17 +192,17 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
-### Deprecated: WebContents `new-window` event
+### En desuso: evento Webcontens `nueva ventana`
 
-The `new-window` event of WebContents has been deprecated. Es reemplazado por [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+El evento `new-window` de WebContents está obsoleto. Es reemplazado por [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
-// Deprecated in Electron 13
+// Obsoleto en Electron 13
 webContents.on('new-window', (event) => {
   event.preventDefault()
 })
 
-// Replace with
+// Reemplazar por
 webContents.setWindowOpenHandler((details) => {
   return { action: 'deny' }
 })
@@ -234,11 +292,11 @@ shell.trashItem(path).then(/* ... */)
 
 ## Cambios planeados en la API(11.0)
 
-### Removed: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` and `id` property of `BrowserView`
+### Eliminado: `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` y `id` propiedad de `BrowserView`
 
 Las APIs experimentales `BrowserView.{destroy, fromId, fromWebContents, getAllViews}` fueron removidas. Adicionalmente, la propiedad `id` de `BrowserView` también ha sido removida.
 
-For more detailed information, see [#23578](https://github.com/electron/electron/pull/23578).
+Para ver más información, consulta [#23578](https://github.com/electron/electron/pull/23578).
 
 ## Cambios planeados en la API(10.0)
 
@@ -284,12 +342,6 @@ Vea [#23265](https://github.com/electron/electron/pull/23265) para más detalles
 ### Obsoleto: `crashReporter.start({ compress: false })`
 
 Establecer `{ compress: false }` en `crashReporter.start` está obsoleto. Casi todos los servidores de gestión de fallos soportan compresión gzip. Esta opción será eliminada en una versión futura de Electron.
-
-### Eliminado: Browser Window Affinity
-
-La opción `affinity` al construir una nueva `BrowserWindow` se eliminará como parte de nuestro plan para alinear más estrechamente con el modelo de proceso de Chromium por seguridad, rendimiento y mantenimiento.
-
-Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
 
 ### Valor por defecto modificado: `enableRemoteModule` por defecto a `false`
 
@@ -365,9 +417,9 @@ const isIntercepted = protocol.isProtocolIntercepted(scheme)
 
 ### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
 
-As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
+A partir de Electron 9 no permitimos la carga de módulos nativos no conscientes del contexto en el proceso de renderizado.  Esto es para mejorar la seguridad, el rendimiento y el mantenimiento de Electron como proyecto.
 
-If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
+Si esto te impacta, puedes configurar de forma temporal `app.allowRendererProcessReuse` a `false` para revertir el comportamiento antiguo.  Esta marca solo será una opción hasta Electron 11 y deberías planear actualizar tus módulos nativos para que sean conscientes del contexto.
 
 Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
 
@@ -430,7 +482,7 @@ Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del 
 
 ### Comportamiento Modificado: Enviando objetos no JS sobre IPC ahora lanza una excepción
 
-In Electron 8.0, IPC was changed to use the Structured Clone Algorithm, bringing significant performance improvements. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
+En Electron 8.0, el IPC se cambió para que utilizara el algoritmo de clon estructurado, con importantes mejoras de rendimiento. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
 
 En Electron 9,0, se eliminó el algoritmo de serialización anterior, y enviar tales objetos no serializables ahora lanzará un error "no se pudo clonar el objeto".
 

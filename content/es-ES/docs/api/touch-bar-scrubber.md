@@ -14,7 +14,7 @@ Proceso: [principal](../glossary.md#main-process)</0>
     * `índice destacado` Entero - El índice del elemento que el usuario tocó.
   * `selectedStyle` String (opcional) - Estilo de elemento seleccionado. Puede ser `background`, `outline` o `none`. Por defecto es `none`.
   * `overlayStyle` String (opcional) - Estilo de elemento de superposición seleccionado. Puede ser `background`, `outline` o `none`. Por defecto es `none`.
-  * `showArrowButtons` Boolean (opcional) - Por defecto a `false`.
+  * `showArrowButtons` Boolean (optional) - Whether to show arrow buttons. Defaults to `false` and is only shown if `items` is non-empty.
   * `mode` String (opcional) - Puede ser `fixed` o `free`. Por defecto es `free`.
   * `continuous` Boolean (opcional) - Por defecto a `true`.
 

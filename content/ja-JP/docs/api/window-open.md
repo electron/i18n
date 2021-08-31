@@ -11,7 +11,7 @@
 
 Electron は、このネイティブの Chrome `Window` と BrowserWindow をペアリングします。 レンダラーで作成されたウインドウに対して `webContents.setWindowOpenHandler()` を使用することで、メインプロセスでの BrowserWindow 作成と同じすべてのカスタマイズを活用できます。
 
-BrowserWindow コンストラクタのオプションは、親から継承したオプション、`window.open()` の `features` 文字列から解析したオプション、親から継承したセキュリティ関連の webPreferences、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) の順で指定したものが設定されます。 注意として、`webContents.setWindowOpenHandler` はメインプロセスで呼び出されるため、最終的な決定権と完全なアクセス権限があります。
+BrowserWindow コンストラクタのオプションは、`window.open()` の `features` 文字列からパースされたオプション、親ウインドウから継承されたセキュリティ関連の webPreferences、[`webContents.setWindowOpenHandler`](web-contents.md#contentssetwindowopenhandlerhandler) で与えられたオプションの順に設定されます。 注意として、`webContents.setWindowOpenHandler` はメインプロセスで呼び出されるため、最終的な決定権と完全なアクセス権限があります。
 
 ### `window.open(url[, frameName][, features])`
 
@@ -36,7 +36,8 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 * Node integration は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
 * コンテキストイソレーションは、親ウィンドウで有効になっている場合は、開いた `window` で常に有効になります。
 * JavaScript は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
-* `features` で指定された非標準機能 (Chromium や Electron によって処理されない) は、`additionalFeatures` 引数内の登録された `webContents` の `did-create-window` イベントハンドラに渡されます。
+* `features` で指定された非標準機能 (Chromium や Electron によって処理されない) は、`options` 引数内の登録された `webContents` の `did-create-window` イベントハンドラに渡されます。
+* `frameName` は、[ネイティブのドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) にある `windowName` の仕様に従います。
 
 ウインドウの作成をカスタマイズまたはキャンセルするにあたって、メインプロセスから `webContents.setWindowOpenHandler()` でオーバーライドハンドラーを任意設定できます。 `false` を返すとそのウインドウをキャンセルし、オブジェクトを返すとそのウインドウ作成時に使用する `BrowserWindowConstructorOptions` に返したオブジェクトを設定します。 これは、オプションを features 文字列に渡すよりも強力であることに注意しましょう。 レンダラーがセキュリティ設定を決定する場合は、メインプロセスよりも権限が制限されています。
 
@@ -56,7 +57,7 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
   // 例えば...
-  childWindow.webContents('will-navigate', (e) => {
+  childWindow.webContents.on('will-navigate', (e) => {
     e.preventDefault()
   })
 })

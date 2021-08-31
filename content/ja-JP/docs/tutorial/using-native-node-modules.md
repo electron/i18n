@@ -1,4 +1,4 @@
-# ネイティブのNodeモジュールを使用する
+# ネイティブ Node モジュール
 
 Electron ではネイティブ Node.js モジュールがサポートされていますが、Electron は (OpenSSL ではなく Chromium の BoringSSL を使用するなどの違いにより) 指定の Node.js バイナリと異なる [アプリケーションバイナリインターフェイス (ABI)][abi] であるため、使用するネイティブモジュールを Electron 向けに再コンパイルする必要があります。 そうしなければ、以下の類のエラーが実行しようとしたときに発生します。
 
@@ -74,7 +74,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 公開されているリリースと一致しない Electron のカスタムビルドに対してネイティブの Node モジュールをコンパイルするには、カスタムビルドにバンドルされている Node のバージョンを使用するように `npm` に指示します。
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/src/out/Default/gen/node_headers
 ```
 
 ## トラブルシューティング

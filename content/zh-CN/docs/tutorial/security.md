@@ -18,7 +18,7 @@ Electron keeps up to date with alternating Chromium releases. 欲了解更多信
 
 需要牢记的是，你的 Electron 程序安全性除了依赖于整个框架基础（*Chromium*、*Node.js*）、Electron 本身和所有相关 NPM 库的安全性，还依赖于你自己的代码安全性。 因此，你有责任遵循下列安全守则：
 
-* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#15-use-a-current-version-of-electron)”以获取更多信息。
+* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 你可以通过更新Electron到最新版本来确保像是*nodeIntegration绕过攻击*一类的严重漏洞已经被修复因而不会影响到你的程序。 请参阅“[使用当前版本的Electron](#16-use-a-current-version-of-electron)”以获取更多信息。
 
 * **评估你的依赖项目**NPM提供了五百万可重用的软件包，而你应当承担起选择可信任的第三方库。 如果你使用了受已知漏洞的过时的库，或是依赖于维护的很糟糕的代码，你的程序安全就可能面临威胁。
 
@@ -43,18 +43,19 @@ Electron keeps up to date with alternating Chromium releases. 欲了解更多信
 1. [只加载安全的内容](#1-only-load-secure-content)
 2. [禁止在所有渲染器中使用Node.js集成显示远程内容](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [在所有显示远程内容的渲染器中启用上下文隔离。](#3-enable-context-isolation-for-remote-content)
-4. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#4-handle-session-permission-requests-from-remote-content)
-5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
-6. [定义一个`Content-Security-Policy`](#6-define-a-content-security-policy)并设置限制规则(如：`script-src 'self'`)
-7. [不要设置 ` allowRunningInsecureContent ` 为 true.](#7-do-not-set-allowrunninginsecurecontent-to-true)
-8. [不要开启实验性功能](#8-do-not-enable-experimental-features)
-9. [不要使用`enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`：不要使用 `allowpopups `](#10-do-not-use-allowpopups)
-11. [`<webview>`：验证选项与参数](#11-verify-webview-options-before-creation)
-12. [禁用或限制网页跳转](#12-disable-or-limit-navigation)
-13. [禁用或限制新窗口创建](#13-disable-or-limit-creation-of-new-windows)
-14. [不要对不可信的内容使用 `openExternal`](#14-do-not-use-openexternal-with-untrusted-content)
-15. [使用当前版本的 Electron](#15-use-a-current-version-of-electron)
+4. [Enable sandboxing](#4-enable-sandboxing)
+5. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#5-handle-session-permission-requests-from-remote-content)
+6. [不要禁用 ` webSecurity `](#6-do-not-disable-websecurity)
+7. [定义一个`Content-Security-Policy`](#7-define-a-content-security-policy)并设置限制规则(如：`script-src 'self'`)
+8. [不要设置 ` allowRunningInsecureContent ` 为 true.](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [不要开启实验性功能](#9-do-not-enable-experimental-features)
+10. [不要使用`enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
+11. [`<webview>`：不要使用 `allowpopups `](#11-do-not-use-allowpopups)
+12. [`<webview>`：验证选项与参数](#12-verify-webview-options-before-creation)
+13. [禁用或限制网页跳转](#13-disable-or-limit-navigation)
+14. [禁用或限制新窗口创建](#14-disable-or-limit-creation-of-new-windows)
+15. [不要对不可信的内容使用 `openExternal`](#15-do-not-use-openexternal-with-untrusted-content)
+16. [使用当前版本的 Electron](#16-use-a-current-version-of-electron)
 
 如果你想要自动检测错误的配置或是不安全的模式，可以使用[electronegativity](https://github.com/doyensec/electronegativity) 关于在使用Electron进行应用程序开发中的潜在薄弱点或者bug，您可以参考[开发者与审核人员指南](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -157,7 +158,23 @@ Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
-## 4) 处理来自远程内容的会话许可请求
+## 4) Enable Sandboxing
+
+[Sandboxing](sandbox.md) is a Chromium feature that uses the operating system to significantly limit what renderer processes have access to. You should enable the sandbox in all renderers. Loading, reading or processing any untrusted content in an unsandboxed process, including the main process, is not advised.
+
+### 怎么做？
+
+When creating a window, pass the `sandbox: true` option in `webPreferences`:
+
+```js
+const win = new BrowserWindow({
+  webPreferences: {
+    sandbox: true
+  }
+})
+```
+
+## 5) 处理来自远程内容的会话许可请求
 
 当你使用Chromes时，也许见过这种许可请求：每当网站尝试使用某个特性时，就会弹出让用户手动确认(如网站通知)
 
@@ -190,7 +207,7 @@ session
   })
 ```
 
-## 5) 不要禁用WebSecurity
+## 6) 不要禁用WebSecurity
 
 _Electron的默认值即是建议值。_
 
@@ -226,7 +243,7 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## 6) 定义一个内容安全策略
+## 7) 定义一个内容安全策略
 
 内容安全策略(CSP) 是应对跨站脚本攻击和数据注入攻击的又一层保护措施。 我们建议任何载入到Electron的站点都要开启。
 
@@ -269,7 +286,7 @@ CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资�
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-## 7) 不要设置`allowRunningInsecureContent`为`true`
+## 8) 不要设置`allowRunningInsecureContent`为`true`
 
 _Electron的默认值即是建议值。_
 
@@ -297,7 +314,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 8) 不要开启实验室特性
+## 9) 不要开启实验室特性
 
 _Electron的默认值即是建议值。_
 
@@ -325,7 +342,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) 不要使用`enableBlinkFeatures`
+## 10) 不要使用`enableBlinkFeatures`
 
 _Electron的默认值即是建议值。_
 
@@ -351,7 +368,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 10) 不要使用`allowpopups`
+## 11) 不要使用`allowpopups`
 
 _Electron的默认值即是建议值。_
 
@@ -371,7 +388,7 @@ _Electron的默认值即是建议值。_
 <webview src="page.html"></webview>
 ```
 
-## 11) 创建WebView前确认其选项
+## 12) 创建WebView前确认其选项
 
 通过渲染进程创建的WebView是不开启Node.js集成的，且也不能由自身开启。 但是，WebView可以通过其`webPreferences`属性创建一个独立的渲染进程。
 
@@ -407,7 +424,7 @@ app.on('web-contents-created', (event, contents) => {
 
 不过，这个清单只是将风险降低到最低限度，但没有将其消除。 如果您的目标是展示一个网站，浏览器将是一个更安全的选择。
 
-## 12) Disable or limit navigation
+## 13) Disable or limit navigation
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
@@ -437,7 +454,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) 禁用或限制新窗口的创建
+## 14) 禁用或限制新窗口的创建
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 
@@ -472,7 +489,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) 不要使用 `openExternal` 打开含有不可信任内容
+## 15) 不要使用 `openExternal` 打开含有不可信任内容
 
 Shell 的 [`openExternal`][open-external] 允许使用桌面的原生工具打开指定的协议 URI。 例如，在 macOS 上，此功能与 `open` 终端命令实用程序类似，将基于 URI 和文件类型关联打开特定的应用程序。
 
@@ -494,7 +511,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) 使用当前版本的 Electron
+## 16) 使用当前版本的 Electron
 
 你应该尽可能使用最新版本的 Electron。 每当发布新的主要版本时，你应该尝试尽快更新您的应用。
 

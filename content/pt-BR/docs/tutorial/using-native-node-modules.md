@@ -1,4 +1,4 @@
-# Usando Módulos Nativos do Node
+# Native Node Modules
 
 Módulos Node,js nativos são suportados pelo Electron, mas, como Electron tem uma [interface binária de aplicação (ABI)][abi] diferente da interface do Node.js (devido a diferenças como o uso do BoringSSL do Chromium ao invés do OpenSSL), os módulos nativos que você usar precisam ser recompilados para Electron. Otherwise, you will get the following class of error when you try to run your app:
 
@@ -74,7 +74,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/src/out/Default/gen/node_headers
 ```
 
 ## Solução de Problemas

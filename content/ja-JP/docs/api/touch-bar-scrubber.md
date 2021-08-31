@@ -14,7 +14,7 @@
     * `highlightedIndex` Integer - ユーザがタッチしたアイテムのインデックス.
   * `selectedStyle` String (任意) - 選択したアイテムのスタイル。 `background`、`outline`、`none` のいずれかにできます。 省略値は `none` です。
   * `overlayStyle` String (任意) - 選択したオーバーレイアイテムのスタイル。 `background`、`outline`、`none` のいずれかにできます。 省略値は `none` です。
-  * `showArrowButtons` Boolean (任意) - 省略値は、`false` になります。
+  * `showArrowButtons` Boolean (任意) - 矢印ボタンを表示するかどうか。 省略値は `false` で、`items` が空でない場合にのみ表示されます。
   * `mode` String (任意) - `fixed` か `free` にできます。 省略値は `free` です。
   * `continuous` Boolean (任意) - 省略値は、`true` になります。
 

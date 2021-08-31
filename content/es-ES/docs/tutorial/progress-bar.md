@@ -1,4 +1,4 @@
-# Barra de progreso en la barra de tareas (Windows, macOS, Unity)
+# Taskbar Progress Bar (Windows & macOS)
 
 ## Descripción general
 

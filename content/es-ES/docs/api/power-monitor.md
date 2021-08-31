@@ -8,11 +8,11 @@ Proceso: [principal](../glossary.md#main-process)</0>
 
 El módulo `powerMonitor` emite los siguientes eventos:
 
-### Event: 'suspend' _macOS_ _Windows_
+### Evento: "suspend"
 
 Se emite cuando se suspende el sistema.
 
-### Event: 'resume' _macOS_ _Windows_
+### Evento: "resume"
 
 Se emite cuando se reanuda el sistema.
 

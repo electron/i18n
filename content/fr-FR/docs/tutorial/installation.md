@@ -1,4 +1,4 @@
-# Installation
+# Instructions d’installation avancées
 
 To install prebuilt Electron binaries, use [`npm`][npm]. The preferred method is to install Electron as a development dependency in your app:
 

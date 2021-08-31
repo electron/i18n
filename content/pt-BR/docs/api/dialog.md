@@ -186,8 +186,6 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
   * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
   * `title` String (opcional) - Título da caixa de mensagem, algumas plataformas não o exibirão.
   * `detail` String (opcional) - Informações adicionais da mensagem.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `cancelId` Integer (opcional) - O indicador do botão será usado para cancelar o diálogo, por via da tecla `Esc`. Por padrão é atribuído ao primeiro botão como "cancelar" ou "não" como rótulos. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (opcional) - No Windows, o Electron tentará identificar qual dos `buttons` são botões comuns (como "cancelar" ou "sim"), e exibir os outros como links de comandos no diálogo. Ele pode fazer o diálogo ser apresentado com o estilo dos aplicativos modernos do Windows. Se você não deseja esse comportamento, você pode definir `noLink` para `true`.

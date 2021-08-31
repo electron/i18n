@@ -1,4 +1,4 @@
-# 安装
+# Advanced Installation Instructions
 
 要安装预编译的 Electron 二进制文件，请使用 [`npm`][npm]。 首选方法是在你的应用程序中安装 Electron 作为开发依赖：
 

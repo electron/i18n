@@ -1,4 +1,4 @@
-# 使用原生 Node 模块
+# Native Node Modules
 
 原生Node.js模块由Electron支持，但由于Electron具有与给定Node.js不同的 [应用二进制接口 (ABI)][abi](由于使用Chromium的 BoringSL 而不是 OpenSSL 等 差异)，您使用的原生 模块需要为Electron重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
@@ -16,7 +16,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### 为 Electron 安装并重新编译模块
 
-您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`][electron-rebuild] 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。 If you are using [Electron Forge][electron-forge], this tool is used automatically in both development mode and when making distributables.
+您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`][electron-rebuild] 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。 如果您正在使用 [Electron Forge][electron-forge]，这个工具将在开发模式和发布时自动使用。
 
 For example, to install the standalone `electron-rebuild` tool and then rebuild modules with it via the command line:
 
@@ -74,7 +74,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 如果是为一个与公共发行版不匹配的Electron自定义版本编译原生Node模块，需要让`npm`使用你的Electron自定义版本所对应的Node版本。
 
 ```sh
-npm rebuild --nodedir=/path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/src/out/Default/gen/node_headers
 ```
 
 ## 故障排查

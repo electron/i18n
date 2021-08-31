@@ -1,6 +1,6 @@
-# In-App Purchase (macOS)
+# Achats avec l'application (macOS)
 
-## Preparing
+## Préparation
 
 ### Paid Applications Agreement
 
@@ -61,7 +61,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
         // If the receipt is valid, the product is purchased
         // ...
 
-        // Finish the transaction.
+        // Terminer la transaction.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break

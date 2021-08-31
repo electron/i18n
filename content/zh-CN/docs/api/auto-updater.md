@@ -97,6 +97,8 @@
 
 询问服务器是否有更新。 在使用此 API 之前，您必须调用`setFeedURL` 。
 
+**Note:** If an update is available it will be downloaded automatically. Calling `autoUpdater.checkForUpdates()` twice will download the update two times.
+
 ### `autoUpdater.quitAndInstall()`
 
 重启应用并在下载后安装更新。 它只应在发出 `update-downloaded` 后方可被调用。

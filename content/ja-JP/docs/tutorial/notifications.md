@@ -1,4 +1,4 @@
-# 通知 (Windows、Linux、macOS)
+# 通知
 
 ## 概要
 

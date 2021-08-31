@@ -147,12 +147,12 @@ Identique à `unsubscribeNotification`, mais supprime l'abonné de `NSWorkspace.
 
 Ajoute les valeurs par défaut à `NSUserDefaults`de votre application.
 
-### `systemPreferences.getUserDefault(key, type)` _macOS_
+### `systemPreferences.getUserDefault<Type extends keyof UserDefaultTypes>(key, type)` _macOS_
 
 * `key` String
-* `type` String - Peut être `chaîne`, `booléen`, `integer`, `float`, `double`, `url`, `array` ou `dictionnaire`.
+* `type` Type - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Retourne `any` - La valeur de `clé` dans `NSUserDefaults`.
+Returns [`UserDefaultTypes[Type]`](structures/user-default-types.md) - The value of `key` in `NSUserDefaults`.
 
 Certaines `clé` populaires et `type`s sont:
 

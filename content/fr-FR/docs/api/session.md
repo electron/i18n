@@ -160,7 +160,7 @@ Retourne :
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-#### Événement : 'select-serial-port' _Expérimental_
+#### Event: 'select-serial-port'
 
 Retourne :
 
@@ -172,21 +172,15 @@ Retourne :
 
 Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
 
-Parce qu'il s'agit d'une fonctionnalité expérimentale, elle est désactivée par défaut.  To enable this feature, you will need to use the `--enable-features=ElectronSerialChooser` command line switch.  Additionally because this is an experimental Chromium feature you will need to set `enableBlinkFeatures: 'Serial'` on the `webPreferences` property when opening a BrowserWindow.
-
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
 let win = null
-app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
 
 app.whenReady().then(() => {
   win = new BrowserWindow({
     width: 800,
-    height: 600,
-    webPreferences: {
-      enableBlinkFeatures: 'Serial'
-    }
+    height: 600
   })
   win.webContents.session.on('select-serial-port', (event, portList, webContents, callback) => {
     event.preventDefault()
@@ -202,7 +196,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### Événement : 'serial-port-added' _Expérimental_
+#### Event: 'serial-port-added'
 
 Retourne :
 
@@ -212,7 +206,7 @@ Retourne :
 
 Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  Par exemple, cet événement se déclenchera lorsqu'un nouveau périphérique USB est branché.
 
-#### Événement : 'serial-port-removed' _Expérimental_
+#### Event: 'serial-port-removed'
 
 Retourne :
 
@@ -302,7 +296,7 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 
    Correspond à un suffixe de domaine particulier.
 
-   Examples: ".google.com", ".com", "http://.google.com"
+   Exemples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
 
@@ -452,7 +446,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function\<Boolean> | null
-  * `webContents` ([WebContents](web-contents.md) | null) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.  Cross origin sub frames making permission checks will pass a `null` webContents to this handler.  You should use `embeddingOrigin` and `requestingOrigin` to determine what origin the owning frame and the requesting frame are on respectively.
+  * `webContents` ([WebContents](web-contents.md) | null) - WebContents checking the permission.  Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.  Toutes les frames de cross origin effectuant des vérifications de permission passeront un `null` webContents à ce gestionnaire, alors que certaines autres vérifications de permissions, telles que `notifications` , passeront toujours `null`.  You should use `embeddingOrigin` and `requestingOrigin` to determine what origin the owning frame and the requesting frame are on respectively.
   * `permission` String - Type of permission check.  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, or `serial`.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Some properties are only available on certain permission types.

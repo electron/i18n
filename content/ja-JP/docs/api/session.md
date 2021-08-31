@@ -160,7 +160,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
-#### イベント: 'select-serial-port' _実験的_
+#### イベント: 'select-serial-port'
 
 戻り値：
 
@@ -172,21 +172,15 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
 
 `navigator.serial.requestPort` の呼び出し時にシリアルポートを選択する必要がある場合に発生します。 `callback` は選んだ `portId` で呼び出されなければなりません。空の文字列を `callback` に渡すとリクエストがキャンセルされます。  さらに、[ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) を `serial` パーミッションで使用することで `navigator.serial` のパーミッションを管理できます。
 
-これは実験的な機能であるため、デフォルトでは無効になっています。  この機能を有効にするには、`--enable-features=ElectronSerialChooser` コマンドラインスイッチを使用する必要があります。  加えて、これは実験的な Chromium の機能なので、BrowserWindow を開くとき`webPreferences` プロパティに `enableBlinkFeatures: 'Serial'` を設定する必要があります。
-
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
 let win = null
-app.commandLine.appendSwitch('enable-features', 'ElectronSerialChooser')
 
 app.whenReady().then(() => {
   win = new BrowserWindow({
     width: 800,
-    height: 600,
-    webPreferences: {
-      enableBlinkFeatures: 'Serial'
-    }
+    height: 600
   })
   win.webContents.session.on('select-serial-port', (event, portList, webContents, callback) => {
     event.preventDefault()
@@ -202,7 +196,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### イベント: 'serial-port-added' _Experimental_
+#### イベント: 'serial-port-added'
 
 戻り値：
 
@@ -212,7 +206,7 @@ app.whenReady().then(() => {
 
 `navigator.serial.requestPort` が呼び出され新しいシリアルポートが利用可能になった場合に、`select-serial-port` が発生した後に発生します。  例えば、このイベントは新しい USB デバイスが接続されたときに発生します。
 
-#### イベント: 'serial-port-removed' _実験的_
+#### イベント: 'serial-port-removed'
 
 戻り値：
 
@@ -452,7 +446,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function\<Boolean> | null
-  * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  権限を確認しているのがクロスオリジンのサブフレームの場合、このハンドラには `null` の webContents が渡されます。  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
+  * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  すべてのクロスオリジンサブフレームによる権限の確認はハンドラの webContents に `null` が渡されますが、`notifications` の確認のような、ある特定の権限の確認では常に `null` が渡されます。  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
   * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`、`notifications`、`geolocation`、`media`、`mediaKeySystem`、`midi`、`pointerLock`、`fullscreen`、`openExternal`、`serial` です。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。

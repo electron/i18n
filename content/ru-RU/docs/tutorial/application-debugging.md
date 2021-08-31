@@ -29,7 +29,7 @@ If the V8 context crashes, the DevTools will display this message.
 
 Chromium logs can be enabled via the `ELECTRON_ENABLE_LOGGING` environment variable. Для получения дополнительной информации обратитесь к [документации по переменным окружения](../api/environment-variables.md#electron_enable_logging).
 
-Alternatively, the command line argument `--enable-logging` can be passed. Дополнительная информация доступна в [switches документации командной строки](../api/command-line-switches.md#--enable-logging).
+Alternatively, the command line argument `--enable-logging` can be passed. Дополнительная информация доступна в [switches документации командной строки](../api/command-line-switches.md#--enable-loggingfile).
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools

@@ -102,7 +102,7 @@ Electron Builder にはアプリケーションに署名するためのカスタ
 
 Forge や Builder のような統合されたビルドパイプラインを使用しない場合、[`electron-packager`][] を使用することが多く、これは [`electron-osx-sign`][] や [`electron-notarize`][] を同梱しています。
 
-Packager の API を使用している場合、[アプリケーションに署名と公証の両方を行う設定](https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html) を渡すことができます。
+Packager の API を使用している場合、[アプリケーションに署名と公証の両方を行う設定](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html) を渡すことができます。
 
 ```js
 const packager = require('electron-packager')
@@ -155,7 +155,6 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 * [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 * [Sectigo](https://sectigo.com/ssl-certificates-tls/code-signing)
-* [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 * とりわけ、あなたのニーズに合ったものを見つけるのであれば探してみてください。Google は友達です 😄
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。

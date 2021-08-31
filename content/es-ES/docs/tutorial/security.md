@@ -18,7 +18,7 @@ Electron keeps up to date with alternating Chromium releases. For more informati
 
 Es importante recordar que la seguridad de tu aplicación Electron es el resultado de la seguridad general de la base de framework (*Chromium*, *Node.js*), Electron mismo, todas las dependencias NPM y tu código. Por tanto, es tu responsabilidad seguir algunas importantes mejores prácticas:
 
-* **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación. Para más informacón, vea "[Use a current version of Electron](#15-use-a-current-version-of-electron)".
+* **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación. Para más informacón, vea "[Use a current version of Electron](#16-use-a-current-version-of-electron)".
 
 * **Evalue sus dependencias.**Mientras NPM provee más de medio millón de paquetes reusables, es su responsabilidad la elección de librerías confiables de terceros. Si utiliza librerías desactualizadas afectadas por vulnerabilidades conocidas o basado en código escasamente mantenido, la seguridad de su aplicación puede estar en peligro.
 
@@ -43,18 +43,19 @@ Al menos debes seguir los siguientes pasos para mejorar la seguridad de su aplic
 1. [Solo carga contenido seguro](#1-only-load-secure-content)
 2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#3-enable-context-isolation-for-remote-content)
-4. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#4-handle-session-permission-requests-from-remote-content)
-5. [No desactives `webSecurity`](#5-do-not-disable-websecurity)
-6. [Define un `Content-Security-Policy`](#6-define-a-content-security-policy) y usa reglas estrictas (i.e. `script-src 'self'`)
-7. [No establezca `allowRunningInsecureContent` a `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
-8. [No active ajustes experimentales](#8-do-not-enable-experimental-features)
-9. [No use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: No use`allowpopups`](#10-do-not-use-allowpopups)
-11. [`<webview>`: Verificar opciones y parámetros](#11-verify-webview-options-before-creation)
-12. [Deshabilitar o limitar navegación](#12-disable-or-limit-navigation)
-13. [Deshabilitar o limitar la generación de nuevas ventanas](#13-disable-or-limit-creation-of-new-windows)
-14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Usar una versión actual de Electron](#15-use-a-current-version-of-electron)
+4. [Enable sandboxing](#4-enable-sandboxing)
+5. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#5-handle-session-permission-requests-from-remote-content)
+6. [No desactives `webSecurity`](#6-do-not-disable-websecurity)
+7. [Define un `Content-Security-Policy`](#7-define-a-content-security-policy) y usa reglas estrictas (i.e. `script-src 'self'`)
+8. [No establezca `allowRunningInsecureContent` a `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
+9. [No active ajustes experimentales](#9-do-not-enable-experimental-features)
+10. [No use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
+11. [`<webview>`: No use`allowpopups`](#11-do-not-use-allowpopups)
+12. [`<webview>`: Verificar opciones y parámetros](#12-verify-webview-options-before-creation)
+13. [Deshabilitar o limitar navegación](#13-disable-or-limit-navigation)
+14. [Deshabilitar o limitar la generación de nuevas ventanas](#14-disable-or-limit-creation-of-new-windows)
+15. [No utilice `openExternal` con contenido no confiable](#15-do-not-use-openexternal-with-untrusted-content)
+16. [Usar una versión actual de Electron](#16-use-a-current-version-of-electron)
 
 Para automatizar la detección de configuraciones erróneas y de modelos inseguros, es posible usar [electronegativity](https://github.com/doyensec/electronegativity). Para detalles adicionales sobre potenciales debilidades y errores en la implementación durante el desarrollo de aplicaciones usando Electron, consulte [guía para desarrolladores y auditores](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -158,7 +159,23 @@ Even when `nodeIntegration: false` is used, to truly enforce strong isolation an
 
 For more information on what `contextIsolation` is and how to enable it please see our dedicated [Context Isolation](context-isolation.md) document.
 
-## 4) Gestionar las solicitudes de permiso de sesión desde el contenido remoto
+## 4) Enable Sandboxing
+
+[Sandboxing](sandbox.md) is a Chromium feature that uses the operating system to significantly limit what renderer processes have access to. You should enable the sandbox in all renderers. Loading, reading or processing any untrusted content in an unsandboxed process, including the main process, is not advised.
+
+### ¿Còmo?
+
+When creating a window, pass the `sandbox: true` option in `webPreferences`:
+
+```js
+const win = new BrowserWindow({
+  webPreferences: {
+    sandbox: true
+  }
+})
+```
+
+## 5) Gestionar las solicitudes de permiso de sesión desde el contenido remoto
 
 Tu puedes haber visto pedidos de permiso mientras usas Chrome: Ellos avisan lo que sea que la página intente usar como una característica que el usuario tiene que aprobar manualmente (como notificaciones).
 
@@ -191,7 +208,7 @@ session
   })
 ```
 
-## 5) No deshabilitar WebSecurity
+## 6) No deshabilitar WebSecurity
 
 _La recomendación por defecto es Electrón_
 
@@ -227,7 +244,7 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## 6) Definir una política de seguridad de contenido
+## 7) Definir una política de seguridad de contenido
 
 Un Contenido de Política de Seguridad (CSP) es una capa adicional de protección contra los ataques cross-site-scripting attacks y ataques de inyecciones de data. Recomendamos que ellos estén activados por cualquier página web cargada dentro de Electron.
 
@@ -270,7 +287,7 @@ El mecanismo de entrega preferido de CSP es una cabecera HTTP, sin embargo no es
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-## 7) No establecer `allowRunningInsecureContent` a `true`
+## 8) No establecer `allowRunningInsecureContent` a `true`
 
 _La recomendación por defecto es Electrón_
 
@@ -298,7 +315,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 8) No Habilitar características experimentales
+## 9) No Habilitar características experimentales
 
 _La recomendación por defecto es Electrón_
 
@@ -326,7 +343,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) No use `enableBlinkFeatures`
+## 10) No use `enableBlinkFeatures`
 
 _La recomendación por defecto es Electrón_
 
@@ -352,7 +369,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 10) No use `allowpopups`
+## 11) No use `allowpopups`
 
 _La recomendación por defecto es Electrón_
 
@@ -372,7 +389,7 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 <webview src="page.html"></webview>
 ```
 
-## 11) Verificar las opciones de WebView antes de la creación
+## 12) Verificar las opciones de WebView antes de la creación
 
 Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
@@ -408,7 +425,7 @@ app.on('web-contents-created', (event, contents) => {
 
 Una vez más, esta lista simplemente minimiza el riesgo, no lo elimina. If your goal is to display a website, a browser will be a more secure option.
 
-## 12) Deshabilitar o limitar la navegación
+## 13) Deshabilitar o limitar la navegación
 
 Si tu aplicación no tiene la necesidad de navegar o sólo necesita navegar a páginas conocidas, es una buena idea limitar la navegación directamente a ese alcance conocido, inhabilitando cualquier otro tipo de navegación.
 
@@ -438,7 +455,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) Deshabilite o limite la creación de nuevas ventasnas
+## 14) Deshabilite o limite la creación de nuevas ventasnas
 
 Si tienes un conjunto de ventanas conocido, es una buena idea limitar la creación de ventanas adicionales en tu aplicación.
 
@@ -473,7 +490,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) No use `openExternal` con contenido no confiable
+## 15) No use `openExternal` con contenido no confiable
 
 El [`openExternal`][open-external] de Shell permite abrir un protocolo URI dado con las utilidades nativas del escritorio. En macOS, a modo de ejemplo, esta función es similar a la utilidad de comando de terminal `open` y abrirá la aplicación especifica basado en la URI y en el tipo de archivo asociado.
 
@@ -495,7 +512,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Utilizar una versión actual de Electron
+## 16) Utilizar una versión actual de Electron
 
 You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
 

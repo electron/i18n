@@ -1,4 +1,4 @@
-# Benachrichtigungen (Windows, Linux, MacOS)
+# Benachrichtigungen
 
 ## Übersicht
 

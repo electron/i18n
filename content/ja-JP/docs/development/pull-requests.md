@@ -92,7 +92,6 @@ $ git commit
 * perf: パフォーマンスを改善するコード変更
 * refactor: バグ修正や機能追加の無いコード変更
 * style: コードの意味を変えない変更 (lint)
-* vendor: libchromiumcontent や node のような依存関係の更新
 
 その他、コミットメッセージを作成するときに留意すること:
 

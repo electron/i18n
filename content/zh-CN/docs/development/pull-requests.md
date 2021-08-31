@@ -34,7 +34,7 @@ $ git fetch upstream
 
 根据您的操作系统, 项目构建步骤和依赖项稍有不同。 请参阅这些关于构建 Electron 项目的详细指南:
 
-* [Building on macOS](build-instructions-macos.md)
+* [在 macOS 上构建](build-instructions-macos.md)
 * [在 Linux 上构建](build-instructions-linux.md)
 * [在 Windows 上构建](build-instructions-windows.md)
 
@@ -86,13 +86,12 @@ Before a pull request can be merged, it **must** have a pull request title with 
 * fix: A bug fix
 * feat: A new feature
 * docs: Documentation changes
-* test: Adding missing tests or correcting existing tests
+* 测试：添加缺失测试或纠正现有测试
 * build: Changes that affect the build system
 * ci: Changes to our CI configuration files and scripts
 * perf: A code change that improves performance
 * refactor: A code change that neither fixes a bug nor adds a feature
 * style: Changes that do not affect the meaning of the code (linting)
-* vendor: Bumping a dependency like libchromiumcontent or node
 
 其他在写提交信息时需要留意的事情：
 

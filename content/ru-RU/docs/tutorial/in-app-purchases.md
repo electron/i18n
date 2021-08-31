@@ -1,4 +1,4 @@
-# Встроенные покупки (macOS)
+# In-App Purchases (macOS)
 
 ## Подготовка
 

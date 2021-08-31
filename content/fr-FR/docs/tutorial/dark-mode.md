@@ -18,7 +18,7 @@ If you want to manually switch between light/dark modes, you can do this by sett
 
 In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode][system-wide-dark-mode] for all macOS computers. If your Electron app has a dark mode, you can make it follow the system-wide dark mode setting using [the `nativeTheme` api](../api/native-theme.md).
 
-In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to use Electron `>=7.0.0`, or set `NSRequiresAquaSystemAppearance` to `false` in your `Info.plist` file for older versions. Both [Electron Packager][electron-packager] and [Electron Forge][electron-forge] have a [`darwinDarkModeSupport` option][packager-darwindarkmode-api] to automate the `Info.plist` changes during app build time.
+In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina, you need to use Electron `>=7.0.0`, or set `NSRequiresAquaSystemAppearance` to `false` in your `Info.plist` file for older versions. [Electron Packager][electron-packager] et [Electron Forge][electron-forge] ont une option [`darwinDarkModeSupport`][packager-darwindarkmode-api] pour automatiser les infos `Info.plist` modifications pendant la compilation de l'application.
 
 If you wish to opt-out while using Electron &gt; 8.0.0, you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `true`. Please note that Electron 8.0.0 and above will not let you opt-out of this theming, due to the use of the macOS 10.14 SDK.
 
@@ -56,9 +56,9 @@ Starting with the `index.html` file:
 </html>
 ```
 
-And the `style.css` file:
+Et le fichier `styles.css`:
 
-```css title='style.css'
+```css title='styles.css'
 @media (prefers-color-scheme: dark) {
   body { background: #333; color: white; }
 }
@@ -160,6 +160,6 @@ Run the example using Electron Fiddle and then click the "Toggle Dark Mode" butt
 [system-wide-dark-mode]: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/
 [electron-forge]: https://www.electronforge.io/
 [electron-packager]: https://github.com/electron/electron-packager
-[packager-darwindarkmode-api]: https://electron.github.io/electron-packager/master/interfaces/electronpackager.options.html#darwindarkmodesupport
+[packager-darwindarkmode-api]: https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html#darwindarkmodesupport
 [prefers-color-scheme]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 [event-listeners]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener

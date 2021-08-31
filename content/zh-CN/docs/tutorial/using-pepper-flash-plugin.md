@@ -1,4 +1,4 @@
-# 使用 Pepper Flash 插件
+# Pepper Flash Plugin
 
 Electron 不再支持 Pepper Flash 插件，因为 Chrome 已经移除了支持。
 

@@ -94,15 +94,7 @@ A `Boolean`. When this attribute is present the guest page in `webview` will hav
 
 A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
-### `enableremotemodule`
-
-```html
-<webview src="http://www.google.com/" enableremotemodule="false"></webview>
-```
-
-A `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is unavailable by default.
-
-### `plug-ins`
+### `plugins`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -222,10 +214,9 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
 
 ### `<webview>.downloadURL(url)`
 
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Initiates a download of the resource at <code>url` without navigating.</p>
+Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.getURL()`
 
@@ -587,8 +578,8 @@ The following DOM events are available to the `webview` tag:
 
 Kehrt zurück:
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>isMainFrame` Boolean
+* `url` String
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -703,8 +694,8 @@ console.log(requestId)
 
 Kehrt zurück:
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>frameName` String
+* `url` String
+* `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
@@ -728,11 +719,9 @@ webview.addEventListener('new-window', async (e) => {
 
 Kehrt zurück:
 
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when a user or the page wants to start navigation. It can happen when
-the <code>window.location` object is changed or a user clicks a link in the page.</p>
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -740,31 +729,53 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does __NOT__ have any effect.
 
+### Event: 'did-start-navigation'
+
+Kehrt zurück:
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
+
 ### Event: 'did-navigate'
 
 Kehrt zurück:
 
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when a navigation is done.</p>
+Emitted when a navigation is done.
 
-<p spaces-before="0">This event is not emitted for in-page navigations, such as clicking anchor links
-or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p>
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+### Event: 'did-frame-navigate'
+
+Kehrt zurück:
+
+* `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame navigation is done.
+
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
 ### Event: 'did-navigate-in-page'
 
 Kehrt zurück:
 
 * `isMainFrame` Boolean
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when an in-page navigation happened.</p>
+Emitted when an in-page navigation happened.
 
-<p spaces-before="0">When in-page navigation happens, the page URL changes but does not cause
-navigation outside of the page. Examples of this occurring are when anchor links
-are clicked or when the DOM <code>hashchange` event is triggered.</p>
+When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 ### Event: 'close'
 
@@ -849,22 +860,21 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Kehrt zurück:
 
-*  URL </ 0>  Zeichenfolge</li>
-</ul>
+* `url` String
 
-<p spaces-before="0">Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-<h3 spaces-before="0">Event: 'devtools-opened'</h3>
+### Event: 'devtools-opened'
 
-<p spaces-before="0">Emittiert wenn die DevTools geöffnet wurden.</p>
+Emittiert wenn die DevTools geöffnet wurden.
 
-<h3 spaces-before="0">Event: 'devtools-closed'</h3>
+### Event: 'devtools-closed'
 
-<p spaces-before="0">Emittiert wenn die DevTools geschlossen wurden.</p>
+Emittiert wenn die DevTools geschlossen wurden.
 
-<h3 spaces-before="0">Event: 'devtools-focused'</h3>
+### Event: 'devtools-focused'
 
-<p spaces-before="0">Emitted when DevTools is focused / opened.</p>
+Emitted when DevTools is focused / opened.
 
 [runtime-enabled-features]: https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70
 [chrome-webview]: https://developer.chrome.com/docs/extensions/reference/webviewTag/

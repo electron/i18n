@@ -1,10 +1,10 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Realiza las operaciones de copiar y pegar en el portapapeles del sistema.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+En Linux, también hay un portapapeles `selección`. Para manipularlo necesita pasar `selección` a cada método:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -15,15 +15,15 @@ console.log(clipboard.readText('selection'))
 
 ## Métodos
 
-The `clipboard` module has the following methods:
+El módulo `portapapeles` tiene los siguientes métodos:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** APIs experimentales son marcadas como tales y podría ser removidas en el futuro.
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Devuelve `Cadena` - El contenido en el portapapeles como texto sin formato.
 
 ```js
 const { clipboard } = require('electron')
@@ -35,12 +35,12 @@ console.log(text)
 // hello i am a bit of text!'
 ```
 
-### `clipboard.writeText(text[, type])`
+### `clipboard.writeText(texto[, type])`
 
-* `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `texto` Cadena
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Writes the `text` into the clipboard as plain text.
+Escribe el `texto` en el portapapeles como texto sin formato.
 
 ```js
 const { clipboard } = require('electron')
@@ -51,9 +51,9 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Devuelve `Cadena` - El contenido en el portapapeles como marca.
 
 ```js
 const { clipboard } = require('electron')
@@ -67,10 +67,10 @@ console.log(html)
 
 ### `clipboard.writeHTML(markup[, type])`
 
-* `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `markup` Cadena
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Writes `markup` to the clipboard.
+Escribe `markup` en el portapapeles.
 
 ```js
 const { clipboard } = require('electron')
@@ -80,22 +80,22 @@ clipboard.writeHTML('<b>Hi</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Devuelve [`NativeImage`](native-image.md) - El contenido de la imagen en el portapapeles.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Writes `image` to the clipboard.
+Escribe `image` en el portapapeles.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -109,10 +109,10 @@ console.log(rtf)
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `texto` Cadena
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Writes the `text` into the clipboard in RTF.
+Escribe el `text` en el portapapeles en RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -128,17 +128,17 @@ Devuelve `Objeto`:
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Devuelve un Objeto que contiene las claves `title` y `url` que representan el marcador en el portapapeles. Los valores `title` y `url` serán cadenas vacías cuando el marcador no está disponible.
 
 ### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Escribe el `título` y la `url` en el portapapeles como un marcador.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Nota:** La mayoría de las aplicaciones en Windows no soportan el pegado de marcadores dentro de ellas así que puedes usar `clipboard.write` para escribir tanto un marcador como un texto de respaldo en el portapapeles.
 
 ```js
 const { clipboard } = require('electron')
@@ -151,27 +151,27 @@ clipboard.writeBookmark({
 
 ### `clipboard.readFindText()` _macOS_
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+Devuelve `String` - El texto en el portapapeles de búsqueda, el cual es el portapapeles que contiene información sobre el estado actual del panel de búsqueda de la aplicación.
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Este método usa IPC síncrono cuando se llama desde el renderer process. El valor almacenado en el cache es re leído desde portapapeles de búsqueda cada vez que la aplicación se activa.
 
 ### `clipboard.writeFindText(text)` _macOS_
 
-* `text` String
+* `texto` Cadena
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+Escribe el `text` portapapeles de búsqueda ( portapapeles que contiene información sobre el estado actual del panel de búsqueda de la aplicación) como texto plano. Este método usa IPC síncrono cuando se llama desde el renderer process.
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Clears the clipboard content.
+Borra el contenido del portapapeles.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Devuelve `Cadena[] ` - Una matriz de formatos admitidos para el portapapeles `type`.
 
 ```js
 const { clipboard } = require('electron')
@@ -183,38 +183,40 @@ console.log(formats)
 
 ### `clipboard.has(format[, type])` _Experimental_
 
-* `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `formato` Cadena
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
 
 ```js
 const { clipboard } = require('electron')
 
 const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' or 'false'
 ```
 
 ### `clipboard.read(format)` _Experimental_
 
-* `format` String
+* `formato` Cadena
 
-Returns `String` - Reads `format` type from the clipboard.
+Devuelve `String` - Lee el tipo de `formato` del portapapeles.
+
+`format` should contain valid ASCII characters and have `/` separator. `a/c`, `a/bc` are valid formats while `/abc`, `abc/`, `a/`, `/a`, `a` are not valid.
 
 ### `clipboard.readBuffer(format)` _Experimental_
 
-* `format` String
+* `formato` Cadena
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
 ```js
 const { clipboard } = require('electron')
 
 const buffer = Buffer.from('this is binary', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+clipboard.writeBuffer('public/utf8-plain-text', buffer)
 
-const ret = clipboard.readBuffer('public.utf8-plain-text')
+const ret = clipboard.readBuffer('public/utf8-plain-text')
 
 console.log(buffer.equals(out))
 // true
@@ -222,30 +224,30 @@ console.log(buffer.equals(out))
 
 ### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
-* `format` String
+* `formato` Cadena
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Writes the `buffer` into the clipboard as `format`.
+Escribe el `buffer` en el portapapeles como `formato`.
 
 ```js
 const { clipboard } = require('electron')
 
 const buffer = Buffer.from('writeBuffer', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+clipboard.writeBuffer('public/utf8-plain-text', buffer)
 ```
 
 ### `clipboard.write(data[, type])`
 
 * `data` Object
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+  * `text` Cadena (opcional)
+  * `html` Cadena (opcional)
+  * `image` [NativeImage](native-image.md) (opcional)
+  * `rtf` Cadena (opcional)
+  * `bookmark` String (opcional) - El título de la URL en `text`.
+* `type` String (opcional) - Puede ser `selection` o `clipboard`; por defecto es 'clipboard'. `selection` solo está disponible en Linux.
 
-Writes `data` to the clipboard.
+Escribe `datos` en el portapapeles.
 
 ```js
 const { clipboard } = require('electron')

@@ -41,9 +41,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### 当前支持的版本
 
+* 14.x.y
 * 13.x.y
 * 12.x.y
-* 11.x.y
 
 ### 服务终止
 

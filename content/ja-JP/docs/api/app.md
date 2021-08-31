@@ -420,54 +420,6 @@ app.on('session-created', (session) => {
 
 `webContents` のレンダラープロセス内で `desktopCapture.getSources()` が呼ばれたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースを返します。
 
-### イベント: 'remote-require' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `モジュール名` String
-
-`webContents` のレンダラープロセス内で `remote.require()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-global' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `globalName` String
-
-`webContents` のレンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-builtin' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `モジュール名` String
-
-`webContents` のレンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-current-window' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-`webContents` のレンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
-### イベント: 'remote-get-current-web-contents' _非推奨_
-
-戻り値：
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-`webContents` のレンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
-
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
@@ -981,7 +933,7 @@ if (!gotTheLock) {
 
 macOS では Dock アイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
+**注意:** Unity ランチャーは動作にあたって `.desktop` ファイルを必要とします。 詳しい情報は、[Unity 統合ドキュメント][unity-requirement] をご覧ください。
 
 ### `app.getBadgeCount()` _Linux_ _macOS_
 
@@ -1183,7 +1135,7 @@ app.moveToApplicationsFolder({
 
 macOS では、ゼロ以外の整数を設定すると、ドックアイコンに表示されます。 Linux では Unity ランチャーでのみ動作します。
 
-**注:** Unity ランチャーで動作させるには `.desktop` ファイルの存在が必要です。詳細は [デスクトップ環境への統合][unity-requirement] をお読みください。
+**注意:** Unity ランチャーは動作にあたって `.desktop` ファイルを必要とします。 詳しい情報は、[Unity 統合ドキュメント][unity-requirement] をご覧ください。
 
 **注意:** macOS でこのプロパティを有効にするには、アプリケーションに通知を表示する権限があるかどうか確認する必要があります。
 
@@ -1211,12 +1163,6 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。  アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。  オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
 
-### `app.allowRendererProcessReuse`
-
-この `Boolean` が `true` のとき、ナビゲーションごとにレンダラープロセスが確実に再起動されるように Electron が設定している、そのオーバーライドを無効にします。  このプロパティの現在の既定値は `true` です。
-
-これらのオーバーライドがデフォルトで無効になることを意図しているので、将来的にはこのプロパティは削除される予定です。  このプロパティはレンダラープロセス内で使用できるネイティブモジュールに影響します。  Electron がレンダラープロセスを再起動して、レンダラープロセスでネイティブモジュールを使用する方針についての詳細は、この [Tacking Issue](https://github.com/electron/electron/issues/18397) をご覧ください。
-
 ### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
 
 `Boolean` 型で、`true` の場合アプリが [Rosetta 変換環境](https://en.wikipedia.org/wiki/Rosetta_(software)) 下で動作していることを示します。
@@ -1231,7 +1177,7 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx

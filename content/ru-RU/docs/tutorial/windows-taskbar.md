@@ -1,4 +1,4 @@
-# Панель задач Windows
+# Taskbar Customization (Windows)
 
 ## Обзор
 

@@ -1,4 +1,4 @@
-# Использование Selenium и WebDriver
+# Selenium and WebDriver
 
 От [ChromeDriver - WebDriver для Chrome][chrome-driver]:
 

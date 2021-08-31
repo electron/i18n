@@ -97,6 +97,8 @@ Retourne `String` - L'URL de flux des mises à jour.
 
 Demande au serveur s'il y a une mise à jour. You must call `setFeedURL` before using this API.
 
+**Note:** If an update is available it will be downloaded automatically. Calling `autoUpdater.checkForUpdates()` twice will download the update two times.
+
 ### `autoUpdater.quitAndInstall()`
 
 Redémarre l'application et installe la mise à jour après son téléchargement. It should only be called after `update-downloaded` has been emitted.

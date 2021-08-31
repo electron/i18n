@@ -78,7 +78,6 @@ Electron
 * **.circleci** - CircleCI を使用した CI のコンフィグファイル。
 * **.github** - Issue のテンプレートとコード所有者を含む GitHub 指定のコンフィグファイル。
 * **dist** - 配布用に作成したときに `script/create-dist.py` スクリプトが作成する一時的なディレクトリ。
-* **external_binaries** - `gn`によるビルドがサポートされていない第三者のフレームワークのバイナリでダウンロードしたもの。
 * **node_modules** - ビルドに使用する第三者のnodeモジュール。
 * **npm** - npm を介した Electron のインストールロジック。
 * **out** - `ninja`の一時的な出力用ディレクトリ。
@@ -94,4 +93,3 @@ script/ - Electron がさまざまな目的で実行するすべてのスクリ�
 ```
 
 * **typings** - Electron 内部コードの TypeScript 型定義。
-* **vendor** - サードパーティの依存関係のソースコード。

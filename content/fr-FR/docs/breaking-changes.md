@@ -12,9 +12,29 @@ Ce document utilise la convention suivante pour catégoriser les modifications m
 * **Déprécié :** une API a été marquée comme étant dépréciée. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
 * **Supprimé:** Une API ou une fonctionnalité a été supprimée et n'est plus prise en charge par Electron.
 
+## Changements majeurs prévus de l'API (15.0)
+
+### Valeur par défaut modifié : `nativeWindowOpen`est par défaut à `true`
+
+Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
+
 ## Changements majeurs prévus de l'API (14.0)
 
-### API modifiée : `window.(open)`
+### Supprimé : `app.allowRendererProcessReuse`
+
+The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+
+Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
+
+### Suppression : Browser Window Affinity
+
+L'option `affinity` lors de l'instanciation d'une nouvelle `BrowserWindow` sera supprimée dans le cadre de notre plan d'alignement sur le modèle de processus de Chromium à des fins de sécurité, performances et maintenabilité.
+
+Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
+
+### API modifiée : `window.open()`
 
 Le paramètre optionnel `frameName` ne définira plus le titre de la fenêtre. Ceci conformément à la spécification décrite par la [documentation native](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) sous le paramètre correspondant `windowName`.
 
@@ -26,6 +46,44 @@ Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  Il n'y a pas d'a
 12.
 
 Vous serez affecté par ce changement si vous utilisez `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. Changements de rupture.
+
+### Removed: BrowserWindowConstructorOptions inheriting from parent windows
+
+Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+
+Instead, explicitly set options for the new window with `setWindowOpenHandler`:
+
+```js
+webContents.setWindowOpenHandler((details) => {
+  return {
+    action: 'allow',
+    overrideBrowserWindowOptions: {
+      // ...
+    }
+  }
+})
+```
+
+### Supprimé : `additionalFeatures`
+
+The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+
+```js
+// Removed in Electron 14
+// Triggered by window.open('...', '', 'my-key')
+webContents.on('did-create-window', (window, details) => {
+  if (details.additionalFeatures.includes('my-key')) {
+    // ...
+  }
+})
+
+// Replace with
+webContents.on('did-create-window', (window, details) => {
+  if (details.options['my-key']) {
+    // ...
+  }
+})
+```
 
 ## Changements majeurs prévus de l'API (13.0)
 
@@ -285,12 +343,6 @@ Voir [#23265](https://github.com/electron/electron/pull/23265) pour plus de dét
 
 La configuration `{ compress: false }` dans `crashReporter.start` est obsolète. Presque tous les serveurs d'ingestion de plantages supportent la compression gzip. Cette option sera supprimée dans une future version d’Electron.
 
-### Suppression : Browser Window Affinity
-
-L'option `affinity` lors de l'instanciation d'une nouvelle `BrowserWindow` sera supprimée dans le cadre de notre plan d'alignement sur le modèle de processus de Chromium à des fins de sécurité, performances et maintenabilité.
-
-Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
-
 ### Valeur par défaut modifié : `enableRemoteModule`est par défaut à `false`
 
 Dans Electron 9, l'utilisation du module remote sans l'activer explicitement via l'option `enableRemoteModule` de WebPreferences émet dès maintenant un avertissement. Avec Electron 10, le module remote est dès maintenant désactivé par défaut. Pour utiliser le module remote, on doit spécifier `enableRemoteModule : true` dans les WebPreferences:
@@ -525,12 +577,12 @@ Les événements `systemPreferences` suivants ont été dépréciés :
 Utilisez à la place le nouvel événement `updated` sur le module `nativeTheme`.
 
 ```js
-// Deprecated
+// Deprécié
 systemPreferences.on('inverted-color-scheme-changed', () => { /* ... */ })
 systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 
-// Replace with
-nativeTheme.on('updated', () => { /* ... */ })
+// Replacer avec
+nativmeTheme.on('updated', () => { /* ... */ })
 ```
 
 ### Méthodes obsolètes dans `systemPreferences`
@@ -606,11 +658,11 @@ const idleTime = powerMonitor.getSystemIdleTime()
 ### API Changed: `webFrame.setIsolatedWorldInfo` replaces separate methods
 
 ```js
-// Removed in Electron 7.0
+// Supprimé dans Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Remplacer par
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -683,7 +735,7 @@ Les fonctions suivantes ne retournent plus que des promesses :
 * `session.clearStorageData()` [#17249](https://github.com/electron/electron/pull/17249)
 * `session.getBlobData()` [#17303](https://github.com/electron/electron/pull/17303)
 * `session.getCacheSize()`  [#17185](https://github.com/electron/electron/pull/17185)
-* `session.resolveProxy()` [#17222](https://github.com/electron/electron/pull/17222)
+* `session.getCacheSize()` [#17185](https://github.com/electron/electron/pull/17222)
 * `session.setProxy()`  [#17222](https://github.com/electron/electron/pull/17222)
 * `shell.openExternal()` [#16176](https://github.com/electron/electron/pull/16176)
 * `()` [#15855](https://github.com/electron/electron/pull/15855)

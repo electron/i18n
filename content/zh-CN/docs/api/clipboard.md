@@ -193,7 +193,7 @@ const { clipboard } = require('electron')
 
 const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' or 'false'
 ```
 
 ### `clipboard.read(format)` _实验功能_
@@ -201,6 +201,8 @@ console.log(hasFormat)
 * `format` String
 
 返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
+
+`format` should contain valid ASCII characters and have `/` separator. `a/c`, `a/bc` are valid formats while `/abc`, `abc/`, `a/`, `/a`, `a` are not valid.
 
 ### `clipboard.readBuffer(format)` _实验功能_
 
@@ -212,9 +214,9 @@ console.log(hasFormat)
 const { clipboard } = require('electron')
 
 const buffer = Buffer.from('this is binary', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+clipboard.writeBuffer('public/utf8-plain-text', buffer)
 
-const ret = clipboard.readBuffer('public.utf8-plain-text')
+const ret = clipboard.readBuffer('public/utf8-plain-text')
 
 console.log(buffer.equals(out))
 // true
@@ -232,7 +234,7 @@ console.log(buffer.equals(out))
 const { clipboard } = require('electron')
 
 const buffer = Buffer.from('writeBuffer', 'utf8')
-clipboard.writeBuffer('public.utf8-plain-text', buffer)
+clipboard.writeBuffer('public/utf8-plain-text', buffer)
 ```
 
 ### `clipboard.write(data[, type])`
