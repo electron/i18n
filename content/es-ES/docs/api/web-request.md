@@ -46,7 +46,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -88,7 +88,7 @@ Algunos ejemplos de `urls` válidas:
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `requestHeaders` Record<string, string>
@@ -113,7 +113,7 @@ El `callback` ha de ser llamado con un objeto `response`.
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `requestHeaders` Record<string, string>
@@ -132,7 +132,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
@@ -160,7 +160,7 @@ El `callback` ha de ser llamado con un objeto `response`.
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `responseHeaders` Record<string, string[]> (opcional)
@@ -182,7 +182,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `redirectURL` String
@@ -206,7 +206,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `responseHeaders` Record<string, string[]> (opcional)
@@ -229,7 +229,7 @@ El `listener` será llamado con `listener(details)` cuando una petición es comp
     * `webContentsId` Entero (opcional)
     * `webContents` WebContents (opcional)
     * `frame` WebFrameMain (opcional)
-    * `sourceId` Cadena
+    * `resourceType` String - Can be `mainFrame`, `subFrame`, `stylesheet`, `script`, `image`, `font`, `object`, `xhr`, `ping`, `cspReport`, `media`, `webSocket` or `other`.
     * `referrer` String
     * `fecha y hora` Doble
     * `Desde cache` Booleano
