@@ -56,9 +56,9 @@ Electron &gt; 8.0.0 を使用中でオプトアウトしたい場合は、`Info.
 </html>
 ```
 
-そして `style.css` ファイルです。
+そして `styles.css` ファイルです。
 
-```css title='style.css'
+```css title='styles.css'
 @media (prefers-color-scheme: dark) {
   body { background: #333; color: white; }
 }
