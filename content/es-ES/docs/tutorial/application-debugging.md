@@ -29,7 +29,7 @@ Si el contexto V8 se bloquea, el DevTools mostrará este mensaje.
 
 Los registros de Chromium puden ser habilitados a través de la variable de entorno `ELECTRON_ENABLE_LOGGING`. Para más información, vea la [documentacion de variables de entorno](../api/environment-variables.md#electron_enable_logging).
 
-Alternativamente, el argumento de linea de comando `--enable-logging` puede ser pasado. Más información esta disponible en la [la documentación de parámetros de la línea de comando](../api/command-line-switches.md#--enable-logging).
+Alternativamente, el argumento de linea de comando `--enable-logging` puede ser pasado. Más información esta disponible en la [la documentación de parámetros de la línea de comando](../api/command-line-switches.md#--enable-loggingfile).
 
 [node-inspect]: https://nodejs.org/en/docs/inspector/
 [devtools]: https://developer.chrome.com/devtools
