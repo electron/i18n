@@ -11,7 +11,7 @@ Electron 14.0.0 est disponible ! Cette version inclue les mises à jour pour Chr
 
 ---
 
-La team Electron est excitée d'annoncer la sortie de Electron 14.0.0 ! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). Continue reading for details about this release and please share any feedback you have!
+La team Electron est excitée d'annoncer la sortie de Electron 14.0.0 ! Vous pouvez l'installer via `npm install electron@latest` ou le télécharger depuis notre [site officiel des versions](https://electronjs.org/releases/stable). Lisez la suite pour plus de détails sur cette version et veuillez partagez vos commentaires et remarques !
 
 ## Changements notables
 
