@@ -22,6 +22,23 @@ Electron 15 より前の `window.open` は既定で `BrowserWindowProxy` を使�
 
 ## 予定されている破壊的なAPIの変更 (14.0)
 
+### Removed: `remote` module
+
+The `remote` module was deprecated in Electron 12, and will be removed in Electron 14. これは [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
+
+```js
+// Electron 12では非推奨:
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+// こちらに置換:
+const { BrowserWindow } = require('@electron/remote')
+
+// メインプロセスでは:
+require('@electron/remote/main').initialize()
+```
+
 ### 削除: `app.allowRendererProcessReuse`
 
 `app.allowRendererProcessReuse` プロパティは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとより密接に連携する計画の一環として削除されます。
@@ -42,7 +59,7 @@ Electron 15 より前の `window.open` は既定で `BrowserWindowProxy` を使�
 
 ### 削除: `worldSafeExecuteJavaScript`
 
-Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代替手段はありませんので、このプロパティが有効になった上でのコードの動作を確認してください。  これは Electron 12 からデフォルトで有効になっています。
+Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。 代替手段はありませんので、このプロパティが有効になった上でのコードの動作を確認してください。 これは Electron 12 からデフォルトで有効になっています。
 12.
 
 `webFrame.executeJavaScript` か `webFrame.executeJavaScriptInIsolatedWorld` のいずれかを使用している場合、この変更の影響を受けます。 これらのメソッドは同じ値渡しセマンティクスを使用しているため、[Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) がサポートしている戻り値かどうかを確認する必要があります。

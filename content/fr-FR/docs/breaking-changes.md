@@ -22,9 +22,26 @@ See the documentation for [window.open in Electron](api/window-open.md) for more
 
 ## Changements majeurs prévus de l'API (14.0)
 
+### Removed: `remote` module
+
+Le module `remote` a été déprécié dans Electron 12, et sera supprimé dans Electron 14. Il est remplacé par le module [`@electron/remote`](https://github.com/electron/remote).
+
+```js
+// Déprécié dans Electron 12 :
+const { BrowserWindow } = require('electron').remote
+```
+
+```js
+Remplacer par :
+const { BrowserWindow } = require('@electron/remote')
+
+// Dans le processus principal:
+require('@electron/remote/main').initialize()
+```
+
 ### Supprimé : `app.allowRendererProcessReuse`
 
-The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+La propriété `app.allowRendererProcessReuse` sera supprimée dans le cadre de notre plan visant à être le plus étroitement alignées sur le modèle de processus de Chromium en matière de sécurité, de performance et de maintenabilité.
 
 Pour des informations plus détaillées, voir [#18397](https://github.com/electron/electron/issues/18397).
 
@@ -42,14 +59,14 @@ Si vous utilisiez ce paramètre pour définir le titre d'une fenêtre, vous deve
 
 ### Supprimé : `worldSafeExecuteJavaScript`
 
-Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée.  Il a été activé par défaut depuis Electron
+Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé. Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée. Il a été activé par défaut depuis Electron
 12.
 
 Vous serez affecté par ce changement si vous utilisez `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. Changements de rupture.
 
 ### Removed: BrowserWindowConstructorOptions inheriting from parent windows
 
-Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. Beginning with Electron 14, this behavior is removed, and windows will not inherit any BrowserWindow constructor options from their parents.
+Prior to Electron 14, windows opened with `window.open` would inherit BrowserWindow constructor options such as `transparent` and `resizable` from their parent window. À partir d'Electron 14, ce comportement est supprimé et les fenêtres n'hériteront d'aucune option du constructeur BrowserWindow de leurs parents.
 
 Instead, explicitly set options for the new window with `setWindowOpenHandler`:
 
@@ -66,7 +83,7 @@ webContents.setWindowOpenHandler((details) => {
 
 ### Supprimé : `additionalFeatures`
 
-The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Though note, the `new-window` event itself is deprecated, and is replaced by `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
+The deprecated `additionalFeatures` property in the `new-window` and `did-create-window` events of WebContents has been removed. Since `new-window` uses positional arguments, the argument is still present, but will always be the empty array `[]`. (Notez toutefois que l’événement `new-window` lui-même est déprécié et remplacé par `setWindowOpenHandler`.) Bare keys in window features will now present as keys with the value `true` in the options object.
 
 ```js
 // Removed in Electron 14
