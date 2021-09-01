@@ -71,7 +71,7 @@ Apple のセキュリティメカニズムを保証するため、ここで参�
 </plist>
 ```
 
-Note that up until Electron 12, the `com.apple.security.cs.allow-unsigned-executable-memory` entitlement was required as well. However, it should not be used anymore if it can be avoided.
+なお、Electron 12 までは `com.apple.security.cs.allow-unsigned-executable-memory` の資格情報も必要でした。 しかし、現在はできる限り使用を避けてください。
 
 この実例をすべて見たいのであれば、Electron Fiddle のソースコード、[特に `electron-forge` の設定ファイル](https://github.com/electron/fiddle/blob/master/forge.config.js) を確認してください。
 
@@ -138,7 +138,7 @@ Apple のセキュリティメカニズムを保証するため、ここで参�
 </plist>
 ```
 
-Up until Electron 12, the `com.apple.security.cs.allow-unsigned-executable-memory` entitlement was required as well. However, it should not be used anymore if it can be avoided.
+Electron 12 までは、`com.apple.security.cs.allow-unsigned-executable-memory` の資格情報も必要でした。 しかし、現在はできる限り使用を避けてください。
 
 ## Mac App Store
 
