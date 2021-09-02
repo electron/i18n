@@ -49,7 +49,7 @@ console.log(contents)
 実例として、[クイックスタートガイド][quick-start-lifecycle] で紹介されているアプリでは `app` の API でよりネイティブなアプリケーションウインドウの体験を実現しています。
 
 ```js title='main.js'
-// quitting the app when no windows are open on non-macOS platforms
+// 非 macOS プラットフォームでウインドウが開かれていない時にアプリを終了する
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
