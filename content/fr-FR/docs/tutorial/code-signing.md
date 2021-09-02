@@ -66,13 +66,13 @@ Le fichier `plist` référencé ici a besoin des habilitations spécifiques à m
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+Note that up until Electron 12, the `com.apple.security.cs.allow-unsigned-executable-memory` entitlement was required as well. Cependant, il ne doit plus être utilisé s'il peut être évité.
 
 Pour voir tout cela en action, consultez le code source d'Electron Fiddle, [en particulier son fichier de configuration pour `electron-forge` ](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
@@ -133,13 +133,13 @@ Le fichier `plist` référencé ici a besoin des habilitations spécifiques à m
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+Up until Electron 12, the `com.apple.security.cs.allow-unsigned-executable-memory` entitlement was required as well. Cependant, il ne doit plus être utilisé s'il peut être évité.
 
 ## Mac App Store
 

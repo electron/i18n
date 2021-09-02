@@ -49,7 +49,7 @@ console.log(contents)
 这是一个实际的例子，这个app来源于[快速入门指南][quick-start-lifecycle]，用 `app` API 创建了一个更原生的应用程序窗口体验。
 
 ```js title='main.js'
-// 当 macOS 无窗口打开时退出应用
+// quitting the app when no windows are open on non-macOS platforms
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -91,7 +91,9 @@ change the statements here. --> 预加载（preload）脚本包含了那些执�
 const { BrowserWindow } = require('electron')
 //...
 const win = new BrowserWindow({
-  preload: 'path/to/preload.js'
+  webPreferences: {
+    preload: 'path/to/preload.js'
+  }
 })
 //...
 ```

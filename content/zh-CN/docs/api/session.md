@@ -706,7 +706,7 @@ A [`WebRequest`](web-request.md) object for this session.
 
 #### `ses.protocol` _只读_
 
-A [`Protocol`](protocol.md) object for this session.
+Session中使用[`Protocol`](protocol.md)对象
 
 ```javascript
 const { app, session } = require('electron')

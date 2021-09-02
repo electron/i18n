@@ -66,13 +66,13 @@ The `plist` file referenced here needs the following macOS-specific entitlements
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+Обратите внимание, что до Electron 12 также требовалось право на `com.apple.security.cs.allow-unsigned-executable-memory`. Тем не менее, его больше не следует использовать, если есть возможность.
 
 To see all of this in action, check out Electron Fiddle's source code, [especially its `electron-forge` configuration file](https://github.com/electron/fiddle/blob/master/forge.config.js).
 
@@ -103,7 +103,7 @@ Electron Builder comes with a custom solution for signing your application. You 
 
 If you're not using an integrated build pipeline like Forge or Builder, you are likely using [`electron-packager`][], which includes [`electron-osx-sign`][] and [`electron-notarize`][].
 
-If you're using Packager's API, you can pass [in configuration that both signs and notarizes your application](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html).
+Если вы используете API Packager, вы можете передать [то, что подписывает и заверяет нотариально ваше приложение ](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html).
 
 ```js
 const packager = require('electron-packager')
@@ -133,13 +133,13 @@ The `plist` file referenced here needs the following macOS-specific entitlements
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+Вплоть до Electron 12 элемент `com.apple.security.cs.allow-unsigned-executable-memory` обязателен. Тем не менее, его больше не следует использовать, если есть возможность.
 
 ## Mac App Store
 

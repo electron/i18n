@@ -65,13 +65,13 @@ Apple のセキュリティメカニズムを保証するため、ここで参�
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+なお、Electron 12 までは `com.apple.security.cs.allow-unsigned-executable-memory` の資格情報も必要でした。 しかし、現在はできる限り使用を避けてください。
 
 この実例をすべて見たいのであれば、Electron Fiddle のソースコード、[特に `electron-forge` の設定ファイル](https://github.com/electron/fiddle/blob/master/forge.config.js) を確認してください。
 
@@ -132,13 +132,13 @@ Apple のセキュリティメカニズムを保証するため、ここで参�
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+Electron 12 までは、`com.apple.security.cs.allow-unsigned-executable-memory` の資格情報も必要でした。 しかし、現在はできる限り使用を避けてください。
 
 ## Mac App Store
 

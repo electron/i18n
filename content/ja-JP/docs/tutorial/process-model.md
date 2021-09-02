@@ -49,7 +49,7 @@ console.log(contents)
 実例として、[クイックスタートガイド][quick-start-lifecycle] で紹介されているアプリでは `app` の API でよりネイティブなアプリケーションウインドウの体験を実現しています。
 
 ```js title='main.js'
-// macOS 以外でウインドウが開かれていない時にアプリを終了する
+// 非 macOS プラットフォームでウインドウが開かれていない時にアプリを終了する
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -91,7 +91,9 @@ change the statements here. --> プリロードスクリプトは、ウェブコ
 const { BrowserWindow } = require('electron')
 //...
 const win = new BrowserWindow({
-  preload: 'path/to/preload.js'
+  webPreferences: {
+    preload: 'path/to/preload.js'
+  }
 })
 //...
 ```

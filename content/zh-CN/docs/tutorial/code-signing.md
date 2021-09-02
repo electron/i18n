@@ -65,13 +65,13 @@ Let's take a look at an example configuration with all required fields. 并不�
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+Note that up until Electron 12, the `com.apple.security.cs.allow-unsigned-executable-memory` entitlement was required as well. However, it should not be used anymore if it can be avoided.
 
 要查看所有这些都在操作中，请查看 Electron Fiddle 的源代码，[尤其是其 `electron-forge` 配置文件](https://github.com/electron/fiddle/blob/master/forge.config.js)。
 
@@ -132,13 +132,13 @@ packager({
   <dict>
     <key>com.apple.security.cs.allow-jit</key>
     <true/>
-    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-    <true/>
     <key>com.apple.security.cs.debugger</key>
     <true/>
   </dict>
 </plist>
 ```
+
+Up until Electron 12, the `com.apple.security.cs.allow-unsigned-executable-memory` entitlement was required as well. However, it should not be used anymore if it can be avoided.
 
 ## Mac 应用程序商店
 
