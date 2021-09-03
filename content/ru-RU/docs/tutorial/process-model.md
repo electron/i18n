@@ -49,7 +49,7 @@ The main process also controls your application's lifecycle through Electron's [
 As a practical example, the app shown in the [quick start guide][quick-start-lifecycle] uses `app` APIs to create a more native application window experience.
 
 ```js title='main.js'
-// quitting the app when no windows are open on non-macOS platforms
+// выход из приложения на не macOS платформах , если окно программы не открылось
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
