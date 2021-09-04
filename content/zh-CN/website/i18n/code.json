@@ -31,10 +31,6 @@
     "message": "阅读时间 {readingTime} 分钟",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
-  "theme.tags.tagsListLabel": {
-    "message": "标记:",
-    "description": "The label alongside a tag list"
-  },
   "theme.blog.post.readMore": {
     "message": "查看更多",
     "description": "The label used in blog post item excerpts to link to full blog posts"
@@ -51,25 +47,9 @@
     "message": "较旧的帖子",
     "description": "The blog post button label to navigate to the older/next post"
   },
-  "theme.tags.tagsPageTitle": {
-    "message": "标记",
-    "description": "The title of the tag list page"
-  },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "博客最近文章导航",
     "description": "The ARIA label for recent posts in the blog sidebar"
-  },
-  "theme.blog.post.plurals": {
-    "message": "{count} 篇博文",
-    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.blog.tagTitle": {
-    "message": "{nPosts} 含有标签「{tagName}」",
-    "description": "The title of the page for a blog tag"
-  },
-  "theme.tags.tagsPageLink": {
-    "message": "查看所有标签",
-    "description": "The label of the link targeting the tag list page"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
     "message": "复制代码到剪贴板",
@@ -83,13 +63,17 @@
     "message": "复制",
     "description": "The copy button label on code blocks"
   },
-  "theme.docs.sidebar.expandButtonTitle": {
-    "message": "展开侧边栏",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  "theme.blog.post.plurals": {
+    "message": "{count} 篇博文",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
-  "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "展开侧边栏",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} 含有标签「{tagName}」",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "查看所有标签",
+    "description": "The label of the link targeting the tag list page"
   },
   "theme.docs.paginator.navAriaLabel": {
     "message": "文档页面导航",
@@ -103,6 +87,14 @@
     "message": "下一个",
     "description": "The label used to navigate to the next doc"
   },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "收起侧边栏",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -110,6 +102,14 @@
   "theme.docs.sidebar.collapseButtonAriaLabel": {
     "message": "收起侧边栏",
     "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "One doc tagged|{count} docs tagged",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} with \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "这是尚未发布的 {siteTitle} {versionLabel} 版本文档。",
@@ -151,6 +151,10 @@
     "message": "← 返回主菜单",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
   },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versions",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
   "theme.common.skipToMainContent": {
     "message": "跳到主内容",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -158,6 +162,10 @@
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "在本页面",
     "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "标记:",
+    "description": "The label alongside a tag list"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "找到 {count} 个文档",
@@ -194,5 +202,9 @@
   "theme.SearchBar.label": {
     "message": "搜索",
     "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "标记",
+    "description": "The title of the tag list page"
   }
 }
