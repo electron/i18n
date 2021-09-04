@@ -11,7 +11,7 @@ Electron 14.0.0 がリリースされました! これには Chromium `93` とV8
 
 ---
 
-Electron チームは、Electron 14.0.0 のリリース発表にワクワクしています! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). Continue reading for details about this release and please share any feedback you have!
+Electron チームは、Electron 14.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
 
 ## 注目すべき変更
 
