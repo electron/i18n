@@ -12,7 +12,7 @@
     "description": "The label for category How To in sidebar docs"
   },
   "sidebar.docs.category.Developer Checklists": {
-    "message": "Developer Checklists",
+    "message": "Listes de contrôle des développeurs",
     "description": "The label for category Developer Checklists in sidebar docs"
   },
   "sidebar.docs.category.Development": {
