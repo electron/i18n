@@ -31,10 +31,6 @@
     "message": "読むのにかかる時間 1 分|読むのにかかる時間 {readingTime} 分",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
-  "theme.tags.tagsListLabel": {
-    "message": "タグ:",
-    "description": "The label alongside a tag list"
-  },
   "theme.blog.post.readMore": {
     "message": "続きを読む",
     "description": "The label used in blog post item excerpts to link to full blog posts"
@@ -51,25 +47,9 @@
     "message": "過去の記事",
     "description": "The blog post button label to navigate to the older/next post"
   },
-  "theme.tags.tagsPageTitle": {
-    "message": "タグ",
-    "description": "The title of the tag list page"
-  },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "最近のブログ記事のナビゲーション",
     "description": "The ARIA label for recent posts in the blog sidebar"
-  },
-  "theme.blog.post.plurals": {
-    "message": "1 件の投稿|{count} 件の投稿",
-    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
-  },
-  "theme.blog.tagTitle": {
-    "message": "\"{tagName}\" タグの記事が {nPosts} 件あります",
-    "description": "The title of the page for a blog tag"
-  },
-  "theme.tags.tagsPageLink": {
-    "message": "全てのタグを表示",
-    "description": "The label of the link targeting the tag list page"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
     "message": "クリップボードにコードをコピー",
@@ -83,13 +63,17 @@
     "message": "コピー",
     "description": "The copy button label on code blocks"
   },
-  "theme.docs.sidebar.expandButtonTitle": {
-    "message": "サイドバーを開く",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  "theme.blog.post.plurals": {
+    "message": "1 件の投稿|{count} 件の投稿",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
-  "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "サイドバーを開く",
-    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  "theme.blog.tagTitle": {
+    "message": "\"{tagName}\" タグの記事が {nPosts} 件あります",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "全てのタグを表示",
+    "description": "The label of the link targeting the tag list page"
   },
   "theme.docs.paginator.navAriaLabel": {
     "message": "ドキュメントページのナビゲーション",
@@ -103,6 +87,14 @@
     "message": "次",
     "description": "The label used to navigate to the next doc"
   },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "サイドバーを開く",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "サイドバーを開く",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
   "theme.docs.sidebar.collapseButtonTitle": {
     "message": "サイドバーを隠す",
     "description": "The title attribute for collapse button of doc sidebar"
@@ -110,6 +102,14 @@
   "theme.docs.sidebar.collapseButtonAriaLabel": {
     "message": "サイドバーを隠す",
     "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "このタグのドキュメント {count} 件",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "\"{tagName}\" タグが {nDocsTagged} 件あります",
+    "description": "The title of the page for a docs tag"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
     "message": "これは {siteTitle} {versionLabel} 版の未公開ドキュメントです。",
@@ -151,6 +151,10 @@
     "message": "← メインメニューへ戻る",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
   },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "バージョン",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
   "theme.common.skipToMainContent": {
     "message": "メインコンテンツへ飛ぶ",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
@@ -158,6 +162,10 @@
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "目次",
     "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "タグ:",
+    "description": "The label alongside a tag list"
   },
   "theme.SearchPage.documentsFound.plurals": {
     "message": "1 件のドキュメントが見つかりました|{count} 件のドキュメントが見つかりました",
@@ -194,5 +202,9 @@
   "theme.SearchBar.label": {
     "message": "検索",
     "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "タグ",
+    "description": "The title of the tag list page"
   }
 }

@@ -1,23 +1,23 @@
 {
   "version.label": {
-    "message": "Next",
+    "message": "Далее",
     "description": "The label for version current"
   },
   "sidebar.docs.category.Get Started": {
     "message": "Get Started",
     "description": "The label for category Get Started in sidebar docs"
   },
+  "sidebar.docs.category.How To": {
+    "message": "How To",
+    "description": "The label for category How To in sidebar docs"
+  },
+  "sidebar.docs.category.Developer Checklists": {
+    "message": "Developer Checklists",
+    "description": "The label for category Developer Checklists in sidebar docs"
+  },
   "sidebar.docs.category.Development": {
     "message": "Разработка",
     "description": "The label for category Development in sidebar docs"
-  },
-  "sidebar.docs.category.Performance": {
-    "message": "Характеристика",
-    "description": "The label for category Performance in sidebar docs"
-  },
-  "sidebar.docs.category.Security": {
-    "message": "Security",
-    "description": "The label for category Security in sidebar docs"
   },
   "sidebar.docs.category.Distribution": {
     "message": "Распространение",
@@ -26,14 +26,6 @@
   "sidebar.docs.category.Testing And Debugging": {
     "message": "Testing And Debugging",
     "description": "The label for category Testing And Debugging in sidebar docs"
-  },
-  "sidebar.docs.category.How To": {
-    "message": "How To",
-    "description": "The label for category How To in sidebar docs"
-  },
-  "sidebar.docs.category.Internals": {
-    "message": "Internals",
-    "description": "The label for category Internals in sidebar docs"
   },
   "sidebar.docs.category.Resources": {
     "message": "Resources",
@@ -44,15 +36,15 @@
     "description": "The label for category Contributing in sidebar docs"
   },
   "sidebar.api.category.Main Process Modules": {
-    "message": "Main Process Modules",
+    "message": "Модули основного процесса",
     "description": "The label for category Main Process Modules in sidebar api"
   },
   "sidebar.api.category.Renderer Process Modules": {
-    "message": "Renderer Process Modules",
+    "message": "Модули графического процесса",
     "description": "The label for category Renderer Process Modules in sidebar api"
   },
   "sidebar.api.category.Custom DOM Elements": {
-    "message": "Custom DOM Elements",
+    "message": "Пользовательские DOM-элементы",
     "description": "The label for category Custom DOM Elements in sidebar api"
   },
   "sidebar.api.category.Chromium and Node.js": {
@@ -64,7 +56,7 @@
     "description": "The label for category Classes in sidebar api"
   },
   "sidebar.api.category.API Structures": {
-    "message": "API Structures",
+    "message": "Структуры API",
     "description": "The label for category API Structures in sidebar api"
   }
 }

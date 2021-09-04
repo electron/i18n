@@ -24,7 +24,7 @@ Electron 15 より前の `window.open` は既定で `BrowserWindowProxy` を使�
 
 ### Removed: `remote` module
 
-The `remote` module was deprecated in Electron 12, and will be removed in Electron 14. これは [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
+`remote` モジュールは Electron 12 で非推奨となりました。Electron 14 で削除される予定です。 これは [`@electron/remote`](https://github.com/electron/remote) モジュールに置き換えられます。
 
 ```js
 // Electron 12では非推奨:
