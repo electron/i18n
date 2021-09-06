@@ -509,7 +509,7 @@ L'API `shell.openItem` a été remplacée par une API `shell.openPath` asynchron
 
 ## Changements majeurs prévus de l'API (8.0)
 
-### Behavior Changed: Values sent over IPC are now serialized with Structured Clone Algorithm
+### Comportement modifié : les valeurs envoyées par IPC sont maintenant sérialisées avec l'algorithme de clonage structuré
 
 L'algorithme utilisé pour sérialiser les objets envoyés par IPC (via `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents. les méthodes de fin` et associées) est passé d'un algorithme personnalisé à l'algorithme intégré de V8 [Structured Clone Algorithm][SCA] qui est déja utilisé pour sérialiser les messages dans `postMessage`. Cela entraîne une amélioration dans un rapport 2 des performances en ce qui concerne les messages de grande taille, mais apporte également quelques changements de rupture dans le comportement.
 
