@@ -50,7 +50,7 @@ In order to escape the `&` character in an item name, add a proceeding `&`. For 
 
 一般来说， `template`是一个`options`类型的数组，用于构建[MenuItem](menu-item.md)。 使用方法可参考前文。
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+您还可以将其他字段附加到`template`，它们将成为菜单项的属性。
 
 ### 实例方法
 
