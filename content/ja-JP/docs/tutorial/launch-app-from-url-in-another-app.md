@@ -1,5 +1,5 @@
 ---
-title: Launching Your Electron App From a URL In Another App
+title: 他アプリ内の URL から自分の Electron アプリを起動する
 description: このガイドでは、Electron アプリを特定のプロトコルのデフォルトハンドラとして設定する手順を説明します。
 slug: launch-app-from-url-in-another-app
 hide_title: true
@@ -11,7 +11,7 @@ hide_title: true
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of setting your Electron app as the default handler for a specific [protocol](https://www.electronjs.org/docs/api/protocol).
+このガイドでは、Electron アプリを特定の [protocol](https://www.electronjs.org/docs/api/protocol) のデフォルトハンドラとして設定する手順を説明します。
 
 このチュートリアルを終える頃には、特定のプロトコルで始まる URL がクリックされた場合、アプリがそれに干渉してハンドリングするように設定できます。 このガイドでは、使用するプロトコルを "`electron-fiddle://`" とします。
 
@@ -19,7 +19,7 @@ This guide will take you through the process of setting your Electron app as the
 
 ### メインプロセス (main.js)
 
-First, we will import the required modules from `electron`. These modules help control our application lifecycle and create a native browser window.
+最初に、`electron` から必要なモジュールをインポートします。 これらのモジュールは、アプリケーションのライフサイクルの制御と、ネイティブなブラウザウインドウの作成を助けます。
 
 ```javascript
 const { app, BrowserWindow, shell } = require('electron')
@@ -42,7 +42,7 @@ if (process.defaultApp) {
 
 ```javascript
 const createWindow = () => {
-  // Create the browser window.
+  // ブラウザウインドウを作成します。
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -57,7 +57,7 @@ const createWindow = () => {
 
 この次のステップで、`BrowserWindow` を作成し、外部プロトコルがクリックされたイベントの処理方法をアプリケーションに伝えます。
 
-This code will be different in Windows compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same Electron instance. この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
+Windows でのこのコードは、MacOS や Linux と異なります。 これは、Windows で同じ Electron インスタンス内のプロトコルリンクのコンテンツを開くには、さらなるコードが必要だからです。 この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
 
 #### Windows のコード:
 
@@ -80,7 +80,7 @@ if (!gotTheLock) {
     createWindow()
   })
 
-  // Handle the protocol. 今回は、エラーボックスを表示することにします。
+  // プロトコルのハンドリング。 今回は、エラーボックスを表示することにします。
   app.on('open-url', (event, url) => {
     dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
   })
@@ -97,28 +97,27 @@ app.whenReady().then(() => {
   createWindow()
 })
 
-// Handle the protocol. 今回は、エラーボックスを表示することにします。
+// プロトコルのハンドリング。 今回は、エラーボックスを表示することにします。
 app.on('open-url', (event, url) => {
   dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
 })
 ```
 
-Finally, we will add some additional code to handle when someone closes our application.
+最後に、誰かがアプリケーションを閉じたときの処理コードを追加します。
 
 ```javascript
-// macOS 以外では、すべてのウインドウを閉じたときに終了します。 There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// macOS 以外では、すべてのウインドウを閉じたときに終了します。 // ユーザが Cmd + Q で明示的に終了するまで、アプリケーションと
+// そのメニューバーがアクティブになっているのが一般的です。
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 ```
 
-## Important notes
+## 重要な注意事項
 
 ### パッケージ化
 
-On macOS and Linux, this feature will only work when your app is packaged. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `Info.plist` and the Linux `.desktop` files for the app are updated to include the new protocol handler. Some of the Electron tools for bundling and distributing apps handle this for you.
+macOS と Linux では、この機能はアプリがパッケージ化されているときのみ動作します。 開発中でコマンドラインから起動した場合は動作しません。 アプリをパッケージ化する際には、アプリの macOS の `Info.plist` と Linux の `.desktop` が更新され、その新しいプロトコルハンドラが含まれていることを確認するようにしてください。 Electron のアプリのバンドル及び頒布ツールには、この処理を行ってくれるものもあります。
 
 #### [Electron Forge](https://electronforge.io)
 
