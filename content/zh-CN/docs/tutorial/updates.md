@@ -89,7 +89,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Also make sure that errors are [being handled](../api/auto-updater.md#event-error). 下面是将错误日志输出到`标准输出`的例子。
 
 ```javascript
 autoUpdater.on('error', message => {
