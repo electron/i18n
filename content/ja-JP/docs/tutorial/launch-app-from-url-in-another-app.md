@@ -1,5 +1,5 @@
 ---
-title: 他アプリ内の URL から自分の Electron アプリを起動する
+title: Launching Your Electron App From a URL In Another App
 description: このガイドでは、Electron アプリを特定のプロトコルのデフォルトハンドラとして設定する手順を説明します。
 slug: launch-app-from-url-in-another-app
 hide_title: true
@@ -11,7 +11,7 @@ hide_title: true
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-このガイドでは、Electron アプリを特定の [protocol](https://www.electronjs.org/docs/api/protocol) のデフォルトハンドラとして設定する手順を説明します。
+This guide will take you through the process of setting your Electron app as the default handler for a specific [protocol](https://www.electronjs.org/docs/api/protocol).
 
 このチュートリアルを終える頃には、特定のプロトコルで始まる URL がクリックされた場合、アプリがそれに干渉してハンドリングするように設定できます。 このガイドでは、使用するプロトコルを "`electron-fiddle://`" とします。
 
@@ -19,16 +19,16 @@ hide_title: true
 
 ### メインプロセス (main.js)
 
-最初に `electron` から必要なモジュールをインポートします。 これらのモジュールは、アプリケーションの動作の制御と、ネイティブなブラウザウインドウの作成を助けます。
+First, we will import the required modules from `electron`. These modules help control our application lifecycle and create a native browser window.
 
-```js
+```javascript
 const { app, BrowserWindow, shell } = require('electron')
 const path = require('path')
 ```
 
 次に、"`electron-fiddle://`" プロトコルをすべて処理するために、アプリケーションを登録します。
 
-```js
+```javascript
 if (process.defaultApp) {
   if (process.argv.length >= 2) {
     app.setAsDefaultProtocolClient('electron-fiddle', process.execPath, [path.resolve(process.argv[1])])
@@ -40,9 +40,9 @@ if (process.defaultApp) {
 
 ここで、ブラウザのウインドウを作成し、アプリケーションの `index.html` ファイルを読み込む関数を定義します。
 
-```js
-function createWindow () {
-  // ブラウザウインドウを作成します。
+```javascript
+const createWindow = () => {
+  // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -57,11 +57,11 @@ function createWindow () {
 
 この次のステップで、`BrowserWindow` を作成し、外部プロトコルがクリックされたイベントの処理方法をアプリケーションに伝えます。
 
-Windows でのこのコードは、MacOS や Linux と異なります。 これは、Windows で同じ Electron インスタンス内のプロトコルリンクのコンテンツを開くには、さらなるコードが必要だからです。 この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
+This code will be different in Windows compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same Electron instance. この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
 
-### Windows のコード:
+#### Windows のコード:
 
-```js
+```javascript
 const gotTheLock = app.requestSingleInstanceLock()
 
 if (!gotTheLock) {
@@ -80,16 +80,16 @@ if (!gotTheLock) {
     createWindow()
   })
 
-  // プロトコルのハンドリング。 今回は、エラーボックスを表示することにします。
+  // Handle the protocol. 今回は、エラーボックスを表示することにします。
   app.on('open-url', (event, url) => {
     dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
   })
 }
 ```
 
-### macOS と Linux のコード:
+#### macOS と Linux のコード:
 
-```js
+```javascript
 // このメソッドは、Electron の初期化が完了し、
 // ブラウザウインドウの作成準備ができると呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
@@ -97,55 +97,89 @@ app.whenReady().then(() => {
   createWindow()
 })
 
-// プロトコルのハンドリング。 今回は、エラーボックスを表示することにします。
+// Handle the protocol. 今回は、エラーボックスを表示することにします。
 app.on('open-url', (event, url) => {
   dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
 })
 ```
 
-最後に、誰かがアプリケーションを閉じたときの処理コードを追加します。
+Finally, we will add some additional code to handle when someone closes our application.
 
-```js
-// macOS 以外では、すべてのウインドウを閉じたときに終了します。 // ユーザが Cmd + Q で明示的に終了するまで、アプリケーションと
-// そのメニューバーがアクティブになっているのが一般的です。
-app.on('window-all-closed', function () {
+```javascript
+// macOS 以外では、すべてのウインドウを閉じたときに終了します。 There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 ```
 
-## 重要な注意事項:
+## Important notes
 
 ### パッケージ化
 
-macOS でのこの機能は、アプリがパッケージ化されているときのみ動作します。 開発中でコマンドラインから起動した場合は動作しません。 アプリをパッケージ化する際には、アプリの macOS `plist` が更新され、その新しいプロトコルハンドラが含まれていることを確認するようにしてください。 [`electron-packager`](https://github.com/electron/electron-packager) を使用している場合、フラグ `--extend-info` で作成した `plist` へのパスをを追加できます。 このアプリの plist は以下のとおりです。
+On macOS and Linux, this feature will only work when your app is packaged. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `Info.plist` and the Linux `.desktop` files for the app are updated to include the new protocol handler. Some of the Electron tools for bundling and distributing apps handle this for you.
 
-### Plist
+#### [Electron Forge](https://electronforge.io)
 
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-    <dict>
-        <key>CFBundleURLTypes</key>
-        <array>
-            <dict>
-                <key>CFBundleURLSchemes</key>
-                <array>
-                    <string>electron-api-demos</string>
-                </array>
-                <key>CFBundleURLName</key>
-                <string>Electron API Demos Protocol</string>
-            </dict>
-        </array>
-        <key>ElectronTeamID</key>
-        <string>VEKTX9H2N7</string>
-    </dict>
-</plist>
+If you're using Electron Forge, adjust `packagerConfig` for macOS support, and the configuration for the appropriate Linux makers for Linux support, in your [Forge configuration](https://www.electronforge.io/configuration) _(please note the following example only shows the bare minimum needed to add the configuration changes)_:
+
+```json
+{
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "protocols": [
+          {
+            "name": "Electron Fiddle",
+            "schemes": ["electron-fiddle"]
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "mimeType": ["x-scheme-handler/electron-fiddle"]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+#### [Electron Packager](https://github.com/electron/electron-packager)
+
+For macOS support:
+
+If you're using Electron Packager's API, adding support for protocol handlers is similar to how Electron Forge is handled, except `protocols` is part of the Packager options passed to the `packager` function.
+
+```javascript
+const packager = require('electron-packager')
+
+packager({
+  // ...other options...
+  protocols: [
+    {
+      name: 'Electron Fiddle',
+      schemes: ['electron-fiddle']
+    }
+  ]
+
+}).then(paths => console.log(`SUCCESS: Created ${paths.join(', ')}`))
+  .catch(err => console.error(`ERROR: ${err.message}`))
+```
+
+If you're using Electron Packager's CLI, use the `--protocol` and `--protocol-name` flags. For example:
+
+```shell
+npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fiddle"
 ```
 
 ## おわりに
 
-Electron アプリを起動した後、ブラウザにカスタムプロトコルを含む URL、例えば`"electron-fiddle://open"` を入力すると、アプリが応答してエラーダイアログボックスを表示することを確認できます。
+After you start your Electron app, you can enter in a URL in your browser that contains the custom protocol, for example `"electron-fiddle://open"` and observe that the application will respond and show an error dialog box.
 
 <!--
     Because Electron examples usually require multiple files (HTML, CSS, JS
