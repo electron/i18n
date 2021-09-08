@@ -121,7 +121,7 @@ macOS と Linux では、この機能はアプリがパッケージ化されて�
 
 #### [Electron Forge](https://electronforge.io)
 
-If you're using Electron Forge, adjust `packagerConfig` for macOS support, and the configuration for the appropriate Linux makers for Linux support, in your [Forge configuration](https://www.electronforge.io/configuration) _(please note the following example only shows the bare minimum needed to add the configuration changes)_:
+Electron Forge を使用している場合は、[Forge の設定](https://www.electronforge.io/configuration) において macOS サポート用に `packagerConfig` を、Linux サポート用に適切な Linux makers の設定を調整してください _(以下の例は、設定変更を加えるために必要な最低限のことしか示していないことに注意してください)_。
 
 ```json
 {
@@ -148,17 +148,17 @@ If you're using Electron Forge, adjust `packagerConfig` for macOS support, and t
 }
 ```
 
-#### [Electron Packager](https://github.com/electron/electron-packager)
+#### [Electron パッケージャ](https://github.com/electron/electron-packager)
 
-For macOS support:
+macOS サポートの場合:
 
-If you're using Electron Packager's API, adding support for protocol handlers is similar to how Electron Forge is handled, except `protocols` is part of the Packager options passed to the `packager` function.
+Electron Packager の API を使用している場合、プロトコルハンドラ対応の追加は Electron Forge と似た処理方法ですが、`protocols` が `packager` 関数に渡される Packager オプションの一部である点が異なります。
 
 ```javascript
 const packager = require('electron-packager')
 
 packager({
-  // ...other options...
+  // ...他のオプション...
   protocols: [
     {
       name: 'Electron Fiddle',
@@ -170,7 +170,7 @@ packager({
   .catch(err => console.error(`ERROR: ${err.message}`))
 ```
 
-If you're using Electron Packager's CLI, use the `--protocol` and `--protocol-name` flags. For example:
+Electron Packager の CLI を使用している場合、`--protocol` と `--protocol-name` のフラグを使用してください。 以下は例です。
 
 ```shell
 npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fiddle"
@@ -178,7 +178,7 @@ npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fid
 
 ## おわりに
 
-After you start your Electron app, you can enter in a URL in your browser that contains the custom protocol, for example `"electron-fiddle://open"` and observe that the application will respond and show an error dialog box.
+Electron アプリを起動した後、ブラウザにカスタムプロトコルを含む URL、例えば`"electron-fiddle://open"` を入力すると、アプリが応答してエラーダイアログボックスを表示することを確認できます。
 
 <!--
     Because Electron examples usually require multiple files (HTML, CSS, JS
