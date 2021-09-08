@@ -114,7 +114,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Important notes
+## Notes importantes
 
 ### Livraison
 
@@ -171,7 +171,7 @@ packager({
   .catch(err => console.error(`ERROR: ${err.message}`))
 ```
 
-If you're using Electron Packager's CLI, use the `--protocol` and `--protocol-name` flags. For example:
+If you're using Electron Packager's CLI, use the `--protocol` and `--protocol-name` flags. Par exemple :
 
 ```shell
 npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fiddle"
