@@ -128,7 +128,7 @@ Electron 12 で非推奨となった `remote` モジュールは、Electron 自�
 * [Electron Fuse](https://www.electronjs.org/docs/tutorial/fuses) の下で実験的な Cookie 暗号化のサポートを追加しました。 [#29492](https://github.com/electron/electron/pull/29492)
 * Added missing `resourceType` conversions for `webRequest` listener details: `font`, `ping`, `cspReport`, `media`, `webSocket`. [#30050](https://github.com/electron/electron/pull/30050)
 * セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。 [#28665](https://github.com/electron/electron/pull/28665)
-* Added support for Windows Control Overlay on macOS. [#29986](https://github.com/electron/electron/pull/29986)
+* macOS でのウインドウコントロールオーバーレイの対応を追加しました。 [#29986](https://github.com/electron/electron/pull/29986)
 * Added support for directing Chromium logging to a file with `--log-file=.../path/to/file.log`. Also, it's now possible to enable logging from JavaScript by appending command-line switches during the first JS tick. [#29963](https://github.com/electron/electron/pull/29963)
 * Added support for the des-ede3 cipher in node crypto. [#27897](https://github.com/electron/electron/pull/27897)
 * Added a `ContextBridgeMutability` feature that allows context bridge objects to be mutated. [#27348](https://github.com/electron/electron/pull/27348)
@@ -152,4 +152,4 @@ Electron 11.x.y はプロジェクトの [サポートポリシー](https://elec
 
 短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないでチームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。
 
-For information on planned breaking changes in upcoming versions of Electron, see our [Planned Breaking Changes](https://github.com/electron/electron/blob/main/docs/breaking-changes.md).
+今後のバージョンの Electron で予定されている破壊的変更の詳細については、[予定されている破壊的変更](https://github.com/electron/electron/blob/main/docs/breaking-changes.md) をご参照ください。
