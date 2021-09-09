@@ -15,11 +15,11 @@ Electron チームは、Electron 14.0.0 のリリース発表にワクワクし�
 
 ## 注目すべき変更
 
-### Electron Release Cadence Change
+### Electron リリースケイデンスの変更
 
-Beginning in September 2021 with Electron 15, Electron will release a new major stable version every 8 weeks. You can read the [full details here](https://www.electronjs.org/blog/8-week-cadence). Electron 15 will begin beta on September 1, 2021 and stable release will be on September 21, 2021. You can find [Electron's public timeline here](https://electronjs.org/docs/tutorial/electron-timelines).
+2021 年 9 月の Electron 15 から、Electron は 8 週間ごとに安定版の新規メジャーバージョンをリリースします。 [詳細はこちら](https://www.electronjs.org/blog/8-week-cadence) でご覧いただけます。 Electron 15 は 2021 年 9 月 1 日にベータ版を開始し、2021 年 9 月 21 日に安定版のリリースを予定しています。 [Electron の公開タイムラインはこちら](https://electronjs.org/docs/tutorial/electron-timelines) になります。
 
-Additionally, Electron will be changing supported versions from latest three versions to latest four versions until May 2022. See [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+また、Electron は 2022 年 5 月まで、サポートするバージョンを最新の 3 つのバージョンから最新の 4 つのバージョンに変更します。 Electron のバージョン管理の詳細については [バージョン管理のドキュメントをご参照ください](https://electronjs.org/docs/tutorial/electron-versioning)。
 
 ### 累積的変更
 
@@ -34,39 +34,39 @@ Additionally, Electron will be changing supported versions from latest three ver
 
 ### 注目の機能
 
-* Default Changed: `nativeWindowOpen` now defaults to `true`. [(see docs)](https://www.electronjs.org/docs/api/window-open.md)
-* Child windows no longer inherit BrowserWindow construction options from their parents. [#28550](https://github.com/electron/electron/pull/28550)
+* 省略値変更: `nativeWindowOpen` の省略値を `true` にしました。 [(ドキュメントを参照)](https://www.electronjs.org/docs/api/window-open.md)
+* 子ウィンドウが親ウィンドウの BrowserWindow のコンストラクタのオプションを継承しなくなりました。 [#28550](https://github.com/electron/electron/pull/28550)
 * セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。 [#28665](https://github.com/electron/electron/pull/28665)
 * `@electron/remote` で使用されている `process.contextId` を追加しました。 [#28007](https://github.com/electron/electron/pull/28007)
-* Added experimental cookie encryption support behind an [Electron Fuse](https://www.electronjs.org/docs/tutorial/fuses). [#29492](https://github.com/electron/electron/pull/29492)
+* [Electron Fuse](https://www.electronjs.org/docs/tutorial/fuses) の下で実験的な Cookie 暗号化のサポートを追加しました。 [#29492](https://github.com/electron/electron/pull/29492)
 
 新機能と変更の完全なリストは、[14.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v14.0.0) を参照してください。
 
 ## 破壊的変更
 
-Below are breaking changes introduced in Electron 14. More information about these and future changes can be found on the [Planned Breaking Changes](https://github.com/electron/electron/blob/main/docs/breaking-changes.md) page.
+以下は、Electron 14 での破壊的変更点です。 これらの変更と将来の変更の詳細については、[予定されている破壊的変更](https://github.com/electron/electron/blob/main/docs/breaking-changes.md) のページを参照してください。
 
 ### 削除: `app.allowRendererProcessReuse`
 
-The `app.allowRendererProcessReuse` property has been removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+`app.allowRendererProcessReuse` プロパティは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとより密接に連携する計画の一環として削除されました。
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
 ### 削除: Browser Window の Affinity
 
-The `affinity` option when constructing a new `BrowserWindow` has been removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+`BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium のプロセスモデルとの共同連携計画の一環として削除されました。
 
 詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
 ### API 変更: `window.open()`
 
-The optional parameter `frameName` no longer sets the title of the window. This behavior now follows the specification described by the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) for the `windowName` parameter.
+任意引数 `frameName` は、ウインドウのタイトルに設定されなくなりました。 これにより、[ネイティブのドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) に対応するパラメータ `windowName` で説明されている仕様に従う動作になります。
 
-If you were using this parameter to set the title of a window, you can instead use the [`win.setTitle(title)`](https://www.electronjs.org/docs/api/browser-window#winsettitletitle) method.
+この引数でウィンドウのタイトルを設定していた場合は、代わりに [`win.setTitle(title)`](https://www.electronjs.org/docs/api/browser-window#winsettitletitle) を利用できます。
 
 ### 削除: `worldSafeExecuteJavaScript`
 
-`worldSafeExecuteJavaScript` has been removed with no alternative. Please ensure your code works with this property enabled. It has been enabled by default since Electron 12.
+`worldSafeExecuteJavaScript` が削除され、この代替手段もなくなりました。 このプロパティを有効にした状態でコードが動作するようにしてください。 これは Electron 12 からデフォルトで有効になっています。
 
 `webFrame.executeJavaScript` か `webFrame.executeJavaScriptInIsolatedWorld` のいずれかを使用している場合、この変更の影響を受けます。 これらのメソッドは同じ値渡しセマンティクスを使用しているため、[Context Bridge API](https://www.electronjs.org/docs/api/context-bridge.md#parameter--error--return-type-support) がサポートしている戻り値かどうかを確認する必要があります。
 
@@ -78,7 +78,7 @@ Electron 14 より前の `window.open` は既定で `BrowserWindowProxy` を使�
 
 ### 削除: 親ウインドウからの BrowserWindowConstructorOptions の継承
 
-Electron 14 より前は、`window.open` で開いたウインドウは、親ウインドウから `transparent` や `resizable` などの BrowserWindow コンストラクタのオプションを継承していました。 Beginning with Electron 14, this behavior has been removed and windows will not inherit any BrowserWindow constructor options from their parents.
+Electron 14 より前は、`window.open` で開いたウインドウは、親ウインドウから `transparent` や `resizable` などの BrowserWindow コンストラクタのオプションを継承していました。 Electron 14 ではこの動作は削除され、ウインドウは親ウインドウから BrowserWindow のコンストラクタのオプションを継承しません。
 
 代わりに、`setWindowOpenHandler` で以下のように新しいウインドウのオプションを明示的に設定してください。
 
@@ -95,7 +95,7 @@ webContents.setWindowOpenHandler((details) => {
 
 ### 削除: `additionalFeatures`
 
-WebContents の `new-window` イベントと `did-create-window` イベントの、非推奨となっていた `additionalFeatures` プロパティは削除されました。 `new-window` は引数の順番があるのでこの引数はまだ残りますが、常に空の配列 `[]` になります。 (Note: the `new-window` event itself is already deprecated and has been replaced by `setWindowOpenHandler`.) ウインドウ機能のキーに値が無い場合は、オプションオブジェクトで `true` の値を持つキーとして表示されるようになりました。
+WebContents の `new-window` イベントと `did-create-window` イベントの、非推奨となっていた `additionalFeatures` プロパティは削除されました。 `new-window` は引数の順番があるのでこの引数はまだ残りますが、常に空の配列 `[]` になります。 (注意: `new-window` イベント自体は非推奨であり `setWindowOpenHandler` に置き換えられました。) ウインドウ機能のキーに値が無い場合は、オプションオブジェクトで `true` の値を持つキーとして表示されるようになりました。
 
 ```js
 // Electron 14 で削除
@@ -114,35 +114,35 @@ webContents.on('did-create-window', (window, details) => {
 })
 ```
 
-### Removed: `remote` module
+### 削除: `remote` モジュール
 
-Deprecated in Electron 12, the `remote` module has now been removed from Electron itself and extracted into a separate package, [`@electron/remote`](https://www.npmjs.com/package/@electron/remote). The `@electron/remote` module bridges JavaScript objects from the main process to the renderer process. This lets you access main-process-only objects as if they were available in the renderer process. This is a direct replacement for the `remote` module. See the [module's readme](https://github.com/electron/remote/blob/main/README.md) for migration instructions and reference.
+Electron 12 で非推奨となった `remote` モジュールは、Electron 自体から削除され、[`@electron/remote`](https://www.npmjs.com/package/@electron/remote) という別パッケージに抽出されました。 `@electron/remote` モジュールは、JavaScript オブジェクトをメインプロセスからレンダラープロセスにブリッジします。 これにより、メインプロセス専用のオブジェクトをあたかもレンダラープロセスで利用可能であるかのようにアクセスできます。 これは、`remote` モジュールの直接的な代替品です。 移行手順やリファレンスは [モジュールの readme](https://github.com/electron/remote/blob/main/README.md) をご覧ください。
 
 
 ## API の変更
 
-* Added `BrowserWindow.isFocusable()` method to determine whether a window is focusable. [#28642](https://github.com/electron/electron/pull/28642)
-* Added `WebFrameMain.visibilityState` instance property. [#28706](https://github.com/electron/electron/pull/28706)
-* Added `disposition`, `referrer` and `postBody` to the details object passed to the window open handler registered with `setWindowOpenHandler`. [#28518](https://github.com/electron/electron/pull/28518)
+* ウィンドウがフォーカス可能かどうかを判断する `BrowserWindow.isFocusable()` メソッドを追加しました。 [#28642](https://github.com/electron/electron/pull/28642)
+* `WebFrameMain.visibilityState` インスタンスプロパティを追加しました。 [#28706](https://github.com/electron/electron/pull/28706)
+* `setWindowOpenHandler` で登録するウインドウを開くときのハンドラに渡される details オブジェクトに、`disposition`、`referrer`、`postBody` を追加しました。 [#28518](https://github.com/electron/electron/pull/28518)
 * `@electron/remote` で使用されている `process.contextId` を追加しました。 [#28007](https://github.com/electron/electron/pull/28007)
-* Added experimental cookie encryption support behind an [Electron Fuse](https://www.electronjs.org/docs/tutorial/fuses). [#29492](https://github.com/electron/electron/pull/29492)
-* Added missing `resourceType` conversions for `webRequest` listener details: `font`, `ping`, `cspReport`, `media`, `webSocket`. [#30050](https://github.com/electron/electron/pull/30050)
+* [Electron Fuse](https://www.electronjs.org/docs/tutorial/fuses) の下で実験的な Cookie 暗号化のサポートを追加しました。 [#29492](https://github.com/electron/electron/pull/29492)
+* `webRequest` リスナーの details に不足していた `resourceType` である、`font`、`ping`、`cspReport`、`media`、`webSocket` の変換を追加しました。 [#30050](https://github.com/electron/electron/pull/30050)
 * セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。 [#28665](https://github.com/electron/electron/pull/28665)
-* Added support for Windows Control Overlay on macOS. [#29986](https://github.com/electron/electron/pull/29986)
-* Added support for directing Chromium logging to a file with `--log-file=.../path/to/file.log`. Also, it's now possible to enable logging from JavaScript by appending command-line switches during the first JS tick. [#29963](https://github.com/electron/electron/pull/29963)
-* Added support for the des-ede3 cipher in node crypto. [#27897](https://github.com/electron/electron/pull/27897)
-* Added a `ContextBridgeMutability` feature that allows context bridge objects to be mutated. [#27348](https://github.com/electron/electron/pull/27348)
+* macOS でのウインドウコントロールオーバーレイの対応を追加しました。 [#29986](https://github.com/electron/electron/pull/29986)
+* `--log-file=.../path/to/file.log` で Chromium のログをファイルへ指定するサポートを追加しました。 また、最初の JavaScript ティックにてコマンドラインスイッチを追加することで、JS からログを有効化できるようになりました。 [#29963](https://github.com/electron/electron/pull/29963)
+* node の crypto における des-ede3 暗号のサポートを追加しました。 [#27897](https://github.com/electron/electron/pull/27897)
+* コンテキストブリッジオブジェクトを可変にできる `ContextBridgeMutability` 機能を追加しました。 [#27348](https://github.com/electron/electron/pull/27348)
 
 
 ### 削除/非推奨となった変更
 
 以下の API は削除されたか非推奨になりました。
 
-* The `remote` module has been removed after being deprecated in Electron 12. [#25734](https://github.com/electron/electron/pull/25734)
-* Child windows no longer inherit BrowserWindow construction options from their parents. [#28550](https://github.com/electron/electron/pull/28550)
-* Removed deprecated `additionalFeatures` property from `new-window` and `did-create-window` WebContents events. [#28548](https://github.com/electron/electron/pull/28548)
-* Removed the deprecated `app.allowRendererProcessReuse` and BrowserWindow `affinity` options. [#26874](https://github.com/electron/electron/pull/26874)
-* The `submitURL` option for `crashReporter.start` is no longer a required argument when `uploadToServer` is false. [#28105](https://github.com/electron/electron/pull/28105)
+* `remote` モジュールは Electron 12 で非推奨となり、削除されました。 [#25734](https://github.com/electron/electron/pull/25734)
+* 子ウィンドウが親ウィンドウの BrowserWindow のコンストラクタのオプションを継承しなくなりました。 [#28550](https://github.com/electron/electron/pull/28550)
+* WebContents のイベントの `new-window` と `did-create-window` にて、非推奨となっていた `additionalFeatures` プロパティを削除しました。 [#28548](https://github.com/electron/electron/pull/28548)
+* 非推奨となっていた `app.allowRendererProcessReuse` と BrowserWindow の `affinity` オプションを削除しました。 [#26874](https://github.com/electron/electron/pull/26874)
+* `uploadToServer` が false の場合、`crashReporter.start` の `submitURL` オプションが必須の引数ではなくなりました。 [#28105](https://github.com/electron/electron/pull/28105)
 
 ## 11.x.y サポート終了
 
@@ -152,4 +152,4 @@ Electron 11.x.y はプロジェクトの [サポートポリシー](https://elec
 
 短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないでチームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。
 
-For information on planned breaking changes in upcoming versions of Electron, see our [Planned Breaking Changes](https://github.com/electron/electron/blob/main/docs/breaking-changes.md).
+今後のバージョンの Electron で予定されている破壊的変更の詳細については、[予定されている破壊的変更](https://github.com/electron/electron/blob/main/docs/breaking-changes.md) をご参照ください。

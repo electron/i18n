@@ -19,16 +19,16 @@ hide_title: true
 
 ### メインプロセス (main.js)
 
-最初に `electron` から必要なモジュールをインポートします。 これらのモジュールは、アプリケーションの動作の制御と、ネイティブなブラウザウインドウの作成を助けます。
+最初に、`electron` から必要なモジュールをインポートします。 これらのモジュールは、アプリケーションのライフサイクルの制御と、ネイティブなブラウザウインドウの作成を助けます。
 
-```js
+```javascript
 const { app, BrowserWindow, shell } = require('electron')
 const path = require('path')
 ```
 
 次に、"`electron-fiddle://`" プロトコルをすべて処理するために、アプリケーションを登録します。
 
-```js
+```javascript
 if (process.defaultApp) {
   if (process.argv.length >= 2) {
     app.setAsDefaultProtocolClient('electron-fiddle', process.execPath, [path.resolve(process.argv[1])])
@@ -40,8 +40,8 @@ if (process.defaultApp) {
 
 ここで、ブラウザのウインドウを作成し、アプリケーションの `index.html` ファイルを読み込む関数を定義します。
 
-```js
-function createWindow () {
+```javascript
+const createWindow = () => {
   // ブラウザウインドウを作成します。
   mainWindow = new BrowserWindow({
     width: 800,
@@ -59,9 +59,9 @@ function createWindow () {
 
 Windows でのこのコードは、MacOS や Linux と異なります。 これは、Windows で同じ Electron インスタンス内のプロトコルリンクのコンテンツを開くには、さらなるコードが必要だからです。 この詳細については、[こちら](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock) をお読みください。
 
-### Windows のコード:
+#### Windows のコード:
 
-```js
+```javascript
 const gotTheLock = app.requestSingleInstanceLock()
 
 if (!gotTheLock) {
@@ -87,9 +87,9 @@ if (!gotTheLock) {
 }
 ```
 
-### macOS と Linux のコード:
+#### macOS と Linux のコード:
 
-```js
+```javascript
 // このメソッドは、Electron の初期化が完了し、
 // ブラウザウインドウの作成準備ができると呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
@@ -105,42 +105,75 @@ app.on('open-url', (event, url) => {
 
 最後に、誰かがアプリケーションを閉じたときの処理コードを追加します。
 
-```js
+```javascript
 // macOS 以外では、すべてのウインドウを閉じたときに終了します。 // ユーザが Cmd + Q で明示的に終了するまで、アプリケーションと
 // そのメニューバーがアクティブになっているのが一般的です。
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 ```
 
-## 重要な注意事項:
+## 重要な注意事項
 
 ### パッケージ化
 
-macOS でのこの機能は、アプリがパッケージ化されているときのみ動作します。 開発中でコマンドラインから起動した場合は動作しません。 アプリをパッケージ化する際には、アプリの macOS `plist` が更新され、その新しいプロトコルハンドラが含まれていることを確認するようにしてください。 [`electron-packager`](https://github.com/electron/electron-packager) を使用している場合、フラグ `--extend-info` で作成した `plist` へのパスをを追加できます。 このアプリの plist は以下のとおりです。
+macOS と Linux では、この機能はアプリがパッケージ化されているときのみ動作します。 開発中でコマンドラインから起動した場合は動作しません。 アプリをパッケージ化する際には、アプリの macOS の `Info.plist` と Linux の `.desktop` が更新され、その新しいプロトコルハンドラが含まれていることを確認するようにしてください。 Electron のアプリのバンドル及び頒布ツールには、この処理を行ってくれるものもあります。
 
-### Plist
+#### [Electron Forge](https://electronforge.io)
 
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-    <dict>
-        <key>CFBundleURLTypes</key>
-        <array>
-            <dict>
-                <key>CFBundleURLSchemes</key>
-                <array>
-                    <string>electron-api-demos</string>
-                </array>
-                <key>CFBundleURLName</key>
-                <string>Electron API Demos Protocol</string>
-            </dict>
-        </array>
-        <key>ElectronTeamID</key>
-        <string>VEKTX9H2N7</string>
-    </dict>
-</plist>
+Electron Forge を使用している場合は、[Forge の設定](https://www.electronforge.io/configuration) において macOS サポート用に `packagerConfig` を、Linux サポート用に適切な Linux makers の設定を調整してください _(以下の例は、設定変更を加えるために必要な最低限のことしか示していないことに注意してください)_。
+
+```json
+{
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "protocols": [
+          {
+            "name": "Electron Fiddle",
+            "schemes": ["electron-fiddle"]
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "mimeType": ["x-scheme-handler/electron-fiddle"]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+#### [Electron パッケージャ](https://github.com/electron/electron-packager)
+
+macOS サポートの場合:
+
+Electron Packager の API を使用している場合、プロトコルハンドラ対応の追加は Electron Forge と似た処理方法ですが、`protocols` が `packager` 関数に渡される Packager オプションの一部である点が異なります。
+
+```javascript
+const packager = require('electron-packager')
+
+packager({
+  // ...他のオプション...
+  protocols: [
+    {
+      name: 'Electron Fiddle',
+      schemes: ['electron-fiddle']
+    }
+  ]
+
+}).then(paths => console.log(`SUCCESS: Created ${paths.join(', ')}`))
+  .catch(err => console.error(`ERROR: ${err.message}`))
+```
+
+Electron Packager の CLI を使用している場合、`--protocol` と `--protocol-name` のフラグを使用してください。 以下は例です。
+
+```shell
+npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fiddle"
 ```
 
 ## おわりに
