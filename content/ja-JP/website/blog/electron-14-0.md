@@ -129,20 +129,20 @@ Electron 12 で非推奨となった `remote` モジュールは、Electron 自�
 * `webRequest` リスナーの details に不足していた `resourceType` である、`font`、`ping`、`cspReport`、`media`、`webSocket` の変換を追加しました。 [#30050](https://github.com/electron/electron/pull/30050)
 * セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。 [#28665](https://github.com/electron/electron/pull/28665)
 * macOS でのウインドウコントロールオーバーレイの対応を追加しました。 [#29986](https://github.com/electron/electron/pull/29986)
-* Added support for directing Chromium logging to a file with `--log-file=.../path/to/file.log`. Also, it's now possible to enable logging from JavaScript by appending command-line switches during the first JS tick. [#29963](https://github.com/electron/electron/pull/29963)
-* Added support for the des-ede3 cipher in node crypto. [#27897](https://github.com/electron/electron/pull/27897)
-* Added a `ContextBridgeMutability` feature that allows context bridge objects to be mutated. [#27348](https://github.com/electron/electron/pull/27348)
+* `--log-file=.../path/to/file.log` で Chromium のログをファイルへ指定するサポートを追加しました。 また、最初の JavaScript ティックにてコマンドラインスイッチを追加することで、JS からログを有効化できるようになりました。 [#29963](https://github.com/electron/electron/pull/29963)
+* node の crypto における des-ede3 暗号のサポートを追加しました。 [#27897](https://github.com/electron/electron/pull/27897)
+* コンテキストブリッジオブジェクトを可変にできる `ContextBridgeMutability` 機能を追加しました。 [#27348](https://github.com/electron/electron/pull/27348)
 
 
 ### 削除/非推奨となった変更
 
 以下の API は削除されたか非推奨になりました。
 
-* The `remote` module has been removed after being deprecated in Electron 12. [#25734](https://github.com/electron/electron/pull/25734)
+* `remote` モジュールは Electron 12 で非推奨となり、削除されました。 [#25734](https://github.com/electron/electron/pull/25734)
 * 子ウィンドウが親ウィンドウの BrowserWindow のコンストラクタのオプションを継承しなくなりました。 [#28550](https://github.com/electron/electron/pull/28550)
-* Removed deprecated `additionalFeatures` property from `new-window` and `did-create-window` WebContents events. [#28548](https://github.com/electron/electron/pull/28548)
-* Removed the deprecated `app.allowRendererProcessReuse` and BrowserWindow `affinity` options. [#26874](https://github.com/electron/electron/pull/26874)
-* The `submitURL` option for `crashReporter.start` is no longer a required argument when `uploadToServer` is false. [#28105](https://github.com/electron/electron/pull/28105)
+* WebContents のイベントの `new-window` と `did-create-window` にて、非推奨となっていた `additionalFeatures` プロパティを削除しました。 [#28548](https://github.com/electron/electron/pull/28548)
+* 非推奨となっていた `app.allowRendererProcessReuse` と BrowserWindow の `affinity` オプションを削除しました。 [#26874](https://github.com/electron/electron/pull/26874)
+* `uploadToServer` が false の場合、`crashReporter.start` の `submitURL` オプションが必須の引数ではなくなりました。 [#28105](https://github.com/electron/electron/pull/28105)
 
 ## 11.x.y サポート終了
 
