@@ -126,7 +126,7 @@ Electron 12 で非推奨となった `remote` モジュールは、Electron 自�
 * `setWindowOpenHandler` で登録するウインドウを開くときのハンドラに渡される details オブジェクトに、`disposition`、`referrer`、`postBody` を追加しました。 [#28518](https://github.com/electron/electron/pull/28518)
 * `@electron/remote` で使用されている `process.contextId` を追加しました。 [#28007](https://github.com/electron/electron/pull/28007)
 * [Electron Fuse](https://www.electronjs.org/docs/tutorial/fuses) の下で実験的な Cookie 暗号化のサポートを追加しました。 [#29492](https://github.com/electron/electron/pull/29492)
-* Added missing `resourceType` conversions for `webRequest` listener details: `font`, `ping`, `cspReport`, `media`, `webSocket`. [#30050](https://github.com/electron/electron/pull/30050)
+* `webRequest` リスナーの details に不足していた `resourceType` である、`font`、`ping`、`cspReport`、`media`、`webSocket` の変換を追加しました。 [#30050](https://github.com/electron/electron/pull/30050)
 * セッション固有のデータに対するディスク上のパスを取得するために新しく `session.storagePath` API を追加しました。 [#28665](https://github.com/electron/electron/pull/28665)
 * macOS でのウインドウコントロールオーバーレイの対応を追加しました。 [#29986](https://github.com/electron/electron/pull/29986)
 * Added support for directing Chromium logging to a file with `--log-file=.../path/to/file.log`. Also, it's now possible to enable logging from JavaScript by appending command-line switches during the first JS tick. [#29963](https://github.com/electron/electron/pull/29963)
