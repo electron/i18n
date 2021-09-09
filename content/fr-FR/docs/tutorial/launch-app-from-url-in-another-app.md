@@ -118,7 +118,7 @@ app.on('window-all-closed', () => {
 
 ### Livraison
 
-Sous macOS et Linux, cette fonctionnalité ne fonctionnera que si votre application est empaquetée. Cela ne fonctionne pas lorsque vous le lancez en développement à partir de la ligne de commande. When you package your app you'll need to make sure the macOS `Info.plist` and the Linux `.desktop` files for the app are updated to include the new protocol handler. Some of the Electron tools for bundling and distributing apps handle this for you.
+Sous macOS et Linux, cette fonctionnalité ne fonctionnera que si votre application est empaquetée. Cela ne fonctionne pas lorsque vous le lancez en développement à partir de la ligne de commande. Lorsque vous empaquetez votre application, vous devrez vous assurer que les fichiers `Info.plist` sur macOS et le Linux `.desktop` sur Linux sont mis à jour pour inclure le nouveau gestionnaire de protocole. Certains des outils d'Electron pour regrouper et distribuer des applications gèrent cela pour vous.
 
 #### [Electron Forge](https://electronforge.io)
 
