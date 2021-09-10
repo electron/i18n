@@ -1,5 +1,5 @@
 ---
-title: Launching Your Electron App From a URL In Another App
+title: Lancement de votre application Electron depuis une URL dans une autre application
 description: This guide will take you through the process of setting your electron app as the default handler for a specific protocol.
 slug: launch-app-from-url-in-another-app
 hide_title: true
@@ -11,7 +11,7 @@ hide_title: true
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of setting your Electron app as the default handler for a specific [protocol](https://www.electronjs.org/docs/api/protocol).
+Ce guide vous guidera à travers le processus de configuration de votre application Electron comme gestionnaire par défaut pour un [protocol spécifique](https://www.electronjs.org/docs/api/protocol).
 
 À la fin de ce tutoriel, nous aurons configuré notre application pour intercepter et gérer toutes les URL qui commençant par un protocole spécifique. Dans ce guide, le protocole utilisé sera "`electron-fiddle://`".
 
@@ -19,7 +19,7 @@ This guide will take you through the process of setting your Electron app as the
 
 ### Processus principal (main.js)
 
-First, we will import the required modules from `electron`. These modules help control our application lifecycle and create a native browser window.
+Importons tout d'abord les modules requis depuis `electron`. Ces modules aident à gérer le cycle de notre application et à créer une fenêtre de navigateur native.
 
 ```javascript
 const { app, BrowserWindow, shell } = require('electron')
@@ -42,7 +42,7 @@ Nous allons maintenant définir la fonction chargée de la création de notre fe
 
 ```javascript
 const createWindow = () => {
-  // Create the browser window.
+  // Créer la fenêtre du navigateur.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -57,7 +57,7 @@ const createWindow = () => {
 
 Dans l'étape suivante , nous allons créer notre  `BrowserWindow` et dire à notre application comment gérer un événement venant d'un lien vers un protocole externe.
 
-This code will be different in Windows compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same Electron instance. Pour en savoir plus à ce sujet [ici](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
+Ce code sera différent selon le système d'exploitation : WindowsOS, MacOS ou Linux. Cela est dû au fait que Windows a besoin de code supplémentaire pour ouvrir le contenu du lien de protocole dans la même instance Electron. Pour en savoir plus à ce sujet [ici](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
 
 #### Code pour Windows:
 
@@ -77,10 +77,10 @@ if (!gotTheLock) {
 
   // Create mainWindow, load the rest of the app, etc...
   app.whenReady().then(() => {
-    createWindow()
-  })
+  createWindow()
+})
 
-  // Handle the protocol. In this case, we choose to show an Error Box.
+// gestion du protocole. In this case, we choose to show an Error Box.
   app.on('open-url', (event, url) => {
     dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
   })
@@ -97,7 +97,7 @@ app.whenReady().then(() => {
   createWindow()
 })
 
-// Handle the protocol. In this case, we choose to show an Error Box.
+// gestion du protocole. In this case, we choose to show an Error Box.
 app.on('open-url', (event, url) => {
   dialog.showErrorBox('Content de vous revoir ', `Vous venez de: ${url}`)
 })
@@ -106,9 +106,9 @@ app.on('open-url', (event, url) => {
 Enfin, nous ajouterons du code supplémentaire pour gérer la fermeture de notre application par l'utilisateur.
 
 ```javascript
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Quit when all windows are closed, except on macOS. Là, il est courant
+/ pour les applications et leur barre de menus de rester actives jusqu’à ce que l’utilisateur quitte
+/ explicitement avec Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -118,7 +118,7 @@ app.on('window-all-closed', () => {
 
 ### Livraison
 
-On macOS and Linux, this feature will only work when your app is packaged. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `Info.plist` and the Linux `.desktop` files for the app are updated to include the new protocol handler. Some of the Electron tools for bundling and distributing apps handle this for you.
+Sous macOS et Linux, cette fonctionnalité ne fonctionnera que si votre application est empaquetée. Cela ne fonctionne pas lorsque vous le lancez en développement à partir de la ligne de commande. Lorsque vous empaquetez votre application, vous devrez vous assurer que les fichiers `Info.plist` sur macOS et le Linux `.desktop` sur Linux sont mis à jour pour inclure le nouveau gestionnaire de protocole. Certains des outils d'Electron pour regrouper et distribuer des applications gèrent cela pour vous.
 
 #### [Electron Forge](https://electronforge.io)
 
