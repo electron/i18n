@@ -28,7 +28,7 @@
 
 使用Squirrel生成的安装程序将以 `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` 的格式创建一个带有 [Application User Model ID][app-user-model-id] 的快捷图标，例子是 `com.squirrel.slack.Slack` 和 `com.squirrel.code.Code`。 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
 
-与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读 [Squirrel.Windows][squirrel-windows]的文档来获得更多关于 Squirrel.Windows 是如何工作的信息。
+Like Squirrel.Mac, Windows can host updates on S3 or any other static file host. 你可以阅读 [Squirrel.Windows][squirrel-windows]的文档来获得更多关于 Squirrel.Windows 是如何工作的信息。
 
 ## 事件
 
