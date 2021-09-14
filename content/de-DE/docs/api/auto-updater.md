@@ -28,7 +28,7 @@ Bei der Benutzung von [electron-winstaller][installer-lib] oder [electron-forge]
 
 Der Squirrel-Installer wird eine Desktop-Verknüpfung erstellen mit der [Application User Model ID][app-user-model-id] im Format `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, zum Beispiel: `com.squirrel.slack.Slack` oder `com.squirrel.code.Code`. Sie müssen dieselbe ID für Ihre App mit der `app.setAppUserModelId` API verwenden, da Windows sonst Ihre App nicht ordnungsgemäß in der Taskleiste anheften kann.
 
-Im Gegensatz zu Squirrel.Mac kann Windows Updates auf S3 oder einem anderen statischen Dateihost hosten. Weitere Informationen können in der Dokumentation von [Squirrel.Windows][squirrel-windows] gefunden werden.
+Like Squirrel.Mac, Windows can host updates on S3 or any other static file host. Weitere Informationen können in der Dokumentation von [Squirrel.Windows][squirrel-windows] gefunden werden.
 
 ## Ereignisse
 
