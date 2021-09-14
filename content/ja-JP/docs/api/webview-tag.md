@@ -105,13 +105,13 @@ Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基
 ### `preload`
 
 ```html
-<!-- from a file -->
+<!-- ファイルから -->
 <webview src="https://www.github.com/" preload="./test.js"></webview>
-<!-- or if you want to load from an asar archive -->
+<!-- または asar アーカイブから読み込みたい場合 -->
 <webview src="https://www.github.com/" preload="./app.asar/test.js"></webview>
 ```
 
-この `String` は、ゲストのページで他のスクリプトを実行する前に読み込まれるスクリプトを指定します。 The protocol of script's URL must be `file:` (even when using `asar:` archives) because it will be loaded by Node's `require` under the hood, which treats `asar:` archives as virtual directories.
+この `String` は、ゲストのページで他のスクリプトを実行する前に読み込まれるスクリプトを指定します。 スクリプトの URL のプロトコルは `file:` である必要があります (`asar:` アーカイブを使用している場合でも)。これは、内部で Node の `require` によって、`asar:` アーカイブを仮想ディレクトリとして扱い読み込むためです。
 
 ゲストページに Node Integration がない場合、このスクリプトはすべての Node APIにアクセスできますが、Node によって挿入されたグローバルオブジェクトはこのスクリプトの実行が終了した後に削除されます。
 
