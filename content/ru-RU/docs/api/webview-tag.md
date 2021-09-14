@@ -111,7 +111,7 @@ A `Boolean`. When this attribute is present the guest page in `webview` will be 
 <webview src="https://www.github.com/" preload="./app.asar/test.js"></webview>
 ```
 
-A `String` that specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be `file:` (even when using `asar:` archives) because it will be loaded by Node's `require` under the hood, which treats `asar:` archives as virtual directories.
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. Протокол URL скрипта должен быть `file:` (даже при использовании `asar:` архивов), потому что он будет загружен "под капотом" в узле `require`, который обрабатывает `asar:` архивы как виртуальные каталоги.
 
 When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
