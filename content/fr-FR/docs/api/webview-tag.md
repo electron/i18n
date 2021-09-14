@@ -105,13 +105,13 @@ A `Boolean`. When this attribute is present the guest page in `webview` will be 
 ### `preload`
 
 ```html
-<!-- from a file -->
+<!-- à partir d'un fichier -->
 <webview src="https://www.github.com/" preload="./test.js"></webview>
-<!-- or if you want to load from an asar archive -->
+<! - ou si vous voulez à partir d'une archive asar -->
 <webview src="https://www.github.com/" preload="./app.asar/test.js"></webview>
 ```
 
-`String ` (facultatif) Spécifie un script qui sera chargé avant les autres scripts exécutés dans la page hébergée. The protocol of script's URL must be `file:` (even when using `asar:` archives) because it will be loaded by Node's `require` under the hood, which treats `asar:` archives as virtual directories.
+`String ` (facultatif) Spécifie un script qui sera chargé avant les autres scripts exécutés dans la page hébergée. Le protocole de l'URL du script doit être `file :` (même en utilisant des archives `asar :` ) car il sera chargé, sous le capot, par `require` de Node qui traite les archives `asar :` comme des répertoires virtuels .
 
 When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
