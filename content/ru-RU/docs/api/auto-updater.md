@@ -28,7 +28,7 @@
 
 Установщик, сгенерированный с помощью Squirrel, создаст ярлык с [Application User Model ID][app-user-model-id] в формате `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Вы должны использовать тот же ID для Вашего приложения в `app.setAppUserModelId` API, иначе Windows не сможет должным образом закрепить приложение в панели задач.
 
-В отличие от Squirrel.Mac, обновления для Windows можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документацию о [Squirrel.Windows][squirrel-windows], для получения более подробной информации о том, как работает Squirrel.Windows.
+Like Squirrel.Mac, Windows can host updates on S3 or any other static file host. Вы можете прочитать документацию о [Squirrel.Windows][squirrel-windows], для получения более подробной информации о том, как работает Squirrel.Windows.
 
 ## События
 

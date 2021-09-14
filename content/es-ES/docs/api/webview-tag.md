@@ -105,10 +105,13 @@ Un `Boolean`. When this attribute is present the guest page in `webview` will be
 ### `preload`
 
 ```html
+<!-- from a file -->
 <webview src="https://www.github.com/" preload="./test.js"></webview>
+<!-- or if you want to load from an asar archive -->
+<webview src="https://www.github.com/" preload="./app.asar/test.js"></webview>
 ```
 
-Un `String` que especifica un script que será cargada antes que se ejecuten otros scripts en la página de invitado. El protocolo de guiones de URL deben ser `file:` o `asar:`, porque será cargado por `require` en la página de invitado debajo de la capucha.
+Un `String` que especifica un script que será cargada antes que se ejecuten otros scripts en la página de invitado. The protocol of script's URL must be `file:` (even when using `asar:` archives) because it will be loaded by Node's `require` under the hood, which treats `asar:` archives as virtual directories.
 
 Cuando la página de invitado no tiene integración de nodo, este guión todavía tendrá acceso a todos los nodos APIs, pero los objetos globales inyectados por Nodo serán eliminados luego de que el guión haya finalizado de ejecutarse.
 

@@ -28,7 +28,7 @@ Windows で `autoUpdater` を使用するには、アプリをユーザのマシ
 
 Squirrel で作成されたインストーラは、例えば、`com.squirrel.slack.Slack` や `com.squirrel.code.Code` といった`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` という形式の [アプリケーションユーザ ID][app-user-model-id] を持つショートカットアイコンを作成します。 `app.setAppUserModelId` APIでアプリに対して同じIDを使うようにしてください。そうでないと、Windowsはタスクバーにアプリを正しくピン留めすることができません。
 
-Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイルホストに更新プログラムをホストすることができます。 Squirrel.Windows の仕組みの詳細については、[Squirrel.Windows][squirrel-windows] のドキュメントをお読みください。
+Squirrel.Mac と同様に、Windows でも S3 やその他の静的ファイルホストで更新プログラムをホストできます。 Squirrel.Windows の仕組みの詳細については、[Squirrel.Windows][squirrel-windows] のドキュメントをお読みください。
 
 ## イベント
 

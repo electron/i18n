@@ -28,7 +28,7 @@ Lorsque vous utilisez [electron-winstaller][installer-lib] ou [electron-forge][e
 
 The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID][app-user-model-id] in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. Vous devez utiliser le même ID pour votre application qu'avec l'API `app.setAppUserModelId`, sinon Windows ne sera pas en mesure d'épingler correctement votre application dans la barre des tâches.
 
-Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 ou tout autre hôte de fichiers statiques. You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
+Like Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows][squirrel-windows] to get more details about how Squirrel.Windows works.
 
 ## Événements
 
