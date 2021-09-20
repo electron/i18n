@@ -63,13 +63,13 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+禁用 ASAR 支持。 该变量只在设置 `ELECTRON_RUN_AS_NODE` 的派生子进程和衍生子进程中受支持。
 
 ### `ELECTRON_RUN_AS_NODE`
 
 当做普通Node.js进程启动。
 
-In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+在当前模式下，当运行普通可执行Node.js文件时，你可以将 [cli 选项](https://nodejs.org/api/cli.html) 传递给Node.js，但下列标志除外：
 
 * "--openssl-config"
 * "--use-bundled-ca"
@@ -77,7 +77,7 @@ In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.
 * "--force-fips"
 * "--enable-fips"
 
-These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+由于Electron 在构建 Node.js 的 `crypto` 模块时使用 BoringSSL 而不是 OpenSSL，因此这些标志被禁用。所以不会像设计的那样工作。
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
@@ -89,7 +89,7 @@ These flags are disabled owing to the fact that Electron uses BoringSSL instead 
 
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. 默认值为 `gio`.
+在 Linux 上设置垃圾回收实现。 默认值为 `gio`.
 
 选项:
 
