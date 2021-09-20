@@ -23,7 +23,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] 
   * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. 支持以下属性值:
+  * `properties` String[]&#32;(可选) - 包含对话框相关属性。 支持以下属性值:
     * `openFile` - 允许选择文件
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
@@ -71,7 +71,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. 支持以下属性值:
+  * `properties` String[]&#32;(可选) - 包含对话框相关属性。 支持以下属性值:
     * `openFile` - 允许选择文件
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
@@ -88,7 +88,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 * `canceled` Boolean - 对话框是否被取消。
 * ` filePaths ` String[] - 用户选择的文件路径的数组. 如果对话框被取消，这将是一个空的数组。
-* `bookmarks` String[]&#32;(optional) _macOS_ _mas_ - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` 必须启用才能捕获数据。 (返回值见 [这里的表格](#bookmarks-array)。)
+* `bookmarks` String[]&#32;(optional) _macOS_ _mas_ - 一个数组， `filePaths` 数组，base64编码字符串包含安全范围书签数据。 `securityScopedBookmarks` 必须启用才能捕获数据。 (返回值见 [这里的表格](#bookmarks-array)。)
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
@@ -131,7 +131,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (可选) _ macOS _-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) _ macOS _ - 文件名输入框对应的自定义标签名。
   * ` showsTagField ` Boolean (可选) _ macOS _-显示标记输入框, 默认为 ` true `。
-  * `properties` String[]&#32;(optional)
+  * `properties` String[]&#32;(可选)
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
     * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
@@ -156,7 +156,7 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (可选) _ macOS _-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) _ macOS _ - 文件名输入框对应的自定义标签名。
   * `showsTagField` Boolean (可选) _macOS_ - 显示标签输入框，默认为 `true`。
-  * `properties` String[]&#32;(optional)
+  * `properties` String[]&#32;(可选)
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * `createDirectory` _macOS_ -允许你通过对话框的形式创建新的目录。
     * ` treatPackageAsDirectory `_ macOS _-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
@@ -182,7 +182,7 @@ dialog.showOpenDialog(mainWindow, {
 * `选项` 对象
   * `message` String - message box 的内容.
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
-  * `buttons` String[]&#32;(optional) - Array of texts for buttons. 在 Windows上，一个空数组将导致按钮被标为“OK”。
+  * `buttons` String[] &#32;(可选) - 按钮文本数组。 在 Windows上，一个空数组将导致按钮被标为“OK”。
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
   * `title` String (可选) - message box 的标题，一些平台不显示.
   * `detail` String (可选) - 额外信息.
@@ -203,7 +203,7 @@ dialog.showOpenDialog(mainWindow, {
 * `选项` 对象
   * `message` String - message box 的内容.
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
-  * `buttons` String[]&#32;(optional) - Array of texts for buttons. 在 Windows上，一个空数组将导致按钮被标为“OK”。
+  * `buttons` String[] &#32;(可选) - 按钮文本数组。 在 Windows上，一个空数组将导致按钮被标为“OK”。
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
   * `title` String (可选) - message box 的标题，一些平台不显示.
   * `detail` String (可选) - 额外信息.

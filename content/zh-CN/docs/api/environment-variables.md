@@ -42,7 +42,7 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+`NODE_OPTIONS` 在打包应用程序中明确禁止使用，以下情况除外:
 
 ```sh
 --max-http-header-size
@@ -51,25 +51,25 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+Electron中的地理定位支持需要使用Google云平台的地理定位网络服务。 为了启用此功能，需获取一个 [Google API 密钥](https://developers.google.com/maps/documentation/geolocation/get-api-key) 并将以下代码放入你的主进程文件， 在打开任何 浏览器窗口之前将生成地理位置请求：
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+默认情况下, 可能不允许新生成的 Google API key进行地理编码请求。 要为你的项目启用地理定位网络服务，请通过 [API 库](https://console.cloud.google.com/apis/library) 启用它。
 
-N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
+注： 你需要在与 API 密钥相关的项目中添加一个[计费帐户](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method)，以便地理定位网络服务工作。
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+禁用 ASAR 支持。 该变量只在设置 `ELECTRON_RUN_AS_NODE` 的派生子进程和衍生子进程中受支持。
 
 ### `ELECTRON_RUN_AS_NODE`
 
 当做普通Node.js进程启动。
 
-In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.html) to Node.js as you would when running the normal Node.js executable, with the exception of the following flags:
+在当前模式下，当运行普通可执行Node.js文件时，你可以将 [cli 选项](https://nodejs.org/api/cli.html) 传递给Node.js，但下列标志除外：
 
 * "--openssl-config"
 * "--use-bundled-ca"
@@ -77,7 +77,7 @@ In this mode, you will be able to pass [cli options](https://nodejs.org/api/cli.
 * "--force-fips"
 * "--enable-fips"
 
-These flags are disabled owing to the fact that Electron uses BoringSSL instead of OpenSSL when building Node.js' `crypto` module, and so will not work as designed.
+由于Electron 在构建 Node.js 的 `crypto` 模块时使用 BoringSSL 而不是 OpenSSL，因此这些标志被禁用。所以不会像设计的那样工作。
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 
@@ -89,7 +89,7 @@ These flags are disabled owing to the fact that Electron uses BoringSSL instead 
 
 ### `ELECTRON_TRASH` _Linux_
 
-Set the trash implementation on Linux. 默认值为 `gio`.
+在 Linux 上设置垃圾回收实现。 默认值为 `gio`.
 
 选项:
 
@@ -116,13 +116,13 @@ Setting this variable is the same as passing `--log-file` on the command line. F
 
 ### `ELECTRON_DEBUG_DRAG_REGIONS`
 
-Adds coloration to draggable regions on [`BrowserView`](./browser-view.md)s on macOS - draggable regions will be colored green and non-draggable regions will be colored red to aid debugging.
+在 macOS 的 [`BrowserView`](./browser-view.md)上添加可拖动区域的颜色 - 可拖动区域将着绿色， 不可拖动区域将着红色以帮助调试。
 
 ### `ELECTRON_DEBUG_NOTIFICATIONS`
 
-Adds extra logs to [`Notification`](./notification.md) lifecycles on macOS to aid in debugging. Extra logging will be displayed when new Notifications are created or activated. They will also be displayed when common a tions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
+在 macOS 上添加额外日志到 [`通知`](./notification.md) 生命周期以帮助调试。 当创建或激活新通知时，将显示额外日志。 They will also be displayed when common a tions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
 
-Sample output:
+示例输出：
 
 ```sh
 Notification created (com.github.Electron:notification:EAF7B87C-A113-43D7-8E76-F88EC9D73D44)
@@ -133,7 +133,7 @@ Notification replied to (com.github.Electron:notification:EAF7B87C-A113-43D7-8E7
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+当 Electron 从 ASAR 文件读取时，记录读取 offset 偏移和文件路径到系统 `tmpdir` 临时目录。 生成的文件可以提供给ASAR 模块以优化文件排序。
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -155,10 +155,10 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
 
-## Set By Electron
+## 通过 Electron 设置
 
-Electron sets some variables in your environment at runtime.
+在Electron运行时设置一些环境变量
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
-This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron 有时修改 `XDG_CURRENT_DESKTOP` 的值以影响Chromium 中的其他逻辑，所以如果您想访问 _原始的_ 值 您应该重新查看此环境变量。
+此变量设置为你的应用程序最初启动的 `XDG_CURRENT_DESKTOP` 值。  Electron 有时修改 `XDG_CURRENT_DESKTOP` 的值以影响Chromium 中的其他逻辑，所以如果您想访问 _原始的_ 值 您应该重新查看此环境变量。
