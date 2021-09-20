@@ -116,13 +116,13 @@ Setting this variable is the same as passing `--log-file` on the command line. F
 
 ### `ELECTRON_DEBUG_DRAG_REGIONS`
 
-Adds coloration to draggable regions on [`BrowserView`](./browser-view.md)s on macOS - draggable regions will be colored green and non-draggable regions will be colored red to aid debugging.
+在 macOS 的 [`BrowserView`](./browser-view.md)上添加可拖动区域的颜色 - 可拖动区域将着绿色， 不可拖动区域将着红色以帮助调试。
 
 ### `ELECTRON_DEBUG_NOTIFICATIONS`
 
-Adds extra logs to [`Notification`](./notification.md) lifecycles on macOS to aid in debugging. Extra logging will be displayed when new Notifications are created or activated. They will also be displayed when common a tions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
+在 macOS 上添加额外日志到 [`通知`](./notification.md) 生命周期以帮助调试。 当创建或激活新通知时，将显示额外日志。 They will also be displayed when common a tions are taken: a notification is shown, dismissed, its button is clicked, or it is replied to.
 
-Sample output:
+示例输出：
 
 ```sh
 Notification created (com.github.Electron:notification:EAF7B87C-A113-43D7-8E76-F88EC9D73D44)
@@ -155,9 +155,9 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 ```
 
-## Set By Electron
+## 通过 Electron 设置
 
-Electron sets some variables in your environment at runtime.
+在Electron运行时设置一些环境变量
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
