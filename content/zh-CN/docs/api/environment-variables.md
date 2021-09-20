@@ -42,7 +42,7 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+`NODE_OPTIONS` 在打包应用程序中明确禁止使用，以下情况除外:
 
 ```sh
 --max-http-header-size
@@ -51,15 +51,15 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Geolocation support in Electron requires the use of Google Cloud Platform's geolocation webservice. To enable this feature, acquire a [Google API key](https://developers.google.com/maps/documentation/geolocation/get-api-key) and place the following code in your main process file, before opening any browser windows that will make geolocation requests:
+Electron中的地理定位支持需要使用Google云平台的地理定位网络服务。 为了启用此功能，需获取一个 [Google API 密钥](https://developers.google.com/maps/documentation/geolocation/get-api-key) 并将以下代码放入你的主进程文件， 在打开任何 浏览器窗口之前将生成地理位置请求：
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-By default, a newly generated Google API key may not be allowed to make geolocation requests. To enable the geolocation webservice for your project, enable it through the [API library](https://console.cloud.google.com/apis/library).
+默认情况下, 可能不允许新生成的 Google API key进行地理编码请求。 要为你的项目启用地理定位网络服务，请通过 [API 库](https://console.cloud.google.com/apis/library) 启用它。
 
-N.B. You will need to add a [Billing Account](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method) to the project associated to the API key for the geolocation webservice to work.
+注： 你需要在与 API 密钥相关的项目中添加一个[计费帐户](https://cloud.google.com/billing/docs/how-to/payment-methods#add_a_payment_method)，以便地理定位网络服务工作。
 
 ### `ELECTRON_NO_ASAR`
 
