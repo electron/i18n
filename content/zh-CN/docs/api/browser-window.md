@@ -775,10 +775,10 @@ Menu.setApplicationMenu(menu)
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-// set all bounds properties
+// 设置所有 bounds 边界属性
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
 
-// set a single bounds property
+// 设置单一 bounds 边界属性
 win.setBounds({ width: 100 })
 
 // { x: 440, y: 225, width: 100, height: 600 }
