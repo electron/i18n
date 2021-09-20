@@ -133,7 +133,7 @@ Notification replied to (com.github.Electron:notification:EAF7B87C-A113-43D7-8E7
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+当 Electron 从 ASAR 文件读取时，记录读取 offset 偏移和文件路径到系统 `tmpdir` 临时目录。 生成的文件可以提供给ASAR 模块以优化文件排序。
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
@@ -161,4 +161,4 @@ export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Testing
 
 ### `ORIGINAL_XDG_CURRENT_DESKTOP`
 
-This variable is set to the value of `XDG_CURRENT_DESKTOP` that your application originally launched with.  Electron 有时修改 `XDG_CURRENT_DESKTOP` 的值以影响Chromium 中的其他逻辑，所以如果您想访问 _原始的_ 值 您应该重新查看此环境变量。
+此变量设置为你的应用程序最初启动的 `XDG_CURRENT_DESKTOP` 值。  Electron 有时修改 `XDG_CURRENT_DESKTOP` 的值以影响Chromium 中的其他逻辑，所以如果您想访问 _原始的_ 值 您应该重新查看此环境变量。
