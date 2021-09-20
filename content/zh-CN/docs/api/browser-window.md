@@ -162,11 +162,11 @@ child.once('ready-to-show', () => {
     * `hidden` - Results in a hidden title bar and a full size content window. On macOS, the window still has the standard window controls (“traffic lights”) in the top left. On Windows, when combined with `titleBarOverlay: true` it will activate the Window Controls Overlay (see `titleBarOverlay` for more information), otherwise no window controls will be shown.
     * `hiddenInset` - Only on macOS, results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` - Only on macOS, results in a hidden title bar and a full size content window, the traffic light buttons will display when being hovered over in the top left of the window.  ** 注意: **此选项目前是实验性的。
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons in frameless windows.
-  * `roundedCorners` Boolean (optional) - Whether frameless window should have rounded corners on macOS. 默认值为 `true`。
-  * `fullscreenWindowTitle` Boolean (optional) _Deprecated_ - Shows the title in the title bar in full screen mode on macOS for `hiddenInset` titleBarStyle. 默认值为 `false`.
+  * `trafficLightPosition` [Point](structures/point.md) (可选的) - 设置控制按钮在无边框窗口中的位置。
+  * `roundedCorners` Boolean (可选) - 无框窗口是否应该在 macOS 上 圆角。 默认值为 `true`。
+  * `fullscreenWindowTitle` Boolean (可选) _已弃用_ - macOS全屏模式下，在标题栏展示标题，需要 titleBarStyle 设置 `hiddenInset` 属性。 默认值为 `false`.
   * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
-  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. 可选值为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` 或 `under-page`。 Please note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` are deprecated and have been removed in macOS Catalina (10.15).
+  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. 可选值为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` 或 `under-page`。 请注意： `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` 已被弃用，并将在即将推出的 macOS Catalina (10.15版本) 中被移除。
   * `zoomToPageWidth` Boolean (可选) - 控制 macOS 上，当选择性单击工具栏上的绿色stoplight按钮或单击 Window > Zoom menu item时的行为。 如果为 ` true `, 窗口将放大到网页的本身宽度, ` false ` 将使其缩放到屏幕的宽度。 这也会影响直接调用 ` maximize() ` 时的行为。 默认值为 `false`.
   * `tabbingIdentifier` String (可选) - 选项组卡的名称，在macOS 10.12+上可使窗口在原生选项卡中打开. 具有相同标识符的窗口将被组合在一起。 这还会在窗口的标签栏中添加一个原生的新选项卡按钮, 并允许 ` app ` 和窗口接收 ` new-window-for-tab` 事件。
   * `webPreferences` Object (可选) - 网页功能设置。
@@ -409,7 +409,7 @@ __注意__: 在 macOS 上，此事件是` move `的别名。
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // 当用户鼠标单击返回按钮时将自动返回上一个窗口
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -1105,7 +1105,7 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - HTTP 引用 url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (optional)
+  * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md))[] (可选)
   * `baseURLForDataURL` String (可选) - 要由数据URL加载的文件基本URL(末尾带有路径分隔符)。 仅当指定的`url`是数据url并且需要加载其他文件时，才需要此选项。
 
 返回 `Promise<void>` - 当页面完成加载后 promise 将会resolve (见 [`did-finish-load`](web-contents.md#event-did-finish-load))，如果页面加载失败，则 reject (见 [`did-fail-load`](web-contents.md#event-did-fail-load))。
@@ -1305,8 +1305,8 @@ win.loadURL('http://localhost:8000/post', {
 
 * `visible` Boolean
 * `options` Object (可选)
-  * `visibleOnFullScreen` Boolean (optional) _macOS_ - Sets whether the window should be visible above fullscreen windows.
-  * `skipTransformProcessType` Boolean (optional) _macOS_ - Calling setVisibleOnAllWorkspaces will by default transform the process type between UIElementApplication and ForegroundApplication to ensure the correct behavior. However, this will hide the window and dock for a short time every time it is called. If your window is already of type UIElementApplication, you can bypass this transformation by passing true to skipTransformProcessType.
+  * `visibleOnFullScreen` Boolean (可选) _macOS_ - 设置当前窗口是否可以在全屏窗口之上显示。
+  * `skipTransformProcessType` Boolean (可选) _macOS_ - 调用 setVisibleOnAllWorkspaces ，默认转换流程类型于 UIElementApplication 和 ForegroundApplication 之间，用来保障正常响应。 然而，当方法被调用时将短暂的隐藏窗口和图标。 如果你的窗口已经是 UIElementApplication 类似，你可以绕过这次转换通过传递 true 参数给TransformProcessType。
 
 设置窗口是否在所有工作空间上可见
 
@@ -1406,11 +1406,11 @@ Returns whether the window can be focused.
 
 * `position` [Point](structures/point.md)
 
-Set a custom position for the traffic light buttons in frameless window.
+在无框窗口中设置自定义控制按钮的位置。
 
 #### `win.getTrafficLightPosition()` _macOS_
 
-Returns `Point` - The custom position for the traffic light buttons in frameless window.
+返回 `Point` - 在无框窗口中自定义控制按钮的位置。
 
 #### `win.setTouchBar(touchBar)` _macOS_
 
