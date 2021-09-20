@@ -23,7 +23,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] 
   * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. 支持以下属性值:
+  * `properties` String[]&#32;(可选) - 包含对话框相关属性。 支持以下属性值:
     * `openFile` - 允许选择文件
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
@@ -71,7 +71,7 @@ dialog.showOpenDialogSync(mainWindow, {
   * `defaultPath` String (可选) - 对话框的默认展示路径
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `properties` String[]&#32;(optional) - Contains which features the dialog should use. 支持以下属性值:
+  * `properties` String[]&#32;(可选) - 包含对话框相关属性。 支持以下属性值:
     * `openFile` - 允许选择文件
     * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
