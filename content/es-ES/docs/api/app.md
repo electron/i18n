@@ -121,6 +121,8 @@ Devuelve:
 * `event`
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad en otro dispositivo.
+* `details` Object
+  * `webpageURL` String (optional) - A string identifying the URL of the webpage accessed by the activity on another device, if available.
 
 Emitido durante [Handoff][handoff] cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
@@ -580,7 +582,7 @@ Reescribe el nombre de la aplicación actual.
 
 Devuelve `String` - Los parámetros regionales actuales de la aplicación, recopilados usando la biblioteca `l10n_util` de Chromium. Los posibles valores de retorno son documentados [aquí](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
-Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -862,6 +864,36 @@ Activation policy types:
 
 Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con el `result` de la operación de importación, un valor `0` indica que fue exitoso mientras que cualquier otro valor indica que fallo de acuerdo a Chromium [net_error_list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h).
 
+### `app.configureHostResolver(options)`
+
+* `options` Object
+  * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Enabled by default on macOS, disabled by default on Windows and Linux.
+  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. When "automatic", DoH lookups will be peformed first if DoH is available, and insecure DNS lookups will be performed as a fallback. When "secure", only DoH lookups will be performed. Defaults to "automatic".
+  * `secureDnsServers` String[]&#32;(optional) - A list of DNS-over-HTTP server templates. See [RFC8484 § 3][] for details on the template format. Most servers support the POST method; the template for such servers is simply a URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
+  * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. Defaults to true.
+
+Configures host resolution (DNS and DNS-over-HTTPS). By default, the following resolvers will be used, in order:
+
+1. DNS-over-HTTPS, if the [DNS provider supports it][doh-providers], then
+2. the built-in resolver (enabled on macOS only by default), then
+3. the system's resolver (e.g. `getaddrinfo`).
+
+This can be configured to either restrict usage of non-encrypted DNS (`secureDnsMode: "secure"`), or disable DNS-over-HTTPS (`secureDnsMode:
+"off"`). It is also possible to enable or disable the built-in resolver.
+
+To disable insecure DNS, you can specify a `secureDnsMode` of `"secure"`. If you do so, you should make sure to provide a list of DNS-over-HTTPS servers to use, in case the user's DNS configuration does not include a provider that supports DoH.
+
+```js
+app.configureHostResolver({
+  secureDnsMode: 'secure',
+  secureDnsServers: [
+    'https://cloudflare-dns.com/dns-query'
+  ]
+})
+```
+
+Esta API debe ser llamada antes que el evento `ready` sea emitido.
+
 ### `app.disableHardwareAcceleration()`
 
 Desactiva la aceleración por hardware para esta aplicación.
@@ -954,10 +986,10 @@ Su proporcionas las opciones `path` y `args` a `app.setLoginItemSettings`, enton
 Devuelve `Objeto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
-* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. This setting is not available on [MAS builds][mas-builds].
-* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. This setting is not available on [MAS builds][mas-builds].
-* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. This setting is not available on [MAS builds][mas-builds].
+* `openAsHidden` Boolean _macOS_ - `true` if the app is set to open as hidden at login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
+* `wasOpenedAtLogin` Boolean _macOS_ - `true` if the app was opened at login automatically. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
+* `wasOpenedAsHidden` Boolean _macOS_ - `true` if the app was opened as a hidden login item. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
+* `restoreState` Boolean _macOS_ - `true` if the app was opened as a login item that should restore the state from the previous session. Esto indica que la aplicación debería restaurar las ventanas que fueron abiertas la última vez que la aplicación fue cerrada. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
 * `executableWillLaunchAtLogin` Boolean _Windows_ - `true` if app is set to open at login and its run key is not deactivated. This differs from `openAtLogin` as it ignores the `args` option, this property will be true if the given executable would be launched at login with **any** arguments.
 * `launchItems` Object[] _Windows_
   * `name` String _Windows_ - name value of a registry entry.
@@ -970,13 +1002,13 @@ Devuelve `Objeto`:
 
 * `settings` Object
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Por defecto es `false`.
-  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. This setting is not available on [MAS builds][mas-builds].
+  * `openAsHidden` Boolean (optional) _macOS_ - `true` to open the app as hidden. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC][mas-builds].
   * `path` String (optional) _Windows_ - The executable to launch at login. Por defecto a `process.execPath`.
   * `args` String[] (optional) _Windows_ - The command-line arguments to pass to the executable. Por defecto a un array vacío. Take care to wrap paths in quotes.
   * `enabled` Boolean (optional) _Windows_ - `true` will change the startup approved registry key and `enable / disable` the App in Task Manager and Windows Settings. Por defecto es `true`.
   * `name` String (optional) _Windows_ - value name to write into registry. Defaults to the app's AppUserModelId(). Establece los objetos de inicio de ajuste de la aplicación.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel][Squirrel-Windows], you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Por ejemplo:
+Para trabajar con `autoUpdater` de Electron en Windows, el cual usa [Squirrel][Squirrel-Windows], querrás establecer el camino de ejecución de Update.exe, y pasarán los argumentos que especifican el nombre de tu aplicación. Por ejemplo:
 
 ``` javascript
 const appFolder = path.dirname(process.execPath)
@@ -1023,7 +1055,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) _Linux_ - The app's website.
   * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon in a JPEG or PNG file format. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. See the [Apple docs][about-panel-options] for more details. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+Establece el panel de opciones. This will override the values defined in the app's `.plist` file on macOS. Ver el [Apple docs][about-panel-options] para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 
 Si no estableces `credits` pero aún deseas sacarlos en tu aplicación, AppKit buscará por un archivo llamado "Credits.html", "Credits.rtf", y "Credits.rtfd", en ese orden, en el paquete devuelto por el método de clase principal NSBundle. El primer archivo encontrado es usado, y si no se encuentra ninguno, el área de información se deja en blanco. Vea la [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) de Apple para más información.
 
@@ -1163,12 +1195,24 @@ Un `String` que es la cadena de agente de usuario Electron usará como una regre
 
 Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`.  Es útil para asegurar que la aplicación entera tiene el mismo agente de usuario.  Establecer a un valor personalizado lo antes posible en la inicialización de tu aplicación para asegurar que el valor sobrescrito es usado.
 
-### `app.runningUnderRosettaTranslation` _macOS_ _SoloLectura_
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_ _Deprecated_
 
 A `Boolean` which when `true` indicates that the app is currently running under the [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)).
 
 You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
 
+**Deprecated:** This property is superceded by the `runningUnderARM64Translation` property which detects when the app is being translated to ARM64 in both macOS and Windows.
+
+### `app.runningUnderARM64Translation` _Readonly_ _macOS_ _Windows_
+
+A `Boolean` which when `true` indicates that the app is currently running under an ARM64 translator (like the macOS [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)) or Windows [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows)).
+
+You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
+
+[doh-providers]: https://source.chromium.org/chromium/chromium/src/+/main:net/dns/public/doh_provider_entry.cc;l=31?q=%22DohProviderEntry::GetList()%22&ss=chromium%2Fchromium%2Fsrc
+
+[doh-providers]: https://source.chromium.org/chromium/chromium/src/+/main:net/dns/public/doh_provider_entry.cc;l=31?q=%22DohProviderEntry::GetList()%22&ss=chromium%2Fchromium%2Fsrc
+[RFC8484 § 3]: https://datatracker.ietf.org/doc/html/rfc8484#section-3
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/
