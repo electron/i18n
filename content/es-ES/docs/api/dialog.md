@@ -205,6 +205,7 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` String[]&#32;(optional) - Array of texts for buttons. En Windows, un array vacío resultará en un botón con al etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
+  * `signal` AbortSignal (optional) - Pass an instance of [AbortSignal][] to optionally close the message box, the message box will behave as if it was cancelled by the user. On macOS, `signal` does not work with message boxes that do not have a parent window, since those message boxes run synchronously due to platform limitations.
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `detail` Cadena (opcional) - Información extra del mensaje.
   * `checkboxLabel` String (opcional) - Si se proporciona, el cuadro de mensaje será incluido como un checkbox con la etiqueta dada.
@@ -264,3 +265,5 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 En macOS, los diálogos son presentados como hojas ancladas a una ventana si se indica una referencia de [`BrowserWindow`](browser-window.md) en el parámetro `browserWindow`, o modales si no se indica ventana.
 
 Puedes llamar a `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` para cambiar el offset del cuadro de la ventana en donde las páginas fueron adjuntadas.
+
+[AbortSignal]: https://nodejs.org/api/globals.html#globals_class_abortsignal
