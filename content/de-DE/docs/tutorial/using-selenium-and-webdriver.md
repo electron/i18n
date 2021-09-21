@@ -151,7 +151,7 @@ client
 
 ## Workflow
 
-Um Ihre Anwendung ohne Neuaufbau von Electron zu testen, [platzieren](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Sie Ihre App-Quelle in das Ressourcenverzeichnis von Electron.
+Um Ihre Anwendung ohne Neuaufbau von Electron zu testen, [platzieren](application-distribution.md) Sie Ihre App-Quelle in das Ressourcenverzeichnis von Electron.
 
 Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
 
