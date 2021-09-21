@@ -1,6 +1,6 @@
 # Rendimiento
 
-Los desarrolladores preguntan frecuentemente sobre estrategias para optimizar el rendimiento de aplicaciones de Electron. Los ingenieros de software, los consumidores y los desarrolladores de framework no siempre están de acuerdo en una sola definición de lo que significa "rendimiento". This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
+Los desarrolladores preguntan frecuentemente sobre estrategias para optimizar el rendimiento de aplicaciones de Electron. Los ingenieros de software, los consumidores y los desarrolladores de framework no siempre están de acuerdo en una sola definición de lo que significa "rendimiento". Este documento describe algunas de las formas favoritas de los desarrolladores de Electron para reducir el uso de recursos de memoria, CPU y disco asegurando a su vez que tu app sea responsiva a las entradas del usuario y complete operaciones tan rápidamente como sea posible. De hecho, queremos que todas las estrategias para asegurar el rendimiento mantengan un alto estándar para la seguridad de tu aplicación.
 
 Wisdom and information about how to build performant websites with JavaScript generally applies to Electron apps, too. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
 
@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Executing this command results in a `.cpuprofile` file and a `.heapprofile` file in the directory you executed it in. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
 
-![Perfil de rendimiento de la CPU][4]
+![Perfil de rendimiento de la CPU](../images/performance-cpu-prof.png)
 
-![Performance Heap Memory Profile][5]
+![Performance Heap Memory Profile](../images/performance-heap-prof.png)
 
 In this example, on the author's machine, we saw that loading `request` took almost half a second, whereas `node-fetch` took dramatically less memory and less than 50ms.
 
@@ -238,9 +238,6 @@ Modern JavaScript development usually involves many files and modules. While tha
 There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
 
 As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
-
-[4]: ../images/performance-cpu-prof.png
-[5]: ../images/performance-heap-prof.png
 
 [security]: ./security.md
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
