@@ -151,7 +151,7 @@ client
 
 ## 工作流
 
-无需重新编译 Electron，只要把 app 的源码[放到](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Electron的资源目录 里就可直接开始测试了。
+无需重新编译 Electron，只要把 app 的源码[放到](application-distribution.md) Electron的资源目录 里就可直接开始测试了。
 
 Alternatively, pass an argument to run with your Electron binary that points to your app's folder. 这就消除了将您的应用复制粘贴到 Electron 资源目录的必要性。
 
