@@ -12,14 +12,6 @@
 * **已废弃：**该 API 已标记为废弃。 该 API 依旧可正常运作，但会抛出已废弃警告，并在将来会移除。
 * **已移除：**该 API 或功能已移除，Electron团队不再对此提供支持。
 
-## 计划重写的 API (15.0)
-
-### 默认更改： `nativeWindowOpen` 默认为 `true`
-
-Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
-
-See the documentation for [window.open in Electron](api/window-open.md) for more details.
-
 ## 计划重写的 API (14.0)
 
 ### Removed: `remote` module
@@ -55,14 +47,20 @@ For more detailed information see [#18397](https://github.com/electron/electron/
 
 可选参数 `frameName` 将不再设置窗口的标题。 该功能现在遵循 [原生文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) 中的约束，由名为 `windowName` 的参数控制。
 
-若您之前使用了该参数用于设置窗口标题，您可以转而使用 [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle)。
+若您之前使用了该参数用于设置窗口标题，您可以转而使用 [win.setTitle(title)](api/browser-window.md#winsettitletitle)。
 
 ### 已移除： `worldSafeExecuteJavaScript`
 
-在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。 除此之外没有其他方式，请保证您的代码中包含该属性。 Electron 12中默认启用该属性。
+在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  除此之外没有其他方式，请保证您的代码中包含该属性。  Electron 12中默认启用该属性。
 12.
 
 若您使用了 `webFrame.executeJavaScript` 或 `webFrame.executeJavaScriptInIsolatedWorld`，这个改动会对您造成影响。 您需要保证 [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) 支持这些方法的返回值，因为这些方法使用相同的值传递语义。
+
+### 默认更改： `nativeWindowOpen` 默认为 `true`
+
+Prior to Electron 14, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
 
 ### Removed: BrowserWindowConstructorOptions inheriting from parent windows
 
@@ -241,7 +239,7 @@ Chromium 已经取消了对Flash的支持，因此我们必须效仿。 更多�
 
 在 Electron 12, `contextIsolation` 将默认启用。  要恢复 上一个行为， `contextIsolation: false` 必须在 Web 首选项中指定。
 
-我们 [建议启用contextIsolation](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) ，以保证您的应用程序的安全性。
+我们 [建议启用contextIsolation](tutorial/security.md#3-enable-context-isolation-for-remote-content) ，以保证您的应用程序的安全性。
 
 Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
@@ -722,7 +720,7 @@ In Electron 7, this now returns a `FileList` with a `File` object for:
 /path/to/folder/file1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Changed: Callback-based versions of promisified APIs
 
