@@ -2,7 +2,7 @@
 
 > 操纵子浏览器窗口
 
-进程: [ Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 使用 `window.open` 创建一个新窗口时会返回一个 `BrowserWindowProxy`对象，并提供一个有限功能的子窗口.
 
