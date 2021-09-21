@@ -12,14 +12,6 @@
 * **非推奨:** API は非推奨になりました。 この API は引き続き機能しますが、非推奨の警告を発し、将来のリリースで削除されます。
 * **削除:** API または機能が削除され、Electron でサポートされなくなりました。
 
-## 予定されている破壊的なAPIの変更 (15.0)
-
-### 省略値変更: `nativeWindowOpen` の省略値を `true` に
-
-Electron 15 より前の `window.open` は既定で `BrowserWindowProxy` を使用していました。 このため、`window.open('about:blank')` では同期的にスクリプトで操作可能な子ウィンドウを開くことができないなどといった、非互換性がありました。 `nativeWindowOpen: true` は実験的でなくなり、既定値になります。
-
-詳細については [Electron での window.open](api/window-open.md) をご参照ください
-
 ## 予定されている破壊的なAPIの変更 (14.0)
 
 ### 削除: `remote` モジュール
@@ -55,14 +47,20 @@ require('@electron/remote/main').initialize()
 
 任意引数 `frameName` は、ウィンドウのタイトルに設定されなくなります。 これにより、[ネイティブの document](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) に対応するパラメータ `windowName` で説明されている仕様に従うことになりました。
 
-この引数でウィンドウのタイトルを設定していた場合は、代わりに [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle) を利用できます。
+この引数でウィンドウのタイトルを設定していた場合は、代わりに [win.setTitle(title)](api/browser-window.md#winsettitletitle) を利用できます。
 
 ### 削除: `worldSafeExecuteJavaScript`
 
-Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。 代替手段はありませんので、このプロパティが有効になった上でのコードの動作を確認してください。 これは Electron 12 からデフォルトで有効になっています。
+Electron 14 では、 `worldSafeExecuteJavaScript` が削除されます。  代替手段はありませんので、このプロパティが有効になった上でのコードの動作を確認してください。  これは Electron 12 からデフォルトで有効になっています。
 12.
 
 `webFrame.executeJavaScript` か `webFrame.executeJavaScriptInIsolatedWorld` のいずれかを使用している場合、この変更の影響を受けます。 これらのメソッドは同じ値渡しセマンティクスを使用しているため、[Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) がサポートしている戻り値かどうかを確認する必要があります。
+
+### 省略値変更: `nativeWindowOpen` の省略値を `true` に
+
+Electron 14 より前の `window.open` は既定で `BrowserWindowProxy` を使用していました。 このため、`window.open('about:blank')` では同期的にスクリプトで操作可能な子ウィンドウを開くことができないなどといった、非互換性がありました。 `nativeWindowOpen` は実験的でなくなり、既定値になります。
+
+詳細については [Electron での window.open](api/window-open.md) をご参照ください
 
 ### 削除: 親ウインドウからの BrowserWindowConstructorOptions の継承
 
@@ -241,7 +239,7 @@ Electron 12 からは `worldSafeExecuteJavaScript` が既定で有効です。  
 
 Electron 12 からは `contextIsolation` が既定で有効です。  以前の動作に戻すには、WebPreferences で `contextIsolation: false` を指定する必要があります。
 
-アプリケーションのセキュリティのために、[contextIsolation の有効化を推奨します](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content)。
+アプリケーションのセキュリティのために、[contextIsolation の有効化を推奨します](tutorial/security.md#3-enable-context-isolation-for-remote-content)。
 
 これは、`nodeIntegration` が `true` かつ `contextIsolation` が `false` でない限り、`require()` がレンダラープロセスで使用できなくなるということでもあります。
 
@@ -723,7 +721,7 @@ Electron 7 では、以下のような `File` オブジェクトが入った `Fi
 /path/to/folder/file1
 ```
 
-`webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
+`webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
 
 ### API 変更: Promise ベースの API の Callback ベース版
 
