@@ -14,7 +14,7 @@
 * [Node.js](https://nodejs.org/download/)
 * [Git](https://git-scm.com)
 * Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
-  * 不同版本的SDK可以同时安装 安装 SDK，打开 Visual Studio 安装程序，选择 `更改`→`单个组件`，向下滚动并选择适当的 要安装的 Windows SDK 组件。 另一个选择是查看 [windows SDK 和仿真器存档](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) 并分别下载 SDK 的独立版本。
+  * 不同版本的SDK可以同时安装 To install the SDK, open Visual Studio Installer, select `Modify` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. 另一个选择是查看 [windows SDK 和仿真器存档](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) 并分别下载 SDK 的独立版本。
   * 还必须安装 SDK 调试工具。 如果已安装了 Windows 10 SDK 通过 Visual Studio 安装程序，然后可以用以下方式安装它们： `控制面板`→`程序`→`程序和功能`→选择“Windows 软件开发工具包”→ `更改`→`更改`→选中“Windows 调试工具”→`更改`。 或者，您可以下载独立的 SDK 安装程序，并且使用它安装调试工具。
 
 如果您当前没有安装 Windows， [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) 上有时间限制的 Windows 版本，你可以用来构建 Electron。
@@ -29,7 +29,7 @@ Windows Security 不支持Chromium 源码中部分代码，详情(see https://cr
 
 ## 构建
 
-See [Build Instructions: GN](build-instructions-gn.md)
+参照[Build Instructions: GN](build-instructions-gn.md)
 
 ## 32 位构建
 
