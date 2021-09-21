@@ -2,7 +2,7 @@
 
 > Maneja las respuestas a las solicitudes HTTP/HTTPS.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `IncomingMessage` implementa la interfaz [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) y es por lo tanto un [EventEmitter][event-emitter].
 
