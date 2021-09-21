@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 このコマンドを実行すると、実行したディレクトリに `.cpuprofile` ファイルと `.heapprofile` ファイルが作成されます。 両方のファイルは、Chrome デベロッパーツールを使用して、それぞれ `Performance` および `Memory` タブを使用して分析できます。
 
-![パフォーマンスの CPU プロファイル][4]
+![パフォーマンスの CPU プロファイル](../images/performance-cpu-prof.png)
 
-![パフォーマンスのヒープメモリプロファイル][5]
+![パフォーマンスのヒープメモリプロファイル](../images/performance-heap-prof.png)
 
 この例では、著者のマシンで `request` のロードに約 0.5 秒かかったのに対し、`node-fetch` のメモリ消費は劇的に少なく、50ms 未満でした。
 
@@ -238,9 +238,6 @@ Electron アプリを作成するとき、フォントをダウンロードし�
 多数の JavaScript バンドルが存在しますが、あるツールを別のツールよりも推奨してコミュニティを怒らせるよりも、良い方法が知られています。 ただし、Node.js 環境とブラウザ環境の両方を処理する必要がある Electron 独自の環境を処理できるバンドラーを使用することを推奨します。
 
 この記事を書いている時点での一般的な選択肢には、[Webpack][webpack]、[Parcel][parcel]、および [rollup.js][rollup] があります。
-
-[4]: ../images/performance-cpu-prof.png
-[5]: ../images/performance-heap-prof.png
 
 [security]: ./security.md
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
