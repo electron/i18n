@@ -132,7 +132,13 @@ MenuItem がクリックイベントを受け取った時に発火される `Fun
 
 #### `menuItem.accelerator`
 
-セットされているならば、そのアイテムのアクセラレーターを表す `Accelerator` (任意) です。
+An `Accelerator` (optional) indicating the item's accelerator, if set.
+
+#### `menuItem.userAccelerator` _Readonly_ _macOS_
+
+An `Accelerator | null` indicating the item's [user-assigned accelerator](https://developer.apple.com/documentation/appkit/nsmenuitem/1514850-userkeyequivalent?language=objc) for the menu item.
+
+**Note:** This property is only initialized after the `MenuItem` has been added to a `Menu`. Either via `Menu.buildFromTemplate` or via `Menu.append()/insert()`.  Accessing before initialization will just return `null`.
 
 #### `menuItem.icon`
 
