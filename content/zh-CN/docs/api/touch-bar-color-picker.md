@@ -2,7 +2,7 @@
 
 > 在macOS 应用程序中，为触控栏创建拾色器
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### `new TouchBarColorPicker(options)`
 
