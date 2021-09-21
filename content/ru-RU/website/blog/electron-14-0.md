@@ -68,7 +68,7 @@ If you were using this parameter to set the title of a window, you can instead u
 
 `worldSafeExecuteJavaScript` has been removed with no alternative. Please ensure your code works with this property enabled. It has been enabled by default since Electron 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](https://www.electronjs.org/docs/api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+На вас повлияет это изменение, если вы используете либо `webFrame.executeJavaScript` или `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](https://www.electronjs.org/docs/api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
 
 ### Default Changed: `nativeWindowOpen` defaults to `true`
 
