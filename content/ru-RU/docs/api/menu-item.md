@@ -132,7 +132,13 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.accelerator`
 
-`Accelerator` (опционально) с указанием ускорителя элемента, если установлено.
+An `Accelerator` (optional) indicating the item's accelerator, if set.
+
+#### `menuItem.userAccelerator` _Readonly_ _macOS_
+
+An `Accelerator | null` indicating the item's [user-assigned accelerator](https://developer.apple.com/documentation/appkit/nsmenuitem/1514850-userkeyequivalent?language=objc) for the menu item.
+
+**Note:** This property is only initialized after the `MenuItem` has been added to a `Menu`. Either via `Menu.buildFromTemplate` or via `Menu.append()/insert()`.  Accessing before initialization will just return `null`.
 
 #### `menuItem.icon`
 
