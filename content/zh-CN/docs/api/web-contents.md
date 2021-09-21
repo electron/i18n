@@ -61,7 +61,7 @@ async function lookupTargetId (browserWindow) {
 
 > 渲染和控制 BrowserWindow 实例的内容。
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### 实例事件
 
@@ -122,7 +122,7 @@ async function lookupTargetId (browserWindow) {
 
 * `event` Event
 
-一个框架中的文本加载完成后触发该事件。
+Emitted when the document in the top-level frame is loaded.
 
 #### 事件： 'page-title-updated'
 
@@ -397,14 +397,16 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `event` Event
 * `input` Object - Input properties.
   * `type` String - 可以是 `keyUp` ，或者 `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
-  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
+  * `key` String - 等同于 [KeyboardEvent.key][keyboardevent].
+  * ` code ` String - 等同于 [KeyboardEvent. code ][keyboardevent].
+  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ][keyboardevent].
   * `isComposing` Boolean - Equivalent to [KeyboardEvent.isComposing][keyboardevent].
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
+  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ][keyboardevent].
+  * ` control ` String - 等同于 [KeyboardEvent. controlKey ][keyboardevent].
+  * ` alt ` String - 等同于 [KeyboardEvent. altKey ][keyboardevent].
+  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ][keyboardevent].
+  * `location` Number - Equivalent to [KeyboardEvent.location][keyboardevent].
+  * `modifiers` String[] - See [InputEvent.modifiers](structures/input-event.md).
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -755,6 +757,16 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. �
 Emitted when the `WebContents` preferred size has changed.
 
 This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+
+#### Event: 'frame-created'
+
+返回:
+
+* `event` Event
+* `details` Object
+  * `frame` WebFrameMain
+
+Emitted when the [mainFrame](web-contents.md#contentsmainframe-readonly), an `<iframe>`, or a nested `<iframe>` is loaded within the page.
 
 ### 实例方法
 
@@ -1706,6 +1718,14 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
+#### `contents.setImageAnimationPolicy(policy)`
+
+* `policy` String - 可以是 `animate`, `animateOnce` 或 `noAnimation`.
+
+Sets the image animation policy for this webContents.  The policy only affects _new_ images, existing images that are currently being animated are unaffected. This is a known limitation in Chromium, you can force image animation to be recalculated with `img.src = img.src` which will result in no network traffic but will update the animation policy.
+
+This corresponds to the [animationPolicy][] accessibility feature in Chromium.
+
 ### 实例属性
 
 #### `contents.audioMuted`
@@ -1763,6 +1783,10 @@ A `Boolean` property that determines whether or not this WebContents will thrott
 #### `contents.mainFrame` _只读_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[animationPolicy]: https://developer.chrome.com/docs/extensions/reference/accessibilityFeatures/#property-animationPolicy
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
