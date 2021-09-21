@@ -288,7 +288,7 @@ macOS представляет стандартные действия для н
 
 ## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
-The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
+[Метод `setMenu`][setMenu] окна браузера может установить меню определенных окон браузера.
 
 ## Позиция элемента меню
 
@@ -367,4 +367,4 @@ The [`setMenu` method][setMenu] of browser windows can set the menu of certain b
 ```
 
 [AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
-[setMenu]: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows
+[setMenu]: browser-window.md#winsetmenumenu-linux-windows
