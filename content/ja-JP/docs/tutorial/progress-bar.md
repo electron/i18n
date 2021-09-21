@@ -6,15 +6,15 @@
 
 Windows では、タスクバーのボタンにプログレスバーを表示できます。
 
-![Windows プログレスバー][1]
+!\[Windows Progress Bar\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
 
 macOS では、Dock のアイコンの一部としてプログレスバーを表示します。
 
-![macOS プログレスバー][2]
+![macOS プログレスバー](../images/macos-progress-bar.png)
 
 Linux では、Unity のグラフィカルインターフェイスにも同様の機能があり、ランチャー内でプログレスバーを指定できます。
 
-![Linux プログレスバー][3]
+![Linux プログレスバー](../images/linux-progress-bar.png)
 
 > 注意: Windows では各ウィンドウごとにプログレスバーを保有できますが、macOS と Linux (Unity) ではアプリケーションのプログレスバーが 1 つだけです。
 
@@ -86,8 +86,5 @@ macOS の場合、[Mission Control](https://support.apple.com/en-us/HT204100) �
 
 ![Mission Control プログレスバー](../images/mission-control-progress-bar.png)
 
-[1]: https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png
-[2]: ../images/macos-progress-bar.png
-[3]: ../images/linux-progress-bar.png
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options
