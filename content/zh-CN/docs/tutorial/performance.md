@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 执行此命令将在您执行的目录下生成一个`.cpuprofile`和一个`.heapprofile` 文件。 这两个文件都可以使用 Chrome 开发者工具进行分析，分别使用 `Performance` 和 `Memory` 标签 进行分析。
 
-![Performance CPU Profile][4]
+![Performance CPU Profile](../images/performance-cpu-prof.png)
 
-![Performance Heap Memory Profile][5]
+![Performance Heap Memory Profile](../images/performance-heap-prof.png)
 
 在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
@@ -238,9 +238,6 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 有许多JavaScript打包的方法可供使用，我们知道我们最好不要通过推荐一种工具来导致社区不满。 然而，我们的确建议您使用一个能够处理Electron独特的环境的打包程序，它需要处理Node.js 和浏览器两种环境。
 
 在撰写这篇文章时，受欢迎的选择包括[Webpack][webpack], [Parcel][parcel]和[rollup.js][rollup]。
-
-[4]: ../images/performance-cpu-prof.png
-[5]: ../images/performance-heap-prof.png
 
 [security]: ./security.md
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
