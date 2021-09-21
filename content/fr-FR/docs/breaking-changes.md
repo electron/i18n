@@ -12,14 +12,6 @@ Ce document utilise la convention suivante pour catégoriser les modifications m
 * **Déprécié :** une API a été marquée comme étant dépréciée. L'API continuera à fonctionner, mais émettra une alerte de dépréciation, et sera supprimée dans une prochaine version.
 * **Supprimé:** Une API ou une fonctionnalité a été supprimée et n'est plus prise en charge par Electron.
 
-## Changements majeurs prévus de l'API (15.0)
-
-### Valeur par défaut modifié : `nativeWindowOpen`est par défaut à `true`
-
-Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
-
-See the documentation for [window.open in Electron](api/window-open.md) for more details.
-
 ## Changements majeurs prévus de l'API (14.0)
 
 ### Removed: `remote` module
@@ -55,14 +47,20 @@ Pour des informations plus détaillées, voir [#18397](https://github.com/electr
 
 Le paramètre optionnel `frameName` ne définira plus le titre de la fenêtre. Ceci conformément à la spécification décrite par la [documentation native](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) sous le paramètre correspondant `windowName`.
 
-Si vous utilisiez ce paramètre pour définir le titre d'une fenêtre, vous devez utiliser à la place: [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+Si vous utilisiez ce paramètre pour définir le titre d'une fenêtre, vous devez utiliser à la place: [win.setTitle(title)](api/browser-window.md#winsettitletitle).
 
 ### Supprimé : `worldSafeExecuteJavaScript`
 
-Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé. Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée. Il a été activé par défaut depuis Electron
+Dans Electron 14, `worldSafeExecuteJavaScript` sera supprimé.  Il n'y a pas d'alternative, s'il vous plaît assurez-vous que votre code fonctionne avec cette propriété activée.  Il a été activé par défaut depuis Electron
 12.
 
 Vous serez affecté par ce changement si vous utilisez `webFrame.executeJavaScript` ou `webFrame.executeJavaScriptInIsolatedWorld`. Changements de rupture.
+
+### Valeur par défaut modifié : `nativeWindowOpen`est par défaut à `true`
+
+Prior to Electron 14, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
 
 ### Removed: BrowserWindowConstructorOptions inheriting from parent windows
 
@@ -241,7 +239,7 @@ Cette option sera supprimée dans Electron 14, veuillez donc migrer votre code p
 
 Dans Electron 12, `contextIsolation` sera activé par défaut.  Restaurer le comportement précédent, `contextIsolation: false` doit être spécifié dans WebPreferences.
 
-Nous [recommandons que contextIsolation soit activé](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) pour la sécurité de votre application.
+Nous [recommandons que contextIsolation soit activé](tutorial/security.md#3-enable-context-isolation-for-remote-content) pour la sécurité de votre application.
 
 En conséquence `require()` ne peut pas être utilisé dans le processus de rendu à sauf si `nodeIntegration` est à `true` et `contextIsolation` à `false`.
 
@@ -722,7 +720,7 @@ Dans Electron 7, cela renvoie maintenant une` FileList` avec un objet` File `pou
 /chemin/vers/dossier/fichier1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Changed: Callback-based versions of promisified APIs
 
