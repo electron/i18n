@@ -21,11 +21,11 @@ win.loadFile('index.html')
 
 如果想创建一个无边框或者任意形状的透明窗口，你可以使用[Frameless Window](frameless-window.md) 的API
 
-## Showing window gracefully
+## Showing the window gracefully
 
-当直接在窗口中加载一个页面时，用户可能会看到页面一点点加载，这对原生应用来说体验不是很好。 要使窗口显示时没有视觉闪烁，对于不同情况有两种解决方案。
+When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without a visual flash, there are two solutions for different situations.
 
-## 使用`ready-to-show`事件
+### Using the `ready-to-show` event
 
 在加载页面时，渲染进程第一次完成绘制时，如果窗口还没有被显示，渲染进程会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
 
@@ -41,7 +41,7 @@ win.once('ready-to-show', () => {
 
 请注意，使用此事件意味着渲染器会被认为是"可见的"并绘制，即使 `show` 是false。  如果您使用 `paintWhenInitiallyHidden: false`，此事件将永远不会被触发。
 
-## 设置 `backgroundColor`
+### Setting the `backgroundColor` property
 
 对于一个复杂的应用，`ready-to-show` 可能发出的太晚，会让应用感觉缓慢。 在这种情况下，建议立刻显示窗口，并使用接近应用程序背景的 `backgroundColor`
 
@@ -183,6 +183,7 @@ child.once('ready-to-show', () => {
     * `webSecurity` Boolean (可选) - 当设置为 `false`, 它将禁用同源策略 (通常用来测试网站), 如果此选项不是由开发者设置的，还会把 `allowRunningInsecureContent`设置为 `true`. 默认值为 `true`。
     * `allowRunningInsecureContent` Boolean (可选) - 允许一个 https 页面运行来自http url的JavaScript, CSS 或 plugins。 默认值为 `false`.
     * `images` Boolean (可选) - 允许加载图片。 默认值为 `true`。
+    * `imageAnimationPolicy` String (optional) - Specifies how to run image animations (E.g. GIFs).  Can be `animate`, `animateOnce` or `noAnimation`.  默认值为 `animate`.
     * `textAreasAreResizable` Boolean (可选) - 允许调整 TextArea 元素大小。 默认值为 `true`。
     * `webgl` Boolean (可选) - 启用 WebGL 支持。 默认值为 `true`。
     * `plugins` Boolean (可选) - 是否应该启用插件。 默认值为 `false`.
@@ -204,7 +205,7 @@ child.once('ready-to-show', () => {
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认为 `true`。 `预加载`脚本所运行的上下文环境只能访问其自身专用的`文档`和全局`窗口`，其自身一系列内置的JavaScript (`Array`, `Object`, `JSON`, 等等) 也是如此，这些对于已加载的内容都是不可见的。 Electron API 将只在`预加载`脚本中可用，在已加载页面中不可用。 这个选项应被用于加载可能不被信任的远程内容时来确保加载的内容无法篡改`预加载`脚本和任何正在使用的Electron api。  该选项使用的是与[Chrome内容脚本][chrome-content-scripts]相同的技术。  你可以在开发者工具Console选项卡内顶部组合框中选择 'Electron Isolated Context'条目来访问这个上下文。
-    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. 除了 `nodeIntegrationInSubFrames` 为true时，其它情况下node integration将永远禁用。 **Note:** The default value will be changing to `true` in Electron 15.
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `true`。 除了 `nodeIntegrationInSubFrames` 为true时，其它情况下node integration将永远禁用。
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
     * `additionalArguments` String[] (可选) - 一个将被附加到当前应用程序的渲染器进程中`process.argv`的字符串列表 。  可用于将少量的数据传递到渲染器进程预加载脚本中。
     * `safeDialogs` Boolean (可选) - 是否启用浏览器样式的持续对话框保护。 默认值为 `false`.
@@ -222,7 +223,9 @@ child.once('ready-to-show', () => {
       * `bypassHeatCheck` - 绕过启发式代码缓存，但使用懒编译。
       * `bypassHeatCheckAndEagerCompile` - 与上面相同，除了编译是及时的。 默认策略是 `code`。
     * `enablePreferredSizeMode` Boolean (可选) - 是否启用首选大小模式。 首选大小是包含文档布局所需的最小大小--无需滚动。 启用该属性将导致在首选大小发生变化时，在`WebContents` 上触发 `preferred-size-changed` 事件。 默认值为 `false`.
-  * `titleBarOverlay` [OverlayOptions](structures/overlay-options.md) | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. 默认值为 `false`.  On Windows, the [OverlayOptions](structures/overlay-options.md) can be used instead of a boolean to specify colors for the overlay.
+  * `titleBarOverlay` Object | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. 默认值为 `false`.
+    * `color` String (optional) _Windows_ - The CSS color of the Window Controls Overlay when enabled. Default is the system color.
+    * `symbolColor` String (optional) _Windows_ - The CSS color of the symbols on the Window Controls Overlay when enabled. Default is the system color.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -333,10 +336,19 @@ _**注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('bef
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - 将要调整到的窗口尺寸。
+* `details` Object
+  * `edge` (String) - The edge of the window being dragged for resizing. Can be `bottom`, `left`, `right`, `top-left`, `top-right`, `bottom-left` or `bottom-right`.
 
 调整窗口大小前触发。 调用 `event.preventDefault()` 将阻止窗口大小调整。
 
 请注意，该事件仅在手动调整窗口大小时触发。 通过 `setBounds`/`setSize` 调整窗口大小不会触发此事件。
+
+The possible values and behaviors of the `edge` option are platform dependent. 可能的值有
+
+* On Windows, possible values are `bottom`, `top`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`.
+* On macOS, possible values are `bottom` and `right`.
+  * The value `bottom` is used to denote vertical resizing.
+  * The value `right` is used to denote horizontal resizing.
 
 #### 事件: 'resize'
 
