@@ -54,7 +54,7 @@ The `app.allowRendererProcessReuse` property will be removed as part of our plan
 В Electron 14 `worldSafeExecuteJavaScript` будет удален.  Альтернатива отсутствует, пожалуйста, убедитесь, что в вашем коде данный параметр включен.  Он был включен в Electron по умолчанию
 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+На вас повлияет это изменение, если вы используете либо `webFrame.executeJavaScript` или `webFrame.executeJavaScriptInIsolatedWorld`. Вам нужно будет убедиться, что значения, возвращаемые одним из этих методов, поддерживаются [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support), поскольку эти методы используют одинаковую семантику значения.
 
 ### Default Changed: `nativeWindowOpen` defaults to `true`
 
@@ -104,34 +104,34 @@ webContents.on('did-create-window', (window, details) => {
 
 ### Изменения в API: `session.setPermissionCheckHandler(handler)`
 
-The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+Первым параметром `handler` был ранее всегда `webContents`, теперь он иногда может быть `null`.  Вы должны использовать `requestingOrigin`, `embeddingOrigin` и `securityOrigin` свойства для правильного ответа на проверку.  Так как `webContents` может быть `null` больше, на него нельзя полагаться.
 
 ```js
-// Old code
+// Старый код
 session.setPermissionCheckHandler((webContents, permission) => {
-  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+  if (webContents.getURL().startsWith('https://google. om/') && permission === 'notification') {
     return true
   }
-  return false
+  возвращает false
 })
 
-// Replace with
-session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
-  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+// Заменить на
+сессию. etPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin). ostname === 'google.com' && permission === 'notification') {
     return true
   }
-  return false
+  возвращает false
 })
 ```
 
 ### Удален: `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+Удален устаревший синхронный `shell.moveItemToTrash()` API. Вместо этого используйте асинхронный `shell.trashItem()`.
 
 ```js
-// Removed in Electron 13
+// Удалён в Electron 13
 shell.moveItemToTrash(path)
-// Replace with
+// Замена на
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -146,33 +146,33 @@ shell.trashItem(path).then(/* ... */)
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Использовать API сессии:
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// Удален в Electron 13
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Заменить
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
-BrowserWindow.removeExtension(name)
-BrowserWindow.removeDevToolsExtension(name)
-// Replace with
-session.defaultSession.removeExtension(extension_id)
+// Удален в Electron 13
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Заменить
+session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+// Удален в Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Заменить
 session.defaultSession.getAllExtensions()
 ```
 
@@ -181,7 +181,7 @@ session.defaultSession.getAllExtensions()
 Следующие `systemPreferences` были устаревшими:
 
 * `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Используйте следующие свойства `nativeTheme` вместо этого:
@@ -191,25 +191,25 @@ session.defaultSession.getAllExtensions()
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Removed in Electron 13
+// Удалён в Electron 13
 systemPreferences.isDarkMode()
-// Replace with
+// Заменить на
 nativeTheme.shouldUseDarkColors
 
-// Removed in Electron 13
-systemPreferences.isInvertedColorScheme()
-// Replace with
+// Удалён в Electron 13
+systemPreferences. sInvertedColorScheme()
+// Заменить на
 nativeTheme.shouldUseInvertedColorScheme
 
-// Removed in Electron 13
+// Удалено в Electron 13
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// Заменить на
 nativeTheme.shouldUseHighContrastColors
 ```
 
 ### Устарело: WebContents `new-window` событие
 
-The `new-window` event of WebContents has been deprecated. It is replaced by [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+Событие `new-window` сетевого контента является устаревшим. Заменяется на [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
 // Deprecated in Electron 13
@@ -449,7 +449,7 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Использовать API сессии:
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
@@ -605,7 +605,7 @@ nativeTheme.on('updated', () => { /* ... */ })
 Следующие `systemPreferences` были устаревшими:
 
 * `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Используйте следующие свойства `nativeTheme` вместо этого:
