@@ -2,7 +2,7 @@
 
 > Control de descargas de archivos desde fuentes remotas.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `DownloadItem` es un [EventEmitter][event-emitter] que representa un ítem descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
