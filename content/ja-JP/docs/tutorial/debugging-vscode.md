@@ -45,7 +45,7 @@ $ code electron-quick-start
 
 ソースから Electron をビルドしてネイティブの Electron コードベースを変更したい場合は、このセクションを参照してください。
 
-このコードの入手方法やビルド方法がわからない方のために、[Electron のビルドツール](https://github.com/electron/build-tools) がこのプロセスのほとんどを自動化して説明します。 手動で環境を設定したい場合は、代わりに以下の [ビルド手順](https://www.electronjs.org/docs/development/build-instructions-gn) も使用できます。
+このコードの入手方法やビルド方法がわからない方のために、[Electron のビルドツール](https://github.com/electron/build-tools) がこのプロセスのほとんどを自動化して説明します。 手動で環境を設定したい場合は、代わりに以下の [ビルド手順](../development/build-instructions-gn.md) も使用できます。
 
 ### Windows (C++)
 
@@ -89,7 +89,7 @@ $ code electron-quick-start
 * `cppvsdbg` は [組み込み C/C++ 拡張](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) が有効である必要があります。
 * `${workspaceFolder}` Chromium の `src` ディレクトリのフルパスです。
 * `your-executable-location` はいくつかの項目に応じて以下のいずれかになります。
-  * `Testing`: [Electron のビルドツール](https://github.com/electron/build-tools) のデフォルト設定や、[ソースからビルド](https://www.electronjs.org/docs/development/build-instructions-gn#building) でのデフォルト指定を使用している場合。
+  * `Testing`: [Electron のビルドツール](https://github.com/electron/build-tools) のデフォルト設定や、[ソースからビルド](../development/build-instructions-gn.md#building) でのデフォルト指定を使用している場合。
   * `Release`: Testing ビルドではなく Release ビルドで構築した場合。
   * `your-directory-name`: ビルド処理中にこれをデフォルトから変更した場合は、指定したものがそのまま適用されます。
 * `args` 配列文字列内の `"your-electron-project-path"` は、テストに用する Electron プロジェクトのディレクトリまたは `main.js` ファイルへの絶対パスでなければなりません。 このサンプルでは、 `electron-quick-start` へのパスである必要があります。
