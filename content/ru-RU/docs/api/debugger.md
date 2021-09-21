@@ -2,7 +2,7 @@
 
 > Альтернативный транспорт для удаленной отладки протокола Chrome.
 
-Процесс: [Основной](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Инструменты разработчика Chrome имеют [специальную привязку][rdp] доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
