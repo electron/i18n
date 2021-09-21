@@ -121,6 +121,8 @@ macOS のアプリケーションがアクティブになったときに発生�
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - 別のデバイスのアクティビティによって保存されたアプリ固有の情報が含まれています。
+* `details` Object
+  * `webpageURL` String (optional) - A string identifying the URL of the webpage accessed by the activity on another device, if available.
 
 [ハンドオフ][handoff] 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
@@ -580,7 +582,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 戻り値 `String` - 現在のアプリケーションのロケールで、Chromium の `l10n_util` ライブラリを用いて取得されます。 取りうる戻り値については [こちら](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc) にドキュメントがあります。
 
-ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md) を参照してください。
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](command-line-switches.md).
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
@@ -861,6 +863,36 @@ if (!gotTheLock) {
   * `result` Integer - インポート結果。
 
 プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はChromium の [net_error_list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) の通り、失敗を意味します。
+
+### `app.configureHostResolver(options)`
+
+* `options` Object
+  * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Enabled by default on macOS, disabled by default on Windows and Linux.
+  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. When "automatic", DoH lookups will be peformed first if DoH is available, and insecure DNS lookups will be performed as a fallback. When "secure", only DoH lookups will be performed. Defaults to "automatic".
+  * `secureDnsServers` String[]&#32;(optional) - A list of DNS-over-HTTP server templates. See [RFC8484 § 3][] for details on the template format. Most servers support the POST method; the template for such servers is simply a URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
+  * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. 省略値は true です。
+
+Configures host resolution (DNS and DNS-over-HTTPS). By default, the following resolvers will be used, in order:
+
+1. DNS-over-HTTPS, if the [DNS provider supports it][doh-providers], then
+2. the built-in resolver (enabled on macOS only by default), then
+3. the system's resolver (e.g. `getaddrinfo`).
+
+This can be configured to either restrict usage of non-encrypted DNS (`secureDnsMode: "secure"`), or disable DNS-over-HTTPS (`secureDnsMode:
+"off"`). It is also possible to enable or disable the built-in resolver.
+
+To disable insecure DNS, you can specify a `secureDnsMode` of `"secure"`. If you do so, you should make sure to provide a list of DNS-over-HTTPS servers to use, in case the user's DNS configuration does not include a provider that supports DoH.
+
+```js
+app.configureHostResolver({
+  secureDnsMode: 'secure',
+  secureDnsServers: [
+    'https://cloudflare-dns.com/dns-query'
+  ]
+})
+```
+
+この API は `ready` イベントが発生した後で呼ばなければいけません。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -1163,12 +1195,24 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。  アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。  オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
 
-### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_ _Deprecated_
 
 `Boolean` 型で、`true` の場合アプリが [Rosetta 変換環境](https://en.wikipedia.org/wiki/Rosetta_(software)) 下で動作していることを示します。
 
 このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
 
+**Deprecated:** This property is superceded by the `runningUnderARM64Translation` property which detects when the app is being translated to ARM64 in both macOS and Windows.
+
+### `app.runningUnderARM64Translation` _Readonly_ _macOS_ _Windows_
+
+A `Boolean` which when `true` indicates that the app is currently running under an ARM64 translator (like the macOS [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)) or Windows [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows)).
+
+このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
+
+[doh-providers]: https://source.chromium.org/chromium/chromium/src/+/main:net/dns/public/doh_provider_entry.cc;l=31?q=%22DohProviderEntry::GetList()%22&ss=chromium%2Fchromium%2Fsrc
+
+[doh-providers]: https://source.chromium.org/chromium/chromium/src/+/main:net/dns/public/doh_provider_entry.cc;l=31?q=%22DohProviderEntry::GetList()%22&ss=chromium%2Fchromium%2Fsrc
+[RFC8484 § 3]: https://datatracker.ietf.org/doc/html/rfc8484#section-3
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/
