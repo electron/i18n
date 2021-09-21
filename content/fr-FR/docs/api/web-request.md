@@ -2,7 +2,7 @@
 
 > Intercepte et modifie le contenu d'une requête à différents stades de son existence.
 
-Processus : [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Les instances de la classe `WebRequest` sont accessibles à l'aide de la propriété `WebRequest` d'une `Session`.
 
@@ -36,8 +36,7 @@ Les méthodes suivantes sont disponibles pour les instances de `WebRequest` :
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
@@ -78,8 +77,7 @@ Some examples of valid `urls`:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
@@ -103,8 +101,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
@@ -122,8 +119,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
@@ -150,8 +146,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
@@ -172,8 +167,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
@@ -196,8 +190,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
@@ -219,8 +212,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (facultatif)
-  * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles.
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * Objet `details`
     * `id` Integer
