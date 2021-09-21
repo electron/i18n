@@ -12,7 +12,7 @@ Par défaut, la balise `webview` est désactivée dans Electron >= 5.  Vous deve
 
 > Affiche un contenu web externe dans une frame et un processus isolés.
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Utilisez la balise `webview` pour intégrer du contenu 'hébergé' (comme des pages web) dans votre application Electron. Le contenu hébergé est inclus dans le conteneur `webview`. Une page intégrée dans votre application gère la façon dont le contenu est mis en page et affiché.
 
@@ -524,6 +524,18 @@ Send an asynchronous message to renderer process via `channel`, you can also sen
 
 See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
+### `<webview>.sendToFrame(frameId, channel, ...args)`
+
+* `frameId` [number, number] - `[processId, frameId]`
+* `channel` String
+* `...args` any[]
+
+Retourne `Promise<void>`
+
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+
+See [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) for examples.
+
 ### `<webview>.sendInputEvent(event)`
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
@@ -744,6 +756,18 @@ Retourne :
 
 Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
+### Event: 'did-redirect-navigation'
+
+Retourne :
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+
 ### Événement : 'did-navigate'
 
 Retourne :
@@ -797,6 +821,7 @@ webview.addEventListener('close', () => {
 
 Retourne :
 
+* `frameId` [number, number] - pair of `[processId, frameId]`.
 * `channel` String
 * `args` any[]
 
