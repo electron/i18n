@@ -46,7 +46,7 @@ console.log(ses.getUserAgent())
 
 > Получает и устанавливает свойства сеанса.
 
-Процесс: [Основной](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Вы можете создать объект `Session` в модуле `session`:
 
@@ -76,8 +76,8 @@ console.log(ses.getUserAgent())
 const { session } = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
-  require('request')(item.getURL(), (data) => {
-    require('fs').writeFileSync('/somewhere', data)
+  require('got')(item.getURL()).then((response) => {
+    require('fs').writeFileSync('/somewhere', response.body)
   })
 })
 ```
