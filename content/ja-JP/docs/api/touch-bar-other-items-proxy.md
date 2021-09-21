@@ -4,6 +4,6 @@
 > 
 > 注意: TouchBar 1 つあたりに追加できるのは、このクラスのインスタンス 1 つだけです。
 
-プロセス: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### `new TouchBarOtherItemsProxy()`
