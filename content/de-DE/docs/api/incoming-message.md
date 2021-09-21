@@ -2,7 +2,7 @@
 
 > Behandelt Antworten zu HTTP/HTTPS Anfragen.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `IncomingMessage` implementiert das [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface und ist somit ein [EventEmitter][event-emitter].
 
@@ -24,7 +24,7 @@ Gibt an dass der Body der Antwort endet. Must be placed before 'data' event.
 
 Ausgegeben wenn eine Anfrage während einer laufenden HTTP Transaktion abgebrochen wurde.
 
-#### Ereignis : "Fehler
+#### Event: 'error'
 
 Kehrt zurück:
 
