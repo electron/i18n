@@ -41,9 +41,10 @@ When an API is changed or removed in a way that breaks existing functionality, t
 
 ### Currently supported versions
 
+* 15.x.y
 * 14.x.y
 * 13.x.y
-* 12.x.y
+* 12
 
 ### End-of-life
 
