@@ -425,7 +425,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </h2>
 
 <p spaces-before="0">
-  The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"><code>setMenu</code> method</a> of browser windows can set the menu of certain browser windows.
+  浏览器窗口的 <a href="browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"> <code> setMenu </code> 方法 </a> 可以设置特定浏览器窗口的菜单。
 </p>
 
 
