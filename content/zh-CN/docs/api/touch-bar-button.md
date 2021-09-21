@@ -2,7 +2,7 @@
 
 > 为mac os应用在touch bar中创建一个按钮组件
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### `new TouchBarButton(options)`
 
