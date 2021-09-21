@@ -46,7 +46,7 @@ En outre, le script de préchargement simule également certaines primitives Nod
 
 Étant donné que la fonction `require` est un polyfill avec des fonctionnalités limitées, vous ne serez pas en mesure d’utiliser [modules CommonJS][commonjs] pour séparer votre script de préchargement en plusieurs fichiers . Si vous avez besoin de diviser votre code de préchargement, utilisez un groupeur de module tel que [webpack][webpack] ou [Parcel][parcel].
 
-Notez que parce que l’environnement présenté au script `preload` est sensiblement plus privilégié que celui d’un rendu en bac à sable, il est toujours possible de créer une fuite des API privilégiées vers du code non sécurisé en cours d’exécution dans le processus de rendu à moins que [`contextIsolation`][contextIsolation] ne soit activé.
+Note that because the environment presented to the `preload` script is substantially more privileged than that of a sandboxed renderer, it is still possible to leak privileged APIs to untrusted code running in the renderer process unless [`contextIsolation`][context-isolation] is enabled.
 
 ## Configuration du bac à sable
 
@@ -105,4 +105,5 @@ Alors que nous faisons de notre mieux pour rétroporter les correctifs de sécur
 [commonjs]: https://nodejs.org/api/modules.html#modules_modules_commonjs_modules
 [webpack]: https://webpack.js.org/
 [parcel]: https://parceljs.org/
+[context-isolation]: ./context-isolation.md
 [beaker]: https://github.com/beakerbrowser/beaker
