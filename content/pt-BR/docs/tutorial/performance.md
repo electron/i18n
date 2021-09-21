@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Executando esse comando temos um arquivo `.cpuprofile` e um arquivo `.heapprofile` no diretório em que você executou. Ambos os arquivos podem ser analisados usando a Ferramenta de Desenvolvedor do Chrome, usando as seções `Performance` e `Memory` respectivamente.
 
-![Performance CPU Profile][4]
+![Performance CPU Profile](../images/performance-cpu-prof.png)
 
-![Performance Heap Memory Profile][5]
+![Performance Heap Memory Profile](../images/performance-heap-prof.png)
 
 Nesse exemplo, na máquina do autor, nós vimos que o `request` levou quase meio segundo, enquanto o `node-fetch` levou drasticamente menos memória e menos que 50ms.
 
@@ -238,9 +238,6 @@ Desenvolvimentos modernos de JavaScript normalmente envolvem muitos arquivos e m
 Tem vários compressores de JavaScript lá fora e nós sabemos que melhor que irritar a comunidade recomendando uma única ferramenta em detrimento de outra. Nós recomendamos contudo que você use um empacotador que seja capaz de lidar com o ambiente único do Electron que precisa lidar com Node.js e Browser.
 
 A partir da escrita deste artigo, as escolhas populares incluem [Webpack][webpack], [Parcel][parcel], e [rollup.js][rollup].
-
-[4]: ../images/performance-cpu-prof.png
-[5]: ../images/performance-heap-prof.png
 
 [security]: ./security.md
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/
