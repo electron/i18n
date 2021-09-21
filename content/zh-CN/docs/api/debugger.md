@@ -2,7 +2,7 @@
 
 > 备用的 Chrome 远程调试接口。
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Chrome Developer Tools 在 JavaScript 运行时提供了一个 [ special binding ][rdp], 允许与页面进行交互和检测。
 
