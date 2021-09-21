@@ -6,15 +6,15 @@
 
 在Windows环境下，进度条被显示在任务栏按钮上。
 
-![Windows 进度条][1]
+!\[Windows Progress Bar\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
 
 在MacOS环境下，进度条将被显示在dock栏图标上
 
-![macOS 进度条][2]
+![macOS 进度条](../images/macos-progress-bar.png)
 
 在Linux系统中，Unity桌面也有相似的特性，能在Launcher上显示进度条。
 
-![Linux 进度条][3]
+![Linux 进度条](../images/linux-progress-bar.png)
 
 > 注意：在 Windows 上，每个窗口都可以有自己的进度条，而在 macOS 和 Linux（unity桌面）上，同一个应用程序只能有一个进度条。
 
@@ -86,8 +86,5 @@ app.on('activate', () => {
 
 ![macOS Mission Control 进度条](../images/mission-control-progress-bar.png)
 
-[1]: https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png
-[2]: ../images/macos-progress-bar.png
-[3]: ../images/linux-progress-bar.png
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options
