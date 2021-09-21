@@ -205,6 +205,7 @@ O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent
   * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
   * `buttons` String[]&#32;(optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
+  * `signal` AbortSignal (optional) - Pass an instance of [AbortSignal][] to optionally close the message box, the message box will behave as if it was cancelled by the user. On macOS, `signal` does not work with message boxes that do not have a parent window, since those message boxes run synchronously due to platform limitations.
   * `title` String (opcional) - Título da caixa de mensagem, algumas plataformas não o exibirão.
   * `detail` String (opcional) - Informações adicionais da mensagem.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
@@ -264,3 +265,5 @@ No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
 Você pode chamar `BrowserWindow.getCurrentWindow().setSheetOffset (offset)`para mudar o offset da janela aonde os diálogos (sheets) estão acoplados.
+
+[AbortSignal]: https://nodejs.org/api/globals.html#globals_class_abortsignal
