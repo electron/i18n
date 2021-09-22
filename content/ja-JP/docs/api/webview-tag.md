@@ -534,7 +534,7 @@ webview.addEventListener('dom-ready', () => {
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは [`ipcRenderer`](ipc-renderer.md) モジュールで `channel` イベントをリッスンしてメッセージを処理できます。
 
-See [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) for examples.
+サンプルは [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) をご参照ください。
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -821,7 +821,7 @@ webview.addEventListener('close', () => {
 
 戻り値：
 
-* `frameId` [number, number] - pair of `[processId, frameId]`.
+* `frameId` [number, number] - `[processId, frameId]` のペア。
 * `channel` String
 * `args` any[]
 
