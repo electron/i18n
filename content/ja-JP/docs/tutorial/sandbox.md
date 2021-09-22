@@ -46,7 +46,7 @@ Electron のレンダラープロセスをサンドボックス化すると、�
 
 `require` 関数は機能を限定したポリフィルであるため、[CommonJS モジュール][commonjs] を利用したプリロードスクリプトの複数ファイル分割ができません。 プリロードコードを分割する必要がある場合は、[webpack][webpack] や [Parcel][parcel] のようなバンドラーを使用してください。
 
-Note that because the environment presented to the `preload` script is substantially more privileged than that of a sandboxed renderer, it is still possible to leak privileged APIs to untrusted code running in the renderer process unless [`contextIsolation`][context-isolation] is enabled.
+`preload` スクリプトに与えられる環境は、サンドボックス化したレンダラーの環境よりも大幅に特権的です。[`contextIsolation`][context-isolation] が有効になっていない限り、特権的な API をレンダラープロセスで実行している信頼されていないコードにリークできることに注意してください。
 
 ## サンドボックスの設定
 
