@@ -67,7 +67,7 @@ main()
 
 #### イベント: 'dom-ready'
 
-Emitted when the document is loaded.
+document が読み込まれたときに発生します
 
 ### インスタンスメソッド
 
