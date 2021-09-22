@@ -30,8 +30,8 @@
   * `id` String (可选) - 单个菜单内唯一。 若定义，则可以通过 position 位置属性找到此选项
   * `before` String[] (可选) - 在指定标签项前插入此项 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
   * `after` String[] (可选) - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。
-  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+  * `beforeGroupContaining` String[] (可选) - 为单个上下文菜单提供一种方法，用于在具有指定标签的项的包含组之前声明其包含组的位置。
+  * `afterGroupContaining` String[] (可选) - 为单个上下文菜单提供一种方法，用于在具有指定标签的项的包含组之后声明其包含组的位置。
 
 **注意:** `acceleratorWorksWhenHidden` 这个选项只有 macOS 生效，因为在 Windows 和 Linux 系统下快捷键即使在隐藏情况下也会生效。 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
 
@@ -89,14 +89,14 @@
 * ` moveTabToNewWindow ` - 映射到 ` moveTabToNewWindow ` 操作.
 * `window` - 这个子菜单是"Window" 菜单.
 * ` help `-这个子菜单是 "Help" 菜单.
-* `services` - 子菜单是 ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) 菜单。 This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `services` - 子菜单是 ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) 菜单。 此选项仅应用于 Application Menu 而且 *不同于*在 macOS app 中上下文菜单中的 "Services" 子菜单，因为它不是由 Electron 实现的
 * ` recentDocuments `-这个子菜单是 "Open Recent" 菜单.
 * `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
-* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - [share menu][ShareMenu]的子菜单。 `sharingItem` 属性必须被设置， 用于指向被分享的项
 
 在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是影响菜单项的唯一选项。 所有其它选项都将被忽略。 不过，仍然支持小写的`role`，如`toggledevtools`。
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
+**注意:** 对于托盘上的顶级菜单项不可用的 `enabled` 和 `visibility` 属性
 
 ### 实例属性
 
