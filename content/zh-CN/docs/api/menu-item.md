@@ -17,7 +17,7 @@
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
-  * `toolTip` String (optional) _macOS_ - Hover text for this menu item.
+  * `toolTip` String (可选) _macOS_ - 此菜单的悬停文本提示
   * `accelerator` [Accelerator](accelerator.md) (可选)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
@@ -57,7 +57,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `selectAll - 全选。`
 * `delete -删除`
 * ` minimize ` - 最小化当前窗口。
-* `close` - Close current window.
+* `close` - 关闭当前窗口
 * `quit` - 退出程序
 * `reload` - 重新加载当前窗口。
 * `forcereload` - 忽略缓存，重新加载当前窗口。
@@ -174,20 +174,20 @@ A `String` indicating the item's hover text.
 
 A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
 
-This property can be dynamically changed.
+此属性可以动态更改。
 
 #### `menuItem.sharingItem` _macOS_
 
-A `SharingItem` indicating the item to share when the `role` is `shareMenu`.
+`SharingItem` 表示了当 `role` 是 `shareMenu` 时要分享的项目。
 
-This property can be dynamically changed.
+此属性可以动态更改。
 
 #### `menuItem.commandId`
 
-A `Number` indicating an item's sequential unique id.
+表示项目顺序唯一 Id 的 `Number`
 
 #### `menuItem.menu`
 
-A `Menu` that the item is a part of.
+多个选项组成一个 `Menu`
 
 [ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/
