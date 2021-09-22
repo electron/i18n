@@ -122,7 +122,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - 別のデバイスのアクティビティによって保存されたアプリ固有の情報が含まれています。
 * `details` Object
-  * `webpageURL` String (optional) - A string identifying the URL of the webpage accessed by the activity on another device, if available.
+  * `webpageURL` String (任意) - 利用可能な場合、別デバイス上の操作でアクセスしたウェブページの URL を特定する文字列になります。
 
 [ハンドオフ][handoff] 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
@@ -867,21 +867,20 @@ if (!gotTheLock) {
 ### `app.configureHostResolver(options)`
 
 * `options` Object
-  * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Enabled by default on macOS, disabled by default on Windows and Linux.
-  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. When "automatic", DoH lookups will be peformed first if DoH is available, and insecure DNS lookups will be performed as a fallback. When "secure", only DoH lookups will be performed. Defaults to "automatic".
-  * `secureDnsServers` String[]&#32;(optional) - A list of DNS-over-HTTP server templates. See [RFC8484 § 3][] for details on the template format. Most servers support the POST method; the template for such servers is simply a URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
-  * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. 省略値は true です。
+  * `enableBuiltInResolver` Boolean (任意) - getaddrinfo ではなく組み込みのホストリゾルバを使用するかどうか。 有効にすると、組み込みリゾルバはシステムの DNS 設定を使用し、単体で DNS ルックアップを実行しようとします。 macOS ではデフォルトで有効、Windows と Linux ではデフォルトで無効になっています。
+  * `secureDnsMode` String (任意) - "off"、"automatic"、"secure" のいずれかにできます。 DNS-over-HTTP モードを設定します。 "off" の場合、DoH ルックアップは行われません。 "automatic" の場合、DoH が利用可能であれば DoH ルックアップが最初に実行され、安全でない DNS 検索がフォールバックとして実行されます。 "secure" の場合、DoH ルックアップのみが行われます。 既定値は "automatic" です。
+  * `secureDnsServers` String[]&#32;(任意) - DNS-over-HTTP サーバのテンプレートのリスト。 テンプレートのフォーマットについては、[RFC8484 § 3][] をご参照ください。 ほとんどのサーバーは POST メソッドをサポートしており、そういったサーバーのテンプレートは単なる URI です。 なお、[一部のDNSプロバイダ][doh-providers] では、このリストに DoH サーバーが提供されていなくても、DoH が明示的に無効化されていない限りリゾルバを自動的に DoH へアップグレードします。
+  * `enableAdditionalDnsQueryTypes` Boolean (任意) - 安全でない DNS 経由でリクエストが行われた場合に、従来の A および AAAA のクエリに加えて HTTPS (DNS タイプ 65) などの追加の DNS クエリタイプを許可するかどうかを制御します。 追加タイプを常に許可するセキュア DNS には影響しません。 省略値は true です。
 
-Configures host resolution (DNS and DNS-over-HTTPS). By default, the following resolvers will be used, in order:
+ホスト解決 (DNS と DNS-over-HTTPS) を設定します。 デフォルトでは、以下のリゾルバがこの順番で使用されます。
 
-1. DNS-over-HTTPS, if the [DNS provider supports it][doh-providers], then
-2. the built-in resolver (enabled on macOS only by default), then
-3. the system's resolver (e.g. `getaddrinfo`).
+1. DNS-over-HTTPS、[DNS プロバイダがサポートしている][doh-providers] 場合
+2. 組み込みリゾルバ (macOS のみデフォルトで有効)
+3. システムのリゾルバ (`getaddrinfo` など)
 
-This can be configured to either restrict usage of non-encrypted DNS (`secureDnsMode: "secure"`), or disable DNS-over-HTTPS (`secureDnsMode:
-"off"`). It is also possible to enable or disable the built-in resolver.
+これは、暗号化されていない DNS の使用を制限する (`secureDnsMode: "secure"`) か、DNS-over-HTTPS を無効にする (`secureDnsMode: "off"`) ように設定できます。 また、組み込みリゾルバの有効化または無効化もできます。
 
-To disable insecure DNS, you can specify a `secureDnsMode` of `"secure"`. If you do so, you should make sure to provide a list of DNS-over-HTTPS servers to use, in case the user's DNS configuration does not include a provider that supports DoH.
+安全でない DNS を無効にするには、 `secureDnsMode` に `"secure"` を指定します。 その場合、ユーザーの DNS 設定に DoH をサポートするプロバイダが無い場合に備えて、使用する DNS-over-HTTPS サーバのリストを提供しなければなりません。
 
 ```js
 app.configureHostResolver({
@@ -1201,11 +1200,11 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
 
-**Deprecated:** This property is superceded by the `runningUnderARM64Translation` property which detects when the app is being translated to ARM64 in both macOS and Windows.
+**非推奨:** このプロパティは `runningUnderARM64Translation` プロパティに置き換えられます。こちらは macOS と Windows の両方でアプリを ARM64 に変換したかどうかを検出します。
 
 ### `app.runningUnderARM64Translation` _Readonly_ _macOS_ _Windows_
 
-A `Boolean` which when `true` indicates that the app is currently running under an ARM64 translator (like the macOS [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)) or Windows [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows)).
+`Boolean` 型で、`true`の場合はアプリが現在 ARM64 変換機 (macOS の [Rosetta 変換環境](https://en.wikipedia.org/wiki/Rosetta_(software)) や Windows の [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows) など) で動作していることを示します。
 
 このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
 
