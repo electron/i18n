@@ -1,3 +1,3 @@
-# WebRequestFilter Object
+# WebRequestFilter オブジェクト
 
-* `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
