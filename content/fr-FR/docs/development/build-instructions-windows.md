@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building **Electron itself** on Windows, for the purposes of creating custom Electron binaries. For bundling and distributing your app code with the prebuilt Electron binaries, see the [application distribution][application-distribution] guide.
 
-## Prerequisites
+## Prérequis
 
 * Windows 10 / Server 2012 R2 ou supérieur
 * Visual Studio 2017 15.7.2 ou plus - [télécharger VS 2019 Community Edition gratuitement](https://www.visualstudio.com/vs/)
