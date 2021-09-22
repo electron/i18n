@@ -2,7 +2,7 @@
 
 > 在一个请求生命周期的不同阶段，截取和修改其内容。
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 使用 ` Session ` 的 ` WebRequest ` 属性访问 ` WebRequest ` 类的实例。
 
@@ -36,8 +36,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -78,8 +77,7 @@ Some examples of valid `urls`:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -103,8 +101,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -122,8 +119,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -150,8 +146,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -172,8 +167,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -196,8 +190,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -219,8 +212,7 @@ The `callback` has to be called with a `response` object.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (可选)
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer

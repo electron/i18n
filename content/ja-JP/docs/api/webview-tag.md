@@ -12,7 +12,7 @@ Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基
 
 > 分離したフレームとプロセスに外部ウェブコンテンツを表示します。
 
-プロセス: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。 ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
@@ -524,6 +524,18 @@ webview.addEventListener('dom-ready', () => {
 
 サンプルについては [webContents.send](web-contents.md#contentssendchannel-args) を参照して下さい。
 
+### `<webview>.sendToFrame(frameId, channel, ...args)`
+
+* `frameId` [number, number] - `[processId, frameId]`
+* `channel` String
+* `...args` any[]
+
+戻り値 `Promise<void>`
+
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは [`ipcRenderer`](ipc-renderer.md) モジュールで `channel` イベントをリッスンしてメッセージを処理できます。
+
+See [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) for examples.
+
 ### `<webview>.sendInputEvent(event)`
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
@@ -744,6 +756,18 @@ webview.addEventListener('new-window', async (e) => {
 
 フレーム (メインを含む) がナビゲーションを始めているときに発生します。 ページ内ナビゲーションの場合、`isInPlace` が `true` になります。
 
+### イベント: 'did-redirect-navigation'
+
+戻り値：
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+ナビゲーション後にサーバーサイドリダイレクトが発生すると発行されます。 302 リダイレクトなどがその例です。
+
 ### イベント: 'did-navigate'
 
 戻り値：
@@ -797,6 +821,7 @@ webview.addEventListener('close', () => {
 
 戻り値：
 
+* `frameId` [number, number] - pair of `[processId, frameId]`.
 * `channel` String
 * `args` any[]
 

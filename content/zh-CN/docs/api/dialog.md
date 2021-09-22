@@ -205,6 +205,7 @@ dialog.showOpenDialog(mainWindow, {
   * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
   * `buttons` String[] &#32;(可选) - 按钮文本数组。 在 Windows上，一个空数组将导致按钮被标为“OK”。
   * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
+  * `signal` AbortSignal (optional) - Pass an instance of [AbortSignal][] to optionally close the message box, the message box will behave as if it was cancelled by the user. On macOS, `signal` does not work with message boxes that do not have a parent window, since those message boxes run synchronously due to platform limitations.
   * `title` String (可选) - message box 的标题，一些平台不显示.
   * `detail` String (可选) - 额外信息.
   * `checkboxLabel` String (可选) - 如果使用了，消息框将包含带有给定标签的复选框。
@@ -264,3 +265,5 @@ dialog.showOpenDialog(mainWindow, {
 在[`MaCOS`](browser-window.md)中，如果在<0>browserWindow</0>的参数中提供<0>BrowerWindow</0>这一参数，或者在非<0>browserWindow</0>中未提供<0>modals</0>参数，则将对附加到<0>window</0>中的<0>sheet</0>的形式呈现。
 
 您可以调用 `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` 来更改附加工作表的窗口框架的偏移量。
+
+[AbortSignal]: https://nodejs.org/api/globals.html#globals_class_abortsignal

@@ -184,7 +184,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 > Встроенная упаковка изображений, таких как область уведомлений, док-станция и значки приложений.
 
-Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### Методы экземпляра
 

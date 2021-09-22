@@ -61,7 +61,13 @@ Returns `WebFrameMain | undefined` - A frame with the given process and routing 
 
 ## Class: WebFrameMain
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+
+### Eventos de instância
+
+#### Event: 'dom-ready'
+
+Emitted when the document is loaded.
 
 ### Métodos de Instância
 

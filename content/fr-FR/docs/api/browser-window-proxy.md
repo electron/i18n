@@ -2,7 +2,7 @@
 
 > Manipule la fenêtre enfant
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 L'objet `BrowserWindowProxy` est retournée par `window.open` et fournit les fonctionnalités limitées avec la fenêtre enfant.
 

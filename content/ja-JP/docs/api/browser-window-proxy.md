@@ -2,7 +2,7 @@
 
 > 子ブラウザウィンドウを操作します。
 
-プロセス: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `BrowserWindowProxy` オブジェクトは、`window.open` から返却され、子ウインドウの限定的な機能を提供します。
 

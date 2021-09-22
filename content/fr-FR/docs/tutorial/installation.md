@@ -68,6 +68,8 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 La configuration ci-dessus sera téléchargée à partir d'URL telles que `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
+Si votre serveur miroir délivre des artefacts avec des checksums différentes de celles de la version officielle d'Electron, vous devrez définir `ELECTRON_USE_REMOTE_CHECKSUMS=1` afin forcer Electron à utiliser le fichier distant `SHASUMS256.txt` pour vérifier la somme de contrôle au lieu de celles intégrées.
+
 #### Cache
 
 Egalement vous pouvez, surcharger le cache local. `@electron/get` mettra en cache le téléchargement des binaires dans un répertoire local afin d'économiser de la bande passante. Vous pouvez utiliser ce répertoire de cache pour fournir des binaires personnalisés d'Electron ou pour éviter d'utiliser le réseau.

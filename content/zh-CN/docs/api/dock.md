@@ -2,7 +2,7 @@
 
 > 在 macOS dock中控制您的应用
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 下面的例子展示了如何在dock上使你的图标弹跳。
 

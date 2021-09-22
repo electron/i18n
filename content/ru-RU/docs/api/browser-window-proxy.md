@@ -2,7 +2,7 @@
 
 > Манипулируйте дочерним окном браузера
 
-Процесс: [Графический](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Объект `BrowserWindowProxy` возвращается из `window.open` и предоставляет ограниченное управление дочерним окном.
 

@@ -2,7 +2,7 @@
 
 > 创建一个分段控件（按钮组），其中一个按钮具有选定状态
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### `new TouchBarSegmentedControl(options)`
 

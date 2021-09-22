@@ -2,7 +2,7 @@
 
 > セッションのクッキーをクエリーしたり、変更したりします。
 
-プロセス: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `Cookies` クラスのインスタンスには、`Session` の `cookies` プロパティを使用してアクセスします。
 
@@ -84,7 +84,7 @@ session.defaultSession.cookies.set(cookie)
   * `value` String (任意) - Cookie の値。 省略された場合は既定で空になります。
   * `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。 省略された場合は既定で空になります。
   * `path` String (optional) - Cookie のパス。 省略された場合は既定で空になります。
-  * `secure` Boolean (任意) - Cookie に Secure フラグがついているか。 省略値は false です。
+  * `secure` Boolean (任意) - Cookie に Secure フラグがついているか。 Defaults to false unless [Same Site=None](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite#samesitenone_requires_secure) attribute is used.
   * `httpOnly` Boolean (任意) - Cookie に HttpOnly フラグがついているか。 省略値は、false です。
   * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
   * `sameSite` String (任意) - この Cookie に適用する [SameSite](https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#SameSite_attribute) ポリシー。  `unspecified`、`no_restriction`、`lax`、`strict` のいずれかにできます。  省略値は `no_restriction` です。

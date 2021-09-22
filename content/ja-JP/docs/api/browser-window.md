@@ -21,11 +21,11 @@ win.loadURL('index.html')
 
 [Frameless Window](frameless-window.md) APIを使うと、枠がないウインドウや任意の形状の透明なウインドウを作成することができます。
 
-## ウインドウを違和感なく表示する
+## Showing the window gracefully
 
-ウインドウにページを直接ロードすると、ユーザにはページが徐々にロードされるように見えるかもしれません。これはネイティブアプリとしては良い挙動ではありません。 ちらつかせることなくウインドウを表示するには、さまざまな状況に応じた 2 つの解決策があります。
+When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without a visual flash, there are two solutions for different situations.
 
-## `ready-to-show` イベントを使用する
+### Using the `ready-to-show` event
 
 ページのロード中、ウインドウがまだ表示されていない場合、レンダラープロセスが初めてページをレンダリングし終わったとき、`ready-to-show` イベントが発生します。 このイベントの後にウインドウを表示させれば、チラつくことはありません。
 
@@ -41,7 +41,7 @@ win.once('ready-to-show', () => {
 
 このイベントを使用すると、`show` が false でもレンダラーが "見えている" と見なされ、描画されることに注意してください。  `paintWhenInitiallyHidden: false` を使用すると、このイベントは発生しません。
 
-## `backgroundColor`を設定する
+### Setting the `backgroundColor` property
 
 複雑なアプリでは、`ready-to-show` イベントが発生するのに時間がかかり過ぎて、アプリが遅いと感じさせる可能性があります。 このような場合、ウインドウをすぐに表示し、アプリの背景に近い `backgroundColor` を使うことを推奨します。
 
@@ -183,6 +183,7 @@ child.once('ready-to-show', () => {
     * `webSecurity` Boolean (任意) - `false` のとき、同一オリジンポリシー (通常、テスト用Webサイトを使用します) が無効になり、ユーザによって設定されない場合、`allowRunningInsecureContent` が `true` に設定されます。 省略値は `true` です。
     * `allowRunningInsecureContent` Boolean (任意) - https のページで http の URL からの JavaScript、CSS やプラグインを実行することを許可します。 省略値は `false` です。
     * `images` Boolean (任意) - 画像のサポートを有効にします。 省略値は `true` です。
+    * `imageAnimationPolicy` String (optional) - Specifies how to run image animations (E.g. GIFs).  `animate`、`animateOnce`、`noAnimation` のいずれかにできます。  省略値は `animate` です。
     * `textAreasAreResizable` Boolean (任意) - TextArea 要素のサイズを変更可能にします。 省略値は `true` です。
     * `webgl` Boolean (任意) - WebGL のサポートを有効にします。 省略値は `true` です。
     * `plugins` Boolean (任意) - プラグインを有効にするかどうか。 省略値は `false` です。
@@ -204,7 +205,7 @@ child.once('ready-to-show', () => {
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
     * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は `true` です。 `preload` スクリプトが実行されるコンテキストでは、専用の `document` および `window` グローバルと、独自の JavaScript ビルドインのセット (`Array`, `Object`, `JSON` など) にのみアクセスできます。これらすべてはロードされたコンテンツからは見えません。 Electron API は `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、信頼できない可能性のあるリモートコンテンツをロードする際に使用します。ロードされたコンテンツが `preload` スクリプトや使用する Electron API を改ざんできないようにするためです。  このオプションは、[Chrome のコンテンツスクリプト][chrome-content-scripts] のものと同じ技術を使用しています。  Console タブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスできます。
-    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 省略値は Electron 15 で `true` に変更される予定です。
+    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `true` です。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。  小規模なデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザによる連続ダイアログ保護を有効にするかどうか。 省略値は `false` です。
@@ -222,7 +223,9 @@ child.once('ready-to-show', () => {
       * `bypassHeatCheck` - ヒューリスティックのコードキャッシュをバイパスしつつ遅延コンパイル
       * `bypassHeatCheckAndEagerCompile` - 上と同じにしつつ先行コンパイルします。 既定のポリシーは `code` です。
     * `enablePreferredSizeMode` Boolean (任意) - 優先サイズモードを有効にするかどうか。 優先サイズとは、document のレイアウトをスクロール無しで格納するにあたって必要な最小サイズのことです。 これを有効にすると、優先サイズが変更されたときに `WebContents`で`preferred-size-changed`イベントが発生します。 省略値は `false` です。
-  * `titleBarOverlay` [OverlayOptions](structures/overlay-options.md) | Boolean (任意) -  フレームレスウインドウを macOS の`win.setWindowButtonVisibility(true)` と組み合わせて使用している場合や、`titleBarStyle` を使用して標準ウインドウコントロール (macOS では "信号機ボタン") が表示されている場合、このプロパティはウインドウコントロールオーバーレイで [JavaScript API][overlay-javascript-apis] と [CSS 環境変数][overlay-css-env-vars] を有効にします。 `true` を指定すると、オーバーレイはデフォルトのシステムカラーになります。 省略値は `false` です。  Windows では、真偽値の代わりに [OverlayOptions](structures/overlay-options.md) でオーバーレイの色を指定できます。
+  * `titleBarOverlay` Object | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. `true` を指定すると、オーバーレイはデフォルトのシステムカラーになります。 省略値は `false` です。
+    * `color` String (任意) _Windows_ - 有効化されたウインドウコントロールオーバーレイの CSS の色。 既定値はシステムカラーです。
+    * `symbolColor` String (任意) _Windows_ - 有効化されたウインドウコントロールオーバーレイ内の記号の CSS の色。 既定値はシステムカラーです。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -334,10 +337,19 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
+* `details` Object
+  * `edge` (String) - The edge of the window being dragged for resizing. Can be `bottom`, `left`, `right`, `top-left`, `top-right`, `bottom-left` or `bottom-right`.
 
 ウィンドウがリサイズされる前に発生します。 `event.preventDefault()`を呼び出すことで、ウィンドウがリサイズされるのを阻止できます。
 
 このイベントは、ウィンドウが手動でリサイズされようとしているときにしか発生しません。 ウィンドウを、`setBounds`や`setSize` でリサイズする時には、このイベントは発生しません。
+
+The possible values and behaviors of the `edge` option are platform dependent. 以下は取りうる値です。
+
+* On Windows, possible values are `bottom`, `top`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`.
+* On macOS, possible values are `bottom` and `right`.
+  * The value `bottom` is used to denote vertical resizing.
+  * The value `right` is used to denote horizontal resizing.
 
 #### イベント: 'resize'
 

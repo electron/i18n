@@ -61,7 +61,7 @@ async function lookupTargetId (browserWindow) {
 
 > Renderice y controle el contenido de una instancia de BrowserWindow.
 
-Proceso: [principal](../glossary.md#main-process)</0>
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### Eventos de Instancia
 
@@ -122,7 +122,7 @@ Devuelve:
 
 * `event`
 
-Emitido cuando el documento en el frame dado es cargado.
+Emitted when the document in the top-level frame is loaded.
 
 #### Evento: 'page-title-updated'
 
@@ -397,14 +397,16 @@ Devuelve:
 * `event`
 * `input` Object - Input properties.
   * `type` String - Either `keyUp` or `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent].
-  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent].
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent].
+  * `key` String - Es igual a [KeyboardEvent.key][keyboardevent].
+  * `code` String - Es igual a [KeyboardEvent.code][keyboardevent].
+  * `isAutoRepeat` Boolean - Es igual a [KeyboardEvent.repeat][keyboardevent].
   * `isComposing` Boolean - Equivalente a [KeyboardEvent.isComposing][keyboardevent].
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent].
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
+  * `shift` Boolean - Es igual a [KeyboardEvent.shiftKey][keyboardevent].
+  * `control` Boolean - Es igual a [KeyboardEvent.controlKey][keyboardevent].
+  * `alt` Boolean - Es igual a [KeyboardEvent.altKey][keyboardevent].
+  * `meta` Boolean - Es igual a [KeyboardEvent.metaKey][keyboardevent].
+  * `location` Number - Equivalent to [KeyboardEvent.location][keyboardevent].
+  * `modifiers` String[] - See [InputEvent.modifiers](structures/input-event.md).
 
 Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Llamando a `event.preventDefault` evitará la página `keydown`/ eventos `keyup` y los accesos rápidos al menú.
 
@@ -755,6 +757,16 @@ Devuelve:
 Emitted when the `WebContents` preferred size has changed.
 
 This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+
+#### Event: 'frame-created'
+
+Devuelve:
+
+* `event`
+* `details` Object
+  * `frame` WebFrameMain
+
+Emitted when the [mainFrame](web-contents.md#contentsmainframe-readonly), an `<iframe>`, or a nested `<iframe>` is loaded within the page.
 
 ### Métodos de Instancia
 
@@ -1706,6 +1718,14 @@ Controla si este WebContents acelerará o no las animaciones y los temporizadore
 
 Devuelve `String` - el tipo de webContent. Puede ser `backgroundPage`, `window`, `browserView`, `remote`, `webview` o `offscreen`.
 
+#### `contents.setImageAnimationPolicy(policy)`
+
+* `policy` String - Puede ser `animate`, `animateOnce` o `noAnimation`.
+
+Sets the image animation policy for this webContents.  The policy only affects _new_ images, existing images that are currently being animated are unaffected. This is a known limitation in Chromium, you can force image animation to be recalculated with `img.src = img.src` which will result in no network traffic but will update the animation policy.
+
+This corresponds to the [animationPolicy][] accessibility feature in Chromium.
+
 ### Propiedades de la instancia
 
 #### `contents.audioMuted`
@@ -1763,6 +1783,10 @@ Una propiedad `Boolean` que determina si este WebContents acelera o no las anima
 #### `contents.mainFrame` _SoloLectura_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[animationPolicy]: https://developer.chrome.com/docs/extensions/reference/accessibilityFeatures/#property-animationPolicy
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 

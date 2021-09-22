@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+在 Electron 内, 那些需要图片的 API 可以传递两种参数, 一种是文件路径, 一种是 `NativeImage` 实例对象。 空的图片对象将被 `null` 参数替代
 
 例如, 创建托盘或设置窗口图标时, 你可以传递 `String` 格式的图片路径
 
@@ -16,7 +16,7 @@ const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard, which returns a `NativeImage`:
+或者从粘贴板读取图片，将返回 `NativeImage` 对象：
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -27,9 +27,9 @@ console.log(appIcon)
 
 ## 支持的格式
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+当前只支持 `PNG` 和 `JPEG` 格式， 推荐使用 `PNG` ，因为这种格式支持透明和无损压缩
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
+在 Windows 平台下, 你同样可以从文件路径中加载`ICO` 格式的 icons 对象。 为了达到最佳观看效果，推荐至少包含以下大小的图片尺寸：
 
 * 小图标
   * 16x16 (100% DPI scale)
@@ -49,9 +49,9 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 在具有高 DPI 支持的平台 (如 Apple 视网膜显示器) 上, 可以在图像的基本文件名之后追加 ` @ 2x ` 以将其标记为高分辨率图像。
 
-For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+比如， 如果 `icon.png` 是一个普通的标准分辨率的图片，而 `icon@2x.png` 将被视为具有两倍DPI密度的高分辨率图像
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. 例如：
+如果您想同时支持不同的DPI密度显示，您可以将不同大小的图像放置在同一文件夹中，并使用文件名而不需要DPI 后缀。 例如：
 
 ```plaintext
 images/
@@ -66,7 +66,7 @@ const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-The following suffixes for DPI are also supported:
+还支持以下DPI的后缀：
 
 * `@1x`
 * `@1.25x`
@@ -82,13 +82,13 @@ The following suffixes for DPI are also supported:
 
 ## 模板图片
 
-Template images consist of black and an alpha channel. 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
+模板图像由黑色和透明通道组成。 模板图片不是单独使用的, 它通常与其他内容混合以创建期望的最终效果
 
-The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
+最常见的情况是使用模板图像作为菜单栏图标，因此它可以适应浅色和深色菜单栏。
 
 ** 注意: **仅在 macOS 上支持Template image。
 
-To mark an image as a template image, its filename should end with the word `Template`. 例如：
+要将图像标记为模板图像，其文件名应以 `Template` 一词结尾。 例如：
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
@@ -105,10 +105,10 @@ To mark an image as a template image, its filename should end with the word `Tem
 
 ### `nativeImage.createThumbnailFromPath(path, maxSize)` _macOS_ _Windows_
 
-* `path` String - path to a file that we intend to construct a thumbnail out of.
-* `maxSize` [Size](structures/size.md) - the maximum width and height (positive numbers) the thumbnail returned can be. The Windows implementation will ignore `maxSize.height` and scale the height according to `maxSize.width`.
+* `path` String - 打算用来构建缩略图的文件路径
+* `maxSize` [Size](structures/size.md) - 返回缩略图的最大宽度和高度(正数)。 在 Windows 平台下将忽略 `maxSize.height` 并根据 `maxSize.width` 缩放高度
 
-Returns `Promise<NativeImage>` - fulfilled with the file's thumbnail preview image, which is a [NativeImage](native-image.md).
+返回 `Promise<NativeImage>` - 文件的缩略图预览图像，包含类型是 [NativeImage](native-image.md)
 
 ### `nativeImage.createFromPath(path)`
 
@@ -131,7 +131,7 @@ console.log(image)
 * `选项` 对象
   * `width` Integer
   * `height` Integer
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (可选) - 默认1.0
 
 返回 `NativeImage`
 
@@ -143,7 +143,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 * `options` Object (可选)
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (可选) - 默认1.0
 
 返回 `NativeImage`
 
@@ -160,7 +160,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` _macOS_
 
 * `imageName` String
-* `hslShift` Number[] (optional)
+* `hslShift` Number[] (可选)
 
 返回 `NativeImage`
 
@@ -184,7 +184,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > 本机图像，如托盘、dock栏和应用图标。
 
-进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### 实例方法
 
@@ -193,34 +193,34 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 #### `image.toPNG([options])`
 
 * `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (可选) - 默认1.0
 
 返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ][buffer]。
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer - Between 0 - 100.
+* `quality` Integer - 在 0 - 100 之间
 
 返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ][buffer]。
 
 #### `image.toBitmap([options])`
 
 * `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (可选) - 默认1.0
 
 返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ][buffer]。
 
 #### `image.toDataURL([options])`
 
 * `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (可选) - 默认1.0
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
 * `options` Object (可选)
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (可选) - 默认1.0
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ][buffer]。
 
@@ -238,7 +238,7 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 #### `image.getSize([scaleFactor])`
 
-* `scaleFactor` Double (optional) - Defaults to 1.0.
+* `scaleFactor` Double (可选) - 默认1.0
 
 Returns [`Size`](structures/size.md).
 
@@ -273,7 +273,7 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 
 #### `image.getAspectRatio([scaleFactor])`
 
-* `scaleFactor` Double (optional) - Defaults to 1.0.
+* `scaleFactor` Double (可选) - 默认1.0
 
 返回 `Float` - 图像的长宽比.
 

@@ -61,9 +61,9 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 Executing this command results in a `.cpuprofile` file and a `.heapprofile` file in the directory you executed it in. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
 
-![Performance CPU Profile][4]
+![Performance CPU Profile](../images/performance-cpu-prof.png)
 
-![Performance Heap Memory Profile][5]
+![Performance Heap Memory Profile](../images/performance-heap-prof.png)
 
 In this example, on the author's machine, we saw that loading `request` took almost half a second, whereas `node-fetch` took dramatically less memory and less than 50ms.
 
@@ -238,9 +238,6 @@ Modern JavaScript development usually involves many files and modules. While tha
 There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
 
 As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
-
-[4]: ../images/performance-cpu-prof.png
-[5]: ../images/performance-heap-prof.png
 
 [security]: ./security.md
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/

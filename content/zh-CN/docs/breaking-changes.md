@@ -12,14 +12,6 @@
 * **已废弃：**该 API 已标记为废弃。 该 API 依旧可正常运作，但会抛出已废弃警告，并在将来会移除。
 * **已移除：**该 API 或功能已移除，Electron团队不再对此提供支持。
 
-## 计划重写的 API (15.0)
-
-### 默认更改： `nativeWindowOpen` 默认为 `true`
-
-Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
-
-See the documentation for [window.open in Electron](api/window-open.md) for more details.
-
 ## 计划重写的 API (14.0)
 
 ### Removed: `remote` module
@@ -55,14 +47,20 @@ For more detailed information see [#18397](https://github.com/electron/electron/
 
 可选参数 `frameName` 将不再设置窗口的标题。 该功能现在遵循 [原生文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) 中的约束，由名为 `windowName` 的参数控制。
 
-若您之前使用了该参数用于设置窗口标题，您可以转而使用 [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle)。
+若您之前使用了该参数用于设置窗口标题，您可以转而使用 [win.setTitle(title)](api/browser-window.md#winsettitletitle)。
 
 ### 已移除： `worldSafeExecuteJavaScript`
 
-在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。 除此之外没有其他方式，请保证您的代码中包含该属性。 Electron 12中默认启用该属性。
+在 Electron 14, `worldSafeExecuteJavaScript` 将被移除。  除此之外没有其他方式，请保证您的代码中包含该属性。  Electron 12中默认启用该属性。
 12.
 
 若您使用了 `webFrame.executeJavaScript` 或 `webFrame.executeJavaScriptInIsolatedWorld`，这个改动会对您造成影响。 您需要保证 [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) 支持这些方法的返回值，因为这些方法使用相同的值传递语义。
+
+### 默认更改： `nativeWindowOpen` 默认为 `true`
+
+Prior to Electron 14, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
 
 ### Removed: BrowserWindowConstructorOptions inheriting from parent windows
 
@@ -233,15 +231,15 @@ Chromium 已经取消了对Flash的支持，因此我们必须效仿。 更多�
 
 ### 默认更改： `worldSafeExecuteJavaScript` 默认为 `true`
 
-在 Electron 12, `worldSafeExecuteJavaScript` 将默认启用。  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. 请注意，设置此选项为 `false` 是**不安全**的。
+在 Electron 12, `worldSafeExecuteJavaScript` 将默认启用。  要恢复 上一个行为， `worldSafeExecuteJavaScript: false` 必须在 Web 首选项中指定。 请注意，设置此选项为 `false` 是**不安全**的。
 
-This option will be removed in Electron 14 so please migrate your code to support the default value.
+此选项将在 Electron 14 中删除，所以请迁移您的代码以支持默认 值。
 
 ### 默认更改： `contextIsolation` 默认为 `true`
 
-在 Electron 12, `contextIsolation` 将默认启用。  To restore the previous behavior, `contextIsolation: false` must be specified in WebPreferences.
+在 Electron 12, `contextIsolation` 将默认启用。  要恢复 上一个行为， `contextIsolation: false` 必须在 Web 首选项中指定。
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+我们 [建议启用contextIsolation](tutorial/security.md#3-enable-context-isolation-for-remote-content) ，以保证您的应用程序的安全性。
 
 Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
@@ -249,7 +247,7 @@ Another implication is that `require()` cannot be used in the renderer process u
 
 ### 已移除： `crashReporter.getCrashesDirectory()`
 
-`crashReporter.getCrashesDirectory` 方法已被删除。 Usage should be replaced by `app.getPath('crashDumps')`.
+`crashReporter.getCrashesDirectory` 方法已被删除。 这个方法 应该被 `app.getPath('crashDumps')`替换。
 
 ```js
 // 在 Electron 12 移除
@@ -269,7 +267,7 @@ app.getPath('crashDumps')
 * `crashReporter.setUploadToServer`
 * `crashReporter.getCrashesDirectory`
 
-They should be called only from the main process.
+它们只应从主要进程中调用。
 
 更多详细信息请访问 [#23265](https://github.com/electron/electron/pull/23265)
 
@@ -330,7 +328,7 @@ crashReporter.start({ globalExtra: { _companyName: 'Umbrella Corporation' } })
 
 ### 已废弃：`crashReporter.getCrashesDirectory()`
 
-The `crashReporter.getCrashesDirectory` method has been deprecated. Usage should be replaced by `app.getPath('crashDumps')`.
+The `crashReporter.getCrashesDirectory` method has been deprecated. 这个方法 应该被 `app.getPath('crashDumps')`替换。
 
 ```js
 // Deprecated in Electron 10
@@ -352,7 +350,7 @@ Calling the following `crashReporter` methods from the renderer process is depre
 
 The only non-deprecated methods remaining in the `crashReporter` module in the renderer are `addExtraParameter`, `removeExtraParameter` and `getParameters`.
 
-All above methods remain non-deprecated when called from the main process.
+当从主要进程调用时，上述所有方法均未被弃用。
 
 更多详细信息请访问 [#23265](https://github.com/electron/electron/pull/23265)
 
@@ -442,7 +440,7 @@ For more detailed information see [#18397](https://github.com/electron/electron/
 
 ### 已废弃： `BrowserWindow` 扩展 API
 
-The following extension APIs have been deprecated:
+以下扩展 APIs 已废弃:
 
 * `BrowserWindow.addExtension(path)`
 * `BrowserWindow.addDevToolsExtension(path)`
@@ -483,7 +481,7 @@ session.defaultSession.getAllExtensions()
 
 ### 已移除： `<webview>.getWebContents()`
 
-This API, which was deprecated in Electron 8.0, is now removed.
+此API在 Electron 8.0中被废弃，现已删除。
 
 ```js
 // 在 Electron 9.0 移除
@@ -722,7 +720,7 @@ In Electron 7, this now returns a `FileList` with a `File` object for:
 /path/to/folder/file1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Changed: Callback-based versions of promisified APIs
 
@@ -765,7 +763,7 @@ These functions now only return Promises:
 * `webviewTag.executeJavaScript()` [#17312](https://github.com/electron/electron/pull/17312)
 * `win.capturePage()` [#15743](https://github.com/electron/electron/pull/15743)
 
-These functions now have two forms, synchronous and Promise-based asynchronous:
+这些功能现在有两种形式，即同步和基于Promise的异步：
 
 * `dialog.showMessageBox()`/`dialog.showMessageBoxSync()` [#17298](https://github.com/electron/electron/pull/17298)
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
@@ -840,7 +838,7 @@ const idleTime = powerMonitor.getSystemIdleTime()
 app.enableMixedSandbox()
 ```
 
-Mixed-sandbox mode is now enabled by default.
+混合沙盒模式已默认启用。
 
 ### Deprecated: `Tray.setHighlightMode`
 
@@ -944,7 +942,7 @@ console.log(factor)
 
 ## 计划重写的 API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+以下列表包含了Electron4.0中重大的API更新
 
 ### `app.makeSingleInstance`
 

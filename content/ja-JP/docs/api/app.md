@@ -121,6 +121,8 @@ macOS のアプリケーションがアクティブになったときに発生�
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`][activity-type] と対応しています。
 * `userInfo` unknown - 別のデバイスのアクティビティによって保存されたアプリ固有の情報が含まれています。
+* `details` Object
+  * `webpageURL` String (任意) - 利用可能な場合、別デバイス上の操作でアクセスしたウェブページの URL を特定する文字列になります。
 
 [ハンドオフ][handoff] 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
@@ -580,7 +582,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 戻り値 `String` - 現在のアプリケーションのロケールで、Chromium の `l10n_util` ライブラリを用いて取得されます。 取りうる戻り値については [こちら](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc) にドキュメントがあります。
 
-ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md) を参照してください。
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](command-line-switches.md).
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
@@ -861,6 +863,35 @@ if (!gotTheLock) {
   * `result` Integer - インポート結果。
 
 プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はChromium の [net_error_list](https://source.chromium.org/chromium/chromium/src/+/master:net/base/net_error_list.h) の通り、失敗を意味します。
+
+### `app.configureHostResolver(options)`
+
+* `options` Object
+  * `enableBuiltInResolver` Boolean (任意) - getaddrinfo ではなく組み込みのホストリゾルバを使用するかどうか。 有効にすると、組み込みリゾルバはシステムの DNS 設定を使用し、単体で DNS ルックアップを実行しようとします。 macOS ではデフォルトで有効、Windows と Linux ではデフォルトで無効になっています。
+  * `secureDnsMode` String (任意) - "off"、"automatic"、"secure" のいずれかにできます。 DNS-over-HTTP モードを設定します。 "off" の場合、DoH ルックアップは行われません。 "automatic" の場合、DoH が利用可能であれば DoH ルックアップが最初に実行され、安全でない DNS 検索がフォールバックとして実行されます。 "secure" の場合、DoH ルックアップのみが行われます。 既定値は "automatic" です。
+  * `secureDnsServers` String[]&#32;(任意) - DNS-over-HTTP サーバのテンプレートのリスト。 テンプレートのフォーマットについては、[RFC8484 § 3][] をご参照ください。 ほとんどのサーバーは POST メソッドをサポートしており、そういったサーバーのテンプレートは単なる URI です。 なお、[一部のDNSプロバイダ][doh-providers] では、このリストに DoH サーバーが提供されていなくても、DoH が明示的に無効化されていない限りリゾルバを自動的に DoH へアップグレードします。
+  * `enableAdditionalDnsQueryTypes` Boolean (任意) - 安全でない DNS 経由でリクエストが行われた場合に、従来の A および AAAA のクエリに加えて HTTPS (DNS タイプ 65) などの追加の DNS クエリタイプを許可するかどうかを制御します。 追加タイプを常に許可するセキュア DNS には影響しません。 省略値は true です。
+
+ホスト解決 (DNS と DNS-over-HTTPS) を設定します。 デフォルトでは、以下のリゾルバがこの順番で使用されます。
+
+1. DNS-over-HTTPS、[DNS プロバイダがサポートしている][doh-providers] 場合
+2. 組み込みリゾルバ (macOS のみデフォルトで有効)
+3. システムのリゾルバ (`getaddrinfo` など)
+
+これは、暗号化されていない DNS の使用を制限する (`secureDnsMode: "secure"`) か、DNS-over-HTTPS を無効にする (`secureDnsMode: "off"`) ように設定できます。 また、組み込みリゾルバの有効化または無効化もできます。
+
+安全でない DNS を無効にするには、 `secureDnsMode` に `"secure"` を指定します。 その場合、ユーザーの DNS 設定に DoH をサポートするプロバイダが無い場合に備えて、使用する DNS-over-HTTPS サーバのリストを提供しなければなりません。
+
+```js
+app.configureHostResolver({
+  secureDnsMode: 'secure',
+  secureDnsServers: [
+    'https://cloudflare-dns.com/dns-query'
+  ]
+})
+```
+
+この API は `ready` イベントが発生した後で呼ばなければいけません。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -1163,12 +1194,24 @@ macOS では、ゼロ以外の整数を設定すると、ドックアイコン�
 
 これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。  アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。  オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
 
-### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_
+### `app.runningUnderRosettaTranslation` _macOS_ _Readonly_ _Deprecated_
 
 `Boolean` 型で、`true` の場合アプリが [Rosetta 変換環境](https://en.wikipedia.org/wiki/Rosetta_(software)) 下で動作していることを示します。
 
 このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
 
+**非推奨:** このプロパティは `runningUnderARM64Translation` プロパティに置き換えられます。こちらは macOS と Windows の両方でアプリを ARM64 に変換したかどうかを検出します。
+
+### `app.runningUnderARM64Translation` _Readonly_ _macOS_ _Windows_
+
+`Boolean` 型で、`true`の場合はアプリが現在 ARM64 変換機 (macOS の [Rosetta 変換環境](https://en.wikipedia.org/wiki/Rosetta_(software)) や Windows の [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows) など) で動作していることを示します。
+
+このプロパティを使用すれば、x64 版を Rosetta で誤って実行している場合に、arm64 版のアプリケーションをダウンロードするようにユーザーに促すことができます。
+
+[doh-providers]: https://source.chromium.org/chromium/chromium/src/+/main:net/dns/public/doh_provider_entry.cc;l=31?q=%22DohProviderEntry::GetList()%22&ss=chromium%2Fchromium%2Fsrc
+
+[doh-providers]: https://source.chromium.org/chromium/chromium/src/+/main:net/dns/public/doh_provider_entry.cc;l=31?q=%22DohProviderEntry::GetList()%22&ss=chromium%2Fchromium%2Fsrc
+[RFC8484 § 3]: https://datatracker.ietf.org/doc/html/rfc8484#section-3
 [tasks]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [electron-forge]: https://www.electronforge.io/

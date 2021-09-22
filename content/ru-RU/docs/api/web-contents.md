@@ -4,7 +4,7 @@
 
 Процесс: [Основной](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter][event-emitter]. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
+`webContents` является [EventEmitter][event-emitter]'ом. Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -61,7 +61,7 @@ async function lookupTargetId (browserWindow) {
 
 > Рендерит и управляет контент экземпляра BrowserWindow.
 
-Процесс: [Основной](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### События экземпляра
 
@@ -122,7 +122,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 * Событие типа `event`
 
-Emitted when the document in the given frame is loaded.
+Emitted when the document in the top-level frame is loaded.
 
 #### Событие: 'page-title-updated'
 
@@ -405,6 +405,8 @@ Emitted when `webContents` is destroyed.
   * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent].
   * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent].
   * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent].
+  * `location` Number - Equivalent to [KeyboardEvent.location][keyboardevent].
+  * `modifiers` String[] - See [InputEvent.modifiers](structures/input-event.md).
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -755,6 +757,16 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. �
 Emitted when the `WebContents` preferred size has changed.
 
 This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
+
+#### Event: 'frame-created'
+
+Возвращает:
+
+* Событие типа `event`
+* Объект `details`
+  * `frame` WebFrameMain
+
+Emitted when the [mainFrame](web-contents.md#contentsmainframe-readonly), an `<iframe>`, or a nested `<iframe>` is loaded within the page.
 
 ### Методы экземпляра
 
@@ -1706,6 +1718,14 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
+#### `contents.setImageAnimationPolicy(policy)`
+
+* `policy` String - может быть завершено `animate`, отменено `animateOnce` или прервано `noAnimation`.
+
+Sets the image animation policy for this webContents.  The policy only affects _new_ images, existing images that are currently being animated are unaffected. This is a known limitation in Chromium, you can force image animation to be recalculated with `img.src = img.src` which will result in no network traffic but will update the animation policy.
+
+This corresponds to the [animationPolicy][] accessibility feature in Chromium.
+
 ### Свойства экземпляра
 
 #### `contents.audioMuted`
@@ -1763,6 +1783,10 @@ A `Boolean` property that determines whether or not this WebContents will thrott
 #### `contents.mainFrame` _Только чтение_
 
 A [`WebFrameMain`](web-frame-main.md) property that represents the top frame of the page's frame hierarchy.
+
+[animationPolicy]: https://developer.chrome.com/docs/extensions/reference/accessibilityFeatures/#property-animationPolicy
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 

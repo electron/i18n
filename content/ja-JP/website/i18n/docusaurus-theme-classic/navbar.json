@@ -19,6 +19,10 @@
     "message": "ブログ",
     "description": "Navbar item with label Blog"
   },
+  "item.label.Releases": {
+    "message": "リリース",
+    "description": "Navbar item with label Releases"
+  },
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"

@@ -12,7 +12,7 @@ Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webvi
 
 > 在一个独立的 frame 和进程里显示外部 web 内容。
 
-进程: [ Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 使用 `webview` 标签将'guest'内容 (例如网页) 嵌入到您的 Electron 应用中。 Guest 内容包含在 `webview` 容器内。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
@@ -524,6 +524,18 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-args)
 
+### `<webview>.sendToFrame(frameId, channel, ...args)`
+
+* `frameId` [number, number] - `[processId, frameId]`
+* `channel` String
+* `...args` any[]
+
+返回 `Promise<void>`
+
+通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+
+See [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) for examples.
+
 ### `<webview>.sendInputEvent(event)`
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
@@ -744,6 +756,18 @@ Calling `event.preventDefault()` does __NOT__ have any effect.
 
 Emitted when any frame (including main) starts navigating. `isInPlace` will be `true` for in-page navigations.
 
+### Event: 'did-redirect-navigation'
+
+返回:
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+
 ### Event: 'did-navigate'
 
 返回:
@@ -797,6 +821,7 @@ webview.addEventListener('close', () => {
 
 返回:
 
+* `frameId` [number, number] - pair of `[processId, frameId]`.
 * `channel` String
 * `args` any[]
 

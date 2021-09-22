@@ -61,7 +61,7 @@ async function lookupTargetId (browserWindow) {
 
 > BrowserWindow インスタンスのコンテンツを、描画し、制御します。
 
-プロセス: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### インスタンスイベント
 
@@ -122,7 +122,7 @@ async function lookupTargetId (browserWindow) {
 
 * `event` Event
 
-指定のフレームの document が読み込まれたときに発行されます。
+Emitted when the document in the top-level frame is loaded.
 
 #### イベント: 'page-title-updated'
 
@@ -405,6 +405,8 @@ Webページが応答しなくなるときに発生します。
   * `control` Boolean - [KeyboardEvent.controlKey][keyboardevent] と等価です。
   * `alt` Boolean - [KeyboardEvent.altKey][keyboardevent] と等価です。
   * `meta` Boolean - [KeyboardEvent.metaKey][keyboardevent] と等価です。
+  * `location` Number - Equivalent to [KeyboardEvent.location][keyboardevent].
+  * `modifiers` String[] - See [InputEvent.modifiers](structures/input-event.md).
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
@@ -755,6 +757,16 @@ win.loadURL('http://github.com')
 `WebContents` の優先サイズが変更された場合に発生します。
 
 このイベントは、`webPreferences` で `enablePreferredSizeMode` が `true` に設定されている場合にのみ発生します。
+
+#### Event: 'frame-created'
+
+戻り値：
+
+* `event` Event
+* `details` Object
+  * `frame` WebFrameMain
+
+Emitted when the [mainFrame](web-contents.md#contentsmainframe-readonly), an `<iframe>`, or a nested `<iframe>` is loaded within the page.
 
 ### インスタンスメソッド
 
@@ -1706,6 +1718,14 @@ V8 ヒープのスナップショットを撮り、それを `filePath` に保�
 
 Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserView`、`remote`、`webview` か `offscreen` になります。
 
+#### `contents.setImageAnimationPolicy(policy)`
+
+* `policy` String - `animate`、`animateOnce` か `noAnimation` にできます。
+
+Sets the image animation policy for this webContents.  The policy only affects _new_ images, existing images that are currently being animated are unaffected. This is a known limitation in Chromium, you can force image animation to be recalculated with `img.src = img.src` which will result in no network traffic but will update the animation policy.
+
+This corresponds to the [animationPolicy][] accessibility feature in Chromium.
+
 ### インスタンスプロパティ
 
 #### `contents.audioMuted`
@@ -1763,6 +1783,10 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 #### `contents.mainFrame` _読み出し専用_
 
 [`WebFrameMain`](web-frame-main.md) 型のプロパティで、ページの最上位階層のフレームを表します。
+
+[animationPolicy]: https://developer.chrome.com/docs/extensions/reference/accessibilityFeatures/#property-animationPolicy
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 
 [keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
 

@@ -44,7 +44,7 @@ $ code electron-quick-start
 
 如果您想从源代码构建 Electron 并修改 native Electron 代码库，本节将帮助您测试您的修改。
 
-对于那些不确定在哪里获得代码或如何构建它， [Electron 的构建工具](https://github.com/electron/build-tools) 自动化并解释此过程的大部分。 如果你想手动设置环境，你可以使用这些 [构建指令](https://www.electronjs.org/docs/development/build-instructions-gn)。
+对于那些不确定在哪里获得代码或如何构建它， [Electron 的构建工具](https://github.com/electron/build-tools) 自动化并解释此过程的大部分。 如果你想手动设置环境，你可以使用这些 [构建指令](../development/build-instructions-gn.md)。
 
 ### Windows (C++)
 
@@ -88,7 +88,7 @@ $ code electron-quick-start
 * `cppvsdbg` 需要启用 [内置的 C/C++ 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)。
 * `${workspaceFolder}` 是 Chromium 的 `源` 的完整路径。
 * `your-executable-location` 将是以下几项之一：
-  * `Testing`：如果您使用的是默认的 [Electron 构建工具](https://github.com/electron/build-tools) 设置，或默认的 [从源端构建](https://www.electronjs.org/docs/development/build-instructions-gn#building) 的设置。
+  * `Testing`：如果您使用的是默认的 [Electron 构建工具](https://github.com/electron/build-tools) 设置，或默认的 [从源端构建](../development/build-instructions-gn.md#building) 的设置。
   * `Release`：如果你构建了一个发布版本，而不是测试版本。
   * `your-directory-name`：如果你在构建过程中修改， 这将是你指定的。
 * `args` 数组字符串 `"your electron-project-path"` 应为您正在用于测试的 Electron 项目或 `main.js` 的绝对路径。 在本示例中，它应该是您的 `electron-quick-start` 的路径。

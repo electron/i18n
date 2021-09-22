@@ -2,7 +2,7 @@
 
 > Um transporte alternativo para o protocolo de depuração remoto do Chrome.
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 As ferramentas de desenvolvedor do Chrome possuem [special binding][rdp] disponível no runtime do JavaScript que permite interagir com páginas e instrumentá-las.
 

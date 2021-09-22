@@ -6,15 +6,15 @@ A progress bar enables a window to provide progress information to the user with
 
 On Windows, you can use a taskbar button to display a progress bar.
 
-![Windows Progress Bar][1]
+!\[Windows Progress Bar\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
 
 On macOS, the progress bar will be displayed as a part of the dock icon.
 
-![macOS Progress Bar][2]
+![macOS Progress Bar](../images/macos-progress-bar.png)
 
 On Linux, the Unity graphical interface also has a similar feature that allows you to specify the progress bar in the launcher.
 
-![Linux Progress Bar][3]
+![Linux Progress Bar](../images/linux-progress-bar.png)
 
 > NOTE: on Windows, each window can have its own progress bar, whereas on macOS and Linux (Unity) there can be only one progress bar for the application.
 
@@ -86,8 +86,5 @@ For macOS, the progress bar will also be indicated for your application when usi
 
 ![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
 
-[1]: https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png
-[2]: ../images/macos-progress-bar.png
-[3]: ../images/linux-progress-bar.png
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options

@@ -6,15 +6,15 @@ Progress bar позволяет окну предоставлять информ
 
 В Windows вы можете использовать кнопку панели задач для отображения progress bar.
 
-![Windows Progress Bar][1]
+!\[Windows Progress Bar\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
 
 На macOS progress bar будет отображаться как часть dock icon.
 
-![macOS Progress Bar][2]
+![macOS Progress Bar](../images/macos-progress-bar.png)
 
 На Linux графический интерфейс Unity также имеет аналогичную функцию, которая вам указать планку прогресса в пусковой установке.
 
-![Linux Progress Bar][3]
+![Linux Progress Bar](../images/linux-progress-bar.png)
 
 > ПРИМЕЧАНИЕ: на Windows, каждое окно может иметь свой собственный планку прогресса, в то время как на macOS и Linux (Unity) может быть только одна планка прогресса для приложения.
 
@@ -86,8 +86,5 @@ After launching the Electron application, the dock (macOS) or taskbar (Windows, 
 
 ![Mission Control Progress Bar](../images/mission-control-progress-bar.png)
 
-[1]: https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png
-[2]: ../images/macos-progress-bar.png
-[3]: ../images/linux-progress-bar.png
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options
 [setprogressbar]: ../api/browser-window.md#winsetprogressbarprogress-options

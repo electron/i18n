@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-Processus : [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Les instances de la classe `ServiceWorkers` sont accessibles à l'aide de la propriété `serviceWorkers` d'une `Session`.
 

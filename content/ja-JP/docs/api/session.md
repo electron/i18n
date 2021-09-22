@@ -46,7 +46,7 @@ console.log(ses.getUserAgent())
 
 > セッションのプロパティを取得し、設定します。
 
-プロセス: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `session` モジュールでは、`Session` オブジェクトを作成できます。
 
@@ -76,8 +76,8 @@ Electron が `webContents` 内で `item` をダウンロードするときに発
 const { session } = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
-  require('request')(item.getURL(), (data) => {
-    require('fs').writeFileSync('/somewhere', data)
+  require('got')(item.getURL()).then((response) => {
+    require('fs').writeFileSync('/somewhere', response.body)
   })
 })
 ```

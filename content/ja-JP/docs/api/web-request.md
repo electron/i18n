@@ -2,7 +2,7 @@
 
 > ライフタイムのさまざまな段階でリクエストのコンテンツを傍受し、変更します。
 
-プロセス: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `WebRequest` クラスのインスタンスには、`Session` の `webRequest` プロパティを使用してアクセスします。
 
@@ -36,8 +36,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -78,8 +77,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -103,8 +101,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -122,8 +119,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -150,8 +146,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -172,8 +167,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -196,8 +190,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer
@@ -219,8 +212,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Object (任意)
-  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
 * `listener` Function | null
   * `details` Object
     * `id` Integer

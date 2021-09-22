@@ -288,7 +288,7 @@ En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es
 
 ## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
-The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
+El [`setMenu` method][setMenu] de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 
 ## La posición del elemento del menú
 
@@ -367,4 +367,4 @@ Menú:
 ```
 
 [AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
-[setMenu]: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows
+[setMenu]: browser-window.md#winsetmenumenu-linux-windows

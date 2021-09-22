@@ -61,7 +61,13 @@ Returns `WebFrameMain | undefined` - A frame with the given process and routing 
 
 ## Class: WebFrameMain
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+
+### 实例事件
+
+#### 事件: 'dom-ready'
+
+Emitted when the document is loaded.
 
 ### 实例方法
 
@@ -85,7 +91,7 @@ Returns `boolean` - Whether the reload was initiated successfully. Only results 
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the \[Structured Clone Algorithm\]\[SCA\], just like [`postMessage`][], so prototype chains will not be included. 发送 Functions, Promises, Symbols, WeakMaps, 或 WeakSets 将抛出异常
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -93,7 +99,7 @@ The renderer process can handle the message by listening to `channel` with the [
 
 * `channel` String
 * `message` any
-* `transfer` MessagePortMain[] (optional)
+* `transfer` MessagePortMain[] (可选)
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 

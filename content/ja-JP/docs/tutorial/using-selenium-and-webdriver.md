@@ -151,7 +151,7 @@ client
 
 ## ワークフロー
 
-Electron を再構築せずにアプリケーションをテストするには、アプリケーションソースを Electron のリソースディレクトリに[配置します](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)。
+Electron を再構築せずにアプリケーションをテストするには、アプリケーションソースを Electron のリソースディレクトリに[配置します](application-distribution.md)。
 
 Electron バイナリに引数を渡すことでも、実行するアプリのフォルダを指定できます。 こうすれば、アプリを Electron のリソースディレクトリにコピーペーストする必要はありません。
 

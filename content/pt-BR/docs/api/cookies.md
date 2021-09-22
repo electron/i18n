@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Instâncias da classe `Cookies` são acessadas através da propriedade `cookies` de uma `Sessão`.
 
@@ -84,7 +84,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (opcional) - O domínio do cookie; isto será normalizado com um ponto no início para que ele também seja válido para subdomínios. Empty by default if omitted.
   * `path` String (opcional) - O Diretório do cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false unless [Same Site=None](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite#samesitenone_requires_secure) attribute is used.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
   * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Pode ser `unspecified`, `no_restriction`, `lax` ou `strict`.  Por padrão é `no_restriction`.

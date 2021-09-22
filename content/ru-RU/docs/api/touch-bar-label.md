@@ -2,7 +2,7 @@
 
 > Создает метку на тач-панели, для найтивного macOS-приложения
 
-Процесс: [Основной](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### `new TouchBarLabel(options)`
 

@@ -2,7 +2,7 @@
 
 カスタム Electron バイナリの作成にあたって Windows で **Electron そのもの** をビルドするには、以下のガイドラインに従ってください。 アプリのコードをビルド済み Electron バイナリにバンドルして頒布する場合は、[アプリケーション頒布][application-distribution] のガイドを参照してください。
 
-## Prerequisites
+## 必要な環境
 
 * Windows 10 / Server 2012 R2 以上
 * Visual Studio 2017 15.7.2 以上 - [VS 2019 Community Edition 無料ダウンロード](https://www.visualstudio.com/vs/)
@@ -14,7 +14,7 @@
 * [Node.js](https://nodejs.org/download/)
 * [Git](https://git-scm.com)
 * 完全な頒布物を作成する予定があれば、Windows SDK 10.0.15063.468 の Windows 用デバッグツールで、`.pdb` ファイルからシンボルストアを作成するために `symstore.exe` を使用します。
-  * 異なるバージョンのSDKを並行してインストールできます。 SDK をインストールするには、Visual Studio Installer を開いて `変更` → `個別のコンポーネント` を選択し、スクロールしてインストールする適切な Windows SDK を選択します。 他に、[Windows SDK とエミュレータのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) を見て、SDK のスタンドアロン版をそれぞれダウンロードすることでもできます。
+  * 異なるバージョンのSDKを並行してインストールできます。 To install the SDK, open Visual Studio Installer, select `Modify` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. 他に、[Windows SDK とエミュレータのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) を見て、SDK のスタンドアロン版をそれぞれダウンロードすることでもできます。
   * SDK デバッグツールもインストールする必要があります。 Windows 10 SDK が Visual Studio インストーラーを介してインストールされた場合は、次のようにしてインストールできます。 `コントロールパネル` → `プログラム` → `プログラムと機能` → "Windows Software Development Kit" を選択 → `変更` → `変更` → "Debugging Tools For Windows" にチェック → `変更`。 または、スタンドアロンの SDK インストーラをダウンロードして、それを使ってデバッグツールをインストールすることができます。
 
 現在 Windows インストールを持っていない場合、[dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) に Electron をビルドするために使用できる Windows のバージョンがあります。
@@ -29,7 +29,7 @@ Windows Security は Chromium ソースコード内のファイルを良く思�
 
 ## ビルド
 
-See [Build Instructions: GN](build-instructions-gn.md)
+[ビルド手順: GN](build-instructions-gn.md) を参照してください。
 
 ## 32ビットビルド
 

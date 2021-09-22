@@ -2,7 +2,7 @@
 
 > Запрашивайте и изменяйте cookie.
 
-Процесс: [Основной](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Экземпляры класса `Cookies` доступны через свойство `cookies` объекта `Session`.
 
@@ -84,7 +84,7 @@ session.defaultSession.cookies.set(cookie)
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (опционально) - домен cookie; это будет нормализовано с предыдущей точкой, чтобы он также был действителен для поддоменов. Empty by default if omitted.
   * `path` String (опционально) - Путь к cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false unless [Same Site=None](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite#samesitenone_requires_secure) attribute is used.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. По умолчанию - false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
   * `sameSite` String (optional) - The [Same Site](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#SameSite_cookies) policy to apply to this cookie.  Может быть `unspecified`, `no_restriction`, `lax` или `strict`.  По умолчанию - `no_restriction`.

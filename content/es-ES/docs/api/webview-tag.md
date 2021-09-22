@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5.  Usted necesita habil
 
 > Mostrar contenido externo de la web en un cuadro aislado y procesado.
 
-Proceso: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. Una página incrustada dentro de los controles de tu aplicación como el contenido de invitado es dispuesto y renderizado.
 
@@ -524,6 +524,18 @@ Envía un mensaje asincrónico al proceso de renderizado a través de `channel`.
 
 Ver [webContents.send](web-contents.md#contentssendchannel-args) para ejemplos.
 
+### `<webview>.sendToFrame(frameId, channel, ...args)`
+
+* `frameId` [number, number] - `[processId, frameId]`
+* `channel` Cadena
+* `...args` any[]
+
+Devuelve `Promise<void>`
+
+Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. El proceso renderizador puede manejar el mensaje escuchando el evento `channel` con el módulo [`ipcRenderer`](ipc-renderer.md).
+
+See [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) for examples.
+
 ### `<webview>.sendInputEvent(event)`
 
 * `event`  [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
@@ -744,6 +756,18 @@ Devuelve:
 
 Emitido cuando cualquier frame (incluyendo el principal) comienza la navegación. `isInPlace` will be `true` for in-page navigations.
 
+### Evento: 'did-redirect-navigation'
+
+Devuelve:
+
+* `url` String
+* `isInPlace` Boolean
+* `EsElFramePrincipal` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+
 ### Evento: 'did-navigate'
 
 Devuelve:
@@ -797,6 +821,7 @@ webview.addEventListener('close', () => {
 
 Devuelve:
 
+* `frameId` [number, number] - pair of `[processId, frameId]`.
 * `channel` Cadena
 * `args` any[]
 

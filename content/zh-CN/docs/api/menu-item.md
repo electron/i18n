@@ -17,23 +17,23 @@
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
-  * `toolTip` String (optional) _macOS_ - Hover text for this menu item.
+  * `toolTip` String (可选) _macOS_ - 此菜单的悬停文本提示
   * `accelerator` [Accelerator](accelerator.md) (可选)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
-  * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `acceleratorWorksWhenHidden` Boolean (可选) _macOS_ - 默认为 `true`, 当为 `false` 时将阻止隐藏按钮通过快捷键触发。
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
-  * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `before` String[] (optional) - Inserts this item before the item with the specified label. 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
+  * `registerAccelerator` Boolean (可选) _Linux_ _Windows_ - 若为 false, 则快捷键将不会被注册到系统内，但还是会显示出来。 默认值为 true。
+  * `sharingItem` SharingItem (可选) _macOS_ - 当 `role` 为 `shareMenu`时指定要分享的项
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (可选) - 应该是固定类型菜单`submenu` 如果指定 `submenu` ，可以省略 `type: 'submenu'` 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
+  * `id` String (可选) - 单个菜单内唯一。 若定义，则可以通过 position 位置属性找到此选项
+  * `before` String[] (可选) - 在指定标签项前插入此项 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
   * `after` String[] (可选) - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。
-  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+  * `beforeGroupContaining` String[] (可选) - 为单个上下文菜单提供一种方法，用于在具有指定标签的项的包含组之前声明其包含组的位置。
+  * `afterGroupContaining` String[] (可选) - 为单个上下文菜单提供一种方法，用于在具有指定标签的项的包含组之后声明其包含组的位置。
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
+**注意:** `acceleratorWorksWhenHidden` 这个选项只有 macOS 生效，因为在 Windows 和 Linux 系统下快捷键即使在隐藏情况下也会生效。 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
 
 ### 角色
 
@@ -43,12 +43,12 @@
 
 使用 ` role ` 时, ` label ` 和 ` accelerator ` 值是可选的, 并为每个平台，将默认为适当值。
 
-Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
+每个菜单项必须有一个 `role`, `label`, 或者一个分隔符一个 `type`
 
 `role ` 属性可以具有以下值:
 
 * `undo - 撤销。`
-* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
+* `about` - 触发原生信息面板 (在 Window 中自定义消息盒子, 本身不提供).
 * `redo`
 * `cut -  剪切。`
 * `copy - 复制。`
@@ -57,7 +57,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `selectAll - 全选。`
 * `delete -删除`
 * ` minimize ` - 最小化当前窗口。
-* `close` - Close current window.
+* `close` - 关闭当前窗口
 * `quit` - 退出程序
 * `reload` - 重新加载当前窗口。
 * `forcereload` - 忽略缓存，重新加载当前窗口。
@@ -72,16 +72,16 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `viewMenu` - 默认的“视图”菜单（包括重新加载、开发者工具等）
 * `windowMenu` - 默认的“窗口”菜单（包括最小化、缩放等）
 
-The following additional roles are available on _macOS_:
+以下其他角色可在 _macOS_ 上找到：
 
-* `appMenu` - Whole default "App" menu (About, Services, etc.)
+* `appMenu` - 整个默认"App" menu (About, Services, 等)
 * ` hide `-映射到 ` hide ` 操作.
 * ` hideOthers `-映射到 ` hideOtherApplications ` 操作.
-* `unhide` - Map to the `unhideAllApplications` action.
+* `unhide` - 映射到 `unhideAllApplications` 动作
 * ` startSpeaking `-映射到 ` startSpeaking ` 操作.
 * ` stopSpeaking `-映射到 ` stopSpeaking ` 操作.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* `front` - 映射到 `arrangeInFront` 动作
+* `zoom` - 映射到 `performZoom` 动作
 * ` toggleTabBar `-映射到 ` toggleTabBar ` 操作.
 * ` selectNextTab ` - 映射到 ` selectNextTab ` 操作.
 * ` selectPreviousTab ` - 映射到 ` selectPreviousTab ` 操作.
@@ -89,14 +89,14 @@ The following additional roles are available on _macOS_:
 * ` moveTabToNewWindow ` - 映射到 ` moveTabToNewWindow ` 操作.
 * `window` - 这个子菜单是"Window" 菜单.
 * ` help `-这个子菜单是 "Help" 菜单.
-* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `services` - 子菜单是 ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) 菜单。 此选项仅应用于 Application Menu 而且 *不同于*在 macOS app 中上下文菜单中的 "Services" 子菜单，因为它不是由 Electron 实现的
 * ` recentDocuments `-这个子菜单是 "Open Recent" 菜单.
 * `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
-* `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
+* `shareMenu` - [share menu][ShareMenu]的子菜单。 `sharingItem` 属性必须被设置， 用于指向被分享的项
 
 在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是影响菜单项的唯一选项。 所有其它选项都将被忽略。 不过，仍然支持小写的`role`，如`toggledevtools`。
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on macOS.
+**注意:** 对于托盘上的顶级菜单项不可用的 `enabled` 和 `visibility` 属性
 
 ### 实例属性
 
@@ -108,11 +108,11 @@ The following additional roles are available on _macOS_:
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label.
+一个表示菜单项标签的 `String`
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+MenuItem接收到点击事件后自动触发的方法 `Function` 。 调用方法为 `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
@@ -120,11 +120,11 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.submenu`
 
-A `Menu` (optional) containing the menu item's submenu, if present.
+A `Menu` (可选) 指定子菜单
 
 #### `menuItem.type`
 
-`String` 表示菜单项的类型 Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+`String` 表示菜单项的类型 可以是 `normal`, `separator`, `submenu`, `checkbox` 或 `radio`.
 
 #### `menuItem.role`
 
@@ -132,19 +132,25 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.accelerator`
 
-A `Accelerator` (optional) indicating the item's accelerator, if set.
+An `Accelerator` (optional) indicating the item's accelerator, if set.
+
+#### `menuItem.userAccelerator` _Readonly_ _macOS_
+
+An `Accelerator | null` indicating the item's [user-assigned accelerator](https://developer.apple.com/documentation/appkit/nsmenuitem/1514850-userkeyequivalent?language=objc) for the menu item.
+
+**Note:** This property is only initialized after the `MenuItem` has been added to a `Menu`. Either via `Menu.buildFromTemplate` or via `Menu.append()/insert()`.  Accessing before initialization will just return `null`.
 
 #### `menuItem.icon`
 
-A `NativeImage | String` (optional) indicating the item's icon, if set.
+`NativeImage | String` (可选) 若设置， 则从对应的值中找选项图标
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel.
+`String` 表明选项的子标签
 
 #### `menuItem.toolTip` _macOS_
 
-A `String` indicating the item's hover text.
+`String` 选项的悬停文本内容
 
 #### `menuItem.enabled`
 
@@ -166,22 +172,22 @@ A `String` indicating the item's hover text.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+通过 `Boolean`表明快捷键跟随系统注册还是仅仅展示出来
 
-This property can be dynamically changed.
+此属性可以动态更改。
 
 #### `menuItem.sharingItem` _macOS_
 
-A `SharingItem` indicating the item to share when the `role` is `shareMenu`.
+`SharingItem` 表示了当 `role` 是 `shareMenu` 时要分享的项。
 
-This property can be dynamically changed.
+此属性可以动态更改。
 
 #### `menuItem.commandId`
 
-A `Number` indicating an item's sequential unique id.
+表示项目顺序唯一 Id 的 `Number`
 
 #### `menuItem.menu`
 
-A `Menu` that the item is a part of.
+多个选项组成一个 `Menu`
 
 [ShareMenu]: https://developer.apple.com/design/human-interface-guidelines/macos/extensions/share-extensions/

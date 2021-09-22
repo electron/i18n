@@ -61,7 +61,13 @@ main()
 
 ## クラス: WebFrameMain
 
-プロセス: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+
+### インスタンスイベント
+
+#### イベント: 'dom-ready'
+
+Emitted when the document is loaded.
 
 ### インスタンスメソッド
 

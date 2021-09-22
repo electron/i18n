@@ -20,9 +20,9 @@
 
 在macOS上将 `menu`设置成应用内菜单 在windows和Linux上，`menu` 将会被设置成窗口顶部菜单
 
-在Windows和Linux中，可以在菜单的顶层标签的某个字母前添加`&`以绑定快捷键。 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项。 The indicated character in the button label then gets an underline, and the `&` character is not displayed on the button label.
+在Windows和Linux中，可以在菜单的顶层标签的某个字母前添加`&`以绑定快捷键。 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项。 按钮标签中指定的字符会出现下划线， `&` 字符不会显示在按钮标签上。
 
-In order to escape the `&` character in an item name, add a proceeding `&`. For example, `&&File` would result in `&File` displayed on the button label.
+要转义并在项名中显示 `&` 字符, 可以添加字符 `&`. 比如, `&&File` 将在按钮标签上出现 `&File`
 
 传递 `null` 值可以禁用默认菜单。 在 Windows 和 Linux 上，使用此方法移除窗口上的菜单栏可能会有额外的效果。
 
@@ -62,7 +62,7 @@ In order to escape the `&` character in an item name, add a proceeding `&`. For 
   * `window` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
   * `x` Number (可选) - 默认为当前鼠标的位置。 如果指定了`y`，则该选项必选。
   * `y` Number (可选) - 默认为当前鼠标的位置。 如果指定了`x`，则该选项必选。
-  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. 默认值为 -1。
+  * `positioningItem` Number (可选) _macOS_ - 在指定鼠标光标下定位的菜单项的索引。 默认值为 -1。
   * `callback` Function (optional) - 会在菜单关闭后被调用.
 
 将此菜单作为 browserWindow <a> 中的上下文菜单弹出。</p> 
@@ -141,7 +141,7 @@ In order to escape the `&` character in an item name, add a proceeding `&`. For 
 </h3>
 
 <p spaces-before="0">
-  Objects created with <code>new Menu</code> or returned by <code>Menu.buildFromTemplate</code> emit the following events:
+  使用 <code>new Menu</code> 创建对象或通过 <code>Menu.buildFromTemplate</code>返回对象均会触发下列事件：
 </p>
 
 <p spaces-before="0">
@@ -219,7 +219,7 @@ In order to escape the `&` character in an item name, add a proceeding `&`. For 
 </h2>
 
 <p spaces-before="0">
-  An example of creating the application menu with the simple template API:
+  使用简单模板API创建 application menu 的示例代码：
 </p>
 
 <pre><code class="javascript">const { app, Menu } = require('electron')
@@ -334,11 +334,11 @@ Menu.setApplicationMenu(menu)
 </h3>
 
 <p spaces-before="0">
-  To create menus initiated by the renderer process, send the required information to the main process using IPC and have the main process display the menu on behalf of the renderer.
+  要创建由渲染器启动的菜单，请通过 IPC 发送所需的信息到主过程，并让主过程代替渲染器显示菜单。
 </p>
 
 <p spaces-before="0">
-  Below is an example of showing a menu when the user right clicks the page:
+  以下是用户右键单击页面时显示菜单的示例：
 </p>
 
 <pre><code class="js">// renderer
@@ -415,7 +415,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </h3>
 
 <p spaces-before="0">
-  在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 <code> Info. plist </code> 文件。 See <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html" f-id="AboutInformationPropertyListFiles" lbb="2" fo="1">About Information Property List Files</a> for more information.
+  在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 <code> Info. plist </code> 文件。 详情参阅：<a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html" f-id="AboutInformationPropertyListFiles" lbb="2" fo="1">About Information Property List Files</a>
 </p>
 
 
@@ -425,7 +425,7 @@ ipcMain.on('show-context-menu', (event) =&gt; {
 </h2>
 
 <p spaces-before="0">
-  The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"><code>setMenu</code> method</a> of browser windows can set the menu of certain browser windows.
+  浏览器窗口的 <a href="browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"> <code> setMenu </code> 方法 </a> 可以设置特定浏览器窗口的菜单。
 </p>
 
 
@@ -451,12 +451,12 @@ ipcMain.on('show-context-menu', (event) =&gt; {
   </li>
   <li>
     <p spaces-before="0">
-      <code>beforeGroupContaining</code> - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+      <code>beforeGroupContaining</code> - 为单个上下文菜单提供一种方法，用于在具有指定标签项的包含组之前声明其包含组的位置
     </p>
   </li>
   <li>
     <p spaces-before="0">
-      <code>afterGroupContaining</code> - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+      <code>afterGroupContaining</code> - 为单个上下文菜单提供一种方法，用于在具有指定标签项的包含组之后声明其包含组的位置
     </p>
   </li>
 </ul>

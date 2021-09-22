@@ -150,7 +150,7 @@ client
 
 ## Workflow
 
-Pour tester votre application sans re-compiler Electron, il suffit de [placer](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la source de votre app dans le dossier des ressources d'Electron.
+Pour tester votre application sans re-compiler Electron, il suffit de [placer](application-distribution.md) la source de votre app dans le dossier des ressources d'Electron.
 
 Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
 

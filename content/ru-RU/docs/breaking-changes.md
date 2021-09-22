@@ -12,14 +12,6 @@
 * **Устарело:** API был помечен как устаревший. API продолжит функционировать, но будет появляться предупреждающее сообщение о том, что API будет удален в будущем релизе.
 * **Удалено:** API или функция была удалена и больше не поддерживается Electron.
 
-## Запланированные критические изменения API (15.0)
-
-### Default Changed: `nativeWindowOpen` defaults to `true`
-
-Prior to Electron 15, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen: true` is no longer experimental, and is now the default.
-
-See the documentation for [window.open in Electron](api/window-open.md) for more details.
-
 ## Запланированные критические изменения API (14.0)
 
 ### Removed: `remote` module
@@ -55,14 +47,20 @@ The `app.allowRendererProcessReuse` property will be removed as part of our plan
 
 Необязательный параметр `frameName` больше не устанавливает название окна. Теперь это следует спецификации, описанной в [документации](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) в соответствии с параметром `windowName`.
 
-Если вы использовали этот параметр, чтобы задать заголовок окна, вы можете использовать [win.setTitle(title)](https://www.electronjs.org/docs/api/browser-window#winsettitletitle).
+Если вы использовали этот параметр, чтобы задать заголовок окна, вы можете использовать [win.setTitle(title)](api/browser-window.md#winsettitletitle).
 
 ### Удален: `worldSafeExecuteJavaScript`
 
-В Electron 14 `worldSafeExecuteJavaScript` будет удален. Альтернатива отсутствует, пожалуйста, убедитесь, что в вашем коде данный параметр включен. Он был включен в Electron по умолчанию
+В Electron 14 `worldSafeExecuteJavaScript` будет удален.  Альтернатива отсутствует, пожалуйста, убедитесь, что в вашем коде данный параметр включен.  Он был включен в Electron по умолчанию
 12.
 
-You will be affected by this change if you use either `webFrame.executeJavaScript` or `webFrame.executeJavaScriptInIsolatedWorld`. You will need to ensure that values returned by either of those methods are supported by the [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support) as these methods use the same value passing semantics.
+На вас повлияет это изменение, если вы используете либо `webFrame.executeJavaScript` или `webFrame.executeJavaScriptInIsolatedWorld`. Вам нужно будет убедиться, что значения, возвращаемые одним из этих методов, поддерживаются [Context Bridge API](api/context-bridge.md#parameter--error--return-type-support), поскольку эти методы используют одинаковую семантику значения.
+
+### Default Changed: `nativeWindowOpen` defaults to `true`
+
+Prior to Electron 14, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen` is no longer experimental, and is now the default.
+
+See the documentation for [window.open in Electron](api/window-open.md) for more details.
 
 ### Removed: BrowserWindowConstructorOptions inheriting from parent windows
 
@@ -106,34 +104,34 @@ webContents.on('did-create-window', (window, details) => {
 
 ### Изменения в API: `session.setPermissionCheckHandler(handler)`
 
-The `handler` methods first parameter was previously always a `webContents`, it can now sometimes be `null`.  You should use the `requestingOrigin`, `embeddingOrigin` and `securityOrigin` properties to respond to the permission check correctly.  As the `webContents` can be `null` it can no longer be relied on.
+Первым параметром `handler` был ранее всегда `webContents`, теперь он иногда может быть `null`.  Вы должны использовать `requestingOrigin`, `embeddingOrigin` и `securityOrigin` свойства для правильного ответа на проверку.  Так как `webContents` может быть `null` больше, на него нельзя полагаться.
 
 ```js
-// Old code
+// Старый код
 session.setPermissionCheckHandler((webContents, permission) => {
-  if (webContents.getURL().startsWith('https://google.com/') && permission === 'notification') {
+  if (webContents.getURL().startsWith('https://google. om/') && permission === 'notification') {
     return true
   }
-  return false
+  возвращает false
 })
 
-// Replace with
-session.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
-  if (new URL(requestingOrigin).hostname === 'google.com' && permission === 'notification') {
+// Заменить на
+сессию. etPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+  if (new URL(requestingOrigin). ostname === 'google.com' && permission === 'notification') {
     return true
   }
-  return false
+  возвращает false
 })
 ```
 
 ### Удален: `shell.moveItemToTrash()`
 
-The deprecated synchronous `shell.moveItemToTrash()` API has been removed. Use the asynchronous `shell.trashItem()` instead.
+Удален устаревший синхронный `shell.moveItemToTrash()` API. Вместо этого используйте асинхронный `shell.trashItem()`.
 
 ```js
-// Removed in Electron 13
+// Удалён в Electron 13
 shell.moveItemToTrash(path)
-// Replace with
+// Замена на
 shell.trashItem(path).then(/* ... */)
 ```
 
@@ -148,33 +146,33 @@ shell.trashItem(path).then(/* ... */)
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Использовать API сессии:
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
 * `ses.getAllExtensions()`
 
 ```js
-// Removed in Electron 13
+// Удален в Electron 13
 BrowserWindow.addExtension(path)
 BrowserWindow.addDevToolsExtension(path)
-// Replace with
+// Заменить
 session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
-BrowserWindow.removeExtension(name)
-BrowserWindow.removeDevToolsExtension(name)
-// Replace with
-session.defaultSession.removeExtension(extension_id)
+// Удален в Electron 13
+BrowserWindow.addExtension(path)
+BrowserWindow.addDevToolsExtension(path)
+// Заменить
+session.defaultSession.loadExtension(path)
 ```
 
 ```js
-// Removed in Electron 13
+// Удален в Electron 13
 BrowserWindow.getExtensions()
 BrowserWindow.getDevToolsExtensions()
-// Replace with
+// Заменить
 session.defaultSession.getAllExtensions()
 ```
 
@@ -183,7 +181,7 @@ session.defaultSession.getAllExtensions()
 Следующие `systemPreferences` были устаревшими:
 
 * `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Используйте следующие свойства `nativeTheme` вместо этого:
@@ -193,33 +191,33 @@ session.defaultSession.getAllExtensions()
 * `nativeTheme.shouldUseHighContrastColors`
 
 ```js
-// Removed in Electron 13
+// Удалён в Electron 13
 systemPreferences.isDarkMode()
-// Replace with
+// Заменить на
 nativeTheme.shouldUseDarkColors
 
-// Removed in Electron 13
-systemPreferences.isInvertedColorScheme()
-// Replace with
+// Удалён в Electron 13
+systemPreferences. sInvertedColorScheme()
+// Заменить на
 nativeTheme.shouldUseInvertedColorScheme
 
-// Removed in Electron 13
+// Удалено в Electron 13
 systemPreferences.isHighContrastColorScheme()
-// Replace with
+// Заменить на
 nativeTheme.shouldUseHighContrastColors
 ```
 
 ### Устарело: WebContents `new-window` событие
 
-The `new-window` event of WebContents has been deprecated. It is replaced by [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
+Событие `new-window` сетевого контента является устаревшим. Заменяется на [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
-// Deprecated in Electron 13
+// Устарел в Electron 13
 webContents.on('new-window', (event) => {
-  event.preventDefault()
+  событие. reventDefault()
 })
 
-// Replace with
+// Заменить на
 webContents.setWindowOpenHandler((details) => {
   return { action: 'deny' }
 })
@@ -233,7 +231,7 @@ Chromium удалил поддержку Flash, и поэтому мы долж�
 
 ### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
-In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+В Electron 12, `worldSafeExecuteJavaScript` будет включен по умолчанию.  Чтобы восстановить предыдущее поведение, в WebPreferences должен быть определен `worldSafeExecuteJavaScript: false`. Обратите внимание, что установливать этого параметр в `false` **небезопасно**.
 
 This option will be removed in Electron 14 so please migrate your code to support the default value.
 
@@ -241,11 +239,11 @@ This option will be removed in Electron 14 so please migrate your code to suppor
 
 ` `  ` `
 
-We [recommend having contextIsolation enabled](https://github.com/electron/electron/blob/master/docs/tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
+We [recommend having contextIsolation enabled](tutorial/security.md#3-enable-context-isolation-for-remote-content) for the security of your application.
 
 Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
-For more details see: https://github.com/electron/electron/issues/23506
+Подробнее см.: https://github.com/electron/electron/issues/23506
 
 ### Удален: `crashReporter.getCrashesDirectory()`
 
@@ -451,7 +449,7 @@ The following extension APIs have been deprecated:
 * `BrowserWindow.getExtensions()`
 * `BrowserWindow.getDevToolsExtensions()`
 
-Use the session APIs instead:
+Использовать API сессии:
 
 * `ses.loadExtension(path)`
 * `ses.removeExtension(extension_id)`
@@ -607,7 +605,7 @@ nativeTheme.on('updated', () => { /* ... */ })
 Следующие `systemPreferences` были устаревшими:
 
 * `systemPreferences.isDarkMode()`
-* `systemPreferences.isInvertedColorScheme()`
+* `systemPreferences.isvertedColorScheme()`
 * `systemPreferences.isHighContrastColorScheme()`
 
 Используйте следующие свойства `nativeTheme` вместо этого:
@@ -722,7 +720,7 @@ In Electron 7, this now returns a `FileList` with a `File` object for:
 /path/to/folder/file1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Changed: Callback-based versions of promisified APIs
 

@@ -205,6 +205,7 @@ dialog.showOpenDialog(mainWindow, {
   * `type` String (任意) - `"none"`、`"info"`、`"error"`、`"question"`、`"warning"` にすることができます。 Windowsでは、`"icon"` のオプションを使用してアイコンを設定しない場合、`"question"` は、`"info"` と同じアイコンを表示します。 macOSでは、`"warning"` と `"error"` の両方で同じ警告アイコンを表示します。
   * `buttons` String[]&#32;(任意) - ボタン用テキストの配列。 Windows では、空の配列は 1 つの "OK" ボタンになります。
   * `defaultId` Integer (任意) - メッセージボックスを開いたとき、既定で選択されるボタンの配列の中のボタンのインデックス。
+  * `signal` AbortSignal (optional) - Pass an instance of [AbortSignal][] to optionally close the message box, the message box will behave as if it was cancelled by the user. On macOS, `signal` does not work with message boxes that do not have a parent window, since those message boxes run synchronously due to platform limitations.
   * `title` String (任意) - メッセージボックスのタイトル。いくつかのプラットフォームでは表示されません。
   * `detail` String (任意) - メッセージの追加情報。
   * `checkboxLabel` String (任意) - 指定した場合、メッセージボックスには、指定したラベルを持つチェックボックスが含まれます。
@@ -264,3 +265,5 @@ Windowsでは、使用されているWin32 APIのため、オプションはよ�
 macOS では、`browserWindow` パラメータに [`BrowserWindow`](browser-window.md) の参照を指定した場合、ダイアログは、ウインドウにアタッチされたシートとして表示されます。ウインドウを指定しない場合、モーダルで表示されます。
 
 `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` を呼び出すことで、シートがアタッチされるウインドウフレームからのオフセットを変更することができます。
+
+[AbortSignal]: https://nodejs.org/api/globals.html#globals_class_abortsignal

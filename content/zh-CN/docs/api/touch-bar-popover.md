@@ -2,7 +2,7 @@
 
 > 为macOS原生应用在触摸栏中创建一个弹出控件
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 ### `new TouchBarPopover(options)`
 

@@ -5,9 +5,9 @@
 * `target=_blank` が付加された、リンクのクリックやフォームの送信
 * JavaScript での `window.open()` 呼び出し
 
-サンドボックス化されていないレンダラーや `nativeWindowOpen` が false (既定値) の場合、[`BrowserWindowProxy`](browser-window-proxy.md) という `BrowserWindow` の軽いラッパーが作成されます。
+For same-origin content, the new window is created within the same process, enabling the parent to access the child window directly. This can be very useful for app sub-windows that act as preference panels, or similar, as the parent can render to the sub-window directly, as if it were a `div` in the parent. This is the same behavior as in the browser.
 
-しかし、`sandbox` (または `nativeWindowOpen` に直接) オプションが設定されている場合、ブラウザーで期待されるような `Window` インスタンスが作成されます。 同一オリジンコンテンツの場合、新しいウィンドウは同じプロセス内で作成され、親が子ウィンドウに直接アクセスできるようになります。 これは親ウインドウ内の `div` であるかのようにできるため、設定パネルとして機能するアプリのサブウインドウなどで非常に便利です。
+When `nativeWindowOpen` is set to false, `window.open` instead results in the creation of a [`BrowserWindowProxy`](browser-window-proxy.md), a light wrapper around `BrowserWindow`.
 
 Electron は、このネイティブの Chrome `Window` と BrowserWindow をペアリングします。 レンダラーで作成されたウインドウに対して `webContents.setWindowOpenHandler()` を使用することで、メインプロセスでの BrowserWindow 作成と同じすべてのカスタマイズを活用できます。
 
@@ -39,47 +39,16 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 * `features` で指定された非標準機能 (Chromium や Electron によって処理されない) は、`options` 引数内の登録された `webContents` の `did-create-window` イベントハンドラに渡されます。
 * `frameName` は、[ネイティブのドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) にある `windowName` の仕様に従います。
 
-ウインドウの作成をカスタマイズまたはキャンセルするにあたって、メインプロセスから `webContents.setWindowOpenHandler()` でオーバーライドハンドラーを任意設定できます。 `false` を返すとそのウインドウをキャンセルし、オブジェクトを返すとそのウインドウ作成時に使用する `BrowserWindowConstructorOptions` に返したオブジェクトを設定します。 これは、オプションを features 文字列に渡すよりも強力であることに注意しましょう。 レンダラーがセキュリティ設定を決定する場合は、メインプロセスよりも権限が制限されています。
-
-### `BrowserWindowProxy` のサンプル
-
-```javascript
-
-// main.js
-const mainWindow = new BrowserWindow()
-
-mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-  if (url.startsWith('https://github.com/')) {
-    return { action: 'allow' }
-  }
-  return { action: 'deny' }
-})
-
-mainWindow.webContents.on('did-create-window', (childWindow) => {
-  // 例えば...
-  childWindow.webContents.on('will-navigate', (e) => {
-    e.preventDefault()
-  })
-})
-```
-
-```javascript
-// renderer.js
-const windowProxy = window.open('https://github.com/', null, 'minimizable=false')
-windowProxy.postMessage('hi', '*')
-```
+ウインドウの作成をカスタマイズまたはキャンセルするにあたって、メインプロセスから `webContents.setWindowOpenHandler()` でオーバーライドハンドラーを任意設定できます。 Returning `{ action: 'deny' }` cancels the window. Returning `{
+action: 'allow', overrideBrowserWindowOptions: { ... } }` will allow opening the window and setting the `BrowserWindowConstructorOptions` to be used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
 
 ### ネイティブの `Window` のサンプル
 
 ```javascript
 // main.js
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    nativeWindowOpen: true
-  }
-})
+const mainWindow = new BrowserWindow()
 
-// この例では、URL が `about:blank` であるウインドウのみが作成されます。
+// In this example, only windows with the `about:blank` url will be created.
 // ほかのすべての URL はブロックされます。
 mainWindow.webContents.setWindowOpenHandler(({ url }) => {
   if (url === 'about:blank') {
@@ -103,4 +72,34 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 // レンダラープロセス (mainWindow)
 const childWindow = window.open('', 'modal')
 childWindow.document.write('<h1>Hello</h1>')
+```
+
+### `BrowserWindowProxy` のサンプル
+
+```javascript
+
+// main.js
+const mainWindow = new BrowserWindow({
+  webPreferences: { nativeWindowOpen: false }
+})
+
+mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  if (url.startsWith('https://github.com/')) {
+    return { action: 'allow' }
+  }
+  return { action: 'deny' }
+})
+
+mainWindow.webContents.on('did-create-window', (childWindow) => {
+  // For example...
+  childWindow.webContents.on('will-navigate', (e) => {
+    e.preventDefault()
+  })
+})
+```
+
+```javascript
+// renderer.js
+const windowProxy = window.open('https://github.com/', null, 'minimizable=false')
+windowProxy.postMessage('hi', '*')
 ```

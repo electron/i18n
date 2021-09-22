@@ -2,7 +2,7 @@
 
 > session のアクティブなサービスワーカーからのイベントを問い合わせて受信します。
 
-プロセス: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 `ServiceWorkers` クラスのインスタンスは、`Session` の `serviceWorkers` プロパティを使用してアクセスします。
 

@@ -46,7 +46,7 @@ Returns `Session` - 根据`partition`字符串产生的session实例。 当这�
 
 > 获取和设置Session的属性。
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 你可以创建一个 `Session`对象在`session`模块中。
 
@@ -76,8 +76,8 @@ console.log(ses.getUserAgent())
 const { session } = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
-  require('request')(item.getURL(), (data) => {
-    require('fs').writeFileSync('/somewhere', data)
+  require('got')(item.getURL()).then((response) => {
+    require('fs').writeFileSync('/somewhere', response.body)
   })
 })
 ```

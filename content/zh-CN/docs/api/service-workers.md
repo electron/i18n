@@ -2,7 +2,7 @@
 
 > Query and receive events from a sessions active service workers.
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
 通过`Session`的`serviceWorkers`属性来访问`ServiceWorkers`的实例
 

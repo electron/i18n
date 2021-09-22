@@ -2,16 +2,16 @@
 
 > 控制来自于远程资源的文件下载。
 
-进程：[主进程](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
-`DownloadItem` is an [EventEmitter][event-emitter] that represents a download item in Electron. 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
+`DownloadItem` 是一个 [EventEmitter][event-emitter] 事件触发器，在Electron中代表一个下载项。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程中.
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // 无需对话框提示， 直接将文件保存到路径
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {

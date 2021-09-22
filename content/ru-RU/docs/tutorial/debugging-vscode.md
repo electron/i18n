@@ -44,7 +44,7 @@ $ code electron-quick-start
 
 Если вы хотите собрать Electron из исходного кода и модифицировать его, данный раздел поможет тестировать ваши изменения.
 
-Для тех, кто не знает, где получить или как собрать его, [Electron Build Tools](https://github.com/electron/build-tools) автоматизирует и объясняет большую часть этого процесса. Если вы хотите самостоятельно настроить окружение, вы можете использовать эти [инструкции по сборке](https://www.electronjs.org/docs/development/build-instructions-gn).
+Для тех, кто не знает, где получить или как собрать его, [Electron Build Tools](https://github.com/electron/build-tools) автоматизирует и объясняет большую часть этого процесса. Если вы хотите самостоятельно настроить окружение, вы можете использовать эти [инструкции по сборке](../development/build-instructions-gn.md).
 
 ### Windows (C++)
 
@@ -88,7 +88,7 @@ $ code electron-quick-start
 * `cppvsdbg` требует включённого [встроенного расширения C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 * `${workspaceFolder}` – это полный путь к каталогу `src` Chromium.
 * `your-executable-location` будет одним из следующих, в зависимости от нескольких пунктов:
-  * `Testing`: Если вы используете стандартные настройки [Electron Build Tools](https://github.com/electron/build-tools) или полностью следуете [инструкции по сборке](https://www.electronjs.org/docs/development/build-instructions-gn#building).
+  * `Testing`: Если вы используете стандартные настройки [Electron Build Tools](https://github.com/electron/build-tools) или полностью следуете [инструкции по сборке](../development/build-instructions-gn.md#building).
   * `Release`: Если вы собирали release-версию, а не testing.
   * `your-directory-name`: Если вы изменили его во время сборки, оно будет таким, каким вы его указали.
 * Массив `args` должен содержать строки `your-electron-project-path`, которые являются абсолютными путями до каждой директории или `main.js` файла проекта, который вы хотели бы протестировать. В данном примере в нём должен быть путь до `electron-quick-start`.
