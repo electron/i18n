@@ -24,7 +24,7 @@
   * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. 默认值为 true。
   * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
@@ -77,11 +77,11 @@ The following additional roles are available on _macOS_:
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
 * ` hide `-映射到 ` hide ` 操作.
 * ` hideOthers `-映射到 ` hideOtherApplications ` 操作.
-* `unhide` - Map to the `unhideAllApplications` action.
+* `unhide` - 映射到 `unhideAllApplications` 动作
 * ` startSpeaking `-映射到 ` startSpeaking ` 操作.
 * ` stopSpeaking `-映射到 ` stopSpeaking ` 操作.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* `front` - 映射到 `arrangeInFront` 动作
+* `zoom` - 映射到 `performZoom` 动作
 * ` toggleTabBar `-映射到 ` toggleTabBar ` 操作.
 * ` selectNextTab ` - 映射到 ` selectNextTab ` 操作.
 * ` selectPreviousTab ` - 映射到 ` selectPreviousTab ` 操作.
@@ -108,11 +108,11 @@ The following additional roles are available on _macOS_:
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label.
+一个表示菜单项标签的 `String`
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+MenuItem接收到点击事件后自动触发的方法 `Function` 。 调用方法为 `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
@@ -120,11 +120,11 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.submenu`
 
-A `Menu` (optional) containing the menu item's submenu, if present.
+A `Menu` (可选) 指定子菜单
 
 #### `menuItem.type`
 
-`String` 表示菜单项的类型 Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+`String` 表示菜单项的类型 可以是 `normal`, `separator`, `submenu`, `checkbox` 或 `radio`.
 
 #### `menuItem.role`
 
@@ -142,15 +142,15 @@ An `Accelerator | null` indicating the item's [user-assigned accelerator](https:
 
 #### `menuItem.icon`
 
-A `NativeImage | String` (optional) indicating the item's icon, if set.
+`NativeImage | String` (可选) 若设置， 则从对应的值中找选项图标
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel.
+`String` 表明选项的子标签
 
 #### `menuItem.toolTip` _macOS_
 
-A `String` indicating the item's hover text.
+`String` 选项的悬停文本内容
 
 #### `menuItem.enabled`
 
@@ -172,7 +172,7 @@ A `String` indicating the item's hover text.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed.
+通过 `Boolean`表明快捷键跟随系统注册还是仅仅展示出来
 
 此属性可以动态更改。
 
