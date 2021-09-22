@@ -2,7 +2,7 @@
 
 > HTTP/HTTPSリクエストに対するレスポンスを処理します。
 
-Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+プロセス: [メイン](../glossary.md#main-process)<br /> _このクラスは `'electron'` モジュールからはエクスポートされません。 Electron API では、他のメソッドの戻り値としてのみ利用できます。_
 
 `IncomingMessage` は [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) インターフェースを実装しているため、[EventEmitter][event-emitter] です。
 
