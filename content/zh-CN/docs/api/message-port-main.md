@@ -1,6 +1,6 @@
 # MessagePortMain
 
-`MessagePortMain` is the main-process-side equivalent of the DOM [`MessagePort`][] object. It behaves similarly to the DOM version, with the exception that it uses the Node.js `EventEmitter` event system, instead of the DOM `EventTarget` system. 这意味着你应该用 `port.on('message', ...)` 来监听事件, 来代替 `port.onmessage = ...` 或 `port.addEventListener('message', ...)`
+`MessagePortMain` 是 DOM [`MessagePort`][] 对象的主进程等价对象。 它的行为类似于DOM版本，不同的是它使用 Node.js `EventEmitter` 事件系统，而不是 DOM `EventTarget` 系统。 这意味着你应该用 `port.on('message', ...)` 来监听事件, 来代替 `port.onmessage = ...` 或 `port.addEventListener('message', ...)`
 
 关于 channel 消息的使用文档详见 [Channel Messaging API][]
 
