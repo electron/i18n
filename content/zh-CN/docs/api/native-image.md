@@ -135,19 +135,19 @@ console.log(image)
 
 返回 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+从 `buffer` 中创建一个新的 `NativeImage` 实例，其中包含由 `toBitmap()`返回的原始位图 像素数据。 具体格式取决于平台。
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
 * `options` Object (可选)
-  * `width` Integer (optional) - Required for bitmap buffers.
-  * `height` Integer (optional) - Required for bitmap buffers.
+  * `width` Integer (可选) - 位图缓冲器所必需
+  * `height` Integer (可选) - 位图缓冲器所必需
   * `scaleFactor` Double (可选) - 默认1.0
 
 返回 `NativeImage`
 
-从 `buffer ` 创建新的 ` NativeImage ` 实例。 Tries to decode as PNG or JPEG first.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。 尝试先解码为 PNG 或 JPEG
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -164,7 +164,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 返回 `NativeImage`
 
-从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 可用值列表详见 [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/)
 
 使用以下规则将`hslShift`应用于图像:
 
