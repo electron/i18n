@@ -1,10 +1,10 @@
 # safeStorage
 
-> Allows access to simple encryption and decryption of strings for storage on the local machine.
+> 文字列をローカルマシンに保管するにあたって簡単な暗号化と復号へのアクセスを可能にします。
 
 プロセス: [Main](../glossary.md#main-process)
 
-This module protects data stored on disk from being accessed by other applications or users with full disk access.
+このモジュールは、ディスクに保存されたデータを、フルディスクアクセス権のある他のアプリケーションやユーザのアクセスから保護します。
 
 Note that on Mac, access to the system Keychain is required and these calls can block the current thread to collect user input. The same is true for Linux, if a password management tool is available.
 
