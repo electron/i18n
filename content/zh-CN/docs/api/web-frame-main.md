@@ -99,7 +99,7 @@ The renderer process can handle the message by listening to `channel` with the [
 
 * `channel` String
 * `message` any
-* `transfer` MessagePortMain[] (optional)
+* `transfer` MessagePortMain[] (可选)
 
 Send a message to the renderer process, optionally transferring ownership of zero or more [`MessagePortMain`][] objects.
 
