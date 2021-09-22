@@ -122,7 +122,7 @@ async function lookupTargetId (browserWindow) {
 
 * `event` Event
 
-Emitted when the document in the top-level frame is loaded.
+最上位フレームの document が読み込まれたときに発生します。
 
 #### イベント: 'page-title-updated'
 
@@ -405,8 +405,8 @@ Webページが応答しなくなるときに発生します。
   * `control` Boolean - [KeyboardEvent.controlKey][keyboardevent] と等価です。
   * `alt` Boolean - [KeyboardEvent.altKey][keyboardevent] と等価です。
   * `meta` Boolean - [KeyboardEvent.metaKey][keyboardevent] と等価です。
-  * `location` Number - Equivalent to [KeyboardEvent.location][keyboardevent].
-  * `modifiers` String[] - See [InputEvent.modifiers](structures/input-event.md).
+  * `location` Number - [KeyboardEvent.location][keyboardevent] と同等。
+  * `modifiers` String[] - [InputEvent.modifiers](structures/input-event.md) をご参照ください。
 
 ページ内の `keydown` と `keyup` イベントが発生する直前に発行されます。 `event.preventDefault` を呼ぶと、ページの `keydown`/`keyup` イベントとメニューショートカットを阻害します。
 
@@ -758,7 +758,7 @@ win.loadURL('http://github.com')
 
 このイベントは、`webPreferences` で `enablePreferredSizeMode` が `true` に設定されている場合にのみ発生します。
 
-#### Event: 'frame-created'
+#### イベント: 'frame-created'
 
 戻り値：
 
@@ -766,7 +766,7 @@ win.loadURL('http://github.com')
 * `details` Object
   * `frame` WebFrameMain
 
-Emitted when the [mainFrame](web-contents.md#contentsmainframe-readonly), an `<iframe>`, or a nested `<iframe>` is loaded within the page.
+[mainFrame](web-contents.md#contentsmainframe-readonly)、`<iframe>`、ネストした `<iframe>` がページ内に読み込まれると発生します。
 
 ### インスタンスメソッド
 
@@ -1722,9 +1722,9 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 * `policy` String - `animate`、`animateOnce` か `noAnimation` にできます。
 
-Sets the image animation policy for this webContents.  The policy only affects _new_ images, existing images that are currently being animated are unaffected. This is a known limitation in Chromium, you can force image animation to be recalculated with `img.src = img.src` which will result in no network traffic but will update the animation policy.
+この webContents の画像アニメーションポリシーを設定します。  このポリシーは _新しく読み込まれた_ 画像にのみ適用され、現在アニメーションを行っている既存の画像は影響を受けません。 これは Chromium の既知の制限で、`img.src = img.src` とすることで画像のアニメーションを強制的に再計算させられます。この場合、ネットワークトラフィックは発生しませんが、アニメーションポリシーが更新されます。
 
-This corresponds to the [animationPolicy][] accessibility feature in Chromium.
+これは、Chromium のアクセシビリティ機能である [animationPolicy][] に対応します。
 
 ### インスタンスプロパティ
 
