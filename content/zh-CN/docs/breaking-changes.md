@@ -942,7 +942,7 @@ console.log(factor)
 
 ## 计划重写的 API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+以下列表包含了Electron4.0中重大的API更新
 
 ### `app.makeSingleInstance`
 
