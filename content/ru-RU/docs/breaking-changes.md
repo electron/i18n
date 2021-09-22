@@ -212,12 +212,12 @@ nativeTheme.shouldUseHighContrastColors
 Событие `new-window` сетевого контента является устаревшим. Заменяется на [`webContents.setWindowOpenHandler()`](api/web-contents.md#contentssetwindowopenhandlerhandler).
 
 ```js
-// Deprecated in Electron 13
+// Устарел в Electron 13
 webContents.on('new-window', (event) => {
-  event.preventDefault()
+  событие. reventDefault()
 })
 
-// Replace with
+// Заменить на
 webContents.setWindowOpenHandler((details) => {
   return { action: 'deny' }
 })
@@ -231,7 +231,7 @@ Chromium удалил поддержку Flash, и поэтому мы долж�
 
 ### Default Changed: `worldSafeExecuteJavaScript` defaults to `true`
 
-In Electron 12, `worldSafeExecuteJavaScript` will be enabled by default.  To restore the previous behavior, `worldSafeExecuteJavaScript: false` must be specified in WebPreferences. Please note that setting this option to `false` is **insecure**.
+В Electron 12, `worldSafeExecuteJavaScript` будет включен по умолчанию.  Чтобы восстановить предыдущее поведение, в WebPreferences должен быть определен `worldSafeExecuteJavaScript: false`. Обратите внимание, что установливать этого параметр в `false` **небезопасно**.
 
 This option will be removed in Electron 14 so please migrate your code to support the default value.
 
@@ -243,7 +243,7 @@ We [recommend having contextIsolation enabled](tutorial/security.md#3-enable-con
 
 Another implication is that `require()` cannot be used in the renderer process unless `nodeIntegration` is `true` and `contextIsolation` is `false`.
 
-For more details see: https://github.com/electron/electron/issues/23506
+Подробнее см.: https://github.com/electron/electron/issues/23506
 
 ### Удален: `crashReporter.getCrashesDirectory()`
 
