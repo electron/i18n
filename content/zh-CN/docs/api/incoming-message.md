@@ -18,7 +18,7 @@ Process: [Main](../glossary.md#main-process)<br /> _This class is not exported f
 
 #### Event: 'end'
 
-指示响应正文已结束。 Must be placed before 'data' event.
+指示响应正文已结束。 必须在 'data' 事件之前放置。
 
 #### Event: 'aborted'
 
@@ -46,13 +46,13 @@ Process: [Main](../glossary.md#main-process)<br /> _This class is not exported f
 
 #### `response.headers`
 
-A `Record<string, string | string[]>` representing the HTTP response headers. The `headers` object is formatted as follows:
+A `Record<string, string | string[]>` 代表HTTP响应头。 `headers`对象格式如下：
 
 * 所有的头文件名是小写的。
-* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`, `max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.
-* `set-cookie` is always an array. Duplicates are added to the array.
-* For duplicate `cookie` headers, the values are joined together with '; '.
-* For all other headers, the values are joined together with ', '.
+* 以下 header 名均不可重复定义： <br/> `age`, `authorization`, <br/> `content-length`, `content-type`, <br/> `etag`, `expires`, <br/> `from`, <br/> `host`, <br/> `if-modified-since`, `if-unmodified-since`, <br/> `last-modified`, `location`, <br/> `max-forwards`, <br/> `proxy-authorization`, <br/> `referer`,`retry-after`, <br/> `server`, <br/> `user-agent`
+* `set-cookie` 永远是一个数组。 重复项被添加到数组内。
+* 对于重复的 `cookie` 头，对应的值会用 '; ' 连接
+* 所有其他 header 的值通过 ',' 连接
 
 #### `response.httpVersion`
 
