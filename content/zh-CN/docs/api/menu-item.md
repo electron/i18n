@@ -21,19 +21,19 @@
   * `accelerator` [Accelerator](accelerator.md) (可选)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
-  * `acceleratorWorksWhenHidden` Boolean (optional) _macOS_ - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `acceleratorWorksWhenHidden` Boolean (可选) _macOS_ - 默认为 `true`, 当为 `false` 时将阻止隐藏按钮通过快捷键触发。
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `registerAccelerator` Boolean (optional) _Linux_ _Windows_ - If false, the accelerator won't be registered with the system, but it will still be displayed. 默认值为 true。
-  * `sharingItem` SharingItem (optional) _macOS_ - The item to share when the `role` is `shareMenu`.
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `before` String[] (optional) - Inserts this item before the item with the specified label. 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
+  * `registerAccelerator` Boolean (可选) _Linux_ _Windows_ - 若为 false, 则快捷键将不会被注册到系统内，但还是会显示出来。 默认值为 true。
+  * `sharingItem` SharingItem (可选) _macOS_ - 当 `role` 为 `shareMenu`时指定要分享的项
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (可选) - 应该是固定类型菜单`submenu` 如果指定 `submenu` ，可以省略 `type: 'submenu'` 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
+  * `id` String (可选) - 单个菜单内唯一。 若定义，则可以通过 position 位置属性找到此选项
+  * `before` String[] (可选) - 在指定标签项前插入此项 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
   * `after` String[] (可选) - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
+**注意:** `acceleratorWorksWhenHidden` 这个选项只有 macOS 生效，因为在 Windows 和 Linux 系统下快捷键即使在隐藏情况下也会生效。 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
 
 ### 角色
 
@@ -43,12 +43,12 @@
 
 使用 ` role ` 时, ` label ` 和 ` accelerator ` 值是可选的, 并为每个平台，将默认为适当值。
 
-Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
+每个菜单项必须有一个 `role`, `label`, 或者一个分隔符一个 `type`
 
 `role ` 属性可以具有以下值:
 
 * `undo - 撤销。`
-* `about` - Trigger a native about panel (custom message box on Window, which does not provide its own).
+* `about` - 触发原生信息面板 (在 Window 中自定义消息盒子, 本身不提供).
 * `redo`
 * `cut -  剪切。`
 * `copy - 复制。`
@@ -72,9 +72,9 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `viewMenu` - 默认的“视图”菜单（包括重新加载、开发者工具等）
 * `windowMenu` - 默认的“窗口”菜单（包括最小化、缩放等）
 
-The following additional roles are available on _macOS_:
+以下其他角色可在 _macOS_ 上找到：
 
-* `appMenu` - Whole default "App" menu (About, Services, etc.)
+* `appMenu` - 整个默认"App" menu (About, Services, 等)
 * ` hide `-映射到 ` hide ` 操作.
 * ` hideOthers `-映射到 ` hideOtherApplications ` 操作.
 * `unhide` - 映射到 `unhideAllApplications` 动作
@@ -89,7 +89,7 @@ The following additional roles are available on _macOS_:
 * ` moveTabToNewWindow ` - 映射到 ` moveTabToNewWindow ` 操作.
 * `window` - 这个子菜单是"Window" 菜单.
 * ` help `-这个子菜单是 "Help" 菜单.
-* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `services` - 子菜单是 ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) 菜单。 This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * ` recentDocuments `-这个子菜单是 "Open Recent" 菜单.
 * `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
 * `shareMenu` - The submenu is [share menu][ShareMenu]. The `sharingItem` property must also be set to indicate the item to share.
@@ -178,7 +178,7 @@ An `Accelerator | null` indicating the item's [user-assigned accelerator](https:
 
 #### `menuItem.sharingItem` _macOS_
 
-`SharingItem` 表示了当 `role` 是 `shareMenu` 时要分享的项目。
+`SharingItem` 表示了当 `role` 是 `shareMenu` 时要分享的项。
 
 此属性可以动态更改。
 
