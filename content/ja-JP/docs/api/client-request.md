@@ -2,7 +2,7 @@
 
 > HTTP/HTTPリクエストを行います。
 
-Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+プロセス: [メイン](../glossary.md#main-process)<br /> _このクラスは `'electron'` モジュールからはエクスポートされません。 Electron API では、他のメソッドの戻り値としてのみ利用できます。_
 
 `ClientRequest` は [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) インターフェースを実装しているため、 [EventEmitter][event-emitter] です。
 
