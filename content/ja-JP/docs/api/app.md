@@ -582,7 +582,7 @@ _Linux_ と _macOS_ の場合、アイコンはファイルのMIMEタイプに�
 
 戻り値 `String` - 現在のアプリケーションのロケールで、Chromium の `l10n_util` ライブラリを用いて取得されます。 取りうる戻り値については [こちら](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc) にドキュメントがあります。
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](command-line-switches.md).
+ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](command-line-switches.md) を参照してください。
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
