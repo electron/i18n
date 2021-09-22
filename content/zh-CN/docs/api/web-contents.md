@@ -1477,7 +1477,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 发送 Functions, Promises, Symbols, WeakMaps, 或 WeakSets 将抛出异常
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1520,7 +1520,7 @@ app.whenReady().then(() => {
 
 Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
 
-> **NOTE:** Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
+> **注意：** 发送非标准的 JavaScript 类型，如DOM 对象或特殊Electron 对象将会抛出异常。
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
