@@ -6,7 +6,7 @@
 
 Windows では、タスクバーのボタンにプログレスバーを表示できます。
 
-!\[Windows Progress Bar\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
+!\[Windows プログレスバー\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
 
 macOS では、Dock のアイコンの一部としてプログレスバーを表示します。
 
