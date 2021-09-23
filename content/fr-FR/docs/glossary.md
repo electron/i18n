@@ -114,7 +114,7 @@ Voir aussi : [processus](#process), [processus principal](#main-process)
 
 ### mode bac à sable
 
-The sandbox is a security feature inherited from Chromium that restricts your renderer processes to a limited set of permissions.
+Le bac à sable est une fonctionnalité de sécurité héritée de Chromium qui limite vos processus de rendu à un ensemble limité d'autorisations.
 
 For more information, read the [Process Sandboxing][] tutorial.
 
