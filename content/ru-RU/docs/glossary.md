@@ -4,17 +4,31 @@
 
 ### ASAR
 
-ASAR это Atom Shell Archive Format. [Asar][asar] это простой архив `tar`-подобного формата, который объединяет файлы в один файл. Electron может читать файлы в архиве без распаковки оного.
+ASAR это Atom Shell Archive Format. [Asar][] это простой архив `tar`-подобного формата, который объединяет файлы в один файл. Electron может читать файлы в архиве без распаковки оного.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+
+### code signing
+
+Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+
+For more information, read the [Code Signing][] tutorial.
+
+### context isolation
+
+Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
+
+For more information, read the [Context Isolation][] tutorial.
+
+See also: [preload script](#preload-script), [renderer process](#renderer-process)
 
 ### CRT
 
-Библиотека C Run-time (CRT) является частью стандартной библиотеки C++, которая включает стандартную библиотеку ISO C99. Библиотеки Visual C++, которые реализуют CRT, поддерживают развитие машинного кода и смешанного собственного и управляемого кода и чисто управляемого кода для разработки .NET.
+The C Runtime Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. Библиотеки Visual C++, которые реализуют CRT, поддерживают развитие машинного кода и смешанного собственного и управляемого кода и чисто управляемого кода для разработки .NET.
 
 ### DMG
 
-Apple Disk Image (DMG) это пакетный формат, который используется в macOS. DMG файлы обычно используются для распространения "установщиков" приложения. [electron-builder][] поддерживает `dmg` как целевой объект компиляции.
+Apple Disk Image (DMG) это пакетный формат, который используется в macOS. DMG файлы обычно используются для распространения "установщиков" приложения.
 
 ### IME
 
@@ -26,13 +40,9 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
+IPC stands for inter-process communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes.
 
-### libchromiumcontent
-
-Общая библиотека, которая включает в себя [модуль Chromium Content][] и все его зависимости. (Например, Blink, [V8][] и т.д.). Также именуется, как "libcc".
-
-- [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
+см. также: [основной(main) процесс](#main-process), [процесс отображения(renderer)](#renderer-process)
 
 ### главный (main) процесс
 
@@ -50,9 +60,17 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 ### Mojo
 
-Система IPC для обмена внутри- или межпроцессорными процессами, она важна, потому что Chrome решает, разделять свою работу на отдельные процессы или нет, в зависимости от заполнения памяти и т.д.
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
 Смотри https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+
+See also: [IPC](#ipc)
+
+### MSI
+
+On Windows, MSI packages are used by the Windows Installer (also known as Microsoft Installer) service to install and configure applications.
+
+More information can be found in [Microsoft's documentation][msi].
 
 ### собственные модули
 
@@ -60,15 +78,25 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 Собственные модули Node поддерживаются в Electron, но учитывая, что Electron предпочитает использовать разные версии V8 для Node, установленного на Вашем компьютере, вы должны вручную указать расположение заголовков Electron'а, когда собираете собственные модули.
 
-См. также [Использование собственных модулей Node][].
+For more information, read the [Native Node Modules] tutorial.
 
-### NSIS
+### notarization
 
-Nullsoft Scriptable Install System это управляемое скриптом средство установки для Microsoft Windows. Оно выпускается под сочетанием различных лицензий на свободное программное обеспечение и является широко используемой альтернативой коммерческим проприетарным продуктам, таким как например InstallShield. [electron-builder][] поддерживает NSIS как целевой объект компиляции.
+Notarization is a macOS-specific process where a developer can send a code-signed app to Apple servers to get verified for malicious components through an automated service.
+
+See also: [code signing](#code-signing)
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (offscreen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+
+For more information, read the [Offscreen Rendering][][osr] tutorial.
+
+### preload script
+
+Preload scripts contain code that executes in a renderer process before its web contents begin loading. These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+
+See also: [renderer process](#renderer-process), [context isolation](#context-isolation)
 
 ### process
 
@@ -82,9 +110,15 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-В нормальных браузерах, веб-страницы обычно выполняются в изолированной среде и им не разрешается доступ к нативным ресурсам. Пользователи Electron'а, однако, имеют право использовать API Node.js на веб-страницах, позволяя взаимодействовать на нижнем уровне операционной системы.
-
 См. также: [процесс](#process), [основной(main) процесс](#main-process)
+
+### песочница
+
+The sandbox is a security feature inherited from Chromium that restricts your renderer processes to a limited set of permissions.
+
+For more information, read the [Process Sandboxing][] tutorial.
+
+See also: [process](#process)
 
 ### Squirrel
 
@@ -113,14 +147,13 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 `webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. Оно не имеет тех же разрешений, так как ваша веб страница и все взаимодействие между вашим приложением и встроенным контентом будут асинхронными. Это позволяет защитить ваше приложение от встраиваемого содержимого.
 
 [дополнениями]: https://nodejs.org/api/addons.html
-[asar]: https://github.com/electron/asar
+[Asar]: https://github.com/electron/asar
 [autoUpdated]: api/auto-updater.md
-[модуль Chromium Content]: https://www.chromium.org/developers/content-module
-[electron-builder]: https://github.com/electron-userland/electron-builder
+[Code Signing]: tutorial/code-signing.md
+[Context Isolation]: tutorial/context-isolation.md
 [Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
-[main]: #main-process
 [главный(main)]: #main-process
-[renderer]: #renderer-process
+[msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
+[Offscreen Rendering]: tutorial/offscreen-rendering.md
+[Process Sandboxing]: tutorial/sandbox.md
 [отображения(renderer)]: #renderer-process
-[Использование собственных модулей Node]: tutorial/using-native-node-modules.md
-[V8]: #v8
