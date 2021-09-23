@@ -4,17 +4,31 @@ Diese Seite enthält Begriffe, die während der Entwicklung von Electron häufig
 
 ### ASAR
 
-ASAR steht für Atom-Shell-Archiv-Format. Ein [asar][asar]-Archiv ist ein simples, `tar`-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
+ASAR steht für Atom-Shell-Archiv-Format. Ein [asar][]-Archiv ist ein simples, `tar`-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
-Das ASAR-Format wurde primär für bessere Performance unter Windows entwickelt... TODO
+The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+
+### code signing
+
+Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+
+For more information, read the [Code Signing][] tutorial.
+
+### context isolation
+
+Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
+
+For more information, read the [Context Isolation][] tutorial.
+
+See also: [preload script](#preload-script), [renderer process](#renderer-process)
 
 ### CRT
 
-Die C Runtime Library (CRT) ist Teil der C++ Standard Library, welche die ISO C66 Standard Library beinhaltet. Die Visual C++ Bibliotheken, welche die CRT implementieren, unterstützen native Codeentwicklung sowie gemischt nativen und verwalteten Code als auch reiner verwalteter Code für .NET-Entwicklung.
+The C Runtime Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. Die Visual C++ Bibliotheken, welche die CRT implementieren, unterstützen native Codeentwicklung sowie gemischt nativen und verwalteten Code als auch reiner verwalteter Code für .NET-Entwicklung.
 
 ### DMG
 
-"Apple Disk Image" ist ein Paket-Format von macOS. DMG-Dateien werden oft zur Distribution von Installern verwendet. [electron-builder][] unterstützt `dmg` als Build-Ziel.
+"Apple Disk Image" ist ein Paket-Format von macOS. DMG-Dateien werden oft zur Distribution von Installern verwendet.
 
 ### IME
 
@@ -22,17 +36,13 @@ Input Method Editor. Ein Programm, dass dem Benutzer die Eingabe von Buchstaben 
 
 ### IDL
 
-Interface description language. Schreiben Sie Funktionssignaturen und Datentypen in einem Format, mit dem Schnittstellen in Java, C++, JavaScript usw. generiert werden können.
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC steht für Inter-Process Communication. Electron verwendet IPC-serialisierte JSON Nachrichten zwischen den [Haupt-][] und [Renderer][] Prozessen.
+IPC stands for inter-process communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes.
 
-### libchromiumcontent
-
-Eine gemeinsame Bibliothek, die das [Chromium Content Modul][] und alle seine Abhängigkeiten (z.B. Blink, [V8][], etc.) enthält. Auch als "libcc" bezeichnet.
-
-- [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
+siehe auch: [main process](#main-process), [renderer process](#renderer-process)
 
 ### Main-Prozess
 
@@ -50,9 +60,17 @@ Abkürzung für Apple's Mac App Store. Für Infromationen zum Einreichen deiner 
 
 ### Mojo
 
-Ein IPC-System zur Kommunikation innerhalb und zwischen Prozessen. Das ist wichtig, da Chrome seine Arbeit in verschiedene Prozesse teilen möchte, oder auch nicht, abhängig von der RAM-Nutzung, usw.
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
 Siehe https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+
+See also: [IPC](#ipc)
+
+### MSI
+
+On Windows, MSI packages are used by the Windows Installer (also known as Microsoft Installer) service to install and configure applications.
+
+More information can be found in [Microsoft's documentation][msi].
 
 ### systemeigene Module
 
@@ -60,15 +78,25 @@ Native Module, in Node.js auch [addons][] genannt, sind Module, welche in C oder
 
 Native Node-Module werden von Electron unterstützt, aber da Electron sehr es wahrscheinlich eine andere V8-Version als die von der auf ihrem System verwendete Node.js Version verwendet, musst du den Ort der Electron-Header beim Bauen von nativen Modulen manuell angeben.
 
-Siehe auch: [Nutzen von Native Node Modules][].
+For more information, read the [Native Node Modules] tutorial.
 
-### NSIS
+### notarization
 
-"Nullsoft Scriptable Install System" ist ein Werkzeug zur Erstellung von Installern auf Microsoft Windows. Es ist verfügbar unter einer Kombination freier Software-Lizenzen und eine vielgenutzte Alternative zu kommerziellen Produkten wie InstallShield. [electron-builder][] unterstützt NSIS als Build-Ziel.
+Notarization is a macOS-specific process where a developer can send a code-signed app to Apple servers to get verified for malicious components through an automated service.
+
+See also: [code signing](#code-signing)
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (offscreen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+
+For more information, read the [Offscreen Rendering][][osr] tutorial.
+
+### preload script
+
+Preload scripts contain code that executes in a renderer process before its web contents begin loading. These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+
+See also: [renderer process](#renderer-process), [context isolation](#context-isolation)
 
 ### process
 
@@ -82,9 +110,15 @@ Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
-
 Siehe auch: [process](#process), [main process](#main-process)
+
+### sandbox
+
+The sandbox is a security feature inherited from Chromium that restricts your renderer processes to a limited set of permissions.
+
+For more information, read the [Process Sandboxing][] tutorial.
+
+See also: [process](#process)
 
 ### Squirrel
 
@@ -115,12 +149,11 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 [addons]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
-[Chromium Content Modul]: https://www.chromium.org/developers/content-module
-[electron-builder]: https://github.com/electron-userland/electron-builder
+[Code Signing]: tutorial/code-signing.md
+[Context Isolation]: tutorial/context-isolation.md
 [Anleitung: Mac App Store Veröffentlichung]: tutorial/mac-app-store-submission-guide.md
-[Haupt-]: #main-process
 [main]: #main-process
-[Renderer]: #renderer-process
+[msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
+[Offscreen Rendering]: tutorial/offscreen-rendering.md
+[Process Sandboxing]: tutorial/sandbox.md
 [renderer]: #renderer-process
-[Nutzen von Native Node Modules]: tutorial/using-native-node-modules.md
-[V8]: #v8
