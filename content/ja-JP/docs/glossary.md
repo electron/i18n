@@ -6,25 +6,25 @@
 
 ASARはAtom Shell Archive Formatの略語です。 [asar][]アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
 
-The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+ASAR フォーマットは、主に Windows で大量の小さなファイルを読み込むとき (例: アプリケーションの JavaScript 依存関係ツリーを `node_modules` から読み込む場合など) のパフォーマンス向上のために作成されました。
 
-### code signing
+### コード署名
 
-Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+コード署名とは、アプリ開発者によるパッケージ作成後のコード改ざんを検出するために、コードにデジタル署名を行う処理です。 Windows と macOS はどちらも独自のコード署名を実装しています。 デスクトップアプリケーションの開発者としてコードを一般公衆に頒布する予定の方は、コード署名が重要です。
 
-For more information, read the [Code Signing][] tutorial.
+詳しい情報については、[コード署名][] のチュートリアルをご参照ください。
 
-### context isolation
+### コンテキストの分離
 
-Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
+コンテキストの分離は Electron によるセキュリティ施策で、プリロードスクリプトが特権的な Electron や Node.js の API をレンダラープロセスのウェブコンテンツに漏らさないようにします。 コンテキストの分離を有効にすると、プリロードスクリプトから API を公開するには `contextBridge` API を使用するしかありません。
 
-For more information, read the [Context Isolation][] tutorial.
+詳しい情報については、[コンテキストの分離][] のチュートリアルをご参照ください。
 
-See also: [preload script](#preload-script), [renderer process](#renderer-process)
+[プリロードスクリプト](#preload-script)、[レンダラープロセス](#renderer-process) もご参照ください。
 
 ### CRT
 
-The C Runtime Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. ネイティブコード開発、ネイティブコードと管理コードの混在した開発、.Netの純粋な管理コードをサポートするCRTを実装するVisual C++ライブラリ
+C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準ライブラリが組み込まれている C++ 標準ライブラリの一部です。 ネイティブコード開発、ネイティブコードと管理コードの混在した開発、.Netの純粋な管理コードをサポートするCRTを実装するVisual C++ライブラリ
 
 ### DMG
 
@@ -36,11 +36,11 @@ Input Method Editorの略で、日本では「かな漢字変換システム」�
 
 ### IDL
 
-Interface description language、インターフェイス記述言語のことです。 Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Interface description language、インターフェイス記述言語のことです。 Java、C++、JavaScript などのインターフェース生成に使用できるフォーマットで、関数のシグネチャやデータ型を記述します。
 
 ### IPC
 
-IPC stands for inter-process communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes.
+IPC は Inter-Process Communication、プロセス間通信の略です。 Electron では IPC を、メインプロセスとレンダラープロセスの間でのシリアライズした JSON メッセージの送信に使用します。
 
 [メインプロセス](#main-process)、[レンダラープロセス](#renderer-process)についても参照してください。
 
@@ -149,8 +149,8 @@ V8 のバージョンは必ず Google Chrome のバージョンに対応して�
 [アドオン]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
-[Code Signing]: tutorial/code-signing.md
-[Context Isolation]: tutorial/context-isolation.md
+[コード署名]: tutorial/code-signing.md
+[コンテキストの分離]: tutorial/context-isolation.md
 [Mac App Store 登録ガイド]: tutorial/mac-app-store-submission-guide.md
 [メインプロセス]: #main-process
 [msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
