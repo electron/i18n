@@ -281,26 +281,26 @@ Returns [`Size`](structures/size.md).
 
 #### `image.getScaleFactors()`
 
-Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+Returns `Float[]` - 给定 nativeImage 的表示相对应的所有比例因子的数组
 
 #### `image.addRepresentation(options)`
 
 * `选项` 对象
-  * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
+  * `scaleFactor` Double - 要添加图像的缩放系数
+  * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项
+  * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项
   * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区.
-  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+  * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+为特定比例因子添加图像表示。 这可以用于在图像中明确添加不同的比例因子表示。 这种可以调用在空图像上。
 
 ### 实例属性
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
-A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+`Boolean` 属性，用于决定图像是否被认为是一个 [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Please note that this property only has an effect on macOS.
+请注意，此属性仅对 macOS 有影响。
 
 [icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
 
