@@ -4,17 +4,31 @@
 
 ### ASAR
 
-ASARはAtom Shell Archive Formatの略語です。 [asar][asar]アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
+ASARはAtom Shell Archive Formatの略語です。 [asar][]アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
 
-ASAR 形式は、主に Windows でのパフォーマンス向上を目的に作成されました… 要加筆
+The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+
+### code signing
+
+Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+
+For more information, read the [Code Signing][] tutorial.
+
+### context isolation
+
+Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
+
+For more information, read the [Context Isolation][] tutorial.
+
+See also: [preload script](#preload-script), [renderer process](#renderer-process)
 
 ### CRT
 
-C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準ライブラリが組み込まれている C++ 標準ライブラリの一部です。 ネイティブコード開発、ネイティブコードと管理コードの混在した開発、.Netの純粋な管理コードをサポートするCRTを実装するVisual C++ライブラリ
+The C Runtime Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. ネイティブコード開発、ネイティブコードと管理コードの混在した開発、.Netの純粋な管理コードをサポートするCRTを実装するVisual C++ライブラリ
 
 ### DMG
 
-Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式です。 DMGファイルはインストーラーアプリケーションを配布するために使用されます。 [electron-builder][]は`dmg`形式をビルドターゲットとしてサポートしています。
+Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式です。 DMGファイルはインストーラーアプリケーションを配布するために使用されます。
 
 ### IME
 
@@ -22,17 +36,13 @@ Input Method Editorの略で、日本では「かな漢字変換システム」�
 
 ### IDL
 
-Interface description language、インターフェイス記述言語のことです。 Java、C++、JavaScript などのインターフェース生成に使用できるフォーマットで、関数のシグネチャやデータ型を記述します。
+Interface description language、インターフェイス記述言語のことです。 Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC は Inter-Process Communication、プロセス間通信の略です。 Electron は、シリアライズされた JSON メッセージを [メインプロセス][] と [レンダラプロセス][] 間で送信する際に IPC を使用します。
+IPC stands for inter-process communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes.
 
-### libchromiumcontent
-
-[Chromium Content module][] および 全ての依存関係（Blink や [V8][]）を含む共有ライブラリです。 libcc とも呼ばれます。
-
-- [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
+[メインプロセス](#main-process)、[レンダラープロセス](#renderer-process)についても参照してください。
 
 ### メインプロセス (main process)
 
@@ -50,9 +60,17 @@ Apple の Mac App Store の頭文字をつなげたものです。 MAS へのア
 
 ### Mojo
 
-イントラプロセスまたはインタープロセス通信のための IPC システム。これが重要なのは、Chromeが別々のプロセスで動作するかどうかを、メモリプレッシャーによって判断するようにに設計されているからです。
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
 （参照： https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md ）
+
+See also: [IPC](#ipc)
+
+### MSI
+
+On Windows, MSI packages are used by the Windows Installer (also known as Microsoft Installer) service to install and configure applications.
+
+More information can be found in [Microsoft's documentation][msi].
 
 ### ネイティブモジュール (native module)
 
@@ -60,15 +78,25 @@ Apple の Mac App Store の頭文字をつなげたものです。 MAS へのア
 
 Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
-[ネイティブNodeモジュールを使用する][]についても参照してください.
+For more information, read the [Native Node Modules] tutorial.
 
-### NSIS
+### 公証
 
-Nullsoft Script Install Systemは、Microsoft Windows向けの、スクリプト駆動型インストーラー作成ツールです。(訳注: NullsoftはWinampの開発元の企業です) フリーソフトウェアライセンスの元でリリースされており、InstallShieldのようなプロプライエタリな商用製品の代替として広く使用されています。 [electron-builder][]はNSISをビルドターゲットとしてサポートしています。
+Notarization is a macOS-specific process where a developer can send a code-signed app to Apple servers to get verified for malicious components through an automated service.
+
+See also: [code signing](#code-signing)
 
 ### OSR
 
-OSR (Off-screen rendering、オフスクリーンレンダリング) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます (かなりの高速化が期待されます)。 画面に表示することなくページをレンダリングできます。
+OSR (offscreen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). 画面に表示することなくページをレンダリングできます。
+
+For more information, read the [Offscreen Rendering][][osr] tutorial.
+
+### preload script
+
+Preload scripts contain code that executes in a renderer process before its web contents begin loading. These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+
+See also: [renderer process](#renderer-process), [context isolation](#context-isolation)
 
 ### プロセス
 
@@ -82,9 +110,15 @@ Node.jsとElectronでは、実行中のプロセスは、`process`オブジェ�
 
 レンダラープロセスは、アプリ内のブラウザウインドウです。 メインプロセスと違って複数存在でき、それぞれ別のプロセスとして動作します。 また、非表示にもできます。
 
-通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
-
 [プロセス](#process)、[レンダラープロセス](#main-process)についても参照してください。
+
+### サンドボックス
+
+The sandbox is a security feature inherited from Chromium that restricts your renderer processes to a limited set of permissions.
+
+For more information, read the [Process Sandboxing][] tutorial.
+
+See also: [process](#process)
 
 ### Squirrel
 
@@ -115,11 +149,11 @@ V8 のバージョンは必ず Google Chrome のバージョンに対応して�
 [アドオン]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
-[Chromium Content module]: https://www.chromium.org/developers/content-module
-[electron-builder]: https://github.com/electron-userland/electron-builder
+[Code Signing]: tutorial/code-signing.md
+[Context Isolation]: tutorial/context-isolation.md
 [Mac App Store 登録ガイド]: tutorial/mac-app-store-submission-guide.md
 [メインプロセス]: #main-process
-[レンダラプロセス]: #renderer-process
+[msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
+[Offscreen Rendering]: tutorial/offscreen-rendering.md
+[Process Sandboxing]: tutorial/sandbox.md
 [レンダラープロセス]: #renderer-process
-[ネイティブNodeモジュールを使用する]: tutorial/using-native-node-modules.md
-[V8]: #v8
