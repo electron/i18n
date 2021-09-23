@@ -72,6 +72,6 @@ Returns `Integer` - Idle time in seconds
 
 ### `powerMonitor.onBatteryPower`
 
-A `Boolean` property. 如果系统处于电池电源状态，则为 true。
+`Boolean` 属性。 如果系统处于电池电源状态，则为 true。
 
 参见 [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower)。
