@@ -6,15 +6,15 @@
 
 ASAR это Atom Shell Archive Format. [Asar][] это простой архив `tar`-подобного формата, который объединяет файлы в один файл. Electron может читать файлы в архиве без распаковки оного.
 
-The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+Формат ASAR был создан в первую очередь для повышения производительности в Windows при чтения большого количества небольших файлов (например, при загрузке дерева зависимостей JavaScript приложения из `node_modules`).
 
 ### code signing
 
-Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+Подписывание кода — это процесс, при котором разработчик приложения подписывает свой код цифровой подписью, чтобы после упаковки подтвердить, что он не подделан. И Windows, и macOS реализуют собственную версию подписи кода. Как разработчик классических приложений, важно подписать свой код, если вы планируете распространять его среди широкой общественности.
 
-For more information, read the [Code Signing][] tutorial.
+Дополнительные сведения можно узнать в обучении [подписывание кода][].
 
-### context isolation
+### изоляция контекста
 
 Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
 
@@ -149,7 +149,7 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 [дополнениями]: https://nodejs.org/api/addons.html
 [Asar]: https://github.com/electron/asar
 [autoUpdated]: api/auto-updater.md
-[Code Signing]: tutorial/code-signing.md
+[подписывание кода]: tutorial/code-signing.md
 [Context Isolation]: tutorial/context-isolation.md
 [Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
 [главный(main)]: #main-process
