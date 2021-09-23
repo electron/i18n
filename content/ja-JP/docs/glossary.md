@@ -20,7 +20,7 @@ ASAR フォーマットは、主に Windows で大量の小さなファイルを
 
 詳しい情報については、[コンテキストの分離][] のチュートリアルをご参照ください。
 
-[プリロードスクリプト](#preload-script)、[レンダラープロセス](#renderer-process) もご参照ください。
+関連項目: [プリロードスクリプト](#preload-script)、[レンダラープロセス](#renderer-process)
 
 ### CRT
 
@@ -60,17 +60,17 @@ Apple の Mac App Store の頭文字をつなげたものです。 MAS へのア
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+プロセス内またはプロセス間で通信するための IPC システムです。これが重要なのは、Chrome がメモリの圧迫などに応じて作業を別プロセスに分割できるかどうかを判断しているためです。
 
 （参照： https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md ）
 
-See also: [IPC](#ipc)
+関連項目: [IPC](#ipc)
 
 ### MSI
 
-On Windows, MSI packages are used by the Windows Installer (also known as Microsoft Installer) service to install and configure applications.
+Windows では、アプリケーションのインストールと設定のために Windows Installer (別称 Microsoft Installer) サービスが MSI パッケージを使用します。
 
-More information can be found in [Microsoft's documentation][msi].
+詳しい情報は [Microsoft のドキュメント][msi] に記載されています。
 
 ### ネイティブモジュール (native module)
 
@@ -78,25 +78,25 @@ More information can be found in [Microsoft's documentation][msi].
 
 Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
-For more information, read the [Native Node Modules] tutorial.
+詳しい情報については、[ネイティブ Node モジュール] のチュートリアルをご参照ください。
 
 ### 公証
 
-Notarization is a macOS-specific process where a developer can send a code-signed app to Apple servers to get verified for malicious components through an automated service.
+公証とは、macOS 特有のプロセスで、開発者がコード署名したアプリをアップルのサーバーに送り、自動サービスによって悪意あるコンポーネントの有無を検証してもらうものです。
 
-See also: [code signing](#code-signing)
+関連項目: [コード署名](#code-signing)
 
 ### OSR
 
-OSR (offscreen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). 画面に表示することなくページをレンダリングできます。
+OSR (offscreen rendering、オフスクリーンレンダリング) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます (かなりの高速化が期待されます)。 画面に表示することなくページをレンダリングできます。
 
-For more information, read the [Offscreen Rendering][][osr] tutorial.
+詳しい情報については、[オフスクリーンレンダリング][][osr] のチュートリアルをご参照ください。
 
-### preload script
+### プリロードスクリプト
 
-Preload scripts contain code that executes in a renderer process before its web contents begin loading. These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+プリロードスクリプトは、ウェブコンテンツの読み込み開始前にレンダラープロセス内で実行されるコードです。 これらのスクリプトはレンダラーのコンテキスト内で実行されますが、Node.js の API にアクセスできるようにより多くの権限が与えられています。
 
-See also: [renderer process](#renderer-process), [context isolation](#context-isolation)
+関連項目: [レンダラープロセス](#renderer-process)、[コンテキストの分離](#context-isolation)
 
 ### プロセス
 
@@ -114,11 +114,11 @@ Node.jsとElectronでは、実行中のプロセスは、`process`オブジェ�
 
 ### サンドボックス
 
-The sandbox is a security feature inherited from Chromium that restricts your renderer processes to a limited set of permissions.
+サンドボックスとは、Chromium から受け継いだセキュリティ機能で、レンダラープロセスを限られた権限に制限するものです。
 
-For more information, read the [Process Sandboxing][] tutorial.
+詳しい情報については、[プロセスのサンドボックス化][] のチュートリアルをご参照ください。
 
-See also: [process](#process)
+関連項目: [プロセス](#process)
 
 ### Squirrel
 
@@ -154,6 +154,6 @@ V8 のバージョンは必ず Google Chrome のバージョンに対応して�
 [Mac App Store 登録ガイド]: tutorial/mac-app-store-submission-guide.md
 [メインプロセス]: #main-process
 [msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
-[Offscreen Rendering]: tutorial/offscreen-rendering.md
-[Process Sandboxing]: tutorial/sandbox.md
+[オフスクリーンレンダリング]: tutorial/offscreen-rendering.md
+[プロセスのサンドボックス化]: tutorial/sandbox.md
 [レンダラープロセス]: #renderer-process
