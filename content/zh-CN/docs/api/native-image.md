@@ -135,19 +135,19 @@ console.log(image)
 
 返回 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+从 `buffer` 中创建一个新的 `NativeImage` 实例，其中包含由 `toBitmap()`返回的原始位图 像素数据。 具体格式取决于平台。
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer][buffer]
 * `options` Object (可选)
-  * `width` Integer (optional) - Required for bitmap buffers.
-  * `height` Integer (optional) - Required for bitmap buffers.
+  * `width` Integer (可选) - 位图缓冲器所必需
+  * `height` Integer (可选) - 位图缓冲器所必需
   * `scaleFactor` Double (可选) - 默认1.0
 
 返回 `NativeImage`
 
-从 `buffer ` 创建新的 ` NativeImage ` 实例。 Tries to decode as PNG or JPEG first.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。 尝试先解码为 PNG 或 JPEG
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -164,21 +164,21 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 返回 `NativeImage`
 
-从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 可用值列表详见 [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/)
 
 使用以下规则将`hslShift`应用于图像:
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = 保持不变。 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
+* `hsl_shift[0]` (色调): 图像的绝对色调值，0 和1 映射到 0和360，在色环上 (红色)。
+* `hsl_shift[1]` (饱和度): 图像的饱和度调值， 以下关键值： 0 = 删除所有颜色。 0.5 = 保持不变。 1 = 图像完全饱和
+* `hsl_shift[2]` (亮度): 图像的亮度调值, 可以为下列值: 0 = 移除所有亮度 (所有像素点设置为黑色). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+在某些情况下， `NSImageName` 与其字符串表示并不匹配：其中一个例子是 `NSFolderImageName`，它的字符串表示实际上将是 `NSFolder`。 因此，您需要在传递图像之前确定正确的字符串表示方式。 可以像下面这样做：
 
 `echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
-where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+其中 `SYSTEM_IMAGE_NAME` 应替换为 [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc)里面的值
 
 ## 类: NativeImage
 
@@ -224,7 +224,7 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ][buffer]。
 
-The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
+`getBitmap()` 和 `toBitmap() 的不同之处在于，<code>getBitmap()` 不会拷贝位图数据，所以你必须在返回 Buffer 后立刻使用它，否则数据可能会被更改或销毁
 
 #### `image.getNativeHandle()` _macOS_
 
@@ -242,7 +242,7 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 
 Returns [`Size`](structures/size.md).
 
-If `scaleFactor` is passed, this will return the size corresponding to the image representation most closely matching the passed value.
+如果传递了 `scaleFactor` ，将返回与图像表示最接近的传递值对应的大小。
 
 #### `image.setTemplateImage(option)`
 
@@ -263,9 +263,9 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 #### `image.resize(options)`
 
 * `选项` 对象
-  * `width` Integer (optional) - Defaults to the image's width.
+  * `width` Integer (可选) - 默认值为图片宽度
   * `height` Integer (可选) - 默认值为图片高度.
-  * `quality` String (optional) - The desired quality of the resize image. 可能的值为 `good`、`better` 或 `best`。 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) 所要设置的图片质量。 可能的值为 `good`、`better` 或 `best`。 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 他们被转换为某个特定算法, 取决于基础平台的能力 (CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
 
 返回 ` NativeImage `-裁剪的图像。
 
@@ -277,30 +277,30 @@ If `scaleFactor` is passed, this will return the size corresponding to the image
 
 返回 `Float` - 图像的长宽比.
 
-If `scaleFactor` is passed, this will return the aspect ratio corresponding to the image representation most closely matching the passed value.
+如果传递了 `scaleFactor` ，将返回与图像表示最接近的传递值对应的大小。
 
 #### `image.getScaleFactors()`
 
-Returns `Float[]` - An array of all scale factors corresponding to representations for a given nativeImage.
+Returns `Float[]` - 给定 nativeImage 的表示相对应的所有比例因子的数组
 
 #### `image.addRepresentation(options)`
 
 * `选项` 对象
-  * `scaleFactor` Double - The scale factor to add the image representation for.
-  * `width` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
-  * `height` Integer (可选) - 默认值为 0. Required if a bitmap buffer is specified as `buffer`.
+  * `scaleFactor` Double - 要添加图像的缩放系数
+  * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项
+  * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项
   * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区.
-  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+  * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+为特定比例因子添加图像表示。 这可以用于在图像中明确添加不同的比例因子表示。 这种可以调用在空图像上。
 
 ### 实例属性
 
 #### `nativeImage.isMacTemplateImage` _macOS_
 
-A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+`Boolean` 属性，用于决定图像是否被认为是一个 [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
-Please note that this property only has an effect on macOS.
+请注意，此属性仅对 macOS 有影响。
 
 [icons]: https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx
 

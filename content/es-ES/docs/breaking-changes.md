@@ -430,7 +430,7 @@ const isIntercepted = protocol.isProtocolIntercepted(scheme)
 
 ## Cambios planeados en la API(9.0)
 
-### Default Changed: Loading non-context-aware native modules in the renderer process is disabled by default
+### Valor por defecto modificado: La carga de módulos nativos sin contexto conscientes en el proceso renderer está desactivada por defecto
 
 A partir de Electron 9 no permitimos la carga de módulos nativos no conscientes del contexto en el proceso de renderizado.  Esto es para mejorar la seguridad, el rendimiento y el mantenimiento de Electron como proyecto.
 

@@ -12,7 +12,7 @@ Electron の `webview` タグは [Chromium の `webview`][chrome-webview] に基
 
 > 分離したフレームとプロセスに外部ウェブコンテンツを表示します。
 
-Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+プロセス: [レンダラー](../glossary.md#renderer-process)<br /> _このクラスは `'electron'` モジュールからはエクスポートされません。 Electron API では、他のメソッドの戻り値としてのみ利用できます。_
 
 `webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。 ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
@@ -534,7 +534,7 @@ webview.addEventListener('dom-ready', () => {
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは [`ipcRenderer`](ipc-renderer.md) モジュールで `channel` イベントをリッスンしてメッセージを処理できます。
 
-See [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) for examples.
+サンプルは [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) をご参照ください。
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -821,7 +821,7 @@ webview.addEventListener('close', () => {
 
 戻り値：
 
-* `frameId` [number, number] - pair of `[processId, frameId]`.
+* `frameId` [number, number] - `[processId, frameId]` のペア。
 * `channel` String
 * `args` any[]
 

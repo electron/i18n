@@ -5,9 +5,9 @@
 * `target=_blank` が付加された、リンクのクリックやフォームの送信
 * JavaScript での `window.open()` 呼び出し
 
-For same-origin content, the new window is created within the same process, enabling the parent to access the child window directly. This can be very useful for app sub-windows that act as preference panels, or similar, as the parent can render to the sub-window directly, as if it were a `div` in the parent. This is the same behavior as in the browser.
+同一オリジンコンテンツの場合、新しいウインドウは同じプロセス内で作成され、親が子ウィンドウに直接アクセスできるようになります。 これは、アプリのサブウインドウが環境設定パネルなどとして機能する場合に非常に便利です。親はサブウインドウに対して、あたかも親が持つ `div` のように直接レンダリングできます。 これはブラウザと同じ動作です。
 
-When `nativeWindowOpen` is set to false, `window.open` instead results in the creation of a [`BrowserWindowProxy`](browser-window-proxy.md), a light wrapper around `BrowserWindow`.
+`nativeWindowOpen` を false に設定すると、`window.open` は代わりに `BrowserWindow` の軽いラッパーである [`BrowserWindowProxy`](browser-window-proxy.md) を作成します。
 
 Electron は、このネイティブの Chrome `Window` と BrowserWindow をペアリングします。 レンダラーで作成されたウインドウに対して `webContents.setWindowOpenHandler()` を使用することで、メインプロセスでの BrowserWindow 作成と同じすべてのカスタマイズを活用できます。
 
@@ -39,8 +39,7 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 * `features` で指定された非標準機能 (Chromium や Electron によって処理されない) は、`options` 引数内の登録された `webContents` の `did-create-window` イベントハンドラに渡されます。
 * `frameName` は、[ネイティブのドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters) にある `windowName` の仕様に従います。
 
-ウインドウの作成をカスタマイズまたはキャンセルするにあたって、メインプロセスから `webContents.setWindowOpenHandler()` でオーバーライドハンドラーを任意設定できます。 Returning `{ action: 'deny' }` cancels the window. Returning `{
-action: 'allow', overrideBrowserWindowOptions: { ... } }` will allow opening the window and setting the `BrowserWindowConstructorOptions` to be used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
+ウインドウの作成をカスタマイズまたはキャンセルするにあたって、メインプロセスから `webContents.setWindowOpenHandler()` でオーバーライドハンドラーを任意設定できます。 `{ action: 'deny' }` を返すと、ウィンドウはキャンセルされます。 `{ action: 'allow', overrideBrowserWindowOptions: { ... } }` を返すと、ウインドウを開くことと、ウィンドウ作成時に使用する `BrowserWindowConstructorOptions` の設定を許可します。 これは、feature 文字列でオプションを渡すよりも強力であることに注意してください。レンダラーは、セキュリティ設定を決定する権限がメインプロセスよりも制限されているからです。
 
 ### ネイティブの `Window` のサンプル
 
@@ -48,7 +47,7 @@ action: 'allow', overrideBrowserWindowOptions: { ... } }` will allow opening the
 // main.js
 const mainWindow = new BrowserWindow()
 
-// In this example, only windows with the `about:blank` url will be created.
+// この例では、URL が `about:blank` であるウインドウのみが作成されます。
 // ほかのすべての URL はブロックされます。
 mainWindow.webContents.setWindowOpenHandler(({ url }) => {
   if (url === 'about:blank') {
@@ -91,7 +90,7 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 })
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
-  // For example...
+  // 例えば...
   childWindow.webContents.on('will-navigate', (e) => {
     e.preventDefault()
   })
