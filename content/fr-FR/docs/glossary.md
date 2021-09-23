@@ -6,25 +6,25 @@ Cette page définit certaines terminologies qui sont couramment utilisées dans 
 
 ASAR signifie Atom Shell Archive Format. Une archive [asar][] est un simple fichier `.tar`, comme le format de compression de fichiers. Electron peut lire les fichiers sans avoir à décompresser l'archive.
 
-The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+Le format ASAR a été créé principalement pour améliorer les performances sous Windows lorsque il y a de grandes quantités de petits fichiers ( par ex. lors du chargement de l'arborescence des dépendances JavaScript de votre application depuis `node_modules`).
 
-### code signing
+### signature de code
 
-Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+La signature de code est un processus où un développeur d'applications signe numériquement son code pour assurer qu'il n'a pas été altéré après l'empaquetage. Windows et macOS implémentent leur propre version de signature de code. En tant que développeur d'applications de bureau, il est important que vous signiez votre code si vous prévoyez de le distribuer au grand public.
 
-For more information, read the [Code Signing][] tutorial.
+Pour plus d'informations, lisez le tutoriel [Signature de code][].
 
-### context isolation
+### isolement du contexte
 
-Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
+L’isolation de contexte est une mesure de sécurité d'Electron qui garantit que votre script de préchargement(preload) ne peut pas permettre que le site web contenu dans le WebContent n'accède aux API d’Électron ou de Node.js. Avec l'isolement de contexte activé, le seul moyen d'exposer les API de votre script de préchargement est de passer par l'API `contextBridge`.
 
-For more information, read the [Context Isolation][] tutorial.
+Pour plus d'informations, lisez le tutoriel [Isolation du contexte][].
 
-See also: [preload script](#preload-script), [renderer process](#renderer-process)
+Voir aussi: [script preload](#preload-script), [processus de rendu](#renderer-process)
 
 ### CRT
 
-The C Runtime Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. Les bibliothèques Visual C++ qui implémentent le CRT supportent le développement de code natif, de code mixte natif et managé ainsi que le code managé pur pour le développement .NET.
+La bibliothèque de Runtime C (CRT) est la partie de la bibliothèque Standard C++ intégrant la bibliothèque standard ISO C99. Les bibliothèques Visual C++ qui implémentent le CRT supportent le développement de code natif, de code mixte natif et managé ainsi que le code managé pur pour le développement .NET.
 
 ### DMG
 
@@ -36,11 +36,11 @@ Une Image disque Apple est un format de package utilisé par macOS. Les fichiers
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Interface description language. Décrit les signatures des fonctions et des types de données dans un format qui peut être utilisé pour générer des interfaces en Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC stands for inter-process communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes.
+IPC signifie communication inter-processus. Electron utilise les IPC pour envoyer des messages sérialisés en JSON entre le processus principal et les processus de rendu.
 
 voir aussi : [processus principal](#main-process), [processus de rendu](#renderer-process)
 
@@ -60,17 +60,17 @@ Acronym for Apple's Mac App Store. Pour plus de détails sur la soumission de vo
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Un système IPC pour la communication intra - ou inter-processus, et c’est important car Chrome a tendance à diviser ses tâches dans des processus distincts ou non, en fonction des contraintes de mémoire etc.
 
 Voir https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-See also: [IPC](#ipc)
+Voir aussi: [IPC](#ipc)
 
 ### MSI
 
-On Windows, MSI packages are used by the Windows Installer (also known as Microsoft Installer) service to install and configure applications.
+Sous Windows, les paquets MSI sont utilisés par le service Windows Installer (également connu sous le nom d'installateur Microsoft) pour installer et configurer des applications .
 
-More information can be found in [Microsoft's documentation][msi].
+Plus d'informations peuvent être trouvées dans la documentation de [Microsoft][msi].
 
 ### modules natifs
 
@@ -78,7 +78,7 @@ Les modules natifs (également appelés [addons][] dans Node.js) sont des module
 
 Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d'utiliser une version différente de V8 du binaire Node installée sur votre système. Vous devez spécifier manuellement l'emplacement des en-têtes d'Electron, lors de la compilation de modules natifs.
 
-For more information, read the [Native Node Modules] tutorial.
+Pour plus d'informations, lisez le tutoriel [Modules de Node Natif].
 
 ### notarization
 
@@ -149,8 +149,8 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 [addons]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
-[Code Signing]: tutorial/code-signing.md
-[Context Isolation]: tutorial/context-isolation.md
+[Signature de code]: tutorial/code-signing.md
+[Isolation du contexte]: tutorial/context-isolation.md
 [Guide de soumission du Mac App Store]: tutorial/mac-app-store-submission-guide.md
 [principal]: #main-process
 [msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
