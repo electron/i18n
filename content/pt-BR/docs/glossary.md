@@ -4,17 +4,31 @@ Esta página define alguns termos usados frequentemente no desenvolvimento com E
 
 ### ASAR
 
-ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive Format). Um arquivo de [asar][asar] é um simples `tar` formato que juntas os arquivos para um único arquivo. Electron pode ler arquivos arbitrários sem descompactar o arquivo inteiro.
+ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive Format). Um arquivo de [asar][] é um simples `tar` formato que juntas os arquivos para um único arquivo. Electron pode ler arquivos arbitrários sem descompactar o arquivo inteiro.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+
+### code signing
+
+Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+
+For more information, read the [Code Signing][] tutorial.
+
+### context isolation
+
+Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
+
+For more information, read the [Context Isolation][] tutorial.
+
+See also: [preload script](#preload-script), [renderer process](#renderer-process)
 
 ### CRT
 
-A C Run-time (CRT) biblioteca é a parte padrão de C++ que incorpora a biblioteca padrão ISO C99. As bibliotecas do Visual C++ que implementam o CRT apoiar o desenvolvimento de código nativo e misto de código nativo e gerenciado e código gerenciado puro para desenvolvimento .NET.
+The C Runtime Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. As bibliotecas do Visual C++ que implementam o CRT apoiar o desenvolvimento de código nativo e misto de código nativo e gerenciado e código gerenciado puro para desenvolvimento .NET.
 
 ### DMG
 
-Uma imagem de disco da Apple é um formato de embalagem usado pelo macOS. DMG arquivos são componentes usados para distribuir um aplicativo "instaladores". [electron-builder][] suporta `mg` como destino de compilação.
+Uma imagem de disco da Apple é um formato de embalagem usado pelo macOS. DMG arquivos são componentes usados para distribuir um aplicativo "instaladores".
 
 ### IME
 
@@ -26,13 +40,9 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main][] and [renderer][] processes.
+IPC stands for inter-process communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes.
 
-### libchromiumcontent
-
-Uma biblioteca compartilhada que inclui o [Chromium Content module][] e todas as suas dependências (exemplo: Blink, [V8][] e etc.). Também conhecido como "libcc".
-
-- [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
+consulte também: [processo principal](#main-process), [processo de processador](#renderer-process)
 
 ### main process
 
@@ -50,9 +60,17 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 ### Mojo
 
-Um sistema IPC para a comunicação intra- ou inter-process (Entre Processos), e isso é importante porque o Chrome está interessado em ser capaz de dividir seu trabalho em processos separados ou de não dependência das pressões de memória, etc.
+An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
 Veja https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+
+See also: [IPC](#ipc)
+
+### MSI
+
+On Windows, MSI packages are used by the Windows Installer (also known as Microsoft Installer) service to install and configure applications.
+
+More information can be found in [Microsoft's documentation][msi].
 
 ### native modules
 
@@ -60,15 +78,25 @@ Módulos nativos (também chamados [addons][] em Node.Js) são módulos escritos
 
 Os módulos nativos do Node são suportados pelo Electron, mas considerando que o Electron provavelmente irá utilizar uma versão do V8 dos binários do Node instalados no seu sistema, você deve especificar manualmente a localização dos headers do Electron quando for copilar módulos nativos.
 
-Consulte também [Usando Módulos Nativos de Node][].
+For more information, read the [Native Node Modules] tutorial.
 
-### NSIS
+### notarization
 
-Nullsoft Scriptable Install System é um instalador de scripts, ferramenta de autoria para Microsoft Windows. Ele é lançado sob uma combinação de licenças de software livre e é uma alternativa amplamente utilizada para produtos proprietários comerciais como o InstallShield. [electron-builder][] suporta mg como destino de compilação.
+Notarization is a macOS-specific process where a developer can send a code-signed app to Apple servers to get verified for malicious components through an automated service.
+
+See also: [code signing](#code-signing)
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (offscreen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+
+For more information, read the [Offscreen Rendering][][osr] tutorial.
+
+### preload script
+
+Preload scripts contain code that executes in a renderer process before its web contents begin loading. These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+
+See also: [renderer process](#renderer-process), [context isolation](#context-isolation)
 
 ### process
 
@@ -82,9 +110,15 @@ Consulte também: [processo principal](#main-process), [processo de processador]
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
-Em navegadores normais, as páginas web geralmente rodam em um ambiente de área restrita e não têm a permissão de acessar recursos nativos. Usuários do Electron, por outro lado, têm o poder de usar as APIs do Node.js em páginas web, permitindo interações de baixo nível com o sistema operacional.
-
 Consulte também: [process](#process), [main process](#main-process)
+
+### sandbox
+
+The sandbox is a security feature inherited from Chromium that restricts your renderer processes to a limited set of permissions.
+
+For more information, read the [Process Sandboxing][] tutorial.
+
+See also: [process](#process)
 
 ### Squirrel
 
@@ -115,10 +149,11 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 [addons]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
-[Chromium Content module]: https://www.chromium.org/developers/content-module
-[electron-builder]: https://github.com/electron-userland/electron-builder
+[Code Signing]: tutorial/code-signing.md
+[Context Isolation]: tutorial/context-isolation.md
 [Mac App Store Submission Guide]: tutorial/mac-app-store-submission-guide.md
 [main]: #main-process
+[msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
+[Offscreen Rendering]: tutorial/offscreen-rendering.md
+[Process Sandboxing]: tutorial/sandbox.md
 [renderer]: #renderer-process
-[Usando Módulos Nativos de Node]: tutorial/using-native-node-modules.md
-[V8]: #v8
