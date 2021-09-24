@@ -1698,11 +1698,11 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - 输出文件路径
 
 返回 `Promise<void>` - 指明快捷方式是否被成功创建。
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+获取V8堆快照并保存到 `filePath`
 
 #### `contents.getBackgroundThrottling()`
 
