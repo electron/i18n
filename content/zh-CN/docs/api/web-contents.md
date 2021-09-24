@@ -1250,7 +1250,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Example usage:
+示例：
 
 ```js
 const options = {
@@ -1698,11 +1698,11 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - 输出文件路径
 
 返回 `Promise<void>` - 指明快捷方式是否被成功创建。
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+获取V8堆快照并保存到 `filePath`
 
 #### `contents.getBackgroundThrottling()`
 

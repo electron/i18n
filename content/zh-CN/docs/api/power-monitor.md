@@ -52,13 +52,13 @@
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. 可以被设置为`active`，`idle`，`locked`或者`unknown`
+Returns `String` - 系统当前状态。 可以被设置为`active`，`idle`，`locked`或者`unknown`
 
-计算系统空闲状态。 `idleThreshold` is the amount of time (in seconds) before considered idle.  `locked` is available on supported systems only.
+计算系统空闲状态。 `idleThreshold` 是闲置之前 (秒内) 的时间量。  `locked` 仅在支持的系统上可用。
 
 ### `powerMonitor.getSystemIdleTime()`
 
-Returns `Integer` - Idle time in seconds
+Returns `Integer` - 几秒钟内的空闲时间
 
 计算系统空闲时间以秒为单位。
 
@@ -72,6 +72,6 @@ Returns `Integer` - Idle time in seconds
 
 ### `powerMonitor.onBatteryPower`
 
-A `Boolean` property. 如果系统处于电池电源状态，则为 true。
+`Boolean` 属性。 如果系统处于电池电源状态，则为 true。
 
 参见 [`powerMonitor.isOnBatteryPower()`](#powermonitorisonbatterypower)。

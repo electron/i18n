@@ -4,9 +4,23 @@
 
 ### ASAR
 
-ASARはAtom Shell Archive Formatの略語です。 [asar][asar]アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
+ASARはAtom Shell Archive Formatの略語です。 [asar][]アーカイブは、複数のファイルを1つにまとめる`tar`ライクでシンプルなアーカイブ形式です。 Electron はASARファイルから全体を解凍せずに任意のファイルを読み出すことができます。
 
-ASAR 形式は、主に Windows でのパフォーマンス向上を目的に作成されました… 要加筆
+ASAR フォーマットは、主に Windows で大量の小さなファイルを読み込むとき (例: アプリケーションの JavaScript 依存関係ツリーを `node_modules` から読み込む場合など) のパフォーマンス向上のために作成されました。
+
+### コード署名
+
+コード署名とは、アプリ開発者によるパッケージ作成後のコード改ざんを検出するために、コードにデジタル署名を行う処理です。 Windows と macOS はどちらも独自のコード署名を実装しています。 デスクトップアプリケーションの開発者としてコードを一般公衆に頒布する予定の方は、コード署名が重要です。
+
+詳しい情報については、[コード署名][] のチュートリアルをご参照ください。
+
+### コンテキストの分離
+
+コンテキストの分離は Electron によるセキュリティ施策で、プリロードスクリプトが特権的な Electron や Node.js の API をレンダラープロセスのウェブコンテンツに漏らさないようにします。 コンテキストの分離を有効にすると、プリロードスクリプトから API を公開するには `contextBridge` API を使用するしかありません。
+
+詳しい情報については、[コンテキストの分離][] のチュートリアルをご参照ください。
+
+関連項目: [プリロードスクリプト](#preload-script)、[レンダラープロセス](#renderer-process)
 
 ### CRT
 
@@ -14,7 +28,7 @@ C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準�
 
 ### DMG
 
-Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式です。 DMGファイルはインストーラーアプリケーションを配布するために使用されます。 [electron-builder][]は`dmg`形式をビルドターゲットとしてサポートしています。
+Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式です。 DMGファイルはインストーラーアプリケーションを配布するために使用されます。
 
 ### IME
 
@@ -26,13 +40,9 @@ Interface description language、インターフェイス記述言語のこと�
 
 ### IPC
 
-IPC は Inter-Process Communication、プロセス間通信の略です。 Electron は、シリアライズされた JSON メッセージを [メインプロセス][] と [レンダラプロセス][] 間で送信する際に IPC を使用します。
+IPC は Inter-Process Communication、プロセス間通信の略です。 Electron では IPC を、メインプロセスとレンダラープロセスの間でのシリアライズした JSON メッセージの送信に使用します。
 
-### libchromiumcontent
-
-[Chromium Content module][] および 全ての依存関係（Blink や [V8][]）を含む共有ライブラリです。 libcc とも呼ばれます。
-
-- [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
+[メインプロセス](#main-process)、[レンダラープロセス](#renderer-process)についても参照してください。
 
 ### メインプロセス (main process)
 
@@ -50,9 +60,17 @@ Apple の Mac App Store の頭文字をつなげたものです。 MAS へのア
 
 ### Mojo
 
-イントラプロセスまたはインタープロセス通信のための IPC システム。これが重要なのは、Chromeが別々のプロセスで動作するかどうかを、メモリプレッシャーによって判断するようにに設計されているからです。
+プロセス内またはプロセス間で通信するための IPC システムです。これが重要なのは、Chrome がメモリの圧迫などに応じて作業を別プロセスに分割できるかどうかを判断しているためです。
 
 （参照： https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md ）
+
+関連項目: [IPC](#ipc)
+
+### MSI
+
+Windows では、アプリケーションのインストールと設定のために Windows Installer (別称 Microsoft Installer) サービスが MSI パッケージを使用します。
+
+詳しい情報は [Microsoft のドキュメント][msi] に記載されています。
 
 ### ネイティブモジュール (native module)
 
@@ -60,15 +78,25 @@ Apple の Mac App Store の頭文字をつなげたものです。 MAS へのア
 
 Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
-[ネイティブNodeモジュールを使用する][]についても参照してください.
+詳しい情報については、[ネイティブ Node モジュール] のチュートリアルをご参照ください。
 
-### NSIS
+### 公証
 
-Nullsoft Script Install Systemは、Microsoft Windows向けの、スクリプト駆動型インストーラー作成ツールです。(訳注: NullsoftはWinampの開発元の企業です) フリーソフトウェアライセンスの元でリリースされており、InstallShieldのようなプロプライエタリな商用製品の代替として広く使用されています。 [electron-builder][]はNSISをビルドターゲットとしてサポートしています。
+公証とは、macOS 特有のプロセスで、開発者がコード署名したアプリをアップルのサーバーに送り、自動サービスによって悪意あるコンポーネントの有無を検証してもらうものです。
+
+関連項目: [コード署名](#code-signing)
 
 ### OSR
 
-OSR (Off-screen rendering、オフスクリーンレンダリング) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます (かなりの高速化が期待されます)。 画面に表示することなくページをレンダリングできます。
+OSR (offscreen rendering、オフスクリーンレンダリング) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます (かなりの高速化が期待されます)。 画面に表示することなくページをレンダリングできます。
+
+詳しい情報については、[オフスクリーンレンダリング][][osr] のチュートリアルをご参照ください。
+
+### プリロードスクリプト
+
+プリロードスクリプトは、ウェブコンテンツの読み込み開始前にレンダラープロセス内で実行されるコードです。 これらのスクリプトはレンダラーのコンテキスト内で実行されますが、Node.js の API にアクセスできるようにより多くの権限が与えられています。
+
+関連項目: [レンダラープロセス](#renderer-process)、[コンテキストの分離](#context-isolation)
 
 ### プロセス
 
@@ -82,9 +110,15 @@ Node.jsとElectronでは、実行中のプロセスは、`process`オブジェ�
 
 レンダラープロセスは、アプリ内のブラウザウインドウです。 メインプロセスと違って複数存在でき、それぞれ別のプロセスとして動作します。 また、非表示にもできます。
 
-通常のブラウザでは、ウェブページはサンドボックス化された環境で実行され、ネイティブリソースへのアクセスは許可されません。 しかし、Electronを使用している場合は、Node.js APIをウェブページ内で使用して、OSへ作用できる低レベルAPIを使用することが出来ます。
-
 [プロセス](#process)、[レンダラープロセス](#main-process)についても参照してください。
+
+### サンドボックス
+
+サンドボックスとは、Chromium から受け継いだセキュリティ機能で、レンダラープロセスを限られた権限に制限するものです。
+
+詳しい情報については、[プロセスのサンドボックス化][] のチュートリアルをご参照ください。
+
+関連項目: [プロセス](#process)
 
 ### Squirrel
 
@@ -115,11 +149,11 @@ V8 のバージョンは必ず Google Chrome のバージョンに対応して�
 [アドオン]: https://nodejs.org/api/addons.html
 [asar]: https://github.com/electron/asar
 [autoUpdater]: api/auto-updater.md
-[Chromium Content module]: https://www.chromium.org/developers/content-module
-[electron-builder]: https://github.com/electron-userland/electron-builder
+[コード署名]: tutorial/code-signing.md
+[コンテキストの分離]: tutorial/context-isolation.md
 [Mac App Store 登録ガイド]: tutorial/mac-app-store-submission-guide.md
 [メインプロセス]: #main-process
-[レンダラプロセス]: #renderer-process
+[msi]: https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal
+[オフスクリーンレンダリング]: tutorial/offscreen-rendering.md
+[プロセスのサンドボックス化]: tutorial/sandbox.md
 [レンダラープロセス]: #renderer-process
-[ネイティブNodeモジュールを使用する]: tutorial/using-native-node-modules.md
-[V8]: #v8
