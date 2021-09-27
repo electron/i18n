@@ -87,49 +87,49 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 返回:
 
 * `event` Event
-* `extension` [Extension](structures/extension.md)
+* `extension` [扩展插件](structures/extension.md)
 
-Emitted after an extension is loaded. This occurs whenever an extension is added to the "enabled" set of extensions. 这包括：
+在扩展插件加载完成后触发。 当一个扩展插件被添加到 "enabled" 的扩展插件集合内部时， 将自动触发 这包括：
 
-* Extensions being loaded from `Session.loadExtension`.
-* Extensions being reloaded:
-  * from a crash.
-  * if the extension requested it ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
+* 扩展插件正在从 `Session.loadExtension` 中被加载
+* 扩展插件正在被重新加载：
+  * 由于崩溃
+  * 扩展插件被请求重新载入 ([`chrome.runtime.reload()`](https://developer.chrome.com/extensions/runtime#method-reload)).
 
 #### Event: 'extension-unloaded'
 
 返回:
 
 * `event` Event
-* `extension` [Extension](structures/extension.md)
+* `extension` [扩展插件](structures/extension.md)
 
-Emitted after an extension is unloaded. This occurs when `Session.removeExtension` is called.
+当一个扩展插件被卸载后触发。 当 `Session.removeExtension` 被调用时也会触发。
 
 #### Event: 'extension-ready'
 
 返回:
 
 * `event` Event
-* `extension` [Extension](structures/extension.md)
+* `extension` [扩展插件](structures/extension.md)
 
-Emitted after an extension is loaded and all necessary browser state is initialized to support the start of the extension's background page.
+当一个扩展插件加载完成，同时所有必要的浏览器状态也初始化完毕，允许启动插件背景页面时， 将触发此事件。
 
 #### Event: 'preconnect'
 
 返回:
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - 渲染器为预连接请求的 URL
+* `allowCredentials` Boolean - True 代表着渲染器在请求一个包含 credentials 信息的链接 (详见[spec](https://w3c.github.io/resource-hints/#preconnect))
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+当渲染进程已经预链接到 URL 后将触发此事件, 通常用于 [资源加载](https://w3c.github.io/resource-hints/) 提醒
 
 #### Event: 'spellcheck-dictionary-initialized'
 
 返回:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - 字典文件的语言代码
 
 当一个hunspell字典初始化成功时触发。 这个事件在文件被下载之后触发。
 
@@ -138,25 +138,25 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 返回:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - 字典文件的语言代码
 
-Emitted when a hunspell dictionary file starts downloading
+当 hunspell 字典文件开始下载时触发
 
 #### Event: 'spellcheck-dictionary-download-success'
 
 返回:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - 字典文件的语言代码
 
-Emitted when a hunspell dictionary file has been successfully downloaded
+当 hunspell 字典文件下载成功触发
 
 #### Event: 'spellcheck-dictionary-download-failure'
 
 返回:
 
 * `event` Event
-* `languageCode` String - The language code of the dictionary file
+* `languageCode` String - 字典文件的语言代码
 
 当hunspell字典下载失败时触发。  如果需要详细信息，你应当查看网络日志并且检查下载请求。
 
@@ -170,7 +170,7 @@ Emitted when a hunspell dictionary file has been successfully downloaded
 * `callback` Function
   * `portId` String
 
-Emitted when a serial port needs to be selected when a call to `navigator.serial.requestPort` is made. `callback` should be called with `portId` to be selected, passing an empty string to `callback` will cancel the request.  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
+调用 `navigator.serial.requestPort` 并选择一系列端口时触发此事件。 `callback` 方法将在`portId` 被选中后调用, 给`callback` 方法一个空字符串参数将取消请求。  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
