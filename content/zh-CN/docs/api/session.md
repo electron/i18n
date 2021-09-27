@@ -170,7 +170,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 * `callback` Function
   * `portId` String
 
-调用 `navigator.serial.requestPort` 并选择一系列端口时触发此事件。 `callback` 方法将在`portId` 被选中后调用, 给`callback` 方法一个空字符串参数将取消请求。  Additionally, permissioning on `navigator.serial` can be managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) with the `serial` permission.
+调用 `navigator.serial.requestPort` 并选择一系列端口时触发此事件。 `callback` 方法将在`portId` 被选中后调用, 给`callback` 方法一个空字符串参数将取消请求。  此外， `navigator.serial` 的许可权可以通过使用 [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) 来设置 `serial` 权限。
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -204,7 +204,7 @@ app.whenReady().then(() => {
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
+当 `navigator.serial.requestPort` 已经被调用时触发此事件，同时 如果新的串行端口可用则 `select-serial-port` 事件也将触发。  比如，当一个新的USB设备插入时将触发此事件。
 
 #### Event: 'serial-port-removed'
 
@@ -214,7 +214,7 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 * `port` [SerialPort](structures/serial-port.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a serial port has been removed.  For example, this event will fire when a USB device is unplugged.
+当 `navigator.serial.requestPort` 已经被调用时触发，同时如果串行端口已经被删除则触发 `select-serial-port` 事件。  比如， 当一个USB设备被移除时。
 
 ### 实例方法
 
@@ -222,11 +222,11 @@ Emitted after `navigator.serial.requestPort` has been called and `select-serial-
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+Returns `Promise<Integer>` - 当前 session 会话缓存大小，用 byte 字节作为单位。
 
 #### `ses.clearCache()`
 
-Returns `Promise<void>` - resolves when the cache clear operation is complete.
+Returns `Promise<void>` - 当缓存清除操作完成时可获取
 
 清除session的HTTP缓存。
 
@@ -234,10 +234,10 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
 * `options` Object (可选)
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. 如果没有指定storages，将会清除所有的storages类型
+  * `storages` String[] (可选项) - 要清除的存储类型，包含: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`. 如果没有指定storages，将会清除所有的storages类型
   * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。 如果没有指定，将会清除所有的quotas。
 
-Returns `Promise<void>` - resolves when the storage data has been cleared.
+Returns `Promise<void>` - 当存储的数据已经被清理时可获得
 
 #### `ses.flushStorageData()`
 
@@ -246,9 +246,9 @@ Returns `Promise<void>` - resolves when the storage data has been cleared.
 #### `ses.setProxy(config)`
 
 * `config` Object
-  * `mode` String (optional) - The proxy mode. Should be one of `direct`, `auto_detect`, `pac_script`, `fixed_servers` or `system`. If it's unspecified, it will be automatically determined based on other specified options.
-    * `direct` In direct mode all connections are created directly, without any proxy involved.
-    * `auto_detect` In auto_detect mode the proxy configuration is determined by a PAC script that can be downloaded at http://wpad/wpad.dat.
+  * `mode` String (可选) - 代理模式。 可以是其中之一： `direct`, `auto_detect`, `pac_script`, `fixed_servers` 或 `system`。 如未指定，则根据其他选项自动判断
+    * `direct` 在直接模式下，所有连接都是直接创建的，无需任何代理。
+    * `auto_detect` 在auto_detect模式下，代理配置由 PAC 脚本决定，该脚本 可在 http://wpad/wpad.dat 下载。
     * `pac_script` In pac_script mode the proxy configuration is determined by a PAC script that is retrieved from the URL specified in the `pacScript`. This is the default mode if `pacScript` is specified.
     * `fixed_servers` In fixed_servers mode the proxy configuration is specified in `proxyRules`. This is the default mode if `proxyRules` is specified.
     * `system` In system mode the proxy configuration is taken from the operating system. Note that the system mode is different from setting no proxy configuration. In the latter case, Electron falls back to the system settings only if no command-line options influence the proxy configuration.
