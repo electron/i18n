@@ -666,8 +666,8 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 返回:
 
-* `level` Integer - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
-* `message` String - The actual console message
+* `level` Integer - The log level, from 0 to 3. 按顺序匹配 `verbose`, `info`, `warning` 和 `error`.
+* `message` String - 实际控制台消息
 * `line` Integer - The line number of the source that triggered this console message
 * `sourceId` String
 

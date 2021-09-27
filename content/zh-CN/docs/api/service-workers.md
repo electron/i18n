@@ -1,6 +1,6 @@
 ## Class: ServiceWorkers
 
-> Query and receive events from a sessions active service workers.
+> 从活跃的 service worker 会话中查询和接收事件
 
 Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
 
@@ -27,32 +27,32 @@ session.defaultSession.serviceWorkers.on('console-message', (event, messageDetai
 
 ### 实例事件
 
-The following events are available on instances of `ServiceWorkers`:
+`ServiceWorkers`实例中有下列事件：
 
 #### Event: 'console-message'
 
 返回:
 
 * `event` Event
-* `messageDetails` Object - Information about the console message
-  * `message` String - The actual console message
-  * `versionId` Number - The version ID of the service worker that sent the log message
-  * `source` String - The type of source for this message.  Can be `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` or `other`.
-  * `level` Number - The log level, from 0 to 3. In order it matches `verbose`, `info`, `warning` and `error`.
-  * `sourceUrl` String - The URL the message came from
-  * `lineNumber` Number - The line number of the source that triggered this console message
+* `messageDetails` Object - 有关控制台消息的信息
+  * `message` String - 实际控制台消息
+  * `versionId` Number - 发送消息日志的 service worker 的版本 ID
+  * `source` String - 消息源的类型  可以是 `javascript`, `xml`, `network`, `console-api`, `storage`, `app-cache`, `rendering`, `security`, `deprecation`, `worker`, `violation`, `intervention`, `recommendation` 或 `other`.
+  * `level` Number - 日志等级，从 0 到 3 。 按顺序匹配 `verbose`, `info`, `warning` 和 `error`.
+  * `sourceUrl` String - 消息来源的URL
+  * `lineNumber` Number - 触发当前控制台消息的源代码行数
 
-Emitted when a service worker logs something to the console.
+当一个service worker记录日志到控制台的时候将自动触发此事件
 
 #### Event: 'registration-completed'
 
 返回:
 
 * `event` Event
-* `details` Object - Information about the registered service worker
-  * `scope` String - The base URL that a service worker is registered for
+* `details` Object - 有关 service worker 注册的信息
+  * `scope` String - 当前 service worker 所注册在的URL
 
-Emitted when a service worker has been registered. Can occur after a call to [`navigator.serviceWorker.register('/sw.js')`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) successfully resolves or when a Chrome extension is loaded.
+当一个service worker已经被注册完成的时候触发此事件。 注册完成分两种情况， 一个是调用[`navigator.serviceWorker.register('/sw.js')`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register)方法成功，另一个是当Chrome的扩展加载结束。
 
 ### 实例方法
 
@@ -60,12 +60,12 @@ Emitted when a service worker has been registered. Can occur after a call to [`n
 
 #### `serviceWorkers.getAllRunning()`
 
-Returns `Record<Number, ServiceWorkerInfo>` - A [ServiceWorkerInfo](structures/service-worker-info.md) object where the keys are the service worker version ID and the values are the information about that service worker.
+返回 `Record<Number, ServiceWorkerInfo>` ， 一个 [ServiceWorkerInfo](structures/service-worker-info.md) 对象， 其中键是 service worker 的版本 ID ，值是 service worker 的信息。
 
 #### `serviceWorkers.getFromVersionID(versionId)`
 
 * `versionId` Number
 
-Returns [`ServiceWorkerInfo`](structures/service-worker-info.md) - Information about this service worker
+返回 [`ServiceWorkerInfo`](structures/service-worker-info.md) - service worker的相关信息
 
-If the service worker does not exist or is not running this method will throw an exception.
+如果 service worker 不存在或者停止运行，此方法将抛出异常。
