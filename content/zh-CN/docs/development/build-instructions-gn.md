@@ -50,8 +50,8 @@ $ gclient sync --with_branch_heads --with_tags
 $ cd src/electron
 $ git remote remove origin
 $ git remote add origin https://github.com/electron/electron
-$ git checkout master
-$ git branch --set-upstream-to=origin/master
+$ git checkout main
+$ git branch --set-upstream-to=origin/main
 $ cd -
 ```
 
@@ -100,13 +100,13 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
 
-For the testing configuration:
+测试配置：
 
 ```sh
 $ ninja -C out/Testing electron
 ```
 
-For the release configuration:
+发布配置：
 
 ```sh
 $ ninja -C out/Release electron
@@ -150,7 +150,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
 
 | Host        | 目标            | 状态                   |
 | ----------- | ------------- | -------------------- |
-| Windows x64 | Windows arm64 | Experimental         |
+| Windows x64 | Windows arm64 | 实验性功能                |
 | Windows x64 | Windows x86   | Automatically tested |
 | Linux x64   | Linux x86     | Automatically tested |
 
@@ -203,7 +203,7 @@ On Windows, SMBv2 has a directory cache that will cause problems with the git ca
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+to 0. 更多信息：https://stackoverflow.com/a/9935126
 
 This can be set quickly in powershell (ran as administrator):
 
