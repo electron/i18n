@@ -42,10 +42,10 @@ $ git fetch upstream
 
 ### 步骤3: 分支
 
-为了保持您的开发环境的组织, 创建本地分支来保存您的工作。 应该直接从 ` master ` 分支上创建您的分支。
+为了保持您的开发环境的组织, 创建本地分支来保存您的工作。 These should be branched directly off of the `main` branch.
 
 ```sh
-$ git checkout -b my-branch -t upstream/master
+$ git checkout -b my-branch -t upstream/main
 ```
 
 ## 进行更改
@@ -113,10 +113,10 @@ A commit that has the text `BREAKING CHANGE:` at the beginning of its optional b
 
 ```sh
 $ git fetch upstream
-$ git rebase upstream/master
+$ git rebase upstream/main
 ```
 
-这可确保您的工作分支具有来自 ` electron/electron ` master 分支的最新更改。
+This ensures that your working branch has the latest changes from `electron/electron` main.
 
 ### 步骤7: 测试
 
@@ -157,7 +157,7 @@ the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/electron/electron/blob/main/CONTRIBUTING.md
 -->
 ```
 
@@ -179,7 +179,7 @@ $ git push origin my-branch
 
 #### 批准和请求更改工作流程
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/main/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 这样的困难往往可以用一点耐心来解决。 That said, reviewers should be expected to provide helpful feedback.
 
