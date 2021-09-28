@@ -6,13 +6,13 @@ Esta página define algunos términos que comúnmente se utilizan en el desarrol
 
 ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar][] es un simple formato tipo `tar` que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios de él sin desempacar el archivo entero.
 
-The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows cuando se cargan grandes cantidades de archivos pequeños (p.e. al cargar el árbol de dependencia JavaScript de tu aplicación desde `node_modules`).
 
-### code signing
+### firma de código
 
-Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+La firma de código es un proceso donde un desarrollador de aplicación firma digitalmente su código para asegurarse que el código no haya sido manipulado después del empaquetado. Tanto Windows y macOS implementan su propia versión de la firma de código. Como desarrollar de aplicaciones de escritorio, es importante que firmes tu código si planeas distribuirlo al publico en general.
 
-For more information, read the [Code Signing][] tutorial.
+Para más información, consulta el tutorial [Code Signing][].
 
 ### context isolation
 
