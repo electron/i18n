@@ -42,10 +42,10 @@ Una vez que has compilado el proyecto localmente, ¡Estas listo para empezar a h
 
 ### Paso 3: Rama
 
-Para mantener tu entorno de desarrollo organizado, crea ramas locales para retener tu trabajo. Estos deben ser ramificados directamente de la rama `master`.
+Para mantener tu entorno de desarrollo organizado, crea ramas locales para retener tu trabajo. Estos deben ser ramificados directamente de la rama `main`.
 
 ```sh
-$ git checkout -b my-branch -t upstream/master
+$ git checkout -b my-branch -t upstream/main
 ```
 
 ## Haciendo Cambios
@@ -113,10 +113,10 @@ Una vez hayas asignado tus cambios, es una buena idea el usar `git rebase` (no `
 
 ```sh
 $ git fetch upstream
-$ git rebase upstream/master
+$ git rebase upstream/main
 ```
 
-Esto asegura que tu rama de trabajo tiene los ultimos cambios del principal `electron/electron`.
+This ensures that your working branch has the latest changes from `electron/electron` main.
 
 ### Paso 7: Prueba
 
@@ -157,7 +157,7 @@ the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/electron/electron/blob/main/CONTRIBUTING.md
 -->
 ```
 
@@ -179,7 +179,7 @@ Siéntete libre de postear un comentario en el pull request para avisar a los cr
 
 #### Aprobación y Solicitud de Cambios de Workflow
 
-Todas las pull requests requieren de aprobación por parte de un [Propietario de Códico](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) del área que modificaste para aterrizar. Cada vez que un mantenedor revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error tipográfico o puede implicar cambios sustanciales. Se espera que sean útiles, pero puede que a veces no lo sean, especialmente si no incluyen sugerencias concretas sobre *cómo* cambiarlas.
+Todas las pull requests requieren de aprobación por parte de un [Propietario de Códico](https://github.com/electron/electron/blob/main/.github/CODEOWNERS) del área que modificaste para aterrizar. Cada vez que un mantenedor revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error tipográfico o puede implicar cambios sustanciales. Se espera que sean útiles, pero puede que a veces no lo sean, especialmente si no incluyen sugerencias concretas sobre *cómo* cambiarlas.
 
 Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los revisores ofrezcan una crítica útil.
 
