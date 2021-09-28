@@ -6,25 +6,25 @@ Esta página define algunos términos que comúnmente se utilizan en el desarrol
 
 ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar][] es un simple formato tipo `tar` que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios de él sin desempacar el archivo entero.
 
-The ASAR format was created primarily to improve performance on Windows when reading large quantities of small files (e.g. when loading your app's JavaScript dependency tree from `node_modules`).
+El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows cuando se cargan grandes cantidades de archivos pequeños (p.e. al cargar el árbol de dependencia JavaScript de tu aplicación desde `node_modules`).
 
-### code signing
+### firma de código
 
-Code signing is a process where an app developer digitally signs their code to ensure that it hasn't been tampered with after packaging. Both Windows and macOS implement their own version of code signing. As a desktop app developer, it's important that you sign your code if you plan on distributing it to the general public.
+La firma de código es un proceso donde un desarrollador de aplicación firma digitalmente su código para asegurarse que el código no haya sido manipulado después del empaquetado. Tanto Windows y macOS implementan su propia versión de la firma de código. Como desarrollar de aplicaciones de escritorio, es importante que firmes tu código si planeas distribuirlo al publico en general.
 
-For more information, read the [Code Signing][] tutorial.
+Para más información, consulta el tutorial [Code Signing][].
 
-### context isolation
+### aislamiento del contexto
 
-Context isolation is a security measure in Electron that ensures that your preload script cannot leak privileged Electron or Node.js APIs to the web contents in your renderer process. With context isolation enabled, the only way to expose APIs from your preload script is through the `contextBridge` API.
+El aislamiento de contexto es una medida de seguridad en Electro que asegura que tu script de precarga no pueda filtrar las APIs privilegiadas de Electron o Node.js a los contenidos web en tu renderer process. Con el aislamiento de contexto activado, la única manera de exponer las APIs, desde tu scrip de precarga es a través de la API `contextBridge`.
 
-For more information, read the [Context Isolation][] tutorial.
+Para más información, consulta el tutorial [Context Isolation][].
 
-See also: [preload script](#preload-script), [renderer process](#renderer-process)
+Ver también: [preload script](#preload-script), [renderer process](#renderer-process)
 
 ### CRT
 
-The C Runtime Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. Las librerías de Visual C++ que implementan el apoyo CRT desarrollo de código nativo, y tanto código mixto nativo y como código administrado, y puro código administrado para el desarrollo .NET.
+La biblioteca de Run-time C (CRT) es la parte de la biblioteca estándar de C++ que incorpora la biblioteca estándar de ISO C99. Las librerías de Visual C++ que implementan el apoyo CRT desarrollo de código nativo, y tanto código mixto nativo y como código administrado, y puro código administrado para el desarrollo .NET.
 
 ### DMG
 
@@ -36,11 +36,11 @@ Método de entrada del editor. Un programa que permite a los usuarios introducir
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Interface description language. Escribe firmas de funciones y tipos de datos en un formato que se puede utilizar para generar interfaces en Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC stands for inter-process communication. Electron uses IPC to send serialized JSON messages between the main and renderer processes.
+IPC se refiere a la comunicación entre procesos. Electron utiliza IPC para enviar mensajes JSON serializados entre el proceso principal y los procesos renderizadores.
 
 véase también: [proceso principal](#main-process), [proceso de renderizado](#renderer-process)
 
@@ -60,17 +60,17 @@ Acrónimo para la App Store de Apple. Para más detalles sobre el envío de su a
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Un sistema IPC para comunicarse dentro o entre procesos, y eso es importante porque Chrome está interesado en poder dividir su trabajo en procesos separados o no, dependiendo de las presiones de la memoria, etc.
 
 Ver https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-See also: [IPC](#ipc)
+Ver también: [IPC](#ipc)
 
 ### MSI
 
-On Windows, MSI packages are used by the Windows Installer (also known as Microsoft Installer) service to install and configure applications.
+En Windows, los paquetes MSI son usados por el servicio Windows Installer (también conocido como Microsoft Installer) para instalar y configurar aplicaciones.
 
-More information can be found in [Microsoft's documentation][msi].
+Puede encontrar más información en [Microsoft's documentation][msi].
 
 ### Módulos nativos
 
@@ -78,25 +78,25 @@ Los módulos nativos (también llamados [addons][] en Node.js) son módulos escr
 
 Nativo nodo módulos están soportados por el Electron, pero puesto que el Electron es muy probable que utilice una versión V8 del nodo binario instalada en su sistema, usted tiene que especificar manualmente la ubicación de cabeceras del Electron al compilar los módulos nativos.
 
-For more information, read the [Native Node Modules] tutorial.
+Para más información, lea el tutorial [Native Node Modules].
 
-### notarization
+### notarización
 
-Notarization is a macOS-specific process where a developer can send a code-signed app to Apple servers to get verified for malicious components through an automated service.
+La notarización es un proceso específico de macOS en el que un desarrollador puede enviar una aplicación firmada con código a los servidores de Apple para verificar la presencia de componentes maliciosos a través de un servicio automatizado.
 
-See also: [code signing](#code-signing)
+Ver también: [code signing](#code-signing)
 
 ### OSR
 
-OSR (offscreen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (representación fuera de pantalla) puede ser usado para cargar una página pesada en segundo plano y luego mostrarla después (será mucho más rápido). It allows you to render page without showing it on screen.
 
-For more information, read the [Offscreen Rendering][][osr] tutorial.
+Para más información, lea el tutorial [Offscreen Rendering][][osr].
 
-### preload script
+### script de precarga
 
-Preload scripts contain code that executes in a renderer process before its web contents begin loading. These scripts run within the renderer context, but are granted more privileges by having access to Node.js APIs.
+Los scripts de precarga contienen el código que se ejecuta en un proceso de renderizado antes de que su contenido web comience a cargar. Estos scripts se ejecutan dentro del contexto del renderizador, pero tienen más privilegios al tener acceso a las APIs de Node.js.
 
-See also: [renderer process](#renderer-process), [context isolation](#context-isolation)
+Ver también: [renderer process](#renderer-process), [context isolation](#context-isolation)
 
 ### process
 
@@ -114,11 +114,11 @@ Véase también: [proceso](#process), [proceso principal](#main-process)
 
 ### sandbox
 
-The sandbox is a security feature inherited from Chromium that restricts your renderer processes to a limited set of permissions.
+El sandbox es una característica de seguridad heredada de Chromium que restringe tus procesos de rederizados a u conjunto limitado de permisos.
 
-For more information, read the [Process Sandboxing][] tutorial.
+Para más información, lea el tutorial [Process Sandboxing][].
 
-See also: [process](#process)
+Ver también: [process](#process)
 
 ### Squirrel
 

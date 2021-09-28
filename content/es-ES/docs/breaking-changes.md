@@ -631,7 +631,7 @@ systemPreferences.isHighContrastColorScheme()
 nativeTheme.shouldUseHighContrastColors
 ```
 
-## Planned Breaking API Changes (7.0)
+## Cambios Planeados en la API (7.0)
 
 ### Obsoleto: Atom.io Node Headers URL
 
@@ -661,7 +661,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = powerMonitor.getSystemIdleState(threshold)
 ```
 
-### API Changed: `powerMonitor.querySystemIdleTime` is now `powerMonitor.getSystemIdleTime`
+### API Modificada: `powerMonitor.querySystemIdleTime` ahora es `powerMonitor.getSystemIdleTime`
 
 ```js
 // Eliminada en Electron 7.0
@@ -769,7 +769,7 @@ These functions now have two forms, synchronous and Promise-based asynchronous:
 * `dialog.showOpenDialog()`/`dialog.showOpenDialogSync()` [#16973](https://github.com/electron/electron/pull/16973)
 * `dialog.showSaveDialog()`/`dialog.showSaveDialogSync()` [#17054](https://github.com/electron/electron/pull/17054)
 
-## Planned Breaking API Changes (6.0)
+## Cambios Planeados en la API (6.0)
 
 ### API Modificada: `win.setMenu(null)` ahora es `win.removeMenu()`
 
@@ -850,7 +850,7 @@ tray.setHighlightMode(mode)
 // API sera eliminada en V7.0 sin reemplazo.
 ```
 
-## Planned Breaking API Changes (5.0)
+## Cambios Planeados en la API (5.0)
 
 ### Default Changed: `nodeIntegration` and `webviewTag` default to false, `contextIsolation` defaults to true
 
@@ -876,7 +876,7 @@ const w = new BrowserWindow({
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true`.
 
-### API Changed: Registering privileged schemes must now be done before app ready
+### API Modificada: El registro de esquemas privilegiados ahora debe hacerse antes de que la aplicación este lista
 
 Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. Una nueva API, `protocol.registerSchemesAsPrivileged` ha sido agregada y debe ser usada para registrar esquemas personalizados con los privilegios requeridos. Se requieren esquemas personalizados para ser registrados antes de que la aplicación esté lista.
 
@@ -897,7 +897,7 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### API Changed: `webFrame.setSpellCheckProvider` now takes an asynchronous callback
+### API Modificada: `webFrame.setSpellCheckProvider` ahora toma un callbak asíncrono
 
 El callback `spellCheck` ahora es asincrónico y el parámetro `autoCorrectWord` ha sido removido.
 
@@ -942,7 +942,7 @@ console.log(factor)
 
 ## Cambios planeados en la API(4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+La siguiente lista incluye cambios efectuados en la API 4.0 de Electrón.
 
 ### `app.makeSingleInstance`
 
