@@ -70,7 +70,7 @@ And the `styles.css` file:
 
 The example renders an HTML page with a couple elements. The `<strong id="theme-source">` element shows which theme is currently selected, and the two `<button>` elements are the controls. The CSS file uses the [`prefers-color-scheme`][prefers-color-scheme] media query to set the `<body>` element background and text colors.
 
-The `preload.js` script adds a new API to the `window` object called `darkMode`. This API exposes two IPC channels to the renderer process, `'dark-mode:toggle'` and `'dark-mode:system'`. It also assigns two methods, `toggle` and `system`, which pass messages from the renderer to the main process.
+The `preload.js` script adds a new API to the `window` object called `darkMode`. Esta API expone dos canales IPC al proceso renderizador, `'dark-mode:toggle'` y `'dark-mode:system'`. It also assigns two methods, `toggle` and `system`, which pass messages from the renderer to the main process.
 
 ```js title='preload.js'
 const { contextBridge, ipcRenderer } = require('electron')
