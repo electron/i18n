@@ -68,7 +68,7 @@ ELECTRON_CUSTOM_DIR="{{ version }}"
 
 The above configuration will download from URLs such as `https://npm.taobao.org/mirrors/electron/8.0.0/electron-v8.0.0-linux-x64.zip`.
 
-If your mirror serves artifacts with different checksums to the official Electron release you may have to set `ELECTRON_USE_REMOTE_CHECKSUMS=1` to force Electron to use the remote `SHASUMS256.txt` file to verify the checksum instead of the embedded checksums.
+Si tu réplica sirve artefactos con diferentes sumas de verificación al del oficial de Electron, puede que tengas que establecer `ELECTRON_USE_REMOTE_CHECKSUMS=1` para forzar a Electron a usar el archivo `SHASUMS256.txt` para verificar la suma de verificación en lugar de la comprobación incrustada.
 
 #### Caché
 
