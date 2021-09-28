@@ -122,7 +122,7 @@ Devuelve:
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`][activity-type].
 * `userInfo` unknown - Contiene el estado especifico de la aplicación guardado por la actividad en otro dispositivo.
 * `details` Object
-  * `webpageURL` String (optional) - A string identifying the URL of the webpage accessed by the activity on another device, if available.
+  * `webpageURL` String (opcional) - Una cadena que identifica la URL de la página web accedida por la actividad en otro dispositivo, si está disponible.
 
 Emitido durante [Handoff][handoff] cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
@@ -582,7 +582,7 @@ Reescribe el nombre de la aplicación actual.
 
 Devuelve `String` - Los parámetros regionales actuales de la aplicación, recopilados usando la biblioteca `l10n_util` de Chromium. Los posibles valores de retorno son documentados [aquí](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](command-line-switches.md).
+Para establecer la locale, querrás usar un interruptor de línea de comandos al inicio de la aplicación, que puede encontrarse [aquí](command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -867,15 +867,15 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 ### `app.configureHostResolver(options)`
 
 * `options` Object
-  * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Enabled by default on macOS, disabled by default on Windows and Linux.
-  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. When "automatic", DoH lookups will be peformed first if DoH is available, and insecure DNS lookups will be performed as a fallback. When "secure", only DoH lookups will be performed. Defaults to "automatic".
-  * `secureDnsServers` String[]&#32;(optional) - A list of DNS-over-HTTP server templates. See [RFC8484 § 3][] for details on the template format. Most servers support the POST method; the template for such servers is simply a URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
+  * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Activado por defecto en macOS, desactivado por defecto en Windows y Linux.
+  * `secureDnsMode` String (opcional) - Puede ser "off", "automatic" o "secure". Configura el modo DNS-over-HTTP. Cuando es "off", las búsquedas DoH no se realizarán. Cuando es "automatic", las búsquedas DoH se realizarán primero si DoH está disponible, y las búsquedas DNS se realizarán como una reserva. Cuando es "secure", sólo se realizarán búsquedas DoH. Por defecto es "automatic".
+  * `secureDnsServers` String[]&#32;(opcional) - Una lista de plantillas de servidor DNS-over-HTTP. Vea [RFC8484 § 3][] para más detalles sobre el formato de la plantilla. La mayoría de los servidores soportan el método POST; la plantilla para estos servidores es simplemente una URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
   * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. Defaults to true.
 
-Configures host resolution (DNS and DNS-over-HTTPS). By default, the following resolvers will be used, in order:
+Configure la resolución de host (DNS y DNS-over-HTTPS). Por defecto, se utilizarán los siguientes resolutores en orden:
 
-1. DNS-over-HTTPS, if the [DNS provider supports it][doh-providers], then
-2. the built-in resolver (enabled on macOS only by default), then
+1. DNS-over-HTTPS, si [DNS provider supports it][doh-providers], luego
+2. el resolutor integrado (activado sólo por defecto en macOS), luego
 3. the system's resolver (e.g. `getaddrinfo`).
 
 This can be configured to either restrict usage of non-encrypted DNS (`secureDnsMode: "secure"`), or disable DNS-over-HTTPS (`secureDnsMode:
