@@ -180,9 +180,9 @@ See also `--enable-logging`, `--log-level`, and `--vmodule`.
 
 ### --vmodule=`pattern`
 
-Permite que el nivel máximo por module de V-logging sobrepase el valor dado por `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Permite que el nivel máximo por module de V-logging sobrepase el valor dado por `--v`. P.e. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras será probado contra el nombre de la ruta completa y no solo contra el módulo. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras será probado contra el nombre de la ruta completa y no solo contra el módulo. P.e. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
