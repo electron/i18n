@@ -42,7 +42,7 @@ Once you've built the project locally, you're ready to start making changes!
 
 ### Step 3: Branch
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `main` branch.
+To keep your development environment organized, create local branches to hold your work. Они должны быть вынесены непосредственно от ветки `main`.
 
 ```sh
 $ git checkout -b my-branch -t upstream/main
@@ -157,7 +157,7 @@ the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Contributors guide: https://github.com/electron/electron/blob/main/CONTRIBUTING.md
+Руководство для разработчиков: https://github.com/electron/electron/blob/main/CONTRIBUTING.md
 -->
 ```
 
