@@ -42,4 +42,4 @@ NW.js では、Windows XP 対応の "レガシーリリース" がまだ提供�
 
 [nwjs]: https://nwjs.io/
 [electron-modules]: https://www.npmjs.com/search?q=electron
-[node-bindings]: https://github.com/electron/electron/tree/master/lib/common
+[node-bindings]: https://github.com/electron/electron/tree/main/lib/common
