@@ -50,8 +50,8 @@ If you intend to `git pull` or `git push` from the official `electron` repositor
 $ cd src/electron
 $ git remote remove origin
 $ git remote add origin https://github.com/electron/electron
-$ git checkout master
-$ git branch --set-upstream-to=origin/master
+$ git checkout main
+$ git branch --set-upstream-to=origin/main
 $ cd -
 ```
 
@@ -150,7 +150,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
 
 | Host        | Target        | Notice               |
 | ----------- | ------------- | -------------------- |
-| Windows x64 | Windows arm64 | Experimental         |
+| Windows x64 | Windows arm64 | Expérimental         |
 | Windows x64 | Windows x86   | Automatically tested |
 | Linux x64   | Linux x86     | Automatically tested |
 
