@@ -8,7 +8,7 @@ Example Use Case:
     * 我们需要安装`VS15.9`或者我们已安装好`VS15.7`；然后可能会请求我们去更新Azure镜像
 
 1. Identify the image you wish to modify.
-    * 在 [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml)文件中，镜像通过该文件来识别 *镜像* 配置。
+    * 在 [appveyor.yml](https://github.com/electron/electron/blob/main/appveyor.yml)文件中，镜像通过该文件来识别 *镜像* 配置。
         * *“images”*该命名被对应用来定义云构建，例如：[libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8)
     * 找到你希望去修改构建在云端的镜像并且注意镜像的 **VHD Blob Path**（标签），它是对应键值对的值
         * You will need this URI path to copy into a new image.
