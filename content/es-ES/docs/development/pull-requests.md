@@ -45,7 +45,7 @@ Una vez que has compilado el proyecto localmente, ¡Estas listo para empezar a h
 Para mantener tu entorno de desarrollo organizado, crea ramas locales para retener tu trabajo. Estos deben ser ramificados directamente de la rama `main`.
 
 ```sh
-$ git checkout -b my-branch -t upstream/main
+$ git checkout -b mi-rama -t upstream/main
 ```
 
 ## Haciendo Cambios
@@ -116,7 +116,7 @@ $ git fetch upstream
 $ git rebase upstream/main
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` main.
+Esto asegura que tu rama de trabajo tiene los últimos cambios de la rama principal `electron/electron`.
 
 ### Paso 7: Prueba
 
