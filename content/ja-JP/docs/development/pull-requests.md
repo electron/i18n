@@ -116,7 +116,7 @@ $ git fetch upstream
 $ git rebase upstream/main
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` main.
+これにより作業ブランチに `electron/electron` の main の最新の変更が確実に反映されます。
 
 ### ステップ7: テスト
 
