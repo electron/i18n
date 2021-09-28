@@ -8,7 +8,7 @@ Vor diesem Hintergrund sollten Sie sich bewusst sein, dass die Anzeige willkürl
 
 ## Melden von Sicherheitsproblemen
 
-Informationen dazu, wie sie eine Electron-Sicherheitslücke richtig melden können, finden Sie unter [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Informationen dazu, wie sie eine Electron-Sicherheitslücke richtig melden können, finden Sie unter [SECURITY.md](https://github.com/electron/electron/tree/main/SECURITY.md)
 
 ## Chromium Sicherheitsprobleme und Updates
 
