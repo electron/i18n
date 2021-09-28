@@ -2,7 +2,7 @@
 
 ## 寻找技术支持
 
-如果您有安全方面的问题，请参阅 [安全文档](https://github.com/electron/electron/tree/master/SECURITY.md)
+如果您有安全方面的问题，请参阅 [安全文档](https://github.com/electron/electron/tree/main/SECURITY.md)
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
 
@@ -21,7 +21,7 @@
 * [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
 * [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
 
-如果你有意为加入Electron的开发，可参阅[贡献文档](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)
+如果你有意为加入Electron的开发，可参阅[贡献文档](https://github.com/electron/electron/blob/main/CONTRIBUTING.md)
 
 如果你在Electron的[支持版](#supported-versions)中发现漏洞，请在[问题追踪](../development/issues.md)中提交你发现的漏洞。
 
@@ -33,9 +33,9 @@ _**Note:** Beginning in September 2021 with Electron 15, the Electron team will 
 
 最新的 3 个*稳定的*的版本受 Electron 团队支持。 例如，如果最新版本是 6.1.x，则包括 5.0.x和 4.2.x系列的同样会被支持  We only support the latest minor release for each stable release series.  This means that in the case of a security fix 6.1.x will receive the fix, but we will not release a new version of 6.0.x.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+The latest stable release unilaterally receives all fixes from `main`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+All supported release lines will accept external pull requests to backport fixes previously merged to `main`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/main/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
 
 当一个API的改动或移除会导致某个现有功能被破坏时，这个现有功能在被移除之前，仍然会在至少两个主要版本号内得到尽可能的支持。 比如，某个函数需要三个参数，而在主要版本10中，它被修改为需要两个参数，那么这个函数的三参数版本仍然会被支持，至少持续到主要版本12。 经过两个主要版本后，我们仍会尝试支持后向兼容，直到维护成本高得难以承受而无法继续支持。
 
