@@ -8,7 +8,7 @@
 
 ## Отчеты по безопасности
 
-Для получения информации о том, как правильно устранять уязвимости Electron, загляни в [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Для получения информации о том, как правильно устранять уязвимости Electron, загляни в [SECURITY.md](https://github.com/electron/electron/tree/main/SECURITY.md)
 
 ## Вопросы и обновления безопасности Chromium
 
