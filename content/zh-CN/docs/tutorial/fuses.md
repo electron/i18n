@@ -51,4 +51,4 @@ Somewhere in the Electron binary there will be a sequence of bytes that look lik
 
 To flip a fuse you find its position in the fuse wire and change it to "0" or "1" depending on the state you'd like.
 
-您可以在 [这里](https://github.com/electron/electron/blob/master/build/fuses/fuses.json5)查看当前schema。
+您可以在 [这里](https://github.com/electron/electron/blob/main/build/fuses/fuses.json5)查看当前schema。
