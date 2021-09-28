@@ -534,7 +534,7 @@ Devuelve `Promise<void>`
 
 Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. El proceso renderizador puede manejar el mensaje escuchando el evento `channel` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
-See [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) for examples.
+Vea [webContents.sendToFrame](web-contents.md#contentssendtoframeframeid-channel-args) para ejemplos.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -821,7 +821,7 @@ webview.addEventListener('close', () => {
 
 Devuelve:
 
-* `frameId` [number, number] - pair of `[processId, frameId]`.
+* `frameId` [number, number] - par de `[processId, frameId]`.
 * `channel` Cadena
 * `args` any[]
 
