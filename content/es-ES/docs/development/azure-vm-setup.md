@@ -8,7 +8,7 @@ Ejemplo Caso de uso:
     * Necesitamos `VS15.9` y tenemos instalada `VS15.7`; esto requeriría que actualicemos una imagen Azure.
 
 1. Identifique la imagen que desea modificar.
-    * En [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), la imagen es identificada por la propiedad *image*.
+    * En [appveyor.yml](https://github.com/electron/electron/blob/main/appveyor.yml), la imagen es identificada por la propiedad *image*.
         * Los nombres usados corresponden a las *"images"* definidas para una nube de construcción, ejemplo el [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
     * Encuentre la imagen que desea modificar en la nube de construcción y tenga en cuenta que la **VHD Blob Path** para la imagen, que es el valor para la correspondiente llave.
         * Usted necesitará esta ruta URI para copiar dentro de una nueva imagen.
