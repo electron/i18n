@@ -1,14 +1,14 @@
-# Device Access
+# Accès au périphérique
 
-Like Chromium based browsers, Electron provides access to device hardware through web APIs.  For the most part these APIs work like they do in a browser, but there are some differences that need to be taken into account.  The primary difference between Electron and browsers is what happens when device access is requested.  In a browser, users are presented with a popup where they can grant access to an individual device.  In Electron APIs are provided which can be used by a developer to either automatically pick a device or prompt users to pick a device via a developer created interface.
+Comme les navigateurs basés sur Chromium, Electron fournit un accès au matériel du périphérique via des API Web.  Ces API fonctionnent pour la plupart, comme dans un navigateur, mais il y a quelques différences qui doivent être prises en compte.  La principale différence entre Electron et les navigateurs est ce qui se passe lorsque l'accès à l'appareil est demandé .  Dans un navigateur, les utilisateurs se voient présenter une popup où ils peuvent accorder l' accès à un appareil individuel.  Dans Electron des APIsont fournies pouvant être utilisées par un développeur pour choisir automatiquement un périphérique ou demander aux utilisateurs de choisir un périphérique via une interface créée par un développeur.
 
-## Web Bluetooth API
+## API Web Bluetooth
 
-The [Web Bluetooth API](https://web.dev/bluetooth/) can be used to communicate with bluetooth devices. In order to use this API in Electron, developers will need to handle the [`select-bluetooth-device` event on the webContents](../api/web-contents.md#event-select-bluetooth-device) associated with the device request.
+L’API [Web Bluetooth](https://web.dev/bluetooth/) peut être utilisée pour communiquer avec des périphériques Bluetooth. Afin d'utiliser cette API dans Electron, les développeurs devront gérer l'événement [`select-bluetooth-device` sur le webContents](../api/web-contents.md#event-select-bluetooth-device) associé à la demande de périphérique.
 
 ### Example
 
-This example demonstrates an Electron application that automatically selects the first available bluetooth device when the `Test Bluetooth` button is clicked.
+Cet exemple montre une application Electron qui sélectionne automatiquement le premier périphérique Bluetooth disponible lorsque le bouton `Test Bluetooth` est cliqué.
 
 ```javascript fiddle='docs/fiddles/features/web-bluetooth'
 
