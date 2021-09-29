@@ -503,7 +503,7 @@ En Electron 9,0, se eliminó el algoritmo de serialización anterior, y enviar t
 
 ### API Modificada: `shell.openItem` ahora es `shell.openPath`
 
-La API `shell.openItem` ha sido reemplazada con una API asíncrona `shell.openPath`. Puede ver el la propuesta original y el razonamiento de la API [aquí](https://github.com/electron/governance/blob/main/wg-api/spec-documents/shell-openitem.md).
+La API `shell.openItem` ha sido reemplazada con una API asíncrona `shell.openPath`. Puede ver el la propuesta y lógica original la API [aquí](https://github.com/electron/governance/blob/main/wg-api/spec-documents/shell-openitem.md).
 
 ## Cambios planeados en la API(8.0)
 
