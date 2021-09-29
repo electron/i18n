@@ -11,8 +11,8 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 * **.lldbinit**: Crear o editar `~/.lldbinit` para permitir que el código de Chromium sea correctamente mapeado de fuentes.
 
    ```text
-   # e.g: ['~/electron/src/tools/lldb']
-   script sys.path[:0] = ['<...path/to/electron/src/tools/lldb>']
+   # p. ej.: [' ~/electron/src/tools/lldb ']
+   script sys. Path [: 0] = ['<... path/to/electron/src/tools/lldb>']
    script import lldbinit
    ```
 
