@@ -11,7 +11,9 @@
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
 
    ```text
-   скрипт команды импортирует ~/electron/src/tools/lldb/lldbinit.py. 07gf
+   # e.g: ['~/electron/src/tools/lldb']
+   script sys.path[:0] = ['<...path/to/electron/src/tools/lldb>']
+   script import lldbinit
    ```
 
 ## Подключение к Electron для отладки
