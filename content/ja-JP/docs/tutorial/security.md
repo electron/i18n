@@ -8,7 +8,7 @@ Electron で開発する時、Electron はブラウザではないというこ�
 
 ## セキュリティ問題の報告
 
-Electron の脆弱性を報告する正しい方法については [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md) を参照してください。
+Electron の脆弱性を報告する正しい方法については [SECURITY.md](https://github.com/electron/electron/tree/main/SECURITY.md) を参照してください。
 
 ## Chromium のセキュリティ問題とアップグレード
 

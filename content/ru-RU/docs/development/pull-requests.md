@@ -42,10 +42,10 @@ Once you've built the project locally, you're ready to start making changes!
 
 ### Step 3: Branch
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+To keep your development environment organized, create local branches to hold your work. Они должны быть вынесены непосредственно от ветки `main`.
 
 ```sh
-$ git checkout -b my-branch -t upstream/master
+$ git checkout -b my-branch -t upstream/main
 ```
 
 ## Making Changes
@@ -113,10 +113,10 @@ Once you have committed your changes, it is a good idea to use `git rebase` (not
 
 ```sh
 $ git fetch upstream
-$ git rebase upstream/master
+$ git rebase upstream/main
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+This ensures that your working branch has the latest changes from `electron/electron` main.
 
 ### Step 7: Test
 
@@ -157,7 +157,7 @@ the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Руководство для разработчиков: https://github.com/electron/electron/blob/main/CONTRIBUTING.md
 -->
 ```
 
@@ -179,7 +179,7 @@ Feel free to post a comment in the pull request to ping reviewers if you are awa
 
 #### Approval and Request Changes Workflow
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Все Pull Request'ы требуют одобрения от [владельца кода](https://github.com/electron/electron/blob/main/.github/CODEOWNERS) той области, которую вы изменили, для завершения. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feedback.
 

@@ -42,10 +42,10 @@ Dès que le projet est construit, vous pouvez apporter des modifications !
 
 ### Step 3: Branches
 
-Pour un environnement de développement ordonné, créez une branche locale qui contiendra votre travail. Votre branche doit être crée directement à partir de la branche `master`.
+Pour un environnement de développement ordonné, créez une branche locale qui contiendra votre travail. Votre branche doit être crée directement à partir de la branche `main`.
 
 ```sh
-$ git checkout -b my-branch -t upstream/master
+$ git checkout -b my-branch -t upstream/main
 ```
 
 ## Apporter des changements
@@ -113,10 +113,10 @@ Une fois vos changements livrés-"committés", il est recommander d'utiliser `gi
 
 ```sh
 $ git fetch upstream
-$ git rebase upstream/master
+$ git rebase upstream/main
 ```
 
-Cela garanti à votre branche de contenir les derniers changements du master de `electron/electron`.
+Cela garantit que votre branche de travail a les dernières modifications de `electron/electron` main.
 
 ### Étape 7 : Tester
 
@@ -157,7 +157,7 @@ the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Contributors guide: https://github.com/electron/electron/blob/main/CONTRIBUTING.md
 -->
 ```
 
@@ -179,7 +179,7 @@ Feel free to post a comment in the pull request to ping reviewers if you are awa
 
 #### Procédure de validation et de demandes d'évolutions
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+Toutes les demandes de pull nécessitent l'approbation d'un propriétaire de code [Code Owner](https://github.com/electron/electron/blob/main/.github/CODEOWNERS) de la zone que vous avez modifiée. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Essayez de ne pas vous décourager. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feedback.
 

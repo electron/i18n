@@ -41,4 +41,4 @@ NW.js 仍然提供一个支持 Windows XP 的 "传统版本"， 它没有收到�
 当然，我们相信 Electron 是用 Web 技术构建生产应用程序更好的平台（如 Visual Studio Code、Slack 或 Facebook Messenger）；但是，我们希望公平对待同样用 Web 技术的朋友。 如果你有 Electron 不能满足的功能需求，你可能需要尝试 NW.js。
 
 [electron-modules]: https://www.npmjs.com/search?q=electron
-[node-bindings]: https://github.com/electron/electron/tree/master/lib/common
+[node-bindings]: https://github.com/electron/electron/tree/main/lib/common

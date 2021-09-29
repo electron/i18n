@@ -503,7 +503,7 @@ En Electron 9,0, se eliminó el algoritmo de serialización anterior, y enviar t
 
 ### API Modificada: `shell.openItem` ahora es `shell.openPath`
 
-The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+La API `shell.openItem` ha sido reemplazada con una API asíncrona `shell.openPath`. Puede ver el la propuesta y lógica original la API [aquí](https://github.com/electron/governance/blob/main/wg-api/spec-documents/shell-openitem.md).
 
 ## Cambios planeados en la API(8.0)
 
@@ -862,7 +862,7 @@ Los siguientes valores por defectos de opción `webPreferences` están obsoletos
 | `nodeIntegration`  | `true`                               | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
-E.g. Re-enabling the webviewTag
+P.e. Re-enabling the webviewTag
 
 ```js
 const w = new BrowserWindow({

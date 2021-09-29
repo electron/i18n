@@ -8,7 +8,7 @@ Dans cet esprit, sachez qu’afficher un contenu arbitraire de sources peu fiabl
 
 ## Signalement des problèmes de sécurité
 
-Pour plus d’informations sur la façon de communiquer correctement une vulnérabilité d'Electron, voir [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Pour plus d’informations sur la façon de communiquer correctement une vulnérabilité d'Electron, voir [SECURITY.md](https://github.com/electron/electron/tree/main/SECURITY.md)
 
 ## Problèmes de sécurité et mises à jour de Chromium
 

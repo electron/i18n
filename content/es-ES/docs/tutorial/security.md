@@ -8,7 +8,7 @@ Con eso en mente, ten en cuenta que mostrar contenido arbitrario proveniente de 
 
 ## Reportando problemas de seguridad
 
-Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse a [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse a [SECURITY.md](https://github.com/electron/electron/tree/main/SECURITY.md)
 
 ## Actualizaciones y problemas de seguridad Chromium
 

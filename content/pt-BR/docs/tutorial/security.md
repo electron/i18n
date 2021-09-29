@@ -8,7 +8,7 @@ Com isso em mente, esteja ciente de que exibir conteúdo arbitrário de fontes n
 
 ## Reportando problemas de Segurança
 
-Para obter informações sobre como divulgar adequadamente uma vulnerabilidade do Electron, consulte [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Para obter informações sobre como divulgar adequadamente uma vulnerabilidade do Electron, consulte [SECURITY.md](https://github.com/electron/electron/tree/main/SECURITY.md)
 
 ## Upgrades e Problemas de Segurança do Chromium
 

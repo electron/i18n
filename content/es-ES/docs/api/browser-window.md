@@ -21,11 +21,11 @@ win.loadFile('index.html')
 
 Para crear una ventana sin usar chrome, o una vertana transparente de cualquier forma, puede usar la API [Frameless Window](frameless-window.md).
 
-## Showing the window gracefully
+## Mostrar la ventana con gracia
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without a visual flash, there are two solutions for different situations.
+Cuando se carga una página directamente en la ventana, los usuarios pueden ver la página de forma incremental, lo cual no es una buena experiencia para aplicación nativa. Para hacer que la ventana muestre sin un flash visual, hay dos soluciones para diferente situaciones.
 
-### Using the `ready-to-show` event
+### Usando el evento `ready-to-show`
 
 Mientras se carga la página, se emitirá el evento `ready-to-show` cuando el proceso de renderizado haya procesado la página por primera vez si aún no se ha mostrado la ventana. Si se muestra la ventana despues de este evento, no tendrá fogonazos:
 
@@ -41,7 +41,7 @@ Este evento generalmente se emite después del evento `did-finish-load`, pero pa
 
 Por favor tenga en cuanta que usando este evento implica que el renderer será considerado "visible" y se pintara incluso si `show` es falso.  Este evento nunca se disparará si usa `paintWhenInitiallyHidden: false`
 
-### Setting the `backgroundColor` property
+### Estableciendo la propiedad `backgroundColor`
 
 Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación parezca lenta. En este caso, se recomienda mostrar la ventana inmediatamente, y usar un color de fondo `backgroundColor` parecido al color de fondo de la aplicación:
 
@@ -183,7 +183,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `webSecurity` Boolean (opcional) - Cuando es `false`, desactivará la política de same-origin (por lo general se utiliza cuando la gente prueba los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Por defecto es `false`.
     * `images` Boolean (optional) - Enables image support. Por defecto es `true`.
-    * `imageAnimationPolicy` String (optional) - Specifies how to run image animations (E.g. GIFs).  Puede ser `animate`, `animateOnce` o `noAnimation`.  Predeterminadamente, es `animate`.
+    * `imageAnimationPolicy` String (opcional) - Especifica cómo correr la animaciones de la imagen (P.e. GIFs).  Puede ser `animate`, `animateOnce` o `noAnimation`.  Predeterminadamente, es `animate`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
     * `webgl` Boolean (optional) - Enables WebGL support. Por defecto es `true`.
     * `plugins` Boolean (optional) - Whether plugins should be enabled. Por defecto es `false`.
@@ -338,18 +338,18 @@ Devuelve:
 * `event`
 * `newBounds` [Rectangle](structures/rectangle.md) - Tamaño de la ventana en que esta siendo redimensionada.
 * `details` Object
-  * `edge` (String) - The edge of the window being dragged for resizing. Can be `bottom`, `left`, `right`, `top-left`, `top-right`, `bottom-left` or `bottom-right`.
+  * `edge` (String) - El borde de la ventana siendo arrastrada para cambiar el tamaño. Puede ser `bottom`, `left`, `right`, `top-left`, `top-right`, `bottom-left` o `bottom-right`.
 
 Emitido antes de que la ventana sea redimensionada. Llamar a `event.preventDefault()` evitará que la ventana sea redimensionada.
 
 Tenga en cuenta que esto solo es emitido cuando la venta está siendo redimensionada de forma manual. Redimensionar la ventana con `setBounds`/`setSize` no emitirá este evento.
 
-The possible values and behaviors of the `edge` option are platform dependent. Los valores posibles son:
+Los posibles valores y comportamientos de la opción `edge` son dependientes de la plataforma. Los valores posibles son:
 
-* On Windows, possible values are `bottom`, `top`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`.
-* On macOS, possible values are `bottom` and `right`.
-  * The value `bottom` is used to denote vertical resizing.
-  * The value `right` is used to denote horizontal resizing.
+* En Windows, los posibles valores son `bottom`, `top`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`.
+* En macOS, los posibles valores son `bottom` y `right`.
+  * El valor `bottom` es usado para denotar un cambio de tamaño vertical.
+  * El valor `right` es usado para denotar un cambio de tamaño horizontal.
 
 #### Evento: "resize"
 
@@ -556,7 +556,7 @@ A `Boolean` property that determines whether the window is in fullscreen mode.
 
 #### `win.focusable` _Windows_ _macOS_
 
-A `Boolean` property that determines whether the window is focusable.
+Una propiedad `Boolean` que determina si la ventana es enfocable.
 
 #### `win.visibleOnAllWorkspaces`
 
@@ -1360,7 +1360,7 @@ En macOS no elimina el foco de la ventana.
 
 #### `win.isFocusable()` _macOS_ _Windows_
 
-Returns whether the window can be focused.
+Devuelve si la ventana puede ser enfocada.
 
 #### `win.setParentWindow(parent)`
 

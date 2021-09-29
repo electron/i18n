@@ -55,7 +55,7 @@ app.on('window-all-closed', function () {
 })
 ```
 
-### Native APIs
+### APIs nativas
 
 To extend Electron's features beyond being a Chromium wrapper for web contents, the main process also adds custom APIs to interact with the user's operating system. Electron exposes various modules that control native desktop functionality, such as menus, dialogs, and tray icons.
 

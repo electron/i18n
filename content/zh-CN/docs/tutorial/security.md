@@ -8,7 +8,7 @@ Web开发人员通畅享有浏览器强大的网络安全特性，而自己的�
 
 ## 报告安全问题
 
-有关如何正确上报 Electron 漏洞的信息，参阅 [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+有关如何正确上报 Electron 漏洞的信息，参阅 [SECURITY.md](https://github.com/electron/electron/tree/main/SECURITY.md)
 
 ## Chromium 安全问题和升级
 

@@ -8,7 +8,7 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
     * `VS15.9` が必要なのに `VS15.7` がインストールされているので、Azure イメージを更新する必要がある。
 
 1. 修正したいイメージを指定します。
-    * [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml) では、イメージは *image* プロパティで識別されます。
+    * [appveyor.yml](https://github.com/electron/electron/blob/main/appveyor.yml) では、イメージは *image* プロパティで識別されます。
         * 使用される名前は、クラウドを構築するために定義された *"イメージ"*、たとえば [libcc-20 クラウド](https://windows-ci.electronjs.org/build-clouds/8) に対応しています。
     * ビルドクラウドで変更するイメージを探し、そのイメージの **VHD Blob Path** をメモします。これはキーに対応する値です。
         * 新しいイメージにコピーするにはこの URI パスが必要になります。

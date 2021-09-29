@@ -1524,7 +1524,7 @@ Envía un mensaje asíncrono al frame especifico en un renderer process a travé
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
-Si quieres obtener el `frameId` de un renderer context dado deberías usar el valor `webFrame.routingId`.  E.g.
+Si quieres obtener el `frameId` de un renderer context dado deberías usar el valor `webFrame.routingId`.  P.e.
 
 ```js
 // In a renderer process

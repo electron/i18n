@@ -51,4 +51,4 @@ En algún lugar en el binario de Electron habrá una secuencia de bytes que se v
 
 Para voltear un fusible busque su posición en el cable del fusible y cámbielo a "0" o "1" dependiendo del estado que desee.
 
-Puede ver el esquema actual [aquí](https://github.com/electron/electron/blob/master/build/fuses/fuses.json5).
+Puede ver el esquema actual [aquí](https://github.com/electron/electron/blob/main/build/fuses/fuses.json5).
