@@ -11,7 +11,9 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 * **.lldbinit**: Crear o editar `~/.lldbinit` para permitir que el código de Chromium sea correctamente mapeado de fuentes.
 
    ```text
-   command script import ~/electron/src/tools/lldb/lldbinit.py
+   # e.g: ['~/electron/src/tools/lldb']
+   script sys.path[:0] = ['<...path/to/electron/src/tools/lldb>']
+   script import lldbinit
    ```
 
 ## A y depuración Electron
@@ -87,7 +89,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
+**NOTA:** Si no ves el código fuente cuando crees que deberías, es posible que no hayas añadido el archivo `~/.lldbinit` anterior.
 
 Para finalizar la depuración en este punto, corra `continuar proceso`. También puede continuar hasta cierta linea es tocada en este hilo (`hilo hasta 100`). Este comando correrá el hilo en la estructura actual hasta que alcance la linea 100 en este, o se detiene si deja la estructura en la que se encuentra.
 
