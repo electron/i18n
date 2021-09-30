@@ -93,7 +93,7 @@ const { systemPreferences } = require('electron')
 const microphone = systemPreferences.askForMediaAccess('microphone')
 ```
 
-Your app may crash. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
+Puede que tu aplicación falle. See the Resource Access section in [Hardened Runtime](https://developer.apple.com/documentation/security/hardened_runtime) for more information and entitlements you may need.
 
 ## `Electron-builder`
 
@@ -143,7 +143,7 @@ Up until Electron 12, the `com.apple.security.cs.allow-unsigned-executable-memor
 
 ## Mac App Store
 
-See the [Mac App Store Guide][].
+Ver la [Mac App Store Guide][].
 
 # Firmando compilaciones Windows
 
@@ -166,7 +166,7 @@ Hay una serie de herramientas para firmar su aplicación empaquetada:
 
 ## Windows Store
 
-See the [Windows Store Guide][].
+Ver la [Windows Store Guide][].
 
 [Apple Developer Program]: https://developer.apple.com/programs/
 [`electron-builder`]: https://github.com/electron-userland/electron-builder
