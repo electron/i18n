@@ -75,7 +75,7 @@ releases:
   stable_desc: Regelmäßige, unterstützte Versionen
   beta_releases: Beta-Veröffentlichungen
   beta_desc: Teste deine App mit anstehenden Änderungen
-  alpha_releases: Alpha Releases
+  alpha_releases: Alpha Veröffentlichungen
   alpha_desc: Test features slightly more on the edge
   nightly_releases: Nighly-Veröffentlichungen
   nightly_desc: Experimentiere mit den neuesten Funktionen
