@@ -1,6 +1,6 @@
 # Tiempos de lanzamientos de Electron
 
-Special notes:
+Notas especiales:
 
 * Las fechas `-beta.1` y `stable` son nuestras fechas de lanzamiento sólidas.
 * Nos esforzamos por liberar versiones beta semanalmente, sin embargo a menudo liberamos mas betas que las programadas.
