@@ -497,7 +497,7 @@ Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del 
 
 ### Comportamiento Modificado: Enviando objetos no JS sobre IPC ahora lanza una excepción
 
-En Electron 8.0, el IPC se cambió para que utilizara el algoritmo de clon estructurado, con importantes mejoras de rendimiento. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
+En Electron 8.0, el IPC se cambió para que utilizara el algoritmo de clon estructurado, con importantes mejoras de rendimiento. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Siempre que se invocaba el algoritmo anterior, se imprimía una advertencia de desaprobación.
 
 En Electron 9,0, se eliminó el algoritmo de serialización anterior, y enviar tales objetos no serializables ahora lanzará un error "no se pudo clonar el objeto".
 
@@ -507,7 +507,7 @@ La API `shell.openItem` ha sido reemplazada con una API asíncrona `shell.openPa
 
 ## Cambios planeados en la API(8.0)
 
-### Behavior Changed: Values sent over IPC are now serialized with Structured Clone Algorithm
+### Comportamiento Cambiado: Los valores enviados sobre IPC ahora son serializados con Algoritmo de Clon Estructurado
 
 El algoritmo usado para serializar los objetos enviados sobre IPC (mediante `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` y métodos relacionados) han sido cambiados de un algoritmo personalizado a los de V8 [Structured Clone Algorithm][SCA], el mismo algoritmo usado para serializar los mensajes para `postMessage`. Esto conlleva una mejora en el rendimiento de 2x para mensajes grandes, pero también trae algunos cambios de comportamiento.
 
@@ -582,14 +582,14 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 Chromium ha eliminado el soporte para cambiar los limites del nivel de zoom del diseño y esta más allá de la capacidad de Electron el mantenerlo. La función emitirá una advertencia en Electron 8.x, y dejará de existir en Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
 
-### Deprecated events in `systemPreferences`
+### Eventos obsoletos en `systemPreferences`
 
-The following `systemPreferences` events have been deprecated:
+Los siguientes eventos `systemPreferences` han sido marcados como obsoletos:
 
 * `inverted-color-scheme-changed`
 * `high-contrast-color-scheme-changed`
 
-Use the new `updated` event on the `nativeTheme` module instead.
+Use el nuevo evento `updated` en el módulo `nativeTheme` en su lugar.
 
 ```js
 // Obsoleto
@@ -600,7 +600,7 @@ systemPreferences.on('high-contrast-color-scheme-changed', () => { /* ... */ })
 nativeTheme.on('updated', () => { /* ... */ })
 ```
 
-### Deprecated: methods in `systemPreferences`
+### Obsoleto: métodos en `systemPreferences`
 
 Los métodos siguientes de `systemPreferences` han quedado obsoletos:
 
@@ -637,9 +637,9 @@ nativeTheme.shouldUseHighContrastColors
 
 Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.  Ambos serán admitidos para el futuro previsible, pero se recomienda que cambies.
 
-Deprecated: https://atom.io/download/electron
+Obsoleto: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+Reemplazar con: https://electronjs.org/headers
 
 ### API Modificada: `session.clearAuthCache()` ya no acepta opciones
 
@@ -720,7 +720,7 @@ En Electron 7, esto ahora retorna un `FileList` con un objeto `File` para:
 /path/to/folder/file1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. Si requieras la ruta a la carpeta seleccionada en lugar de los contenidos de la carpeta, ver el `Dialog. showOpenDialog` API ([Link](api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Tenga en cuenta que `webkitdirectory` ya no expone la ruta de la carpeta seleccionada. Si requieras la ruta a la carpeta seleccionada en lugar de los contenidos de la carpeta, ver el `Dialog. showOpenDialog` API ([Link](api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ### API Modificada: Versiones basadas en Callback de APIs promisificadas
 
@@ -789,7 +789,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-### API Changed: `require()`ing node builtins in sandboxed renderers no longer implicitly loads the `remote` version
+### API Modificada: `require()` los ing integrados de node builtins en renderizadores sandboxed no carga más de forma implícita la versión `remote`
 
 ```js
 // Deprecado
@@ -852,7 +852,7 @@ tray.setHighlightMode(mode)
 
 ## Cambios Planeados en la API (5.0)
 
-### Default Changed: `nodeIntegration` and `webviewTag` default to false, `contextIsolation` defaults to true
+### Valor por defecto modificado: `nodeIntegration` y `webviewTag` por defecto a false, `contextIsolation` por defecto a true
 
 Los siguientes valores por defectos de opción `webPreferences` están obsoletos a favor de los nuevos valores por defectos listados a continuación.
 
@@ -862,7 +862,7 @@ Los siguientes valores por defectos de opción `webPreferences` están obsoletos
 | `nodeIntegration`  | `true`                               | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
-P.e. Re-enabling the webviewTag
+P.e. Volver a habilitar el webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -880,7 +880,7 @@ Child windows opened with the `nativeWindowOpen` option will always have Node.js
 
 Renderer process APIs `webFrame.registerURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. Una nueva API, `protocol.registerSchemesAsPrivileged` ha sido agregada y debe ser usada para registrar esquemas personalizados con los privilegios requeridos. Se requieren esquemas personalizados para ser registrados antes de que la aplicación esté lista.
 
-### Deprecated: `webFrame.setIsolatedWorld*` replaced with `webFrame.setIsolatedWorldInfo`
+### Obsoleto: `webFrame.setIsolatedWorld*` reemplazado con `webFrame.setIsolatedWorldInfo`
 
 ```js
 // Deprecated
