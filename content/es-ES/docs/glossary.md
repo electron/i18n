@@ -36,7 +36,7 @@ Método de entrada del editor. Un programa que permite a los usuarios introducir
 
 ### IDL
 
-Interface description language. Escribe firmas de funciones y tipos de datos en un formato que se puede utilizar para generar interfaces en Java, C++, JavaScript, etc.
+Lenguaje de descripción de interfaz. Escribe firmas de funciones y tipos de datos en un formato que se puede utilizar para generar interfaces en Java, C++, JavaScript, etc.
 
 ### IPC
 
@@ -108,7 +108,7 @@ Véase también: [proceso principal](#main-process), [proceso de renderizado](#r
 
 ### proceso de renderizado
 
-El renderer process es una ventana de navegador en tu aplicación. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+El renderer process es una ventana de navegador en tu aplicación. Unlike the main process, there can be multiple of these and each is run in a separate process. También pueden ocultarse.
 
 Véase también: [proceso](#process), [proceso principal](#main-process)
 
@@ -132,11 +132,11 @@ Como Node, Electron se centra en tener un pequeño conjunto de APIs que proporci
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 es el motor JavaScript de código abierto de Google. Está escrito en C++ y es usado en Google Chrome. V8 puede ejecutarse de independiente o puede incrustarse en cualquier aplicación de C++.
 
 Electrón forma V8 como parte de Chromium y luego apunta el Nodo ese V8 cuando lo está formando.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Los números de versión V8's siempre se corresponden con los de Google Chrome. Chrome 59 incluye V8 5.9, Chrome 58 incluye V8 5.8, etc.
 
 - [v8.dev](https://v8.dev/)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
