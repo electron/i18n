@@ -1,30 +1,30 @@
 # Acceso del dispositivo
 
-Al igual que los navegadores basados en Chromium, Electron proporciona acceso al dispositivo del hardware a través de las APIs web.  En la mayor parte estas APIs trabajan como lo hacen en un navegador, pero hay algunas diferencias que necesitan ser tomadas en cuenta.  La diferencia principal entre Electron y los navegadores es lo que ocurre cuando el acceso al dispositivo es solicitado.  En un navegador, a los usuarios se le presenta una ventana emergente donde ellos puede otorgar acceso a un dispositivo individual.  In Electron APIs are provided which can be used by a developer to either automatically pick a device or prompt users to pick a device via a developer created interface.
+Al igual que los navegadores basados en Chromium, Electron proporciona acceso al dispositivo del hardware a través de las APIs web.  En la mayor parte estas APIs trabajan como lo hacen en un navegador, pero hay algunas diferencias que necesitan ser tomadas en cuenta.  La diferencia principal entre Electron y los navegadores es lo que ocurre cuando el acceso al dispositivo es solicitado.  En un navegador, a los usuarios se le presenta una ventana emergente donde ellos puede otorgar acceso a un dispositivo individual.  En Electron, se proporcionan APIs que un desarrollador puede utilizar para elegir automáticamente un dispositivo o para solicitar a los usuarios que elijan un dispositivo a través de una interfaz creada por el desarrollador.
 
-## Web Bluetooth API
+## API Web Bluetooth
 
-The [Web Bluetooth API](https://web.dev/bluetooth/) can be used to communicate with bluetooth devices. In order to use this API in Electron, developers will need to handle the [`select-bluetooth-device` event on the webContents](../api/web-contents.md#event-select-bluetooth-device) associated with the device request.
+La [Web Bluetooth API](https://web.dev/bluetooth/) puede ser utilizada para comunicarse con dispositivos bluetooth. Para poder utilizar esta API en Electron, los desarrolladores necesitan manejar el [evento `select-bluetooth-device` en el webContents](../api/web-contents.md#event-select-bluetooth-device) asociado con la solicitud del dispositivo.
 
 ### Ejemplo
 
-This example demonstrates an Electron application that automatically selects the first available bluetooth device when the `Test Bluetooth` button is clicked.
+Este ejemplo demuestra un aplicación Electron que automáticamente selecciona el primer dispositivo bluetooth disponible cuando el botón `Test Bluetooth` es pulsado.
 
 ```javascript fiddle='docs/fiddles/features/web-bluetooth'
 
 ```
 
-## WebHID API
+## API WebHID
 
-The [WebHID API](https://web.dev/hid/) can be used to access HID devices such as keyboards and gamepads.  Electron provides several APIs for working with the WebHID API:
+La [WebHID API](https://web.dev/hid/) puede ser usada para acceder a dispositivos HID tales como teclados y gamepads.  Electron proporciona varias APIs, para trabajar con la API WebHID:
 
-* The [`select-hid-device` event on the Session](../api/session.md#event-select-hid-device) can be used to select a HID device when a call to `navigator.hid.requestDevice` is made.  Additionally the [`hid-device-added`](../api/session.md#event-hid-device-added) and [`hid-device-removed`](../api/session.md#event-hid-device-removed) events on the Session can be used to handle devices being plugged in or unplugged during the `navigator.hid.requestDevice` process.
-* [`ses.setDevicePermissionHandler(handler)`](../api/session.md#sessetdevicepermissionhandlerhandler) can be used to provide default permissioning to devices without first calling for permission to devices via `navigator.hid.requestDevice`.  Additionally, the default behavior of Electron is to store granted device permision through the lifetime of the corresponding WebContents.  If longer term storage is needed, a developer can store granted device permissions (eg when handling the `select-hid-device` event) and then read from that storage with `setDevicePermissionHandler`.
-* [`ses.setPermissionCheckHandler(handler)`](../api/session.md#sessetpermissioncheckhandlerhandler) can be used to disable HID access for specific origins.
+* El [evento `select-hid-device` en la Session](../api/session.md#event-select-hid-device) puede ser usado para seleccionar un dispositivo HID cuando se hace una llamada a `navigator.hid.requestDevice`.  Adicionalmente, los eventos [`hid-device-added`](../api/session.md#event-hid-device-added) y [`hid-device-removed`](../api/session.md#event-hid-device-removed) en la Session pueden ser utilizados para manejar dispositivos que se conectan o desconectan durante el proceso `navigator.hid.requestDevice`.
+* [`ses.setDevicePermissionHandler(handler)`](../api/session.md#sessetdevicepermissionhandlerhandler) puede ser utilizado para proveer permisos predeterminados a los dispositivos sin llamar primero para obtener permiso a dispositivo a través de `navigator.hid.requestDevice`.  Adicionalmente el comportamiento por defecto de Electron es almacenar el permiso de dispositivo concedido a través de la vida útil del correspondiente WebContents.  Si se necesita almacenamiento a más largo plazo, un desarrollado puede almacenar los permisos de dispositivos otorgados (pj cuando se maneja el evento `select-hid-device`) y luego leer desde ese almacenamiento con `setDevicePermissionHandler`.
+* [`ses.setPermissionCheckHandler(handler)`](../api/session.md#sessetpermissioncheckhandlerhandler) puede ser usado para desactivar el acceso a HID a orígenes específicos.
 
-### Blocklist
+### Lista de bloqueados
 
-By default Electron employs the same [blocklist](https://github.com/WICG/webhid/blob/main/blocklist.txt) used by Chromium.  If you wish to override this behavior, you can do so by setting the `disable-hid-blocklist` flag:
+Por defecto Electron emplea la misma [blocklist](https://github.com/WICG/webhid/blob/main/blocklist.txt) usada por Chromium.  Si desea anular este comportamiento, puede hacerlo estableciendo la bandera `disable-hid-blocklist`:
 
 ```javascript
 app.commandLine.appendSwitch('disable-hid-blocklist')
@@ -32,24 +32,24 @@ app.commandLine.appendSwitch('disable-hid-blocklist')
 
 ### Ejemplo
 
-This example demonstrates an Electron application that automatically selects HID devices through [`ses.setDevicePermissionHandler(handler)`](../api/session.md#sessetdevicepermissionhandlerhandler) and through [`select-hid-device` event on the Session](../api/session.md#event-select-hid-device) when the `Test WebHID` button is clicked.
+Este ejemplo demuestra una aplicación Electron que automáticamente selecciona dispositivos HID a través de [`ses.setDevicePermissionHandler(handler)`](../api/session.md#sessetdevicepermissionhandlerhandler) y a través del [evento `select-hid-device` en la Session](../api/session.md#event-select-hid-device) cuando el botón `Test WebHID` es pulsado.
 
 ```javascript fiddle='docs/fiddles/features/web-hid'
 
 ```
 
-## Web Serial API
+## API Serial Web
 
-The [Web Serial API](https://web.dev/serial/) can be used to access serial devices that are connected via serial port, USB, or Bluetooth.  In order to use this API in Electron, developers will need to handle the [`select-serial-port` event on the Session](../api/session.md#event-select-serial-port) associated with the serial port request.
+La [Web Serial API](https://web.dev/serial/) puede ser utilizada para acceder a dispositivos seriales que están conectados a través de la puerta serial, USB, or Bluetooth.  Para utilizar esta API en Electron, los desarrolladores necesitan manejar el [evento `select-serial-port` en la Session](../api/session.md#event-select-serial-port) asociado con la solicitud de puerto serial.
 
-There are several additional APIs for working with the Web Serial API:
+Hay varias APIs adicionales para trabajar con la API Web Serial:
 
-* The [`serial-port-added`](../api/session.md#event-serial-port-added) and [`serial-port-removed`](../api/session.md#event-serial-port-removed) events on the Session can be used to handle devices being plugged in or unplugged during the `navigator.serial.requestPort` process.
-* [`ses.setPermissionCheckHandler(handler)`](../api/session.md#sessetpermissioncheckhandlerhandler) can be used to disable serial access for specific origins.
+* Los eventos [`serial-port-added`](../api/session.md#event-serial-port-added) y [`serial-port-removed`](../api/session.md#event-serial-port-removed) en la Session pueden ser usados para maenjar dispositivos que están conectados o desconectados durante el proceso `navigator.serial.requestPort`.
+* [`ses.setPermissionCheckHandler(handler)`](../api/session.md#sessetpermissioncheckhandlerhandler) puede ser usado para desactivar el acceso serial a orígenes específicos.
 
 ### Ejemplo
 
-This example demonstrates an Electron application that automatically selects the first available Arduino Uno serial device (if connected) through [`select-serial-port` event on the Session](../api/session.md#event-select-serial-port) when the `Test Web Serial` button is clicked.
+Este ejemplo demuestra una aplicación Electron que automáticamente selecciona el primer dispositivo serial Arduino Uno (si está conectado) a través del [evento `select-serial-port` en la Session](../api/session.md#event-select-serial-port) cuando el botón `Test Web Serial` es pulsado.
 
 ```javascript fiddle='docs/fiddles/features/web-serial'
 
