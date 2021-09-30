@@ -10,7 +10,7 @@ Comprueba los pre-requisitos de tu plataforma para la compilación antes de avan
 * [Linux](build-instructions-linux.md#prerequisites)
 * [Windows](build-instructions-windows.md#prerequisites)
 
-## Build Tools
+## Herramientas de construcción
 
 [Electron's Build Tools](https://github.com/electron/build-tools) automate much of the setup for compiling Electron from source with different configurations and build targets. Si deseas configurar el entorno de forma manual, las instrucciones se enumeran a continuación.
 
