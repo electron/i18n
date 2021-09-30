@@ -59,7 +59,7 @@ In this next step, we will create our  `BrowserWindow` and tell our application 
 
 This code will be different in Windows compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same Electron instance. Lea más sobre esto [aquí](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
 
-#### Windows code:
+#### Código de Windows:
 
 ```javascript
 const gotTheLock = app.requestSingleInstanceLock()
@@ -68,26 +68,26 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // Alguien trata de correr una segunda instancia, debemos enfocar nuestra ventana.
     if (mainWindow) {
       if (mainWindow.isMinimized()) mainWindow.restore()
       mainWindow.focus()
     }
   })
 
-  // Create mainWindow, load the rest of the app, etc...
+  // Crear mainWindow, cargar el resto de la aplicación, etc...
   app.whenReady().then(() => {
     createWindow()
   })
 
-  // Handle the protocol. In this case, we choose to show an Error Box.
+  // Handle the protocol. En este caso, elegimos mostrar una Caja de Error.
   app.on('open-url', (event, url) => {
     dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
   })
 }
 ```
 
-#### MacOS and Linux code:
+#### Código MacOS y Linux:
 
 ```javascript
 // This method will be called when Electron has finished
@@ -97,7 +97,7 @@ app.whenReady().then(() => {
   createWindow()
 })
 
-// Handle the protocol. In this case, we choose to show an Error Box.
+// Handle the protocol. En este caso, elegimos mostrar una Caja de Error.
 app.on('open-url', (event, url) => {
   dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
 })
