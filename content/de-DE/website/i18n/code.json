@@ -1,10 +1,10 @@
 {
   "theme.NotFound.title": {
-    "message": "Page Not Found",
+    "message": "Seite nicht gefunden",
     "description": "The title of the 404 page"
   },
   "theme.NotFound.p1": {
-    "message": "We could not find what you were looking for.",
+    "message": "Wir konnten leider nicht finden, wonach du suchst.",
     "description": "The first paragraph of the 404 page"
   },
   "theme.NotFound.p2": {
@@ -12,7 +12,7 @@
     "description": "The 2nd paragraph of the 404 page"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Close",
+    "message": "Schließen",
     "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.paginator.navAriaLabel": {
