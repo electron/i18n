@@ -1,14 +1,14 @@
-# 端末アクセス
+# デバイスアクセス
 
-Like Chromium based browsers, Electron provides access to device hardware through web APIs.  For the most part these APIs work like they do in a browser, but there are some differences that need to be taken into account.  The primary difference between Electron and browsers is what happens when device access is requested.  In a browser, users are presented with a popup where they can grant access to an individual device.  In Electron APIs are provided which can be used by a developer to either automatically pick a device or prompt users to pick a device via a developer created interface.
+Chromium ベースのブラウザのように、Electron はウェブ API を介してデバイスハードウェアへのアクセスを提供します。  ほとんどの場合これらの API はブラウザと同じように動作しますが、いくつかの違いを考慮しなければなりません。  Electronとブラウザの主な違いは、デバイスアクセスが要求されたときに起きることです。  ブラウザでは、ユーザーにポップアップが表示され、ユーザーは個々のデバイスにアクセスを許可できます。  Electron API では、デバイスを自動選択したり開発者が作成したインターフェースを介してユーザーにデバイス選択を促したりするために、開発者が利用できる API を提供しています。
 
-## Web Bluetooth API
+## ウェブ Bluetooth API
 
-The [Web Bluetooth API](https://web.dev/bluetooth/) can be used to communicate with bluetooth devices. In order to use this API in Electron, developers will need to handle the [`select-bluetooth-device` event on the webContents](../api/web-contents.md#event-select-bluetooth-device) associated with the device request.
+[ウェブ Bluetooth API](https://web.dev/bluetooth/) は、Bluetooth デバイスとの通信に利用できます。 この API を Electron で使用するには、開発者がデバイスリクエストに関連する[webContents の `select-bluetooth-device` イベント](.../api/web-contents.md#event-select-bluetooth-device) をハンドリングする必要があります。
 
 ### サンプル
 
-This example demonstrates an Electron application that automatically selects the first available bluetooth device when the `Test Bluetooth` button is clicked.
+この例では、`Test Bluetooth` ボタンがクリックされたときに最初に利用可能な Bluetooth デバイスを自動的に選択する、Electron のアプリケーションを示しています。
 
 ```javascript fiddle='docs/fiddles/features/web-bluetooth'
 
@@ -16,7 +16,7 @@ This example demonstrates an Electron application that automatically selects the
 
 ## WebHID API
 
-The [WebHID API](https://web.dev/hid/) can be used to access HID devices such as keyboards and gamepads.  Electron provides several APIs for working with the WebHID API:
+[WebHID API](https://web.dev/hid/) は、キーボードやゲームパッドなどの HID デバイスのアクセスに利用できます。  Electron は、WebHID API と連携するためにいくつかの API を提供しています。
 
 * The [`select-hid-device` event on the Session](../api/session.md#event-select-hid-device) can be used to select a HID device when a call to `navigator.hid.requestDevice` is made.  Additionally the [`hid-device-added`](../api/session.md#event-hid-device-added) and [`hid-device-removed`](../api/session.md#event-hid-device-removed) events on the Session can be used to handle devices being plugged in or unplugged during the `navigator.hid.requestDevice` process.
 * [`ses.setDevicePermissionHandler(handler)`](../api/session.md#sessetdevicepermissionhandlerhandler) can be used to provide default permissioning to devices without first calling for permission to devices via `navigator.hid.requestDevice`.  Additionally, the default behavior of Electron is to store granted device permision through the lifetime of the corresponding WebContents.  If longer term storage is needed, a developer can store granted device permissions (eg when handling the `select-hid-device` event) and then read from that storage with `setDevicePermissionHandler`.
