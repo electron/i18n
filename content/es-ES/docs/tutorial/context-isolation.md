@@ -1,6 +1,6 @@
-# Context Isolation
+# Aislamiento del contexto
 
-## What is it?
+## ¿Qué es?
 
 Context Isolation is a feature that ensures that both your `preload` scripts and Electron's internal logic run in a separate context to the website you load in a [`webContents`](../api/web-contents.md).  This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
 
