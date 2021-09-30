@@ -18,12 +18,12 @@ Starting with a working application from the [Quick Start Guide](quick-start.md)
 <script src="renderer.js"></script>
 ```
 
-...and add the `renderer.js` file:
+...y agregar el archivo `renderer.js`:
 
 ```javascript fiddle='docs/fiddles/features/notifications/renderer'
-const NOTIFICATION_TITLE = 'Title'
-const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
-const CLICK_MESSAGE = 'Notification clicked'
+const NOTIFICATION_TITLE = 'Título'
+const NOTIFICATION_BODY = 'Notificación del proceso de renderizado. Haga clic para registrar en consola.'
+const CLICK_MESSAGE = 'Notification cliced'
 
 new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
   .onclick = () => console.log(CLICK_MESSAGE)
@@ -56,7 +56,7 @@ After launching the Electron application, you should see the system notification
 
 ![Notification in the Main process](../images/notification-main.png)
 
-## Additional information
+## Información adiocional
 
 Si bien el código y la experiencia del usuario en los sistemas operativos son similares, existen diferencias sutiles.
 
