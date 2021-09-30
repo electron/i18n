@@ -1,4 +1,4 @@
-# Device Access
+# 端末アクセス
 
 Like Chromium based browsers, Electron provides access to device hardware through web APIs.  For the most part these APIs work like they do in a browser, but there are some differences that need to be taken into account.  The primary difference between Electron and browsers is what happens when device access is requested.  In a browser, users are presented with a popup where they can grant access to an individual device.  In Electron APIs are provided which can be used by a developer to either automatically pick a device or prompt users to pick a device via a developer created interface.
 
