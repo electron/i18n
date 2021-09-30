@@ -11,7 +11,9 @@ Wenn Sie Abstürze oder Probleme in Electron auftreten, von denen Sie glauben, d
 * **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
 
    ```text
-   command script import ~/electron/src/tools/lldb/lldbinit.py
+   # e.g: ['~/electron/src/tools/lldb']
+   script sys.path[:0] = ['<...path/to/electron/src/tools/lldb>']
+   script import lldbinit
    ```
 
 ## Attaching to and Debugging Electron

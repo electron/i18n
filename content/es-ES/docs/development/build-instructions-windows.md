@@ -29,7 +29,7 @@ Windows Security doesn't like one of the files in the Chromium source code (see 
 
 ## Compilando
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Ver [Build Instructions: GN](build-instructions-gn.md)
 
 ## Arquitectura 32bit
 
