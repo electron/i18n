@@ -222,6 +222,7 @@ Retorna:
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Define considerar o certificado como confiável
+* `isMainFrame` Boolean
 
 Emitido quando a verificação do `certificate` para o `url` falha, para confiar no certificado você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(true)`.
 
