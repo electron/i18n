@@ -160,7 +160,7 @@ Devuelve:
 
 Emitted when a hunspell dictionary file download fails.  For details on the failure you should collect a netlog and inspect the download request.
 
-#### Event: 'select-serial-port'
+#### Evento: 'select-serial-port'
 
 Devuelve:
 
@@ -196,7 +196,7 @@ app.whenReady().then(() => {
 })
 ```
 
-#### Event: 'serial-port-added'
+#### Evento: 'serial-port-added'
 
 Devuelve:
 
@@ -206,7 +206,7 @@ Devuelve:
 
 Emitted after `navigator.serial.requestPort` has been called and `select-serial-port` has fired if a new serial port becomes available.  For example, this event will fire when a new USB device is plugged in.
 
-#### Event: 'serial-port-removed'
+#### Evento: 'serial-port-removed'
 
 Devuelve:
 
