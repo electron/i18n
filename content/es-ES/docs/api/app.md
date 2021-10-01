@@ -880,7 +880,7 @@ Configure la resolución de host (DNS y DNS-over-HTTPS). Por defecto, se utiliza
 
 Esto puede ser configurado tanto para restringir el uso de DNS no-encriptado (`secureDnsMode: "secure"`), o desactivar DNS-over-HTTPS (`secureDnsMode:"off"`). También es posible activar o desactivar el resolver incorporado.
 
-Para desactivar DNS inseguro, puede especificar `secureDnsMode` de `"secure"`. If you do so, you should make sure to provide a list of DNS-over-HTTPS servers to use, in case the user's DNS configuration does not include a provider that supports DoH.
+Para desactivar DNS inseguro, puede especificar `secureDnsMode` de `"secure"`. Si usted hace eso, debería asegurarse de proveer una lista de servidores DNS-overHTTPS para usar, en caso de que la configuración DNS del usuario no incluya un proveedor que soporte DoH.
 
 ```js
 app.configureHostResolver({
@@ -1200,11 +1200,11 @@ A `Boolean` which when `true` indicates that the app is currently running under 
 
 You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
 
-**Deprecated:** This property is superceded by the `runningUnderARM64Translation` property which detects when the app is being translated to ARM64 in both macOS and Windows.
+**Obsoleto:** Esta propiedad es reemplazada por la propiedad `runningUnderARM64Translation` la cual detecta cuando la aplicación esta traducida a ARM64 tanto en macOS y Windows.
 
 ### `app.runningUnderARM64Translation` _Readonly_ _macOS_ _Windows_
 
-A `Boolean` which when `true` indicates that the app is currently running under an ARM64 translator (like the macOS [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)) or Windows [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows)).
+Un `Boolean` el cual cuando es `true` indica que la aplicación actualmente está ejecutándose bajo un traductor ARM64 (como el [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)) de macOS o [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows) de Windows).
 
 You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
 
