@@ -758,7 +758,7 @@ Cela fera que la fenêtre maintient un ratio d'aspect. La taille supplémentaire
 Considérez une fenêtre normale avec un lecteur vidéo HD et des commandes associées. Il y a peut-être 15 pixels de contrôles sur le bord gauche, 25 pixels de contrôles sur le bord droit et 50 pixels de contrôles sous le joueur. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. Le deuxième argument ne se soucie pas du fait que la largeur et la hauteur supplémentaires sont dans la vue de contenu --seulement qu'elles existent. Sommez toute la largeur supplémentaire et les zones de hauteur que vous avez dans la vue de contenu globale.
 
-The aspect ratio is not respected when window is resized programmingly with APIs like `win.setSize`.
+The aspect ratio is not respected when window is resized programmatically with APIs like `win.setSize`.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
