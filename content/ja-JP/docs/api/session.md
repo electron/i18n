@@ -160,6 +160,91 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
+#### Event: 'select-hid-device'
+
+戻り値：
+
+* `event` Event
+* `details` Object
+  * `deviceList` [HIDDevice[]](structures/hid-device.md)
+  * `frame` [WebFrameMain](web-frame-main.md)
+* `callback` Function
+  * `deviceId` String | null (optional)
+
+Emitted when a HID device needs to be selected when a call to `navigator.hid.requestDevice` is made. `callback` should be called with `deviceId` to be selected; passing no arguments to `callback` will cancel the request.  Additionally, permissioning on `navigator.hid` can be further managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) and [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler).
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+let win = null
+
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+
+  win.webContents.session.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
+    if (permission === 'hid') {
+      // Add logic here to determine if permission should be given to allow HID selection
+      return true
+    }
+    return false
+  })
+
+  // Optionally, retrieve previously persisted devices from a persistent store
+  const grantedDevices = fetchGrantedDevices()
+
+  win.webContents.session.setDevicePermissionHandler((details) => {
+    if (new URL(details.origin).hostname === 'some-host' && details.deviceType === 'hid') {
+      if (details.device.vendorId === 123 && details.device.productId === 345) {
+        // Always allow this type of device (this allows skipping the call to `navigator.hid.requestDevice` first)
+        return true
+      }
+
+      // Search through the list of devices that have previously been granted permission
+      return grantedDevices.some((grantedDevice) => {
+        return grantedDevice.vendorId === details.device.vendorId &&
+              grantedDevice.productId === details.device.productId &&
+              grantedDevice.serialNumber && grantedDevice.serialNumber === details.device.serialNumber
+      })
+    }
+    return false
+  })
+
+  win.webContents.session.on('select-hid-device', (event, details, callback) => {
+    event.preventDefault()
+    const selectedDevice = details.deviceList.find((device) => {
+      return device.vendorId === '9025' && device.productId === '67'
+    })
+    callback(selectedPort?.deviceId)
+  })
+})
+```
+
+#### Event: 'hid-device-added'
+
+戻り値：
+
+* `event` Event
+* `details` Object
+  * `device` [HIDDevice[]](structures/hid-device.md)
+  * `frame` [WebFrameMain](web-frame-main.md)
+
+Emitted when a new HID device becomes available. For example, when a new USB device is plugged in.
+
+This event will only be emitted after `navigator.hid.requestDevice` has been called and `select-hid-device` has fired.
+
+#### Event: 'hid-device-removed'
+
+戻り値：
+
+* `event` Event
+* `details` Object
+  * `device` [HIDDevice[]](structures/hid-device.md)
+  * `frame` [WebFrameMain](web-frame-main.md)
+
+Emitted when a HID device has been removed.  例えば、このイベントは USB デバイスが取り除かれたときに発生します。
+
+This event will only be emitted after `navigator.hid.requestDevice` has been called and `select-hid-device` has fired.
+
 #### イベント: 'select-serial-port'
 
 戻り値：
@@ -447,7 +532,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `handler` Function\<Boolean> | null
   * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  すべてのクロスオリジンサブフレームによる権限の確認はハンドラの webContents に `null` が渡されますが、`notifications` の確認のような、ある特定の権限の確認では常に `null` が渡されます。  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
-  * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`、`notifications`、`geolocation`、`media`、`mediaKeySystem`、`midi`、`pointerLock`、`fullscreen`、`openExternal`、`serial` です。
+  * `permission` String - 権限確認の種別です。  Valid values are `midiSysex`, `notifications`, `geolocation`, `media`,`mediaKeySystem`,`midi`, `pointerLock`, `fullscreen`, `openExternal`, `hid`, or `serial`.
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
     * `embeddingOrigin` String (任意) - 権限の確認をしたフレームのオリジン。  権限の確認を行うクロスオリジンのサブフレームでのみ設定されます。
@@ -467,6 +552,63 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
   }
 
   return false // 拒否
+})
+```
+
+#### `ses.setDevicePermissionHandler(handler)`
+
+* `handler` Function\<Boolean> | null
+  * `details` Object
+    * `deviceType` String - The type of device that permission is being requested on, can be `hid`.
+    * `origin` String - The origin URL of the device permission check.
+    * `device` [HIDDevice](structures/hid-device.md) - the device that permission is being requested for.
+    * `frame` [WebFrameMain](web-frame-main.md) - WebFrameMain checking the device permission.
+
+Sets the handler which can be used to respond to device permission checks for the `session`. Returning `true` will allow the device to be permitted and `false` will reject it. To clear the handler, call `setDevicePermissionHandler(null)`. This handler can be used to provide default permissioning to devices without first calling for permission to devices (eg via `navigator.hid.requestDevice`).  If this handler is not defined, the default device permissions as granted through device selection (eg via `navigator.hid.requestDevice`) will be used. Additionally, the default behavior of Electron is to store granted device permision through the lifetime of the corresponding WebContents.  If longer term storage is needed, a developer can store granted device permissions (eg when handling the `select-hid-device` event) and then read from that storage with `setDevicePermissionHandler`.
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+let win = null
+
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+
+  win.webContents.session.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
+    if (permission === 'hid') {
+      // Add logic here to determine if permission should be given to allow HID selection
+      return true
+    }
+    return false
+  })
+
+  // Optionally, retrieve previously persisted devices from a persistent store
+  const grantedDevices = fetchGrantedDevices()
+
+  win.webContents.session.setDevicePermissionHandler((details) => {
+    if (new URL(details.origin).hostname === 'some-host' && details.deviceType === 'hid') {
+      if (details.device.vendorId === 123 && details.device.productId === 345) {
+        // Always allow this type of device (this allows skipping the call to `navigator.hid.requestDevice` first)
+        return true
+      }
+
+      // Search through the list of devices that have previously been granted permission
+      return grantedDevices.some((grantedDevice) => {
+        return grantedDevice.vendorId === details.device.vendorId &&
+              grantedDevice.productId === details.device.productId &&
+              grantedDevice.serialNumber && grantedDevice.serialNumber === details.device.serialNumber
+      })
+    }
+    return false
+  })
+
+  win.webContents.session.on('select-hid-device', (event, details, callback) => {
+    event.preventDefault()
+    const selectedDevice = details.deviceList.find((device) => {
+      return device.vendorId === '9025' && device.productId === '67'
+    })
+    callback(selectedPort?.deviceId)
+  })
 })
 ```
 
