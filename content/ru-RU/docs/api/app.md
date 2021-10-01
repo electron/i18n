@@ -222,6 +222,7 @@ app.on('window-all-closed', () => {
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - учитывать ли сертификат как надёжный
+* `isMainFrame` Boolean
 
 Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
 
