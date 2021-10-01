@@ -160,7 +160,7 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
-#### Event: 'select-hid-device'
+#### イベント: 'select-hid-device'
 
 戻り値：
 
@@ -169,9 +169,9 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
   * `deviceList` [HIDDevice[]](structures/hid-device.md)
   * `frame` [WebFrameMain](web-frame-main.md)
 * `callback` Function
-  * `deviceId` String | null (optional)
+  * `deviceId` String | null (任意)
 
-Emitted when a HID device needs to be selected when a call to `navigator.hid.requestDevice` is made. `callback` should be called with `deviceId` to be selected; passing no arguments to `callback` will cancel the request.  Additionally, permissioning on `navigator.hid` can be further managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) and [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler).
+`navigator.hid.requestDevice` の呼び出し時に HID デバイスを選択する必要がある場合に発生します。 `callback` should be called with `deviceId` to be selected; passing no arguments to `callback` will cancel the request.  Additionally, permissioning on `navigator.hid` can be further managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) and [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler).
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
