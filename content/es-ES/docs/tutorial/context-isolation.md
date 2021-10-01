@@ -70,11 +70,11 @@ contextBridge.exposeInMainWorld('myAPI', {
 })
 ```
 
-## Usage with TypeScript
+## Uso con TypeScript
 
-If you're building your Electron app with TypeScript, you'll want to add types to your APIs exposed over the context bridge. The renderer's `window` object won't have the correct typings unless you extend the types with a [declaration file][].
+SI está construyendo su aplicación Electron con TypeScript, querrá añadir tipos a sus APIs expuestas sobre el puente del contexto. El objeto `window` del renderizador no tendrá los tipos correctos a menos que extienda los tipos con un [declaration file][].
 
-For example, given this `preload.ts` script:
+Por ejemplo, dado este script `preload.ts`:
 
 ```typescript title='preload.ts'
 contextBridge.exposeInMainWorld('electronAPI', {
@@ -82,7 +82,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
 })
 ```
 
-You can create a `renderer.d.ts` declaration file and globally augment the `Window` interface:
+Puede crear un archivo de declaración `renderer.d.ts` y aumentar globalmente la interfaz `Window`:
 
 ```typescript title='renderer.d.ts'
 export interface IElectronAPI {
@@ -96,7 +96,7 @@ declare global {
 }
 ```
 
-Doing so will ensure that the TypeScript compiler will know about the `electronAPI` property on your global `window` object when writing scripts in your renderer process:
+Al hacerlo se asegurará que el compilador de TypeScript sepa sobre la propiedad `electronAPI` en su objeto global `window` al escribir scripts en su proceso renderizador:
 
 ```typescript title='renderer.ts'
 window.electronAPI.loadPreferences()
