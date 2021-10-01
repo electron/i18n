@@ -132,13 +132,13 @@ Una `String` (opcional) indicando el rol del elemento, si está establecido. Can
 
 #### `menuItem.accelerator`
 
-An `Accelerator` (optional) indicating the item's accelerator, if set.
+Un `Accelerator` (opcional) indicando el acelerador del elemento, si está establecido.
 
 #### `menuItem.userAccelerator` _Readonly_ _macOS_
 
-An `Accelerator | null` indicating the item's [user-assigned accelerator](https://developer.apple.com/documentation/appkit/nsmenuitem/1514850-userkeyequivalent?language=objc) for the menu item.
+Un `Accelerator | null` indicando el [user-assigned accelerator](https://developer.apple.com/documentation/appkit/nsmenuitem/1514850-userkeyequivalent?language=objc) del elemento para el menú del elemento.
 
-**Note:** This property is only initialized after the `MenuItem` has been added to a `Menu`. Either via `Menu.buildFromTemplate` or via `Menu.append()/insert()`.  Accessing before initialization will just return `null`.
+**Nota:** Esta propiedad es solo inicializada después de que `MenuItem` a sido agregada al `Menu`. Ya sea a través de `Menu.buildFromTemplate` o a través de `Menu.append()/insert()`.  Accediendo antes de la inicialización solo devolverá `null`.
 
 #### `menuItem.icon`
 
