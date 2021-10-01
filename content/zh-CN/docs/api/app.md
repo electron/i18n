@@ -222,6 +222,7 @@ app.on('window-all-closed', () => {
 * `certificate` [证书](structures/certificate.md)
 * `callback` Function
   * ` isTrusted `Boolean-是否将证书视为可信的
+* `isMainFrame` Boolean
 
 当对 `url` 的 `certificate` 证书验证失败的时候发出。如果需要信任这个证书，你需要阻止默认行为 `event.preventDefault()` 并且调用 `callback(true)`。
 
