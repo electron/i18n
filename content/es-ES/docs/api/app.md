@@ -582,7 +582,7 @@ Reescribe el nombre de la aplicación actual.
 
 Devuelve `String` - Los parámetros regionales actuales de la aplicación, recopilados usando la biblioteca `l10n_util` de Chromium. Los posibles valores de retorno son documentados [aquí](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
-Para establecer la locale, querrás usar un interruptor de línea de comandos al inicio de la aplicación, que puede encontrarse [aquí](command-line-switches.md).
+Para establecer el locale, querrás usar un interruptor de línea de comandos al inicio de la aplicación, que puede encontrarse [aquí](command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -867,21 +867,20 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 ### `app.configureHostResolver(options)`
 
 * `options` Object
-  * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Activado por defecto en macOS, desactivado por defecto en Windows y Linux.
+  * `enableBuiltInResolver` Boolean (opcional) - Si el resolver de host integrado se utiliza en preferencia para getaddrinfo. Cuando está activado, el resolver integrado intentara usar las configuraciones DNS del sistema para hacer las consultas DNS por si mismo. Activado por defecto en macOS, desactivado por defecto en Windows y Linux.
   * `secureDnsMode` String (opcional) - Puede ser "off", "automatic" o "secure". Configura el modo DNS-over-HTTP. Cuando es "off", las búsquedas DoH no se realizarán. Cuando es "automatic", las búsquedas DoH se realizarán primero si DoH está disponible, y las búsquedas DNS se realizarán como una reserva. Cuando es "secure", sólo se realizarán búsquedas DoH. Por defecto es "automatic".
-  * `secureDnsServers` String[]&#32;(opcional) - Una lista de plantillas de servidor DNS-over-HTTP. Vea [RFC8484 § 3][] para más detalles sobre el formato de la plantilla. La mayoría de los servidores soportan el método POST; la plantilla para estos servidores es simplemente una URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
-  * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. Defaults to true.
+  * `secureDnsServers` String[]&#32;(opcional) - Una lista de plantillas de servidor DNS-over-HTTP. Vea [RFC8484 § 3][] para más detalles sobre el formato de la plantilla. La mayoría de los servidores soportan el método POST; la plantilla para estos servidores es simplemente una URI. Tenga en cuenta que para [algunos proveedores DNS ][doh-providers], el resolver actualizará automáticamente a DoH a menos que DoH este explícitamente desactivado, incluso si no hay servidores DoH proporcionados en esta lista.
+  * `enableAdditionalDnsQueryTypes` Boolean (opcional) - Controla si consultas DNS de tipos adicionales, p.e. HTTPS(DNS type 65) serán permitidas ademas de las tradicionales consultas A y AAAA cuando una solicitud esta siendo hecha a través de DNS inseguro. No tiene efecto en DNS seguro que siempre permite tipos adicionales. Defaults to true.
 
 Configure la resolución de host (DNS y DNS-over-HTTPS). Por defecto, se utilizarán los siguientes resolutores en orden:
 
 1. DNS-over-HTTPS, si [DNS provider supports it][doh-providers], luego
 2. el resolutor integrado (activado sólo por defecto en macOS), luego
-3. the system's resolver (e.g. `getaddrinfo`).
+3. el resolver del sistema (p.e. `getaddrinfo`).
 
-This can be configured to either restrict usage of non-encrypted DNS (`secureDnsMode: "secure"`), or disable DNS-over-HTTPS (`secureDnsMode:
-"off"`). It is also possible to enable or disable the built-in resolver.
+Esto puede ser configurado tanto para restringir el uso de DNS no-encriptado (`secureDnsMode: "secure"`), o desactivar DNS-over-HTTPS (`secureDnsMode:"off"`). También es posible activar o desactivar el resolver incorporado.
 
-To disable insecure DNS, you can specify a `secureDnsMode` of `"secure"`. If you do so, you should make sure to provide a list of DNS-over-HTTPS servers to use, in case the user's DNS configuration does not include a provider that supports DoH.
+Para desactivar DNS inseguro, puede especificar `secureDnsMode` de `"secure"`. If you do so, you should make sure to provide a list of DNS-over-HTTPS servers to use, in case the user's DNS configuration does not include a provider that supports DoH.
 
 ```js
 app.configureHostResolver({
