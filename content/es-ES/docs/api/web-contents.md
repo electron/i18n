@@ -463,6 +463,7 @@ Devuelve:
 * `certificate` [certificate](structures/certificate.md)
 * `callback` Función
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+* `EsElFramePrincipal` Boolean
 
 Emitido cuando no se pudo verificar el `certificate` for `url`.
 
@@ -570,6 +571,7 @@ Devuelve:
 * `params` Object
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
+  * `frame` WebFrameMain - Frame from which the context menu was invoked.
   * `linkURL` String - URL del enlace que incluye el nodo del menú contextual que fue invocado.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL de la parte superior del nivel de la página que se invocó en el menú del contexto.
@@ -1608,7 +1610,8 @@ Finalizar suscripción para eventos de presentación de marcos.
 #### `contents.startDrag(item)`
 
 * Objeto `item`
-  * `file` String[] | String - La ruta(s) al arhivo(s) siendo arrastrado.
+  * `file` String - The path to the file being dragged.
+  * `files` String[] (optional) - The paths to the files being dragged. (`files` will override `file` field)
   * `icon` [NativeImage](native-image.md) | String - La imagen no debe estar vacía en on macOS.
 
 Configura el `item` como un elemento arrastrable para la operación drag-drop actual. El `file` es la ruta absoluta del archivo que se va a arrastrar, y `icon` es la imagen que se muestra debajo del cursor cuando se arrastra.
