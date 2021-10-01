@@ -222,6 +222,7 @@ Retourne :
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Détermine si le certificat doit être considéré comme digne de confiance
+* `isMainFrame` Boolean
 
 Émis lorsque la vérification du `certificate` pour l'`url` a échouée. Pour approuver le certificat, vous devez empêcher le comportement par défaut avec `event.preventDefault()` et appeler `callback(true)`.
 
