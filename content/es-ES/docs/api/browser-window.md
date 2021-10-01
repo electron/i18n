@@ -759,7 +759,7 @@ Esto hará que la ventana mantenga una relación de aspecto. El tamaño extra pe
 Considere una ventana normal con un reproductor de video HD y los controles asociados. Quizá hay 15 pixeles de controles en el borde izquierdo, 25 pixeles de control en el borde derecho y 50 pixeles de control bajo el reproductor. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. En el segundo argumento no importa donde están la anchura extra ni altura extra dentro de la vista del contenido, solo importa que existan. Suma cualquier áreas de ancho y alto adicionales que tengas dentro de la vista de contenido general.
 
-The aspect ratio is not respected when window is resized programmatically with APIs like `win.setSize`.
+La relación de aspecto no se respeta cuando la ventana se redimensiona programáticamente con APIs como `win.setSize`.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
