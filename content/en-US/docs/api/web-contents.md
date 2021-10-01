@@ -530,6 +530,7 @@ Returns:
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+* `isMainFrame` Boolean
 
 Emitted when failed to verify the `certificate` for `url`.
 
@@ -650,6 +651,7 @@ Returns:
 * `params` Object
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
+  * `frame` WebFrameMain - Frame from which the context menu was invoked.
   * `linkURL` String - URL of the link that encloses the node the context menu
     was invoked on.
   * `linkText` String - Text associated with the link. May be an empty
@@ -1825,7 +1827,8 @@ End subscribing for frame presentation events.
 #### `contents.startDrag(item)`
 
 * `item` Object
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `file` String - The path to the file being dragged.
+  * `files` String[] (optional) - The paths to the files being dragged. (`files` will override `file` field)
   * `icon` [NativeImage](native-image.md) | String - The image must be
     non-empty on macOS.
 
