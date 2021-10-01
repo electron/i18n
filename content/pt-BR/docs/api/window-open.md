@@ -1,6 +1,6 @@
-# Opening windows from the renderer
+# Abrindo janelas a partir do renderizador
 
-There are several ways to control how windows are created from trusted or untrusted content within a renderer. Windows can be created from the renderer in two ways:
+Existem várias maneiras de controlar como as janelas são criadas a partir de conteúdo confiável ou não confiável dentro de um renderizador. Windows can be created from the renderer in two ways:
 
 * clicking on links or submitting forms adorned with `target=_blank`
 * JavaScript calling `window.open()`
