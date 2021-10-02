@@ -571,7 +571,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `params` Object
   * `x` Integer - x 座標。
   * `y` Integer - y 座標。
-  * `frame` WebFrameMain - Frame from which the context menu was invoked.
+  * `frame` WebFrameMain - コンテキストメニューが呼び出されたフレーム。
   * `linkURL` String - コンテキストメニューが呼び出されたノードを囲うリンク URL。
   * `linkText` String - リンクに関連付けたテキスト。 リンクのコンテンツが画像の場合は、空文字列になります。
   * `pageURL` String - コンテキストメニューが呼び出された最上位のページの URL。
@@ -1610,8 +1610,8 @@ ipcRenderer.on('port', (e, msg) => {
 #### `contents.startDrag(item)`
 
 * `item` Object
-  * `file` String - The path to the file being dragged.
-  * `files` String[] (optional) - The paths to the files being dragged. (`files` will override `file` field)
+  * `file` String - ドラッグされているファイルのパス。
+  * `files` String[] (任意) - ドラッグされている複数ファイルのパス。 (`files` は `file` フィールドより優先されます)
   * `icon` [NativeImage](native-image.md) | String - 画像です。macOS では空にできません。
 
 現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
