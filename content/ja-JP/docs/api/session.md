@@ -171,7 +171,7 @@ hunspell 辞書ファイルのダウンロードが失敗したときに発生�
 * `callback` Function
   * `deviceId` String | null (任意)
 
-`navigator.hid.requestDevice` の呼び出し時に HID デバイスを選択する必要がある場合に発生します。 `callback` should be called with `deviceId` to be selected; passing no arguments to `callback` will cancel the request.  Additionally, permissioning on `navigator.hid` can be further managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) and [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler).
+`navigator.hid.requestDevice` の呼び出し時に HID デバイスを選択する必要がある場合に発生します。 `callback` は選択する `deviceId` で呼び出してください。`callback` に引数を渡さなければ、リクエストをキャンセルします。  また、[ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) や [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler) を使うことで、`navigator.hid` の権限をさらに管理できます。
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
