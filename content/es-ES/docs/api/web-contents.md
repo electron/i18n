@@ -122,7 +122,7 @@ Devuelve:
 
 * `event`
 
-Emitted when the document in the top-level frame is loaded.
+Emitido cuando el documento el el nivel superior está cargado.
 
 #### Evento: 'page-title-updated'
 
@@ -405,8 +405,8 @@ Devuelve:
   * `control` Boolean - Es igual a [KeyboardEvent.controlKey][keyboardevent].
   * `alt` Boolean - Es igual a [KeyboardEvent.altKey][keyboardevent].
   * `meta` Boolean - Es igual a [KeyboardEvent.metaKey][keyboardevent].
-  * `location` Number - Equivalent to [KeyboardEvent.location][keyboardevent].
-  * `modifiers` String[] - See [InputEvent.modifiers](structures/input-event.md).
+  * `location` Number - Equivalente a [KeyboardEvent.location][keyboardevent].
+  * `modifiers` String[] - Ver [InputEvent.modifiers](structures/input-event.md).
 
 Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Llamando a `event.preventDefault` evitará la página `keydown`/ eventos `keyup` y los accesos rápidos al menú.
 
@@ -463,6 +463,7 @@ Devuelve:
 * `certificate` [certificate](structures/certificate.md)
 * `callback` Función
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+* `EsElFramePrincipal` Boolean
 
 Emitido cuando no se pudo verificar el `certificate` for `url`.
 
@@ -570,6 +571,7 @@ Devuelve:
 * `params` Object
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
+  * `frame` WebFrameMain - Frame from which the context menu was invoked.
   * `linkURL` String - URL del enlace que incluye el nodo del menú contextual que fue invocado.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL de la parte superior del nivel de la página que se invocó en el menú del contexto.
@@ -758,7 +760,7 @@ Emitted when the `WebContents` preferred size has changed.
 
 This event will only be emitted when `enablePreferredSizeMode` is set to `true` in `webPreferences`.
 
-#### Event: 'frame-created'
+#### Evento: 'frame-created'
 
 Devuelve:
 
@@ -766,7 +768,7 @@ Devuelve:
 * `details` Object
   * `frame` WebFrameMain
 
-Emitted when the [mainFrame](web-contents.md#contentsmainframe-readonly), an `<iframe>`, or a nested `<iframe>` is loaded within the page.
+Emitido cuando el [mainFrame](web-contents.md#contentsmainframe-readonly), un `<iframe>`, o un anidado `<iframe>` es cargado dentro de la página.
 
 ### Métodos de Instancia
 
@@ -1028,7 +1030,7 @@ Ignora los accesos directos del menú de la aplicación mientras se enfoca los c
 
   Devuelve `{action: 'deny'} | {action: 'allow', overrideBrowserWindowOptions?: BrowserWindowConstructorOptions}` - `deny` cancela la creación de la nueva ventana. `allow` permitirá la que se cree la nueva ventana. Especificando `overrideBrowserWindowOptions` permite la personalización de la ventana creada. Devolver un valor no reconocido como un null, undefined o un objeto sin una 'action' reconocida resultará en un error de consola tiene el mismo efecto que devolver `{action: 'deny'}`.
 
-Called before creating a window a new window is requested by the renderer, e.g. by `window.open()`, a link with `target="_blank"`, shift+clicking on a link, or submitting a form with `<form target="_blank">`. See [`window.open()`](window-open.md) for more details and how to use this in conjunction with `did-create-window`.
+Llamado antes de crear una ventana un solicitud de nueva ventana es solicitada por el renderer, p.e. por `window.open()`, un enlace con `target="_blank"`, shift+pulsando en un enlace, o enviando un formulario con `<form target="_blank">`. Ver [`window.open()`](window-open.md) Para más detalles y como usar esto en conjunción con `did-create-window`.
 
 #### `contents.setAudioMuted(muted)`
 
@@ -1608,7 +1610,8 @@ Finalizar suscripción para eventos de presentación de marcos.
 #### `contents.startDrag(item)`
 
 * Objeto `item`
-  * `file` String[] | String - La ruta(s) al arhivo(s) siendo arrastrado.
+  * `file` String - The path to the file being dragged.
+  * `files` String[] (optional) - The paths to the files being dragged. (`files` will override `file` field)
   * `icon` [NativeImage](native-image.md) | String - La imagen no debe estar vacía en on macOS.
 
 Configura el `item` como un elemento arrastrable para la operación drag-drop actual. El `file` es la ruta absoluta del archivo que se va a arrastrar, y `icon` es la imagen que se muestra debajo del cursor cuando se arrastra.
@@ -1722,9 +1725,9 @@ Devuelve `String` - el tipo de webContent. Puede ser `backgroundPage`, `window`,
 
 * `policy` String - Puede ser `animate`, `animateOnce` o `noAnimation`.
 
-Sets the image animation policy for this webContents.  The policy only affects _new_ images, existing images that are currently being animated are unaffected. This is a known limitation in Chromium, you can force image animation to be recalculated with `img.src = img.src` which will result in no network traffic but will update the animation policy.
+Establece la política de animación de imágenes para este webContents.  La política solo afecta a imágenes _new_, las imágenes que se está animando actualmente no son afectadas. Esta es una limitación conocida en Chromium, puede forzar que la animación de la imagen sea recalculada con `img.src = img.src` lo cual no dará como resultado tráfico de red pero actualizará la política de la animación.
 
-This corresponds to the [animationPolicy][] accessibility feature in Chromium.
+Esto corresponde a la característica de accesibilidad [animationPolicy][] en Chromium.
 
 ### Propiedades de la instancia
 

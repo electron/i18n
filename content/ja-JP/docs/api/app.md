@@ -222,6 +222,7 @@ macOS のアプリケーションがアクティブになったときに発生�
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - 証明書を信頼できるものと見なすかどうか
+* `isMainFrame` Boolean
 
 `url` に対する `certificate` の検証に失敗したときに発生します。証明書を信頼するためには、`event.preventDefault()` で既定の動作をキャンセルして、`callback(true)` を呼び出すようにしてください。
 

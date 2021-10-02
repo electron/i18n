@@ -157,7 +157,7 @@ Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations
 
 Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
 
-1) For long running CPU-heavy tasks, make use of [worker threads][worker-threads], consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
+1) Para tareas pesadas de la CPU, utilice [worker threads][worker-threads], considere moverlos a BrowserWindow, o (como último recurso) genere un proceso dedicado.
 
 2) Avoid using the synchronous IPC and the `remote` module as much as possible. While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
 
@@ -197,7 +197,7 @@ It is rare for a JavaScript-based polyfill to be faster than the equivalent nati
 
 Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
 
-In addition, carefully examine the libraries you use. ¿Son realmente necesarias? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available][jquery-need].
+In addition, carefully examine the libraries you use. ¿Son realmente necesarias? `jQuery`, por ejemplo, fue un éxito tal que muchas de sus característica ahora son partes del [standard JavaScript feature set available][jquery-need].
 
 If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
 
@@ -237,7 +237,7 @@ Modern JavaScript development usually involves many files and modules. While tha
 
 There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
 
-As of writing this article, the popular choices include [Webpack][webpack], [Parcel][parcel], and [rollup.js][rollup].
+Al escribir este artículo, las opciones populares incluyen [Webpack][webpack], [Parcel][parcel] y [rollup.js][rollup].
 
 [security]: ./security.md
 [chrome-devtools-tutorial]: https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/

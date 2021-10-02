@@ -6,7 +6,7 @@ Un progress bar le permite a una ventana proveer información de progreso al usu
 
 En Windows puede usar un taskbar button para mostrar un progress bar.
 
-!\[Windows Progress Bar\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
+!\[Barra de Progreso de Windows\]\[https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png\]
 
 En macOS, el progress bar será mostrado como parte del dock icon.
 

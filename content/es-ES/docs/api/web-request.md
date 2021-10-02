@@ -36,7 +36,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro
@@ -77,7 +77,7 @@ Algunos ejemplos de `urls` válidas:
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro
@@ -101,7 +101,7 @@ El `callback` ha de ser llamado con un objeto `response`.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro
@@ -119,7 +119,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro
@@ -146,7 +146,7 @@ El `callback` ha de ser llamado con un objeto `response`.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro
@@ -167,7 +167,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro
@@ -190,7 +190,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro
@@ -212,7 +212,7 @@ El `listener` será llamado con `listener(details)` cuando una petición es comp
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` [WebRequestFilter](structures/web-request-filter.md) (optional)
+* `filter` [WebRequestFilter](structures/web-request-filter.md) (opcional)
 * `listener` Function | null
   * `details` Object
     * `id` Íntegro

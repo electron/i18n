@@ -223,7 +223,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
       * `bypassHeatCheck` - Bypass code caching heuristics but with lazy compilation
       * `bypassHeatCheckAndEagerCompile` - Same as above except compilation is eager. Default policy is `code`.
     * `enablePreferredSizeMode` Boolean (optional) - Whether to enable preferred size mode. The preferred size is the minimum size needed to contain the layout of the document—without requiring scrolling. Enabling this will cause the `preferred-size-changed` event to be emitted on the `WebContents` when the preferred size changes. Por defecto es `false`.
-  * `titleBarOverlay` Object | Boolean (optional) -  When using a frameless window in conjuction with `win.setWindowButtonVisibility(true)` on macOS or using a `titleBarStyle` so that the standard window controls ("traffic lights" on macOS) are visible, this property enables the Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] and [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. Por defecto es `false`.
+  * `titleBarOverlay` Object | Boolean (opcional) -  Cuando se usa una ventana sin marco en conjunción con `win.setWindowButtonVisibility(true)` en macOS o usando `titleBarStyle` para que los controles de la  ventana estándar ("traffic lights" en macOS) estén visibles, esta propiedad activa el  Window Controls Overlay [JavaScript APIs][overlay-javascript-apis] y [CSS Environment Variables][overlay-css-env-vars]. Specifying `true` will result in an overlay with default system colors. Por defecto es `false`.
     * `color` String (optional) _Windows_ - The CSS color of the Window Controls Overlay when enabled. Default is the system color.
     * `symbolColor` String (optional) _Windows_ - The CSS color of the symbols on the Window Controls Overlay when enabled. Default is the system color.
 
@@ -759,7 +759,7 @@ Esto hará que la ventana mantenga una relación de aspecto. El tamaño extra pe
 Considere una ventana normal con un reproductor de video HD y los controles asociados. Quizá hay 15 pixeles de controles en el borde izquierdo, 25 pixeles de control en el borde derecho y 50 pixeles de control bajo el reproductor. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and
 { width: 40, height: 50 }. En el segundo argumento no importa donde están la anchura extra ni altura extra dentro de la vista del contenido, solo importa que existan. Suma cualquier áreas de ancho y alto adicionales que tengas dentro de la vista de contenido general.
 
-The aspect ratio is not respected when window is resized programmingly with APIs like `win.setSize`.
+La relación de aspecto no se respeta cuando la ventana se redimensiona programáticamente con APIs como `win.setSize`.
 
 #### `win.setBackgroundColor(backgroundColor)`
 

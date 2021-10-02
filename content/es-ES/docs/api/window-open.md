@@ -5,9 +5,9 @@ There are several ways to control how windows are created from trusted or untrus
 * clicking on links or submitting forms adorned with `target=_blank`
 * JavaScript calling `window.open()`
 
-For same-origin content, the new window is created within the same process, enabling the parent to access the child window directly. This can be very useful for app sub-windows that act as preference panels, or similar, as the parent can render to the sub-window directly, as if it were a `div` in the parent. This is the same behavior as in the browser.
+Para contenido del mismo origen, la nueva ventana es creada dentro del mismo proceso, permitiendo al padres acceder a la ventana hija derectamente. Esto puede ser muy útil para las sub ventanas de la aplicación que actúan como paneles de preferencia o similares, ya que el padre puede renderizar directamente a la sub ventana, como si fuera un `div` en el padre. Este es el mismo comportamiento que en el navegador.
 
-When `nativeWindowOpen` is set to false, `window.open` instead results in the creation of a [`BrowserWindowProxy`](browser-window-proxy.md), a light wrapper around `BrowserWindow`.
+Cuando `nativeWindowOpen` se establece a false, `window.open` en cambio resulta en la creación de una [`BrowserWindowProxy`](browser-window-proxy.md), un envoltorio ligero alrededor de `BrowserWindow`.
 
 Electron pairs this native Chrome `Window` with a BrowserWindow under the hood. You can take advantage of all the customization available when creating a BrowserWindow in the main process by using `webContents.setWindowOpenHandler()` for renderer-created windows.
 
@@ -39,8 +39,7 @@ window.open('https://github.com', '_blank', 'top=500,left=200,frame=false,nodeIn
 * Las características no estándares (que no son manejadas por Chromium o Electron) dadas en `features` serán pasadas a cualquier manejador de evento registrado `did-create-window` de `webContents` en el argumento `options`.
 * `frameName` follows the specification of `windowName` located in the [native documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#parameters).
 
-To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Returning `{ action: 'deny' }` cancels the window. Returning `{
-action: 'allow', overrideBrowserWindowOptions: { ... } }` will allow opening the window and setting the `BrowserWindowConstructorOptions` to be used when creating the window. Note that this is more powerful than passing options through the feature string, as the renderer has more limited privileges in deciding security preferences than the main process.
+To customize or cancel the creation of the window, you can optionally set an override handler with `webContents.setWindowOpenHandler()` from the main process. Devolver `{ action: 'deny' }` cancela la ventana. Devolver `{action: 'allow', overrideBrowserWindowOptions: { ... } }` permitará abrir la ventana y configurar el `BrowserWindowConstructorOptions` que se usará al crear la ventana. Tenga en cuenta que esto es más poderoso que pasar opciones a través de la cadena de características, ya que el renderizador tiene privilegios más limitados para decidir las preferencias de seguridad que el proceso principal.
 
 ### Ejemplo de `Window` nativo
 
@@ -48,7 +47,7 @@ action: 'allow', overrideBrowserWindowOptions: { ... } }` will allow opening the
 // main.js
 const mainWindow = new BrowserWindow()
 
-// In this example, only windows with the `about:blank` url will be created.
+// En este ejemplo, solo ventanas con la url `about:blank` serán creadas.
 // All other urls will be blocked.
 mainWindow.webContents.setWindowOpenHandler(({ url }) => {
   if (url === 'about:blank') {
@@ -91,7 +90,7 @@ mainWindow.webContents.setWindowOpenHandler(({ url }) => {
 })
 
 mainWindow.webContents.on('did-create-window', (childWindow) => {
-  // For example...
+  // Por ejemplo...
   childWindow.webContents.on('will-navigate', (e) => {
     e.preventDefault()
   })

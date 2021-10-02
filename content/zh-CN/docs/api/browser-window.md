@@ -757,7 +757,7 @@ Menu.setApplicationMenu(menu)
 
 想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持播放器本身16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以使用 16/9 和 { width: 40, height: 50 } 的参数调用这个函数。 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 在全部内部窗口中，加上任何额外的宽度和高度 。
 
-当窗口使用类似于 `win.setSize` 这样的 API 调整窗口时，宽高比不会被采用。
+The aspect ratio is not respected when window is resized programmatically with APIs like `win.setSize`.
 
 #### `win.setBackgroundColor(backgroundColor)`
 

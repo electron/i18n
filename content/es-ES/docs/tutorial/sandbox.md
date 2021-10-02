@@ -46,7 +46,7 @@ In addition, the preload script also polyfills certain Node.js primitives as glo
 
 Because the `require` function is a polyfill with limited functionality, you will not be able to use [CommonJS modules][commonjs] to separate your preload script into multiple files. If you need to split your preload code, use a bundler such as [webpack][webpack] or [Parcel][parcel].
 
-Note that because the environment presented to the `preload` script is substantially more privileged than that of a sandboxed renderer, it is still possible to leak privileged APIs to untrusted code running in the renderer process unless [`contextIsolation`][context-isolation] is enabled.
+Tenga en cuenta que debido a que el entorno presentado al script `preload` es sustancialmente más privilegiado que el de un renderizador con espacio de prueba, todavía es posible filtrar API privilegiadas a código no confiable ejecutándose en el proceso de renderizado a menos que [`contextIsolation`][context-isolation] esté habilitado.
 
 ## Configuring the sandbox
 

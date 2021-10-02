@@ -11,7 +11,7 @@ JavaScript アプリケーションに起因しないと思われるクラッシ
 * **.lldbinit**: `~/.lldbinit` を以下のように作成及び編集し、Chromium コードを適切にソースマップできるようにします。
 
    ```text
-   # e.g: ['~/electron/src/tools/lldb']
+   # 例: ['~/electron/src/tools/lldb']
    script sys.path[:0] = ['<...path/to/electron/src/tools/lldb>']
    script import lldbinit
    ```

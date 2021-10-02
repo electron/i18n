@@ -463,6 +463,7 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
 * `certificate` [证书](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - 用于显示证书是否可信。
+* `isMainFrame` Boolean
 
 `证书`的`链接`验证失败时，触发该事件。
 
@@ -570,6 +571,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 * `params` Object
   * `x` Integer - x 坐标。
   * `y` Integer - y 坐标。
+  * `frame` WebFrameMain - Frame from which the context menu was invoked.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
@@ -1477,7 +1479,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm][SCA], just like [`postMessage`][], so prototype chains will not be included. 发送 Functions, Promises, Symbols, WeakMaps, 或 WeakSets 将抛出异常
+Send an asynchronous message to the renderer process via `channel`, along with arguments. 参数将使用 [Structured Clone Algorithm][SCA]进行序列化，就像 [`postMessage`][],因此原型链将不会包含在内。 发送 Functions, Promises, Symbols, WeakMaps, 或 WeakSets 将抛出异常
 
 > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects will throw an exception.
 
@@ -1608,7 +1610,8 @@ End subscribing for frame presentation events.
 #### `contents.startDrag(item)`
 
 * `item` Object
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `file` String - The path to the file being dragged.
+  * `files` String[] (optional) - The paths to the files being dragged. (`files` will override `file` field)
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
