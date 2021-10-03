@@ -1,10 +1,10 @@
 # Dima@mail.ru
 
-One key security feature in Chromium is that processes can be executed within a sandbox. The sandbox limits the harm that malicious code can cause by limiting access to most system resources — sandboxed processes can only freely use CPU cycles and memory. In order to perform operations requiring additional privilege, sandboxed processes use dedicated communication channels to delegate tasks to more privileged processes.
+Одна из ключевых функций безопасности в Chromium заключается в том, что процессы могут быть выполнены в песочнице. Песочница ограничивает вред, который может нанести вредоносный код, ограничивая доступ к большинству системных ресурсов — изолированные процессы могут свободно использовать только циклы ЦП и память. Для выполнения операций, требующих дополнительных привилегий, изолированные процессы используют выделенные каналы связи для делегирования задач более привилегированным процессам.
 
-In Chromium, sandboxing is applied to most processes other than the main process. This includes renderer processes, as well as utility processes such as the audio service, the GPU service and the network service.
+В Chromium песочница применяется к большинству процессов, отличных от основного процесса. Сюда входят процессы визуализации, а также вспомогательные процессы, такие как службы аудио, служба GPU и сетевая служба.
 
-See Chromium's [Sandbox design document][sandbox] for more information.
+Смотрите [дизайн приложения Chromium][sandbox] для более подробной информации.
 
 ## Electron's sandboxing policies
 
