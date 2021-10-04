@@ -169,9 +169,9 @@ Devuelve:
   * `deviceList` [HIDDevice[]](structures/hid-device.md)
   * `frame` [WebFrameMain](web-frame-main.md)
 * `callback` Función
-  * `deviceId` String | null (optional)
+  * `deviceId` String | null (opcional)
 
-Emitted when a HID device needs to be selected when a call to `navigator.hid.requestDevice` is made. `callback` should be called with `deviceId` to be selected; passing no arguments to `callback` will cancel the request.  Additionally, permissioning on `navigator.hid` can be further managed by using [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) and [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler).
+Emitido cuando un dispositivo HID necesita ser seleccionado cuando se realizó una llamada a `navigator.hid.requestDevice`. `callback` debería ser llamada con el `deviceId` a ser seleccionado; al no pasar argumentos a `callback` se cancelará la solicitud.  Adicionalmente, los permisos en `navigator.hid` pueden ser administrados aún más usando [ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) y [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler).
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
