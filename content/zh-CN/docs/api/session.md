@@ -6,7 +6,7 @@
 
 ` session ` 模块可用于创建新的 ` session ` 对象。
 
-你还可以使用[`WebContents`](web-contents.md)的`session`属性或` session`模块访问现有页的`session`
+您还可以通过使用 `WebContents` 的 `session` 属性或从 `session` 模块访问现有页面的 <0>session</0>。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -68,9 +68,9 @@ console.log(ses.getUserAgent())
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-当 Electron 刚要在`webContents`中下载`item<0>的时候触发。</p>
+当 Electron 刚要在`webContents`中下载`item`的时候触发。
 
-<p spaces-before="0">调用<code>event.preventDefault()`方法，将会停止下载，并且在进程的next tick中，`item`将不再可用。
+调用`event.preventDefault()`方法，将会停止下载，并且在进程的next tick中，`item`将不再可用。
 
 ```javascript
 const { session } = require('electron')
@@ -820,9 +820,9 @@ A `String | null` indicating the absolute file system path where data for this s
 
 ### 实例属性
 
-以下属性在` Session </ 0>实例上可用：</p>
+以下属性在` Session `实例上可用：
 
-<h4 spaces-before="0"><code>ses.availableSpellCheckerLanguages` _只读_</h4>
+#### `ses.availableSpellCheckerLanguages` _只读_
 
 A `String[]` array which consists of all the known available spell checker languages.  Providing a language code to the `setSpellCheckerLanguages` API that isn't in this array will result in an error.
 
