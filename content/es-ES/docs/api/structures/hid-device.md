@@ -1,8 +1,8 @@
-# HIDDevice Object
+# Objecto HIDDevice
 
-* `deviceId` String - Unique identifier for the device.
-* `name` String - Name of the device.
-* `vendorId` Integer - The USB vendor ID.
-* `productId` Integer - The USB product ID.
-* `serialNumber` String (optional) - The USB device serial number.
-* `guid` String (optional) - Unique identifier for the HID interface.  A device may have multiple HID interfaces.
+* `deviceId` String - Identificador unico para el dispositivo.
+* `name` String - Nombre del dispositivo.
+* `vendorId` Integer - El ID del proveedor USB.
+* `productId` Integer - El ID del producto USB.
+* `serialNumber` String (opcional) - El número de serie del dispositivo USB.
+* `guid` String (optional) - Identificador único para la interface del HID.  Un dispositivo puede tener múltiples interfaces HID.

@@ -2,7 +2,7 @@
 
 ## 警告
 
-Electron的  `webview` 标签基于 [Chromium </code>webview </0> ][chrome-webview]，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` ，[Electron的 `BrowserView`](browser-view.md) 或完全避免嵌入内容的架构。
+Electron的 `webview` 标签基于 [Chromium `webview` ][chrome-webview]，后者正在经历巨大的架构变化。 这将影响 `webview` 的稳定性，包括呈现、导航和事件路由。 我们目前建议不使用 `webview` 标签，并考虑其他替代方案，如 `iframe` ，[Electron的 `BrowserView`](browser-view.md) 或完全避免嵌入内容的架构。
 
 ## 启用
 
@@ -20,7 +20,7 @@ Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not ex
 
 ## 示例
 
-若要在应用程序中嵌入网页, 请将 ` webview ` 标签添加到应用程序的被嵌入页面中 (这是将显示外来内容的应用程序页)。 在最简单的例子中, ` webview ` 标签包括网页的 ` src ` 和控制 ` webview ` 容器外观的 css 样式:
+若要在应用程序中嵌入网页, 请将 `webview` 标签添加到应用程序的被嵌入页面中 (这是将显示外来内容的应用程序页)。 在最简单的例子中, `webview` 标签包括网页的 `src` 和控制 `webview` 容器外观的 css 样式:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
@@ -60,7 +60,7 @@ Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not ex
 
 ## CSS 样式说明
 
-请注意，`webview` 标签的样式使用 `display:flex;` 来确保 ` iframe `在传统和 flex 布局一起使用的情况下填充其 `webview` 容器的全部高度和宽度。 除非指定内联布局的 `display:inline-flex;` ，否则请不要 覆盖默认 `display:flex;` CSS属性。
+请注意，`webview` 标签的样式使用 `display:flex;` 来确保 `iframe`在传统和 flex 布局一起使用的情况下填充其 `webview` 容器的全部高度和宽度。 除非指定内联布局的 `display:inline-flex;` ，否则请不要 覆盖默认 `display:flex;` CSS属性。
 
 ## 标签属性
 
