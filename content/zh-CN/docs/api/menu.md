@@ -65,164 +65,71 @@
   * `positioningItem` Number (可选) _macOS_ - 在指定鼠标光标下定位的菜单项的索引。 默认值为 -1。
   * `callback` Function (optional) - 会在菜单关闭后被调用.
 
-将此菜单作为 browserWindow <a> 中的上下文菜单弹出。</p> 
+弹出此菜单作为上下文菜单在 [`BrowserWindow`](browser-window.md)。
 
+#### `menu.closePopup([browserWindow])`
 
+* `browserWindow` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
 
-<h4 spaces-before="0">
-  <code>menu.closePopup([browserWindow])</code>
-</h4>
+关闭 ` browserWindow ` 中的上下文菜单。
 
-<ul>
-  <li>
-    <code>browserWindow</code> <a href="browser-window.md">BrowserWindow</a> (可选) - 默认为选中窗口.
-  </li>
-</ul>
+#### `menu.append(menuItem)`
 
-<p spaces-before="0">
-  关闭 <code> browserWindow </code> 中的上下文菜单。
-</p>
+* `menuItem` [菜单项](menu-item.md)
 
+将 ` menuItem ` 追加到菜单。
 
+#### `menu.getMenuItemById(id)`
 
-<h4 spaces-before="0">
-  <code>menu.append(menuItem)</code>
-</h4>
+* `id` String
 
-<ul>
-  <li>
-    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
-  </li>
-</ul>
+返回具有指定`id`项的`MenuItem | null`
 
-<p spaces-before="0">
-  将 <code> menuItem </code> 追加到菜单。
-</p>
+#### `menu.insert(pos, menuItem)`
 
+* `pos` Integer
+* `menuItem` [菜单项](menu-item.md)
 
+将 ` menuItem ` 插入菜单的 ` pos ` 位置。
 
-<h4 spaces-before="0">
-  <code>menu.getMenuItemById(id)</code>
-</h4>
+### 实例事件
 
-<ul>
-  <li>
-    <code>id</code> String
-  </li>
-</ul>
+使用 `new Menu` 创建对象或通过 `Menu.buildFromTemplate`返回对象均会触发下列事件：
 
-<p spaces-before="0">
-  返回具有指定<code>id</code>项的<code>MenuItem | null</code>
-</p>
+** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
+#### 事件: 'menu-will-show'
 
+返回:
 
-<h4 spaces-before="0">
-  <code>menu.insert(pos, menuItem)</code>
-</h4>
+* `event` Event
 
-<ul>
-  <li>
-    <code>pos</code> Integer
-  </li>
-  <li>
-    <code>menuItem</code> <a href="menu-item.md">菜单项</a>
-  </li>
-</ul>
+调用`menu.popup()`事件时触发该事件。
 
-<p spaces-before="0">
-  将 <code> menuItem </code> 插入菜单的 <code> pos </code> 位置。
-</p>
+#### 事件: 'menu-will-close'
 
+返回:
 
+* `event` Event
 
-<h3 spaces-before="0">
-  实例事件
-</h3>
+手动关闭弹出，或使用 `menu.closePopup()`方法关闭弹出时，触发该事件。
 
-<p spaces-before="0">
-  使用 <code>new Menu</code> 创建对象或通过 <code>Menu.buildFromTemplate</code>返回对象均会触发下列事件：
-</p>
+### 实例属性
 
-<p spaces-before="0">
-  <strong x-id="1"> 注意: </strong>某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
-</p>
+` menu ` 对象还具有以下属性:
 
+#### `menu.items`
 
+包含菜单项的 ` MenuItem [] ` 数组。
 
-<h4 spaces-before="0">
-  事件: 'menu-will-show'
-</h4>
+每个 ` 菜单 ` 由多个 [` MenuItem `](menu-item.md)  组成, 每个 ` MenuItem `可以有子菜单。
 
-<p spaces-before="0">
-  返回:
-</p>
+## 示例
 
-<ul>
-  <li>
-    <code>event</code> Event
-  </li>
-</ul>
+使用简单模板API创建 application menu 的示例代码：
 
-<p spaces-before="0">
-  调用<code>menu.popup()</code>事件时触发该事件。
-</p>
-
-
-
-<h4 spaces-before="0">
-  事件: 'menu-will-close'
-</h4>
-
-<p spaces-before="0">
-  返回:
-</p>
-
-<ul>
-  <li>
-    <code>event</code> Event
-  </li>
-</ul>
-
-<p spaces-before="0">
-  手动关闭弹出，或使用 <code>menu.closePopup()</code>方法关闭弹出时，触发该事件。
-</p>
-
-
-
-<h3 spaces-before="0">
-  实例属性
-</h3>
-
-<p spaces-before="0">
-  <code> menu </code> 对象还具有以下属性:
-</p>
-
-
-
-<h4 spaces-before="0">
-  <code>menu.items</code>
-</h4>
-
-<p spaces-before="0">
-  包含菜单项的 <code> MenuItem [] </code> 数组。
-</p>
-
-<p spaces-before="0">
-  每个 <code> 菜单 </code> 由多个 <a href="menu-item.md"><code> MenuItem </code></a>  组成, 每个 <code> MenuItem </code>可以有子菜单。
-</p>
-
-
-
-<h2 spaces-before="0">
-  示例
-</h2>
-
-<p spaces-before="0">
-  使用简单模板API创建 application menu 的示例代码：
-</p>
-
-<pre><code class="javascript">const { app, Menu } = require('electron')
+```javascript
+const { app, Menu } = require('electron')
 
 const isMac = process.platform === 'darwin'
 
@@ -314,7 +221,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click: async () =&gt; {
+        click: async () => {
           const { shell } = require('electron')
           await shell.openExternal('https://electronjs.org')
         }
@@ -325,38 +232,31 @@ const template = [
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
-</code></pre>
+```
 
+### 渲染进程
 
+要创建由渲染器启动的菜单，请通过 IPC 发送所需的信息到主过程，并让主过程代替渲染器显示菜单。
 
-<h3 spaces-before="0">
-  渲染进程
-</h3>
+以下是用户右键单击页面时显示菜单的示例：
 
-<p spaces-before="0">
-  要创建由渲染器启动的菜单，请通过 IPC 发送所需的信息到主过程，并让主过程代替渲染器显示菜单。
-</p>
-
-<p spaces-before="0">
-  以下是用户右键单击页面时显示菜单的示例：
-</p>
-
-<pre><code class="js">// renderer
-window.addEventListener('contextmenu', (e) =&gt; {
+```js
+// renderer
+window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
   ipcRenderer.send('show-context-menu')
 })
 
-ipcRenderer.on('context-menu-command', (e, command) =&gt; {
+ipcRenderer.on('context-menu-command', (e, command) => {
   // ...
 })
 
 // main
-ipcMain.on('show-context-menu', (event) =&gt; {
+ipcMain.on('show-context-menu', (event) => {
   const template = [
     {
       label: 'Menu Item 1',
-      click: () =&gt; { event.sender.send('context-menu-command', 'menu-item-1') }
+      click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
     },
     { type: 'separator' },
     { label: 'Menu Item 2', type: 'checkbox', checked: true }
@@ -364,140 +264,69 @@ ipcMain.on('show-context-menu', (event) =&gt; {
   const menu = Menu.buildFromTemplate(template)
   menu.popup(BrowserWindow.fromWebContents(event.sender))
 })
-</code></pre>
+```
 
+## MacOS中应用菜单注意事项
 
+macOS 相比于 Windows 和 Linux 有着完全不同的应用程序菜单。 以下是一些有关使应用菜单更像原生应用菜单的注意事项。
 
-<h2 spaces-before="0">
-  MacOS中应用菜单注意事项
-</h2>
+### 标准菜单
 
-<p spaces-before="0">
-  macOS 相比于 Windows 和 Linux 有着完全不同的应用程序菜单。 以下是一些有关使应用菜单更像原生应用菜单的注意事项。
-</p>
+MacOS有一些系统预定义的菜单，像是[`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows`。 让你的菜单更像MacOS标准菜单，只需设置菜单`role`值为如下示之一，Electron便会自动认出并设置成标准菜单，：
 
+* `window`
+* `help`
+* `services`
 
+### 标准菜单项操作
 
-<h3 spaces-before="0">
-  标准菜单
-</h3>
+macOS 已经为某些菜单项提供了标准操作, 如 ` about xxx `、` Hide xxx ` 和 ` Hide Others `。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 `  role` 属性。
 
-<p spaces-before="0">
-  MacOS有一些系统预定义的菜单，像是<a href="https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc"><code>Services</code></a> and <code>Windows</code>。 让你的菜单更像MacOS标准菜单，只需设置菜单<code>role</code>值为如下示之一，Electron便会自动认出并设置成标准菜单，：
-</p>
+### 主菜单的名称
 
-<ul>
-  <li>
-    <code>window</code>
-  </li>
-  <li>
-    <code>help</code>
-  </li>
-  <li>
-    <code>services</code>
-  </li>
-</ul>
+在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 ` Info. plist ` 文件。 详情参阅：[About Information Property List Files][AboutInformationPropertyListFiles]
 
+## 设置特定浏览器窗口的菜单 (* Linux * * Windows *)
 
+浏览器窗口的 [ ` setMenu ` 方法 ][setMenu] 可以设置特定浏览器窗口的菜单。
 
-<h3 spaces-before="0">
-  标准菜单项操作
-</h3>
+## 菜单项位置
 
-<p spaces-before="0">
-  macOS 已经为某些菜单项提供了标准操作, 如 <code> about xxx </code>、<code> Hide xxx </code> 和 <code> Hide Others </code>。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 <code>  role</code> 属性。
-</p>
+你可以使用 `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` 和 `id` 来控制由 `Menu.buildFromTemplate` 生成的菜单项的位置.
 
+* `before` - 在指定的标签之前插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
+* `after` - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
+* `beforeGroupContaining` - 为单个上下文菜单提供一种方法，用于在具有指定标签项的包含组之前声明其包含组的位置
+* `afterGroupContaining` - 为单个上下文菜单提供一种方法，用于在具有指定标签项的包含组之后声明其包含组的位置
 
+默认情况下，除非有位置相关的属性，所有的菜单项会按照模板中的顺序排放。
 
-<h3 spaces-before="0">
-  主菜单的名称
-</h3>
+### 示例
 
-<p spaces-before="0">
-  在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 <code> Info. plist </code> 文件。 详情参阅：<a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html" f-id="AboutInformationPropertyListFiles" lbb="2" fo="1">About Information Property List Files</a>
-</p>
+模板：
 
-
-
-<h2 spaces-before="0">
-  设置特定浏览器窗口的菜单 (<em x-id="3"> Linux </em> <em x-id="3"> Windows </em>)
-</h2>
-
-<p spaces-before="0">
-  浏览器窗口的 <a href="browser-window.md#winsetmenumenu-linux-windows" f-id="setMenu" fo="2"> <code> setMenu </code> 方法 </a> 可以设置特定浏览器窗口的菜单。
-</p>
-
-
-
-<h2 spaces-before="0">
-  菜单项位置
-</h2>
-
-<p spaces-before="0">
-  你可以使用 <code>before</code>, <code>after</code>, <code>beforeGroupContaining</code>, <code>afterGroupContaining</code> 和 <code>id</code> 来控制由 <code>Menu.buildFromTemplate</code> 生成的菜单项的位置.
-</p>
-
-<ul>
-  <li>
-    <p spaces-before="0">
-      <code>before</code> - 在指定的标签之前插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
-    </p>
-  </li>
-  <li>
-    <p spaces-before="0">
-      <code>after</code> - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
-    </p>
-  </li>
-  <li>
-    <p spaces-before="0">
-      <code>beforeGroupContaining</code> - 为单个上下文菜单提供一种方法，用于在具有指定标签项的包含组之前声明其包含组的位置
-    </p>
-  </li>
-  <li>
-    <p spaces-before="0">
-      <code>afterGroupContaining</code> - 为单个上下文菜单提供一种方法，用于在具有指定标签项的包含组之后声明其包含组的位置
-    </p>
-  </li>
-</ul>
-
-<p spaces-before="0">
-  默认情况下，除非有位置相关的属性，所有的菜单项会按照模板中的顺序排放。
-</p>
-
-
-
-<h3 spaces-before="0">
-  示例
-</h3>
-
-<p spaces-before="0">
-  模板：
-</p>
-
-<pre><code class="javascript">[
+```javascript
+[
   { id: '1', label: 'one' },
   { id: '2', label: 'two' },
   { id: '3', label: 'three' },
   { id: '4', label: 'four' }
 ]
-</code></pre>
+```
 
-<p spaces-before="0">
-  菜单:
-</p>
+菜单:
 
-<pre><code class="sh">- 1
+```sh
+- 1
 - 2
 - 3
 - 4
-</code></pre>
+```
 
-<p spaces-before="0">
-  模板：
-</p>
+模板：
 
-<pre><code class="javascript">[
+```javascript
+[
   { id: '1', label: 'one' },
   { type: 'separator' },
   { id: '3', label: 'three', beforeGroupContaining: ['1'] },
@@ -505,37 +334,37 @@ ipcMain.on('show-context-menu', (event) =&gt; {
   { type: 'separator' },
   { id: '2', label: 'two' }
 ]
-</code></pre>
+```
 
-<p spaces-before="0">
-  菜单:
-</p>
+菜单:
 
-<pre><code class="sh">- 3
+```sh
+- 3
 - 4
 - ---
 - 1
 - ---
 - 2
-</code></pre>
+```
 
-<p spaces-before="0">
-  模板：
-</p>
+模板：
 
-<pre><code class="javascript">[
+```javascript
+[
   { id: '1', label: 'one', after: ['3'] },
   { id: '2', label: 'two', before: ['1'] },
   { id: '3', label: 'three' }
 ]
-</code></pre>
+```
 
-<p spaces-before="0">
-  菜单:
-</p>
+菜单:
 
-<pre><code class="sh">- ---
+```sh
+- ---
 - 3
 - 2
 - 1
-</code></pre>
+```
+
+[AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
+[setMenu]: browser-window.md#winsetmenumenu-linux-windows
