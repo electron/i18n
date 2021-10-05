@@ -869,7 +869,7 @@ if (!gotTheLock) {
 
 * `options` Object
   * `enableBuiltInResolver` Boolean (任意) - getaddrinfo ではなく組み込みのホストリゾルバを使用するかどうか。 有効にすると、組み込みリゾルバはシステムの DNS 設定を使用し、単体で DNS ルックアップを実行しようとします。 macOS ではデフォルトで有効、Windows と Linux ではデフォルトで無効になっています。
-  * `secureDnsMode` String (任意) - "off"、"automatic"、"secure" のいずれかにできます。 DNS-over-HTTP モードを設定します。 "off" の場合、DoH ルックアップは行われません。 "automatic" の場合、DoH が利用可能であれば DoH ルックアップが最初に実行され、安全でない DNS 検索がフォールバックとして実行されます。 "secure" の場合、DoH ルックアップのみが行われます。 既定値は "automatic" です。
+  * `secureDnsMode` String (任意) - "off"、"automatic"、"secure" のいずれかにできます。 DNS-over-HTTP モードを設定します。 "off" の場合、DoH ルックアップは行われません。 When "automatic", DoH lookups will be performed first if DoH is available, and insecure DNS lookups will be performed as a fallback. "secure" の場合、DoH ルックアップのみが行われます。 既定値は "automatic" です。
   * `secureDnsServers` String[]&#32;(任意) - DNS-over-HTTP サーバのテンプレートのリスト。 テンプレートのフォーマットについては、[RFC8484 § 3][] をご参照ください。 ほとんどのサーバーは POST メソッドをサポートしており、そういったサーバーのテンプレートは単なる URI です。 なお、[一部のDNSプロバイダ][doh-providers] では、このリストに DoH サーバーが提供されていなくても、DoH が明示的に無効化されていない限りリゾルバを自動的に DoH へアップグレードします。
   * `enableAdditionalDnsQueryTypes` Boolean (任意) - 安全でない DNS 経由でリクエストが行われた場合に、従来の A および AAAA のクエリに加えて HTTPS (DNS タイプ 65) などの追加の DNS クエリタイプを許可するかどうかを制御します。 追加タイプを常に許可するセキュア DNS には影響しません。 省略値は true です。
 
