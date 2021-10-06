@@ -2,7 +2,7 @@
 
 > Crea un control segmentado (un conjunto de botones) donde un botón tiene un estado seleccionado
 
-Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+Proceso: [Main](../glossary.md#main-process)<br /> _Esta clase no está exportada desde el módulo `'electron'`. Sólo está disponible como un valor de retorno de otros métodos en la API de Electron._
 
 ### `new TouchBarSegmentedControl(options)`
 
