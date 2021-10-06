@@ -1,5 +1,5 @@
 ---
-title: Launching Your Electron App From a URL In Another App
+title: Lanzar su aplicación Electron desde una URL en otra aplicación
 description: This guide will take you through the process of setting your electron app as the default handler for a specific protocol.
 slug: launch-app-from-url-in-another-app
 hide_title: true
@@ -42,7 +42,7 @@ We will now define the function in charge of creating our browser window and loa
 
 ```javascript
 const createWindow = () => {
-  // Create the browser window.
+  // Crea la ventana del navegador.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -57,7 +57,7 @@ const createWindow = () => {
 
 In this next step, we will create our  `BrowserWindow` and tell our application how to handle an event in which an external protocol is clicked.
 
-This code will be different in Windows compared to MacOS and Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same Electron instance. Lea más sobre esto [aquí](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
+Este código será diferente en Windows comparado con MacOS y Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same Electron instance. Lea más sobre esto [aquí](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
 
 #### Código de Windows:
 
@@ -80,7 +80,7 @@ if (!gotTheLock) {
     createWindow()
   })
 
-  // Handle the protocol. En este caso, elegimos mostrar una Caja de Error.
+  // Maneja protocolo. En este caso, elegimos mostrar una Caja de Error.
   app.on('open-url', (event, url) => {
     dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
   })
@@ -97,7 +97,7 @@ app.whenReady().then(() => {
   createWindow()
 })
 
-// Handle the protocol. En este caso, elegimos mostrar una Caja de Error.
+// Maneja protocolo. En este caso, elegimos mostrar una Caja de Error.
 app.on('open-url', (event, url) => {
   dialog.showErrorBox('Welcome Back', `You arrived from: ${url}`)
 })
@@ -114,11 +114,11 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Important notes
+## Notas importantes
 
 ### Embalaje
 
-On macOS and Linux, this feature will only work when your app is packaged. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `Info.plist` and the Linux `.desktop` files for the app are updated to include the new protocol handler. Some of the Electron tools for bundling and distributing apps handle this for you.
+En macOS y Linux, esta característica solo funcionará cuando tu aplicación esté empaquetada. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `Info.plist` and the Linux `.desktop` files for the app are updated to include the new protocol handler. Some of the Electron tools for bundling and distributing apps handle this for you.
 
 #### [Electron Forge](https://electronforge.io)
 
@@ -149,9 +149,9 @@ If you're using Electron Forge, adjust `packagerConfig` for macOS support, and t
 }
 ```
 
-#### [Electron Packager](https://github.com/electron/electron-packager)
+#### [Empaquetador Electron](https://github.com/electron/electron-packager)
 
-For macOS support:
+Para soporte de macOS:
 
 If you're using Electron Packager's API, adding support for protocol handlers is similar to how Electron Forge is handled, except `protocols` is part of the Packager options passed to the `packager` function.
 
@@ -159,7 +159,7 @@ If you're using Electron Packager's API, adding support for protocol handlers is
 const packager = require('electron-packager')
 
 packager({
-  // ...other options...
+  // ...otras opciones...
   protocols: [
     {
       name: 'Electron Fiddle',
@@ -171,7 +171,7 @@ packager({
   .catch(err => console.error(`ERROR: ${err.message}`))
 ```
 
-If you're using Electron Packager's CLI, use the `--protocol` and `--protocol-name` flags. For example:
+If you're using Electron Packager's CLI, use the `--protocol` and `--protocol-name` flags. Por ejemplo:
 
 ```shell
 npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fiddle"
