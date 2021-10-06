@@ -184,7 +184,7 @@ donde `SYSTEM_IMAGE_NAME` debe ser reemplazado con cualquier valor de [this list
 
 > Envuelve nativamente imágenes como la bandeja, el muelle y los íconos de las aplicaciones.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)<br /> _Esta clase no es exportada desde el módulo `'electron'`. Sólo está disponible como un valor de retorno de otros métodos en la API de Electron._
 
 ### Métodos de Instancia
 
