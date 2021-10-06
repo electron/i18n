@@ -16,7 +16,7 @@ Este documento usa la siguiente convención para clasificar los cambios de ruptu
 
 ### Removed: `remote` module
 
-The `remote` module was deprecated in Electron 12, and will be removed in Electron 14. Es reemplazado por el módulo [`@electron/remote`](https://github.com/electron/remote).
+El módulo `remote` fue desaprobado en Electron 12, y será eliminado en Electron 14. Es reemplazado por el módulo [`@electron/remote`](https://github.com/electron/remote).
 
 ```js
 // Obsoleto en Electron 12:
@@ -33,7 +33,7 @@ require('@electron/remote/main').initialize()
 
 ### Eliminada: `app.allowRendererProcessReuse`
 
-The `app.allowRendererProcessReuse` property will be removed as part of our plan to more closely align with Chromium's process model for security, performance and maintainability.
+La propiedad `app.allowRendererProcessReuse` se eliminará como parte de nuestro plan para alinearnos más estrechamente con el modelo de proceso de Chromium para la seguridad, el rendimiento y la capacidad de mantenimiento.
 
 Para información más detallada vea [#18397](https://github.com/electron/electron/issues/18397).
 
@@ -60,7 +60,7 @@ Será afectado por este cambio si usted utliza `webFrame.executeJavaScript` o `w
 
 Prior to Electron 14, `window.open` was by default shimmed to use `BrowserWindowProxy`. This meant that `window.open('about:blank')` did not work to open synchronously scriptable child windows, among other incompatibilities. `nativeWindowOpen` is no longer experimental, and is now the default.
 
-See the documentation for [window.open in Electron](api/window-open.md) for more details.
+Vea la documentación de [window.open in Electron](api/window-open.md) para más detalles.
 
 ### Removed: BrowserWindowConstructorOptions inheriting from parent windows
 
