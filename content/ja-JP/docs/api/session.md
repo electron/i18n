@@ -160,6 +160,91 @@ hunspell 辞書ファイルのダウンロードに成功したときに発生�
 
 hunspell 辞書ファイルのダウンロードが失敗したときに発生します。  失敗の詳細は、netlog を収集してダウンロードリクエストを調べる必要があります。
 
+#### イベント: 'select-hid-device'
+
+戻り値：
+
+* `event` Event
+* `details` Object
+  * `deviceList` [HIDDevice[]](structures/hid-device.md)
+  * `frame` [WebFrameMain](web-frame-main.md)
+* `callback` Function
+  * `deviceId` String | null (任意)
+
+`navigator.hid.requestDevice` の呼び出し時に HID デバイスを選択する必要がある場合に発生します。 `callback` は選択する `deviceId` で呼び出してください。`callback` に引数を渡さなければ、リクエストをキャンセルします。  また、[ses.setPermissionCheckHandler(handler)](#sessetpermissioncheckhandlerhandler) や [ses.setDevicePermissionHandler(handler)`](#sessetdevicepermissionhandlerhandler) を使うことで、`navigator.hid` の権限をさらに管理できます。
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+let win = null
+
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+
+  win.webContents.session.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
+    if (permission === 'hid') {
+      // ここにロジックを追加して、HID の選択を許可すべきかどうかを判断します
+      return true
+    }
+    return false
+  })
+
+  // 任意で、以前に永続化されたデバイスを永続ストアから取得します
+  const grantedDevices = fetchGrantedDevices()
+
+  win.webContents.session.setDevicePermissionHandler((details) => {
+    if (new URL(details.origin).hostname === 'some-host' && details.deviceType === 'hid') {
+      if (details.device.vendorId === 123 && details.device.productId === 345) {
+        // このタイプのデバイスを常に許可します (これにより最初の `navigator.hid.requestDevice` の呼び出しを省略できます)
+        return true
+      }
+
+      // 過去に許可されたデバイスのリストを検索します
+      return grantedDevices.some((grantedDevice) => {
+        return grantedDevice.vendorId === details.device.vendorId &&
+              grantedDevice.productId === details.device.productId &&
+              grantedDevice.serialNumber && grantedDevice.serialNumber === details.device.serialNumber
+      })
+    }
+    return false
+  })
+
+  win.webContents.session.on('select-hid-device', (event, details, callback) => {
+    event.preventDefault()
+    const selectedDevice = details.deviceList.find((device) => {
+      return device.vendorId === '9025' && device.productId === '67'
+    })
+    callback(selectedPort?.deviceId)
+  })
+})
+```
+
+#### イベント: 'hid-device-added'
+
+戻り値：
+
+* `event` Event
+* `details` Object
+  * `device` [HIDDevice[]](structures/hid-device.md)
+  * `frame` [WebFrameMain](web-frame-main.md)
+
+新しい HID デバイスが利用可能になったときに発生します。 例えば、新しい USB デバイスが接続されたときに発生します。
+
+このイベントは、`navigator.hid.requestDevice` が呼び出されて `select-hid-device` が発火した後にのみ発生します。
+
+#### イベント: 'hid-device-removed'
+
+戻り値：
+
+* `event` Event
+* `details` Object
+  * `device` [HIDDevice[]](structures/hid-device.md)
+  * `frame` [WebFrameMain](web-frame-main.md)
+
+HID デバイスが接続解除されたときに発生します。  例えば、このイベントは USB デバイスが取り除かれたときに発生します。
+
+このイベントは、`navigator.hid.requestDevice` が呼び出されて `select-hid-device` が発火した後にのみ発生します。
+
 #### イベント: 'select-serial-port'
 
 戻り値：
@@ -447,7 +532,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `handler` Function\<Boolean> | null
   * `webContents` ([WebContents](web-contents.md) | null) - 権限を確認している WebContents  リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。  すべてのクロスオリジンサブフレームによる権限の確認はハンドラの webContents に `null` が渡されますが、`notifications` の確認のような、ある特定の権限の確認では常に `null` が渡されます。  `embeddingOrigin` と `requestingOrigin` を使用して、所有しているフレームと要求しているフレームがそれぞれどのオリジンにあるかを判断する必要があります。
-  * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`、`notifications`、`geolocation`、`media`、`mediaKeySystem`、`midi`、`pointerLock`、`fullscreen`、`openExternal`、`serial` です。
+  * `permission` String - 権限確認の種別です。  有効な値は `midiSysex`, `notifications`, `geolocation`, `media`, `mediaKeySystem`, `midi`, `pointerLock`, `fullscreen`, `openExternal`, `hid`, `serial` のいずれかです。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - このプロパティの一部は、特定の権限タイプでのみ使用できます。
     * `embeddingOrigin` String (任意) - 権限の確認をしたフレームのオリジン。  権限の確認を行うクロスオリジンのサブフレームでのみ設定されます。
@@ -467,6 +552,63 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
   }
 
   return false // 拒否
+})
+```
+
+#### `ses.setDevicePermissionHandler(handler)`
+
+* `handler` Function\<Boolean> | null
+  * `details` Object
+    * `deviceType` String - 許可が求められているデバイスのタイプで、`hid` になります。
+    * `origin` String - デバイス権限チェックのオリジン URL。
+    * `device` [HIDDevice](structures/hid-device.md) - 許可を求められているデバイス。
+    * `frame` [WebFrameMain](web-frame-main.md) - デバイスの許可を確認している WebFrameMain。
+
+デバイスの権限チェックの応答に使用できるハンドラを `session` に設定します。 `true` を返すとデバイスに権限を許可し、`false` を返すとそれを拒否します。 ハンドラを消去するには `setDevicePermissionHandler(null)` と呼び出します。 このハンドラは、最初にデバイスへの許可の呼び出しを (`navigator.hid.requestDevice` などを介して) せずに、デバイスへのデフォルト権限を提供するために利用できます。  このハンドラが定義されていない場合、(`navigator.hid.requestDevice` などを介した) デバイスの選択において付与された権限をデフォルトのデバイス権限として使用します。 さらに、Electron のデフォルト動作では付与されたデバイス権限を対応する WebContents が有効の間だけ保存します。  より長期間の保存が必要な場合、開発者は付与されたデバイスのパーミッションを保存し (`select-hid-device` イベントを処理するときなど)、`setDevicePermissionHandler` でそのストレージから読み出しできます。
+
+```javascript
+const { app, BrowserWindow } = require('electron')
+
+let win = null
+
+app.whenReady().then(() => {
+  win = new BrowserWindow()
+
+  win.webContents.session.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
+    if (permission === 'hid') {
+      // ここにロジックを追加して、HID の選択を許可すべきかどうかを判断します
+      return true
+    }
+    return false
+  })
+
+  // 任意で、以前に永続化されたデバイスを永続ストアから取得します
+  const grantedDevices = fetchGrantedDevices()
+
+  win.webContents.session.setDevicePermissionHandler((details) => {
+    if (new URL(details.origin).hostname === 'some-host' && details.deviceType === 'hid') {
+      if (details.device.vendorId === 123 && details.device.productId === 345) {
+        // このタイプのデバイスを常に許可します (これにより最初の `navigator.hid.requestDevice` の呼び出しを省略できます)
+        return true
+      }
+
+      // 過去に許可されたデバイスのリストを検索します
+      return grantedDevices.some((grantedDevice) => {
+        return grantedDevice.vendorId === details.device.vendorId &&
+              grantedDevice.productId === details.device.productId &&
+              grantedDevice.serialNumber && grantedDevice.serialNumber === details.device.serialNumber
+      })
+    }
+    return false
+  })
+
+  win.webContents.session.on('select-hid-device', (event, details, callback) => {
+    event.preventDefault()
+    const selectedDevice = details.deviceList.find((device) => {
+      return device.vendorId === '9025' && device.productId === '67'
+    })
+    callback(selectedPort?.deviceId)
+  })
 })
 ```
 

@@ -463,6 +463,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - 証明書が信頼できるとみなされるかどうかを示す。
+* `isMainFrame` Boolean
 
 `url` の `certificate` の認証に失敗したときに発行されます。
 
@@ -570,6 +571,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `params` Object
   * `x` Integer - x 座標。
   * `y` Integer - y 座標。
+  * `frame` WebFrameMain - コンテキストメニューが呼び出されたフレーム。
   * `linkURL` String - コンテキストメニューが呼び出されたノードを囲うリンク URL。
   * `linkText` String - リンクに関連付けたテキスト。 リンクのコンテンツが画像の場合は、空文字列になります。
   * `pageURL` String - コンテキストメニューが呼び出された最上位のページの URL。
@@ -1608,7 +1610,8 @@ ipcRenderer.on('port', (e, msg) => {
 #### `contents.startDrag(item)`
 
 * `item` Object
-  * `file` String[] | String - ドラッグが開始されたファイルへのパス。
+  * `file` String - ドラッグされているファイルのパス。
+  * `files` String[] (任意) - ドラッグされている複数ファイルのパス。 (`files` は `file` フィールドより優先されます)
   * `icon` [NativeImage](native-image.md) | String - 画像です。macOS では空にできません。
 
 現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。

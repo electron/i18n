@@ -67,7 +67,7 @@ Process: [Main](../glossary.md#main-process)<br /> _This class is not exported f
 
 #### Evento: 'dom-ready'
 
-Emitted when the document is loaded.
+Emitido cuando es documento está cargado.
 
 ### Métodos de Instancia
 
@@ -163,6 +163,6 @@ An `Integer` representing the unique frame id in the current renderer process. L
 
 #### `frame.visibilityState` _SoloLectura_
 
-A `string` representing the [visibility state](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) of the frame.
+Un `string` que representa el [visibility state](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) del frame.
 
-See also how the [Page Visibility API](browser-window.md#page-visibility) is affected by other Electron APIs.
+Ver también como la [Page Visibility API](browser-window.md#page-visibility) es afectada por otras APIs de Electron.

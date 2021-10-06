@@ -222,6 +222,7 @@ Devuelve:
 * `certificate` [certificate](structures/certificate.md)
 * `callback` Función
   * `isTrusted` Boleano - Si considera que el certificado como de confianza
+* `EsElFramePrincipal` Boolean
 
 Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
 
@@ -582,7 +583,7 @@ Reescribe el nombre de la aplicación actual.
 
 Devuelve `String` - Los parámetros regionales actuales de la aplicación, recopilados usando la biblioteca `l10n_util` de Chromium. Los posibles valores de retorno son documentados [aquí](https://source.chromium.org/chromium/chromium/src/+/master:ui/base/l10n/l10n_util.cc).
 
-Para establecer la locale, querrás usar un interruptor de línea de comandos al inicio de la aplicación, que puede encontrarse [aquí](command-line-switches.md).
+Para establecer el locale, querrás usar un interruptor de línea de comandos al inicio de la aplicación, que puede encontrarse [aquí](command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -867,21 +868,20 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 ### `app.configureHostResolver(options)`
 
 * `options` Object
-  * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Activado por defecto en macOS, desactivado por defecto en Windows y Linux.
+  * `enableBuiltInResolver` Boolean (opcional) - Si el resolver de host integrado se utiliza en preferencia para getaddrinfo. Cuando está activado, el resolver integrado intentara usar las configuraciones DNS del sistema para hacer las consultas DNS por si mismo. Activado por defecto en macOS, desactivado por defecto en Windows y Linux.
   * `secureDnsMode` String (opcional) - Puede ser "off", "automatic" o "secure". Configura el modo DNS-over-HTTP. Cuando es "off", las búsquedas DoH no se realizarán. Cuando es "automatic", las búsquedas DoH se realizarán primero si DoH está disponible, y las búsquedas DNS se realizarán como una reserva. Cuando es "secure", sólo se realizarán búsquedas DoH. Por defecto es "automatic".
-  * `secureDnsServers` String[]&#32;(opcional) - Una lista de plantillas de servidor DNS-over-HTTP. Vea [RFC8484 § 3][] para más detalles sobre el formato de la plantilla. La mayoría de los servidores soportan el método POST; la plantilla para estos servidores es simplemente una URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
-  * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. Defaults to true.
+  * `secureDnsServers` String[]&#32;(opcional) - Una lista de plantillas de servidor DNS-over-HTTP. Vea [RFC8484 § 3][] para más detalles sobre el formato de la plantilla. La mayoría de los servidores soportan el método POST; la plantilla para estos servidores es simplemente una URI. Tenga en cuenta que para [algunos proveedores DNS ][doh-providers], el resolver actualizará automáticamente a DoH a menos que DoH este explícitamente desactivado, incluso si no hay servidores DoH proporcionados en esta lista.
+  * `enableAdditionalDnsQueryTypes` Boolean (opcional) - Controla si consultas DNS de tipos adicionales, p.e. HTTPS(DNS type 65) serán permitidas ademas de las tradicionales consultas A y AAAA cuando una solicitud esta siendo hecha a través de DNS inseguro. No tiene efecto en DNS seguro que siempre permite tipos adicionales. Defaults to true.
 
 Configure la resolución de host (DNS y DNS-over-HTTPS). Por defecto, se utilizarán los siguientes resolutores en orden:
 
 1. DNS-over-HTTPS, si [DNS provider supports it][doh-providers], luego
 2. el resolutor integrado (activado sólo por defecto en macOS), luego
-3. the system's resolver (e.g. `getaddrinfo`).
+3. el resolver del sistema (p.e. `getaddrinfo`).
 
-This can be configured to either restrict usage of non-encrypted DNS (`secureDnsMode: "secure"`), or disable DNS-over-HTTPS (`secureDnsMode:
-"off"`). It is also possible to enable or disable the built-in resolver.
+Esto puede ser configurado tanto para restringir el uso de DNS no-encriptado (`secureDnsMode: "secure"`), o desactivar DNS-over-HTTPS (`secureDnsMode:"off"`). También es posible activar o desactivar el resolver incorporado.
 
-To disable insecure DNS, you can specify a `secureDnsMode` of `"secure"`. If you do so, you should make sure to provide a list of DNS-over-HTTPS servers to use, in case the user's DNS configuration does not include a provider that supports DoH.
+Para desactivar DNS inseguro, puede especificar `secureDnsMode` de `"secure"`. Si usted hace eso, debería asegurarse de proveer una lista de servidores DNS-overHTTPS para usar, en caso de que la configuración DNS del usuario no incluya un proveedor que soporte DoH.
 
 ```js
 app.configureHostResolver({
@@ -1201,11 +1201,11 @@ A `Boolean` which when `true` indicates that the app is currently running under 
 
 You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
 
-**Deprecated:** This property is superceded by the `runningUnderARM64Translation` property which detects when the app is being translated to ARM64 in both macOS and Windows.
+**Obsoleto:** Esta propiedad es reemplazada por la propiedad `runningUnderARM64Translation` la cual detecta cuando la aplicación esta traducida a ARM64 tanto en macOS y Windows.
 
 ### `app.runningUnderARM64Translation` _Readonly_ _macOS_ _Windows_
 
-A `Boolean` which when `true` indicates that the app is currently running under an ARM64 translator (like the macOS [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)) or Windows [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows)).
+Un `Boolean` el cual cuando es `true` indica que la aplicación actualmente está ejecutándose bajo un traductor ARM64 (como el [Rosetta Translator Environment](https://en.wikipedia.org/wiki/Rosetta_(software)) de macOS o [WOW](https://en.wikipedia.org/wiki/Windows_on_Windows) de Windows).
 
 You can use this property to prompt users to download the arm64 version of your application when they are running the x64 version under Rosetta incorrectly.
 

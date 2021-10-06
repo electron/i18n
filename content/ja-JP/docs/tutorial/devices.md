@@ -18,13 +18,13 @@ Chromium ベースのブラウザのように、Electron はウェブ API を介
 
 [WebHID API](https://web.dev/hid/) は、キーボードやゲームパッドなどの HID デバイスのアクセスに利用できます。  Electron は、WebHID API と連携するためにいくつかの API を提供しています。
 
-* The [`select-hid-device` event on the Session](../api/session.md#event-select-hid-device) can be used to select a HID device when a call to `navigator.hid.requestDevice` is made.  Additionally the [`hid-device-added`](../api/session.md#event-hid-device-added) and [`hid-device-removed`](../api/session.md#event-hid-device-removed) events on the Session can be used to handle devices being plugged in or unplugged during the `navigator.hid.requestDevice` process.
-* [`ses.setDevicePermissionHandler(handler)`](../api/session.md#sessetdevicepermissionhandlerhandler) can be used to provide default permissioning to devices without first calling for permission to devices via `navigator.hid.requestDevice`.  Additionally, the default behavior of Electron is to store granted device permision through the lifetime of the corresponding WebContents.  If longer term storage is needed, a developer can store granted device permissions (eg when handling the `select-hid-device` event) and then read from that storage with `setDevicePermissionHandler`.
-* [`ses.setPermissionCheckHandler(handler)`](../api/session.md#sessetpermissioncheckhandlerhandler) can be used to disable HID access for specific origins.
+* [Session の `select-hid-device` イベント](.../api/session.md#event-select-hid-device) は、`navigator.hid.requestDevice` が呼び出された時に HID デバイスを選択するために利用できます。  さらに、Session の [`hid-device-added`](.../api/session.md#event-hid-device-added) および [`hid-device-removed`](.../api/session.md#event-hid-device-removed) イベントは、`navigator.hid.requestDevice` の処理中におけるデバイスの接続や除去の処理に利用できます。
+* [`ses.setDevicePermissionHandler(handler)`](.../api/session.md#sessetdevicepermissionhandlerhandler) は、先に `navigator.hid.requestDevice` を介して許可の呼び出しをせずとも、デバイスへのデフォルトの権限を提供するために利用できます。  また、Electron のデフォルトの動作では、付与されたデバイスの権限を対応する WebContents が有効の間だけ保存します。  より長期間の保存が必要な場合、開発者は付与されたデバイスのパーミッションを保存し (`select-hid-device` イベントを処理するときなど)、`setDevicePermissionHandler` でそのストレージから読み出しできます。
+* [`ses.setPermissionCheckHandler(handler)`](.../api/session.md#sessetpermissioncheckhandlerhandler) を使うと、特定オリジンの HID アクセスを無効にできます。
 
-### Blocklist
+### ブロックリスト
 
-By default Electron employs the same [blocklist](https://github.com/WICG/webhid/blob/main/blocklist.txt) used by Chromium.  If you wish to override this behavior, you can do so by setting the `disable-hid-blocklist` flag:
+デフォルトでは、Electron は Chromium が使用する [ブロックリスト](https://github.com/WICG/webhid/blob/main/blocklist.txt) と同じものを採用しています。  この動作を無効にしたい場合は、以下のように `disable-hid-blocklist` フラグで設定できます。
 
 ```javascript
 app.commandLine.appendSwitch('disable-hid-blocklist')
@@ -32,24 +32,24 @@ app.commandLine.appendSwitch('disable-hid-blocklist')
 
 ### サンプル
 
-This example demonstrates an Electron application that automatically selects HID devices through [`ses.setDevicePermissionHandler(handler)`](../api/session.md#sessetdevicepermissionhandlerhandler) and through [`select-hid-device` event on the Session](../api/session.md#event-select-hid-device) when the `Test WebHID` button is clicked.
+この例では、[`ses.setDevicePermissionHandler(handler)`](.../api/session.md#sessetdevicepermissionhandlerhandler) を通じて HID デバイスを自動選択する Electron アプリケーションを示しています。`Test WebHID` ボタンがクリックされると、[Session の `select-hid-device`](../api/session.md#event-select-hid-device) イベントを通じて HID デバイスを自動選択します。
 
 ```javascript fiddle='docs/fiddles/features/web-hid'
 
 ```
 
-## Web Serial API
+## Web シリアル API
 
-The [Web Serial API](https://web.dev/serial/) can be used to access serial devices that are connected via serial port, USB, or Bluetooth.  In order to use this API in Electron, developers will need to handle the [`select-serial-port` event on the Session](../api/session.md#event-select-serial-port) associated with the serial port request.
+[Web シリアル API](https://web.dev/serial/) を使用すると、シリアルポートや USB、Bluetooth で接続されたシリアルデバイスにアクセスできます。  この API を Electron で使用には、開発者がシリアルポートのリクエストに関する [Session の `select-serial-port` イベント](.../api/session.md#event-select-serial-port) をハンドリングする必要があります。
 
-There are several additional APIs for working with the Web Serial API:
+Web シリアル API の利用にあたって更にいくつかの API があります。
 
-* The [`serial-port-added`](../api/session.md#event-serial-port-added) and [`serial-port-removed`](../api/session.md#event-serial-port-removed) events on the Session can be used to handle devices being plugged in or unplugged during the `navigator.serial.requestPort` process.
-* [`ses.setPermissionCheckHandler(handler)`](../api/session.md#sessetpermissioncheckhandlerhandler) can be used to disable serial access for specific origins.
+* Session の [`serial-port-added`](../api/session.md#event-serial-port-added) と [`serial-port-removed`](../api/session.md#event-serial-port-removed) イベントは、`navigator.serial.requestPort` の処理中におけるデバイスの接続や除去のハンドリングに使用できます。
+* [`ses.setPermissionCheckHandler(handler)`](.../api/session.md#sessetpermissioncheckhandlerhandler) を使うと、特定オリジンのシリアルアクセスを無効にできます。
 
 ### サンプル
 
-This example demonstrates an Electron application that automatically selects the first available Arduino Uno serial device (if connected) through [`select-serial-port` event on the Session](../api/session.md#event-select-serial-port) when the `Test Web Serial` button is clicked.
+この例で示している Electron アプリケーションは、`Test Web Serial` ボタンがクリックされたときに、[Session の `select-serial-port` イベント](../api/session.md#event-select-serial-port) を通して最初に利用可能な Arduino Uno シリアルデバイスを (接続されている場合は) 自動選択します。
 
 ```javascript fiddle='docs/fiddles/features/web-serial'
 

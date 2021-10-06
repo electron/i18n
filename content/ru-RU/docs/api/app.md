@@ -222,6 +222,7 @@ app.on('window-all-closed', () => {
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - учитывать ли сертификат как надёжный
+* `isMainFrame` Boolean
 
 Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
 
@@ -868,7 +869,7 @@ Activation policy types:
 
 * `options` Object
   * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Enabled by default on macOS, disabled by default on Windows and Linux.
-  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. When "automatic", DoH lookups will be peformed first if DoH is available, and insecure DNS lookups will be performed as a fallback. When "secure", only DoH lookups will be performed. Defaults to "automatic".
+  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. При «автоматическом» поиск DoH будет выполняться первым, если DoH доступен, а небезопасный поиск DNS будет выполняться в качестве запасного. When "secure", only DoH lookups will be performed. Defaults to "automatic".
   * `secureDnsServers` String[]&#32;(optional) - A list of DNS-over-HTTP server templates. See [RFC8484 § 3][] for details on the template format. Most servers support the POST method; the template for such servers is simply a URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
   * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. Defaults to true.
 

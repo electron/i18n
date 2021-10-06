@@ -2,19 +2,13 @@
 
 ## 概览
 
-有三种方式可以让你在Electron的</code>BrowserWindow</code>里集成（第三方）web内容，`<iframe>`, `<webview>` 和 `BrowserViews</0> 每个功能都略有不同，适用于不同的情况。 为了帮助您在这些选择之间进行选择，本指南将解释他们之间的差异和功能。</p>
+有三种方式可以让你在Electron的`BrowserWindow`里集成（第三方）web内容，`<iframe>` 和, `<webview>` 和 `BrowserViews` 每个功能都略有不同，适用于不同的情况。 为了帮助您在这些选择之间进行选择，本指南将解释他们之间的差异和功能。
 
-<h3 spaces-before="0">Iframes</h3>
+### Iframes
 
-<p spaces-before="0">Iframe 在 Electron 中的行为与普通浏览器中类似。 在宿主页面的<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a>允许范围内，一个<code><iframe>`元素能在页面上显示外部网页。 为了限制iframe标签中站点的功能，建议使用</a>的
-
-`sandbox` 属性，并且仅允许您想要支持的功能。</p> 
-
-
+Iframe 在 Electron 中的行为与普通浏览器中类似。 在宿主页面的 [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 允许范围内，一个 `<iframe>` 元素能在页面上显示外部网页。 要限制 `<iframe>` 标签中站点的功能数量，建议 使用 [`sandbox` 属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) 并且只允许您想要支持的功能。
 
 ### WebView
-
-
 
 > 重要提示： [我们不建议您使用 WebView](../api/webview-tag.md#warning)，因为这个标签会发生剧烈的结构变化，可能会影响您应用程序的稳定性。 考虑切换到其他选择，如 `iframe` 和Electron的 `BrowserView`，或避免嵌入式内容 设计的架构。
 
@@ -23,8 +17,6 @@
 WebView是一个自定义元素 (`<webview>`)，仅在 Electron 内工作。 它们以 "进程外 iframe" 实现。 这意味着所有与 `<webview>` 的通信都是异步使用 IPC 进行的。 `<webview>`元素有许多自定义方法和事件，类似于`webContents`，使您能够更多地控制内容。
 
 与 `<iframe>`，`<webview>` 相比往往稍慢，但在加载和与第三方内容通信以及处理各种事件方面提供了更大的控制。
-
-
 
 ### BrowserView
 

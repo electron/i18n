@@ -222,6 +222,7 @@ app.on('window-all-closed', () => {
 * `certificate` [证书](structures/certificate.md)
 * `callback` Function
   * ` isTrusted `Boolean-是否将证书视为可信的
+* `isMainFrame` Boolean
 
 当对 `url` 的 `certificate` 证书验证失败的时候发出。如果需要信任这个证书，你需要阻止默认行为 `event.preventDefault()` 并且调用 `callback(true)`。
 
@@ -868,7 +869,7 @@ if (!gotTheLock) {
 
 * `选项` 对象
   * `enableBuiltInResolver` Boolean (optional) - Whether the built-in host resolver is used in preference to getaddrinfo. When enabled, the built-in resolver will attempt to use the system's DNS settings to do DNS lookups itself. Enabled by default on macOS, disabled by default on Windows and Linux.
-  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. When "automatic", DoH lookups will be peformed first if DoH is available, and insecure DNS lookups will be performed as a fallback. When "secure", only DoH lookups will be performed. Defaults to "automatic".
+  * `secureDnsMode` String (optional) - Can be "off", "automatic" or "secure". Configures the DNS-over-HTTP mode. When "off", no DoH lookups will be performed. When "automatic", DoH lookups will be performed first if DoH is available, and insecure DNS lookups will be performed as a fallback. When "secure", only DoH lookups will be performed. Defaults to "automatic".
   * `secureDnsServers` String[]&#32;(optional) - A list of DNS-over-HTTP server templates. See [RFC8484 § 3][] for details on the template format. Most servers support the POST method; the template for such servers is simply a URI. Note that for [some DNS providers][doh-providers], the resolver will automatically upgrade to DoH unless DoH is explicitly disabled, even if there are no DoH servers provided in this list.
   * `enableAdditionalDnsQueryTypes` Boolean (optional) - Controls whether additional DNS query types, e.g. HTTPS (DNS type 65) will be allowed besides the traditional A and AAAA queries when a request is being made via insecure DNS. Has no effect on Secure DNS which always allows additional types. 默认值为 true。
 
@@ -1027,10 +1028,9 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` _macOS_ _Windows_
 
-Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
-https://www.chromium.org/developers/design-documents/accessibility</p>
+Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true`。 查看更多细节，请查阅 https://www.chromium.org/developers/design-documents/accessibility
 
-<h3 spaces-before="0"><code>app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_</h3>
+### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 

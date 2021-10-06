@@ -1,21 +1,21 @@
 # Dima@mail.ru
 
-One key security feature in Chromium is that processes can be executed within a sandbox. The sandbox limits the harm that malicious code can cause by limiting access to most system resources — sandboxed processes can only freely use CPU cycles and memory. In order to perform operations requiring additional privilege, sandboxed processes use dedicated communication channels to delegate tasks to more privileged processes.
+Одна из ключевых функций безопасности в Chromium заключается в том, что процессы могут быть выполнены в песочнице. Песочница ограничивает вред, который может нанести вредоносный код, ограничивая доступ к большинству системных ресурсов — изолированные процессы могут свободно использовать только циклы ЦП и память. Для выполнения операций, требующих дополнительных привилегий, изолированные процессы используют выделенные каналы связи для делегирования задач более привилегированным процессам.
 
-In Chromium, sandboxing is applied to most processes other than the main process. This includes renderer processes, as well as utility processes such as the audio service, the GPU service and the network service.
+В Chromium песочница применяется к большинству процессов, отличных от основного процесса. Сюда входят процессы визуализации, а также вспомогательные процессы, такие как службы аудио, служба GPU и сетевая служба.
 
-See Chromium's [Sandbox design document][sandbox] for more information.
+Смотрите [дизайн приложения Chromium][sandbox] для более подробной информации.
 
-## Electron's sandboxing policies
+## Политика песочницы Electron
 
-Electron comes with a mixed sandbox environment, meaning sandboxed processes can run alongside privileged ones. By default, renderer processes are not sandboxed, but utility processes are. Note that as in Chromium, the main (browser) process is privileged and cannot be sandboxed.
+Electron поставляется со смешанной средой песочницы, что означает, что изолированные процессы могут выполняться наряду с привилегированными. По умолчанию, процессы рендеринга не выполняются в "песочнице", но служебные процессы - да. Обратите внимание, что, как и в Chromium, основной процесс (браузер) является привилегированным и не может быть изолирован.
 
-Historically, this mixed sandbox approach was established because having Node.js available in the renderer is an extremely powerful tool for app developers. Unfortunately, this feature is also an equally massive security vulnerability.
+Исторически сложилось так, что этот смешанный подход к песочнице был создан потому, что наличие Node.js доступной в рендерере, является чрезвычайно мощным инструментом для разработчиков приложений. К сожалению, эта функция также является столь же мощной уязвимостью в безопасности.
 
-Theoretically, unsandboxed renderers are not a problem for desktop applications that only display trusted code, but they make Electron less secure than Chromium for displaying untrusted web content. However, even purportedly trusted code may be dangerous — there are countless attack vectors that malicious actors can use, from cross-site scripting to content injection to man-in-the-middle attacks on remotely loaded websites, just to name a few. For this reason, we recommend enabling renderer sandboxing for the vast majority of cases under an abundance of caution.
+Теоретически, рендереры вне песочниц не являются проблемой для настольных приложений, которые отображают только доверенный код, но они делают Electron менее безопасным, чем Chromium для отображения ненадежного веб-контента. Тем не менее, даже якобы доверенный код может быть опасным — существует бесчисленное множество векторов атак, которые могут использовать злоумышленники, от межсайтовых сценариев до внедрения контента и атак «человек посередине» на удаленно загруженные веб-сайты, и это лишь некоторые из них. По этой причине мы рекомендуем включить песочницу рендереров для подавляющего большинства случаев с осторожностью.
 
 <!--TODO: update this guide when #28466 is either solved or closed -->
-Note that there is an active discussion in the issue tracker to enable renderer sandboxing by default. See [#28466][issue-28466]) for details.
+Обратите внимание, что в трекере задач активно обсуждается включение песочницы рендерера по умолчанию. Подробности см. в [#28466][issue-28466]).
 
 ## Sandbox behaviour in Electron
 

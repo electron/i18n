@@ -463,6 +463,7 @@ Retorna:
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+* `isMainFrame` Boolean
 
 Emitted when failed to verify the `certificate` for `url`.
 
@@ -570,6 +571,7 @@ Retorna:
 * `params` Object
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
+  * `frame` WebFrameMain - Frame from which the context menu was invoked.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
@@ -1608,7 +1610,8 @@ End subscribing for frame presentation events.
 #### `contents.startDrag(item)`
 
 * Objeto `item`
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `file` String - The path to the file being dragged.
+  * `files` String[] (optional) - The paths to the files being dragged. (`files` will override `file` field)
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
