@@ -11,7 +11,7 @@ hide_title: true
 
 <!-- ✍ Update this section if you want to provide more details -->
 
-This guide will take you through the process of setting your Electron app as the default handler for a specific [protocol](https://www.electronjs.org/docs/api/protocol).
+Esta guía le llevará a través del proceso de establecer su aplicación Electron como el manejador predeterminado para un [protocol](https://www.electronjs.org/docs/api/protocol) especifico.
 
 By the end of this tutorial, we will have set our app to intercept and handle any clicked URLs that start with a specific protocol. In this guide, the protocol we will use will be "`electron-fiddle://`".
 
@@ -19,7 +19,7 @@ By the end of this tutorial, we will have set our app to intercept and handle an
 
 ### Main Process (main.js)
 
-First, we will import the required modules from `electron`. These modules help control our application lifecycle and create a native browser window.
+Primero, importaremos los módulos requeridos desde `electron`. Estos módulos ayudan a controlar el ciclo de vida de nuestra aplicación y crear una ventana del navegador nativa.
 
 ```javascript
 const { app, BrowserWindow, shell } = require('electron')
@@ -57,7 +57,7 @@ const createWindow = () => {
 
 In this next step, we will create our  `BrowserWindow` and tell our application how to handle an event in which an external protocol is clicked.
 
-Este código será diferente en Windows comparado con MacOS y Linux. This is due to Windows requiring additional code in order to open the contents of the protocol link within the same Electron instance. Lea más sobre esto [aquí](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
+Este código será diferente en Windows comparado con MacOS y Linux. Esto es debido a que Windows requiere código adicional para abrir el contenido del enlace de protocolo dentro de la misma instancia Electron. Lea más sobre esto [aquí](https://www.electronjs.org/docs/api/app#apprequestsingleinstancelock).
 
 #### Código de Windows:
 
@@ -103,12 +103,12 @@ app.on('open-url', (event, url) => {
 })
 ```
 
-Finally, we will add some additional code to handle when someone closes our application.
+Finalmente, agregaremos un poco de código adicional para manejar cuando alguien cierra nuestra aplicación.
 
 ```javascript
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
+// Quit when all windows are closed, except on macOS. Allí, es común
+// para que las aplicaciones y su barra de menú permanezcan activas hasta que el usuario salga
+// explicitamente con Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
@@ -118,11 +118,11 @@ app.on('window-all-closed', () => {
 
 ### Embalaje
 
-En macOS y Linux, esta característica solo funcionará cuando tu aplicación esté empaquetada. It will not work when you're launching it in development from the command-line. When you package your app you'll need to make sure the macOS `Info.plist` and the Linux `.desktop` files for the app are updated to include the new protocol handler. Some of the Electron tools for bundling and distributing apps handle this for you.
+En macOS y Linux, esta característica solo funcionará cuando tu aplicación esté empaquetada. No funcionará cuando lo inicie en desarrollo desde la línea de comandos. Cuando empaquetes tu aplicación necesitarás asegurarte de que los archivos `Info.plist` de macOS y los archivos `.desktop` de Linux para la aplicación están actualizados para incluir el nuevo manejador de protocolo. Algunas de las herramientas de Electron para empaquetar y distribuir aplicaciones manejan esto para ti.
 
 #### [Electron Forge](https://electronforge.io)
 
-If you're using Electron Forge, adjust `packagerConfig` for macOS support, and the configuration for the appropriate Linux makers for Linux support, in your [Forge configuration](https://www.electronforge.io/configuration) _(please note the following example only shows the bare minimum needed to add the configuration changes)_:
+Si estás utilizando Electron Forge, ajuste el `packagerConfig` para soporte de macOS, y la configuración para los creadores apropiados de Linux para el soporte de Linux, en tu [Configuración Forge](https://www.electronforge.io/configuration) _(tenga en cuenta que el siguiente ejemplo solo muestra el mínimo necesario para agregar los cambios de configuración)_:
 
 ```json
 {
@@ -153,7 +153,7 @@ If you're using Electron Forge, adjust `packagerConfig` for macOS support, and t
 
 Para soporte de macOS:
 
-If you're using Electron Packager's API, adding support for protocol handlers is similar to how Electron Forge is handled, except `protocols` is part of the Packager options passed to the `packager` function.
+Si estás utilizando las APIs de Electron Packager, agregar soporte para manejadores de protocolo es similar a como es manejado en Electron Forge, excepto que `protocols` es parte de las opciones de Packager pasadas a la función `packager`.
 
 ```javascript
 const packager = require('electron-packager')
@@ -171,7 +171,7 @@ packager({
   .catch(err => console.error(`ERROR: ${err.message}`))
 ```
 
-If you're using Electron Packager's CLI, use the `--protocol` and `--protocol-name` flags. Por ejemplo:
+Si estás utilizando el CLI de Electron Packager, use las banderas `--protocol` y `--protocol-name`. Por ejemplo:
 
 ```shell
 npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fiddle"
@@ -179,7 +179,7 @@ npx electron-packager . --protocol=electron-fiddle --protocol-name="Electron Fid
 
 ## Conclusión
 
-After you start your Electron app, you can enter in a URL in your browser that contains the custom protocol, for example `"electron-fiddle://open"` and observe that the application will respond and show an error dialog box.
+Después de iniciar su aplicación Electron, puedes introducir la URL en tu navegador que contiene el protocolo URL personalizado, por ejemplo, `"electron-fiddle://open"` y observe que la aplicación responderá y mostrará un cuadro de dialogo de error.
 
 <!--
     Because Electron examples usually require multiple files (HTML, CSS, JS
