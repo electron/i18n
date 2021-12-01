@@ -56,7 +56,7 @@ window.myAPI.doAThing()
 
 ```javascript title='preload.js'
 // ❌ 悪いコード
-contextBridge.exposeInMainWorld('myAPI, {
+contextBridge.exposeInMainWorld('myAPI', {
   send: ipcRenderer.send
 })
 ```
@@ -65,7 +65,7 @@ contextBridge.exposeInMainWorld('myAPI, {
 
 ```javascript title='preload.js'
 // ✅ 良いコード
-contextBridge.exposeInMainWorld('myAPI, {
+contextBridge.exposeInMainWorld('myAPI', {
   loadPreferences: () => ipcRenderer.invoke('load-prefs')
 })
 ```
