@@ -193,7 +193,7 @@ app.whenReady().then(() => {
 
 现在，最后要做的是输出Electron的版本号和它的依赖项到你的web页面上。
 
-在主进程通过Node的全局 `process` 对象访问这个信息是微不足道的。 然而，你不能直接在主进程中编辑DOM，因为它无法访问渲染器 `文档` 上下文。 它们存在于完全不同的进程！
+在主进程中，通过Node的全局 `process` 对象访问这个信息是很简单的。然而，你不能直接在主进程中编辑DOM，因为它无法访问渲染器 `文档` 上下文。 它们存在于完全不同的进程！
 
 > Note: If you need a more in-depth look at Electron processes, see the [Process Model][] document.
 
