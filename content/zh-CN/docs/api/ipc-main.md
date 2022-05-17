@@ -8,11 +8,11 @@
 
 ## 发送消息
 
-也可以从主进程向渲染进程发送消息，查阅[ebContents.send][web-contents-send]获取更多信息。
+也可以从主进程向渲染进程发送消息，查阅[webContents.send][web-contents-send]获取更多信息。
 
-* 发送消息时，事件名称为`channel `。
+* 发送消息时，事件名称为`channel`。
 * 回复同步信息时，需要设置`event.returnValue`。
-* 可以使用`event.reply(...)`将异步消息发送回发送者。  此方法将自动处理从非主 frame 发送的消息(比如： iframes)。相应的发送方法是: `event.sender.send(...)` 它将总是把消息发送到主 frame
+* 可以使用`event.reply(...)`将异步消息发送回发送者。  此方法将自动处理从非主 frame 发送的消息(比如： iframes)。相应的发送方法是: `event.sender.send(...)` 它将总是把消息发送到主 frame。
 
 下面是在渲染和主进程之间发送和处理消息的一个例子：
 
