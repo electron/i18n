@@ -46,7 +46,7 @@ Un objeto `Session`, es el objeto de session de la aplicación por defecto.
 
 > Obtener y configurar las propiedades de una sesión.
 
-Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+Proceso: [Main](../glossary.md#main-process)<br /> _Esta clase no está exportada desde el módulo `'electron'`. Sólo está disponible como un valor de retorno de otros métodos en la API de Electron._
 
 Puede crear un objeto `Session` en el módulo `session`:
 

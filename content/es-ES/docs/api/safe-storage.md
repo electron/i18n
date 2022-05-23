@@ -1,12 +1,12 @@
 # safeStorage
 
-> Allows access to simple encryption and decryption of strings for storage on the local machine.
+> Permite el acceso a un cifrado y descifrado simple de cadenas para el almacenamiento en la máquina local.
 
 Proceso: [principal](../glossary.md#main-process)</0>
 
-This module protects data stored on disk from being accessed by other applications or users with full disk access.
+Este módulo protege los datos almacenados en el disco de ser accedido por otras aplicaciones o usuario con acceso completo al disco.
 
-Note that on Mac, access to the system Keychain is required and these calls can block the current thread to collect user input. The same is true for Linux, if a password management tool is available.
+Tenga en cuenta que en Mac, se requiere acceso al Keychain del sistema y estas llamadas pueden bloquear el hilo actual para recoger la entrada del usuario. Los mismo es válido para Linux, si una herramienta de gestión de contraseñas está disponible.
 
 ## Métodos
 
@@ -14,22 +14,22 @@ El módulo `safeStorage` tiene los siguientes métodos:
 
 ### `safeStorage.isEncryptionAvailable()`
 
-Returns `Boolean` - Whether encryption is available.
+Devuelve `Boolean` - Si el cifrado está disponible.
 
-On Linux, returns true if the secret key is available. On MacOS, returns true if Keychain is available. On Windows, returns true with no other preconditions.
+En Linux, devuelve true si la clave secreta está disponible. En MacOS, devuelve true is Keychain está disponible. En Windows, devuelve true sin otras condiciones previas.
 
 ### `safeStorage.encryptString(plainText)`
 
 * `plainText` String
 
-Returns `Buffer` -  An array of bytes representing the encrypted string.
+Devuelve `Buffer` -  Un array de bytes que representa la cadena cifrada.
 
-This function will throw an error if encryption fails.
+Esta función lanzará un error si falla el cifrado.
 
 ### `safeStorage.decryptString(encrypted)`
 
 * `encrypted` Buffer
 
-Returns `String` - the decrypted string. Decrypts the encrypted buffer obtained  with `safeStorage.encryptString` back into a string.
+Devuelve `String` - La cadena descifrada. Descifra el buffer cifrado obtenido con  `safeStorage.encryptString` de nuevo a una cadena.
 
-This function will throw an error if decryption fails.
+Esta función lanzará un error si falla el cifrado.

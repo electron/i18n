@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5.  Usted necesita habil
 
 > Mostrar contenido externo de la web en un cuadro aislado y procesado.
 
-Process: [Renderer](../glossary.md#renderer-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+Proceso: [Renderer](../glossary.md#renderer-process)<br /> _Esta clase no esta exportada desde el módulo `'electron'`. Sólo está disponible como un valor de retorno de otros métodos en la API de Electron._
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. Una página incrustada dentro de los controles de tu aplicación como el contenido de invitado es dispuesto y renderizado.
 
@@ -105,13 +105,13 @@ Un `Boolean`. When this attribute is present the guest page in `webview` will be
 ### `preload`
 
 ```html
-<!-- from a file -->
+<!-- desde un archivo -->
 <webview src="https://www.github.com/" preload="./test.js"></webview>
-<!-- or if you want to load from an asar archive -->
+<!-- o si quieres cargar desde un archivo asar -->
 <webview src="https://www.github.com/" preload="./app.asar/test.js"></webview>
 ```
 
-Un `String` que especifica un script que será cargada antes que se ejecuten otros scripts en la página de invitado. The protocol of script's URL must be `file:` (even when using `asar:` archives) because it will be loaded by Node's `require` under the hood, which treats `asar:` archives as virtual directories.
+Un `String` que especifica un script que será cargada antes que se ejecuten otros scripts en la página de invitado. El protocolo URL del script debe ser `file:` (incluso cuando usa archivos `asar:`) porque bajo el capo será cargado por el `require` de Node, el cual trata los archivos `asar:` como directorios virtuales.
 
 Cuando la página de invitado no tiene integración de nodo, este guión todavía tendrá acceso a todos los nodos APIs, pero los objetos globales inyectados por Nodo serán eliminados luego de que el guión haya finalizado de ejecutarse.
 

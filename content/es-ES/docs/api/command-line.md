@@ -2,7 +2,7 @@
 
 > Manipula los argumentos de la línea de comandos para tu aplicación que Chromium lee
 
-Process: [Main](../glossary.md#main-process)<br /> _This class is not exported from the `'electron'` module. It is only available as a return value of other methods in the Electron API._
+Proceso: [Main](../glossary.md#main-process)<br /> _Esta clase no está exportada desde el módulo `'electron'`. Sólo está disponible como un valor de retorno de otros métodos en la API de Electron._
 
 El siguiente ejemplo muestra como comprobar si la bandera `--disable-gpu` está activada.
 

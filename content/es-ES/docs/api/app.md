@@ -367,9 +367,9 @@ Devuelve:
     * `integrity-failure` - las verificaciones de integridad de código de Windows fallaron
   * `exitCode` Number - El exit code del proceso (por ejemplo, estado de waitpid si esta en posix, de GetExitCodeProcess en Windows).
   * `serviceName` String (opcional) - El nombre no localizado del proceso.
-  * `name` String (opcional) - El nombre del proceso. Examples for utility: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
+  * `name` String (opcional) - El nombre del proceso. Ejemplos de utilidad: `Audio Service`, `Content Decryption Module Service`, `Network Service`, `Video Capture`, etc.
 
-Emitted when the child process unexpectedly disappears. Esto se debe comúnmente porque se crasheo o cerro. It does not include renderer processes.
+Emitido cuando el proceso hijo desaparece inesperadamente. Esto se debe comúnmente porque se crasheo o cerro. No incluye los procesos renderizadores.
 
 ### Evento: 'accessibility-support-changed' _macOS_ _Windows_
 

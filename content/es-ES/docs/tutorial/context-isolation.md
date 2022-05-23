@@ -4,38 +4,38 @@
 
 Context Isolation is a feature that ensures that both your `preload` scripts and Electron's internal logic run in a separate context to the website you load in a [`webContents`](../api/web-contents.md).  This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
 
-This means that the `window` object that your preload script has access to is actually a **different** object than the website would have access to.  For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled, `window.hello` will be undefined if the website tries to access it.
+This means that the `window` object that your preload script has access to is actually a **different** object than the website would have access to.  Por ejemplo, is establece en su script de precarga `window.hello = 'wave'` y el aislamiento de contexto está habilitado, `window.hello` será undefined si el sitio web trata de acceder a él.
 
-Context isolation has been enabled by default since Electron 12, and it is a recommended security setting for _all applications_.
+El aislamiento del contexto ha sido habilitado por defecto desde Electron 12, y es una configuración de seguridad recomendada para _todas las aplicaciones_.
 
 ## Migración
 
-> Without context isolation, I used to provide APIs from my preload script using `window.X = apiObject`. Now what?
+> Sin aislamiento de contexto, solía proporcionar API desde mi script de precarga utilizando `window.X = apiObject`. ¿Y ahora qué?
 
-### Before: context isolation disabled
+### Before: aislamiento de contexto desactivado
 
-Exposing APIs from your preload script to a loaded website in the renderer process is a common use-case. With context isolation disabled, your preload script would share a common global `window` object with the renderer. You could then attach arbitrary properties to a preload script:
+Exponer APIs desde su script de precarga a un sitio web cargado en el proceso de renderizado es un caso de uso común. Con el aislamiento contextual deshabilitado, su script de precarga compartiría un objeto global `window` común con el renderizador. A continuación, puedes adjuntar propiedades arbitrarias a un script de precarga:
 
 ```javascript title='preload.js'
-// preload with contextIsolation disabled
+// precargar con contextIsolation deshabilitado
 window.myAPI = {
   doAThing: () => {}
 }
 ```
 
-The `doAThing()` function could then be used directly in the renderer process:
+La función `doAThing()` podría luego ser usada directamente en el proceso renderizador:
 
 ```javascript title='renderer.js'
-// use the exposed API in the renderer
+// use la API expuesta en el renderer
 window.myAPI.doAThing()
 ```
 
-### After: context isolation enabled
+### Después: aislamiento de contexto activado
 
-There is a dedicated module in Electron to help you do this in a painless way. The [`contextBridge`](../api/context-bridge.md) module can be used to **safely** expose APIs from your preload script's isolated context to the context the website is running in. The API will also be accessible from the website on `window.myAPI` just like it was before.
+Hay un módulo dedicado en Electron para ayudarle a hacer esto de una manera indolora. El módulo [`contextBridge`](../api/context-bridge.md) puede utilizarse para exponer APIs **de forma segura** desde tu script de precarga en el contexto aislado al contexto en el que se está ejecutando el sitio web. The API will also be accessible from the website on `window.myAPI` just like it was before.
 
 ```javascript title='preload.js'
-// preload with contextIsolation enabled
+// precarga con contextIsolation habilitado
 const { contextBridge } = require('electron')
 
 contextBridge.exposeInMainWorld('myAPI', {
@@ -44,15 +44,15 @@ contextBridge.exposeInMainWorld('myAPI', {
 ```
 
 ```javascript title='renderer.js'
-// use the exposed API in the renderer
+// use la API expuesta en el renderer
 window.myAPI.doAThing()
 ```
 
-Please read the `contextBridge` documentation linked above to fully understand its limitations. For instance, you can't send custom prototypes or symbols over the bridge.
+Por favor lea la documentación de `contextBridge` enlazado arriba para entender completamente sus limitaciones. Por ejemplo, no puede enviar prototipos personalizados o símbolos sobre el puente.
 
-## Security considerations
+## Consideraciones de Seguridad
 
-Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe. For instance, this code is **unsafe**.
+Just enabling `contextIsolation` and using `contextBridge` does not automatically mean that everything you do is safe. Por ejemplo, este código es **inseguro**.
 
 ```javascript title='preload.js'
 // ❌ Bad code
@@ -61,7 +61,7 @@ contextBridge.exposeInMainWorld('myAPI', {
 })
 ```
 
-It directly exposes a powerful API without any kind of argument filtering. This would allow any website to send arbitrary IPC messages, which you do not want to be possible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
+It directly exposes a powerful API without any kind of argument filtering. Esto permitiría a cualquier sitio web enviar mensajes IPC arbitrarios, lo cual no deseas que sea posible. The correct way to expose IPC-based APIs would instead be to provide one method per IPC message.
 
 ```javascript title='preload.js'
 // ✅ Good code
