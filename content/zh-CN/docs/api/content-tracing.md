@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-此模块不包括 Web 界面。 若要查看记录的轨迹，请使用[跟踪查看器][]，在Chrome上可以访问 `chrome://tracking` 。
+此模块不包括 Web 界面。 若要查看记录的轨迹，请使用[跟踪查看器][]，在Chrome上可以访问 `chrome://tracing` 。
 
 **注意：**在应用程序模块的 `ready ` 事件触发之前，您不应该使用此模块。
 
