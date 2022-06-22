@@ -10,7 +10,7 @@ Electron 继承了来自 Chromium 的多进程架构，这使得此框架在架�
 
 ## 多进程模型
 
-为了解决这个问题，Chrome 团队决定让每个标签页在自己的进程中渲染， 从而限制了一个网页上的有误或恶意代码可能导致的对整个应用程序造成的伤害。 然后用单个浏览器进程控制这些標籤頁进程，以及整个应用程序的生命周期。 下方来自 [Chrome 漫画][] 的图表可视化了此模型：
+为了解决这个问题，Chrome 团队决定让每个标签页在自己的进程中渲染， 从而限制了一个网页上的有误或恶意代码可能导致的对整个应用程序造成的伤害。 然后用单个浏览器进程控制这些标签页进程，以及整个应用程序的生命周期。 下方来自 [Chrome 漫画][] 的图表可视化了此模型：
 
 ![Chrome的多进程架构](../images/chrome-processes.png)
 
@@ -73,7 +73,7 @@ app.on('window-all-closed', function () {
 * 使用层叠样式表 (Cascading Style Sheets, CSS) 对 UI 添加样式。
 * 通过 `<script>` 元素可添加可执行的 JavaScript 代码。
 
-此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发時相同的打包工具 (例如 `webpack` 或 `parcel`)
+此外，这也意味着渲染器无权直接访问 `require` 或其他 Node.js API。 为了在渲染器中直接包含 NPM 模块，您必须使用与在 web 开发时相同的打包工具 (例如 `webpack` 或 `parcel`)
 
 > 注意：渲染器进程可以生成一个完整的 Node.js 环境以便于开发。 在过去这是默认的，但如今此功能考虑到安全问题已经被禁用。
 
@@ -100,7 +100,7 @@ const win = new BrowserWindow({
 
 由于预加载脚本与渲染器共享同一个全局 [`Window`][window-mdn] 接口，并且可以访问 Node.js API，因此它通过在 `window` 全局中暴露任意您的网络内容可以随后使用的 API 来增强渲染器。
 
-虽然预加载脚本与其所附加的渲染器在全局共享着一个 `window` 变数，但您并不能从中直接附加任何变数到 `window` 之中，因为 [`contextIsolation`][context-isolation] 是默认的。
+虽然预加载脚本与其所附加的渲染器在全局共享着一个 `window` 变量，但您并不能从中直接附加任何变量到 `window` 之中，因为 [`contextIsolation`][context-isolation] 是默认的。
 
 ```js title='preload.js'
 window.myAPI = {
@@ -130,9 +130,9 @@ console.log(window.myAPI)
 // => { desktop: true }
 ```
 
-此功能对两个主要目的來說非常有用：
+此功能对两个主要目的来说非常有用：
 
-* 通过暴露 [`ipcRenderer`][ipcRenderer] 帮手模块于渲染器中，您可以使用 进程间通讯 ( inter-process communication, IPC ) 来从渲染器触发主进程任务 ( 反之亦然 ) 。
+* 通过将 [`ipcRenderer`][ipcRenderer] 助手模块暴露给渲染器，您可以使用 进程间通讯 ( inter-process communication, IPC ) 来从渲染器触发主进程任务 ( 反之亦然 ) 。
 * 如果您正在为远程 URL 上托管的现有 web 应用开发 Electron 封裝，则您可在渲染器的 `window` 全局变量上添加自定义的属性，好在 web 客户端用上仅适用于桌面应用的设计逻辑 。
 
 [快速启动应用]: ./quick-start.md
