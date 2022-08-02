@@ -114,7 +114,7 @@ Under the hood, Electron's JavaScript API binds to a binary that contains its im
 However, if you want to install your project's dependencies but don't need to use Electron functionality, you can set the `ELECTRON_SKIP_BINARY_DOWNLOAD` environment variable to prevent the binary from being downloaded. For instance, this feature can be useful in continuous integration environments when running unit tests that mock out the `electron` module.
 
 ```sh npm2yarn
-ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
 ## 故障排查
